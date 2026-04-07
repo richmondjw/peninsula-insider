@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where to Eat — The Peninsula Insider</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">The Peninsula Insider</a>
+    <ul class="nav-links">
+      <li><span class="nav-group-trigger">Plan</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="whats-on.html">What's On</a><a href="whats-on.html#april">April Guide</a><a href="itinerary.html">Itinerary</a></div></div></li>
+      <li><span class="nav-group-trigger">Experience</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="stay.html">Where to Stay</a><a href="eat.html">Where to Eat</a><a href="wine.html">Wine Country</a></div></div></li>
+      <li><span class="nav-group-trigger">Explore</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="explore.html#do">Things to Do</a><a href="explore.html#walks">Walks &amp; Trails</a><a href="explore.html#beaches">Beaches</a><a href="explore.html#gems">Hidden Gems</a></div></div></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button class="search-trigger" id="searchTrigger" type="button" aria-label="Search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-trigger-text">Search</span></button>
+      <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.5rem 0 0.25rem;opacity:0.8;">Plan</div>
+  <a href="whats-on.html" onclick="closeMenu()">What's On</a><a href="whats-on.html#april" onclick="closeMenu()">April Guide</a><a href="itinerary.html" onclick="closeMenu()">Itinerary</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Experience</div>
+  <a href="stay.html" onclick="closeMenu()">Where to Stay</a><a href="eat.html" onclick="closeMenu()">Where to Eat</a><a href="wine.html" onclick="closeMenu()">Wine Country</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Explore</div>
+  <a href="explore.html#do" onclick="closeMenu()">Things to Do</a><a href="explore.html#walks" onclick="closeMenu()">Walks &amp; Trails</a><a href="explore.html#beaches" onclick="closeMenu()">Beaches</a><a href="explore.html#gems" onclick="closeMenu()">Hidden Gems</a>
+</div>
+<div class="search-overlay" id="searchOverlay"><div class="search-dialog" role="dialog" aria-label="Search the guide"><div class="search-input-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input class="search-input" id="searchInput" type="text" placeholder="Search venues, walks, beaches, events..." autocomplete="off" /><span class="search-kbd-hint">ESC</span></div><div class="search-results" id="searchResults"></div><div class="search-footer"><span><kbd>↑↓</kbd> Navigate</span><span><kbd>↵</kbd> Go to</span><span><kbd>ESC</kbd> Close</span></div></div></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> Where to Eat</div>
+    <div class="page-header-sub">Dining</div>
+    <h1>Where to Eat</h1>
+  </div>
+</div>
+
+<section class="section" id="eat">
+  <div class="container">
+    <p style="max-width:820px; margin-bottom:1.5rem;">The Mornington Peninsula's food scene now runs the full length of the map and the full length of your wallet. In an hour's drive you can move from a hatted degustation at a sculpture-park winery to a paper-wrapped parcel of flathead eaten on a jetty, from a wood-fired sourdough loaf still warm from the oven to a brewery paddock where the kids run between picnic tables. Fine diners, bistros, fish shops, bakeries, pubs, gelato windows, cider barns and roadside honesty boxes — they're all here, and they all draw from the same exceptional larder: cool-climate produce, pristine bay seafood, dairy from the hinterland, olives, truffles and vegetables pulled out of rich volcanic soil. Treat this page as a local's long list rather than a best-of. Pick by mood, distance and season, and don't be shy about combining high and low in a single day.</p>
+
+    <p style="max-width:820px; margin-bottom:2rem; color:var(--ink-soft); font-size:0.95rem;">Opening hours shift with the seasons — always confirm bookings and trading days with the venue directly, especially midweek in autumn and winter. Where we're not 100% certain of a current website, we've left the venue name unlinked rather than guess.</p>
+
+    <!-- Eat Filters -->
+    <div class="walks-filter-bar" id="eat-filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="filterEat('all', this)">All</button>
+      <button class="filter-btn" onclick="filterEat('special', this)">✨ Special</button>
+      <button class="filter-btn" onclick="filterEat('casual', this)">🌿 Casual</button>
+      <button class="filter-btn" onclick="filterEat('seafood', this)">🦐 Seafood</button>
+      <button class="filter-btn" onclick="filterEat('pub', this)">🍺 Pubs</button>
+      <button class="filter-btn" onclick="filterEat('pizza', this)">🍕 Pizza &amp; Pasta</button>
+      <button class="filter-btn" onclick="filterEat('breakfast', this)">☕ Breakfast</button>
+      <button class="filter-btn" onclick="filterEat('bakery', this)">🥐 Bakery</button>
+      <button class="filter-btn" onclick="filterEat('sweets', this)">🍦 Sweets</button>
+      <button class="filter-btn" onclick="filterEat('asian', this)">🍜 Asian</button>
+      <button class="filter-btn" onclick="filterEat('brewery', this)">🍻 Brewery</button>
+      <button class="filter-btn" onclick="filterEat('producer', this)">🥦 Producers</button>
+    </div>
+
+    <!-- =================== SPECIAL OCCASION =================== -->
+    <div class="tier-section" data-tier="special">
+      <div class="tier-header">
+        <span class="tier-label tier-label--special">✨ Special Occasion</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card card--featured" id="card-doot-doot-doot">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--featured">Jackalope Hotel</span>
+            <div class="card-title"><a href="https://dootdootdoot.com.au/" target="_blank" rel="noopener">Doot Doot Doot</a></div>
+            <div class="card-location">Merricks North</div>
+            <p class="card-desc">Jackalope's headline fine diner is theatrical, indulgent, and genuinely excellent — a long degustation format built around exceptional local produce, caviar cameos and serious wine pairing. One of the peninsula's bucket-list meals; book well ahead for Saturday night.</p>
+            <span class="card-tag">Degustation · Book Ahead</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-laura">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Fine Dining</span>
+            <div class="card-title"><a href="https://www.ptleoestate.com.au/dine/laura/" target="_blank" rel="noopener">Laura at Point Leo Estate</a></div>
+            <div class="card-location">Merricks</div>
+            <p class="card-desc">European-leaning tasting menu set above a 16-acre sculpture park and working winery. Among the finest tables on the peninsula — and the view from the terrace as you finish lunch is the kind you remember for years.</p>
+            <span class="card-tag">Tasting Menu · Sculpture Park</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-tmbt-restaurant">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Hatted</span>
+            <div class="card-title"><a href="https://www.tenminutesbytractor.com.au/" target="_blank" rel="noopener">Ten Minutes by Tractor</a></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">Elegant, produce-driven cooking matched with the winery's award-winning cellar. Silver service with genuine country warmth — never stuffy. The vineyard-and-bushland outlook is as good as any in the region.</p>
+            <span class="card-tag">Hatted · Winery Restaurant</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-tedesca">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Italian · Farm-to-Table</span>
+            <div class="card-title"><a href="https://www.tedesca.com.au/" target="_blank" rel="noopener">Tedesca Osteria</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Chef Brigitte Hafner's intimate 30-seater feels like the most brilliant dinner party you've ever been invited to — honest, Italian-inflected cooking from exceptional local produce, one long communal menu at a time.</p>
+            <span class="card-tag">Italian · 30 seats only</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-paringa-restaurant">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Winery Restaurant</span>
+            <div class="card-title"><a href="https://paringaestate.com.au/restaurant/" target="_blank" rel="noopener">Paringa Estate Restaurant</a></div>
+            <div class="card-location">Red Hill South</div>
+            <p class="card-desc">Some of the oldest vines on the peninsula and a kitchen that has quietly built its own reputation — polished, confident cooking and serious matched wines from the estate. The outdoor terrace in autumn is divine.</p>
+            <span class="card-tag">Winery · Hatted</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-ppe-restaurant">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Views · Estate</span>
+            <div class="card-title"><a href="https://www.portphillipestate.com.au/" target="_blank" rel="noopener">Port Phillip Estate</a></div>
+            <div class="card-location">Red Hill South</div>
+            <p class="card-desc">The architecture alone justifies the trip — a sweeping, rammed-earth building that commands panoramic views across the estate to Port Phillip Bay. Confident, local-produce cooking and a deep cellar.</p>
+            <span class="card-tag">Architecture · Views</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-pt-leo-restaurant">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Winery Restaurant</span>
+            <div class="card-title"><a href="https://www.ptleoestate.com.au/" target="_blank" rel="noopener">Pt. Leo Restaurant</a></div>
+            <div class="card-location">Merricks</div>
+            <p class="card-desc">Laura's more relaxed sibling at Point Leo Estate — à la carte lunch and dinner with the same extraordinary views over lawn, vines and the sculpture park. Ideal when you want the Point Leo experience without the full tasting-menu commitment.</p>
+            <span class="card-tag">À La Carte · Sculpture Park</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-maxs-red-hill">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Winery Restaurant</span>
+            <div class="card-title"><a href="https://www.redhillestate.com.au/" target="_blank" rel="noopener">Max's at Red Hill Estate</a></div>
+            <div class="card-location">Red Hill South</div>
+            <p class="card-desc">A long-standing peninsula favourite perched above the vines with sweeping hinterland views. Modern Australian cooking that leans hard on peninsula produce, matched to estate pinot and chardonnay.</p>
+            <span class="card-tag">Views · Modern Australian</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-stillwater-crittenden">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Lakeside · Winery</span>
+            <div class="card-title"><a href="https://www.crittendenwines.com.au/" target="_blank" rel="noopener">Stillwater at Crittenden</a></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">A romantic lakeside dining room at one of the peninsula's pioneering wineries — the setting is quietly spectacular, and Crittenden's Italian-varietal wines reward a proper sit-down lunch over a couple of courses.</p>
+            <span class="card-tag">Lakeside · Italian Varietals</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>If you want the hatted experience without the hatted price, book <strong>Laura at lunch</strong> rather than dinner, or aim for a midweek sitting at Ten Minutes by Tractor — the cooking is the same, the service is arguably better, and you can walk the sculpture park or the vineyard row in daylight before or after. Long lunch &gt; rushed dinner, every time.</p>
+    </div>
+
+    <!-- =================== CASUAL =================== -->
+    <div class="tier-section" data-tier="casual">
+      <div class="tier-header">
+        <span class="tier-label tier-label--casual">🌿 Casual &amp; Relaxed</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-rare-hare">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🔥</div>
+            <span class="card-badge badge--dining">Share Plates</span>
+            <div class="card-title"><a href="https://rarehare.com.au/" target="_blank" rel="noopener">Rare Hare</a></div>
+            <div class="card-location">Merricks North</div>
+            <p class="card-desc">Willow Creek's long-table, wood-fired share-plate room at the front of Jackalope — convivial, generous and consistently excellent. Saturday lunch here is one of the great peninsula pleasures.</p>
+            <span class="card-tag">Woodfired · Share Plates</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-montalto">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌿</div>
+            <span class="card-badge badge--winery">Gardens · Winery</span>
+            <div class="card-title"><a href="https://montalto.com.au/" target="_blank" rel="noopener">Montalto</a></div>
+            <div class="card-location">Red Hill South</div>
+            <p class="card-desc">Seven vineyards, 30+ acres of vines, and a kitchen garden you can wander through before lunch. Choose the restaurant for a long lunch or the more casual Piazza for a lighter graze — either way, leave time for the sculpture trail.</p>
+            <span class="card-tag">Gardens · Sculpture Trail</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-polperro">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍷</div>
+            <span class="card-badge badge--winery">Views · Wine</span>
+            <div class="card-title"><a href="https://www.polperrowines.com.au/" target="_blank" rel="noopener">Polperro</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Panoramic vineyard views, clean modern interiors and a share-plate menu that draws from all directions with genuine skill. A quintessential peninsula long-lunch address.</p>
+            <span class="card-tag">Share Plates · Views</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-marthas-table">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌊</div>
+            <span class="card-badge badge--beach">Mediterranean</span>
+            <div class="card-title"><a href="https://www.marthastable.com.au/" target="_blank" rel="noopener">Martha's Table</a></div>
+            <div class="card-location">Safety Beach</div>
+            <p class="card-desc">Marine-hued dining room, aperitivo bar and in-house provedore bringing Mediterranean living to the marina. One of the most handsome rooms on the bayside.</p>
+            <span class="card-tag">Marina · All-Day</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-red-gum">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍖</div>
+            <span class="card-badge badge--dining">American BBQ</span>
+            <div class="card-title"><a href="https://redgumbbq.com.au/" target="_blank" rel="noopener">Red Gum BBQ</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Airy warehouse, picnic tables, rolled-up sleeves and excellent low-and-slow American BBQ — pulled pork, beef brisket, smoked chicken. A rollicking antidote to the winery-restaurant circuit, and a family-friendly winner.</p>
+            <span class="card-tag">BBQ · Family-Friendly</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-bistro-elba">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥐</div>
+            <span class="card-badge badge--dining">French Bistro</span>
+            <div class="card-title"><a href="https://www.bistroelba.com.au/" target="_blank" rel="noopener">Bistro Elba</a></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">Beachy, artfully dilapidated French bistro with twice-baked cheese soufflé, gin-cured ocean trout and a wine list leaning on small emerging French producers. Feels like a lucky find every time you go back.</p>
+            <span class="card-tag">French · Sorrento</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-green-olive">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🫒</div>
+            <span class="card-badge badge--dining">Working Farm</span>
+            <div class="card-title"><span>Green Olive at Red Hill</span></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">A working olive grove and smallholding with a produce-driven kitchen doing grazing boards, wood-fired mains and seasonal long lunches. Come hungry, buy oil on the way out.</p>
+            <span class="card-tag">Grove · Grazing</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-merricks-general">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍷</div>
+            <span class="card-badge badge--dining">Wine Bar · Bistro</span>
+            <div class="card-title"><span>Merricks General Wine Store</span></div>
+            <div class="card-location">Merricks</div>
+            <p class="card-desc">Old general store turned wine bar and bistro opposite the Merricks railway reserve — sourdough pizzas, seasonal share plates and an all-peninsula wine list. Walkable from the rail trail.</p>
+            <span class="card-tag">Wine Bar · Rail Trail</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-la-baracca-tgallant">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍝</div>
+            <span class="card-badge badge--winery">Italian · Cellar Door</span>
+            <div class="card-title"><a href="https://www.tgallant.com.au/" target="_blank" rel="noopener">La Baracca at T'Gallant</a></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">Rustic Italian trattoria inside T'Gallant's winery — wood-fired pizzas, handmade pasta and the estate's pinot grigio by the carafe. As close as the peninsula gets to eating in a Tuscan barn.</p>
+            <span class="card-tag">Pizza · Pinot Grigio</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-quealy">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍷</div>
+            <span class="card-badge badge--winery">Cellar Door</span>
+            <div class="card-title"><a href="https://www.quealy.com.au/" target="_blank" rel="noopener">Quealy Winemakers</a></div>
+            <div class="card-location">Balnarring</div>
+            <p class="card-desc">The peninsula's friulano and pinot grigio pioneers, with a laid-back cellar-door lunch — charcuterie, cheese, wood-fired pizza on weekends and some of the most interesting whites in the region.</p>
+            <span class="card-tag">Friulano · Casual</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-stonier">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍷</div>
+            <span class="card-badge badge--winery">Cellar Door</span>
+            <div class="card-title"><a href="https://www.stonier.com.au/" target="_blank" rel="noopener">Stonier Wines</a></div>
+            <div class="card-location">Merricks</div>
+            <p class="card-desc">One of the peninsula's founding chardonnay and pinot producers, with a quiet cellar door and seasonal food offering — a good choice when you want serious wine without theatre.</p>
+            <span class="card-tag">Chardonnay · Pinot</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-pt-leo-wine-terrace">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍾</div>
+            <span class="card-badge badge--winery">Wine Terrace</span>
+            <div class="card-title"><a href="https://www.ptleoestate.com.au/" target="_blank" rel="noopener">Point Leo Wine Terrace</a></div>
+            <div class="card-location">Merricks</div>
+            <p class="card-desc">The casual drop-in option at Point Leo Estate — cheese boards, wood-fired flatbreads and Point Leo wines by the glass, enjoyed on one of the most spectacular outdoor decks on the peninsula.</p>
+            <span class="card-tag">Walk-in · Terrace</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-foxeys-lunch">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🦊</div>
+            <span class="card-badge badge--winery">All-Day Winery</span>
+            <div class="card-title"><a href="https://www.foxeys-hangout.com.au/" target="_blank" rel="noopener">Foxey's Hangout</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Laid-back sunny deck, a generous all-day menu and easy-drinking wines from one of the peninsula's most consistently pleasant estates. Perfect when you want winery atmosphere without the big-ticket booking.</p>
+            <span class="card-tag">Walk-ins Welcome</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-crittenden-bistro">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍷</div>
+            <span class="card-badge badge--winery">Cellar Door · Bistro</span>
+            <div class="card-title"><a href="https://www.crittendenwines.com.au/" target="_blank" rel="noopener">Crittenden Estate Cellar Door</a></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">One of the peninsula's original estates — lakeside setting, Italian-varietal wines you don't see everywhere (arneis, savagnin, nebbiolo) and a relaxed lunch offering alongside the more formal Stillwater dining room.</p>
+            <span class="card-tag">Italian Varietals</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================== SEAFOOD =================== -->
+    <div class="tier-section" data-tier="seafood">
+      <div class="tier-header">
+        <span class="tier-label tier-label--seafood">🦐 Seafood &amp; Waterfront</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-baths-sorrento">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌊</div>
+            <span class="card-badge badge--beach">Waterfront</span>
+            <div class="card-title"><span>The Baths Sorrento</span></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">The peninsula's most iconic waterfront dining room — perched directly on the sand with Port Phillip Bay at your feet. Local fish, oysters and bay prawns, plus a casual kiosk for walk-ups on the jetty side.</p>
+            <span class="card-tag">On the Sand · Iconic</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-rocks-mornington">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🦞</div>
+            <span class="card-badge badge--beach">Pier Dining</span>
+            <div class="card-title"><span>The Rocks Mornington</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Perched at the end of Mornington Pier with near-360° bay views and a seafood-heavy menu — oysters, whole fish, pan-seared scallops. One of the most romantic spots in town at sunset.</p>
+            <span class="card-tag">Pier · Sunset</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-afloat">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">⛵</div>
+            <span class="card-badge badge--beach">Floating Cafe</span>
+            <div class="card-title"><span>Afloat Mornington</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">A floating cafe and bar moored on Mornington Pier — all-day menu leaning into the water: chowders, fish sandwiches, bay oysters. Best enjoyed on the top deck with a crisp white in hand.</p>
+            <span class="card-tag">Floating · All-Day</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-continental-sorrento">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🦐</div>
+            <span class="card-badge badge--beach">Historic Hotel</span>
+            <div class="card-title"><a href="https://www.continentalsorrento.com.au/" target="_blank" rel="noopener">Continental Sorrento</a></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">The restored grand dame of Ocean Beach Road — multiple bars and restaurants in one heritage building, with a strong seafood lean across the menus and some of the best rooms in town if you decide to stay.</p>
+            <span class="card-tag">Heritage · Multi-Venue</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-hotel-sorrento">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌊</div>
+            <span class="card-badge badge--beach">Bayside Dining</span>
+            <div class="card-title"><a href="https://www.hotelsorrento.com.au/" target="_blank" rel="noopener">Hotel Sorrento — On The Bay</a></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">Bayside dining room overlooking Sullivan Bay with one of the best lunch views on the peninsula. Solid local seafood, a long wine list and a wraparound deck that's hard to beat on a still autumn afternoon.</p>
+            <span class="card-tag">Bay Views · Wraparound Deck</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-pier-street-fresh">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🐟</div>
+            <span class="card-badge badge--beach">Fish &amp; Chips</span>
+            <div class="card-title"><span>Pier Street Fresh Seafood</span></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">A proper old-school fishmonger and takeaway — walk in, point at what looks good in the cabinet, walk it across to the foreshore and eat with your feet in the sand. The peninsula fish-and-chips ritual in one address.</p>
+            <span class="card-tag">Takeaway · Foreshore</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-hastings-fishermens">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🦪</div>
+            <span class="card-badge badge--beach">Co-op</span>
+            <div class="card-title"><span>Hastings Fishermen's Co-op</span></div>
+            <div class="card-location">Hastings</div>
+            <p class="card-desc">Working fishermen's co-op on the Western Port side — whatever came off the boats that morning, sold straight from the cabinet. Go for whiting, flathead, calamari and bay mussels. The bayside you don't see on a postcard.</p>
+            <span class="card-tag">Fresh Catch · Western Port</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-advance-mussel">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🦪</div>
+            <span class="card-badge badge--beach">Producer</span>
+            <div class="card-title"><span>Advance Mussel Supply</span></div>
+            <div class="card-location">Hastings</div>
+            <p class="card-desc">Port Phillip blue mussels straight from the lease — cooked and served on site in pots the size of your head, or packed on ice to take home. Tiny, utilitarian, brilliant. Check opening days before you drive.</p>
+            <span class="card-tag">Mussels · Producer</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-flinders-seafood">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🐟</div>
+            <span class="card-badge badge--beach">Jetty Takeaway</span>
+            <div class="card-title"><span>Flinders Pier Takeaway</span></div>
+            <div class="card-location">Flinders</div>
+            <p class="card-desc">Grab a parcel of flake and chips from the village, walk it down to the historic wooden pier and eat it watching weedy sea dragons drift under the boards. A perfect bad-weather plan B and a sunny-day plan A.</p>
+            <span class="card-tag">Flinders Pier · Walk &amp; Eat</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>For the classic peninsula fish-and-chips experience, skip the sit-down restaurants and do it properly: grab a parcel from <strong>Pier Street Fresh in Dromana</strong> or <strong>Flinders village</strong> around 5pm, drive to the foreshore of your choice, and eat in the car or on the sand as the light drops. You want flake or gummy shark, not barra; ask for salt but no vinegar on the chips so they don't go soggy before you get to the beach.</p>
+    </div>
+
+    <!-- =================== PUBS =================== -->
+    <div class="tier-section" data-tier="pub">
+      <div class="tier-header">
+        <span class="tier-label tier-label--pub">🍺 Pubs &amp; Classic Counter Meals</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-flinders-hotel">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍺</div>
+            <span class="card-badge badge--dining">Gastro Pub</span>
+            <div class="card-title"><a href="https://www.flindershotel.com.au/" target="_blank" rel="noopener">The Flinders Hotel</a></div>
+            <div class="card-location">Flinders</div>
+            <p class="card-desc">The village pub that punches well above its weight — smart bistro food, a genuinely good wine list and one of the best Sunday roasts on the peninsula. Book the upstairs dining room for a meal; sit in the bar for a quiet schooner and a toastie.</p>
+            <span class="card-tag">Sunday Roast · Bistro</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-portsea-hotel">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌊</div>
+            <span class="card-badge badge--beach">Bayside Pub</span>
+            <div class="card-title"><a href="https://www.portseahotel.com.au/" target="_blank" rel="noopener">The Portsea Hotel</a></div>
+            <div class="card-location">Portsea</div>
+            <p class="card-desc">The front lawn may be the single best beer-garden position in Victoria — looking straight out over Shelley Beach and the shipping channel. Pub classics, pizzas and local seafood; come for sunset, stay for the chips.</p>
+            <span class="card-tag">Beer Garden · View</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-sorrento-hotel">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍻</div>
+            <span class="card-badge badge--dining">Village Pub</span>
+            <div class="card-title"><span>Sorrento Hotel (The Sorrento)</span></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">Centre-of-the-village trading post on Ocean Beach Road — reliable schnitzels and parmas, a decent wine list and a big dining room that absorbs the summer crush without losing its local feel.</p>
+            <span class="card-tag">Parma · Walk-ins</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-dromana-hotel">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🏖️</div>
+            <span class="card-badge badge--beach">Beachfront Pub</span>
+            <div class="card-title"><span>Dromana Hotel</span></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">Sprawling beachfront bistro and bar with a huge outdoor deck — unbeatable bay views, pub pricing, and a kitchen that does the straightforward things (fish and chips, steak, parma) well enough that nobody complains.</p>
+            <span class="card-tag">Beachfront · Family</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-balnarring-hotel">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍺</div>
+            <span class="card-badge badge--dining">Country Pub</span>
+            <div class="card-title"><span>The Balnarring Pub</span></div>
+            <div class="card-location">Balnarring</div>
+            <p class="card-desc">Proper country pub in the middle of Balnarring village — open fires in winter, a shaded beer garden in autumn and honest counter meals built on peninsula produce. A locals' favourite that visitors keep rediscovering.</p>
+            <span class="card-tag">Fireplace · Garden</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-mornington-hotel">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍻</div>
+            <span class="card-badge badge--dining">Main Street Pub</span>
+            <div class="card-title"><span>The Mornington Hotel</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">The big Main Street corner pub — reliable bistro, a lively bar, and the default meeting point when you want something unfussy in the middle of town. Good parma, good schnitzel, good chips.</p>
+            <span class="card-tag">Bistro · Central</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-rye-hotel">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🏝️</div>
+            <span class="card-badge badge--beach">Foreshore Pub</span>
+            <div class="card-title"><span>Rye Hotel</span></div>
+            <div class="card-location">Rye</div>
+            <p class="card-desc">Enormous foreshore pub a short walk from the front beach — family-friendly, kids' menus, and a deck that catches the afternoon sun. Don't expect fireworks from the kitchen; do expect everyone to leave happy.</p>
+            <span class="card-tag">Family · Foreshore</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-merricks-hotel">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍺</div>
+            <span class="card-badge badge--dining">Country Pub</span>
+            <div class="card-title"><span>Merricks Hotel</span></div>
+            <div class="card-location">Merricks Beach</div>
+            <p class="card-desc">Low-key country local on the back beach side — walkable from the Merricks Beach holiday houses, with the kind of straightforward bistro menu that makes a long sandy afternoon feel complete.</p>
+            <span class="card-tag">Local · Back Beach</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================== PIZZA =================== -->
+    <div class="tier-section" data-tier="pizza">
+      <div class="tier-header">
+        <span class="tier-label tier-label--pizza">🍕 Pizza &amp; Pasta</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-mr-vincenzos">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍝</div>
+            <span class="card-badge badge--dining">Italian</span>
+            <div class="card-title"><a href="https://mrvincenzos.com/" target="_blank" rel="noopener">Mr Vincenzo's</a></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">1970s Italian vibes, large-format pastas pulled out of a wheel of parmesan, and a genuinely fun room. The kind of place where you order too much, drink too much and walk home along the foreshore.</p>
+            <span class="card-tag">Pasta · Character</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-la-baracca-pizza">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍕</div>
+            <span class="card-badge badge--winery">Winery Pizza</span>
+            <div class="card-title"><a href="https://www.tgallant.com.au/" target="_blank" rel="noopener">La Baracca at T'Gallant</a></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">The peninsula's original winery pizza barn — wood-fired margheritas, prosciutto pies and simple pastas inside a rustic shed at T'Gallant's cellar door. Order the pinot grigio. Always order the pinot grigio.</p>
+            <span class="card-tag">Wood-Fired · Pinot Grigio</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-merricks-pizza">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍕</div>
+            <span class="card-badge badge--dining">Sourdough Pizza</span>
+            <div class="card-title"><span>Merricks General Wine Store</span></div>
+            <div class="card-location">Merricks</div>
+            <p class="card-desc">Sourdough-based wood-fired pizzas done properly, with a short list of seasonal toppings that lean on the surrounding farms. Pair with something from the all-peninsula wine list.</p>
+            <span class="card-tag">Sourdough · Peninsula Wine</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-via-boffe">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍝</div>
+            <span class="card-badge badge--dining">Italian · Village</span>
+            <div class="card-title"><span>Via Boffe</span></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">A small, warm Italian room tucked into the hinterland — handmade pasta, seasonal antipasti and the kind of short hand-written list you can trust completely. Book: it fills fast on weekends.</p>
+            <span class="card-tag">Handmade Pasta</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-ciao-amici">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍕</div>
+            <span class="card-badge badge--dining">Neighbourhood Italian</span>
+            <div class="card-title"><span>Ciao Amici</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Neighbourhood Italian doing reliable wood-fired pizzas and classic pastas — the default weeknight answer when you're staying in Mornington and don't want to drive into the hills.</p>
+            <span class="card-tag">Weeknight · Walk-ins</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-pane-e-vino">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍞</div>
+            <span class="card-badge badge--dining">Italian</span>
+            <div class="card-title"><span>Pane e Vino</span></div>
+            <div class="card-location">Mount Martha</div>
+            <p class="card-desc">Simple, honest Italian on Mount Martha's village strip — antipasti boards, woodfired pizzas and a short pasta list. A quiet favourite of the bayside locals.</p>
+            <span class="card-tag">Village · Classic</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================== BREAKFAST =================== -->
+    <div class="tier-section" data-tier="breakfast">
+      <div class="tier-header">
+        <span class="tier-label tier-label--breakfast">☕ Breakfast &amp; Brunch</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-commonfolk">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">☕</div>
+            <span class="card-badge badge--dining">Coffee Roaster</span>
+            <div class="card-title"><span>Commonfolk Coffee</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">The peninsula's serious specialty coffee address — an in-house roastery, a sun-drenched warehouse cafe and a breakfast menu that holds its own next to the espresso. Weekend queues are real but fast.</p>
+            <span class="card-tag">Specialty Coffee · Roastery</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-store-ten">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥐</div>
+            <span class="card-badge badge--dining">All-Day Cafe</span>
+            <div class="card-title"><span>Store Ten</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Polished all-day cafe on Main Street — sourdough, serious eggs, pastry cabinet worth lingering at, and a proper weekend brunch menu. Good for solo coffee at the bar or a long catch-up at the back.</p>
+            <span class="card-tag">Brunch · Main Street</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-ouest-france">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥞</div>
+            <span class="card-badge badge--dining">French · Crepes</span>
+            <div class="card-title"><a href="https://www.ouestfrance.com.au/" target="_blank" rel="noopener">Ouest France Bistro</a></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Once a creperie, now a charming little Breton bistro on a Mornington side street — galettes, classic French breakfast, and some of the best coffee in town. Look for the blue-and-white awning.</p>
+            <span class="card-tag">Breton · Small Room</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-foxeys">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌅</div>
+            <span class="card-badge badge--winery">Winery Brunch</span>
+            <div class="card-title"><a href="https://www.foxeys-hangout.com.au/" target="_blank" rel="noopener">Foxey's Hangout</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Sunny, spacious and laid-back — opens for brunch on weekends with an outdoor deck that catches the morning light. One of the most relaxed ways to start a day in the hinterland.</p>
+            <span class="card-tag">Deck · Hinterland</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-yabby-lake">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍾</div>
+            <span class="card-badge badge--winery">Cellar Door</span>
+            <div class="card-title"><a href="https://www.yabbylake.com/" target="_blank" rel="noopener">Yabby Lake Cellar Door</a></div>
+            <div class="card-location">Tuerong</div>
+            <p class="card-desc">Opens from mid-morning for tastings with a relaxed early-lunch menu. Taste the single-vineyard chardonnay before you sit — it's arguably the best chardy on the peninsula.</p>
+            <span class="card-tag">Early Lunch · Chardonnay</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-afloat-brunch">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">⛵</div>
+            <span class="card-badge badge--beach">Floating Cafe</span>
+            <div class="card-title"><span>Afloat Mornington</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">All-day menu on a floating cafe moored to Mornington Pier — sea-breeze brunches, good coffee, and the unbeatable novelty of eggs on toast that gently bob on the tide.</p>
+            <span class="card-tag">Pier · Floating</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-small-stone">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌾</div>
+            <span class="card-badge badge--dining">Wholesome Cafe</span>
+            <div class="card-title"><span>Small Stone Pantry</span></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">Wholefood-leaning pantry and cafe on the Point Nepean Road run — grain bowls, good eggs, pastries from the hinterland bakeries and a tiny retail shelf of peninsula producers.</p>
+            <span class="card-tag">Wholefoods · Pantry</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-green-olive-brunch">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🫒</div>
+            <span class="card-badge badge--dining">Farm Brunch</span>
+            <div class="card-title"><span>Green Olive at Red Hill — Cafe</span></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Working olive grove with a farm cafe open for brunch on weekends — olive-oil cake, eggs with their own dukkah, and enough space for the kids to run between the trees while you finish your coffee.</p>
+            <span class="card-tag">Farm · Kids OK</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-flinders-general">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥖</div>
+            <span class="card-badge badge--dining">Village Cafe</span>
+            <div class="card-title"><span>Flinders General Store</span></div>
+            <div class="card-location">Flinders</div>
+            <p class="card-desc">A classic country general store turned village cafe and provisions shop — slow-drip coffee, fresh bread, proper breakfast sandwiches and a pick-your-own picnic shelf for the Flinders Blowhole walk.</p>
+            <span class="card-tag">Provedore · Walk-ins</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-rocker-mornington">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">☕</div>
+            <span class="card-badge badge--dining">Brunch</span>
+            <div class="card-title"><span>Rocker</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">One of Mornington's consistently busy brunch addresses — inventive eggs, pastry cabinet, and a small roastery's worth of specialty coffee on the machine. Expect a short wait at 10am on Sunday.</p>
+            <span class="card-tag">Weekend Brunch</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-barmah-park">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌾</div>
+            <span class="card-badge badge--winery">Farm Cafe</span>
+            <div class="card-title"><span>Barmah Park</span></div>
+            <div class="card-location">Moorooduc</div>
+            <p class="card-desc">Rural farm, cellar door and all-day kitchen with a pretty courtyard — the kind of spot that works equally well for a weekend brunch, an afternoon cheese plate or a glass of pinot on the lawn.</p>
+            <span class="card-tag">Farm · Cellar Door</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================== BAKERY =================== -->
+    <div class="tier-section" data-tier="bakery">
+      <div class="tier-header">
+        <span class="tier-label tier-label--bakery">🥐 Bakeries &amp; Pastry</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-johnny-ripe">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥧</div>
+            <span class="card-badge badge--dining">Country Bakery</span>
+            <div class="card-title"><span>Johnny Ripe</span></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">The hinterland pie stop — handsome pastries, proper beef pies and a garden cafe out the back. Order a pie, grab a sausage roll for the car, and don't leave without a slice of the lemon tart.</p>
+            <span class="card-tag">Pies · Lemon Tart</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-red-hill-bakery">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥖</div>
+            <span class="card-badge badge--dining">Village Bakery</span>
+            <div class="card-title"><span>Red Hill Bakery</span></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">The hinterland's default morning stop — sourdough loaves, vanilla slices, old-school vanilla slices again (yes, twice), and an endless queue of Lycra on Saturday mornings. Go early.</p>
+            <span class="card-tag">Sourdough · Saturday Ritual</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-sorrento-bakery">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥐</div>
+            <span class="card-badge badge--beach">Village Bakery</span>
+            <div class="card-title"><span>Sorrento Bakery</span></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">Ocean Beach Road institution that has fed generations of beachgoers — pies, pasties, custard scrolls and a good loaf of sourdough. The summer queue is part of the ritual.</p>
+            <span class="card-tag">Pies · Scrolls</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-stringers">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🧺</div>
+            <span class="card-badge badge--dining">Provedore · Tearooms</span>
+            <div class="card-title"><span>Stringer's of Mornington</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">A Main Street institution — part grocer, part bakery, part tearooms, part wine shop. Stop in for a pastry and coffee, leave with a basket of peninsula produce you didn't plan to buy.</p>
+            <span class="card-tag">Grocer · Tearooms</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-mornington-bakery">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥖</div>
+            <span class="card-badge badge--dining">Sourdough</span>
+            <div class="card-title"><span>Sourdough Kitchen</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Small-batch sourdough bakers with a tight line of long-fermented loaves, pastries and sandwich-makings. Come for the bread, stay for the morning bun.</p>
+            <span class="card-tag">Small Batch · Morning Buns</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-balnarring-bakehouse">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥐</div>
+            <span class="card-badge badge--dining">Village Bakery</span>
+            <div class="card-title"><span>Balnarring Bakehouse</span></div>
+            <div class="card-location">Balnarring</div>
+            <p class="card-desc">The village bakery for the Balnarring side of the peninsula — pies, pastries and a weekend breakfast sandwich that fuels half of the Balnarring Market crowd.</p>
+            <span class="card-tag">Market Day</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-flinders-general-bakery">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍞</div>
+            <span class="card-badge badge--dining">Village · Provedore</span>
+            <div class="card-title"><span>Flinders General Store</span></div>
+            <div class="card-location">Flinders</div>
+            <p class="card-desc">Also your Flinders bakery stop — fresh loaves from the kitchen, sweet and savoury pastries in the cabinet, and picnic-ready sandwiches cut to order for the Blowhole walk.</p>
+            <span class="card-tag">Picnic Stop</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>The peninsula's unofficial Saturday morning ritual: coffee and a pastry from <strong>Red Hill Bakery</strong> (get there before 9am or accept the queue), then browse the <strong>Red Hill Community Market</strong> if it's running, then a long lunch at a winery of your choice. Do that once and you understand why people spend every weekend down here.</p>
+    </div>
+
+    <!-- =================== SWEETS =================== -->
+    <div class="tier-section" data-tier="sweets">
+      <div class="tier-header">
+        <span class="tier-label tier-label--sweets">🍦 Sweets, Ice Cream &amp; Chocolate</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-mpchocolate">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍫</div>
+            <span class="card-badge badge--dining">Chocolaterie</span>
+            <div class="card-title"><span>Mornington Peninsula Chocolates</span></div>
+            <div class="card-location">Flinders</div>
+            <p class="card-desc">Handmade chocolates, hot chocolates and a small cafe — a reliable family stop with enough seasonal stock to justify an extra detour when visitors are in town.</p>
+            <span class="card-tag">Chocolatier · Hot Choc</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-sunny-ridge">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍓</div>
+            <span class="card-badge badge--dining">Pick Your Own</span>
+            <div class="card-title"><a href="https://www.sunnyridge.com.au/" target="_blank" rel="noopener">Sunny Ridge Strawberry Farm</a></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">The peninsula's original pick-your-own strawberry farm — seasonal berry picking, strawberry ice cream, strawberry sundaes, and a farm cafe the kids never want to leave. Season is roughly November to April.</p>
+            <span class="card-tag">Kids · Seasonal</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-main-ridge-dairy">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🧀</div>
+            <span class="card-badge badge--dining">Goat Dairy</span>
+            <div class="card-title"><a href="https://www.mainridgedairy.com.au/" target="_blank" rel="noopener">Main Ridge Dairy</a></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">Working goat dairy with a cafe — cheese boards, goat-milk gelato and a view across the paddocks to the animals that made the lot. A sweet finish and a producer visit rolled into one.</p>
+            <span class="card-tag">Goat · Gelato</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-gelobar-sorrento">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍦</div>
+            <span class="card-badge badge--beach">Gelato</span>
+            <div class="card-title"><span>Sorrento Gelato</span></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">The Ocean Beach Road gelato window — classic Italian flavours, a rotating seasonal list and a queue that moves fast. The compulsory stop on any evening stroll through Sorrento.</p>
+            <span class="card-tag">Gelato · Walk-up</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-ripe-desserts">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥮</div>
+            <span class="card-badge badge--dining">Pastry</span>
+            <div class="card-title"><span>Johnny Ripe — Sweets Cabinet</span></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">Worth a second mention for the sweets cabinet alone — lemon tart, meringues, fruit slices and a rotating set of seasonal tarts that routinely sell out before closing.</p>
+            <span class="card-tag">Tarts · Cabinet</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================== ASIAN =================== -->
+    <div class="tier-section" data-tier="asian">
+      <div class="tier-header">
+        <span class="tier-label tier-label--asian">🍜 Asian &amp; International</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-thai-orchid">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌶️</div>
+            <span class="card-badge badge--dining">Thai</span>
+            <div class="card-title"><span>Thai Orchid</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">The peninsula's default Thai — a long-running Main Street room with properly aromatic curries, fresh herbs and weeknight pricing. Book on a Friday; it's that kind of local.</p>
+            <span class="card-tag">Thai · Weeknight</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-sushi-ya">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍣</div>
+            <span class="card-badge badge--dining">Japanese</span>
+            <div class="card-title"><span>Azuma Japanese</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Neighbourhood Japanese doing reliable sushi, sashimi and donburi — a useful option when you want something clean and quick in the middle of a dining week built on cheese and red wine.</p>
+            <span class="card-tag">Sushi · Donburi</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-vietnamese-rosebud">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍜</div>
+            <span class="card-badge badge--dining">Vietnamese</span>
+            <div class="card-title"><span>Pho Rosebud</span></div>
+            <div class="card-location">Rosebud</div>
+            <p class="card-desc">Rosebud's go-to pho — big steaming bowls, rice paper rolls and lemongrass chicken. The unglamorous but deeply satisfying antidote to a heavy winery lunch.</p>
+            <span class="card-tag">Pho · Rolls</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-dumpling-mornington">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥟</div>
+            <span class="card-badge badge--dining">Chinese · Dumplings</span>
+            <div class="card-title"><span>Mornington Dumpling House</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Hand-folded dumplings, steamed and pan-fried, plus a short list of Sichuan-leaning classics. Order the pork-and-chive and the mapo tofu, share everything.</p>
+            <span class="card-tag">Dumplings · BYO</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-middle-east-mornington">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌯</div>
+            <span class="card-badge badge--dining">Middle Eastern</span>
+            <div class="card-title"><span>Cedar &amp; Pine</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Modern Middle Eastern grazing — dips, charred flatbreads, slow-cooked lamb and a lot of herbs. Good for a group where no one can agree on what they feel like eating.</p>
+            <span class="card-tag">Mezze · Sharing</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================== BREWERY =================== -->
+    <div class="tier-section" data-tier="brewery">
+      <div class="tier-header">
+        <span class="tier-label tier-label--brewery">🍻 Breweries &amp; Cider with Food</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-st-andrews-beach-brewery">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍺</div>
+            <span class="card-badge badge--dining">Brewery · Stables</span>
+            <div class="card-title"><a href="https://www.standrewsbeachbrewery.com.au/" target="_blank" rel="noopener">St Andrews Beach Brewery</a></div>
+            <div class="card-location">Fingal</div>
+            <p class="card-desc">Former horse-training stables turned sprawling brewery and kitchen — wood-fired pizzas, loaded burgers, roast-of-the-day on Sundays, and acres of lawn for the kids. The peninsula's signature brewery-day-out address.</p>
+            <span class="card-tag">Family · Pizza · Sunday Roast</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-jetty-road">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍻</div>
+            <span class="card-badge badge--dining">Taproom</span>
+            <div class="card-title"><a href="https://www.jettyroad.com.au/" target="_blank" rel="noopener">Jetty Road Brewery</a></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">Polished industrial taproom next door to the Dromana drive-in — core beers, a rolling list of seasonals, pizzas, burgers and a relaxed garden. One of the easiest bayside brewery stops.</p>
+            <span class="card-tag">Taproom · Garden</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-red-hill-brewery">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍺</div>
+            <span class="card-badge badge--dining">Original Brewery</span>
+            <div class="card-title"><a href="https://www.redhillbrewery.com.au/" target="_blank" rel="noopener">Red Hill Brewery</a></div>
+            <div class="card-location">Red Hill South</div>
+            <p class="card-desc">The peninsula's original craft brewery — Belgian-leaning beers, a working hop garden and a casual kitchen doing pizza and share food. The most character-heavy brewery on the map.</p>
+            <span class="card-tag">Belgian Styles · Hop Garden</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-mp-brewery">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍺</div>
+            <span class="card-badge badge--dining">Brewery Bar</span>
+            <div class="card-title"><span>Mornington Peninsula Brewery</span></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">The in-town brewery bar — a working brewhouse, a full core range on tap, burgers and pizzas, live music some nights. A good alternative to a pub when you're in Mornington proper.</p>
+            <span class="card-tag">Brewpub · In-Town</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-two-bays">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍺</div>
+            <span class="card-badge badge--dining">Gluten-Free Brewery</span>
+            <div class="card-title"><span>Two Bays Brewing Co</span></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">Dedicated gluten-free brewery and taproom — surprisingly good pale ales and lagers, relaxed taproom snacks and a welcome destination for anyone who's had to sit out the brewery tour in the past.</p>
+            <span class="card-tag">Gluten-Free · Taproom</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-mp-cider">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍏</div>
+            <span class="card-badge badge--winery">Cider House</span>
+            <div class="card-title"><span>Mornington Peninsula Cider</span></div>
+            <div class="card-location">Main Ridge</div>
+            <p class="card-desc">Apple-forward ciders, a rustic tasting room and cheese and charcuterie boards in a working orchard setting. An easy hinterland detour for anyone who's wineried out.</p>
+            <span class="card-tag">Orchard · Cheese Boards</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =================== PRODUCERS =================== -->
+    <div class="tier-section" data-tier="producer">
+      <div class="tier-header">
+        <span class="tier-label tier-label--producer">🥦 Producers, Provedores &amp; Farm Gates</span>
+      </div>
+      <div class="card-grid reveal">
+
+        <div class="card" id="card-peninsula-fresh-organics">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥬</div>
+            <span class="card-badge badge--dining">Farm Shop</span>
+            <div class="card-title"><span>Peninsula Fresh Organics</span></div>
+            <div class="card-location">Baxter</div>
+            <p class="card-desc">Working organic market garden with a farm-gate shop — straight-out-of-the-ground vegetables, a small dairy fridge and a pantry shelf of local staples. The best salad you'll eat all week starts here.</p>
+            <span class="card-tag">Organic · Farm Gate</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-ashcombe-maze">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌸</div>
+            <span class="card-badge badge--winery">Lavender · Gardens</span>
+            <div class="card-title"><a href="https://www.ashcombemaze.com.au/" target="_blank" rel="noopener">Ashcombe Maze &amp; Lavender Gardens</a></div>
+            <div class="card-location">Shoreham</div>
+            <p class="card-desc">Lavender fields, hedge maze, rose garden and a small cafe selling lavender everything — ice cream, scones, shortbread, tisane. A quiet, slightly wholesome detour that never disappoints.</p>
+            <span class="card-tag">Lavender · Maze</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-red-hill-cheese">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🧀</div>
+            <span class="card-badge badge--dining">Cheesemaker</span>
+            <div class="card-title"><span>Red Hill Cheese</span></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Small-batch cheesemaker with a tasting room — hard sheep's milk styles, washed rinds and a rotating seasonal list. Buy a wedge, pair it with a loaf from the bakery and a bottle from a cellar door, and you have lunch.</p>
+            <span class="card-tag">Sheep's Milk · Tasting</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-bass-flinders">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥃</div>
+            <span class="card-badge badge--winery">Distillery</span>
+            <div class="card-title"><a href="https://www.bassandflinders.com.au/" target="_blank" rel="noopener">Bass &amp; Flinders Distillery</a></div>
+            <div class="card-location">Dromana</div>
+            <p class="card-desc">The peninsula's pioneering craft distillery — award-winning gins, a brandy that rewards the patient, and a popular "gin masterclass" where you blend your own bottle to take home. Snacks available with tastings.</p>
+            <span class="card-tag">Gin · Masterclass</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-somers-general">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🛒</div>
+            <span class="card-badge badge--dining">General Store</span>
+            <div class="card-title"><span>Somers General</span></div>
+            <div class="card-location">Somers</div>
+            <p class="card-desc">Tiny, perfectly curated general store and cafe in sleepy Somers — sourdough, pastries, cheese, pantry goods, peninsula wines and a tight weekend brunch menu. One of those places you drive to just to stand in for ten minutes.</p>
+            <span class="card-tag">Cafe · Pantry</span>
+          </div>
+        </div>
+
+        <div class="card" id="card-mp-truffles">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍄</div>
+            <span class="card-badge badge--dining">Truffle Hunt</span>
+            <div class="card-title"><span>Red Hill Truffles</span></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Peninsula truffière running seasonal truffle hunts with dogs from late autumn through winter — a morning in the field, a cellar-door truffle tasting and fresh truffles for sale when they're up. Books out early every year.</p>
+            <span class="card-tag">Seasonal · Dogs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="april-highlight">
+      <div class="april-highlight-label">April</div>
+      <p><strong>Truffle season is arriving.</strong> Victorian truffles typically start coming up in late April and run through winter — several peninsula restaurants feature fresh local truffles on their menus from the last week of April onwards, and Red Hill Truffles begins its weekend hunt bookings in the same window. Ask your restaurant about seasonal truffle features when you book.</p>
+      <p style="margin-top:0.75rem;"><strong>And the seasonal shift is on.</strong> April is when the peninsula pivots away from summer's beach-kiosk-and-pier-takeaway rhythm and back towards the long, slow hinterland lunches that the region does best. Cellar doors are quieter, tables are easier to get, the vines are turning, and the kitchens are already leaning into autumn produce — mushrooms, pumpkins, quinces, game. It's arguably the single best month of the year to eat on the peninsula.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">The Peninsula Insider</div>
+    <div class="footer-tagline">Crafted with care for the Peninsula · Your complete local's guide to Mornington Peninsula, Victoria</div>
+    <div class="footer-links">
+      <a href="whats-on.html">What's On</a><a href="stay.html">Where to Stay</a><a href="eat.html">Where to Eat</a><a href="wine.html">Wine Country</a><a href="explore.html">Things to Do</a><a href="explore.html#walks">Walks &amp; Trails</a><a href="explore.html#beaches">Beaches</a><a href="explore.html#gems">Hidden Gems</a><a href="whats-on.html#april">April</a><a href="itinerary.html">Itinerary</a>
+    </div>
+    <div class="footer-bottom">
+      <p>Compiled April 2026 · Information current at time of writing — always confirm bookings and opening hours directly with venues.</p>
+      <p style="margin-top:0.5rem;">Mornington Peninsula acknowledges the Bunurong/BoonWurrung people, the Traditional Custodians of these lands and waters.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js"></script>
+<script>
+window.filterEat = function(tier, btn) {
+  document.querySelectorAll('.tier-section').forEach(section => {
+    section.style.display = (tier === 'all' || section.dataset.tier === tier) ? '' : 'none';
+  });
+  document.querySelectorAll('#eat-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+};
+</script>
+</body>
+</html>
