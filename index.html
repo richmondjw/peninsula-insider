@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Peninsula Insider — Your Complete Guide to Mornington Peninsula</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" style="text-decoration:none;">The Peninsula Insider</a>
+    <ul class="nav-links">
+      <li>
+        <span class="nav-group-trigger">Plan</span>
+        <div class="nav-dropdown"><div class="nav-dropdown-inner">
+          <a href="whats-on.html">What's On</a>
+          <a href="whats-on.html#april">April Guide</a>
+          <a href="itinerary.html">Itinerary</a>
+        </div></div>
+      </li>
+      <li>
+        <span class="nav-group-trigger">Experience</span>
+        <div class="nav-dropdown"><div class="nav-dropdown-inner">
+          <a href="stay.html">Where to Stay</a>
+          <a href="eat.html">Where to Eat</a>
+          <a href="wine.html">Wine Country</a>
+        </div></div>
+      </li>
+      <li>
+        <span class="nav-group-trigger">Explore</span>
+        <div class="nav-dropdown"><div class="nav-dropdown-inner">
+          <a href="explore.html#do">Things to Do</a>
+          <a href="explore.html#walks">Walks &amp; Trails</a>
+          <a href="explore.html#beaches">Beaches</a>
+          <a href="explore.html#gems">Hidden Gems</a>
+        </div></div>
+      </li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button class="search-trigger" id="searchTrigger" type="button" aria-label="Search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="search-trigger-text">Search</span>
+      </button>
+      <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="nav-mobile" id="navMobile">
+  <div style="font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);padding:0.5rem 0 0.25rem;">Plan</div>
+  <a href="whats-on.html" onclick="closeMenu()">What's On</a>
+  <a href="whats-on.html#april" onclick="closeMenu()">April Guide</a>
+  <a href="itinerary.html" onclick="closeMenu()">Itinerary</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);padding:1rem 0 0.25rem;">Experience</div>
+  <a href="stay.html" onclick="closeMenu()">Where to Stay</a>
+  <a href="eat.html" onclick="closeMenu()">Where to Eat</a>
+  <a href="wine.html" onclick="closeMenu()">Wine Country</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);padding:1rem 0 0.25rem;">Explore</div>
+  <a href="explore.html#do" onclick="closeMenu()">Things to Do</a>
+  <a href="explore.html#walks" onclick="closeMenu()">Walks &amp; Trails</a>
+  <a href="explore.html#beaches" onclick="closeMenu()">Beaches</a>
+  <a href="explore.html#gems" onclick="closeMenu()">Hidden Gems</a>
+</div>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-dialog" role="dialog" aria-label="Search the guide">
+    <div class="search-input-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="searchInput" type="text" placeholder="Search venues, walks, beaches, events..." autocomplete="off" />
+      <span class="search-kbd-hint">ESC to close</span>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+    <div class="search-footer">
+      <span><kbd>&uarr;&darr;</kbd> Navigate</span>
+      <span><kbd>&crarr;</kbd> Go to</span>
+      <span><kbd>ESC</kbd> Close</span>
+    </div>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+
+<!-- ===== HERO ===== -->
+<div class="hero" id="top">
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?w=1600&q=80&auto=format&fit=crop" alt="Vineyard rows stretching toward the horizon at golden hour" loading="eager" />
+  </div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Victoria's Most Coveted Escape</div>
+    <h1>The Peninsula <em>Insider</em></h1>
+    <p class="hero-sub">A local's guide to Mornington Peninsula &mdash; where world-class wine, wild surf, hot springs, and long lunches collide.</p>
+  </div>
+</div>
+
+<!-- ===== QUICK JUMP ===== -->
+<div class="quick-jump">
+  <div class="container">
+    <div class="quick-jump-grid">
+      <a class="quick-jump-item" href="whats-on.html"><div class="quick-jump-text"><span class="quick-jump-title">What's On</span></div></a>
+      <a class="quick-jump-item" href="stay.html"><div class="quick-jump-text"><span class="quick-jump-title">Stay</span></div></a>
+      <a class="quick-jump-item" href="eat.html"><div class="quick-jump-text"><span class="quick-jump-title">Dine</span></div></a>
+      <a class="quick-jump-item" href="wine.html"><div class="quick-jump-text"><span class="quick-jump-title">Wine</span></div></a>
+      <a class="quick-jump-item" href="explore.html#do"><div class="quick-jump-text"><span class="quick-jump-title">Do</span></div></a>
+      <a class="quick-jump-item" href="explore.html#walks"><div class="quick-jump-text"><span class="quick-jump-title">Walks</span></div></a>
+      <a class="quick-jump-item" href="explore.html#beaches"><div class="quick-jump-text"><span class="quick-jump-title">Beaches</span></div></a>
+      <a class="quick-jump-item" href="explore.html#gems"><div class="quick-jump-text"><span class="quick-jump-title">Hidden Gems</span></div></a>
+      <a class="quick-jump-item" href="itinerary.html"><div class="quick-jump-text"><span class="quick-jump-title">Itinerary</span></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <div class="section-label-wrap">
+        <span class="section-label">The Peninsula</span>
+        <h2>What Makes It Special</h2>
+      </div>
+    </div>
+    <p class="reveal" style="max-width:var(--text-w); font-size:1.02rem; line-height:1.85;">Just 90 minutes south-east of Melbourne, the Mornington Peninsula is where city life dissolves into something far more indulgent. Wild surf beaches on one side, calm bay swimming on the other; rustic farm stalls five minutes from Michelin-calibre restaurants; a booming wine region that remains stubbornly un-touristy at its heart.</p>
+    <div class="pull-quote reveal">
+      <p>&ldquo;The secret the locals keep: the peninsula rewards those who slow down. Don't try to rush through four wineries in an afternoon. Book a long lunch, sit in the sun, let time dissolve.&rdquo;</p>
+    </div>
+    <div class="overview-grid reveal">
+      <div class="overview-item"><h4>200+ Wineries</h4><p>Mainly Chardonnay &amp; Pinot Noir in a cool maritime climate</p></div>
+      <div class="overview-item"><h4>Hot Springs</h4><p>70+ geothermal bathing experiences at Fingal</p></div>
+      <div class="overview-item"><h4>Dual Coastline</h4><p>Protected bay beaches and wild ocean surf beaches</p></div>
+      <div class="overview-item"><h4>World-class Dining</h4><p>From winery hatted restaurants to hidden farm tables</p></div>
+      <div class="overview-item"><h4>Red Hill Market</h4><p>Victoria's finest artisan market, first Saturday monthly</p></div>
+      <div class="overview-item"><h4>90 min from Melbourne</h4><p>Via Nepean Hwy or EastLink &mdash; no ferries required</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TEASER: WHAT'S ON ===== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <div class="section-label-wrap">
+        <span class="section-label">April 2026</span>
+        <h2>What's On</h2>
+      </div>
+    </div>
+    <p class="reveal" style="max-width:var(--text-w); margin-bottom:2.5rem;">Autumn on the Peninsula brings live music, weekend markets, family-friendly garden programming, and a strong month of gallery and cultural events.</p>
+    <div class="events-featured-grid reveal">
+      <div class="event-featured-card event-featured-card--music">
+        <div class="efc-date">Saturday 11 April &middot; 1pm&ndash;9:30pm</div>
+        <h3>Red Hot Summer Tour</h3>
+        <div class="efc-venue">Mornington Racecourse</div>
+        <p>Paul Kelly headlines an iconic all-Australian outdoor music festival.</p>
+        <div class="efc-artists">
+          <span class="efc-artist-tag">Paul Kelly</span>
+          <span class="efc-artist-tag">Missy Higgins</span>
+          <span class="efc-artist-tag">The Cat Empire</span>
+          <span class="efc-artist-tag">Kasey Chambers</span>
+        </div>
+      </div>
+      <div class="event-featured-card event-featured-card--arts">
+        <div class="efc-date">Through April 2026</div>
+        <h3>MPRG Autumn Exhibitions</h3>
+        <div class="efc-venue">Mornington Peninsula Regional Gallery</div>
+        <p>New Wave 26 and the Michael Vale exhibition both running through late May.</p>
+      </div>
+    </div>
+    <a href="whats-on.html" class="teaser-cta reveal">See all events &amp; April guide</a>
+  </div>
+</section>
+
+<!-- ===== IMAGE BREAK: COAST ===== -->
+<div class="img-block img-block--section">
+  <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=1400&q=80&auto=format&fit=crop" alt="Dramatic ocean coastline with rocky cliffs" loading="lazy" />
+</div>
+
+<!-- ===== TEASER: STAY ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <div class="section-label-wrap">
+        <span class="section-label">Accommodation</span>
+        <h2>Where to Stay</h2>
+      </div>
+    </div>
+    <div class="jackalope-feature reveal">
+      <div class="jk-badge">Our Recommendation</div>
+      <h3><a href="https://jackalopehotels.com/" target="_blank" rel="noopener" style="color:inherit;">Jackalope Hotel</a></h3>
+      <div class="jk-sub">Merricks North</div>
+      <p>Design-forward luxury hotel in the middle of the 11-hectare Willow Creek Vineyard. Striking interiors, vineyard views, and two exceptional restaurants: Doot Doot Doot (fine dining) and Rare Hare (casual woodfired).</p>
+      <div class="jk-features">
+        <span class="jk-feature-tag">46 rooms &amp; suites</span>
+        <span class="jk-feature-tag">Vineyard views</span>
+        <span class="jk-feature-tag">Two restaurants</span>
+        <span class="jk-feature-tag">Pool &amp; Spa</span>
+      </div>
+    </div>
+    <a href="stay.html" class="teaser-cta reveal">View all accommodation</a>
+  </div>
+</section>
+
+<!-- ===== TEASER: EAT ===== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <div class="section-label-wrap">
+        <span class="section-label">Dining</span>
+        <h2>Where to Eat</h2>
+      </div>
+    </div>
+    <p class="reveal" style="max-width:var(--text-w); margin-bottom:2.5rem;">Extraordinary local produce &mdash; seafood, dairy, lamb, vegetables from rich volcanic soils &mdash; combined with a competitive wine country environment has pushed restaurant quality well above what you'd expect.</p>
+    <div class="card-grid reveal">
+      <div class="card card--featured">
+        <div class="card-body">
+          <span class="card-badge">Jackalope Hotel</span>
+          <div class="card-title"><a href="https://dootdootdoot.com.au/" target="_blank" rel="noopener">Doot Doot Doot</a></div>
+          <div class="card-location">Merricks North</div>
+          <div class="card-stars">&starf;&starf;&starf;&starf;&starf;</div>
+          <p class="card-desc">Theatrical fine diner. Caviar, exceptional local produce, long degustation format. A bucket-list meal.</p>
+          <span class="card-tag">Degustation &middot; Book Months Ahead</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-badge">Share Plates</span>
+          <div class="card-title"><a href="https://rarehare.com.au/" target="_blank" rel="noopener">Rare Hare</a></div>
+          <div class="card-location">Merricks North (Jackalope)</div>
+          <p class="card-desc">Long communal tables, woodfired cooking, share plates and Willow Creek wines by the glass.</p>
+          <span class="card-tag">Woodfired &middot; Share Plates</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-badge">Brunch &middot; Winery</span>
+          <div class="card-title"><a href="https://www.foxeys-hangout.com.au/" target="_blank" rel="noopener">Foxey's Hangout</a></div>
+          <div class="card-location">Red Hill</div>
+          <p class="card-desc">Laidback, sunny, spacious brunch on a lovely estate with outdoor deck and easy-drinking wines.</p>
+          <span class="card-tag">Outdoors &middot; Relaxed</span>
+        </div>
+      </div>
+    </div>
+    <a href="eat.html" class="teaser-cta reveal">Explore all 16 restaurants</a>
+  </div>
+</section>
+
+<!-- ===== IMAGE BREAK: WINE ===== -->
+<div class="img-block img-block--section">
+  <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1400&q=80&auto=format&fit=crop" alt="Wine being poured into a glass" loading="lazy" />
+</div>
+
+<!-- ===== TEASER: WINE ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <div class="section-label-wrap">
+        <span class="section-label">Wine Country</span>
+        <h2>Cellar Doors &amp; Wineries</h2>
+      </div>
+    </div>
+    <p class="reveal" style="max-width:var(--text-w); margin-bottom:2.5rem;">The cool maritime climate produces Chardonnay and Pinot Noir of genuine elegance. Most estates are small, family-run, and proud of it.</p>
+    <div class="card-grid reveal" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="card card--featured">
+        <div class="card-body">
+          <span class="card-badge">Must Visit</span>
+          <div class="card-title"><a href="https://www.tenminutesbytractor.com.au/" target="_blank" rel="noopener">Ten Minutes by Tractor</a></div>
+          <div class="card-location">Main Ridge</div>
+          <div class="card-stars">&starf;&starf;&starf;&starf;&starf;</div>
+          <p class="card-desc">Three separate vineyards producing distinct single-vineyard expressions. Exceptional Chardonnay and Pinot Noir.</p>
+          <span class="card-tag">Premium &middot; Single Vineyard</span>
+        </div>
+      </div>
+      <div class="card card--featured">
+        <div class="card-body">
+          <span class="card-badge">Must Visit</span>
+          <div class="card-title"><a href="https://www.ptleoestate.com.au/" target="_blank" rel="noopener">Pt Leo Estate</a></div>
+          <div class="card-location">Merricks</div>
+          <div class="card-stars">&starf;&starf;&starf;&starf;&starf;</div>
+          <p class="card-desc">More than just a winery &mdash; a 16-acre outdoor sculpture park plus the fine-dining Laura restaurant.</p>
+          <span class="card-tag">Sculpture Park &middot; Full Experience</span>
+        </div>
+      </div>
+    </div>
+    <a href="wine.html" class="teaser-cta reveal">Discover all 8 wineries</a>
+  </div>
+</section>
+
+<!-- ===== TEASER: EXPLORE ===== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <div class="section-label-wrap">
+        <span class="section-label">Activities &amp; Nature</span>
+        <h2>Explore the Peninsula</h2>
+      </div>
+    </div>
+    <p class="reveal" style="max-width:var(--text-w); margin-bottom:2.5rem;">Hot springs, sculpture parks, wild coastal walks, and hidden ocean beaches &mdash; the peninsula has more to explore than you'd expect.</p>
+    <div class="card-grid reveal" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="card">
+        <div class="card-body">
+          <span class="card-badge">Wellness &middot; Must Do</span>
+          <div class="card-title"><a href="https://www.peninsulahotsprings.com/" target="_blank" rel="noopener">Peninsula Hot Springs</a></div>
+          <div class="card-location">Fingal</div>
+          <p class="card-desc">70+ globally-inspired bathing experiences. Book the adults-only Spa Dreaming Centre for couples.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-badge">Secret &middot; Wild</span>
+          <div class="card-title">Bushrangers Bay</div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">Hidden ocean beach via a 2.5km walk. Dramatic rock formations, sea caves, and raw Southern Ocean power.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-badge">Easy &middot; 4km</span>
+          <div class="card-title">Cape Schanck Lighthouse Walk</div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">One of Victoria's most dramatic coastal walks to the historic lighthouse at the peninsula's tip.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <span class="card-badge">Port Phillip Bay</span>
+          <div class="card-title">Sorrento Front Beach</div>
+          <div class="card-location">Sorrento</div>
+          <p class="card-desc">Classic bay beach with iconic bathing boxes, calm water, and the village of Sorrento right behind.</p>
+        </div>
+      </div>
+    </div>
+    <a href="explore.html" class="teaser-cta reveal">See all activities, walks, beaches &amp; gems</a>
+  </div>
+</section>
+
+<!-- ===== IMAGE BREAK: DINING ===== -->
+<div class="img-block img-block--section">
+  <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80&auto=format&fit=crop" alt="Beautifully plated fine dining dish" loading="lazy" />
+</div>
+
+<!-- ===== TEASER: ITINERARY ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <div class="section-label-wrap">
+        <span class="section-label">Your Weekend</span>
+        <h2>Sample Couples Weekend</h2>
+      </div>
+    </div>
+    <p class="reveal" style="max-width:var(--text-w); margin-bottom:2.5rem;">Based at Jackalope Hotel, April 19&ndash;20. Designed for relaxed indulgence &mdash; not trying to do everything, but doing the best things properly.</p>
+    <div class="reveal" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:2rem;">
+      <div class="itinerary-day" style="margin-bottom:0;">
+        <div class="itinerary-day-header">
+          <div>
+            <div class="itinerary-day-title">Saturday</div>
+            <div class="itinerary-day-subtitle">Arrival &middot; Long lunch &middot; Doot Doot Doot</div>
+          </div>
+        </div>
+      </div>
+      <div class="itinerary-day" style="margin-bottom:0;">
+        <div class="itinerary-day-header">
+          <div>
+            <div class="itinerary-day-title">Sunday</div>
+            <div class="itinerary-day-subtitle">Hot Springs &middot; Lunch &middot; Cellar door &middot; Home</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="itinerary.html" class="teaser-cta reveal">View full itinerary</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">The Peninsula Insider</div>
+    <div class="footer-tagline">Your complete local's guide to Mornington Peninsula, Victoria</div>
+    <div class="footer-links">
+      <a href="whats-on.html">What's On</a>
+      <a href="stay.html">Where to Stay</a>
+      <a href="eat.html">Where to Eat</a>
+      <a href="wine.html">Wine Country</a>
+      <a href="explore.html">Explore</a>
+      <a href="explore.html#walks">Walks &amp; Trails</a>
+      <a href="explore.html#beaches">Beaches</a>
+      <a href="explore.html#gems">Hidden Gems</a>
+      <a href="itinerary.html">Itinerary</a>
+    </div>
+    <div class="footer-bottom">
+      <p>Compiled April 2026 &middot; Information current at time of writing &mdash; always confirm bookings and opening hours directly with venues.</p>
+      <p style="margin-top:0.5rem;">Mornington Peninsula acknowledges the Bunurong/BoonWurrung people, the Traditional Custodians of these lands and waters.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/shared.js"></script>
+</body>
+</html>

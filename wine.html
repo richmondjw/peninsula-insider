@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wine Country — The Peninsula Insider</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">The Peninsula Insider</a>
+    <ul class="nav-links">
+      <li><span class="nav-group-trigger">Plan</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="whats-on.html">What's On</a><a href="whats-on.html#april">April Guide</a><a href="itinerary.html">Itinerary</a></div></div></li>
+      <li><span class="nav-group-trigger">Experience</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="stay.html">Where to Stay</a><a href="eat.html">Where to Eat</a><a href="wine.html">Wine Country</a></div></div></li>
+      <li><span class="nav-group-trigger">Explore</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="explore.html#do">Things to Do</a><a href="explore.html#walks">Walks &amp; Trails</a><a href="explore.html#beaches">Beaches</a><a href="explore.html#gems">Hidden Gems</a></div></div></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button class="search-trigger" id="searchTrigger" type="button" aria-label="Search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-trigger-text">Search</span></button>
+      <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.5rem 0 0.25rem;opacity:0.8;">Plan</div>
+  <a href="whats-on.html" onclick="closeMenu()">What's On</a><a href="whats-on.html#april" onclick="closeMenu()">April Guide</a><a href="itinerary.html" onclick="closeMenu()">Itinerary</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Experience</div>
+  <a href="stay.html" onclick="closeMenu()">Where to Stay</a><a href="eat.html" onclick="closeMenu()">Where to Eat</a><a href="wine.html" onclick="closeMenu()">Wine Country</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Explore</div>
+  <a href="explore.html#do" onclick="closeMenu()">Things to Do</a><a href="explore.html#walks" onclick="closeMenu()">Walks &amp; Trails</a><a href="explore.html#beaches" onclick="closeMenu()">Beaches</a><a href="explore.html#gems" onclick="closeMenu()">Hidden Gems</a>
+</div>
+<div class="search-overlay" id="searchOverlay"><div class="search-dialog" role="dialog" aria-label="Search the guide"><div class="search-input-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input class="search-input" id="searchInput" type="text" placeholder="Search venues, walks, beaches, events..." autocomplete="off" /><span class="search-kbd-hint">ESC</span></div><div class="search-results" id="searchResults"></div><div class="search-footer"><span><kbd>↑↓</kbd> Navigate</span><span><kbd>↵</kbd> Go to</span><span><kbd>ESC</kbd> Close</span></div></div></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> Wine Country</div>
+    <div class="page-header-sub">Cellar Doors &amp; Wineries</div>
+    <h1>Wine Country</h1>
+  </div>
+</div>
+
+<section class="section section--alt" id="wine">
+  <div class="container">
+
+    <p style="max-width:760px; margin-bottom:2rem;">The Mornington Peninsula is one of Australia's most exciting wine regions — not for volume, but for quality and character. The cool maritime climate produces Chardonnay and Pinot Noir of genuine elegance. Most estates are small, family-run, and proud of it. This is wine country where the winemaker might pour your tasting themselves.</p>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>The general rule on the peninsula: don't try to visit more than three cellar doors in a day, or you'll rush through all of them and remember none. Pick two or three, arrive relaxed, and let the conversation happen. The best cellar door experiences feel more like visiting a friend who happens to make excellent wine.</p>
+    </div>
+
+    <!-- Wine Filters -->
+    <div class="walks-filter-bar" id="wine-filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="filterWine('all', this)">All</button>
+      <button class="filter-btn" onclick="filterWine('must-visit', this)">⭐ Must Visit</button>
+      <button class="filter-btn" onclick="filterWine('classic', this)">🍷 Classic</button>
+      <button class="filter-btn" onclick="filterWine('natural', this)">🌿 Natural / Unusual</button>
+      <button class="filter-btn" onclick="filterWine('family', this)">👨‍👩‍👧 Family Friendly</button>
+    </div>
+
+    <div class="card-grid reveal" id="wine-grid">
+      <div class="card card--featured" id="card-tmbt-winery" data-wine-style="must-visit">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--featured">Must Visit</span>
+          <div class="card-title"><a href="https://www.tenminutesbytractor.com.au/" target="_blank" rel="noopener">Ten Minutes by Tractor</a></div>
+          <div class="card-location">Main Ridge</div>
+          <div class="card-stars">★★★★★</div>
+          <p class="card-desc">Three separate vineyards — Wallis, McCutcheon and Judd — each produce distinct single-vineyard expressions. The cellar door experience is one of the most complete on the peninsula. Exceptional Chardonnay and Pinot Noir. Try the Wallis Chardonnay if you can.</p>
+          <span class="card-tag">Premium · Single Vineyard</span>
+        </div>
+      </div>
+      <div class="card card--featured" id="card-pt-leo" data-wine-style="must-visit">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🗿</div>
+          <span class="card-badge badge--featured">Must Visit</span>
+          <div class="card-title"><a href="https://www.ptleoestate.com.au/" target="_blank" rel="noopener">Pt Leo Estate</a></div>
+          <div class="card-location">Merricks</div>
+          <div class="card-stars">★★★★★</div>
+          <p class="card-desc">More than just a winery — a 16-acre outdoor sculpture park featuring works from over 60 Australian and international artists, plus the fine-dining Laura restaurant. The estate Chardonnay, Pinot Gris, Pinot Noir and Shiraz are all excellent.</p>
+          <span class="card-tag">Sculpture Park · Full Experience</span>
+        </div>
+      </div>
+      <div class="card" id="card-paringa-winery" data-wine-style="classic">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--winery">Old Vines</span>
+          <div class="card-title"><a href="https://paringaestate.com.au/" target="_blank" rel="noopener">Paringa Estate</a></div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">Some of the peninsula's oldest vines and a winemaking philosophy that prioritises restraint and complexity. The estate Pinot Noir is benchmark peninsula wine — structured, long, genuinely exciting. One of the most important estates in the region.</p>
+          <span class="card-tag">Old Vines · Benchmark Pinot</span>
+        </div>
+      </div>
+      <div class="card" id="card-montalto-winery" data-wine-style="classic">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌿</div>
+          <span class="card-badge badge--winery">Gardens</span>
+          <div class="card-title"><a href="https://montalto.com.au/" target="_blank" rel="noopener">Montalto</a></div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">Seven vineyards spread across what was supposed to be a retirement project. The gardens and sculpture trail are as impressive as the wines. Walk the grounds, taste the single-vineyard Chardonnays, and stay for lunch.</p>
+          <span class="card-tag">Gardens · Seven Vineyards</span>
+        </div>
+      </div>
+      <div class="card" id="card-quealy" data-wine-style="natural">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍶</div>
+          <span class="card-badge badge--winery">Natural · Unusual</span>
+          <div class="card-title"><a href="https://quealy.com.au/" target="_blank" rel="noopener">Quealy Winemakers</a></div>
+          <div class="card-location">Balnarring</div>
+          <p class="card-desc">An intimate, lo-fi cellar door run by two peninsula pioneers who were experimenting with skin-contact wines and obscure Italian varieties long before anyone else. Brilliant Pinot Grigio, Friulano, Malvasia. One of the most interesting tastings in the region.</p>
+          <span class="card-tag">Natural · Italian Varieties</span>
+        </div>
+      </div>
+      <div class="card" id="card-yabby-lake-winery" data-wine-style="classic">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🥂</div>
+          <span class="card-badge badge--winery">Single Vineyard</span>
+          <div class="card-title"><a href="https://www.yabbylake.com/" target="_blank" rel="noopener">Yabby Lake</a></div>
+          <div class="card-location">Tuerong</div>
+          <p class="card-desc">Since 1998, Yabby Lake has built a reputation for outstanding single-vineyard and single-block expressions. The Chardonnay here is among the finest on the peninsula — precise, textural, and genuinely exciting.</p>
+          <span class="card-tag">Outstanding Chardonnay</span>
+        </div>
+      </div>
+      <div class="card" id="card-tgallant" data-wine-style="family">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--winery">Pinot Grigio Pioneer</span>
+          <div class="card-title"><a href="https://www.tgallant.com.au/" target="_blank" rel="noopener">T'Gallant Vineyard</a></div>
+          <div class="card-location">Main Ridge</div>
+          <p class="card-desc">Known for its Pinot Grigio (T'Gallant essentially pioneered the variety in Australia), this is one of the most accessible and family-friendly winery experiences on the peninsula. Italian-style dining, large shaded outdoor space, real character.</p>
+          <span class="card-tag">Family Friendly</span>
+        </div>
+      </div>
+      <div class="card" id="card-moorooduc" data-wine-style="natural">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌾</div>
+          <span class="card-badge badge--winery">Historic</span>
+          <div class="card-title"><a href="https://moorooducestate.com.au/" target="_blank" rel="noopener">Moorooduc Estate</a></div>
+          <div class="card-location">Moorooduc</div>
+          <p class="card-desc">One of the oldest vineyards on the peninsula. Owner Richard McIntyre is genuinely one of the country's elder statesmen of low-intervention wine philosophy. Excellent Chardonnay and Pinot Noir. The peninsula's wine scene has been serious for a very long time.</p>
+          <span class="card-tag">Historic · Low-intervention</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip reveal" style="margin-top:2rem;">
+      <div class="insider-tip-label">Insider</div>
+      <p>The Red Hill Hinterland Triangle — Paringa, Montalto, and Polperro — are all within a few minutes of each other and make an ideal afternoon loop. Park the car at one, do a proper tasting, have lunch, then walk or drive to the next. Three hours, three perspectives on Red Hill Pinot Noir.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">The Peninsula Insider</div>
+    <div class="footer-tagline">Crafted with care for the Peninsula · Your complete local's guide to Mornington Peninsula, Victoria</div>
+    <div class="footer-links">
+      <a href="whats-on.html">What's On</a><a href="stay.html">Where to Stay</a><a href="eat.html">Where to Eat</a><a href="wine.html">Wine Country</a><a href="explore.html">Things to Do</a><a href="explore.html#walks">Walks &amp; Trails</a><a href="explore.html#beaches">Beaches</a><a href="explore.html#gems">Hidden Gems</a><a href="whats-on.html#april">April</a><a href="itinerary.html">Itinerary</a>
+    </div>
+    <div class="footer-bottom">
+      <p>Compiled April 2026 · Information current at time of writing — always confirm bookings and opening hours directly with venues.</p>
+      <p style="margin-top:0.5rem;">Mornington Peninsula acknowledges the Bunurong/BoonWurrung people, the Traditional Custodians of these lands and waters.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js"></script>
+<script>
+window.filterWine = function(style, btn) {
+  document.querySelectorAll('#wine-grid .card').forEach(card => {
+    card.style.display = (style === 'all' || card.dataset.wineStyle === style) ? '' : 'none';
+  });
+  document.querySelectorAll('#wine-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+};
+</script>
+</body>
+</html>

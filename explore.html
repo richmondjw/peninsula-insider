@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore — The Peninsula Insider</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">The Peninsula Insider</a>
+    <ul class="nav-links">
+      <li><span class="nav-group-trigger">Plan</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="whats-on.html">What's On</a><a href="whats-on.html#april">April Guide</a><a href="itinerary.html">Itinerary</a></div></div></li>
+      <li><span class="nav-group-trigger">Experience</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="stay.html">Where to Stay</a><a href="eat.html">Where to Eat</a><a href="wine.html">Wine Country</a></div></div></li>
+      <li><span class="nav-group-trigger">Explore</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="explore.html#do">Things to Do</a><a href="explore.html#walks">Walks &amp; Trails</a><a href="explore.html#beaches">Beaches</a><a href="explore.html#gems">Hidden Gems</a></div></div></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button class="search-trigger" id="searchTrigger" type="button" aria-label="Search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-trigger-text">Search</span></button>
+      <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.5rem 0 0.25rem;opacity:0.8;">Plan</div>
+  <a href="whats-on.html" onclick="closeMenu()">What's On</a><a href="whats-on.html#april" onclick="closeMenu()">April Guide</a><a href="itinerary.html" onclick="closeMenu()">Itinerary</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Experience</div>
+  <a href="stay.html" onclick="closeMenu()">Where to Stay</a><a href="eat.html" onclick="closeMenu()">Where to Eat</a><a href="wine.html" onclick="closeMenu()">Wine Country</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Explore</div>
+  <a href="explore.html#do" onclick="closeMenu()">Things to Do</a><a href="explore.html#walks" onclick="closeMenu()">Walks &amp; Trails</a><a href="explore.html#beaches" onclick="closeMenu()">Beaches</a><a href="explore.html#gems" onclick="closeMenu()">Hidden Gems</a>
+</div>
+<div class="search-overlay" id="searchOverlay"><div class="search-dialog" role="dialog" aria-label="Search the guide"><div class="search-input-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input class="search-input" id="searchInput" type="text" placeholder="Search venues, walks, beaches, events..." autocomplete="off" /><span class="search-kbd-hint">ESC</span></div><div class="search-results" id="searchResults"></div><div class="search-footer"><span><kbd>&#x2191;&#x2193;</kbd> Navigate</span><span><kbd>&#x21B5;</kbd> Go to</span><span><kbd>ESC</kbd> Close</span></div></div></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>&#x203A;</span> Explore</div>
+    <div class="page-header-sub">Activities, Walks, Beaches &amp; Hidden Gems</div>
+    <h1>Explore the Peninsula</h1>
+  </div>
+</div>
+
+<div class="explore-subnav">
+  <div class="container">
+    <div class="walks-filter-bar" style="margin-bottom:0;">
+      <a href="#do" class="filter-btn active" data-subnav>Things to Do</a>
+      <a href="#walks" class="filter-btn" data-subnav>Walks &amp; Trails</a>
+      <a href="#beaches" class="filter-btn" data-subnav>Beaches</a>
+      <a href="#gems" class="filter-btn" data-subnav>Hidden Gems</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 1: THINGS TO DO ===== -->
+<section class="section" id="do">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-number">01</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Experiences</span>
+        <h2>Things to Do</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:1rem;">&#x2668;&#xFE0F; Wellness &amp; Hot Springs</h3>
+
+    <div class="card-grid" style="margin-bottom:0;">
+      <div class="card" id="card-phs-main" style="grid-column: 1 / -1; max-width: 100%;">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body" style="flex-direction:row; gap:1.5rem; flex-wrap:wrap;">
+          <div style="flex:1; min-width:220px;">
+            <div class="card-emoji">&#x2668;&#xFE0F;</div>
+            <span class="card-badge badge--activity">Wellness &middot; Must Do</span>
+            <div class="card-title"><a href="https://www.peninsulahotsprings.com/" target="_blank" rel="noopener">Peninsula Hot Springs</a></div>
+            <div class="card-location">Fingal (near Rye)</div>
+          </div>
+          <div style="flex:2; min-width:260px;">
+            <p class="card-desc">Australia's original natural hot springs, drawing geothermal mineral water from deep underground. There are over 70 globally-inspired bathing experiences across two main areas: the family-friendly <strong>Bath House</strong> and the adults-only <strong>Spa Dreaming Centre</strong>. The Spa Dreaming Centre is the one to book for couples — quieter, more immersive, with cave pools, hilltop spas, and an unhurried atmosphere.</p>
+            <p class="card-desc"><strong>Don't miss:</strong> The hilltop pool at the Spa Dreaming Centre at sunset — one of the most genuinely beautiful spots on the peninsula. Bring a robe and stay until the stars come out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>Book the Spa Dreaming Centre (adults-only) rather than the standard Bath House — especially for couples. It's the premium experience, quieter, and genuinely worth the extra cost. Sessions run in set time blocks, so book the late-afternoon slot to catch the sunset from the hilltop pool.</p>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">&#x1F3A8; Arts &amp; Sculpture</h3>
+    <div class="card-grid reveal">
+      <div class="card" id="card-pt-leo-sculpture">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F5FF;</div>
+          <span class="card-badge badge--activity">Must Do &middot; Free</span>
+          <div class="card-title"><a href="https://www.ptleoestate.com.au/" target="_blank" rel="noopener">Pt Leo Estate Sculpture Park</a></div>
+          <div class="card-location">Merricks</div>
+          <p class="card-desc">A 16-acre outdoor gallery with over 60 works from major Australian and international artists — including pieces by Antony Gormley, Emily Floyd, and Marcus Tatton. Free to wander with a wine in hand. One of the best things to do on the peninsula. Allow at least 2 hours.</p>
+          <span class="card-tag">Free with estate visit &middot; 2hrs</span>
+        </div>
+      </div>
+      <div class="card" id="card-montalto-trail">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F333;</div>
+          <span class="card-badge badge--winery">Art &middot; Gardens</span>
+          <div class="card-title"><a href="https://montalto.com.au/" target="_blank" rel="noopener">Montalto Sculpture Trail</a></div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">A gentler sculpture walk through the Montalto vineyard and gardens. Pairs perfectly with lunch at the restaurant. A curated collection that changes periodically — ask the cellar door team what's new when you visit.</p>
+          <span class="card-tag">Gardens &middot; Art &middot; Wine</span>
+        </div>
+      </div>
+      <div class="card" id="card-red-hill-market">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F6D2;</div>
+          <span class="card-badge badge--dining">First Saturday Monthly</span>
+          <div class="card-title">Red Hill Market</div>
+          <div class="card-location">Red Hill Showgrounds</div>
+          <p class="card-desc">Victoria's finest artisan market, held the first Saturday of each month. Over 200 stalls of handmade arts and crafts, gourmet food, plants, artisan produce, and local creativity. Arrive early for the best selection and parking.</p>
+          <span class="card-tag">Arrive by 9am</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="april-highlight">
+      <div class="april-highlight-label">&#x1F342; April Highlight</div>
+      <p>The Red Hill Market in April is particularly special — stallholders often have autumn produce (preserves, mushrooms, quince, chestnuts) and the cooler morning temperatures make the browsing genuinely pleasant without the summer heat. Arrive before 9am for parking.</p>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">&#x1F97E; Walking &amp; Outdoors</h3>
+    <div class="card-grid reveal">
+      <div class="card" id="card-cape-schanck">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F3DB;&#xFE0F;</div>
+          <span class="card-badge badge--beach">Easy&#x2013;Medium &middot; 4km</span>
+          <div class="card-title">Cape Schanck Lighthouse Walk</div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">One of the most dramatic coastal walks in Victoria — the trail leads to the historic lighthouse at the southern tip of the peninsula, with extraordinary views over Bass Strait. The boardwalk out to the headland and Pulpit Rock is genuinely vertiginous. 4km return, allow 1.5 hours.</p>
+          <span class="card-tag">Views &middot; National Park Entry</span>
+        </div>
+      </div>
+      <div class="card" id="card-point-nepean">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F6B2;</div>
+          <span class="card-badge badge--beach">Heritage &middot; Cycling</span>
+          <div class="card-title">Point Nepean National Park</div>
+          <div class="card-location">Portsea</div>
+          <p class="card-desc">A former defence installation at the very tip of the peninsula, now a national park with extraordinary history and stunning views from Fort Nepean. Hire a bike or take the shuttle — cycling through the dune scrub is a genuine delight.</p>
+          <span class="card-tag">Heritage &middot; 10km each way</span>
+        </div>
+      </div>
+      <div class="card" id="card-bushrangers-do">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F3D6;&#xFE0F;</div>
+          <span class="card-badge badge--beach">Secret &middot; Wild</span>
+          <div class="card-title">Bushrangers Bay Walk</div>
+          <div class="card-location">Cape Schanck area</div>
+          <p class="card-desc">A shorter but spectacular walk through coastal heathland to a secluded ocean beach. The wildness of the Bass Strait coastline here — towering cliffs, sea caves, roaring surf — feels genuinely remote. One of the peninsula's best-kept secrets. 5km return.</p>
+          <span class="card-tag">Wild Coast &middot; 5km &middot; Secret Beach</span>
+        </div>
+      </div>
+      <div class="card" id="card-cycling">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F6B5;</div>
+          <span class="card-badge badge--winery">Cycling</span>
+          <div class="card-title">Red Hill Hinterland Cycling</div>
+          <div class="card-location">Red Hill</div>
+          <p class="card-desc">The rolling hills of the Red Hill hinterland are exceptional cycling territory. Dedicated bike trails connect wineries and farms through beautiful farmland. A brilliant way to link a cellar door or two without worrying about driving.</p>
+          <span class="card-tag">Cycling &middot; Winery Hopping</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">&#x1F42C; Water Activities</h3>
+    <div class="card-grid reveal">
+      <div class="card" id="card-sorrento-ferry">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x26F4;&#xFE0F;</div>
+          <span class="card-badge badge--beach">Scenic &middot; 40 min</span>
+          <div class="card-title"><a href="https://www.searoad.com.au/" target="_blank" rel="noopener">Sorrento Ferry</a></div>
+          <div class="card-location">Sorrento to Queenscliff</div>
+          <p class="card-desc">The iconic car and passenger ferry crossing Port Phillip Bay from Sorrento to Queenscliff. The crossing takes about 40 minutes and often encounters dolphins and seals. A genuinely lovely way to experience the bay.</p>
+          <span class="card-tag">Scenic Crossing</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F9AD;</div>
+          <span class="card-badge badge--beach">Snorkel &middot; Wildlife</span>
+          <div class="card-title"><a href="https://bayplay.com.au/" target="_blank" rel="noopener">Sea Search Encounters</a></div>
+          <div class="card-location">Portsea / Sorrento</div>
+          <p class="card-desc">Snorkelling and scuba trips to swim with the resident seals at Chinaman's Hat and the incredible sponge garden reef systems along the heads. The sponge gardens here are extraordinary — vivid purples, oranges, and reds. Bookings essential.</p>
+          <span class="card-tag">Snorkel &middot; Seals &middot; Sponge Gardens</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: WALKS & TRAILS ===== -->
+<section class="section section--alt" id="walks">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-number">02</span>
+      <div class="section-label-wrap">
+        <span class="section-label">On Foot</span>
+        <h2>Walks &amp; Trails</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">The Peninsula has over 100 walking tracks ranging from 30-minute clifftop strolls to serious multi-day expeditions. Two national parks bookend the tip &#x2014; Point Nepean to the north and Mornington Peninsula National Park to the south &#x2014; and the vast Greens Bush reserve connects them via the iconic Two Bays Walking Track. April is ideal: the light is extraordinary, the crowds are gone, and wildflowers are beginning to emerge.</p>
+
+    <!-- Featured Walk Hero -->
+    <div class="walk-hero reveal" id="walk-hero-bushrangers">
+      <div class="wh-badge">Featured Walk</div>
+      <h3>Bushrangers Bay via Cape Schanck</h3>
+      <div class="wh-sub">Mornington Peninsula National Park &middot; Moderate &middot; 6km return &middot; ~2 hours</div>
+      <p>Follow the Bushrangers Bay Track from the eastern carpark at Cape Schanck to witness some of the most dramatic coastal scenery near Melbourne. The track reaches Bushrangers Bay &#x2014; a pristine sandy beach formed where Main Creek meets the sea, framed by spectacular basalt cliffs. Standing on those dark volcanic platforms with Bass Strait crashing in is genuinely breathtaking.</p>
+      <p>The Cape Schanck Lighthouse stands at the trailhead &#x2014; Australia&#x27;s oldest operational lightstation on the Peninsula, and worth exploring before or after the walk. The extension north toward Greens Bush passes through shady banksia groves with sweeping views.</p>
+      <div class="wh-tags">
+        <span class="wh-tag">&#128336; ~2 hours return</span>
+        <span class="wh-tag">Cape Schanck Lighthouse carpark</span>
+        <span class="wh-tag">&#127780;&#65039; Best: morning light</span>
+        <span class="wh-tag">&#128293; No dogs (National Park)</span>
+        <span class="wh-tag">&#127774; Watch for snakes in warm weather</span>
+        <span class="wh-tag">&#128065;&#65039; Basalt cliffs &middot; Bass Strait views</span>
+      </div>
+    </div>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>Arrive at Cape Schanck by 8am in April for spectacular golden-hour light over the basalt platforms. Bring a telephoto lens if you have one &#x2014; the seabirds and rock formations reward it. The lighthouse opens from 10am if you want a guided tour.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="walks-filter-bar">
+      <span class="filter-label">Filter by difficulty:</span>
+      <button class="filter-btn active" onclick="filterWalks('all', this)">All</button>
+      <button class="filter-btn" onclick="filterWalks('easy', this)">&#x1F7E2; Easy</button>
+      <button class="filter-btn" onclick="filterWalks('moderate', this)">&#x1F7E0; Moderate</button>
+      <button class="filter-btn" onclick="filterWalks('hard', this)">&#x1F534; Hard / Epic</button>
+    </div>
+
+    <!-- Walk Cards -->
+    <div class="card-grid" id="walks-grid">
+
+      <div class="card" id="card-two-bays" data-difficulty="hard">
+        <div class="card-accent" style="background: linear-gradient(90deg, #2c5040, #1C2A3A);"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127966;</div>
+          <span class="card-badge badge--hard">Hard / Epic</span>
+          <div class="card-title">Two Bays Walking Track</div>
+          <div class="card-location">Dromana to Cape Schanck &middot; 26km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 8&#x2013;10 hours (full)</span>
+            <span class="walk-meta-item">Dromana Foreshore or Arthurs Seat</span>
+            <span class="walk-meta-item">&#128293; No dogs</span>
+          </div>
+          <p class="card-desc">The Peninsula&#x27;s signature long-distance trail, linking Port Phillip Bay at Dromana with Bass Strait at Cape Schanck. Passes through Arthurs Seat State Park, Greens Bush (largest remnant bushland), and Mornington Peninsula National Park. Grasstrees over 200 years old, fern gullies, coastal banksia, panoramic bay views. A true bucket-list Peninsula walk &#x2014; can be split into sections over multiple visits. Look for the Blue Wren symbol on track markers.</p>
+          <div class="card-tip"><strong>Insider</strong>You don&#x27;t have to walk the whole thing. The Greens Bush section (accessed near Cape Schanck) is among the most rewarding 8.9km of the trail &#x2014; eucalypt forest, grasstrees, and birdlife without the full-day commitment.</div>
+        </div>
+      </div>
+
+      <div class="card" id="card-cape-london" data-difficulty="moderate">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127758;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Coastal Walk: Cape Schanck to London Bridge</div>
+          <div class="card-location">Mornington Peninsula National Park &middot; 26km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; Full day</span>
+            <span class="walk-meta-item">Cape Schanck east carpark</span>
+            <span class="walk-meta-item">&#128293; No dogs</span>
+          </div>
+          <p class="card-desc">The spectacular clifftop traverse from Cape Schanck to London Bridge along the wild Bass Strait coast. Ocean views, hidden coves, rugged cliffs, tidal rock pools, and dense coastal scrub. Orange markers indicate through-track direction. Check tides before setting off &#x2014; some sections involve beach crossings.</p>
+          <div class="card-tip"><strong>Insider</strong>The Bay of Islands and St Paul&#x27;s detours are unmissable. Even doing the first 5km from Cape Schanck gives you some of the best scenery on the whole track.</div>
+        </div>
+      </div>
+
+      <div class="card" id="card-lifesaving" data-difficulty="moderate">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127799;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Lifesaving Track</div>
+          <div class="card-location">Portsea Area &middot; 11km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 3&#x2013;4 hours</span>
+            <span class="walk-meta-item">Portsea Ocean Beach</span>
+            <span class="walk-meta-item">&#128293; No dogs (National Park)</span>
+          </div>
+          <p class="card-desc">Built in the 1890s after two devastating shipwrecks, this historic 11km clifftop track provides access to the remote coastline. Multiple lookouts with breathtaking views down the coast &#x2014; Bay of Islands, St Paul&#x27;s, Koonya Ocean Beach. Detours to Diamond Bay and Jubilee Point are well worth the extra steps.</p>
+        </div>
+      </div>
+
+      <div class="card" id="card-summit-circuit" data-difficulty="easy">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#9968;&#65039;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Summit Circuit Walk &#x2014; Arthurs Seat</div>
+          <div class="card-location">Arthurs Seat State Park &middot; 1.8km circuit</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 1 hour</span>
+            <span class="walk-meta-item">Seawinds Gardens carpark</span>
+            <span class="walk-meta-item">&#128293; No dogs (State Park)</span>
+          </div>
+          <p class="card-desc">The ideal short summit walk for most visitors &#x2014; this loop guides you to major points of interest including Seawinds Gardens, the Matthew Flinders Cairn, William Ricketts sculptures, lookouts with bay-to-ocean views, and the Seawinds Nursery Indigenous Garden. Moderately formed track with some steps. Spectacular autumn colouring in April.</p>
+          <div class="card-tip"><strong>Insider</strong>Go early on a clear autumn morning &#x2014; from the summit you can sometimes see all the way to the You Yangs and the CBD on the other side of the bay. On a really clear day, even the Dandenong Ranges appear.</div>
+        </div>
+      </div>
+
+      <div class="card" id="card-farnsworth" data-difficulty="easy">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127750;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Farnsworth Track</div>
+          <div class="card-location">Point Nepean area &middot; 1.5km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 30&#x2013;45 min one way</span>
+            <span class="walk-meta-item">London Bridge or Portsea Ocean Beach</span>
+            <span class="walk-meta-item">&#128021; Dogs not permitted</span>
+          </div>
+          <p class="card-desc">A short, accessible clifftop link between Portsea Ocean Beach and London Bridge. Walk one way and return along the beach for a scenic circuit. Dramatic cliff views over Bass Strait with minimal effort &#x2014; perfect for families or visitors who want ocean scenery without a full hike.</p>
+        </div>
+      </div>
+
+      <div class="card" id="card-coppins" data-difficulty="easy">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127814;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Coppins Track</div>
+          <div class="card-location">Point Nepean area &middot; 4km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 1.5&#x2013;2 hours one way</span>
+            <span class="walk-meta-item">Sorrento Ocean Beach</span>
+            <span class="walk-meta-item">&#128021; Dogs not permitted</span>
+          </div>
+          <p class="card-desc">From Sorrento Ocean Beach, this clifftop walk winds 4km to Diamond Bay through coastal heathland and historic landscape. The track traces a hundred years of local history &#x2014; look for interpretive signage about the area&#x27;s military and quarantine history. Diamond Bay is a peaceful destination well off the tourist radar.</p>
+          <div class="card-tip"><strong>Insider</strong>Walk out to Diamond Bay in the morning when the light hits the bay from the east. Pack morning tea and sit on the clifftop &#x2014; you&#x27;ll have it largely to yourself on a weekday.</div>
+        </div>
+      </div>
+
+      <div class="card" id="card-greens-bush" data-difficulty="moderate">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127795;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Greens Bush &#x2014; Two Bays Section</div>
+          <div class="card-location">Greens Bush &middot; 8.9km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 3&#x2013;4 hours</span>
+            <span class="walk-meta-item">Baldry Crossing (Rogers Rd)</span>
+            <span class="walk-meta-item">&#128021; No dogs (National Park)</span>
+          </div>
+          <p class="card-desc">The most rewarding section of the Two Bays Walking Track &#x2014; threading through Greens Bush, the largest remnant bushland on the Peninsula. Ancient grasstrees (some 200+ years old), pockets of tea-tree alive with birds, fern gullies, and open eucalypt forest. Excellent for birdwatching &#x2014; Superb Fairywren, Eastern Yellow Robin, and Eastern Spinebill all common here.</p>
+          <div class="card-tip"><strong>Insider</strong>Bicycles are not permitted in Greens Bush &#x2014; which means it&#x27;s genuinely quiet. Wildlife is more active in the mornings and around dusk. Carry water: no taps along the trail.</div>
+        </div>
+      </div>
+
+      <div class="card" id="card-baldrys" data-difficulty="easy">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127794;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Baldrys Short Circuit &#x2014; Greens Bush</div>
+          <div class="card-location">Greens Bush &middot; 1.6km circuit</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 30&#x2013;45 min</span>
+            <span class="walk-meta-item">Baldry Crossing</span>
+            <span class="walk-meta-item">&#128021; No dogs</span>
+          </div>
+          <p class="card-desc">A short but rewarding circuit through eucalypt forest dominated by Peppermint, Messmate, and Manna Gum. Perfect for families or anyone wanting a genuine nature immersion without the physical commitment. The birdlife in the understory is exceptional in autumn.</p>
+        </div>
+      </div>
+
+      <div class="card" id="card-ot-dam" data-difficulty="moderate">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127754;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">OT Dam Circuit &#x2014; Arthurs Seat</div>
+          <div class="card-location">Arthurs Seat State Park &middot; 3km circuit</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; ~2 hours</span>
+            <span class="walk-meta-item">Arthurs Seat Rd near Main Creek Rd</span>
+            <span class="walk-meta-item">&#128021; No dogs</span>
+          </div>
+          <p class="card-desc">Views of the historic OT Dam &#x2014; constructed by the OT company to water their crops, now sitting in a deep gully surrounded by native forest. A quiet, contemplative walk through diverse native vegetation with some moderately steep sections. Under-the-radar compared to the summit walks.</p>
+        </div>
+      </div>
+
+      <div class="card" id="card-foreshore-walk" data-difficulty="easy">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127964;</div>
+          <span class="card-badge badge--easy">Easy &#128021;</span>
+          <div class="card-title">Mornington Peninsula Foreshore Walk</div>
+          <div class="card-location">Mornington to Mount Martha &middot; 7km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 1.5&#x2013;2 hours one way</span>
+            <span class="walk-meta-item">Mornington Main Beach carpark</span>
+            <span class="walk-meta-item">&#128021; Dogs welcome (on lead)</span>
+          </div>
+          <p class="card-desc">The most dog-friendly significant walk on the Peninsula &#x2014; the coastal foreshore path between Mornington and Mount Martha offers sweeping views of Port Phillip Bay, heritage bathing boxes, clifftop lookouts, and quiet beaches. A perfect long morning walk followed by coffee in Mornington village.</p>
+          <div class="card-tip"><strong>Insider</strong>This is one of the few Peninsula walks where dogs are genuinely welcome. Arrive early on a weekday morning for the classic Melbourne &#x27;suburb meets the sea&#x27; atmosphere at its finest.</div>
+        </div>
+      </div>
+
+      <div class="card" id="card-sorrento-blairgowrie" data-difficulty="easy">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#128703;</div>
+          <span class="card-badge badge--easy">Easy &#128021;</span>
+          <div class="card-title">Sorrento to Blairgowrie Foreshore</div>
+          <div class="card-location">Sorrento &middot; ~3km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; ~1 hour one way</span>
+            <span class="walk-meta-item">Sorrento Ocean Beach carpark</span>
+            <span class="walk-meta-item">&#128021; Dogs permitted in some sections</span>
+          </div>
+          <p class="card-desc">A relaxed foreshore stroll along the sheltered back beach between Sorrento and Blairgowrie. Calm bay waters to one side, heritage cottages and tea-tree scrub to the other. Extremely accessible, great for all fitness levels, and a lovely way to explore Sorrento without driving. Return via the village for coffee and pastries.</p>
+        </div>
+      </div>
+
+      <div class="card" id="card-fingal-beach" data-difficulty="moderate">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#128009;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Fingal Beach Track</div>
+          <div class="card-location">Mornington Peninsula National Park &middot; 3km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; ~1.5 hours one way</span>
+            <span class="walk-meta-item">Fingal Picnic Area</span>
+            <span class="walk-meta-item">&#128021; No dogs (National Park)</span>
+          </div>
+          <p class="card-desc">From the Fingal Picnic Area, this 3km track threads through dense ti-tree to stunning lookouts over Bass Strait. The contrast between enclosed coastal scrub and the sudden open ocean views is dramatic. Less visited than the Cape Schanck tracks &#x2014; feels genuinely remote despite being close to Peninsula Hot Springs.</p>
+          <div class="card-tip"><strong>Insider</strong>Combine with a Peninsula Hot Springs session at the end of the walk &#x2014; about 10 minutes&#x27; drive from the Fingal trailhead to the springs. The most rewarding walk-and-spa combination on the Peninsula.</div>
+        </div>
+      </div>
+
+    </div><!-- /walks-grid -->
+
+    <div class="insider-tip" style="margin-top:2.5rem;">
+      <div class="insider-tip-label">Peninsula Walking</div>
+      <p><strong>Dogs:</strong> Not permitted in Mornington Peninsula National Park or Arthurs Seat State Park. Dogs are welcome at some coastal foreshore walks (Mornington, Sorrento foreshore). Always check signage.<br>
+      <strong>Snakes:</strong> Eastern Browns and Tiger Snakes are present in all bushland areas. Stick to the track, wear closed shoes, and give any snakes plenty of space.<br>
+      <strong>Water:</strong> No drinking water taps on most bush tracks. Carry at least 1L per person for any walk over 2 hours.<br>
+      <strong>Tides:</strong> Some coastal sections are tidal. Check Bureau of Meteorology before any beach traverse.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECTION 3: BEACHES ===== -->
+<section class="section" id="beaches">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-number">03</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Coast &amp; Sea</span>
+        <h2>Best Beaches</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">The peninsula has two fundamentally different coastlines. The <strong>Port Phillip Bay side</strong> offers calm, warm, family-friendly beaches with shallow water and gentle conditions. The <strong>Bass Strait (ocean) side</strong> is wild, powerful, and achingly beautiful — dramatic surf, towering cliffs, and a raw energy that feels completely different. Both are worth experiencing.</p>
+
+    <!-- Beach Filters -->
+    <div class="walks-filter-bar" id="beach-filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="filterBeaches('all', this)">All</button>
+      <button class="filter-btn" onclick="filterBeaches('bay', this)">&#x1F3D6;&#xFE0F; Bay Beaches</button>
+      <button class="filter-btn" onclick="filterBeaches('ocean', this)">&#x1F30A; Ocean Beaches</button>
+    </div>
+
+    <div data-beach="bay">
+    <h3 style="margin-bottom:1.25rem;">Bay Beaches &#x2014; Calm &amp; Swimming</h3>
+    <div class="card-grid reveal">
+      <div class="card" id="card-sorrento-front">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">&#x1F3D6;&#xFE0F;</div>
+          <div class="card-title">Sorrento Front Beach</div>
+          <div class="card-location">Sorrento</div>
+          <p class="card-desc">The classic peninsula bay beach — calm, clear, shallow water with the iconic wooden bathing boxes. Great for a morning swim or afternoon wander. The village of Sorrento immediately behind means excellent coffee and lunch options within walking distance.</p>
+          <span class="card-tag">Swimming &middot; Bathing Boxes &middot; Village</span>
+        </div>
+      </div>
+      <div class="card" id="card-portsea-front">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">&#x1F3D6;&#xFE0F;</div>
+          <div class="card-title">Portsea Front Beach</div>
+          <div class="card-location">Portsea</div>
+          <p class="card-desc">Slightly less busy than Sorrento but equally lovely. The private pier and white sand give it a genuine Hamptons feel on a sunny autumn morning. Weekday visits in April are essentially deserted.</p>
+          <span class="card-tag">Quiet in April &middot; Pier &middot; Clear Water</span>
+        </div>
+      </div>
+      <div class="card" id="card-dromana-beach">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">&#x1F3D6;&#xFE0F;</div>
+          <div class="card-title">Dromana Beach</div>
+          <div class="card-location">Dromana</div>
+          <p class="card-desc">A long, gentle arc of sand near the midpoint of the peninsula. Excellent access, calm conditions, and close to the Dromana/Rosebud dining and shopping strip. A good base beach if you're staying in the upper peninsula.</p>
+          <span class="card-tag">Accessible &middot; Long Stretch</span>
+        </div>
+      </div>
+      <div class="card" id="card-safety-beach">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">&#x1F30A;</div>
+          <div class="card-title">Safety Beach</div>
+          <div class="card-location">Safety Beach</div>
+          <p class="card-desc">The peninsula's most reliably calm swimming beach — the name is accurate. Shallow, warm water even by April standards, with Martha's Table nearby for post-swim aperitivo. Good for an early morning walk along the long, flat shoreline.</p>
+          <span class="card-tag">Swimming &middot; Safe for All</span>
+        </div>
+      </div>
+    </div>
+    </div><!-- /data-beach=bay -->
+
+    <div data-beach="ocean">
+    <h3 style="margin-top:2.5rem; margin-bottom:1.25rem;">Ocean Beaches &#x2014; Wild &amp; Dramatic</h3>
+    <div class="card-grid reveal">
+      <div class="card" id="card-gunnamatta">
+        <div class="card-accent" style="height:4px;background:var(--terra);"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--ocean">Bass Strait Ocean</span>
+          <div class="card-emoji">&#x1F30A;</div>
+          <div class="card-title">Gunnamatta Ocean Beach</div>
+          <div class="card-location">Gunnamatta</div>
+          <p class="card-desc">Long, wild, and remote-feeling despite being accessible. Powerful surf, huge skies, and almost no one in April. Not for swimming (strong rips), but extraordinary for walking and watching the power of Bass Strait. Surfers love the consistent beach break.</p>
+          <span class="card-tag">Walking &middot; Surfing &middot; Wild &middot; No Swimming</span>
+        </div>
+      </div>
+      <div class="card" id="card-sorrento-back">
+        <div class="card-accent" style="height:4px;background:var(--terra);"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--ocean">Bass Strait Ocean</span>
+          <div class="card-emoji">&#x1F3D4;&#xFE0F;</div>
+          <div class="card-title">Sorrento Back Beach</div>
+          <div class="card-location">Sorrento (ocean side)</div>
+          <p class="card-desc">Just a few kilometres from the calm front beach, the back beach is a completely different world — dramatic limestone cliffs, powerful surf, and an atmosphere of genuine wildness. Walk the clifftop track south toward London Bridge rock formation.</p>
+          <span class="card-tag">Clifftop Walk &middot; Wild &middot; No Swimming</span>
+        </div>
+      </div>
+      <div class="card" id="card-rye-ocean">
+        <div class="card-accent" style="height:4px;background:var(--terra);"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--ocean">Bass Strait Ocean</span>
+          <div class="card-emoji">&#x1F4A8;</div>
+          <div class="card-title">Rye Ocean Beach</div>
+          <div class="card-location">Rye</div>
+          <p class="card-desc">Near the Peninsula Hot Springs and great to combine with a springs visit. Wide, exposed beach with dune backing. In April it's nearly empty. Excellent for a brisk morning walk and bracing sea air.</p>
+          <span class="card-tag">Near Hot Springs &middot; Walk</span>
+        </div>
+      </div>
+    </div>
+    </div><!-- /data-beach=ocean -->
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>In April, the bay beaches are still warm enough for a morning dip — the water temperature lags behind the air by a few weeks after summer. The ocean beaches are spectacular but genuinely dangerous for swimming year-round due to rips. Never swim at Back Beach or Gunnamatta without surf lifesaving supervision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: HIDDEN GEMS ===== -->
+<section class="section section--alt" id="gems">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-number">04</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Off the Beaten Track</span>
+        <h2>Hidden Gems &amp; Insider Picks</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">These are the places locals mention quietly, the ones that don't feature prominently in the tourist brochures but define what makes the peninsula feel special to those who really know it.</p>
+
+    <div class="card-grid reveal">
+      <div class="card" id="card-nazaaray">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F682;</div>
+          <span class="card-badge badge--winery">Natural Wines</span>
+          <div class="card-title"><a href="https://nazaaray.com.au/" target="_blank" rel="noopener">Nazaaray Estate</a></div>
+          <div class="card-location">Flinders</div>
+          <p class="card-desc">What this tiny winery lacks in size it more than makes up for in character. The quaint guesthouses are made from reconverted 1930s train carriages. The wines — naturally fermented with wild yeast — are genuinely idiosyncratic and fascinating. A visit feels like discovering something private.</p>
+          <span class="card-tag">Train Carriage Stay &middot; Natural Wines</span>
+        </div>
+      </div>
+      <div class="card" id="card-allis">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F331;</div>
+          <span class="card-badge badge--winery">Low-waste</span>
+          <div class="card-title"><a href="https://www.alliswinebar.com.au/" target="_blank" rel="noopener">Allis Wine Bar</a></div>
+          <div class="card-location">Main Ridge</div>
+          <p class="card-desc">The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining operation. Small plates, garden-harvested ingredients, a thoughtful wine list, and genuinely good conversation. The kind of find that feels like your own discovery.</p>
+          <span class="card-tag">Small Plates &middot; Local &middot; Thoughtful</span>
+        </div>
+      </div>
+      <div class="card" id="card-barragunda">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F33E;</div>
+          <span class="card-badge badge--dining">Regenerative Farm</span>
+          <div class="card-title"><a href="https://www.barragunda.com.au/" target="_blank" rel="noopener">Barragunda Dining</a></div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">Set on a 1000-acre regenerative farm estate, chef Simone Watts's diner is one of the peninsula's most compelling new voices. Genuinely farm-to-table in the most literal sense. Not widely publicised; deeply worth seeking out.</p>
+          <span class="card-tag">New Voice &middot; Farm-to-Table</span>
+        </div>
+      </div>
+      <div class="card" id="card-bushrangers-gem">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F5FA;&#xFE0F;</div>
+          <span class="card-badge badge--beach">Secret Beach</span>
+          <div class="card-title">Bushrangers Bay</div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">A hidden ocean beach accessed via a 2.5km walk through coastal heathland from Cape Schanck. Almost nobody goes here even in summer. In April it's completely deserted. Dramatic rock formations, sea caves, and the raw power of the Southern Ocean.</p>
+          <span class="card-tag">Secret Beach &middot; 2.5km walk</span>
+        </div>
+      </div>
+      <div class="card" id="card-many-little">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F35B;</div>
+          <span class="card-badge badge--dining">Sri Lankan &middot; Unusual</span>
+          <div class="card-title"><a href="https://www.manylittle.com.au/" target="_blank" rel="noopener">Many Little</a></div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">Sri Lankan flavours and techniques meet European wine bar ambience in this unique spot from the Polperro winery team. Curry leaves, tamarind chutney, pickled lime — rotating alongside natural wines and small producers. Completely unexpected, works brilliantly.</p>
+          <span class="card-tag">Natural Wine &middot; Creative</span>
+        </div>
+      </div>
+      <div class="card" id="card-bay-hotel">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#x1F3B5;</div>
+          <span class="card-badge badge--dining">Live Music &middot; Heritage</span>
+          <div class="card-title"><a href="https://www.thebayhotelmornington.com.au/" target="_blank" rel="noopener">The Bay Hotel Mornington</a></div>
+          <div class="card-location">Mornington</div>
+          <p class="card-desc">A vibrant gastropub in a heritage-listed former bank — sit in the main bar, catch live music in the upstairs bandroom, or book a private dinner in the building's old vault. One of the most characterful venues in the peninsula towns.</p>
+          <span class="card-tag">Local Institution</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>The peninsula's best-kept food secret: the farm gates and provedores dotted along Mornington&#x2013;Flinders Road and throughout the Red Hill hinterland. Look for handmade signs for local eggs, heritage vegetables, honey, and seasonal produce. This is where peninsula chefs shop on weekday mornings.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">The Peninsula Insider</div>
+    <div class="footer-tagline">Crafted with care for the Peninsula &middot; Your complete local's guide to Mornington Peninsula, Victoria</div>
+    <div class="footer-links">
+      <a href="whats-on.html">What's On</a>
+      <a href="stay.html">Where to Stay</a>
+      <a href="eat.html">Where to Eat</a>
+      <a href="wine.html">Wine Country</a>
+      <a href="explore.html">Things to Do</a>
+      <a href="explore.html#walks">Walks &amp; Trails</a>
+      <a href="explore.html#beaches">Beaches</a>
+      <a href="explore.html#gems">Hidden Gems</a>
+      <a href="whats-on.html#april">April</a>
+      <a href="itinerary.html">Itinerary</a>
+    </div>
+    <div class="footer-bottom">
+      <p>Compiled April 2026 &middot; Information current at time of writing — always confirm bookings and opening hours directly with venues.</p>
+      <p style="margin-top:0.5rem;">Mornington Peninsula acknowledges the Bunurong/BoonWurrung people, the Traditional Custodians of these lands and waters.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/shared.js"></script>
+<script>
+// Walk difficulty filter
+window.filterWalks = function(difficulty, btn) {
+  var cards = document.querySelectorAll('#walks-grid .card');
+  cards.forEach(function(card) {
+    card.style.display = (difficulty === 'all' || card.dataset.difficulty === difficulty) ? '' : 'none';
+  });
+  document.querySelectorAll('#walks .walks-filter-bar .filter-btn').forEach(function(b) {
+    b.classList.remove('active', 'active-easy', 'active-moderate', 'active-hard');
+  });
+  btn.classList.add('active');
+  if (difficulty !== 'all') btn.classList.add('active-' + difficulty);
+};
+
+// Beach filter
+window.filterBeaches = function(coast, btn) {
+  document.querySelectorAll('#beaches [data-beach]').forEach(function(section) {
+    section.style.display = (coast === 'all' || section.dataset.beach === coast) ? '' : 'none';
+  });
+  document.querySelectorAll('#beach-filter-bar .filter-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+};
+
+// Sticky sub-nav active state
+var subnavLinks = document.querySelectorAll('[data-subnav]');
+var subnavObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var id = entry.target.getAttribute('id');
+      subnavLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+      });
+    }
+  });
+}, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+document.querySelectorAll('#do, #walks, #beaches, #gems').forEach(function(s) { subnavObserver.observe(s); });
+</script>
+</body>
+</html>

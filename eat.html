@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where to Eat — The Peninsula Insider</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">The Peninsula Insider</a>
+    <ul class="nav-links">
+      <li><span class="nav-group-trigger">Plan</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="whats-on.html">What's On</a><a href="whats-on.html#april">April Guide</a><a href="itinerary.html">Itinerary</a></div></div></li>
+      <li><span class="nav-group-trigger">Experience</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="stay.html">Where to Stay</a><a href="eat.html">Where to Eat</a><a href="wine.html">Wine Country</a></div></div></li>
+      <li><span class="nav-group-trigger">Explore</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="explore.html#do">Things to Do</a><a href="explore.html#walks">Walks &amp; Trails</a><a href="explore.html#beaches">Beaches</a><a href="explore.html#gems">Hidden Gems</a></div></div></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button class="search-trigger" id="searchTrigger" type="button" aria-label="Search"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="search-trigger-text">Search</span></button>
+      <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.5rem 0 0.25rem;opacity:0.8;">Plan</div>
+  <a href="whats-on.html" onclick="closeMenu()">What's On</a><a href="whats-on.html#april" onclick="closeMenu()">April Guide</a><a href="itinerary.html" onclick="closeMenu()">Itinerary</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Experience</div>
+  <a href="stay.html" onclick="closeMenu()">Where to Stay</a><a href="eat.html" onclick="closeMenu()">Where to Eat</a><a href="wine.html" onclick="closeMenu()">Wine Country</a>
+  <div style="font-family:'Outfit',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);padding:0.75rem 0 0.25rem;opacity:0.8;">Explore</div>
+  <a href="explore.html#do" onclick="closeMenu()">Things to Do</a><a href="explore.html#walks" onclick="closeMenu()">Walks &amp; Trails</a><a href="explore.html#beaches" onclick="closeMenu()">Beaches</a><a href="explore.html#gems" onclick="closeMenu()">Hidden Gems</a>
+</div>
+<div class="search-overlay" id="searchOverlay"><div class="search-dialog" role="dialog" aria-label="Search the guide"><div class="search-input-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input class="search-input" id="searchInput" type="text" placeholder="Search venues, walks, beaches, events..." autocomplete="off" /><span class="search-kbd-hint">ESC</span></div><div class="search-results" id="searchResults"></div><div class="search-footer"><span><kbd>↑↓</kbd> Navigate</span><span><kbd>↵</kbd> Go to</span><span><kbd>ESC</kbd> Close</span></div></div></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> Where to Eat</div>
+    <div class="page-header-sub">Dining</div>
+    <h1>Where to Eat</h1>
+  </div>
+</div>
+
+<section class="section" id="eat">
+  <div class="container">
+
+    <p style="max-width:760px; margin-bottom:2rem;">The peninsula's dining scene has undergone a quiet revolution over the past decade. The combination of extraordinary local produce — seafood, dairy, lamb, vegetables from rich volcanic soils — and a highly competitive wine country environment has pushed restaurant quality well above what you'd expect for a regional area.</p>
+
+    <!-- Eat Filters -->
+    <div class="walks-filter-bar" id="eat-filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="filterEat('all', this)">All</button>
+      <button class="filter-btn" onclick="filterEat('special', this)">✨ Special Occasion</button>
+      <button class="filter-btn" onclick="filterEat('casual', this)">🌿 Casual</button>
+      <button class="filter-btn" onclick="filterEat('breakfast', this)">☕ Breakfast</button>
+    </div>
+
+    <!-- Special Occasion -->
+    <div class="tier-section" data-tier="special">
+      <div class="tier-header">
+        <span class="tier-label tier-label--special">✨ Special Occasion</span>
+      </div>
+      <div class="card-grid reveal">
+        <div class="card card--featured" id="card-doot-doot-doot">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--featured">Jackalope Hotel</span>
+            <div class="card-title"><a href="https://dootdootdoot.com.au/" target="_blank" rel="noopener">Doot Doot Doot</a></div>
+            <div class="card-location">Merricks North</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Jackalope's headline fine diner is theatrical, indulgent, and genuinely excellent. Chef delivers a menu built around exceptional local produce with a commitment to seasonality and wine pairing. Caviar features. Long degustation format. One of the peninsula's true bucket-list meals.</p>
+            <span class="card-tag">Degustation · Book Months Ahead</span>
+          </div>
+        </div>
+        <div class="card" id="card-laura">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Fine Dining</span>
+            <div class="card-title"><a href="https://www.ptleoestate.com.au/dine/laura/" target="_blank" rel="noopener">Laura at Point Leo Estate</a></div>
+            <div class="card-location">Merricks</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Chef Josep Espuga's European-leaning fine diner sits within the remarkable Point Leo Estate — a working winery and 16-acre sculpture park. Among the very finest tables on the peninsula. The view from the terrace as you finish lunch is simply spectacular.</p>
+            <span class="card-tag">Fine Dining · Sculpture Park</span>
+          </div>
+        </div>
+        <div class="card" id="card-tmbt-restaurant">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Hatted</span>
+            <div class="card-title"><a href="https://www.tenminutesbytractor.com.au/" target="_blank" rel="noopener">Ten Minutes by Tractor</a></div>
+            <div class="card-location">Main Ridge</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Elegant, produce-driven dishes matched with the winery's award-winning cellar. The dining combines silver service with genuine country warmth — it never feels stuffy. The views over vineyards and bushland are as good as any in the region.</p>
+            <span class="card-tag">Hatted · Silver Service</span>
+          </div>
+        </div>
+        <div class="card" id="card-tedesca">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Italian · Farm-to-Table</span>
+            <div class="card-title"><a href="https://www.tedesca.com.au/" target="_blank" rel="noopener">Tedesca Osteria</a></div>
+            <div class="card-location">Red Hill</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Chef Brigitte Hafner and wine director James Broadway's intimate 30-seater feels like the most brilliant dinner party you've ever attended. Rustic, honest Italian-inflected cooking from exceptional local produce. One of the most purely enjoyable meals on the peninsula.</p>
+            <span class="card-tag">Italian · 30 seats only</span>
+          </div>
+        </div>
+        <div class="card" id="card-paringa-restaurant">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Winery Restaurant</span>
+            <div class="card-title"><a href="https://paringaestate.com.au/restaurant/" target="_blank" rel="noopener">Paringa Estate Restaurant</a></div>
+            <div class="card-location">Red Hill South</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Set on a winery with some of the oldest vines on the peninsula, Paringa's restaurant has grown its own considerable reputation. Polished, confident cooking with outstanding matched wines from their estate. The outdoor terrace in autumn is divine.</p>
+            <span class="card-tag">Winery Restaurant · Hatted</span>
+          </div>
+        </div>
+        <div class="card" id="card-ppe-restaurant">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Views · Estate</span>
+            <div class="card-title"><a href="https://www.portphillipestate.com.au/" target="_blank" rel="noopener">Port Phillip Estate</a></div>
+            <div class="card-location">Red Hill South</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Some of the finest food, wine and views on the entire peninsula. The restaurant commands panoramic views over the estate and Port Phillip Bay beyond — the visual payoff alone is worth the visit. The cooking is confident and local-produce focused.</p>
+            <span class="card-tag">Views · Estate Dining</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip reveal">
+      <div class="insider-tip-label">Insider</div>
+      <p>For a special occasion meal at the right price point: Laura at Point Leo combines extraordinary quality with a slightly more accessible format than Doot Doot Doot — and the sculpture park walk before or after makes it a genuinely complete experience rather than just dinner.</p>
+    </div>
+
+    <!-- Casual -->
+    <div class="tier-section" data-tier="casual">
+      <div class="tier-header">
+        <span class="tier-label tier-label--casual">🌿 Casual &amp; Relaxed</span>
+      </div>
+      <div class="card-grid reveal">
+        <div class="card" id="card-rare-hare">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🔥</div>
+            <span class="card-badge badge--dining">Share Plates</span>
+            <div class="card-title"><a href="https://rarehare.com.au/" target="_blank" rel="noopener">Rare Hare</a></div>
+            <div class="card-location">Merricks North (Jackalope)</div>
+            <p class="card-desc">Long communal tables, woodfired cooking, share plates and Willow Creek wines by the glass. The vibe is convivial, the food is genuinely excellent. Saturday lunch here is one of the great peninsula pleasures.</p>
+            <span class="card-tag">Woodfired · Share Plates</span>
+          </div>
+        </div>
+        <div class="card" id="card-montalto-restaurant">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌿</div>
+            <span class="card-badge badge--winery">Gardens · Winery</span>
+            <div class="card-title"><a href="https://montalto.com.au/" target="_blank" rel="noopener">Montalto</a></div>
+            <div class="card-location">Red Hill South</div>
+            <p class="card-desc">Seven vineyards, more than 30 acres of vines, and a restaurant that delivers confident, produce-driven cooking alongside excellent estate wines. The gardens and sculpture trail are an added bonus — wander before or after lunch.</p>
+            <span class="card-tag">Gardens · Sculpture Trail</span>
+          </div>
+        </div>
+        <div class="card" id="card-polperro-restaurant">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍷</div>
+            <span class="card-badge badge--winery">Views · Wine</span>
+            <div class="card-title"><a href="https://www.polperrowines.com.au/" target="_blank" rel="noopener">Polperro Winery</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Panoramic views of vines and native trees, clean modern interiors, and a share-plate menu that draws from all directions with genuine skill. One of the peninsula's quintessential long-lunch venues.</p>
+            <span class="card-tag">Share Plates · Views</span>
+          </div>
+        </div>
+        <div class="card" id="card-marthas-table">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌊</div>
+            <span class="card-badge badge--beach">Mediterranean</span>
+            <div class="card-title"><a href="https://www.marthastable.com.au/" target="_blank" rel="noopener">Martha's Table</a></div>
+            <div class="card-location">Safety Beach</div>
+            <p class="card-desc">Marine-hued dining room, casual aperitivo bar and in-house provedore — this handsome all-in-one brings Mediterranean living to the marina. One of the more beautiful rooms on the peninsula.</p>
+            <span class="card-tag">Marina Setting</span>
+          </div>
+        </div>
+        <div class="card" id="card-red-gum">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍖</div>
+            <span class="card-badge badge--dining">American BBQ</span>
+            <div class="card-title"><a href="https://redgumbbq.com.au/" target="_blank" rel="noopener">Red Gum BBQ</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Rolled up sleeves, airy warehouse, picnic tables and excellent American BBQ: pulled pork, beef brisket, smoked chicken. A rollicking antidote to the fancy winery restaurant circuit.</p>
+            <span class="card-tag">BBQ · Casual · Hearty</span>
+          </div>
+        </div>
+        <div class="card" id="card-bistro-elba">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥐</div>
+            <span class="card-badge badge--dining">French Bistro</span>
+            <div class="card-title"><a href="https://www.bistroelba.com.au/" target="_blank" rel="noopener">Bistro Elba</a></div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">Beach-y, artfully dilapidated French bistro with twice-baked cheese soufflé, gin-cured ocean trout and a wine list of small emerging French producers. The kind of place that feels like a lucky find every time.</p>
+            <span class="card-tag">French · Sorrento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breakfast -->
+    <div class="tier-section" data-tier="breakfast">
+      <div class="tier-header">
+        <span class="tier-label tier-label--breakfast">☕ Breakfast &amp; Brunch</span>
+      </div>
+      <div class="card-grid reveal">
+        <div class="card" id="card-foxeys">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌅</div>
+            <span class="card-badge badge--winery">Brunch · Winery</span>
+            <div class="card-title"><a href="https://www.foxeys-hangout.com.au/" target="_blank" rel="noopener">Foxey's Hangout</a></div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Laidback, sunny, spacious — set on a lovely estate with an open kitchen and outdoor deck. Easy-drinking wines and a generous brunch menu. One of the most relaxed morning spots in the hinterland.</p>
+            <span class="card-tag">Outdoors · Relaxed</span>
+          </div>
+        </div>
+        <div class="card" id="card-ouest-france">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥞</div>
+            <span class="card-badge badge--dining">French · Crepes</span>
+            <div class="card-title"><a href="https://www.ouestfrance.com.au/" target="_blank" rel="noopener">Ouest France Bistro</a></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Once a creperie, now a charming French bistro bringing Brittany to the peninsula. Classic dishes, Breton specialties and excellent coffee in a small, intimate setting. Look for the blue-and-white awning.</p>
+            <span class="card-tag">French · Breton</span>
+          </div>
+        </div>
+        <div class="card" id="card-yabby-lake-restaurant">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍾</div>
+            <span class="card-badge badge--winery">Cellar Door</span>
+            <div class="card-title"><a href="https://www.yabbylake.com/" target="_blank" rel="noopener">Yabby Lake Cellar Door</a></div>
+            <div class="card-location">Tuerong</div>
+            <p class="card-desc">Opens for tastings from mid-morning and the relaxed restaurant does excellent two- or three-course lunches. Arrive early, taste the single-vineyard chardonnay before lunch — one of the peninsula's most consistent wine experiences.</p>
+            <span class="card-tag">Early Lunch · Single Vineyard</span>
+          </div>
+        </div>
+        <div class="card" id="card-mr-vincenzos">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍝</div>
+            <span class="card-badge badge--dining">Italian</span>
+            <div class="card-title"><a href="https://mrvincenzos.com/" target="_blank" rel="noopener">Mr Vincenzo's</a></div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">1970s Italian vibes, large-format pastas, and a genuinely fun atmosphere. Ideal for a laid-back late morning or early lunch when you want something hearty and characterful.</p>
+            <span class="card-tag">Italian · Character</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="april-highlight">
+      <div class="april-highlight-label">April</div>
+      <p>April is truffle season in Victoria — several peninsula restaurants and producers incorporate fresh local truffles into their menus from late April. Ask your restaurant about seasonal truffle features when booking.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">The Peninsula Insider</div>
+    <div class="footer-tagline">Crafted with care for the Peninsula · Your complete local's guide to Mornington Peninsula, Victoria</div>
+    <div class="footer-links">
+      <a href="whats-on.html">What's On</a><a href="stay.html">Where to Stay</a><a href="eat.html">Where to Eat</a><a href="wine.html">Wine Country</a><a href="explore.html">Things to Do</a><a href="explore.html#walks">Walks &amp; Trails</a><a href="explore.html#beaches">Beaches</a><a href="explore.html#gems">Hidden Gems</a><a href="whats-on.html#april">April</a><a href="itinerary.html">Itinerary</a>
+    </div>
+    <div class="footer-bottom">
+      <p>Compiled April 2026 · Information current at time of writing — always confirm bookings and opening hours directly with venues.</p>
+      <p style="margin-top:0.5rem;">Mornington Peninsula acknowledges the Bunurong/BoonWurrung people, the Traditional Custodians of these lands and waters.</p>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js"></script>
+<script>
+window.filterEat = function(tier, btn) {
+  document.querySelectorAll('.tier-section').forEach(section => {
+    section.style.display = (tier === 'all' || section.dataset.tier === tier) ? '' : 'none';
+  });
+  document.querySelectorAll('#eat-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+};
+</script>
+</body>
+</html>
