@@ -24,10 +24,18 @@
   --radius:      6px;
   --max-w:       1100px;
   --text-w:      680px;
+  --prose-w:     720px;
   --shadow-sm:   0 1px 3px rgba(30,27,24,0.04);
   --shadow-md:   0 4px 16px rgba(30,27,24,0.06);
   --shadow-lg:   0 12px 40px rgba(30,27,24,0.1);
   --ease:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Legacy aliases — referenced by some pages, mapped to design system */
+  --terra:       #8B4E3B;  /* = --accent */
+  --terra-light: rgba(139,78,59,0.08);
+  --navy:        #4A5568;
+  --navy-light:  rgba(74,85,104,0.08);
+  --navy-mid:    rgba(74,85,104,0.20);
+  --ink-soft:    #7A726A;  /* = --text-soft */
 }
 
 /* ===== RESET ===== */
@@ -163,6 +171,17 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   margin: 0;
 }
 
+/* ===== INTRO TEXT ===== */
+.intro-text {
+  max-width: var(--prose-w);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: var(--text-soft);
+}
+.intro-text + .intro-text { margin-top: -0.5rem; }
+
 /* ===== INSIDER TIP ===== */
 .insider-tip {
   border-left: 2px solid var(--gold);
@@ -231,22 +250,27 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   margin: 0 auto;
   padding: 0 clamp(1.25rem, 4vw, 3rem);
   height: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
 }
 .nav-brand {
   font-family: 'Fraunces', serif;
   font-size: 1.15rem;
   font-weight: 400;
   font-style: italic;
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: -0.01em;
+  line-height: 1;
   color: var(--dark);
   white-space: nowrap;
 }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.1rem;
+  justify-content: center;
+  gap: 0.5rem;
   list-style: none;
 }
 .nav-links > li { position: relative; }
@@ -318,6 +342,14 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   background: var(--bg);
 }
 
+/* Nav right-side container */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
 /* Hamburger */
 .nav-hamburger {
   display: none;
@@ -338,6 +370,20 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile nav section group labels */
+.nav-mobile-group {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 1rem 0 0.25rem;
+}
+.nav-mobile-group:first-child {
+  padding-top: 0.5rem;
+}
 
 /* Mobile nav */
 .nav-mobile {
@@ -1025,9 +1071,17 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
   font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase; padding: 0; border-radius: 0;
 }
-.tier-label--special  { background: transparent; color: var(--dark); }
-.tier-label--casual   { background: transparent; color: var(--sage); }
-.tier-label--breakfast{ background: transparent; color: var(--gold); }
+.tier-label--special   { background: transparent; color: var(--dark); }
+.tier-label--casual    { background: transparent; color: var(--sage); }
+.tier-label--breakfast { background: transparent; color: var(--gold); }
+.tier-label--seafood   { background: transparent; color: #5B8A9B; }
+.tier-label--pub       { background: transparent; color: var(--text-soft); }
+.tier-label--pizza     { background: transparent; color: var(--accent); }
+.tier-label--bakery    { background: transparent; color: #A07848; }
+.tier-label--sweets    { background: transparent; color: #9B6B7A; }
+.tier-label--asian     { background: transparent; color: #7A6B4E; }
+.tier-label--brewery   { background: transparent; color: var(--sage); }
+.tier-label--producer  { background: transparent; color: #5A7A50; }
 .tier-header::after {
   content: '';
   width: 0; height: 0;
@@ -1122,6 +1176,9 @@ footer {
 .footer-brand {
   font-family: 'Fraunces', serif;
   font-size: 1.5rem; font-weight: 400; font-style: italic;
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: -0.01em;
   color: var(--white); margin-bottom: 0.35rem;
 }
 .footer-tagline {
