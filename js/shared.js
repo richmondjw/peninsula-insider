@@ -108,6 +108,72 @@ document.querySelectorAll('.tier-section').forEach(function(section, i) {
   });
 });
 
+// ===== FOOTER SUBSCRIBE FORM =====
+(function() {
+  var form = document.getElementById('subscribeForm');
+  if (!form) return;
+  var input = form.querySelector('input[type="email"]');
+  var button = form.querySelector('button[type="submit"]');
+  var msg = document.getElementById('subscribeMsg');
+
+  // Supabase edge function endpoint
+  var ENDPOINT = 'https://pkrvoxvswcghshfbtxtx.supabase.co/functions/v1/public-lead-intake';
+
+  function showMsg(text, type) {
+    msg.textContent = text;
+    msg.className = 'subscribe-msg visible ' + type;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = input.value.trim();
+    if (!email) return;
+
+    button.disabled = true;
+    var originalText = button.textContent;
+    button.textContent = 'Sending';
+    msg.className = 'subscribe-msg';
+    msg.textContent = '';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        source: 'peninsulainsider.com.au',
+        source_detail: window.location.pathname,
+        form_name: 'footer_subscribe',
+        source_page: window.location.href
+      })
+    })
+    .then(function(res) {
+      return res.json().then(function(data) { return { ok: res.ok, data: data }; });
+    })
+    .then(function(result) {
+      if (result.ok) {
+        showMsg('Thank you. You are subscribed.', 'success');
+        input.value = '';
+        button.textContent = originalText;
+      } else {
+        var errorText = (result.data && result.data.error) || 'Something went wrong';
+        if (errorText.toLowerCase().indexOf('invalid') !== -1) {
+          showMsg('Please enter a valid email address.', 'error');
+        } else {
+          showMsg('Something went wrong. Please try again.', 'error');
+        }
+        button.textContent = originalText;
+      }
+    })
+    .catch(function() {
+      showMsg('Connection error. Please try again.', 'error');
+      button.textContent = originalText;
+    })
+    .finally(function() {
+      setTimeout(function() { button.disabled = false; }, 800);
+    });
+  });
+})();
+
 // ===== CROSS-PAGE SEARCH =====
 (function() {
   var overlay = document.getElementById('searchOverlay');
