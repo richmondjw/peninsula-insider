@@ -1,72 +1,803 @@
 [
-  {"title":"Red Hot Summer Tour","location":"Mornington Racecourse · Sat 11 April","desc":"Paul Kelly, Missy Higgins, The Cruel Sea, The Cat Empire, Kasey Chambers. Gates 1pm.","emoji":"🎵","section":"What's On","page":"whats-on.html","anchor":"event-red-hot-summer"},
-  {"title":"Mornington Cup + Easterland","location":"Mornington Racecourse · Easter Saturday 19 April","desc":"Horse racing, Easterland family zone, The Distillery Room pop-up.","emoji":"🏇","section":"What's On","page":"whats-on.html","anchor":"event-mornington-cup"},
-  {"title":"Hill & Ridge Community Market","location":"Red Hill · Sat 4 Apr","desc":"Local produce, artisan goods, food vendors. Autumn harvest at peak.","emoji":"🛒","section":"What's On","page":"whats-on.html","anchor":"event-hill-ridge"},
-  {"title":"Soul Night Market","location":"Sorrento Beach · Fri 10 Apr","desc":"Atmospheric evening market on the Sorrento beachfront.","emoji":"🛒","section":"What's On","page":"whats-on.html","anchor":"event-soul-night"},
-  {"title":"Mornington Racecourse Market","location":"Mornington · Sun 12 Apr","desc":"One of the Peninsula's biggest markets with hundreds of stalls.","emoji":"🛒","section":"What's On","page":"whats-on.html","anchor":"event-racecourse-market"},
-  {"title":"ANZAC Day Dawn Services","location":"Multiple Peninsula locations · Sat 25 Apr","desc":"Dawn services and marches across the peninsula.","emoji":"🎖️","section":"What's On","page":"whats-on.html","anchor":"event-anzac-day"},
-  {"title":"New Wave 26","location":"Mornington Peninsula Regional Gallery","desc":"Contemporary group exhibition showcasing emerging and mid-career artists.","emoji":"🖼️","section":"What's On","page":"whats-on.html","anchor":"card-new-wave"},
-  {"title":"Peninsula Hot Springs — Body Clay Ritual","location":"Peninsula Hot Springs, Fingal","desc":"Signature wellness ritual using thermal clay from the springs.","emoji":"♨️","section":"What's On","page":"whats-on.html","anchor":"card-body-clay"},
-  {"title":"Peninsula Hot Springs — Fire & Ice Workshop","location":"Peninsula Hot Springs, Fingal","desc":"Expert-guided hot-cold contrast therapy: sauna + cold plunge.","emoji":"🔥","section":"What's On","page":"whats-on.html","anchor":"card-fire-ice"},
-  {"title":"Jackalope Hotel","location":"Merricks North","desc":"Design-forward luxury hotel in Willow Creek Vineyard. Doot Doot Doot + Rare Hare restaurants.","emoji":"🐰","section":"Where to Stay","page":"stay.html","anchor":"jackalope-feature"},
-  {"title":"Port Phillip Estate","location":"Red Hill South","desc":"Stunning winery accommodation with king suites overlooking the vines.","emoji":"🏡","section":"Where to Stay","page":"stay.html","anchor":"card-port-phillip-estate"},
-  {"title":"Lindenderry at Red Hill","location":"Red Hill","desc":"Gracious country house hotel set in a heritage garden.","emoji":"🌹","section":"Where to Stay","page":"stay.html","anchor":"card-lindenderry"},
-  {"title":"Crittenden Estate Villas","location":"Dromana","desc":"Self-contained vineyard villas right in the winery estate.","emoji":"🍇","section":"Where to Stay","page":"stay.html","anchor":"card-crittenden-villas"},
-  {"title":"Stillwater at Crittenden","location":"Dromana","desc":"Beautifully appointed lakeside villas at Crittenden Estate.","emoji":"🌊","section":"Where to Stay","page":"stay.html","anchor":"card-stillwater"},
-  {"title":"Sorrento & Portsea B&Bs","location":"Sorrento / Portsea","desc":"Heritage guesthouses and boutique B&Bs for a coastal base.","emoji":"⚓","section":"Where to Stay","page":"stay.html","anchor":"card-sorrento-bbs"},
-  {"title":"Peninsula Hot Springs Glamping","location":"Fingal","desc":"Eco lodges and glamping pods within the hot springs precinct.","emoji":"♨️","section":"Where to Stay","page":"stay.html","anchor":"card-phs-glamping"},
-  {"title":"Doot Doot Doot","location":"Merricks North · Jackalope Hotel","desc":"Theatrical fine diner. Caviar, degustation, exceptional local produce.","emoji":"🍽️","section":"Where to Eat","page":"eat.html","anchor":"card-doot-doot-doot"},
-  {"title":"Laura at Point Leo Estate","location":"Merricks","desc":"European-leaning fine diner within Point Leo Estate sculpture park.","emoji":"🍽️","section":"Where to Eat","page":"eat.html","anchor":"card-laura"},
-  {"title":"Ten Minutes by Tractor","location":"Main Ridge","desc":"Elegant produce-driven dishes with award-winning cellar.","emoji":"🍽️","section":"Where to Eat","page":"eat.html","anchor":"card-tmbt-restaurant"},
-  {"title":"Tedesca Osteria","location":"Red Hill","desc":"Intimate 30-seater. Rustic Italian-inflected cooking from exceptional produce.","emoji":"🍽️","section":"Where to Eat","page":"eat.html","anchor":"card-tedesca"},
-  {"title":"Paringa Estate Restaurant","location":"Red Hill South","desc":"Polished winery restaurant with outstanding matched wines.","emoji":"🍽️","section":"Where to Eat","page":"eat.html","anchor":"card-paringa-restaurant"},
-  {"title":"Port Phillip Estate Restaurant","location":"Red Hill South","desc":"Panoramic views over the estate and Port Phillip Bay.","emoji":"🍽️","section":"Where to Eat","page":"eat.html","anchor":"card-ppe-restaurant"},
-  {"title":"Rare Hare","location":"Merricks North · Jackalope","desc":"Long communal tables, woodfired cooking, share plates and Willow Creek wines.","emoji":"🔥","section":"Where to Eat","page":"eat.html","anchor":"card-rare-hare"},
-  {"title":"Montalto Restaurant","location":"Red Hill South","desc":"Confident produce-driven cooking with excellent estate wines and gardens.","emoji":"🌿","section":"Where to Eat","page":"eat.html","anchor":"card-montalto-restaurant"},
-  {"title":"Polperro Winery","location":"Red Hill","desc":"Panoramic views of vines, share-plate menu, quintessential long-lunch venue.","emoji":"🍷","section":"Where to Eat","page":"eat.html","anchor":"card-polperro-restaurant"},
-  {"title":"Martha's Table","location":"Safety Beach","desc":"Mediterranean dining room, casual aperitivo bar and provedore at the marina.","emoji":"🌊","section":"Where to Eat","page":"eat.html","anchor":"card-marthas-table"},
-  {"title":"Red Gum BBQ","location":"Red Hill","desc":"American BBQ: pulled pork, beef brisket, smoked chicken.","emoji":"🍖","section":"Where to Eat","page":"eat.html","anchor":"card-red-gum"},
-  {"title":"Bistro Elba","location":"Sorrento","desc":"French bistro with twice-baked cheese soufflé and gin-cured ocean trout.","emoji":"🥐","section":"Where to Eat","page":"eat.html","anchor":"card-bistro-elba"},
-  {"title":"Foxey's Hangout","location":"Red Hill","desc":"Laidback winery brunch spot with outdoor deck and generous menu.","emoji":"🌅","section":"Where to Eat","page":"eat.html","anchor":"card-foxeys"},
-  {"title":"Ouest France Bistro","location":"Mornington","desc":"Charming French bistro with Brittany-inspired dishes and crepes.","emoji":"🥞","section":"Where to Eat","page":"eat.html","anchor":"card-ouest-france"},
-  {"title":"Yabby Lake Cellar Door","location":"Tuerong","desc":"Relaxed restaurant with excellent two- or three-course lunches.","emoji":"🍾","section":"Where to Eat","page":"eat.html","anchor":"card-yabby-lake-restaurant"},
-  {"title":"Mr Vincenzo's","location":"Mornington","desc":"1970s Italian vibes, large-format pastas, fun atmosphere.","emoji":"🍝","section":"Where to Eat","page":"eat.html","anchor":"card-mr-vincenzos"},
-  {"title":"Ten Minutes by Tractor","location":"Main Ridge","desc":"Three separate vineyards — Wallis, McCutcheon, Judd. Exceptional Chardonnay and Pinot Noir.","emoji":"🍷","section":"Wine Country","page":"wine.html","anchor":"card-tmbt-winery"},
-  {"title":"Pt Leo Estate","location":"Merricks","desc":"16-acre outdoor sculpture park plus fine-dining Laura restaurant.","emoji":"🗿","section":"Wine Country","page":"wine.html","anchor":"card-pt-leo"},
-  {"title":"Paringa Estate","location":"Red Hill South","desc":"Oldest vines on the peninsula. Benchmark Pinot Noir.","emoji":"🍷","section":"Wine Country","page":"wine.html","anchor":"card-paringa-winery"},
-  {"title":"Montalto","location":"Red Hill South","desc":"Seven vineyards, gardens and sculpture trail. Outstanding Chardonnays.","emoji":"🌿","section":"Wine Country","page":"wine.html","anchor":"card-montalto-winery"},
-  {"title":"Quealy Winemakers","location":"Balnarring","desc":"Intimate cellar door. Skin-contact wines and obscure Italian varieties.","emoji":"🍶","section":"Wine Country","page":"wine.html","anchor":"card-quealy"},
-  {"title":"Yabby Lake","location":"Tuerong","desc":"Outstanding single-vineyard Chardonnay. Precise, textural, exciting.","emoji":"🥂","section":"Wine Country","page":"wine.html","anchor":"card-yabby-lake-winery"},
-  {"title":"T'Gallant Vineyard","location":"Main Ridge","desc":"Pinot Grigio pioneer. Family-friendly with Italian-style dining.","emoji":"🍷","section":"Wine Country","page":"wine.html","anchor":"card-tgallant"},
-  {"title":"Moorooduc Estate","location":"Moorooduc","desc":"Historic estate. Low-intervention wine philosophy. Elder statesman.","emoji":"🌾","section":"Wine Country","page":"wine.html","anchor":"card-moorooduc"},
-  {"title":"Peninsula Hot Springs","location":"Fingal (near Rye)","desc":"70+ globally-inspired bathing experiences. Spa Dreaming Centre for couples.","emoji":"♨️","section":"Things to Do","page":"explore.html","anchor":"card-phs-main"},
-  {"title":"Pt Leo Estate Sculpture Park","location":"Merricks","desc":"16-acre outdoor gallery with 60+ works. Free to wander. Allow 2 hours.","emoji":"🗿","section":"Things to Do","page":"explore.html","anchor":"card-pt-leo-sculpture"},
-  {"title":"Montalto Sculpture Trail","location":"Red Hill South","desc":"Gentler sculpture walk through vineyard and gardens.","emoji":"🌳","section":"Things to Do","page":"explore.html","anchor":"card-montalto-trail"},
-  {"title":"Red Hill Market","location":"Red Hill Showgrounds","desc":"Victoria's finest artisan market. First Saturday monthly. 200+ stalls.","emoji":"🛒","section":"Things to Do","page":"explore.html","anchor":"card-red-hill-market"},
-  {"title":"Cape Schanck Lighthouse Walk","location":"Cape Schanck","desc":"Dramatic coastal walk to historic lighthouse. 4km return.","emoji":"🏛️","section":"Things to Do","page":"explore.html","anchor":"card-cape-schanck"},
-  {"title":"Point Nepean National Park","location":"Portsea","desc":"Former defence installation. Cycling through dune scrub. 10km each way.","emoji":"🚲","section":"Things to Do","page":"explore.html","anchor":"card-point-nepean"},
-  {"title":"Bushrangers Bay Walk","location":"Cape Schanck area","desc":"Spectacular walk to secluded ocean beach. Sea caves, towering cliffs. 5km.","emoji":"🏖️","section":"Things to Do","page":"explore.html","anchor":"card-bushrangers-do"},
-  {"title":"Red Hill Hinterland Cycling","location":"Red Hill","desc":"Rolling hills, bike trails connecting wineries and farms.","emoji":"🚵","section":"Things to Do","page":"explore.html","anchor":"card-cycling"},
-  {"title":"Sorrento Ferry","location":"Sorrento to Queenscliff","desc":"Iconic 40-min car ferry crossing. Dolphins and seals.","emoji":"⛴️","section":"Things to Do","page":"explore.html","anchor":"card-sorrento-ferry"},
-  {"title":"Bushrangers Bay via Cape Schanck","location":"Mornington Peninsula National Park","desc":"Featured walk. Most spectacular coastal scenery near Melbourne. 6km.","emoji":"🥾","section":"Walks & Trails","page":"explore.html","anchor":"walk-hero-bushrangers"},
-  {"title":"Two Bays Walking Track","location":"Dromana to Cape Schanck · 26km","desc":"Peninsula's signature long-distance trail. Bay to Strait. Bucket-list walk.","emoji":"🏞️","section":"Walks & Trails","page":"explore.html","anchor":"card-two-bays"},
-  {"title":"Cape Schanck to London Bridge","location":"Mornington Peninsula National Park · 26km","desc":"Spectacular clifftop traverse along wild Bass Strait coast.","emoji":"🌍","section":"Walks & Trails","page":"explore.html","anchor":"card-cape-london"},
-  {"title":"Lifesaving Track","location":"Portsea Area · 11km","desc":"Historic 1890s clifftop track with breathtaking coastal views.","emoji":"🌺","section":"Walks & Trails","page":"explore.html","anchor":"card-lifesaving"},
-  {"title":"Summit Circuit Walk — Arthurs Seat","location":"Arthurs Seat State Park · 1.8km","desc":"Easy summit loop with bay-to-ocean views and William Ricketts sculptures.","emoji":"⛰️","section":"Walks & Trails","page":"explore.html","anchor":"card-summit-circuit"},
-  {"title":"Farnsworth Track","location":"Point Nepean area · 1.5km","desc":"Short clifftop link between Portsea Ocean Beach and London Bridge.","emoji":"🌊","section":"Walks & Trails","page":"explore.html","anchor":"card-farnsworth"},
-  {"title":"Greens Bush — Two Bays Section","location":"Greens Bush · 8.9km","desc":"Most rewarding Two Bays section. Ancient grasstrees, fern gullies, birdlife.","emoji":"🌲","section":"Walks & Trails","page":"explore.html","anchor":"card-greens-bush"},
-  {"title":"Mornington Peninsula Foreshore Walk","location":"Mornington to Mount Martha · 7km","desc":"Most dog-friendly walk. Bathing boxes, clifftop lookouts, quiet beaches.","emoji":"🏘️","section":"Walks & Trails","page":"explore.html","anchor":"card-foreshore-walk"},
-  {"title":"Sorrento Front Beach","location":"Sorrento","desc":"Classic bay beach. Calm, clear water, iconic bathing boxes, village access.","emoji":"🏖️","section":"Beaches","page":"explore.html","anchor":"card-sorrento-front"},
-  {"title":"Portsea Front Beach","location":"Portsea","desc":"Quieter than Sorrento. White sand, Hamptons feel, deserted in April.","emoji":"🏖️","section":"Beaches","page":"explore.html","anchor":"card-portsea-front"},
-  {"title":"Dromana Beach","location":"Dromana","desc":"Long gentle arc near midpoint. Calm conditions, close to dining strip.","emoji":"🏖️","section":"Beaches","page":"explore.html","anchor":"card-dromana-beach"},
-  {"title":"Safety Beach","location":"Safety Beach","desc":"Most reliably calm swimming beach. Near Martha's Table for aperitivo.","emoji":"🌊","section":"Beaches","page":"explore.html","anchor":"card-safety-beach"},
-  {"title":"Gunnamatta Ocean Beach","location":"Gunnamatta","desc":"Long, wild, remote-feeling. Powerful surf, huge skies. Walking and surfing.","emoji":"🌊","section":"Beaches","page":"explore.html","anchor":"card-gunnamatta"},
-  {"title":"Sorrento Back Beach","location":"Sorrento (ocean side)","desc":"Dramatic limestone cliffs, powerful surf, genuine wildness.","emoji":"🏔️","section":"Beaches","page":"explore.html","anchor":"card-sorrento-back"},
-  {"title":"Rye Ocean Beach","location":"Rye","desc":"Near Peninsula Hot Springs. Wide, exposed, nearly empty in April.","emoji":"💨","section":"Beaches","page":"explore.html","anchor":"card-rye-ocean"},
-  {"title":"Nazaaray Estate","location":"Flinders","desc":"Tiny winery with 1930s train carriage guesthouses. Natural wines.","emoji":"🚂","section":"Hidden Gems","page":"explore.html","anchor":"card-nazaaray"},
-  {"title":"Allis Wine Bar","location":"Main Ridge","desc":"Low-waste sibling of Ten Minutes by Tractor. Small plates, garden ingredients.","emoji":"🌱","section":"Hidden Gems","page":"explore.html","anchor":"card-allis"},
-  {"title":"Barragunda Dining","location":"Cape Schanck","desc":"1000-acre regenerative farm estate. Chef Simone Watts. Farm-to-table.","emoji":"🌾","section":"Hidden Gems","page":"explore.html","anchor":"card-barragunda"},
-  {"title":"Bushrangers Bay","location":"Cape Schanck","desc":"Hidden ocean beach. 2.5km walk through coastal heathland. Deserted in April.","emoji":"🗺️","section":"Hidden Gems","page":"explore.html","anchor":"card-bushrangers-gem"},
-  {"title":"Many Little","location":"Red Hill South","desc":"Sri Lankan flavours meet European wine bar. From the Polperro team.","emoji":"🍛","section":"Hidden Gems","page":"explore.html","anchor":"card-many-little"},
-  {"title":"The Bay Hotel Mornington","location":"Mornington","desc":"Gastropub in heritage-listed former bank. Live music, vault dining.","emoji":"🎵","section":"Hidden Gems","page":"explore.html","anchor":"card-bay-hotel"}
+  {
+    "title": "New Wave 26",
+    "location": "Mornington Peninsula Regional Gallery &middot; 11am&#x2013;4pm",
+    "desc": "Contemporary group exhibition at the MPRG showcasing emerging and mid-career artists across diverse practices. Free entry. Running alongside the Michael Vale solo show &#x2014; two exhibitions in one visit.",
+    "emoji": "&#128444;&#65039;",
+    "section": "Whats-On",
+    "page": "whats-on.html",
+    "anchor": "card-new-wave"
+  },
+  {
+    "title": "Peninsula Hot Springs &#x2014; Body Clay Ritual",
+    "location": "Peninsula Hot Springs, Fingal",
+    "desc": "Signature wellness ritual using thermal clay from the springs. Weekdays 12pm &amp; 2pm; Weekends 10:30am, 12pm, 1pm &amp; 3pm. School holiday family version Friday&#x2013;Monday at 11am.",
+    "emoji": "&#9832;&#65039;",
+    "section": "Whats-On",
+    "page": "whats-on.html",
+    "anchor": "card-body-clay"
+  },
+  {
+    "title": "Peninsula Hot Springs &#x2014; Fire &amp; Ice Workshop",
+    "location": "Peninsula Hot Springs, Fingal",
+    "desc": "Expert-guided hot-cold contrast therapy: sauna + cold plunge. Science-backed wellness that boosts circulation, immunity, and reduces inflammation. Weekdays 10:30am, 4pm &amp; 5pm; Weekends 12pm, 2pm, 4pm &amp; 5pm. Add to any bathing session.",
+    "emoji": "&#128293;",
+    "section": "Whats-On",
+    "page": "whats-on.html",
+    "anchor": "card-fire-ice"
+  },
+  {
+    "title": "Port Phillip Estate",
+    "location": "Red Hill South",
+    "desc": "Stunning winery accommodation with king suites overlooking the vines. Arguably the most beautiful property on the peninsula, with an outstanding restaurant attached. The views from the terrace are simply unfair.",
+    "emoji": "🏡",
+    "section": "Stay",
+    "page": "stay.html",
+    "anchor": "card-port-phillip-estate"
+  },
+  {
+    "title": "Pt Leo Estate Sculpture Park",
+    "location": "Merricks",
+    "desc": "A 16-acre outdoor gallery with over 60 works from major Australian and international artists — including pieces by Antony Gormley, Emily Floyd, and Marcus Tatton. Free to wander with a wine in hand. One of the best things to do on the peninsula. Allow at least 2 hours.",
+    "emoji": "&#x1F5FF;",
+    "section": "Explore",
+    "page": "explore.html",
+    "anchor": "card-pt-leo-sculpture"
+  },
+  {
+    "title": "Cape Schanck Lighthouse Walk",
+    "location": "Cape Schanck",
+    "desc": "One of the most dramatic coastal walks in Victoria — the trail leads to the historic lighthouse at the southern tip of the peninsula, with extraordinary views over Bass Strait. The boardwalk out to the headland and Pulpit Rock is genuinely vertiginous. 4km return, allow 1.5 hours.",
+    "emoji": "&#x1F3DB;&#xFE0F;",
+    "section": "Explore",
+    "page": "explore.html",
+    "anchor": "card-cape-schanck"
+  },
+  {
+    "title": "Sorrento Ferry",
+    "location": "Sorrento to Queenscliff",
+    "desc": "The iconic car and passenger ferry crossing Port Phillip Bay from Sorrento to Queenscliff. The crossing takes about 40 minutes and often encounters dolphins and seals. A genuinely lovely way to experience the bay.",
+    "emoji": "&#x26F4;&#xFE0F;",
+    "section": "Explore",
+    "page": "explore.html",
+    "anchor": "card-sorrento-ferry"
+  },
+  {
+    "title": "Sorrento Front Beach",
+    "location": "Sorrento",
+    "desc": "The classic peninsula bay beach — calm, clear, shallow water with the iconic wooden bathing boxes. Great for a morning swim or afternoon wander. The village of Sorrento immediately behind means excellent coffee and lunch options within walking distance.",
+    "emoji": "&#x1F3D6;&#xFE0F;",
+    "section": "Explore",
+    "page": "explore.html",
+    "anchor": "card-sorrento-front"
+  },
+  {
+    "title": "Gunnamatta Ocean Beach",
+    "location": "Gunnamatta",
+    "desc": "Long, wild, and remote-feeling despite being accessible. Powerful surf, huge skies, and almost no one in April. Not for swimming (strong rips), but extraordinary for walking and watching the power of Bass Strait. Surfers love the consistent beach break.",
+    "emoji": "&#x1F30A;",
+    "section": "Explore",
+    "page": "explore.html",
+    "anchor": "card-gunnamatta"
+  },
+  {
+    "title": "Nazaaray Estate",
+    "location": "Flinders",
+    "desc": "What this tiny winery lacks in size it more than makes up for in character. The quaint guesthouses are made from reconverted 1930s train carriages. The wines — naturally fermented with wild yeast — are genuinely idiosyncratic and fascinating. A visit feels like discovering something private.",
+    "emoji": "&#x1F682;",
+    "section": "Explore",
+    "page": "explore.html",
+    "anchor": "card-nazaaray"
+  },
+  {
+    "title": "Doot Doot Doot",
+    "location": "Merricks North",
+    "desc": "Jackalope's headline fine diner is theatrical, indulgent, and genuinely excellent — a long degustation format built around exceptional local produce, caviar cameos and serious wine pairing. One of the peninsula's bucket-list meals; book well ahead for Saturday night.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-doot-doot-doot"
+  },
+  {
+    "title": "Laura at Point Leo Estate",
+    "location": "Merricks",
+    "desc": "European-leaning tasting menu set above a 16-acre sculpture park and working winery. Among the finest tables on the peninsula — and the view from the terrace as you finish lunch is the kind you remember for years.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-laura"
+  },
+  {
+    "title": "Ten Minutes by Tractor",
+    "location": "Main Ridge",
+    "desc": "Elegant, produce-driven cooking matched with the winery's award-winning cellar. Silver service with genuine country warmth — never stuffy. The vineyard-and-bushland outlook is as good as any in the region.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-tmbt-restaurant"
+  },
+  {
+    "title": "Tedesca Osteria",
+    "location": "Red Hill",
+    "desc": "Chef Brigitte Hafner's intimate 30-seater feels like the most brilliant dinner party you've ever been invited to — honest, Italian-inflected cooking from exceptional local produce, one long communal menu at a time.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-tedesca"
+  },
+  {
+    "title": "Paringa Estate Restaurant",
+    "location": "Red Hill South",
+    "desc": "Some of the oldest vines on the peninsula and a kitchen that has quietly built its own reputation — polished, confident cooking and serious matched wines from the estate. The outdoor terrace in autumn is divine.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-paringa-restaurant"
+  },
+  {
+    "title": "Port Phillip Estate",
+    "location": "Red Hill South",
+    "desc": "The architecture alone justifies the trip — a sweeping, rammed-earth building that commands panoramic views across the estate to Port Phillip Bay. Confident, local-produce cooking and a deep cellar.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-ppe-restaurant"
+  },
+  {
+    "title": "Pt. Leo Restaurant",
+    "location": "Merricks",
+    "desc": "Laura's more relaxed sibling at Point Leo Estate — à la carte lunch and dinner with the same extraordinary views over lawn, vines and the sculpture park. Ideal when you want the Point Leo experience without the full tasting-menu commitment.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-pt-leo-restaurant"
+  },
+  {
+    "title": "Max's at Red Hill Estate",
+    "location": "Red Hill South",
+    "desc": "A long-standing peninsula favourite perched above the vines with sweeping hinterland views. Modern Australian cooking that leans hard on peninsula produce, matched to estate pinot and chardonnay.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-maxs-red-hill"
+  },
+  {
+    "title": "Stillwater at Crittenden",
+    "location": "Dromana",
+    "desc": "A romantic lakeside dining room at one of the peninsula's pioneering wineries — the setting is quietly spectacular, and Crittenden's Italian-varietal wines reward a proper sit-down lunch over a couple of courses.",
+    "emoji": "🍽️",
+    "section": "✨ Special Occasion",
+    "page": "eat.html",
+    "anchor": "card-stillwater-crittenden"
+  },
+  {
+    "title": "Rare Hare",
+    "location": "Merricks North",
+    "desc": "Willow Creek's long-table, wood-fired share-plate room at the front of Jackalope — convivial, generous and consistently excellent. Saturday lunch here is one of the great peninsula pleasures.",
+    "emoji": "🔥",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-rare-hare"
+  },
+  {
+    "title": "Montalto",
+    "location": "Red Hill South",
+    "desc": "Seven vineyards, 30+ acres of vines, and a kitchen garden you can wander through before lunch. Choose the restaurant for a long lunch or the more casual Piazza for a lighter graze — either way, leave time for the sculpture trail.",
+    "emoji": "🌿",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-montalto"
+  },
+  {
+    "title": "Polperro",
+    "location": "Red Hill",
+    "desc": "Panoramic vineyard views, clean modern interiors and a share-plate menu that draws from all directions with genuine skill. A quintessential peninsula long-lunch address.",
+    "emoji": "🍷",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-polperro"
+  },
+  {
+    "title": "Martha's Table",
+    "location": "Safety Beach",
+    "desc": "Marine-hued dining room, aperitivo bar and in-house provedore bringing Mediterranean living to the marina. One of the most handsome rooms on the bayside.",
+    "emoji": "🌊",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-marthas-table"
+  },
+  {
+    "title": "Red Gum BBQ",
+    "location": "Red Hill",
+    "desc": "Airy warehouse, picnic tables, rolled-up sleeves and excellent low-and-slow American BBQ — pulled pork, beef brisket, smoked chicken. A rollicking antidote to the winery-restaurant circuit, and a family-friendly winner.",
+    "emoji": "🍖",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-red-gum"
+  },
+  {
+    "title": "Bistro Elba",
+    "location": "Sorrento",
+    "desc": "Beachy, artfully dilapidated French bistro with twice-baked cheese soufflé, gin-cured ocean trout and a wine list leaning on small emerging French producers. Feels like a lucky find every time you go back.",
+    "emoji": "🥐",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-bistro-elba"
+  },
+  {
+    "title": "Green Olive at Red Hill",
+    "location": "Red Hill",
+    "desc": "A working olive grove and smallholding with a produce-driven kitchen doing grazing boards, wood-fired mains and seasonal long lunches. Come hungry, buy oil on the way out.",
+    "emoji": "🫒",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-green-olive"
+  },
+  {
+    "title": "Merricks General Wine Store",
+    "location": "Merricks",
+    "desc": "Old general store turned wine bar and bistro opposite the Merricks railway reserve — sourdough pizzas, seasonal share plates and an all-peninsula wine list. Walkable from the rail trail.",
+    "emoji": "🍷",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-merricks-general"
+  },
+  {
+    "title": "La Baracca at T'Gallant",
+    "location": "Main Ridge",
+    "desc": "Rustic Italian trattoria inside T'Gallant's winery — wood-fired pizzas, handmade pasta and the estate's pinot grigio by the carafe. As close as the peninsula gets to eating in a Tuscan barn.",
+    "emoji": "🍝",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-la-baracca-tgallant"
+  },
+  {
+    "title": "Quealy Winemakers",
+    "location": "Balnarring",
+    "desc": "The peninsula's friulano and pinot grigio pioneers, with a laid-back cellar-door lunch — charcuterie, cheese, wood-fired pizza on weekends and some of the most interesting whites in the region.",
+    "emoji": "🍷",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-quealy"
+  },
+  {
+    "title": "Stonier Wines",
+    "location": "Merricks",
+    "desc": "One of the peninsula's founding chardonnay and pinot producers, with a quiet cellar door and seasonal food offering — a good choice when you want serious wine without theatre.",
+    "emoji": "🍷",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-stonier"
+  },
+  {
+    "title": "Point Leo Wine Terrace",
+    "location": "Merricks",
+    "desc": "The casual drop-in option at Point Leo Estate — cheese boards, wood-fired flatbreads and Point Leo wines by the glass, enjoyed on one of the most spectacular outdoor decks on the peninsula.",
+    "emoji": "🍾",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-pt-leo-wine-terrace"
+  },
+  {
+    "title": "Foxey's Hangout",
+    "location": "Red Hill",
+    "desc": "Laid-back sunny deck, a generous all-day menu and easy-drinking wines from one of the peninsula's most consistently pleasant estates. Perfect when you want winery atmosphere without the big-ticket booking.",
+    "emoji": "🦊",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-foxeys-lunch"
+  },
+  {
+    "title": "Crittenden Estate Cellar Door",
+    "location": "Dromana",
+    "desc": "One of the peninsula's original estates — lakeside setting, Italian-varietal wines you don't see everywhere (arneis, savagnin, nebbiolo) and a relaxed lunch offering alongside the more formal Stillwater dining room.",
+    "emoji": "🍷",
+    "section": "🌿 Casual &amp; Relaxed",
+    "page": "eat.html",
+    "anchor": "card-crittenden-bistro"
+  },
+  {
+    "title": "The Rocks Mornington",
+    "location": "Mornington",
+    "desc": "Perched at the end of Mornington Pier with near-360° bay views and a seafood-heavy menu — oysters, whole fish, pan-seared scallops. One of the most romantic spots in town at sunset.",
+    "emoji": "🦞",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-rocks-mornington"
+  },
+  {
+    "title": "Afloat Mornington",
+    "location": "Mornington",
+    "desc": "A floating cafe and bar moored on Mornington Pier — all-day menu leaning into the water: chowders, fish sandwiches, bay oysters. Best enjoyed on the top deck with a crisp white in hand.",
+    "emoji": "⛵",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-afloat"
+  },
+  {
+    "title": "Continental Sorrento",
+    "location": "Sorrento",
+    "desc": "The restored grand dame of Ocean Beach Road — multiple bars and restaurants in one heritage building, with a strong seafood lean across the menus and some of the best rooms in town if you decide to stay.",
+    "emoji": "🦐",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-continental-sorrento"
+  },
+  {
+    "title": "Hotel Sorrento — On The Bay",
+    "location": "Sorrento",
+    "desc": "Bayside dining room overlooking Sullivan Bay with one of the best lunch views on the peninsula. Solid local seafood, a long wine list and a wraparound deck that's hard to beat on a still autumn afternoon.",
+    "emoji": "🌊",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-hotel-sorrento"
+  },
+  {
+    "title": "Pier Street Fresh Seafood",
+    "location": "Dromana",
+    "desc": "A proper old-school fishmonger and takeaway — walk in, point at what looks good in the cabinet, walk it across to the foreshore and eat with your feet in the sand. The peninsula fish-and-chips ritual in one address.",
+    "emoji": "🐟",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-pier-street-fresh"
+  },
+  {
+    "title": "Hastings Fishermen's Co-op",
+    "location": "Hastings",
+    "desc": "Working fishermen's co-op on the Western Port side — whatever came off the boats that morning, sold straight from the cabinet. Go for whiting, flathead, calamari and bay mussels. The bayside you don't see on a postcard.",
+    "emoji": "🦪",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-hastings-fishermens"
+  },
+  {
+    "title": "Advance Mussel Supply",
+    "location": "Hastings",
+    "desc": "Port Phillip blue mussels straight from the lease — cooked and served on site in pots the size of your head, or packed on ice to take home. Tiny, utilitarian, brilliant. Check opening days before you drive.",
+    "emoji": "🦪",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-advance-mussel"
+  },
+  {
+    "title": "Flinders Pier Takeaway",
+    "location": "Flinders",
+    "desc": "Grab a parcel of flake and chips from the village, walk it down to the historic wooden pier and eat it watching weedy sea dragons drift under the boards. A perfect bad-weather plan B and a sunny-day plan A.",
+    "emoji": "🐟",
+    "section": "🦐 Seafood &amp; Waterfront",
+    "page": "eat.html",
+    "anchor": "card-flinders-seafood"
+  },
+  {
+    "title": "The Flinders Hotel",
+    "location": "Flinders",
+    "desc": "The village pub that punches well above its weight — smart bistro food, a genuinely good wine list and one of the best Sunday roasts on the peninsula. Book the upstairs dining room for a meal; sit in the bar for a quiet schooner and a toastie.",
+    "emoji": "🍺",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-flinders-hotel"
+  },
+  {
+    "title": "The Portsea Hotel",
+    "location": "Portsea",
+    "desc": "The front lawn may be the single best beer-garden position in Victoria — looking straight out over Shelley Beach and the shipping channel. Pub classics, pizzas and local seafood; come for sunset, stay for the chips.",
+    "emoji": "🌊",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-portsea-hotel"
+  },
+  {
+    "title": "Sorrento Hotel (The Sorrento)",
+    "location": "Sorrento",
+    "desc": "Centre-of-the-village trading post on Ocean Beach Road — reliable schnitzels and parmas, a decent wine list and a big dining room that absorbs the summer crush without losing its local feel.",
+    "emoji": "🍻",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-sorrento-hotel"
+  },
+  {
+    "title": "Dromana Hotel",
+    "location": "Dromana",
+    "desc": "Sprawling beachfront bistro and bar with a huge outdoor deck — unbeatable bay views, pub pricing, and a kitchen that does the straightforward things (fish and chips, steak, parma) well enough that nobody complains.",
+    "emoji": "🏖️",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-dromana-hotel"
+  },
+  {
+    "title": "The Balnarring Pub",
+    "location": "Balnarring",
+    "desc": "Proper country pub in the middle of Balnarring village — open fires in winter, a shaded beer garden in autumn and honest counter meals built on peninsula produce. A locals' favourite that visitors keep rediscovering.",
+    "emoji": "🍺",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-balnarring-hotel"
+  },
+  {
+    "title": "The Mornington Hotel",
+    "location": "Mornington",
+    "desc": "The big Main Street corner pub — reliable bistro, a lively bar, and the default meeting point when you want something unfussy in the middle of town. Good parma, good schnitzel, good chips.",
+    "emoji": "🍻",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-mornington-hotel"
+  },
+  {
+    "title": "Rye Hotel",
+    "location": "Rye",
+    "desc": "Enormous foreshore pub a short walk from the front beach — family-friendly, kids' menus, and a deck that catches the afternoon sun. Don't expect fireworks from the kitchen; do expect everyone to leave happy.",
+    "emoji": "🏝️",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-rye-hotel"
+  },
+  {
+    "title": "Merricks Hotel",
+    "location": "Merricks Beach",
+    "desc": "Low-key country local on the back beach side — walkable from the Merricks Beach holiday houses, with the kind of straightforward bistro menu that makes a long sandy afternoon feel complete.",
+    "emoji": "🍺",
+    "section": "🍺 Pubs &amp; Classic Counter Meals",
+    "page": "eat.html",
+    "anchor": "card-merricks-hotel"
+  },
+  {
+    "title": "La Baracca at T'Gallant",
+    "location": "Main Ridge",
+    "desc": "The peninsula's original winery pizza barn — wood-fired margheritas, prosciutto pies and simple pastas inside a rustic shed at T'Gallant's cellar door. Order the pinot grigio. Always order the pinot grigio.",
+    "emoji": "🍕",
+    "section": "🍕 Pizza &amp; Pasta",
+    "page": "eat.html",
+    "anchor": "card-la-baracca-pizza"
+  },
+  {
+    "title": "Merricks General Wine Store",
+    "location": "Merricks",
+    "desc": "Sourdough-based wood-fired pizzas done properly, with a short list of seasonal toppings that lean on the surrounding farms. Pair with something from the all-peninsula wine list.",
+    "emoji": "🍕",
+    "section": "🍕 Pizza &amp; Pasta",
+    "page": "eat.html",
+    "anchor": "card-merricks-pizza"
+  },
+  {
+    "title": "Via Boffe",
+    "location": "Main Ridge",
+    "desc": "A small, warm Italian room tucked into the hinterland — handmade pasta, seasonal antipasti and the kind of short hand-written list you can trust completely. Book: it fills fast on weekends.",
+    "emoji": "🍝",
+    "section": "🍕 Pizza &amp; Pasta",
+    "page": "eat.html",
+    "anchor": "card-via-boffe"
+  },
+  {
+    "title": "Ciao Amici",
+    "location": "Mornington",
+    "desc": "Neighbourhood Italian doing reliable wood-fired pizzas and classic pastas — the default weeknight answer when you're staying in Mornington and don't want to drive into the hills.",
+    "emoji": "🍕",
+    "section": "🍕 Pizza &amp; Pasta",
+    "page": "eat.html",
+    "anchor": "card-ciao-amici"
+  },
+  {
+    "title": "Pane e Vino",
+    "location": "Mount Martha",
+    "desc": "Simple, honest Italian on Mount Martha's village strip — antipasti boards, woodfired pizzas and a short pasta list. A quiet favourite of the bayside locals.",
+    "emoji": "🍞",
+    "section": "🍕 Pizza &amp; Pasta",
+    "page": "eat.html",
+    "anchor": "card-pane-e-vino"
+  },
+  {
+    "title": "Store Ten",
+    "location": "Mornington",
+    "desc": "Polished all-day cafe on Main Street — sourdough, serious eggs, pastry cabinet worth lingering at, and a proper weekend brunch menu. Good for solo coffee at the bar or a long catch-up at the back.",
+    "emoji": "🥐",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-store-ten"
+  },
+  {
+    "title": "Ouest France Bistro",
+    "location": "Mornington",
+    "desc": "Once a creperie, now a charming little Breton bistro on a Mornington side street — galettes, classic French breakfast, and some of the best coffee in town. Look for the blue-and-white awning.",
+    "emoji": "🥞",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-ouest-france"
+  },
+  {
+    "title": "Foxey's Hangout",
+    "location": "Red Hill",
+    "desc": "Sunny, spacious and laid-back — opens for brunch on weekends with an outdoor deck that catches the morning light. One of the most relaxed ways to start a day in the hinterland.",
+    "emoji": "🌅",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-foxeys"
+  },
+  {
+    "title": "Yabby Lake Cellar Door",
+    "location": "Tuerong",
+    "desc": "Opens from mid-morning for tastings with a relaxed early-lunch menu. Taste the single-vineyard chardonnay before you sit — it's arguably the best chardy on the peninsula.",
+    "emoji": "🍾",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-yabby-lake"
+  },
+  {
+    "title": "Afloat Mornington",
+    "location": "Mornington",
+    "desc": "All-day menu on a floating cafe moored to Mornington Pier — sea-breeze brunches, good coffee, and the unbeatable novelty of eggs on toast that gently bob on the tide.",
+    "emoji": "⛵",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-afloat-brunch"
+  },
+  {
+    "title": "Small Stone Pantry",
+    "location": "Dromana",
+    "desc": "Wholefood-leaning pantry and cafe on the Point Nepean Road run — grain bowls, good eggs, pastries from the hinterland bakeries and a tiny retail shelf of peninsula producers.",
+    "emoji": "🌾",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-small-stone"
+  },
+  {
+    "title": "Green Olive at Red Hill — Cafe",
+    "location": "Red Hill",
+    "desc": "Working olive grove with a farm cafe open for brunch on weekends — olive-oil cake, eggs with their own dukkah, and enough space for the kids to run between the trees while you finish your coffee.",
+    "emoji": "🫒",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-green-olive-brunch"
+  },
+  {
+    "title": "Flinders General Store",
+    "location": "Flinders",
+    "desc": "A classic country general store turned village cafe and provisions shop — slow-drip coffee, fresh bread, proper breakfast sandwiches and a pick-your-own picnic shelf for the Flinders Blowhole walk.",
+    "emoji": "🥖",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-flinders-general"
+  },
+  {
+    "title": "Rocker",
+    "location": "Mornington",
+    "desc": "One of Mornington's consistently busy brunch addresses — inventive eggs, pastry cabinet, and a small roastery's worth of specialty coffee on the machine. Expect a short wait at 10am on Sunday.",
+    "emoji": "☕",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-rocker-mornington"
+  },
+  {
+    "title": "Barmah Park",
+    "location": "Moorooduc",
+    "desc": "Rural farm, cellar door and all-day kitchen with a pretty courtyard — the kind of spot that works equally well for a weekend brunch, an afternoon cheese plate or a glass of pinot on the lawn.",
+    "emoji": "🌾",
+    "section": "☕ Breakfast &amp; Brunch",
+    "page": "eat.html",
+    "anchor": "card-barmah-park"
+  },
+  {
+    "title": "Red Hill Bakery",
+    "location": "Red Hill",
+    "desc": "The hinterland's default morning stop — sourdough loaves, vanilla slices, old-school vanilla slices again (yes, twice), and an endless queue of Lycra on Saturday mornings. Go early.",
+    "emoji": "🥖",
+    "section": "🥐 Bakeries &amp; Pastry",
+    "page": "eat.html",
+    "anchor": "card-red-hill-bakery"
+  },
+  {
+    "title": "Sorrento Bakery",
+    "location": "Sorrento",
+    "desc": "Ocean Beach Road institution that has fed generations of beachgoers — pies, pasties, custard scrolls and a good loaf of sourdough. The summer queue is part of the ritual.",
+    "emoji": "🥐",
+    "section": "🥐 Bakeries &amp; Pastry",
+    "page": "eat.html",
+    "anchor": "card-sorrento-bakery"
+  },
+  {
+    "title": "Stringer's of Mornington",
+    "location": "Mornington",
+    "desc": "A Main Street institution — part grocer, part bakery, part tearooms, part wine shop. Stop in for a pastry and coffee, leave with a basket of peninsula produce you didn't plan to buy.",
+    "emoji": "🧺",
+    "section": "🥐 Bakeries &amp; Pastry",
+    "page": "eat.html",
+    "anchor": "card-stringers"
+  },
+  {
+    "title": "Sourdough Kitchen",
+    "location": "Mornington",
+    "desc": "Small-batch sourdough bakers with a tight line of long-fermented loaves, pastries and sandwich-makings. Come for the bread, stay for the morning bun.",
+    "emoji": "🥖",
+    "section": "🥐 Bakeries &amp; Pastry",
+    "page": "eat.html",
+    "anchor": "card-mornington-bakery"
+  },
+  {
+    "title": "Balnarring Bakehouse",
+    "location": "Balnarring",
+    "desc": "The village bakery for the Balnarring side of the peninsula — pies, pastries and a weekend breakfast sandwich that fuels half of the Balnarring Market crowd.",
+    "emoji": "🥐",
+    "section": "🥐 Bakeries &amp; Pastry",
+    "page": "eat.html",
+    "anchor": "card-balnarring-bakehouse"
+  },
+  {
+    "title": "Flinders General Store",
+    "location": "Flinders",
+    "desc": "Also your Flinders bakery stop — fresh loaves from the kitchen, sweet and savoury pastries in the cabinet, and picnic-ready sandwiches cut to order for the Blowhole walk.",
+    "emoji": "🍞",
+    "section": "🥐 Bakeries &amp; Pastry",
+    "page": "eat.html",
+    "anchor": "card-flinders-general-bakery"
+  },
+  {
+    "title": "Mornington Peninsula Chocolates",
+    "location": "Flinders",
+    "desc": "Handmade chocolates, hot chocolates and a small cafe — a reliable family stop with enough seasonal stock to justify an extra detour when visitors are in town.",
+    "emoji": "🍫",
+    "section": "🍦 Sweets, Ice Cream &amp; Chocolate",
+    "page": "eat.html",
+    "anchor": "card-mpchocolate"
+  },
+  {
+    "title": "Sunny Ridge Strawberry Farm",
+    "location": "Main Ridge",
+    "desc": "The peninsula's original pick-your-own strawberry farm — seasonal berry picking, strawberry ice cream, strawberry sundaes, and a farm cafe the kids never want to leave. Season is roughly November to April.",
+    "emoji": "🍓",
+    "section": "🍦 Sweets, Ice Cream &amp; Chocolate",
+    "page": "eat.html",
+    "anchor": "card-sunny-ridge"
+  },
+  {
+    "title": "Main Ridge Dairy",
+    "location": "Main Ridge",
+    "desc": "Working goat dairy with a cafe — cheese boards, goat-milk gelato and a view across the paddocks to the animals that made the lot. A sweet finish and a producer visit rolled into one.",
+    "emoji": "🧀",
+    "section": "🍦 Sweets, Ice Cream &amp; Chocolate",
+    "page": "eat.html",
+    "anchor": "card-main-ridge-dairy"
+  },
+  {
+    "title": "Sorrento Gelato",
+    "location": "Sorrento",
+    "desc": "The Ocean Beach Road gelato window — classic Italian flavours, a rotating seasonal list and a queue that moves fast. The compulsory stop on any evening stroll through Sorrento.",
+    "emoji": "🍦",
+    "section": "🍦 Sweets, Ice Cream &amp; Chocolate",
+    "page": "eat.html",
+    "anchor": "card-gelobar-sorrento"
+  },
+  {
+    "title": "Johnny Ripe — Sweets Cabinet",
+    "location": "Main Ridge",
+    "desc": "Worth a second mention for the sweets cabinet alone — lemon tart, meringues, fruit slices and a rotating set of seasonal tarts that routinely sell out before closing.",
+    "emoji": "🥮",
+    "section": "🍦 Sweets, Ice Cream &amp; Chocolate",
+    "page": "eat.html",
+    "anchor": "card-ripe-desserts"
+  },
+  {
+    "title": "Azuma Japanese",
+    "location": "Mornington",
+    "desc": "Neighbourhood Japanese doing reliable sushi, sashimi and donburi — a useful option when you want something clean and quick in the middle of a dining week built on cheese and red wine.",
+    "emoji": "🍣",
+    "section": "🍜 Asian &amp; International",
+    "page": "eat.html",
+    "anchor": "card-sushi-ya"
+  },
+  {
+    "title": "Pho Rosebud",
+    "location": "Rosebud",
+    "desc": "Rosebud's go-to pho — big steaming bowls, rice paper rolls and lemongrass chicken. The unglamorous but deeply satisfying antidote to a heavy winery lunch.",
+    "emoji": "🍜",
+    "section": "🍜 Asian &amp; International",
+    "page": "eat.html",
+    "anchor": "card-vietnamese-rosebud"
+  },
+  {
+    "title": "Mornington Dumpling House",
+    "location": "Mornington",
+    "desc": "Hand-folded dumplings, steamed and pan-fried, plus a short list of Sichuan-leaning classics. Order the pork-and-chive and the mapo tofu, share everything.",
+    "emoji": "🥟",
+    "section": "🍜 Asian &amp; International",
+    "page": "eat.html",
+    "anchor": "card-dumpling-mornington"
+  },
+  {
+    "title": "Cedar &amp; Pine",
+    "location": "Mornington",
+    "desc": "Modern Middle Eastern grazing — dips, charred flatbreads, slow-cooked lamb and a lot of herbs. Good for a group where no one can agree on what they feel like eating.",
+    "emoji": "🌯",
+    "section": "🍜 Asian &amp; International",
+    "page": "eat.html",
+    "anchor": "card-middle-east-mornington"
+  },
+  {
+    "title": "Jetty Road Brewery",
+    "location": "Dromana",
+    "desc": "Polished industrial taproom next door to the Dromana drive-in — core beers, a rolling list of seasonals, pizzas, burgers and a relaxed garden. One of the easiest bayside brewery stops.",
+    "emoji": "🍻",
+    "section": "🍻 Breweries &amp; Cider with Food",
+    "page": "eat.html",
+    "anchor": "card-jetty-road"
+  },
+  {
+    "title": "Red Hill Brewery",
+    "location": "Red Hill South",
+    "desc": "The peninsula's original craft brewery — Belgian-leaning beers, a working hop garden and a casual kitchen doing pizza and share food. The most character-heavy brewery on the map.",
+    "emoji": "🍺",
+    "section": "🍻 Breweries &amp; Cider with Food",
+    "page": "eat.html",
+    "anchor": "card-red-hill-brewery"
+  },
+  {
+    "title": "Mornington Peninsula Brewery",
+    "location": "Mornington",
+    "desc": "The in-town brewery bar — a working brewhouse, a full core range on tap, burgers and pizzas, live music some nights. A good alternative to a pub when you're in Mornington proper.",
+    "emoji": "🍺",
+    "section": "🍻 Breweries &amp; Cider with Food",
+    "page": "eat.html",
+    "anchor": "card-mp-brewery"
+  },
+  {
+    "title": "Two Bays Brewing Co",
+    "location": "Dromana",
+    "desc": "Dedicated gluten-free brewery and taproom — surprisingly good pale ales and lagers, relaxed taproom snacks and a welcome destination for anyone who's had to sit out the brewery tour in the past.",
+    "emoji": "🍺",
+    "section": "🍻 Breweries &amp; Cider with Food",
+    "page": "eat.html",
+    "anchor": "card-two-bays"
+  },
+  {
+    "title": "Mornington Peninsula Cider",
+    "location": "Main Ridge",
+    "desc": "Apple-forward ciders, a rustic tasting room and cheese and charcuterie boards in a working orchard setting. An easy hinterland detour for anyone who's wineried out.",
+    "emoji": "🍏",
+    "section": "🍻 Breweries &amp; Cider with Food",
+    "page": "eat.html",
+    "anchor": "card-mp-cider"
+  },
+  {
+    "title": "Ashcombe Maze &amp; Lavender Gardens",
+    "location": "Shoreham",
+    "desc": "Lavender fields, hedge maze, rose garden and a small cafe selling lavender everything — ice cream, scones, shortbread, tisane. A quiet, slightly wholesome detour that never disappoints.",
+    "emoji": "🌸",
+    "section": "🥦 Producers, Provedores &amp; Farm Gates",
+    "page": "eat.html",
+    "anchor": "card-ashcombe-maze"
+  },
+  {
+    "title": "Red Hill Cheese",
+    "location": "Red Hill",
+    "desc": "Small-batch cheesemaker with a tasting room — hard sheep's milk styles, washed rinds and a rotating seasonal list. Buy a wedge, pair it with a loaf from the bakery and a bottle from a cellar door, and you have lunch.",
+    "emoji": "🧀",
+    "section": "🥦 Producers, Provedores &amp; Farm Gates",
+    "page": "eat.html",
+    "anchor": "card-red-hill-cheese"
+  },
+  {
+    "title": "Bass &amp; Flinders Distillery",
+    "location": "Dromana",
+    "desc": "The peninsula's pioneering craft distillery — award-winning gins, a brandy that rewards the patient, and a popular \"gin masterclass\" where you blend your own bottle to take home. Snacks available with tastings.",
+    "emoji": "🥃",
+    "section": "🥦 Producers, Provedores &amp; Farm Gates",
+    "page": "eat.html",
+    "anchor": "card-bass-flinders"
+  },
+  {
+    "title": "Somers General",
+    "location": "Somers",
+    "desc": "Tiny, perfectly curated general store and cafe in sleepy Somers — sourdough, pastries, cheese, pantry goods, peninsula wines and a tight weekend brunch menu. One of those places you drive to just to stand in for ten minutes.",
+    "emoji": "🛒",
+    "section": "🥦 Producers, Provedores &amp; Farm Gates",
+    "page": "eat.html",
+    "anchor": "card-somers-general"
+  },
+  {
+    "title": "Red Hill Truffles",
+    "location": "Red Hill",
+    "desc": "Peninsula truffière running seasonal truffle hunts with dogs from late autumn through winter — a morning in the field, a cellar-door truffle tasting and fresh truffles for sale when they're up. Books out early every year.",
+    "emoji": "🍄",
+    "section": "🥦 Producers, Provedores &amp; Farm Gates",
+    "page": "eat.html",
+    "anchor": "card-mp-truffles"
+  }
 ]
