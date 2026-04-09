@@ -1,0 +1,136 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import ExperienceCard from '../../components/ExperienceCard.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const experiences = (await getCollection('experiences'))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const places = await getCollection('places');
+const itineraries = (await getCollection('itineraries')).slice(0, 2);
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((article) => ['the-peninsulas-best-late-afternoon-walks', 'how-to-build-a-red-hill-saturday'].includes(routeSlug(article)))
+  .slice(0, 2);
+
+const featured = experiences.find((entry) => routeSlug(entry) === 'bushrangers-bay-walk') ?? experiences[0];
+const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean', 'sorrento', 'red-hill'].includes(routeSlug(place)));
+---
+
+<BaseLayout
+  title="Explore — Peninsula Insider"
+  description="Walks, lookouts, beaches, and market mornings that make the Mornington Peninsula feel bigger than a lunch booking."
+  section="explore"
+>
+  <SectionHero
+    eyebrow="Explore"
+    subEyebrow="Walks · beaches · lookouts · markets"
+    title="The Peninsula gets better once you leave the <em>table.</em>"
+    dek="The strongest weekends here are not built on bookings alone. They need coastline, weather, a market detour, or one good walk between lunch and sunset. This section starts to map those moves properly."
+    gradient="bay"
+    visualLabel="Coastline, scrub, and the hour after lunch"
+  />
+
+  {featured && (
+    <section class="feature feature--compact">
+      <div class="container">
+        <div class="feature__inner">
+          <div class="feature__image-block feature__image-block--bay" aria-hidden="true">
+            <div class="feature__image-overlay"></div>
+            <span class="feature__image-tag">Editor's pick</span>
+          </div>
+          <div class="feature__content">
+            <div class="feature__label">
+              <span class="label label--accent">Start here</span>
+            </div>
+            <h2 class="feature__title">
+              <a href={`/explore/${routeSlug(featured)}`}>{featured.data.name}</a>
+            </h2>
+            <p class="feature__dek">{featured.data.editorNote}</p>
+            <div class="feature__byline">
+              <span class="feature__byline-name">{featured.data.durationMinutes} min return</span>
+              <span class="feature__byline-dot" aria-hidden="true"></span>
+              <span class="feature__byline-meta">{String(featured.data.difficulty ?? 'easy').replace(/\b\w/g, (l) => l.toUpperCase())}</span>
+            </div>
+            <a href={`/explore/${routeSlug(featured)}`} class="feature__cta">Read the guide →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="experience-index">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Field notes</p>
+          <h2 class="split-intro__title">Five ways to get the Peninsula right between bookings</h2>
+        </div>
+        <p class="split-intro__body">These are not filler activities. They are the pieces that stop a Peninsula weekend feeling like a sequence of expensive tables. Use them to change the pace, the weather, and the story you tell yourself about the place.</p>
+      </div>
+      <div class="experience-grid">
+        {experiences.map((experience) => <ExperienceCard experience={experience} />)}
+      </div>
+    </div>
+  </section>
+
+  {featuredPlaces.length > 0 && (
+    <section class="places">
+      <div class="container">
+        <div class="places__header">
+          <p class="label label--accent places__label">By terrain</p>
+          <h2 class="places__title">Explore by pocket of the Peninsula</h2>
+        </div>
+        <div class="places__grid">
+          {featuredPlaces.map((place, index) => (
+            <PlaceCard
+              place={place}
+              variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {itineraries.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Turn it into a weekend</p>
+            <h2 class="venues__title">These explore notes feed directly into our escape plans</h2>
+            <p class="venues__sub">Walks and lookouts matter most when they are sequenced with the right lunch and the right bed.</p>
+          </div>
+          <a href="/escape" class="venues__link">See all escapes →</a>
+        </div>
+        <div class="itinerary-grid">
+          {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {articles.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">From the Journal</p>
+            <h2 class="venues__title">Further reading for the afternoon half of the trip</h2>
+          </div>
+          <a href="/journal" class="venues__link">Journal →</a>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {articles.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

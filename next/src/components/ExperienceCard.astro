@@ -1,0 +1,52 @@
+---
+import { placeLabel, titleize, routeSlug } from '../lib/editorial';
+
+const difficultyLabel: Record<string, string> = {
+  easy: 'Easy',
+  moderate: 'Moderate',
+  hard: 'Hard',
+};
+
+const typeLabel: Record<string, string> = {
+  walk: 'Walk',
+  beach: 'Beach',
+  wellness: 'Wellness',
+  tour: 'Tour',
+  attraction: 'Attraction',
+  gallery: 'Gallery',
+  park: 'Park',
+  lookout: 'Lookout',
+  market: 'Market',
+  workshop: 'Workshop',
+};
+
+export interface Props {
+  experience: any;
+}
+
+const { experience } = Astro.props;
+const data = experience.data;
+const slug = routeSlug(experience);
+const duration = data.durationMinutes ? `${data.durationMinutes} min` : null;
+const difficulty = data.difficulty ? difficultyLabel[data.difficulty] ?? titleize(data.difficulty) : null;
+---
+
+<article class="experience-card">
+  <div class={`experience-card__visual experience-card__visual--${data.type}`} aria-hidden="true">
+    <div class="experience-card__fog"></div>
+    <span class="experience-card__tag">{typeLabel[data.type] ?? titleize(data.type)}</span>
+  </div>
+  <div class="experience-card__body">
+    <div class="experience-card__meta">
+      <span>{placeLabel(data.place)}</span>
+      {(duration || difficulty) && (
+        <span>{[duration, difficulty].filter(Boolean).join(' · ')}</span>
+      )}
+    </div>
+    <h3 class="experience-card__title">
+      <a href={`/explore/${slug}`}>{data.name}</a>
+    </h3>
+    <p class="experience-card__summary">{data.editorNote}</p>
+    <a href={`/explore/${slug}`} class="experience-card__cta">Open the guide →</a>
+  </div>
+</article>

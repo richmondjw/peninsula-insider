@@ -1,0 +1,245 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import ExperienceCard from '../../components/ExperienceCard.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { placeLabel, routeSlug, titleize, venueHrefPrefix } from '../../lib/editorial';
+
+const difficultyLabel: Record<string, string> = {
+  easy: 'Easy',
+  moderate: 'Moderate',
+  hard: 'Hard',
+};
+
+const typeLabel: Record<string, string> = {
+  walk: 'Walk',
+  beach: 'Beach',
+  wellness: 'Wellness',
+  tour: 'Tour',
+  attraction: 'Attraction',
+  gallery: 'Gallery',
+  park: 'Park',
+  lookout: 'Lookout',
+  market: 'Market',
+  workshop: 'Workshop',
+};
+
+const heroVariant: Record<string, string> = {
+  walk: 'feature__image-block--hinterland',
+  park: 'feature__image-block--hinterland',
+  beach: 'feature__image-block--bay',
+  lookout: 'feature__image-block--bay',
+  market: 'feature__image-block--sand',
+  gallery: 'feature__image-block--sand',
+  attraction: 'feature__image-block--sand',
+  wellness: 'feature__image-block--hinterland',
+};
+
+export async function getStaticPaths() {
+  const experiences = await getCollection('experiences');
+  return experiences.map((experience) => ({
+    params: { slug: routeSlug(experience) },
+    props: { experience },
+  }));
+}
+
+const { experience } = Astro.props;
+const allExperiences = await getCollection('experiences');
+const venues = await getCollection('venues');
+const itineraries = await getCollection('itineraries');
+const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+
+const slug = routeSlug(experience);
+const placeSlug = String(experience.data.place?.id ?? experience.data.place);
+const experiencePlace = placeLabel(experience.data.place);
+const relatedExperiences = allExperiences
+  .filter((entry) => routeSlug(entry) !== slug)
+  .filter((entry) => String(entry.data.place?.id ?? entry.data.place) === placeSlug || entry.data.zone === experience.data.zone)
+  .slice(0, 3);
+const nearbyVenues = venues
+  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug)
+  .slice(0, 3);
+const relatedItineraries = itineraries
+  .filter((itinerary) => itinerary.data.stops.some((stop) => String(stop.experience?.id ?? stop.experience ?? '') === slug))
+  .slice(0, 2);
+const relatedArticles = articles
+  .filter((article) => article.data.relatedExperiences.some((entry) => String(entry.id ?? entry) === slug) || article.data.tags.includes(placeSlug))
+  .slice(0, 2);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: experience.data.name },
+];
+
+const seasonBest = experience.data.seasonBest?.length
+  ? experience.data.seasonBest.map((entry: string) => titleize(entry)).join(' · ')
+  : null;
+const duration = experience.data.durationMinutes ? `${experience.data.durationMinutes} min` : null;
+const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
+const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
+---
+
+<BaseLayout
+  title={`${experience.data.name} — Explore — Peninsula Insider`}
+  description={experience.data.editorNote}
+  section="explore"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="experience-detail">
+    <div class="container">
+      <div class="experience-detail__meta">
+        <a href="/explore" class="experience-detail__type">{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</a>
+        <span class="experience-detail__dot" aria-hidden="true"></span>
+        <a href={`/places/${placeSlug}`} class="experience-detail__place">{experiencePlace}</a>
+        {duration && (
+          <>
+            <span class="experience-detail__dot" aria-hidden="true"></span>
+            <span class="experience-detail__place">{duration}</span>
+          </>
+        )}
+      </div>
+
+      <h1 class="experience-detail__title">{experience.data.name}</h1>
+
+      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true">
+        <div class="experience-detail__hero-fog"></div>
+        <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
+      </div>
+
+      <div class="experience-detail__grid">
+        <div>
+          <div class="prose">
+            {experience.data.editorNote.split(/\n\n+/).map((paragraph: string) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+
+        <aside class="facts">
+          <p class="facts__title">At a glance</p>
+          <dl>
+            <dt>Place</dt>
+            <dd><a href={`/places/${placeSlug}`}>{experiencePlace}</a></dd>
+
+            <dt>Type</dt>
+            <dd>{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</dd>
+
+            {duration && (
+              <>
+                <dt>Timing</dt>
+                <dd>{duration}</dd>
+              </>
+            )}
+
+            {difficulty && (
+              <>
+                <dt>Difficulty</dt>
+                <dd>{difficulty}</dd>
+              </>
+            )}
+
+            {seasonBest && (
+              <>
+                <dt>Best in</dt>
+                <dd>{seasonBest}</dd>
+              </>
+            )}
+
+            {experience.data.address && (
+              <>
+                <dt>Access</dt>
+                <dd>{experience.data.address}</dd>
+              </>
+            )}
+
+            {experience.data.website && (
+              <>
+                <dt>Website</dt>
+                <dd><a href={experience.data.website}>{experience.data.website.replace(/^https?:\/\//, '')}</a></dd>
+              </>
+            )}
+          </dl>
+
+          <a class="facts__cta" href={`/places/${placeSlug}`}>Open place hub</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {nearbyVenues.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Pair it with a booking</p>
+            <h2 class="venues__title">Where to eat, drink, or stay nearby</h2>
+            <p class="venues__sub">The best explore pages should lead somewhere next.</p>
+          </div>
+          <a href={`/places/${placeSlug}`} class="venues__link">See {experiencePlace} →</a>
+        </div>
+        <div class="venues__grid">
+          {nearbyVenues.map((venue) => <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedItineraries.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Use it in a weekend</p>
+            <h2 class="venues__title">Escape plans that already sequence this stop properly</h2>
+          </div>
+          <a href="/escape" class="venues__link">All escapes →</a>
+        </div>
+        <div class="itinerary-grid">
+          {relatedItineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedExperiences.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Keep going</p>
+            <h2 class="venues__title">More ways to use this side of the Peninsula</h2>
+          </div>
+          <a href="/explore" class="venues__link">Explore more →</a>
+        </div>
+        <div class="experience-grid">
+          {relatedExperiences.map((entry) => <ExperienceCard experience={entry} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedArticles.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Further reading</p>
+            <h2 class="venues__title">Journal pieces that deepen this stop</h2>
+          </div>
+          <a href="/journal" class="venues__link">Journal →</a>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {relatedArticles.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

@@ -1,0 +1,254 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import ExperienceCard from '../../components/ExperienceCard.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, stayTypes, titleize, venueHrefPrefix } from '../../lib/editorial';
+
+const audienceLabel: Record<string, string> = {
+  couple: 'Couples',
+  family: 'Families',
+  friends: 'Friends',
+  solo: 'Solo',
+  locals: 'Locals',
+};
+
+const moodLabel: Record<string, string> = {
+  slow: 'Slow',
+  indulgent: 'Indulgent',
+  wellness: 'Wellness',
+  adventure: 'Adventure',
+  'food-wine': 'Food & Wine',
+  mixed: 'Mixed',
+  quick: 'Quick',
+};
+
+const timeOfDayLabel: Record<string, string> = {
+  morning: 'Morning',
+  midday: 'Midday',
+  afternoon: 'Afternoon',
+  evening: 'Evening',
+  night: 'Night',
+};
+
+export async function getStaticPaths() {
+  const itineraries = await getCollection('itineraries');
+  return itineraries.map((itinerary) => ({
+    params: { slug: routeSlug(itinerary) },
+    props: { itinerary },
+  }));
+}
+
+const { itinerary } = Astro.props;
+const allItineraries = await getCollection('itineraries');
+const allVenues = await getCollection('venues');
+const allExperiences = await getCollection('experiences');
+const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+
+const slug = routeSlug(itinerary);
+const venueMap = new Map(allVenues.map((venue) => [routeSlug(venue), venue]));
+const experienceMap = new Map(allExperiences.map((experience) => [routeSlug(experience), experience]));
+const venueSlugs = itinerary.data.stops.map((stop) => String(stop.venue?.id ?? stop.venue ?? '')).filter(Boolean);
+const experienceSlugs = itinerary.data.stops.map((stop) => String(stop.experience?.id ?? stop.experience ?? '')).filter(Boolean);
+const highlightedVenues = Array.from(new Set(venueSlugs)).map((key) => venueMap.get(key)).filter(Boolean);
+const highlightedExperiences = Array.from(new Set(experienceSlugs)).map((key) => experienceMap.get(key)).filter(Boolean);
+const featuredStays = highlightedVenues.filter((venue: any) => stayTypes.includes(venue.data.type)).slice(0, 3);
+const relatedArticles = articles
+  .filter((article) => article.data.relatedVenues.some((entry) => venueSlugs.includes(String(entry.id ?? entry))) || article.data.relatedExperiences.some((entry) => experienceSlugs.includes(String(entry.id ?? entry))))
+  .slice(0, 2);
+const relatedItineraries = allItineraries.filter((entry) => routeSlug(entry) !== slug).slice(0, 2);
+
+const days = Array.from(new Set(itinerary.data.stops.map((stop) => stop.day))).sort((a, b) => a - b);
+const groupedStops = days.map((day) => ({
+  day,
+  stops: itinerary.data.stops
+    .filter((stop) => stop.day === day)
+    .sort((a, b) => a.order - b.order)
+    .map((stop) => {
+      const venueSlug = String(stop.venue?.id ?? stop.venue ?? '');
+      const experienceSlug = String(stop.experience?.id ?? stop.experience ?? '');
+      const venue = venueSlug ? venueMap.get(venueSlug) : null;
+      const experience = experienceSlug ? experienceMap.get(experienceSlug) : null;
+      const entry = venue ?? experience;
+      const href = venue ? `${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}` : experience ? `/explore/${routeSlug(experience)}` : undefined;
+      const label = venue?.data.name ?? experience?.data.name ?? 'Stop';
+      return {
+        ...stop,
+        entry,
+        href,
+        label,
+      };
+    }),
+}));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Escape', href: '/escape' },
+  { label: itinerary.data.title },
+];
+
+const nightsLabel = `${itinerary.data.lengthNights} night${itinerary.data.lengthNights === 1 ? '' : 's'}`;
+---
+
+<BaseLayout
+  title={`${itinerary.data.title} — Escape — Peninsula Insider`}
+  description={itinerary.data.dek}
+  section="escape"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="itinerary-detail">
+    <div class="container">
+      <div class="itinerary-detail__meta">
+        <a href="/escape" class="itinerary-detail__back">Escape</a>
+        <span class="itinerary-detail__dot" aria-hidden="true"></span>
+        <span class="itinerary-detail__nights">{nightsLabel}</span>
+      </div>
+
+      <h1 class="itinerary-detail__title">{itinerary.data.title}</h1>
+      <p class="itinerary-detail__dek">{itinerary.data.dek}</p>
+
+      <div class="itinerary-detail__chips">
+        <span>{audienceLabel[itinerary.data.audience] ?? itinerary.data.audience}</span>
+        <span>{moodLabel[itinerary.data.mood] ?? itinerary.data.mood}</span>
+        {itinerary.data.totalDriveMinutes && <span>{itinerary.data.totalDriveMinutes} min driving</span>}
+      </div>
+
+      <div class="itinerary-detail__hero feature__image-block feature__image-block--sand" aria-hidden="true">
+        <div class="itinerary-detail__hero-fog"></div>
+        <span class="itinerary-detail__hero-label">{itinerary.data.heroImage.alt}</span>
+      </div>
+
+      <div class="itinerary-detail__grid">
+        <div>
+          <div class="prose itinerary-detail__editor-note">
+            {itinerary.data.editorNote.split(/\n\n+/).map((paragraph: string) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+
+          <div class="stop-list">
+            {groupedStops.map((group) => (
+              <section class="stop-day">
+                <h2 class="stop-day__heading">Day {group.day}</h2>
+                <ol class="stop-day__stops">
+                  {group.stops.map((stop) => (
+                    <li class="stop-item">
+                      <div class="stop-item__time">{timeOfDayLabel[stop.timeOfDay] ?? titleize(stop.timeOfDay)}</div>
+                      <div>
+                        <h3 class="stop-item__name">
+                          {stop.href ? <a href={stop.href}>{stop.label}</a> : stop.label}
+                        </h3>
+                        {stop.note && <p class="stop-item__note">{stop.note}</p>}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ))}
+          </div>
+        </div>
+
+        <aside class="facts">
+          <p class="facts__title">At a glance</p>
+          <dl>
+            <dt>Length</dt>
+            <dd>{nightsLabel}</dd>
+
+            <dt>Audience</dt>
+            <dd>{audienceLabel[itinerary.data.audience] ?? itinerary.data.audience}</dd>
+
+            <dt>Mood</dt>
+            <dd>{moodLabel[itinerary.data.mood] ?? itinerary.data.mood}</dd>
+
+            <dt>Stops</dt>
+            <dd>{itinerary.data.stops.length} sequenced stops</dd>
+
+            {itinerary.data.totalDriveMinutes && (
+              <>
+                <dt>Driving</dt>
+                <dd>{itinerary.data.totalDriveMinutes} minutes total</dd>
+              </>
+            )}
+          </dl>
+
+          <a class="facts__cta" href="/stay">Choose the stay</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {featuredStays.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Sleep here</p>
+            <h2 class="venues__title">Stays that anchor this escape properly</h2>
+          </div>
+          <a href="/stay" class="venues__link">All stays →</a>
+        </div>
+        <div class="venues__grid">
+          {featuredStays.map((venue: any) => <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {highlightedExperiences.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Move the trip outside</p>
+            <h2 class="venues__title">Explore stops inside this plan</h2>
+          </div>
+          <a href="/explore" class="venues__link">Explore →</a>
+        </div>
+        <div class="experience-grid">
+          {highlightedExperiences.slice(0, 3).map((experience: any) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedArticles.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Further reading</p>
+            <h2 class="venues__title">Journal pieces that sharpen this version of the Peninsula</h2>
+          </div>
+          <a href="/journal" class="venues__link">Journal →</a>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {relatedArticles.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedItineraries.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Try another shape</p>
+            <h2 class="venues__title">More escape plans from the rebuild</h2>
+          </div>
+          <a href="/escape" class="venues__link">All escapes →</a>
+        </div>
+        <div class="itinerary-grid">
+          {relatedItineraries.map((entry) => <ItineraryCard itinerary={entry} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

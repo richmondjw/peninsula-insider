@@ -1,8 +1,4 @@
 ---
-/**
- * Peninsula Insider — Homepage
- * Refactored into shared layout + reusable editorial components.
- */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CoverHero from '../components/CoverHero.astro';
@@ -10,16 +6,33 @@ import PillarNav from '../components/PillarNav.astro';
 import FeatureArticle from '../components/FeatureArticle.astro';
 import VenueCard from '../components/VenueCard.astro';
 import PlaceCard from '../components/PlaceCard.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import ItineraryCard from '../components/ItineraryCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+import { routeSlug, stayTypes } from '../lib/editorial';
 
 const venues = await getCollection('venues');
-const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const places = await getCollection('places');
+const experiences = await getCollection('experiences');
+const itineraries = await getCollection('itineraries');
 
 const featured = articles.find((a) => a.data.featured) ?? articles[0];
 const showcase = venues
   .filter((venue) => ['restaurant', 'winery'].includes(venue.data.type))
   .slice(0, 3);
+const experienceHighlights = experiences.filter((entry) =>
+  ['bushrangers-bay-walk', 'red-hill-market', 'sorrento-back-beach'].includes(routeSlug(entry))
+);
+const escapePlans = itineraries.slice(0, 2);
+const stayHighlights = venues.filter((venue) =>
+  stayTypes.includes(venue.data.type) && ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue))
+);
+const journalHighlights = articles
+  .filter((article) => routeSlug(article) !== routeSlug(featured))
+  .slice(0, 2);
 
 const now = new Date();
 const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
@@ -36,15 +49,83 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
 
   {featured && <FeatureArticle article={featured} />}
 
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Build the weekend</p>
+          <h2 class="split-intro__title">Three ways into the Peninsula, depending on what the trip needs</h2>
+        </div>
+        <p class="split-intro__body">The preview is now broad enough to navigate by intent, not just section. Start with the bed if you want the trip to soften, the walk if you want the afternoon to open up, or the itinerary if you want the whole weekend pre-shaped.</p>
+      </div>
+      <div class="zone-intro__grid">
+        <a href="/stay" class="zone-card zone-card--link">
+          <p class="zone-card__label">Stay</p>
+          <h3 class="zone-card__title">Choose the base before the booking list</h3>
+          <p class="zone-card__body">Red Hill stays, Sorrento hotels, and the properties that change the tone of the whole weekend.</p>
+        </a>
+        <a href="/explore" class="zone-card zone-card--link">
+          <p class="zone-card__label">Explore</p>
+          <h3 class="zone-card__title">Use coastline, weather, and timing properly</h3>
+          <p class="zone-card__body">Late-afternoon walks, market starts, and the non-restaurant moves that make the region feel larger.</p>
+        </a>
+        <a href="/escape" class="zone-card zone-card--link">
+          <p class="zone-card__label">Escape</p>
+          <h3 class="zone-card__title">Follow a complete weekend, not a loose list</h3>
+          <p class="zone-card__body">Two shaped Peninsula escapes that sequence lunch, landscape, and bed in the right order.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
   {showcase.length > 0 && (
     <section class="venues">
       <div class="container">
         <div class="venues__header">
-          <h2 class="venues__title">Editor's Table</h2>
+          <div>
+            <p class="label label--accent">Editor's Table</p>
+            <h2 class="venues__title">The dining rooms still doing the strongest work</h2>
+            <p class="venues__sub">Begin with the meal if lunch is the point of the trip.</p>
+          </div>
           <a href="/eat" class="venues__link">All venues →</a>
         </div>
         <div class="venues__grid">
           {showcase.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {experienceHighlights.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">After lunch</p>
+            <h2 class="split-intro__title">The moves that stop the Peninsula feeling like one long reservation</h2>
+          </div>
+          <p class="split-intro__body">These are the useful second acts, not filler. A real walk, a market start, or a beach at the right hour changes what kind of place the Peninsula becomes.</p>
+        </div>
+        <div class="experience-grid">
+          {experienceHighlights.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {escapePlans.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Escape plans</p>
+            <h2 class="venues__title">When the Peninsula deserves more than a day trip</h2>
+            <p class="venues__sub">Start with a complete sequence if you want the preview to feel closest to a finished product.</p>
+          </div>
+          <a href="/escape" class="venues__link">All escapes →</a>
+        </div>
+        <div class="itinerary-grid">
+          {escapePlans.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
         </div>
       </div>
     </section>
@@ -64,6 +145,40 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
               variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
             />
           ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {stayHighlights.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Sleep here</p>
+            <h2 class="venues__title">Three stays that immediately change the plan</h2>
+          </div>
+          <a href="/stay" class="venues__link">All stays →</a>
+        </div>
+        <div class="venues__grid">
+          {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {journalHighlights.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">From the Journal</p>
+            <h2 class="venues__title">Service pieces and dispatches that sharpen the trip</h2>
+          </div>
+          <a href="/journal" class="venues__link">Journal →</a>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {journalHighlights.map((article) => <ArticleCard article={article} />)}
         </div>
       </div>
     </section>

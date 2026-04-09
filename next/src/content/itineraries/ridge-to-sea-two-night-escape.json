@@ -1,0 +1,68 @@
+{
+  "slug": "ridge-to-sea-two-night-escape",
+  "title": "Ridge to Sea: A Two-Night Peninsula Escape",
+  "dek": "Start in Red Hill wine country, finish at the southern tip, and let the weekend widen as it goes.",
+  "audience": "couple",
+  "mood": "food-wine",
+  "lengthNights": 2,
+  "stops": [
+    {
+      "day": 1,
+      "order": 1,
+      "venue": "montalto",
+      "note": "Arrive through the sculpture park and let lunch set the pace for the whole weekend.",
+      "timeOfDay": "midday"
+    },
+    {
+      "day": 1,
+      "order": 2,
+      "venue": "jackalope",
+      "note": "Check in on the ridge and commit to the theatrical version of the Peninsula for night one.",
+      "timeOfDay": "evening"
+    },
+    {
+      "day": 2,
+      "order": 1,
+      "experience": "red-hill-market",
+      "note": "If the market is on, start here. If not, use the hour for a slower breakfast and village loop.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 2,
+      "order": 2,
+      "venue": "polperro",
+      "note": "Keep lunch lighter today. The room and the wines both reward restraint.",
+      "timeOfDay": "midday"
+    },
+    {
+      "day": 2,
+      "order": 3,
+      "experience": "bushrangers-bay-walk",
+      "note": "Swap the wine rhythm for ocean air before the second night.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 2,
+      "order": 4,
+      "venue": "hotel-sorrento",
+      "note": "Sleep at the tip with a bay-view drink before dinner downstairs or nearby.",
+      "timeOfDay": "night"
+    },
+    {
+      "day": 3,
+      "order": 1,
+      "experience": "point-nepean-fort-walk",
+      "note": "Finish with the long view over the Heads before heading back to Melbourne.",
+      "timeOfDay": "morning"
+    }
+  ],
+  "totalDriveMinutes": 95,
+  "heroImage": {
+    "src": "/images/placeholder-ridge-to-sea.jpg",
+    "alt": "A Peninsula weekend spanning vineyards in Red Hill and open water at the southern tip",
+    "credit": "Peninsula Insider",
+    "license": "tmp-unsplash"
+  },
+  "editorNote": "This is the Peninsula in the sequence that makes the most sense to us: lunch and vineyard calm on the ridge first, then a gradual drift south until the landscape finally opens out into ocean, forts, ferries, and the weathered social theatre of Sorrento. It works because each day changes register. Day one is indulgent, day two is coastal, day three is all horizon. Keep the bookings light enough that the weekend can still breathe.",
+  "publishedAt": "2026-04-08"
+}

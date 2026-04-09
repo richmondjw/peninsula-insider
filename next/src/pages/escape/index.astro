@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, stayTypes } from '../../lib/editorial';
+
+const itineraries = (await getCollection('itineraries'))
+  .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
+const stays = (await getCollection('venues'))
+  .filter((venue) => stayTypes.includes(venue.data.type));
+const places = await getCollection('places');
+const stayHighlights = stays.filter((venue) => ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)));
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((article) => ['where-to-stay-for-a-two-night-escape', 'how-to-build-a-red-hill-saturday'].includes(routeSlug(article)))
+  .slice(0, 2);
+const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 'sorrento'].includes(routeSlug(place)));
+---
+
+<BaseLayout
+  title="Escape — Peninsula Insider"
+  description="Editorial itineraries and weekend plans for doing the Mornington Peninsula slowly and well."
+  section="escape"
+>
+  <SectionHero
+    eyebrow="Escape"
+    subEyebrow="Itineraries · weekends · slow travel"
+    title="Good Peninsula weekends are built in the <em>sequence.</em>"
+    dek="The region is small enough to overdo and varied enough to get wrong. These escape plans are our answer: fewer bookings, better pacing, and just enough structure that the whole thing feels inevitable rather than overplanned."
+    gradient="sand"
+    visualLabel="Ridge first, ocean later, no unnecessary backtracking"
+  />
+
+  <section class="experience-index experience-index--plain">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Editor's framework</p>
+          <h2 class="split-intro__title">Two fully shaped ways to leave Melbourne for a bit</h2>
+        </div>
+        <p class="split-intro__body">Our bias is simple: one decisive lunch, one proper walk, one stay that suits the mood, and enough room around all three that the weekend can still surprise you. Start with these and adapt from there.</p>
+      </div>
+      <div class="itinerary-grid">
+        {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+      </div>
+    </div>
+  </section>
+
+  {stayHighlights.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Choose the base first</p>
+            <h2 class="venues__title">Three stays that change the whole plan</h2>
+            <p class="venues__sub">A Peninsula itinerary improves dramatically when the bed matches the landscape you want most.</p>
+          </div>
+          <a href="/stay" class="venues__link">All stays →</a>
+        </div>
+        <div class="venues__grid">
+          {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {placeHighlights.length > 0 && (
+    <section class="places">
+      <div class="container">
+        <div class="places__header">
+          <p class="label label--accent places__label">Sequence by geography</p>
+          <h2 class="places__title">The best escapes move through the Peninsula in a clean line</h2>
+        </div>
+        <div class="places__grid">
+          {placeHighlights.map((place, index) => (
+            <PlaceCard place={place} variant={index === 1 ? 'sand' : index === 2 ? 'bay' : 'vineyard'} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="plan-grid">
+    <div class="container">
+      <div class="plan-grid__inner">
+        <article class="plan-note">
+          <p class="plan-note__label">Rule one</p>
+          <h3>Pick one geography per day</h3>
+          <p>Red Hill, Sorrento, Flinders, and Cape Schanck all ask for different tempos. Stringing them together without thought is how good weekends turn into traffic.</p>
+        </article>
+        <article class="plan-note">
+          <p class="plan-note__label">Rule two</p>
+          <h3>Let lunch or dinner be the event, not both</h3>
+          <p>The Peninsula's strongest move is still daylight dining. If lunch is the headline, keep dinner softer. If dinner matters, keep the afternoon light.</p>
+        </article>
+        <article class="plan-note">
+          <p class="plan-note__label">Rule three</p>
+          <h3>Always leave room for weather</h3>
+          <p>The region gets more interesting when the wind shifts, the sky changes, or dusk suddenly looks too good to waste indoors.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {articles.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Read before you book</p>
+            <h2 class="venues__title">Journal pieces that sharpen the trip</h2>
+          </div>
+          <a href="/journal" class="venues__link">More from the Journal →</a>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {articles.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

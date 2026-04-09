@@ -1,0 +1,47 @@
+---
+import { routeSlug } from '../lib/editorial';
+
+const audienceLabel: Record<string, string> = {
+  couple: 'Couples',
+  family: 'Families',
+  friends: 'Friends',
+  solo: 'Solo',
+  locals: 'Locals',
+};
+
+const moodLabel: Record<string, string> = {
+  slow: 'Slow',
+  indulgent: 'Indulgent',
+  wellness: 'Wellness',
+  adventure: 'Adventure',
+  'food-wine': 'Food & Wine',
+  mixed: 'Mixed',
+  quick: 'Quick',
+};
+
+export interface Props {
+  itinerary: any;
+}
+
+const { itinerary } = Astro.props;
+const data = itinerary.data;
+const slug = routeSlug(itinerary);
+const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}`;
+---
+
+<article class="itinerary-card">
+  <div class="itinerary-card__top">
+    <span class="itinerary-card__label">Escape plan</span>
+    <span class="itinerary-card__meta">{nightsLabel}</span>
+  </div>
+  <h3 class="itinerary-card__title">
+    <a href={`/escape/${slug}`}>{data.title}</a>
+  </h3>
+  <p class="itinerary-card__dek">{data.dek}</p>
+  <div class="itinerary-card__chips">
+    <span>{audienceLabel[data.audience] ?? data.audience}</span>
+    <span>{moodLabel[data.mood] ?? data.mood}</span>
+    {data.totalDriveMinutes && <span>{data.totalDriveMinutes} min driving</span>}
+  </div>
+  <a href={`/escape/${slug}`} class="itinerary-card__cta">See the full plan →</a>
+</article>

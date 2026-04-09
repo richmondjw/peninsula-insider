@@ -1,18 +1,41 @@
 ---
+import Breadcrumbs from './Breadcrumbs.astro';
 import PlaceCard from './PlaceCard.astro';
 import VenueCard from './VenueCard.astro';
+import ExperienceCard from './ExperienceCard.astro';
+import ItineraryCard from './ItineraryCard.astro';
+import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
-import { titleize } from '../lib/editorial';
+import { titleize, venueHrefPrefix } from '../lib/editorial';
 
 export interface Props {
   place: any;
   venues?: any[];
+  experiences?: any[];
+  itineraries?: any[];
+  articles?: any[];
   relatedPlaces?: any[];
+  snapshotCards?: { label: string; title: string; body: string }[];
 }
 
-const { place, venues = [], relatedPlaces = [] } = Astro.props;
+const {
+  place,
+  venues = [],
+  experiences = [],
+  itineraries = [],
+  articles = [],
+  relatedPlaces = [],
+  snapshotCards = [],
+} = Astro.props;
 const zoneLabel = titleize(place.data.zone);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Places', href: '/places' },
+  { label: place.data.name },
+];
 ---
+
+<Breadcrumbs items={breadcrumbItems} />
 
 <section class="place-detail">
   <div class="container">
@@ -27,6 +50,29 @@ const zoneLabel = titleize(place.data.zone);
   </div>
 </section>
 
+{snapshotCards.length > 0 && (
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">How this hub works</p>
+          <h2 class="split-intro__title">The place layer is now doing real editorial work</h2>
+        </div>
+        <p class="split-intro__body">Instead of acting like a geography label, the place page now starts connecting tables, beds, walks, and weekend logic around one part of the Peninsula.</p>
+      </div>
+      <div class="zone-intro__grid">
+        {snapshotCards.map((card) => (
+          <article class="zone-card">
+            <p class="zone-card__label">{card.label}</p>
+            <h3 class="zone-card__title">{card.title}</h3>
+            <p class="zone-card__body">{card.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
 {venues.length > 0 && (
   <section class="venues">
     <div class="container">
@@ -34,16 +80,64 @@ const zoneLabel = titleize(place.data.zone);
         <div>
           <p class="label label--accent">Editor's shortlist</p>
           <h2 class="venues__title">Where to eat, drink, and stay in {place.data.name}</h2>
-          <p class="venues__sub">A first-pass preview of the venues already mapped into the new content model.</p>
+          <p class="venues__sub">A stronger place hub starts with the rooms and tables already mapped into the content model.</p>
         </div>
       </div>
       <div class="venues__grid">
         {venues.map((venue) => (
-          <VenueCard
-            venue={venue}
-            hrefPrefix={['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'].includes(venue.data.type) ? '/stay' : ['winery', 'producer', 'brewery', 'distillery'].includes(venue.data.type) ? '/wine' : '/eat'}
-          />
+          <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />
         ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{experiences.length > 0 && (
+  <section class="experience-index">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Get outside</p>
+          <h2 class="venues__title">Explore moves anchored to {place.data.name}</h2>
+        </div>
+        <a href="/explore" class="venues__link">Explore all →</a>
+      </div>
+      <div class="experience-grid">
+        {experiences.map((experience) => <ExperienceCard experience={experience} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{itineraries.length > 0 && (
+  <section class="escape-callout">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Use it in sequence</p>
+          <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
+        </div>
+        <a href="/escape" class="venues__link">Escape plans →</a>
+      </div>
+      <div class="itinerary-grid">
+        {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{articles.length > 0 && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Read this place properly</p>
+          <h2 class="venues__title">Journal pieces connected to {place.data.name}</h2>
+        </div>
+        <a href="/journal" class="venues__link">Journal →</a>
+      </div>
+      <div class="venues__grid venues__grid--two">
+        {articles.map((article) => <ArticleCard article={article} />)}
       </div>
     </div>
   </section>
@@ -54,7 +148,7 @@ const zoneLabel = titleize(place.data.zone);
     <div class="container">
       <div class="places__header">
         <p class="label label--accent places__label">Keep going</p>
-        <h2 class="places__title">Nearby places worth knowing</h2>
+        <h2 class="places__title">Nearby places worth knowing next</h2>
       </div>
       <div class="places__grid">
         {relatedPlaces.map((item, index) => (

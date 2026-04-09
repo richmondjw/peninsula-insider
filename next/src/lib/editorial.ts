@@ -28,12 +28,22 @@ export const typeLabel: Record<string, string> = {
   spa: 'Spa',
 };
 
+export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+export const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
+export const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
+
 export function titleize(value: string) {
   return value.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
 }
 
 export function placeLabel(place: any) {
   return titleize(String(place?.id ?? place ?? ''));
+}
+
+export function venueHrefPrefix(type: string) {
+  if (stayTypes.includes(type)) return '/stay';
+  if (wineTypes.includes(type)) return '/wine';
+  return '/eat';
 }
 
 export function routeSlug(entry: any) {

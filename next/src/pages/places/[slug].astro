@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, stayTypes, wineTypes } from '../../lib/editorial';
 
 export async function getStaticPaths() {
   const places = await getCollection('places');
@@ -15,13 +15,46 @@ export async function getStaticPaths() {
 const { place } = Astro.props;
 const allVenues = await getCollection('venues');
 const places = await getCollection('places');
+const allExperiences = await getCollection('experiences');
+const allItineraries = await getCollection('itineraries');
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 
+const placeSlug = routeSlug(place);
+const venueSlugs = allVenues
+  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug)
+  .map((venue) => routeSlug(venue));
+const experiences = allExperiences
+  .filter((experience) => String(experience.data.place?.id ?? experience.data.place) === placeSlug);
+const experienceSlugs = experiences.map((experience) => routeSlug(experience));
 const venues = allVenues
-  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === routeSlug(place))
+  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug)
   .slice(0, 6);
-
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
 const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));
+const itineraries = allItineraries
+  .filter((itinerary) => itinerary.data.stops.some((stop) => venueSlugs.includes(String(stop.venue?.id ?? stop.venue ?? '')) || experienceSlugs.includes(String(stop.experience?.id ?? stop.experience ?? ''))))
+  .slice(0, 2);
+const articles = allArticles
+  .filter((article) => article.data.tags.includes(placeSlug) || article.data.relatedVenues.some((entry) => venueSlugs.includes(String(entry.id ?? entry))) || article.data.relatedExperiences.some((entry) => experienceSlugs.includes(String(entry.id ?? entry))))
+  .slice(0, 2);
+
+const snapshotCards = [
+  {
+    label: 'Eat & drink',
+    title: `${venues.filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type)).length} dining picks`,
+    body: 'The current rebuild already maps the rooms, winery lunches, and destination tables that make this pocket worth driving for.',
+  },
+  {
+    label: 'Stay',
+    title: `${venues.filter((venue) => stayTypes.includes(venue.data.type)).length} stays in the hub`,
+    body: 'When a place has a workable bed attached, it stops being a stop and starts becoming a base.',
+  },
+  {
+    label: 'Explore',
+    title: `${experiences.length} nearby experience${experiences.length === 1 ? '' : 's'}`,
+    body: 'Walks, lookouts, beaches, and market moves are now connected into the place layer rather than floating off on their own.',
+  },
+];
 ---
 
 <BaseLayout
@@ -29,5 +62,13 @@ const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(e
   description={place.data.intro}
   section="places"
 >
-  <PlaceDetailTemplate place={place} venues={venues} relatedPlaces={relatedPlaces} />
+  <PlaceDetailTemplate
+    place={place}
+    venues={venues}
+    experiences={experiences}
+    itineraries={itineraries}
+    articles={articles}
+    relatedPlaces={relatedPlaces}
+    snapshotCards={snapshotCards}
+  />
 </BaseLayout>
