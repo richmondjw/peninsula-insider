@@ -4,9 +4,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { routeSlug } from '../../lib/editorial';
 
 const places = (await getCollection('places'))
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const venues = await getCollection('venues');
+const experiences = await getCollection('experiences');
+
+// Count venues and experiences mapped to each place, so the all-places
+// grid can surface density rather than treating every hub as equal.
+const placeDensity: Record<string, number> = {};
+places.forEach((place) => {
+  const slug = routeSlug(place);
+  const venueCount = venues.filter((v) => String(v.data.place?.id ?? v.data.place) === slug).length;
+  const experienceCount = experiences.filter((e) => String(e.data.place?.id ?? e.data.place) === slug).length;
+  placeDensity[slug] = venueCount + experienceCount;
+});
+
+// Pull three "signature" reads that work as town-first journal pieces.
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const townReadSlugs = [
+  'a-flinders-weekend',
+  'mornington-day-guide',
+  'how-to-build-a-red-hill-saturday',
+  'the-peninsula-orientation-drive',
+];
+const townReads = townReadSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
 // Group by editorial geography, not raw zone enum — the three pockets
 // most useful to a first-time reader.
@@ -106,22 +133,29 @@ const quickNav = grouped.map((group) => ({
     </section>
   )}
 
-  {grouped.map((group) => (
-    <section class="places" id={group.key}>
-      <div class="container">
-        <div class="places__header">
-          <p class="label label--accent places__label">{group.label}</p>
-          <h2 class="places__title">{group.title}</h2>
-          <p class="places__sub">{group.intro}</p>
+  {grouped.map((group) => {
+    // Sort within each group by density so the hubs with the most
+    // mapped venues/experiences lead the grid.
+    const ordered = [...group.places].sort(
+      (a, b) => (placeDensity[routeSlug(b)] ?? 0) - (placeDensity[routeSlug(a)] ?? 0),
+    );
+    return (
+      <section class="places" id={group.key}>
+        <div class="container">
+          <div class="places__header">
+            <p class="label label--accent places__label">{group.label}</p>
+            <h2 class="places__title">{group.title}</h2>
+            <p class="places__sub">{group.intro}</p>
+          </div>
+          <div class="places__grid">
+            {ordered.map((place) => (
+              <PlaceCard place={place} variant={group.variant} />
+            ))}
+          </div>
         </div>
-        <div class="places__grid">
-          {group.places.map((place) => (
-            <PlaceCard place={place} variant={group.variant} />
-          ))}
-        </div>
-      </div>
-    </section>
-  ))}
+      </section>
+    );
+  })}
 
   <section class="places" id="all">
     <div class="container">
@@ -140,6 +174,24 @@ const quickNav = grouped.map((group) => ({
       </div>
     </div>
   </section>
+
+  {townReads.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">From the Journal</p>
+            <h2 class="venues__title">Town-first reads that map a single stretch properly</h2>
+            <p class="venues__sub">The essays and service pieces that sit closest to the place layer.</p>
+          </div>
+          <a href="/journal" class="venues__link">All in the Journal →</a>
+        </div>
+        <div class="venues__grid">
+          {townReads.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   <NewsletterBlock />
 </BaseLayout>

@@ -9,8 +9,10 @@ import PlaceCard from '../components/PlaceCard.astro';
 import ExperienceCard from '../components/ExperienceCard.astro';
 import ItineraryCard from '../components/ItineraryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
+import EventCard from '../components/EventCard.astro';
+import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { routeSlug, stayTypes } from '../lib/editorial';
+import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason } from '../lib/editorial';
 
 const venues = await getCollection('venues');
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
@@ -19,7 +21,22 @@ const places = await getCollection('places');
 const experiences = await getCollection('experiences');
 const itineraries = await getCollection('itineraries');
 
-const featured = articles.find((a) => a.data.featured) ?? articles[0];
+// What's On hooks — the events differentiator surfaces here so the
+// Weekend Picker / Worth The Drive / Kids Grade language is visible
+// without a click into /whats-on.
+const eventsAll = (await getCollection('events'))
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence)) return true;
+    const end = event.data.endDate ?? event.data.startDate;
+    return isUpcoming(end);
+  })
+  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+const weekendPicks = eventsAll.filter((event) => event.data.lens.includes('weekend-pick' as any)).slice(0, 3);
+const weekendDispatch = articles
+  .filter((article) => article.data.format === 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+
+const featured = articles.find((a) => a.data.featured && a.data.format !== 'weekend-picker') ?? articles.find((a) => a.data.format !== 'weekend-picker') ?? articles[0];
 const editorPicks = articles
   .filter((a) => routeSlug(a) !== routeSlug(featured))
   .filter((a) => ['the-chardonnay-case', 'three-italian-dinners', 'the-peninsula-pantry', 'the-long-lunch', 'the-thermal-springs-weekend'].includes(routeSlug(a)))
@@ -77,6 +94,19 @@ const issueStats = {
 
 const now = new Date();
 const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+
+// Seasonal hook — surface venues and experiences whose tags match the
+// current season. Designed to feel like a rotating "what's on right now"
+// rail without needing a manual editorial push each month.
+const season = currentSeason();
+const seasonBlurbData = seasonBlurb[season];
+const seasonalVenues = venues
+  .filter((venue) => inSeason(venue, season))
+  .filter((venue) => ['restaurant', 'winery', 'cafe', 'bakery', 'spa', 'hotel'].includes(venue.data.type))
+  .slice(0, 3);
+const seasonalExperiences = experiences
+  .filter((e) => experienceInSeason(e, season))
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -104,6 +134,26 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
       </div>
     </div>
   </section>
+
+  {weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend="This weekend" />}
+
+  {weekendPicks.length > 0 && (
+    <section class="venues venues--plain" aria-label="Weekend picks">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">This weekend · editor's picks</p>
+            <h2 class="venues__title">Three events with an opinion attached</h2>
+            <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not — because nobody else on the Peninsula event web is brave enough to.</p>
+          </div>
+          <a href="/whats-on" class="venues__link">All What’s On →</a>
+        </div>
+        <div class="event-grid">
+          {weekendPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   {featured && <FeatureArticle article={featured} />}
 
@@ -189,6 +239,52 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
         </div>
         <div class="venues__grid">
           {diningShowcase.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {(seasonalVenues.length > 0 || seasonalExperiences.length > 0) && (
+    <section class="seasonal-shelf">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">{seasonBlurbData.label}</p>
+            <h2 class="split-intro__title">Right now, the Peninsula is best at this</h2>
+          </div>
+          <p class="split-intro__body">{seasonBlurbData.line}</p>
+        </div>
+        <div class="seasonal-shelf__grid">
+          {seasonalVenues.length > 0 && (
+            <div class="seasonal-shelf__col">
+              <p class="label label--accent">Tables & rooms in season</p>
+              <ul class="seasonal-shelf__list">
+                {seasonalVenues.map((venue) => (
+                  <li>
+                    <a href={`/${stayTypes.includes(venue.data.type) ? 'stay' : ['winery', 'producer', 'brewery', 'distillery'].includes(venue.data.type) ? 'wine' : 'eat'}/${routeSlug(venue)}`}>
+                      <span class="seasonal-shelf__name">{venue.data.name}</span>
+                      <span class="seasonal-shelf__note">{venue.data.signature}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {seasonalExperiences.length > 0 && (
+            <div class="seasonal-shelf__col">
+              <p class="label label--accent">Walks & moves in season</p>
+              <ul class="seasonal-shelf__list">
+                {seasonalExperiences.map((experience) => (
+                  <li>
+                    <a href={`/explore/${routeSlug(experience)}`}>
+                      <span class="seasonal-shelf__name">{experience.data.name}</span>
+                      <span class="seasonal-shelf__note">{experience.data.editorNote.split('.').slice(0, 1).join('.')}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </section>

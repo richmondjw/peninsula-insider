@@ -7,18 +7,57 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, currentSeason, seasonBlurb, experienceInSeason } from '../../lib/editorial';
 
 const experiences = (await getCollection('experiences'))
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
 const places = await getCollection('places');
-const itineraries = (await getCollection('itineraries')).slice(0, 2);
-const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .filter((article) => ['the-peninsulas-best-late-afternoon-walks', 'how-to-build-a-red-hill-saturday'].includes(routeSlug(article)))
-  .slice(0, 2);
+const itinerariesAll = await getCollection('itineraries');
+const itinerarySlugs = [
+  'flinders-and-cape-reset',
+  'ridge-to-sea-two-night-escape',
+  'sorrento-off-season-weekend',
+];
+const itineraries = itinerarySlugs
+  .map((slug) => itinerariesAll.find((itinerary) => routeSlug(itinerary) === slug))
+  .filter((itinerary): itinerary is NonNullable<typeof itinerary> => Boolean(itinerary));
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const season = currentSeason();
+const blurb = seasonBlurb[season];
 
 const featured = experiences.find((entry) => routeSlug(entry) === 'bushrangers-bay-walk') ?? experiences[0];
+
+// Split experiences by type so the hub is a real navigation surface.
+const walks = experiences.filter((e) => e.data.type === 'walk');
+const beaches = experiences.filter((e) => e.data.type === 'beach');
+const lookouts = experiences.filter((e) => e.data.type === 'lookout');
+const markets = experiences.filter((e) => e.data.type === 'market');
+const wellness = experiences.filter((e) => e.data.type === 'wellness');
+const galleriesAttractions = experiences.filter((e) => ['gallery', 'attraction', 'park', 'tour'].includes(e.data.type));
+
+// Short walks under 60 min — "between meals" layer.
+const shortWalks = walks.filter((e) => (e.data.durationMinutes ?? 999) <= 60).slice(0, 4);
+// Proper coastal walks — anything 60+ minutes, tagged a walk.
+const longWalks = walks.filter((e) => (e.data.durationMinutes ?? 0) > 60).slice(0, 6);
+
+// Seasonal experiences that actually match right now.
+const seasonal = experiences.filter((e) => experienceInSeason(e, season)).slice(0, 8);
+
 const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean', 'sorrento', 'red-hill'].includes(routeSlug(place)));
+
+const companionSlugs = [
+  'the-point-nepean-half-day',
+  'the-peninsula-beach-swimming-guide',
+  'the-market-saturday',
+  'the-peninsulas-best-late-afternoon-walks',
+  'the-rainy-day-peninsula-without-a-booking',
+  'the-peninsula-with-kids',
+];
+const companionReads = companionSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
 ---
 
 <BaseLayout
@@ -30,10 +69,26 @@ const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean',
     eyebrow="Explore"
     subEyebrow="Walks · beaches · lookouts · markets"
     title="The Peninsula gets better once you leave the <em>table.</em>"
-    dek="The strongest weekends here are not built on bookings alone. They need coastline, weather, a market detour, or one good walk between lunch and sunset. This section starts to map those moves properly."
+    dek="The strongest weekends here are not built on bookings alone. They need coastline, weather, a market detour, or one good walk between lunch and sunset. This section maps those moves properly."
     gradient="bay"
     visualLabel="Coastline, scrub, and the hour after lunch"
   />
+
+  <section class="format-nav">
+    <div class="container">
+      <p class="label label--accent format-nav__label">Pick a move</p>
+      <div class="format-nav__chips">
+        {longWalks.length > 0 && <a href="#long-walks" class="format-chip"><span class="format-chip__name">Coastal walks</span><span class="format-chip__count">{longWalks.length}</span></a>}
+        {shortWalks.length > 0 && <a href="#short-walks" class="format-chip"><span class="format-chip__name">Between-meal walks</span><span class="format-chip__count">{shortWalks.length}</span></a>}
+        {beaches.length > 0 && <a href="#beaches" class="format-chip"><span class="format-chip__name">Beaches</span><span class="format-chip__count">{beaches.length}</span></a>}
+        {lookouts.length > 0 && <a href="#lookouts" class="format-chip"><span class="format-chip__name">Lookouts</span><span class="format-chip__count">{lookouts.length}</span></a>}
+        {markets.length > 0 && <a href="#markets" class="format-chip"><span class="format-chip__name">Markets</span><span class="format-chip__count">{markets.length}</span></a>}
+        {wellness.length > 0 && <a href="#wellness" class="format-chip"><span class="format-chip__name">Wellness</span><span class="format-chip__count">{wellness.length}</span></a>}
+        {galleriesAttractions.length > 0 && <a href="#culture" class="format-chip"><span class="format-chip__name">Galleries & attractions</span><span class="format-chip__count">{galleriesAttractions.length}</span></a>}
+        <a href="#all" class="format-chip"><span class="format-chip__name">All experiences</span><span class="format-chip__count">{experiences.length}</span></a>
+      </div>
+    </div>
+  </section>
 
   {featured && (
     <section class="feature feature--compact">
@@ -52,8 +107,12 @@ const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean',
             </h2>
             <p class="feature__dek">{featured.data.editorNote}</p>
             <div class="feature__byline">
-              <span class="feature__byline-name">{featured.data.durationMinutes} min return</span>
-              <span class="feature__byline-dot" aria-hidden="true"></span>
+              {featured.data.durationMinutes && (
+                <>
+                  <span class="feature__byline-name">{featured.data.durationMinutes} min return</span>
+                  <span class="feature__byline-dot" aria-hidden="true"></span>
+                </>
+              )}
               <span class="feature__byline-meta">{String(featured.data.difficulty ?? 'easy').replace(/\b\w/g, (l) => l.toUpperCase())}</span>
             </div>
             <a href={`/explore/${routeSlug(featured)}`} class="feature__cta">Read the guide →</a>
@@ -63,14 +122,153 @@ const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean',
     </section>
   )}
 
-  <section class="experience-index">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">Field notes</p>
-          <h2 class="split-intro__title">Five ways to get the Peninsula right between bookings</h2>
+  {seasonal.length > 0 && (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">{blurb.label}</p>
+            <h2 class="split-intro__title">What the Peninsula is best at right now</h2>
+          </div>
+          <p class="split-intro__body">{blurb.line}</p>
         </div>
-        <p class="split-intro__body">These are not filler activities. They are the pieces that stop a Peninsula weekend feeling like a sequence of expensive tables. Use them to change the pace, the weather, and the story you tell yourself about the place.</p>
+        <div class="experience-grid">
+          {seasonal.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {longWalks.length > 0 && (
+    <section class="experience-index" id="long-walks">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Coastal walks</p>
+            <h2 class="venues__title">The proper walks that reset the weekend</h2>
+            <p class="venues__sub">Cape Schanck, Bushrangers Bay, the Two Bays. These are the walks worth clearing an afternoon for.</p>
+          </div>
+          <a href="/journal/the-peninsulas-best-late-afternoon-walks" class="venues__link">Read the walks piece →</a>
+        </div>
+        <div class="experience-grid">
+          {longWalks.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {shortWalks.length > 0 && (
+    <section class="experience-index experience-index--plain" id="short-walks">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Between-meal walks</p>
+            <h2 class="venues__title">Under an hour · good between lunch and dinner</h2>
+            <p class="venues__sub">For the gap in the weekend when a long walk is too much and doing nothing feels wrong.</p>
+          </div>
+        </div>
+        <div class="experience-grid">
+          {shortWalks.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {beaches.length > 0 && (
+    <section class="experience-index" id="beaches">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Beaches</p>
+            <h2 class="venues__title">Which beach, and why</h2>
+            <p class="venues__sub">The bay calm versus the back beaches — pick the one that matches the weather, not the one closest to the car.</p>
+          </div>
+          <a href="/journal/the-peninsula-beach-swimming-guide" class="venues__link">Beach guide →</a>
+        </div>
+        <div class="experience-grid">
+          {beaches.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {lookouts.length > 0 && (
+    <section class="experience-index experience-index--plain" id="lookouts">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Lookouts</p>
+            <h2 class="venues__title">Where the Peninsula lays itself out for you</h2>
+            <p class="venues__sub">Short stops, long views — the moments that make the drive home feel considered.</p>
+          </div>
+        </div>
+        <div class="experience-grid">
+          {lookouts.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {markets.length > 0 && (
+    <section class="experience-index" id="markets">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Markets</p>
+            <h2 class="venues__title">Saturday mornings that shape the rest of the trip</h2>
+            <p class="venues__sub">Farmers' markets, makers' days, and the produce-first way into a Peninsula weekend.</p>
+          </div>
+          <a href="/journal/the-market-saturday" class="venues__link">Market guide →</a>
+        </div>
+        <div class="experience-grid">
+          {markets.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {wellness.length > 0 && (
+    <section class="experience-index experience-index--plain" id="wellness">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Wellness</p>
+            <h2 class="venues__title">Springs, sauna, and the slow layer</h2>
+            <p class="venues__sub">When the weekend needs to reset, not perform.</p>
+          </div>
+        </div>
+        <div class="experience-grid">
+          {wellness.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {galleriesAttractions.length > 0 && (
+    <section class="experience-index" id="culture">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Galleries & attractions</p>
+            <h2 class="venues__title">Non-beach, non-cellar-door afternoons</h2>
+            <p class="venues__sub">The culture layer — useful when the weather turns or the weekend needs a quieter pace.</p>
+          </div>
+        </div>
+        <div class="experience-grid">
+          {galleriesAttractions.map((experience) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="experience-index experience-index--plain" id="all">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Every explore entry</p>
+          <h2 class="venues__title">All {experiences.length} Peninsula moves, alphabetical</h2>
+          <p class="venues__sub">For when you already know what you're looking for.</p>
+        </div>
       </div>
       <div class="experience-grid">
         {experiences.map((experience) => <ExperienceCard experience={experience} />)}
@@ -84,6 +282,7 @@ const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean',
         <div class="places__header">
           <p class="label label--accent places__label">By terrain</p>
           <h2 class="places__title">Explore by pocket of the Peninsula</h2>
+          <p class="places__sub">Each place hub sequences walks, beaches, and lookouts into a real stretch of landscape.</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
@@ -115,7 +314,7 @@ const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean',
     </section>
   )}
 
-  {articles.length > 0 && (
+  {companionReads.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
         <div class="venues__header">
@@ -125,8 +324,8 @@ const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean',
           </div>
           <a href="/journal" class="venues__link">Journal →</a>
         </div>
-        <div class="venues__grid venues__grid--two">
-          {articles.map((article) => <ArticleCard article={article} />)}
+        <div class="venues__grid">
+          {companionReads.map((article) => <ArticleCard article={article} />)}
         </div>
       </div>
     </section>

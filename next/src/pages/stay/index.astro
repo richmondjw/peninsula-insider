@@ -7,18 +7,65 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, stayTypes } from '../../lib/editorial';
+import { routeSlug, stayTypes, currentSeason, seasonBlurb } from '../../lib/editorial';
 
 const venues = (await getCollection('venues'))
   .filter((venue) => stayTypes.includes(venue.data.type));
 const itineraries = await getCollection('itineraries');
 const places = await getCollection('places');
-const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .filter((article) => ['where-to-stay-for-a-two-night-escape', 'how-to-build-a-red-hill-saturday'].includes(routeSlug(article)))
-  .slice(0, 2);
 
-const featuredStays = venues.filter((venue) => ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)));
+const season = currentSeason();
+const blurb = seasonBlurb[season];
+
+const featuredStaySlugs = ['jackalope', 'hotel-sorrento', 'flinders-hotel'];
+const featuredStays = featuredStaySlugs
+  .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
+  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+// Split stays by geography — ridge, coast, bay — so the hub starts to feel
+// like a geography-first choice rather than a flat list.
+const ridgeZones = ['red-hill-plateau', 'hinterland'];
+const coastZones = ['ocean-coast', 'back-beaches', 'tip'];
+const bayZones = ['bayside'];
+const ridgeStays = venues.filter((venue) => ridgeZones.includes(venue.data.zone));
+const coastStays = venues.filter((venue) => coastZones.includes(venue.data.zone));
+const bayStays = venues.filter((venue) => bayZones.includes(venue.data.zone));
+
+// Split stays by mood.
+const vineyardStays = venues.filter((venue) => {
+  const moods: string[] = venue.data.tags?.mood ?? [];
+  return moods.includes('cellar-door') || moods.includes('long-lunch') || ridgeZones.includes(venue.data.zone);
+}).slice(0, 6);
+const coastalStays = venues.filter((venue) => {
+  const moods: string[] = venue.data.tags?.mood ?? [];
+  return moods.includes('beach') || moods.includes('waterfront') || coastZones.includes(venue.data.zone);
+}).slice(0, 6);
+const wellnessStays = venues.filter((venue) => {
+  const moods: string[] = venue.data.tags?.mood ?? [];
+  return moods.includes('wellness') || venue.data.type === 'spa';
+}).slice(0, 4);
+
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const companionSlugs = [
+  'where-to-stay-for-a-two-night-escape',
+  'the-one-night-escape',
+  'the-vineyard-villa-weekend',
+  'the-thermal-springs-weekend',
+];
+const companionReads = companionSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+
 const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flinders'].includes(routeSlug(place)));
+
+const stayStats = {
+  total: venues.length,
+  ridge: ridgeStays.length,
+  coast: coastStays.length,
+  bay: bayStays.length,
+};
 ---
 
 <BaseLayout
@@ -30,10 +77,24 @@ const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flind
     eyebrow="Stay"
     subEyebrow="Hotels · vineyard stays · coastal weekends"
     title="Choose the base, and the whole <em>weekend</em> changes."
-    dek="The Peninsula is a region of different moods packed close together. A Red Hill country-house stay produces a different trip from a Sorrento main-street hotel. This section is now starting to model that distinction properly."
+    dek="The Peninsula is a region of different moods packed close together. A Red Hill country-house stay produces a different trip from a Sorrento main-street hotel. This hub sorts the beds by the kind of weekend you actually want."
     gradient="stay"
     visualLabel="Vines inland · limestone coast beyond"
   />
+
+  <section class="format-nav">
+    <div class="container">
+      <p class="label label--accent format-nav__label">Jump to a weekend shape</p>
+      <div class="format-nav__chips">
+        <a href="#editors" class="format-chip"><span class="format-chip__name">Editor's picks</span><span class="format-chip__count">{featuredStays.length}</span></a>
+        {vineyardStays.length > 0 && <a href="#vineyard" class="format-chip"><span class="format-chip__name">Vineyard weekends</span><span class="format-chip__count">{vineyardStays.length}</span></a>}
+        {coastalStays.length > 0 && <a href="#coastal" class="format-chip"><span class="format-chip__name">Coastal weekends</span><span class="format-chip__count">{coastalStays.length}</span></a>}
+        {wellnessStays.length > 0 && <a href="#wellness" class="format-chip"><span class="format-chip__name">Wellness & retreats</span><span class="format-chip__count">{wellnessStays.length}</span></a>}
+        <a href="#itineraries" class="format-chip"><span class="format-chip__name">Use it in sequence</span><span class="format-chip__count">{itineraries.length}</span></a>
+        <a href="#all" class="format-chip"><span class="format-chip__name">All stays</span><span class="format-chip__count">{venues.length}</span></a>
+      </div>
+    </div>
+  </section>
 
   <section class="zone-intro">
     <div class="container">
@@ -45,33 +106,33 @@ const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flind
         <p class="split-intro__body">Red Hill suits couples who want vineyard calm and long lunches nearby. Sorrento works when you want the social theatre of the tip and late light on the coast. Flinders is the quieter southern reset, better for one-night decompressions and ocean weather.</p>
       </div>
       <div class="zone-intro__grid">
-        <article class="zone-card">
-          <p class="zone-card__label">Red Hill</p>
-          <h3 class="zone-card__title">For vineyard weekends</h3>
-          <p class="zone-card__body">Stay here if lunch, cellar doors, and slower inland pacing are the point. It is the strongest base for a two-night food-and-wine version of the Peninsula.</p>
-        </article>
-        <article class="zone-card">
-          <p class="zone-card__label">Sorrento</p>
-          <h3 class="zone-card__title">For the tip and the social version</h3>
-          <p class="zone-card__body">The main-street hotel stay suits people who want the back beach, the ferry edge, and a bit more theatre around dusk and dinner.</p>
-        </article>
-        <article class="zone-card">
-          <p class="zone-card__label">Flinders</p>
-          <h3 class="zone-card__title">For a quieter southern reset</h3>
-          <p class="zone-card__body">Use Flinders when the weekend needs air, a simpler pub-or-inn rhythm, and cleaner access to Cape Schanck and the ocean side.</p>
-        </article>
+        <a href="#vineyard" class="zone-card zone-card--link">
+          <p class="zone-card__label">Red Hill · ridge</p>
+          <h3 class="zone-card__title">{stayStats.ridge} vineyard weekends</h3>
+          <p class="zone-card__body">Stay here if lunch, cellar doors, and slower inland pacing are the point. It's the strongest base for a two-night food-and-wine version of the Peninsula.</p>
+        </a>
+        <a href="#coastal" class="zone-card zone-card--link">
+          <p class="zone-card__label">Sorrento · tip</p>
+          <h3 class="zone-card__title">{stayStats.coast} coastal weekends</h3>
+          <p class="zone-card__body">The main-street hotel and coastal cottage stay suits people who want the back beach, the ferry edge, and a bit more theatre around dusk and dinner.</p>
+        </a>
+        <a href="#all" class="zone-card zone-card--link">
+          <p class="zone-card__label">Bayside · easier entry</p>
+          <h3 class="zone-card__title">{stayStats.bay} easy-entry stays</h3>
+          <p class="zone-card__body">Use Mornington and Mount Martha when you want coffee, galleries, and a swim rather than a booked-out weekend.</p>
+        </a>
       </div>
     </div>
   </section>
 
   {featuredStays.length > 0 && (
-    <section class="venues">
+    <section class="venues" id="editors">
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Stay notes</p>
-            <h2 class="venues__title">The properties worth building a trip around</h2>
-            <p class="venues__sub">From design-hotel spectacle to quieter country-house weekends.</p>
+            <p class="label label--accent">Editor's picks</p>
+            <h2 class="venues__title">Three stays worth planning the trip around</h2>
+            <p class="venues__sub">From design-hotel spectacle to quieter village-hotel weekends — the rooms that change what the trip feels like.</p>
           </div>
           <a href="/journal/where-to-stay-for-a-two-night-escape" class="venues__link">Editor's stay guide →</a>
         </div>
@@ -82,13 +143,67 @@ const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flind
     </section>
   )}
 
-  <section class="venues venues--plain">
+  {vineyardStays.length > 0 && (
+    <section class="venues venues--plain" id="vineyard">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Vineyard weekends</p>
+            <h2 class="venues__title">Beds with a long lunch already attached</h2>
+            <p class="venues__sub">The stays that make the Red Hill version of the Peninsula hold together — close to cellar doors, built for pinot pacing.</p>
+          </div>
+          <a href="/wine" class="venues__link">Wine country →</a>
+        </div>
+        <div class="venues__grid">
+          {vineyardStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {coastalStays.length > 0 && (
+    <section class="venues" id="coastal">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Coastal weekends</p>
+            <h2 class="venues__title">For salt air, dusk walks, and back-beach weather</h2>
+            <p class="venues__sub">Rooms that put you near limestone, open water, and the quieter southern end of the region.</p>
+          </div>
+          <a href="/places/sorrento" class="venues__link">Sorrento hub →</a>
+        </div>
+        <div class="venues__grid">
+          {coastalStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {wellnessStays.length > 0 && (
+    <section class="venues venues--plain" id="wellness">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Wellness & retreats</p>
+            <h2 class="venues__title">The Peninsula's slow-down layer</h2>
+            <p class="venues__sub">Springs, spa cabins, and farm-stay beds for the weekend that has to do more with less.</p>
+          </div>
+          <a href="/journal/the-thermal-springs-weekend" class="venues__link">Thermal springs guide →</a>
+        </div>
+        <div class="venues__grid">
+          {wellnessStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="venues" id="all">
     <div class="container">
       <div class="venues__header">
         <div>
           <p class="label label--accent">All stays</p>
-          <h2 class="venues__title">The current stay map, across the rebuild</h2>
-          <p class="venues__sub">A tighter list now, but with enough spread to model different Peninsula weekends.</p>
+          <h2 class="venues__title">Every bed currently mapped, from hotel to cottage</h2>
+          <p class="venues__sub">{blurb.line}</p>
         </div>
       </div>
       <div class="venues__grid">
@@ -98,7 +213,7 @@ const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flind
   </section>
 
   {itineraries.length > 0 && (
-    <section class="escape-callout">
+    <section class="escape-callout" id="itineraries">
       <div class="container">
         <div class="venues__header">
           <div>
@@ -121,6 +236,7 @@ const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flind
         <div class="places__header">
           <p class="label label--accent places__label">Choose the district</p>
           <h2 class="places__title">Browse stays through the places they belong to</h2>
+          <p class="places__sub">Each hub pulls together the beds, tables, and walks that belong to that stretch of the Peninsula.</p>
         </div>
         <div class="places__grid">
           {placeHighlights.map((place, index) => (
@@ -134,7 +250,7 @@ const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flind
     </section>
   )}
 
-  {articles.length > 0 && (
+  {companionReads.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
         <div class="venues__header">
@@ -144,8 +260,8 @@ const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flind
           </div>
           <a href="/journal" class="venues__link">Journal →</a>
         </div>
-        <div class="venues__grid venues__grid--two">
-          {articles.map((article) => <ArticleCard article={article} />)}
+        <div class="venues__grid">
+          {companionReads.map((article) => <ArticleCard article={article} />)}
         </div>
       </div>
     </section>

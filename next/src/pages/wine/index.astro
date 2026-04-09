@@ -3,43 +3,260 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, currentSeason, seasonBlurb } from '../../lib/editorial';
 
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 const venues = (await getCollection('venues'))
   .filter((venue) => wineTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const season = currentSeason();
+const blurb = seasonBlurb[season];
+
+// Split by type so the hub reads as a structured region guide.
+const wineries = venues.filter((venue) => venue.data.type === 'winery');
+const producers = venues.filter((venue) => venue.data.type === 'producer');
+const breweries = venues.filter((venue) => venue.data.type === 'brewery');
+const distilleries = venues.filter((venue) => venue.data.type === 'distillery');
+
+// Benchmark shortlist — the cellar doors that anchor the region right now.
+const benchmarkSlugs = [
+  'pt-leo-estate',
+  'montalto',
+  'paringa-estate',
+  'polperro',
+  'dexter-wines',
+  'ocean-eight',
+];
+const benchmarks = benchmarkSlugs
+  .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
+  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+// Appointment-only — the producers worth planning the drive around.
+const appointmentOnly = venues
+  .filter((venue) => venue.data.bookingProvider === 'direct' || Number(venue.data.authority?.hallidayScore ?? 0) >= 95)
+  .filter((venue) => !benchmarks.some((b) => routeSlug(b) === routeSlug(venue)))
+  .slice(0, 6);
+
+// Places most associated with wine country.
+const places = await getCollection('places');
+const wineHubs = places.filter((place) =>
+  ['red-hill', 'main-ridge', 'merricks', 'balnarring', 'moorooduc', 'tuerong'].includes(routeSlug(place)),
+);
+
+// Journal companions.
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const companionSlugs = [
+  'the-chardonnay-case',
+  'the-cellar-door-short-list',
+  'how-to-build-a-red-hill-saturday',
+  'the-peninsula-pantry',
+];
+const companionReads = companionSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
 ---
 
 <BaseLayout
-  title="Wine Country — Peninsula Insider"
-  description="Cellar doors, benchmark producers, and the vineyard stops worth your afternoon on the Mornington Peninsula."
+  title="Wine — Peninsula Insider"
+  description="Cellar doors, benchmark producers, breweries, and distilleries worth your afternoon on the Mornington Peninsula."
   section="wine"
 >
   <SectionHero
     eyebrow="Wine Country"
     subEyebrow="Cellar doors · pinot noir · cool-climate producers"
     title="The Peninsula's best bottles start on the <em>ridge.</em>"
-    dek="This preview route begins to break wine country into atomic producer pages, with proper slugs, referenceable places, and editorial notes that can scale into a serious region guide."
+    dek="Pinot noir and chardonnay built on basalt, plus the breweries and distilleries that now round out the region. This hub sorts them by what they're actually for — long lunches, appointment tastings, and afternoons that earn the drive."
     gradient="hinterland"
     visualLabel="Morning fog · pinot country"
   />
 
-  <section class="venues venues--plain">
+  <section class="format-nav">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Cellar door dispatch</p>
-          <h2 class="venues__title">Producers worth opening the boot for</h2>
-          <p class="venues__sub">A first structured pass through the estates that define Peninsula wine country.</p>
-        </div>
-        <a href="/places/red-hill" class="venues__link">See Red Hill hub →</a>
-      </div>
-      <div class="venues__grid">
-        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+      <p class="label label--accent format-nav__label">Jump to what you're planning</p>
+      <div class="format-nav__chips">
+        {benchmarks.length > 0 && <a href="#benchmarks" class="format-chip"><span class="format-chip__name">Benchmark cellar doors</span><span class="format-chip__count">{benchmarks.length}</span></a>}
+        {appointmentOnly.length > 0 && <a href="#appointment" class="format-chip"><span class="format-chip__name">Appointment producers</span><span class="format-chip__count">{appointmentOnly.length}</span></a>}
+        {wineries.length > 0 && <a href="#wineries" class="format-chip"><span class="format-chip__name">All wineries</span><span class="format-chip__count">{wineries.length}</span></a>}
+        {breweries.length > 0 && <a href="#breweries" class="format-chip"><span class="format-chip__name">Breweries</span><span class="format-chip__count">{breweries.length}</span></a>}
+        {distilleries.length > 0 && <a href="#distilleries" class="format-chip"><span class="format-chip__name">Distilleries</span><span class="format-chip__count">{distilleries.length}</span></a>}
+        {producers.length > 0 && <a href="#producers" class="format-chip"><span class="format-chip__name">Producers & makers</span><span class="format-chip__count">{producers.length}</span></a>}
+        <a href="#hubs" class="format-chip"><span class="format-chip__name">By place</span><span class="format-chip__count">{wineHubs.length}</span></a>
       </div>
     </div>
   </section>
+
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">How to read this</p>
+          <h2 class="split-intro__title">Three ways a Peninsula wine afternoon works</h2>
+        </div>
+        <p class="split-intro__body">Either you anchor the day to one benchmark cellar door with a long lunch and let the rest of the afternoon be slow driving. Or you book two appointment-only tastings, one either side of a small village meal. Or you skip the wineries altogether and use a brewery, distillery, or orchard to make the day feel a little less formal.</p>
+      </div>
+      <div class="zone-intro__grid">
+        <a href="#benchmarks" class="zone-card zone-card--link">
+          <p class="zone-card__label">The long lunch</p>
+          <h3 class="zone-card__title">One decisive cellar door</h3>
+          <p class="zone-card__body">Book a single ambitious vineyard restaurant, commit to the afternoon, and let the pinot shape the drive home.</p>
+        </a>
+        <a href="#appointment" class="zone-card zone-card--link">
+          <p class="zone-card__label">The appointment</p>
+          <h3 class="zone-card__title">Two producers, one small meal</h3>
+          <p class="zone-card__body">For the wine-literate weekend — tastings with the winemaker, and a village lunch that doesn't compete for attention.</p>
+        </a>
+        <a href="#breweries" class="zone-card zone-card--link">
+          <p class="zone-card__label">The easier version</p>
+          <h3 class="zone-card__title">Brewery, distillery, or farm stop</h3>
+          <p class="zone-card__body">Not every wine-country afternoon has to be wine. The region's producers, breweries, and distilleries work as a gentler spine.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {benchmarks.length > 0 && (
+    <section class="venues" id="benchmarks">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Benchmark cellar doors</p>
+            <h2 class="venues__title">The producers anchoring the region right now</h2>
+            <p class="venues__sub">Halliday scores matter less than editorial weight — this is the shortlist we'd put in front of a first-time visitor and an obsessive both.</p>
+          </div>
+          <a href="/journal/the-cellar-door-short-list" class="venues__link">Read the shortlist →</a>
+        </div>
+        <div class="venues__grid">
+          {benchmarks.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {appointmentOnly.length > 0 && (
+    <section class="venues venues--plain" id="appointment">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Appointment producers</p>
+            <h2 class="venues__title">Worth planning the drive around</h2>
+            <p class="venues__sub">The producers that reward a booking — smaller tastings, closer to the winemaking, often the most interesting conversations of the weekend.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {appointmentOnly.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {wineries.length > 0 && (
+    <section class="venues" id="wineries">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">All wineries</p>
+            <h2 class="venues__title">{wineries.length} cellar doors across the region</h2>
+            <p class="venues__sub">Sorted by authority. Expect a spread from three-hat destinations to back-road pinot rooms.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {wineries.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {breweries.length > 0 && (
+    <section class="venues venues--plain" id="breweries">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Breweries</p>
+            <h2 class="venues__title">The Peninsula's beer shortlist</h2>
+            <p class="venues__sub">Where the weekend wants a slightly less serious spine.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {breweries.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {distilleries.length > 0 && (
+    <section class="venues" id="distilleries">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Distilleries</p>
+            <h2 class="venues__title">Gin, whisky, and the slow craft layer</h2>
+            <p class="venues__sub">Small-batch producers working quietly behind the wine story.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {distilleries.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {producers.length > 0 && (
+    <section class="venues venues--plain" id="producers">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Producers & makers</p>
+            <h2 class="venues__title">Cheese, truffles, olive oil, chocolate, and the wider Peninsula pantry</h2>
+            <p class="venues__sub">The producers that round out a long lunch with everything the cellar door forgot.</p>
+          </div>
+          <a href="/journal/the-peninsula-pantry" class="venues__link">Read the pantry piece →</a>
+        </div>
+        <div class="venues__grid">
+          {producers.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {wineHubs.length > 0 && (
+    <section class="places" id="hubs">
+      <div class="container">
+        <div class="places__header">
+          <p class="label label--accent places__label">Wine country, by place</p>
+          <h2 class="places__title">The hubs that organise the region</h2>
+          <p class="places__sub">Each hub pulls the cellar doors, producers, and long lunches into one stretch of landscape.</p>
+        </div>
+        <div class="places__grid">
+          {wineHubs.map((place) => (
+            <PlaceCard place={place} variant="vineyard" />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {companionReads.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">From the Journal</p>
+            <h2 class="venues__title">The wine arguments worth reading before you buy</h2>
+            <p class="venues__sub">{blurb.line}</p>
+          </div>
+          <a href="/journal" class="venues__link">All in the Journal →</a>
+        </div>
+        <div class="venues__grid">
+          {companionReads.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   <NewsletterBlock />
 </BaseLayout>
