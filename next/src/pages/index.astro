@@ -1,0 +1,159 @@
+---
+// Peninsula Insider — Phase 1 Astro scaffold placeholder
+//
+// This page exists so the scaffold is a real, runnable Astro project.
+// It is intentionally minimal. The full homepage rebuild happens in
+// Week 1–3 per roadmap-2026-04-09.md § 4.7.
+//
+// The eventual homepage will be driven by `homepage.json` and composed
+// from editorial modules:
+//   1. Cover story
+//   2. This Weekend
+//   3. Five pillars
+//   4. Map strip
+//   5. Authority list
+//   6. Journal
+//   7. Newsletter
+//
+// Do not build out the full chrome here yet. This file is the seed.
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Peninsula Insider — Astro rebuild scaffold</title>
+    <meta
+      name="description"
+      content="Phase 1 Astro scaffold for Peninsula Insider. Content collections, JSON-first authoring, editorial homepage rebuild pending."
+    />
+    <style>
+      :root {
+        --bg: #f7f3ec;
+        --ink: #1b1b18;
+        --muted: #6d685f;
+        --rule: #d6cec1;
+        --accent: #9c3f2d;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.55;
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 72px 24px 96px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0 0 16px;
+        font-size: clamp(2.6rem, 8vw, 4.8rem);
+        line-height: 0.98;
+        font-weight: 700;
+      }
+
+      .dek {
+        max-width: 52rem;
+        font-size: 1.15rem;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 40px 0;
+      }
+
+      .card {
+        padding: 18px;
+        border: 1px solid var(--rule);
+        background: rgba(255,255,255,0.45);
+      }
+
+      .card h2 {
+        margin: 0 0 8px;
+        font-size: 1.05rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid var(--rule);
+        margin: 40px 0;
+      }
+
+      ul {
+        padding-left: 1.2rem;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.95em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="eyebrow">Phase 1 scaffold</span>
+      <h1>Peninsula Insider is moving to Astro.</h1>
+      <p class="dek">
+        This is the migration seed, not the finished homepage. The live site is
+        still the legacy flat HTML build while the new content layer, atomic page
+        model, and editorial homepage are assembled in parallel.
+      </p>
+
+      <div class="grid">
+        <section class="card">
+          <h2>What exists already</h2>
+          <p>Typed content collections, JSON-first data directories, TypeScript config, and a credible project skeleton.</p>
+        </section>
+        <section class="card">
+          <h2>What comes next</h2>
+          <p>Venue templates, place hubs, Journal collection wiring, and the homepage module system described in the roadmap.</p>
+        </section>
+        <section class="card">
+          <h2>Why this matters</h2>
+          <p>The old site is brochureware. The new site becomes an editorial publication with atomic URLs and AI-authorable structured content.</p>
+        </section>
+      </div>
+
+      <hr />
+
+      <h2>Immediate next implementation steps</h2>
+      <ul>
+        <li>Create one seed venue record and render it through an Astro route.</li>
+        <li>Create six seed place files for Red Hill, Merricks, Sorrento, Flinders, Dromana, and Cape Schanck.</li>
+        <li>Add <code>homepage.json</code> and scaffold the seven homepage modules.</li>
+        <li>Stand up the first Journal article in the <code>articles</code> collection.</li>
+      </ul>
+
+      <p>
+        See <code>../README.md</code> in this project root and
+        <code>../../docs/roadmap-2026-04-09.md</code> for the working plan.
+      </p>
+    </main>
+  </body>
+</html>
