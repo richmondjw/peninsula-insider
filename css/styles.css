@@ -1,11 +1,11 @@
 /* ========================================================================
    THE PENINSULA INSIDER — Design System
    Creative Direction: "The Curated Journal"
-   Typography: Fraunces (display) + Outfit (body)
+   Typography: Cormorant Garamond (display) + Outfit (body)
    Palette: Wine Country at Golden Hour
    ======================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap');
 
 /* ===== TOKENS ===== */
 :root {
@@ -76,15 +76,15 @@ li { margin-bottom: 0.35rem; }
 
 /* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4 {
-  font-family: 'Fraunces', Georgia, serif;
-  line-height: 1.15;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.08;
   color: var(--dark);
-  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
 }
-h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 400; letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 400; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); font-weight: 500; margin-bottom: 0.5rem; }
-h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
+h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 600; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 600; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.2rem, 2.2vw, 1.55rem); font-weight: 600; margin-bottom: 0.5rem; }
+h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.35rem; }
 
 .label {
   font-family: 'Outfit', sans-serif;
@@ -162,10 +162,10 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   max-width: var(--text-w);
 }
 .pull-quote p {
-  font-family: 'Fraunces', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-style: italic;
-  font-weight: 300;
+  font-weight: 500;
   color: var(--dark);
   line-height: 1.65;
   margin: 0;
@@ -199,10 +199,10 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   margin-bottom: 0.5rem;
 }
 .insider-tip p {
-  font-family: 'Fraunces', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1rem;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 500;
   color: var(--text);
   margin: 0;
   line-height: 1.7;
@@ -257,12 +257,10 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   padding-top: 2px;
 }
 .nav-brand {
-  font-family: 'Fraunces', serif;
-  font-size: 1.15rem;
-  font-weight: 400;
-  font-style: italic;
-  font-optical-sizing: none;
-  font-variation-settings: 'opsz' 72;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  font-style: normal;
   letter-spacing: -0.01em;
   line-height: 1;
   color: var(--dark);
@@ -528,9 +526,9 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
 .search-result-icon { font-size: 0.85rem; flex-shrink: 0; margin-top: 0.15rem; opacity: 0.4; }
 .search-result-text { flex: 1; min-width: 0; }
 .search-result-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--dark);
   line-height: 1.3;
 }
@@ -737,9 +735,9 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
 .overview-item:hover { transform: none; box-shadow: none; }
 .overview-icon { display: none; }
 .overview-item h4 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.15rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--dark);
   margin-bottom: 0.3rem;
   letter-spacing: 0;
@@ -800,9 +798,9 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
 }
 
 .card-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--dark);
   margin-bottom: 0.2rem;
   line-height: 1.25;
@@ -998,8 +996,8 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
   background: transparent; border-radius: 0; padding: 0; text-align: left; line-height: 1.5;
 }
 .event-row-title {
-  font-family: 'Fraunces', serif; font-size: 1.1rem;
-  font-weight: 500; color: var(--dark); margin-bottom: 0.2rem;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem;
+  font-weight: 600; color: var(--dark); margin-bottom: 0.2rem;
 }
 .event-row-location {
   font-family: 'Outfit', sans-serif; font-size: 0.68rem; font-weight: 400;
@@ -1138,8 +1136,8 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
 }
 .itinerary-day-icon { display: none; }
 .itinerary-day-title {
-  font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 3vw, 1.85rem);
-  font-weight: 400; color: var(--dark);
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 600; color: var(--dark);
 }
 .itinerary-day-subtitle {
   font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 400;
@@ -1174,7 +1172,7 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
 .timeline-time--afternoon { color: var(--accent); }
 .timeline-time--evening   { color: var(--dark); }
 .timeline-title {
-  font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 500;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; font-weight: 600;
   color: var(--dark); margin-bottom: 0.5rem;
 }
 .timeline-desc { font-size: 0.9rem; color: var(--text-soft); line-height: 1.7; margin: 0; font-weight: 300; }
@@ -1197,10 +1195,8 @@ footer {
 }
 .footer-inner { max-width: var(--max-w); margin: 0 auto; }
 .footer-brand {
-  font-family: 'Fraunces', serif;
-  font-size: 1.5rem; font-weight: 400; font-style: italic;
-  font-optical-sizing: none;
-  font-variation-settings: 'opsz' 72;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem; font-weight: 600; font-style: normal;
   letter-spacing: -0.01em;
   color: var(--white); margin-bottom: 0.35rem;
 }
@@ -1226,9 +1222,9 @@ footer {
   margin-bottom: 0.85rem;
 }
 .footer-subscribe-copy {
-  font-family: 'Fraunces', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 500;
   font-style: italic;
   color: rgba(245,241,235,0.55);
   line-height: 1.65;
