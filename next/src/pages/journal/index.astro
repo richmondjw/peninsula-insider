@@ -7,6 +7,8 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const featured = articles.find((article) => article.data.featured) ?? articles[0];
+const latest = articles.filter((article) => article.id !== featured?.id);
 ---
 
 <BaseLayout
@@ -23,16 +25,73 @@ const articles = (await getCollection('articles', ({ data }) => data.status === 
     visualLabel="Long lunch notebook · cellar door dispatches"
   />
 
+  {featured && (
+    <section class="feature feature--compact">
+      <div class="container">
+        <div class="feature__inner">
+          <div class="feature__image-block feature__image-block--bay" aria-hidden="true">
+            <div class="feature__image-overlay"></div>
+            <span class="feature__image-tag">Lead story</span>
+          </div>
+          <div class="feature__content">
+            <div class="feature__label">
+              <span class="label label--accent">Editor's pick</span>
+            </div>
+            <h2 class="feature__title">
+              <a href={`/journal/${featured.id}`}>{featured.data.title}</a>
+            </h2>
+            <p class="feature__dek">{featured.data.dek}</p>
+            <div class="feature__byline">
+              <span class="feature__byline-name">{featured.data.readingTimeMinutes} min read</span>
+              <span class="feature__byline-dot" aria-hidden="true"></span>
+              <span class="feature__byline-meta">{String(featured.data.format).replace(/-/g, ' ')}</span>
+            </div>
+            <a href={`/journal/${featured.id}`} class="feature__cta">Read the piece →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">What the Journal is for</p>
+          <h2 class="split-intro__title">Less listicle, more field notes, comparisons, and service pieces</h2>
+        </div>
+        <p class="split-intro__body">The journal layer is where Peninsula Insider stops behaving like a directory. This is where we compare dining rooms, argue for particular towns, explain when to go, and build the kind of service journalism that helps a weekend hold together.</p>
+      </div>
+      <div class="zone-intro__grid">
+        <article class="zone-card">
+          <p class="zone-card__label">Service</p>
+          <h3 class="zone-card__title">Useful before you book</h3>
+          <p class="zone-card__body">Practical pieces on where to stay, when to go, what to combine, and the mistakes that keep getting repeated.</p>
+        </article>
+        <article class="zone-card">
+          <p class="zone-card__label">Comparisons</p>
+          <h3 class="zone-card__title">Name the differences properly</h3>
+          <p class="zone-card__body">Not all prestige dinners, cellar doors, or towns are interchangeable. The Journal is where we say why.</p>
+        </article>
+        <article class="zone-card">
+          <p class="zone-card__label">Seasonal mood</p>
+          <h3 class="zone-card__title">Use weather and timing well</h3>
+          <p class="zone-card__body">A good Peninsula weekend in April is not the same trip as a wet July stay or a January sprint to the beach.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="venues venues--plain">
     <div class="container">
       <div class="venues__header">
         <div>
           <p class="label label--accent">Published pieces</p>
-          <h2 class="venues__title">The first issue, properly structured</h2>
+          <h2 class="venues__title">The current issue, now with enough range to navigate by mood</h2>
         </div>
       </div>
-      <div class="venues__grid venues__grid--two">
-        {articles.map((article) => <ArticleCard article={article} />)}
+      <div class="venues__grid">
+        {latest.map((article) => <ArticleCard article={article} />)}
       </div>
     </div>
   </section>

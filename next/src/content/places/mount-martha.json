@@ -1,0 +1,16 @@
+{
+  "slug": "mount-martha",
+  "name": "Mount Martha",
+  "kind": "village",
+  "zone": "bayside",
+  "coordinates": { "lat": -38.2631, "lng": 145.0114 },
+  "intro": "Mount Martha is the Peninsula's best-kept secret for people who only want to do one thing: stop. This is swimming-beach country — a long, gentle curve of pale sand with bathing boxes at the northern end, south-facing enough to catch afternoon sun, and sheltered enough from the wind to be usable almost nine months of the year. The village proper sits up on the hill, compact and quiet, with a bakery, a few cafes, and enough infrastructure to get through a weekend without ever needing to drive further than the beach. South of the village, the coastal track winds toward the Briars wetlands and eventually down to Mornington; north, it runs into the foreshore reserve and the bathing boxes. It is the simplest, cleanest Peninsula day on Port Phillip: swim, walk, coffee, repeat.",
+  "heroImage": {
+    "src": "/images/placeholder-mount-martha.jpg",
+    "alt": "Mount Martha beach and bathing boxes at the northern end of the bay curve",
+    "credit": "Peninsula Insider",
+    "license": "tmp-unsplash"
+  },
+  "relatedPlaces": ["mornington", "red-hill"],
+  "publishedAt": "2026-04-09"
+}

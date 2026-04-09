@@ -24,15 +24,18 @@ const showcase = venues
   .filter((venue) => ['restaurant', 'winery'].includes(venue.data.type))
   .slice(0, 3);
 const experienceHighlights = experiences.filter((entry) =>
-  ['bushrangers-bay-walk', 'red-hill-market', 'sorrento-back-beach'].includes(routeSlug(entry))
+  ['bushrangers-bay-walk', 'arthurs-seat-lookout', 'sorrento-ocean-baths', 'mornington-peninsula-gallery'].includes(routeSlug(entry))
 );
-const escapePlans = itineraries.slice(0, 2);
+const escapePlans = itineraries.slice(0, 3);
 const stayHighlights = venues.filter((venue) =>
-  stayTypes.includes(venue.data.type) && ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue))
+  stayTypes.includes(venue.data.type) && ['jackalope', 'hotel-sorrento', 'port-phillip-estate'].includes(routeSlug(venue))
+);
+const featuredPlaces = places.filter((place) =>
+  ['red-hill', 'sorrento', 'flinders', 'mornington', 'portsea', 'main-ridge'].includes(routeSlug(place))
 );
 const journalHighlights = articles
   .filter((article) => routeSlug(article) !== routeSlug(featured))
-  .slice(0, 2);
+  .slice(0, 3);
 
 const now = new Date();
 const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
@@ -139,7 +142,7 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
           <h2 class="places__title">The Peninsula, place by place</h2>
         </div>
         <div class="places__grid">
-          {places.slice(0, 4).map((place, index) => (
+          {featuredPlaces.map((place, index) => (
             <PlaceCard
               place={place}
               variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
@@ -177,7 +180,7 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
           </div>
           <a href="/journal" class="venues__link">Journal →</a>
         </div>
-        <div class="venues__grid venues__grid--two">
+        <div class="venues__grid">
           {journalHighlights.map((article) => <ArticleCard article={article} />)}
         </div>
       </div>

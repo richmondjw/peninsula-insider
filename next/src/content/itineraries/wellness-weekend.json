@@ -1,0 +1,68 @@
+{
+  "slug": "wellness-weekend",
+  "title": "The Wellness Reset: A Two-Night Peninsula Weekend",
+  "dek": "Thermal pools, a long walk, a slow lunch, and two nights of actual sleep. For people whose weekend brief is simply to stop.",
+  "audience": "couple",
+  "mood": "wellness",
+  "lengthNights": 2,
+  "stops": [
+    {
+      "day": 1,
+      "order": 1,
+      "venue": "lindenderry",
+      "note": "Check in early enough to stretch the garden walk before the light goes. Keep the pace soft from minute one.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 1,
+      "order": 2,
+      "venue": "merricks-general-wine-store",
+      "note": "Dinner should be unfussy on night one. The Merricks General kitchen handles this brief without theatre.",
+      "timeOfDay": "evening"
+    },
+    {
+      "day": 2,
+      "order": 1,
+      "venue": "alba-thermal-springs",
+      "note": "Book a morning session. Move through the circuit properly instead of ticking pools off a list.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 2,
+      "order": 2,
+      "venue": "rare-hare",
+      "note": "Lunch on the vineyard terrace if the weather allows. Keep it lighter than a degustation.",
+      "timeOfDay": "midday"
+    },
+    {
+      "day": 2,
+      "order": 3,
+      "experience": "cape-schanck-boardwalk",
+      "note": "A short cliff walk resets the nervous system between lunch and dinner without overcommitting.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 2,
+      "order": 4,
+      "venue": "lindenderry",
+      "note": "Second night at the same property. Skip dinner out and let the in-house kitchen deliver the softer version.",
+      "timeOfDay": "evening"
+    },
+    {
+      "day": 3,
+      "order": 1,
+      "experience": "mornington-peninsula-gallery",
+      "note": "On the way home, stop at the regional gallery for a quiet hour before the drive back.",
+      "timeOfDay": "morning"
+    }
+  ],
+  "totalDriveMinutes": 70,
+  "heroImage": {
+    "src": "/images/placeholder-wellness-weekend.jpg",
+    "alt": "A quiet garden terrace and thermal pool as part of a restorative Peninsula weekend",
+    "credit": "Peninsula Insider",
+    "license": "tmp-unsplash"
+  },
+  "editorNote": "This is the itinerary to use when the weekend is genuinely meant to recover something rather than impress anyone. The geography deliberately stays tight — one stay, one thermal session, two gentle meals, one short walk, one gallery on the way out — and the bookings are deliberately easy to cancel if the day turns bad. The whole plan is built to let the Peninsula do its best-known trick: slow people down.",
+  "publishedAt": "2026-04-09"
+}

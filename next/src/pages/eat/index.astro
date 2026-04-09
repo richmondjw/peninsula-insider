@@ -9,6 +9,8 @@ const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const venues = (await getCollection('venues'))
   .filter((venue) => eatTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+const longLunches = venues.filter((venue) => ['restaurant', 'winery'].includes(venue.data.type)).slice(0, 3);
+const casualStops = venues.filter((venue) => ['cafe', 'bakery', 'pub', 'market'].includes(venue.data.type)).slice(0, 4);
 ---
 
 <BaseLayout
@@ -24,6 +26,69 @@ const venues = (await getCollection('venues'))
     gradient="vineyard"
     visualLabel="Red Hill plateau · lunch country"
   />
+
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">How to use Eat</p>
+          <h2 class="split-intro__title">The Peninsula does three dining moves unusually well</h2>
+        </div>
+        <p class="split-intro__body">First, the proper long lunch on the ridge. Second, the quieter village meal that holds a whole weekend together. Third, the practical stop, bakery, market, or coffee room that keeps a day from turning into one expensive booking after another.</p>
+      </div>
+      <div class="zone-intro__grid">
+        <article class="zone-card">
+          <p class="zone-card__label">Long lunch</p>
+          <h3 class="zone-card__title">Book one serious table</h3>
+          <p class="zone-card__body">The Peninsula's strongest dining move is still daylight: vineyard views, one good bottle, and no reason to rush the afternoon.</p>
+        </article>
+        <article class="zone-card">
+          <p class="zone-card__label">Village meal</p>
+          <h3 class="zone-card__title">Use the smaller rooms properly</h3>
+          <p class="zone-card__body">Flinders, Merricks, and the tip all work better when dinner feels grounded in the place rather than imported from the city.</p>
+        </article>
+        <article class="zone-card">
+          <p class="zone-card__label">Practical stop</p>
+          <h3 class="zone-card__title">Coffee, bread, market, reset</h3>
+          <p class="zone-card__body">Some of the best Peninsula eating is what happens before lunch, after a swim, or on the way home with a loaf on the passenger seat.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {longLunches.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Long lunch shortlist</p>
+            <h2 class="venues__title">The tables that carry the whole day</h2>
+            <p class="venues__sub">If lunch is the event, start here and let the rest of the Peninsula arrange itself around it.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {longLunches.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {casualStops.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Before or after the booking</p>
+            <h2 class="venues__title">The useful casual stops</h2>
+            <p class="venues__sub">Bakeries, coffee rooms, produce markets, and the kinds of places that make a Peninsula day feel inhabited.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {casualStops.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="venues venues--plain">
     <div class="container">

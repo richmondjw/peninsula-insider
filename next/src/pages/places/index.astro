@@ -5,7 +5,11 @@ import SectionHero from '../../components/SectionHero.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
-const places = await getCollection('places');
+const places = (await getCollection('places'))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const ridgePlaces = places.filter((place) => ['red-hill-plateau', 'hinterland'].includes(place.data.zone));
+const coastPlaces = places.filter((place) => ['ocean-coast', 'back-beaches', 'tip'].includes(place.data.zone));
+const bayPlaces = places.filter((place) => place.data.zone === 'bayside');
 ---
 
 <BaseLayout
@@ -21,6 +25,35 @@ const places = await getCollection('places');
     gradient="bay"
     visualLabel="Bay, ridge, and ocean in one long weekend"
   />
+
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Start with geography</p>
+          <h2 class="split-intro__title">The Peninsula is three different trips wearing one postcode</h2>
+        </div>
+        <p class="split-intro__body">The ridge is about lunch and wine. The southern coast is about weather, cliffs, and a cleaner kind of air. The bay side is easier, gentler, and better for a day you don't want to over-plan. These place pages exist so visitors can choose properly.</p>
+      </div>
+      <div class="zone-intro__grid">
+        <article class="zone-card">
+          <p class="zone-card__label">The ridge</p>
+          <h3 class="zone-card__title">{ridgePlaces.length} wine-country hubs</h3>
+          <p class="zone-card__body">Red Hill, Main Ridge, Merricks, and Balnarring are where the Peninsula does pinot noir, long lunches, and low-slung village weekends best.</p>
+        </article>
+        <article class="zone-card">
+          <p class="zone-card__label">The coast</p>
+          <h3 class="zone-card__title">{coastPlaces.length} southern and tip stops</h3>
+          <p class="zone-card__body">Flinders, Cape Schanck, Sorrento, Portsea, and Point Nepean turn the region toward limestone, open water, and dusk walks.</p>
+        </article>
+        <article class="zone-card">
+          <p class="zone-card__label">The bay side</p>
+          <h3 class="zone-card__title">{bayPlaces.length} easier-entry towns</h3>
+          <p class="zone-card__body">Mornington and Mount Martha are the cleanest way into the Peninsula if coffee, markets, galleries, and a swim matter more than bookings.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <section class="places">
     <div class="container">
