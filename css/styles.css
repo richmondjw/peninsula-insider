@@ -1082,6 +1082,13 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
 .tier-label--asian     { background: transparent; color: #7A6B4E; }
 .tier-label--brewery   { background: transparent; color: var(--sage); }
 .tier-label--producer  { background: transparent; color: #5A7A50; }
+.tier-label--flagship  { background: transparent; color: var(--terra); }
+.tier-label--red-hill  { background: transparent; color: #8B3A2E; }
+.tier-label--coastal   { background: transparent; color: #5B8A9B; }
+.tier-label--north     { background: transparent; color: #7A8B6D; }
+.tier-label--natural   { background: transparent; color: var(--sage); }
+.tier-label--family    { background: transparent; color: var(--gold); }
+.tier-label--sparkling { background: transparent; color: var(--navy); }
 .tier-header::after {
   content: '';
   width: 0; height: 0;
