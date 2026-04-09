@@ -1,0 +1,44 @@
+---
+/**
+ * Masthead — Peninsula Insider
+ * Sticky top bar. Highlights the current section.
+ */
+export interface Props {
+  section?: string;
+}
+
+const { section = 'home' } = Astro.props;
+
+const navItems = [
+  { key: 'eat',     label: 'Eat & Drink',  href: '/eat'     },
+  { key: 'stay',    label: 'Stay',         href: '/stay'    },
+  { key: 'explore', label: 'Explore',      href: '/explore' },
+  { key: 'wine',    label: 'Wine Country', href: '/wine'    },
+  { key: 'escape',  label: 'Escape',       href: '/escape'  },
+];
+---
+
+<header class="masthead">
+  <div class="container">
+    <div class="masthead__inner">
+      <a href="/" class="masthead__logo">
+        Peninsula <span>Insider</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="masthead__nav">
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={section === item.key ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <a href="/#newsletter" class="masthead__cta">Newsletter</a>
+    </div>
+  </div>
+</header>

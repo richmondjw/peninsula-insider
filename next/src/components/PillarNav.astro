@@ -1,0 +1,26 @@
+---
+/**
+ * Pillar navigation strip — shown on the homepage.
+ */
+const pillars = [
+  { href: '/eat',     name: 'Eat & Drink',  sub: 'Restaurants · Cellar Doors' },
+  { href: '/stay',    name: 'Stay',         sub: 'Hotels · Villas · Escapes'  },
+  { href: '/explore', name: 'Explore',      sub: 'Walks · Beaches · Markets'  },
+  { href: '/wine',    name: 'Wine Country', sub: 'Wineries · Producers'       },
+  { href: '/escape',  name: 'Escape',       sub: 'Itineraries · Slow Travel'  },
+];
+---
+
+<nav class="pillars" aria-label="Sections">
+  <div class="container" style="padding: 0;">
+    <div class="pillars__inner">
+      {pillars.map((p) => (
+        <a href={p.href} class="pillar">
+          <span class="pillar__icon" aria-hidden="true">◇</span>
+          <span class="pillar__name" set:html={p.name.replace('&', '&amp;')} />
+          <span class="pillar__sub">{p.sub}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>

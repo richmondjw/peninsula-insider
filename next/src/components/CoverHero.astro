@@ -1,0 +1,39 @@
+---
+/**
+ * CoverHero — homepage-only opening cover module.
+ */
+export interface Props {
+  issueDate: string;
+}
+
+const { issueDate } = Astro.props;
+---
+
+<section class="cover" aria-label="Cover story">
+  <div class="container">
+    <div class="cover__inner">
+      <div class="cover__copy">
+        <div class="cover__meta">
+          <span class="label label--accent">{issueDate}</span>
+          <span class="cover__meta-rule" aria-hidden="true"></span>
+          <span class="label">The Mornington Peninsula</span>
+        </div>
+        <h1 class="cover__headline">
+          Where Victoria<br />
+          eats, drinks,<br />
+          and <em>stays put.</em>
+        </h1>
+        <p class="cover__dek">
+          An independent editorial guide to the Peninsula — the long lunches,
+          the cellar doors, the beaches worth the drive, and the places only
+          locals know about. No advertisers. No press trips. Just honest coverage.
+        </p>
+      </div>
+      <div class="cover__visual" aria-hidden="true">
+        <div class="cover__visual-fog"></div>
+        <span class="cover__visual-label">Red Hill Plateau · Hinterland</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover__band" aria-hidden="true"></div>
+</section>

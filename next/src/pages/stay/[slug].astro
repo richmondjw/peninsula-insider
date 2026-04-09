@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
+import { routeSlug } from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+  const venues = await getCollection('venues');
+  return venues
+    .filter((venue) => stayTypes.includes(venue.data.type))
+    .map((venue) => ({
+      params: { slug: routeSlug(venue) },
+      props: { venue },
+    }));
+}
+
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const { venue } = Astro.props;
+const related = (await getCollection('venues'))
+  .filter((entry) => routeSlug(entry) !== routeSlug(venue))
+  .filter((entry) => stayTypes.includes(entry.data.type))
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={`${venue.data.name} — Stay — Peninsula Insider`}
+  description={venue.data.signature}
+  section="stay"
+>
+  <VenueDetailTemplate venue={venue} section="stay" related={related} />
+</BaseLayout>

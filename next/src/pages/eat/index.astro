@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
+const venues = (await getCollection('venues'))
+  .filter((venue) => eatTypes.includes(venue.data.type))
+  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+---
+
+<BaseLayout
+  title="Eat & Drink — Peninsula Insider"
+  description="Editorial picks for restaurants, winery lunches, and destination dining on the Mornington Peninsula."
+  section="eat"
+>
+  <SectionHero
+    eyebrow="Eat & Drink"
+    subEyebrow="Long lunches · dining rooms · cellar door lunches"
+    title="The dining rooms that justify the <em>drive.</em>"
+    dek="This first-pass preview of the new Eat section leans where the Peninsula is strongest: vineyard restaurants, long lunches, and rooms with enough ambition to make Melbourne feel very far away."
+    gradient="vineyard"
+    visualLabel="Red Hill plateau · lunch country"
+  />
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Preview shortlist</p>
+          <h2 class="venues__title">Where we'd send someone this weekend</h2>
+          <p class="venues__sub">A true atomic-content preview, not the old brochure page.</p>
+        </div>
+        <a href="/journal/the-long-lunch" class="venues__link">Read the Journal lead →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

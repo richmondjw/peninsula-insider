@@ -1,0 +1,119 @@
+---
+import { placeLabel, typeLabel } from '../lib/editorial';
+import NewsletterBlock from './NewsletterBlock.astro';
+import VenueCard from './VenueCard.astro';
+
+export interface Props {
+  venue: any;
+  section: 'eat' | 'stay' | 'wine';
+  related?: any[];
+}
+
+const { venue, section, related = [] } = Astro.props;
+const data = venue.data;
+const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
+const sectionHref = `/${section}`;
+const hats = data.authority?.hats ?? 0;
+const awards = data.authority?.awards ?? [];
+const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
+---
+
+<section class="venue-detail">
+  <div class="container">
+    <div class="venue-detail__meta">
+      <a href={sectionHref} class="venue-detail__type">{sectionLabel}</a>
+      <span class="venue-detail__dot" aria-hidden="true"></span>
+      <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
+      <span class="venue-detail__dot" aria-hidden="true"></span>
+      <a href={`/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
+    </div>
+
+    <h1 class="venue-detail__title">{data.name}</h1>
+    <p class="venue-detail__signature">{data.signature}</p>
+
+    <div class="venue-detail__hero" aria-hidden="true">
+      <div class="venue-detail__hero-fog"></div>
+      <span class="venue-detail__hero-label">{heroLabel}</span>
+    </div>
+
+    <div class="venue-detail__grid">
+      <div>
+        <div class="prose">
+          {data.editorNote.split(/\n\n+/).map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+
+      <aside class="facts">
+        <p class="facts__title">At a glance</p>
+        <dl>
+          <dt>Type</dt>
+          <dd>{typeLabel[data.type] ?? data.type}</dd>
+
+          <dt>Location</dt>
+          <dd>{data.address}</dd>
+
+          <dt>Spend</dt>
+          <dd>{data.priceBand}</dd>
+
+          {data.phone && (
+            <>
+              <dt>Call</dt>
+              <dd>{data.phone}</dd>
+            </>
+          )}
+
+          {hats > 0 && (
+            <>
+              <dt>Guide</dt>
+              <dd>{hats} Good Food Guide hat{hats > 1 ? 's' : ''}</dd>
+            </>
+          )}
+
+          {data.authority?.hallidayScore && (
+            <>
+              <dt>Halliday</dt>
+              <dd>{data.authority.hallidayScore} points</dd>
+            </>
+          )}
+
+          {awards.length > 0 && (
+            <>
+              <dt>Awards</dt>
+              <dd>{awards.join(' · ')}</dd>
+            </>
+          )}
+
+          {data.website && (
+            <>
+              <dt>Website</dt>
+              <dd><a href={data.website}>{data.website.replace(/^https?:\/\//, '')}</a></dd>
+            </>
+          )}
+        </dl>
+
+        {data.bookingUrl && <a class="facts__cta" href={data.bookingUrl}>Book now</a>}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{related.length > 0 && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Nearby picks</p>
+          <h2 class="venues__title">More from {placeLabel(data.place)}</h2>
+        </div>
+        <a href={sectionHref} class="venues__link">Back to {sectionLabel} →</a>
+      </div>
+      <div class="venues__grid">
+        {related.map((item) => <VenueCard venue={item} hrefPrefix={sectionHref} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+<NewsletterBlock />

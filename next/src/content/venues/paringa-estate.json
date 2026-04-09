@@ -1,0 +1,36 @@
+{
+  "slug": "paringa-estate",
+  "name": "Paringa Estate",
+  "type": "winery",
+  "place": "red-hill",
+  "zone": "red-hill-plateau",
+  "coordinates": { "lat": -38.3863, "lng": 145.0528 },
+  "address": "44 Paringa Rd, Red Hill South VIC 3937",
+  "phone": "+61 3 5989 2669",
+  "website": "https://paringaestate.com.au",
+  "bookingUrl": "https://paringaestate.com.au/restaurant-cellar-door",
+  "bookingProvider": "direct",
+  "priceBand": "$$$",
+  "authority": {
+    "hats": 1,
+    "hallidayScore": 98,
+    "awards": ["Halliday Winery of the Year 2024 Finalist"]
+  },
+  "signature": "A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces",
+  "editorNote": "Paringa Estate has the kind of confidence that comes from having done the work for decades. Lindsay McCall's pinot noir and shiraz have long been among the Peninsula's benchmark bottles, and the restaurant understands the assignment: sharp produce, proper service, and a terrace that makes lunch feel like it should continue into the evening.\n\nThe cellar door is compact but smart, with staff who know the wines in the glass rather than in a script. Come here when you want less theatre than Montalto and more focus on what's happening in the bottle.\n\nIdeal for a Friday tasting that turns into lunch.",
+  "tags": {
+    "mood": ["cellar-door", "long-lunch", "sunset"],
+    "season": ["spring", "summer", "autumn", "all-year"],
+    "audience": ["couples", "locals", "first-timers"]
+  },
+  "heroImage": {
+    "src": "/images/placeholder-paringa.jpg",
+    "alt": "Paringa Estate restaurant terrace among the vines at Red Hill South",
+    "credit": "Paringa Estate",
+    "license": "venue-media-kit"
+  },
+  "gallery": [],
+  "featuredPartner": false,
+  "lastVerified": "2026-04-01",
+  "publishedAt": "2026-04-01"
+}

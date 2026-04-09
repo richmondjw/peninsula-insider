@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHero from '../components/SectionHero.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+---
+
+<BaseLayout title="About — Peninsula Insider" description="Independent editorial guide to the Mornington Peninsula." section="home">
+  <SectionHero
+    eyebrow="About"
+    subEyebrow="Independent editorial"
+    title="No advertisers. No press trips. Just <em>honest</em> coverage."
+    dek="Peninsula Insider is building toward a true editorial guide to the Mornington Peninsula, with atomic pages for places, venues, and long-form stories rather than a flat brochure site."
+    gradient="journal"
+    visualLabel="Peninsula Insider · editorial preview"
+  />
+  <section class="places">
+    <div class="container">
+      <div class="prose" style="margin: 0; max-width: 760px;">
+        <p>Everything in this preview is designed to scale into a proper publication. The structure matters as much as the styling: typed content collections, reusable layouts, and real URLs for venues, places, and stories.</p>
+      </div>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>

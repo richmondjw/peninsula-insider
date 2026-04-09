@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
+import { routeSlug } from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const places = await getCollection('places');
+  return places.map((place) => ({
+    params: { slug: routeSlug(place) },
+    props: { place },
+  }));
+}
+
+const { place } = Astro.props;
+const allVenues = await getCollection('venues');
+const places = await getCollection('places');
+
+const venues = allVenues
+  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === routeSlug(place))
+  .slice(0, 6);
+
+const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
+const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));
+---
+
+<BaseLayout
+  title={`${place.data.name} — Peninsula Insider`}
+  description={place.data.intro}
+  section="places"
+>
+  <PlaceDetailTemplate place={place} venues={venues} relatedPlaces={relatedPlaces} />
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+---
+
+<BaseLayout
+  title="Journal — Peninsula Insider"
+  description="Long-form Peninsula journalism, service pieces, and editorial dispatches."
+  section="journal"
+>
+  <SectionHero
+    eyebrow="Journal"
+    subEyebrow="Dispatches · lists · essays · stay notes"
+    title="Long-form notes from a region best read <em>slowly.</em>"
+    dek="The Journal is where Peninsula Insider moves past directories and into voice. This preview starts to show the structure: atomic article URLs, typed formats, and related venue references beneath the surface."
+    gradient="journal"
+    visualLabel="Long lunch notebook · cellar door dispatches"
+  />
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Published pieces</p>
+          <h2 class="venues__title">The first issue, properly structured</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--two">
+        {articles.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

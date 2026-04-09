@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const places = await getCollection('places');
+---
+
+<BaseLayout
+  title="Places — Peninsula Insider"
+  description="Town and place hubs for the Mornington Peninsula, built as atomic editorial landing pages."
+  section="places"
+>
+  <SectionHero
+    eyebrow="Places"
+    subEyebrow="Town hubs · local geography · insider terrain"
+    title="The Peninsula, town by <em>town.</em>"
+    dek="The old site flattened the region into a few brochure categories. These place pages start to fix that by giving Red Hill, Sorrento, Flinders, and Merricks their own editorial gravity."
+    gradient="bay"
+    visualLabel="Bay, ridge, and ocean in one long weekend"
+  />
+
+  <section class="places">
+    <div class="container">
+      <div class="places__header">
+        <p class="label label--accent places__label">Preview hubs</p>
+        <h2 class="places__title">Follow the terrain</h2>
+      </div>
+      <div class="places__grid">
+        {places.map((place, index) => (
+          <PlaceCard
+            place={place}
+            variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

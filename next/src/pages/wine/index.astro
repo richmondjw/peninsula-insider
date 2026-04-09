@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
+const venues = (await getCollection('venues'))
+  .filter((venue) => wineTypes.includes(venue.data.type))
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+---
+
+<BaseLayout
+  title="Wine Country — Peninsula Insider"
+  description="Cellar doors, benchmark producers, and the vineyard stops worth your afternoon on the Mornington Peninsula."
+  section="wine"
+>
+  <SectionHero
+    eyebrow="Wine Country"
+    subEyebrow="Cellar doors · pinot noir · cool-climate producers"
+    title="The Peninsula's best bottles start on the <em>ridge.</em>"
+    dek="This preview route begins to break wine country into atomic producer pages, with proper slugs, referenceable places, and editorial notes that can scale into a serious region guide."
+    gradient="hinterland"
+    visualLabel="Morning fog · pinot country"
+  />
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Cellar door dispatch</p>
+          <h2 class="venues__title">Producers worth opening the boot for</h2>
+          <p class="venues__sub">A first structured pass through the estates that define Peninsula wine country.</p>
+        </div>
+        <a href="/places/red-hill" class="venues__link">See Red Hill hub →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+/**
+ * FeatureArticle — homepage hero article block.
+ */
+import { formatLabel, routeSlug } from '../lib/editorial';
+
+export interface Props {
+  article: any;
+}
+
+const { article } = Astro.props;
+const slug = routeSlug(article);
+const authorLabel = article.data.houseByline
+  ? 'By The Peninsula Insider'
+  : `By ${String(article.data.author?.id ?? article.data.author)}`;
+---
+
+<section class="feature">
+  <div class="container">
+    <div class="feature__inner">
+      <div class="feature__image-block" aria-hidden="true">
+        <div class="feature__image-overlay"></div>
+        <span class="feature__image-tag">
+          {formatLabel[article.data.format] ?? article.data.format}
+        </span>
+      </div>
+      <div class="feature__content">
+        <div class="feature__label">
+          <span class="label label--accent">From the Journal</span>
+        </div>
+        <h2 class="feature__title">
+          <a href={`/journal/${slug}`}>{article.data.title}</a>
+        </h2>
+        <p class="feature__dek">{article.data.dek}</p>
+        <div class="feature__byline">
+          <span class="feature__byline-name">{authorLabel}</span>
+          {article.data.readingTimeMinutes && (
+            <>
+              <span class="feature__byline-dot" aria-hidden="true"></span>
+              <span class="feature__byline-meta">{article.data.readingTimeMinutes} min read</span>
+            </>
+          )}
+        </div>
+        <a href={`/journal/${slug}`} class="feature__cta">
+          Read the full piece &nbsp;→
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

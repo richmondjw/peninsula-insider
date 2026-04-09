@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const venues = (await getCollection('venues'))
+  .filter((venue) => stayTypes.includes(venue.data.type));
+---
+
+<BaseLayout
+  title="Stay — Peninsula Insider"
+  description="Hotels, vineyard stays, and weekend bases that shape a Mornington Peninsula trip."
+  section="stay"
+>
+  <SectionHero
+    eyebrow="Stay"
+    subEyebrow="Hotels · vineyard stays · coastal weekends"
+    title="Choose the base, and the whole <em>weekend</em> changes."
+    dek="The Peninsula is a region of different moods packed close together. A Red Hill country-house stay produces a different trip from a Sorrento main-street hotel. This preview starts to model that properly."
+    gradient="stay"
+    visualLabel="Vines inland · limestone coast beyond"
+  />
+
+  <section class="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Stay notes</p>
+          <h2 class="venues__title">The properties worth building a trip around</h2>
+          <p class="venues__sub">From design-hotel spectacle to quieter country-house weekends.</p>
+        </div>
+        <a href="/journal/where-to-stay-for-a-two-night-escape" class="venues__link">Editor's stay guide →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

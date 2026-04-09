@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
+import { routeSlug } from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
+  const venues = await getCollection('venues');
+  return venues
+    .filter((venue) => wineTypes.includes(venue.data.type))
+    .map((venue) => ({
+      params: { slug: routeSlug(venue) },
+      props: { venue },
+    }));
+}
+
+const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
+const { venue } = Astro.props;
+const related = (await getCollection('venues'))
+  .filter((entry) => routeSlug(entry) !== routeSlug(venue))
+  .filter((entry) => wineTypes.includes(entry.data.type))
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={`${venue.data.name} — Wine Country — Peninsula Insider`}
+  description={venue.data.signature}
+  section="wine"
+>
+  <VenueDetailTemplate venue={venue} section="wine" related={related} />
+</BaseLayout>

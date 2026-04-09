@@ -1,0 +1,66 @@
+---
+/**
+ * VenueCard — the standard editorial card for any venue
+ * (restaurant / winery / hotel / stay / etc.)
+ *
+ * Expects a full Astro content-collection entry from `venues`.
+ */
+
+const typeLabel: Record<string, string> = {
+  restaurant:  'Restaurant',
+  winery:      'Winery',
+  cafe:        'Café',
+  bakery:      'Bakery',
+  pub:         'Pub',
+  brewery:     'Brewery',
+  distillery:  'Distillery',
+  producer:    'Producer',
+  market:      'Market',
+  hotel:       'Hotel',
+  villa:       'Villa',
+  cottage:     'Cottage',
+  glamping:    'Glamping',
+  'farm-stay': 'Farm Stay',
+  spa:         'Spa',
+};
+
+export interface Props {
+  venue: any;
+  /** override the section/route prefix (defaults to /eat) */
+  hrefPrefix?: string;
+}
+
+const { venue, hrefPrefix = '/eat' } = Astro.props;
+const data = venue.data;
+const slug = venue.id ?? data.slug;
+const href = `${hrefPrefix}/${slug}`;
+
+const placeLabel = String(data.place?.id ?? data.place ?? '')
+  .replace(/-/g, ' ')
+  .replace(/\b\w/g, (l: string) => l.toUpperCase());
+
+const shortAddress = data.address?.split(',').slice(-2).join(',').trim() ?? '';
+const hats = data.authority?.hats ?? 0;
+---
+
+<article class="venue-card">
+  <div class="venue-card__top">
+    <span class="venue-card__type">
+      {typeLabel[data.type] ?? data.type} · {placeLabel}
+    </span>
+    <span class="venue-card__price">{data.priceBand}</span>
+  </div>
+  <h3 class="venue-card__name">
+    <a href={href}>{data.name}</a>
+  </h3>
+  <p class="venue-card__place">{shortAddress}</p>
+  {hats > 0 && (
+    <div class="venue-card__hats" aria-label={`${hats} Good Food Guide hat${hats > 1 ? 's' : ''}`}>
+      {Array.from({ length: hats }).map(() => (
+        <span class="venue-card__hat" aria-hidden="true"></span>
+      ))}
+    </div>
+  )}
+  <p class="venue-card__signature">{data.signature}</p>
+  <a href={href} class="venue-card__cta">Editor's notes →</a>
+</article>

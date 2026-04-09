@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHero from '../components/SectionHero.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+---
+
+<BaseLayout title="Explore — Peninsula Insider" description="Walks, beaches, and markets are next in the rebuild queue." section="explore">
+  <SectionHero
+    eyebrow="Explore"
+    subEyebrow="Walks · beaches · markets"
+    title="The places between lunch and <em>sunset.</em>"
+    dek="This preview route is intentionally light for tonight's rebuild. The information architecture is now in place for beaches, walks, markets, and wellness experiences to slot in as proper atomic pages next."
+    gradient="bay"
+    visualLabel="Next conversion pass · beaches, walks, markets"
+  />
+  <section class="places">
+    <div class="container">
+      <div class="prose" style="margin: 0; max-width: 760px;">
+        <p>The homepage, Eat, Stay, Wine, Journal, and Place hubs are now live inside the Astro preview. Explore is the obvious next conversion target, likely backed by the <code>experiences</code> collection already defined in the content model.</p>
+      </div>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>

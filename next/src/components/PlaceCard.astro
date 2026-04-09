@@ -1,0 +1,36 @@
+---
+/**
+ * PlaceCard — card used on the homepage and in place hubs.
+ * Accepts an Astro content-collection `places` entry.
+ */
+
+export interface Props {
+  place: any;
+  variant?: 'vineyard' | 'bay' | 'sand';
+}
+
+const { place, variant = 'vineyard' } = Astro.props;
+const data = place.data;
+const slug = place.id ?? data.slug;
+
+const zoneLabel = String(data.zone ?? '')
+  .replace(/-/g, ' ')
+  .replace(/\b\w/g, (l: string) => l.toUpperCase());
+
+const imgClass = variant === 'bay'
+  ? 'place-card__image place-card__image--bay'
+  : variant === 'sand'
+  ? 'place-card__image place-card__image--sand'
+  : 'place-card__image';
+---
+
+<article class="place-card">
+  <div class={imgClass} aria-hidden="true"></div>
+  <div class="place-card__body">
+    <p class="place-card__zone">{zoneLabel} · {data.kind}</p>
+    <h3 class="place-card__name">
+      <a href={`/places/${slug}`}>{data.name}</a>
+    </h3>
+    <p class="place-card__intro">{data.intro}</p>
+  </div>
+</article>

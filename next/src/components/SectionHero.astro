@@ -1,0 +1,46 @@
+---
+/**
+ * SectionHero — the two-column editorial hero used on
+ * section index pages (/eat, /stay, /wine, /journal, /places).
+ */
+
+export interface Props {
+  eyebrow?: string;
+  subEyebrow?: string;
+  title: string;
+  dek: string;
+  gradient?: 'vineyard' | 'bay' | 'sand' | 'hinterland' | 'stay' | 'journal';
+  visualLabel?: string;
+}
+
+const {
+  eyebrow = 'Peninsula Insider',
+  subEyebrow,
+  title,
+  dek,
+  gradient = 'vineyard',
+  visualLabel,
+} = Astro.props;
+
+const gradClass = `section-hero__visual hero-grad--${gradient}`;
+---
+
+<section class="section-hero">
+  <div class="container">
+    <div class="section-hero__inner">
+      <div>
+        <div class="section-hero__eyebrow">
+          <span class="label label--accent">{eyebrow}</span>
+          <span class="section-hero__rule" aria-hidden="true"></span>
+          {subEyebrow && <span class="label">{subEyebrow}</span>}
+        </div>
+        <h1 class="section-hero__title" set:html={title} />
+        <p class="section-hero__dek">{dek}</p>
+      </div>
+      <div class={gradClass} aria-hidden="true">
+        <div class="section-hero__visual-fog"></div>
+        {visualLabel && <span class="section-hero__visual-label">{visualLabel}</span>}
+      </div>
+    </div>
+  </div>
+</section>

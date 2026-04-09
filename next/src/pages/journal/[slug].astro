@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { formatLabel, routeSlug } from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+  return articles.map((article) => ({
+    params: { slug: routeSlug(article) },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((entry) => routeSlug(entry) !== routeSlug(article))
+  .slice(0, 2);
+const authorLabel = article.data.houseByline
+  ? 'The Peninsula Insider'
+  : String(article.data.author?.id ?? article.data.author);
+---
+
+<BaseLayout
+  title={`${article.data.title} — Peninsula Insider`}
+  description={article.data.dek}
+  section="journal"
+>
+  <article class="article">
+    <div class="container">
+      <div class="article__meta">
+        <span class="article__format">{formatLabel[article.data.format] ?? article.data.format}</span>
+        <span class="article__dot" aria-hidden="true"></span>
+        <span class="article__meta-item">{article.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+        {article.data.readingTimeMinutes && (
+          <>
+            <span class="article__dot" aria-hidden="true"></span>
+            <span class="article__meta-item">{article.data.readingTimeMinutes} min read</span>
+          </>
+        )}
+      </div>
+
+      <h1 class="article__title">{article.data.title}</h1>
+      <p class="article__dek">{article.data.dek}</p>
+
+      <div class="article__byline">
+        <span class="article__byline-name">By {authorLabel}</span>
+      </div>
+
+      <div class="article__hero" aria-hidden="true">
+        <div class="article__hero-fog"></div>
+        <span class="article__hero-caption">{article.data.heroImage.alt}</span>
+      </div>
+
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  {allArticles.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Keep reading</p>
+            <h2 class="venues__title">More from the Journal</h2>
+          </div>
+          <a href="/journal" class="venues__link">All stories →</a>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {allArticles.map((entry) => <ArticleCard article={entry} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

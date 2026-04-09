@@ -1,0 +1,68 @@
+---
+import PlaceCard from './PlaceCard.astro';
+import VenueCard from './VenueCard.astro';
+import NewsletterBlock from './NewsletterBlock.astro';
+import { titleize } from '../lib/editorial';
+
+export interface Props {
+  place: any;
+  venues?: any[];
+  relatedPlaces?: any[];
+}
+
+const { place, venues = [], relatedPlaces = [] } = Astro.props;
+const zoneLabel = titleize(place.data.zone);
+---
+
+<section class="place-detail">
+  <div class="container">
+    <p class="place-detail__eyebrow">{zoneLabel} · {place.data.kind}</p>
+    <h1 class="place-detail__title">{place.data.name}</h1>
+    <p class="place-detail__intro">{place.data.intro}</p>
+
+    <div class="place-detail__hero hero-grad--hinterland" aria-hidden="true">
+      <div class="section-hero__visual-fog"></div>
+      <span class="section-hero__visual-label">{place.data.heroImage.alt}</span>
+    </div>
+  </div>
+</section>
+
+{venues.length > 0 && (
+  <section class="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Editor's shortlist</p>
+          <h2 class="venues__title">Where to eat, drink, and stay in {place.data.name}</h2>
+          <p class="venues__sub">A first-pass preview of the venues already mapped into the new content model.</p>
+        </div>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => (
+          <VenueCard
+            venue={venue}
+            hrefPrefix={['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'].includes(venue.data.type) ? '/stay' : ['winery', 'producer', 'brewery', 'distillery'].includes(venue.data.type) ? '/wine' : '/eat'}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{relatedPlaces.length > 0 && (
+  <section class="places">
+    <div class="container">
+      <div class="places__header">
+        <p class="label label--accent places__label">Keep going</p>
+        <h2 class="places__title">Nearby places worth knowing</h2>
+      </div>
+      <div class="places__grid">
+        {relatedPlaces.map((item, index) => (
+          <PlaceCard place={item} variant={index % 2 === 0 ? 'bay' : 'sand'} />
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<NewsletterBlock />

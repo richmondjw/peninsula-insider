@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHero from '../components/SectionHero.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+---
+
+<BaseLayout title="Contact — Peninsula Insider" description="Contact Peninsula Insider." section="home">
+  <SectionHero
+    eyebrow="Contact"
+    subEyebrow="Editorial"
+    title="Tips, notes, and things we should <em>know.</em>"
+    dek="The production contact workflow is still to be built. For the preview, this page exists so the new footer has a real destination and the architecture stays coherent."
+    gradient="stay"
+    visualLabel="Contact flow to be wired in Phase 2"
+  />
+  <section class="places">
+    <div class="container">
+      <div class="prose" style="margin: 0; max-width: 760px;">
+        <p>Phase 2 should add a proper contact form, submissions policy, venue correction flow, and editorial inbox routing. For tonight, the goal is working multi-page structure and believable surface area.</p>
+      </div>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>
