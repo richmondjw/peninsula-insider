@@ -11,14 +11,49 @@ import { routeSlug, stayTypes } from '../../lib/editorial';
 
 const itineraries = (await getCollection('itineraries'))
   .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
-const stays = (await getCollection('venues'))
-  .filter((venue) => stayTypes.includes(venue.data.type));
+const allVenues = await getCollection('venues');
+const stays = allVenues.filter((venue) => stayTypes.includes(venue.data.type));
 const places = await getCollection('places');
 const stayHighlights = stays.filter((venue) => ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)));
-const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .filter((article) => ['where-to-stay-for-a-two-night-escape', 'how-to-build-a-red-hill-saturday'].includes(routeSlug(article)))
-  .slice(0, 2);
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// Companion reads: the service and stay-notes pieces that sharpen the trip.
+const companionSlugs = [
+  'where-to-stay-for-a-two-night-escape',
+  'the-one-night-escape',
+  'the-vineyard-villa-weekend',
+  'the-thermal-springs-weekend',
+  'autumn-weekend-edit',
+  'a-flinders-weekend',
+];
+const companionReads = companionSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a))
+  .slice(0, 4);
+
 const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 'sorrento'].includes(routeSlug(place)));
+
+// Split itineraries into intent buckets for quicker scanning.
+const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
+const twoNight = itineraries.filter((it) => it.data.lengthNights === 2);
+const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
+
+// Mood taxonomy — each mood links a real guide if one exists.
+const moodGuides = [
+  { label: 'Food & wine',  slug: 'how-to-build-a-red-hill-saturday',        note: 'Lunch, cellar doors, a slow drive back' },
+  { label: 'Wellness',     slug: 'the-thermal-springs-weekend',             note: 'Springs, sauna, one soft dinner' },
+  { label: 'Slow coast',   slug: 'a-flinders-weekend',                      note: 'Flinders, the pier, Bass Strait air' },
+  { label: 'Quick reset',  slug: 'the-one-night-escape',                    note: '26 hours that feels like three days' },
+  { label: 'Rainy day',    slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof, no reservation' },
+  { label: 'With kids',    slug: 'the-peninsula-with-kids',                 note: 'A day that punishes no one' },
+];
+const moodResolved = moodGuides
+  .map((mood) => {
+    const article = articlesAll.find((a) => routeSlug(a) === mood.slug);
+    return article ? { ...mood, article } : null;
+  })
+  .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
 ---
 
 <BaseLayout
@@ -35,20 +70,78 @@ const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 's
     visualLabel="Ridge first, ocean later, no unnecessary backtracking"
   />
 
-  <section class="experience-index experience-index--plain">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">Editor's framework</p>
-          <h2 class="split-intro__title">Two fully shaped ways to leave Melbourne for a bit</h2>
+  {moodResolved.length > 0 && (
+    <section class="intent-strip intent-strip--alt" aria-label="Escape by mood">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">Escape by mood</p>
+            <h2 class="split-intro__title">Pick the feeling first, then let the sequence follow</h2>
+          </div>
+          <p class="split-intro__body">Each chip opens a service piece or stay-note that maps the weekend for that mood — built the way we'd actually book it.</p>
         </div>
-        <p class="split-intro__body">Our bias is simple: one decisive lunch, one proper walk, one stay that suits the mood, and enough room around all three that the weekend can still surprise you. Start with these and adapt from there.</p>
+        <div class="intent-chips">
+          {moodResolved.map((mood) => (
+            <a href={`/journal/${mood.slug}`} class="intent-chip">
+              <span class="intent-chip__label">{mood.label}</span>
+              <span class="intent-chip__note">{mood.note}</span>
+            </a>
+          ))}
+        </div>
       </div>
-      <div class="itinerary-grid">
-        {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+    </section>
+  )}
+
+  {twoNight.length > 0 && (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">Two-night escapes</p>
+            <h2 class="split-intro__title">The sweet spot — long enough to slow down, short enough to commit</h2>
+          </div>
+          <p class="split-intro__body">Two nights is the Peninsula's native rhythm. One lunch that earns the drive, one walk that resets the weekend, one bed that suits the mood.</p>
+        </div>
+        <div class="itinerary-grid">
+          {twoNight.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
+
+  {oneNight.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">One-night quick</p>
+            <h2 class="venues__title">When the weekend is tight but the Peninsula still earns it</h2>
+            <p class="venues__sub">Designed to feel three times longer than the drive down.</p>
+          </div>
+        </div>
+        <div class="itinerary-grid">
+          {oneNight.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {longer.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Three nights and beyond</p>
+            <h2 class="venues__title">For the weekend that refuses to end</h2>
+            <p class="venues__sub">The longer escapes are where the Peninsula stops performing and starts settling into something quieter.</p>
+          </div>
+        </div>
+        <div class="itinerary-grid">
+          {longer.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   {stayHighlights.length > 0 && (
     <section class="venues">
@@ -74,6 +167,7 @@ const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 's
         <div class="places__header">
           <p class="label label--accent places__label">Sequence by geography</p>
           <h2 class="places__title">The best escapes move through the Peninsula in a clean line</h2>
+          <p class="places__sub">Ridge for the lunch, coast for the light, tip for the walk and the bed.</p>
         </div>
         <div class="places__grid">
           {placeHighlights.map((place, index) => (
@@ -106,7 +200,7 @@ const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 's
     </div>
   </section>
 
-  {articles.length > 0 && (
+  {companionReads.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
         <div class="venues__header">
@@ -116,8 +210,8 @@ const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 's
           </div>
           <a href="/journal" class="venues__link">More from the Journal →</a>
         </div>
-        <div class="venues__grid venues__grid--two">
-          {articles.map((article) => <ArticleCard article={article} />)}
+        <div class="venues__grid">
+          {companionReads.map((article) => <ArticleCard article={article} />)}
         </div>
       </div>
     </section>

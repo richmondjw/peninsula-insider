@@ -9,12 +9,15 @@ export interface Props {
 
 const { section = 'home' } = Astro.props;
 
+// Primary masthead nav — kept to six slots so the row never overflows
+// on tablet. Places lives in the footer / inline hubs instead.
 const navItems = [
   { key: 'eat',     label: 'Eat & Drink',  href: '/eat'     },
   { key: 'stay',    label: 'Stay',         href: '/stay'    },
+  { key: 'wine',    label: 'Wine',         href: '/wine'    },
   { key: 'explore', label: 'Explore',      href: '/explore' },
-  { key: 'wine',    label: 'Wine Country', href: '/wine'    },
   { key: 'escape',  label: 'Escape',       href: '/escape'  },
+  { key: 'journal', label: 'Journal',      href: '/journal' },
 ];
 ---
 

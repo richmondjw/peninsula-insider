@@ -20,9 +20,18 @@ const experiences = await getCollection('experiences');
 const itineraries = await getCollection('itineraries');
 
 const featured = articles.find((a) => a.data.featured) ?? articles[0];
+const editorPicks = articles
+  .filter((a) => routeSlug(a) !== routeSlug(featured))
+  .filter((a) => ['the-chardonnay-case', 'three-italian-dinners', 'the-peninsula-pantry', 'the-long-lunch', 'the-thermal-springs-weekend'].includes(routeSlug(a)))
+  .slice(0, 3);
+
 const showcase = venues
+  .filter((venue) => ['ten-minutes-by-tractor', 'montalto', 'laura'].includes(routeSlug(venue)));
+const showcaseFallback = venues
   .filter((venue) => ['restaurant', 'winery'].includes(venue.data.type))
   .slice(0, 3);
+const diningShowcase = showcase.length >= 3 ? showcase : showcaseFallback;
+
 const experienceHighlights = experiences.filter((entry) =>
   ['bushrangers-bay-walk', 'arthurs-seat-lookout', 'sorrento-ocean-baths', 'mornington-peninsula-gallery'].includes(routeSlug(entry))
 );
@@ -35,7 +44,36 @@ const featuredPlaces = places.filter((place) =>
 );
 const journalHighlights = articles
   .filter((article) => routeSlug(article) !== routeSlug(featured))
+  .filter((article) => !editorPicks.some((pick) => routeSlug(pick) === routeSlug(article)))
   .slice(0, 3);
+
+// Intent-driven discovery chips. Each points at an article that answers
+// a real reader intent, so the homepage becomes navigable by need,
+// not just by category.
+const intentRoutes = [
+  { label: 'Long lunch',    slug: 'the-long-lunch',                     note: 'Sunday, slow, one decisive table' },
+  { label: 'Rainy day',     slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof, no reservation' },
+  { label: 'With kids',     slug: 'the-peninsula-with-kids',            note: 'A day that punishes no one' },
+  { label: 'One night',     slug: 'the-one-night-escape',               note: '26 hours, done right' },
+  { label: 'Cellar doors',  slug: 'the-cellar-door-short-list',         note: 'Five producers worth the appointment' },
+  { label: 'Wellness',      slug: 'the-thermal-springs-weekend',        note: 'Springs without wasting the weekend' },
+  { label: 'First visit',   slug: 'the-peninsula-orientation-drive',    note: 'Six stops, half a day' },
+  { label: 'Breakfast',     slug: 'breakfast-before-the-crowds',        note: 'Where locals actually eat at 8am' },
+];
+const intentResolved = intentRoutes
+  .map((intent) => {
+    const article = articles.find((a) => routeSlug(a) === intent.slug);
+    return article ? { ...intent, article } : null;
+  })
+  .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+
+const issueStats = {
+  articles: articles.length,
+  venues: venues.length,
+  places: places.length,
+  experiences: experiences.length,
+  itineraries: itineraries.length,
+};
 
 const now = new Date();
 const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
@@ -50,7 +88,64 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
 
   <PillarNav />
 
+  <section class="issue-ribbon" aria-label="This issue">
+    <div class="container">
+      <div class="issue-ribbon__inner">
+        <div class="issue-ribbon__label">
+          <span class="label label--accent">The {issueDate} issue</span>
+        </div>
+        <dl class="issue-ribbon__stats">
+          <div><dt>Pieces</dt><dd>{issueStats.articles}</dd></div>
+          <div><dt>Venues mapped</dt><dd>{issueStats.venues}</dd></div>
+          <div><dt>Places</dt><dd>{issueStats.places}</dd></div>
+          <div><dt>Walks & moves</dt><dd>{issueStats.experiences}</dd></div>
+          <div><dt>Escape plans</dt><dd>{issueStats.itineraries}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
   {featured && <FeatureArticle article={featured} />}
+
+  {editorPicks.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Editor's picks</p>
+            <h2 class="venues__title">Three pieces doing the heaviest lifting this week</h2>
+            <p class="venues__sub">Read one, skim the others, and the Peninsula weekend starts writing itself.</p>
+          </div>
+          <a href="/journal" class="venues__link">All in the journal →</a>
+        </div>
+        <div class="venues__grid">
+          {editorPicks.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {intentResolved.length > 0 && (
+    <section class="intent-strip" aria-label="Find by intent">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">Find by intent</p>
+            <h2 class="split-intro__title">Start from what you actually want the weekend to do</h2>
+          </div>
+          <p class="split-intro__body">Pick the mood first. Each chip opens a service piece written specifically to answer it — not a directory page pretending it has.</p>
+        </div>
+        <div class="intent-chips">
+          {intentResolved.map((intent) => (
+            <a href={`/journal/${intent.slug}`} class="intent-chip">
+              <span class="intent-chip__label">{intent.label}</span>
+              <span class="intent-chip__note">{intent.note}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="zone-intro">
     <div class="container">
@@ -59,7 +154,7 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
           <p class="label label--accent">Build the weekend</p>
           <h2 class="split-intro__title">Three ways into the Peninsula, depending on what the trip needs</h2>
         </div>
-        <p class="split-intro__body">The preview is now broad enough to navigate by intent, not just section. Start with the bed if you want the trip to soften, the walk if you want the afternoon to open up, or the itinerary if you want the whole weekend pre-shaped.</p>
+        <p class="split-intro__body">Start with the bed if you want the trip to soften, the walk if you want the afternoon to open up, or the itinerary if you want the whole weekend pre-shaped.</p>
       </div>
       <div class="zone-intro__grid">
         <a href="/stay" class="zone-card zone-card--link">
@@ -75,13 +170,13 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
         <a href="/escape" class="zone-card zone-card--link">
           <p class="zone-card__label">Escape</p>
           <h3 class="zone-card__title">Follow a complete weekend, not a loose list</h3>
-          <p class="zone-card__body">Two shaped Peninsula escapes that sequence lunch, landscape, and bed in the right order.</p>
+          <p class="zone-card__body">Shaped Peninsula escapes that sequence lunch, landscape, and bed in the right order.</p>
         </a>
       </div>
     </div>
   </section>
 
-  {showcase.length > 0 && (
+  {diningShowcase.length > 0 && (
     <section class="venues">
       <div class="container">
         <div class="venues__header">
@@ -93,7 +188,7 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
           <a href="/eat" class="venues__link">All venues →</a>
         </div>
         <div class="venues__grid">
-          {showcase.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+          {diningShowcase.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
         </div>
       </div>
     </section>
@@ -140,6 +235,7 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
         <div class="places__header">
           <p class="label label--accent places__label">Know the terrain</p>
           <h2 class="places__title">The Peninsula, place by place</h2>
+          <p class="places__sub">Six towns that organise the region around them — ridge, coast, and bay.</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
@@ -148,6 +244,9 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
               variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
             />
           ))}
+        </div>
+        <div class="places__footer">
+          <a href="/places" class="venues__link">All {issueStats.places} places →</a>
         </div>
       </div>
     </section>
@@ -175,8 +274,8 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">From the Journal</p>
-            <h2 class="venues__title">Service pieces and dispatches that sharpen the trip</h2>
+            <p class="label label--accent">Fresh from the Journal</p>
+            <h2 class="venues__title">The most recent service pieces and dispatches</h2>
           </div>
           <a href="/journal" class="venues__link">Journal →</a>
         </div>

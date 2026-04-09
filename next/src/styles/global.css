@@ -115,16 +115,17 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__nav {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2.5vw, 2rem);
+  gap: clamp(0.85rem, 1.9vw, 1.55rem);
   list-style: none;
 }
 .masthead__nav a {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--soft);
   transition: color .2s var(--ease);
+  white-space: nowrap;
 }
 .masthead__nav a:hover,
 .masthead__nav a[aria-current="page"] { color: var(--accent); }
@@ -1636,5 +1637,242 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .experience-grid { grid-template-columns: 1fr; }
   .itinerary-grid { grid-template-columns: 1fr; }
   .zone-intro__grid { grid-template-columns: 1fr; }
+  .zone-intro__grid--four { grid-template-columns: 1fr; }
   .stop-item { grid-template-columns: 4rem 1fr; gap: 1rem; }
+}
+
+/* =========================================================
+   ISSUE RIBBON — homepage masthead-of-masthead showing the
+   current issue stats. Keeps the rebuild feeling alive.
+   ========================================================= */
+.issue-ribbon {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 1.1rem 0;
+}
+.issue-ribbon__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.issue-ribbon__label { flex-shrink: 0; }
+.issue-ribbon__stats {
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  flex-wrap: wrap;
+  list-style: none;
+}
+.issue-ribbon__stats > div { display: flex; flex-direction: column; gap: 0.15rem; }
+.issue-ribbon__stats dt {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.issue-ribbon__stats dd {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--dark);
+}
+
+/* =========================================================
+   INTENT STRIP — reader-intent discovery row.
+   Used on the homepage and the Escape index.
+   ========================================================= */
+.intent-strip {
+  padding: clamp(3.5rem, 7vw, 5rem) 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.intent-strip--alt { background: var(--bg-alt); }
+.intent-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.intent-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.2rem 1.1rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
+}
+.intent-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 78, 59, 0.45);
+  box-shadow: 0 10px 24px rgba(30, 27, 24, 0.06);
+}
+.intent-chip:hover .intent-chip__label { color: var(--accent); }
+.intent-chip__label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  color: var(--dark);
+}
+.intent-chip__note {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--soft);
+}
+
+/* =========================================================
+   FORMAT NAV — in-page section jump strip (journal + places).
+   ========================================================= */
+.format-nav {
+  padding: 2rem 0 2.25rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.format-nav__label { margin-bottom: 0.9rem; }
+.format-nav__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.format-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--white);
+  transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+}
+.format-chip:hover {
+  background: var(--bg);
+  border-color: rgba(139, 78, 59, 0.45);
+  color: var(--accent);
+}
+.format-chip__name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: inherit;
+}
+.format-chip__count {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--soft);
+  background: var(--bg-alt);
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   VENUES — additional modifiers and supplementary bits.
+   ========================================================= */
+.venues--alt { background: var(--bg); }
+.venues--alt + .venues--alt { border-top: none; }
+.venues__count {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  padding-top: 0.25rem;
+}
+
+/* Places index & homepage — section footer link + sub lede */
+.places__sub {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--soft);
+  font-style: italic;
+  max-width: 58ch;
+  margin-top: 0.7rem;
+}
+.places__footer {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+/* Four-up variant for place-hub snapshot cards */
+.zone-intro__grid--four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* =========================================================
+   PLACE DETAIL — extras: stats bar + in-page jump nav.
+   ========================================================= */
+.place-detail__stats {
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  flex-wrap: wrap;
+  margin: 2rem 0 1.5rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.place-detail__stats > div { display: flex; flex-direction: column; gap: 0.15rem; }
+.place-detail__stats dt {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.place-detail__stats dd {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--dark);
+}
+.place-detail__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.place-detail__nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  transition: background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+}
+.place-detail__nav-link:hover {
+  background: var(--white);
+  border-color: rgba(139, 78, 59, 0.45);
+  color: var(--accent);
+}
+.place-detail__nav-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
+}
+.place-detail__nav-count {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--soft);
+  background: var(--bg-alt);
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .intent-chips { grid-template-columns: repeat(2, 1fr); }
+  .zone-intro__grid--four { grid-template-columns: repeat(2, 1fr); }
+  .issue-ribbon__inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 560px) {
+  .intent-chips { grid-template-columns: 1fr; }
 }

@@ -20,39 +20,91 @@ const allItineraries = await getCollection('itineraries');
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 
 const placeSlug = routeSlug(place);
-const venueSlugs = allVenues
-  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug)
-  .map((venue) => routeSlug(venue));
+const placeNameLower = place.data.name.toLowerCase();
+
+const venuesForPlace = allVenues
+  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug);
+const venueSlugs = venuesForPlace.map((venue) => routeSlug(venue));
 const experiences = allExperiences
   .filter((experience) => String(experience.data.place?.id ?? experience.data.place) === placeSlug);
 const experienceSlugs = experiences.map((experience) => routeSlug(experience));
-const venues = allVenues
-  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug)
+
+// Split venues by category so place hubs stop behaving like a flat list.
+const eatVenues = venuesForPlace
+  .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type))
   .slice(0, 6);
+const wineVenues = venuesForPlace
+  .filter((venue) => wineTypes.includes(venue.data.type))
+  .slice(0, 6);
+const stayVenues = venuesForPlace
+  .filter((venue) => stayTypes.includes(venue.data.type))
+  .slice(0, 4);
+
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
 const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));
+
 const itineraries = allItineraries
-  .filter((itinerary) => itinerary.data.stops.some((stop) => venueSlugs.includes(String(stop.venue?.id ?? stop.venue ?? '')) || experienceSlugs.includes(String(stop.experience?.id ?? stop.experience ?? ''))))
-  .slice(0, 2);
+  .filter((itinerary) =>
+    itinerary.data.stops.some(
+      (stop) =>
+        venueSlugs.includes(String(stop.venue?.id ?? stop.venue ?? '')) ||
+        experienceSlugs.includes(String(stop.experience?.id ?? stop.experience ?? '')),
+    ),
+  )
+  .slice(0, 3);
+
+// Richer article matching: tags OR direct venue/experience refs OR place name in title/tags.
 const articles = allArticles
-  .filter((article) => article.data.tags.includes(placeSlug) || article.data.relatedVenues.some((entry) => venueSlugs.includes(String(entry.id ?? entry))) || article.data.relatedExperiences.some((entry) => experienceSlugs.includes(String(entry.id ?? entry))))
-  .slice(0, 2);
+  .filter(
+    (article) =>
+      article.data.tags.includes(placeSlug) ||
+      article.data.tags.some((tag) => tag === placeNameLower) ||
+      article.data.relatedVenues.some((entry) => venueSlugs.includes(String(entry.id ?? entry))) ||
+      article.data.relatedExperiences.some((entry) => experienceSlugs.includes(String(entry.id ?? entry))) ||
+      article.data.title.toLowerCase().includes(placeNameLower),
+  )
+  .slice(0, 4);
 
 const snapshotCards = [
   {
     label: 'Eat & drink',
-    title: `${venues.filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type)).length} dining picks`,
-    body: 'The current rebuild already maps the rooms, winery lunches, and destination tables that make this pocket worth driving for.',
+    title:
+      eatVenues.length > 0
+        ? `${venuesForPlace.filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type)).length} dining picks mapped`
+        : 'Dining coverage coming',
+    body: eatVenues.length > 0
+      ? 'Restaurants, cafés, bakeries, and pubs already connected to the place layer — each with its own editor note.'
+      : 'This hub will add dining picks as the rebuild continues filling in the venue layer.',
+  },
+  {
+    label: 'Wine & producers',
+    title:
+      wineVenues.length > 0
+        ? `${venuesForPlace.filter((venue) => wineTypes.includes(venue.data.type)).length} cellar doors & makers`
+        : 'Wine coverage coming',
+    body: wineVenues.length > 0
+      ? 'Wineries, producers, and distillers worth working into the day. The place hub anchors them into real geography.'
+      : 'The wine layer is still being mapped for this hub — expect producers as the rebuild progresses.',
   },
   {
     label: 'Stay',
-    title: `${venues.filter((venue) => stayTypes.includes(venue.data.type)).length} stays in the hub`,
-    body: 'When a place has a workable bed attached, it stops being a stop and starts becoming a base.',
+    title:
+      stayVenues.length > 0
+        ? `${venuesForPlace.filter((venue) => stayTypes.includes(venue.data.type)).length} stays in the hub`
+        : 'Stays coming',
+    body: stayVenues.length > 0
+      ? 'When a place has a workable bed attached, it stops being a stop and starts becoming a base.'
+      : 'Stay coverage will appear here as rooms, villas, and cottages are added.',
   },
   {
     label: 'Explore',
-    title: `${experiences.length} nearby experience${experiences.length === 1 ? '' : 's'}`,
-    body: 'Walks, lookouts, beaches, and market moves are now connected into the place layer rather than floating off on their own.',
+    title:
+      experiences.length > 0
+        ? `${experiences.length} nearby experience${experiences.length === 1 ? '' : 's'}`
+        : 'Explore coverage coming',
+    body: experiences.length > 0
+      ? 'Walks, lookouts, beaches, and market moves are connected into the place layer rather than floating off on their own.'
+      : 'Explore entries will connect into this hub as the experiences layer is expanded.',
   },
 ];
 ---
@@ -64,7 +116,9 @@ const snapshotCards = [
 >
   <PlaceDetailTemplate
     place={place}
-    venues={venues}
+    eatVenues={eatVenues}
+    wineVenues={wineVenues}
+    stayVenues={stayVenues}
     experiences={experiences}
     itineraries={itineraries}
     articles={articles}

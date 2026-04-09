@@ -7,9 +7,48 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
 const places = (await getCollection('places'))
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
-const ridgePlaces = places.filter((place) => ['red-hill-plateau', 'hinterland'].includes(place.data.zone));
-const coastPlaces = places.filter((place) => ['ocean-coast', 'back-beaches', 'tip'].includes(place.data.zone));
-const bayPlaces = places.filter((place) => place.data.zone === 'bayside');
+
+// Group by editorial geography, not raw zone enum — the three pockets
+// most useful to a first-time reader.
+const groups: { key: string; label: string; title: string; intro: string; variant: 'vineyard' | 'bay' | 'sand'; zones: string[] }[] = [
+  {
+    key: 'ridge',
+    label: 'The ridge',
+    title: 'Ridge & hinterland',
+    intro: 'Basalt plateau, pinot noir, ferny gullies, and long lunches. This is the Peninsula\'s lunch-and-wine layer — the one readers mean when they say "Red Hill on a Saturday".',
+    variant: 'vineyard',
+    zones: ['red-hill-plateau', 'hinterland'],
+  },
+  {
+    key: 'coast',
+    label: 'The coast',
+    title: 'Southern ocean & tip',
+    intro: 'Flinders, Cape Schanck, Sorrento, Portsea, Point Nepean — limestone, open water, dusk walks, and the places the wind goes to get honest.',
+    variant: 'sand',
+    zones: ['ocean-coast', 'back-beaches', 'tip'],
+  },
+  {
+    key: 'bay',
+    label: 'The bay side',
+    title: 'Bayside easy entry',
+    intro: 'Mornington and Mount Martha are the cleanest way into the region if coffee, markets, galleries, and a swim matter more than bookings.',
+    variant: 'bay',
+    zones: ['bayside'],
+  },
+];
+
+const grouped = groups
+  .map((group) => ({
+    ...group,
+    places: places.filter((place) => group.zones.includes(place.data.zone)),
+  }))
+  .filter((group) => group.places.length > 0);
+
+const quickNav = grouped.map((group) => ({
+  href: `#${group.key}`,
+  label: group.label,
+  count: group.places.length,
+}));
 ---
 
 <BaseLayout
@@ -36,30 +75,60 @@ const bayPlaces = places.filter((place) => place.data.zone === 'bayside');
         <p class="split-intro__body">The ridge is about lunch and wine. The southern coast is about weather, cliffs, and a cleaner kind of air. The bay side is easier, gentler, and better for a day you don't want to over-plan. These place pages exist so visitors can choose properly.</p>
       </div>
       <div class="zone-intro__grid">
-        <article class="zone-card">
-          <p class="zone-card__label">The ridge</p>
-          <h3 class="zone-card__title">{ridgePlaces.length} wine-country hubs</h3>
-          <p class="zone-card__body">Red Hill, Main Ridge, Merricks, and Balnarring are where the Peninsula does pinot noir, long lunches, and low-slung village weekends best.</p>
-        </article>
-        <article class="zone-card">
-          <p class="zone-card__label">The coast</p>
-          <h3 class="zone-card__title">{coastPlaces.length} southern and tip stops</h3>
-          <p class="zone-card__body">Flinders, Cape Schanck, Sorrento, Portsea, and Point Nepean turn the region toward limestone, open water, and dusk walks.</p>
-        </article>
-        <article class="zone-card">
-          <p class="zone-card__label">The bay side</p>
-          <h3 class="zone-card__title">{bayPlaces.length} easier-entry towns</h3>
-          <p class="zone-card__body">Mornington and Mount Martha are the cleanest way into the Peninsula if coffee, markets, galleries, and a swim matter more than bookings.</p>
-        </article>
+        {grouped.map((group) => (
+          <a href={`#${group.key}`} class="zone-card zone-card--link">
+            <p class="zone-card__label">{group.label}</p>
+            <h3 class="zone-card__title">{group.places.length} hubs · {group.title}</h3>
+            <p class="zone-card__body">{group.intro}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="places">
+  {quickNav.length > 0 && (
+    <section class="format-nav">
+      <div class="container">
+        <p class="label label--accent format-nav__label">Jump to a pocket</p>
+        <div class="format-nav__chips">
+          {quickNav.map((item) => (
+            <a href={item.href} class="format-chip">
+              <span class="format-chip__name">{item.label}</span>
+              <span class="format-chip__count">{item.count}</span>
+            </a>
+          ))}
+          <a href="#all" class="format-chip">
+            <span class="format-chip__name">All places</span>
+            <span class="format-chip__count">{places.length}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {grouped.map((group) => (
+    <section class="places" id={group.key}>
+      <div class="container">
+        <div class="places__header">
+          <p class="label label--accent places__label">{group.label}</p>
+          <h2 class="places__title">{group.title}</h2>
+          <p class="places__sub">{group.intro}</p>
+        </div>
+        <div class="places__grid">
+          {group.places.map((place) => (
+            <PlaceCard place={place} variant={group.variant} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="places" id="all">
     <div class="container">
       <div class="places__header">
-        <p class="label label--accent places__label">Preview hubs</p>
-        <h2 class="places__title">Follow the terrain</h2>
+        <p class="label label--accent places__label">Every hub</p>
+        <h2 class="places__title">All {places.length} places, alphabetical</h2>
+        <p class="places__sub">For when you already know which town you want to read next.</p>
       </div>
       <div class="places__grid">
         {places.map((place, index) => (

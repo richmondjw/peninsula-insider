@@ -4,11 +4,82 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { formatLabel, routeSlug } from '../../lib/editorial';
 
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const featured = articles.find((article) => article.data.featured) ?? articles[0];
-const latest = articles.filter((article) => article.id !== featured?.id);
+const featuredSlug = featured ? routeSlug(featured) : null;
+const latest = articles.filter((article) => routeSlug(article) !== featuredSlug);
+
+// Everything except the lead is available for grouping.
+const rest = latest;
+
+// Three "editor's picks" — the stories that are doing the most work this week.
+const pickSlugs = [
+  'the-chardonnay-case',
+  'three-italian-dinners',
+  'the-peninsula-pantry',
+];
+const picks = pickSlugs
+  .map((slug) => rest.find((article) => routeSlug(article) === slug))
+  .filter((article): article is NonNullable<typeof article> => Boolean(article));
+
+// Group the rest by format for navigation by mood.
+const formatOrder: Array<{ key: string; title: string; intro: string }> = [
+  {
+    key: 'service',
+    title: 'Service pieces',
+    intro: 'Useful before you book. Weekend shapes, rainy-day plans, family trips, and the questions readers actually ask.',
+  },
+  {
+    key: 'long-lunch-list',
+    title: 'Long lunch lists',
+    intro: 'The daylight-dining playbook. Which tables earn the drive and which do not.',
+  },
+  {
+    key: 'cellar-door-dispatch',
+    title: 'Cellar door dispatches',
+    intro: 'The producers worth the appointment, the wines worth the cellar, and the arguments happening in the vines.',
+  },
+  {
+    key: 'stay-notes',
+    title: 'Stay notes',
+    intro: 'The rooms, cottages, and villas that change the shape of a weekend.',
+  },
+  {
+    key: 'insider-edit',
+    title: 'Insider edits',
+    intro: 'Shortlists with a point of view — the places locals rotate through, not the ones brochures push.',
+  },
+  {
+    key: 'slow-peninsula',
+    title: 'Slow Peninsula',
+    intro: 'Field notes from the quieter end of the region. Weather, light, time, and the pieces no one is rushing.',
+  },
+  {
+    key: 'editors-letter',
+    title: "Editor's letters",
+    intro: 'Where the issue is framed — what changed, what matters, what to read first.',
+  },
+  {
+    key: 'interview',
+    title: 'Interviews',
+    intro: 'Long-form conversations with the people building the Peninsula worth writing about.',
+  },
+  {
+    key: 'investigation',
+    title: 'Investigations',
+    intro: 'Reporting with edges. Where we spend the extra weeks.',
+  },
+];
+
+const groups = formatOrder
+  .map((group) => ({
+    ...group,
+    articles: rest.filter((article) => article.data.format === group.key),
+  }))
+  .filter((group) => group.articles.length > 0);
 ---
 
 <BaseLayout
@@ -20,7 +91,7 @@ const latest = articles.filter((article) => article.id !== featured?.id);
     eyebrow="Journal"
     subEyebrow="Dispatches · lists · essays · stay notes"
     title="Long-form notes from a region best read <em>slowly.</em>"
-    dek="The Journal is where Peninsula Insider moves past directories and into voice. This preview starts to show the structure: atomic article URLs, typed formats, and related venue references beneath the surface."
+    dek="The Journal is where Peninsula Insider moves past directories and into voice. Browse by format below, or jump straight to the three pieces doing the most work right now."
     gradient="journal"
     visualLabel="Long lunch notebook · cellar door dispatches"
   />
@@ -35,66 +106,76 @@ const latest = articles.filter((article) => article.id !== featured?.id);
           </div>
           <div class="feature__content">
             <div class="feature__label">
-              <span class="label label--accent">Editor's pick</span>
+              <span class="label label--accent">{formatLabel[featured.data.format] ?? featured.data.format}</span>
             </div>
             <h2 class="feature__title">
-              <a href={`/journal/${featured.id}`}>{featured.data.title}</a>
+              <a href={`/journal/${featuredSlug}`}>{featured.data.title}</a>
             </h2>
             <p class="feature__dek">{featured.data.dek}</p>
             <div class="feature__byline">
-              <span class="feature__byline-name">{featured.data.readingTimeMinutes} min read</span>
-              <span class="feature__byline-dot" aria-hidden="true"></span>
-              <span class="feature__byline-meta">{String(featured.data.format).replace(/-/g, ' ')}</span>
+              {featured.data.readingTimeMinutes && (
+                <>
+                  <span class="feature__byline-name">{featured.data.readingTimeMinutes} min read</span>
+                  <span class="feature__byline-dot" aria-hidden="true"></span>
+                </>
+              )}
+              <span class="feature__byline-meta">{featured.data.publishedAt.toLocaleDateString('en-AU', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             </div>
-            <a href={`/journal/${featured.id}`} class="feature__cta">Read the piece →</a>
+            <a href={`/journal/${featuredSlug}`} class="feature__cta">Read the piece →</a>
           </div>
         </div>
       </div>
     </section>
   )}
 
-  <section class="zone-intro">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">What the Journal is for</p>
-          <h2 class="split-intro__title">Less listicle, more field notes, comparisons, and service pieces</h2>
+  {picks.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Editor's picks</p>
+            <h2 class="venues__title">Three pieces to read first</h2>
+            <p class="venues__sub">If you only have 20 minutes with the Journal, start here.</p>
+          </div>
         </div>
-        <p class="split-intro__body">The journal layer is where Peninsula Insider stops behaving like a directory. This is where we compare dining rooms, argue for particular towns, explain when to go, and build the kind of service journalism that helps a weekend hold together.</p>
+        <div class="venues__grid">
+          {picks.map((article) => <ArticleCard article={article} />)}
+        </div>
       </div>
-      <div class="zone-intro__grid">
-        <article class="zone-card">
-          <p class="zone-card__label">Service</p>
-          <h3 class="zone-card__title">Useful before you book</h3>
-          <p class="zone-card__body">Practical pieces on where to stay, when to go, what to combine, and the mistakes that keep getting repeated.</p>
-        </article>
-        <article class="zone-card">
-          <p class="zone-card__label">Comparisons</p>
-          <h3 class="zone-card__title">Name the differences properly</h3>
-          <p class="zone-card__body">Not all prestige dinners, cellar doors, or towns are interchangeable. The Journal is where we say why.</p>
-        </article>
-        <article class="zone-card">
-          <p class="zone-card__label">Seasonal mood</p>
-          <h3 class="zone-card__title">Use weather and timing well</h3>
-          <p class="zone-card__body">A good Peninsula weekend in April is not the same trip as a wet July stay or a January sprint to the beach.</p>
-        </article>
+    </section>
+  )}
+
+  <section class="format-nav">
+    <div class="container">
+      <p class="label label--accent format-nav__label">Navigate by format</p>
+      <div class="format-nav__chips">
+        {groups.map((group) => (
+          <a href={`#${group.key}`} class="format-chip">
+            <span class="format-chip__name">{group.title}</span>
+            <span class="format-chip__count">{group.articles.length}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Published pieces</p>
-          <h2 class="venues__title">The current issue, now with enough range to navigate by mood</h2>
+  {groups.map((group) => (
+    <section class="venues venues--alt" id={group.key}>
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">{formatLabel[group.key] ?? group.title}</p>
+            <h2 class="venues__title">{group.title}</h2>
+            <p class="venues__sub">{group.intro}</p>
+          </div>
+          <span class="venues__count">{group.articles.length} pieces</span>
+        </div>
+        <div class="venues__grid">
+          {group.articles.map((article) => <ArticleCard article={article} />)}
         </div>
       </div>
-      <div class="venues__grid">
-        {latest.map((article) => <ArticleCard article={article} />)}
-      </div>
-    </div>
-  </section>
+    </section>
+  ))}
 
   <NewsletterBlock />
 </BaseLayout>
