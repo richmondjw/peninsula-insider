@@ -26,17 +26,17 @@ featured: false
 status: "published"
 ---
 
-Here is the quiet truth about the Mornington Peninsula that the long-lunch crowd tends to miss: the best meal of the weekend is usually the one you cook yourself. The region is an absurdly generous pantry — sourdough out of a wood oven on Friday night, single-origin oil from a grove you can see from the kitchen window, a rib-eye from a farmer whose paddock you drove past on the way in — and if you have booked anywhere with a kitchen, the smartest thing you can do on Saturday morning is skip the restaurant and shop.
+The best meal of a Peninsula weekend is usually the one you cook yourself. The region is an absurdly generous pantry — sourdough from a wood oven on Friday night, single-origin oil from a grove you can see from the kitchen window, a rib-eye from a farmer whose paddock you drove past on the way in — and if you have booked anywhere with a kitchen, the smartest thing you can do on Saturday morning is skip the restaurant and shop.
 
-This is not a rustic exercise in picking things up at farm gates. It is a shopping list with a route. Done properly, it takes about three hours, leaves you with everything you need for a serious Saturday night dinner and a slow Sunday breakfast, and costs less than one meal for two at any of the hatted rooms. More importantly, it forces you to actually meet the Peninsula — the producers, the millers, the cheesemakers — instead of only tasting what the kitchens have already filtered.
+This is not a rustic exercise in picking things up at farm gates. It is a shopping list with a route. Done properly, it takes about three hours, leaves you with everything you need for a serious Saturday night dinner and a slow Sunday breakfast, and costs less than one meal for two at any of the hatted rooms. More importantly, it forces you to actually meet the Peninsula — the producers, the millers, the cheesemakers — rather than only tasting what the kitchens have already filtered.
 
 Do it in this order. The order matters.
 
 ## Step one — the market (Saturday, 9:00am)
 
-If it is the second Saturday of the month, there is only one correct place to start, and it is the [Mornington Farmers' Market](/venues/mornington-farmers-market) at Mornington Racecourse. This is the serious one. Around ninety stalls. Accredited producers only. The same growers you will later see listed on restaurant menus in Red Hill and Flinders — the same eggs, the same heirloom tomatoes, the same dry-aged beef.
+If it is the second Saturday of the month, there is only one correct place to start, and it is the [Mornington Farmers' Market](/eat/mornington-farmers-market) at Mornington Racecourse. This is the serious one. Accredited producers only. The same growers you will later see listed on restaurant menus in Red Hill and Flinders — the same eggs, the same heirloom tomatoes, the same dry-aged beef.
 
-Arrive by nine. By ten-thirty the good bread is gone, the best fish has been bought by chefs, and the queue for coffee has doubled. Come with a cooler bag in the boot of the car and cash for the stalls that still prefer it. Work the perimeter clockwise once before you buy anything — this is the discipline that stops you filling your bag with the first pretty thing you see and missing the better version two rows later.
+Arrive by nine. By ten-thirty the good bread is gone, the best fish has been bought by chefs passing through, and the queue for coffee has doubled. Come with a cooler bag in the boot and cash for the stalls that still prefer it. Work the perimeter clockwise once before you buy anything — this is the discipline that stops you filling your bag with the first pretty thing you see and missing the better version two rows later.
 
 **What to buy here, in order of priority:**
 
@@ -44,15 +44,15 @@ Arrive by nine. By ten-thirty the good bread is gone, the best fish has been bou
 - **Two vegetables that will define the meal.** Whatever is at peak right now — in April that usually means late tomatoes, the first of the apples, pumpkin, silverbeet, fennel. Do not overbuy. Three items, maximum.
 - **Eggs.** Pasture-raised, not free-range-branded. They will change your Sunday breakfast.
 - **One piece of cheese.** The Main Ridge Dairy or Red Hill Cheese stalls if either is there. One good piece, not three mediocre ones.
-- **Olive oil, if the grove is at market.** The Peninsula has some of the best extra-virgin in Australia and you should not leave the weekend without a bottle to take home.
+- **Olive oil, if the grove is at market.** The Peninsula produces some of the best extra-virgin in Australia and you should not leave the weekend without a bottle to take home.
 
-If it is not the second Saturday — and most weekends it won't be — the fallback is the [Red Hill Market](/experiences/red-hill-market) on the first Saturday of the month, which is broader and more craft-focused and less serious about food, or the smaller farm gates scattered along Red Hill Road. The farm gates are actually a quietly underrated option on a non-market weekend. You will need to drive between three or four of them. Bring a map.
+If it is not the second Saturday — and most weekends it won't be — the fallback is the [Red Hill Market](/explore/red-hill-market) on the first Saturday of the month, which is broader, more craft-focused, and less serious about food, or the smaller farm gates scattered along Red Hill Road. The farm gates are a quietly underrated option on a non-market weekend. You will need to drive between three or four of them. Bring a map.
 
 ## Step two — the bakery (Saturday, 10:30am)
 
 Whatever else you do, do not buy bread at the market. The market bread is fine. The bread you want is ten minutes south.
 
-Drive to [Flinders Sourdough](/venues/flinders-sourdough) on Cook Street. The loaves come out of a wood-fired oven on Friday and Saturday mornings, and the mill behind the counter produces flour from grain grown within about an hour of the Peninsula. Buy the country loaf and, if it is still on the counter, the miche. A bag of the seeded sandwich loaf for Sunday breakfast is the smart second purchase. Anything laminated — a kouign-amann, an almond croissant — is the bonus round. They go fast.
+Drive to [Flinders Sourdough](/eat/flinders-sourdough) on Cook Street. The loaves come out of the oven on Friday and Saturday mornings, and the flour the bakery runs on is milled from grain grown within an hour of the Peninsula. Buy the country loaf and, if it is still on the counter, the miche. A bag of the seeded sandwich loaf for Sunday breakfast is the smart second purchase. Anything laminated — a kouign-amann, an almond croissant — is the bonus round. They go fast.
 
 This is also the correct moment for a coffee and the first moment in the morning when sitting down is allowed. Flinders has three or four good rooms for the quick sit-down. Walk your coffee to the pier if the weather is working with you.
 
@@ -64,24 +64,24 @@ The rule for shopping weekends is different from the rule for tasting weekends: 
 
 Two that reward this approach:
 
-- **[Quealy Winemakers](/venues/quealy-winemakers)** — the pinot gris and friulano are exactly the kind of food-friendly whites that flatter a home-cooked dinner, and Kathleen and Kevin's approach is closer to a farm gate than a tourism operation. Buy a mixed six and you will drink three of them before the weekend is over.
-- **[Ocean Eight](/venues/ocean-eight)** — smaller room, tighter range, structured wines that hold up to whatever you are cooking. Their Aylward Pinot Noir is the one to take to dinner Saturday night. If the single-vineyard chardonnay is pouring, buy a bottle for the opening pour before dinner.
+- **[Quealy Winemakers](/wine/quealy-winemakers)** — the pinot grigio and friulano are exactly the kind of food-friendly whites that flatter a home-cooked dinner, and Kathleen and Kevin's approach is closer to a farm gate than a tourism operation. Buy a mixed six and you will drink three of them before the weekend is over.
+- **[Ocean Eight](/wine/ocean-eight)** — smaller room, tighter range, structured wines that hold up to whatever you are cooking. The Aylward Pinot Noir is the one to take to dinner Saturday night. If the single-vineyard chardonnay is pouring, buy a bottle for the opening pour.
 
-Both of these are covered in more depth in our [cellar door short list](/journal/the-cellar-door-short-list). Either works. Don't do both in the same morning.
+Both are covered in more depth in our [cellar door short list](/journal/the-cellar-door-short-list). Either works. Don't do both in the same morning.
 
 ## Step four — the fill-in shop (Saturday, 12:45pm)
 
 Everything you do not have yet — pasta, rice, decent tinned tomatoes, anchovies, good butter, the nicer chocolate — comes from one of two places.
 
-**[The Epicurean at Red Hill](/venues/epicurean-red-hill)** is the obvious one. It is a bistro-café with a genuine providore attached, stocked by someone who clearly shops well. This is where you get the specific items you forgot — a jar of Sicilian sea salt, a tube of anchovy paste, a wedge of parmigiano, the one thing you always mean to buy and keep forgetting.
+**[The Epicurean at Red Hill](/eat/epicurean-red-hill)** is the obvious one. A bistro-café with a genuine providore attached, stocked by someone who clearly shops well. This is where you get the specific items you forgot — a jar of sea salt, a tube of anchovy paste, a wedge of parmigiano, the one thing you always mean to buy and keep forgetting.
 
-**[Merricks General Wine Store](/venues/merricks-general-wine-store)** is the other. The wine store is the headline — it has one of the better curated lists in the region — but the general store portion sells cured meats, condiments, and the kind of jarred pantry staples that a serious cook actually wants. It also has an entirely respectable lunch menu if you want to sit down briefly before heading home with the boot full.
+**[Merricks General Wine Store](/eat/merricks-general-wine-store)** is the other. The wine store is the headline — it has one of the better curated lists in the region — but the general store sells cured meats, condiments, and the kind of jarred pantry staples that a serious cook actually wants. It also has a respectable lunch menu if you want to sit down briefly before heading home with the boot full.
 
 Pick one of the two, not both. The Epicurean if you still need groceries; Merricks General if you mostly need to top up the wine and want a small sit-down lunch.
 
 ## Step five — the bonus stop (optional, Saturday, 1:30pm)
 
-If the group includes anyone who drinks spirits or cares about beer, there is exactly one stop worth making on the way back to the rental: either [Red Hill Brewery](/venues/red-hill-brewery) for a four-pack of the Scotch Ale — which is genuinely one of the better dark beers brewed in Victoria — or [Bass & Flinders Distillery](/venues/bass-and-flinders) in Mornington for a bottle of their gin and, if you have not tried it, a small paddle tasting of the cask-aged spirits. The distillery tasting is twenty minutes and does not burn through the palate the way a wine tasting does.
+If the group includes anyone who drinks spirits or cares about beer, there is exactly one stop worth making on the way back to the rental: either [Red Hill Brewery](/wine/red-hill-brewery) for a four-pack of the Scotch Ale — one of the better dark beers brewed in Victoria — or [Bass & Flinders Distillery](/wine/bass-and-flinders) in Tuerong for a bottle of gin and, if you have not tried it, a small paddle tasting of the cask-aged spirits. The distillery tasting is twenty minutes and does not burn through the palate the way a wine tasting does.
 
 Do one or the other. Not both.
 
@@ -100,7 +100,7 @@ The route is roughly Mornington → Flinders → Red Hill → Merricks, which is
 
 ## The argument for cooking in
 
-Restaurants are the reason most people come to the Peninsula. But the thing the restaurants are quietly drawing on — the producers, the growers, the small-batch cheesemakers, the millers working with grain grown in the next valley over — is the thing you can access directly, for roughly a third of what you would spend eating out, and with the kind of hands-on contact with the region that a dining room cannot give you even when the kitchen is trying.
+Restaurants are the reason most people come to the Peninsula. But the thing the restaurants are quietly drawing on — the producers, the growers, the small-batch cheesemakers, the millers working with grain grown in the next valley over — is the thing you can access directly, for roughly a third of what you would spend eating out, and with the kind of hands-on contact with the region a dining room cannot give you even when the kitchen is trying.
 
 One weekend a year, skip the long lunch. Shop instead. The cooking does not have to be ambitious. A whole chicken, the good bread, a tomato salad, a bottle of pinot you bought four hours earlier from the person who made it. It is the meal that gets the Peninsula right.
 

@@ -32,9 +32,9 @@ April undoes most of that. Book a week ahead rather than two months. Drive the r
 
 The weather helps. A good autumn day on the plateau starts cool and clear, warms into the early afternoon, and gives you late light that is almost impossibly flattering to landscape. A bad autumn day — and there are plenty — delivers rain on the windscreen, a fire in the dining room at lunch, and the kind of weekend that justifies staying another night.
 
-## The three bookings worth making this week
+## The three bookings worth making first
 
-**Tedesca Osteria** is the lunch the Peninsula does best right now. Brigitte Hafner's set menu suits autumn produce — the kitchen finally gets to run harder mushrooms, heavier pasta, longer braises — and the dining room is built for the season. Book for lunch, not dinner. Go over a fortnight ahead.
+**Tedesca Osteria** is the lunch the Peninsula does best in autumn. Brigitte Hafner's set menu suits the season's produce — mushrooms, heavier pasta, longer braises — and the dining room is built for this time of year. Book for lunch, not dinner. Go a fortnight ahead if you can.
 
 **Lindenderry at Red Hill** is where to sleep. Gardens, a small vineyard, a good breakfast on the terrace, and rooms that don't try to compete with the landscape outside. It is the stay that lets the weekend settle instead of escalating.
 
@@ -59,6 +59,6 @@ A few candid notes:
 - Don't treat the back beaches at Sorrento as a swim stop in April unless you check conditions. The surf is honest and the rip can be serious.
 - Don't skip the cellar door for the restaurant. The tasting is how you understand what you are going to drink at lunch.
 
-The Peninsula is honest with people who come to it in April. It gives you the landscape, the kitchens, and the time to do both properly. You will not get a better version of the region than the one on offer right now.
+The Peninsula is honest with people who come to it in April. It gives you the landscape, the kitchens, and the time to do both properly. You will not get a better version of the region than the one on offer this month.
 
-Book the table. Book the room. Leave the rest for weather.
+Book the table. Book the room. Leave the rest to weather.

@@ -47,9 +47,9 @@ The wines themselves are excellent — a Halliday 97-point estate with a genuine
 
 ## 5. Quealy Winemakers — the one with the most soul
 
-Quealy is different. Kathleen Quealy and Kevin McCarthy were early believers in alternative Italian varieties on the Peninsula — pinot gris, friulano, moscato giallo, rosso — and the cellar door is still grounded in that experimental, quietly pioneering spirit. The room itself is unpretentious to the point of stubbornness. The wines are distinctive and food-friendly. The pricing is fair.
+Quealy is different. Kathleen Quealy and Kevin McCarthy were early believers in alternative Italian varieties on the Peninsula — pinot grigio, friulano, moscato giallo, and other food-first grapes that made sense in this climate before most locals knew what to do with them — and the cellar door is still grounded in that experimental, quietly pioneering spirit. The room itself is unpretentious to the point of stubbornness. The wines are distinctive and food-friendly. The pricing is fair.
 
-This is where locals send friends who say they want to understand the Peninsula rather than just photograph it. Go before lunch somewhere nearby and buy a mixed six on the way out.
+This is where locals send friends who say they want to understand the Peninsula rather than just photograph it. Go before lunch nearby and buy a mixed six on the way out.
 
 ## The order
 

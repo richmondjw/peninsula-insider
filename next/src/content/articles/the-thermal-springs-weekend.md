@@ -35,13 +35,13 @@ If you are going to come down for this specifically — and there are now plenty
 
 ## The two springs, and which one to choose
 
-The Peninsula has two serious thermal bathing complexes and a handful of hotel spas that sit in a different category. For a dedicated wellness weekend, the decision is between [Alba Thermal Springs](/venues/alba-thermal-springs) and [Peninsula Hot Springs](/venues/peninsula-hot-springs). They are both in Fingal, fifteen minutes apart, and they solve the same problem from opposite directions.
+The Peninsula has two serious thermal bathing complexes and a handful of hotel spas that sit in a different category. For a dedicated wellness weekend, the decision is between [Alba Thermal Springs](/stay/alba-thermal-springs) and [Peninsula Hot Springs](/stay/peninsula-hot-springs). They are both in Fingal, fifteen minutes apart, and they solve the same problem from opposite directions.
 
-**Peninsula Hot Springs** is the original. Open since 2005, it has grown into the largest and most ambitious wellness complex in the country, with something like seventy pools, a Bath House, a Hilltop Pool, reflexology walks, private baths, and a long enough menu of add-ons that you can spend an entire day there without repeating a room. It is also, by a distance, the busier of the two. Weekends can feel more crowded than relaxing, and on the wrong day the Amphitheatre pool is as much about the photograph as the temperature. The program is deeper and more varied than anything else in the category, and the Twilight sessions in the cooler months remain the single best value the whole operation offers — but it rewards people who know how to use it.
+**Peninsula Hot Springs** is the original. Open since 2005, it has grown into the largest and most ambitious wellness complex in the country, with more than fifty bathing and wellness experiences, a Bath House, a hilltop pool, reflexology walks, private baths, and a long enough menu of add-ons that you can spend an entire day there without repeating yourself. It is also, by a distance, the busier of the two. Weekends can feel more crowded than relaxing, and on the wrong day the Amphitheatre pool is as much about the photograph as the temperature. The program is deeper and more varied than anything else in the category, and the twilight sessions in the cooler months remain the single best value the whole operation offers — but it rewards people who know how to use it.
 
 **Alba** opened in 2022 and is the Peninsula thermal bathing the region had been quietly waiting for. Thirty-one pools. Stripped-back architecture. A hard cap on daily bather numbers so it never tips into chaos. A sensible cafe. A spa building that is actually a spa building and not a queue. It feels more like a European bath day than a tourist attraction, and that is a decisive advantage for a first-time visitor or anyone who has been burned by a bad day at the original.
 
-Pick Alba if this is your first thermal weekend, if you prefer quiet to scale, or if the idea of a cap on bodies in the water matters to you. Pick Peninsula Hot Springs if you know what you are doing, you want the deeper menu, and you are willing to book a midweek or Twilight slot to get the best of it. Do not try to do both on the same day — the body cannot absorb a second circuit, and you will waste the second ticket.
+Pick Alba if this is your first thermal weekend, if you prefer quiet to scale, or if the idea of a cap on bodies in the water matters to you. Pick Peninsula Hot Springs if you know what you are doing, want the deeper menu, and are willing to book a midweek or twilight slot to get the best of it. Do not try to do both on the same day — the body cannot absorb a second circuit, and you will waste the second ticket.
 
 ## How to actually use thermal water
 
@@ -57,23 +57,23 @@ The whole circuit takes two and a half to three hours done properly. Buy the ses
 
 The single biggest mistake people make with a thermal weekend is booking a day trip. The bath is not the trip; the decompression after it is. For that, you need a room nearby.
 
-[Lindenderry at Red Hill](/venues/lindenderry) is the most civilised base. Thirteen minutes from Alba, fifteen from Peninsula Hot Springs, with a garden, a pool, and a terrace breakfast that is itself a reason to stay. The rhythm of a Lindenderry weekend — bath, rest, small dinner, garden walk, long sleep, slow morning — is close to ideal for this kind of trip.
+[Lindenderry at Red Hill](/stay/lindenderry) is the most civilised base. Thirteen minutes from Alba, fifteen from Peninsula Hot Springs, with a garden, a pool, and a terrace breakfast that is itself a reason to stay. The rhythm of a Lindenderry weekend — bath, rest, small dinner, garden walk, long sleep, slow morning — is close to ideal for this kind of trip.
 
-[Polperro Villas](/venues/polperro-villas) is the move for a couple who want the bath to feed a private weekend. Two self-contained vineyard villas, each with an outdoor bath of its own, a wood fire, and a kitchen you will actually cook in. Drive to Alba mid-morning, do the full circuit, drive back to the villa, and spend the rest of the afternoon in your own bath with the fire lit. On a cool April or winter evening this might be the best wellness day the Peninsula offers, full stop.
+[Polperro Villas](/stay/polperro-villas) is the move for a couple who want the bath to feed a private weekend. Two self-contained vineyard villas, each with an outdoor bath of their own, a wood fire, and a kitchen you will actually cook in. Drive to Alba mid-morning, do the full circuit, drive back to the villa, and spend the rest of the afternoon in your own bath with the fire lit. On a cool April or winter evening this might be the best wellness day the Peninsula offers, full stop.
 
-[Hillview Farm Cottages](/venues/hillview-cottages) is the quieter, cheaper version of the same idea. Main Ridge. Wood fire. Paddock view. Eggs from the gate in the morning. A cottage kitchen for a simple dinner after the bath. It is the version for people who want the thermal day to feed a whole weekend of not making decisions. For more on why this kind of stay is worth the trade, see our piece on [the vineyard villa weekend](/articles/the-vineyard-villa-weekend).
+[Hillview Farm Cottages](/stay/hillview-cottages) is the quieter, cheaper version of the same idea. Main Ridge. Wood fire. Paddock view. Eggs from the gate in the morning. A cottage kitchen for a simple dinner after the bath. It is the version for people who want the thermal day to feed a whole weekend of not making decisions.
 
 ## What to eat — and what not to
 
 A proper bath day deserves a simple meal. Not a seven-course tasting.
 
-For dinner, book something local and small. A shared plate of grilled fish, a bowl of pasta, a glass of wine that is not a work of art. The cottage-stay version of this evening — a good loaf from [Flinders Sourdough](/venues/flinders-sourdough), burrata, a bottle of Merricks pinot, a fire — is almost unbeatable. Hotel-stay version: sit down at the stay's own dining room, order the pasta course and a main, and go to bed early.
+For dinner, book something local and small. A shared plate of grilled fish, a bowl of pasta, a glass of wine that is not a work of art. The cottage-stay version of this evening — a good loaf from [Flinders Sourdough](/eat/flinders-sourdough), burrata, a bottle of Merricks pinot, a fire — is almost unbeatable. Hotel-stay version: sit down at the stay's own dining room, order the pasta course and a main, and go to bed early.
 
-If you want the long lunch as well, do it the following day, not the same one. [Tedesca Osteria](/venues/tedesca-osteria) on a slow Sunday is the best recovery meal the region offers, and it works because you have spent the previous twenty-four hours letting the body open up for it. The sequence matters. Bath, sleep, lunch — never bath, lunch, drive home.
+If you want the long lunch as well, do it the following day, not the same one. [Tedesca Osteria](/eat/tedesca-osteria) on a slow Sunday is the best recovery meal the region offers, and it works because you have spent the previous twenty-four hours letting the body open up for it. The sequence matters. Bath, sleep, lunch — never bath, lunch, drive home.
 
 ## The one walk that belongs in the weekend
 
-If the weather is fair, add one short coastal walk between the bath and the drive home. The [Cape Schanck Boardwalk](/experiences/cape-schanck-boardwalk) is forty minutes, it is dramatic, and the salt air after the mineral heat is the closing note the whole trip needs. It is not optional in a good wellness weekend. It is how you land.
+If the weather is fair, add one short coastal walk between the bath and the drive home. The [Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk) is forty minutes, dramatic, and the salt air after the mineral heat is the closing note the whole trip needs. It is how you land.
 
 ## The weekend, in one line
 
