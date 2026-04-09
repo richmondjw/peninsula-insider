@@ -2,6 +2,36 @@
 // THE PENINSULA INSIDER — Shared JavaScript
 // ========================================================================
 
+// ===== SIMPLE PASSWORD GATE =====
+(function() {
+  var PASSWORD = 'JWR25';
+  var STORAGE_KEY = 'peninsula-insider-auth';
+  var allowedPaths = ['/404.html'];
+
+  if (allowedPaths.indexOf(window.location.pathname) !== -1) return;
+  if (sessionStorage.getItem(STORAGE_KEY) === PASSWORD) return;
+
+  document.documentElement.style.visibility = 'hidden';
+
+  var attempts = 0;
+  while (attempts < 3) {
+    var entered = window.prompt('Enter site password');
+    if (entered === PASSWORD) {
+      sessionStorage.setItem(STORAGE_KEY, PASSWORD);
+      document.documentElement.style.visibility = '';
+      return;
+    }
+    if (entered === null) {
+      window.location.href = 'https://www.google.com';
+      return;
+    }
+    attempts += 1;
+  }
+
+  document.body.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;font-family:Georgia,serif;background:#f7f3ee;color:#1d1d1b;text-align:center"><div><h1 style="margin-bottom:0.75rem">Private preview</h1><p style="margin:0;color:#6b6259">Incorrect password.</p></div></div>';
+  document.documentElement.style.visibility = '';
+})();
+
 // ===== HAMBURGER MENU =====
 const hamburger = document.getElementById('hamburger');
 const navMobile = document.getElementById('navMobile');
