@@ -939,6 +939,7 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
 }
 .event-featured-card--music  { background: var(--dark); }
 .event-featured-card--racing, .event-featured-card--arts { background: #2A2420; }
+.event-featured-card--market { background: #312924; }
 .event-featured-card .efc-date {
   font-family: 'Outfit', sans-serif; font-size: 0.62rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
@@ -949,7 +950,7 @@ section[id], div[id] { scroll-margin-top: var(--nav-h); }
 .event-featured-card .efc-venue {
   font-family: 'Outfit', sans-serif; font-size: 0.72rem;
   letter-spacing: 0.06em; text-transform: uppercase;
-  color: rgba(245,241,235,0.35); margin-bottom: 1.25rem;
+  color: rgba(245,241,235,0.68); margin-bottom: 1.25rem;
 }
 .event-featured-card p { color: rgba(245,241,235,0.65); font-size: 0.9rem; font-weight: 300; line-height: 1.7; margin-bottom: 0; }
 .efc-artists { display: flex; flex-wrap: wrap; gap: 0; margin-top: 1.25rem; }
