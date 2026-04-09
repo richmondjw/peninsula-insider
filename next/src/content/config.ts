@@ -1,99 +1,92 @@
-// Peninsula Insider — Content schema (Phase 1 scaffold)
-//
-// This file is the single source of truth for the shape of every atomic
-// entity on Peninsula Insider. Edit carefully. Schema breaking changes
-// fail the build, which is the point.
-//
-// The seven collections, per the roadmap (§ 4.2):
-//   • venues       — every restaurant, winery, cafe, hotel, villa, etc.
-//   • experiences  — wellness, walks, beaches, tours, attractions
-//   • places       — zones, towns, ridgelines (Red Hill, Sorrento, Merricks)
-//   • articles     — Journal long-form pieces (JSON front-matter + MD body)
-//   • itineraries  — curated multi-stop trip plans
-//   • events       — dated events (festivals, tastings, openings)
-//   • authors      — contributor / editor profiles
-//
-// AI authoring contract:
-// A research subagent can produce a validated entity record from
-// natural language + web research in seconds. Every field below must
-// therefore be (a) explicit, (b) typed, (c) documented, (d) optional
-// where the information may genuinely not exist.
+import { defineCollection, reference, z } from 'astro:content';
 
-import { defineCollection, z } from 'astro:content';
+// Peninsula Insider — Content schema
+//
+// This file is the typed contract for every entity in the Astro rebuild.
+// The goal is simple: AI agents should be able to author content directly
+// into git, with build-time validation catching drift before it reaches prod.
 
-// ---------------------------------------------------------------------------
-// Shared primitives
-// ---------------------------------------------------------------------------
+const zone = z.enum([
+  'bayside',
+  'hinterland',
+  'red-hill-plateau',
+  'ocean-coast',
+  'back-beaches',
+  'tip',
+]);
+
+const season = z.enum(['spring', 'summer', 'autumn', 'winter', 'all-year']);
+
+const mood = z.enum([
+  'long-lunch',
+  'anniversary',
+  'family',
+  'rainy-day',
+  'sunset',
+  'slow',
+  'wellness',
+  'romance',
+  'first-date',
+  'big-group',
+  'solo',
+  'quick-bite',
+  'weekend-escape',
+  'cellar-door',
+  'walk',
+  'beach',
+  'fireplace',
+  'view',
+  'rooftop',
+  'garden',
+  'waterfront',
+]);
+
+const audience = z.enum([
+  'couples',
+  'families',
+  'solo',
+  'group',
+  'locals',
+  'first-timers',
+]);
+
+const imageLicense = z.enum([
+  'original-commissioned',
+  'venue-media-kit',
+  'visit-victoria',
+  'tmp-unsplash',
+  'tmp-wikimedia',
+  'tmp-pexels',
+  'other-licensed',
+]);
 
 const coordinates = z.object({
-  lat: z.number(),
-  lng: z.number(),
+  lat: z.number().min(-90).max(90),
+  lng: z.number().min(-180).max(180),
 });
 
 const imageRef = z.object({
   src: z.string(),
   alt: z.string(),
   credit: z.string(),
-  license: z
-    .enum([
-      'original-commissioned',
-      'venue-media-kit',
-      'visit-victoria',
-      'tmp-unsplash',
-      'tmp-wikimedia',
-      'tmp-pexels',
-      'other-licensed',
-    ])
-    .default('venue-media-kit'),
+  license: imageLicense.default('venue-media-kit'),
   caption: z.string().optional(),
 });
 
-// The editorial tags exposed to intent-page generators and the map.
-// Keep these tightly controlled — drifted tag vocab becomes content debt.
 const tagBlock = z.object({
-  mood: z.array(
-    z.enum([
-      'long-lunch',
-      'anniversary',
-      'family',
-      'rainy-day',
-      'sunset',
-      'slow',
-      'wellness',
-      'romance',
-      'first-date',
-      'big-group',
-      'solo',
-      'quick-bite',
-      'weekend-escape',
-      'cellar-door',
-      'walk',
-      'beach',
-      'fireplace',
-      'view',
-      'rooftop',
-      'garden',
-      'waterfront',
-    ])
-  ),
-  season: z.array(z.enum(['spring', 'summer', 'autumn', 'winter', 'all-year'])),
-  audience: z.array(
-    z.enum(['couples', 'families', 'solo', 'group', 'locals', 'first-timers'])
-  ),
+  mood: z.array(mood).default([]),
+  season: z.array(season).default([]),
+  audience: z.array(audience).default([]),
 });
 
 const authorityBlock = z
   .object({
-    hats: z.number().min(0).max(3).optional(), // Good Food Guide hats
-    hallidayScore: z.number().optional(), // Halliday wine score
-    awards: z.array(z.string()).optional(),
-    pressMentions: z.array(z.string()).optional(),
+    hats: z.number().min(0).max(3).optional(),
+    hallidayScore: z.number().min(0).max(100).optional(),
+    awards: z.array(z.string()).default([]),
+    pressMentions: z.array(z.string()).default([]),
   })
   .optional();
-
-// ---------------------------------------------------------------------------
-// venues
-// ---------------------------------------------------------------------------
 
 const venues = defineCollection({
   type: 'data',
@@ -117,16 +110,8 @@ const venues = defineCollection({
       'farm-stay',
       'spa',
     ]),
-    // references the `places` collection slug
-    place: z.string(),
-    zone: z.enum([
-      'bayside',
-      'hinterland',
-      'red-hill-plateau',
-      'ocean-coast',
-      'back-beaches',
-      'tip',
-    ]),
+    place: reference('places'),
+    zone,
     coordinates,
     address: z.string(),
     phone: z.string().optional(),
@@ -148,21 +133,17 @@ const venues = defineCollection({
       .optional(),
     priceBand: z.enum(['$', '$$', '$$$', '$$$$']),
     authority: authorityBlock,
-    signature: z.string(), // signature dish, wine, room
-    editorNote: z.string(), // 2–3 paragraphs of opinion, not neutral summary
+    signature: z.string(),
+    editorNote: z.string(),
     tags: tagBlock,
     heroImage: imageRef,
     gallery: z.array(imageRef).default([]),
-    affiliateNote: z.string().optional(), // editorial disclosure if applicable
+    affiliateNote: z.string().optional(),
     featuredPartner: z.boolean().default(false),
-    lastVerified: z.date(),
-    publishedAt: z.date(),
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
   }),
 });
-
-// ---------------------------------------------------------------------------
-// experiences
-// ---------------------------------------------------------------------------
 
 const experiences = defineCollection({
   type: 'data',
@@ -181,34 +162,23 @@ const experiences = defineCollection({
       'market',
       'workshop',
     ]),
-    place: z.string(),
-    zone: z.enum([
-      'bayside',
-      'hinterland',
-      'red-hill-plateau',
-      'ocean-coast',
-      'back-beaches',
-      'tip',
-    ]),
+    place: reference('places'),
+    zone,
     coordinates,
     address: z.string().optional(),
     website: z.string().url().optional(),
     bookingUrl: z.string().url().optional(),
-    durationMinutes: z.number().optional(),
+    durationMinutes: z.number().positive().optional(),
     difficulty: z.enum(['easy', 'moderate', 'hard']).optional(),
-    seasonBest: z.array(z.enum(['spring', 'summer', 'autumn', 'winter', 'all-year'])),
+    seasonBest: z.array(season).default([]),
     editorNote: z.string(),
     tags: tagBlock,
     heroImage: imageRef,
     gallery: z.array(imageRef).default([]),
-    lastVerified: z.date(),
-    publishedAt: z.date(),
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
   }),
 });
-
-// ---------------------------------------------------------------------------
-// places
-// ---------------------------------------------------------------------------
 
 const places = defineCollection({
   type: 'data',
@@ -216,36 +186,25 @@ const places = defineCollection({
     slug: z.string(),
     name: z.string(),
     kind: z.enum(['town', 'village', 'zone', 'ridge', 'beach', 'cape']),
-    zone: z.enum([
-      'bayside',
-      'hinterland',
-      'red-hill-plateau',
-      'ocean-coast',
-      'back-beaches',
-      'tip',
-    ]),
+    zone,
     coordinates,
-    intro: z.string(), // 200-word editor-written intro for the place hub page
+    intro: z.string(),
     heroImage: imageRef,
-    relatedPlaces: z.array(z.string()).default([]),
-    publishedAt: z.date(),
+    relatedPlaces: z.array(reference('places')).default([]),
+    publishedAt: z.coerce.date(),
   }),
 });
 
-// ---------------------------------------------------------------------------
-// articles (The Insider's Journal)
-// ---------------------------------------------------------------------------
-
 const articles = defineCollection({
-  type: 'content', // markdown body + front-matter
+  type: 'content',
   schema: z.object({
     slug: z.string(),
     title: z.string(),
-    dek: z.string(), // 1–2 sentence subtitle
-    author: z.string(), // references the `authors` collection slug
-    houseByline: z.boolean().default(false), // true = "By The Peninsula Insider"
-    publishedAt: z.date(),
-    updatedAt: z.date().optional(),
+    dek: z.string(),
+    author: reference('authors'),
+    houseByline: z.boolean().default(false),
+    publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
     heroImage: imageRef,
     format: z.enum([
       'editors-letter',
@@ -259,17 +218,13 @@ const articles = defineCollection({
       'service',
     ]),
     tags: z.array(z.string()).default([]),
-    relatedVenues: z.array(z.string()).default([]),
-    relatedExperiences: z.array(z.string()).default([]),
-    readingTimeMinutes: z.number().optional(),
+    relatedVenues: z.array(reference('venues')).default([]),
+    relatedExperiences: z.array(reference('experiences')).default([]),
+    readingTimeMinutes: z.number().positive().optional(),
     featured: z.boolean().default(false),
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
   }),
 });
-
-// ---------------------------------------------------------------------------
-// itineraries
-// ---------------------------------------------------------------------------
 
 const itineraries = defineCollection({
   type: 'data',
@@ -287,27 +242,23 @@ const itineraries = defineCollection({
       'mixed',
       'quick',
     ]),
-    lengthNights: z.number(),
+    lengthNights: z.number().int().nonnegative(),
     stops: z.array(
       z.object({
-        day: z.number(),
-        order: z.number(),
-        venue: z.string().optional(), // slug reference
-        experience: z.string().optional(), // slug reference
+        day: z.number().int().positive(),
+        order: z.number().int().positive(),
+        venue: reference('venues').optional(),
+        experience: reference('experiences').optional(),
         note: z.string().optional(),
         timeOfDay: z.enum(['morning', 'midday', 'afternoon', 'evening', 'night']),
       })
     ),
-    totalDriveMinutes: z.number().optional(),
+    totalDriveMinutes: z.number().nonnegative().optional(),
     heroImage: imageRef,
     editorNote: z.string(),
-    publishedAt: z.date(),
+    publishedAt: z.coerce.date(),
   }),
 });
-
-// ---------------------------------------------------------------------------
-// events
-// ---------------------------------------------------------------------------
 
 const events = defineCollection({
   type: 'data',
@@ -315,10 +266,10 @@ const events = defineCollection({
     slug: z.string(),
     title: z.string(),
     summary: z.string(),
-    startDate: z.date(),
-    endDate: z.date().optional(),
-    venue: z.string().optional(), // slug reference
-    place: z.string(), // slug reference
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
+    venue: reference('venues').optional(),
+    place: reference('places'),
     bookingUrl: z.string().url().optional(),
     category: z.enum([
       'food-wine',
@@ -331,13 +282,9 @@ const events = defineCollection({
     ]),
     editorNote: z.string().optional(),
     heroImage: imageRef.optional(),
-    publishedAt: z.date(),
+    publishedAt: z.coerce.date(),
   }),
 });
-
-// ---------------------------------------------------------------------------
-// authors
-// ---------------------------------------------------------------------------
 
 const authors = defineCollection({
   type: 'data',
@@ -354,13 +301,9 @@ const authors = defineCollection({
         twitter: z.string().url().optional(),
       })
       .optional(),
-    publishedAt: z.date(),
+    publishedAt: z.coerce.date(),
   }),
 });
-
-// ---------------------------------------------------------------------------
-// export
-// ---------------------------------------------------------------------------
 
 export const collections = {
   venues,
