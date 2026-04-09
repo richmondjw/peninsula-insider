@@ -1,0 +1,110 @@
+{
+  "slotId": "explore-hub-hero-01",
+  "createdAt": "2026-04-09T21:46:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/explore-hub-hero-01.md",
+  "sourcingNotes": {
+    "poolAssessment": "Explore hub's brief explicitly asks for a walk — 'the approach to the Peninsula, not just the view'. Commons has three strong CC-BY-SA track candidates and no comparable clean-licence option. Same SA override question as home-cover-01 applies. These candidates also sit near twinning territory with home-cover-01 candidate B (Cape Schanck walking trail); the editor should avoid approving the same underlying photograph in both slots."
+  },
+  "candidates": [
+    {
+      "candidateId": "explore-hub-hero-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Bushrangers_Bay,_Mornington_Peninsula_National_Park_Victoria_Australia.jpeg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Bushrangers_Bay%2C_Mornington_Peninsula_National_Park_Victoria_Australia.jpeg",
+      "photographer": "Wikimedia Commons contributor",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 — editor override required (see home-cover-01 policy question).",
+      "dimensions": "4032x3024",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Bushrangers Bay — from Two Bays walking track",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "A literal walk-to-the-sea composition; the bay below is the payoff, the track is the story. Exactly the 'boots on' brief energy. Recommended primary if the editor is choosing between this slot and home-cover-01 for the same asset — I would put it here and pick a different image for home-cover-01, because Explore is the slot that actually needs the track perspective."
+    },
+    {
+      "candidateId": "explore-hub-hero-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Cape_Schanck_walking_trail.jpg",
+      "photographer": "DenisFrolow (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 — editor override required.",
+      "dimensions": "2592x1556",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Cape Schanck walking trail",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Literal named walking trail at Cape Schanck. Small resolution headroom — 2592px barely clears the 2400px minimum, no meaningful crop tolerance. Strong brief-fit. Would be my primary if candidate A is rejected or needed elsewhere."
+    },
+    {
+      "candidateId": "explore-hub-hero-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:The_View_From_The_Walking_Track_Tea_Tree_Creek.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/The_View_From_The_Walking_Track_Tea_Tree_Creek.jpg",
+      "photographer": "Wikimedia Commons contributor",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 — editor override required.",
+      "dimensions": "4160x3120",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Tea Tree Creek walking track, near Flinders — Mornington Peninsula National Park",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": false
+      },
+      "sourcingAgentNote": "A less-famous track — 'slippery walking track near Flinders leads you to the natural beauties of Mornington Peninsula National Park'. Editorial voice fit is strong; editorial weight is the soft fail because the image is a mid-track view rather than a landmark payoff. Good fallback; not as strong as A or B."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "twinning-decision",
+      "question": "If candidate A is approved here, the home-cover-01 shortlist should be told to not re-use the same photograph in candidate C of that slot. Is Explore the right home for this Bushrangers Bay track image?",
+      "defaultIfNoReply": "Explore hub wins the Bushrangers Bay asset; home-cover-01 picks from its other candidates."
+    }
+  ]
+}

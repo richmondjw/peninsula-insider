@@ -1,0 +1,110 @@
+{
+  "slotId": "place-red-hill-01",
+  "createdAt": "2026-04-09T21:50:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/place-red-hill-01.md",
+  "sourcingNotes": {
+    "poolAssessment": "Red Hill is the most-photographed Peninsula wine country location in real life but the most UNDER-represented on Commons. Direct searches for 'Red Hill Victoria', 'Red Hill Mornington', 'Red Hill vineyard' return almost no modern photography at editorial resolution. The CSIRO Main Ridge Estate images (used in wine-hub-hero-01) are Peninsula-verifiable and within the Red Hill sub-region (Main Ridge is adjacent/within the Red Hill wine zone); they are the only clean-licence option. Everything else in the pool is generic. This is the slot most obviously blocked by the lack of Visit Victoria Content Hub access."
+  },
+  "candidates": [
+    {
+      "candidateId": "place-red-hill-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1982_Pinot_Noir_vines_at_the_Main_Ridge_Estate.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/CSIRO_ScienceImage_1982_Pinot_Noir_vines_at_the_Main_Ridge_Estate.jpg",
+      "photographer": "CSIRO ScienceImage",
+      "license": "CC-BY-3.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY 3.0 — clean commercial licence. Attribution: 'CSIRO ScienceImage / Wikimedia Commons (CC-BY-3.0)'.",
+      "dimensions": "3240x4320",
+      "orientation": "portrait",
+      "category": 2,
+      "geoVerified": true,
+      "place": "Main Ridge Estate, adjacent to Red Hill",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": true
+      },
+      "sourcingAgentNote": "Peninsula-verifiable Pinot Noir vines. Clean licence. Twinning conflict with wine-hub-hero-01-a — same underlying image. If the wine hub hero gets this asset, the place page needs a different approach. Editorial weight is the soft fail for a place-page hero, because a close-up vine study is less 'place portrait' than a landscape sweep."
+    },
+    {
+      "candidateId": "place-red-hill-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mornington_Peninsula_vineyard.jpg",
+      "photographer": "Ashton 29 (Wikimedia user)",
+      "license": "CC-BY-SA-2.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 2.0 — editor override required. Older (2.0) share-alike licence. SA obligation applies to derivatives.",
+      "dimensions": "2451x800",
+      "orientation": "wide-panoramic",
+      "category": 2,
+      "geoVerified": true,
+      "place": "Mornington Peninsula vineyard (not sub-region specified)",
+      "rulesChecked": {
+        "upgrade": false,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": false
+      },
+      "sourcingAgentNote": "Title says Mornington Peninsula vineyard, sub-region not identified. 2451x800 is a very wide aspect ratio that would need extreme crop. Low editorial weight, low upgrade quality. Carried as proof that the Commons pool is thin for this slot, not as a viable candidate."
+    },
+    {
+      "candidateId": "place-red-hill-01-DEFERRED",
+      "source": "visit-victoria-content-hub",
+      "url": "pending-credential-access",
+      "directUrl": "pending-credential-access",
+      "photographer": "—",
+      "license": "visit-victoria",
+      "licenseVerified": false,
+      "licenseNotes": "Visit Victoria Content Hub registration not yet complete. Preferred source per brief. Sourcing report §8.4 defines the access approach: register account, log terms, then search by region = Mornington Peninsula.",
+      "dimensions": "—",
+      "orientation": "—",
+      "category": 2,
+      "geoVerified": null,
+      "place": "Red Hill — pending Content Hub search",
+      "rulesChecked": {
+        "upgrade": null,
+        "geography": null,
+        "voice": null,
+        "clutter": null,
+        "light": null,
+        "human": null,
+        "season": null,
+        "cliche": null,
+        "editorialWeight": null,
+        "license": null
+      },
+      "sourcingAgentNote": "PLACEHOLDER / DEFERRAL CANDIDATE. I am recording this explicitly in the shortlist to mark place-red-hill-01 as the first and most obvious slot that is blocked by Visit Victoria Content Hub access not being live. My recommendation is that the editor defer place-red-hill-01 until after Content Hub unlocks, rather than force a weak candidate through. This is a data point for the dry-run retro."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "defer-recommendation",
+      "question": "Defer place-red-hill-01 to Phase 2-Content-Hub, or accept candidate A with the twinning conflict against wine-hub-hero-01?",
+      "defaultIfNoReply": "Defer. Red Hill is too important a location to carry a compromise hero; it is worth waiting for a real wide cellar-door frame from Visit Victoria."
+    }
+  ]
+}

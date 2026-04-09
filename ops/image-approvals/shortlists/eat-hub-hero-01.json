@@ -1,0 +1,32 @@
+{
+  "slotId": "eat-hub-hero-01",
+  "createdAt": "2026-04-09T21:51:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/eat-hub-hero-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "The eat-hub-hero-01 brief asks for category 5 (dining room interior) with Unsplash → Pexels → venue-media-kit as preferred sources. In this sourcing session, Unsplash and Pexels are both behind anti-bot protection (Anubis proof-of-work challenge on Unsplash, Cloudflare interactive challenge on Pexels). I cannot browse their catalogs to produce a verifiable candidate list with real URLs, photographer names, and licence confirmation. Wikimedia Commons holds almost no editorial-grade empty restaurant interiors and zero that are Peninsula-verifiable venue media-kit outreach has not begun (per sourcing report §4.2, waits until editorial voice is settled).",
+    "blocker": "No honest shortlist can be produced for this slot from this session. Producing one anyway would require me to fabricate candidate URLs or silently use non-whitelist sources, both of which violate the single invariant of the approval workflow.",
+    "recommendedUnblockPath": [
+      "Option 1: Provide an Unsplash access path (API key, headed browser session, or a manually-curated list of Unsplash URLs from the editor). The sourcing report §8.1 already defines the query templates; execution just needs unblocked search.",
+      "Option 2: Defer eat-hub-hero-01 to week 2 after venue media-kit outreach begins, and take an early Tedesca / Laura at Pt. Leo / Montalto dining-room image directly from a media kit. This is the highest-fidelity option.",
+      "Option 3: Defer eat-hub-hero-01 to Phase 2 commissioned photography. Accept the fog placeholder stays on /V2/eat/ through week 3."
+    ]
+  },
+  "candidates": [],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "unblock-source-access",
+      "question": "Which unblock path should sourcing use for the categorical Unsplash/Pexels-preferred Tier A slots (eat, stay, escape, journal hub heroes)?",
+      "defaultIfNoReply": "Defer all four slots until venue media-kit outreach and/or Unsplash API access is authorised."
+    }
+  ]
+}

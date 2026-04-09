@@ -1,0 +1,29 @@
+{
+  "slotId": "journal-hub-hero-01",
+  "createdAt": "2026-04-09T21:51:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/journal-hub-hero-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "Category 12 (abstract / texture / detail). Preferred sources generative-leonardo → Unsplash → Pexels. This is the slot where the brief explicitly PREFERS generative — the journal hub is positioned in the style direction document as the cleanest generative use case (restrained texture, strong negative space, no documentary claim). Same reasoning as escape-hub-hero-01: I am not running a generative batch without editor approval of the framework, and the sourced fallback is blocked by Unsplash/Pexels access.",
+    "blocker": "See escape-hub-hero-01. Same two unblock paths."
+  },
+  "candidates": [],
+  "generativeMetadata": {
+    "applies": true,
+    "model": "phoenix",
+    "promptRef": "ops/image-approvals/templates/leonardo-prompts.md#journal-hub-hero-01",
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": [],
+    "batchStatus": "not-run",
+    "batchStatusReason": "Awaiting editor sign-off on generative style framework for Journal surface. This is the highest-priority slot for the first generative batch because the brief is cleanest and the failure mode is the most tolerable (texture is low-stakes compared to a documentary claim)."
+  },
+  "editorActionsRequested": [
+    {
+      "type": "generative-batch-authorisation",
+      "question": "Authorise a 6-variant Leonardo Phoenix generative batch for journal-hub-hero-01 as the pilot generative run? If yes, this is also the slot where the generative-log template gets exercised for the first time and becomes the calibration reference for all future generative batches.",
+      "defaultIfNoReply": "No generative batch runs without explicit approval."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "slotId": "escape-hub-hero-01",
+  "createdAt": "2026-04-09T21:51:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/escape-hub-hero-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "Category 11 (seasonal atmosphere). Preferred sources Unsplash → Pexels → generative-leonardo fallback. Generative is ALLOWED as fallback on this slot per the brief. Two unblock paths exist: (1) source from Unsplash/Pexels once access is open, (2) produce generative-Leonardo variants per the style-direction document. I am not running a generative batch in this session because the editor has not approved the generative style framework pass for Escape yet, and doing so without that approval would violate the workflow's editorial-control-first rule.",
+    "blocker": "Same anti-bot blocker for the sourced path. The generative path is unblocked technically but requires a signed-off style brief and prompt-set approval from the editor before variants are generated.",
+    "recommendedUnblockPath": [
+      "Option A (sourced): Same as eat-hub-hero-01 — Unsplash/Pexels access unblock.",
+      "Option B (generative): Editor approves the generative style framework for Escape (sibling doc `peninsula-insider-generative-image-style-2026-04-09.md`), then sourcing agent runs a 6-variant Phoenix batch and logs to `generative-log/escape-hub-hero-01.jsonl`. Variants are shortlisted, not auto-approved."
+    ]
+  },
+  "candidates": [],
+  "generativeMetadata": {
+    "applies": false,
+    "model": "phoenix",
+    "promptRef": "ops/image-approvals/templates/leonardo-prompts.md#escape-hub-hero-01",
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": [],
+    "batchStatus": "not-run",
+    "batchStatusReason": "Awaiting editor sign-off on generative style framework for Escape surface."
+  },
+  "editorActionsRequested": [
+    {
+      "type": "generative-batch-authorisation",
+      "question": "Authorise a 6-variant Leonardo Phoenix generative batch for escape-hub-hero-01 using the style framework document? Or keep the slot in sourced-only mode and wait for Unsplash/Pexels access?",
+      "defaultIfNoReply": "No generative batch runs without explicit approval."
+    }
+  ]
+}

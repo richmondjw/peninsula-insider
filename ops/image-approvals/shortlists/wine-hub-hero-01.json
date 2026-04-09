@@ -1,0 +1,110 @@
+{
+  "slotId": "wine-hub-hero-01",
+  "createdAt": "2026-04-09T21:48:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/wine-hub-hero-01.md",
+  "sourcingNotes": {
+    "poolAssessment": "Wine hub is the slot where Wikimedia Commons is strongest in a clean-licence direction for the Peninsula. The CSIRO ScienceImage collection on Commons includes multiple 1980s-era photographs of Pinot Noir and Chardonnay vines and fruit at Main Ridge Estate — an actual named Mornington Peninsula winery — all licensed CC-BY 3.0 with no SA contamination. These are almost-perfect Peninsula-verifiable vine images, but they are macro-scale (individual vines, individual bunches) rather than wide cellar-door landscapes. The editor needs to decide whether to lean into that specificity or wait for a wide vine-rows frame from Visit Victoria Content Hub."
+  },
+  "candidates": [
+    {
+      "candidateId": "wine-hub-hero-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1982_Pinot_Noir_vines_at_the_Main_Ridge_Estate.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/CSIRO_ScienceImage_1982_Pinot_Noir_vines_at_the_Main_Ridge_Estate.jpg",
+      "photographer": "CSIRO ScienceImage",
+      "license": "CC-BY-3.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY 3.0 from CSIRO ScienceImage archive. Clean commercial use. Attribution: 'CSIRO ScienceImage / Wikimedia Commons (CC-BY-3.0)'. No SA, no ND, no NC.",
+      "dimensions": "3240x4320",
+      "orientation": "portrait",
+      "category": 2,
+      "geoVerified": true,
+      "place": "Main Ridge Estate, Mornington Peninsula",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": true
+      },
+      "sourcingAgentNote": "Peninsula-verifiable Pinot Noir vines at Main Ridge Estate (one of the founding Mornington Peninsula wineries). CC-BY 3.0, no contamination. Strong editorial voice fit — cool-climate, specific, unglossed. However: the image is PORTRAIT orientation (3240x4320), which does not fit a 16:9 hero. A 16:9 crop is technically possible with the centre of the frame but loses ~40% of the image. Primary candidate IF the editor accepts a centre-crop derivative; otherwise defer to candidate B."
+    },
+    {
+      "candidateId": "wine-hub-hero-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
+      "photographer": "CSIRO ScienceImage",
+      "license": "CC-BY-3.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY 3.0 from CSIRO ScienceImage archive. Same clean licence as candidate A.",
+      "dimensions": "4320x3240",
+      "orientation": "landscape",
+      "category": 2,
+      "geoVerified": true,
+      "place": "Main Ridge Estate, Mornington Peninsula — Pinot Noir fruit",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": true
+      },
+      "sourcingAgentNote": "Landscape orientation at 4320x3240. Clean licence, specific Peninsula winery. Composition is tighter on the bunches and less sweeping than a cellar-door landscape. Editorial weight is the soft fail — this image reads as a specimen study, not a hero. Would make an excellent secondary or rhythm-break image on a wine article, but it is a compromise as a hub hero. Primary if the editor wants a landscape-native shape without the portrait-crop of candidate A."
+    },
+    {
+      "candidateId": "wine-hub-hero-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
+      "photographer": "CSIRO ScienceImage",
+      "license": "CC-BY-3.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY 3.0 from CSIRO ScienceImage archive.",
+      "dimensions": "4320x3240",
+      "orientation": "landscape",
+      "category": 2,
+      "geoVerified": true,
+      "place": "Main Ridge Estate, Mornington Peninsula — Chardonnay fruit",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": true
+      },
+      "sourcingAgentNote": "Chardonnay version of candidate B. Same editorial-weight tension. Kept in the shortlist so the editor can choose between Pinot Noir (which owns the regional narrative) and Chardonnay (which is the rising-quality Peninsula story from 2020 onwards). Editorially Pinot is probably the right call for a hub hero; Chardonnay would be a better feature image for a Chardonnay-specific journal piece."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "crop-or-defer",
+      "question": "Candidate A is portrait and needs a centre crop to become 16:9. Candidate B is native landscape but specimen-study in energy. Pick A with crop, B as-is, or defer the wine hub hero until Visit Victoria Content Hub gives us a wide cellar-door-at-dawn frame.",
+      "defaultIfNoReply": "Defer to Visit Victoria Content Hub unlock."
+    }
+  ]
+}
