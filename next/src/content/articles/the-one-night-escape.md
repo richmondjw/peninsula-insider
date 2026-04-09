@@ -18,6 +18,12 @@ relatedVenues:
   - "alba-thermal-springs"
   - "tedesca-osteria"
   - "flinders-sourdough"
+  - "the-continental-sorrento"
+  - "peninsula-hot-springs-glamping"
+  - "port-phillip-estate"
+  - "crittenden-villas"
+  - "point-leo-estate-villas"
+  - "bistro-elba"
 relatedExperiences:
   - "sorrento-back-beach"
   - "cape-schanck-boardwalk"

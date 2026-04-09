@@ -12,7 +12,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "long-lunch-list"
 tags: ["eat", "wine", "weekend", "red-hill", "long-lunch"]
-relatedVenues: ["ten-minutes-by-tractor", "montalto", "pt-leo-estate"]
+relatedVenues: ["ten-minutes-by-tractor", "montalto", "pt-leo-estate", "tedesca-osteria", "port-phillip-estate-restaurant", "paringa-estate", "stillwater-crittenden", "pt-leo-estate", "barragunda-dining", "green-olive-red-hill", "morning-sun"]
 readingTimeMinutes: 8
 featured: true
 status: "published"

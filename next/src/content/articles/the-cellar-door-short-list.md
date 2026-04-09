@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "cellar-door-dispatch"
 tags: ["wine", "red-hill", "main-ridge", "cellar-door", "pinot-noir"]
-relatedVenues: ["kooyong", "dexter-wines", "ocean-eight", "polperro", "quealy-winemakers"]
+relatedVenues: ["kooyong", "dexter-wines", "ocean-eight", "polperro", "quealy-winemakers", "main-ridge-estate", "eldridge-estate", "hurley-vineyard", "paradigm-hill", "moorooduc-estate", "scorpo-wines", "stonier-wines", "avani-wines"]
 readingTimeMinutes: 6
 featured: false
 status: "published"

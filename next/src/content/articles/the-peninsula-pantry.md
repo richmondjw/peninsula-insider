@@ -21,6 +21,18 @@ relatedVenues:
   - "bass-and-flinders"
   - "quealy-winemakers"
   - "ocean-eight"
+  - "red-hill-market"
+  - "balnarring-market"
+  - "red-hill-bakery"
+  - "sourdough-kitchen"
+  - "red-hill-cheese"
+  - "main-ridge-dairy"
+  - "peninsula-fresh-organics"
+  - "hastings-fishermens-coop"
+  - "advance-mussel-supply"
+  - "pier-street-seafood"
+  - "stringers-mornington"
+  - "somers-general"
 readingTimeMinutes: 9
 featured: false
 status: "published"

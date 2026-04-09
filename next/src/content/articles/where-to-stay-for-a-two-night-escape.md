@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "stay-notes"
 tags: ["stay", "weekend", "sorrento", "red-hill"]
-relatedVenues: ["jackalope", "lindenderry", "the-continental-sorrento", "hotel-sorrento"]
+relatedVenues: ["jackalope", "lindenderry", "the-continental-sorrento", "hotel-sorrento", "port-phillip-estate", "crittenden-villas", "peninsula-hot-springs-glamping", "the-continental-sorrento", "point-leo-estate-villas", "polperro-villas", "hillview-cottages"]
 readingTimeMinutes: 6
 featured: false
 status: "published"

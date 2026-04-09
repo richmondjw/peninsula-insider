@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["family", "kids", "day-trip", "explore", "mount-martha", "arthurs-seat"]
-relatedVenues: ["red-hill-brewery", "merricks-general-wine-store", "commonfolk-coffee", "epicurean-red-hill"]
+relatedVenues: ["red-hill-brewery", "merricks-general-wine-store", "commonfolk-coffee", "epicurean-red-hill", "sunny-ridge-strawberry-farm", "main-ridge-dairy", "ashcombe-maze", "red-gum-bbq", "st-andrews-beach-brewery", "dromana-hotel", "rye-hotel", "sorrento-gelato", "johnny-ripe"]
 relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "mornington-peninsula-gallery"]
 readingTimeMinutes: 7
 featured: false

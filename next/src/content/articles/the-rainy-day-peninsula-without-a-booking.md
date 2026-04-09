@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["rainy-day", "winter", "local-guide", "indoor", "day-trip"]
-relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "flinders-hotel"]
+relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "flinders-hotel", "stringers-mornington", "ashcombe-maze", "the-bay-hotel-mornington", "balnarring-pub", "red-hill-cheese", "mornington-peninsula-chocolates", "via-boffe"]
 relatedExperiences: ["mornington-peninsula-gallery", "cape-schanck-boardwalk", "sorrento-back-beach"]
 readingTimeMinutes: 7
 featured: false

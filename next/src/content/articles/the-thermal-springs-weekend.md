@@ -18,6 +18,9 @@ relatedVenues:
   - "hillview-cottages"
   - "polperro-villas"
   - "tedesca-osteria"
+  - "peninsula-hot-springs-glamping"
+  - "barragunda-dining"
+  - "allis-wine-bar"
 relatedExperiences:
   - "cape-schanck-boardwalk"
 readingTimeMinutes: 8

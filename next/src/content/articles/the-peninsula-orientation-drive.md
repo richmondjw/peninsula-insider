@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["explore", "drive", "first-timers", "red-hill", "sorrento", "day-trip"]
-relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "pier-street-flinders"]
+relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "pier-street-flinders", "dromana-hotel", "balnarring-pub", "crittenden-estate", "yabby-lake", "red-hill-bakery", "somers-general"]
 relatedExperiences: ["arthurs-seat-lookout", "red-hill-market", "cape-schanck-boardwalk", "sorrento-back-beach", "mount-martha-beach"]
 readingTimeMinutes: 8
 featured: false

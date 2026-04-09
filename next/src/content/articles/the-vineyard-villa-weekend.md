@@ -18,6 +18,10 @@ relatedVenues:
   - "jackalope"
   - "flinders-sourdough"
   - "merricks-general-wine-store"
+  - "crittenden-villas"
+  - "port-phillip-estate"
+  - "point-leo-estate-villas"
+  - "peninsula-hot-springs-glamping"
 relatedExperiences:
   - "bushrangers-bay-walk"
 readingTimeMinutes: 7

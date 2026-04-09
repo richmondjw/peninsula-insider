@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "insider-edit"
 tags: ["eat", "wine", "red-hill", "long-lunch", "review"]
-relatedVenues: ["tedesca-osteria", "ten-minutes-by-tractor", "laura-pt-leo", "doot-doot-doot"]
+relatedVenues: ["tedesca-osteria", "ten-minutes-by-tractor", "laura-pt-leo", "doot-doot-doot", "mr-vincenzos", "via-boffe", "la-baracca-tgallant", "ciao-amici", "pane-e-vino"]
 readingTimeMinutes: 9
 featured: false
 status: "published"

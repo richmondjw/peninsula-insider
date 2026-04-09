@@ -19,6 +19,11 @@ relatedVenues:
   - "ten-minutes-by-tractor"
   - "polperro"
   - "dexter-wines"
+  - "moorooduc-estate"
+  - "yabby-lake"
+  - "scorpo-wines"
+  - "stonier-wines"
+  - "garagiste"
 readingTimeMinutes: 8
 featured: true
 status: "published"

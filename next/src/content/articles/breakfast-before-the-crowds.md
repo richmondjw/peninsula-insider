@@ -18,6 +18,15 @@ relatedVenues:
   - "pier-street-flinders"
   - "epicurean-red-hill"
   - "mornington-farmers-market"
+  - "store-ten"
+  - "rocker"
+  - "sourdough-kitchen"
+  - "small-stone-pantry"
+  - "flinders-general-store"
+  - "red-hill-bakery"
+  - "sorrento-bakery"
+  - "balnarring-bakehouse"
+  - "somers-general"
 readingTimeMinutes: 7
 featured: false
 status: "published"
