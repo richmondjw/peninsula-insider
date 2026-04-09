@@ -1,0 +1,26 @@
+# The Peninsula Insider — robots.txt
+# https://peninsularinsider.com.au
+
+User-agent: *
+Allow: /
+Disallow: /eat-preview.html
+Disallow: /next/
+
+# Block aggressive AI scrapers that don't send traffic back
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# Allow search engines and helpful assistants
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+Sitemap: https://peninsularinsider.com.au/sitemap.xml
