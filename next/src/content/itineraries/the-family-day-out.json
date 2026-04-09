@@ -1,0 +1,47 @@
+{
+  "slug": "the-family-day-out",
+  "title": "The Peninsula Family Day Out",
+  "dek": "A single day built around one anchor (the gondola), one lunch that works with children (the brewery), and one beach that forgives everything. No drives longer than twenty minutes, no bookings that punish a melt-down.",
+  "audience": "family",
+  "mood": "mixed",
+  "lengthNights": 0,
+  "stops": [
+    {
+      "day": 1,
+      "order": 1,
+      "experience": "arthurs-seat-lookout",
+      "note": "Start high. The Arthurs Seat Eagle gondola is the anchor of the day — twenty minutes of gently dangling flight and the best orientation to the whole Peninsula.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 1,
+      "order": 2,
+      "venue": "red-hill-brewery",
+      "note": "The right family lunch room: grass, picnic tables, a wood-fired pizza oven, and a tasting flight for the adults. Do not try to upgrade to a cellar door.",
+      "timeOfDay": "midday"
+    },
+    {
+      "day": 1,
+      "order": 3,
+      "experience": "mount-martha-beach",
+      "note": "The default family swim. Shallow, pale, gentle, with bathing boxes at the northern end. Park at the main lot, walk south if it is busy.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 1,
+      "order": 4,
+      "venue": "commonfolk-coffee",
+      "note": "The right way to close the day. Serious coffee for the adults, a babyccino and pastry for a tired child, and an easy freeway exit afterwards.",
+      "timeOfDay": "afternoon"
+    }
+  ],
+  "totalDriveMinutes": 60,
+  "heroImage": {
+    "src": "/images/placeholder-family-day.jpg",
+    "alt": "A family running along a calm Peninsula bay beach on a bright afternoon",
+    "credit": "Peninsula Insider",
+    "license": "tmp-unsplash"
+  },
+  "editorNote": "A Peninsula day with kids works when you have one anchor for the children (the gondola) and one anchor for the adults (the lunch). Four moves, ninety minutes apart, no degustation, no back-beach gambles with under-sixes. This plan does not try to be all things — and that is the reason it lands.",
+  "publishedAt": "2026-04-15"
+}

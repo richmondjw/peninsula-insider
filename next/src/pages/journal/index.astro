@@ -17,9 +17,9 @@ const rest = latest;
 
 // Three "editor's picks" — the stories that are doing the most work this week.
 const pickSlugs = [
-  'the-chardonnay-case',
-  'three-italian-dinners',
-  'the-peninsula-pantry',
+  'the-sorrento-weekend',
+  'the-market-saturday',
+  'the-peninsula-beach-swimming-guide',
 ];
 const picks = pickSlugs
   .map((slug) => rest.find((article) => routeSlug(article) === slug))
@@ -27,6 +27,11 @@ const picks = pickSlugs
 
 // Group the rest by format for navigation by mood.
 const formatOrder: Array<{ key: string; title: string; intro: string }> = [
+  {
+    key: 'weekend-picker',
+    title: 'Weekend Picker',
+    intro: 'Our Wednesday 6pm Peninsula This Weekend dispatches: one pick, one weather-proof backup, one thing to skip.',
+  },
   {
     key: 'service',
     title: 'Service pieces',
@@ -61,6 +66,11 @@ const formatOrder: Array<{ key: string; title: string; intro: string }> = [
     key: 'editors-letter',
     title: "Editor's letters",
     intro: 'Where the issue is framed — what changed, what matters, what to read first.',
+  },
+  {
+    key: 'weekend-picker',
+    title: 'Weekend pickers',
+    intro: 'The weekly dispatch — one opinionated pick, one weather-proof backup, and one thing to skip.',
   },
   {
     key: 'interview',

@@ -20,11 +20,12 @@ const articlesAll = (await getCollection('articles', ({ data }) => data.status =
 
 // Companion reads: the service and stay-notes pieces that sharpen the trip.
 const companionSlugs = [
+  'the-sorrento-weekend',
+  'a-winter-peninsula-weekend',
+  'the-birthday-weekend',
   'where-to-stay-for-a-two-night-escape',
-  'the-one-night-escape',
   'the-vineyard-villa-weekend',
   'the-thermal-springs-weekend',
-  'autumn-weekend-edit',
   'a-flinders-weekend',
 ];
 const companionReads = companionSlugs
@@ -41,12 +42,14 @@ const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
 
 // Mood taxonomy — each mood links a real guide if one exists.
 const moodGuides = [
-  { label: 'Food & wine',  slug: 'how-to-build-a-red-hill-saturday',        note: 'Lunch, cellar doors, a slow drive back' },
-  { label: 'Wellness',     slug: 'the-thermal-springs-weekend',             note: 'Springs, sauna, one soft dinner' },
-  { label: 'Slow coast',   slug: 'a-flinders-weekend',                      note: 'Flinders, the pier, Bass Strait air' },
-  { label: 'Quick reset',  slug: 'the-one-night-escape',                    note: '26 hours that feels like three days' },
-  { label: 'Rainy day',    slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof, no reservation' },
-  { label: 'With kids',    slug: 'the-peninsula-with-kids',                 note: 'A day that punishes no one' },
+  { label: 'Food & wine',  slug: 'how-to-build-a-red-hill-saturday',          note: 'Lunch, cellar doors, a slow drive back' },
+  { label: 'Wellness',     slug: 'the-thermal-springs-weekend',               note: 'Springs, sauna, one soft dinner' },
+  { label: 'Slow coast',   slug: 'a-flinders-weekend',                        note: 'Flinders, the pier, Bass Strait air' },
+  { label: 'Tip of the peninsula', slug: 'the-sorrento-weekend',              note: 'Village base, fort walk, back beach' },
+  { label: 'Celebration',  slug: 'the-birthday-weekend',                      note: 'One anchor dinner, everything else softer' },
+  { label: 'Winter reset', slug: 'a-winter-peninsula-weekend',                note: 'Fireplace, hot springs, low-season calm' },
+  { label: 'Quick reset',  slug: 'the-one-night-escape',                      note: '26 hours that feels like three days' },
+  { label: 'With kids',    slug: 'the-peninsula-with-kids',                   note: 'A day that punishes no one' },
 ];
 const moodResolved = moodGuides
   .map((mood) => {

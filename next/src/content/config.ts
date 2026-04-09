@@ -215,6 +215,7 @@ const articles = defineCollection({
       'interview',
       'investigation',
       'service',
+      'weekend-picker',
     ]),
     tags: z.array(z.string()).default([]),
     relatedVenues: z.array(reference('venues')).default([]),
@@ -278,7 +279,55 @@ const events = defineCollection({
       'community',
       'arts',
       'wellness',
+      'live-music',
+      'racing-sport',
+      'family-programs',
+      'exhibition',
+      'civic',
+      'nature',
+      'writers-ideas',
     ]),
+    // Recurrence is editorial, not ical — 'one-off', 'weekly', 'monthly',
+    // 'annual' or 'seasonal' is the level of detail readers actually need.
+    recurrence: z
+      .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
+      .default('one-off'),
+    // Editorial differentiators — the wedge against the DMO.
+    // Kids Grade: A/B/C (see peninsula-insider-events-intelligence-2026-04-09.md).
+    kidsGrade: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
+    kidsGradeNote: z.string().optional(),
+    // Worth The Drive From Melbourne: binary, no hedging.
+    worthTheDrive: z.boolean().default(false),
+    // First-time visitor filter — 'start here' events.
+    firstTimer: z.boolean().default(false),
+    // Weather disposition — solves the #1 Peninsula planning anxiety.
+    weather: z
+      .enum(['all-weather', 'sunny-only', 'rainy-day-rescue', 'weather-proof', 'mixed'])
+      .default('mixed'),
+    // Skip-this block (monthly): exactly one event can be the month's skip,
+    // with one honest paragraph explaining why.
+    skipThis: z.boolean().default(false),
+    skipReason: z.string().optional(),
+    // Editor verdict — the one-line opinion that nobody else in the market
+    // is brave enough to write.
+    editorVerdict: z.string().optional(),
+    // Free-text short categories for filter chips on whats-on index.
+    lens: z
+      .array(
+        z.enum([
+          'weekend-pick',
+          'date-idea',
+          'family-saturday',
+          'rainy-day',
+          'worth-the-drive',
+          'free',
+          'school-holidays',
+          'walk-in',
+          'ticketed',
+          'locals-know',
+        ])
+      )
+      .default([]),
     editorNote: z.string().optional(),
     heroImage: imageRef.optional(),
     publishedAt: z.coerce.date(),
