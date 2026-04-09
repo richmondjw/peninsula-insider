@@ -198,7 +198,6 @@ const places = defineCollection({
 const articles = defineCollection({
   type: 'content',
   schema: z.object({
-    slug: z.string(),
     title: z.string(),
     dek: z.string(),
     author: reference('authors'),
