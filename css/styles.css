@@ -265,6 +265,9 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   line-height: 1;
   color: var(--dark);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
 }
 .nav-links {
   display: flex;
@@ -272,6 +275,7 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   justify-content: center;
   gap: 0.5rem;
   list-style: none;
+  min-height: 40px;
 }
 .nav-links > li { position: relative; }
 .nav-links > li > a,
@@ -282,7 +286,8 @@ h4 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.35rem; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-soft);
-  padding: 0.5rem 0.75rem;
+  padding: 0 0.75rem;
+  min-height: 40px;
   border-radius: var(--radius);
   transition: color .25s var(--ease);
   cursor: pointer;
