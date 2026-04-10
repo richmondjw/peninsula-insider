@@ -1,0 +1,30 @@
+{
+  "slotId": "wine-hub-hero-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/wine-hub-hero-01.json",
+  "selected": "wine-hub-hero-01-b",
+  "agentRecommendation": {
+    "confidence": "medium",
+    "reasoning": "All three candidates have clean CC-BY 3.0 licences — no SA override needed! Candidate A (portrait, 3240x4320) is the strongest editorial image but requires centre-crop to 16:9 that loses ~40% of the frame. Candidate B (landscape, 4320x3240) is natively landscape and avoids the crop penalty. The Pinot Noir bunches composition reads as 'wine region' immediately. Editorially it's a specimen study, not a sweeping landscape — but it's Peninsula-verifiable and licence-clean.",
+    "alternativeRecommendation": "Candidate A with centre-crop if editor prefers the vine-row energy over the bunch close-up. Or defer to Visit Victoria Content Hub for a wide cellar-door-at-dawn frame."
+  },
+  "rejected": [
+    { "candidateId": "wine-hub-hero-01-a", "reason": "better-alternative", "note": "Portrait orientation needs aggressive 16:9 crop. Strong image but loses too much in reformatting." },
+    { "candidateId": "wine-hub-hero-01-c", "reason": "better-alternative", "note": "Chardonnay version — Pinot Noir is the more iconic Peninsula varietal for the hub hero." }
+  ],
+  "editorOverrides": [],
+  "notes": "AWAITING EDITOR SIGNATURE. Clean CC-BY 3.0 licence — no SA override needed. This is one of only two Tier A hub slots with a clean-licence candidate ready to go.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
+    "downloadTo": "/next/public/images/sourced/wine-hub-hero-01.webp",
+    "contentFileUpdates": [],
+    "altText": "Pinot Noir grapes at Main Ridge Estate, Mornington Peninsula",
+    "credit": "CSIRO ScienceImage / Wikimedia Commons (CC-BY-3.0)",
+    "caption": "Peninsula Pinot Noir at Main Ridge Estate.",
+    "license": "wikimedia-cc-by"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

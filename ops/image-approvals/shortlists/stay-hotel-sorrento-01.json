@@ -1,0 +1,56 @@
+{
+  "slotId": "stay-hotel-sorrento-01",
+  "createdAt": "2026-04-10T02:30:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/stay-hotel-sorrento-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "Hotel Sorrento has a Public Domain exterior image on Commons, but at only 784x483 it falls well below the 2400px hero minimum. A Week 2 slot pulled forward early because the PD licence is too good to ignore, even if the resolution requires the editor to decide between using it at lower quality or deferring for a higher-resolution version. No other Hotel Sorrento images found on Commons.",
+    "noteOnResolution": "The single PD candidate is 784x483 — far below the 2400px hero minimum. However, the clean licence and verifiable geo-tag make it worth documenting. If the editor decides to accept a smaller-than-minimum image for the venue hero (with upscaling via Waifu2x or similar), this becomes viable. Otherwise, venue media kit outreach is the correct path."
+  },
+  "candidates": [
+    {
+      "candidateId": "stay-hotel-sorrento-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Hotel_sorrento.jpg",
+      "photographer": "Biatch (Wikipedia user, via Magnus Manske upload bot)",
+      "license": "Public Domain",
+      "licenseVerified": true,
+      "licenseNotes": "Public Domain — released by author. Zero restrictions. Originally uploaded 2006, transferred to Commons. The PD dedication is clean.",
+      "dimensions": "784x483",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Hotel Sorrento exterior, Sorrento, Victoria",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": true
+      },
+      "sourcingAgentNote": "Heritage exterior of Hotel Sorrento. Public Domain — zero licence risk. However, at 784x483 this is far below the 2400px minimum hero requirement and cannot be cropped to 16:9 at editorial quality. Editorial weight fails because the resolution constrains placement to thumbnails or card images, not heroes. Carried because the PD licence is valuable and the asset is verifiably Hotel Sorrento. If the editor wants to pursue venue media kit outreach for a high-res replacement, this PD image can serve as a placeholder reference. Date of original: 2006 — old, but the heritage building hasn't changed."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "resolution-decision",
+      "question": "Single PD candidate at 784x483 — well below hero minimum. Options: (1) use with AI upscaling, (2) use as card/thumbnail only and defer hero to venue media kit, (3) defer entirely to venue media kit outreach.",
+      "defaultIfNoReply": "Defer to venue media kit."
+    }
+  ]
+}

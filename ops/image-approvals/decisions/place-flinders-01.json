@@ -1,0 +1,35 @@
+{
+  "slotId": "place-flinders-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/place-flinders-01.json",
+  "selected": "place-flinders-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "Highest resolution at 4608x3456. Flinders Pier in July 2019 (Australian winter — perfect off-season mood). The quiet pier composition carries the 'quieter and older than Sorrento' editorial claim. SA licence requires editor override.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [
+    { "candidateId": "place-flinders-01-b", "reason": "better-alternative", "note": "DenisFrolow pier shot is strong but lower resolution than A." },
+    { "candidateId": "place-flinders-01-c", "reason": "weak-as-feature", "note": "PD licence is ideal but 800x533 is far below hero minimum." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy approval.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
+    "downloadTo": "/next/public/images/sourced/place-flinders-01.webp",
+    "contentFileUpdates": ["next/src/content/places/flinders.json"],
+    "altText": "Flinders Pier extending into Western Port Bay on a quiet winter day",
+    "credit": "Daniel Kabel / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "Flinders Pier, midwinter.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

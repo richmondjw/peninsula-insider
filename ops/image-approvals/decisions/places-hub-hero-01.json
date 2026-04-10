@@ -1,0 +1,35 @@
+{
+  "slotId": "places-hub-hero-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/places-hub-hero-01.json",
+  "selected": "places-hub-hero-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "Storm clouds forming over Port Phillip Bay from Arthur's Seat — exactly the 'cover of a magazine section' editorial register. 5184x2444 panoramic crop fits a hero strip without forced cropping. Ground-level elevated view (not aerial/drone). SA override required.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [
+    { "candidateId": "places-hub-hero-01-b", "reason": "weak-as-feature", "note": "2048px wide — fails 2400px minimum." },
+    { "candidateId": "places-hub-hero-01-c", "reason": "weak-as-feature", "note": "CC-BY 3.0 clean licence but 2000x1177 — below minimum. Valuable for secondary slots." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Victoria_Mornington_Peninsula_Arthurs_Seat.jpg",
+    "downloadTo": "/next/public/images/sourced/places-hub-hero-01.webp",
+    "contentFileUpdates": [],
+    "altText": "Storm clouds forming over Port Phillip Bay, seen from Arthur's Seat on the Mornington Peninsula",
+    "credit": "Wikimedia Commons contributor (CC-BY-SA-4.0)",
+    "caption": "The Peninsula from Arthur's Seat, storm rolling in.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

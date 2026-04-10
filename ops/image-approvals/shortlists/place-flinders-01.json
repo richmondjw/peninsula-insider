@@ -1,0 +1,111 @@
+{
+  "slotId": "place-flinders-01",
+  "createdAt": "2026-04-10T02:25:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/place-flinders-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "Flinders, Victoria has a solid pool on Commons with a notable clean-licence find: a Public Domain foreshore-and-pier image from jjron. Resolution is only 800x533 — too small for a hero. Higher-resolution pier and beach images exist but are all CC-BY-SA. The Flinders Pier images from 2019 (Openfj0re/Daniel Kabel) at 4608x3456 are the highest-res candidates. The DenisFrolow pier image at 4160x2336 is a strong editorial composition."
+  },
+  "candidates": [
+    {
+      "candidateId": "place-flinders-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
+      "photographer": "Daniel Kabel (Openfj0re)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. SA contamination flag — editor override required.",
+      "dimensions": "4608x3456",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Flinders Pier, Flinders, Victoria",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Highest-resolution Flinders pier candidate at 4608x3456. Taken July 2019 (Australian winter — ideal season). Shows the iconic Flinders Pier extending into Western Port Bay with boats. The winter date and quiet composition carry the 'quieter and older than Sorrento' editorial claim. SA licence is the only failure. Recommended primary if SA policy is resolved favourably."
+    },
+    {
+      "candidateId": "place-flinders-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Flinders_pier,_Vic.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Flinders_pier%2C_Vic.jpg",
+      "photographer": "DenisFrolow (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. SA contamination flag.",
+      "dimensions": "4160x2336",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Flinders Pier, Flinders, Victoria",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "GPS-tagged pier shot at 4160x2336. Taken September 2017. The 16:9-approximate native ratio is ideal for a hero crop with minimal loss. DenisFrolow also contributed the Cape Schanck walking trail image. Slightly lower resolution than candidate A but the wider aspect ratio may give a better hero crop. SA licence flag same as A."
+    },
+    {
+      "candidateId": "place-flinders-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Flinders_Foreshore_and_Pier,_Flinders,_Vic,_jjron,_12.04.2013.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Flinders_Foreshore_and_Pier%2C_Flinders%2C_Vic%2C_jjron%2C_12.04.2013.jpg",
+      "photographer": "John O'Neill (jjron)",
+      "license": "Public Domain",
+      "licenseVerified": true,
+      "licenseNotes": "Public Domain — released by author. Zero restrictions. Full PD dedication from jjron with moral-obligation-only request for credit. No SA contamination.",
+      "dimensions": "800x533",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Flinders foreshore and pier, looking north-east",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": true
+      },
+      "sourcingAgentNote": "The cleanest licence — Public Domain. However, at 800x533 it is well below the 2400px minimum hero requirement. Not usable as a place-page hero. Included because the PD licence is valuable and the photographer notes that higher-resolution versions may be available on request. If the editor wishes to contact jjron for a full-res version, this becomes the strongest candidate. Otherwise, it's an editorial thumbnail or card image, not a hero."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "licence-policy-override",
+      "question": "Both hero-grade candidates (A and B) are CC-BY-SA 4.0 — same SA policy question as the dry run. Candidate C is Public Domain but too small for a hero. Options: (1) accept SA override for one of A/B, (2) contact jjron for full-res PD version, (3) defer to Visit Victoria Content Hub.",
+      "defaultIfNoReply": "Defer to SA policy resolution."
+    }
+  ]
+}

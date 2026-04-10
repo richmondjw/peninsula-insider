@@ -1,0 +1,36 @@
+{
+  "slotId": "explore-hub-hero-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/explore-hub-hero-01.json",
+  "selected": "explore-hub-hero-01-b",
+  "agentRecommendation": {
+    "confidence": "medium",
+    "reasoning": "After twinning resolution (Bushrangers Bay assigned to home-cover-01, Pulpit Rock to Cape Schanck), the Cape Schanck walking trail becomes the explore hub primary. 2592x1556 is at the minimum floor. DenisFrolow's walking trail composition is exactly the 'boots on' brief energy. SA override required. If home cover takes a different path, candidate A (Bushrangers Bay) becomes available here and is the stronger pick.",
+    "policyDependency": "CC-BY-SA acceptance",
+    "alternativeRecommendation": "If twinning resolves differently — e.g. home cover defers or takes Pulpit Rock — candidate A (Bushrangers Bay 4032x3024) is the clear primary."
+  },
+  "rejected": [
+    { "candidateId": "explore-hub-hero-01-a", "reason": "defer", "note": "Bushrangers Bay reserved for home-cover-01 to avoid twinning. Reassignable if home cover takes different path." },
+    { "candidateId": "explore-hub-hero-01-c", "reason": "weak-as-feature", "note": "Tea Tree Creek track — less famous, editorial weight soft-fail." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy AND twinning resolution with home-cover-01.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Cape_Schanck_walking_trail.jpg",
+    "downloadTo": "/next/public/images/sourced/explore-hub-hero-01.webp",
+    "contentFileUpdates": [],
+    "altText": "The walking trail at Cape Schanck, Mornington Peninsula",
+    "credit": "DenisFrolow / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "On the trail at Cape Schanck.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

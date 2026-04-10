@@ -1,0 +1,32 @@
+{
+  "slotId": "explore-sorrento-back-beach-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/explore-sorrento-back-beach-01.json",
+  "selected": "explore-sorrento-back-beach-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "5637x3855 — highest-resolution Sorrento candidate. Shows distinctive rock pools and ocean beach — unmistakably Sorrento. Distinct from place-sorrento-01 (CC0 morning coastal scene). SA override required.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy. Week 3 slot advanced.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Sorrento_back_beach.jpg",
+    "downloadTo": "/next/public/images/sourced/explore-sorrento-back-beach-01.webp",
+    "contentFileUpdates": ["next/src/content/experiences/sorrento-back-beach.json"],
+    "altText": "Rock pools and ocean at Sorrento Back Beach, Mornington Peninsula",
+    "credit": "Peterdownunder / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "Sorrento Back Beach.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

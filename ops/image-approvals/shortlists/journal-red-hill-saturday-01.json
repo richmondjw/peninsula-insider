@@ -1,0 +1,28 @@
+{
+  "slotId": "journal-red-hill-saturday-01",
+  "createdAt": "2026-04-10T02:28:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/journal-red-hill-saturday-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "Red Hill Market imagery does not exist on Wikimedia Commons in any usable form. The market is a real place with a specific editorial claim — generative is forbidden on this slot. Unsplash may have categorical farmer's market imagery that passes the geography rule as categorical, but Unsplash access is blocked.",
+    "blocker": "No Red Hill Market images on Commons. Unsplash/Pexels API access blocked. Visit Victoria Content Hub not yet registered.",
+    "recommendedUnblockPath": ["Visit Victoria Content Hub registration (highest leverage for this slot)", "Unsplash API key for categorical market images"]
+  },
+  "candidates": [],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "source-unblock",
+      "question": "This slot names a specific place and forbids generative. Visit Victoria Content Hub is the best path — they likely have Red Hill Market images in their Peninsula collection.",
+      "defaultIfNoReply": "Blocked until Visit Victoria or Unsplash unblocked."
+    }
+  ]
+}

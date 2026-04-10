@@ -68,11 +68,6 @@ const formatOrder: Array<{ key: string; title: string; intro: string }> = [
     intro: 'Where the issue is framed — what changed, what matters, what to read first.',
   },
   {
-    key: 'weekend-picker',
-    title: 'Weekend pickers',
-    intro: 'The weekly dispatch — one opinionated pick, one weather-proof backup, and one thing to skip.',
-  },
-  {
     key: 'interview',
     title: 'Interviews',
     intro: 'Long-form conversations with the people building the Peninsula worth writing about.',
@@ -105,6 +100,33 @@ const groups = formatOrder
     gradient="journal"
     visualLabel="Long lunch notebook · cellar door dispatches"
   />
+
+  <!-- Editor’s desk note — a short seasonal framing block that tells
+       the reader what the Journal is focused on right now. Creates the
+       sense of a living editorial desk rather than a static archive. -->
+  <section class="editors-desk" aria-label="Editor’s note">
+    <div class="container">
+      <div class="editors-desk__inner">
+        <div class="editors-desk__col">
+          <p class="label label--accent">From the editor’s desk</p>
+          <h2 class="editors-desk__title">What we’re writing about this season</h2>
+          <p class="editors-desk__body">Autumn on the Peninsula is vintage season on the ridge and fireplace-lunch season everywhere else. The Journal is leaning into the service pieces that help you build a weekend around those two moods — plus a new cellar-door dispatch series, honest stay notes, and the weekly <em>Peninsula This Weekend</em> picks every Wednesday at 6 pm.</p>
+          <p class="editors-desk__body">Every piece below answers a real question a weekend visitor actually asks. If we can’t finish the sentence <em>“Read this before you…”</em> then we don’t publish it.</p>
+        </div>
+        <div class="editors-desk__col editors-desk__formats">
+          <p class="label">Formats in this issue</p>
+          <ul class="editors-desk__format-list">
+            <li><strong>Service pieces</strong> — the practical guides: weekend shapes, rainy-day plans, family trips</li>
+            <li><strong>Long lunch lists</strong> — the daylight-dining playbook</li>
+            <li><strong>Cellar door dispatches</strong> — the wines, the producers, the arguments in the vines</li>
+            <li><strong>Weekend Picker</strong> — one pick, one backup, one skip — every Wednesday 6 pm</li>
+            <li><strong>Stay notes</strong> — the rooms that change the shape of a weekend</li>
+            <li><strong>Insider edits</strong> — shortlists with a point of view</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   {featured && (
     <section class="feature feature--compact">
@@ -158,6 +180,7 @@ const groups = formatOrder
   <section class="format-nav">
     <div class="container">
       <p class="label label--accent format-nav__label">Navigate by format</p>
+      <p class="format-nav__sub">Every piece in the Journal carries a format tag. Pick the kind of reading you want — or keep scrolling and let the page sort itself.</p>
       <div class="format-nav__chips">
         {groups.map((group) => (
           <a href={`#${group.key}`} class="format-chip">

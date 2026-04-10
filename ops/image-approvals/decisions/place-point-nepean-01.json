@@ -1,0 +1,36 @@
+{
+  "slotId": "place-point-nepean-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/place-point-nepean-01.json",
+  "selected": "place-point-nepean-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "6960x4640 — highest-resolution Point Nepean landscape on Commons. GPS-tagged to Cheviot Hill. Shows the tip-of-the-peninsula geography with water visible. Sep 2025, very fresh. Philip Mallis is an established Melbourne photographer. SA licence requires editor override.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [
+    { "candidateId": "place-point-nepean-01-b", "reason": "better-alternative", "note": "Sand dunes image is strong but candidate A shows the geography better." },
+    { "candidateId": "place-point-nepean-01-c", "reason": "better-alternative", "note": "Strongest geographic argument but lower resolution than A." },
+    { "candidateId": "place-point-nepean-01-d", "reason": "defer", "note": "Reserved for explore-point-nepean-fort-walk-01 (Week 3, slot 38) — anti-twinning." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted for this slot — SA obligation attaches to the image file and its direct derivatives, not surrounding page code. This override applies only if the editor approves the SA policy across Tier A."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy approval. Candidate D reserved for Week 3 twinning.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+    "downloadTo": "/next/public/images/sourced/place-point-nepean-01.webp",
+    "contentFileUpdates": ["next/src/content/places/point-nepean.json"],
+    "altText": "Looking out towards the waves near Cheviot Hill at Point Nepean",
+    "credit": "Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "The view from Cheviot Hill, Point Nepean.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

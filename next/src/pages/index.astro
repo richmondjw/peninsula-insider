@@ -68,14 +68,14 @@ const journalHighlights = articles
 // a real reader intent, so the homepage becomes navigable by need,
 // not just by category.
 const intentRoutes = [
-  { label: 'Long lunch',    slug: 'the-long-lunch',                     note: 'Sunday, slow, one decisive table' },
-  { label: 'Rainy day',     slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof, no reservation' },
-  { label: 'With kids',     slug: 'the-peninsula-with-kids',            note: 'A day that punishes no one' },
-  { label: 'One night',     slug: 'the-one-night-escape',               note: '26 hours, done right' },
-  { label: 'Cellar doors',  slug: 'the-cellar-door-short-list',         note: 'Five producers worth the appointment' },
-  { label: 'Wellness',      slug: 'the-thermal-springs-weekend',        note: 'Springs without wasting the weekend' },
-  { label: 'First visit',   slug: 'the-peninsula-orientation-drive',    note: 'Six stops, half a day' },
-  { label: 'Breakfast',     slug: 'breakfast-before-the-crowds',        note: 'Where locals actually eat at 8am' },
+  { label: 'Long lunch',    slug: 'the-long-lunch',                     note: 'Sunday, slow, one decisive table — the Peninsula’s strongest move' },
+  { label: 'Rainy day',     slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof and walk-in — no booking, no gamble' },
+  { label: 'With kids',     slug: 'the-peninsula-with-kids',            note: 'A day that punishes no one — graded, honest, tested' },
+  { label: 'One night',     slug: 'the-one-night-escape',               note: '26 hours that feel like a long weekend' },
+  { label: 'Cellar doors',  slug: 'the-cellar-door-short-list',         note: 'Five producers worth the appointment and the drive' },
+  { label: 'Wellness',      slug: 'the-thermal-springs-weekend',        note: 'Hot springs without wasting the rest of the weekend' },
+  { label: 'First visit',   slug: 'the-peninsula-orientation-drive',    note: 'Six stops, half a day, zero prior knowledge required' },
+  { label: 'Breakfast',     slug: 'breakfast-before-the-crowds',        note: 'Where locals actually eat at 8 am — not the Instagram queue' },
 ];
 const intentResolved = intentRoutes
   .map((intent) => {
@@ -115,6 +115,34 @@ const seasonalExperiences = experiences
   section="home"
 >
   <CoverHero issueDate={issueDate} />
+
+  <!-- Editorial promise — the manifesto strip that establishes voice before
+       any content loads. This is the first thing a new reader scans after
+       the hero, so it must crystallise what Peninsula Insider *is*. -->
+  <section class="editorial-promise" aria-label="Editorial promise">
+    <div class="container">
+      <div class="editorial-promise__inner">
+        <div class="editorial-promise__lead">
+          <p class="label label--accent">What this is</p>
+          <h2 class="editorial-promise__title">The editorial guide the Peninsula doesn’t have yet</h2>
+        </div>
+        <div class="editorial-promise__points">
+          <div class="editorial-promise__point">
+            <strong>We visit.</strong>
+            <span>Every venue in this guide has been eaten at, walked through, or slept in by a named editor. No desk reviews. No aggregated stars.</span>
+          </div>
+          <div class="editorial-promise__point">
+            <strong>We choose.</strong>
+            <span>Coverage is earned, not bought. No advertising, no sponsored listings, no press-trip hospitality. If a restaurant appears, it’s because the meal was worth the sentence.</span>
+          </div>
+          <div class="editorial-promise__point">
+            <strong>We opine.</strong>
+            <span>Every venue carries an editor note — a short, honest paragraph about what the place actually feels like when you sit down. Agreement optional; clarity guaranteed.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <PillarNav />
 
@@ -381,6 +409,38 @@ const seasonalExperiences = experiences
       </div>
     </section>
   )}
+
+  <!-- Why Peninsula Insider — the editorial pitch block that closes the
+       homepage before the newsletter. Converts curious browsers into
+       subscribers by crystallising the value proposition. -->
+  <section class="why-insider" aria-label="Why Peninsula Insider">
+    <div class="container">
+      <div class="why-insider__inner">
+        <div class="why-insider__lead">
+          <p class="label label--accent">Why this exists</p>
+          <h2 class="why-insider__title">The Peninsula has 200 cellar doors and no honest guidebook</h2>
+        </div>
+        <div class="why-insider__body">
+          <p>Most of what exists online is tourism marketing dressed as editorial, or star ratings that tell you a restaurant scored 4.3 without explaining what the 4.3 felt like at the table. Neither helps you build a weekend.</p>
+          <p>Peninsula Insider is the fix: opinionated, service-first coverage that answers the questions visitors actually ask — written by editors who live on the Peninsula and eat, walk, and sleep here year-round. No advertisers. No press trips. No sponsored content. Every recommendation unprompted.</p>
+        </div>
+        <div class="why-insider__stats">
+          <div class="why-insider__stat">
+            <span class="why-insider__stat-number">{issueStats.venues}</span>
+            <span class="why-insider__stat-label">venues visited & reviewed</span>
+          </div>
+          <div class="why-insider__stat">
+            <span class="why-insider__stat-number">{issueStats.articles}</span>
+            <span class="why-insider__stat-label">service pieces & dispatches</span>
+          </div>
+          <div class="why-insider__stat">
+            <span class="why-insider__stat-number">0</span>
+            <span class="why-insider__stat-label">advertisers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <NewsletterBlock />
 </BaseLayout>

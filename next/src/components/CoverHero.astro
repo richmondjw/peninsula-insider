@@ -1,12 +1,40 @@
 ---
 /**
  * CoverHero — homepage-only opening cover module.
+ * Seasonal rotation: headline + dek + visual label shift with the
+ * Southern-Hemisphere calendar so the front door always reads as current.
  */
+import { currentSeason } from '../lib/editorial';
+
 export interface Props {
   issueDate: string;
 }
 
 const { issueDate } = Astro.props;
+const season = currentSeason();
+
+const seasonalHeadlines: Record<string, { line1: string; line2: string; em: string }> = {
+  summer: { line1: 'Where Victoria', line2: 'eats, swims,', em: 'and stays late.' },
+  autumn: { line1: 'Where Victoria', line2: 'eats, drinks,', em: 'and slows down.' },
+  winter: { line1: 'Where Victoria', line2: 'eats, warms up,', em: 'and stays in.' },
+  spring: { line1: 'Where Victoria', line2: 'eats, explores,', em: 'and books ahead.' },
+};
+
+const seasonalDeks: Record<string, string> = {
+  summer: 'Back beaches at five, vineyard lunches that run until the light goes long, and the places locals actually go when Melbourne empties south. An independent editorial guide — no advertisers, no press trips, just honest coverage.',
+  autumn: 'Vintage on the ridge, pinot lunches in low golden light, cellar doors with fires going, and the quieter weekends the Peninsula does best. An independent editorial guide — no advertisers, no press trips, just honest coverage.',
+  winter: 'Hot springs without the queue, pub dinners worth the drive, fireplace long lunches, and the coastal walks the crowds have finally left alone. An independent editorial guide — no advertisers, no press trips, just honest coverage.',
+  spring: 'New vintage releases, wildflower walks, menus rewritten for the season, and the most generous midweek bookings of the year. An independent editorial guide — no advertisers, no press trips, just honest coverage.',
+};
+
+const seasonalVisualLabels: Record<string, string> = {
+  summer: 'Back Beach · Late Afternoon Light',
+  autumn: 'Red Hill Plateau · Vintage Season',
+  winter: 'Hot Springs · Hinterland Fog',
+  spring: 'Wildflower Coast · New Season Menus',
+};
+
+const hl = seasonalHeadlines[season];
 ---
 
 <section class="cover" aria-label="Cover story">
@@ -19,19 +47,20 @@ const { issueDate } = Astro.props;
           <span class="label">The Mornington Peninsula</span>
         </div>
         <h1 class="cover__headline">
-          Where Victoria<br />
-          eats, drinks,<br />
-          and <em>stays put.</em>
+          {hl.line1}<br />
+          {hl.line2}<br />
+          and <em>{hl.em}</em>
         </h1>
         <p class="cover__dek">
-          An independent editorial guide to the Peninsula — the long lunches,
-          the cellar doors, the beaches worth the drive, and the places only
-          locals know about. No advertisers. No press trips. Just honest coverage.
+          {seasonalDeks[season]}
         </p>
+        <div class="cover__promise">
+          <p class="cover__promise-line">Every venue visited. Every opinion earned. Every recommendation unprompted.</p>
+        </div>
       </div>
       <div class="cover__visual" aria-hidden="true">
         <div class="cover__visual-fog"></div>
-        <span class="cover__visual-label">Red Hill Plateau · Hinterland</span>
+        <span class="cover__visual-label">{seasonalVisualLabels[season]}</span>
       </div>
     </div>
   </div>

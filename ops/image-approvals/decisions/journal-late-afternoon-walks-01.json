@@ -1,0 +1,35 @@
+{
+  "slotId": "journal-late-afternoon-walks-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/journal-late-afternoon-walks-01.json",
+  "selected": "journal-late-afternoon-walks-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "6960x4640 — highest-resolution walking track image on Commons for the Peninsula. Coastal scrub along the Range Area Walk at Point Nepean. Exactly matches the brief's 'track-through-coastal-scrub' requirement. Sep 2025, very fresh. Not claimed by any other slot — zero twinning risk. SA override required.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [
+    { "candidateId": "journal-late-afternoon-walks-01-b", "reason": "defer", "note": "Cape Schanck walking trail — also candidate for explore-hub-hero-01. Avoid twinning." },
+    { "candidateId": "journal-late-afternoon-walks-01-c", "reason": "weak-as-feature", "note": "Tea Tree Creek — less famous, editorial weight soft-fail." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Coastal_scrub_near_Range_Area_Walk_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+    "downloadTo": "/next/public/images/sourced/journal-late-afternoon-walks-01.webp",
+    "contentFileUpdates": ["next/src/content/articles/the-peninsulas-best-late-afternoon-walks.md"],
+    "altText": "Coastal scrub along the Range Area Walk at Point Nepean",
+    "credit": "Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "On the Range Area Walk, Point Nepean.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

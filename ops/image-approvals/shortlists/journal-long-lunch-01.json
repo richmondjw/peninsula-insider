@@ -1,0 +1,28 @@
+{
+  "slotId": "journal-long-lunch-01",
+  "createdAt": "2026-04-10T02:28:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/journal-long-lunch-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "Category 3 (plated food, fine dining) is an Unsplash/Pexels category. Wikimedia Commons has no editorial-grade fine-dining still-life imagery. The generative fallback path (Leonardo Template A) is available but requires editor authorisation of the generative batch.",
+    "blocker": "Unsplash/Pexels API access blocked (anti-bot protection). Visit Victoria Content Hub not yet registered. Generative batch not yet authorised.",
+    "recommendedUnblockPath": ["Unsplash API key (free tier)", "Generative batch authorisation for Template A"]
+  },
+  "candidates": [],
+  "generativeMetadata": {
+    "applies": true,
+    "model": "Leonardo Phoenix",
+    "promptRef": "ops/image-approvals/templates/leonardo-prompts.md#slot-15",
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "source-unblock",
+      "question": "This slot needs either Unsplash API access or generative batch authorisation to proceed. The brief permits generative as fallback.",
+      "defaultIfNoReply": "Blocked until unblock."
+    }
+  ]
+}

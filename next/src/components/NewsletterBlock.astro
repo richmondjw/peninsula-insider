@@ -11,7 +11,7 @@ export interface Props {
 
 const {
   title = 'The Peninsula in your inbox, every fortnight.',
-  body = "New openings, cellar door dispatches, and the places we're quietly recommending this season. Written by editors who live here.",
+  body = "New openings, cellar-door dispatches, weekend-picker verdicts, and the places we're quietly recommending this season. Written by editors who live here.",
 } = Astro.props;
 ---
 
@@ -45,14 +45,21 @@ const {
             <span class="proof__icon" aria-hidden="true">◆</span>
             <p class="proof__text">
               <strong>Independent editorial</strong>
-              No advertiser relationships. No sponsored content. Just places worth knowing.
+              Zero advertiser relationships. Zero sponsored listings. Every recommendation unprompted.
             </p>
           </div>
           <div class="proof">
             <span class="proof__icon" aria-hidden="true">◆</span>
             <p class="proof__text">
               <strong>Written by locals</strong>
-              Every recommendation is from someone who lives on the Peninsula.
+              Every venue visited by a named editor who lives on the Peninsula year-round.
+            </p>
+          </div>
+          <div class="proof">
+            <span class="proof__icon" aria-hidden="true">◆</span>
+            <p class="proof__text">
+              <strong>Wednesday 6 pm dispatch</strong>
+              The <em>Peninsula This Weekend</em> picker: one event to book, one backup, one thing to skip.
             </p>
           </div>
         </div>

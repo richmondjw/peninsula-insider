@@ -1,0 +1,111 @@
+{
+  "slotId": "place-sorrento-01",
+  "createdAt": "2026-04-10T02:25:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/place-sorrento-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "Wikimedia Commons holds a strong pool for Sorrento, Victoria. The headline find is a CC0 coastal morning image — zero licence restrictions. The Sorrento Back Beach image at 5637x3855 is the highest-resolution candidate but is CC-BY-SA. Ocean Beach Road street-level images are CC-BY-SA from Kgbo. The Hotel Sorrento exterior is Public Domain but only 784px wide — too small for a hero."
+  },
+  "candidates": [
+    {
+      "candidateId": "place-sorrento-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Bright_morning_Sorrento_Victoria_%2851527287664%29.jpg",
+      "photographer": "Alan Travers",
+      "license": "CC0",
+      "licenseVerified": true,
+      "licenseNotes": "CC0 — Public Domain Dedication. Zero restrictions. No attribution legally required (editorial credit offered voluntarily). Originally from Flickr, reviewed by FlickreviewR 2.",
+      "dimensions": "2796x2097",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Sorrento, Victoria — bright morning coastal scene",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": true
+      },
+      "sourcingAgentNote": "RECOMMENDED PRIMARY. CC0 licence is the cleanest possible — no SA contamination, no attribution obligation. Image is a morning coastal scene verifiably at Sorrento, Victoria. At 2796px wide it clears the 2400px minimum hero floor. The 4:3 aspect ratio requires cropping to 16:9 which will reduce effective height, but the wide dimension is sufficient. The clean licence makes this the strongest single candidate for any slot in the entire Tier A pipeline — zero legal risk. Taken August 2021 (Australian winter) which aligns with the off-season preference."
+    },
+    {
+      "candidateId": "place-sorrento-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Sorrento_back_beach.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Sorrento_back_beach.jpg",
+      "photographer": "Peterdownunder (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. SA contamination flag applies — editor override required per the existing policy question from the dry run.",
+      "dimensions": "5637x3855",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Sorrento Back Beach — rock pools and ocean beach",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Highest-resolution Sorrento candidate at 5637px. Shows the distinctive back beach with rock pools — unmistakably Sorrento. Taken Nov 2019. Editorially strong: the rock pools and rugged southern ocean beach carry the Sorrento place identity. SA licence flag is the only failure. If the editor accepts the CC0 candidate A, this becomes moot; carry as backup if the CC0 image is rejected for editorial reasons."
+    },
+    {
+      "candidateId": "place-sorrento-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Ocean_Beach_Road_looking_towards_Sorrento_Foreshore_Reserve,_Sorrento,_Victoria,_2018.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Ocean_Beach_Road_looking_towards_Sorrento_Foreshore_Reserve%2C_Sorrento%2C_Victoria%2C_2018.jpg",
+      "photographer": "Kgbo (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. SA contamination flag applies.",
+      "dimensions": "4032x3024",
+      "orientation": "landscape",
+      "category": 8,
+      "geoVerified": true,
+      "place": "Sorrento — Ocean Beach Road looking towards Foreshore Reserve",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": false
+      },
+      "sourcingAgentNote": "Village-and-heritage framing: Sorrento's main street looking towards the foreshore. GPS-tagged, verifiably Sorrento. Shot on iPhone XS Max Dec 2018. Editorial weight is the soft fail — it's a street-level iPhone shot, clear and well-composed but not editorial-grade for a hero surface. Works better as a secondary/gallery image than a place-page hero. SA licence flag applies. Third-ranked candidate."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "licence-advantage",
+      "question": "Candidate A is CC0 — zero legal risk, no attribution required, no SA contamination. This is the first clean-licence geo-verified image in the entire Tier A pipeline. Recommend approving it and using the CC-BY-SA back beach image (candidate B) for explore-sorrento-back-beach-01 in Week 3.",
+      "defaultIfNoReply": "Approve candidate A (CC0)."
+    }
+  ]
+}

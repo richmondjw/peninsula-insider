@@ -1,0 +1,111 @@
+{
+  "slotId": "journal-late-afternoon-walks-01",
+  "createdAt": "2026-04-10T02:28:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/journal-late-afternoon-walks-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "The geo-verification requirement means this slot needs Peninsula-specific walking track imagery. The Philip Mallis Nov 2025 Point Nepean uploads include a coastal scrub walking track image at 6960x4640 that fits the brief well. The existing Bushrangers Bay and Cape Schanck walking trail candidates from the dry run also partially overlap with this article's subject. Cross-referencing with twinning: the coastal scrub at Point Nepean is not yet claimed by any other slot."
+  },
+  "candidates": [
+    {
+      "candidateId": "journal-late-afternoon-walks-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Coastal_scrub_near_Range_Area_Walk_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Coastal_scrub_near_Range_Area_Walk_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+      "photographer": "Philip Mallis",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 via Flickr. FlickreviewR 2 verified.",
+      "dimensions": "6960x4640",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Point Nepean — coastal scrub near Range Area Walk",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "RECOMMENDED PRIMARY. 6960x4640 — the highest-resolution walking track image on Commons for the Peninsula. Shows coastal scrub along the Range Area Walk at Point Nepean. The article covers the Peninsula's best late-afternoon walks, and Point Nepean is one of the walks featured. This image's track-through-scrub composition exactly matches the brief's 'track-through-coastal-scrub' requirement. Sep 2025, very recent. SA licence flag applies."
+    },
+    {
+      "candidateId": "journal-late-afternoon-walks-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Cape_Schanck_walking_trail.jpg",
+      "photographer": "DenisFrolow (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Already carried as explore-hub-hero-01-b — twinning alert if used in both slots.",
+      "dimensions": "2592x1556",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Cape Schanck walking trail",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Cape Schanck walking trail — a Peninsula-verified track image. 2592px is at the minimum floor. Already carried as a candidate for explore-hub-hero-01 — if used here, the explore hub must pick a different asset. SA licence flag."
+    },
+    {
+      "candidateId": "journal-late-afternoon-walks-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:The_View_From_The_Walking_Track_Tea_Tree_Creek.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/The_View_From_The_Walking_Track_Tea_Tree_Creek.jpg",
+      "photographer": "Wikimedia Commons contributor",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0.",
+      "dimensions": "4160x3120",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Tea Tree Creek walking track, near Flinders — Mornington Peninsula National Park",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": false
+      },
+      "sourcingAgentNote": "Tea Tree Creek track near Flinders. Less famous than Cape Schanck or Point Nepean but distinctively Peninsula. Not used by any other slot — no twinning risk. 4160x3120 is good resolution. Editorial weight is the soft fail — mid-track view, not a landmark payoff. SA licence flag."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "twinning-decision",
+      "question": "Candidate B also appears in explore-hub-hero-01 shortlist. Recommend candidate A (unique, highest-res) for this slot to avoid twinning.",
+      "defaultIfNoReply": "Candidate A is primary."
+    }
+  ]
+}
