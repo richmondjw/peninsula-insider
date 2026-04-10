@@ -1,9 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize } from '../../lib/editorial';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -15,12 +18,50 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await article.render();
+
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const currentIndex = allArticles.findIndex((a) => routeSlug(a) === routeSlug(article));
+const prevArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;
+const nextArticle = currentIndex > 0 ? allArticles[currentIndex - 1] : null;
+
+const moreArticles = allArticles
   .filter((entry) => routeSlug(entry) !== routeSlug(article))
-  .slice(0, 2);
+  .filter((entry) => {
+    // Prefer same format or overlapping tags
+    if (entry.data.format === article.data.format) return true;
+    return entry.data.tags.some((tag) => article.data.tags.includes(tag));
+  })
+  .slice(0, 3);
+const moreFallback = allArticles
+  .filter((entry) => routeSlug(entry) !== routeSlug(article))
+  .slice(0, 3);
+const relatedArticles = moreArticles.length >= 2 ? moreArticles : moreFallback;
+
+// Resolve related venues
+const allVenues = await getCollection('venues');
+const relatedVenueSlugs = (article.data.relatedVenues ?? []).map((entry: any) => String(entry.id ?? entry));
+const relatedVenues = allVenues
+  .filter((venue) => relatedVenueSlugs.includes(routeSlug(venue)))
+  .slice(0, 3);
+
+// Resolve related experiences
+const allExperiences = await getCollection('experiences');
+const relatedExperienceSlugs = (article.data.relatedExperiences ?? []).map((entry: any) => String(entry.id ?? entry));
+const relatedExperiences = allExperiences
+  .filter((exp) => relatedExperienceSlugs.includes(routeSlug(exp)))
+  .slice(0, 3);
+
 const authorLabel = article.data.houseByline
   ? 'The Peninsula Insider'
   : String(article.data.author?.id ?? article.data.author);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Journal', href: '/journal' },
+  { label: article.data.title },
+];
 ---
 
 <BaseLayout
@@ -28,6 +69,8 @@ const authorLabel = article.data.houseByline
   description={article.data.dek}
   section="journal"
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <article class="article">
     <div class="container">
       <div class="article__meta">
@@ -47,7 +90,20 @@ const authorLabel = article.data.houseByline
 
       <div class="article__byline">
         <span class="article__byline-name">By {authorLabel}</span>
+        {article.data.updatedAt && (
+          <span class="article__byline-updated">
+            Updated {article.data.updatedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </span>
+        )}
       </div>
+
+      {article.data.tags.length > 0 && (
+        <div class="article__tags">
+          {article.data.tags.map((tag) => (
+            <span class="article__tag">{titleize(tag)}</span>
+          ))}
+        </div>
+      )}
 
       <div class="article__hero" aria-hidden="true">
         <div class="article__hero-fog"></div>
@@ -60,7 +116,62 @@ const authorLabel = article.data.houseByline
     </div>
   </article>
 
-  {allArticles.length > 0 && (
+  {relatedVenues.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Mentioned in this piece</p>
+            <h2 class="venues__title">Venues worth opening in a new tab</h2>
+            <p class="venues__sub">Every venue referenced has its own page with editor notes, booking links, and nearby picks.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {relatedVenues.map((venue) => <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedExperiences.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Experiences in this piece</p>
+            <h2 class="venues__title">The non-restaurant moves that round out the trip</h2>
+          </div>
+          <a href="/explore" class="venues__link">Explore all →</a>
+        </div>
+        <div class="experience-grid">
+          {relatedExperiences.map((exp) => <ExperienceCard experience={exp} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {(prevArticle || nextArticle) && (
+    <nav class="article-nav" aria-label="Article navigation">
+      <div class="container">
+        <div class="article-nav__inner">
+          {prevArticle ? (
+            <a href={`/journal/${routeSlug(prevArticle)}`} class="article-nav__link article-nav__link--prev">
+              <span class="article-nav__direction">← Previous</span>
+              <span class="article-nav__link-title">{prevArticle.data.title}</span>
+            </a>
+          ) : <div />}
+          {nextArticle ? (
+            <a href={`/journal/${routeSlug(nextArticle)}`} class="article-nav__link article-nav__link--next">
+              <span class="article-nav__direction">Next →</span>
+              <span class="article-nav__link-title">{nextArticle.data.title}</span>
+            </a>
+          ) : <div />}
+        </div>
+      </div>
+    </nav>
+  )}
+
+  {relatedArticles.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
         <div class="venues__header">
@@ -70,8 +181,8 @@ const authorLabel = article.data.houseByline
           </div>
           <a href="/journal" class="venues__link">All stories →</a>
         </div>
-        <div class="venues__grid venues__grid--two">
-          {allArticles.map((entry) => <ArticleCard article={entry} />)}
+        <div class="venues__grid">
+          {relatedArticles.map((entry) => <ArticleCard article={entry} />)}
         </div>
       </div>
     </section>

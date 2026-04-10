@@ -1,24 +1,139 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHero from '../components/SectionHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+const venues = await getCollection('venues');
+const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+const places = await getCollection('places');
+const experiences = await getCollection('experiences');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About' },
+];
+
+const principles = [
+  {
+    title: 'No advertisers',
+    body: 'Every venue, every recommendation, every word — unprompted. We don\'t run display ads. We don\'t accept sponsored content. If a restaurant appears, it\'s because the editor ate there and had an opinion worth writing.',
+  },
+  {
+    title: 'No press trips',
+    body: 'We pay for our own meals, our own rooms, our own parking. The moment a publication takes a comp, the reader starts doing the work of figuring out what\'s real. That\'s your job erased.',
+  },
+  {
+    title: 'Opinions, not stars',
+    body: 'Star ratings are a consensus machine. We write editor notes — a short, honest paragraph about what a place actually feels like when you sit down. Agreement is optional; clarity is not.',
+  },
+  {
+    title: 'Service journalism',
+    body: 'Every piece answers a real question a weekend visitor actually asks: where to eat, what to do when it rains, which cellar doors are worth the appointment. The Peninsula doesn\'t need more content. It needs better answers.',
+  },
+];
 ---
 
-<BaseLayout title="About — Peninsula Insider" description="Independent editorial guide to the Mornington Peninsula." section="home">
+<BaseLayout
+  title="About — Peninsula Insider"
+  description="Peninsula Insider is the independent editorial guide to the Mornington Peninsula. No advertisers, no press trips — just honest coverage of eating, drinking, staying, and exploring."
+  section="home"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
   <SectionHero
     eyebrow="About"
     subEyebrow="Independent editorial"
     title="No advertisers. No press trips. Just <em>honest</em> coverage."
-    dek="Peninsula Insider is building toward a true editorial guide to the Mornington Peninsula, with atomic pages for places, venues, and long-form stories rather than a flat brochure site."
+    dek="Peninsula Insider is building the editorial guide the Mornington Peninsula doesn't have yet — one that treats readers like adults and venues like subjects, not clients."
     gradient="journal"
     visualLabel="Peninsula Insider · editorial preview"
   />
-  <section class="places">
+
+  <!-- Mission -->
+  <section class="about-mission">
     <div class="container">
-      <div class="prose" style="margin: 0; max-width: 760px;">
-        <p>Everything in this preview is designed to scale into a proper publication. The structure matters as much as the styling: typed content collections, reusable layouts, and real URLs for venues, places, and stories.</p>
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">The mission</p>
+          <h2 class="about-mission__title">The Peninsula deserves better than a brochure</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>The Mornington Peninsula has over 200 cellar doors, more Good Food Guide–hatted restaurants per square kilometre than anywhere outside inner Melbourne, and a coastline that changes personality four times in 40 minutes of driving. It deserves coverage that takes it seriously.</p>
+          <p>Most of what exists online is either tourism marketing dressed as editorial, or user-generated review content that tells you a restaurant has 4.3 stars without explaining what the 4.3 actually felt like. Neither helps you build a weekend.</p>
+          <p>Peninsula Insider is an attempt to fix that. We write opinionated, service-first editorial that answers the questions weekend visitors actually have — and we do it without taking money from the venues we cover.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Principles -->
+  <section class="about-principles">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Editorial standards</p>
+          <h2 class="split-intro__title">Four rules we don't bend</h2>
+        </div>
+        <p class="split-intro__body">These aren't aspirations. They're operating constraints. If we break them, the whole thing stops working.</p>
+      </div>
+      <div class="about-principles__grid">
+        {principles.map((principle) => (
+          <article class="about-principle">
+            <h3 class="about-principle__title">{principle.title}</h3>
+            <p class="about-principle__body">{principle.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage stats -->
+  <section class="about-coverage">
+    <div class="container">
+      <div class="about-coverage__inner">
+        <p class="label label--accent">Current coverage</p>
+        <h2 class="about-coverage__title">What's mapped so far</h2>
+        <p class="about-coverage__dek">The rebuild is live and growing. Every number below represents a real, editorially reviewed page — not a scraped listing.</p>
+        <dl class="about-coverage__stats">
+          <div>
+            <dd>{venues.length}</dd>
+            <dt>Venues mapped</dt>
+          </div>
+          <div>
+            <dd>{articles.length}</dd>
+            <dt>Journal pieces</dt>
+          </div>
+          <div>
+            <dd>{places.length}</dd>
+            <dt>Place hubs</dt>
+          </div>
+          <div>
+            <dd>{experiences.length}</dd>
+            <dt>Walks & experiences</dt>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it's built -->
+  <section class="about-build">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">How it's built</p>
+          <h2 class="about-mission__title">Structured content, not a WordPress blog</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>Peninsula Insider is built on an atomic content layer. Every venue, place, experience, and event is a structured entity with typed fields — not a blog post pretending to be a database. This means every page is connected: a venue knows which place it belongs to, which articles mention it, and which itineraries route through it.</p>
+          <p>The architecture is designed for editorial integrity at scale. When we update a venue's editor note, it flows through to every page that references it. When we add a new experience to a place, the place hub updates automatically. The structure does the work so the editors can focus on the writing.</p>
+          <p>The site is statically generated — no server, no database queries at runtime, no third-party trackers. Fast, private, and permanent. Every page has a real URL that will still work in ten years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <NewsletterBlock />
 </BaseLayout>

@@ -1,24 +1,97 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHero from '../components/SectionHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Contact' },
+];
+
+const contactReasons = [
+  {
+    icon: '✉️',
+    title: 'Story tips',
+    body: 'Know something we should? A new opening, a closure, a chef move, a venue that deserves coverage — or one that\'s coasting? We read everything.',
+    email: 'tips@peninsulainsider.com.au',
+  },
+  {
+    icon: '📝',
+    title: 'Corrections',
+    body: 'If we\'ve got a phone number wrong, a price band out of date, or a detail that doesn\'t match reality — tell us. Accuracy is the whole point.',
+    email: 'corrections@peninsulainsider.com.au',
+  },
+  {
+    icon: '🤝',
+    title: 'Editorial enquiries',
+    body: 'For questions about our editorial process, partnership philosophy, or anything that doesn\'t fit the other boxes.',
+    email: 'hello@peninsulainsider.com.au',
+  },
+];
 ---
 
-<BaseLayout title="Contact — Peninsula Insider" description="Contact Peninsula Insider." section="home">
+<BaseLayout
+  title="Contact — Peninsula Insider"
+  description="Get in touch with Peninsula Insider. Story tips, corrections, and editorial enquiries."
+  section="home"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
   <SectionHero
     eyebrow="Contact"
     subEyebrow="Editorial"
-    title="Tips, notes, and things we should <em>know.</em>"
-    dek="The production contact workflow is still to be built. For the preview, this page exists so the new footer has a real destination and the architecture stays coherent."
+    title="Tips, corrections, and things we should <em>know.</em>"
+    dek="We don't run a tips line for clicks. But if something on the Peninsula has changed, opened, closed, or deserves attention — we want to hear about it."
     gradient="stay"
-    visualLabel="Contact flow to be wired in Phase 2"
+    visualLabel="Peninsula Insider · contact"
   />
-  <section class="places">
+
+  <!-- Contact reasons -->
+  <section class="contact-reasons">
     <div class="container">
-      <div class="prose" style="margin: 0; max-width: 760px;">
-        <p>Phase 2 should add a proper contact form, submissions policy, venue correction flow, and editorial inbox routing. For tonight, the goal is working multi-page structure and believable surface area.</p>
+      <div class="contact-reasons__grid">
+        {contactReasons.map((reason) => (
+          <article class="contact-card">
+            <span class="contact-card__icon">{reason.icon}</span>
+            <h3 class="contact-card__title">{reason.title}</h3>
+            <p class="contact-card__body">{reason.body}</p>
+            <a href={`mailto:${reason.email}`} class="contact-card__email">{reason.email}</a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
+
+  <!-- Venue submissions policy -->
+  <section class="contact-policy">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">For venues</p>
+          <h2 class="about-mission__title">We don't accept paid placements</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>If you run a venue on the Peninsula and you'd like to be covered, there's nothing to buy. We choose what to cover based on editorial merit — is this place doing something interesting, doing it well, and would a reader's weekend be better for knowing about it?</p>
+          <p>You're welcome to let us know you exist. Send a note to <a href="mailto:tips@peninsulainsider.com.au">tips@peninsulainsider.com.au</a> with your venue name, location, and what you think makes it worth a visit. We'll add it to our list. No promises, no timelines, no invoices.</p>
+          <p>If your venue is already listed and something has changed — new chef, new hours, a renovation, a closure — please send corrections to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>. We take accuracy seriously and will update promptly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Response expectations -->
+  <section class="contact-expectations">
+    <div class="container">
+      <div class="contact-expectations__inner">
+        <p class="label label--accent">What to expect</p>
+        <div class="contact-expectations__body">
+          <p>We're a small editorial operation. We read every email, but we don't always reply — especially to tips. If your tip leads to coverage, you'll see it on the site. If a correction is valid, we'll fix it and you'll see the update.</p>
+          <p>We don't do phone calls, media kits, or press events. We do eat lunch, walk the coast, and visit cellar doors — often unannounced. That's the job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <NewsletterBlock />
 </BaseLayout>

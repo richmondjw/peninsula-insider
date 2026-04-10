@@ -17,11 +17,28 @@ export async function getStaticPaths() {
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const { venue } = Astro.props;
-const related = (await getCollection('venues'))
-  .filter((entry) => routeSlug(entry) !== routeSlug(venue))
+const slug = routeSlug(venue);
+
+const allVenues = await getCollection('venues');
+const related = allVenues
+  .filter((entry) => routeSlug(entry) !== slug)
   .filter((entry) => eatTypes.includes(entry.data.type))
   .filter((entry) => String(entry.data.place?.id ?? entry.data.place) === String(venue.data.place?.id ?? venue.data.place))
   .slice(0, 3);
+
+// Cross-link articles that reference this venue
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((article) =>
+    article.data.relatedVenues.some((entry) => String(entry.id ?? entry) === slug)
+  )
+  .slice(0, 3);
+
+// Cross-link itineraries that include this venue as a stop
+const itineraries = (await getCollection('itineraries'))
+  .filter((itinerary) =>
+    itinerary.data.stops.some((stop) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
+  )
+  .slice(0, 2);
 ---
 
 <BaseLayout
@@ -29,5 +46,5 @@ const related = (await getCollection('venues'))
   description={venue.data.signature}
   section="eat"
 >
-  <VenueDetailTemplate venue={venue} section="eat" related={related} />
+  <VenueDetailTemplate venue={venue} section="eat" related={related} articles={articles} itineraries={itineraries} />
 </BaseLayout>

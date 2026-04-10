@@ -1,22 +1,41 @@
 ---
-import { placeLabel, typeLabel } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix } from '../lib/editorial';
+import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import VenueCard from './VenueCard.astro';
+import ArticleCard from './ArticleCard.astro';
+import ItineraryCard from './ItineraryCard.astro';
 
 export interface Props {
   venue: any;
   section: 'eat' | 'stay' | 'wine';
   related?: any[];
+  articles?: any[];
+  itineraries?: any[];
 }
 
-const { venue, section, related = [] } = Astro.props;
+const { venue, section, related = [], articles = [], itineraries = [] } = Astro.props;
 const data = venue.data;
 const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
 const sectionHref = `/${section}`;
 const hats = data.authority?.hats ?? 0;
 const awards = data.authority?.awards ?? [];
+const pressMentions = data.authority?.pressMentions ?? [];
 const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: sectionLabel, href: sectionHref },
+  { label: data.name },
+];
+
+const moodTags = data.tags?.mood ?? [];
+const seasonTags = data.tags?.season ?? [];
+const audienceTags = data.tags?.audience ?? [];
+const allTags = [...moodTags, ...seasonTags, ...audienceTags];
 ---
+
+<Breadcrumbs items={breadcrumbItems} />
 
 <section class="venue-detail">
   <div class="container">
@@ -26,6 +45,8 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
       <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
       <span class="venue-detail__dot" aria-hidden="true"></span>
       <a href={`/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
+      <span class="venue-detail__dot" aria-hidden="true"></span>
+      <span class="venue-detail__price-band">{data.priceBand}</span>
     </div>
 
     <h1 class="venue-detail__title">{data.name}</h1>
@@ -43,6 +64,14 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
             <p>{paragraph}</p>
           ))}
         </div>
+
+        {allTags.length > 0 && (
+          <div class="venue-detail__tags">
+            {allTags.map((tag: string) => (
+              <span class="venue-detail__tag">{titleize(tag)}</span>
+            ))}
+          </div>
+        )}
       </div>
 
       <aside class="facts">
@@ -85,19 +114,70 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
             </>
           )}
 
+          {pressMentions.length > 0 && (
+            <>
+              <dt>Press</dt>
+              <dd>{pressMentions.join(' · ')}</dd>
+            </>
+          )}
+
           {data.website && (
             <>
               <dt>Website</dt>
-              <dd><a href={data.website}>{data.website.replace(/^https?:\/\//, '')}</a></dd>
+              <dd><a href={data.website}>{data.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
+            </>
+          )}
+
+          {data.lastVerified && (
+            <>
+              <dt>Verified</dt>
+              <dd>{data.lastVerified.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}</dd>
             </>
           )}
         </dl>
 
         {data.bookingUrl && <a class="facts__cta" href={data.bookingUrl}>Book now</a>}
+        {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>
     </div>
   </div>
 </section>
+
+{articles.length > 0 && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">In the journal</p>
+          <h2 class="venues__title">Stories that mention {data.name}</h2>
+          <p class="venues__sub">These pieces give you the context a listing page never does — the when, the why, and the who-it's-for.</p>
+        </div>
+        <a href="/journal" class="venues__link">Journal →</a>
+      </div>
+      <div class="venues__grid">
+        {articles.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{itineraries.length > 0 && (
+  <section class="escape-callout">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Part of an escape</p>
+          <h2 class="venues__title">Weekend plans that already include {data.name}</h2>
+          <p class="venues__sub">Skip the planning — these itineraries sequence this venue into a proper Peninsula weekend.</p>
+        </div>
+        <a href="/escape" class="venues__link">All escapes →</a>
+      </div>
+      <div class="itinerary-grid">
+        {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+      </div>
+    </div>
+  </section>
+)}
 
 {related.length > 0 && (
   <section class="venues venues--plain">
