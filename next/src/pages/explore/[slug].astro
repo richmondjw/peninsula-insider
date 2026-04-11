@@ -82,6 +82,8 @@ const seasonBest = experience.data.seasonBest?.length
 const duration = experience.data.durationMinutes ? `${experience.data.durationMinutes} min` : null;
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
+const hasHeroImage = experience.data.heroImage?.src && !experience.data.heroImage.src.includes('placeholder');
+const heroStyle = hasHeroImage ? `background-image: url(${experience.data.heroImage.src})` : undefined;
 ---
 
 <BaseLayout
@@ -107,7 +109,7 @@ const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hi
 
       <h1 class="experience-detail__title">{experience.data.name}</h1>
 
-      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true">
+      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle}>
         <div class="experience-detail__hero-fog"></div>
         <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
       </div>

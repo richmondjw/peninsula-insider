@@ -187,6 +187,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   overflow: hidden;
   aspect-ratio: 4 / 3;
   background: linear-gradient(160deg,#C9B99A 0%,#B8A885 25%,#7A8B6D 55%,#4E6B52 80%,#3A5240 100%);
+  background-size: cover;
+  background-position: center;
 }
 .cover__visual-fog {
   position: absolute;
@@ -253,6 +255,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   overflow: hidden;
   aspect-ratio: 4 / 3;
   min-height: 220px;
+  background-size: cover;
+  background-position: center;
 }
 .section-hero__visual-label {
   position: absolute;
@@ -344,6 +348,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: 2px;
   overflow: hidden;
   background: linear-gradient(135deg,#C9B99A 0%,#A89278 30%,#8B7055 60%,#6E5440 100%);
+  background-size: cover;
+  background-position: center;
 }
 .feature__image-overlay {
   position: absolute;
@@ -571,6 +577,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .place-card__image {
   aspect-ratio: 16 / 9;
   background: linear-gradient(135deg,#8B7B62 0%,#7A8B6D 50%,#4E6B52 100%);
+  background-size: cover;
+  background-position: center;
 }
 .place-card__image--bay {
   background: linear-gradient(135deg,#B8D4E8 0%,#7BACCB 40%,#4A7FA3 100%);
@@ -672,6 +680,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   overflow: hidden;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
   background: linear-gradient(135deg,#C9B99A 0%,#A89278 30%,#8B7055 60%,#6E5440 100%);
+  background-size: cover;
+  background-position: center;
 }
 .article__hero-fog {
   position: absolute;
@@ -890,6 +900,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: clamp(2rem, 4vw, 3rem);
+  background-size: cover;
+  background-position: center;
 }
 
 /* =========================================================

@@ -56,6 +56,8 @@ const relatedExperiences = allExperiences
 const authorLabel = article.data.houseByline
   ? 'The Peninsula Insider'
   : String(article.data.author?.id ?? article.data.author);
+const hasHeroImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder');
+const articleHeroStyle = hasHeroImage ? `background-image: url(${article.data.heroImage.src})` : undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -105,7 +107,7 @@ const breadcrumbItems = [
         </div>
       )}
 
-      <div class="article__hero" aria-hidden="true">
+      <div class="article__hero" aria-hidden="true" style={articleHeroStyle}>
         <div class="article__hero-fog"></div>
         <span class="article__hero-caption">{article.data.heroImage.alt}</span>
       </div>

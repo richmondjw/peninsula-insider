@@ -13,12 +13,14 @@ const slug = routeSlug(article);
 const authorLabel = article.data.houseByline
   ? 'By The Peninsula Insider'
   : `By ${String(article.data.author?.id ?? article.data.author)}`;
+const hasHeroImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder');
+const featureImgStyle = hasHeroImage ? `background-image: url(${article.data.heroImage.src})` : undefined;
 ---
 
 <section class="feature">
   <div class="container">
     <div class="feature__inner">
-      <div class="feature__image-block" aria-hidden="true">
+      <div class="feature__image-block" aria-hidden="true" style={featureImgStyle}>
         <div class="feature__image-overlay"></div>
         <span class="feature__image-tag">
           {formatLabel[article.data.format] ?? article.data.format}

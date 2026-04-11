@@ -22,10 +22,13 @@ const imgClass = variant === 'bay'
   : variant === 'sand'
   ? 'place-card__image place-card__image--sand'
   : 'place-card__image';
+
+const hasImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder');
+const imgStyle = hasImage ? `background-image: url(${data.heroImage.src})` : undefined;
 ---
 
 <article class="place-card">
-  <div class={imgClass} aria-hidden="true"></div>
+  <div class={imgClass} aria-hidden="true" style={imgStyle}></div>
   <div class="place-card__body">
     <p class="place-card__zone">{zoneLabel} · {data.kind}</p>
     <h3 class="place-card__name">

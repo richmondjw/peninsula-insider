@@ -11,6 +11,7 @@ export interface Props {
   dek: string;
   gradient?: 'vineyard' | 'bay' | 'sand' | 'hinterland' | 'stay' | 'journal';
   visualLabel?: string;
+  heroImage?: string;
 }
 
 const {
@@ -20,9 +21,11 @@ const {
   dek,
   gradient = 'vineyard',
   visualLabel,
+  heroImage,
 } = Astro.props;
 
 const gradClass = `section-hero__visual hero-grad--${gradient}`;
+const heroStyle = heroImage ? `background-image: url(${heroImage})` : undefined;
 ---
 
 <section class="section-hero">
@@ -37,7 +40,7 @@ const gradClass = `section-hero__visual hero-grad--${gradient}`;
         <h1 class="section-hero__title" set:html={title} />
         <p class="section-hero__dek">{dek}</p>
       </div>
-      <div class={gradClass} aria-hidden="true">
+      <div class={gradClass} aria-hidden="true" style={heroStyle}>
         <div class="section-hero__visual-fog"></div>
         {visualLabel && <span class="section-hero__visual-label">{visualLabel}</span>}
       </div>

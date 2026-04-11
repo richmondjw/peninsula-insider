@@ -29,10 +29,12 @@ const data = experience.data;
 const slug = routeSlug(experience);
 const duration = data.durationMinutes ? `${data.durationMinutes} min` : null;
 const difficulty = data.difficulty ? difficultyLabel[data.difficulty] ?? titleize(data.difficulty) : null;
+const hasImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder');
+const imgStyle = hasImage ? `background-image: url(${data.heroImage.src}); background-size: cover; background-position: center;` : undefined;
 ---
 
 <article class="experience-card">
-  <div class={`experience-card__visual experience-card__visual--${data.type}`} aria-hidden="true">
+  <div class={`experience-card__visual experience-card__visual--${data.type}`} aria-hidden="true" style={imgStyle}>
     <div class="experience-card__fog"></div>
     <span class="experience-card__tag">{typeLabel[data.type] ?? titleize(data.type)}</span>
   </div>

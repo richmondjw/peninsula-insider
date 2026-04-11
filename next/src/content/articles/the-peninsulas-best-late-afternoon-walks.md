@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-08
 heroImage:
-  src: "/images/placeholder-late-afternoon-walks.jpg"
-  alt: "Late-afternoon light over a Peninsula coastal walking track above the sea"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/sourced/journal-late-afternoon-walks-01.webp"
+  alt: "Coastal scrub along the Range Area Walk at Point Nepean"
+  credit: "Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)"
+  license: "wikimedia-cc-by-sa"
 format: "service"
 tags: ["explore", "walks", "cape-schanck", "sorrento"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "sorrento-back-beach", "point-nepean-fort-walk"]

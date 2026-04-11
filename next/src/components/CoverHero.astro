@@ -35,6 +35,9 @@ const seasonalVisualLabels: Record<string, string> = {
 };
 
 const hl = seasonalHeadlines[season];
+
+const coverImage = '/images/sourced/home-cover.webp';
+const coverCredit = 'Wikimedia Commons contributor (CC-BY-SA-4.0)';
 ---
 
 <section class="cover" aria-label="Cover story">
@@ -58,7 +61,7 @@ const hl = seasonalHeadlines[season];
           <p class="cover__promise-line">Every venue visited. Every opinion earned. Every recommendation unprompted.</p>
         </div>
       </div>
-      <div class="cover__visual" aria-hidden="true">
+      <div class="cover__visual" aria-hidden="true" style={`background-image: url(${coverImage})`}>
         <div class="cover__visual-fog"></div>
         <span class="cover__visual-label">{seasonalVisualLabels[season]}</span>
       </div>

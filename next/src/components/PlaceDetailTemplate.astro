@@ -69,7 +69,11 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
     <h1 class="place-detail__title">{place.data.name}</h1>
     <p class="place-detail__intro">{place.data.intro}</p>
 
-    <div class={`place-detail__hero ${heroGradientClass}`} aria-hidden="true">
+    <div
+      class={`place-detail__hero ${heroGradientClass}`}
+      aria-hidden="true"
+      style={place.data.heroImage?.src && !place.data.heroImage.src.includes('placeholder') ? `background-image: url(${place.data.heroImage.src})` : undefined}
+    >
       <div class="section-hero__visual-fog"></div>
       <span class="section-hero__visual-label">{place.data.heroImage.alt}</span>
     </div>
