@@ -1,0 +1,27 @@
+{
+  "slotId": "explore-red-hill-market-01",
+  "createdAt": "2026-04-11T01:45:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/explore-red-hill-market-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "HONEST BLOCKER. Wikimedia Commons has only 5 files in Category:Red_Hill,_Victoria — all are village infrastructure (General Store, Public Hall, Recreation Reserve, Rail Trail, Uniting Church). None are market/produce images. The Red Hill Community Market does not have a dedicated Commons category. No market-specific imagery exists in any searched Commons category (Mornington Peninsula, Red Hill Victoria).",
+    "searchApproach": "Commons API — Category:Red_Hill,_Victoria (5 files, none market-related). DuckDuckGo search for Wikimedia Commons Red Hill Market Victoria returned zero Commons results. No Pexels or Unsplash direct URL retrieval possible due to anti-bot protection.",
+    "blocker": "No market-specific imagery available from Wikimedia Commons. Unsplash/Pexels anti-bot protection blocks programmatic sourcing of categorical market images. Visit Victoria Content Hub not yet registered.",
+    "recommendedUnblockPath": [
+      "A — Visit Victoria Content Hub registration (likely has Red Hill Market coverage)",
+      "B — Unsplash API access for categorical farmers-market imagery",
+      "C — Manual James-provided Unsplash/Pexels URLs for market/produce shots",
+      "D — Red Hill Community Market website or Hill & Ridge Community Market media (requires outreach verification)"
+    ]
+  },
+  "candidates": [],
+  "generativeMetadata": { "applies": false },
+  "editorActionsRequested": [
+    {
+      "type": "unblock-required",
+      "question": "No Wikimedia Commons market imagery exists for Red Hill. This slot needs one of: Visit Victoria Content Hub, Unsplash API access, or manual URL provision. Alternatively defer to Phase 2.",
+      "defaultIfNoReply": "Defer to Phase 2 and keep fog placeholder."
+    }
+  ]
+}

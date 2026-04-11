@@ -1,0 +1,117 @@
+{
+  "slotId": "explore-cape-schanck-boardwalk-01",
+  "createdAt": "2026-04-11T01:45:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/explore-cape-schanck-boardwalk-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "Searched Wikimedia Commons Category:Cape_Schanck,_Victoria and Category:Cape_Schanck_Lighthouse (49 total files). Brief requires the boardwalk INFRASTRUCTURE — timber/basalt pathway, not just the view. One strong candidate found in the 'Boardwalks in Victoria, Australia' category. Two additional coastal-trail images as alternatives. Cape Schanck place-page hero (place-cape-schanck-01) uses the Marshlung Pulpit Rock dawn image — twinning avoided.",
+    "searchApproach": "Commons API — Category:Cape_Schanck,_Victoria + Category:Cape_Schanck_Lighthouse, filtered for trail/walk/boardwalk subjects, verified licence per-image."
+  },
+  "candidates": [
+    {
+      "candidateId": "explore-cape-schanck-boardwalk-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cape_Schanck_Upper_Trail_View.jpg",
+      "photographer": "Danilo Ramirez (Derg_daramir)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Own work. SA override required. Filed in Wikimedia category 'Boardwalks in Victoria, Australia' — confirms boardwalk subject.",
+      "dimensions": "4608x3456",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "geoCoords": "-38.49547, 144.88819",
+      "place": "Cape Schanck — upper trail/boardwalk, view towards the southernmost tip",
+      "dateTaken": "2016-05-07",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "RECOMMENDED. 4608x3456 — strong resolution. CRITICAL: this is the only Commons image categorised in 'Boardwalks in Victoria, Australia' at Cape Schanck — it shows the trail infrastructure the brief requires. Description: 'A photo from the trail of the southernmost tip of the Cape Schanck.' Taken May 2016 (autumn — perfect season fit). The trail/boardwalk composition invites walking. Distinct from place-cape-schanck-01 (Pulpit Rock dawn) and from explore-hub-hero-01 (Cape Schanck walking trail alternative). SA licence."
+    },
+    {
+      "candidateId": "explore-cape-schanck-boardwalk-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:View_from_Cape_Schanck_Lighthouse.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/View_from_Cape_Schanck_Lighthouse.jpg",
+      "photographer": "JML1148",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Own work. SA override required.",
+      "dimensions": "4608x3456",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "geoCoords": "-38.492805, 144.886315",
+      "place": "Cape Schanck — view from lighthouse area, January 2021",
+      "dateTaken": "2021-01-19",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Alternative. 4608x3456. View from the lighthouse reserve area. Does NOT show the boardwalk infrastructure as prominently as candidate A, but shows the coastal terrain the boardwalk descends through. Summer shot (January). Less targeted to the brief ('show the infrastructure of the walk') but stronger if the editor prefers a wider landscape perspective."
+    },
+    {
+      "candidateId": "explore-cape-schanck-boardwalk-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_JJBM_1.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Cape_Schanck_JJBM_1.jpg",
+      "photographer": "Juan Jose Basagoiti Mancera (Juanjobasman)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Own work. SA override required.",
+      "dimensions": "5472x3648",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Cape Schanck — coastal view from Mornington Peninsula",
+      "dateTaken": "2015-12-13",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Backup. Highest resolution in the pool at 5472x3648. General Cape Schanck coastline — does not specifically show the boardwalk infrastructure, so weakest match to the brief. But editorially strong and distinct from the Pulpit Rock dawn image used for the place hero. Use only if candidates A and B are both rejected."
+    }
+  ],
+  "twinningRegister": {
+    "place-cape-schanck-01": "Uses Marshlung Pulpit Rock dawn image. No twinning conflict with any candidate here.",
+    "explore-hub-hero-01": "May use Cape Schanck walking trail (2592x1556) as a fallback. Candidate A here is the Upper Trail View — different image, different angle, different photographer."
+  },
+  "generativeMetadata": { "applies": false },
+  "editorActionsRequested": [
+    {
+      "type": "sa-policy-dependency",
+      "question": "All three candidates are CC-BY-SA 4.0. Contingent on blanket SA policy acceptance."
+    },
+    {
+      "type": "brief-match-confirmation",
+      "question": "Candidate A best matches the brief's requirement to 'show the infrastructure of the walk.' Candidates B and C show the view more than the path. Confirm candidate A is the right framing."
+    }
+  ]
+}

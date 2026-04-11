@@ -1,0 +1,38 @@
+{
+  "slotId": "explore-bushrangers-bay-walk-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/explore-bushrangers-bay-walk-01.json",
+  "selected": "explore-bushrangers-bay-walk-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "5184x3456 — highest resolution Bushrangers Bay image in the Commons pool. Shot from Cape Schanck looking BACK into the bay, showing the distinctive rock stacks and bay geometry. Completely distinct from home-cover-01 (looking DOWN from the track) — anti-twinning preserved. Autumn/winter usage is seasonally plausible (taken January but the bay doesn't change). SA override required.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [
+    {
+      "candidateId": "explore-bushrangers-bay-walk-01-b",
+      "reason": "weaker-editorial-weight",
+      "note": "Beach-level view is more postcard-y. Still viable if editor prefers the ground-level perspective."
+    }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy. Week 3 slot advanced to this sprint.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/%29_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg",
+    "downloadTo": "/next/public/images/sourced/explore-bushrangers-bay-walk-01.webp",
+    "contentFileUpdates": ["next/src/content/experiences/bushrangers-bay-walk.json"],
+    "altText": "Bushrangers Bay and its distinctive rock stacks, viewed from Cape Schanck, Mornington Peninsula",
+    "credit": "Kevin Graham de Valle / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "Bushrangers Bay from Cape Schanck.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}
