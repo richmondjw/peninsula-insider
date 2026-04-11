@@ -3,14 +3,21 @@
   "name": "Mornington",
   "kind": "town",
   "zone": "bayside",
-  "coordinates": { "lat": -38.2173, "lng": 145.0378 },
+  "coordinates": {
+    "lat": -38.2173,
+    "lng": 145.0378
+  },
   "intro": "Mornington is the gateway town, and for a long time that's all it was — the first real stop on the bay road down from Melbourne, somewhere to buy petrol or lunch before pressing on to wineries and beaches further south. That undersells it now. Over the past decade Mornington has quietly developed into one of the best day-out towns on the Peninsula: a genuinely good main street, a Wednesday farmers' market on the Esplanade, a waterfront stretch of bathing boxes and foreshore pools, and a dining scene that ranges from casual brunch rooms to serious modern kitchens. It's also the Peninsula's most practical base if you want proximity to everything — north to Mount Martha's beach, south to Red Hill's vineyards, and fifteen minutes in either direction to the coast. Come for the Wednesday market if you can, walk the Esplanade at dusk, and treat the town as a whole day rather than a waypoint.",
   "heroImage": {
-    "src": "/images/placeholder-mornington.jpg",
-    "alt": "Mornington Esplanade bathing boxes and foreshore along Port Phillip Bay",
-    "credit": "Peninsula Insider",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-mornington-01.webp",
+    "alt": "Colourful bathing boxes along Mornington Beach foreshore, Port Phillip Bay",
+    "credit": "Simon Yeo / Wikimedia Commons (CC-BY-2.0)",
+    "license": "wikimedia-cc-by"
   },
-  "relatedPlaces": ["red-hill", "sorrento", "mount-martha"],
+  "relatedPlaces": [
+    "red-hill",
+    "sorrento",
+    "mount-martha"
+  ],
   "publishedAt": "2026-04-09"
 }

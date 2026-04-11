@@ -3,14 +3,21 @@
   "name": "Red Hill",
   "kind": "village",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3619, "lng": 145.0543 },
+  "coordinates": {
+    "lat": -38.3619,
+    "lng": 145.0543
+  },
   "intro": "Red Hill sits at the cool, misty heart of the Mornington Peninsula hinterland, perched on a basalt plateau where morning fog and afternoon light conspire to make this some of the most coveted pinot noir country in Australia. The plateau runs between the bay and the ocean, high enough to catch the cool Southern Ocean influence that makes the wines sing. A village by any strict measure — a general store, a monthly market, some of Victoria's finest restaurants tucked behind vineyard gates — Red Hill nonetheless organises the whole upper Peninsula around itself. Drives here wind through ferny gullies and open onto views that stop you mid-sentence. The Saturday market is worth planning a weekend around. The winery restaurant circuit — Ten Minutes by Tractor, Montalto, Principia, Crittenden — is the strongest such cluster in the state.",
   "heroImage": {
-    "src": "/images/placeholder-red-hill.jpg",
-    "alt": "Misty morning over the Red Hill plateau vineyards",
-    "credit": "Peninsula Insider",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-red-hill-01.webp",
+    "alt": "Pinot noir grapes ripening on the vine at Main Ridge Estate, Red Hill plateau",
+    "credit": "CSIRO / Wikimedia Commons (CC-BY-3.0)",
+    "license": "wikimedia-cc-by"
   },
-  "relatedPlaces": ["merricks", "flinders", "sorrento"],
+  "relatedPlaces": [
+    "merricks",
+    "flinders",
+    "sorrento"
+  ],
   "publishedAt": "2026-04-01"
 }

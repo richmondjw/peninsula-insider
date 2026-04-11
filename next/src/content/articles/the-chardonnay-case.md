@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/placeholder-chardonnay-case.jpg"
-  alt: "A tasting flight of four Peninsula chardonnays lined up in Zalto glasses on a cellar-door bench"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/sourced/article-chardonnay-case-01.webp"
+  alt: "White wine tasting flight at a vineyard cellar door — chardonnay in stemware against a winery backdrop"
+  credit: "Sarah Stierch / Wikimedia Commons (CC-BY-4.0)"
+  license: "wikimedia-cc-by"
 format: "cellar-door-dispatch"
 tags: ["wine", "chardonnay", "cellar-door", "red-hill", "main-ridge", "pinot-noir"]
 relatedVenues:
