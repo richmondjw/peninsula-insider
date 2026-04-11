@@ -51,7 +51,7 @@ Three things separate a vineyard villa stay from a hotel stay, and all three mat
 
 The Peninsula is crowded with rentals, and most of them are fine. The ones worth paying for are the ones where the property itself is doing the work — the vineyard, the farm, the ridge — not a renovation budget.
 
-### [Polperro Villas](/venues/polperro-villas)
+### [Polperro Villas](/stay/polperro-villas)
 
 Two villas. Inside a working vineyard. Each with an outdoor bath, a wood fire, a real kitchen, and a view back across the pinot rows. Walk to the Polperro cellar door through the vines. Breakfast hampers left the night before. A genuinely private weekend at estate-hotel quality, and very quietly one of the most luxurious stays the region has.
 
@@ -59,13 +59,13 @@ This is the move for a couple on an anniversary weekend, or for anyone who wants
 
 The clearest argument for Polperro is that once you are there, you do not need to leave. The cellar door is walkable. The kitchen works. The bath is outside. That is a complete stay, and the rest of the Peninsula becomes optional rather than obligatory.
 
-### [Hillview Farm Cottages](/venues/hillview-cottages)
+### [Hillview Farm Cottages](/stay/hillview-cottages)
 
 Three cottages on a working farm at Main Ridge. Self-catered. Wood fires. Paddock views. Eggs from the farm gate. A ridge-fog morning on the deck that justifies the entire trip.
 
 Hillview is the counter-argument to design hotels, and it is the right answer more often than people think. There is no restaurant on site. There is no front desk. The owners are hands-off in the best way. What you get instead is Main Ridge — the quiet upper plateau of the Peninsula where the air is cooler, the fog sits longer in the morning, and the landscape is visibly the reason the region started producing wine in the first place.
 
-It is the stay for a couple who want a break from restaurants, a small family who need the extra space, or anyone recovering from the kind of week that required too much of them. Ask for the "Ridge" cottage — the view across the pinot blocks is the one that matters. This works particularly well in tandem with a [thermal springs weekend](/articles/the-thermal-springs-weekend), because the cottage gives the bath day somewhere to land.
+It is the stay for a couple who want a break from restaurants, a small family who need the extra space, or anyone recovering from the kind of week that required too much of them. Ask for the "Ridge" cottage — the view across the pinot blocks is the one that matters. This works particularly well in tandem with a [thermal springs weekend](/journal/the-thermal-springs-weekend), because the cottage gives the bath day somewhere to land.
 
 ### The unbranded farm rental
 
@@ -77,9 +77,9 @@ The Peninsula has a deep inventory of these. Some are extraordinary — genuine 
 
 The villa weekend runs on a different logic to the hotel weekend, and the logic is: one booking a day, and only one.
 
-**Friday evening.** Arrive before dark if you can. Stop at a good producer on the way — the cellar door at [Merricks General Wine Store](/venues/merricks-general-wine-store) does a reliable job of the weekend kitchen haul if you time it right, or any of the Red Hill cellar doors that are still open at 5pm. Buy a bottle for tonight, a bottle for tomorrow night, and anything the region is doing well that you cannot get at home. Pick up a loaf at [Flinders Sourdough](/venues/flinders-sourdough) if you are coming through the south. Arrive at the villa. Light the fire. Eat simply. Sleep.
+**Friday evening.** Arrive before dark if you can. Stop at a good producer on the way — the cellar door at [Merricks General Wine Store](/eat/merricks-general-wine-store) does a reliable job of the weekend kitchen haul if you time it right, or any of the Red Hill cellar doors that are still open at 5pm. Buy a bottle for tonight, a bottle for tomorrow night, and anything the region is doing well that you cannot get at home. Pick up a loaf at [Flinders Sourdough](/eat/flinders-sourdough) if you are coming through the south. Arrive at the villa. Light the fire. Eat simply. Sleep.
 
-**Saturday.** One serious booking, and only one. Book lunch on the ridge — somewhere the villa delivers you to and not the other way around. Walk before lunch if the weather is fair; the [Bushrangers Bay walk](/experiences/bushrangers-bay-walk) is the one that sets up the meal properly. Come back to the villa in the afternoon. Bath. Fire. Cheese board and the rest of yesterday's bottle. Dinner in your own kitchen. The aim is to be horizontal by 9pm.
+**Saturday.** One serious booking, and only one. Book lunch on the ridge — somewhere the villa delivers you to and not the other way around. Walk before lunch if the weather is fair; the [Bushrangers Bay walk](/explore/bushrangers-bay-walk) is the one that sets up the meal properly. Come back to the villa in the afternoon. Bath. Fire. Cheese board and the rest of yesterday's bottle. Dinner in your own kitchen. The aim is to be horizontal by 9pm.
 
 **Sunday.** A slow breakfast in the cottage. A late-morning walk somewhere close. One coffee on the way home. Drive back refreshed rather than behind a day of driving between bookings.
 
@@ -89,6 +89,6 @@ That is three days. Two bookings, total. No front desk. No restaurant reception.
 
 The villa weekend is not for everyone.
 
-If you want the Peninsula to feel like an event — the black steel of [Jackalope](/venues/jackalope), a chandelier dining room, a bar staffed by people who know your cocktail — the villa is the wrong answer, and the hotel is the right one. See our [guide to the two-night Peninsula escape](/articles/where-to-stay-for-a-two-night-escape) for that version. If you are a first-time visitor who wants to see the region's highlights, a villa will feel oddly disconnected from the rest of the Peninsula, because you are meant to barely leave it. And if you do not want to cook, a villa is mainly going to frustrate you.
+If you want the Peninsula to feel like an event — the black steel of [Jackalope](/stay/jackalope), a chandelier dining room, a bar staffed by people who know your cocktail — the villa is the wrong answer, and the hotel is the right one. See our [guide to the two-night Peninsula escape](/journal/where-to-stay-for-a-two-night-escape) for that version. If you are a first-time visitor who wants to see the region's highlights, a villa will feel oddly disconnected from the rest of the Peninsula, because you are meant to barely leave it. And if you do not want to cook, a villa is mainly going to frustrate you.
 
 For everyone else — and especially anyone who has been promising themselves a real break — this is the stay the Peninsula is quietly best at. The hotels get the magazines. The villas get the weekends that actually work.

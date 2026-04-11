@@ -36,7 +36,7 @@ This is the decision that determines everything else, and it is the one people m
 
 **A group of friends.** The Peninsula group weekend is either excellent or terrible, depending on whether someone takes charge of the plan. The critical decision: one shared dinner at a long table, everything else loosely coordinated. Do not try to keep six adults on the same schedule for an entire weekend. Budget: $200–400 per person.
 
-**Solo.** The underrated Peninsula trip. A long walk, a counter lunch, a cellar door tasting where you can talk to the winemaker without a group dynamic. The Peninsula solo day is covered in our [four-hour guide](/articles/the-four-hour-peninsula). Budget: $100–250.
+**Solo.** The underrated Peninsula trip. A long walk, a counter lunch, a cellar door tasting where you can talk to the winemaker without a group dynamic. The Peninsula solo day is covered in our [four-hour guide](/journal/the-four-hour-peninsula). Budget: $100–250.
 
 ## Decision two: where to stay
 

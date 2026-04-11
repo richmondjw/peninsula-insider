@@ -46,7 +46,7 @@ Set an alarm. You can sleep in tomorrow.
 
 ## 1. Commonfolk Coffee — Mornington, 7:30am
 
-[Commonfolk](/venues/commonfolk-coffee) is the Peninsula's serious coffee operation and has been for long enough that the rest of the region now buys its beans wholesale. The warehouse cafe on Progress Street is not a brunch destination in the typical sense — there are no poached eggs, there is no smashed avo, there is no queue for a table at 11am because the morning rush is over by nine-thirty — and this is precisely why it is worth making the drive across town at dawn.
+[Commonfolk](/eat/commonfolk-coffee) is the Peninsula's serious coffee operation and has been for long enough that the rest of the region now buys its beans wholesale. The warehouse cafe on Progress Street is not a brunch destination in the typical sense — there are no poached eggs, there is no smashed avo, there is no queue for a table at 11am because the morning rush is over by nine-thirty — and this is precisely why it is worth making the drive across town at dawn.
 
 **What to order:** a single-origin filter, not a milk drink. The filter coffees are the part of the program the roasters care about most, and it changes every two or three weeks. Buy a bag of beans to take home while you are at it; the house blend is strong, but the rotating single-origins are the interesting ones.
 
@@ -56,7 +56,7 @@ This is the Peninsula stop for anyone who is particular about coffee and does no
 
 ## 2. Flinders Sourdough — Flinders, 8:00am
 
-If you are staying on the southern half of the Peninsula — anywhere from Red Hill to Cape Schanck — the morning belongs to [Flinders Sourdough](/venues/flinders-sourdough) on Cook Street. This is a working bakery with a wood-fired oven running from Thursday through Sunday, and the laminated pastries that come out of it between eight and nine are among the most serious croissants south of the bridge.
+If you are staying on the southern half of the Peninsula — anywhere from Red Hill to Cape Schanck — the morning belongs to [Flinders Sourdough](/eat/flinders-sourdough) on Cook Street. This is a working bakery with a wood-fired oven running from Thursday through Sunday, and the laminated pastries that come out of it between eight and nine are among the most serious croissants south of the bridge.
 
 **What to order:** a plain butter croissant, a black filter coffee, and — if you are still hungry — a slice of whatever miche or country loaf is on the counter, toasted, with butter. Do not order the fancy sandwiches. They are fine; the plainer items are better.
 
@@ -66,7 +66,7 @@ This is also the correct starting point for a Saturday shopping run — see our 
 
 ## 3. The Continental Sorrento — Sorrento, 8:30am
 
-[The Continental](/venues/the-continental-sorrento) is the hotel dining room in the main street of Sorrento, and if you have never had breakfast there you are missing one of the most quietly complete breakfast rooms on the Peninsula. The room itself is beautiful — restored, light-filled, genuinely grand in a way that most Australian hotel breakfasts are not — and the kitchen takes the meal seriously in a way that most hotel breakfasts also do not.
+[The Continental](/stay/the-continental-sorrento) is the hotel dining room in the main street of Sorrento, and if you have never had breakfast there you are missing one of the most quietly complete breakfast rooms on the Peninsula. The room itself is beautiful — restored, light-filled, genuinely grand in a way that most Australian hotel breakfasts are not — and the kitchen takes the meal seriously in a way that most hotel breakfasts also do not.
 
 **What to order:** the eggs benedict on sourdough, a flat white, and fresh orange juice. This is not the place to experiment with the menu. Order the classic; the kitchen nails it.
 
@@ -76,7 +76,7 @@ The Continental is also the correct choice if the weekend is a morning-then-beac
 
 ## 4. Pier Street Flinders — Flinders, 9:00am
 
-[Pier Street](/venues/pier-street-flinders) is the small, sit-down cafe across from the Flinders pier, and while it gets less press than the bakery two streets over, it is the better option if you want a proper sit-down breakfast with table service and the kind of light-flooded room that defines a Flinders Saturday morning.
+[Pier Street](/eat/pier-street-flinders) is the small, sit-down cafe across from the Flinders pier, and while it gets less press than the bakery two streets over, it is the better option if you want a proper sit-down breakfast with table service and the kind of light-flooded room that defines a Flinders Saturday morning.
 
 **What to order:** the mushrooms on toast with whatever local mushroom the kitchen has in that week, a flat white, and — if the counter is baking — a berry friand for the table. The mushrooms rotate with the season and the kitchen has a surprisingly light hand with them; this is not the oily grey heap most Australian cafes put on a plate.
 
@@ -84,7 +84,7 @@ The Continental is also the correct choice if the weekend is a morning-then-beac
 
 ## 5. The Epicurean Red Hill — Red Hill, 9:30am
 
-[The Epicurean](/venues/epicurean-red-hill) is the bistro-café-and-providore tucked into Red Hill, and while it is primarily a lunch destination, the early morning hour here is quiet, unhurried, and has something the coastal cafes do not: the wine country outside the window. Sitting in the garden at 9:30 on a Saturday with a pot of coffee and a plate of something sourced from about four kilometres away is a specific Peninsula experience.
+[The Epicurean](/eat/epicurean-red-hill) is the bistro-café-and-providore tucked into Red Hill, and while it is primarily a lunch destination, the early morning hour here is quiet, unhurried, and has something the coastal cafes do not: the wine country outside the window. Sitting in the garden at 9:30 on a Saturday with a pot of coffee and a plate of something sourced from about four kilometres away is a specific Peninsula experience.
 
 **What to order:** whatever the morning tart is (usually one savoury, one sweet), a pot of black tea, and a piece of the bread from the counter with house butter and jam. The full breakfast menu is solid but overkill for this kind of morning. Travel light.
 

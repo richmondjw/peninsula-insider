@@ -92,7 +92,7 @@ Three tiers, three different trips.
 
 ## The one-day plan vs the two-day plan
 
-**If you have one day,** read our [four-hour guide](/articles/the-four-hour-peninsula) and build around a single axis: Melbourne → Red Hill for lunch → one cellar door → Mornington for coffee → home. Do not try to reach Sorrento.
+**If you have one day,** read our [four-hour guide](/journal/the-four-hour-peninsula) and build around a single axis: Melbourne → Red Hill for lunch → one cellar door → Mornington for coffee → home. Do not try to reach Sorrento.
 
 **If you have two days,** spend day one on the hinterland (cellar doors, lunch, producers) and day two on the coast (Sorrento village, back beach walk, Point Nepean if you are ambitious). Sleep somewhere on the ridge. This is the format that covers the most ground without turning the trip into a drive.
 

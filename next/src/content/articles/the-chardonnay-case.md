@@ -49,35 +49,35 @@ If you want the shortest possible introduction to the argument, taste across the
 
 ### 1. Kooyong — the benchmark, again
 
-[Kooyong's](/venues/kooyong) single-vineyard Farrago Chardonnay is the wine most serious Peninsula drinkers will name if you push them to identify the region's ceiling in white. The Farrago block sits on north-facing iron-rich soils on the Main Ridge and delivers a chardonnay that is structured, slow to open, and — crucially — ages for a decade without losing its line. It is not an easy wine. The first glass reads as reserved to the point of severity; the second glass is where the texture and the fruit arrive. This is the wine to taste if you want to understand what the Peninsula is actually capable of at the top end.
+[Kooyong's](/wine/kooyong) single-vineyard Farrago Chardonnay is the wine most serious Peninsula drinkers will name if you push them to identify the region's ceiling in white. The Farrago block sits on north-facing iron-rich soils on the Main Ridge and delivers a chardonnay that is structured, slow to open, and — crucially — ages for a decade without losing its line. It is not an easy wine. The first glass reads as reserved to the point of severity; the second glass is where the texture and the fruit arrive. This is the wine to taste if you want to understand what the Peninsula is actually capable of at the top end.
 
 **What to taste:** the single-vineyard flight. Ask for the current and previous release Farrago back-to-back if it is available. The difference between a fresh release and a three-year-old bottle is the entire point.
 
 ### 2. Ocean Eight — the purity argument
 
-Mike Aylward's [Ocean Eight](/venues/ocean-eight) makes the chardonnay we would personally put in a cellar before almost any other Peninsula white. The Aylward Chardonnay is worked minimally — wild fermentation, minimal new oak, long lees contact — and the result is a wine that tastes like the vineyard rather than the winemaker. Green apple, citrus pith, a saline backbone that reads as distinctly coastal, and the kind of quiet intensity that opens up slowly over an hour rather than arriving all at once.
+Mike Aylward's [Ocean Eight](/wine/ocean-eight) makes the chardonnay we would personally put in a cellar before almost any other Peninsula white. The Aylward Chardonnay is worked minimally — wild fermentation, minimal new oak, long lees contact — and the result is a wine that tastes like the vineyard rather than the winemaker. Green apple, citrus pith, a saline backbone that reads as distinctly coastal, and the kind of quiet intensity that opens up slowly over an hour rather than arriving all at once.
 
 This is a wine that needs to be drunk at the correct temperature (twelve degrees, not eight) and with a proper glass. Ocean Eight is not a tourism cellar door. Book ahead and treat the tasting as the serious twenty-minute commitment it actually is.
 
 ### 3. Port Phillip Estate — the accessible one
 
-[Port Phillip Estate](/venues/port-phillip-estate) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is quietly some of the best value on the Peninsula, and the estate's main room — with its dramatic architecture and the Arthurs Seat view behind the cellar door — is also one of the more pleasant places to sit through a tasting.
+[Port Phillip Estate](/stay/port-phillip-estate) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is quietly some of the best value on the Peninsula, and the estate's main room — with its dramatic architecture and the Arthurs Seat view behind the cellar door — is also one of the more pleasant places to sit through a tasting.
 
 **What to taste:** the Reserve Chardonnay, especially if the 2023 is still pouring. It is the wine we keep recommending to sceptics because it converts them.
 
 ### 4. Paringa Estate — the unfashionable benchmark
 
-[Paringa Estate](/venues/paringa-estate) has been making Peninsula chardonnay for longer than almost anyone else, and the Paringa Estate Reserve Chardonnay is the wine that quietly won the international medals in the early 2000s when the Peninsula was still being dismissed as a boutique curiosity. The house style is richer than the newer producers — more oak, more malo, more texture — and for that reason it tends to get overlooked by the people chasing the tight, mineral, European-leaning wines. Do not overlook it. A ten-year-old Paringa Reserve Chardonnay is one of the most complete Peninsula whites you will ever taste, and the cellar door is one of the few places in the region where vertical tastings of older vintages are sometimes available on request.
+[Paringa Estate](/wine/paringa-estate) has been making Peninsula chardonnay for longer than almost anyone else, and the Paringa Estate Reserve Chardonnay is the wine that quietly won the international medals in the early 2000s when the Peninsula was still being dismissed as a boutique curiosity. The house style is richer than the newer producers — more oak, more malo, more texture — and for that reason it tends to get overlooked by the people chasing the tight, mineral, European-leaning wines. Do not overlook it. A ten-year-old Paringa Reserve Chardonnay is one of the most complete Peninsula whites you will ever taste, and the cellar door is one of the few places in the region where vertical tastings of older vintages are sometimes available on request.
 
 ### 5. Ten Minutes by Tractor — the restaurant wine
 
-[Ten Minutes by Tractor](/venues/ten-minutes-by-tractor) is best known as a hatted restaurant and a Wine List of the Year winner, but the estate wine program is the serious other half of the story. The single-vineyard chardonnays — Wallis, McCutcheon, Judd — are among the most compelling white wines being made on the Peninsula right now, in part because the kitchen next door provides a constant, brutal stress test for whether the wines actually work at the table. They do.
+[Ten Minutes by Tractor](/eat/ten-minutes-by-tractor) is best known as a hatted restaurant and a Wine List of the Year winner, but the estate wine program is the serious other half of the story. The single-vineyard chardonnays — Wallis, McCutcheon, Judd — are among the most compelling white wines being made on the Peninsula right now, in part because the kitchen next door provides a constant, brutal stress test for whether the wines actually work at the table. They do.
 
 The cellar door tasting is tied to the restaurant's rhythm and tends to be quieter on weekday mornings. Book the single-vineyard chardonnay flight specifically. If you can stay for lunch, this is also the room that makes the case for chardonnay with food most clearly. (See our [review of the three serious dinners](/journal/three-italian-dinners) for the broader context.)
 
 ### 6. Dexter Wines — the quiet obsessive
 
-[Dexter](/venues/dexter-wines) makes a single chardonnay from a single block and is almost entirely by appointment. Tod Dexter has been working Peninsula fruit for long enough that the wine has a distinctive hand — a slightly riper core, a little more texture, and an ability to age that surprises even regular Dexter drinkers. This is the one to taste if you want to meet the winemaker and understand the wine as a product of one person's three decades of decisions rather than a house style.
+[Dexter](/wine/dexter-wines) makes a single chardonnay from a single block and is almost entirely by appointment. Tod Dexter has been working Peninsula fruit for long enough that the wine has a distinctive hand — a slightly riper core, a little more texture, and an ability to age that surprises even regular Dexter drinkers. This is the one to taste if you want to meet the winemaker and understand the wine as a product of one person's three decades of decisions rather than a house style.
 
 ## What to actually buy
 

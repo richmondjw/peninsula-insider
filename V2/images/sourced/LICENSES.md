@@ -74,3 +74,51 @@ with verified provenance and geo-location.
 - **Photographer:** Danilo Ramirez
 - **Licence:** CC-BY-SA-4.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg
+
+## place-red-hill-01.webp
+- **Source:** CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate
+- **Photographer:** CSIRO
+- **Licence:** CC-BY-3.0
+- **Original:** https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg
+
+## place-main-ridge-01.webp
+- **Source:** CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate
+- **Photographer:** CSIRO
+- **Licence:** CC-BY-3.0
+- **Original:** https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg
+
+## place-mornington-01.webp
+- **Source:** Mornington, Victoria Bathing boxes on the beach
+- **Photographer:** Simon Yeo
+- **Licence:** CC-BY-2.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg
+
+## place-portsea-01.webp
+- **Source:** Point King beach in Portsea Victoria
+- **Photographer:** Essiewingrove
+- **Licence:** CC-BY-SA-4.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg
+
+## explore-arthurs-seat-lookout-01.webp
+- **Source:** Mornington Peninsula from Arthur's Seat
+- **Photographer:** Prateek.agarwal44
+- **Licence:** CC-BY-SA-4.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_from_Arthur%27s_Seat.jpg
+
+## explore-mprg-01.webp
+- **Source:** Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington
+- **Photographer:** pru_mitchell
+- **Licence:** CC-BY-2.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg
+
+## explore-sorrento-ocean-baths-01.webp
+- **Source:** Beach near Portsea during winter
+- **Photographer:** Simone Kealy
+- **Licence:** CC-BY-SA-4.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg
+
+## article-chardonnay-case-01.webp
+- **Source:** White wine seated tasting at Tablas Creek Vineyard
+- **Photographer:** Sarah Stierch (Missvain)
+- **Licence:** CC-BY-4.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Tablas_Creek_Vineyard_-_Stierch_-_July_2019_03.jpg

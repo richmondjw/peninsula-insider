@@ -11,8 +11,13 @@ import { defineConfig } from 'astro/config';
 // Do not add integrations (Tailwind, MDX, etc.) until they earn their place.
 // Intentionally minimal so a human dev can pick this up and see the bones.
 
+// Preview builds to /V2/ on GitHub Pages set ASTRO_BASE=/V2/.
+// Production (root-served) builds leave it unset.
+const base = process.env.ASTRO_BASE || undefined;
+
 export default defineConfig({
   site: 'https://peninsulainsider.com.au',
+  base,
   trailingSlash: 'never',
   build: {
     format: 'directory',
