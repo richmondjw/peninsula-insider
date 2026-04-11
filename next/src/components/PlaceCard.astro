@@ -9,6 +9,8 @@ export interface Props {
   variant?: 'vineyard' | 'bay' | 'sand';
 }
 
+import { heroBackgroundStyle } from '../lib/editorial';
+
 const { place, variant = 'vineyard' } = Astro.props;
 const data = place.data;
 const slug = place.id ?? data.slug;
@@ -23,8 +25,7 @@ const imgClass = variant === 'bay'
   ? 'place-card__image place-card__image--sand'
   : 'place-card__image';
 
-const hasImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder');
-const imgStyle = hasImage ? `background-image: url(${data.heroImage.src})` : undefined;
+const imgStyle = heroBackgroundStyle(data);
 ---
 
 <article class="place-card">

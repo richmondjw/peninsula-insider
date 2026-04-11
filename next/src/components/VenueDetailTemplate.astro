@@ -1,5 +1,5 @@
 ---
-import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../lib/editorial';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import VenueCard from './VenueCard.astro';
@@ -22,8 +22,7 @@ const hats = data.authority?.hats ?? 0;
 const awards = data.authority?.awards ?? [];
 const pressMentions = data.authority?.pressMentions ?? [];
 const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
-const hasHeroImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder');
-const heroStyle = hasHeroImage ? `background-image: url(${data.heroImage.src}); background-size: cover; background-position: center;` : undefined;
+const heroStyle = heroBackgroundStyle(data);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

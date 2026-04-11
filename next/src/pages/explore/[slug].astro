@@ -7,7 +7,7 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { placeLabel, routeSlug, titleize, venueHrefPrefix } from '../../lib/editorial';
+import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -82,8 +82,7 @@ const seasonBest = experience.data.seasonBest?.length
 const duration = experience.data.durationMinutes ? `${experience.data.durationMinutes} min` : null;
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
-const hasHeroImage = experience.data.heroImage?.src && !experience.data.heroImage.src.includes('placeholder');
-const heroStyle = hasHeroImage ? `background-image: url(${experience.data.heroImage.src})` : undefined;
+const heroStyle = heroBackgroundStyle(experience.data);
 ---
 
 <BaseLayout

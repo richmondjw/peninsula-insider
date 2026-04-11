@@ -2,7 +2,7 @@
 /**
  * FeatureArticle — homepage hero article block.
  */
-import { formatLabel, routeSlug } from '../lib/editorial';
+import { formatLabel, routeSlug, heroBackgroundStyle } from '../lib/editorial';
 
 export interface Props {
   article: any;
@@ -13,8 +13,7 @@ const slug = routeSlug(article);
 const authorLabel = article.data.houseByline
   ? 'By The Peninsula Insider'
   : `By ${String(article.data.author?.id ?? article.data.author)}`;
-const hasHeroImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder');
-const featureImgStyle = hasHeroImage ? `background-image: url(${article.data.heroImage.src})` : undefined;
+const featureImgStyle = heroBackgroundStyle(article.data);
 ---
 
 <section class="feature">

@@ -134,6 +134,47 @@ export function routeSlug(entry: any) {
 }
 
 /**
+ * Places that have a matching `/images/sourced/place-{slug}-01.webp`.
+ * Used as the middle rung of the hero fallback chain so any venue,
+ * experience, or article in one of these places at least inherits
+ * a location-appropriate visual when its own hero is a placeholder.
+ * Keep in sync with what actually ships in `public/images/sourced/`.
+ */
+export const placesWithHero = new Set<string>([
+  'balnarring', 'cape-schanck', 'dromana', 'flinders', 'main-ridge',
+  'merricks', 'moorooduc', 'mornington', 'mount-martha', 'point-nepean',
+  'portsea', 'red-hill', 'rosebud', 'rye', 'safety-beach', 'sorrento',
+]);
+
+/**
+ * Resolve a usable hero image src. The source content often contains
+ * placeholder paths (e.g. `/images/placeholder-foo.jpg`) that don't
+ * exist on disk; templates used to skip those entirely, leaving blank
+ * hero blocks. This walks a fallback chain instead:
+ *   1. The content's own heroImage.src, if it isn't a placeholder
+ *   2. `place-{place}-01.webp` when the place has a sourced image
+ *   3. `home-cover.webp` as the ultimate backstop
+ */
+export function resolveHeroSrc(data: any): string {
+  const src = data?.heroImage?.src;
+  if (src && !src.includes('placeholder')) return src;
+  const place = String(data?.place?.id ?? data?.place ?? '');
+  if (place && placesWithHero.has(place)) {
+    return `/images/sourced/place-${place}-01.webp`;
+  }
+  return '/images/sourced/home-cover.webp';
+}
+
+/**
+ * Return the inline `background-image` style string for a hero block.
+ * Using a single helper keeps template call-sites short and makes the
+ * fallback chain a one-line dependency everywhere it's needed.
+ */
+export function heroBackgroundStyle(data: any): string {
+  return `background-image: url(${resolveHeroSrc(data)}); background-size: cover; background-position: center;`;
+}
+
+/**
  * Return the current Southern-Hemisphere season from a Date.
  * Used for seasonal hooks on index pages.
  */

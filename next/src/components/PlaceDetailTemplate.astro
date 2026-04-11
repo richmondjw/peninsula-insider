@@ -6,7 +6,7 @@ import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
-import { titleize } from '../lib/editorial';
+import { titleize, heroBackgroundStyle } from '../lib/editorial';
 
 export interface Props {
   place: any;
@@ -72,7 +72,7 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
     <div
       class={`place-detail__hero ${heroGradientClass}`}
       aria-hidden="true"
-      style={place.data.heroImage?.src && !place.data.heroImage.src.includes('placeholder') ? `background-image: url(${place.data.heroImage.src})` : undefined}
+      style={heroBackgroundStyle(place.data)}
     >
       <div class="section-hero__visual-fog"></div>
       <span class="section-hero__visual-label">{place.data.heroImage.alt}</span>

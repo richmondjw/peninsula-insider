@@ -1,5 +1,5 @@
 ---
-import { placeLabel, titleize, routeSlug } from '../lib/editorial';
+import { placeLabel, titleize, routeSlug, heroBackgroundStyle } from '../lib/editorial';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -29,8 +29,7 @@ const data = experience.data;
 const slug = routeSlug(experience);
 const duration = data.durationMinutes ? `${data.durationMinutes} min` : null;
 const difficulty = data.difficulty ? difficultyLabel[data.difficulty] ?? titleize(data.difficulty) : null;
-const hasImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder');
-const imgStyle = hasImage ? `background-image: url(${data.heroImage.src}); background-size: cover; background-position: center;` : undefined;
+const imgStyle = heroBackgroundStyle(data);
 ---
 
 <article class="experience-card">

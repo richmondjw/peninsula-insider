@@ -1700,6 +1700,109 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
+   EDITOR'S DESK — seasonal framing block on the Journal hub.
+   Two-column note with a hand-ruled feel: headline + body on the
+   left, format key on the right. Sits between the section hero
+   and the feature story so the hub reads like an issue, not an
+   archive.
+   ========================================================= */
+.editors-desk {
+  padding: clamp(3.25rem, 6vw, 4.75rem) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.editors-desk__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.editors-desk__inner::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 3.25rem;
+  height: 3px;
+  background: var(--accent);
+}
+.editors-desk__col {
+  min-width: 0;
+}
+.editors-desk__col .label {
+  display: block;
+  margin-bottom: 1.1rem;
+}
+.editors-desk__title {
+  font-size: clamp(1.75rem, 3.3vw, 2.45rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  margin-bottom: 1.35rem;
+  max-width: 22ch;
+}
+.editors-desk__body {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--text);
+  max-width: 58ch;
+}
+.editors-desk__body + .editors-desk__body { margin-top: 1rem; }
+.editors-desk__body em {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 1.05em;
+}
+.editors-desk__formats {
+  padding: 1.75rem 1.75rem 1.9rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+.editors-desk__format-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.editors-desk__format-list li {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--soft);
+  padding-left: 1rem;
+  position: relative;
+}
+.editors-desk__format-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 0.45rem;
+  height: 1px;
+  background: var(--accent);
+}
+.editors-desk__format-list strong {
+  display: block;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: -0.005em;
+  margin-bottom: 0.1rem;
+}
+@media (max-width: 760px) {
+  .editors-desk__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+  .editors-desk__formats {
+    padding: 1.5rem 1.4rem 1.6rem;
+  }
+}
+
+/* =========================================================
    FORMAT NAV — in-page section jump strip (journal + places).
    ========================================================= */
 .format-nav {

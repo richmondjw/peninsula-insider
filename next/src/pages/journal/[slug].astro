@@ -6,7 +6,7 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle } from '../../lib/editorial';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -56,8 +56,7 @@ const relatedExperiences = allExperiences
 const authorLabel = article.data.houseByline
   ? 'The Peninsula Insider'
   : String(article.data.author?.id ?? article.data.author);
-const hasHeroImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder');
-const articleHeroStyle = hasHeroImage ? `background-image: url(${article.data.heroImage.src})` : undefined;
+const articleHeroStyle = heroBackgroundStyle(article.data);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

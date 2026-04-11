@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug } from '../../lib/editorial';
+import { formatLabel, routeSlug, heroBackgroundStyle } from '../../lib/editorial';
 
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -133,7 +133,7 @@ const groups = formatOrder
     <section class="feature feature--compact">
       <div class="container">
         <div class="feature__inner">
-          <div class="feature__image-block feature__image-block--bay" aria-hidden="true" style={featured.data.heroImage?.src && !featured.data.heroImage.src.includes('placeholder') ? `background-image: url(${featured.data.heroImage.src}); background-size: cover; background-position: center;` : undefined}>
+          <div class="feature__image-block feature__image-block--bay" aria-hidden="true" style={heroBackgroundStyle(featured.data)}>
             <div class="feature__image-overlay"></div>
             <span class="feature__image-tag">Lead story</span>
           </div>
