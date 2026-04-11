@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-peninsula-picnic.jpg"
+  src: "/images/sourced/article-picnic-01.webp"
   alt: "A picnic spread of cheese, bread, charcuterie and wine on a blanket overlooking bay views"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn"]
 relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "advance-mussel-supply", "balnarring-bakehouse", "somers-general", "johnny-ripe", "sorrento-bakery", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market", "small-stone-pantry"]

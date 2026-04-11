@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-11
 heroImage:
-  src: "/images/placeholder-rainy-day-no-booking.jpg"
+  src: "/images/sourced/article-rainy-day-01.webp"
   alt: "A wet Peninsula high street with umbrellas, bakery windows, and low cloud over the coast"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["rainy-day", "winter", "local-guide", "indoor", "day-trip"]
 relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "flinders-hotel", "stringers-mornington", "ashcombe-maze", "the-bay-hotel-mornington", "balnarring-pub", "red-hill-cheese", "mornington-peninsula-chocolates", "via-boffe"]

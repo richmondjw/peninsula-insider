@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
 heroImage:
-  src: "/images/placeholder-peninsula-dogs.jpg"
+  src: "/images/sourced/article-dog-friendly-01.webp"
   alt: "A labrador splashing through shallow Peninsula bay water at a dog-friendly beach in the morning light"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["dogs", "beach", "families", "explore", "pubs", "red-hill", "balnarring", "flinders"]
 relatedVenues: ["red-hill-brewery", "balnarring-pub", "flinders-hotel", "st-andrews-beach-brewery", "merricks-general-wine-store", "montalto", "mornington-farmers-market", "dromana-hotel", "commonfolk-coffee", "main-ridge-dairy", "somers-general", "hillview-cottages", "crittenden-villas"]

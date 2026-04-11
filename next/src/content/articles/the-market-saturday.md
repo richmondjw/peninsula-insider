@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-13
 heroImage:
-  src: "/images/placeholder-peninsula-markets.jpg"
+  src: "/images/sourced/article-peninsula-pantry-01.webp"
   alt: "A morning market stall in autumn with Peninsula apples, honey jars, and a producer unloading crates"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["markets", "mornington", "red-hill", "balnarring", "weekend", "producers"]
 relatedVenues: ["mornington-farmers-market", "red-hill-market", "balnarring-market", "red-hill-brewery", "red-hill-bakery", "merricks-general-wine-store", "commonfolk-coffee", "red-hill-cheese", "main-ridge-dairy", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "advance-mussel-supply", "small-stone-pantry", "somers-general", "balnarring-bakehouse", "johnny-ripe", "mornington-peninsula-chocolates"]

@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-12
 heroImage:
-  src: "/images/placeholder-sorrento-weekend.jpg"
+  src: "/images/sourced/article-sorrento-weekend-01.webp"
   alt: "Sorrento main street on a bright autumn morning with the bay behind the limestone buildings"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["sorrento", "portsea", "weekend", "stay", "bayside", "back-beaches"]
 relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "sorrento-bakery", "sorrento-gelato", "portsea-hotel", "the-baths-sorrento", "sorrento-coastal-retreat", "pt-leo-estate", "barragunda-dining"]

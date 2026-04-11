@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-sunset-drink.jpg"
+  src: "/images/sourced/article-sunset-01.webp"
   alt: "A glass of rosé catching golden light on a pub verandah overlooking Port Phillip Bay at dusk"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "insider-edit"
 tags: ["wine", "eat", "sunset", "bayside", "ocean-coast", "red-hill", "sorrento"]
 relatedVenues:

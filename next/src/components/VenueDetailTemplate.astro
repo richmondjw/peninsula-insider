@@ -22,6 +22,8 @@ const hats = data.authority?.hats ?? 0;
 const awards = data.authority?.awards ?? [];
 const pressMentions = data.authority?.pressMentions ?? [];
 const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
+const hasHeroImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder');
+const heroStyle = hasHeroImage ? `background-image: url(${data.heroImage.src}); background-size: cover; background-position: center;` : undefined;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -52,7 +54,7 @@ const allTags = [...moodTags, ...seasonTags, ...audienceTags];
     <h1 class="venue-detail__title">{data.name}</h1>
     <p class="venue-detail__signature">{data.signature}</p>
 
-    <div class="venue-detail__hero" aria-hidden="true">
+    <div class="venue-detail__hero" aria-hidden="true" style={heroStyle}>
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
     </div>

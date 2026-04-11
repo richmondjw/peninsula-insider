@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-03
 heroImage:
-  src: "/images/placeholder-rainy-day.jpg"
+  src: "/images/sourced/article-rainy-day-01.webp"
   alt: "A fire lit in a Peninsula dining room on a grey winter afternoon"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["winter", "rainy-day", "indoor", "hot-springs", "fireplace"]
 relatedVenues: ["alba-thermal-springs", "peninsula-hot-springs", "tedesca-osteria", "lindenderry", "bass-and-flinders", "ashcombe-maze", "stringers-mornington", "mornington-peninsula-chocolates", "red-hill-cheese", "via-boffe"]

@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/placeholder-point-nepean.jpg"
+  src: "/images/sourced/article-point-nepean-01.webp"
   alt: "Defensive batteries at Point Nepean with the Rip and the Bellarine Peninsula in the distance"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["point-nepean", "sorrento", "portsea", "walks", "history", "explore", "families"]
 relatedVenues: ["portsea-hotel", "hotel-sorrento", "the-continental-sorrento", "sorrento-bakery", "sorrento-gelato"]

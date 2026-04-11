@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-04
 heroImage:
-  src: "/images/placeholder-flinders-weekend.jpg"
+  src: "/images/sourced/article-flinders-weekend-01.webp"
   alt: "Flinders Pier and Bass Strait at dusk, with the village behind"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["flinders", "stay", "walks", "slow", "weekend"]
 relatedVenues: ["flinders-hotel", "pier-street-flinders", "flinders-sourdough", "tedesca-osteria", "flinders-general-store", "nazaaray-estate", "mornington-peninsula-chocolates", "flinders-pier-takeaway"]

@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/placeholder-peninsula-swim.jpg"
+  src: "/images/sourced/article-beach-swimming-01.webp"
   alt: "A swimmer pushing off from the shallow pale sand of a Peninsula bay beach on a calm morning"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["beach", "swim", "summer", "family", "bay", "back-beaches", "explore"]
 relatedVenues: ["the-baths-sorrento", "sorrento-hotel", "hotel-sorrento", "portsea-hotel", "dromana-hotel"]

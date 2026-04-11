@@ -6,10 +6,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-03-15
 heroImage:
-  src: "/images/placeholder-long-lunch.jpg"
+  src: "/images/sourced/article-long-lunch-01.webp"
   alt: "A long table set for lunch at Montalto, overlooking the olive grove"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "long-lunch-list"
 tags: ["eat", "wine", "weekend", "red-hill", "long-lunch"]
 relatedVenues: ["ten-minutes-by-tractor", "montalto", "pt-leo-estate", "tedesca-osteria", "port-phillip-estate-restaurant", "paringa-estate", "stillwater-crittenden", "pt-leo-estate", "barragunda-dining", "green-olive-red-hill", "morning-sun"]

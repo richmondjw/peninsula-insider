@@ -99,6 +99,7 @@ const groups = formatOrder
     dek="The Journal is where Peninsula Insider moves past directories and into voice. Browse by format below, or jump straight to the three pieces doing the most work right now."
     gradient="journal"
     visualLabel="Long lunch notebook · cellar door dispatches"
+    heroImage="/images/sourced/journal-hub-hero-01.webp"
   />
 
   <!-- Editor’s desk note — a short seasonal framing block that tells
@@ -132,7 +133,7 @@ const groups = formatOrder
     <section class="feature feature--compact">
       <div class="container">
         <div class="feature__inner">
-          <div class="feature__image-block feature__image-block--bay" aria-hidden="true">
+          <div class="feature__image-block feature__image-block--bay" aria-hidden="true" style={featured.data.heroImage?.src && !featured.data.heroImage.src.includes('placeholder') ? `background-image: url(${featured.data.heroImage.src}); background-size: cover; background-position: center;` : undefined}>
             <div class="feature__image-overlay"></div>
             <span class="feature__image-tag">Lead story</span>
           </div>

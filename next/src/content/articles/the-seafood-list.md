@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-seafood-list.jpg"
+  src: "/images/sourced/article-seafood-01.webp"
   alt: "A plate of freshly shucked oysters with lemon on a weathered timber table near a pier"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "insider-edit"
 tags: ["eat", "seafood", "bayside", "hastings", "mornington", "sorrento", "flinders"]
 relatedVenues:

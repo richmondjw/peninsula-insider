@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/placeholder-producer-trail.jpg"
+  src: "/images/sourced/article-producer-trail-01.webp"
   alt: "A wheel of fresh Peninsula goat cheese being lifted from a chilled rack at a small dairy"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore"]
 relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "advance-mussel-supply", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "mornington-peninsula-cider", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]

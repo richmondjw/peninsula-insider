@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-07
 heroImage:
-  src: "/images/placeholder-three-dinners.jpg"
+  src: "/images/sourced/article-italian-dinners-01.webp"
   alt: "A comparative lunch table across three of the Peninsula's most serious restaurants"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "insider-edit"
 tags: ["eat", "wine", "red-hill", "long-lunch", "review"]
 relatedVenues: ["tedesca-osteria", "ten-minutes-by-tractor", "laura-pt-leo", "doot-doot-doot", "mr-vincenzos", "via-boffe", "la-baracca-tgallant", "ciao-amici", "pane-e-vino"]

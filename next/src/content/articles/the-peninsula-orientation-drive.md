@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-orientation-drive.jpg"
+  src: "/images/sourced/article-orientation-drive-01.webp"
   alt: "A ridge road winding through Red Hill vineyards with Port Phillip Bay in the distance"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["explore", "drive", "first-timers", "red-hill", "sorrento", "day-trip"]
 relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "pier-street-flinders", "dromana-hotel", "balnarring-pub", "crittenden-estate", "yabby-lake", "red-hill-bakery", "somers-general"]

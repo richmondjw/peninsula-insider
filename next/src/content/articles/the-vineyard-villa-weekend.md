@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/placeholder-vineyard-villa.jpg"
+  src: "/images/sourced/article-vineyard-villa-01.webp"
   alt: "A private vineyard villa with an outdoor bath and wood fire on the Red Hill plateau"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "stay-notes"
 tags: ["stay", "weekend", "villa", "cottage", "red-hill", "main-ridge", "slow"]
 relatedVenues:

@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-first-time-peninsula.jpg"
+  src: "/images/sourced/article-orientation-drive-01.webp"
   alt: "A car approaching the Peninsula on a clear autumn morning with vineyard-covered hills ahead"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["first-timers", "guide", "overview", "planning", "explore", "weekend"]
 relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-bakery", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]

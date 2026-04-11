@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/placeholder-one-night-escape.jpg"
+  src: "/images/sourced/article-couples-weekend-01.webp"
   alt: "A lit hotel window at dusk on the Mornington Peninsula, the ridge in soft focus behind"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["weekend", "stay", "overnight", "wellness", "sorrento", "red-hill", "flinders"]
 relatedVenues:

@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-peninsula-with-kids.jpg"
+  src: "/images/sourced/article-kids-peninsula-01.webp"
   alt: "A family on a grass slope above Port Phillip Bay on a bright autumn afternoon"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["family", "kids", "day-trip", "explore", "mount-martha", "arthurs-seat"]
 relatedVenues: ["red-hill-brewery", "merricks-general-wine-store", "commonfolk-coffee", "epicurean-red-hill", "sunny-ridge-strawberry-farm", "main-ridge-dairy", "ashcombe-maze", "red-gum-bbq", "st-andrews-beach-brewery", "dromana-hotel", "rye-hotel", "sorrento-gelato", "johnny-ripe"]

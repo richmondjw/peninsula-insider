@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-08
 heroImage:
-  src: "/images/placeholder-red-hill-saturday.jpg"
+  src: "/images/sourced/article-red-hill-saturday-01.webp"
   alt: "A Red Hill Saturday spanning market stalls, vineyard rows, and a long lunch terrace"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["red-hill", "wine", "long-lunch", "weekend"]
 relatedVenues: ["montalto", "polperro", "ten-minutes-by-tractor", "lindenderry", "red-hill-market", "red-hill-bakery", "johnny-ripe", "red-hill-cheese", "foxeys-hangout", "paringa-estate", "main-ridge-estate"]

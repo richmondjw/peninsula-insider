@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-couples-weekend.jpg"
+  src: "/images/sourced/article-couples-weekend-01.webp"
   alt: "Two wine glasses on a villa deck overlooking Peninsula vineyards at late afternoon"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["couples", "weekend", "stay", "wine", "romance", "red-hill", "sorrento", "flinders"]
 relatedVenues:

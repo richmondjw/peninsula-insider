@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-06
 heroImage:
-  src: "/images/placeholder-cellar-door-list.jpg"
+  src: "/images/sourced/article-cellar-door-01.webp"
   alt: "Five wine glasses lined up for a tasting flight in a Peninsula cellar door"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "red-hill", "main-ridge", "cellar-door", "pinot-noir"]
 relatedVenues: ["kooyong", "dexter-wines", "ocean-eight", "polperro", "quealy-winemakers", "main-ridge-estate", "eldridge-estate", "hurley-vineyard", "paradigm-hill", "moorooduc-estate", "scorpo-wines", "stonier-wines", "avani-wines"]

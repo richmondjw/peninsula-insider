@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-sunset-hour.jpg"
+  src: "/images/sourced/article-sunset-01.webp"
   alt: "Golden light falling across Port Phillip Bay from a Peninsula clifftop at dusk"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["sunset", "walks", "views", "evening", "couples", "romance", "photography"]
 relatedVenues: ["hotel-sorrento", "portsea-hotel", "the-baths-sorrento", "the-continental-sorrento", "point-leo-wine-terrace", "laura-pt-leo", "montalto", "polperro", "flinders-hotel", "pier-street-flinders", "lindenderry"]

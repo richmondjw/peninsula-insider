@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-02
 heroImage:
-  src: "/images/placeholder-two-night-escape.jpg"
+  src: "/images/sourced/article-vineyard-villa-01.webp"
   alt: "A guest room balcony looking across vineyard rows on the Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  credit: "Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "stay-notes"
 tags: ["stay", "weekend", "sorrento", "red-hill"]
 relatedVenues: ["jackalope", "lindenderry", "the-continental-sorrento", "hotel-sorrento", "port-phillip-estate", "crittenden-villas", "peninsula-hot-springs-glamping", "the-continental-sorrento", "point-leo-estate-villas", "polperro-villas", "hillview-cottages"]
