@@ -161,22 +161,6 @@ const seasonalExperiences = experiences
     </div>
   </section>
 
-    <div class="container">
-      <div class="issue-ribbon__inner">
-        <div class="issue-ribbon__label">
-          <span class="label label--accent">The {issueDate} issue</span>
-        </div>
-        <dl class="issue-ribbon__stats">
-          <div><dt>Pieces</dt><dd>{issueStats.articles}</dd></div>
-          <div><dt>Venues mapped</dt><dd>{issueStats.venues}</dd></div>
-          <div><dt>Places</dt><dd>{issueStats.places}</dd></div>
-          <div><dt>Walks & moves</dt><dd>{issueStats.experiences}</dd></div>
-          <div><dt>Escape plans</dt><dd>{issueStats.itineraries}</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
   {weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend="This weekend" />}
 
   {weekendPicks.length > 0 && (
