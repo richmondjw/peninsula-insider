@@ -49,7 +49,7 @@ const recurrenceCopy: Record<string, string> = {
 ---
 
 <BaseLayout
-  title={`${event.data.title} — Peninsula Insider`}
+  title={`${event.data.title} \u2014 Peninsula Insider`}
   description={event.data.summary}
   section="whats-on"
 >
@@ -57,9 +57,9 @@ const recurrenceCopy: Record<string, string> = {
     <div class="container">
       <nav class="event-detail__crumbs" aria-label="Breadcrumb">
         <a href="/">Peninsula Insider</a>
-        <span aria-hidden="true">›</span>
-        <a href="/whats-on">What’s On</a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">\u203a</span>
+        <a href="/whats-on">What\u2019s On</a>
+        <span aria-hidden="true">\u203a</span>
         <span>{event.data.title}</span>
       </nav>
 
@@ -89,7 +89,7 @@ const recurrenceCopy: Record<string, string> = {
         <div class="event-detail__main">
           {event.data.editorVerdict && (
             <aside class="event-verdict">
-              <p class="event-verdict__label">Editor’s verdict</p>
+              <p class="event-verdict__label">Editor\u2019s verdict</p>
               <p class="event-verdict__body">{event.data.editorVerdict}</p>
             </aside>
           )}
@@ -143,7 +143,7 @@ const recurrenceCopy: Record<string, string> = {
               {event.data.worthTheDrive && (
                 <div>
                   <dt>Worth the drive</dt>
-                  <dd>Yes — unprompted recommendation</dd>
+                  <dd>Yes \u2014 unprompted recommendation</dd>
                 </div>
               )}
               {event.data.firstTimer && (
@@ -155,7 +155,7 @@ const recurrenceCopy: Record<string, string> = {
               {event.data.bookingUrl && (
                 <div>
                   <dt>Book / info</dt>
-                  <dd><a href={event.data.bookingUrl} rel="nofollow noreferrer">Organiser →</a></dd>
+                  <dd><a href={event.data.bookingUrl} rel="nofollow noreferrer">Organiser \u2192</a></dd>
                 </div>
               )}
             </dl>
@@ -182,9 +182,9 @@ const recurrenceCopy: Record<string, string> = {
         <div class="venues__header">
           <div>
             <p class="label label--accent">Keep planning</p>
-            <h2 class="venues__title">More from What’s On</h2>
+            <h2 class="venues__title">More from What\u2019s On</h2>
           </div>
-          <a href="/whats-on" class="venues__link">All events →</a>
+          <a href="/whats-on" class="venues__link">All events \u2192</a>
         </div>
         <div class="event-grid">
           {sidebar.map((entry) => <EventCard event={entry} />)}

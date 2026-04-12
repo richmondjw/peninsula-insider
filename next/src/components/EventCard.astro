@@ -1,9 +1,9 @@
 ---
 /**
- * EventCard — the primary card for the What's On index.
+ * EventCard \u2014 the primary card for the What's On index.
  *
  * Designed to carry the Peninsula Insider editorial wedge up front:
- * date, category, editor verdict, badges. No plain directory rows —
+ * date, category, editor verdict, badges. No plain directory rows \u2014
  * every event carries at least one sentence of opinion.
  */
 import EventBadges from './EventBadges.astro';
@@ -46,5 +46,5 @@ const placeLabel =
     weather={event.data.weather}
     skipThis={event.data.skipThis}
   />
-  <a href={`/whats-on/${slug}`} class="event-card__cta">Read the full guide →</a>
+  <a href={`/whats-on/${slug}`} class="event-card__cta">Read the full guide \u2192</a>
 </article>
