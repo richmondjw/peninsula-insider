@@ -148,48 +148,61 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    COVER HERO (homepage)
    ========================================================= */
 .cover {
-  padding: clamp(2.4rem, 7vw, 4.8rem) 0 0;
+  padding: clamp(2.25rem, 6vw, 4rem) 0 clamp(2rem, 4vw, 2.8rem);
   border-bottom: 1px solid var(--border);
 }
 .cover__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 6vw, 6rem);
-  align-items: end;
-  padding-bottom: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.9fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
 }
 .cover__meta {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.1rem;
 }
 .cover__meta .label { color: var(--accent); }
 .cover__meta-rule { flex: 1; height: 1px; background: var(--border); }
 .cover__headline {
-  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-size: clamp(3.25rem, 6.8vw, 5.9rem);
   font-weight: 600;
-  line-height: 0.97;
-  letter-spacing: -0.025em;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
   color: var(--dark);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 .cover__headline em { font-style: italic; color: var(--accent); }
 .cover__dek {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.65;
   color: var(--soft);
-  max-width: 42ch;
+  max-width: 40ch;
   font-weight: 300;
+  margin-bottom: 1rem;
+}
+.cover__promise-line {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--dark);
+  max-width: 42ch;
+}
+.cover__visual-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 .cover__visual {
   position: relative;
   border-radius: 2px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1.22 / 1;
+  min-height: 320px;
   background: linear-gradient(160deg,#C9B99A 0%,#B8A885 25%,#7A8B6D 55%,#4E6B52 80%,#3A5240 100%);
   background-size: cover;
   background-position: center;
+  box-shadow: 0 18px 40px rgba(30,27,24,0.08);
 }
 .cover__visual-fog {
   position: absolute;
@@ -200,14 +213,17 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: absolute;
   bottom: 1.25rem;
   left: 1.25rem;
-  color: rgba(253,252,250,0.75);
+  color: rgba(253,252,250,0.82);
   font-size: 0.6rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
 }
-.cover__band {
-  display: none;
+.cover__credit {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
 }
 
 /* =========================================================
@@ -299,12 +315,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .editorial-promise {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
-  padding: 2.5rem 0 2.4rem;
+  padding: 1.5rem 0 1.65rem;
 }
 .editorial-promise__inner {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.8fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
   align-items: start;
 }
 .editorial-promise__lead .label {
@@ -312,27 +328,29 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: block;
 }
 .editorial-promise__title {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
   font-weight: 600;
   color: var(--dark);
   line-height: 1.2;
+  max-width: 18ch;
 }
 .editorial-promise__points {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 .editorial-promise__point {
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.55;
   color: var(--text);
 }
 .editorial-promise__point strong {
   color: var(--dark);
   font-weight: 600;
 }
-@media (max-width: 768px) {
-  .editorial-promise__inner { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .editorial-promise__inner,
+  .editorial-promise__points { grid-template-columns: 1fr; }
 }
 
 /* =========================================================
@@ -340,7 +358,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    ========================================================= */
 .pillars {
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--white);
 }
 .pillars__inner {
   display: grid;
@@ -354,8 +372,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   justify-content: center;
   text-align: center;
   gap: 0.45rem;
-  min-height: 88px;
-  padding: 0.95rem 0.75rem 0.9rem;
+  min-height: 94px;
+  padding: 1rem 0.75rem 0.95rem;
   border-right: 1px solid var(--border);
   cursor: default;
   transition: background .2s var(--ease);
@@ -1667,18 +1685,27 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    current issue stats. Keeps the rebuild feeling alive.
    ========================================================= */
 .issue-ribbon {
-  background: var(--bg-alt);
+  background: var(--white);
   border-bottom: 1px solid var(--border);
-  padding: 0.85rem 0 0.9rem;
+  padding: 1rem 0 1.05rem;
 }
 .issue-ribbon__inner {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
-.issue-ribbon__label { flex-shrink: 0; }
+.issue-ribbon__label {
+  flex-shrink: 0;
+  max-width: 32rem;
+}
+.issue-ribbon__note {
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--soft);
+}
 .issue-ribbon__stats {
   display: flex;
   gap: clamp(1.5rem, 4vw, 3.5rem);
@@ -2060,15 +2087,15 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 
 /* Weekend Picker dispatch block — homepage + whats-on hero */
 .weekend-picker {
-  background: var(--dark);
+  background: #201d1a;
   color: #F2EDE4;
-  padding: clamp(3rem, 6vw, 5rem) 0;
+  padding: clamp(3rem, 6vw, 4.2rem) 0;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .weekend-picker__inner {
   display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.5fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: start;
 }
 .weekend-picker__label-block .label--accent { color: #DDB68C; }

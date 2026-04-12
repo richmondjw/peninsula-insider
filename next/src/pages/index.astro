@@ -116,9 +116,26 @@ const seasonalExperiences = experiences
 >
   <CoverHero issueDate={issueDate} />
 
-  <!-- Editorial promise — the manifesto strip that establishes voice before
-       any content loads. This is the first thing a new reader scans after
-       the hero, so it must crystallise what Peninsula Insider *is*. -->
+  <section class="issue-ribbon" aria-label="This issue">
+    <div class="container">
+      <div class="issue-ribbon__inner">
+        <div class="issue-ribbon__label">
+          <span class="label label--accent">The {issueDate} issue</span>
+          <p class="issue-ribbon__note">Independent coverage for people who want the best version of the Peninsula, not the brochure version.</p>
+        </div>
+        <dl class="issue-ribbon__stats">
+          <div><dt>Pieces</dt><dd>{issueStats.articles}</dd></div>
+          <div><dt>Venues mapped</dt><dd>{issueStats.venues}</dd></div>
+          <div><dt>Places</dt><dd>{issueStats.places}</dd></div>
+          <div><dt>Walks & moves</dt><dd>{issueStats.experiences}</dd></div>
+          <div><dt>Escape plans</dt><dd>{issueStats.itineraries}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <PillarNav />
+
   <section class="editorial-promise" aria-label="Editorial promise">
     <div class="container">
       <div class="editorial-promise__inner">
@@ -129,24 +146,21 @@ const seasonalExperiences = experiences
         <div class="editorial-promise__points">
           <div class="editorial-promise__point">
             <strong>We visit.</strong>
-            <span>Every venue in this guide has been eaten at, walked through, or slept in by a named editor. No desk reviews. No aggregated stars.</span>
+            <span>Every venue in this guide has been eaten at, walked through, or slept in by a named editor.</span>
           </div>
           <div class="editorial-promise__point">
             <strong>We choose.</strong>
-            <span>Coverage is earned, not bought. No advertising, no sponsored listings, no press-trip hospitality. If a restaurant appears, it’s because the meal was worth the sentence.</span>
+            <span>No advertising, no sponsored listings, no press-trip hospitality, no brochure fluff.</span>
           </div>
           <div class="editorial-promise__point">
             <strong>We opine.</strong>
-            <span>Every venue carries an editor note — a short, honest paragraph about what the place actually feels like when you sit down. Agreement optional; clarity guaranteed.</span>
+            <span>Every recommendation is meant to help you decide faster, not scroll longer.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <PillarNav />
-
-  <section class="issue-ribbon" aria-label="This issue">
     <div class="container">
       <div class="issue-ribbon__inner">
         <div class="issue-ribbon__label">
