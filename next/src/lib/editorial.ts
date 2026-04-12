@@ -1,3 +1,16 @@
+/**
+ * Prefix an internal path with the site's base URL so links work
+ * when the build is served from a subdirectory (e.g. /V2/).
+ * Set ASTRO_BASE=/V2/ at build time; without it, paths stay root-relative.
+ */
+export function baseHref(path: string): string {
+  const raw = import.meta.env.BASE_URL || '/';
+  const base = raw.endsWith('/') ? raw : raw + '/';
+  if (path === '/' || path === '') return base;
+  const clean = path.startsWith('/') ? path.slice(1) : path;
+  return `${base}${clean}`;
+}
+
 export const formatLabel: Record<string, string> = {
   'editors-letter': 'Editor\'s Letter',
   'long-lunch-list': 'Long Lunch List',
@@ -124,9 +137,9 @@ export function placeLabel(place: any) {
 }
 
 export function venueHrefPrefix(type: string) {
-  if (stayTypes.includes(type)) return '/stay';
-  if (wineTypes.includes(type)) return '/wine';
-  return '/eat';
+  if (stayTypes.includes(type)) return baseHref('/stay');
+  if (wineTypes.includes(type)) return baseHref('/wine');
+  return baseHref('/eat');
 }
 
 export function routeSlug(entry: any) {
@@ -160,9 +173,9 @@ export function resolveHeroSrc(data: any): string {
   if (src && !src.includes('placeholder')) return src;
   const place = String(data?.place?.id ?? data?.place ?? '');
   if (place && placesWithHero.has(place)) {
-    return `/images/sourced/place-${place}-01.webp`;
+    return baseHref(`/images/sourced/place-${place}-01.webp`);
   }
-  return '/images/sourced/home-cover.webp';
+  return baseHref('/images/sourced/home-cover.webp');
 }
 
 /**
