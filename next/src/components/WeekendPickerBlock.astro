@@ -28,19 +28,19 @@ const pubDate = dispatch?.data?.publishedAt?.toLocaleDateString('en-AU', {
     <div class="weekend-picker__inner">
       <div class="weekend-picker__label-block">
         <span class="label label--accent">Peninsula This Weekend</span>
-        <p class="weekend-picker__cadence">Published Wednesday 6pm \u00b7 one pick, one backup, one thing to skip</p>
+        <p class="weekend-picker__cadence">Published Wednesday 6pm · one pick, one backup, one thing to skip</p>
       </div>
       <div class="weekend-picker__content">
         <p class="weekend-picker__kicker">
-          {weekend ?? 'This weekend'} \u00b7 dispatch {pubDate}
+          {weekend ?? 'This weekend'} · dispatch {pubDate}
         </p>
         <h2 class="weekend-picker__title">
           <a href={`/journal/${slug}`}>{dispatch.data.title}</a>
         </h2>
         <p class="weekend-picker__dek">{dispatch.data.dek}</p>
         <div class="weekend-picker__ctas">
-          <a href={`/journal/${slug}`} class="weekend-picker__cta">Read this week's dispatch \u2192</a>
-          <a href="/whats-on" class="weekend-picker__cta weekend-picker__cta--ghost">All events \u2192</a>
+          <a href={`/journal/${slug}`} class="weekend-picker__cta">Read this week's dispatch →</a>
+          <a href="/whats-on" class="weekend-picker__cta weekend-picker__cta--ghost">All events →</a>
         </div>
       </div>
     </div>
