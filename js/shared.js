@@ -2,7 +2,26 @@
 // THE PENINSULA INSIDER — Shared JavaScript
 // ========================================================================
 
-// ===== HAMBURGER MENU =====
+// ===== SIMPLE PASSWORD GATE =====
+(function() {
+  var PASSWORD = '1xlx1';
+  var STORAGE_KEY = 'peninsula_insider_access_v1';
+  var path = window.location.pathname || '/';
+  var bypass = path.indexOf('/preview') !== -1 || path.indexOf('/V2') !== -1;
+  if (bypass) return;
+  if (sessionStorage.getItem(STORAGE_KEY) === 'granted') return;
+
+  var entered = window.prompt('Peninsula Insider is currently private. Enter password to continue:');
+  if (entered === PASSWORD) {
+    sessionStorage.setItem(STORAGE_KEY, 'granted');
+    return;
+  }
+
+  document.documentElement.innerHTML = '';
+  document.body.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;font-family:Outfit,Arial,sans-serif;background:#f5f1eb;color:#1e1b18;text-align:center;"><div><p style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;color:#8b7055;">Private Preview</p><h1 style="font-family:Cormorant Garamond,Georgia,serif;font-size:2.4rem;margin:0 0 1rem;">Access denied</h1><p style="max-width:30rem;line-height:1.6;margin:0 auto;">This site is currently password protected. Refresh and enter the correct password to continue.</p></div></div>';
+})();
++
++// ===== HAMBURGER MENU =====
 const hamburger = document.getElementById('hamburger');
 const navMobile = document.getElementById('navMobile');
 
