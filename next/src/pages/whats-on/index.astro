@@ -23,16 +23,16 @@ const events = (await getCollection('events'))
   })
   .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
 
-// Weekend Picker \u2014 pull the newest dispatch article to anchor the page.
+// Weekend Picker — pull the newest dispatch article to anchor the page.
 const dispatches = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .filter((a) => a.data.format === 'weekend-picker')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const currentDispatch = dispatches[0];
 
-// Editor's picks \u2014 events flagged as weekend-pick.
+// Editor's picks — events flagged as weekend-pick.
 const editorsPicks = events.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
 
-// Skip-this highlights \u2014 the monthly explicit \u201cskip\u201d block.
+// Skip-this highlights — the monthly explicit “skip” block.
 const skipEvents = events.filter((event) => event.data.skipThis);
 
 // Category groupings for the index body. Only show groups with content.
@@ -40,7 +40,7 @@ const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
   {
     key: 'racing-sport',
     title: 'Racing & Sport',
-    blurb: 'The Peninsula\u2019s racing days and endurance weekends \u2014 the single category Melbourne visitors under-plan.',
+    blurb: 'The Peninsula’s racing days and endurance weekends — the single category Melbourne visitors under-plan.',
   },
   {
     key: 'writers-ideas',
@@ -50,12 +50,12 @@ const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
   {
     key: 'market',
     title: 'Markets, Ranked',
-    blurb: 'The Peninsula runs eight recurring markets. Here they are in the order we\u2019d actually attend them.',
+    blurb: 'The Peninsula runs eight recurring markets. Here they are in the order we’d actually attend them.',
   },
   {
     key: 'cellar-door',
     title: 'Cellar Door Events',
-    blurb: 'Release weekends, winemaker dinners and tastings \u2014 the region\u2019s strongest category, rarely treated as events.',
+    blurb: 'Release weekends, winemaker dinners and tastings — the region’s strongest category, rarely treated as events.',
   },
   {
     key: 'live-music',
@@ -70,7 +70,7 @@ const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
   {
     key: 'family-programs',
     title: 'Kids & Family',
-    blurb: 'School-holiday programmes graded A/B/C. We\u2019ve been to most of them. We\u2019ll tell you which ones.',
+    blurb: 'School-holiday programmes graded A/B/C. We’ve been to most of them. We’ll tell you which ones.',
   },
   {
     key: 'nature',
@@ -80,7 +80,7 @@ const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
   {
     key: 'exhibition',
     title: 'Exhibitions & Galleries',
-    blurb: 'The region\u2019s serious public art, a strong rainy-day category nobody leans into.',
+    blurb: 'The region’s serious public art, a strong rainy-day category nobody leans into.',
   },
   {
     key: 'civic',
@@ -101,9 +101,9 @@ const groups = categoryOrder
   }))
   .filter((group) => group.items.length > 0);
 
-// Lens chips for the top of the page \u2014 reader-intent filters.
+// Lens chips for the top of the page — reader-intent filters.
 const lensOrder: Array<{ key: string; label: string; note: string }> = [
-  { key: 'weekend-pick',    label: 'Weekend Pick',     note: 'What we\u2019d actually book' },
+  { key: 'weekend-pick',    label: 'Weekend Pick',     note: 'What we’d actually book' },
   { key: 'family-saturday', label: 'Family Saturday',  note: 'A-grade kids days' },
   { key: 'rainy-day',       label: 'Rainy Day',        note: 'Weather-proof options' },
   { key: 'worth-the-drive', label: 'Worth The Drive',  note: 'From Melbourne, unprompted' },
@@ -122,17 +122,17 @@ const totalGroups = groups.length;
 ---
 
 <BaseLayout
-  title="What's On \u2014 Peninsula Insider"
+  title="What's On — Peninsula Insider"
   description="The Peninsula's events page that actually has an opinion. Weekend picks, kids-graded school holidays, worth-the-drive badges, and what to skip."
   section="whats-on"
 >
   <SectionHero
     eyebrow="What's On"
-    subEyebrow="Events \u00b7 dispatches \u00b7 what to skip"
+    subEyebrow="Events · dispatches · what to skip"
     title="Peninsula events, with an <em>opinion</em> for a change."
     dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody says what's worth it. This is the one page that does. Weekend picks on Wednesday, kids-grade A/B/C on every family event, and honest skips on the things the tourism feed won't name."
     gradient="journal"
-    visualLabel="Weekend Picker \u00b7 Worth The Drive \u00b7 Skip this"
+    visualLabel="Weekend Picker · Worth The Drive · Skip this"
   />
 
   {currentDispatch && (
@@ -146,7 +146,7 @@ const totalGroups = groups.length;
           <p class="label label--accent">Filter by intent</p>
           <h2 class="split-intro__title">Start from what you actually want the weekend to do</h2>
         </div>
-        <p class="split-intro__body">These aren\u2019t categories. They\u2019re reader intents. Pick the feeling first \u2014 the event list below reshuffles around the ones that match.</p>
+        <p class="split-intro__body">These aren’t categories. They’re reader intents. Pick the feeling first — the event list below reshuffles around the ones that match.</p>
       </div>
       <div class="events-lens__chips">
         {lensOrder.map((lens) => (
@@ -165,9 +165,9 @@ const totalGroups = groups.length;
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Editor\u2019s picks this month</p>
+            <p class="label label--accent">Editor’s picks this month</p>
             <h2 class="venues__title">If you only go to three events this month</h2>
-            <p class="venues__sub">The ones we\u2019d happily stand behind in a group chat.</p>
+            <p class="venues__sub">The ones we’d happily stand behind in a group chat.</p>
           </div>
           <span class="venues__count">{editorsPicks.length} picks</span>
         </div>
@@ -187,7 +187,7 @@ const totalGroups = groups.length;
         <div><dt>Next dispatch</dt><dd>Wednesday 6pm</dd></div>
       </dl>
       <p class="events-stats__note">
-        Reviewed weekly by a named editor. We publish what we\u2019d actually attend, with a sentence of judgement on every entry. If you think we\u2019ve missed something, <a href="/contact">tell us</a>.
+        Reviewed weekly by a named editor. We publish what we’d actually attend, with a sentence of judgement on every entry. If you think we’ve missed something, <a href="/contact">tell us</a>.
       </p>
     </div>
   </section>
@@ -198,8 +198,8 @@ const totalGroups = groups.length;
         <div class="skip-block__inner">
           <div>
             <p class="label label--accent">Skip this</p>
-            <h2 class="skip-block__title">What the rest of the Peninsula press won\u2019t name</h2>
-            <p class="skip-block__body">One honest paragraph a month. The word \u201cInsider\u201d doing work.</p>
+            <h2 class="skip-block__title">What the rest of the Peninsula press won’t name</h2>
+            <p class="skip-block__body">One honest paragraph a month. The word “Insider” doing work.</p>
           </div>
           <div class="skip-block__list">
             {skipEvents.map((event) => (
