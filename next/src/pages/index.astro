@@ -110,10 +110,23 @@ const seasonalExperiences = experiences
 ---
 
 <BaseLayout
-  title="Peninsula Insider  -  The Mornington Peninsula, as insiders know it"
+  title="Peninsula Insider — The Mornington Peninsula, as insiders know it"
   description="The independent editorial guide to eating, drinking, staying, and escaping on the Mornington Peninsula. No advertisers. No press trips. Just honest coverage."
   section="home"
+  canonical="https://peninsularinsider.com.au"
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Peninsula Insider',
+    url: 'https://peninsularinsider.com.au',
+    description: 'The independent editorial guide to the Mornington Peninsula',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://peninsularinsider.com.au/journal?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  })} />
   <CoverHero issueDate={issueDate} />
 
   <!-- Editorial promise  -  the manifesto strip that establishes voice before

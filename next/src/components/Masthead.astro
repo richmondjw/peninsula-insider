@@ -44,6 +44,23 @@ const navItems = [
         </ul>
       </nav>
       <a href="/newsletter" class="masthead__cta">Newsletter</a>
+      <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <div class="mobile-nav__inner">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="mobile-nav__link"
+          aria-current={section === item.key ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/newsletter" class="mobile-nav__link mobile-nav__link--cta">Newsletter</a>
+    </div>
+  </nav>
 </header>

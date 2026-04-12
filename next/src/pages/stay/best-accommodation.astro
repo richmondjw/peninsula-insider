@@ -1,0 +1,142 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, titleize } from '../../lib/editorial';
+
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const venues = (await getCollection('venues'))
+  .filter((v) => stayTypes.includes(v.data.type))
+  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+
+// Segment by price band
+const luxury = venues.filter((v) => v.data.priceBand === '$$$$');
+const midRange = venues.filter((v) => v.data.priceBand === '$$$');
+const affordable = venues.filter((v) => ['$', '$$'].includes(v.data.priceBand));
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsularinsider.com.au/stay' },
+    { '@type': 'ListItem', position: 3, name: 'Best Accommodation', item: 'https://peninsularinsider.com.au/stay/best-accommodation' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Best Accommodation Mornington Peninsula 2026 | Peninsula Insider"
+  description="The best places to stay on the Mornington Peninsula — hotels, vineyard villas, and coastal cottages. Honest editorial picks across every price band."
+  section="stay"
+  canonical="https://peninsularinsider.com.au/stay/best-accommodation"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <article class="article">
+    <div class="container">
+      <nav class="article__meta" aria-label="Breadcrumb">
+        <a href="/">Peninsula Insider</a>
+        <span aria-hidden="true"> › </span>
+        <a href="/stay">Stay</a>
+        <span aria-hidden="true"> › </span>
+        <span>Best Accommodation</span>
+      </nav>
+
+      <h1 class="article__title">The Best Places to Stay on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <p>Where you sleep shapes the whole Peninsula weekend. A ridge stay puts you within walking distance of cellar doors and positions lunch as a walk rather than a drive. A Sorrento or Portsea base gives you the village atmosphere and easy access to the ocean beaches. The bayside properties in Mornington and Mount Martha are the most accessible from Melbourne, good for a single-night escape that doesn't require the full commitment.</p>
+
+        <p>The best Peninsula stays are not hotels in the traditional sense — they're more often vineyard villas, converted farm buildings, and coastal properties that borrow character from the landscape. Jackalope on the Red Hill plateau is the benchmark: a serious room in a serious location, price calibrated to match. Below it, a strong mid-range layer of self-contained villas and cottages that work well for couples and small groups.</p>
+      </div>
+    </div>
+  </article>
+
+  {luxury.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Luxury · $$$$</p>
+            <h2 class="venues__title">The benchmark stays</h2>
+            <p class="venues__sub">The properties at the top of the Peninsula's accommodation offer — for occasions that justify the spend.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {luxury.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {midRange.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Mid-range · $$$</p>
+            <h2 class="venues__title">Strong rooms, calibrated price</h2>
+            <p class="venues__sub">The deepest category on the Peninsula — vineyard villas, coastal properties, and stays with enough character to anchor a weekend without requiring a special occasion.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {midRange.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {affordable.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Accessible · $ – $$</p>
+            <h2 class="venues__title">Honest stays that don't require a justification</h2>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {affordable.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {luxury.length === 0 && midRange.length === 0 && affordable.length === 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">All accommodation · {venues.length} properties</p>
+            <h2 class="venues__title">Every stay on the Peninsula</h2>
+          </div>
+          <a href="/stay" class="venues__link">Browse all stays →</a>
+        </div>
+        <div class="venues__grid">
+          {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="article">
+    <div class="container">
+      <div class="prose">
+        <h2>How to choose where to stay</h2>
+
+        <h3>Ridge vs coast vs bay</h3>
+        <p>The Red Hill ridge puts you in wine country — better for cellar door days, vineyard lunches, and escapes where the wine list is the point. The coastal properties (Flinders, Sorrento, Portsea) are better when beaches, ocean walks, and sunset drinks at the pub are the priority. Bayside properties in Mornington and Mount Martha are the most accessible from Melbourne and work well for single nights.</p>
+
+        <h3>When to book</h3>
+        <p>Summer weekends (December–February) book out months ahead. Long weekends in autumn — especially the March and April public holiday weekends — are the second hardest to book. Winter is dramatically quieter; the best stays are often available at short notice, and the Peninsula's fireplace-and-thermal-springs character is strongest when it's cold.</p>
+
+        <h3>Self-contained vs hotel</h3>
+        <p>Most Peninsula accommodation is self-contained — villas, cottages, and private houses rather than traditional hotel rooms. This suits longer stays and groups well. For single-night escapes where you'd rather not cook breakfast, the Hotel Sorrento and the Flinders Hotel offer the most hotel-appropriate experience on the Peninsula.</p>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

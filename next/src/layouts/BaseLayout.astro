@@ -97,5 +97,29 @@ const ogImageAbsolute = ogImage.startsWith('http')
 
   <Footer />
 
+
+  <script is:inline>
+    (function() {
+      var burger = document.querySelector('.masthead__burger');
+      var nav = document.getElementById('mobileNav');
+      if (!burger || !nav) return;
+      burger.addEventListener('click', function() {
+        var open = nav.classList.toggle('is-open');
+        burger.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      // Close on link click
+      nav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          nav.classList.remove('is-open');
+          burger.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>

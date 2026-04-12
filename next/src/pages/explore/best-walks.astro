@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ExperienceCard from '../../components/ExperienceCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, placeLabel, titleize } from '../../lib/editorial';
+
+const experiences = await getCollection('experiences');
+const walks = experiences
+  .filter((e) => e.data.type === 'walk')
+  .sort((a, b) => {
+    // Sort: longer walks first, then alphabetically
+    return (b.data.durationMinutes ?? 0) - (a.data.durationMinutes ?? 0);
+  });
+
+const difficultyLabel: Record<string, string> = {
+  easy: 'Easy',
+  moderate: 'Moderate',
+  hard: 'Hard',
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Explore', item: 'https://peninsularinsider.com.au/explore' },
+    { '@type': 'ListItem', position: 3, name: 'Best Walks', item: 'https://peninsularinsider.com.au/explore/best-walks' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Best Walks Mornington Peninsula 2026 | Peninsula Insider"
+  description="The best walking tracks on the Mornington Peninsula — coastal cliff walks, national park trails, and easy foreshore strolls, with difficulty, duration, and honest editor notes."
+  section="explore"
+  canonical="https://peninsularinsider.com.au/explore/best-walks"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <article class="article">
+    <div class="container">
+      <nav class="article__meta" aria-label="Breadcrumb">
+        <a href="/">Peninsula Insider</a>
+        <span aria-hidden="true"> › </span>
+        <a href="/explore">Explore</a>
+        <span aria-hidden="true"> › </span>
+        <span>Best Walks</span>
+      </nav>
+
+      <h1 class="article__title">The Best Walks on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <p>The Peninsula's coastline is its most underused asset. The ocean beach walks at Cape Schanck, Bushrangers Bay, and Point Nepean offer genuine wild-coast walking — basalt platforms, bass strait views, and almost no crowds outside of summer weekends. The Two Bays Walking Track connects Dromana to Cape Schanck across the plateau, one of Victoria's better day walks if you're prepared for it.</p>
+
+        <p>Most Peninsula walks are accessible without specialist gear. A decent pair of shoes handles everything except Point Nepean's longer trails. Bring water — shade is intermittent on the coastal sections. The best time for coast walks is early morning or late afternoon; midday in summer exposes you to direct sun with no shelter.</p>
+      </div>
+    </div>
+  </article>
+
+  {walks.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">All walks · {walks.length} tracked</p>
+            <h2 class="venues__title">Walking tracks on the Mornington Peninsula</h2>
+            <p class="venues__sub">Coastal cliff walks, plateau trails, and foreshore strolls — each with timing, difficulty, and an honest editor note.</p>
+          </div>
+          <a href="/explore" class="venues__link">All experiences →</a>
+        </div>
+        <div class="experience-grid">
+          {walks.map((walk) => <ExperienceCard experience={walk} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {walks.length === 0 && (
+    <section class="article">
+      <div class="container">
+        <div class="prose">
+          <p>Walking track coverage is being added — check back soon, or <a href="/explore">browse all experiences</a> in the meantime.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="article">
+    <div class="container">
+      <div class="prose">
+        <h2>Walk planning notes</h2>
+
+        <h3>Coastal walks</h3>
+        <p>The Cape Schanck boardwalk and the Bushrangers Bay trail are the two strongest coastal walks on the Peninsula — both accessible from Cape Schanck Lighthouse car park. Cape Schanck gives you the lighthouse and the platform views in under 30 minutes; Bushrangers Bay adds a further hour each way into a protected bay the crowds don't reach on weekday mornings.</p>
+
+        <h3>Long walks</h3>
+        <p>The Two Bays Walking Track is the Peninsula's only legitimate day walk — 26km from Dromana to Cape Schanck crossing the plateau. It's divided into manageable sections; the Greens Bush section alone (south side of the national park) is worth a half-day if you want forest walking without the full commitment.</p>
+
+        <h3>Easy walks</h3>
+        <p>The Mornington foreshore, Mount Martha beach, and Point Nepean's Fort walk are the most accessible options — flat, well-maintained paths with views throughout. Good for families with young children or anyone who wants to walk without committing to anything technical.</p>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
