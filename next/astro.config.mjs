@@ -16,7 +16,7 @@ import { defineConfig } from 'astro/config';
 const base = process.env.ASTRO_BASE || undefined;
 
 export default defineConfig({
-  site: 'https://peninsulainsider.com.au',
+  site: 'https://peninsularinsider.com.au',
   base,
   trailingSlash: 'never',
   build: {

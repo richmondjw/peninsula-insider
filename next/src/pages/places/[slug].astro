@@ -73,7 +73,7 @@ const snapshotCards = [
         ? `${venuesForPlace.filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type)).length} dining picks mapped`
         : 'Dining coverage coming',
     body: eatVenues.length > 0
-      ? 'Restaurants, cafés, bakeries, and pubs already connected to the place layer  -  each with its own editor note.'
+      ? 'Restaurants, cafés, bakeries, and pubs already connected to the place layer — each with its own editor note.'
       : 'This hub will add dining picks as the rebuild continues filling in the venue layer.',
   },
   {
@@ -84,7 +84,7 @@ const snapshotCards = [
         : 'Wine coverage coming',
     body: wineVenues.length > 0
       ? 'Wineries, producers, and distillers worth working into the day. The place hub anchors them into real geography.'
-      : 'The wine layer is still being mapped for this hub  -  expect producers as the rebuild progresses.',
+      : 'The wine layer is still being mapped for this hub — expect producers as the rebuild progresses.',
   },
   {
     label: 'Stay',
@@ -107,13 +107,50 @@ const snapshotCards = [
       : 'Explore entries will connect into this hub as the experiences layer is expanded.',
   },
 ];
+
+const canonical = `https://peninsularinsider.com.au/places/${placeSlug}`;
+const ogImage = place.data.heroImage?.src && !place.data.heroImage.src.includes('placeholder')
+  ? place.data.heroImage.src
+  : `/images/sourced/place-${placeSlug}-01.webp`;
+
+// Truncate intro to ~155 chars for description
+const description = place.data.intro.length > 155
+  ? place.data.intro.slice(0, 152) + '...'
+  : place.data.intro;
+
+const placeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristDestination',
+  name: place.data.name,
+  description: place.data.intro,
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: place.data.coordinates?.lat,
+    longitude: place.data.coordinates?.lng,
+  },
+  url: canonical,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Places', item: 'https://peninsularinsider.com.au/places' },
+    { '@type': 'ListItem', position: 3, name: place.data.name, item: canonical },
+  ],
+};
 ---
 
 <BaseLayout
-  title={`${place.data.name}  -  Peninsula Insider`}
-  description={place.data.intro}
+  title={`${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`}
+  description={description}
   section="places"
+  canonical={canonical}
+  ogImage={ogImage}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(placeSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <PlaceDetailTemplate
     place={place}
     eatVenues={eatVenues}

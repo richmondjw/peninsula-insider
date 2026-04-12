@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, typeLabel, titleize } from '../../lib/editorial';
 
 export async function getStaticPaths() {
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
@@ -39,12 +39,65 @@ const itineraries = (await getCollection('itineraries'))
     itinerary.data.stops.some((stop) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
   )
   .slice(0, 2);
+
+const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
+const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
+const canonical = `https://peninsularinsider.com.au/eat/${slug}`;
+const ogImage = venue.data.heroImage?.src && !venue.data.heroImage.src.includes('placeholder')
+  ? venue.data.heroImage.src
+  : '/images/sourced/home-cover.webp';
+
+// JSON-LD: map venue type to schema.org type
+const schemaTypeMap: Record<string, string> = {
+  restaurant: 'Restaurant',
+  cafe: 'CafeOrCoffeeShop',
+  bakery: 'Bakery',
+  pub: 'BarOrPub',
+  market: 'LocalBusiness',
+  winery: 'Winery',
+};
+const schemaType = schemaTypeMap[venue.data.type] ?? 'LocalBusiness';
+
+const venueSchema = {
+  '@context': 'https://schema.org',
+  '@type': schemaType,
+  name: venue.data.name,
+  description: venue.data.signature,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: venue.data.address,
+    addressRegion: 'VIC',
+    addressCountry: 'AU',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: venue.data.coordinates?.lat,
+    longitude: venue.data.coordinates?.lng,
+  },
+  ...(venue.data.website ? { url: venue.data.website } : {}),
+  ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
+  ...(venue.data.priceBand ? { priceRange: venue.data.priceBand } : {}),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsularinsider.com.au/eat' },
+    { '@type': 'ListItem', position: 3, name: venue.data.name, item: canonical },
+  ],
+};
 ---
 
 <BaseLayout
-  title={`${venue.data.name}  -  Eat & Drink  -  Peninsula Insider`}
+  title={`${venue.data.name} — ${venueTypeLabel} · ${venuePlaceName}, Mornington Peninsula | Peninsula Insider`}
   description={venue.data.signature}
   section="eat"
+  canonical={canonical}
+  ogImage={ogImage}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <VenueDetailTemplate venue={venue} section="eat" related={related} articles={articles} itineraries={itineraries} />
 </BaseLayout>

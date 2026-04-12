@@ -5,7 +5,6 @@ User-agent: *
 Allow: /
 Disallow: /_legacy/
 Disallow: /next/
-Disallow: /V2/
 
 # Block aggressive AI scrapers that don't send traffic back
 User-agent: GPTBot

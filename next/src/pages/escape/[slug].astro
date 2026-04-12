@@ -92,13 +92,30 @@ const breadcrumbItems = [
 ];
 
 const nightsLabel = `${itinerary.data.lengthNights} night${itinerary.data.lengthNights === 1 ? '' : 's'}`;
+const canonical = `https://peninsularinsider.com.au/escape/${slug}`;
+const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.includes('placeholder')
+  ? itinerary.data.heroImage.src
+  : '/images/sourced/home-cover.webp';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Escape', item: 'https://peninsularinsider.com.au/escape' },
+    { '@type': 'ListItem', position: 3, name: itinerary.data.title, item: canonical },
+  ],
+};
 ---
 
 <BaseLayout
-  title={`${itinerary.data.title}  -  Escape  -  Peninsula Insider`}
+  title={`${itinerary.data.title} — Mornington Peninsula Weekend Escape | Peninsula Insider`}
   description={itinerary.data.dek}
   section="escape"
+  canonical={canonical}
+  ogImage={ogImage}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
   <section class="itinerary-detail">

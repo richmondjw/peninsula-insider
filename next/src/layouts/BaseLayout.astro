@@ -16,14 +16,34 @@ export interface Props {
   description?: string;
   section?: 'home' | 'eat' | 'stay' | 'wine' | 'explore' | 'journal' | 'places' | 'escape' | 'whats-on';
   preview?: boolean;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  noindex?: boolean;
 }
+
+const SITE_URL = 'https://peninsularinsider.com.au';
 
 const {
   title,
-  description = 'The independent editorial guide to the Mornington Peninsula  -  no advertisers, no press trips, just honest coverage.',
+  description = 'The independent editorial guide to the Mornington Peninsula — no advertisers, no press trips, just honest coverage.',
   section = 'home',
   preview = false,
+  canonical,
+  ogImage = '/images/sourced/home-cover.webp',
+  ogType = 'website',
+  noindex = false,
 } = Astro.props;
+
+// Canonical: use explicit prop if provided, otherwise derive from current URL pathname.
+// Strip any /V2/ base prefix so canonicals always point at the production root.
+const rawPathname = Astro.url.pathname.replace(/^\/V2/, '');
+const canonicalUrl = canonical ?? `${SITE_URL}${rawPathname}`;
+
+// OG image must be an absolute URL.
+const ogImageAbsolute = ogImage.startsWith('http')
+  ? ogImage
+  : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
 ---
 
 <!doctype html>
@@ -39,6 +59,23 @@ const {
   />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageAbsolute} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content="Peninsula Insider" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageAbsolute} />
+
   <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
   <script async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
   <!-- Google tag (gtag.js) -->
@@ -59,44 +96,6 @@ const {
   </main>
 
   <Footer />
-
-  <!-- Password gate -->
-  <div id="siteLock" style="position:fixed;inset:0;z-index:10000;background:#1E1B18;display:flex;align-items:center;justify-content:center;font-family:'Outfit',system-ui,sans-serif;">
-    <div style="text-align:center;color:#FDFCFA;max-width:360px;padding:2rem;">
-      <p style="font-family:Georgia,serif;font-size:22px;font-weight:700;margin:0 0 4px;">Peninsula <span style="font-style:italic;color:#B69A6B;">Insider</span></p>
-      <p style="font-size:13px;color:rgba(253,252,250,0.4);margin:0 0 24px;">This site is currently private.</p>
-      <form id="siteLockForm" style="display:flex;gap:0;">
-        <input type="password" id="siteLockPassword" placeholder="Password" autocomplete="current-password" style="flex:1;padding:10px 14px;border:1px solid rgba(253,252,250,0.15);border-right:none;background:rgba(253,252,250,0.06);color:#FDFCFA;font-size:14px;border-radius:2px 0 0 2px;outline:none;" />
-        <button type="submit" style="padding:10px 20px;background:#8B4E3B;color:#FDFCFA;border:1px solid #8B4E3B;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:0 2px 2px 0;">Enter</button>
-      </form>
-      <div id="siteLockError" style="color:#c0392b;font-size:12px;margin-top:8px;"></div>
-    </div>
-  </div>
-  <script is:inline>
-    (function () {
-      var PASSWORD = '1xlx1';
-      var STORAGE_KEY = 'peninsula-insider-unlocked';
-      var lock = document.getElementById('siteLock');
-      if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
-        lock.style.display = 'none';
-        return;
-      }
-      document.body.style.overflow = 'hidden';
-      document.getElementById('siteLockForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        var input = document.getElementById('siteLockPassword');
-        if (input.value === PASSWORD) {
-          sessionStorage.setItem(STORAGE_KEY, 'true');
-          lock.style.display = 'none';
-          document.body.style.overflow = '';
-        } else {
-          document.getElementById('siteLockError').textContent = 'Incorrect password.';
-          input.value = '';
-          input.focus();
-        }
-      });
-    })();
-  </script>
 
 </body>
 </html>

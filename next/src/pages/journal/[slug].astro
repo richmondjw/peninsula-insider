@@ -58,18 +58,55 @@ const authorLabel = article.data.houseByline
   : String(article.data.author?.id ?? article.data.author);
 const articleHeroStyle = heroBackgroundStyle(article.data);
 
+const slug = routeSlug(article);
+const canonical = `https://peninsularinsider.com.au/journal/${slug}`;
+const ogImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
+  ? article.data.heroImage.src
+  : '/images/sourced/home-cover.webp';
+
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Journal', href: '/journal' },
   { label: article.data.title },
 ];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.data.title,
+  description: article.data.dek,
+  datePublished: article.data.publishedAt.toISOString(),
+  ...(article.data.updatedAt ? { dateModified: article.data.updatedAt.toISOString() } : {}),
+  publisher: {
+    '@type': 'Organization',
+    name: 'Peninsula Insider',
+    url: 'https://peninsularinsider.com.au',
+  },
+  ...(ogImage !== '/images/sourced/home-cover.webp' ? { image: `https://peninsularinsider.com.au${ogImage}` } : {}),
+  url: canonical,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://peninsularinsider.com.au/journal' },
+    { '@type': 'ListItem', position: 3, name: article.data.title, item: canonical },
+  ],
+};
 ---
 
 <BaseLayout
-  title={`${article.data.title}  -  Peninsula Insider`}
+  title={`${article.data.title} | Peninsula Insider`}
   description={article.data.dek}
   section="journal"
+  canonical={canonical}
+  ogImage={ogImage}
+  ogType="article"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
   <article class="article">
