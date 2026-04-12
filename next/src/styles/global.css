@@ -94,7 +94,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 9999;
 }
 .masthead__inner {
   display: flex;
@@ -3354,26 +3354,27 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 
 /* --- Mobile nav drawer --- */
 .mobile-nav {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 99;
+  z-index: 9998;
   background: var(--bg);
   padding: 5rem 0 3rem;
   overflow-y: auto;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity .25s var(--ease), transform .25s var(--ease);
+  transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s;
   pointer-events: none;
 }
 .mobile-nav.is-open {
-  display: block;
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+  transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s 0s;
 }
 .mobile-nav__inner {
   display: flex;
