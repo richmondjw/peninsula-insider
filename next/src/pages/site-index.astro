@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { routeSlug, stayTypes, wineTypes } from '../lib/editorial';
+
+const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
+  getCollection('venues'),
+  getCollection('experiences'),
+  getCollection('places'),
+  getCollection('articles', ({ data }) => data.status === 'published'),
+  getCollection('itineraries'),
+  getCollection('events'),
+]);
+
+const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
+
+const eatVenues = venues.filter((v) => eatTypes.includes(v.data.type)).slice(0, 40);
+const stayVenues = venues.filter((v) => stayTypes.includes(v.data.type)).slice(0, 20);
+const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type)).slice(0, 30);
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Site Index', item: 'https://peninsularinsider.com.au/site-index' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Site Index | Peninsula Insider"
+  description="A crawlable index of Peninsula Insider sections, guides, places, venues, events, and planning pages."
+  canonical="https://peninsularinsider.com.au/site-index"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Site Index</h1>
+      <p class="article__dek">A direct index of the major sections and planning pages on Peninsula Insider. Useful for readers, and useful for crawlers.</p>
+
+      <div class="prose">
+        <h2>Core sections</h2>
+        <ul>
+          <li><a href="/eat">Eat & Drink</a></li>
+          <li><a href="/stay">Stay</a></li>
+          <li><a href="/wine">Wine</a></li>
+          <li><a href="/explore">Explore</a></li>
+          <li><a href="/escape">Escape</a></li>
+          <li><a href="/whats-on">What's On</a></li>
+          <li><a href="/journal">Journal</a></li>
+          <li><a href="/places">Places</a></li>
+        </ul>
+
+        <h2>Priority planning pages</h2>
+        <ul>
+          <li><a href="/eat/best-restaurants">Best Restaurants</a></li>
+          <li><a href="/wine/best-cellar-doors">Best Cellar Doors</a></li>
+          <li><a href="/explore/best-walks">Best Walks</a></li>
+          <li><a href="/stay/best-accommodation">Best Accommodation</a></li>
+          <li><a href="/journal/mornington-peninsula-day-trip">Mornington Peninsula Day Trip</a></li>
+          <li><a href="/journal/mornington-peninsula-in-autumn">Mornington Peninsula in Autumn</a></li>
+          <li><a href="/journal/mornington-peninsula-with-kids">Mornington Peninsula with Kids</a></li>
+          <li><a href="/journal/dog-friendly-mornington-peninsula">Dog-Friendly Mornington Peninsula</a></li>
+        </ul>
+
+        <h2>Places</h2>
+        <ul>
+          {places.map((place) => (
+            <li><a href={`/places/${routeSlug(place)}`}>{place.data.name}</a></li>
+          ))}
+        </ul>
+
+        <h2>Selected Eat & Drink pages</h2>
+        <ul>
+          {eatVenues.map((venue) => (
+            <li><a href={`/eat/${routeSlug(venue)}`}>{venue.data.name}</a></li>
+          ))}
+        </ul>
+
+        <h2>Selected Stay pages</h2>
+        <ul>
+          {stayVenues.map((venue) => (
+            <li><a href={`/stay/${routeSlug(venue)}`}>{venue.data.name}</a></li>
+          ))}
+        </ul>
+
+        <h2>Selected Wine pages</h2>
+        <ul>
+          {wineVenues.map((venue) => (
+            <li><a href={`/wine/${routeSlug(venue)}`}>{venue.data.name}</a></li>
+          ))}
+        </ul>
+
+        <h2>Experiences</h2>
+        <ul>
+          {experiences.map((entry) => (
+            <li><a href={`/explore/${routeSlug(entry)}`}>{entry.data.name}</a></li>
+          ))}
+        </ul>
+
+        <h2>Escape plans</h2>
+        <ul>
+          {itineraries.map((entry) => (
+            <li><a href={`/escape/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+          ))}
+        </ul>
+
+        <h2>What's On</h2>
+        <ul>
+          {events.map((entry) => (
+            <li><a href={`/whats-on/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+          ))}
+        </ul>
+
+        <h2>Journal</h2>
+        <ul>
+          {articles.slice(0, 50).map((entry) => (
+            <li><a href={`/journal/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

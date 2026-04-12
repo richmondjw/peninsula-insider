@@ -104,6 +104,8 @@ const breadcrumbSchema = {
   canonical={canonical}
   ogImage={ogImage}
   ogType="article"
+  publishedTime={article.data.publishedAt.toISOString()}
+  modifiedTime={(article.data.updatedAt ?? article.data.publishedAt).toISOString()}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

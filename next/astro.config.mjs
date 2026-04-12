@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel';
 
 // Peninsula Insider — Astro config (Phase 1 scaffold).
 // Decisions locked in roadmap-2026-04-09.md § 4 and § 9:
@@ -27,6 +26,5 @@ export default defineConfig({
   // etc. in Phase 2 as they become necessary.
   integrations: [],
   // Output: pure static. Vercel/Netlify adapters come in the cutover week.
-  output: 'hybrid',
-  adapter: vercel(),
+  output: 'static',
 });

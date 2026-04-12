@@ -52,8 +52,8 @@ export const GET: APIRoute = async () => {
   }
 
   // Static pages
-  for (const page of ['/about', '/contact', '/newsletter']) {
-    entries.push(url(page, 0.4, 'monthly'));
+  for (const page of ['/about', '/contact', '/newsletter', '/site-index']) {
+    entries.push(url(page, page === '/site-index' ? 0.5 : 0.4, 'monthly'));
   }
 
   // Best-of pages
