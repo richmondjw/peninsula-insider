@@ -149,7 +149,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    ========================================================= */
 .cover {
   padding: clamp(2.4rem, 7vw, 4.8rem) 0 0;
-  border-bottom: 1px solid var(--border);
 }
 .cover__inner {
   display: grid;
@@ -298,13 +297,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    ========================================================= */
 .editorial-promise {
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  padding: 2.5rem 0 2.4rem;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
 }
 .editorial-promise__inner {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: start;
 }
 .editorial-promise__lead .label {
@@ -312,7 +310,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   display: block;
 }
 .editorial-promise__title {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
   font-weight: 600;
   color: var(--dark);
   line-height: 1.2;
@@ -320,11 +318,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .editorial-promise__points {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1.5rem;
 }
 .editorial-promise__point {
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text);
 }
 .editorial-promise__point strong {
@@ -339,42 +337,37 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    PILLAR NAV (homepage)
    ========================================================= */
 .pillars {
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: var(--bg);
 }
 .pillars__inner {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  align-items: stretch;
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding: 1.25rem 0;
 }
 .pillar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 0.45rem;
-  min-height: 88px;
-  padding: 0.95rem 0.75rem 0.9rem;
-  border-right: 1px solid var(--border);
+  gap: 0;
+  padding: 0.5rem 0;
   cursor: default;
-  transition: background .2s var(--ease);
+  transition: color .2s var(--ease);
 }
-.pillar:last-child { border-right: none; }
-.pillar:hover { background: var(--bg-alt); }
-.pillar__icon { font-size: 1.1rem; opacity: 0.6; line-height: 1; }
+.pillar:hover { color: var(--accent); }
+.pillar__icon { display: none; }
 .pillar__name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: var(--dark);
-}
-.pillar__sub {
-  font-size: 0.6rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--soft);
+  transition: color .2s var(--ease);
 }
+.pillar:hover .pillar__name { color: var(--accent); }
+.pillar__sub { display: none; }
 
 /* =========================================================
    FEATURED ARTICLE (homepage)
@@ -952,6 +945,80 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
+   WHY INSIDER (homepage closing pitch)
+   ========================================================= */
+.why-insider {
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: clamp(4.5rem, 9vw, 7rem) 0;
+}
+.why-insider__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+.why-insider__lead {
+  margin-bottom: 1.75rem;
+}
+.why-insider__lead .label {
+  display: block;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+}
+.why-insider__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--white);
+}
+.why-insider__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.why-insider__body p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(253, 252, 250, 0.6);
+}
+.why-insider__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 0.5rem;
+}
+.why-insider__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.why-insider__stat-number {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--gold);
+}
+.why-insider__stat-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(253, 252, 250, 0.4);
+}
+@media (max-width: 768px) {
+  .why-insider__inner { grid-template-columns: 1fr; }
+  .why-insider__stats {
+    flex-direction: row;
+    gap: clamp(2rem, 6vw, 3.5rem);
+    padding-top: 1.5rem;
+  }
+}
+
+/* =========================================================
    NEWSLETTER
    ========================================================= */
 .newsletter {
@@ -1099,8 +1166,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 480px) {
-  .pillars__inner { flex-wrap: wrap; }
-  .pillar { flex-basis: 33.33%; }
+  .pillars__inner { flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+  .pillar { padding: 0.35rem 0; }
 }
 
 /* =========================================================
@@ -1667,9 +1734,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    current issue stats. Keeps the rebuild feeling alive.
    ========================================================= */
 .issue-ribbon {
-  background: var(--bg-alt);
-  border-bottom: 1px solid var(--border);
-  padding: 0.85rem 0 0.9rem;
+  display: none;
 }
 .issue-ribbon__inner {
   display: flex;
