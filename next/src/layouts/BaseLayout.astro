@@ -22,7 +22,7 @@ const {
   title,
   description = 'The independent editorial guide to the Mornington Peninsula — no advertisers, no press trips, just honest coverage.',
   section = 'home',
-  preview = true,
+  preview = false,
 } = Astro.props;
 ---
 
@@ -39,7 +39,6 @@ const {
   />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="robots" content="noindex, nofollow" />
   <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
   <script async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
   <!-- Google tag (gtag.js) -->
@@ -52,13 +51,6 @@ const {
   </script>
 </head>
 <body>
-  {preview && (
-    <div class="preview-banner">
-      <strong>Preview Build</strong> &nbsp;·&nbsp; Phase 1 Astro rebuild
-      &nbsp;·&nbsp; Not production &nbsp;·&nbsp;
-      <a href="https://peninsulainsider.com.au">Live site →</a>
-    </div>
-  )}
 
   <Masthead section={section} />
 
@@ -67,5 +59,44 @@ const {
   </main>
 
   <Footer />
+
+  <!-- Password gate -->
+  <div id="siteLock" style="position:fixed;inset:0;z-index:10000;background:#1E1B18;display:flex;align-items:center;justify-content:center;font-family:'Outfit',system-ui,sans-serif;">
+    <div style="text-align:center;color:#FDFCFA;max-width:360px;padding:2rem;">
+      <p style="font-family:Georgia,serif;font-size:22px;font-weight:700;margin:0 0 4px;">Peninsula <span style="font-style:italic;color:#B69A6B;">Insider</span></p>
+      <p style="font-size:13px;color:rgba(253,252,250,0.4);margin:0 0 24px;">This site is currently private.</p>
+      <form id="siteLockForm" style="display:flex;gap:0;">
+        <input type="password" id="siteLockPassword" placeholder="Password" autocomplete="current-password" style="flex:1;padding:10px 14px;border:1px solid rgba(253,252,250,0.15);border-right:none;background:rgba(253,252,250,0.06);color:#FDFCFA;font-size:14px;border-radius:2px 0 0 2px;outline:none;" />
+        <button type="submit" style="padding:10px 20px;background:#8B4E3B;color:#FDFCFA;border:1px solid #8B4E3B;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:0 2px 2px 0;">Enter</button>
+      </form>
+      <div id="siteLockError" style="color:#c0392b;font-size:12px;margin-top:8px;"></div>
+    </div>
+  </div>
+  <script is:inline>
+    (function () {
+      var PASSWORD = '1xlx1';
+      var STORAGE_KEY = 'peninsula-insider-unlocked';
+      var lock = document.getElementById('siteLock');
+      if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+        lock.style.display = 'none';
+        return;
+      }
+      document.body.style.overflow = 'hidden';
+      document.getElementById('siteLockForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = document.getElementById('siteLockPassword');
+        if (input.value === PASSWORD) {
+          sessionStorage.setItem(STORAGE_KEY, 'true');
+          lock.style.display = 'none';
+          document.body.style.overflow = '';
+        } else {
+          document.getElementById('siteLockError').textContent = 'Incorrect password.';
+          input.value = '';
+          input.focus();
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
