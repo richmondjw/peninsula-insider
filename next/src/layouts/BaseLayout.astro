@@ -76,8 +76,6 @@ const ogImageAbsolute = ogImage.startsWith('http')
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageAbsolute} />
 
-  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-  <script async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0MR9YVZ9NW"></script>
   <script is:inline>
@@ -119,6 +117,51 @@ const ogImageAbsolute = ogImage.startsWith('http')
         });
       });
     })();
+  </script>
+
+
+  <script is:inline>
+    document.querySelectorAll('form[data-subscribe]').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var input = form.querySelector('input[type="email"]');
+        var status = form.querySelector('.newsletter__status');
+        var btn = form.querySelector('button[type="submit"]');
+        var email = input.value.trim();
+        if (!email) return;
+
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        status.textContent = '';
+        status.className = 'newsletter__status';
+
+        fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.ok) {
+            status.textContent = data.message;
+            status.className = 'newsletter__status newsletter__status--ok';
+            input.value = '';
+            btn.textContent = 'Subscribed';
+          } else {
+            status.textContent = data.error || 'Something went wrong.';
+            status.className = 'newsletter__status newsletter__status--err';
+            btn.disabled = false;
+            btn.textContent = 'Subscribe';
+          }
+        })
+        .catch(function() {
+          status.textContent = 'Connection error. Try again.';
+          status.className = 'newsletter__status newsletter__status--err';
+          btn.disabled = false;
+          btn.textContent = 'Subscribe';
+        });
+      });
+    });
   </script>
 
 </body>

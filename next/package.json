@@ -14,7 +14,9 @@
   },
   "dependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.60.1",
-    "astro": "^4.15.0"
+    "astro": "^4.15.0",
+    "@astrojs/vercel": "^7.0.0",
+    "resend": "^6.10.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

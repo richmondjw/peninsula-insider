@@ -3662,3 +3662,95 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__cta {
   padding: 0.6rem 1rem;
 }
+
+/* Subscribe form status messages */
+.newsletter__status {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  min-height: 1.2em;
+}
+.newsletter__status--ok {
+  color: var(--sage);
+  font-weight: 500;
+}
+.newsletter__status--err {
+  color: #c0392b;
+}
+.newsletter__input {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  background: rgba(253,252,250,0.08);
+  border: 1px solid rgba(253,252,250,0.15);
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+  color: var(--white);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color .2s var(--ease);
+}
+.newsletter__input::placeholder {
+  color: rgba(253,252,250,0.35);
+}
+.newsletter__input:focus {
+  border-color: rgba(253,252,250,0.4);
+}
+.newsletter__submit {
+  padding: 0.85rem 1.5rem;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 0 2px 2px 0;
+  color: var(--white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s var(--ease);
+}
+.newsletter__submit:hover {
+  background: var(--acc-h);
+}
+.newsletter__submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.newsletter__field {
+  display: flex;
+  gap: 0;
+}
+.newsletter__disclaimer {
+  font-size: 0.72rem;
+  color: rgba(253,252,250,0.4);
+  line-height: 1.6;
+}
+.newsletter__disclaimer a {
+  color: rgba(253,252,250,0.5);
+  text-decoration: underline;
+}
+
+/* Standalone form (newsletter page, light bg) */
+.newsletter__form--standalone .newsletter__input {
+  background: var(--white);
+  border-color: var(--border);
+  color: var(--dark);
+}
+.newsletter__form--standalone .newsletter__input::placeholder {
+  color: var(--soft);
+}
+.newsletter__form--standalone .newsletter__input:focus {
+  border-color: var(--accent);
+}
+.newsletter__form--standalone .newsletter__disclaimer {
+  color: var(--soft);
+}
+.newsletter__form--standalone .newsletter__disclaimer a {
+  color: var(--accent);
+}
+.newsletter__form--standalone .newsletter__status--ok {
+  color: var(--sage);
+}
+.newsletter__form--standalone .newsletter__status--err {
+  color: #c0392b;
+}
