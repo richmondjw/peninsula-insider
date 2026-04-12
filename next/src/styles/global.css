@@ -1059,6 +1059,20 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   flex-direction: column;
   gap: 1rem;
 }
+.newsletter__embed-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.newsletter__embed {
+  width: 100%;
+  min-height: 208px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  max-width: 100%;
+}
 .newsletter__disclaimer {
   font-size: 0.72rem;
   color: rgba(253,252,250,0.4);
@@ -3217,6 +3231,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: sticky;
   top: 6rem;
 }
+.newsletter__embed-wrap--standalone {
+  position: sticky;
+  top: 6rem;
+}
 .newsletter-proof {
   padding: 4rem 0 5rem;
   background: var(--cream);
@@ -3232,4 +3250,5 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .newsletter-signup__inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .newsletter-proof__promises { grid-template-columns: 1fr; }
   .newsletter__form--standalone { position: static; }
+  .newsletter__embed-wrap--standalone { position: static; }
 }

@@ -24,22 +24,20 @@ const {
         <p class="newsletter__body">{body}</p>
       </div>
       <div>
-        <form class="newsletter__form" aria-label="Email signup">
-          <div class="newsletter__field">
-            <input
-              type="email"
-              class="newsletter__input"
-              placeholder="your@email.com"
-              aria-label="Email address"
-              autocomplete="email"
-            />
-            <button type="submit" class="newsletter__submit">Subscribe</button>
-          </div>
+        <div class="newsletter__embed-wrap" aria-label="Email signup">
+          <iframe
+            src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
+            class="newsletter__embed beehiiv-embed"
+            data-test-id="beehiiv-embed"
+            frameborder="0"
+            scrolling="no"
+            title="Subscribe to The Insider's Dispatch"
+          ></iframe>
           <p class="newsletter__disclaimer">
             No spam. Unsubscribe any time. Fortnightly in autumn and winter,
             weekly from October through March.
           </p>
-        </form>
+        </div>
         <div class="newsletter__proofs" style="margin-top: 2rem;">
           <div class="proof">
             <span class="proof__icon" aria-hidden="true">◆</span>

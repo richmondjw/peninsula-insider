@@ -64,21 +64,19 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
         </div>
 
         <div class="newsletter-signup__form-block">
-          <form class="newsletter__form newsletter__form--standalone" aria-label="Email signup">
-            <div class="newsletter__field">
-              <input
-                type="email"
-                class="newsletter__input"
-                placeholder="your@email.com"
-                aria-label="Email address"
-                autocomplete="email"
-              />
-              <button type="submit" class="newsletter__submit">Subscribe</button>
-            </div>
+          <div class="newsletter__embed-wrap newsletter__embed-wrap--standalone" aria-label="Email signup">
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
+              class="newsletter__embed beehiiv-embed"
+              data-test-id="beehiiv-embed"
+              frameborder="0"
+              scrolling="no"
+              title="Subscribe to The Insider's Dispatch"
+            ></iframe>
             <p class="newsletter__disclaimer">
               No spam. Unsubscribe any time. We never share your email — read our <a href="/privacy">privacy&nbsp;policy</a>.
             </p>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -140,21 +138,19 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
           <p class="newsletter__body">If you visit the Peninsula — or just think about it — this is the one email worth opening.</p>
         </div>
         <div>
-          <form class="newsletter__form" aria-label="Email signup — repeated">
-            <div class="newsletter__field">
-              <input
-                type="email"
-                class="newsletter__input"
-                placeholder="your@email.com"
-                aria-label="Email address"
-                autocomplete="email"
-              />
-              <button type="submit" class="newsletter__submit">Subscribe</button>
-            </div>
+          <div class="newsletter__embed-wrap" aria-label="Email signup — repeated">
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
+              class="newsletter__embed beehiiv-embed"
+              data-test-id="beehiiv-embed"
+              frameborder="0"
+              scrolling="no"
+              title="Subscribe to The Insider's Dispatch"
+            ></iframe>
             <p class="newsletter__disclaimer">
               Fortnightly in autumn/winter. Weekly Oct–Mar. <a href="/privacy">Privacy&nbsp;policy</a>.
             </p>
-          </form>
+          </div>
         </div>
       </div>
     </div>
