@@ -272,24 +272,25 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: linear-gradient(to bottom, rgba(245,241,235,0.12) 0%, transparent 40%, rgba(30,27,24,0.3) 100%);
 }
 
-/* hero gradient variants */
+/* hero gradient variants — use background-image (not shorthand)
+   so they don't reset background-size/position from .section-hero__visual */
 .hero-grad--vineyard {
-  background: linear-gradient(160deg,#C9B99A 0%,#B8A885 25%,#7A8B6D 55%,#4E6B52 80%,#3A5240 100%);
+  background-image: linear-gradient(160deg,#C9B99A 0%,#B8A885 25%,#7A8B6D 55%,#4E6B52 80%,#3A5240 100%);
 }
 .hero-grad--bay {
-  background: linear-gradient(160deg,#B8D4E8 0%,#7BACCB 40%,#4A7FA3 80%,#2F5A80 100%);
+  background-image: linear-gradient(160deg,#B8D4E8 0%,#7BACCB 40%,#4A7FA3 80%,#2F5A80 100%);
 }
 .hero-grad--sand {
-  background: linear-gradient(160deg,#EFE4C9 0%,#D9C49A 35%,#B89870 70%,#8B6E47 100%);
+  background-image: linear-gradient(160deg,#EFE4C9 0%,#D9C49A 35%,#B89870 70%,#8B6E47 100%);
 }
 .hero-grad--hinterland {
-  background: linear-gradient(135deg,#8B7B62 0%,#7A8B6D 50%,#4E6B52 100%);
+  background-image: linear-gradient(135deg,#8B7B62 0%,#7A8B6D 50%,#4E6B52 100%);
 }
 .hero-grad--stay {
-  background: linear-gradient(135deg,#2F2A24 0%,#4A3E2E 40%,#6B563B 80%,#8B6E47 100%);
+  background-image: linear-gradient(135deg,#2F2A24 0%,#4A3E2E 40%,#6B563B 80%,#8B6E47 100%);
 }
 .hero-grad--journal {
-  background: linear-gradient(135deg,#C9B99A 0%,#A89278 30%,#8B7055 60%,#6E5440 100%);
+  background-image: linear-gradient(135deg,#C9B99A 0%,#A89278 30%,#8B7055 60%,#6E5440 100%);
 }
 
 /* =========================================================
