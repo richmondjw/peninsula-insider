@@ -7,7 +7,7 @@
  * every event carries at least one sentence of opinion.
  */
 import EventBadges from './EventBadges.astro';
-import { eventCategoryLabel, eventDateLabel, routeSlug } from '../lib/editorial';
+import { eventCategoryLabel, eventDateLabel, routeSlug, heroBackgroundStyle } from '../lib/editorial';
 
 export interface Props {
   event: any;
@@ -22,6 +22,9 @@ const placeLabel =
 ---
 
 <article class={`event-card ${featured ? 'event-card--featured' : ''}`}>
+  {event.data.heroImage && (
+    <div class="event-card__hero" style={heroBackgroundStyle(event.data)} aria-hidden="true"></div>
+  )}
   <div class="event-card__top">
     <span class="event-card__date">{eventDateLabel(event.data.startDate, event.data.endDate)}</span>
     <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>

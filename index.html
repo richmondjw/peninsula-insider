@@ -35,6 +35,15 @@
 
   <link rel="stylesheet" href="css/styles.css">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0MR9YVZ9NW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0MR9YVZ9NW');
+  </script>
+
   <!-- ===== JSON-LD Structured Data ===== -->
   <script type="application/ld+json">
   {
@@ -94,8 +103,114 @@
     ]
   }
   </script>
+  <style>
+    .site-lock-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(247,242,236,0.98), rgba(239,229,220,0.98));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      padding: 24px;
+    }
+    .site-lock-card {
+      width: 100%;
+      max-width: 420px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.18);
+      padding: 28px;
+      text-align: center;
+      font-family: inherit;
+    }
+    .site-lock-card h1 {
+      margin: 0 0 12px;
+      font-size: 1.6rem;
+      color: #8B4E3B;
+    }
+    .site-lock-card p {
+      margin: 0 0 16px;
+      color: #5b4a42;
+      line-height: 1.5;
+    }
+    .site-lock-card input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d7c5bb;
+      border-radius: 12px;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+    .site-lock-card button {
+      width: 100%;
+      padding: 14px 16px;
+      border: 0;
+      border-radius: 12px;
+      background: #8B4E3B;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .site-lock-error {
+      margin-top: 12px;
+      color: #b42318;
+      min-height: 1.2em;
+      font-size: 0.95rem;
+    }
+    body.site-locked {
+      overflow: hidden;
+    }
+  </style>
 </head>
-<body>
+<body class="site-locked">
+  <div class="site-lock-overlay" id="siteLockOverlay">
+    <div class="site-lock-card">
+      <h1>The Peninsula Insider</h1>
+      <p>This site is currently private. Enter the password to continue.</p>
+      <form id="siteLockForm">
+        <input type="password" id="siteLockPassword" placeholder="Password" autocomplete="current-password" />
+        <button type="submit">Enter</button>
+        <div class="site-lock-error" id="siteLockError"></div>
+      </form>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var PASSWORD = '1xlx1';
+      var STORAGE_KEY = 'peninsula-insider-unlocked';
+      var body = document.body;
+      var overlay = document.getElementById('siteLockOverlay');
+      var form = document.getElementById('siteLockForm');
+      var input = document.getElementById('siteLockPassword');
+      var error = document.getElementById('siteLockError');
+
+      function unlock() {
+        try { localStorage.setItem(STORAGE_KEY, 'true'); } catch (e) {}
+        overlay.style.display = 'none';
+        body.classList.remove('site-locked');
+      }
+
+      try {
+        if (localStorage.getItem(STORAGE_KEY) === 'true') {
+          unlock();
+          return;
+        }
+      } catch (e) {}
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (input.value === PASSWORD) {
+          unlock();
+        } else {
+          error.textContent = 'Incorrect password, try again.';
+          input.select();
+        }
+      });
+    })();
+  </script>
 
 <!-- ===== NAVIGATION ===== -->
 <nav class="nav" id="nav">
