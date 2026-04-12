@@ -13,6 +13,7 @@
     "check": "astro check"
   },
   "dependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.60.1",
     "astro": "^4.15.0"
   },
   "devDependencies": {
