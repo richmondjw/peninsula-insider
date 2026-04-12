@@ -1,5 +1,5 @@
 ---
-import { routeSlug } from '../lib/editorial';
+import { routeSlug, heroBackgroundStyle } from '../lib/editorial';
 
 const audienceLabel: Record<string, string> = {
   couple: 'Couples',
@@ -30,6 +30,9 @@ const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 
 ---
 
 <article class="itinerary-card">
+  {data.heroImage && (
+    <div class="itinerary-card__hero" style={heroBackgroundStyle(data)} aria-hidden="true"></div>
+  )}
   <div class="itinerary-card__top">
     <span class="itinerary-card__label">Escape plan</span>
     <span class="itinerary-card__meta">{nightsLabel}</span>

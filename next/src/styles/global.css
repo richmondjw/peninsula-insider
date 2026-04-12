@@ -1384,10 +1384,33 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .itinerary-card {
   background: var(--white);
-  padding: 2rem 1.75rem 1.75rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
 }
+.itinerary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(30, 27, 24, 0.07);
+}
+.itinerary-card__hero {
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border);
+}
+.itinerary-card__top,
+.itinerary-card__title,
+.itinerary-card__dek,
+.itinerary-card__chips,
+.itinerary-card__cta {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+.itinerary-card__top { padding-top: 1.5rem; }
 .itinerary-card__top {
   display: flex;
   align-items: center;
@@ -1449,6 +1472,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-transform: uppercase;
   color: var(--accent);
   margin-top: auto;
+  padding-bottom: 1.75rem;
   transition: gap .18s var(--ease), color .18s var(--ease);
 }
 .itinerary-card__cta:hover { gap: 0.65rem; color: var(--acc-h); }
