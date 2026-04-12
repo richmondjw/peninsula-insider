@@ -1,6 +1,6 @@
 import { defineCollection, reference, z } from 'astro:content';
 
-// Peninsula Insider — Content schema
+// Peninsula Insider  -  Content schema
 //
 // This file is the typed contract for every entity in the Astro rebuild.
 // The goal is simple: AI agents should be able to author content directly
@@ -290,20 +290,20 @@ const events = defineCollection({
       'nature',
       'writers-ideas',
     ]),
-    // Recurrence is editorial, not ical — 'one-off', 'weekly', 'monthly',
+    // Recurrence is editorial, not ical  -  'one-off', 'weekly', 'monthly',
     // 'annual' or 'seasonal' is the level of detail readers actually need.
     recurrence: z
       .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
       .default('one-off'),
-    // Editorial differentiators — the wedge against the DMO.
+    // Editorial differentiators  -  the wedge against the DMO.
     // Kids Grade: A/B/C (see peninsula-insider-events-intelligence-2026-04-09.md).
     kidsGrade: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
     kidsGradeNote: z.string().optional(),
     // Worth The Drive From Melbourne: binary, no hedging.
     worthTheDrive: z.boolean().default(false),
-    // First-time visitor filter — 'start here' events.
+    // First-time visitor filter  -  'start here' events.
     firstTimer: z.boolean().default(false),
-    // Weather disposition — solves the #1 Peninsula planning anxiety.
+    // Weather disposition  -  solves the #1 Peninsula planning anxiety.
     weather: z
       .enum(['all-weather', 'sunny-only', 'rainy-day-rescue', 'weather-proof', 'mixed'])
       .default('mixed'),
@@ -311,7 +311,7 @@ const events = defineCollection({
     // with one honest paragraph explaining why.
     skipThis: z.boolean().default(false),
     skipReason: z.string().optional(),
-    // Editor verdict — the one-line opinion that nobody else in the market
+    // Editor verdict  -  the one-line opinion that nobody else in the market
     // is brave enough to write.
     editorVerdict: z.string().optional(),
     // Free-text short categories for filter chips on whats-on index.

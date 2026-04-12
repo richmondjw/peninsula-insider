@@ -1,6 +1,6 @@
 ---
 title: "The Sunset Hour: Where to Be at the End of the Day"
-dek: "The Peninsula's evenings are its most under-scheduled hours. Where to stand, sit, drink, or walk in the forty minutes before dark — the guide to the best light on the Mornington Peninsula."
+dek: "The Peninsula's evenings are its most under-scheduled hours. Where to stand, sit, drink, or walk in the forty minutes before dark  -  the guide to the best light on the Mornington Peninsula."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
@@ -20,15 +20,15 @@ status: "published"
 
 The Peninsula's evenings are wasted by almost everyone who visits.
 
-The standard plan runs the day hard — cellar doors, lunch, a producer stop, maybe a beach — and then drives home at four-thirty in the fading light, or retreats to the rental house to cook dinner while the best hour of the day unfolds outside. The sunset on the Mornington Peninsula is one of its most consistent assets and nobody schedules for it.
+The standard plan runs the day hard  -  cellar doors, lunch, a producer stop, maybe a beach  -  and then drives home at four-thirty in the fading light, or retreats to the rental house to cook dinner while the best hour of the day unfolds outside. The sunset on the Mornington Peninsula is one of its most consistent assets and nobody schedules for it.
 
 This is the guide to the last hour of daylight: where to stand, where to sit, what to drink, and which direction to face.
 
 ## Why the Peninsula sunset works
 
-The geography is specific. The Peninsula runs roughly north-south with Port Phillip Bay to the west. In autumn and winter, the sun sets over the bay — which means that every west-facing beach, clifftop, rooftop, and wine terrace on the bay side gets a front-row seat to the drop. The light is warmer than Melbourne's because the air is cleaner. The bay acts as a reflector, bouncing colour back up into the sky. And the ridgeline behind you — the hinterland — catches the last pink light on its eastern face in a way that makes the vineyard rows glow.
+The geography is specific. The Peninsula runs roughly north-south with Port Phillip Bay to the west. In autumn and winter, the sun sets over the bay  -  which means that every west-facing beach, clifftop, rooftop, and wine terrace on the bay side gets a front-row seat to the drop. The light is warmer than Melbourne's because the air is cleaner. The bay acts as a reflector, bouncing colour back up into the sky. And the ridgeline behind you  -  the hinterland  -  catches the last pink light on its eastern face in a way that makes the vineyard rows glow.
 
-The ocean side — the back beaches at Sorrento, Portsea, Gunnamatta — faces south and does not get the same sunset, but it gets something else: the afterglow. The sky stays lit for twenty minutes after the sun has dropped below the western horizon, and that cool, bruised light on the ocean cliffs is as good as any sunset, just different.
+The ocean side  -  the back beaches at Sorrento, Portsea, Gunnamatta  -  faces south and does not get the same sunset, but it gets something else: the afterglow. The sky stays lit for twenty minutes after the sun has dropped below the western horizon, and that cool, bruised light on the ocean cliffs is as good as any sunset, just different.
 
 The two experiences are not interchangeable. The bay sunset is warm, golden, and photographic. The ocean afterglow is moody, quiet, and better for walking. Pick based on your evening.
 
@@ -48,11 +48,11 @@ This is the most accessible sunset walk on the Peninsula and the one that works 
 
 ### Mount Martha bathing boxes
 
-The northern end of **Mount Martha Beach** has a row of painted bathing boxes that face west. At sunset they become the most photographed feature on the Peninsula for good reason — the boxes catch the warm light, the beach goes gold, and the bay beyond stretches flat to the horizon. Walk north from the main car park. Ten minutes. Stand among the boxes and wait.
+The northern end of **Mount Martha Beach** has a row of painted bathing boxes that face west. At sunset they become the most photographed feature on the Peninsula for good reason  -  the boxes catch the warm light, the beach goes gold, and the bay beyond stretches flat to the horizon. Walk north from the main car park. Ten minutes. Stand among the boxes and wait.
 
 ### Cape Schanck boardwalk
 
-The short boardwalk from the **Cape Schanck lighthouse** to the cliff lookout faces south-west, and on a clear evening the view across Bass Strait from the platform is one of the most dramatic on the Victorian coast. This is the ocean sunset rather than the bay sunset — bigger, wilder, colder. Five minutes from the car park. Bring a jacket; the wind at the cape does not stop for golden hour.
+The short boardwalk from the **Cape Schanck lighthouse** to the cliff lookout faces south-west, and on a clear evening the view across Bass Strait from the platform is one of the most dramatic on the Victorian coast. This is the ocean sunset rather than the bay sunset  -  bigger, wilder, colder. Five minutes from the car park. Bring a jacket; the wind at the cape does not stop for golden hour.
 
 ### Safety Beach foreshore
 
@@ -68,11 +68,11 @@ Book a table in summer. Walk in during autumn and winter. Arrive thirty minutes 
 
 ### The Baths, Sorrento
 
-**The Baths** restaurant and bar sits directly on the Sorrento foreshore with floor-to-ceiling windows facing the bay. The cocktail menu is competent and the setting — water, sky, fading light — is the point. More intimate than the Hotel Sorrento rooftop and better for a couple than a group.
+**The Baths** restaurant and bar sits directly on the Sorrento foreshore with floor-to-ceiling windows facing the bay. The cocktail menu is competent and the setting  -  water, sky, fading light  -  is the point. More intimate than the Hotel Sorrento rooftop and better for a couple than a group.
 
 ### Pt Leo Wine Terrace
 
-The **Point Leo Wine Terrace** overlooks Western Port Bay from a high hillside, and on a clear evening the view extends across the water to Phillip Island and French Island. The wine list is drawn from the estate's own vineyard. This is the quieter, more refined sunset drink — less social than Sorrento, better wine, and a view that faces south-east rather than west, which means the light is softer and the colours are cooler.
+The **Point Leo Wine Terrace** overlooks Western Port Bay from a high hillside, and on a clear evening the view extends across the water to Phillip Island and French Island. The wine list is drawn from the estate's own vineyard. This is the quieter, more refined sunset drink  -  less social than Sorrento, better wine, and a view that faces south-east rather than west, which means the light is softer and the colours are cooler.
 
 ### Flinders Hotel beer garden
 
@@ -80,11 +80,11 @@ The **Flinders Hotel** beer garden faces the village green rather than the water
 
 ### Polperro cellar door
 
-**Polperro** stays open for evening tastings on selected nights, and the small deck behind the cellar door faces west over a vineyard slope that catches the last light beautifully. Check opening hours before driving down. When it is open, this is the most intimate sunset drink on the Peninsula — three or four tables, serious wine, and a view that belongs to a region twice the price.
+**Polperro** stays open for evening tastings on selected nights, and the small deck behind the cellar door faces west over a vineyard slope that catches the last light beautifully. Check opening hours before driving down. When it is open, this is the most intimate sunset drink on the Peninsula  -  three or four tables, serious wine, and a view that belongs to a region twice the price.
 
 ## The dinner transition
 
-The sunset hour should flow into the evening, not interrupt it. The places that handle the transition — sunset drink into dinner without moving — are:
+The sunset hour should flow into the evening, not interrupt it. The places that handle the transition  -  sunset drink into dinner without moving  -  are:
 
 - **Hotel Sorrento:** rooftop for sunset, dining room downstairs for dinner
 - **The Continental Sorrento:** terrace for drinks, restaurant for the meal

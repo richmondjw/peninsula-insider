@@ -24,15 +24,15 @@ The question is not whether the Peninsula does it well. The question is how to d
 
 ## Start with the terrain
 
-The plateau that runs through Red Hill and Merricks is the key. Altitude and cool air create pinot noir country that stands with the Yarra Valley's best — and the chefs who've set up here know that the vineyards outside the window are their larder, their narrative, and their competitive advantage. The whole regional lunch concept makes more sense when you can see where the wine comes from through the dining room glass.
+The plateau that runs through Red Hill and Merricks is the key. Altitude and cool air create pinot noir country that stands with the Yarra Valley's best  -  and the chefs who've set up here know that the vineyards outside the window are their larder, their narrative, and their competitive advantage. The whole regional lunch concept makes more sense when you can see where the wine comes from through the dining room glass.
 
 ## The three rooms worth booking
 
 **Ten Minutes by Tractor** is the summit. Three hats, an estate wine program built over two decades, and a degustation that changes with the seasons in ways that feel genuinely responsive rather than performative. Book six weeks ahead for weekends. Lunch is the move; dinner is more formal and less relaxed. The bread service alone is worth the trip.
 
-**Montalto Vineyard & Olive Grove** is the one you bring first-timers to. The estate does everything right — olive grove, sculpture garden, kitchen garden, cellar door — before you've reached the restaurant. The pasta is made daily. The Single Vineyard Pinot Noir is one of the better bottles on the Peninsula. One hat, earnt honestly, and the terrace in summer gives you an afternoon that goes long in all the right ways.
+**Montalto Vineyard & Olive Grove** is the one you bring first-timers to. The estate does everything right  -  olive grove, sculpture garden, kitchen garden, cellar door  -  before you've reached the restaurant. The pasta is made daily. The Single Vineyard Pinot Noir is one of the better bottles on the Peninsula. One hat, earnt honestly, and the terrace in summer gives you an afternoon that goes long in all the right ways.
 
-**Pt. Leo Estate** is the most cinematic. Walk the sculpture park first — the collection is serious, roughly fifty large-scale works in the grounds — then take your table in the glass-walled restaurant with Port Phillip stretched out below. Two hats, exceptional wine list, a kitchen that handles produce-forward cooking with real skill. Give yourself half a day minimum.
+**Pt. Leo Estate** is the most cinematic. Walk the sculpture park first  -  the collection is serious, roughly fifty large-scale works in the grounds  -  then take your table in the glass-walled restaurant with Port Phillip stretched out below. Two hats, exceptional wine list, a kitchen that handles produce-forward cooking with real skill. Give yourself half a day minimum.
 
 ## The logistics
 

@@ -24,7 +24,7 @@ export const formatLabel: Record<string, string> = {
   'weekend-picker': 'Weekend Picker',
 };
 
-// Event taxonomy labels — keep in lock-step with events collection schema.
+// Event taxonomy labels  -  keep in lock-step with events collection schema.
 export const eventCategoryLabel: Record<string, string> = {
   'food-wine': 'Food & Wine',
   market: 'Markets',
@@ -58,11 +58,11 @@ export const eventLensLabel: Record<string, string> = {
 export const kidsGradeCopy: Record<string, { label: string; blurb: string }> = {
   A: {
     label: 'Kids Grade A',
-    blurb: 'Bring a pram, bring a toddler, bring a teen — everyone will be happy.',
+    blurb: 'Bring a pram, bring a toddler, bring a teen  -  everyone will be happy.',
   },
   B: {
     label: 'Kids Grade B',
-    blurb: 'One age range event — good if you\'ve got 5-to-10s, risky otherwise.',
+    blurb: 'One age range event  -  good if you\'ve got 5-to-10s, risky otherwise.',
   },
   C: {
     label: 'Kids Grade C',
@@ -219,7 +219,7 @@ export const seasonBlurb: Record<'summer' | 'autumn' | 'winter' | 'spring', { la
 };
 
 /**
- * Score a venue by how "local favourite" it feels — weighted by the
+ * Score a venue by how "local favourite" it feels  -  weighted by the
  * audience.locals tag and a soft authority floor.
  */
 export function isLocalFavourite(venue: any): boolean {

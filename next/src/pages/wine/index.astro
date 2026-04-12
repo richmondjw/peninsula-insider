@@ -22,7 +22,7 @@ const producers = venues.filter((venue) => venue.data.type === 'producer');
 const breweries = venues.filter((venue) => venue.data.type === 'brewery');
 const distilleries = venues.filter((venue) => venue.data.type === 'distillery');
 
-// Benchmark shortlist — the cellar doors that anchor the region right now.
+// Benchmark shortlist  -  the cellar doors that anchor the region right now.
 const benchmarkSlugs = [
   'pt-leo-estate',
   'montalto',
@@ -35,7 +35,7 @@ const benchmarks = benchmarkSlugs
   .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
-// Appointment-only — the producers worth planning the drive around.
+// Appointment-only  -  the producers worth planning the drive around.
 const appointmentOnly = venues
   .filter((venue) => venue.data.bookingProvider === 'direct' || Number(venue.data.authority?.hallidayScore ?? 0) >= 95)
   .filter((venue) => !benchmarks.some((b) => routeSlug(b) === routeSlug(venue)))
@@ -62,7 +62,7 @@ const companionReads = companionSlugs
 ---
 
 <BaseLayout
-  title="Wine — Peninsula Insider"
+  title="Wine  -  Peninsula Insider"
   description="Cellar doors, benchmark producers, breweries, and distilleries worth your afternoon on the Mornington Peninsula."
   section="wine"
 >
@@ -70,7 +70,7 @@ const companionReads = companionSlugs
     eyebrow="Wine Country"
     subEyebrow="Cellar doors · pinot noir · cool-climate producers"
     title="The Peninsula's best bottles start on the <em>ridge.</em>"
-    dek="Pinot noir and chardonnay built on basalt, plus the breweries and distilleries that now round out the region. This hub sorts them by what they're actually for — long lunches, appointment tastings, and afternoons that earn the drive."
+    dek="Pinot noir and chardonnay built on basalt, plus the breweries and distilleries that now round out the region. This hub sorts them by what they're actually for  -  long lunches, appointment tastings, and afternoons that earn the drive."
     gradient="hinterland"
     visualLabel="Pinot Noir · Main Ridge Estate"
     heroImage="/images/sourced/wine-hub-hero-01.webp"
@@ -109,7 +109,7 @@ const companionReads = companionSlugs
         <a href="#appointment" class="zone-card zone-card--link">
           <p class="zone-card__label">The appointment</p>
           <h3 class="zone-card__title">Two producers, one small meal</h3>
-          <p class="zone-card__body">For the wine-literate weekend — tastings with the winemaker, and a village lunch that doesn't compete for attention.</p>
+          <p class="zone-card__body">For the wine-literate weekend  -  tastings with the winemaker, and a village lunch that doesn't compete for attention.</p>
         </a>
         <a href="#breweries" class="zone-card zone-card--link">
           <p class="zone-card__label">The easier version</p>
@@ -127,7 +127,7 @@ const companionReads = companionSlugs
           <div>
             <p class="label label--accent">Benchmark cellar doors</p>
             <h2 class="venues__title">The producers anchoring the region right now</h2>
-            <p class="venues__sub">Halliday scores matter less than editorial weight — this is the shortlist we'd put in front of a first-time visitor and an obsessive both.</p>
+            <p class="venues__sub">Halliday scores matter less than editorial weight  -  this is the shortlist we'd put in front of a first-time visitor and an obsessive both.</p>
           </div>
           <a href="/journal/the-cellar-door-short-list" class="venues__link">Read the shortlist →</a>
         </div>
@@ -145,7 +145,7 @@ const companionReads = companionSlugs
           <div>
             <p class="label label--accent">Appointment producers</p>
             <h2 class="venues__title">Worth planning the drive around</h2>
-            <p class="venues__sub">The producers that reward a booking — smaller tastings, closer to the winemaking, often the most interesting conversations of the weekend.</p>
+            <p class="venues__sub">The producers that reward a booking  -  smaller tastings, closer to the winemaking, often the most interesting conversations of the weekend.</p>
           </div>
         </div>
         <div class="venues__grid">

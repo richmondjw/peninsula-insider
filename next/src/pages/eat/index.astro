@@ -22,14 +22,14 @@ const venues = (await getCollection('venues'))
 const season = currentSeason();
 const blurb = seasonBlurb[season];
 
-// Editor's shortlist — the three-hat and benchmark rooms we'd hand-pick
+// Editor's shortlist  -  the three-hat and benchmark rooms we'd hand-pick
 // as the strongest daylight dining on the Peninsula right now.
 const editorPickSlugs = ['ten-minutes-by-tractor', 'tedesca-osteria', 'laura-pt-leo'];
 const editorPicks = editorPickSlugs
   .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
-// Long lunch shortlist — rooms with enough ambition to carry a whole day.
+// Long lunch shortlist  -  rooms with enough ambition to carry a whole day.
 const longLunchFallback = venues
   .filter((venue) => ['restaurant', 'winery'].includes(venue.data.type))
   .filter((venue) => !editorPickSlugs.includes(routeSlug(venue)))
@@ -38,21 +38,21 @@ const longLunchCurated = venues
   .filter((venue) => ['polperro', 'montalto', 'doot-doot-doot', 'pt-leo-estate'].includes(routeSlug(venue)));
 const longLunches = longLunchCurated.length >= 3 ? longLunchCurated : longLunchFallback;
 
-// Local favourites — the rooms locals actually rotate through.
+// Local favourites  -  the rooms locals actually rotate through.
 const localFavourites = venues.filter(isLocalFavourite).slice(0, 6);
 
-// First-time entry points — where to start if the Peninsula is new.
+// First-time entry points  -  where to start if the Peninsula is new.
 const firstTimers = venues.filter(isFirstTimer).slice(0, 6);
 
-// Seasonal hook — venues whose season tag matches the current month.
+// Seasonal hook  -  venues whose season tag matches the current month.
 const seasonal = venues.filter((venue) => inSeason(venue, season)).slice(0, 6);
 
-// Casual stops — bakeries, coffee, markets, pubs.
+// Casual stops  -  bakeries, coffee, markets, pubs.
 const casualStops = venues.filter((venue) =>
   ['cafe', 'bakery', 'pub', 'market'].includes(venue.data.type),
 );
 
-// Companion reads — journal pieces that sharpen the dining decision.
+// Companion reads  -  journal pieces that sharpen the dining decision.
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const companionSlugs = [
@@ -81,7 +81,7 @@ const typeFilters = [
 ---
 
 <BaseLayout
-  title="Eat & Drink — Peninsula Insider"
+  title="Eat & Drink  -  Peninsula Insider"
   description="Editorial picks for restaurants, winery lunches, and destination dining on the Mornington Peninsula."
   section="eat"
 >
@@ -89,7 +89,7 @@ const typeFilters = [
     eyebrow="Eat & Drink"
     subEyebrow="Long lunches · dining rooms · cellar door lunches"
     title="The dining rooms that justify the <em>drive.</em>"
-    dek="Vineyard restaurants, long lunches, and rooms with enough ambition to make Melbourne feel very far away — plus the bakeries and coffee rooms that stop a weekend turning into one expensive booking after another."
+    dek="Vineyard restaurants, long lunches, and rooms with enough ambition to make Melbourne feel very far away  -  plus the bakeries and coffee rooms that stop a weekend turning into one expensive booking after another."
     gradient="vineyard"
     visualLabel="Red Hill plateau · lunch country"
     heroImage="/images/sourced/place-merricks-01.webp"
@@ -151,7 +151,7 @@ const typeFilters = [
           <div>
             <p class="label label--accent">Local favourites</p>
             <h2 class="venues__title">Where locals actually rotate through</h2>
-            <p class="venues__sub">Not the rooms that win trophies — the rooms that win Tuesday nights.</p>
+            <p class="venues__sub">Not the rooms that win trophies  -  the rooms that win Tuesday nights.</p>
           </div>
         </div>
         <div class="venues__grid">
@@ -168,7 +168,7 @@ const typeFilters = [
           <div>
             <p class="label label--accent">First visit</p>
             <h2 class="venues__title">If it's your first Peninsula weekend, start here</h2>
-            <p class="venues__sub">A clean set of entry points — cafés, bakeries, markets, and the dining rooms friendly enough to visit without a plan.</p>
+            <p class="venues__sub">A clean set of entry points  -  cafés, bakeries, markets, and the dining rooms friendly enough to visit without a plan.</p>
           </div>
           <a href="/journal/the-peninsula-orientation-drive" class="venues__link">Read the orientation drive →</a>
         </div>
@@ -219,7 +219,7 @@ const typeFilters = [
         <div>
           <p class="label label--accent">Every dining venue</p>
           <h2 class="venues__title">All {venues.length} eat-and-drink venues, by authority</h2>
-          <p class="venues__sub">Ordered by editorial weight — three-hat tables first, then the rooms working quietly below them.</p>
+          <p class="venues__sub">Ordered by editorial weight  -  three-hat tables first, then the rooms working quietly below them.</p>
         </div>
       </div>
       <div class="venues__grid">

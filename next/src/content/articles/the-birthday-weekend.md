@@ -1,6 +1,6 @@
 ---
 title: "The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory"
-dek: "A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly — one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned."
+dek: "A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly  -  one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-16
@@ -28,7 +28,7 @@ Here is how to build that weekend.
 
 The mistake most birthday weekends make is trying to make every meal and every stop "special." It does not work. When everything is an anchor, nothing is, and the weekend flattens into a long sequence of bookings.
 
-A proper birthday weekend has exactly one moment that is the moment. Usually that is the Saturday dinner, because it naturally carries the weight. Everything else in the weekend should be good, relaxed, enjoyable — but not competing with the main event. Treat the Saturday dinner as the centre of the two-night plan, and build outward from it.
+A proper birthday weekend has exactly one moment that is the moment. Usually that is the Saturday dinner, because it naturally carries the weight. Everything else in the weekend should be good, relaxed, enjoyable  -  but not competing with the main event. Treat the Saturday dinner as the centre of the two-night plan, and build outward from it.
 
 The second rule: the anchor moment needs to be in a room the birthday guest has not been in before. That is what makes it memorable. If you take someone to their favourite restaurant for a birthday, it is a good dinner but not a new memory. If you take them somewhere they have never been, in a landscape that is itself a gift, the whole meal becomes the thing they remember about the birthday.
 
@@ -36,11 +36,11 @@ The second rule: the anchor moment needs to be in a room the birthday guest has 
 
 The Peninsula has four serious rooms that can hold a milestone birthday dinner. They are not interchangeable.
 
-**Laura at Pt Leo Estate** is the most visually spectacular. The room sits above the Point Leo sculpture park with a full wall of glass looking south to Western Port Bay and the outline of Phillip Island on the horizon, and the tasting menu is the most architecturally ambitious on the Peninsula. This is the right choice for a birthday that wants the theatrical gesture — the one where the guest walks into the room and gasps. It is also the right choice for a fortieth, a fiftieth, or any birthday where the year matters and you want the setting to feel like an event.
+**Laura at Pt Leo Estate** is the most visually spectacular. The room sits above the Point Leo sculpture park with a full wall of glass looking south to Western Port Bay and the outline of Phillip Island on the horizon, and the tasting menu is the most architecturally ambitious on the Peninsula. This is the right choice for a birthday that wants the theatrical gesture  -  the one where the guest walks into the room and gasps. It is also the right choice for a fortieth, a fiftieth, or any birthday where the year matters and you want the setting to feel like an event.
 
 **Tedesca Osteria** at Baxter is the opposite answer: smaller, quieter, more intimate, with the wood oven and the farm garden immediately visible from the dining room. Brigitte Hafner's cooking is arguably the most technically grounded on the Peninsula, and the room holds a birthday dinner for two or four in a way that none of the larger dining rooms can. This is the right choice for a birthday that should feel personal rather than grand.
 
-**Doot Doot Doot** at Jackalope is the third choice, and the most polarising. The room is dark, dramatic, and unambiguously theatrical — thousands of suspended lightbulbs, a wall of vineyard windows, a tasting menu that leans into spectacle. It is the right choice for a birthday with a group of four to eight where the atmosphere of the room needs to do some of the lifting, and it works particularly well if one of the birthday guests has a taste for visual drama.
+**Doot Doot Doot** at Jackalope is the third choice, and the most polarising. The room is dark, dramatic, and unambiguously theatrical  -  thousands of suspended lightbulbs, a wall of vineyard windows, a tasting menu that leans into spectacle. It is the right choice for a birthday with a group of four to eight where the atmosphere of the room needs to do some of the lifting, and it works particularly well if one of the birthday guests has a taste for visual drama.
 
 **Ten Minutes by Tractor** is the fourth option, and the most consistent in a culinary sense. The room is more restrained than any of the above, but the tasting menu is the most reliable on the Peninsula and the wine list is the deepest. This is the right choice for a birthday where the guest is a serious eater or drinker and wants the meal to be the event without the room competing with it.
 
@@ -68,45 +68,45 @@ Here is the complete plan assuming the anchor dinner is Saturday at Laura, with 
 
 ### Friday
 
-**3.30pm — Check in.** Take the late afternoon slow. Do not plan anything for the first three hours of the weekend. This is deliberate: arriving into a birthday weekend at a sprint is the single most common mistake.
+**3.30pm  -  Check in.** Take the late afternoon slow. Do not plan anything for the first three hours of the weekend. This is deliberate: arriving into a birthday weekend at a sprint is the single most common mistake.
 
-**5pm — A short walk around the sculpture park.** Arriving guests will want to stretch their legs. The Point Leo sculpture park is free to walk through if you are staying on site, and the first hour before sunset is when the light on the works is at its best.
+**5pm  -  A short walk around the sculpture park.** Arriving guests will want to stretch their legs. The Point Leo sculpture park is free to walk through if you are staying on site, and the first hour before sunset is when the light on the works is at its best.
 
-**7pm — Dinner nearby, casual.** This is the night-one dinner, and the rule is that it must not compete with tomorrow's anchor. Good options: **Barragunda Dining** at Cape Schanck (thirty minutes away, relaxed, farm-oriented), **Merricks General Wine Store** (closer, casual, pizzas and grilled things), or **Polperro** (serious but smaller plates and a quieter tone). Avoid anywhere that serves a tasting menu on night one — save the tasting palate for Saturday.
+**7pm  -  Dinner nearby, casual.** This is the night-one dinner, and the rule is that it must not compete with tomorrow's anchor. Good options: **Barragunda Dining** at Cape Schanck (thirty minutes away, relaxed, farm-oriented), **Merricks General Wine Store** (closer, casual, pizzas and grilled things), or **Polperro** (serious but smaller plates and a quieter tone). Avoid anywhere that serves a tasting menu on night one  -  save the tasting palate for Saturday.
 
 ### Saturday
 
-**9am — Slow breakfast.** At the villa, not out. The birthday guest should have a slow morning. Bring pastries from a Peninsula bakery on the Friday drive down; brew coffee at the villa.
+**9am  -  Slow breakfast.** At the villa, not out. The birthday guest should have a slow morning. Bring pastries from a Peninsula bakery on the Friday drive down; brew coffee at the villa.
 
-**10.30am — The surprise morning.** This is the moment that separates a good birthday weekend from a memorable one. Surprise moves that work on the Peninsula:
+**10.30am  -  The surprise morning.** This is the moment that separates a good birthday weekend from a memorable one. Surprise moves that work on the Peninsula:
 
-- **A private cellar-door tasting** at one of the smaller producers — **Stonier**, **Eldridge Estate**, **Paradigm Hill** — where the winemaker is often there in person. Call ahead and explain it is a birthday; the smaller estates are generous with this.
+- **A private cellar-door tasting** at one of the smaller producers  -  **Stonier**, **Eldridge Estate**, **Paradigm Hill**  -  where the winemaker is often there in person. Call ahead and explain it is a birthday; the smaller estates are generous with this.
 - **A morning at the thermal springs.** Book the exclusive bathing area at Peninsula Hot Springs or the spa circuit at Alba. Start at 9.30, finish by 11.30.
 - **A private walk at the sculpture park** with a tour guide (bookable through Pt Leo Estate on request).
-- **A sunrise beach trip** — the bay at Portsea at 6.30am in summer, or a short drive to Cape Schanck for the lighthouse walk at dawn. This is the most romantic version if the birthday is for a couple.
+- **A sunrise beach trip**  -  the bay at Portsea at 6.30am in summer, or a short drive to Cape Schanck for the lighthouse walk at dawn. This is the most romantic version if the birthday is for a couple.
 - **A helicopter flight** from Moorabbin Airport over the Peninsula landing at Arthurs Seat. Expensive, but for a significant birthday the hour of flight becomes the thing the guest describes for years.
 
-**12.30pm — A light lunch.** Not another long one. Cheese and bread and something cold at a bayside cafe, or a short wine-and-charcuterie tasting at a cellar door. The Saturday anchor dinner is in five hours and the palate needs to be ready for it.
+**12.30pm  -  A light lunch.** Not another long one. Cheese and bread and something cold at a bayside cafe, or a short wine-and-charcuterie tasting at a cellar door. The Saturday anchor dinner is in five hours and the palate needs to be ready for it.
 
-**2pm — A nap, a swim, or a walk.** Back at the villa. The afternoon of a birthday should not be scheduled. Let the guest choose.
+**2pm  -  A nap, a swim, or a walk.** Back at the villa. The afternoon of a birthday should not be scheduled. Let the guest choose.
 
-**5pm — Get ready.** Treat this seriously. A birthday dinner that is significant enough to plan is significant enough to dress for. The ritual of getting ready is part of the weekend.
+**5pm  -  Get ready.** Treat this seriously. A birthday dinner that is significant enough to plan is significant enough to dress for. The ritual of getting ready is part of the weekend.
 
-**6.30pm — Sunset drink at Pt Leo Estate.** Walk down from the villas to the terrace. One proper cocktail on the verandah as the light drops across the sculpture park. This is the hand-off into the dinner itself.
+**6.30pm  -  Sunset drink at Pt Leo Estate.** Walk down from the villas to the terrace. One proper cocktail on the verandah as the light drops across the sculpture park. This is the hand-off into the dinner itself.
 
-**7.30pm — Dinner at Laura.** The anchor moment. The tasting menu takes about three hours. Let it. Do not rush the pours. Do not scroll your phone between courses. This is the moment the weekend is about.
+**7.30pm  -  Dinner at Laura.** The anchor moment. The tasting menu takes about three hours. Let it. Do not rush the pours. Do not scroll your phone between courses. This is the moment the weekend is about.
 
-**11pm — Walk back to the villa.** The slow end of the night.
+**11pm  -  Walk back to the villa.** The slow end of the night.
 
 ### Sunday
 
-**9.30am — A long breakfast.** The birthday is over and the weekend is now about coming down properly. A full, slow, quiet breakfast. No clock.
+**9.30am  -  A long breakfast.** The birthday is over and the weekend is now about coming down properly. A full, slow, quiet breakfast. No clock.
 
-**11am — A landscape move.** One last big outdoor moment before the drive home. **Bushrangers Bay Walk** if the legs are up for it. The **Cape Schanck Boardwalk** if they are not. The walk should feel like closure, not a chore.
+**11am  -  A landscape move.** One last big outdoor moment before the drive home. **Bushrangers Bay Walk** if the legs are up for it. The **Cape Schanck Boardwalk** if they are not. The walk should feel like closure, not a chore.
 
-**12.30pm — A light lunch.** Somewhere near the highway, not deep back into the Peninsula. The weekend ends on the way out, not in another two-hour booking.
+**12.30pm  -  A light lunch.** Somewhere near the highway, not deep back into the Peninsula. The weekend ends on the way out, not in another two-hour booking.
 
-**2pm — Drive home.** The birthday weekend ends here.
+**2pm  -  Drive home.** The birthday weekend ends here.
 
 ## What to avoid
 

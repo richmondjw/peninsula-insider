@@ -22,7 +22,7 @@ const featuredStays = featuredStaySlugs
   .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
-// Split stays by geography — ridge, coast, bay — so the hub starts to feel
+// Split stays by geography  -  ridge, coast, bay  -  so the hub starts to feel
 // like a geography-first choice rather than a flat list.
 const ridgeZones = ['red-hill-plateau', 'hinterland'];
 const coastZones = ['ocean-coast', 'back-beaches', 'tip'];
@@ -69,7 +69,7 @@ const stayStats = {
 ---
 
 <BaseLayout
-  title="Stay — Peninsula Insider"
+  title="Stay  -  Peninsula Insider"
   description="Hotels, vineyard stays, and weekend bases that shape a Mornington Peninsula trip."
   section="stay"
 >
@@ -133,7 +133,7 @@ const stayStats = {
           <div>
             <p class="label label--accent">Editor's picks</p>
             <h2 class="venues__title">Three stays worth planning the trip around</h2>
-            <p class="venues__sub">From design-hotel spectacle to quieter village-hotel weekends — the rooms that change what the trip feels like.</p>
+            <p class="venues__sub">From design-hotel spectacle to quieter village-hotel weekends  -  the rooms that change what the trip feels like.</p>
           </div>
           <a href="/journal/where-to-stay-for-a-two-night-escape" class="venues__link">Editor's stay guide →</a>
         </div>
@@ -151,7 +151,7 @@ const stayStats = {
           <div>
             <p class="label label--accent">Vineyard weekends</p>
             <h2 class="venues__title">Beds with a long lunch already attached</h2>
-            <p class="venues__sub">The stays that make the Red Hill version of the Peninsula hold together — close to cellar doors, built for pinot pacing.</p>
+            <p class="venues__sub">The stays that make the Red Hill version of the Peninsula hold together  -  close to cellar doors, built for pinot pacing.</p>
           </div>
           <a href="/wine" class="venues__link">Wine country →</a>
         </div>

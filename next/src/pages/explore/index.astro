@@ -37,9 +37,9 @@ const markets = experiences.filter((e) => e.data.type === 'market');
 const wellness = experiences.filter((e) => e.data.type === 'wellness');
 const galleriesAttractions = experiences.filter((e) => ['gallery', 'attraction', 'park', 'tour'].includes(e.data.type));
 
-// Short walks under 60 min — "between meals" layer.
+// Short walks under 60 min  -  "between meals" layer.
 const shortWalks = walks.filter((e) => (e.data.durationMinutes ?? 999) <= 60).slice(0, 4);
-// Proper coastal walks — anything 60+ minutes, tagged a walk.
+// Proper coastal walks  -  anything 60+ minutes, tagged a walk.
 const longWalks = walks.filter((e) => (e.data.durationMinutes ?? 0) > 60).slice(0, 6);
 
 // Seasonal experiences that actually match right now.
@@ -61,7 +61,7 @@ const companionReads = companionSlugs
 ---
 
 <BaseLayout
-  title="Explore — Peninsula Insider"
+  title="Explore  -  Peninsula Insider"
   description="Walks, lookouts, beaches, and market mornings that make the Mornington Peninsula feel bigger than a lunch booking."
   section="explore"
 >
@@ -182,7 +182,7 @@ const companionReads = companionSlugs
           <div>
             <p class="label label--accent">Beaches</p>
             <h2 class="venues__title">Which beach, and why</h2>
-            <p class="venues__sub">The bay calm versus the back beaches — pick the one that matches the weather, not the one closest to the car.</p>
+            <p class="venues__sub">The bay calm versus the back beaches  -  pick the one that matches the weather, not the one closest to the car.</p>
           </div>
           <a href="/journal/the-peninsula-beach-swimming-guide" class="venues__link">Beach guide →</a>
         </div>
@@ -200,7 +200,7 @@ const companionReads = companionSlugs
           <div>
             <p class="label label--accent">Lookouts</p>
             <h2 class="venues__title">Where the Peninsula lays itself out for you</h2>
-            <p class="venues__sub">Short stops, long views — the moments that make the drive home feel considered.</p>
+            <p class="venues__sub">Short stops, long views  -  the moments that make the drive home feel considered.</p>
           </div>
         </div>
         <div class="experience-grid">
@@ -252,7 +252,7 @@ const companionReads = companionSlugs
           <div>
             <p class="label label--accent">Galleries & attractions</p>
             <h2 class="venues__title">Non-beach, non-cellar-door afternoons</h2>
-            <p class="venues__sub">The culture layer — useful when the weather turns or the weekend needs a quieter pace.</p>
+            <p class="venues__sub">The culture layer  -  useful when the weather turns or the weekend needs a quieter pace.</p>
           </div>
         </div>
         <div class="experience-grid">

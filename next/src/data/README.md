@@ -1,4 +1,4 @@
-# `src/data/` — Peninsula Insider content layer
+# `src/data/`  -  Peninsula Insider content layer
 
 This directory is the **source of truth** for every atomic entity on Peninsula Insider. No page on the site is authored in HTML. Every venue, experience, place, article, itinerary, event, and author lives as a typed JSON or Markdown file here, validated at build time against the schemas in `../content/config.ts`.
 
@@ -16,7 +16,7 @@ This directory is the **source of truth** for every atomic entity on Peninsula I
 
 ## Authoring workflow
 
-**AI-first, not GUI-first.** Research subagents produce validated JSON records directly into these directories. Every commit goes through Zod validation at build time — if the file is malformed, the build fails. This is the whole point.
+**AI-first, not GUI-first.** Research subagents produce validated JSON records directly into these directories. Every commit goes through Zod validation at build time  -  if the file is malformed, the build fails. This is the whole point.
 
 ### Creating a venue
 
@@ -38,7 +38,7 @@ articles/
 
 ### Creating a place hub
 
-Places are the lowest-effort entity to create but the highest leverage — a single place file triggers an auto-generated hub page (`/eat-drink/red-hill/`, etc.) that aggregates every venue tagged to that place.
+Places are the lowest-effort entity to create but the highest leverage  -  a single place file triggers an auto-generated hub page (`/eat-drink/red-hill/`, etc.) that aggregates every venue tagged to that place.
 
 ## Slug rules
 

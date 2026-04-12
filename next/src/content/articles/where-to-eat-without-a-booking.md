@@ -1,6 +1,6 @@
 ---
 title: "Where to Eat Without a Booking"
-dek: "The walk-in dining guide to the Mornington Peninsula — the pubs, cafés, bakeries and bars where you can turn up hungry, without a reservation, and leave properly fed."
+dek: "The walk-in dining guide to the Mornington Peninsula  -  the pubs, cafés, bakeries and bars where you can turn up hungry, without a reservation, and leave properly fed."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
@@ -36,9 +36,9 @@ Walk-in dining on the Peninsula falls into five categories, and they are not all
 
 **The takeaway and fast-casual circuit.** Fish and chips, dumplings, pho, barbecue, gelato. No booking required and no booking possible.
 
-**The wine bars.** A newer category on the Peninsula — casual rooms attached to vineyards or village strips where you can walk in for a glass and a plate without the full cellar-door commitment.
+**The wine bars.** A newer category on the Peninsula  -  casual rooms attached to vineyards or village strips where you can walk in for a glass and a plate without the full cellar-door commitment.
 
-The important thing is not that these places exist — it is that there are enough of them, spread across enough towns, that a competent walk-in lunch plan is always available. You just need to know the map.
+The important thing is not that these places exist  -  it is that there are enough of them, spread across enough towns, that a competent walk-in lunch plan is always available. You just need to know the map.
 
 ## The pubs
 
@@ -122,4 +122,4 @@ The towns that support walk-in days most reliably are:
 
 **Dromana.** The pub, Jetty Road Brewery, and the foreshore. Simple and honest.
 
-The walk-in Peninsula is a different version of the region — less curated, less expensive, more spontaneous, and occasionally better. The trick is not knowing the right restaurant. It is knowing the right category.
+The walk-in Peninsula is a different version of the region  -  less curated, less expensive, more spontaneous, and occasionally better. The trick is not knowing the right restaurant. It is knowing the right category.

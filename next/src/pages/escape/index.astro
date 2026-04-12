@@ -40,7 +40,7 @@ const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
 const twoNight = itineraries.filter((it) => it.data.lengthNights === 2);
 const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
 
-// Mood taxonomy — each mood links a real guide if one exists.
+// Mood taxonomy  -  each mood links a real guide if one exists.
 const moodGuides = [
   { label: 'Food & wine',  slug: 'how-to-build-a-red-hill-saturday',          note: 'Lunch, cellar doors, a slow drive back' },
   { label: 'Wellness',     slug: 'the-thermal-springs-weekend',               note: 'Springs, sauna, one soft dinner' },
@@ -60,7 +60,7 @@ const moodResolved = moodGuides
 ---
 
 <BaseLayout
-  title="Escape — Peninsula Insider"
+  title="Escape  -  Peninsula Insider"
   description="Editorial itineraries and weekend plans for doing the Mornington Peninsula slowly and well."
   section="escape"
 >
@@ -82,7 +82,7 @@ const moodResolved = moodGuides
             <p class="label label--accent">Escape by mood</p>
             <h2 class="split-intro__title">Pick the feeling first, then let the sequence follow</h2>
           </div>
-          <p class="split-intro__body">Each chip opens a service piece or stay-note that maps the weekend for that mood — built the way we'd actually book it.</p>
+          <p class="split-intro__body">Each chip opens a service piece or stay-note that maps the weekend for that mood  -  built the way we'd actually book it.</p>
         </div>
         <div class="intent-chips">
           {moodResolved.map((mood) => (
@@ -102,7 +102,7 @@ const moodResolved = moodGuides
         <div class="split-intro">
           <div>
             <p class="label label--accent">Two-night escapes</p>
-            <h2 class="split-intro__title">The sweet spot — long enough to slow down, short enough to commit</h2>
+            <h2 class="split-intro__title">The sweet spot  -  long enough to slow down, short enough to commit</h2>
           </div>
           <p class="split-intro__body">Two nights is the Peninsula's native rhythm. One lunch that earns the drive, one walk that resets the weekend, one bed that suits the mood.</p>
         </div>

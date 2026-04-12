@@ -1,5 +1,5 @@
 /* =========================================================
-   Peninsula Insider — Global stylesheet
+   Peninsula Insider  -  Global stylesheet
    ---------------------------------------------------------
    Single source of truth for tokens, typography, and all
    shared editorial modules. Imported once from BaseLayout
@@ -7,7 +7,7 @@
    ========================================================= */
 
 /* =========================================================
-   TOKENS — matched to live site (css/styles.css)
+   TOKENS  -  matched to live site (css/styles.css)
    ========================================================= */
 :root {
   --bg:         #F5F1EB;
@@ -1786,7 +1786,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   ISSUE RIBBON — homepage masthead-of-masthead showing the
+   ISSUE RIBBON  -  homepage masthead-of-masthead showing the
    current issue stats. Keeps the rebuild feeling alive.
    ========================================================= */
 .issue-ribbon {
@@ -1823,7 +1823,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   INTENT STRIP — reader-intent discovery row.
+   INTENT STRIP  -  reader-intent discovery row.
    Used on the homepage and the Escape index.
    ========================================================= */
 .intent-strip {
@@ -1868,7 +1868,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   EDITOR'S DESK — seasonal framing block on the Journal hub.
+   EDITOR'S DESK  -  seasonal framing block on the Journal hub.
    Two-column note with a hand-ruled feel: headline + body on the
    left, format key on the right. Sits between the section hero
    and the feature story so the hub reads like an issue, not an
@@ -1971,7 +1971,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   FORMAT NAV — in-page section jump strip (journal + places).
+   FORMAT NAV  -  in-page section jump strip (journal + places).
    ========================================================= */
 .format-nav {
   padding: 2rem 0 2.25rem;
@@ -2016,7 +2016,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   VENUES — additional modifiers and supplementary bits.
+   VENUES  -  additional modifiers and supplementary bits.
    ========================================================= */
 .venues--alt { background: var(--bg); }
 .venues--alt + .venues--alt { border-top: none; }
@@ -2029,7 +2029,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding-top: 0.25rem;
 }
 
-/* Places index & homepage — section footer link + sub lede */
+/* Places index & homepage  -  section footer link + sub lede */
 .places__sub {
   font-size: 0.94rem;
   line-height: 1.65;
@@ -2051,7 +2051,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   PLACE DETAIL — extras: stats bar + in-page jump nav.
+   PLACE DETAIL  -  extras: stats bar + in-page jump nav.
    ========================================================= */
 .place-detail__stats {
   display: flex;
@@ -2114,7 +2114,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   SEASONAL SHELF — homepage seasonal hook block.
+   SEASONAL SHELF  -  homepage seasonal hook block.
    Two-column list of "what the season is best at".
    ========================================================= */
 .seasonal-shelf {
@@ -2174,12 +2174,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   WHAT'S ON / EVENTS — the differentiation surface.
+   WHAT'S ON / EVENTS  -  the differentiation surface.
    Weekend Picker dispatch block, event grid, badge strip,
    skip-this callout, event detail layout.
    ========================================================= */
 
-/* Weekend Picker dispatch block — homepage + whats-on hero */
+/* Weekend Picker dispatch block  -  homepage + whats-on hero */
 .weekend-picker {
   background: var(--dark);
   color: #F2EDE4;
@@ -2254,7 +2254,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: rgba(242, 237, 228, 0.85);
 }
 
-/* Events lens chips — reader-intent filter strip on whats-on index */
+/* Events lens chips  -  reader-intent filter strip on whats-on index */
 .events-lens {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: var(--bg);
@@ -2479,7 +2479,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .event-card__cta:hover { text-decoration: underline; }
 
-/* EventBadges — the editorial wedge as visible chips */
+/* EventBadges  -  the editorial wedge as visible chips */
 .event-badges {
   display: flex;
   flex-wrap: wrap;
@@ -2530,7 +2530,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: #F2D6CD;
 }
 
-/* Skip-this block — monthly editorial honesty */
+/* Skip-this block  -  monthly editorial honesty */
 .skip-block {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: #1E1B18;
@@ -3093,7 +3093,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   FOOTER — upgraded four-column
+   FOOTER  -  upgraded four-column
    ========================================================= */
 .footer {
   background: var(--bg-dark);

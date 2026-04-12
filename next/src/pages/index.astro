@@ -21,7 +21,7 @@ const places = await getCollection('places');
 const experiences = await getCollection('experiences');
 const itineraries = await getCollection('itineraries');
 
-// What's On hooks — the events differentiator surfaces here so the
+// What's On hooks  -  the events differentiator surfaces here so the
 // Weekend Picker / Worth The Drive / Kids Grade language is visible
 // without a click into /whats-on.
 const eventsAll = (await getCollection('events'))
@@ -68,14 +68,14 @@ const journalHighlights = articles
 // a real reader intent, so the homepage becomes navigable by need,
 // not just by category.
 const intentRoutes = [
-  { label: 'Long lunch',    slug: 'the-long-lunch',                     note: 'Sunday, slow, one decisive table — the Peninsula’s strongest move' },
-  { label: 'Rainy day',     slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof and walk-in — no booking, no gamble' },
-  { label: 'With kids',     slug: 'the-peninsula-with-kids',            note: 'A day that punishes no one — graded, honest, tested' },
+  { label: 'Long lunch',    slug: 'the-long-lunch',                     note: 'Sunday, slow, one decisive table  -  the Peninsula’s strongest move' },
+  { label: 'Rainy day',     slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof and walk-in  -  no booking, no gamble' },
+  { label: 'With kids',     slug: 'the-peninsula-with-kids',            note: 'A day that punishes no one  -  graded, honest, tested' },
   { label: 'One night',     slug: 'the-one-night-escape',               note: '26 hours that feel like a long weekend' },
   { label: 'Cellar doors',  slug: 'the-cellar-door-short-list',         note: 'Five producers worth the appointment and the drive' },
   { label: 'Wellness',      slug: 'the-thermal-springs-weekend',        note: 'Hot springs without wasting the rest of the weekend' },
   { label: 'First visit',   slug: 'the-peninsula-orientation-drive',    note: 'Six stops, half a day, zero prior knowledge required' },
-  { label: 'Breakfast',     slug: 'breakfast-before-the-crowds',        note: 'Where locals actually eat at 8 am — not the Instagram queue' },
+  { label: 'Breakfast',     slug: 'breakfast-before-the-crowds',        note: 'Where locals actually eat at 8 am  -  not the Instagram queue' },
 ];
 const intentResolved = intentRoutes
   .map((intent) => {
@@ -95,7 +95,7 @@ const issueStats = {
 const now = new Date();
 const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
 
-// Seasonal hook — surface venues and experiences whose tags match the
+// Seasonal hook  -  surface venues and experiences whose tags match the
 // current season. Designed to feel like a rotating "what's on right now"
 // rail without needing a manual editorial push each month.
 const season = currentSeason();
@@ -110,13 +110,13 @@ const seasonalExperiences = experiences
 ---
 
 <BaseLayout
-  title="Peninsula Insider — The Mornington Peninsula, as insiders know it"
+  title="Peninsula Insider  -  The Mornington Peninsula, as insiders know it"
   description="The independent editorial guide to eating, drinking, staying, and escaping on the Mornington Peninsula. No advertisers. No press trips. Just honest coverage."
   section="home"
 >
   <CoverHero issueDate={issueDate} />
 
-  <!-- Editorial promise — the manifesto strip that establishes voice before
+  <!-- Editorial promise  -  the manifesto strip that establishes voice before
        any content loads. This is the first thing a new reader scans after
        the hero, so it must crystallise what Peninsula Insider *is*. -->
   <section class="editorial-promise" aria-label="Editorial promise">
@@ -137,7 +137,7 @@ const seasonalExperiences = experiences
           </div>
           <div class="editorial-promise__point">
             <strong>We opine.</strong>
-            <span>Every venue carries an editor note — a short, honest paragraph about what the place actually feels like when you sit down. Agreement optional; clarity guaranteed.</span>
+            <span>Every venue carries an editor note  -  a short, honest paragraph about what the place actually feels like when you sit down. Agreement optional; clarity guaranteed.</span>
           </div>
         </div>
       </div>
@@ -172,7 +172,7 @@ const seasonalExperiences = experiences
           <div>
             <p class="label label--accent">This weekend · editor's picks</p>
             <h2 class="venues__title">Three events with an opinion attached</h2>
-            <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not — because nobody else on the Peninsula event web is brave enough to.</p>
+            <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not  -  because nobody else on the Peninsula event web is brave enough to.</p>
           </div>
           <a href="/whats-on" class="venues__link">All What’s On →</a>
         </div>
@@ -211,7 +211,7 @@ const seasonalExperiences = experiences
             <p class="label label--accent">Start from what you need</p>
             <h2 class="split-intro__title">Start from what you actually want the weekend to do</h2>
           </div>
-          <p class="split-intro__body">Each one opens a guide built around the question — with real names, real opinions, and a plan you can act on this weekend.</p>
+          <p class="split-intro__body">Each one opens a guide built around the question  -  with real names, real opinions, and a plan you can act on this weekend.</p>
         </div>
         <div class="intent-chips">
           {intentResolved.map((intent) => (
@@ -342,7 +342,7 @@ const seasonalExperiences = experiences
           <div>
             <p class="label label--accent">Escape plans</p>
             <h2 class="venues__title">When the Peninsula deserves more than a day trip</h2>
-            <p class="venues__sub">A shaped weekend that puts lunch, walk, and bed in the right order — so you stop planning and start going.</p>
+            <p class="venues__sub">A shaped weekend that puts lunch, walk, and bed in the right order  -  so you stop planning and start going.</p>
           </div>
           <a href="/escape" class="venues__link">All escapes →</a>
         </div>
@@ -359,7 +359,7 @@ const seasonalExperiences = experiences
         <div class="places__header">
           <p class="label label--accent places__label">Know the terrain</p>
           <h2 class="places__title">The Peninsula, place by place</h2>
-          <p class="places__sub">Six towns that organise the region around them — ridge, coast, and bay.</p>
+          <p class="places__sub">Six towns that organise the region around them  -  ridge, coast, and bay.</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
@@ -410,7 +410,7 @@ const seasonalExperiences = experiences
     </section>
   )}
 
-  <!-- Why Peninsula Insider — the editorial pitch block that closes the
+  <!-- Why Peninsula Insider  -  the editorial pitch block that closes the
        homepage before the newsletter. Converts curious browsers into
        subscribers by crystallising the value proposition. -->
   <section class="why-insider" aria-label="Why Peninsula Insider">
@@ -422,7 +422,7 @@ const seasonalExperiences = experiences
         </div>
         <div class="why-insider__body">
           <p>Most of what exists online is tourism marketing dressed as editorial, or star ratings that tell you a restaurant scored 4.3 without explaining what the 4.3 felt like at the table. Neither helps you build a weekend.</p>
-          <p>Peninsula Insider is the fix: opinionated, service-first coverage that answers the questions visitors actually ask — written by editors who live on the Peninsula and eat, walk, and sleep here year-round. No advertisers. No press trips. No sponsored content. Every recommendation unprompted.</p>
+          <p>Peninsula Insider is the fix: opinionated, service-first coverage that answers the questions visitors actually ask  -  written by editors who live on the Peninsula and eat, walk, and sleep here year-round. No advertisers. No press trips. No sponsored content. Every recommendation unprompted.</p>
         </div>
         <div class="why-insider__stats">
           <div class="why-insider__stat">

@@ -1,4 +1,4 @@
-# `articles/` — The Insider's Journal
+# `articles/`  -  The Insider's Journal
 
 One Markdown file per article. Schema: `articles` in `../../content/config.ts`.
 
@@ -6,7 +6,7 @@ Articles use Astro's `content` collection type (not `data`), so they have YAML f
 
 ## Filename convention
 
-`YYYY-MM-DD-slug.md` — ISO date prefix + kebab-case slug.
+`YYYY-MM-DD-slug.md`  -  ISO date prefix + kebab-case slug.
 
 ```
 articles/
@@ -57,23 +57,23 @@ Every article must declare a `format`. The format is how the article is categori
 |---|---|
 | `editors-letter` | Personal, signed, first-person essays from the editor |
 | `long-lunch-list` | Ranked restaurant-led curation tied to mood/occasion |
-| `cellar-door-dispatch` | Wine-country reporting — releases, harvest, winemaker profiles |
+| `cellar-door-dispatch` | Wine-country reporting  -  releases, harvest, winemaker profiles |
 | `stay-notes` | Accommodation reviews and planning-oriented stay roundups |
 | `slow-peninsula` | Walks, beaches, wellness, rainy-day, shoulder-season |
-| `insider-edit` | Decisive picks in a category — the strongest version of a list |
+| `insider-edit` | Decisive picks in a category  -  the strongest version of a list |
 | `interview` | Q&A or profile pieces with chefs, winemakers, hoteliers |
 | `investigation` | Longer investigative / opinion pieces |
-| `service` | Utility pieces — "Where to go for…" / "What to do when…" |
+| `service` | Utility pieces  -  "Where to go for…" / "What to do when…" |
 
 ## Status lifecycle
 
-1. `draft` — James or contributor writing. Not in the build index.
-2. `review` — Ready for editor review. Still not published.
-3. `scheduled` — Approved, waiting for its Thursday slot.
-4. `published` — Live on the site and included in builds.
+1. `draft`  -  James or contributor writing. Not in the build index.
+2. `review`  -  Ready for editor review. Still not published.
+3. `scheduled`  -  Approved, waiting for its Thursday slot.
+4. `published`  -  Live on the site and included in builds.
 
 Only `published` articles appear in the Journal index, newsletter, and homepage.
 
 ## The two-articles-in-the-bank rule
 
-At any given point we keep two unpublished articles in `scheduled` state. The roadmap (§ 11) calls this out as a brand-preservation rule — if James's health flares or a week gets chaotic, the Thursday cadence still holds because there's a scheduled piece ready to auto-publish.
+At any given point we keep two unpublished articles in `scheduled` state. The roadmap (§ 11) calls this out as a brand-preservation rule  -  if James's health flares or a week gets chaotic, the Thursday cadence still holds because there's a scheduled piece ready to auto-publish.

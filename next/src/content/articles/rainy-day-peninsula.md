@@ -1,6 +1,6 @@
 ---
 title: "The Rainy Day Peninsula: Where to Go When the Weather Turns"
-dek: "A cold, grey Peninsula weekend is not a ruined one — it is the version that gives you back the best rooms, the best fires, and the best reasons to stay inside."
+dek: "A cold, grey Peninsula weekend is not a ruined one  -  it is the version that gives you back the best rooms, the best fires, and the best reasons to stay inside."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-03
@@ -20,13 +20,13 @@ status: "published"
 
 There is a version of the Peninsula that only reveals itself in bad weather, and most visitors never meet it.
 
-The bay goes grey. The ridge fog closes in on the wineries. The back beaches at Sorrento turn moody in a way that makes photographs impossible but makes walking along them unexpectedly beautiful. The fires get lit at 11am in the dining rooms that have them. And — crucially — the bookings that were locked out three months ago suddenly become available.
+The bay goes grey. The ridge fog closes in on the wineries. The back beaches at Sorrento turn moody in a way that makes photographs impossible but makes walking along them unexpectedly beautiful. The fires get lit at 11am in the dining rooms that have them. And  -  crucially  -  the bookings that were locked out three months ago suddenly become available.
 
 If you are flexible about when you come, the rainy Peninsula weekend is often the better version of the trip. Here is how to plan for it.
 
 ## Accept that some things are closed
 
-First, the honest note. Winter on the Peninsula, or any genuinely wet weekend, will shut down a few of the options you might have been counting on. Most of the smaller beach kiosks will be closed. Some of the boutique cellar doors drop to reduced hours. The winery restaurants with outdoor terraces become less interesting because the terraces are not the point anymore. And a handful of the coastal walks get genuinely dangerous when the wind picks up — Bushrangers Bay and the Cape Schanck boardwalk are both worth checking the conditions on before you commit.
+First, the honest note. Winter on the Peninsula, or any genuinely wet weekend, will shut down a few of the options you might have been counting on. Most of the smaller beach kiosks will be closed. Some of the boutique cellar doors drop to reduced hours. The winery restaurants with outdoor terraces become less interesting because the terraces are not the point anymore. And a handful of the coastal walks get genuinely dangerous when the wind picks up  -  Bushrangers Bay and the Cape Schanck boardwalk are both worth checking the conditions on before you commit.
 
 None of this is a reason to cancel the trip. It is a reason to build the day around the things that are better in bad weather.
 
@@ -38,9 +38,9 @@ Alba caps bather numbers properly, which makes a winter morning session here fee
 
 ## The dining rooms improve
 
-The Peninsula's serious restaurants all have one thing in common: they are better in winter than in summer. The reason is simple — most of them are built around wood fires or wood ovens or fireplaces, and the cooking that the kitchens want to do leans toward the cold-weather plates. Braises, roasts, heavier pasta, longer wines.
+The Peninsula's serious restaurants all have one thing in common: they are better in winter than in summer. The reason is simple  -  most of them are built around wood fires or wood ovens or fireplaces, and the cooking that the kitchens want to do leans toward the cold-weather plates. Braises, roasts, heavier pasta, longer wines.
 
-**Tedesca Osteria** is the specific case. Brigitte Hafner's set menu in winter pulls the wood oven into almost every course, and the dining room — with its open fire and farmhouse bones — does its best work in July and August. This is when to book. Lunch, not dinner. Two nights on the Peninsula so you don't have to drive home in the rain.
+**Tedesca Osteria** is the specific case. Brigitte Hafner's set menu in winter pulls the wood oven into almost every course, and the dining room  -  with its open fire and farmhouse bones  -  does its best work in July and August. This is when to book. Lunch, not dinner. Two nights on the Peninsula so you don't have to drive home in the rain.
 
 **Lindenderry at Red Hill** is the matching stay. The country-house architecture, the lounge fires, and the understated dining room are all built for the season. Book a room with a view of the garden rather than the vineyard.
 
@@ -72,6 +72,6 @@ A forecast-led rainy Peninsula weekend looks roughly like this:
 
 **Sunday:** the gallery in Mornington on the way home, coffee at Commonfolk, back to the city by three.
 
-What this version of the trip gives up is the bright-day Peninsula — the sculpture parks, the long ridge drives, the dusk walks on the back beach. What it gains is space, silence, and the rooms you have been trying to book for months.
+What this version of the trip gives up is the bright-day Peninsula  -  the sculpture parks, the long ridge drives, the dusk walks on the back beach. What it gains is space, silence, and the rooms you have been trying to book for months.
 
 Peninsula weather is not a problem. It is a selector for which trip you are actually taking. Some of the best weekends we have had down here have happened in the rain.

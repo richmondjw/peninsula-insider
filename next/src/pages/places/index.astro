@@ -35,14 +35,14 @@ const townReads = townReadSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
   .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
-// Group by editorial geography, not raw zone enum — the three pockets
+// Group by editorial geography, not raw zone enum  -  the three pockets
 // most useful to a first-time reader.
 const groups: { key: string; label: string; title: string; intro: string; variant: 'vineyard' | 'bay' | 'sand'; zones: string[] }[] = [
   {
     key: 'ridge',
     label: 'The ridge',
     title: 'Ridge & hinterland',
-    intro: 'Basalt plateau, pinot noir, ferny gullies, and long lunches. This is the Peninsula\'s lunch-and-wine layer — the one readers mean when they say "Red Hill on a Saturday".',
+    intro: 'Basalt plateau, pinot noir, ferny gullies, and long lunches. This is the Peninsula\'s lunch-and-wine layer  -  the one readers mean when they say "Red Hill on a Saturday".',
     variant: 'vineyard',
     zones: ['red-hill-plateau', 'hinterland'],
   },
@@ -50,7 +50,7 @@ const groups: { key: string; label: string; title: string; intro: string; varian
     key: 'coast',
     label: 'The coast',
     title: 'Southern ocean & tip',
-    intro: 'Flinders, Cape Schanck, Sorrento, Portsea, Point Nepean — limestone, open water, dusk walks, and the places the wind goes to get honest.',
+    intro: 'Flinders, Cape Schanck, Sorrento, Portsea, Point Nepean  -  limestone, open water, dusk walks, and the places the wind goes to get honest.',
     variant: 'sand',
     zones: ['ocean-coast', 'back-beaches', 'tip'],
   },
@@ -79,7 +79,7 @@ const quickNav = grouped.map((group) => ({
 ---
 
 <BaseLayout
-  title="Places — Peninsula Insider"
+  title="Places  -  Peninsula Insider"
   description="Town and place hubs for the Mornington Peninsula, built as atomic editorial landing pages."
   section="places"
 >

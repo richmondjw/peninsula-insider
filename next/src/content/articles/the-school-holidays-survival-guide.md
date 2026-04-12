@@ -24,7 +24,7 @@ Week one: the families from Melbourne arrive, mostly on the bay side, mostly in 
 
 Week two: the crowds thin slightly, the panic subsides, and the families who are still down discover the quieter version of the Peninsula that was there the whole time. The back beaches. The hinterland walks. The farm-gate producers. The pub gardens.
 
-This guide is for the parent who wants to skip the week-one chaos and go straight to the version that works — whether you are staying for one night or the full fortnight.
+This guide is for the parent who wants to skip the week-one chaos and go straight to the version that works  -  whether you are staying for one night or the full fortnight.
 
 ## The daily structure that saves everyone
 
@@ -42,43 +42,43 @@ For under-sixes: **Mount Martha Beach** (bay side, shallow, bathing boxes, kiosk
 
 For six-to-twelve: **Portsea Front Beach** (bay side, clear water, rock pools at the eastern end, snorkelling if they are confident). **Balnarring Beach** (Western Port side, empty, flat, ti-tree shade, bring your own everything).
 
-For teenagers: **Gunnamatta Ocean Beach** or **Rye Ocean Beach** (surf beaches, patrolled in summer, real waves, real rips — supervise properly). **Sorrento Back Beach** (dramatic, walkable, photographable, and the one they will actually post).
+For teenagers: **Gunnamatta Ocean Beach** or **Rye Ocean Beach** (surf beaches, patrolled in summer, real waves, real rips  -  supervise properly). **Sorrento Back Beach** (dramatic, walkable, photographable, and the one they will actually post).
 
 **Lunch (12:00–1:00).** The school-holiday lunch needs to be fast, cheap, and tolerant of sandy children. **Rye Hotel** bistro. **Dromana Hotel** pub. **Flinders Pier Takeaway** for fish and chips on the pier. **Red Gum BBQ** if you are near Red Hill and the kids eat meat.
 
-**Afternoon (2:00–4:00).** After a beach morning, the afternoon should be indoor or low-energy. **Mornington Peninsula Regional Gallery** — free, air-conditioned, and forty-five minutes of quiet walking. **Mornington Peninsula Chocolates** — a factory visit, tastings, and something to take home. Or, honestly, a nap at the rental house. The afternoon nap is not a failure; it is a strategy.
+**Afternoon (2:00–4:00).** After a beach morning, the afternoon should be indoor or low-energy. **Mornington Peninsula Regional Gallery**  -  free, air-conditioned, and forty-five minutes of quiet walking. **Mornington Peninsula Chocolates**  -  a factory visit, tastings, and something to take home. Or, honestly, a nap at the rental house. The afternoon nap is not a failure; it is a strategy.
 
 ## Day type two: the adventure day
 
 **Morning (10:00–12:30).** The Peninsula has a handful of genuine kid-attractors that justify a morning visit.
 
-**Arthurs Seat Eagle.** The gondola is the single best family activity on the Peninsula. Children between four and twelve are captivated by the ride, the summit has a playground and a café, and the whole thing takes about an hour. Book online during school holidays — walk-up queues can reach forty-five minutes.
+**Arthurs Seat Eagle.** The gondola is the single best family activity on the Peninsula. Children between four and twelve are captivated by the ride, the summit has a playground and a café, and the whole thing takes about an hour. Book online during school holidays  -  walk-up queues can reach forty-five minutes.
 
 **Ashcombe Maze.** The hedge maze, the garden, and the café make a solid ninety-minute morning. Younger children love the maze; older children love being dismissive of the maze and then getting lost in it. The lavender garden is the part the adults remember.
 
-**Point Nepean Fort Walk.** For families with children over eight who can handle a proper walk. The track from the car park to the fortifications at the tip of the Peninsula is about forty-five minutes each way, with military tunnels, gun emplacements, and ocean views on both sides. Bring water, wear proper shoes, and let the children lead — the fort exploration is genuinely exciting for the right age group.
+**Point Nepean Fort Walk.** For families with children over eight who can handle a proper walk. The track from the car park to the fortifications at the tip of the Peninsula is about forty-five minutes each way, with military tunnels, gun emplacements, and ocean views on both sides. Bring water, wear proper shoes, and let the children lead  -  the fort exploration is genuinely exciting for the right age group.
 
 **Sunny Ridge Strawberry Farm.** Seasonal picking (strawberries in summer, other fruit through the year), a café, and enough space for children to run between the rows. The picking is the activity and the box of fruit is the souvenir. Thirty to sixty minutes.
 
-**Lunch (12:30–1:30).** **Red Hill Brewery** — the wood-fired pizza, the hop garden, the space to run. This is the best school-holiday family lunch room on the ridge. **St Andrews Beach Brewery** is the bigger, louder alternative with more room and a longer menu. **Balnarring Pub** is the quiet-side option with a garden and reliable food.
+**Lunch (12:30–1:30).** **Red Hill Brewery**  -  the wood-fired pizza, the hop garden, the space to run. This is the best school-holiday family lunch room on the ridge. **St Andrews Beach Brewery** is the bigger, louder alternative with more room and a longer menu. **Balnarring Pub** is the quiet-side option with a garden and reliable food.
 
-**Afternoon (2:30–4:30).** After an active morning, the afternoon should be passive. The **Pt Leo Sculpture Park** is free entry and the walk through the coastal sculptures is just enough activity to keep legs moving without exhausting anyone. The foreshore at Mornington — flat, paved, accessible — is the easier alternative.
+**Afternoon (2:30–4:30).** After an active morning, the afternoon should be passive. The **Pt Leo Sculpture Park** is free entry and the walk through the coastal sculptures is just enough activity to keep legs moving without exhausting anyone. The foreshore at Mornington  -  flat, paved, accessible  -  is the easier alternative.
 
 ## Day type three: the rainy day
 
-School holidays on the Peninsula will give you at least one rainy day. Two or three in winter. The rainy day is not a disaster — it is a different format.
+School holidays on the Peninsula will give you at least one rainy day. Two or three in winter. The rainy day is not a disaster  -  it is a different format.
 
 **Morning (10:00–12:00).** Indoor activities first.
 
-**Ashcombe Maze** works in light rain and the café is covered. **Mornington Peninsula Gallery** is the best rainy-morning move on the bay side — free, warm, and enough rotating exhibitions to occupy a curious child for an hour. **Bass & Flinders Distillery** runs gin-school sessions that work for parents with teenagers (over-18s only for tastings, but the tour is educational for anyone).
+**Ashcombe Maze** works in light rain and the café is covered. **Mornington Peninsula Gallery** is the best rainy-morning move on the bay side  -  free, warm, and enough rotating exhibitions to occupy a curious child for an hour. **Bass & Flinders Distillery** runs gin-school sessions that work for parents with teenagers (over-18s only for tastings, but the tour is educational for anyone).
 
-**Mornington Peninsula Chocolates** — the factory visit is fully indoor and the tasting will keep everyone quiet for forty-five minutes.
+**Mornington Peninsula Chocolates**  -  the factory visit is fully indoor and the tasting will keep everyone quiet for forty-five minutes.
 
-**Lunch (12:00–1:30).** Sit-down pub lunch. **Flinders Hotel** has the best rainy-day atmosphere — the fire is lit, the dining room is large, and the kitchen handles a wet family without flinching. **Mornington Hotel** on the main street. **Sorrento Hotel** back bar for the southern end.
+**Lunch (12:00–1:30).** Sit-down pub lunch. **Flinders Hotel** has the best rainy-day atmosphere  -  the fire is lit, the dining room is large, and the kitchen handles a wet family without flinching. **Mornington Hotel** on the main street. **Sorrento Hotel** back bar for the southern end.
 
 **Afternoon (2:00–4:30).** The rental house. A board game, a film, a book. Hot chocolate. The parents read. The children argue quietly. This is the rainy afternoon and it is allowed.
 
-If you cannot face another hour indoors: **Peninsula Hot Springs** or **Alba Thermal Springs** in the rain is genuinely magical — steam rising off the water against a grey sky, and most of the fair-weather visitors have stayed home. Book online; school-holiday sessions fill.
+If you cannot face another hour indoors: **Peninsula Hot Springs** or **Alba Thermal Springs** in the rain is genuinely magical  -  steam rising off the water against a grey sky, and most of the fair-weather visitors have stayed home. Book online; school-holiday sessions fill.
 
 ## The budget reality
 
