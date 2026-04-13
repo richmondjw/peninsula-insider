@@ -180,6 +180,27 @@ const totalGroups = groups.length;
     </section>
   )}
 
+  {lensOrder.filter((lens) => lens.key !== 'weekend-pick' && lensCounts[lens.key] > 0).map((lens) => {
+    const lensEvents = events.filter((event) => event.data.lens.includes(lens.key as any));
+    return (
+      <section class="venues venues--plain" id={`lens-${lens.key}`}>
+        <div class="container">
+          <div class="venues__header">
+            <div>
+              <p class="label label--accent">{lens.label}</p>
+              <h2 class="venues__title">{lens.note}</h2>
+              <p class="venues__sub">{lensEvents.length} event{lensEvents.length === 1 ? '' : 's'} matching this mood.</p>
+            </div>
+            <span class="venues__count">{lensEvents.length}</span>
+          </div>
+          <div class="event-grid">
+            {lensEvents.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
   <section class="events-stats">
     <div class="container">
       <dl class="events-stats__list">
