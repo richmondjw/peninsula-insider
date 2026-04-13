@@ -231,6 +231,35 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
   </section>
 )}
 
+{/* Service guide links — connect town pages into the article mesh */}
+<section class="venues venues--plain">
+  <div class="container">
+    <div class="venues__header">
+      <div>
+        <p class="label label--accent">Planning guides</p>
+        <h2 class="venues__title">Service guides for your {place.data.name} trip</h2>
+        <p class="venues__sub">Long-form editorial that helps you build a weekend, not just a list of places.</p>
+      </div>
+      <a href="/journal" class="venues__link">All guides →</a>
+    </div>
+    <div class="venues__grid venues__grid--links">
+      <a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
+      {(place.data.zone === 'red-hill-plateau' || place.data.zone === 'hinterland') && (
+        <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Self-Drive Winery Tour →</a>
+      )}
+      {(place.data.zone === 'tip' || place.data.zone === 'back-beaches' || place.data.zone === 'bayside') && (
+        <a href="/journal/free-things-to-do-mornington-peninsula" class="venue-card__cta">Free Things to Do →</a>
+      )}
+      <a href="/journal/best-brunch-mornington-peninsula" class="venue-card__cta">Best Brunch Guide →</a>
+      <a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Hot Springs Guide →</a>
+      <a href="/journal/mornington-peninsula-in-winter" class="venue-card__cta">Winter Guide →</a>
+      {(place.data.kind === 'town') && (
+        <a href="/journal/mornington-peninsula-wedding-venues" class="venue-card__cta">Wedding Venues →</a>
+      )}
+    </div>
+  </div>
+</section>
+
 {relatedPlaces.length > 0 && (
   <section class="places">
     <div class="container">

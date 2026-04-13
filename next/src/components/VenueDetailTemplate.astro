@@ -216,4 +216,39 @@ const allTags = [...moodTags, ...seasonTags, ...audienceTags];
   </section>
 )}
 
+{/* Contextual guide links — connect venue pages into the editorial mesh */}
+<section class="venues venues--plain">
+  <div class="container">
+    <div class="venues__header">
+      <div>
+        <p class="label label--accent">Plan around this</p>
+        <h2 class="venues__title">Guides that help you use {data.name} properly</h2>
+        <p class="venues__sub">Service pieces that put a single venue into the context of a whole weekend.</p>
+      </div>
+    </div>
+    <div class="venues__grid venues__grid--links">
+      <a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
+      {(section === 'eat') && (
+        <>
+          <a href="/journal/best-brunch-mornington-peninsula" class="venue-card__cta">Best Brunch Guide →</a>
+          <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Winery Tour Route →</a>
+        </>
+      )}
+      {(section === 'wine') && (
+        <>
+          <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Self-Drive Winery Tour →</a>
+          <a href="/eat/best-restaurants" class="venue-card__cta">Best Restaurants →</a>
+        </>
+      )}
+      {(section === 'stay') && (
+        <>
+          <a href="/journal/mornington-peninsula-in-winter" class="venue-card__cta">Winter Peninsula Guide →</a>
+          <a href="/journal/free-things-to-do-mornington-peninsula" class="venue-card__cta">Free Things to Do →</a>
+        </>
+      )}
+      <a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Hot Springs Guide →</a>
+    </div>
+  </div>
+</section>
+
 <NewsletterBlock />
