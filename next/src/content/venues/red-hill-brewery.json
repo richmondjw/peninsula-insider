@@ -4,7 +4,10 @@
   "type": "brewery",
   "place": "red-hill",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3693, "lng": 145.0439 },
+  "coordinates": {
+    "lat": -38.3693,
+    "lng": 145.0439
+  },
   "address": "88 Shoreham Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5989 2959",
   "website": "https://redhillbrewery.com.au",
@@ -12,9 +15,22 @@
   "signature": "The Peninsula's original craft brewery  -  Belgian-style ales from the only estate hop farm in Victoria",
   "editorNote": "Red Hill Brewery is the oldest serious craft brewery on the Peninsula and still one of the few in Australia that grows its own hops. That detail matters: the farm-to-glass story here is not marketing, it is infrastructure. Dave and Karen Golding planted the hop garden in 2005 and have been making Belgian-style ales from it ever since  -  witbier, dubbel, tripel, and the seasonal fresh-hop beers that are worth waiting for.\n\nThe cellar door is a low barn at the top of a vineyard track, with picnic tables, a wood-fired pizza oven, and a tasting flight that doubles as a civilised lunch. Bring the dog. Bring walking shoes for the hop garden loop afterwards.\n\nA proper alternative to a winery lunch if your group includes someone who actively dislikes pinot noir.",
   "tags": {
-    "mood": ["cellar-door", "garden", "slow"],
-    "season": ["spring", "summer", "autumn"],
-    "audience": ["families", "group", "locals", "couples"]
+    "mood": [
+      "cellar-door",
+      "garden",
+      "slow"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "families",
+      "group",
+      "locals",
+      "couples"
+    ]
   },
   "heroImage": {
     "src": "/images/placeholder-red-hill-brewery.jpg",
@@ -25,5 +41,7 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
-  "publishedAt": "2026-04-09"
+  "publishedAt": "2026-04-09",
+  "bookingUrl": "https://redhillbrewery.com.au",
+  "bookingProvider": "direct"
 }

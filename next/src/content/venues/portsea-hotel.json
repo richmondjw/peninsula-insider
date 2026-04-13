@@ -4,7 +4,10 @@
   "type": "pub",
   "place": "portsea",
   "zone": "tip",
-  "coordinates": { "lat": -38.3234, "lng": 144.7119 },
+  "coordinates": {
+    "lat": -38.3234,
+    "lng": 144.7119
+  },
   "address": "3746 Point Nepean Rd, Portsea VIC 3944",
   "phone": "+61 3 5984 2213",
   "website": "https://www.portseahotel.com.au",
@@ -12,9 +15,22 @@
   "signature": "The front-row pub on Port Phillip  -  still the cleanest long lunch at the tip of the Peninsula",
   "editorNote": "The Portsea Hotel has one of the best views of any pub in Victoria and, more impressively, it has mostly avoided ruining the experience. The bistro runs along the front of the building looking directly across the bay, the beer garden drops down toward the front beach, and the menu is still pub-food-done-properly rather than ambitious-bistro-pretending-to-be-pub.\n\nOrder the fish and chips, a bottle from the local list, and a table outside if the wind is behaving. Summer afternoons here are a communal institution; winter Sundays are genuinely peaceful. Either way, it is the most complete single-address lunch on the tip of the Peninsula.\n\nDon't bother trying to skip the queue in January. Come in April or October and you'll have the view mostly to yourself.",
   "tags": {
-    "mood": ["long-lunch", "waterfront", "view", "sunset"],
-    "season": ["all-year"],
-    "audience": ["families", "couples", "group", "first-timers", "locals"]
+    "mood": [
+      "long-lunch",
+      "waterfront",
+      "view",
+      "sunset"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "families",
+      "couples",
+      "group",
+      "first-timers",
+      "locals"
+    ]
   },
   "heroImage": {
     "src": "/images/placeholder-portsea-hotel.jpg",
@@ -25,5 +41,7 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
-  "publishedAt": "2026-04-09"
+  "publishedAt": "2026-04-09",
+  "bookingUrl": "https://www.portseahotel.com.au",
+  "bookingProvider": "direct"
 }

@@ -4,7 +4,10 @@
   "type": "bakery",
   "place": "flinders",
   "zone": "ocean-coast",
-  "coordinates": { "lat": -38.4719, "lng": 145.0226 },
+  "coordinates": {
+    "lat": -38.4719,
+    "lng": 145.0226
+  },
   "address": "48 Cook St, Flinders VIC 3929",
   "phone": "+61 3 5989 0088",
   "website": "https://flinderssourdough.com.au",
@@ -12,9 +15,19 @@
   "signature": "A village bakery so good it accidentally became a reason to drive to Flinders",
   "editorNote": "Flinders Sourdough is what a village bakery should be and increasingly isn't: long queues on weekends, sold out by two, loaves that hold their crust for three days, and a pastry counter that changes with the seasons. The miche and the seeded rye are the benchmark loaves. The morning buns are the addiction. The almond croissants are the thing you buy a second of because you already ate the first in the car.\n\nThere is a small back room with a few tables and very good coffee for people who can't wait to get home. Most of the loaves disappear to locals by mid-morning. Come early or phone the day before. It is a small but legitimate argument for staying in Flinders rather than Red Hill if breakfast is important to you.\n\nClosed Mondays and Tuesdays. Check the Instagram for special loaves.",
   "tags": {
-    "mood": ["quick-bite", "slow"],
-    "season": ["all-year"],
-    "audience": ["locals", "families", "solo", "first-timers"]
+    "mood": [
+      "quick-bite",
+      "slow"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "locals",
+      "families",
+      "solo",
+      "first-timers"
+    ]
   },
   "heroImage": {
     "src": "/images/placeholder-flinders-sourdough.jpg",
@@ -25,5 +38,7 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
-  "publishedAt": "2026-04-09"
+  "publishedAt": "2026-04-09",
+  "bookingProvider": "none",
+  "bookingUrl": "https://flinderssourdough.com.au"
 }

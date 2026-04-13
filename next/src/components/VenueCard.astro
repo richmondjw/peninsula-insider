@@ -62,5 +62,10 @@ const hats = data.authority?.hats ?? 0;
     </div>
   )}
   <p class="venue-card__signature">{data.signature}</p>
-  <a href={href} class="venue-card__cta">Editor's notes →</a>
+  <div class="venue-card__actions">
+    <a href={href} class="venue-card__cta">Editor's notes →</a>
+    {data.bookingUrl && data.bookingProvider !== 'none' && (
+      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>Book →</a>
+    )}
+  </div>
 </article>

@@ -53,6 +53,25 @@ const allTags = [...moodTags, ...seasonTags, ...audienceTags];
     <h1 class="venue-detail__title">{data.name}</h1>
     <p class="venue-detail__signature">{data.signature}</p>
 
+    {(data.bookingUrl || data.phone) && (
+      <div class="venue-detail__booking-bar">
+        {data.bookingUrl && (
+          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-detail__book-btn">
+            {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
+              ? 'Check availability'
+              : data.type === 'winery'
+                ? 'Book a tasting'
+                : 'Reserve a table'}
+          </a>
+        )}
+        {data.phone && (
+          <a href={`tel:${data.phone.replace(/\s/g, '')}`} class="venue-detail__phone-btn">
+            {data.phone}
+          </a>
+        )}
+      </div>
+    )}
+
     <div class="venue-detail__hero" aria-hidden="true" style={heroStyle}>
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
