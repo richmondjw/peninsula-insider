@@ -1,6 +1,6 @@
 /* Peninsula Insider — Newsletter Enhancement CSS v2 */
 
-.pi-subscribe { max-width: 480px; width: 100%; }
+.pi-subscribe { max-width: 480px; width: 100%; margin: 0 auto; }
 
 .pi-subscribe__row { display: flex; gap: 0; }
 
