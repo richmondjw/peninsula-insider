@@ -1,0 +1,324 @@
+---
+/**
+ * DRAFT PREVIEW — New Hero Header Design
+ * View at: /preview-hero
+ * NOT linked from anywhere. For James's review only.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { currentSeason } from '../lib/editorial';
+
+const season = currentSeason();
+const now = new Date();
+const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+
+const seasonalHeadlines: Record<string, { line1: string; line2: string; em: string }> = {
+  summer: { line1: 'Where Victoria', line2: 'eats, swims,', em: 'and stays late.' },
+  autumn: { line1: 'Where Victoria', line2: 'eats, drinks,', em: 'and slows down.' },
+  winter: { line1: 'Where Victoria', line2: 'eats, warms up,', em: 'and stays in.' },
+  spring: { line1: 'Where Victoria', line2: 'eats, explores,', em: 'and books ahead.' },
+};
+
+const seasonalDeks: Record<string, string> = {
+  summer: 'Back beaches at five, vineyard lunches that run until the light goes long, and the places locals actually go when Melbourne empties south.',
+  autumn: 'Vintage on the ridge, pinot lunches in low golden light, cellar doors with fires going, and the quieter weekends the Peninsula does best.',
+  winter: 'Hot springs without the queue, pub dinners worth the drive, fireplace long lunches, and the coastal walks the crowds have finally left alone.',
+  spring: 'New vintage releases, wildflower walks, menus rewritten for the season, and the most generous midweek bookings of the year.',
+};
+
+const hl = seasonalHeadlines[season];
+---
+
+<BaseLayout
+  title="DRAFT — New Hero Design | Peninsula Insider"
+  description="Preview page — not for public."
+  section="home"
+  noindex={true}
+>
+
+<style>
+  /* ============================================================
+     NEW HERO — Full-bleed immersive cover
+     The image fills the entire viewport height. Copy overlays
+     the bottom-left with a gradient scrim. The effect is closer
+     to a magazine cover than a grid layout.
+     ============================================================ */
+
+  .hero-v2 {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background-color: var(--dark);
+  }
+
+  .hero-v2__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url(/images/sourced/home-cover.webp);
+    background-size: cover;
+    background-position: center 40%;
+    transform: scale(1.05);
+    will-change: transform;
+  }
+
+  /* Gradient scrim — dark at bottom for text legibility */
+  .hero-v2__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(30, 27, 24, 0.05) 0%,
+      rgba(30, 27, 24, 0.1) 30%,
+      rgba(30, 27, 24, 0.55) 65%,
+      rgba(30, 27, 24, 0.88) 85%,
+      rgba(30, 27, 24, 0.95) 100%
+    );
+  }
+
+  /* Film grain overlay */
+  .hero-v2__grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px;
+    pointer-events: none;
+  }
+
+  .hero-v2__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+    padding-bottom: clamp(3.5rem, 8vw, 6rem);
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  .hero-v2__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-v2__eyebrow-label {
+    font-family: Outfit, system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-v2__eyebrow-rule {
+    flex: 1;
+    height: 1px;
+    background: rgba(253, 252, 250, 0.15);
+    max-width: 120px;
+  }
+
+  .hero-v2__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    max-width: 14ch;
+  }
+
+  .hero-v2__headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-v2__dek {
+    font-family: Outfit, system-ui, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(253, 252, 250, 0.7);
+    max-width: 44ch;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .hero-v2__ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-v2__cta-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    background: var(--accent);
+    color: var(--white);
+    font-family: Outfit, system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s ease;
+    min-height: 44px;
+  }
+
+  .hero-v2__cta-primary:hover {
+    background: var(--acc-h);
+  }
+
+  .hero-v2__cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: rgba(253, 252, 250, 0.7);
+    border: 1px solid rgba(253, 252, 250, 0.2);
+    font-family: Outfit, system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.25s ease, color 0.25s ease;
+    min-height: 44px;
+  }
+
+  .hero-v2__cta-secondary:hover {
+    border-color: rgba(253, 252, 250, 0.5);
+    color: var(--white);
+  }
+
+  .hero-v2__promise {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(253, 252, 250, 0.1);
+  }
+
+  .hero-v2__promise-text {
+    font-family: Outfit, system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.35);
+  }
+
+  .hero-v2__scroll-hint {
+    position: absolute;
+    bottom: 1.5rem;
+    right: clamp(1.25rem, 4vw, 3rem);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero-v2__scroll-label {
+    font-family: Outfit, system-ui, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.3);
+    writing-mode: vertical-rl;
+  }
+
+  .hero-v2__scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(253,252,250,0.3), transparent);
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .hero-v2 {
+      min-height: 85vh;
+    }
+
+    .hero-v2__bg {
+      background-position: center 30%;
+    }
+
+    .hero-v2__headline {
+      font-size: clamp(2.6rem, 10vw, 4rem);
+      max-width: 100%;
+    }
+
+    .hero-v2__dek {
+      font-size: 0.95rem;
+      max-width: 100%;
+    }
+
+    .hero-v2__ctas {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero-v2__cta-primary,
+    .hero-v2__cta-secondary {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .hero-v2__scroll-hint {
+      display: none;
+    }
+  }
+</style>
+
+<!-- ======== NEW HERO V2 ======== -->
+<section class="hero-v2" aria-label="Cover">
+  <div class="hero-v2__bg"></div>
+  <div class="hero-v2__scrim"></div>
+  <div class="hero-v2__grain"></div>
+
+  <div class="hero-v2__content">
+    <div class="hero-v2__eyebrow">
+      <span class="hero-v2__eyebrow-label">{issueDate}</span>
+      <span class="hero-v2__eyebrow-rule" aria-hidden="true"></span>
+      <span class="hero-v2__eyebrow-label">The Mornington Peninsula</span>
+    </div>
+
+    <h1 class="hero-v2__headline">
+      {hl.line1}<br />
+      {hl.line2}<br />
+      and <em>{hl.em}</em>
+    </h1>
+
+    <p class="hero-v2__dek">
+      {seasonalDeks[season]}
+    </p>
+
+    <div class="hero-v2__ctas">
+      <a href="/eat" class="hero-v2__cta-primary">Start with the restaurants</a>
+      <a href="/journal" class="hero-v2__cta-secondary">Read the journal</a>
+    </div>
+
+    <div class="hero-v2__promise">
+      <p class="hero-v2__promise-text">Independent editorial · Every venue visited · Every opinion earned · No advertisers</p>
+    </div>
+  </div>
+
+  <div class="hero-v2__scroll-hint" aria-hidden="true">
+    <span class="hero-v2__scroll-label">Scroll</span>
+    <div class="hero-v2__scroll-line"></div>
+  </div>
+</section>
+
+<!-- Rest of page content placeholder -->
+<section style="padding: 4rem 0; text-align: center;">
+  <div class="container">
+    <p class="label label--accent">Draft preview</p>
+    <h2 style="font-family: Cormorant Garamond, Georgia, serif; font-size: 2rem; margin: 1rem 0;">This is a hero preview only</h2>
+    <p style="color: var(--soft); max-width: 50ch; margin: 0 auto;">The rest of the homepage content would follow below. This page is for reviewing the new hero design before replacing the current one.</p>
+  </div>
+</section>
+
+</BaseLayout>
