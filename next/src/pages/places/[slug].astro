@@ -113,10 +113,68 @@ const ogImage = place.data.heroImage?.src && !place.data.heroImage.src.includes(
   ? place.data.heroImage.src
   : `/images/sourced/place-${placeSlug}-01.webp`;
 
-// Truncate intro to ~155 chars for description
-const description = place.data.intro.length > 155
-  ? place.data.intro.slice(0, 152) + '...'
-  : place.data.intro;
+// --- SEO: Per-town title overrides and meta descriptions ---
+const titleOverrides: Record<string, string> = {
+  'sorrento': `Sorrento Mornington Peninsula 2026 — Where to Eat, Stay & Swim | Peninsula Insider`,
+  'red-hill': `Red Hill Mornington Peninsula 2026 — Best Wineries & Restaurants | Peninsula Insider`,
+  'flinders': `Flinders Mornington Peninsula 2026 — Guide to the Ocean Village | Peninsula Insider`,
+  'mornington': `Mornington Town Guide 2026 — Restaurants, Markets & Beaches | Peninsula Insider`,
+  'rye': `Rye Mornington Peninsula 2026 — Beaches, Hot Springs & Brewery Guide | Peninsula Insider`,
+};
+const descOverrides: Record<string, string> = {
+  'sorrento': 'The insider guide to Sorrento on the Mornington Peninsula — best restaurants, ocean baths, where to stay, and why off-season Sorrento is a revelation. Updated 2026.',
+  'red-hill': 'The insider guide to Red Hill on the Mornington Peninsula — best cellar doors, vineyard restaurants, where to stay on the plateau, and the Saturday market. Updated 2026.',
+  'flinders': 'The insider guide to Flinders on the Mornington Peninsula — ocean coast walks, the bakery, the pub, and why this quiet village draws the weekend-escape crowd. Updated 2026.',
+  'mornington': 'The insider guide to Mornington town — Wednesday market, foreshore bathing boxes, best restaurants on Main Street, and the most practical Peninsula base. Updated 2026.',
+  'rye': 'The insider guide to Rye on the Mornington Peninsula — front beach and back beach, Peninsula Hot Springs, the brewery precinct, and the best family base. Updated 2026.',
+};
+const pageTitle = titleOverrides[placeSlug] ?? `${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`;
+
+// Truncate intro to ~155 chars for description (unless we have a handcrafted override)
+const description = descOverrides[placeSlug] ?? (
+  place.data.intro.length > 155
+    ? place.data.intro.slice(0, 152) + '...'
+    : place.data.intro
+);
+
+// --- SEO: Per-town FAQ schema ---
+const townFaqs: Record<string, Array<{q: string; a: string}>> = {
+  'sorrento': [
+    { q: 'What is Sorrento known for on the Mornington Peninsula?', a: 'Sorrento is the social heart of the Peninsula — limestone cliffs, ocean swimming, the ferry to Queenscliff, and a main street that has evolved into one of the region\'s strongest dining strips. The ocean baths at the back beach are carved from rock and free to use at low tide. Summer is busy and expensive; off-season Sorrento is quieter, cheaper, and arguably better.' },
+    { q: 'Where should I eat in Sorrento?', a: 'The Continental Sorrento anchors the main street dining scene. For casual eating, the Sorrento fish and chip shops at the pier are an institution, and the bakeries on Ocean Beach Road do strong morning trade. Book ahead for weekend dinners in summer — the town fills from Friday lunch.' },
+    { q: 'Is Sorrento worth visiting in winter?', a: 'Yes — arguably more than summer. The restaurants operate at their best without the crush, accommodation prices drop significantly, the back beach walks are dramatic in winter light, and the ocean baths still work if you are game for it. Winter weekends in Sorrento are an underrated Peninsula move.' },
+  ],
+  'red-hill': [
+    { q: 'What is Red Hill known for on the Mornington Peninsula?', a: 'Red Hill is the wine and dining capital of the Peninsula — a basalt plateau home to the highest concentration of cellar doors and hatted restaurants in the region. Ten Minutes by Tractor, Montalto, and Crittenden Estate are all here. The Saturday market (first Saturday of the month) is one of Victoria\'s best regional markets.' },
+    { q: 'What are the best wineries in Red Hill?', a: 'Ten Minutes by Tractor for benchmark Pinot Noir, Montalto for the complete estate experience (wine, food, sculpture), Crittenden Estate for the family legacy, Main Ridge Estate for one of Australia\'s original cool-climate producers, and Polperro for casual cellar door atmosphere. The plateau rewards visiting two or three in an afternoon rather than rushing five.' },
+    { q: 'Should I stay in Red Hill or Sorrento?', a: 'Red Hill for a wine-country weekend — cellar doors are walkable from many stays and lunch is the main event. Sorrento for a coastal village weekend with ocean swimming and main-street energy. They are 20 minutes apart, so both areas are accessible from either base.' },
+  ],
+  'flinders': [
+    { q: 'Is Flinders worth visiting on the Mornington Peninsula?', a: 'Yes — if you want the quieter, wilder side of the Peninsula. Flinders sits on the ocean coast facing Bass Strait, away from the manicured bay-side villages. The general store, the pub, and the bakery are all genuinely good. The Flinders foreshore walk and nearby Cape Schanck are standout coastal experiences.' },
+    { q: 'What is there to do in Flinders?', a: 'Walk the foreshore and pier, eat at the general store or the hotel pub, drive to Cape Schanck for the boardwalk and lighthouse, visit Montalto or Red Hill Cheese on the plateau nearby, and swim at Shoreham or West Head beach. Flinders is a slow-down destination — the value is in doing less, not more.' },
+    { q: 'How far is Flinders from Melbourne?', a: 'Flinders is about 100 km from Melbourne CBD, approximately 90 minutes via the Mornington Peninsula Freeway and Flinders Road. It is one of the furthest towns on the Peninsula from Melbourne, which is part of its appeal — it feels properly away.' },
+  ],
+  'mornington': [
+    { q: 'What is there to do in Mornington town?', a: 'Walk the Esplanade and bathing boxes at Mornington Beach, visit the Wednesday farmers\' market on the foreshore, eat on Main Street (several strong restaurants and cafes), swim at Mothers Beach or the pier, and use the town as a base for day trips to Red Hill and the Peninsula\'s southern coast. Mornington works as both a destination and a gateway.' },
+    { q: 'Is Mornington a good base for visiting the Peninsula?', a: 'Yes — it is the most accessible town from Melbourne (60 minutes), and central enough to reach Red Hill\'s cellar doors (20 minutes south), the ocean beaches (30 minutes), and the hot springs (25 minutes). For a first visit or a single-night escape, Mornington is the most practical base on the Peninsula.' },
+    { q: 'When is the Mornington farmers market?', a: 'The Mornington Farmers\' Market runs every Wednesday morning on the Esplanade, year-round. It is one of the Peninsula\'s best — local produce, baked goods, flowers, and prepared food stalls. Arrive before 9am for the best selection. The market is a strong anchor for a Mornington day trip.' },
+  ],
+  'rye': [
+    { q: 'What is Rye known for on the Mornington Peninsula?', a: 'Rye is the Peninsula\'s family beach town — a long calm front beach on the bay, a wild back beach on the ocean, and Peninsula Hot Springs nearby. The town has improved in recent years with a growing brewery and cafe scene. Rye is also the gateway to the back beaches: Number Sixteen, St Andrews, and Gunnamatta.' },
+    { q: 'Is Rye or Sorrento better for families?', a: 'Rye for younger families — the front beach is flatter, calmer, and more forgiving than Sorrento\'s beaches. The town is less expensive and less crowded in summer. Sorrento has more dining and atmosphere for couples and older kids. Peninsula Hot Springs is closer to Rye (10 minutes) than to Sorrento (20 minutes).' },
+    { q: 'How close is Peninsula Hot Springs to Rye?', a: 'Peninsula Hot Springs is about 10 minutes\' drive from Rye, inland on Springs Lane near Fingal. It is one of the most common day-trip combinations: morning at the springs, afternoon at Rye front beach. Book hot springs sessions in advance, especially on weekends.' },
+  ],
+};
+const currentFaqs = townFaqs[placeSlug];
+const faqSchema = currentFaqs ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: currentFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+} : null;
 
 const placeSchema = {
   '@context': 'https://schema.org',
@@ -143,13 +201,14 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title={`${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`}
+  title={pageTitle}
   description={description}
   section="places"
   canonical={canonical}
   ogImage={ogImage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(placeSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <PlaceDetailTemplate
     place={place}

@@ -135,6 +135,7 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
       <div class="venues__grid">
         {eatVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
       </div>
+      <p class="venues__rankings-link"><a href="/eat/best-restaurants">See the editorial rankings → Best Restaurants on the Peninsula</a></p>
     </div>
   </section>
 )}
@@ -153,6 +154,7 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
       <div class="venues__grid">
         {wineVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
       </div>
+      <p class="venues__rankings-link"><a href="/wine/best-cellar-doors">See the editorial rankings → Best Cellar Doors on the Peninsula</a></p>
     </div>
   </section>
 )}
@@ -171,6 +173,7 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
       <div class="venues__grid">
         {stayVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
       </div>
+      <p class="venues__rankings-link"><a href="/stay/best-accommodation">See the editorial rankings → Best Places to Stay on the Peninsula</a></p>
     </div>
   </section>
 )}
