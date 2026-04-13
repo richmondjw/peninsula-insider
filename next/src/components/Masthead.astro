@@ -49,18 +49,18 @@ const navItems = [
       </button>
     </div>
   </div>
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <div class="mobile-nav__inner">
-      {navItems.map((item) => (
-        <a
-          href={item.href}
-          class="mobile-nav__link"
-          aria-current={section === item.key ? 'page' : undefined}
-        >
-          {item.label}
-        </a>
-      ))}
-      <a href="/newsletter" class="mobile-nav__link mobile-nav__link--cta">Newsletter</a>
-    </div>
-  </nav>
 </header>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <div class="mobile-nav__inner">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="mobile-nav__link"
+        aria-current={section === item.key ? 'page' : undefined}
+      >
+        {item.label}
+      </a>
+    ))}
+    <a href="/newsletter" class="mobile-nav__link mobile-nav__link--cta">Newsletter</a>
+  </div>
+</nav>

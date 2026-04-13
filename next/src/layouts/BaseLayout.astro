@@ -95,6 +95,11 @@ const ogImageAbsolute = ogImage.startsWith('http')
     logo: `${SITE_URL}/images/sourced/home-cover.webp`,
   })} />
 
+  <!-- Enhancement layers — mobile fixes, newsletter UX, scroll animations -->
+  <link rel="stylesheet" href="/assets/mobile-fixes.css" />
+  <link rel="stylesheet" href="/assets/newsletter-enhance.css" />
+  <link rel="stylesheet" href="/assets/scroll-animations.css" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBL14DE975"></script>
   <script is:inline>
@@ -138,6 +143,9 @@ const ogImageAbsolute = ogImage.startsWith('http')
     })();
   </script>
 
+  <!-- Enhancement JS — newsletter form upgrade + scroll animations -->
+  <script is:inline src="/assets/newsletter-enhance.js"></script>
+  <script is:inline src="/assets/scroll-animations.js"></script>
 
 </body>
 </html>
