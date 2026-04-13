@@ -1,15 +1,91 @@
 ---
 /**
- * DRAFT PREVIEW — New Hero Header Design
+ * DRAFT PREVIEW — New Hero Header + Full Homepage
  * View at: /preview-hero
  * NOT linked from anywhere. For James's review only.
  */
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { currentSeason } from '../lib/editorial';
+import PillarNav from '../components/PillarNav.astro';
+import FeatureArticle from '../components/FeatureArticle.astro';
+import VenueCard from '../components/VenueCard.astro';
+import PlaceCard from '../components/PlaceCard.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import ItineraryCard from '../components/ItineraryCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import EventCard from '../components/EventCard.astro';
+import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason } from '../lib/editorial';
 
-const season = currentSeason();
+const venues = await getCollection('venues');
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const places = await getCollection('places');
+const experiences = await getCollection('experiences');
+const itineraries = await getCollection('itineraries');
+
+const eventsAll = (await getCollection('events'))
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence)) return true;
+    const end = event.data.endDate ?? event.data.startDate;
+    return isUpcoming(end);
+  })
+  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+const weekendPicks = eventsAll.filter((event) => event.data.lens.includes('weekend-pick' as any)).slice(0, 3);
+const weekendDispatch = articles
+  .filter((article) => article.data.format === 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+
+const featured = articles.find((a) => a.data.featured && a.data.format !== 'weekend-picker') ?? articles.find((a) => a.data.format !== 'weekend-picker') ?? articles[0];
+const editorPicks = articles
+  .filter((a) => routeSlug(a) !== routeSlug(featured))
+  .filter((a) => ['the-chardonnay-case', 'three-italian-dinners', 'the-peninsula-pantry', 'the-long-lunch', 'the-thermal-springs-weekend'].includes(routeSlug(a)))
+  .slice(0, 3);
+
+const showcase = venues.filter((venue) => ['ten-minutes-by-tractor', 'montalto', 'laura'].includes(routeSlug(venue)));
+const showcaseFallback = venues.filter((venue) => ['restaurant', 'winery'].includes(venue.data.type)).slice(0, 3);
+const diningShowcase = showcase.length >= 3 ? showcase : showcaseFallback;
+
+const experienceHighlights = experiences.filter((entry) =>
+  ['bushrangers-bay-walk', 'arthurs-seat-lookout', 'sorrento-ocean-baths', 'mornington-peninsula-gallery'].includes(routeSlug(entry))
+);
+const escapePlans = itineraries.slice(0, 3);
+const stayHighlights = venues.filter((venue) =>
+  stayTypes.includes(venue.data.type) && ['jackalope', 'hotel-sorrento', 'port-phillip-estate'].includes(routeSlug(venue))
+);
+const featuredPlaces = places.filter((place) =>
+  ['red-hill', 'sorrento', 'flinders', 'mornington', 'portsea', 'main-ridge'].includes(routeSlug(place))
+);
+const journalHighlights = articles
+  .filter((article) => routeSlug(article) !== routeSlug(featured))
+  .filter((article) => !editorPicks.some((pick) => routeSlug(pick) === routeSlug(article)))
+  .slice(0, 3);
+
+const intentRoutes = [
+  { label: 'Long lunch',    slug: 'the-long-lunch',                     note: 'Sunday, slow, one decisive table  -  the Peninsula\u2019s strongest move' },
+  { label: 'Rainy day',     slug: 'the-rainy-day-peninsula-without-a-booking', note: 'Weather-proof and walk-in  -  no booking, no gamble' },
+  { label: 'With kids',     slug: 'the-peninsula-with-kids',            note: 'A day that punishes no one  -  graded, honest, tested' },
+  { label: 'One night',     slug: 'the-one-night-escape',               note: '26 hours that feel like a long weekend' },
+  { label: 'Cellar doors',  slug: 'the-cellar-door-short-list',         note: 'Five producers worth the appointment and the drive' },
+  { label: 'Wellness',      slug: 'the-thermal-springs-weekend',        note: 'Hot springs without wasting the rest of the weekend' },
+  { label: 'First visit',   slug: 'the-peninsula-orientation-drive',    note: 'Six stops, half a day, zero prior knowledge required' },
+  { label: 'Breakfast',     slug: 'breakfast-before-the-crowds',        note: 'Where locals actually eat at 8 am  -  not the Instagram queue' },
+];
+const intentResolved = intentRoutes
+  .map((intent) => {
+    const article = articles.find((a) => routeSlug(a) === intent.slug);
+    return article ? { ...intent, article } : null;
+  })
+  .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+
+const issueStats = { articles: articles.length, venues: venues.length, places: places.length, experiences: experiences.length, itineraries: itineraries.length };
 const now = new Date();
 const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+const season = currentSeason();
+const seasonBlurbData = seasonBlurb[season];
+const seasonalVenues = venues.filter((venue) => inSeason(venue, season)).filter((venue) => ['restaurant', 'winery', 'cafe', 'bakery', 'spa', 'hotel'].includes(venue.data.type)).slice(0, 3);
+const seasonalExperiences = experiences.filter((e) => experienceInSeason(e, season)).slice(0, 3);
 
 const seasonalHeadlines: Record<string, { line1: string; line2: string; em: string }> = {
   summer: { line1: 'Where Victoria', line2: 'eats, swims,', em: 'and stays late.' },
@@ -17,263 +93,50 @@ const seasonalHeadlines: Record<string, { line1: string; line2: string; em: stri
   winter: { line1: 'Where Victoria', line2: 'eats, warms up,', em: 'and stays in.' },
   spring: { line1: 'Where Victoria', line2: 'eats, explores,', em: 'and books ahead.' },
 };
-
 const seasonalDeks: Record<string, string> = {
   summer: 'Back beaches at five, vineyard lunches that run until the light goes long, and the places locals actually go when Melbourne empties south.',
   autumn: 'Vintage on the ridge, pinot lunches in low golden light, cellar doors with fires going, and the quieter weekends the Peninsula does best.',
   winter: 'Hot springs without the queue, pub dinners worth the drive, fireplace long lunches, and the coastal walks the crowds have finally left alone.',
   spring: 'New vintage releases, wildflower walks, menus rewritten for the season, and the most generous midweek bookings of the year.',
 };
-
 const hl = seasonalHeadlines[season];
 ---
 
 <BaseLayout
-  title="DRAFT — New Hero Design | Peninsula Insider"
+  title="DRAFT — New Homepage Preview | Peninsula Insider"
   description="Preview page — not for public."
   section="home"
   noindex={true}
 >
 
 <style>
-  /* ============================================================
-     NEW HERO — Full-bleed immersive cover
-     The image fills the entire viewport height. Copy overlays
-     the bottom-left with a gradient scrim. The effect is closer
-     to a magazine cover than a grid layout.
-     ============================================================ */
-
-  .hero-v2 {
-    position: relative;
-    min-height: 92vh;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    background-color: var(--dark);
-  }
-
-  .hero-v2__bg {
-    position: absolute;
-    inset: 0;
-    background-image: url(/images/sourced/home-cover.webp);
-    background-size: cover;
-    background-position: center 40%;
-    transform: scale(1.05);
-    will-change: transform;
-  }
-
-  /* Gradient scrim — dark at bottom for text legibility */
-  .hero-v2__scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(30, 27, 24, 0.08) 0%,
-      rgba(30, 27, 24, 0.15) 25%,
-      rgba(30, 27, 24, 0.5) 55%,
-      rgba(30, 27, 24, 0.82) 75%,
-      rgba(30, 27, 24, 0.95) 100%
-    );
-  }
-
-  /* Film grain overlay */
-  .hero-v2__grain {
-    position: absolute;
-    inset: 0;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 128px;
-    pointer-events: none;
-  }
-
-  .hero-v2__content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: 0 clamp(1.25rem, 4vw, 3rem);
-    padding-bottom: clamp(3.5rem, 8vw, 6rem);
-    max-width: var(--max-w);
-    margin: 0 auto;
-  }
-
-  .hero-v2__eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-v2__eyebrow-label {
-    font-family: Outfit, system-ui, sans-serif;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  .hero-v2__eyebrow-rule {
-    flex: 1;
-    height: 1px;
-    background: rgba(253, 252, 250, 0.15);
-    max-width: 120px;
-  }
-
-  .hero-v2__headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(3.2rem, 7.5vw, 6.5rem);
-    font-weight: 600;
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    max-width: 16ch;
-    text-shadow: 0 2px 30px rgba(30, 27, 24, 0.4);
-  }
-
-  .hero-v2__headline em {
-    font-style: italic;
-    color: var(--gold);
-    font-size: 1.1em;
-    display: inline-block;
-    text-shadow: 0 2px 40px rgba(182, 154, 107, 0.25);
-  }
-
-  .hero-v2__dek {
-    font-family: Outfit, system-ui, sans-serif;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: rgba(253, 252, 250, 0.7);
-    max-width: 44ch;
-    font-weight: 300;
-    margin-bottom: 2rem;
-  }
-
-  .hero-v2__ctas {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .hero-v2__cta-primary {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.9rem 2rem;
-    background: var(--accent);
-    color: var(--white);
-    font-family: Outfit, system-ui, sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.25s ease;
-    min-height: 44px;
-  }
-
-  .hero-v2__cta-primary:hover {
-    background: var(--acc-h);
-  }
-
-  .hero-v2__cta-secondary {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.9rem 2rem;
-    background: transparent;
-    color: rgba(253, 252, 250, 0.7);
-    border: 1px solid rgba(253, 252, 250, 0.2);
-    font-family: Outfit, system-ui, sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: border-color 0.25s ease, color 0.25s ease;
-    min-height: 44px;
-  }
-
-  .hero-v2__cta-secondary:hover {
-    border-color: rgba(253, 252, 250, 0.5);
-    color: var(--white);
-  }
-
-  .hero-v2__promise {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(253, 252, 250, 0.1);
-  }
-
-  .hero-v2__promise-text {
-    font-family: Outfit, system-ui, sans-serif;
-    font-size: 0.7rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(253, 252, 250, 0.35);
-  }
-
-  .hero-v2__scroll-hint {
-    position: absolute;
-    bottom: 1.5rem;
-    right: clamp(1.25rem, 4vw, 3rem);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .hero-v2__scroll-label {
-    font-family: Outfit, system-ui, sans-serif;
-    font-size: 0.55rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(253, 252, 250, 0.3);
-    writing-mode: vertical-rl;
-  }
-
-  .hero-v2__scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(253,252,250,0.3), transparent);
-  }
-
-  /* Mobile adjustments */
+  .hero-v2 { position: relative; min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; background-color: var(--dark); }
+  .hero-v2__bg { position: absolute; inset: 0; background-image: url(/images/sourced/home-cover.webp); background-size: cover; background-position: center 40%; transform: scale(1.05); will-change: transform; }
+  .hero-v2__scrim { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,27,24,0.08) 0%, rgba(30,27,24,0.15) 25%, rgba(30,27,24,0.5) 55%, rgba(30,27,24,0.82) 75%, rgba(30,27,24,0.95) 100%); }
+  .hero-v2__grain { position: absolute; inset: 0; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 128px; pointer-events: none; }
+  .hero-v2__content { position: relative; z-index: 2; width: 100%; padding: 0 clamp(1.25rem,4vw,3rem); padding-bottom: clamp(3.5rem,8vw,6rem); max-width: var(--max-w); margin: 0 auto; }
+  .hero-v2__eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .hero-v2__eyebrow-label { font-family: Outfit,system-ui,sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  .hero-v2__eyebrow-rule { flex: 1; height: 1px; background: rgba(253,252,250,0.15); max-width: 120px; }
+  .hero-v2__headline { font-family: 'Cormorant Garamond',Georgia,serif; font-size: clamp(3.2rem,7.5vw,6.5rem); font-weight: 600; line-height: 0.95; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.5rem; max-width: 16ch; text-shadow: 0 2px 30px rgba(30,27,24,0.4); }
+  .hero-v2__headline em { font-style: italic; color: var(--gold); font-size: 1.1em; display: inline-block; text-shadow: 0 2px 40px rgba(182,154,107,0.25); }
+  .hero-v2__dek { font-family: Outfit,system-ui,sans-serif; font-size: 1.05rem; line-height: 1.7; color: rgba(253,252,250,0.7); max-width: 44ch; font-weight: 300; margin-bottom: 2rem; }
+  .hero-v2__ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .hero-v2__cta-primary { display: inline-flex; align-items: center; padding: 0.9rem 2rem; background: var(--accent); color: var(--white); font-family: Outfit,system-ui,sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.25s ease; min-height: 44px; }
+  .hero-v2__cta-primary:hover { background: var(--acc-h); }
+  .hero-v2__cta-secondary { display: inline-flex; align-items: center; padding: 0.9rem 2rem; background: transparent; color: rgba(253,252,250,0.7); border: 1px solid rgba(253,252,250,0.2); font-family: Outfit,system-ui,sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: border-color 0.25s ease, color 0.25s ease; min-height: 44px; }
+  .hero-v2__cta-secondary:hover { border-color: rgba(253,252,250,0.5); color: var(--white); }
+  .hero-v2__scroll-hint { position: absolute; bottom: 1.5rem; right: clamp(1.25rem,4vw,3rem); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+  .hero-v2__scroll-label { font-family: Outfit,system-ui,sans-serif; font-size: 0.55rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(253,252,250,0.3); writing-mode: vertical-rl; }
+  .hero-v2__scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(253,252,250,0.3), transparent); }
   @media (max-width: 768px) {
-    .hero-v2 {
-      min-height: 85vh;
-    }
-
-    .hero-v2__bg {
-      background-position: center 30%;
-    }
-
-    .hero-v2__headline {
-      font-size: clamp(2.6rem, 10vw, 4rem);
-      max-width: 100%;
-    }
-
-    .hero-v2__dek {
-      font-size: 0.95rem;
-      max-width: 100%;
-    }
-
-    .hero-v2__ctas {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .hero-v2__cta-primary,
-    .hero-v2__cta-secondary {
-      text-align: center;
-      justify-content: center;
-    }
-
-    .hero-v2__scroll-hint {
-      display: none;
-    }
+    .hero-v2 { min-height: 85vh; }
+    .hero-v2__bg { background-position: center 30%; }
+    .hero-v2__headline { font-size: clamp(2.6rem,10vw,4rem); max-width: 100%; }
+    .hero-v2__dek { font-size: 0.95rem; max-width: 100%; }
+    .hero-v2__ctas { flex-direction: column; align-items: stretch; }
+    .hero-v2__cta-primary, .hero-v2__cta-secondary { text-align: center; justify-content: center; }
+    .hero-v2__scroll-hint { display: none; }
   }
 </style>
 
@@ -282,44 +145,309 @@ const hl = seasonalHeadlines[season];
   <div class="hero-v2__bg"></div>
   <div class="hero-v2__scrim"></div>
   <div class="hero-v2__grain"></div>
-
   <div class="hero-v2__content">
     <div class="hero-v2__eyebrow">
       <span class="hero-v2__eyebrow-label">{issueDate}</span>
       <span class="hero-v2__eyebrow-rule" aria-hidden="true"></span>
       <span class="hero-v2__eyebrow-label">The Mornington Peninsula</span>
     </div>
-
     <h1 class="hero-v2__headline">
       {hl.line1}<br />
       {hl.line2}<br />
       and <em>{hl.em}</em>
     </h1>
-
-    <p class="hero-v2__dek">
-      {seasonalDeks[season]}
-    </p>
-
+    <p class="hero-v2__dek">{seasonalDeks[season]}</p>
     <div class="hero-v2__ctas">
       <a href="/eat" class="hero-v2__cta-primary">Start with the restaurants</a>
       <a href="/journal" class="hero-v2__cta-secondary">Read the journal</a>
     </div>
-
   </div>
-
   <div class="hero-v2__scroll-hint" aria-hidden="true">
     <span class="hero-v2__scroll-label">Scroll</span>
     <div class="hero-v2__scroll-line"></div>
   </div>
 </section>
 
-<!-- Rest of page content placeholder -->
-<section style="padding: 4rem 0; text-align: center;">
+<!-- ======== REST OF HOMEPAGE (identical to index.astro) ======== -->
+
+<PillarNav />
+
+<section class="issue-ribbon" aria-label="This issue">
   <div class="container">
-    <p class="label label--accent">Draft preview</p>
-    <h2 style="font-family: Cormorant Garamond, Georgia, serif; font-size: 2rem; margin: 1rem 0;">This is a hero preview only</h2>
-    <p style="color: var(--soft); max-width: 50ch; margin: 0 auto;">The rest of the homepage content would follow below. This page is for reviewing the new hero design before replacing the current one.</p>
+    <div class="issue-ribbon__inner">
+      <div class="issue-ribbon__label">
+        <span class="label label--accent">The {issueDate} issue</span>
+      </div>
+      <dl class="issue-ribbon__stats">
+        <div><dt>Pieces</dt><dd>{issueStats.articles}</dd></div>
+        <div><dt>Venues mapped</dt><dd>{issueStats.venues}</dd></div>
+        <div><dt>Places</dt><dd>{issueStats.places}</dd></div>
+        <div><dt>Walks & moves</dt><dd>{issueStats.experiences}</dd></div>
+        <div><dt>Escape plans</dt><dd>{issueStats.itineraries}</dd></div>
+      </dl>
+    </div>
   </div>
 </section>
+
+{weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend="This weekend" />}
+
+{weekendPicks.length > 0 && (
+  <section class="venues venues--plain" aria-label="Weekend picks">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">This weekend · editor's picks</p>
+          <h2 class="venues__title">Three events with an opinion attached</h2>
+          <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not.</p>
+        </div>
+        <a href="/whats-on" class="venues__link">All What's On →</a>
+      </div>
+      <div class="event-grid">
+        {weekendPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{featured && <FeatureArticle article={featured} />}
+
+{editorPicks.length > 0 && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Editor's picks</p>
+          <h2 class="venues__title">Three pieces doing the heaviest lifting this week</h2>
+          <p class="venues__sub">Read one, skim the others, and the Peninsula weekend starts writing itself.</p>
+        </div>
+        <a href="/journal" class="venues__link">All in the journal →</a>
+      </div>
+      <div class="venues__grid">
+        {editorPicks.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{intentResolved.length > 0 && (
+  <section class="intent-strip" aria-label="Start from what you need">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Start from what you need</p>
+          <h2 class="split-intro__title">Start from what you actually want the weekend to do</h2>
+        </div>
+        <p class="split-intro__body">Each one opens a guide built around the question  -  with real names, real opinions, and a plan you can act on this weekend.</p>
+      </div>
+      <div class="intent-chips">
+        {intentResolved.map((intent) => (
+          <a href={`/journal/${intent.slug}`} class="intent-chip">
+            <span class="intent-chip__label">{intent.label}</span>
+            <span class="intent-chip__note">{intent.note}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="zone-intro">
+  <div class="container">
+    <div class="split-intro">
+      <div>
+        <p class="label label--accent">Build the weekend</p>
+        <h2 class="split-intro__title">Three ways into the Peninsula, depending on what the trip needs</h2>
+      </div>
+      <p class="split-intro__body">Start with the bed if you want the trip to soften, the walk if you want the afternoon to open up, or the itinerary if you want the whole weekend pre-shaped.</p>
+    </div>
+    <div class="zone-intro__grid">
+      <a href="/stay" class="zone-card zone-card--link">
+        <p class="zone-card__label">Stay</p>
+        <h3 class="zone-card__title">Choose the base before the booking list</h3>
+        <p class="zone-card__body">Red Hill stays, Sorrento hotels, and the properties that change the tone of the whole weekend.</p>
+      </a>
+      <a href="/explore" class="zone-card zone-card--link">
+        <p class="zone-card__label">Explore</p>
+        <h3 class="zone-card__title">Use coastline, weather, and timing properly</h3>
+        <p class="zone-card__body">Late-afternoon walks, market starts, and the non-restaurant moves that make the region feel larger.</p>
+      </a>
+      <a href="/escape" class="zone-card zone-card--link">
+        <p class="zone-card__label">Escape</p>
+        <h3 class="zone-card__title">Follow a complete weekend, not a loose list</h3>
+        <p class="zone-card__body">Shaped Peninsula escapes that sequence lunch, landscape, and bed in the right order.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+{diningShowcase.length > 0 && (
+  <section class="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Editor's Table</p>
+          <h2 class="venues__title">The dining rooms still doing the strongest work</h2>
+          <p class="venues__sub">Begin with the meal if lunch is the point of the trip.</p>
+        </div>
+        <a href="/eat" class="venues__link">All venues →</a>
+      </div>
+      <div class="venues__grid">
+        {diningShowcase.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{(seasonalVenues.length > 0 || seasonalExperiences.length > 0) && (
+  <section class="seasonal-shelf">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">{seasonBlurbData.label}</p>
+          <h2 class="split-intro__title">Right now, the Peninsula is best at this</h2>
+        </div>
+        <p class="split-intro__body">{seasonBlurbData.line}</p>
+      </div>
+      <div class="seasonal-shelf__grid">
+        {seasonalVenues.length > 0 && (
+          <div class="seasonal-shelf__col">
+            <p class="label label--accent">Tables & rooms in season</p>
+            <ul class="seasonal-shelf__list">
+              {seasonalVenues.map((venue) => (
+                <li>
+                  <a href={`/${stayTypes.includes(venue.data.type) ? 'stay' : ['winery', 'producer', 'brewery', 'distillery'].includes(venue.data.type) ? 'wine' : 'eat'}/${routeSlug(venue)}`}>
+                    <span class="seasonal-shelf__name">{venue.data.name}</span>
+                    <span class="seasonal-shelf__note">{venue.data.signature}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {seasonalExperiences.length > 0 && (
+          <div class="seasonal-shelf__col">
+            <p class="label label--accent">Walks & moves in season</p>
+            <ul class="seasonal-shelf__list">
+              {seasonalExperiences.map((experience) => (
+                <li>
+                  <a href={`/explore/${routeSlug(experience)}`}>
+                    <span class="seasonal-shelf__name">{experience.data.name}</span>
+                    <span class="seasonal-shelf__note">{experience.data.editorNote.split('.').slice(0, 1).join('.')}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+{experienceHighlights.length > 0 && (
+  <section class="experience-index">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">After lunch</p>
+          <h2 class="split-intro__title">The moves that stop the Peninsula feeling like one long reservation</h2>
+        </div>
+        <p class="split-intro__body">These are the useful second acts, not filler.</p>
+      </div>
+      <div class="experience-grid">
+        {experienceHighlights.map((experience) => <ExperienceCard experience={experience} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{escapePlans.length > 0 && (
+  <section class="escape-callout">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Escape plans</p>
+          <h2 class="venues__title">When the Peninsula deserves more than a day trip</h2>
+          <p class="venues__sub">A shaped weekend that puts lunch, walk, and bed in the right order.</p>
+        </div>
+        <a href="/escape" class="venues__link">All escapes →</a>
+      </div>
+      <div class="itinerary-grid">
+        {escapePlans.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{places.length > 0 && (
+  <section class="places">
+    <div class="container">
+      <div class="places__header">
+        <p class="label label--accent places__label">Know the terrain</p>
+        <h2 class="places__title">The Peninsula, place by place</h2>
+        <p class="places__sub">Six towns that organise the region around them.</p>
+      </div>
+      <div class="places__grid">
+        {featuredPlaces.map((place, index) => (
+          <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} />
+        ))}
+      </div>
+      <div class="places__footer">
+        <a href="/places" class="venues__link">All {issueStats.places} places →</a>
+      </div>
+    </div>
+  </section>
+)}
+
+{stayHighlights.length > 0 && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Sleep here</p>
+          <h2 class="venues__title">Three stays that immediately change the plan</h2>
+        </div>
+        <a href="/stay" class="venues__link">All stays →</a>
+      </div>
+      <div class="venues__grid">
+        {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{journalHighlights.length > 0 && (
+  <section class="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Fresh from the Journal</p>
+          <h2 class="venues__title">The most recent service pieces and dispatches</h2>
+        </div>
+        <a href="/journal" class="venues__link">Journal →</a>
+      </div>
+      <div class="venues__grid">
+        {journalHighlights.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="why-insider" aria-label="Why Peninsula Insider">
+  <div class="container">
+    <div class="why-insider__inner">
+      <div class="why-insider__lead">
+        <p class="label label--accent">Why this exists</p>
+        <h2 class="why-insider__title">The Peninsula has 200 cellar doors and no honest guidebook</h2>
+      </div>
+      <div class="why-insider__body">
+        <p>Most of what exists online is tourism marketing dressed as editorial, or star ratings that tell you a restaurant scored 4.3 without explaining what the 4.3 felt like at the table. Neither helps you build a weekend.</p>
+        <p>Peninsula Insider is the fix: opinionated, service-first coverage that answers the questions visitors actually ask  -  written by editors who live on the Peninsula and eat, walk, and sleep here year-round.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
 
 </BaseLayout>
