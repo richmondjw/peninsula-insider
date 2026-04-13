@@ -331,6 +331,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
 }
 @media (max-width: 768px) {
+  .masthead__logo { font-size: 1.6875rem; }
   .editorial-promise__inner { grid-template-columns: 1fr; }
 }
 
