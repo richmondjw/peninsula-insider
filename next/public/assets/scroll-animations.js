@@ -2,15 +2,19 @@
    Peninsula Insider — Scroll Animation Controller
    Intersection Observer for reveals, stagger logic for grids,
    gentle parallax for hero visuals. Zero dependencies.
+
+   Architecture: tagElements() marks candidates with data-reveal
+   attributes (no visual effect). observeReveals() then checks
+   positions — below-fold elements get the CSS reveal class and
+   are observed; above-fold elements are left untouched so they
+   never flash or animate on load.
    ============================================================ */
 
 (function () {
   'use strict';
 
-  // Bail out if the user prefers reduced motion
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Wait for DOM
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
@@ -19,21 +23,21 @@
 
   function init() {
     tagElements();
-    observeReveals();
+    applyReveals();
     initParallax();
   }
 
 
   /* ----------------------------------------------------------------
      TAG ELEMENTS
-     Walk the DOM and assign reveal classes based on existing
-     component class names. No HTML editing required.
+     Mark candidates with data-reveal="{class}" and optional
+     data-reveal-delay="{n}". No CSS classes added yet — elements
+     remain fully visible until applyReveals() decides.
      ---------------------------------------------------------------- */
 
   function tagElements() {
 
     // --- COVER / HERO TYPOGRAPHY SEQUENCE ---
-    // Homepage cover: meta → headline → dek → promise (reading order)
     var coverCopy = document.querySelector('.cover__copy');
     if (coverCopy) {
       var heroChildren = [
@@ -44,30 +48,37 @@
       ];
       heroChildren.forEach(function (el, i) {
         if (el) {
-          el.classList.add('reveal-hero');
+          el.setAttribute('data-reveal', 'reveal-hero');
           el.setAttribute('data-reveal-delay', String(i + 1));
         }
       });
     }
 
-    // Cover visual — parallax + reveal
-    tagAll('.cover__visual', 'reveal-scale', 'parallax-hero');
+    // Cover visual
+    markAll('.cover__visual', 'reveal-scale');
+    document.querySelectorAll('.cover__visual').forEach(function (el) {
+      el.classList.add('parallax-hero');
+    });
 
-    // --- SECTION HEROES (category pages, newsletter, about) ---
-    tagAll('.section-hero__inner', 'reveal');
-    tagAll('.section-hero__visual', 'parallax-hero');
+    // --- SECTION HEROES ---
+    markAll('.section-hero__inner', 'reveal');
+    document.querySelectorAll('.section-hero__visual').forEach(function (el) {
+      el.classList.add('parallax-hero');
+    });
 
     // --- ARTICLE / DETAIL HEROES ---
-    tagAll('.article__hero', 'reveal-scale', 'parallax-hero');
-    tagAll('.venue-detail__hero', 'reveal-scale', 'parallax-hero');
-    tagAll('.place-detail__hero', 'reveal-scale', 'parallax-hero');
-    tagAll('.experience-detail__hero', 'reveal-scale', 'parallax-hero');
-    tagAll('.itinerary-detail__hero', 'reveal-scale', 'parallax-hero');
+    var heroSelectors = ['.article__hero', '.venue-detail__hero', '.place-detail__hero', '.experience-detail__hero', '.itinerary-detail__hero'];
+    heroSelectors.forEach(function (sel) {
+      markAll(sel, 'reveal-scale');
+      document.querySelectorAll(sel).forEach(function (el) {
+        el.classList.add('parallax-hero');
+      });
+    });
 
     // --- SECTION HEADERS ---
-    tagAll('.venues__header', 'reveal-header');
+    markAll('.venues__header', 'reveal-header');
 
-    // --- FULL SECTIONS (fade + slide up) ---
+    // --- FULL SECTIONS ---
     var sectionSelectors = [
       '.editorial-promise__inner',
       '.weekend-picker__inner',
@@ -91,19 +102,19 @@
       '.place-detail__body'
     ];
     sectionSelectors.forEach(function (sel) {
-      tagAll(sel, 'reveal');
+      markAll(sel, 'reveal');
     });
 
     // --- ISSUE RIBBON ---
-    tagAll('.issue-ribbon__inner', 'reveal-fade');
+    markAll('.issue-ribbon__inner', 'reveal-fade');
 
-    // --- EDITORIAL PROMISE POINTS (staggered fade) ---
-    staggerChildren('.editorial-promise__points', '.editorial-promise__point', 'reveal-fade');
+    // --- EDITORIAL PROMISE POINTS ---
+    staggerMark('.editorial-promise__points', '.editorial-promise__point', 'reveal-fade');
 
-    // --- PILLAR NAV (staggered fade) ---
-    staggerChildren('.pillars__inner', '.pillar', 'reveal-fade');
+    // --- PILLAR NAV ---
+    staggerMark('.pillars__inner', '.pillar', 'reveal-fade');
 
-    // --- CARDS (staggered slide-up) ---
+    // --- CARDS ---
     var cardGrids = [
       { grid: '.venues__grid', card: '.venue-card' },
       { grid: '.venues__grid--two', card: '.venue-card' },
@@ -118,39 +129,37 @@
       for (var g = 0; g < grids.length; g++) {
         var cards = grids[g].querySelectorAll(cfg.card);
         for (var c = 0; c < cards.length; c++) {
-          cards[c].classList.add('reveal-card');
+          cards[c].setAttribute('data-reveal', 'reveal-card');
           cards[c].setAttribute('data-reveal-delay', String(Math.min(c, 7)));
         }
       }
     });
 
-    // --- ABOUT PRINCIPLES / PROOF (staggered) ---
-    staggerChildren('.newsletter-proof__promises', '.about-principle', 'reveal-fade');
-    staggerChildren('.about-principles__grid', '.about-principle', 'reveal-fade');
+    // --- ABOUT PRINCIPLES / PROOF ---
+    staggerMark('.newsletter-proof__promises', '.about-principle', 'reveal-fade');
+    staggerMark('.about-principles__grid', '.about-principle', 'reveal-fade');
 
-    // --- FEATURE IMAGE (scale reveal) ---
-    tagAll('.feature__image-block', 'reveal-scale');
+    // --- FEATURE IMAGE ---
+    markAll('.feature__image-block', 'reveal-scale');
 
-    // --- BREADCRUMBS (gentle fade) ---
-    tagAll('.breadcrumbs', 'reveal-fade');
+    // --- BREADCRUMBS ---
+    markAll('.breadcrumbs', 'reveal-fade');
 
     // --- FACTS SIDEBAR ---
-    tagAll('.facts', 'reveal');
+    markAll('.facts', 'reveal');
   }
 
 
   /* ----------------------------------------------------------------
-     INTERSECTION OBSERVER — REVEAL TRIGGER
-     Watches all tagged elements. Adds .is-revealed when 15% visible.
-     One-shot: once revealed, stop observing.
+     APPLY REVEALS
+     Check each marked element's position. Below-fold elements get
+     the CSS reveal class (hidden state) and are observed. Above-fold
+     elements are left alone — they stay visible, no flash, no animation.
      ---------------------------------------------------------------- */
 
-  function observeReveals() {
-    var revealClasses = ['reveal', 'reveal-card', 'reveal-hero', 'reveal-header', 'reveal-fade', 'reveal-scale'];
-    var selector = revealClasses.map(function (c) { return '.' + c; }).join(',');
-    var elements = document.querySelectorAll(selector);
-
-    if (!elements.length) return;
+  function applyReveals() {
+    var candidates = document.querySelectorAll('[data-reveal]');
+    if (!candidates.length) return;
 
     var observer = new IntersectionObserver(function (entries) {
       for (var i = 0; i < entries.length; i++) {
@@ -161,36 +170,41 @@
       }
     }, {
       threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px'  // trigger slightly before fully in view
+      rootMargin: '0px 0px -40px 0px'
     });
 
-    for (var i = 0; i < elements.length; i++) {
-      // If element is already above the fold, reveal immediately
-      var rect = elements[i].getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
-        elements[i].classList.add('is-revealed');
+    var vh = window.innerHeight;
+
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      var revealClass = el.getAttribute('data-reveal');
+      var rect = el.getBoundingClientRect();
+
+      if (rect.top < vh && rect.bottom > 0) {
+        // ABOVE THE FOLD — don't hide, don't animate. Just clean up.
+        el.removeAttribute('data-reveal');
       } else {
-        observer.observe(elements[i]);
+        // BELOW THE FOLD — add the CSS class (hides element) and observe.
+        el.classList.add(revealClass);
+        el.removeAttribute('data-reveal');
+        observer.observe(el);
       }
     }
   }
 
 
   /* ----------------------------------------------------------------
-     PARALLAX — HERO VISUALS
-     Gentle vertical translate on scroll. Uses requestAnimationFrame
-     for smooth 60fps performance.
+     PARALLAX
      ---------------------------------------------------------------- */
 
   function initParallax() {
     var heroes = document.querySelectorAll('.parallax-hero');
     if (!heroes.length) return;
 
-    var SPEED = 0.12;  // subtle — 12% of scroll distance
+    var SPEED = 0.12;
     var ticking = false;
 
     function updateParallax() {
-      var scrollY = window.pageYOffset;
       for (var i = 0; i < heroes.length; i++) {
         var el = heroes[i];
         var rect = el.getBoundingClientRect();
@@ -198,7 +212,6 @@
         var viewCenter = window.innerHeight / 2;
         var offset = (elCenter - viewCenter) * SPEED;
 
-        // Only transform when element is near the viewport
         if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
           el.style.transform = 'scale(1.08) translateY(' + offset.toFixed(1) + 'px)';
         }
@@ -213,7 +226,6 @@
       }
     }, { passive: true });
 
-    // Initial position
     updateParallax();
   }
 
@@ -222,20 +234,19 @@
      HELPERS
      ---------------------------------------------------------------- */
 
-  function tagAll(selector, revealClass, extraClass) {
+  function markAll(selector, revealClass) {
     var els = document.querySelectorAll(selector);
     for (var i = 0; i < els.length; i++) {
-      els[i].classList.add(revealClass);
-      if (extraClass) els[i].classList.add(extraClass);
+      els[i].setAttribute('data-reveal', revealClass);
     }
   }
 
-  function staggerChildren(parentSelector, childSelector, revealClass) {
+  function staggerMark(parentSelector, childSelector, revealClass) {
     var parents = document.querySelectorAll(parentSelector);
     for (var p = 0; p < parents.length; p++) {
       var children = parents[p].querySelectorAll(childSelector);
       for (var c = 0; c < children.length; c++) {
-        children[c].classList.add(revealClass);
+        children[c].setAttribute('data-reveal', revealClass);
         children[c].setAttribute('data-reveal-delay', String(Math.min(c, 5)));
       }
     }
