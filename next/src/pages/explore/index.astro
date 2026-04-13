@@ -62,10 +62,22 @@ const companionReads = companionSlugs
 
 <BaseLayout
   title="Things to Do Mornington Peninsula 2026 — Walks, Beaches & More | Peninsula Insider"
-  description="Walks, lookouts, beaches, and market mornings that make the Mornington Peninsula feel bigger than a lunch booking."
+  description="The best things to do on the Mornington Peninsula — coastal walks, swimming beaches, lookouts, hot springs, markets, and the experiences that earn the weekend. Updated April 2026."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore"
+  modifiedTime="2026-04-13"
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'What are the best things to do on the Mornington Peninsula?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The essentials: walk Bushrangers Bay or Cape Schanck boardwalk, swim at Sorrento Back Beach or Mornington foreshore, visit Peninsula Hot Springs, explore cellar doors on the Red Hill plateau, eat a vineyard lunch, and catch Red Hill Market (first Saturday of the month). For a full day, combine a morning walk with an afternoon cellar door visit and a sunset beach.' }},
+      { '@type': 'Question', name: 'What are the best beaches on the Mornington Peninsula?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Bay side (calm, family-friendly): Mornington, Mount Martha, Safety Beach. Ocean side (surf, dramatic): Sorrento Back Beach, Gunnamatta, Rye Back Beach, Point Nepean. The two coasts feel completely different — the bay is sheltered and warm, the ocean is wild Southern Ocean. Most visitors underestimate how close they are (15–20 minutes apart).' }},
+      { '@type': 'Question', name: 'Is Peninsula Hot Springs worth it?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Yes — but book a weekday or early morning session. Weekend afternoons are crowded and the experience suffers. The hilltop pools with bay views are the highlight. Family sessions are time-limited and must be booked in advance. Alba Thermal Springs near Red Hill is a quieter alternative with dedicated silent bathing circuits.' }},
+    ],
+  })} />
   <SectionHero
     eyebrow="Explore"
     subEyebrow="Walks · beaches · lookouts · markets"

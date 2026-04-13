@@ -70,10 +70,22 @@ const stayStats = {
 
 <BaseLayout
   title="Best Accommodation Mornington Peninsula 2026 — Where to Stay | Peninsula Insider"
-  description="Hotels, vineyard stays, and weekend bases on the Mornington Peninsula. Every property visited and reviewed — no sponsored listings."
+  description="Where to stay on the Mornington Peninsula — hotels, vineyard villas, coastal cottages, and farm stays. Every property visited and reviewed. Prices from $150/night. Updated April 2026."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
+  modifiedTime="2026-04-13"
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'Where is the best area to stay on the Mornington Peninsula?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge for cellar door weekends — vineyard restaurants are walkable from many stays. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want — wine country, beach village, or practical proximity.' }},
+      { '@type': 'Question', name: 'How much does accommodation cost on the Mornington Peninsula?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Budget $250–400/night for a good mid-range self-contained villa or cottage. Luxury vineyard stays (Jackalope, Lindenderry) run $450–800/night. Budget options in Rosebud, Dromana, and Rye start from $150/night. Prices peak in summer and over long weekends — autumn midweek offers the best value.' }},
+      { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
+        acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape — arrive Friday evening, spend Saturday on the ridge (cellar doors + lunch), and drive home Sunday after a morning walk. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' }},
+    ],
+  })} />
   <SectionHero
     eyebrow="Stay"
     subEyebrow="Hotels · vineyard stays · coastal weekends"

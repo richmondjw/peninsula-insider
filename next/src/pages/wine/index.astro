@@ -63,10 +63,22 @@ const companionReads = companionSlugs
 
 <BaseLayout
   title="Best Wineries & Cellar Doors Mornington Peninsula 2026 | Peninsula Insider"
-  description="Cellar doors, benchmark producers, breweries, and distilleries on the Mornington Peninsula. Editorial picks — no advertising, no paid placement."
+  description="The best cellar doors on the Mornington Peninsula — Pinot Noir, Chardonnay, cool-climate producers, breweries, and distilleries. Appointment tastings and walk-in cellar doors. Updated April 2026."
   section="wine"
   canonical="https://peninsulainsider.com.au/wine"
+  modifiedTime="2026-04-13"
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'What wine is the Mornington Peninsula known for?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Pinot Noir and Chardonnay are the benchmark varieties — the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia\'s most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.' }},
+      { '@type': 'Question', name: 'Do I need to book cellar door visits on the Mornington Peninsula?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive — appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.' }},
+      { '@type': 'Question', name: 'How many wineries are on the Mornington Peninsula?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The Mornington Peninsula has over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact — you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.' }},
+    ],
+  })} />
   <SectionHero
     eyebrow="Wine Country"
     subEyebrow="Cellar doors · pinot noir · cool-climate producers"
