@@ -14,6 +14,35 @@ For each meaningful change, include:
 
 ---
 
+## 2026-04-13 — Remy (Claude Code, local session, continued)
+
+### Town hub expansion (5 towns)
+- Sorrento, Red Hill, Flinders, Mornington, Rye: keyword-targeted titles, handcrafted meta descriptions, 3 FAQ Q&As each (15 new structured answers total)
+- Other place pages retain generic title template — enhancement is scoped to priority towns
+
+### Internal linking improvements
+- VenueCard: place label now links to /places/{slug} (every venue card site-wide)
+- ExperienceCard: place label now links to /places/{slug}
+- PlaceDetailTemplate: eat, wine, stay sections now link to best-of editorial ranking pages
+
+### What's On mood filter fix
+- "Browse by mood" chips (Family Saturday, Rainy Day, Worth The Drive, etc.) linked to #lens-{key} anchors that didn't exist — counts were shown but sections weren't rendered
+- Added event sections for each non-empty lens filter with full EventCard grids
+
+### Files changed
+- `next/src/pages/places/[slug].astro` — title overrides, description overrides, FAQ schema for 5 towns
+- `next/src/components/VenueCard.astro` — place label → clickable link
+- `next/src/components/ExperienceCard.astro` — place label → clickable link
+- `next/src/components/PlaceDetailTemplate.astro` — best-of ranking links in eat/wine/stay sections
+- `next/src/pages/whats-on/index.astro` — lens event sections rendered
+
+### Follow-up
+- Build output (`dist/`) has not been copied to live site root — next deploy should sync these
+- The mobile-fixes, newsletter-enhance, and scroll-animations CSS/JS are only in the built output, not in the Astro build pipeline yet
+- Consider adding FAQ schema to remaining town pages as they become priority
+
+---
+
 ## 2026-04-13 — Remy (Claude Code, local session)
 
 ### Summary
