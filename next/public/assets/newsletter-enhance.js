@@ -69,11 +69,6 @@
       var confirm = document.createElement('div');
       confirm.className = 'pi-confirm';
       confirm.innerHTML =
-        '<div class="pi-confirm__icon">' +
-          '<svg class="pi-confirm__check" viewBox="0 0 24 24" aria-hidden="true">' +
-            '<polyline points="6 12 10 16 18 8"></polyline>' +
-          '</svg>' +
-        '</div>' +
         '<h3 class="pi-confirm__title">You\u2019re in.</h3>' +
         '<p class="pi-confirm__body">' +
           'Watch for The Insider\u2019s Dispatch \u2014 your first issue arrives this week. ' +
