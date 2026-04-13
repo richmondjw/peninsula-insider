@@ -126,6 +126,10 @@ const hl = seasonalHeadlines[season];
   .hero-v2__cta-primary:hover { background: var(--acc-h); }
   .hero-v2__cta-secondary { display: inline-flex; align-items: center; padding: 0.9rem 2rem; background: transparent; color: rgba(253,252,250,0.7); border: 1px solid rgba(253,252,250,0.2); font-family: Outfit,system-ui,sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: border-color 0.25s ease, color 0.25s ease; min-height: 44px; }
   .hero-v2__cta-secondary:hover { border-color: rgba(253,252,250,0.5); color: var(--white); }
+  .hero-v2__journal-link { margin-top: 1rem; }
+  .hero-v2__journal-link a { font-family: Outfit,system-ui,sans-serif; font-size: 0.78rem; font-weight: 400; color: rgba(253,252,250,0.45); text-decoration: none; transition: color 0.2s ease; }
+  .hero-v2__journal-link a:hover { color: rgba(253,252,250,0.75); }
+
   .hero-v2__scroll-hint { position: absolute; bottom: 1.5rem; right: clamp(1.25rem,4vw,3rem); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
   .hero-v2__scroll-label { font-family: Outfit,system-ui,sans-serif; font-size: 0.55rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(253,252,250,0.3); writing-mode: vertical-rl; }
   .hero-v2__scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(253,252,250,0.3), transparent); }
@@ -159,8 +163,9 @@ const hl = seasonalHeadlines[season];
     <p class="hero-v2__dek">{seasonalDeks[season]}</p>
     <div class="hero-v2__ctas">
       <a href="/eat" class="hero-v2__cta-primary">Start with the restaurants</a>
-      <a href="/journal" class="hero-v2__cta-secondary">Read the journal</a>
+      <a href="#newsletter" class="hero-v2__cta-secondary">Get the weekly dispatch</a>
     </div>
+    <p class="hero-v2__journal-link"><a href="/journal">Or start reading the Journal →</a></p>
   </div>
   <div class="hero-v2__scroll-hint" aria-hidden="true">
     <span class="hero-v2__scroll-label">Scroll</span>
