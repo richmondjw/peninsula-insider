@@ -143,16 +143,6 @@ const ogImageAbsolute = ogImage.startsWith('http')
     })();
   </script>
 
-  <!-- Lenis smooth scroll -->
-  <script is:inline src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script is:inline>
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var lenis = new Lenis({ duration: 1.1, easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, touchMultiplier: 1.5 });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
-    }
-  </script>
-
   <!-- Enhancement JS — newsletter form upgrade + scroll animations -->
   <script is:inline src="/assets/newsletter-enhance.js"></script>
   <script is:inline src="/assets/scroll-animations.js"></script>
