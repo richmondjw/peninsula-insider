@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { routeSlug } from '../lib/editorial';
 
-const SITE_URL = 'https://peninsularinsider.com.au';
+const SITE_URL = 'https://peninsulainsider.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
 
 function url(path: string, priority: number, changefreq: string, lastmod?: string): string {

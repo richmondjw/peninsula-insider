@@ -15,13 +15,44 @@ const luxury = venues.filter((v) => v.data.priceBand === '$$$$');
 const midRange = venues.filter((v) => v.data.priceBand === '$$$');
 const affordable = venues.filter((v) => ['$', '$$'].includes(v.data.priceBand));
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where is the best place to stay on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Red Hill and Main Ridge are the best base for cellar door weekends — vineyard restaurants are walkable and the ridge has the highest concentration of serious stays. Sorrento is the best base for atmosphere, village dining, and ocean beach access. Mornington town is the most accessible from Melbourne, ideal for single-night escapes. The right answer depends on the kind of weekend you want.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost to stay on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Budget around $250–400/night for a good mid-range self-contained villa or cottage. Luxury vineyard stays (Jackalope, Lindenderry, Pt. Leo Estate) run $450–800/night. Budget-friendly options exist in Rosebud, Dromana, and Rye from $150/night, though these are further from the cellar door cluster. Prices peak in summer and over long weekends — autumn midweek is the best value.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I stay in Sorrento or Red Hill?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sorrento for a coastal village weekend with ocean swimming, main-street restaurants, and the ferry to Queenscliff. Red Hill for a wine-country weekend with cellar doors, vineyard lunches, and quiet ridge-top stays. They are 20 minutes apart, so you can easily visit both areas — the choice is about where you want to wake up.',
+      },
+    },
+  ],
+};
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsularinsider.com.au/stay' },
-    { '@type': 'ListItem', position: 3, name: 'Best Accommodation', item: 'https://peninsularinsider.com.au/stay/best-accommodation' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay' },
+    { '@type': 'ListItem', position: 3, name: 'Best Accommodation', item: 'https://peninsulainsider.com.au/stay/best-accommodation' },
   ],
 };
 ---
@@ -30,8 +61,9 @@ const breadcrumbSchema = {
   title="Best Accommodation Mornington Peninsula 2026 | Peninsula Insider"
   description="The best places to stay on the Mornington Peninsula — hotels, vineyard villas, and coastal cottages. Honest editorial picks across every price band."
   section="stay"
-  canonical="https://peninsularinsider.com.au/stay/best-accommodation"
+  canonical="https://peninsulainsider.com.au/stay/best-accommodation"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <article class="article">

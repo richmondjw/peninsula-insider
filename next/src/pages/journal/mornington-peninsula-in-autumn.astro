@@ -11,18 +11,49 @@ const articleSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'Peninsula Insider',
-    url: 'https://peninsularinsider.com.au',
+    url: 'https://peninsulainsider.com.au',
   },
-  url: 'https://peninsularinsider.com.au/journal/mornington-peninsula-in-autumn',
+  url: 'https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is autumn a good time to visit Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Autumn is arguably the best season on the Peninsula. Vintage is underway on the ridge, the cellar doors light their fires, the summer crowds are gone, and the light over the vineyards is at its warmest. Prices drop after Easter, restaurant bookings are easier to get, and the beaches are empty but still swimmable through March and into April.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is there to do on the Mornington Peninsula in autumn?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "The autumn essentials: cellar door visits during vintage, long lunches at vineyard restaurants, coastal walks at Cape Schanck and Point Nepean, Peninsula Hot Springs (better in cool weather), and Red Hill Market on the first Saturday of each month. The region's best restaurants are at peak form in autumn.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is it too cold to swim on the Mornington Peninsula in autumn?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'March is warm enough for bay-side swimming at Mornington, Mount Martha, and Safety Beach. April can still work on warm days. By May, swimming is for the committed. Ocean beaches are colder year-round but stunning for walks even when swimming is off the table.',
+      },
+    },
+  ],
 };
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://peninsularinsider.com.au/journal' },
-    { '@type': 'ListItem', position: 3, name: 'Mornington Peninsula in Autumn', item: 'https://peninsularinsider.com.au/journal/mornington-peninsula-in-autumn' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://peninsulainsider.com.au/journal' },
+    { '@type': 'ListItem', position: 3, name: 'Mornington Peninsula in Autumn', item: 'https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn' },
   ],
 };
 ---
@@ -31,10 +62,11 @@ const breadcrumbSchema = {
   title="Mornington Peninsula in Autumn 2026 — What to Do & See | Peninsula Insider"
   description="The complete guide to the Mornington Peninsula in autumn — vintage season on the ridge, cellar door fires, pinot lunches in low sun, and the quiet the summer crowds leave behind."
   section="journal"
-  canonical="https://peninsularinsider.com.au/journal/mornington-peninsula-in-autumn"
+  canonical="https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn"
   ogType="article"
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <article class="article">

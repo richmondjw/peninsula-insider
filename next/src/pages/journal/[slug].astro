@@ -59,7 +59,7 @@ const authorLabel = article.data.houseByline
 const articleHeroStyle = heroBackgroundStyle(article.data);
 
 const slug = routeSlug(article);
-const canonical = `https://peninsularinsider.com.au/journal/${slug}`;
+const canonical = `https://peninsulainsider.com.au/journal/${slug}`;
 const ogImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
   ? article.data.heroImage.src
   : '/images/sourced/home-cover.webp';
@@ -80,9 +80,9 @@ const articleSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'Peninsula Insider',
-    url: 'https://peninsularinsider.com.au',
+    url: 'https://peninsulainsider.com.au',
   },
-  ...(ogImage !== '/images/sourced/home-cover.webp' ? { image: `https://peninsularinsider.com.au${ogImage}` } : {}),
+  ...(ogImage !== '/images/sourced/home-cover.webp' ? { image: `https://peninsulainsider.com.au${ogImage}` } : {}),
   url: canonical,
 };
 
@@ -90,8 +90,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://peninsularinsider.com.au/journal' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://peninsulainsider.com.au/journal' },
     { '@type': 'ListItem', position: 3, name: article.data.title, item: canonical },
   ],
 };

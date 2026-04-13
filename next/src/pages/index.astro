@@ -110,23 +110,53 @@ const seasonalExperiences = experiences
 ---
 
 <BaseLayout
-  title="Peninsula Insider — The Mornington Peninsula, as insiders know it"
-  description="The independent editorial guide to eating, drinking, staying, and escaping on the Mornington Peninsula. No advertisers. No press trips. Just honest coverage."
+  title="Mornington Peninsula Guide 2026 — Best Restaurants, Wineries & Things to Do | Peninsula Insider"
+  description="The independent guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated April 2026."
   section="home"
-  canonical="https://peninsularinsider.com.au"
+  canonical="https://peninsulainsider.com.au"
 >
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Peninsula Insider',
-    url: 'https://peninsularinsider.com.au',
-    description: 'The independent editorial guide to the Mornington Peninsula',
+    url: 'https://peninsulainsider.com.au',
+    description: 'The independent editorial guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay.',
     inLanguage: 'en-AU',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://peninsularinsider.com.au/journal?q={search_term_string}',
+      target: 'https://peninsulainsider.com.au/journal?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the Mornington Peninsula known for?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'The Mornington Peninsula is known for cool-climate Pinot Noir and Chardonnay, vineyard restaurants, natural hot springs, dramatic ocean coastline, and calm bay beaches — all within 90 minutes of Melbourne. The region has over 50 cellar doors, some of Australia\'s best regional restaurants, and a coastline that runs from sheltered Port Phillip Bay to the wild Southern Ocean.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How far is the Mornington Peninsula from Melbourne?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mornington town is about 60 km from Melbourne CBD (around 60 minutes via the Mornington Peninsula Freeway). Sorrento and Portsea at the tip of the Peninsula are 95–105 km from the city, roughly 90 minutes in normal traffic. The drive is longer on Friday evenings and Sunday afternoons.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the best time to visit the Mornington Peninsula?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Autumn (March to May) is the best season — vintage is underway on the ridge, the crowds thin after Easter, and the light over the vineyards is at its best. Summer is busiest and most expensive but offers swimming and long evenings. Winter is quiet, with cellar door fires and hot springs at their most appealing. Spring brings wildflowers and uncrowded weekends.',
+        },
+      },
+    ],
   })} />
   <CoverHero issueDate={issueDate} />
 

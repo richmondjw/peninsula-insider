@@ -14,6 +14,52 @@ For each meaningful change, include:
 
 ---
 
+## 2026-04-13 — Remy (Claude Code, local session)
+
+### Summary
+SERP snippet optimisation pass + domain correction + GA tag + mobile UX fixes + scroll animations + newsletter UX.
+
+### SEO: Domain correction (critical)
+- Fixed `peninsularinsider.com.au` → `peninsulainsider.com.au` across 613 built HTML files + 27 Astro source files
+- All canonical URLs, OG tags, schema breadcrumbs, and article URLs were pointing to a non-existent domain
+- Sitemap corrected and accepted by Google Search Console
+
+### SEO: Homepage rewrite
+- Title: "Peninsula Insider — The Mornington Peninsula, as insiders know it" → "Mornington Peninsula Guide 2026 — Best Restaurants, Wineries & Things to Do | Peninsula Insider"
+- Description rewritten with target keywords + freshness signal
+- Added FAQPage schema (3 Qs: what MP is known for, distance from Melbourne, best time to visit)
+
+### SEO: FAQ schema added to 4 pages
+- `/explore/best-walks` — best walk, easy walks, coastal walking
+- `/stay/best-accommodation` — best place to stay, cost, Sorrento vs Red Hill
+- `/journal/mornington-peninsula-in-autumn` — autumn visit, what to do, swimming
+- `/journal/dog-friendly-mornington-peninsula` — dogs on beaches, cafes, staying with dogs
+
+### GA tag: `G-0MR9YVZ9NW` → `G-DBL14DE975` (all pages + BaseLayout.astro)
+
+### UX: Mobile hamburger menu
+- `backdrop-filter` on `.masthead` trapped `position:fixed` mobile nav — moved nav outside `<header>` in DOM
+- Created `_astro/mobile-fixes.css`: `overflow-x:clip` on html, fixed header on mobile, overflow containment
+
+### UX: Newsletter subscribe
+- Replaced Beehiiv iframe with native form + SVG checkmark confirmation animation
+- `_astro/newsletter-enhance.js` + `.css` — auto-upgrades all embeds, graceful iframe fallback
+
+### UX: Scroll animations
+- `_astro/scroll-animations.js` + `.css` — Intersection Observer reveals, staggered cards, hero parallax
+- `prefers-reduced-motion` fully respected
+
+### Files changed
+- `next/src/layouts/BaseLayout.astro`, `next/src/pages/index.astro`, `next/src/pages/explore/best-walks.astro`, `next/src/pages/stay/best-accommodation.astro`, `next/src/pages/journal/mornington-peninsula-in-autumn.astro`, `next/src/pages/journal/dog-friendly-mornington-peninsula.astro`, 27 source files (domain), 600+ built HTML files
+
+### Follow-up
+- Town hub pages need FAQ schema + stronger intros (Sorrento, Red Hill, Flinders, Mornington, Rye)
+- Internal linking pass: venue↔town, best-of↔venue, journal↔places
+- Integrate mobile-fixes, newsletter-enhance, scroll-animations into Astro build pipeline
+- Copy `dist/` output to live site root to sync source and deployed output
+
+---
+
 ## 2026-04-13 — Remy
 ### Summary
 Created a formal handover brief for a local Claude agent and established a systematic changelog requirement for all future work on Peninsula Insider.

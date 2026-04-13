@@ -22,8 +22,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Site Index', item: 'https://peninsularinsider.com.au/site-index' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Site Index', item: 'https://peninsulainsider.com.au/site-index' },
   ],
 };
 ---
@@ -31,7 +31,7 @@ const breadcrumbSchema = {
 <BaseLayout
   title="Site Index | Peninsula Insider"
   description="A crawlable index of Peninsula Insider sections, guides, places, venues, events, and planning pages."
-  canonical="https://peninsularinsider.com.au/site-index"
+  canonical="https://peninsulainsider.com.au/site-index"
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 

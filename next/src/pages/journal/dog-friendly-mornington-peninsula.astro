@@ -11,18 +11,49 @@ const articleSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'Peninsula Insider',
-    url: 'https://peninsularinsider.com.au',
+    url: 'https://peninsulainsider.com.au',
   },
-  url: 'https://peninsularinsider.com.au/journal/dog-friendly-mornington-peninsula',
+  url: 'https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Are dogs allowed on Mornington Peninsula beaches?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, but it varies by beach and season. Rye ocean beach and Blairgowrie ocean beach have dedicated off-leash zones year-round. The bay-side beaches at Safety Beach and Martha Cove allow off-leash dogs before 9am and after 7pm in summer, and all day in winter. Some beaches (like Sorrento main beach) are dog-free in summer. Always check the local council signage — Mornington Peninsula Shire posts seasonal rules at each beach entrance.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which cafes on the Mornington Peninsula allow dogs?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most cafes with outdoor seating welcome dogs — Commonfolk Coffee in Mornington, Flinders General Store, Red Hill Bakery, and Green Olive at Red Hill are reliably dog-friendly with water bowls and shade. The cellar doors are mixed: Montalto and Polperro welcome dogs in their outdoor areas, but most vineyard restaurants with hatted dining are indoor-only.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I stay on the Mornington Peninsula with my dog?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, though options narrow significantly at the luxury end. Self-contained cottages and farm stays are the most reliably dog-friendly — properties in Main Ridge, Merricks, and the hinterland often accept dogs by arrangement. Larger hotels like Jackalope and Continental Sorrento do not allow pets. Book directly and confirm the pet policy — "pet-friendly" on booking platforms sometimes means a surcharge and a list of restrictions.',
+      },
+    },
+  ],
 };
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://peninsularinsider.com.au/journal' },
-    { '@type': 'ListItem', position: 3, name: 'Dog-Friendly Mornington Peninsula', item: 'https://peninsularinsider.com.au/journal/dog-friendly-mornington-peninsula' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://peninsulainsider.com.au/journal' },
+    { '@type': 'ListItem', position: 3, name: 'Dog-Friendly Mornington Peninsula', item: 'https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula' },
   ],
 };
 ---
@@ -31,10 +62,11 @@ const breadcrumbSchema = {
   title="Dog-Friendly Mornington Peninsula 2026 — Beaches, Cafes & Stays | Peninsula Insider"
   description="Where to go with your dog on the Mornington Peninsula — off-leash beaches at Rye and Blairgowrie, dog-friendly cafés, accommodation that actually means it, and what to avoid."
   section="journal"
-  canonical="https://peninsularinsider.com.au/journal/dog-friendly-mornington-peninsula"
+  canonical="https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula"
   ogType="article"
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <article class="article">

@@ -108,7 +108,7 @@ const snapshotCards = [
   },
 ];
 
-const canonical = `https://peninsularinsider.com.au/places/${placeSlug}`;
+const canonical = `https://peninsulainsider.com.au/places/${placeSlug}`;
 const ogImage = place.data.heroImage?.src && !place.data.heroImage.src.includes('placeholder')
   ? place.data.heroImage.src
   : `/images/sourced/place-${placeSlug}-01.webp`;
@@ -135,8 +135,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Places', item: 'https://peninsularinsider.com.au/places' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Places', item: 'https://peninsulainsider.com.au/places' },
     { '@type': 'ListItem', position: 3, name: place.data.name, item: canonical },
   ],
 };

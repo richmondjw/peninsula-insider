@@ -92,7 +92,7 @@ const breadcrumbItems = [
 ];
 
 const nightsLabel = `${itinerary.data.lengthNights} night${itinerary.data.lengthNights === 1 ? '' : 's'}`;
-const canonical = `https://peninsularinsider.com.au/escape/${slug}`;
+const canonical = `https://peninsulainsider.com.au/escape/${slug}`;
 const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.includes('placeholder')
   ? itinerary.data.heroImage.src
   : '/images/sourced/home-cover.webp';
@@ -101,8 +101,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Escape', item: 'https://peninsularinsider.com.au/escape' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Escape', item: 'https://peninsulainsider.com.au/escape' },
     { '@type': 'ListItem', position: 3, name: itinerary.data.title, item: canonical },
   ],
 };

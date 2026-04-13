@@ -49,7 +49,7 @@ const recurrenceCopy: Record<string, string> = {
 
 const slug = routeSlug(event);
 const placeName = place?.data?.name ?? 'Mornington Peninsula';
-const canonical = `https://peninsularinsider.com.au/whats-on/${slug}`;
+const canonical = `https://peninsulainsider.com.au/whats-on/${slug}`;
 
 const eventSchema = {
   '@context': 'https://schema.org',
@@ -71,8 +71,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: "What's On", item: 'https://peninsularinsider.com.au/whats-on' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: "What's On", item: 'https://peninsulainsider.com.au/whats-on' },
     { '@type': 'ListItem', position: 3, name: event.data.title, item: canonical },
   ],
 };

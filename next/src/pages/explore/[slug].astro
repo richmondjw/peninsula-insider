@@ -84,7 +84,7 @@ const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
 const heroStyle = heroBackgroundStyle(experience.data);
 
-const canonical = `https://peninsularinsider.com.au/explore/${slug}`;
+const canonical = `https://peninsulainsider.com.au/explore/${slug}`;
 const ogImage = experience.data.heroImage?.src && !experience.data.heroImage.src.includes('placeholder')
   ? experience.data.heroImage.src
   : '/images/sourced/home-cover.webp';
@@ -117,8 +117,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsularinsider.com.au' },
-    { '@type': 'ListItem', position: 2, name: 'Explore', item: 'https://peninsularinsider.com.au/explore' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au' },
+    { '@type': 'ListItem', position: 2, name: 'Explore', item: 'https://peninsulainsider.com.au/explore' },
     { '@type': 'ListItem', position: 3, name: experience.data.name, item: canonical },
   ],
 };
