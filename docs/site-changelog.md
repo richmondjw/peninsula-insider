@@ -6,6 +6,20 @@
 
 ---
 
+## 2026-04-14 — Live stale-content sweep for Easter and past-weekend drift
+
+### Live content cleanup
+- Removed stale **Easter** framing and outdated weekend language from the live `Peninsula This Weekend — 18 to 20 April` dispatch.
+- Reframed the stale “Easter wind-down” section into a generic low-signal family-event warning so it no longer reads as expired seasonal copy.
+- Updated Journal front-door editorial copy so it no longer implies a fixed dated Wednesday issue rhythm instead of a rolling current weekend brief.
+
+### Purpose
+This was a direct live correction after stale seasonal references were still visible on the live site despite the new accuracy-layer design work. It confirms the need for the morning accuracy scan to catch publication drift, not just event-card drift.
+
+### Publish status
+- Rebuilt and republished the live site after cleanup.
+- Pushed commit: `16c0d039` — `fix(content): remove stale Easter and weekend drift on live surfaces`
+
 ## 2026-04-14 — Daily accuracy scan approved and implemented
 
 ### New operational layer
