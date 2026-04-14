@@ -1,23 +1,21 @@
 ---
-title: Peninsula Golf Ranked: Our Tier Guide to 15+ Courses
+title: "Peninsula Golf Ranked — Our Tier Guide to 15+ Courses"
 slug: peninsula-golf-ranked
-format: guide
-pubDate: 2026-04-14
-description: A Peninsula Insider tier guide to golf on the Mornington Peninsula, including public-access standouts, private heavyweights, and which courses are actually worth building a trip around.
-excerpt: Not all Peninsula golf is equally useful to readers. This guide separates the destination rounds from the club names, and the public-access standouts from the private mythology.
-author: The Peninsula Insider
-byline: The Peninsula Insider
-section: golf
-heroImage: /images/sourced/home-cover-01.webp
-heroAlt: Mornington Peninsula landscape at golden hour
+format: service
+dek: Not all Peninsula golf is equally useful to readers. This guide separates the destination rounds from the club names, and the public-access standouts from the private mythology.
+author: editorial
+publishedAt: 2026-04-14
+status: published
+heroImage:
+  src: /images/sourced/home-cover.webp
+  alt: Mornington Peninsula landscape at golden hour
+  credit: Peninsula Insider
+  license: original-commissioned
 tags:
   - golf
   - rankings
   - mornington peninsula
   - guide
-seo:
-  title: Best Golf Courses on the Mornington Peninsula | Tier Guide
-  description: Peninsula Insider ranks the best golf courses on the Mornington Peninsula, from public-access standouts like St Andrews Beach to private heavyweights and stay-and-play options.
 ---
 
 Not every respected golf course on the Peninsula is equally useful to a reader. Some are destination rounds you can actually book. Some are excellent but private. Some are better as part of a stay-and-play weekend than as a standalone mission. And some are simply not worth pretending belong in the same conversation.

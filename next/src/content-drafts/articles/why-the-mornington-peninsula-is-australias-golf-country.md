@@ -1,24 +1,22 @@
 ---
 title: Why the Mornington Peninsula Is Australia’s Golf Country
 slug: why-the-mornington-peninsula-is-australias-golf-country
-format: essay
-pubDate: 2026-04-14
-description: The Peninsula's golf story is not just about prestige. It is about world-ranked public access, great architecture, hot springs, wineries, and the kind of weekend shape few Australian regions can match.
-excerpt: The Peninsula's golf story is not just about prestige. It is about world-ranked public access, strong course architecture, and a weekend formula that works even if only one person in the group plays.
-author: James Richmond
-byline: James Richmond
-section: golf
-heroImage: /images/sourced/explore-cape-schanck-boardwalk-01.webp
-heroAlt: Windswept coastal landscape at Cape Schanck on the Mornington Peninsula
+format: insider-edit
+dek: The Peninsula's golf story is not just about prestige. It is about world-ranked public access, strong course architecture, and a weekend formula that works even if only one person in the group plays.
+author: editorial
+publishedAt: 2026-04-14
+status: published
+heroImage:
+  src: /images/sourced/explore-cape-schanck-boardwalk-01.webp
+  alt: Windswept coastal landscape at Cape Schanck on the Mornington Peninsula
+  credit: Peninsula Insider
+  license: original-commissioned
 tags:
   - golf
   - mornington peninsula
   - weekend escape
   - architecture
   - sport
-seo:
-  title: Why the Mornington Peninsula Is Australia’s Golf Country
-  description: A Peninsula Insider essay on why the Mornington Peninsula has become one of Australia’s most interesting golf regions, from public-access architecture to golf weekends with springs and wineries.
 ---
 
 The Mornington Peninsula is not the only place in Australia with good golf. It may, however, be the place where golf makes the most sense as part of an actual weekend.

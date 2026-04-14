@@ -1,23 +1,21 @@
 ---
 title: The World-Ranked Course Anyone Can Book
 slug: the-world-ranked-course-anyone-can-book
-format: profile
-pubDate: 2026-04-14
-description: St Andrews Beach is the clearest public-access golf story on the Mornington Peninsula, and the course that best explains why the region matters beyond club prestige.
-excerpt: If you want one golf story that explains the Peninsula properly, start here. St Andrews Beach turns architecture, access, and destination value into one convincing argument.
-author: The Peninsula Insider
-byline: The Peninsula Insider
-section: golf
-heroImage: /images/sourced/explore-cape-schanck-boardwalk-01.webp
-heroAlt: Coastal landscape near Cape Schanck on the Mornington Peninsula
+format: investigation
+dek: If you want one golf story that explains the Peninsula properly, start here. St Andrews Beach turns architecture, access, and destination value into one convincing argument.
+author: editorial
+publishedAt: 2026-04-14
+status: published
+heroImage:
+  src: /images/sourced/explore-cape-schanck-boardwalk-01.webp
+  alt: Coastal landscape near Cape Schanck on the Mornington Peninsula
+  credit: Peninsula Insider
+  license: original-commissioned
 tags:
   - golf
   - st andrews beach
   - public golf
   - mornington peninsula
-seo:
-  title: St Andrews Beach Golf Course | The World-Ranked Course Anyone Can Book
-  description: Peninsula Insider on St Andrews Beach Golf Course, the public-access Peninsula round that best combines serious architecture, destination value, and trip-making potential.
 ---
 
 If you only need one golf story to understand why the Mornington Peninsula matters, make it St Andrews Beach.
