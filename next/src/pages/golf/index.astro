@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const golfArticles = allArticles
+  .filter((a) => a.data.tags?.includes('golf'))
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Golf' },
+];
+---
+
+<BaseLayout
+  title="Golf on the Mornington Peninsula | Peninsula Insider"
+  description="Peninsula Insider's guide to golf on the Mornington Peninsula. World-ranked public courses, tier guide, and where golf fits into a proper Peninsula trip."
+  section="explore"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="section-hero">
+    <div class="container">
+      <div class="section-hero__inner">
+        <div class="section-hero__content">
+          <p class="label label--accent">Golf</p>
+          <h1 class="section-hero__title">Golf on the Peninsula</h1>
+          <p class="section-hero__dek">The Peninsula's golf story is not just about prestige. It is about world-ranked public access, serious architecture, and a weekend formula that makes sense even if only one person in the group plays.</p>
+        </div>
+        <div class="section-hero__visual section-hero__visual--links" aria-hidden="true">
+          <div class="section-hero__visual-fog"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">The opening package</p>
+          <h2 class="venues__title">Start here</h2>
+          <p class="venues__sub">The category essay, the tier guide, and the lead public-access course profile.</p>
+        </div>
+        <a href="/journal" class="venues__link">All journal pieces →</a>
+      </div>
+      <div class="venues__grid">
+        {golfArticles.slice(0, 3).map((article) => (
+          <article class="venue-card">
+            <div class="venue-card__top">
+              <span class="venue-card__type">Golf</span>
+              <span class="venue-card__price">{article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : ''}</span>
+            </div>
+            <h3 class="venue-card__name">
+              <a href={`/journal/${article.slug}`}>{article.data.title}</a>
+            </h3>
+            <p class="venue-card__signature">{article.data.dek}</p>
+            <a href={`/journal/${article.slug}`} class="venue-card__cta">Read the piece →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial-promise">
+    <div class="container">
+      <div class="editorial-promise__inner">
+        <div>
+          <p class="label label--accent">Peninsula Insider approach to golf</p>
+          <h2>Honest, locally literate, useful</h2>
+        </div>
+        <div>
+          <p>Not every respected course on the Peninsula is equally useful to a visitor. This guide tells you which rounds are worth building a weekend around, which carry more aspiration than access, and how golf fits into a Peninsula trip that still works for the rest of the group.</p>
+          <p>Green fees change. Access rules shift. We do not publish fee figures without live verification. Check direct before booking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    title="Golf weekends, cellar doors, and what's worth your time"
+    body="Peninsula Insider dispatches every Wednesday. One pick, one backup, one honest opinion."
+  />
+</BaseLayout>
