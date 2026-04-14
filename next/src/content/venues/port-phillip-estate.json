@@ -4,7 +4,10 @@
   "type": "hotel",
   "place": "red-hill",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3717, "lng": 145.0308 },
+  "coordinates": {
+    "lat": -38.3717,
+    "lng": 145.0308
+  },
   "address": "263 Red Hill Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5989 4444",
   "website": "https://www.portphillipestate.com.au",
@@ -13,20 +16,33 @@
   "priceBand": "$$$$",
   "authority": {
     "hats": 1,
-    "awards": ["AHA Hotel of the Year nominee", "Good Food Guide 2024"]
+    "awards": [
+      "AHA Hotel of the Year nominee",
+      "Good Food Guide 2024"
+    ]
   },
   "signature": "Rammed-earth architecture, a one-hat restaurant, and six hotel suites set into the pinot rows of Main Ridge",
   "editorNote": "Port Phillip Estate is the Peninsula's most architecturally serious winery stay. The building is a Wood Marsh-designed rammed-earth monolith set into the slope of the plateau, and it holds the cellar door, the one-hat restaurant, and six large hotel-grade suites that look out across Main Ridge pinot country. The scale is deliberate: you check in, you eat at the restaurant, and the only time you really need to leave the estate is to see more of the Peninsula from outside.\n\nThe rooms are generous and quiet, with private terraces facing the vines. The restaurant is one of the best lunch rooms on the ridge, anchored by the estate's own wines and a kitchen that understands the long-lunch brief. Sister estate to Kooyong  -  the single-vineyard tasting flights run through both.\n\nBook the two-night package with dinner included. It removes almost every decision from the weekend.",
   "tags": {
-    "mood": ["anniversary", "long-lunch", "cellar-door", "weekend-escape", "view"],
-    "season": ["all-year"],
-    "audience": ["couples"]
+    "mood": [
+      "anniversary",
+      "long-lunch",
+      "cellar-door",
+      "weekend-escape",
+      "view"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples"
+    ]
   },
   "heroImage": {
-    "src": "/images/placeholder-port-phillip-estate.jpg",
-    "alt": "Port Phillip Estate rammed-earth architecture and suites overlooking Main Ridge vineyards",
-    "credit": "Port Phillip Estate",
-    "license": "venue-media-kit"
+    "src": "/images/sourced/category-hotel-02.webp",
+    "alt": "Boutique hotel imagery evocative of Port Phillip Estate, Mornington Peninsula",
+    "credit": "Unsplash",
+    "license": "tmp-unsplash"
   },
   "gallery": [],
   "featuredPartner": false,

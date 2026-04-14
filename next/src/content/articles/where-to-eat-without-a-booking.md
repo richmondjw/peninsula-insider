@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-walk-in-dining.jpg"
+  src: "/images/sourced/category-restaurant-01.webp"
   alt: "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

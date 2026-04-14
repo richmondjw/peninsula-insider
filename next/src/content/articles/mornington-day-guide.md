@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-05
 heroImage:
-  src: "/images/placeholder-mornington-day.jpg"
+  src: "/images/sourced/article-peninsula-pantry-01.webp"
   alt: "Mornington main street with morning shoppers and cafes"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

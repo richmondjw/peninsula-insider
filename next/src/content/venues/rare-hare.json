@@ -4,7 +4,10 @@
   "type": "restaurant",
   "place": "merricks",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3936, "lng": 145.0592 },
+  "coordinates": {
+    "lat": -38.3936,
+    "lng": 145.0592
+  },
   "address": "166 Balnarring Rd, Merricks North VIC 3926",
   "phone": "+61 3 5931 2500",
   "website": "https://jackalopehotels.com/rare-hare",
@@ -14,15 +17,29 @@
   "signature": "Jackalope's relaxed lunch room  -  wood fire, vineyard views, and plates built for sharing",
   "editorNote": "Rare Hare is the second restaurant at Jackalope and for many people it's the better of the two. Where Doot Doot Doot leans into fine-dining drama, Rare Hare takes the vineyard lunch brief and runs with it: wood-fired grill, long shared plates, a list of Willow Creek estate wines by the glass, and a room that opens onto the pinot rows.\n\nThe menu is structured around pizza, wood-fire mains, and a handful of raw starters that have become favourites  -  the cured kingfish, the burrata with stone fruit in season, whatever's running through the grill that afternoon. The bar is a genuinely good solo lunch spot. The sound system knows what it's doing.\n\nBook a table on the terrace if you can, order one more bottle than you planned to, and let the afternoon stretch. This is daylight dining done honestly.",
   "tags": {
-    "mood": ["long-lunch", "cellar-door", "view", "garden"],
-    "season": ["spring", "summer", "autumn"],
-    "audience": ["couples", "group", "families", "first-timers"]
+    "mood": [
+      "long-lunch",
+      "cellar-door",
+      "view",
+      "garden"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "families",
+      "first-timers"
+    ]
   },
   "heroImage": {
-    "src": "/images/placeholder-rare-hare.jpg",
-    "alt": "Rare Hare wood-fire dining terrace overlooking the Willow Creek vineyard rows",
-    "credit": "Jackalope Hotels",
-    "license": "venue-media-kit"
+    "src": "/images/sourced/category-restaurant-03.webp",
+    "alt": "Restaurant dining imagery evocative of Rare Hare at Willow Creek, Mornington Peninsula",
+    "credit": "Unsplash",
+    "license": "tmp-unsplash"
   },
   "gallery": [],
   "featuredPartner": false,

@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-weekend-planning.jpg"
+  src: "/images/sourced/article-orientation-drive-01.webp"
   alt: "A notebook and coffee on a table with a Peninsula map and vineyard views through the window"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

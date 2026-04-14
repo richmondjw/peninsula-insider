@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
 heroImage:
-  src: "/images/placeholder-four-hour-peninsula.jpg"
+  src: "/images/sourced/article-orientation-drive-01.webp"
   alt: "A panoramic view from Arthurs Seat across the Peninsula vineyards and bay in a late morning light"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

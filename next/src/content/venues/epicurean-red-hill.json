@@ -4,7 +4,10 @@
   "type": "restaurant",
   "place": "red-hill",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3649, "lng": 145.0198 },
+  "coordinates": {
+    "lat": -38.3649,
+    "lng": 145.0198
+  },
   "address": "165 Purves Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5989 2000",
   "website": "https://epicurean.com.au",
@@ -13,20 +16,34 @@
   "priceBand": "$$$",
   "authority": {
     "hats": 1,
-    "awards": ["Good Food Guide 2024"]
+    "awards": [
+      "Good Food Guide 2024"
+    ]
   },
   "signature": "A Red Hill institution that has turned long lunch into a civic duty",
   "editorNote": "The Epicurean has been doing Red Hill Sunday lunch for longer than most of the ridge's trophy restaurants have existed, and it is finally getting the recognition the food deserves. The dining room is unshowy in the best sense  -  timber, stone, long windows onto vineyard rows  -  and the cooking is confident Mediterranean with a clear affection for the Peninsula's producers.\n\nThe pasta course is where the kitchen shows itself; the roast-of-the-day is the secret weapon. The wine list is sensibly priced and leans local without any of the estate chauvinism that creeps into cellar door restaurants. This is the place you take parents, in-laws, or anyone who wants Red Hill to feel like a warm weekend rather than a performance.\n\nWeekday lunches are easier to book and almost always better-paced. Order the tasting plate for the table and let the kitchen run.",
   "tags": {
-    "mood": ["long-lunch", "fireplace", "view", "cellar-door"],
-    "season": ["all-year"],
-    "audience": ["couples", "families", "group", "first-timers"]
+    "mood": [
+      "long-lunch",
+      "fireplace",
+      "view",
+      "cellar-door"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "families",
+      "group",
+      "first-timers"
+    ]
   },
   "heroImage": {
-    "src": "/images/placeholder-epicurean.jpg",
-    "alt": "The Epicurean dining room with long windows over Red Hill vineyards",
-    "credit": "The Epicurean",
-    "license": "venue-media-kit"
+    "src": "/images/sourced/category-restaurant-04.webp",
+    "alt": "Restaurant dining imagery evocative of The Epicurean, Mornington Peninsula",
+    "credit": "Unsplash",
+    "license": "tmp-unsplash"
   },
   "gallery": [],
   "featuredPartner": false,

@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-16
 heroImage:
-  src: "/images/placeholder-spring-peninsula.jpg"
+  src: "/images/sourced/article-vineyard-villa-01.webp"
   alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

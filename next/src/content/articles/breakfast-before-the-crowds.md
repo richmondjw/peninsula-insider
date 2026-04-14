@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/placeholder-peninsula-breakfast.jpg"
+  src: "/images/sourced/category-cafe-01.webp"
   alt: "A plate of poached eggs on Peninsula sourdough with a flat white and a laminated pastry on a cafe bench at sunrise"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

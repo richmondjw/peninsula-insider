@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/placeholder-autumn-edit.jpg"
+  src: "/images/sourced/article-red-hill-saturday-01.webp"
   alt: "An autumn afternoon on the Red Hill plateau, vineyards turning gold before harvest"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

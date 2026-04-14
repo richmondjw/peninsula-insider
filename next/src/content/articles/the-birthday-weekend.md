@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-16
 heroImage:
-  src: "/images/placeholder-birthday-weekend.jpg"
+  src: "/images/sourced/article-couples-weekend-01.webp"
   alt: "A candlelit dinner terrace at a Peninsula restaurant at dusk with vineyard rows beyond"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

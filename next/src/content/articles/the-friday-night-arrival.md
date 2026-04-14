@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/placeholder-friday-arrival.jpg"
+  src: "/images/sourced/article-sunset-01.webp"
   alt: "A car pulling into a Peninsula rental property at dusk with warm interior light spilling through the windows"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

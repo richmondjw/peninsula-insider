@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/placeholder-easter-peninsula.jpg"
+  src: "/images/sourced/article-cellar-door-01.webp"
   alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"

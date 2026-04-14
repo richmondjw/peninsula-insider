@@ -5,7 +5,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
 heroImage:
-  src: "/images/placeholder-weekend-picker.jpg"
+  src: "/images/sourced/article-sunset-01.webp"
   alt: "The Mornington Peninsula at 4pm on an April Saturday"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
