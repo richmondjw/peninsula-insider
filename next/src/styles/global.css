@@ -3440,7 +3440,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   bottom: 0;
   z-index: 9998;
   background: var(--bg);
-  padding: 5rem 0 3rem;
+  padding: clamp(4rem, 10vh, 4.75rem) 0 clamp(1rem, 3vh, 1.75rem);
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
@@ -3462,10 +3462,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .mobile-nav__link {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.8rem;
+  font-size: clamp(1.25rem, 4.2vw, 1.5rem);
   font-weight: 600;
+  line-height: 1.15;
   color: var(--dark);
-  padding: 0.85rem 0;
+  padding: clamp(0.5rem, 1.4vh, 0.7rem) 0;
   border-bottom: 1px solid var(--border);
   transition: color .18s var(--ease);
 }
@@ -3479,18 +3480,18 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--accent);
 }
 .mobile-nav__link--cta {
-  margin-top: 1.5rem;
+  margin-top: clamp(0.75rem, 2vh, 1.15rem);
   font-family: 'Outfit', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
   border: 1px solid var(--accent);
-  border-bottom: 1px solid var(--accent);
-  padding: 0.85rem 1.2rem;
+  padding: 0.7rem 1.2rem;
   text-align: center;
   border-radius: 2px;
+  line-height: 1;
 }
 
 /* --- 768px: Tablet and below --- */
