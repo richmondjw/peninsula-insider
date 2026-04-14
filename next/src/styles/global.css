@@ -3649,7 +3649,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
     padding: 2.5rem 0;
   }
 
-  /* Pillar nav: 2-column grid, last item (Golf) spans full width */
+  /* Pillar nav: 2-column grid, clean pairs */
   .pillars__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -3664,12 +3664,18 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
     min-height: 54px;
     gap: 0.75rem;
   }
-  .pillar:nth-child(odd):not(:last-child) {
+  .pillar:nth-child(odd) {
     border-right: 1px solid var(--border);
   }
-  .pillar:last-child {
-    grid-column: 1 / -1;
+  /* Remove bottom border on the final row (last two items for even counts, last item for odd) */
+  .pillar:nth-last-child(-n+2):nth-child(even),
+  .pillar:nth-last-child(-n+2):nth-child(even) ~ .pillar,
+  .pillar:last-child:nth-child(odd) {
     border-bottom: none;
+  }
+  .pillar:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    border-right: none;
     justify-content: center;
     background: rgba(182, 154, 107, 0.05);
   }
