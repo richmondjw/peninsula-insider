@@ -78,13 +78,15 @@ Turn Peninsula Insider from a static tourism site into a living media platform w
 ## Active recurring jobs
 
 ### Research / refresh jobs
-1. `pi-daily-events-scan`
-2. `pi-daily-venue-healthcheck`
-3. `pi-daily-seasonality-refresh`
-4. `pi-daily-build-draft`
-5. `pi-daily-qa-and-publish`
-6. `pi-weekly-editorial-commissioning`
-7. `pi-weekly-evergreen-expansion`
+1. `pi-daily-accuracy-scan`
+2. `pi-daily-accuracy-autofix`
+3. `pi-daily-events-scan`
+4. `pi-daily-venue-healthcheck`
+5. `pi-daily-seasonality-refresh`
+6. `pi-daily-build-draft`
+7. `pi-daily-qa-and-publish`
+8. `pi-weekly-editorial-commissioning`
+9. `pi-weekly-evergreen-expansion`
 
 ### Publishing philosophy
 - Daily loop updates service surfaces and short-horizon freshness.
@@ -111,6 +113,8 @@ Every meaningful recurring run should:
 
 ## Minimum viable operating rhythm
 ### Daily
+- accuracy scan
+- low-risk accuracy autofix
 - events scan
 - venue drift scan
 - seasonality refresh

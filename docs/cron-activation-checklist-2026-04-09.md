@@ -1,5 +1,18 @@
 # Peninsula Insider Cron Activation Checklist
 
+## 2026-04-14 update — Daily accuracy layer approved
+
+Add and activate two new upstream jobs in the Peninsula schedule:
+- `pi-daily-accuracy-scan` — daily 20:20 UTC
+- `pi-daily-accuracy-autofix` — daily 20:35 UTC
+
+Purpose:
+- detect homepage / What’s On / dispatch drift every Melbourne morning
+- auto-fix low-risk factual issues
+- post approval summaries to the Peninsula Insider Telegram thread for anything consequential
+- save both reports to repo + Mission Control Docs
+
+
 ## Goal
 Move Peninsula Insider from a paper cron plan to a real operating system.
 

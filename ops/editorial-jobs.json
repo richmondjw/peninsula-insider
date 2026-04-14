@@ -5,6 +5,24 @@
   "timezone": "UTC",
   "jobs": [
     {
+      "name": "pi-daily-accuracy-scan",
+      "cadence": "daily 20:20 UTC",
+      "type": "accuracy-scan",
+      "owner": "PI-accuracy-desk",
+      "inputs": ["homepage", "whats-on surface", "current dispatch", "event source files", "live build output"],
+      "outputs": ["reports/peninsula-accuracy-scan-YYYY-MM-DD.md"],
+      "surfaces": ["index.html", "whats-on/index.html", "journal/peninsula-this-weekend-*/index.html", "next/src/content/events", "next/src/content/articles"]
+    },
+    {
+      "name": "pi-daily-accuracy-autofix",
+      "cadence": "daily 20:35 UTC",
+      "type": "accuracy-autofix",
+      "owner": "PI-accuracy-desk + PI-publisher",
+      "inputs": ["reports/peninsula-accuracy-scan-YYYY-MM-DD.md"],
+      "outputs": ["reports/peninsula-accuracy-autofix-YYYY-MM-DD.md"],
+      "surfaces": ["index.html", "whats-on/index.html", "live repo", "GitHub Pages deploy"]
+    },
+    {
       "name": "pi-daily-events-scan",
       "cadence": "daily 05:30 UTC",
       "type": "research",

@@ -6,6 +6,24 @@
 
 ---
 
+## 2026-04-14 — Daily accuracy scan approved and implemented
+
+### New operational layer
+- Approved and specified a new daily Peninsula Insider truth-maintenance loop:
+  - `pi-daily-accuracy-scan`
+  - `pi-daily-accuracy-autofix`
+- Purpose: detect drift across homepage, What’s On, live dispatches, and event source files every Melbourne morning.
+
+### Policy
+- low-risk factual corrections are now intended to auto-fix without waiting
+- consequential editorial changes must be reported to the Peninsula Insider Telegram thread for approval
+- every report must be saved in both the repo and Mission Control Docs
+
+### Documentation created
+- `docs/peninsula-insider-daily-accuracy-scan-spec-2026-04-14.md`
+- updated `ops/editorial-jobs.json`
+- updated cron activation and editorial ops docs to include the new accuracy layer
+
 ## 2026-04-14 — What’s On next-weekend publish correction
 
 ### Live event and dispatch corrections
