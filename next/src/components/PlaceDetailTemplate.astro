@@ -256,6 +256,9 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
       {(place.data.kind === 'town') && (
         <a href="/journal/mornington-peninsula-wedding-venues" class="venue-card__cta">Wedding Venues →</a>
       )}
+      {(place.data.zone === 'ocean-coast' || place.data.zone === 'back-beaches' || place.data.zone === 'tip') && (
+        <a href="/golf" class="venue-card__cta">Best Golf Courses →</a>
+      )}
     </div>
   </div>
 </section>
