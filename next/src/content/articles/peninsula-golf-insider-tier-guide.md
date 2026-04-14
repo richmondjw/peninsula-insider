@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
-  alt: "Cape Schanck coastline — near the southern golf corridor of the Mornington Peninsula"
+  src: "/images/sourced/golf-links-coastal-01.jpg"
+  alt: "Coastal links golf course with dunes and sea light"
   credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  license: "wikimedia-cc-by-sa"
 format: "insider-edit"
 tags: ["golf", "rankings", "mornington-peninsula", "guide", "public-golf"]
 relatedVenues: []

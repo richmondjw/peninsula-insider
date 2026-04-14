@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
-  alt: "Southern Mornington Peninsula coastline near St Andrews Beach Golf Course"
+  src: "/images/sourced/golf-green-fairway-01.jpg"
+  alt: "Golf fairway framed by dune grass on a links-style course"
   credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  license: "wikimedia-cc-by-sa"
 format: "service"
 tags: ["golf", "st-andrews-beach", "public-golf", "mornington-peninsula", "architecture"]
 relatedVenues: []

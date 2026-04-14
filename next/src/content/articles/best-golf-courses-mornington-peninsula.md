@@ -6,7 +6,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
+  src: "/images/sourced/golf-links-coastal-01.jpg"
   alt: "Coastal links landscape near Cape Schanck, Mornington Peninsula"
   credit: "Peninsula Insider"
   license: "tmp-wikimedia"

@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: false
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
-  alt: "Coastal landscape at Cape Schanck on the southern Mornington Peninsula"
+  src: "/images/sourced/golf-links-fairway-01.jpg"
+  alt: "Links golf fairway running through dune country"
   credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  license: "wikimedia-cc-by-sa"
 format: "editors-letter"
 tags: ["golf", "mornington-peninsula", "weekend-escape", "architecture"]
 relatedVenues: []
