@@ -6,7 +6,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/golf-fairway-links-02.jpg"
+  src: "/images/sourced/place-cape-schanck-01.webp"
   alt: "Windswept coastal landscape at Cape Schanck, Mornington Peninsula"
   credit: "Peninsula Insider"
   license: "tmp-wikimedia"
