@@ -1,0 +1,32 @@
+{
+  "slug": "st-andrews-beach-golf-course",
+  "name": "St Andrews Beach Golf Course",
+  "type": "golf-course",
+  "place": "cape-schanck",
+  "summary": "The Peninsula's defining public-access course, St Andrews Beach pairs Tom Doak architecture with genuine world-ranking credibility and a windswept links feel you can actually book.",
+  "description": "St Andrews Beach is the strongest public-access golf story on the Mornington Peninsula. It is serious architecture without private-club theatre, a course golfers travel for and non-golfers can still understand once you explain what makes it special.",
+  "heroImage": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+  "heroAlt": "Coastal landscape near Cape Schanck on the Mornington Peninsula",
+  "address": "209 Sandy Rd, Fingal VIC 3939",
+  "latitude": -38.416,
+  "longitude": 144.866,
+  "website": "https://www.standrewsbeachgolf.com.au/",
+  "bookingUrl": "https://www.standrewsbeachgolf.com.au/",
+  "bestFor": ["serious golfers", "golf weekends", "design-led destination play"],
+  "highlights": [
+    "Tom Doak-designed public-access course",
+    "World top-100 recognition in recent global rankings",
+    "Strong fit for a one-night or two-night golf weekend"
+  ],
+  "moods": ["golf", "worth-the-drive", "best-in-autumn"],
+  "seasons": ["autumn", "spring", "winter"],
+  "golf": {
+    "tier": "tier-1",
+    "access": "public",
+    "holes": 18,
+    "designers": ["Tom Doak"],
+    "rankings": ["World Top 100 course in recent global rankings, year-sensitive verify before publish"],
+    "bookingUrl": "https://www.standrewsbeachgolf.com.au/",
+    "approximateGreenFeeNote": "Verify live green fees directly before publication or use booking-now language without hard figures."
+  }
+}

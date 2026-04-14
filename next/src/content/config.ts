@@ -164,6 +164,7 @@ const experiences = defineCollection({
       'lookout',
       'market',
       'workshop',
+      'golf-course',
     ]),
     place: reference('places'),
     zone,
