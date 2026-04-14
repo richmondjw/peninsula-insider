@@ -352,13 +352,27 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .pillar {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 0.6rem;
   padding: 0.5rem 0;
-  cursor: default;
+  cursor: pointer;
+  color: var(--soft);
+  text-decoration: none;
   transition: color .2s var(--ease);
 }
 .pillar:hover { color: var(--accent); }
-.pillar__icon { display: none; }
+.pillar__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: var(--soft);
+  stroke: currentColor;
+  flex-shrink: 0;
+  transition: color .2s var(--ease), transform .2s var(--ease);
+}
+.pillar:hover .pillar__icon {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
 .pillar__name {
   font-family: 'Outfit', sans-serif;
   font-size: 0.72rem;
