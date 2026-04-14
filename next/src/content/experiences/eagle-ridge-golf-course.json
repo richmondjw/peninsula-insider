@@ -1,0 +1,53 @@
+{
+  "slug": "eagle-ridge-golf-course",
+  "name": "Eagle Ridge Golf Course",
+  "type": "golf-course",
+  "place": "balnarring",
+  "zone": "hinterland",
+  "coordinates": {
+    "lat": -38.3864,
+    "lng": 145.0053
+  },
+  "address": "215 Browns Rd, Boneo VIC 3939",
+  "website": "https://www.eagleridge.com.au/",
+  "durationMinutes": 270,
+  "seasonBest": [
+    "autumn",
+    "spring",
+    "summer"
+  ],
+  "editorNote": "Eagle Ridge is the Peninsula's hinterland option — a parkland-feel 18-hole course set among gum trees and dams in the Boneo valley, away from the coastal exposure of the Cape Schanck courses. That makes it the better choice on windy days and in mid-winter when the links courses are playing hard. It is also consistently one of the better-value rounds on the Peninsula. The course is public-access, bookings are easy, and the pricing sits well below St Andrews Beach, Moonah Links, and The Dunes. Architecturally less celebrated than the top public courses, but the conditioning is good, the layout is varied, and for a casual or mixed-skill round it punches above its price. Practice facilities are solid. The clubhouse restaurant is decent — worth a post-round lunch if you're not planning to drive up to Red Hill. Best used as the second round on a 36-hole weekend, or as the round you book when the wind forecast is over 30 knots.",
+  "tags": {
+    "mood": [
+      "golf",
+      "slow"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "summer",
+      "winter"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "locals"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/golf-links-fairway-01.jpg",
+    "alt": "Parkland-style golf fairway in the Peninsula hinterland, Eagle Ridge",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "golf": {
+    "tier": "tier-2",
+    "access": "public",
+    "holes": 18,
+    "bookingUrl": "https://www.eagleridge.com.au/",
+    "approximateGreenFeeNote": "Verify current green fees directly. One of the better-value Peninsula rounds; midweek rates are particularly good."
+  },
+  "lastVerified": "2026-04-14",
+  "publishedAt": "2026-04-14"
+}

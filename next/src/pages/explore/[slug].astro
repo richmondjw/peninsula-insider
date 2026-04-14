@@ -26,6 +26,7 @@ const typeLabel: Record<string, string> = {
   lookout: 'Lookout',
   market: 'Market',
   workshop: 'Workshop',
+  'golf-course': 'Golf Course',
 };
 
 const heroVariant: Record<string, string> = {
@@ -94,13 +95,30 @@ const description = experience.data.editorNote.length > 155
   ? experience.data.editorNote.slice(0, 152) + '...'
   : experience.data.editorNote;
 
-const experienceSchema = {
+// Schema.org type mapping: specific types get richer markup
+const schemaTypeMap: Record<string, string | string[]> = {
+  'golf-course': ['GolfCourse', 'SportsActivityLocation', 'TouristAttraction'],
+  'walk': 'TouristAttraction',
+  'beach': 'Beach',
+  'park': 'Park',
+  'gallery': 'ArtGallery',
+  'market': 'LocalBusiness',
+  'wellness': ['HealthAndBeautyBusiness', 'TouristAttraction'],
+  'attraction': 'TouristAttraction',
+  'lookout': 'TouristAttraction',
+  'tour': 'TouristAttraction',
+  'workshop': 'LocalBusiness',
+};
+const schemaType = schemaTypeMap[experience.data.type] ?? 'TouristAttraction';
+
+const experienceSchema: Record<string, unknown> = {
   '@context': 'https://schema.org',
-  '@type': 'TouristAttraction',
+  '@type': schemaType,
   name: experience.data.name,
   description: experience.data.editorNote,
   address: {
     '@type': 'PostalAddress',
+    streetAddress: experience.data.address ?? undefined,
     addressLocality: experiencePlace,
     addressRegion: 'VIC',
     addressCountry: 'AU',
@@ -111,7 +129,17 @@ const experienceSchema = {
     longitude: experience.data.coordinates?.lng,
   },
   url: canonical,
+  ...(experience.data.website ? { sameAs: [experience.data.website] } : {}),
 };
+
+// Golf-course-specific enrichments
+if (experience.data.type === 'golf-course') {
+  const golfData = (experience.data as any).golf;
+  if (golfData?.holes) (experienceSchema as any).numberOfHoles = golfData.holes;
+  if (golfData?.access) {
+    (experienceSchema as any).publicAccess = golfData.access === 'public';
+  }
+}
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',

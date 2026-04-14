@@ -12,12 +12,28 @@
   "website": "https://www.standrewsbeachgolf.com.au/",
   "bookingUrl": "https://www.standrewsbeachgolf.com.au/",
   "durationMinutes": 270,
-  "seasonBest": ["autumn", "spring", "winter"],
+  "seasonBest": [
+    "autumn",
+    "spring",
+    "winter"
+  ],
   "editorNote": "St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book — that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up. Go in autumn when the light flattens and the crowds thin. Book well ahead for weekends. Pair it with the hot springs or a southern Peninsula lunch and the whole day holds together as a proper trip rather than an isolated round.",
   "tags": {
-    "mood": ["golf", "wellness", "weekend-escape"],
-    "season": ["autumn", "spring", "winter"],
-    "audience": ["couples", "group", "solo"]
+    "mood": [
+      "golf",
+      "wellness",
+      "weekend-escape"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "winter"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "solo"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/golf-green-fairway-01.jpg",
@@ -30,8 +46,12 @@
     "tier": "tier-1",
     "access": "public",
     "holes": 18,
-    "designers": ["Tom Doak"],
-    "rankings": ["World top 100 in recent global rankings — verify year and currency before publishing specific ranking claims"],
+    "designers": [
+      "Tom Doak"
+    ],
+    "rankings": [
+      "World top 100 in recent global rankings — verify year and currency before publishing specific ranking claims"
+    ],
     "bookingUrl": "https://www.standrewsbeachgolf.com.au/",
     "approximateGreenFeeNote": "Verify live green fees directly at time of booking — do not publish dollar figures without current confirmation."
   },

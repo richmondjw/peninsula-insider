@@ -1,0 +1,55 @@
+{
+  "slug": "the-national-golf-club",
+  "name": "The National Golf Club",
+  "type": "golf-course",
+  "place": "cape-schanck",
+  "zone": "ocean-coast",
+  "coordinates": {
+    "lat": -38.4719,
+    "lng": 144.8853
+  },
+  "address": "Foresters Rd, Cape Schanck VIC 3939",
+  "website": "https://www.nationalgolf.com.au/",
+  "durationMinutes": 270,
+  "seasonBest": [
+    "autumn",
+    "spring"
+  ],
+  "editorNote": "The National is the Peninsula's most ambitious golf property — three championship courses on one sweeping Cape Schanck site, designed by Robert Trent Jones Jr (Old), Peter Thomson (Moonah), and Greg Norman (Gunnamatta). Together they form arguably the strongest 54-hole golf address in Australia. The caveat is access. The National is a private members' club. Non-member play is possible through reciprocal rights, corporate days, and occasional open days — but it is not a walk-up booking in the way St Andrews Beach or Moonah Links are. For Peninsula Insider readers, that changes the editorial framing. The National matters as context — Peninsula golf would be less serious without it — but it is not the course to build a visitor's weekend around unless you have a member connection. If you do have access, the Moonah is the most architecturally interesting, the Old is the grandest, and the Gunnamatta is the wildest. The views across the Southern Ocean from the clifftop holes are the best on any Australian course. The clubhouse is strong. The conditioning is meticulous. Everything you would expect from one of the country's top private clubs is delivered.",
+  "tags": {
+    "mood": [
+      "golf",
+      "weekend-escape"
+    ],
+    "season": [
+      "autumn",
+      "spring"
+    ],
+    "audience": [
+      "group"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/golf-fairway-links-02.jpg",
+    "alt": "Cape Schanck clifftop coastal landscape, The National Golf Club surrounds",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "golf": {
+    "tier": "tier-1",
+    "access": "private",
+    "holes": 54,
+    "designers": [
+      "Robert Trent Jones Jr",
+      "Peter Thomson",
+      "Greg Norman"
+    ],
+    "rankings": [
+      "Widely regarded as Australia's strongest 54-hole property"
+    ],
+    "approximateGreenFeeNote": "Private members' club. Access via reciprocal rights, corporate days, or member invitation only."
+  },
+  "lastVerified": "2026-04-14",
+  "publishedAt": "2026-04-14"
+}

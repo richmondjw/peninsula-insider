@@ -1,0 +1,52 @@
+{
+  "slug": "sorrento-golf-club",
+  "name": "Sorrento Golf Club",
+  "type": "golf-course",
+  "place": "sorrento",
+  "zone": "tip",
+  "coordinates": {
+    "lat": -38.3496,
+    "lng": 144.7506
+  },
+  "address": "3 Hotham Rd, Sorrento VIC 3943",
+  "website": "https://www.sorrentogolf.com.au/",
+  "durationMinutes": 270,
+  "seasonBest": [
+    "autumn",
+    "spring",
+    "summer"
+  ],
+  "editorNote": "Sorrento Golf Club is a parkland course on the Peninsula's tip, more traditional and less dramatic than the nearby links courses. The layout is pleasant rather than celebrated — long-time members love it, and it has a friendly social reputation that Portsea (its more exclusive neighbour) does not. Visitor access is more relaxed than Portsea — the club takes public bookings at most times subject to member priority. For visitors staying in Sorrento who want an easy, walkable, good-conditioning round without driving to Cape Schanck or Fingal, it's the obvious choice. Not the course to cross the city for, but a genuinely pleasant round if you are already on the tip. The clubhouse has good bay views. Practice facilities are solid. A reasonable mix of difficulty — not easy, not punishing. Suits mid-handicappers and casual weekenders particularly well.",
+  "tags": {
+    "mood": [
+      "golf",
+      "big-group"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "summer"
+    ],
+    "audience": [
+      "couples",
+      "locals",
+      "group"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/place-sorrento-01.webp",
+    "alt": "Parkland golf course near Sorrento, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "golf": {
+    "tier": "tier-3",
+    "access": "semi-private",
+    "holes": 18,
+    "bookingUrl": "https://www.sorrentogolf.com.au/",
+    "approximateGreenFeeNote": "Verify current green fees directly. Visitors generally welcome subject to member priority; book ahead for weekends."
+  },
+  "lastVerified": "2026-04-14",
+  "publishedAt": "2026-04-14"
+}

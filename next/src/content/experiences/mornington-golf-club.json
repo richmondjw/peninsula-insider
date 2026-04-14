@@ -1,0 +1,54 @@
+{
+  "slug": "mornington-golf-club",
+  "name": "Mornington Golf Club",
+  "type": "golf-course",
+  "place": "mornington",
+  "zone": "bayside",
+  "coordinates": {
+    "lat": -38.2256,
+    "lng": 145.0331
+  },
+  "address": "Tallis Dr, Mornington VIC 3931",
+  "website": "https://www.morningtongolf.com.au/",
+  "durationMinutes": 270,
+  "seasonBest": [
+    "autumn",
+    "spring",
+    "summer",
+    "winter"
+  ],
+  "editorNote": "Mornington Golf Club is the closest Peninsula course to Melbourne — about 60 minutes from the CBD via the freeway. That proximity makes it the obvious choice for a day-trip round or an after-work nine, and the reason casual Melbourne golfers know it well. The course itself is parkland, relatively short, and more practical than dramatic. Not the round you drive down for; the round you take when you are already in Mornington. Visitor play is straightforward — the club takes public bookings, and the weekend pressure is less than at the coastal links courses. The facilities are solid. The course drains reasonably well through winter. Pricing is fair. For a first-visit Peninsula golfer who wants to play somewhere scenic without the drive to Cape Schanck or Fingal, Mornington is a reasonable start. Pair it with brunch at Commonfolk, a walk along the Esplanade, and the Wednesday farmers' market if your timing lines up.",
+  "tags": {
+    "mood": [
+      "golf",
+      "quick-bite"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "summer",
+      "winter"
+    ],
+    "audience": [
+      "locals",
+      "couples",
+      "solo"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/place-mornington-01.webp",
+    "alt": "Parkland golf course in Mornington, Peninsula bayside",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "golf": {
+    "tier": "tier-3",
+    "access": "semi-private",
+    "holes": 18,
+    "bookingUrl": "https://www.morningtongolf.com.au/",
+    "approximateGreenFeeNote": "Verify current green fees directly. Closest Peninsula course to Melbourne; weekday rates are strong value."
+  },
+  "lastVerified": "2026-04-14",
+  "publishedAt": "2026-04-14"
+}

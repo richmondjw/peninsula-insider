@@ -1,0 +1,55 @@
+{
+  "slug": "rosebud-country-club",
+  "name": "Rosebud Country Club",
+  "type": "golf-course",
+  "place": "rosebud",
+  "zone": "bayside",
+  "coordinates": {
+    "lat": -38.3733,
+    "lng": 144.9036
+  },
+  "address": "207 Boneo Rd, Rosebud VIC 3939",
+  "website": "https://www.rosebudcountryclub.com.au/",
+  "durationMinutes": 270,
+  "seasonBest": [
+    "autumn",
+    "spring",
+    "summer",
+    "winter"
+  ],
+  "editorNote": "Rosebud Country Club runs three nine-hole courses (North, South, and East) that mix-and-match into 18-hole rounds. Not a prestige destination, but one of the most played Peninsula courses for a reason — public access, good value, reasonable conditioning, and a central location that sits between Mornington and the southern tip. For the casual Peninsula golfer, or a mixed-skill group, it is probably the most forgiving way to get a round in without driving to Cape Schanck. The parkland/light-dune mix means holes play differently to the coastal links courses. Less spectacular, less punishing, and generally more enjoyable for mid-handicappers. Facilities are adequate rather than polished. Pricing is genuinely competitive — one of the few Peninsula courses where green fees sit comfortably under $100 on most days. Good for walking (carts available) and good for beginners. Book online or walk up on quiet weekdays.",
+  "tags": {
+    "mood": [
+      "golf",
+      "slow"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "summer",
+      "winter"
+    ],
+    "audience": [
+      "couples",
+      "locals",
+      "group",
+      "first-timers"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/golf-links-fairway-01.jpg",
+    "alt": "Parkland golf course fairway at Rosebud Country Club",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "golf": {
+    "tier": "tier-2",
+    "access": "public",
+    "holes": 27,
+    "bookingUrl": "https://www.rosebudcountryclub.com.au/",
+    "approximateGreenFeeNote": "Verify current green fees directly. One of the more affordable Peninsula rounds; twilight and midweek rates are strong."
+  },
+  "lastVerified": "2026-04-14",
+  "publishedAt": "2026-04-14"
+}
