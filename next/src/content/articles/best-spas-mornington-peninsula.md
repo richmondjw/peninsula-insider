@@ -6,10 +6,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/place-main-ridge-01.webp"
-  alt: "Mornington Peninsula hinterland landscape — the wellness country"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/sourced/spa-alba-thermal-springs-01.webp"
+  alt: "Alba Thermal Springs geothermal bathing complex — representative of the Mornington Peninsula's wellness category"
+  credit: "Alba Thermal Springs"
+  license: "venue-media-kit"
 format: "insider-edit"
 tags: ["spa", "wellness", "hot-springs", "mornington-peninsula", "guide", "rankings"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope", "endota-spa-sorrento", "endota-spa-mornington"]

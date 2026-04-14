@@ -6,10 +6,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/place-cape-schanck-01.webp"
-  alt: "Mornington Peninsula coastal landscape at golden hour — spa country"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/sourced/spa-coastal-pool-01.webp"
+  alt: "Coastal spa pool evocative of the Mornington Peninsula stay-and-soak experience"
+  credit: "Unsplash"
+  license: "tmp-unsplash"
 format: "service"
 tags: ["spa", "hot-springs", "stay", "wellness", "mornington-peninsula", "packages", "weekend-escape"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope"]

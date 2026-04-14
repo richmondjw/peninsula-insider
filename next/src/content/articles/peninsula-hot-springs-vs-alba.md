@@ -6,10 +6,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/place-cape-schanck-01.webp"
-  alt: "Coastal landscape at Cape Schanck near Peninsula Hot Springs and Alba Thermal Springs"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp"
+  alt: "Peninsula Hot Springs Hilltop Pool — the image that started the thermal springs comparison with Alba Thermal Springs, Mornington Peninsula"
+  credit: "Peninsula Hot Springs"
+  license: "venue-media-kit"
 format: "investigation"
 tags: ["hot-springs", "spa", "wellness", "mornington-peninsula", "comparison", "alba", "peninsula-hot-springs"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck"]

@@ -6,7 +6,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/place-cape-schanck-01.webp"
+  src: "/images/sourced/golf-rye-sunrise-01.webp"
   alt: "Mornington Peninsula coastal golf course landscape at golden hour"
   credit: "Peninsula Insider"
   license: "tmp-wikimedia"

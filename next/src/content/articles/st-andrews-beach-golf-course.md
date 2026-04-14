@@ -6,7 +6,7 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/place-cape-schanck-01.webp"
+  src: "/images/placeholder-golf.svg"
   alt: "Coastal landscape near St Andrews Beach, Mornington Peninsula"
   credit: "Peninsula Insider"
   license: "tmp-wikimedia"
