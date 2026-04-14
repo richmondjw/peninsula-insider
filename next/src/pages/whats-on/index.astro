@@ -189,7 +189,7 @@ const totalGroups = groups.length;
   )}
 
   {lensOrder.filter((lens) => lens.key !== 'weekend-pick' && lensCounts[lens.key] > 0).map((lens) => {
-    const lensEvents = events.filter((event) => event.data.lens.includes(lens.key as any));
+    const lensEvents = nextWeekendEvents.filter((event) => event.data.lens.includes(lens.key as any));
     return (
       <section class="venues venues--plain" id={`lens-${lens.key}`}>
         <div class="container">
