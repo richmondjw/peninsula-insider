@@ -29,8 +29,16 @@ const dispatches = (await getCollection('articles', ({ data }) => data.status ==
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const currentDispatch = dispatches[0];
 
-// Editor's picks  -  events flagged as weekend-pick.
-const editorsPicks = events.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
+const upcomingWeekendStart = new Date('2026-04-23T00:00:00+10:00');
+const upcomingWeekendEnd = new Date('2026-04-26T23:59:59+10:00');
+const nextWeekendEvents = events.filter((event) => {
+  const start = event.data.startDate;
+  const end = event.data.endDate ?? event.data.startDate;
+  return start <= upcomingWeekendEnd && end >= upcomingWeekendStart;
+});
+
+// Editor's picks  -  events flagged as weekend-pick, weighted toward the next live weekend window.
+const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
 
 // Skip-this highlights  -  the monthly explicit "skip" block.
 const skipEvents = events.filter((event) => event.data.skipThis);
@@ -138,7 +146,7 @@ const totalGroups = groups.length;
   />
 
   {currentDispatch && (
-    <WeekendPickerBlock dispatch={currentDispatch} weekend="18 to 20 April" />
+    <WeekendPickerBlock dispatch={currentDispatch} weekend="23 to 26 April" />
   )}
 
   <section class="events-lens">
@@ -167,9 +175,9 @@ const totalGroups = groups.length;
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Editor's picks this month</p>
-            <h2 class="venues__title">If you only go to three events this month</h2>
-            <p class="venues__sub">The ones we'd happily stand behind in a group chat.</p>
+            <p class="label label--accent">Next weekend's anchors</p>
+            <h2 class="venues__title">If you only do three things next weekend</h2>
+            <p class="venues__sub">The events shaping the Peninsula from 23 to 26 April.</p>
           </div>
           <span class="venues__count">{editorsPicks.length} picks</span>
         </div>

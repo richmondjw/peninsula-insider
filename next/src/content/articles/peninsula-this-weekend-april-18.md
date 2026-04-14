@@ -37,7 +37,7 @@ This is an adults day. Leave the kids somewhere else.
 
 Rain is possible on Saturday afternoon. The Cup runs wet or dry, but the marquee lawn is an open-air experience and not worth it in a downpour.
 
-Plan B: **[Red Hill Market](/whats-on/red-hill-market-first-saturday)** on the Saturday morning  -  8:45am arrival, coffee in the queue, two hours of stalls, back in the car by 11:30. Then **[Alba Thermal Springs](/whats-on/alba-fire-and-ice-sessions)** at 1:00pm for a two-hour rain-proof recovery session. A long lunch booking at [Quealy Winemakers](/eat/quealy-winemakers) or [Ten Minutes by Tractor](/eat/ten-minutes-by-tractor) at 3:30pm. No racing, no marquee, but a weekend that holds up to a grey sky without flinching.
+Plan B: **[Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk)** on the Saturday morning  -  8:45am arrival, a brisk coastal loop before the weather closes in, back in the car by 10:30. Then **[Alba Thermal Springs](/stay/alba-thermal-springs)** at 1:00pm for a two-hour rain-proof recovery session. A long lunch booking at [Quealy Winemakers](/eat/quealy-winemakers) or [Ten Minutes by Tractor](/eat/ten-minutes-by-tractor) at 3:30pm. No racing, no marquee, but a weekend that holds up to a grey sky without flinching.
 
 ## The skip  -  the Easter wind-down "family event" blitz
 

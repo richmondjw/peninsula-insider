@@ -6,6 +6,26 @@
 
 ---
 
+## 2026-04-14 — What’s On next-weekend publish correction
+
+### Live event and dispatch corrections
+- Corrected the live `Peninsula This Weekend — 18 to 20 April` dispatch so the fallback no longer incorrectly recommends **Red Hill Market** on Saturday 18 April.
+- Replaced the fallback with a weather-safe **Cape Schanck Boardwalk + Alba Thermal Springs** plan.
+- Refreshed event metadata so stale thermal listings stopped reading as already-past homepage/event anchors.
+
+### Next-weekend anchor reset
+- Reweighted the **homepage** and **What’s On** editorial event picks toward the next live weekend window: **23 to 26 April 2026**.
+- This now better surfaces:
+  - `Sorrento Writers Festival 2026`
+  - `ANZAC Day Dawn Service — Sorrento Memorial`
+  - still-relevant late-April wellness/event options
+- This corrected the drift where old / already-past event dates were still leaking into key front-door surfaces.
+
+### Publish status
+- Rebuilt the live Astro root successfully after the editorial corrections.
+- Deploy result: **679 pages deployed to live root**.
+- This closed the previously observed gap where the pipeline had drafted and QA-checked changes but the publish state remained effectively held / incomplete.
+
 ## 2026-04-13 — Editorial operating system institutionalised
 
 ### Documentation and governance

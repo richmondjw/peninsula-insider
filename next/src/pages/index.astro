@@ -31,7 +31,15 @@ const eventsAll = (await getCollection('events'))
     return isUpcoming(end);
   })
   .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
-const weekendPicks = eventsAll.filter((event) => event.data.lens.includes('weekend-pick' as any)).slice(0, 3);
+const upcomingWeekendStart = new Date('2026-04-23T00:00:00+10:00');
+const upcomingWeekendEnd = new Date('2026-04-26T23:59:59+10:00');
+const weekendPicks = eventsAll
+  .filter((event) => {
+    const start = event.data.startDate;
+    const end = event.data.endDate ?? event.data.startDate;
+    return event.data.lens.includes('weekend-pick' as any) && start <= upcomingWeekendEnd && end >= upcomingWeekendStart;
+  })
+  .slice(0, 3);
 const weekendDispatch = articles
   .filter((article) => article.data.format === 'weekend-picker')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
