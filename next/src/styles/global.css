@@ -3388,10 +3388,46 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 @media (max-width: 768px) {
-  .newsletter-signup__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .newsletter-signup { padding: 2rem 0 3rem; }
+  .newsletter-signup__inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    min-width: 0;
+  }
+  .newsletter-signup__form-block {
+    order: -1;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .newsletter-signup__pitch {
+    min-width: 0;
+    max-width: 100%;
+  }
   .newsletter-proof__promises { grid-template-columns: 1fr; }
   .newsletter__form--standalone { position: static; }
-  .newsletter__embed-wrap--standalone { position: static; }
+  .newsletter__embed-wrap--standalone {
+    position: static;
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .newsletter__embed {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+  .newsletter__inner {
+    min-width: 0;
+  }
+  .newsletter__embed-wrap {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-width: 0;
+  }
 }
 
 /* =========================================================
