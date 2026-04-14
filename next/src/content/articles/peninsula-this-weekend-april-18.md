@@ -1,6 +1,6 @@
 ---
 title: "Peninsula This Weekend  -  18 to 20 April"
-dek: "The weekend of the Mornington Cup, the last real warmth before Easter, and a second-act Sunday that's cheaper than it looks. Here's what we'd do if you could only pick one thing."
+dek: "The weekend of the Mornington Cup, a last swing at autumn light, and a second-act Sunday that's cheaper than it looks. Here's what we'd do if you could only pick one thing."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
@@ -39,11 +39,11 @@ Rain is possible on Saturday afternoon. The Cup runs wet or dry, but the marquee
 
 Plan B: **[Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk)** on the Saturday morning  -  8:45am arrival, a brisk coastal loop before the weather closes in, back in the car by 10:30. Then **[Alba Thermal Springs](/stay/alba-thermal-springs)** at 1:00pm for a two-hour rain-proof recovery session. A long lunch booking at [Quealy Winemakers](/eat/quealy-winemakers) or [Ten Minutes by Tractor](/eat/ten-minutes-by-tractor) at 3:30pm. No racing, no marquee, but a weekend that holds up to a grey sky without flinching.
 
-## The skip  -  the Easter wind-down "family event" blitz
+## The skip  -  the low-signal family-event pile-on
 
-Every Peninsula tourism channel is currently pushing a long list of "school holiday family events" that will extend through the Cup weekend. Most of them are recycled  -  the same strawberry-picking, the same chocolaterie, the same koala petting. That's fine. What's *not* fine is the low-signal "Easter market" type listings that get stapled onto that list without any editorial filter.
+Every Peninsula tourism channel is currently pushing a long list of family activity listings across the southern season shoulder. Most of them are recycled  -  the same strawberry-picking, the same chocolaterie, the same animal encounter. That's fine. What's *not* fine is the low-signal event clutter that gets stapled onto that list without any editorial filter.
 
-If you're travelling with kids this weekend and you want a genuine day, pick **one** of: [Moonlit Sanctuary's twilight walk](/whats-on/moonlit-sanctuary-easter-program), [Sunny Ridge strawberry picking](/whats-on/sunny-ridge-strawberry-picking), or the [Briars Eco Explorers sessions](/whats-on/briars-eco-explorers-autumn) (free, council-run, nobody knows about them). Skip the rest. The Peninsula runs better at the kids level when you do one thing properly than when you try to do four.
+If you're travelling with kids this weekend and you want a genuine day, pick **one** of: [Sunny Ridge strawberry picking](/whats-on/sunny-ridge-strawberry-picking), the [Briars Eco Explorers sessions](/whats-on/briars-eco-explorers-autumn) (free, council-run, nobody knows about them), or a simple foreshore day built around Mornington or Mount Martha. Skip the rest. The Peninsula runs better at the kids level when you do one thing properly than when you try to do four.
 
 ## Coming up after the Cup
 
@@ -53,4 +53,4 @@ More on Writers Festival in next Wednesday's dispatch.
 
 ---
 
-_Peninsula This Weekend runs every Wednesday at 6pm. It's also the anchor of our weekly newsletter  -  sign up below, and get one honest pick in your inbox on a Wednesday night before you plan the weekend._
+_Peninsula This Weekend runs every Wednesday at 6pm. It is the anchor of our weekly newsletter and rolls forward each week as the live weekend brief updates._
