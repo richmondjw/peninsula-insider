@@ -343,22 +343,32 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--bg);
 }
 .pillars__inner {
-  display: flex;
-  justify-content: center;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  padding: 1.25rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  padding: 1rem 0;
 }
 .pillar {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 0;
+  justify-content: flex-start;
+  gap: 0.7rem;
+  min-height: 58px;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
   cursor: pointer;
   color: var(--soft);
   text-decoration: none;
-  transition: color .2s var(--ease);
+  transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
 }
-.pillar:hover { color: var(--accent); }
+.pillar:hover {
+  color: var(--accent);
+  border-color: rgba(117, 89, 65, 0.35);
+  background: rgba(255,255,255,0.92);
+  transform: translateY(-1px);
+}
 .pillar__icon {
   display: block;
   width: 20px;
@@ -380,9 +390,28 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-transform: uppercase;
   color: var(--soft);
   transition: color .2s var(--ease);
+  line-height: 1.35;
 }
 .pillar:hover .pillar__name { color: var(--accent); }
 .pillar__sub { display: none; }
+@media (max-width: 900px) {
+  .pillars__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .pillars__inner {
+    gap: 0.65rem;
+  }
+  .pillar {
+    min-height: 54px;
+    padding: 0.85rem 0.9rem;
+  }
+  .pillar__name {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+}
 
 /* =========================================================
    FEATURED ARTICLE (homepage)
