@@ -336,53 +336,117 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 
 /* =========================================================
    PILLAR NAV (homepage)
+   ---------------------------------------------------------
+   4x2 editorial grid. Full-width panel on the slightly darker
+   cream, hairline dividers between cells (chapter-index feel),
+   serif labels doing the typographic work. Matches the brand
+   voice: a print magazine contents page, not a web nav bar.
    ========================================================= */
 .pillars {
+  background: var(--bg-alt);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
 }
 .pillars__inner {
-  display: flex;
-  justify-content: center;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  padding: 1.25rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: var(--max-w);
+  margin: 0 auto;
 }
 .pillar {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 0;
-  cursor: pointer;
-  color: var(--soft);
+  justify-content: center;
+  gap: 1.1rem;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 2vw, 2rem);
+  min-height: 180px;
+  text-align: center;
   text-decoration: none;
-  transition: color .2s var(--ease);
+  color: var(--text);
+  cursor: pointer;
+  position: relative;
+  transition: background-color .35s var(--ease);
 }
-.pillar:hover { color: var(--accent); }
+.pillar:hover {
+  background-color: rgba(139, 78, 59, 0.035);
+}
+/* Desktop 4x2 dividers — hairline between cells, no outer borders (panel handles top/bottom). */
+.pillar:not(:nth-child(4n)) {
+  border-right: 1px solid var(--border);
+}
+.pillar:nth-child(-n+4) {
+  border-bottom: 1px solid var(--border);
+}
 .pillar__icon {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   color: var(--soft);
   stroke: currentColor;
+  stroke-width: 1.3;
   flex-shrink: 0;
-  transition: color .2s var(--ease), transform .2s var(--ease);
+  transition: color .35s var(--ease), transform .35s var(--ease);
 }
 .pillar:hover .pillar__icon {
   color: var(--accent);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 .pillar__name {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--soft);
-  transition: color .2s var(--ease);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--dark);
+  line-height: 1.1;
+  position: relative;
+  padding-bottom: 0.5rem;
+  transition: color .35s var(--ease);
+  text-transform: none;
 }
-.pillar:hover .pillar__name { color: var(--accent); }
+/* Animated underline on hover — slides out from centre. */
+.pillar__name::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  transition: width .4s var(--ease);
+}
+.pillar:hover .pillar__name {
+  color: var(--accent);
+}
+.pillar:hover .pillar__name::after {
+  width: 44%;
+}
 .pillar__sub { display: none; }
+
+/* Tablet: 2x4 grid — keep the chapter-index divider pattern. */
+@media (max-width: 1023px) {
+  .pillars {
+    padding: clamp(2rem, 4vw, 3rem) 0;
+  }
+  .pillars__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pillar {
+    border-right: none;
+    border-bottom: none;
+    min-height: 150px;
+    padding: clamp(1.75rem, 3vw, 2.25rem) 1rem;
+  }
+  .pillar:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+  .pillar:not(:nth-last-child(-n+2)) {
+    border-bottom: 1px solid var(--border);
+  }
+}
 
 /* =========================================================
    FEATURED ARTICLE (homepage)
@@ -3685,42 +3749,21 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
     padding: 2.5rem 0;
   }
 
-  /* Pillar nav: 2-column grid, clean pairs */
-  .pillars__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    padding: 0;
-    justify-content: stretch;
+  /* Pillar nav: stays 2-column at 480px (matches tablet). Tighter padding. */
+  .pillars {
+    padding: 2rem 0;
   }
   .pillar {
-    justify-content: flex-start;
-    padding: 0.95rem 1rem;
-    border-bottom: 1px solid var(--border);
-    min-height: 54px;
-    gap: 0.75rem;
-  }
-  .pillar:nth-child(odd) {
-    border-right: 1px solid var(--border);
-  }
-  /* Remove bottom border on the final row (last two items for even counts, last item for odd) */
-  .pillar:nth-last-child(-n+2):nth-child(even),
-  .pillar:nth-last-child(-n+2):nth-child(even) ~ .pillar,
-  .pillar:last-child:nth-child(odd) {
-    border-bottom: none;
-  }
-  .pillar:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    border-right: none;
-    justify-content: center;
-    background: rgba(182, 154, 107, 0.05);
+    min-height: 128px;
+    padding: 1.5rem 0.75rem;
+    gap: 0.8rem;
   }
   .pillar__icon {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
   }
   .pillar__name {
-    font-size: 0.72rem;
+    font-size: 1.2rem;
   }
 
   /* Featured article */
