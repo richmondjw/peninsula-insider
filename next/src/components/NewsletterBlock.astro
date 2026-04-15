@@ -42,3 +42,19 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  const section = document.getElementById('newsletter');
+  if (section && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          section.classList.add('newsletter--visible');
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(section);
+  }
+</script>

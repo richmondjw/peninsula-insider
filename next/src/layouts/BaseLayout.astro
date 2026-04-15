@@ -8,6 +8,7 @@
  */
 
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 import Masthead from '../components/Masthead.astro';
 import Footer from '../components/Footer.astro';
 
@@ -95,6 +96,9 @@ const ogImageAbsolute = ogImage.startsWith('http')
     logo: `${SITE_URL}/images/sourced/home-cover.webp`,
   })} />
 
+  <!-- View transitions: client-side routing with page fade -->
+  <ClientRouter />
+
   <!-- Beehiiv embed script — required for newsletter iframe to function -->
   <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
 
@@ -149,6 +153,44 @@ const ogImageAbsolute = ogImage.startsWith('http')
   <!-- Enhancement JS -->
   <script is:inline src="/assets/newsletter-enhance.js"></script>
   <script is:inline src="/assets/scroll-animations.js"></script>
+
+  <!-- Lenis smooth scroll — buttery weighted physics on every page -->
+  <script>
+    import Lenis from 'lenis';
+
+    let lenis: InstanceType<typeof Lenis> | null = null;
+    let rafId: number | null = null;
+
+    function startLenis() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      lenis = new Lenis({
+        duration: 1.4,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.0,
+        smoothTouch: false,
+      });
+
+      function raf(time: number) {
+        lenis!.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+      rafId = requestAnimationFrame(raf);
+    }
+
+    function stopLenis() {
+      if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+      if (lenis) { lenis.destroy(); lenis = null; }
+    }
+
+    // Boot on first load
+    startLenis();
+
+    // Restart cleanly after each view-transition page swap
+    document.addEventListener('astro:before-swap', stopLenis);
+    document.addEventListener('astro:page-load', startLenis);
+  </script>
 
 </body>
 </html>
