@@ -1,10 +1,12 @@
 import { defineCollection, reference, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 // Peninsula Insider  -  Content schema
 //
-// This file is the typed contract for every entity in the Astro rebuild.
-// The goal is simple: AI agents should be able to author content directly
-// into git, with build-time validation catching drift before it reaches prod.
+// Astro v6 Content Layer format. Each collection declares its own glob loader
+// pointing at the JSON or Markdown files under src/content/<name>/.
+// Schemas are unchanged from the v5 legacy config — only the wrapper shape
+// is new.
 
 const zone = z.enum([
   'bayside',
@@ -93,7 +95,7 @@ const authorityBlock = z
   .optional();
 
 const venues = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/venues' }),
   schema: z.object({
     slug: z.string(),
     name: z.string(),
@@ -150,7 +152,7 @@ const venues = defineCollection({
 });
 
 const experiences = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/experiences' }),
   schema: z.object({
     slug: z.string(),
     name: z.string(),
@@ -186,7 +188,7 @@ const experiences = defineCollection({
 });
 
 const places = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/places' }),
   schema: z.object({
     slug: z.string(),
     name: z.string(),
@@ -201,7 +203,7 @@ const places = defineCollection({
 });
 
 const articles = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
     title: z.string(),
     dek: z.string(),
@@ -232,7 +234,7 @@ const articles = defineCollection({
 });
 
 const itineraries = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/itineraries' }),
   schema: z.object({
     slug: z.string(),
     title: z.string(),
@@ -266,7 +268,7 @@ const itineraries = defineCollection({
 });
 
 const events = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/events' }),
   schema: z.object({
     slug: z.string(),
     title: z.string(),
@@ -292,31 +294,19 @@ const events = defineCollection({
       'nature',
       'writers-ideas',
     ]),
-    // Recurrence is editorial, not ical  -  'one-off', 'weekly', 'monthly',
-    // 'annual' or 'seasonal' is the level of detail readers actually need.
     recurrence: z
       .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
       .default('one-off'),
-    // Editorial differentiators  -  the wedge against the DMO.
-    // Kids Grade: A/B/C (see peninsula-insider-events-intelligence-2026-04-09.md).
     kidsGrade: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
     kidsGradeNote: z.string().optional(),
-    // Worth The Drive From Melbourne: binary, no hedging.
     worthTheDrive: z.boolean().default(false),
-    // First-time visitor filter  -  'start here' events.
     firstTimer: z.boolean().default(false),
-    // Weather disposition  -  solves the #1 Peninsula planning anxiety.
     weather: z
       .enum(['all-weather', 'sunny-only', 'rainy-day-rescue', 'weather-proof', 'mixed'])
       .default('mixed'),
-    // Skip-this block (monthly): exactly one event can be the month's skip,
-    // with one honest paragraph explaining why.
     skipThis: z.boolean().default(false),
     skipReason: z.string().optional(),
-    // Editor verdict  -  the one-line opinion that nobody else in the market
-    // is brave enough to write.
     editorVerdict: z.string().optional(),
-    // Free-text short categories for filter chips on whats-on index.
     lens: z
       .array(
         z.enum([
@@ -340,7 +330,7 @@ const events = defineCollection({
 });
 
 const authors = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/content/authors' }),
   schema: z.object({
     slug: z.string(),
     name: z.string(),
