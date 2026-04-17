@@ -9,10 +9,11 @@ const walks = [
 ];
 ---
 
-<BaseLayout title="Where to Walk the Dog Mornington Peninsula | Peninsula Insider" description="A practical guide to where to walk the dog on the Mornington Peninsula." section="explore">
+<BaseLayout title="Where to Walk the Dog Mornington Peninsula | Peninsula Insider" description="A practical guide to where to walk the dog on the Mornington Peninsula." section="explore" ogImage="/images/sourced/dog-walk-hero-01.webp">
   <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
     <p class="label label--accent">Dog-Friendly Peninsula</p>
     <h1>Where to Walk the Dog on the Mornington Peninsula</h1>
+    <p><img src="/images/sourced/dog-walk-hero-01.webp" alt="Dog out on a walk" style="width:100%; border-radius: 18px; margin: 0 0 1.5rem; object-fit: cover;" /></p>
     <p>The best dog walk is rarely the most famous walk. It is the one that suits the day, the dog, and the level of effort you actually want. That usually means less obsession with hero scenery and more attention to parking, crowd pressure, leash logic, and what happens after the walk.</p>
     <ul>
       {walks.map((walk) => <li>{walk}</li>)}
