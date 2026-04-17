@@ -16,9 +16,9 @@ import {
 const now = new Date();
 const events = (await getCollection('events'))
   .filter((event) => {
-    // Recurring programmes always stay visible. Dated events only
-    // show once their start date is still in the future window.
-    if (['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence)) return true;
+    // Recurring programmes without a fixed end date always stay visible.
+    // 'seasonal' events have explicit start/end dates and must still respect their endDate.
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end, now);
   })

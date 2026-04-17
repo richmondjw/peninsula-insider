@@ -17,6 +17,19 @@ export interface Props {
 const { event, featured = false } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
+
+// Recurrence-aware date label — recurring events show a pattern, not a stale start date.
+function recurrenceAwareDateLabel(data: any): string {
+  if (data.recurrence === 'weekly') {
+    const dayName = (data.startDate as Date).toLocaleDateString('en-AU', { weekday: 'long' });
+    return `Every ${dayName}`;
+  }
+  if (data.recurrence === 'monthly') {
+    return `Monthly — ${eventDateLabel(data.startDate, data.endDate)}`;
+  }
+  return eventDateLabel(data.startDate, data.endDate);
+}
+const dateLabel = recurrenceAwareDateLabel(event.data);
 const placeLabel =
   typeof event.data.place === 'string' ? event.data.place : event.data.place?.id;
 ---
@@ -26,7 +39,7 @@ const placeLabel =
     <div class="event-card__hero" style={heroBackgroundStyle(event.data)} aria-hidden="true"></div>
   )}
   <div class="event-card__top">
-    <span class="event-card__date">{eventDateLabel(event.data.startDate, event.data.endDate)}</span>
+    <span class="event-card__date">{dateLabel}</span>
     <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
   </div>
   <h3 class="event-card__name">
