@@ -3401,6 +3401,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   flex-wrap: wrap;
   gap: 0.45rem;
   margin-top: 1.2rem;
+  margin-bottom: 1.8rem;
 }
 .article__tag {
   font-family: 'Outfit', sans-serif;
