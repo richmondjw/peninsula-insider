@@ -1,0 +1,48 @@
+---
+/**
+ * WeekendPickerBlock  -  prominent \"Peninsula This Weekend\" dispatch block
+ * rendered at the top of the What's On index and the homepage.
+ *
+ * Pulls the newest published article with format=weekend-picker and
+ * showcases its dek + CTA, plus a simple cadence line to telegraph the
+ * Wednesday 6pm editorial rhythm.
+ */
+import { routeSlug } from '../lib/editorial';
+
+export interface Props {
+  dispatch: any;
+  weekend?: string;
+}
+
+const { dispatch, weekend } = Astro.props;
+const slug = routeSlug(dispatch);
+const pubDate = dispatch?.data?.publishedAt?.toLocaleDateString('en-AU', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<section class="weekend-picker" aria-label="Peninsula This Weekend">
+  <div class="container">
+    <div class="weekend-picker__inner">
+      <div class="weekend-picker__label-block">
+        <span class="label label--accent">Peninsula This Weekend</span>
+        <p class="weekend-picker__cadence">Published Wednesday 6pm · one pick, one backup, one thing to skip</p>
+      </div>
+      <div class="weekend-picker__content">
+        <p class="weekend-picker__kicker">
+          {weekend ?? 'This weekend'} · dispatch {pubDate}
+        </p>
+        <h2 class="weekend-picker__title">
+          <a href={`/journal/${slug}`}>{dispatch.data.title}</a>
+        </h2>
+        <p class="weekend-picker__dek">{dispatch.data.dek}</p>
+        <div class="weekend-picker__ctas">
+          <a href={`/journal/${slug}`} class="weekend-picker__cta">Read this week's dispatch →</a>
+          <a href="/whats-on" class="weekend-picker__cta weekend-picker__cta--ghost">All events →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

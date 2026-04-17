@@ -1,0 +1,36 @@
+{
+  "slotId": "place-cape-schanck-01",
+  "decisionVersion": 0,
+  "status": "implemented-pragmatic-approval",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/place-cape-schanck-01.json",
+  "selected": "place-cape-schanck-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "6000x4000 dawn landscape looking towards Pulpit Rock — the strongest Peninsula-verifiable landscape on Commons at editorial resolution. Unmistakably Cape Schanck. SA override required. Twinning note: if home-cover-01 also claims this image, this slot falls back to candidate B.",
+    "policyDependency": "CC-BY-SA acceptance",
+    "twinningNote": "home-cover-01 candidate A is the same image. Agent recommendation: give this to place-cape-schanck-01 (it's the most geographically specific match), and use Bushrangers Bay for home-cover-01."
+  },
+  "rejected": [
+    { "candidateId": "place-cape-schanck-01-b", "reason": "better-alternative", "note": "Wider coastline view, lower resolution and editorial weight." },
+    { "candidateId": "place-cape-schanck-01-c", "reason": "not-geo-verified", "note": "Botanical close-up — does not read as Cape Schanck without a caption." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy AND twinning resolution with home-cover-01.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
+    "downloadTo": "/next/public/images/sourced/place-cape-schanck-01.webp",
+    "contentFileUpdates": ["next/src/content/places/cape-schanck.json"],
+    "altText": "Dawn light across Pulpit Rock at Cape Schanck, Mornington Peninsula",
+    "credit": "Marshlung / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "Looking towards Pulpit Rock at dawn, Cape Schanck.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "implemented-pragmatic-approval"
+}

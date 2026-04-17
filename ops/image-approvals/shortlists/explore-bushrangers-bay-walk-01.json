@@ -1,0 +1,84 @@
+{
+  "slotId": "explore-bushrangers-bay-walk-01",
+  "createdAt": "2026-04-11T01:45:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/explore-bushrangers-bay-walk-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "Wikimedia Commons has 4-5 Bushrangers Bay images in the Mornington Peninsula National Park category. Key constraint: must not twin with home-cover-01 (which uses the Jerowa Two Bays Walking Track view, 4032x3024). Two distinct candidates survive twinning filter and editorial bar.",
+    "searchApproach": "Commons API — Category:Mornington_Peninsula_National_Park, filtered for Bushrangers Bay subject, verified licence per-image, cross-checked twinning register against home-cover-01 candidate C."
+  },
+  "candidates": [
+    {
+      "candidateId": "explore-bushrangers-bay-walk-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:)_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/%29_Bush_Rangers_Bay._The_Mornington_Peninsula_National_Park_Victoria_Australia.jpg",
+      "photographer": "Kevin Graham de Valle",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Own work. SA override required.",
+      "dimensions": "5184x3456",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "geoCoords": "-38.461, 144.905",
+      "place": "Bushrangers Bay — view from Cape Schanck looking back to the bay",
+      "dateTaken": "2017-01-25",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "RECOMMENDED. 5184x3456 — excellent resolution with full crop headroom. Shot from Cape Schanck looking BACK to Bushrangers Bay, showing the distinctive rock stacks and bay geometry. Completely distinct composition from home-cover-01 (which looks DOWN into the bay from the walking track). Summer morning light (January). SA licence flag. Strong editorial weight — the elevated angle gives the bay its recognisable shape."
+    },
+    {
+      "candidateId": "explore-bushrangers-bay-walk-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Bushrangers_bay.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Bushrangers_bay.jpg",
+      "photographer": "DenisFrolow",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Own work. SA override required.",
+      "dimensions": "4160x2336",
+      "orientation": "landscape",
+      "geoCoords": "-38.493, 144.916",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Bushrangers Bay — beach-level view",
+      "dateTaken": "2018-01-13",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Alternative. 4160x2336 — good resolution, naturally wider aspect (close to 16:9). Beach-level perspective showing the bay and basalt cliffs. Different angle from candidate A and from home-cover-01. January light. SA licence. Less editorial impact than candidate A because the beach-level angle is more 'postcard' — but still genuinely Bushrangers Bay."
+    }
+  ],
+  "twinningRegister": {
+    "home-cover-01": "Uses Jerowa Two Bays Walking Track view (File:Bushrangers_Bay,_Mornington_Peninsula_National_Park_Victoria_Australia.jpeg). Neither candidate A nor B here twins with that image.",
+    "explore-hub-hero-01": "Uses Cape Schanck walking trail as fallback per dry-run shortlist. Candidate A here is from Cape Schanck area but at a different angle and subject (the bay, not the trail)."
+  },
+  "generativeMetadata": { "applies": false },
+  "editorActionsRequested": [
+    {
+      "type": "sa-policy-dependency",
+      "question": "Both candidates are CC-BY-SA 4.0. Contingent on blanket SA policy acceptance."
+    }
+  ]
+}

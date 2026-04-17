@@ -1,0 +1,73 @@
+---
+/**
+ * Breadcrumbs — visible navigation + BreadcrumbList JSON-LD.
+ *
+ * Single source of truth for breadcrumbs on Peninsula Insider. Emits both:
+ *   1. Visible <nav> element (styled as before)
+ *   2. BreadcrumbList schema.org JSON-LD (for SERP rich results)
+ *
+ * Pages should not emit a separate BreadcrumbList JSON-LD — this component
+ * handles it. Pass the same `items` array you'd use for the visible nav.
+ *
+ * Each item:
+ *   - `label` — visible text + schema `name`
+ *   - `href`  — optional. Omit on the final (current) item. Relative paths are
+ *               resolved against SITE_URL; absolute URLs (http(s)://) pass through.
+ *               For the final item, if `href` is omitted, the current page URL
+ *               is used in the schema (visible rendering shows it as non-link text).
+ */
+
+export interface Crumb {
+  label: string;
+  href?: string;
+}
+
+export interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+
+const SITE_URL = 'https://peninsulainsider.com.au';
+
+// Derive current canonical URL for the final breadcrumb item when href is not supplied.
+const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
+const normalizedPath = rawPathname !== '/' ? rawPathname.replace(/\/$/, '') : rawPathname;
+const currentUrl = `${SITE_URL}${normalizedPath}`;
+
+function absolutize(href: string | undefined, fallback: string): string {
+  if (!href) return fallback;
+  if (href.startsWith('http://') || href.startsWith('https://')) return href;
+  if (href === '/') return SITE_URL;
+  return `${SITE_URL}${href.startsWith('/') ? href : '/' + href}`;
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: absolutize(item.href, currentUrl),
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="breadcrumbs__list">
+      {items.map((item, index) => (
+        <li class="breadcrumbs__item">
+          {item.href && index < items.length - 1 ? (
+            <a href={item.href}>{item.label}</a>
+          ) : (
+            <span aria-current={index === items.length - 1 ? 'page' : undefined}>{item.label}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>

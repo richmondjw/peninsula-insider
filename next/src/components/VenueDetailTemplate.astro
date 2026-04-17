@@ -1,0 +1,254 @@
+---
+import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../lib/editorial';
+import Breadcrumbs from './Breadcrumbs.astro';
+import NewsletterBlock from './NewsletterBlock.astro';
+import VenueCard from './VenueCard.astro';
+import ArticleCard from './ArticleCard.astro';
+import ItineraryCard from './ItineraryCard.astro';
+
+export interface Props {
+  venue: any;
+  section: 'eat' | 'stay' | 'wine';
+  related?: any[];
+  articles?: any[];
+  itineraries?: any[];
+}
+
+const { venue, section, related = [], articles = [], itineraries = [] } = Astro.props;
+const data = venue.data;
+const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
+const sectionHref = `/${section}`;
+const hats = data.authority?.hats ?? 0;
+const awards = data.authority?.awards ?? [];
+const pressMentions = data.authority?.pressMentions ?? [];
+const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
+const heroStyle = heroBackgroundStyle(data);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: sectionLabel, href: sectionHref },
+  { label: data.name },
+];
+
+const moodTags = data.tags?.mood ?? [];
+const seasonTags = data.tags?.season ?? [];
+const audienceTags = data.tags?.audience ?? [];
+const allTags = [...moodTags, ...seasonTags, ...audienceTags];
+---
+
+<Breadcrumbs items={breadcrumbItems} />
+
+<section class="venue-detail">
+  <div class="container">
+    <div class="venue-detail__meta">
+      <a href={sectionHref} class="venue-detail__type">{sectionLabel}</a>
+      <span class="venue-detail__dot" aria-hidden="true"></span>
+      <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
+      <span class="venue-detail__dot" aria-hidden="true"></span>
+      <a href={`/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
+      <span class="venue-detail__dot" aria-hidden="true"></span>
+      <span class="venue-detail__price-band">{data.priceBand}</span>
+    </div>
+
+    <h1 class="venue-detail__title">{data.name}</h1>
+    <p class="venue-detail__signature">{data.signature}</p>
+
+    {(data.bookingUrl || data.phone) && (
+      <div class="venue-detail__booking-bar">
+        {data.bookingUrl && (
+          <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-detail__book-btn">
+            {data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
+              ? 'Check availability'
+              : data.type === 'winery'
+                ? 'Book a tasting'
+                : 'Reserve a table'}
+          </a>
+        )}
+        {data.phone && (
+          <a href={`tel:${data.phone.replace(/\s/g, '')}`} class="venue-detail__phone-btn">
+            {data.phone}
+          </a>
+        )}
+      </div>
+    )}
+
+    <div class="venue-detail__hero" aria-hidden="true" style={heroStyle}>
+      <div class="venue-detail__hero-fog"></div>
+      <span class="venue-detail__hero-label">{heroLabel}</span>
+    </div>
+
+    <div class="venue-detail__grid">
+      <div>
+        <div class="prose">
+          {data.editorNote.split(/\n\n+/).map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+
+        {allTags.length > 0 && (
+          <div class="venue-detail__tags">
+            {allTags.map((tag: string) => (
+              <span class="venue-detail__tag">{titleize(tag)}</span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <aside class="facts">
+        <p class="facts__title">At a glance</p>
+        <dl>
+          <dt>Type</dt>
+          <dd>{typeLabel[data.type] ?? data.type}</dd>
+
+          <dt>Location</dt>
+          <dd>{data.address}</dd>
+
+          <dt>Spend</dt>
+          <dd>{data.priceBand}</dd>
+
+          {data.phone && (
+            <>
+              <dt>Call</dt>
+              <dd>{data.phone}</dd>
+            </>
+          )}
+
+          {hats > 0 && (
+            <>
+              <dt>Guide</dt>
+              <dd>{hats} Good Food Guide hat{hats > 1 ? 's' : ''}</dd>
+            </>
+          )}
+
+          {data.authority?.hallidayScore && (
+            <>
+              <dt>Halliday</dt>
+              <dd>{data.authority.hallidayScore} points</dd>
+            </>
+          )}
+
+          {awards.length > 0 && (
+            <>
+              <dt>Awards</dt>
+              <dd>{awards.join(' · ')}</dd>
+            </>
+          )}
+
+          {pressMentions.length > 0 && (
+            <>
+              <dt>Press</dt>
+              <dd>{pressMentions.join(' · ')}</dd>
+            </>
+          )}
+
+          {data.website && (
+            <>
+              <dt>Website</dt>
+              <dd><a href={data.website}>{data.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
+            </>
+          )}
+
+          {data.lastVerified && (
+            <>
+              <dt>Verified</dt>
+              <dd>{data.lastVerified.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}</dd>
+            </>
+          )}
+        </dl>
+
+        {data.bookingUrl && <a class="facts__cta" href={data.bookingUrl}>Book now</a>}
+        {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{articles.length > 0 && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">In the journal</p>
+          <h2 class="venues__title">Stories that mention {data.name}</h2>
+          <p class="venues__sub">These pieces give you the context a listing page never does  -  the when, the why, and the who-it's-for.</p>
+        </div>
+        <a href="/journal" class="venues__link">Journal →</a>
+      </div>
+      <div class="venues__grid">
+        {articles.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{itineraries.length > 0 && (
+  <section class="escape-callout">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Part of an escape</p>
+          <h2 class="venues__title">Weekend plans that already include {data.name}</h2>
+          <p class="venues__sub">Skip the planning  -  these itineraries sequence this venue into a proper Peninsula weekend.</p>
+        </div>
+        <a href="/escape" class="venues__link">All escapes →</a>
+      </div>
+      <div class="itinerary-grid">
+        {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{related.length > 0 && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Nearby picks</p>
+          <h2 class="venues__title">More from {placeLabel(data.place)}</h2>
+        </div>
+        <a href={sectionHref} class="venues__link">Back to {sectionLabel} →</a>
+      </div>
+      <div class="venues__grid">
+        {related.map((item) => <VenueCard venue={item} hrefPrefix={sectionHref} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{/* Contextual guide links — connect venue pages into the editorial mesh */}
+<section class="venues venues--plain">
+  <div class="container">
+    <div class="venues__header">
+      <div>
+        <p class="label label--accent">Plan around this</p>
+        <h2 class="venues__title">Guides that help you use {data.name} properly</h2>
+        <p class="venues__sub">Service pieces that put a single venue into the context of a whole weekend.</p>
+      </div>
+    </div>
+    <div class="venues__grid venues__grid--links">
+      <a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
+      {(section === 'eat') && (
+        <>
+          <a href="/journal/best-brunch-mornington-peninsula" class="venue-card__cta">Best Brunch Guide →</a>
+          <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Winery Tour Route →</a>
+        </>
+      )}
+      {(section === 'wine') && (
+        <>
+          <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Self-Drive Winery Tour →</a>
+          <a href="/eat/best-restaurants" class="venue-card__cta">Best Restaurants →</a>
+        </>
+      )}
+      {(section === 'stay') && (
+        <>
+          <a href="/journal/mornington-peninsula-in-winter" class="venue-card__cta">Winter Peninsula Guide →</a>
+          <a href="/journal/free-things-to-do-mornington-peninsula" class="venue-card__cta">Free Things to Do →</a>
+        </>
+      )}
+      <a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Hot Springs Guide →</a>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />

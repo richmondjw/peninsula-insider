@@ -1,0 +1,150 @@
+{
+  "slotId": "home-cover-01",
+  "createdAt": "2026-04-09T21:45:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/home-cover-01.md",
+  "dryRun": true,
+  "sourcingNotes": {
+    "poolAssessment": "Wikimedia Commons holds ~25 Peninsula-verifiable landscape files that surface on direct queries. Of those, most are CC-BY-SA (§4.1 flags as generally rejected — share-alike contamination risk on a commercial editorial surface). Only one CC-BY 4.0 candidate is specifically marked to Cape Schanck at dawn (Pulpit Rock, BobTanGo 2024), and its EXIF records camera model FC3582 — a DJI Mavic 3 drone body. Per this brief's hard-reject list, drone shots are out, which eliminates the cleanest-licence candidate. This leaves the shortlist with CC-BY-SA candidates that require explicit editor override on the home cover surface, OR a defer-to-Content-Hub decision. Both pathways are surfaced below.",
+    "hardBlocker": "The single most licence-clean Peninsula-verifiable landscape on Commons is BobTanGo's Pulpit Rock 2024 upload, which V1 currently uses. It is a DJI drone shot. The brief hard-rejects drone imagery. This is the first real editorial decision the workflow forces: either relax the drone rule for this one image, relax the SA rule for one of the hand-held alternatives, or defer home-cover-01 until Visit Victoria Content Hub access is live."
+  },
+  "candidates": [
+    {
+      "candidateId": "home-cover-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
+      "photographer": "Marshlung (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Sourcing report §4.1 flags SA as generally rejected on commercial editorial surfaces due to share-alike contamination. Editor override required before this candidate can be approved; the override applies only to the image and its specific derivative, not the surrounding page or site CSS.",
+      "dimensions": "6000x4000",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Cape Schanck — looking towards Pulpit Rock at dawn",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Hand-held ground-level dawn landscape looking along the basalt towards Pulpit Rock. Strong single focal point, warm early light, no drone provenance, no other figures in frame. Editorially the strongest Peninsula-verifiable landscape on Commons at the required size. Only failure is the SA licence — every other §6 rule passes. Primary candidate conditional on editor accepting SA on this single asset."
+    },
+    {
+      "candidateId": "home-cover-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/20/Cape_Schanck_walking_trail.jpg",
+      "photographer": "DenisFrolow (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Same SA-contamination flag as candidate A. Editor override required.",
+      "dimensions": "2592x1556",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Cape Schanck — walking trail approach",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": false,
+        "license": false
+      },
+      "sourcingAgentNote": "Walking-trail perspective, approach composition that fits the 'editorial cover' brief and would feed well into the Explore hub twinning later. Editorial weight is the soft fail — the composition is approach-grade, not cover-grade, and at 2592px wide it sits at the floor of the minimum 2400px requirement with no crop headroom. Secondary option if candidate A's SA override is accepted but A proves unsuitable in review. Not a recommended primary."
+    },
+    {
+      "candidateId": "home-cover-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Bushrangers_Bay,_Mornington_Peninsula_National_Park_Victoria_Australia.jpeg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Bushrangers_Bay%2C_Mornington_Peninsula_National_Park_Victoria_Australia.jpeg",
+      "photographer": "Wikimedia Commons contributor",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. Same SA-contamination flag. Editor override required.",
+      "dimensions": "4032x3024",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Bushrangers Bay — Two Bays walking track view",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Elevated track-view of the bay below; cool hinterland-to-coast geometry, a characteristic Peninsula-southern-coast frame. Editorially narrower than candidate A but much more specific about the 'approach' brand axis. Works as a cover if the editor wants the home hero to say 'walk to the sea' rather than 'stand at the cliff'. SA contamination same as A and B."
+    },
+    {
+      "candidateId": "home-cover-01-d-REJECTED-PROPOSAL",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Pulpit_Rock_at_Cape_Schanck._April_2024.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Pulpit_Rock_at_Cape_Schanck._April_2024.jpg",
+      "photographer": "BobTanGo (Wikimedia user)",
+      "license": "CC-BY-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY 4.0 — the only clean-licence non-SA Peninsula landscape found on Commons at editorial resolution.",
+      "dimensions": "4032x3024",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Cape Schanck — Pulpit Rock from above",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": false,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": false,
+        "editorialWeight": true,
+        "license": true
+      },
+      "sourcingAgentNote": "SOURCING-AGENT-PRE-REJECT. This is the image currently used on the V1 homepage. EXIF examination of the Commons file confirms: camera manufacturer DJI, camera model FC3582 (a Mavic 3 drone body), focal length 6.72mm, f/1.7, ISO 130, exposure 1/3200s — definitively an aerial drone photograph. The home-cover-01 brief explicitly hard-rejects drone shots (§voice and §cliche). I am carrying this candidate in the shortlist as an identified-and-rejected entry so the editor sees I found the cleanest-licence option, understood why it fails this brief, and did not silently pass it through. This entry is not a recommendation. It exists so the rejection is auditable and so the editor can confirm or revoke the drone-shot hard-reject rule at the workflow level (which would re-open a lot of the Commons pool)."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "licence-policy-override",
+      "question": "Accept CC-BY-SA for home-cover-01 only, on the basis that the SA obligation attaches to the image file and its direct derivatives, not to surrounding page code?",
+      "defaultIfNoReply": "Defer home-cover-01 to Visit Victoria Content Hub unlock."
+    },
+    {
+      "type": "drone-policy-confirm",
+      "question": "Confirm that drone shots remain a hard reject for home-cover-01, which keeps the BobTanGo Pulpit Rock image out even though it is the cleanest-licence Peninsula landscape available?",
+      "defaultIfNoReply": "Drone reject stands."
+    },
+    {
+      "type": "defer-option",
+      "question": "Or: defer home-cover-01 to Phase 2 entirely, leave the fog-gradient placeholder in place, and spend the Tier A budget on the hub heroes instead?",
+      "defaultIfNoReply": "Not deferred."
+    }
+  ]
+}

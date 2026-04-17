@@ -1,0 +1,37 @@
+{
+  "slotId": "home-cover-01",
+  "decisionVersion": 0,
+  "status": "implemented-pragmatic-approval",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/home-cover-01.json",
+  "selected": "home-cover-01-c",
+  "agentRecommendation": {
+    "confidence": "medium",
+    "reasoning": "After twinning resolution: candidate A (Pulpit Rock dawn) is recommended for place-cape-schanck-01 as the more geographically specific match. That leaves candidate C (Bushrangers Bay track view) as the strongest remaining option for home cover. 4032x3024, Peninsula-verifiable via Mornington Peninsula National Park. SA override required. The hinterland-to-coast geometry works for 'the Mornington Peninsula as a place'. Alternative: if editor prefers, give candidate A to home cover and shift Cape Schanck place page to candidate B.",
+    "policyDependency": "CC-BY-SA acceptance",
+    "alternativeRecommendation": "Select home-cover-01-a (Pulpit Rock dawn) and shift place-cape-schanck-01 to candidate B"
+  },
+  "rejected": [
+    { "candidateId": "home-cover-01-a", "reason": "defer", "note": "Recommended for place-cape-schanck-01 instead — anti-twinning. Can be reassigned here if editor prefers." },
+    { "candidateId": "home-cover-01-b", "reason": "weak-as-feature", "note": "2592px barely clears minimum, no crop headroom. Approach-grade, not cover-grade." },
+    { "candidateId": "home-cover-01-d-REJECTED-PROPOSAL", "reason": "ban-list", "note": "DJI drone shot — hard-rejected per brief." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy. IMPORTANT: Editor must also resolve twinning — does Pulpit Rock dawn go to home cover or Cape Schanck place page?",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Bushrangers_Bay%2C_Mornington_Peninsula_National_Park_Victoria_Australia.jpeg",
+    "downloadTo": "/next/public/images/sourced/home-cover.webp",
+    "contentFileUpdates": [],
+    "altText": "Bushrangers Bay from the Two Bays walking track, Mornington Peninsula",
+    "credit": "Wikimedia Commons contributor (CC-BY-SA-4.0)",
+    "caption": "The view down to Bushrangers Bay from the walking track.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "implemented-pragmatic-approval"
+}

@@ -1,0 +1,144 @@
+{
+  "slotId": "place-point-nepean-01",
+  "createdAt": "2026-04-10T02:25:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/place-point-nepean-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "Point Nepean has an exceptionally strong pool on Commons, anchored by a November 2025 upload batch from Philip Mallis (via Flickr). Multiple high-resolution landscape images (6960x4640 and 4080x3072) are available. All are CC-BY-SA 4.0 from Flickr via FlickreviewR 2. Philip Mallis is a well-known Melbourne-based transport/urban photographer whose Flickr work is consistently reviewed. The 2025 date makes these the freshest Peninsula images on Commons."
+  },
+  "candidates": [
+    {
+      "candidateId": "place-point-nepean-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+      "photographer": "Philip Mallis",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 via Flickr. FlickreviewR 2 verified. SA contamination flag applies.",
+      "dimensions": "6960x4640",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Point Nepean — looking out towards waves near Cheviot Hill",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "RECOMMENDED PRIMARY. 6960x4640 — the highest-resolution Point Nepean landscape on Commons. GPS-tagged to Cheviot Hill coordinates. Looking out towards the waves from the elevated path near Cheviot Hill — this is exactly the 'geography, not just a military building' composition the brief asks for. Shows the tip-of-the-peninsula geography with water visible. Taken September 2025 (Australian spring, recent). Philip Mallis is an established Melbourne photographer; the image is Flickr-reviewed. SA licence is the only failure."
+    },
+    {
+      "candidateId": "place-point-nepean-01-b",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Light_on_the_sand_dunes_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Light_on_the_sand_dunes_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+      "photographer": "Philip Mallis",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 via Flickr. FlickreviewR 2 verified.",
+      "dimensions": "6884x4589",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Point Nepean — sand dunes near Defence Road",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "6884x4589 — second highest resolution. 'Light on the sand dunes' is exactly the kind of editorial landscape that carries Place geography. The dune grass and coastal scrub are distinctively Point Nepean. Also Sep 2025, Philip Mallis. Strong alternative if candidate A is too wave-focused for the editor. SA licence flag same as A."
+    },
+    {
+      "candidateId": "place-point-nepean-01-c",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_west_from_hilltop_along_Defence_Road_towards_Point_Nepean,_The_Rip_and_Point_Lonsdale_in_Portsea,_Victoria.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Looking_west_from_hilltop_along_Defence_Road_towards_Point_Nepean%2C_The_Rip_and_Point_Lonsdale_in_Portsea%2C_Victoria.jpg",
+      "photographer": "Philip Mallis",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 via Flickr. FlickreviewR 2 verified.",
+      "dimensions": "4080x3072",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Point Nepean — hilltop looking west towards The Rip and Point Lonsdale",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "The most 'tip of the Peninsula' composition — looking west towards The Rip with Point Lonsdale visible. Shows the unique geography of water on both sides. GPS-tagged. 4080x3072 is lower resolution than A and B but still comfortably above the 2400px hero floor. This image makes the strongest geographic argument for Point Nepean's significance as a place. SA licence flag applies."
+    },
+    {
+      "candidateId": "place-point-nepean-01-d",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Defence_Road_looking_east_towards_Cheviot_Beach_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Defence_Road_looking_east_towards_Cheviot_Beach_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+      "photographer": "Philip Mallis",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0 via Flickr. FlickreviewR 2 verified.",
+      "dimensions": "3901x2937",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Point Nepean — Defence Road looking east towards Cheviot Beach",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Defence Road perspective looking toward Cheviot Beach. The track/road composition invites the reader to walk the path, fitting the 'explore' axis. 3901x2937 is the smallest candidate but still clears minimum. SA licence. Useful as a twinning-resolution asset — if A or B is used here, this could feed explore-point-nepean-fort-walk-01 in Week 3 without duplicate."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "licence-policy-override",
+      "question": "All four candidates are CC-BY-SA 4.0. If the SA policy is resolved in favour of acceptance, this is the richest shortlist in the pipeline — four distinct editorial compositions from a single high-quality photographer, all GPS-tagged, all 2025-fresh. If SA is rejected, all four defer.",
+      "defaultIfNoReply": "Defer to SA policy resolution."
+    },
+    {
+      "type": "twinning-decision",
+      "question": "Point Nepean has the deepest candidate pool. Recommend reserving candidate D for explore-point-nepean-fort-walk-01 (Week 3, slot 38) to avoid twinning. Confirm the editor prefers candidates A or C for the place hero.",
+      "defaultIfNoReply": "A is primary; D reserved for Week 3."
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHero from '../components/SectionHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { routeSlug } from '../lib/editorial';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Newsletter' },
+];
+
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// Pull 2–3 recent weekend picker dispatches to show what the newsletter looks like.
+const dispatches = articles.filter((a) => a.data.format === 'weekend-picker').slice(0, 3);
+// Then pull 3 recent non-dispatch pieces as "recent highlights".
+const highlights = articles
+  .filter((a) => a.data.format !== 'weekend-picker')
+  .slice(0, 3);
+
+const previewPieces = dispatches.length > 0 ? dispatches : highlights;
+---
+
+<BaseLayout
+  title="Newsletter  -  Peninsula Insider"
+  description="Subscribe to The Insider's Dispatch: weekly Peninsula coverage with honest picks, new openings, and the cellar doors worth knowing."
+  section="home"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Newsletter"
+    subEyebrow="The Insider's Dispatch"
+    title="The Peninsula in your inbox, every <em>week.</em>"
+    dek="New openings, cellar door dispatches, and the places we're quietly recommending this season. Written by editors who live here  -  never by advertisers."
+    gradient="journal"
+    heroImage="/images/sourced/article-sunset-01.webp"
+    visualLabel="Weekly · independent · subscriber-only picks"
+  />
+
+  <!-- Signup block -->
+  <section class="newsletter-signup">
+    <div class="container">
+      <div class="newsletter-signup__inner">
+        <div class="newsletter-signup__pitch">
+          <h2 class="newsletter-signup__title">What you'll get</h2>
+          <ul class="newsletter-signup__list">
+            <li>
+              <strong>Weekly dispatch</strong>  -  one curated email every week with the openings, closures, and stories that matter.
+            </li>
+            <li>
+              <strong>Weekend Picker</strong>  -  our Wednesday 6pm Peninsula This Weekend note: one opinionated pick, one weather-proof backup, one thing to skip.
+            </li>
+            <li>
+              <strong>Subscriber-only notes</strong>  -  short editorial observations we don't publish on the site. The things we'd text a friend.
+            </li>
+            <li>
+              <strong>Early access</strong>  -  new guides and long-form pieces land in the newsletter before they hit the site.
+            </li>
+          </ul>
+        </div>
+
+        <div class="newsletter-signup__form-block">
+          <div class="newsletter__embed-wrap newsletter__embed-wrap--standalone" aria-label="Email signup">
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
+              class="newsletter__embed beehiiv-embed"
+              data-test-id="beehiiv-embed"
+              frameborder="0"
+              scrolling="no"
+              title="Subscribe to The Insider's Dispatch"
+            ></iframe>
+            <p class="newsletter__disclaimer">
+              No spam. Unsubscribe any time. We never share your email  -  read our <a href="/privacy">privacy&nbsp;policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof / what the newsletter looks like -->
+  <section class="newsletter-proof">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">What it sounds like</p>
+          <h2 class="split-intro__title">Written like a good recommendation from someone who lives here</h2>
+        </div>
+        <p class="split-intro__body">Every issue has a voice. We don't write round-ups that read like tourism copy  -  we write the email we'd want to receive on a Wednesday evening when we're thinking about the weekend.</p>
+      </div>
+      <div class="newsletter-proof__promises">
+        <article class="about-principle">
+          <h3 class="about-principle__title">No advertising</h3>
+          <p class="about-principle__body">The newsletter is funded by the site, not by venue placements. Every mention is earned.</p>
+        </article>
+        <article class="about-principle">
+          <h3 class="about-principle__title">No click-bait subjects</h3>
+          <p class="about-principle__body">Subject lines tell you what's inside. If the newsletter is about three cellar doors worth the appointment, the subject says so.</p>
+        </article>
+        <article class="about-principle">
+          <h3 class="about-principle__title">Weekly, not daily</h3>
+          <p class="about-principle__body">We write when we have something to say. One curated dispatch every week. We write when we have something to say.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent pieces that represent newsletter quality -->
+  {previewPieces.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Recent from the site</p>
+            <h2 class="venues__title">The kind of writing subscribers receive first</h2>
+            <p class="venues__sub">These pieces mirror the editorial voice of the newsletter  -  service-first, opinionated, and built around real decisions.</p>
+          </div>
+          <a href="/journal" class="venues__link">More in the Journal →</a>
+        </div>
+        <div class="venues__grid">
+          {previewPieces.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Final CTA -->
+  <section class="newsletter" id="newsletter" aria-label="Newsletter signup  -  bottom">
+    <div class="container">
+      <div class="newsletter__inner">
+        <div>
+          <p class="newsletter__label">One more time</p>
+          <h2 class="newsletter__title">Join the list. Skip the noise.</h2>
+          <p class="newsletter__body">If you visit the Peninsula  -  or just think about it  -  this is the one email worth opening.</p>
+        </div>
+        <div>
+          <div class="newsletter__embed-wrap" aria-label="Email signup  -  repeated">
+            <iframe
+              src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
+              class="newsletter__embed beehiiv-embed"
+              data-test-id="beehiiv-embed"
+              frameborder="0"
+              scrolling="no"
+              title="Subscribe to The Insider's Dispatch"
+            ></iframe>
+            <p class="newsletter__disclaimer">
+              Weekly dispatch every Wednesday. <a href="/privacy">Privacy&nbsp;policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const golfArticles = allArticles
+  .filter((a) => a.data.tags?.includes('golf'))
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Golf' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best golf course on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "St Andrews Beach Golf Course is the strongest public-access course on the Peninsula — a Tom Doak-designed links course with genuine world top-100 recognition and online bookings. For private club prestige, The National Golf Club is Australia's best 54-hole property. For a weekend-shape round, St Andrews Beach, The Dunes, and Moonah Links form the serious public shortlist.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you play golf on the Mornington Peninsula without a club membership?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — the Peninsula is one of the few Australian regions where world-class golf is genuinely public-access. St Andrews Beach, The Dunes, Moonah Links, Rosebud Country Club, and Eagle Ridge are all bookable without a member connection. Most allow online booking directly through the course website. Book 3–4 weeks ahead for weekends.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How far is Mornington Peninsula golf from Melbourne?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most Peninsula golf courses are 75–105 minutes from Melbourne CBD via the Mornington Peninsula Freeway. St Andrews Beach (Fingal) and The Dunes (Rye) are at the southern tip — approximately 90–100 minutes. Moonah Links (Fingal) and Rosebud Country Club are slightly closer at 75–90 minutes. Mornington Golf Club is the closest at 60 minutes.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best time of year for golf on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Autumn (March–May) and spring (September–November) are the best seasons — stable weather, firm course conditions, and shoulder-season pricing. Summer (December–February) is busy and can be windy at coastal courses. Winter is playable on dry days but expect some course closures after heavy rain. Links-style courses like St Andrews Beach drain faster and often stay open when inland courses close.',
+      },
+    },
+  ],
+};
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Best Golf Courses Mornington Peninsula',
+  description: 'The complete guide to golf on the Mornington Peninsula, from world-ranked public-access courses to private heavyweights.',
+  url: 'https://peninsulainsider.com.au/golf',
+  about: {
+    '@type': 'Thing',
+    name: 'Mornington Peninsula golf courses',
+  },
+};
+---
+
+<BaseLayout
+  title="Best Golf Courses Mornington Peninsula · Peninsula Insider"
+  description="The best golf courses on the Mornington Peninsula — St Andrews Beach (world top 100), Moonah Links, The National, The Dunes, Cape Schanck. Tier-ranked public and private courses, green fees guidance, and weekend planning. Updated 2026."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/golf"
+  ogImage="/images/sourced/golf-rye-sunrise-01.webp"
+  modifiedTime="2026-04-14"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="section-hero">
+    <div class="container">
+      <div class="section-hero__inner">
+        <div class="section-hero__content">
+          <p class="label label--accent">Golf</p>
+          <h1 class="section-hero__title">The Best Golf Courses on the Mornington Peninsula</h1>
+          <p class="section-hero__dek">World-ranked public access. Serious course architecture. Hot springs within fifteen minutes. Australia's best golf destination for a weekend that still works for non-golfers.</p>
+        </div>
+        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/golf-rye-sunrise-01.webp); background-size: cover; background-position: center;">
+          <div class="section-hero__visual-fog"></div>
+          <span class="section-hero__visual-label">Golf · Coastal Links Country</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {golfArticles.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Start here</p>
+            <h2 class="venues__title">Three pieces that explain Peninsula golf</h2>
+            <p class="venues__sub">The category essay, the tier guide, and the lead public-access course profile.</p>
+          </div>
+          <a href="/journal" class="venues__link">All journal pieces →</a>
+        </div>
+        <div class="venues__grid">
+          {golfArticles.slice(0, 3).map((article) => (
+            <article class="venue-card">
+              <div class="venue-card__top">
+                <span class="venue-card__type">Golf</span>
+                <span class="venue-card__price">{article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : ''}</span>
+              </div>
+              <h3 class="venue-card__name">
+                <a href={`/journal/${article.slug}`}>{article.data.title}</a>
+              </h3>
+              <p class="venue-card__signature">{article.data.dek}</p>
+              <a href={`/journal/${article.slug}`} class="venue-card__cta">Read the piece →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="editorial-promise">
+    <div class="container">
+      <div class="editorial-promise__inner">
+        <div>
+          <p class="label label--accent">Peninsula Insider approach to golf</p>
+          <h2 class="editorial-promise__title">Honest, locally literate, useful</h2>
+        </div>
+        <div>
+          <p>Not every respected course on the Peninsula is equally useful to a visitor. This guide tells you which rounds are worth building a weekend around, which carry more aspiration than access, and how golf fits into a Peninsula trip that still works for the rest of the group.</p>
+          <p>Green fees change. Access rules shift. We do not publish fee figures without live verification. Check direct before booking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Go deeper</p>
+          <h2 class="venues__title">Build the golf weekend</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/mornington-peninsula-itinerary">3-Day Peninsula Itinerary</a></h3>
+          <p class="venue-card__signature">Where golf fits in a broader weekend — day-by-day plan with cellar doors, walks, and restaurants.</p>
+          <a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/mornington-peninsula-hot-springs-guide">Hot Springs Guide</a></h3>
+          <p class="venue-card__signature">The perfect post-round recovery. Peninsula Hot Springs or Alba Thermal Springs — when to go, which session.</p>
+          <a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/stay/best-accommodation">Where to Stay</a></h3>
+          <p class="venue-card__signature">Accommodation within 20 minutes of St Andrews Beach and Moonah Links — the southern Peninsula stays.</p>
+          <a href="/stay/best-accommodation" class="venue-card__cta">Read the guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    title="Golf weekends, cellar doors, and what's worth your time"
+    body="Peninsula Insider dispatches every Wednesday. One pick, one backup, one honest opinion."
+  />
+</BaseLayout>

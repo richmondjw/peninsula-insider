@@ -1,0 +1,43 @@
+{
+  "slotId": "explore-cape-schanck-boardwalk-01",
+  "decisionVersion": 0,
+  "status": "implemented-pragmatic-approval",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/explore-cape-schanck-boardwalk-01.json",
+  "selected": "explore-cape-schanck-boardwalk-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "The ONLY Commons image specifically categorised as a Cape Schanck boardwalk ('Boardwalks in Victoria, Australia' category). 4608x3456 — strong resolution. Shows the trail infrastructure that the brief specifically requires. Taken May 2016 (autumn) — perfect seasonal match for the Peninsula Insider editorial tone. Distinct from place-cape-schanck-01 (Pulpit Rock dawn) and from explore-hub-hero-01. SA override required.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [
+    {
+      "candidateId": "explore-cape-schanck-boardwalk-01-b",
+      "reason": "weaker-brief-match",
+      "note": "Shows the view but not the boardwalk infrastructure."
+    },
+    {
+      "candidateId": "explore-cape-schanck-boardwalk-01-c",
+      "reason": "weakest-brief-match",
+      "note": "General coastline — doesn't show the walk at all. Backup only."
+    }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy. Week 3 slot advanced to this sprint.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cape_Schanck_Upper_Trail_View.jpg",
+    "downloadTo": "/next/public/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+    "contentFileUpdates": ["next/src/content/experiences/cape-schanck-boardwalk.json"],
+    "altText": "The upper trail and boardwalk at Cape Schanck, looking towards the southernmost tip of the Mornington Peninsula",
+    "credit": "Danilo Ramirez / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "The boardwalk at Cape Schanck.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "implemented-pragmatic-approval"
+}

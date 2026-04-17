@@ -1,0 +1,48 @@
+{
+  "slotId": "explore-sorrento-back-beach-01",
+  "createdAt": "2026-04-10T22:45:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/explore-sorrento-back-beach-01.md",
+  "status": "shortlisted",
+  "sourcingNotes": {
+    "poolAssessment": "Reserved candidate from place-sorrento-01 shortlist (candidate B). Sorrento Back Beach rock pools at 5637x3855, CC-BY-SA. The place-sorrento-01 hero uses the CC0 morning coastal scene, so this back beach image is free for the experience page. Anti-twinning preserved."
+  },
+  "candidates": [
+    {
+      "candidateId": "explore-sorrento-back-beach-01-a",
+      "source": "wikimedia-commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Sorrento_back_beach.jpg",
+      "directUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Sorrento_back_beach.jpg",
+      "photographer": "Peterdownunder (Wikimedia user)",
+      "license": "CC-BY-SA-4.0",
+      "licenseVerified": true,
+      "licenseNotes": "CC-BY-SA 4.0. SA override required.",
+      "dimensions": "5637x3855",
+      "orientation": "landscape",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Sorrento Back Beach — rock pools and ocean beach",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": false
+      },
+      "sourcingAgentNote": "Highest-resolution Sorrento candidate at 5637px. Shows distinctive back beach with rock pools — unmistakably Sorrento. Taken Nov 2019. Editorially strong. Distinct from place-sorrento-01 selected candidate (CC0 morning coastal scene). SA licence flag."
+    }
+  ],
+  "generativeMetadata": { "applies": false },
+  "editorActionsRequested": [
+    {
+      "type": "single-candidate-flag",
+      "question": "Single candidate but high quality and no twinning conflict.",
+      "defaultIfNoReply": "Approve candidate A."
+    }
+  ]
+}

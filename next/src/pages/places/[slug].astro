@@ -1,0 +1,271 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
+import { routeSlug, stayTypes, wineTypes } from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const places = await getCollection('places');
+  return places.map((place) => ({
+    params: { slug: routeSlug(place) },
+    props: { place },
+  }));
+}
+
+const { place } = Astro.props;
+const allVenues = await getCollection('venues');
+const places = await getCollection('places');
+const allExperiences = await getCollection('experiences');
+const allItineraries = await getCollection('itineraries');
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+
+const placeSlug = routeSlug(place);
+const placeNameLower = place.data.name.toLowerCase();
+
+const venuesForPlace = allVenues
+  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug);
+const venueSlugs = venuesForPlace.map((venue) => routeSlug(venue));
+const experiences = allExperiences
+  .filter((experience) => String(experience.data.place?.id ?? experience.data.place) === placeSlug);
+const experienceSlugs = experiences.map((experience) => routeSlug(experience));
+
+// Split venues by category so place hubs stop behaving like a flat list.
+const eatVenues = venuesForPlace
+  .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type))
+  .slice(0, 6);
+const wineVenues = venuesForPlace
+  .filter((venue) => wineTypes.includes(venue.data.type))
+  .slice(0, 6);
+const stayVenues = venuesForPlace
+  .filter((venue) => stayTypes.includes(venue.data.type))
+  .slice(0, 4);
+
+const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
+const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));
+
+const itineraries = allItineraries
+  .filter((itinerary) =>
+    itinerary.data.stops.some(
+      (stop) =>
+        venueSlugs.includes(String(stop.venue?.id ?? stop.venue ?? '')) ||
+        experienceSlugs.includes(String(stop.experience?.id ?? stop.experience ?? '')),
+    ),
+  )
+  .slice(0, 3);
+
+// Richer article matching: tags OR direct venue/experience refs OR place name in title/tags.
+const articles = allArticles
+  .filter(
+    (article) =>
+      article.data.tags.includes(placeSlug) ||
+      article.data.tags.some((tag) => tag === placeNameLower) ||
+      article.data.relatedVenues.some((entry) => venueSlugs.includes(String(entry.id ?? entry))) ||
+      article.data.relatedExperiences.some((entry) => experienceSlugs.includes(String(entry.id ?? entry))) ||
+      article.data.title.toLowerCase().includes(placeNameLower),
+  )
+  .slice(0, 4);
+
+const snapshotCards = [
+  {
+    label: 'Eat & drink',
+    title:
+      eatVenues.length > 0
+        ? `${venuesForPlace.filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type)).length} dining picks mapped`
+        : 'Dining coverage coming',
+    body: eatVenues.length > 0
+      ? 'Restaurants, cafés, bakeries, and pubs already connected to the place layer — each with its own editor note.'
+      : 'This hub will add dining picks as the rebuild continues filling in the venue layer.',
+  },
+  {
+    label: 'Wine & producers',
+    title:
+      wineVenues.length > 0
+        ? `${venuesForPlace.filter((venue) => wineTypes.includes(venue.data.type)).length} cellar doors & makers`
+        : 'Wine coverage coming',
+    body: wineVenues.length > 0
+      ? 'Wineries, producers, and distillers worth working into the day. The place hub anchors them into real geography.'
+      : 'The wine layer is still being mapped for this hub — expect producers as the rebuild progresses.',
+  },
+  {
+    label: 'Stay',
+    title:
+      stayVenues.length > 0
+        ? `${venuesForPlace.filter((venue) => stayTypes.includes(venue.data.type)).length} stays in the hub`
+        : 'Stays coming',
+    body: stayVenues.length > 0
+      ? 'When a place has a workable bed attached, it stops being a stop and starts becoming a base.'
+      : 'Stay coverage will appear here as rooms, villas, and cottages are added.',
+  },
+  {
+    label: 'Explore',
+    title:
+      experiences.length > 0
+        ? `${experiences.length} nearby experience${experiences.length === 1 ? '' : 's'}`
+        : 'Explore coverage coming',
+    body: experiences.length > 0
+      ? 'Walks, lookouts, beaches, and market moves are connected into the place layer rather than floating off on their own.'
+      : 'Explore entries will connect into this hub as the experiences layer is expanded.',
+  },
+];
+
+const canonical = `https://peninsulainsider.com.au/places/${placeSlug}`;
+const ogImage = place.data.heroImage?.src && !place.data.heroImage.src.includes('placeholder')
+  ? place.data.heroImage.src
+  : `/images/sourced/place-${placeSlug}-01.webp`;
+
+// --- SEO: Per-town title overrides and meta descriptions ---
+const titleOverrides: Record<string, string> = {
+  'sorrento': `Sorrento Mornington Peninsula 2026 — Where to Eat, Stay & Swim | Peninsula Insider`,
+  'red-hill': `Red Hill Mornington Peninsula 2026 — Best Wineries & Restaurants | Peninsula Insider`,
+  'flinders': `Flinders Mornington Peninsula 2026 — Guide to the Ocean Village | Peninsula Insider`,
+  'mornington': `Mornington Town Guide 2026 — Restaurants, Markets & Beaches | Peninsula Insider`,
+  'rye': `Rye Mornington Peninsula 2026 — Beaches, Hot Springs & Brewery Guide | Peninsula Insider`,
+  'portsea': `Portsea Guide 2026 — Beaches, Dining & the Tip of the Peninsula | Peninsula Insider`,
+  'main-ridge': `Main Ridge Guide 2026 — Cellar Doors, Producers & the Plateau | Peninsula Insider`,
+  'dromana': `Dromana Guide 2026 — Gateway to the Peninsula & Arthur's Seat | Peninsula Insider`,
+  'mount-martha': `Mount Martha Guide 2026 — Beaches, Walks & Bayside Living | Peninsula Insider`,
+  'cape-schanck': `Cape Schanck Guide 2026 — Walks, Lighthouse & Wild Coast | Peninsula Insider`,
+  'balnarring': `Balnarring Guide 2026 — Market, Beaches & Hinterland Quiet | Peninsula Insider`,
+  'merricks': `Merricks Guide 2026 — Wineries, General Store & Village Pace | Peninsula Insider`,
+  'point-nepean': `Point Nepean Guide 2026 — Fort Walk, National Park & History | Peninsula Insider`,
+};
+const descOverrides: Record<string, string> = {
+  'sorrento': 'The insider guide to Sorrento on the Mornington Peninsula — best restaurants, ocean baths, where to stay, and why off-season Sorrento is a revelation. Updated 2026.',
+  'red-hill': 'The insider guide to Red Hill on the Mornington Peninsula — best cellar doors, vineyard restaurants, where to stay on the plateau, and the Saturday market. Updated 2026.',
+  'flinders': 'The insider guide to Flinders on the Mornington Peninsula — ocean coast walks, the bakery, the pub, and why this quiet village draws the weekend-escape crowd. Updated 2026.',
+  'mornington': 'The insider guide to Mornington town — Wednesday market, foreshore bathing boxes, best restaurants on Main Street, and the most practical Peninsula base. Updated 2026.',
+  'rye': 'The insider guide to Rye on the Mornington Peninsula — front beach and back beach, Peninsula Hot Springs, the brewery precinct, and the best family base. Updated 2026.',
+  'portsea': 'The insider guide to Portsea — ocean back beach, the Portsea pub, Point Nepean access, and the quieter, more private end of the Peninsula. Updated 2026.',
+  'main-ridge': 'The insider guide to Main Ridge — cellar doors, cool-climate producers, the quiet plateau heart of the Peninsula wine region. Updated 2026.',
+  'dromana': 'The insider guide to Dromana — Arthur\'s Seat Eagle, gateway to the Peninsula, and the bayside strip between Melbourne and the ridge. Updated 2026.',
+  'mount-martha': 'The insider guide to Mount Martha — bayside beaches, the Briars, walking trails, and the Peninsula\'s most liveable residential town. Updated 2026.',
+  'cape-schanck': 'The insider guide to Cape Schanck — Bushrangers Bay walk, the lighthouse, wild Southern Ocean coast, and the best dramatic scenery on the Peninsula. Updated 2026.',
+  'balnarring': 'The insider guide to Balnarring — the monthly Balnarring Farmers\' Market, quiet beaches, and a hinterland pocket away from the tourist trail. Updated 2026.',
+  'merricks': 'The insider guide to Merricks — wineries, Merricks General Wine Store, beach access, and the laid-back village pace the Peninsula does well. Updated 2026.',
+  'point-nepean': 'The insider guide to Point Nepean — the fort walk, national park, quarantine station history, and the tip of the Mornington Peninsula. Updated 2026.',
+};
+const pageTitle = titleOverrides[placeSlug] ?? `${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`;
+
+// Truncate intro to ~155 chars for description (unless we have a handcrafted override)
+const description = descOverrides[placeSlug] ?? (
+  place.data.intro.length > 155
+    ? place.data.intro.slice(0, 152) + '...'
+    : place.data.intro
+);
+
+// --- SEO: Per-town FAQ schema ---
+const townFaqs: Record<string, Array<{q: string; a: string}>> = {
+  'sorrento': [
+    { q: 'What is Sorrento known for on the Mornington Peninsula?', a: 'Sorrento is the social heart of the Peninsula — limestone cliffs, ocean swimming, the ferry to Queenscliff, and a main street that has evolved into one of the region\'s strongest dining strips. The ocean baths at the back beach are carved from rock and free to use at low tide. Summer is busy and expensive; off-season Sorrento is quieter, cheaper, and arguably better.' },
+    { q: 'Where should I eat in Sorrento?', a: 'The Continental Sorrento anchors the main street dining scene. For casual eating, the Sorrento fish and chip shops at the pier are an institution, and the bakeries on Ocean Beach Road do strong morning trade. Book ahead for weekend dinners in summer — the town fills from Friday lunch.' },
+    { q: 'Is Sorrento worth visiting in winter?', a: 'Yes — arguably more than summer. The restaurants operate at their best without the crush, accommodation prices drop significantly, the back beach walks are dramatic in winter light, and the ocean baths still work if you are game for it. Winter weekends in Sorrento are an underrated Peninsula move.' },
+  ],
+  'red-hill': [
+    { q: 'What is Red Hill known for on the Mornington Peninsula?', a: 'Red Hill is the wine and dining capital of the Peninsula — a basalt plateau home to the highest concentration of cellar doors and hatted restaurants in the region. Ten Minutes by Tractor, Montalto, and Crittenden Estate are all here. The Saturday market (first Saturday of the month) is one of Victoria\'s best regional markets.' },
+    { q: 'What are the best wineries in Red Hill?', a: 'Ten Minutes by Tractor for benchmark Pinot Noir, Montalto for the complete estate experience (wine, food, sculpture), Crittenden Estate for the family legacy, Main Ridge Estate for one of Australia\'s original cool-climate producers, and Polperro for casual cellar door atmosphere. The plateau rewards visiting two or three in an afternoon rather than rushing five.' },
+    { q: 'Should I stay in Red Hill or Sorrento?', a: 'Red Hill for a wine-country weekend — cellar doors are walkable from many stays and lunch is the main event. Sorrento for a coastal village weekend with ocean swimming and main-street energy. They are 20 minutes apart, so both areas are accessible from either base.' },
+  ],
+  'flinders': [
+    { q: 'Is Flinders worth visiting on the Mornington Peninsula?', a: 'Yes — if you want the quieter, wilder side of the Peninsula. Flinders sits on the ocean coast facing Bass Strait, away from the manicured bay-side villages. The general store, the pub, and the bakery are all genuinely good. The Flinders foreshore walk and nearby Cape Schanck are standout coastal experiences.' },
+    { q: 'What is there to do in Flinders?', a: 'Walk the foreshore and pier, eat at the general store or the hotel pub, drive to Cape Schanck for the boardwalk and lighthouse, visit Montalto or Red Hill Cheese on the plateau nearby, and swim at Shoreham or West Head beach. Flinders is a slow-down destination — the value is in doing less, not more.' },
+    { q: 'How far is Flinders from Melbourne?', a: 'Flinders is about 100 km from Melbourne CBD, approximately 90 minutes via the Mornington Peninsula Freeway and Flinders Road. It is one of the furthest towns on the Peninsula from Melbourne, which is part of its appeal — it feels properly away.' },
+  ],
+  'mornington': [
+    { q: 'What is there to do in Mornington town?', a: 'Walk the Esplanade and bathing boxes at Mornington Beach, visit the Wednesday farmers\' market on the foreshore, eat on Main Street (several strong restaurants and cafes), swim at Mothers Beach or the pier, and use the town as a base for day trips to Red Hill and the Peninsula\'s southern coast. Mornington works as both a destination and a gateway.' },
+    { q: 'Is Mornington a good base for visiting the Peninsula?', a: 'Yes — it is the most accessible town from Melbourne (60 minutes), and central enough to reach Red Hill\'s cellar doors (20 minutes south), the ocean beaches (30 minutes), and the hot springs (25 minutes). For a first visit or a single-night escape, Mornington is the most practical base on the Peninsula.' },
+    { q: 'When is the Mornington farmers market?', a: 'The Mornington Farmers\' Market runs every Wednesday morning on the Esplanade, year-round. It is one of the Peninsula\'s best — local produce, baked goods, flowers, and prepared food stalls. Arrive before 9am for the best selection. The market is a strong anchor for a Mornington day trip.' },
+  ],
+  'rye': [
+    { q: 'What is Rye known for on the Mornington Peninsula?', a: 'Rye is the Peninsula\'s family beach town — a long calm front beach on the bay, a wild back beach on the ocean, and Peninsula Hot Springs nearby. The town has improved in recent years with a growing brewery and cafe scene. Rye is also the gateway to the back beaches: Number Sixteen, St Andrews, and Gunnamatta.' },
+    { q: 'Is Rye or Sorrento better for families?', a: 'Rye for younger families — the front beach is flatter, calmer, and more forgiving than Sorrento\'s beaches. The town is less expensive and less crowded in summer. Sorrento has more dining and atmosphere for couples and older kids. Peninsula Hot Springs is closer to Rye (10 minutes) than to Sorrento (20 minutes).' },
+    { q: 'How close is Peninsula Hot Springs to Rye?', a: 'Peninsula Hot Springs is about 10 minutes\' drive from Rye, inland on Springs Lane near Fingal. It is one of the most common day-trip combinations: morning at the springs, afternoon at Rye front beach. Book hot springs sessions in advance, especially on weekends.' },
+  ],
+  'portsea': [
+    { q: 'What is Portsea known for?', a: 'Portsea is the most exclusive address on the Peninsula — old-money beach houses, the famous Portsea pub, a dramatic ocean back beach, and the gateway to Point Nepean National Park. The front beach is sheltered and calm; the back beach is wild Southern Ocean with rock pools and surf.' },
+    { q: 'Is Portsea worth visiting?', a: 'Yes — for the back beach, the Point Nepean walk, and the pub lunch. Portsea is quieter and more private than Sorrento (10 minutes away). The back beach rock pools at low tide are one of the Peninsula\'s best-kept experiences. The Portsea Hotel pub lunch with bay views is an institution.' },
+    { q: 'How do I get to Point Nepean from Portsea?', a: 'Point Nepean National Park starts at the end of Point Nepean Road in Portsea. Entry is via the visitor centre. You can walk the full track to Fort Nepean (approx. 7 km one way) or take the hop-on shuttle. The fort and tunnels at the tip are worth the full walk if you have 3–4 hours.' },
+  ],
+  'main-ridge': [
+    { q: 'What is Main Ridge known for?', a: 'Main Ridge is the quiet, elevated centre of the Peninsula wine region. It has some of Australia\'s oldest cool-climate vineyards (Main Ridge Estate was planted in 1975) and a concentration of serious producers who favour quality over cellar-door tourism. The fog, altitude, and basalt soils produce exceptional Pinot Noir.' },
+    { q: 'What are the best wineries in Main Ridge?', a: 'Main Ridge Estate (the original), Paringa Estate (consistently rated among Australia\'s best Pinot producers), and Eldridge Estate (tiny, appointment-only, exceptional). These are not cellar doors with gift shops — they are working vineyards that happen to welcome visitors who book ahead.' },
+    { q: 'Is Main Ridge the same as Red Hill?', a: 'They\'re adjacent but distinct. Main Ridge is higher, quieter, and more producer-focused. Red Hill has the restaurants, the market, and the larger cellar doors. Together they form the Peninsula\'s wine plateau — most visitors experience both in a single afternoon without noticing the boundary.' },
+  ],
+  'dromana': [
+    { q: 'What is there to do in Dromana?', a: 'Ride the Arthur\'s Seat Eagle gondola for panoramic bay views, eat at the growing strip of Main Street cafes, swim at Dromana foreshore, and use the town as a gateway to the Red Hill plateau (15 minutes uphill). Dromana is the first Peninsula town that feels genuinely "away" from Melbourne.' },
+    { q: 'Is Dromana a good base for the Mornington Peninsula?', a: 'It\'s practical but not the most atmospheric base. Dromana is the gateway — most visitors pass through on the way to Red Hill or Sorrento. For a budget-friendly stay with easy plateau access, it works. For a destination weekend, Sorrento, Red Hill, or Mornington offer more.' },
+    { q: 'What is Arthur\'s Seat Eagle?', a: 'A modern gondola ride from the base of Arthur\'s Seat to the summit, with views across Port Phillip Bay to Melbourne. The ride takes about 15 minutes. The summit has walking trails, a small cafe, and the Enchanted Adventure Garden. Best on a clear day — fog at the top is common in winter.' },
+  ],
+  'mount-martha': [
+    { q: 'Is Mount Martha worth visiting?', a: 'Yes — Mount Martha has the Peninsula\'s best bayside beach for swimming (calm, clean, long), the Briars historic homestead for walking, and a quiet residential character that feels more local than tourist. It\'s 50 minutes from Melbourne and the most practical beach day-trip on the Peninsula.' },
+    { q: 'What is the best beach in Mount Martha?', a: 'Mount Martha South Beach (also called The Pillars) is the standout — a sheltered bay beach backed by cliffs, excellent for swimming. Mount Martha North Beach is closer to the village and good for families. Both are calm Port Phillip Bay beaches — no surf, warm in summer.' },
+    { q: 'How far is Mount Martha from Melbourne?', a: 'About 55 km, approximately 50–60 minutes via the Mornington Peninsula Freeway. It\'s the closest Peninsula beach town to Melbourne — making it the best option for a quick summer beach day without committing to the full drive to Sorrento or Portsea.' },
+  ],
+  'cape-schanck': [
+    { q: 'What is there to do at Cape Schanck?', a: 'Walk the Cape Schanck boardwalk to the lighthouse platform (20 minutes, stunning ocean views), hike to Bushrangers Bay (45 minutes, the Peninsula\'s best coastal walk), and explore the rock platforms at low tide. Cape Schanck is also the Peninsula\'s golf country — St Andrews Beach, Moonah Links, and RACV Cape Schanck are all within 10 minutes. The area combines wild Southern Ocean coast with world-ranked links golf.' },
+    { q: 'Is Cape Schanck good for golf?', a: 'Cape Schanck is the Peninsula\'s best golf base. St Andrews Beach Golf Course (Tom Doak, world top 100, public access) is in Fingal on the Cape Schanck plateau. Moonah Links is a 10-minute drive. The Dunes and RACV Cape Schanck are nearby. For a golf-focused weekend, staying at Cape Schanck or Fingal puts you inside 10 minutes of the best public-access courses on the Peninsula.' },
+    { q: 'Is the Bushrangers Bay walk hard?', a: 'Moderate — about 45 minutes each way with a steep descent to the beach. The track is well-maintained but includes steps and uneven sections. The reward is a wild, usually empty beach with basalt platforms and no development. Not suitable for very young children or mobility-limited visitors. Bring water.' },
+    { q: 'Can you swim at Cape Schanck?', a: 'Swimming is dangerous at Cape Schanck — the Southern Ocean coast has strong rips, no lifeguards, and exposed rock platforms. Bushrangers Bay is not a swimming beach. For safe swimming, drive 15 minutes north to a bay-side beach (Safety Beach, Dromana, or Mount Martha).' },
+  ],
+  'balnarring': [
+    { q: 'When is the Balnarring Farmers Market?', a: 'The Balnarring Farmers\' Market runs on the third Saturday of every month, year-round. It\'s one of the Peninsula\'s best produce markets — smaller and more local than Red Hill Market, with a strong focus on growers from the Western Port side of the Peninsula.' },
+    { q: 'What is Balnarring like?', a: 'Balnarring is the quiet hinterland of the Peninsula\'s Western Port side — rural, unhurried, and away from the tourist trail. The beach (Balnarring Beach) faces Western Port Bay and is excellent for families. The monthly market, Foxeys Hangout winery, and the surrounding farmland are the main draws.' },
+    { q: 'Is Balnarring on the Mornington Peninsula?', a: 'Yes — Balnarring is on the eastern (Western Port) side of the Peninsula, about 20 minutes from Mornington town. It has a different character from the bay-side and ocean-side towns — more rural, less visited, and priced lower. It\'s a good base for exploring the quieter eastern Peninsula.' },
+  ],
+  'merricks': [
+    { q: 'What is Merricks known for?', a: 'Merricks General Wine Store is the anchor — a village store turned wine bar and restaurant that has become one of the Peninsula\'s most popular casual dining destinations. The area is also home to several excellent wineries (Merricks Estate, Merricks Creek) and a quiet beach on Western Port Bay.' },
+    { q: 'Is Merricks the same as Merricks North?', a: 'They\'re adjacent villages. Merricks is the coastal village with the general store and beach access. Merricks North is slightly inland and higher, home to several vineyards and properties on the slopes toward Red Hill. Both are quiet, residential, and share the same relaxed character.' },
+    { q: 'Can you swim at Merricks Beach?', a: 'Yes — Merricks Beach faces Western Port Bay and is calm, shallow, and good for families. It\'s less developed than the Port Phillip Bay beaches and rarely crowded. Access is via Merricks Beach Road. The beach is best at mid to high tide.' },
+  ],
+  'point-nepean': [
+    { q: 'Is Point Nepean worth visiting?', a: 'Absolutely — Point Nepean National Park is one of the most historically significant and scenically dramatic places on the Peninsula. The walk to Fort Nepean at the tip passes through military history, coastal scrub, and ends with views across the Rip to Queenscliff. Allow 3–4 hours for the full experience.' },
+    { q: 'How long is the Point Nepean walk?', a: 'The walk from the visitor centre to Fort Nepean is approximately 7 km one way (14 km return). A shuttle bus runs regularly and you can hop on/off, making it possible to walk one way and ride back. The fort itself takes 30–45 minutes to explore properly.' },
+    { q: 'Do you need to pay to enter Point Nepean?', a: 'Yes — there is a Parks Victoria entry fee. As of 2026, it is included in a Parks Victoria annual pass. The visitor centre at the entrance has a cafe, parking, and the shuttle departure point. Arrive before 10am on weekends to avoid parking pressure.' },
+  ],
+};
+const currentFaqs = townFaqs[placeSlug];
+const faqSchema = currentFaqs ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: currentFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+} : null;
+
+const placeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristDestination',
+  name: place.data.name,
+  description: place.data.intro,
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: place.data.coordinates?.lat,
+    longitude: place.data.coordinates?.lng,
+  },
+  url: canonical,
+};
+
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  section="places"
+  canonical={canonical}
+  ogImage={ogImage}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(placeSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+  <PlaceDetailTemplate
+    place={place}
+    eatVenues={eatVenues}
+    wineVenues={wineVenues}
+    stayVenues={stayVenues}
+    experiences={experiences}
+    itineraries={itineraries}
+    articles={articles}
+    relatedPlaces={relatedPlaces}
+    snapshotCards={snapshotCards}
+  />
+</BaseLayout>

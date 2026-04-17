@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase-1 Implementation Roadmap — The Peninsula Insider</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.report-wrap { max-width: 760px; margin: 4rem auto 6rem; padding: 0 1.5rem; }
+.report-wrap h1 { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: none; font-variation-settings: 'opsz' 144; font-weight: 500; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 1.5rem; color: var(--text); }
+.report-wrap h2 { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: none; font-variation-settings: 'opsz' 96; font-weight: 500; font-size: clamp(1.45rem, 2.6vw, 1.85rem); line-height: 1.2; margin: 3rem 0 1rem; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+.report-wrap h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 1.2rem; margin: 2rem 0 0.5rem; color: var(--text); }
+.report-wrap h4 { font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; font-weight: 600; color: var(--accent); margin: 1.5rem 0 0.5rem; }
+.report-wrap p { font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.78; font-size: 1rem; margin: 0 0 1.1rem; color: var(--text); }
+.report-wrap strong { font-weight: 500; color: var(--text); }
+.report-wrap em { font-style: italic; }
+.report-wrap ul, .report-wrap ol { font-family: 'Outfit', sans-serif; font-weight: 300; line-height: 1.7; font-size: 1rem; margin: 0 0 1.2rem 1.4rem; padding: 0; color: var(--text); }
+.report-wrap li { margin-bottom: 0.4rem; }
+.report-wrap blockquote { border-left: 3px solid var(--accent); padding: 0.4rem 0 0.4rem 1.2rem; margin: 1.2rem 0; font-style: italic; color: var(--text-soft); font-family: 'Fraunces', Georgia, serif; }
+.report-wrap code { font-family: 'JetBrains Mono', Menlo, monospace; font-size: 0.85em; background: var(--bg-alt); padding: 0.1rem 0.35rem; border-radius: 3px; }
+.report-wrap pre { background: var(--bg-alt); padding: 1rem 1.2rem; border-radius: var(--radius); overflow-x: auto; margin: 0 0 1.2rem; font-size: 0.85rem; }
+.report-wrap pre code { background: transparent; padding: 0; }
+.report-wrap hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+.report-wrap a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.report-wrap .table-wrap { overflow-x: auto; margin: 0 0 1.5rem; }
+.report-wrap table { width: 100%; border-collapse: collapse; font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 300; }
+.report-wrap th, .report-wrap td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.report-wrap th { font-weight: 500; color: var(--accent); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em; }
+.report-meta { font-family: 'Outfit', sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-soft); margin-bottom: 0.4rem; }
+.report-back { display: inline-block; font-family: 'Outfit', sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); text-decoration: none; margin-bottom: 2rem; }
+.report-back:hover { color: var(--accent-hover); }
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBL14DE975"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DBL14DE975');
+  </script>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">The Peninsula Insider</a>
+    <ul class="nav-links">
+      <li><span class="nav-group-trigger">Plan</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="../whats-on.html">What's On</a><a href="../whats-on.html#april">April Guide</a><a href="../itinerary.html">Itinerary</a></div></div></li>
+      <li><span class="nav-group-trigger">Experience</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="../stay.html">Where to Stay</a><a href="../eat.html">Where to Eat</a><a href="../wine.html">Wine Country</a></div></div></li>
+      <li><span class="nav-group-trigger">Explore</span><div class="nav-dropdown"><div class="nav-dropdown-inner"><a href="../explore.html#do">Things to Do</a><a href="../explore.html#walks">Walks &amp; Trails</a><a href="../explore.html#beaches">Beaches</a><a href="../explore.html#gems">Hidden Gems</a></div></div></li>
+    </ul>
+    <div class="nav-actions"></div>
+  </div>
+</nav>
+
+<div class="report-wrap">
+  <a href="../index.html" class="report-back">← Back to Peninsula Insider</a>
+  <div class="report-meta">Internal · Implementation Roadmap · 9 April 2026</div>
+<h1>The Peninsula Insider — Phase-1 Implementation Roadmap</h1>
+<p><strong>Prepared for:</strong> James Richmond, Owner
+<strong>Prepared by:</strong> Delivery Strategy &amp; Technical Product (Remy)
+<strong>Date:</strong> 9 April 2026
+<strong>Companion to:</strong> <a href="./peninsula-insider-strategic-review-2026-04-09.md">Strategic Review &amp; Transformation Blueprint, 9 April 2026</a>
+<strong>Scope:</strong> 24-week build plan to convert the strategic review into shipped product
+<strong>Reading time:</strong> ~25 minutes</p>
+<hr>
+<h2>1. Roadmap at a Glance</h2>
+<p>Twenty-four weeks. Four phases. One pivot from &quot;well-designed brochure&quot; to &quot;category-leading destination media brand.&quot;</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Window</th>
+<th>Theme</th>
+<th>Headline outcomes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Phase 0 — Stabilize</strong></td>
+<td>Week 0 (5 days)</td>
+<td>Ship the no-regrets wins from Appendix A</td>
+<td>Bylines + dates everywhere; one cover photograph commissioned; &quot;Where to go for a long lunch&quot; published; homepage overview tile cut; named newsletter CTA live</td>
+</tr>
+<tr>
+<td><strong>Phase 1 — Atomic Foundations</strong></td>
+<td>Weeks 1–4</td>
+<td>The architectural pivot</td>
+<td>Astro + JSON content layer in production; first 30 venues live as atomic pages; new homepage as editorial cover; original photography on flagship venues; URL canon set</td>
+</tr>
+<tr>
+<td><strong>Phase 2 — Editorial Engine + Map</strong></td>
+<td>Weeks 5–10</td>
+<td>Make the site feel alive</td>
+<td>The Insider&#39;s Journal launched (8 articles); newsletter on Beehiiv with 4 issues out; custom Mapbox experience live; 6 &quot;Where to go for…&quot; intent pages; 90 atomic venue pages total</td>
+</tr>
+<tr>
+<td><strong>Phase 3 — Commercial &amp; Planning</strong></td>
+<td>Weeks 11–16</td>
+<td>Monetize and plan</td>
+<td>30+ atomic stay pages with booking integration; OpenTable + Booking.com + Peninsula Hot Springs live; 12 itineraries + Build-Your-Own wizard; &quot;This Weekend&quot; dynamic page; first affiliate revenue</td>
+</tr>
+<tr>
+<td><strong>Phase 4 — Authority &amp; Membership</strong></td>
+<td>Weeks 17–24</td>
+<td>The longer game</td>
+<td>The Peninsula 50 launched with press; accounts + saved trips live; interview series running; Insider Membership soft-launch criteria reached</td>
+</tr>
+</tbody></table>
+</div><p><strong>Critical numbers we are aiming at by Week 24:</strong></p>
+<ul>
+<li>220+ atomic venue/experience pages live</li>
+<li>25+ Journal articles published</li>
+<li>5,000+ newsletter subscribers</li>
+<li>5 booking partners integrated</li>
+<li>First $2k/month in affiliate + partnership revenue</li>
+<li>One annual authority list published with co-ordinated press push</li>
+</ul>
+<p>The strategic review&#39;s Top 20 maps cleanly across these phases. Items 1–6 (the critical path) all complete inside Phase 1–2. Items 7–14 land in Phase 2–3. Items 15–20 land in Phase 4.</p>
+<hr>
+<h2>2. Strategic Operating Principles</h2>
+<p>These govern <em>how</em> we build. Treat them as non-negotiable.</p>
+<ol>
+<li><p><strong>Atomic or nothing.</strong> Never add a venue, experience, walk, beach or hotel to a card-grid page again. From Week 1 onward, every new entity ships as its own URL with its own JSON record. The directory pages become <em>generated views</em> of the database, not the database itself.</p>
+</li>
+<li><p><strong>Photography commissions before site features.</strong> A new product surface (map, &quot;This Weekend,&quot; Stay expansion) does not ship until at least 60% of its featured venues have original photography. We refuse to build premium UI on stock imagery — it betrays the brand promise faster than anything else.</p>
+</li>
+<li><p><strong>Ship every Thursday.</strong> Publishing cadence is the discipline that creates everything else. Every Thursday at 7am AEST: a new Journal piece, a newsletter issue, and a deploy. The cadence is more important than any single shipped feature. Miss a Thursday and the brand promise erodes.</p>
+</li>
+<li><p><strong>The newsletter is product, not afterthought.</strong> &quot;The Insider&#39;s Letter&quot; is treated as a first-class product line with its own KPIs, not as a footer form. Every editorial decision asks: <em>does this strengthen the newsletter?</em></p>
+</li>
+<li><p><strong>Every recommendation is bookable.</strong> From Phase 2 onward, no venue page ships without an outbound booking action. If the venue has no booking system, we link to phone/website with affiliate parameters where available. A recommendation without a path to action is editorial waste.</p>
+</li>
+<li><p><strong>Decisions over options.</strong> James&#39;s job is to be the editor and the dealmaker, not to weigh tech tradeoffs in Slack threads. Every section of this roadmap recommends <em>one</em> answer and defends it. Reversals happen if and only if the data demands them.</p>
+</li>
+<li><p><strong>AI-agent leverage is the production model.</strong> The architecture must let Remy and specialist subagents (research, design, editorial, photo briefing) author venue records, draft articles, generate intent pages, and propose itineraries directly into the content layer with minimal human handoff. If a tool requires a human GUI to author content, it&#39;s the wrong tool.</p>
+</li>
+</ol>
+<hr>
+<h2>3. Phase 0 — Stabilize &amp; Set the Stage (Week 0, 5 days)</h2>
+<p>These are the no-regret moves from Appendix A of the strategic review. They ship before any architectural work begins. Total effort budget: ~25 hours.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>What ships</th>
+<th>Why now</th>
+<th>Owner</th>
+<th>Effort</th>
+<th>Success criterion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.1</td>
+<td>Cut the homepage overview tile (&quot;200+ wineries / Hot Springs / Dual Coastline&quot;) and replace with a single editorial sentence + a placeholder cover photograph</td>
+<td>Stops the 2009-brochure first impression while we plan the proper homepage rebuild</td>
+<td>James + Pixel agent</td>
+<td>2h</td>
+<td>Homepage no longer contains the words &quot;world-class,&quot; &quot;200+,&quot; or any tile-grid stat strip</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td>Add bylines + &quot;Last updated: 9 April 2026&quot; to all 8 existing pages</td>
+<td>Free credibility lift; signals editorial trust without rebuild</td>
+<td>Remy (script)</td>
+<td>1h</td>
+<td>Every existing page shows author + date in header or footer block</td>
+</tr>
+<tr>
+<td>0.3</td>
+<td>Write and ship one &quot;Where to go for…&quot; page: <em>&quot;Where to go for a long lunch on the Mornington Peninsula&quot;</em> as a static HTML page using existing CSS</td>
+<td>Proves the editorial format and the URL pattern; immediately rankable; shareable</td>
+<td>James + research subagent</td>
+<td>5h</td>
+<td>Live at <code>/eat-drink/for/long-lunch.html</code>; 1,500+ words; references 8+ specific venues with hard opinions</td>
+</tr>
+<tr>
+<td>0.4</td>
+<td>Rewrite the footer subscribe form: name the product (&quot;The Insider&#39;s Letter — every Thursday&quot;), add 3 specific benefits, hook it to a Beehiiv account that James has already opened</td>
+<td>Captures email addresses <em>now</em> so the launch list isn&#39;t zero on day 1 of Phase 2</td>
+<td>James + Beehiiv</td>
+<td>2h</td>
+<td>Form posts to Beehiiv; confirmation email sends; signup count tracked</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>Audit and rewrite the homepage overview copy; ban the cliché list (&quot;world-class,&quot; &quot;charming,&quot; &quot;rugged,&quot; &quot;crystal clear&quot;)</td>
+<td>Brand promise repair</td>
+<td>James (editorial)</td>
+<td>3h</td>
+<td>Zero matches on the cliché word list across index.html</td>
+</tr>
+<tr>
+<td>0.6</td>
+<td>Replace the homepage hero with one commissioned-or-licensed real Peninsula photograph (not Unsplash)</td>
+<td>Buys credibility for ~6 weeks while the full photography commission runs in Phase 1</td>
+<td>James + photographer (one-day commission OR licensed from a Peninsula photographer&#39;s existing library)</td>
+<td>4h + $400–800 license/shoot fee</td>
+<td>Hero is a real, credited Peninsula image</td>
+</tr>
+<tr>
+<td>0.7</td>
+<td>Set up Plausible analytics on the live site</td>
+<td>Without baseline metrics, none of the success criteria in this roadmap are measurable</td>
+<td>Remy</td>
+<td>1h</td>
+<td>Plausible dashboard live, filtering bots, tracking pages-per-session and bounce rate</td>
+</tr>
+<tr>
+<td>0.8</td>
+<td>Spin up a working <code>/peninsula-insider-next</code> repo branch (or fork) for the Phase 1 rebuild; protect <code>main</code> from breakage</td>
+<td>Phase 1 work happens in parallel without risk to the live site</td>
+<td>Remy</td>
+<td>1h</td>
+<td>New branch deployed to a Vercel/Netlify preview URL</td>
+</tr>
+<tr>
+<td>0.9</td>
+<td>Lock decision sheet (see Section 12) — get James to sign off on the 7 decision points</td>
+<td>Phase 1 cannot start without these answers</td>
+<td>James (90-min focus block)</td>
+<td>1.5h</td>
+<td>All 7 decisions answered in a single document committed to the repo</td>
+</tr>
+</tbody></table>
+</div><p><strong>Definition of done for Phase 0:</strong> All 9 ship by EOD Friday Week 0. Any item that slips becomes a Week 1 dependency to clear before Phase 1 work starts.</p>
+<hr>
+<h2>4. Phase 1 — Atomic Foundations (Weeks 1–4)</h2>
+<p>This is the most important phase. Get this right and everything in Phases 2–4 becomes mechanical execution. Get it wrong and we ship a faster version of the same problem.</p>
+<h3>4.1 Atomic page architecture — the recommendation</h3>
+<p><strong>Recommendation: Astro + JSON content collections + Sanity (lite) for editorial chrome only.</strong></p>
+<p>The full stack:</p>
+<ul>
+<li><strong>Astro</strong> as the static site generator. All listing pages, venue pages, intent pages, place pages, itinerary pages and journal articles are generated at build time from JSON files in the repo.</li>
+<li><strong>Content lives as JSON in <code>src/content/</code> collections</strong> (<code>venues/</code>, <code>experiences/</code>, <code>places/</code>, <code>itineraries/</code>, <code>articles/</code>, <code>events/</code>, <code>authors/</code>). Astro Content Collections give us typed schemas, validation, and zero-runtime queries.</li>
+<li><strong>Sanity Studio (free tier)</strong> mounted at <code>/admin</code> purely for the Journal articles where James wants WYSIWYG editing — articles publish as JSON exports back into the repo via a build hook. Venues and structured entities are NOT edited in Sanity; they&#39;re authored by AI agents into JSON files directly.</li>
+</ul>
+<p><strong>Three-bullet rationale:</strong></p>
+<ul>
+<li><strong>AI agents author into JSON natively.</strong> This is the biggest win. A research subagent can produce a complete venue JSON record in 30 seconds, validated against a Zod schema, committed to git. No CMS GUI to navigate, no API rate limits, no human in the loop for 200 venue records. This single decision is what makes solo-founder + AI velocity possible.</li>
+<li><strong>Astro is editorially confident and fast.</strong> Zero-JS by default for content pages, islands for the map and search. The output ships static to any CDN. Build times for 500+ pages stay under 90 seconds. The community templates lean editorial (vs. Next.js which leans app).</li>
+<li><strong>Hybrid lets us escape commitment.</strong> JSON in git is portable. If we outgrow this in 18 months and need a real CMS, we export to Sanity/Payload in a weekend. We are not locked in. Compare this to picking a heavyweight CMS up front and discovering its editorial workflow doesn&#39;t fit a media brand.</li>
+</ul>
+<p><strong>What we explicitly reject:</strong> Full Sanity-as-source-of-truth (too much GUI friction for AI authorship); Next.js (overkill — we don&#39;t need an app, we need a publication); Hugo/11ty (less component composition than Astro for the editorial design system); a pure database approach with Postgres + Prisma (operational overhead with no upside at this scale).</p>
+<h3>4.2 Content schema definition</h3>
+<p>Every entity is typed via Astro Content Collections + Zod. The schemas:</p>
+<pre><code class="language-typescript">// src/content/config.ts (illustrative)
+const venue = z.object({
+  slug: z.string(),
+  name: z.string(),
+  type: z.enum([&#39;restaurant&#39;,&#39;winery&#39;,&#39;cafe&#39;,&#39;bakery&#39;,&#39;pub&#39;,&#39;brewery&#39;,&#39;distillery&#39;,&#39;producer&#39;,&#39;market&#39;,&#39;hotel&#39;,&#39;villa&#39;,&#39;cottage&#39;,&#39;glamping&#39;,&#39;farm-stay&#39;,&#39;spa&#39;]),
+  place: z.string(), // references places collection
+  zone: z.enum([&#39;bayside&#39;,&#39;hinterland&#39;,&#39;red-hill-plateau&#39;,&#39;ocean-coast&#39;,&#39;back-beaches&#39;,&#39;tip&#39;]),
+  coordinates: z.object({ lat: z.number(), lng: z.number() }),
+  address: z.string(),
+  phone: z.string().optional(),
+  website: z.string().url().optional(),
+  bookingUrl: z.string().url().optional(),
+  bookingProvider: z.enum([&#39;opentable&#39;,&#39;tock&#39;,&#39;resy&#39;,&#39;sevenrooms&#39;,&#39;direct&#39;,&#39;booking.com&#39;,&#39;stayz&#39;,&#39;airbnb&#39;,&#39;peninsula-hot-springs&#39;,&#39;none&#39;]).optional(),
+  priceBand: z.enum([&#39;$&#39;,&#39;$$&#39;,&#39;$$$&#39;,&#39;$$$$&#39;]),
+  hatRating: z.number().min(0).max(3).optional(),
+  hallidayScore: z.number().optional(),
+  awards: z.array(z.string()).optional(),
+  signature: z.string(), // signature dish, wine, room
+  editorNote: z.string(), // 2–3 paragraph opinion
+  tags: z.object({
+    mood: z.array(z.string()),    // long-lunch, anniversary, family, etc.
+    season: z.array(z.string()),  // autumn, summer, all-year
+    audience: z.array(z.string()) // couples, families, solo, group
+  }),
+  heroImage: z.string(),
+  gallery: z.array(z.object({ src: z.string(), credit: z.string(), caption: z.string().optional() })),
+  lastVerified: z.date(),
+  publishedAt: z.date(),
+  affiliateNote: z.string().optional() // disclosure
+});
+</code></pre>
+<p>Plus parallel schemas for <code>experience</code>, <code>place</code>, <code>article</code>, <code>itinerary</code>, <code>event</code>, <code>author</code>. All defined in one file. All validated at build time. Schema breaking changes fail the build, so content cannot rot.</p>
+<h3>4.3 Migration plan — without breaking the live site</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Migration milestone</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>W1</td>
+<td>Phase 1 repo running in parallel; live site unchanged</td>
+<td>New Astro build deploys to <code>next.peninsulainsider.com.au</code> (Vercel preview); old GitHub Pages build remains canonical</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>First 15 venue records authored as JSON; venue page template live</td>
+<td>Research subagent extracts data from existing eat.html / wine.html / stay.html cards, drafts venue JSON, James reviews top 5 in detail then trusts the rest</td>
+</tr>
+<tr>
+<td>W3</td>
+<td>Next 15 venue records; first 6 place pages auto-generated from venue tags; new homepage in preview</td>
+<td>Same migration loop; place pages are pure templates with no manual content</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>Cutover Thursday: <code>next.peninsulainsider.com.au</code> → <code>peninsulainsider.com.au</code>. Old HTML pages 301-redirected.</td>
+<td>DNS swap on the Vercel side; existing GitHub Pages content stays archived for fallback for 30 days</td>
+</tr>
+</tbody></table>
+</div><p><strong>The redirect map</strong> (committed to repo as <code>redirects.json</code>):</p>
+<pre><code>/eat.html                  → /eat-drink/
+/wine.html                 → /eat-drink/wineries
+/stay.html                 → /stay/
+/explore.html              → /do/
+/whats-on.html             → /plan/events
+/itinerary.html            → /plan/itineraries/couples-autumn-weekend
+/eat.html#card-tedesca     → /eat-drink/venues/tedesca-osteria
+… etc, programmatically generated from venue slugs
+</code></pre>
+<p>This guarantees zero SEO loss on cutover. Every existing inbound link continues to resolve.</p>
+<h3>4.4 The first 30 venue pages — which 30, in what order</h3>
+<p>The first 30 are not the most famous 30. They are the 30 with the <strong>highest combination of search demand × commercial value × editorial confidence</strong>. James has the most opinion about these.</p>
+<p><strong>Tier 1 — Restaurants (12), Week 2:</strong></p>
+<ol>
+<li>Tedesca Osteria (Red Hill)</li>
+<li>Doot Doot Doot @ Jackalope (Merricks)</li>
+<li>Ten Minutes by Tractor (Main Ridge)</li>
+<li>Laura @ Pt Leo Estate (Merricks North)</li>
+<li>Polperro (Red Hill South)</li>
+<li>Montalto (Red Hill South)</li>
+<li>Rare Hare (Merricks North)</li>
+<li>Pt Leo Estate Restaurant (Merricks North)</li>
+<li>The Long Table (Sorrento)</li>
+<li>Stillwater at Crittenden (Dromana)</li>
+<li>Quealy Winemakers (Balnarring)</li>
+<li>Salix at Willow Creek (Merricks North)</li>
+</ol>
+<p><strong>Tier 2 — Wineries with cellar door + lunch (8), Week 3:</strong>
+13. Pt Leo Estate
+14. Montalto
+15. Crittenden Wines
+16. Paringa Estate
+17. T&#39;Gallant
+18. Yabby Lake
+19. Ocean Eight
+20. Foxeys Hangout</p>
+<p><strong>Tier 3 — Stays (the highest commercial-value tier) (6), Week 3:</strong>
+21. Jackalope Hotel (Merricks North)
+22. Lindenderry at Red Hill
+23. Polperro Villas
+24. RACV Cape Schanck Resort
+25. Aurora Spa Retreat (Sorrento)
+26. The Continental Sorrento</p>
+<p><strong>Tier 4 — Experiences (4), Week 4:</strong>
+27. Peninsula Hot Springs
+28. Alba Thermal Springs
+29. Cape Schanck Lighthouse + Bushrangers Bay walk
+30. Pt Leo Sculpture Park</p>
+<p><strong>Why this order:</strong> Restaurants first because they&#39;re the section with the strongest existing copy (lowest editorial lift). Wineries second because they share the geography and the photographer brief. Stays third because they&#39;re highest commercial value but require photography we don&#39;t have. Experiences fourth because they unlock the map&#39;s first 30 pins.</p>
+<h3>4.5 URL structure decision</h3>
+<p><strong>Decision: place-included, category-prefixed URLs.</strong></p>
+<pre><code>/eat-drink/red-hill/tedesca-osteria
+/eat-drink/wineries/red-hill/montalto
+/stay/merricks-north/jackalope
+/do/wellness/peninsula-hot-springs
+/do/walks/cape-schanck/bushrangers-bay
+</code></pre>
+<p>Three-bullet rationale:</p>
+<ul>
+<li><strong>Place is the most useful natural-language fragment for SEO.</strong> &quot;Red Hill restaurants&quot; is searched 20x more than &quot;Mornington Peninsula restaurants in Red Hill.&quot; Putting place in the URL captures that.</li>
+<li><strong>Broadsheet uses this pattern and out-ranks everyone.</strong> No reason to invent a worse one. The strategic review explicitly flags this.</li>
+<li><strong>Refactor cost is high if wrong.</strong> This decision needs to be locked Day 1 of Week 1 because every venue JSON file&#39;s slug becomes a redirect debt the moment it ships.</li>
+</ul>
+<p>The collection routing in Astro is one file:</p>
+<pre><code class="language-typescript">// src/pages/eat-drink/[place]/[venue].astro
+</code></pre>
+<p>Categories that don&#39;t fit a single place (e.g. &quot;walks&quot; that span multiple zones) use the closest place anchor and a <code>relatedPlaces[]</code> field for cross-linking.</p>
+<h3>4.6 Original photography commissioning</h3>
+<p><strong>Photographer brief — to send by EOD Week 0:</strong></p>
+<ul>
+<li><strong>Who:</strong> A Peninsula-based or Melbourne-based editorial travel photographer. Three names to brief and quote: Kate Shanasy (Mornington-based, food + lifestyle), Julian Kingma (Melbourne, has Peninsula history), Andrew Curtis (Mornington food photographer with cellar-door portfolio). Pick whichever returns the cleanest sample reel by Week 1 Wednesday.</li>
+<li><strong>Brief:</strong> 30 venues across 4 days of shooting. 8–12 images per venue: hero, interior atmosphere, signature dish/wine/room, exterior approach, detail shot, &quot;in use&quot; moment, landscape context. Warm grade, slightly filmic, golden-hour bias where venue allows. Square + 3:2 + 16:9 deliveries. Full commercial usage rights for Peninsula Insider perpetual.</li>
+<li><strong>Budget guidance:</strong> $9,000–$12,000 all-in for 30 venues. ($300–400 per venue including processing.) This is expensive on Day 1 and the cheapest brand-defining spend on the entire roadmap.</li>
+<li><strong>Schedule:</strong> Shoot weeks 2–3 (Mon–Thu blocks), delivered week 3 Friday, integrated into venue pages week 4.</li>
+<li><strong>Credit terms:</strong> Photographer credited on every image and on the about page. Reciprocal social tag.</li>
+</ul>
+<p><strong>Backup plan if shoot slips:</strong> License existing imagery from Visit Mornington Peninsula&#39;s media library (free, with credit) and from cellar doors directly (most have professional sets) for Week 4 launch, replace with commissioned imagery as it lands in Week 5.</p>
+<h3>4.7 Homepage rebuild — wireframe (not pixel design)</h3>
+<p>Eight stacked modules. Each module is an Astro component. The homepage data is a single <code>homepage.json</code> that Pixel and Remy update weekly.</p>
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│ NAV (persistent): Eat &amp; Drink · Stay · Do · Plan ·     │
+│   Journal · Map [search] [Subscribe ▸]                 │
+├─────────────────────────────────────────────────────────┤
+│ MODULE 1 — COVER STORY                                  │
+│   Eyebrow: &quot;The Autumn Journal&quot;                         │
+│   Headline (Fraunces, ~64px): one editorial line        │
+│   Dek: 2 lines                                          │
+│   Byline + date                                         │
+│   Full-bleed hero photograph (commissioned)             │
+│   Primary CTA: Read the story                           │
+├─────────────────────────────────────────────────────────┤
+│ MODULE 2 — THIS WEEKEND (dynamic)                       │
+│   3-card strip: Friday dinner / Sat long lunch / Sun walk│
+│   Weather line: &quot;Saturday: 19°C, light breeze, clear&quot;   │
+│   Each card has Save + Book actions                     │
+├─────────────────────────────────────────────────────────┤
+│ MODULE 3 — FIVE PILLARS                                 │
+│   Five vertical columns: Eat &amp; Drink / Stay / Do / Plan │
+│   / Journal — each one image, one sentence, one CTA    │
+│   No stat tiles. Photography does the bragging.        │
+├─────────────────────────────────────────────────────────┤
+│ MODULE 4 — THE MAP STRIP                                │
+│   Interactive preview, custom-styled, ~400px tall      │
+│   &quot;Explore the full map →&quot;                             │
+├─────────────────────────────────────────────────────────┤
+│ MODULE 5 — THE INSIDER LIST (rotating authority)       │
+│   Phase 1 placeholder: &quot;The 25 Restaurants Worth the   │
+│   Drive, 2026&quot; — editorially curated, links to 25      │
+│   atomic venue pages                                    │
+├─────────────────────────────────────────────────────────┤
+│ MODULE 6 — FROM THE JOURNAL                            │
+│   Latest 3 articles, byline, date, dek                 │
+├─────────────────────────────────────────────────────────┤
+│ MODULE 7 — NEWSLETTER                                   │
+│   Full-width. &quot;The Insider&#39;s Letter — every Thursday.&quot; │
+│   3 specific benefits. 1 field. 1 button.              │
+├─────────────────────────────────────────────────────────┤
+│ FOOTER                                                  │
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<p>The page is one <code>index.astro</code> consuming <code>homepage.json</code>. Updating the cover story is a 30-second JSON edit, not a code change. This is what enables the &quot;ship every Thursday&quot; cadence.</p>
+<h3>4.8 Phase 1 milestones — week-by-week</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Workstream</th>
+<th>Milestone</th>
+<th>Owner</th>
+<th>Dependencies</th>
+<th>Definition of Done</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>W1</strong></td>
+<td>Architecture</td>
+<td>Astro repo scaffolded; content collections + Zod schemas defined; venue page template renders from a hand-crafted JSON record</td>
+<td>Remy + web dev (1 day spike)</td>
+<td>Decision sheet signed</td>
+<td><code>next.peninsulainsider.com.au</code> shows 1 working venue page</td>
+</tr>
+<tr>
+<td><strong>W1</strong></td>
+<td>Photography</td>
+<td>Photographer briefed, contract signed, shoot dates locked W2–W3</td>
+<td>James</td>
+<td>Decision: photographer pick</td>
+<td>Contract signed; calendar holds in place</td>
+</tr>
+<tr>
+<td><strong>W1</strong></td>
+<td>Editorial</td>
+<td>Top 30 venue list locked + factsheet drafted (name, place, signature, opinion seed) — fed to research subagent</td>
+<td>James (90 min)</td>
+<td>—</td>
+<td><code>data/top-30-seed.md</code> committed to repo</td>
+</tr>
+<tr>
+<td><strong>W1</strong></td>
+<td>Design</td>
+<td>Pixel agent produces homepage wireframe → Astro components scaffolded</td>
+<td>Remy + Pixel</td>
+<td>Brand tokens copied from current CSS</td>
+<td>Static homepage component renders with placeholder content</td>
+</tr>
+<tr>
+<td><strong>W2</strong></td>
+<td>Content</td>
+<td>First 15 venue JSON records authored by research subagent; James reviews top 5; remaining 10 trust-mode</td>
+<td>Research subagent + James</td>
+<td>Schema locked (W1)</td>
+<td>15 venue pages live on preview URL</td>
+</tr>
+<tr>
+<td><strong>W2</strong></td>
+<td>Photography</td>
+<td>Shoot Day 1 + Day 2 (12 venues — Tier 1 restaurants)</td>
+<td>Photographer</td>
+<td>Venue contact list from James</td>
+<td>12 shoots completed</td>
+</tr>
+<tr>
+<td><strong>W2</strong></td>
+<td>URL/Migration</td>
+<td><code>redirects.json</code> generator script written; runs on every build</td>
+<td>Remy</td>
+<td>Slug pattern locked (W1)</td>
+<td>Old URL → new URL for every venue we&#39;ve migrated</td>
+</tr>
+<tr>
+<td><strong>W3</strong></td>
+<td>Content</td>
+<td>Next 15 venues (8 wineries + 6 stays + 1 buffer) authored</td>
+<td>Research subagent</td>
+<td>Photography brief returning images</td>
+<td>30 venue pages live on preview</td>
+</tr>
+<tr>
+<td><strong>W3</strong></td>
+<td>Photography</td>
+<td>Shoot Day 3 + Day 4 (wineries + experiences + Stay flagships)</td>
+<td>Photographer</td>
+<td>—</td>
+<td>All 30 venues photographed</td>
+</tr>
+<tr>
+<td><strong>W3</strong></td>
+<td>Place pages</td>
+<td>Auto-generated <code>/eat-drink/{place}/</code> pages live for the 6 place clusters that hold our first 30 venues (Red Hill, Merricks, Sorrento, Flinders, Dromana, Cape Schanck)</td>
+<td>Astro template</td>
+<td>30 venues tagged with place</td>
+<td>6 place pages live with venue grids</td>
+</tr>
+<tr>
+<td><strong>W3</strong></td>
+<td>Homepage</td>
+<td>New homepage rebuild complete on preview URL</td>
+<td>James + Pixel</td>
+<td>Cover story photograph delivered</td>
+<td>Homepage matches wireframe with real content</td>
+</tr>
+<tr>
+<td><strong>W4</strong></td>
+<td>Photography</td>
+<td>Edited deliveries integrated into venue pages</td>
+<td>Remy</td>
+<td>Photographer delivery W3 Friday</td>
+<td>30 venues each have ≥6 original images</td>
+</tr>
+<tr>
+<td><strong>W4</strong></td>
+<td>Cutover</td>
+<td>DNS / Vercel swap; live site is the new Astro build; redirect map active</td>
+<td>Remy + James</td>
+<td>All 30 venues live, photography integrated, smoke test passed</td>
+<td><code>peninsulainsider.com.au</code> serves the new site; old URLs 301; analytics confirm zero traffic loss</td>
+</tr>
+<tr>
+<td><strong>W4</strong></td>
+<td>Trust audit</td>
+<td>Every venue page shows hat count / Halliday score / awards block where applicable</td>
+<td>Research subagent</td>
+<td>Schema field exists</td>
+<td>All 30 venues display authority markers</td>
+</tr>
+</tbody></table>
+</div><p><strong>Phase 1 Definition of Done:</strong></p>
+<ul>
+<li>30 atomic venue pages live, each with original photography, editor note, authority markers, booking CTA placeholder, map embed</li>
+<li>New homepage live as editorial cover</li>
+<li>6 place hub pages live</li>
+<li>Old HTML pages 301-redirected with zero SEO loss</li>
+<li>Build time under 60s for the full site</li>
+<li>Bounce rate down from current baseline</li>
+<li>Plausible reporting pages-per-session ≥ 2.2</li>
+</ul>
+<hr>
+<h2>5. Phase 2 — Editorial Engine + Map (Weeks 5–10)</h2>
+<p>Phase 1 made the architecture right. Phase 2 makes the site feel alive. This is where the brand finally keeps the &quot;Insider&quot; promise.</p>
+<h3>5.1 Journal launch — &quot;The Insider&#39;s Journal&quot;</h3>
+<p><strong>Name:</strong> <em>The Insider&#39;s Journal</em> (in the navigation as <strong>Journal</strong>).
+<strong>Cadence:</strong> Weekly. Published every Thursday at 7am AEST. Non-negotiable.
+<strong>Editor:</strong> James as the named editor with byline. (Decision in Section 12.)
+<strong>URL pattern:</strong> <code>/journal/2026/04/{slug}</code>
+<strong>Distribution:</strong> Each Journal article anchors that week&#39;s Insider&#39;s Letter newsletter and is cross-posted as the cover story on the homepage.</p>
+<p><strong>First 8 article briefs:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Working title</th>
+<th>Angle</th>
+<th>Target audience</th>
+<th>Word count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><em>The Last Long Weekend Before Winter: A Field Guide to Autumn on the Peninsula</em></td>
+<td>First-person, named, opinionated. Why April is the locals&#39; month. The 9 bookings to make this weekend.</td>
+<td>Dreamers + Pre-planners</td>
+<td>2,000</td>
+</tr>
+<tr>
+<td>2</td>
+<td><em>Tedesca, Tractor, Laura: Three Italian Dinners and the Argument Between Them</em></td>
+<td>A James-led pilgrimage piece. Visit all three in 10 days. Honest comparison.</td>
+<td>Food &amp; wine deep-divers</td>
+<td>2,500</td>
+</tr>
+<tr>
+<td>3</td>
+<td><em>Where to Go for a Long Lunch on the Mornington Peninsula</em> (rebuilt and expanded from the Phase 0 version)</td>
+<td>The flagship intent piece. 12 lunches reviewed, 5 ranked, 1 declared the winner.</td>
+<td>High-intent bookers</td>
+<td>2,800</td>
+</tr>
+<tr>
+<td>4</td>
+<td><em>The Quiet Side of the Peninsula: A Weekend in Flinders, Not Red Hill</em></td>
+<td>Counter-Red-Hill bias intentionally. Names hotels, dinners, walks in Flinders/Cape Schanck/Pt Leo.</td>
+<td>Couples + Repeat visitors</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td>5</td>
+<td><em>Five Cellar Doors That Aren&#39;t Trying to Sell You Lunch</em></td>
+<td>Defends the underrated Pinot makers. Quealy, Foxeys, Crittenden, Ocean Eight, Garagiste.</td>
+<td>Food &amp; wine deep-divers</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td>6</td>
+<td><em>A Day at Peninsula Hot Springs Without Wasting Your Money</em></td>
+<td>Insider&#39;s tactical guide. Which session, which add-on to skip, where to eat after.</td>
+<td>Day trippers + Wellness</td>
+<td>1,400</td>
+</tr>
+<tr>
+<td>7</td>
+<td><em>The Family Weekend: Where to Take Children on the Peninsula Without Losing Your Mind</em></td>
+<td>First &quot;family mode&quot; content. Kid-tested recommendations across 3 days.</td>
+<td>Families</td>
+<td>2,000</td>
+</tr>
+<tr>
+<td>8</td>
+<td><em>The Peninsula 25 (preview): The Restaurants and Wineries That Define the Place in 2026</em></td>
+<td>Drumbeat for the Phase 4 Peninsula 50 launch. Soft-launches the methodology.</td>
+<td>All audiences</td>
+<td>2,500</td>
+</tr>
+</tbody></table>
+</div><p>Article #1 publishes Thursday Week 5. Then weekly. By Week 10 we have 6 published, 2 in draft. (We start with 2 in the bank.)</p>
+<h3>5.2 Newsletter launch — &quot;The Insider&#39;s Letter&quot;</h3>
+<p><strong>Platform decision: Beehiiv.</strong></p>
+<p>Three-bullet rationale:</p>
+<ul>
+<li><strong>Beehiiv was built for newsletter-as-product brands</strong> (it powers Morning Brew, Milk Road and dozens of premium travel/food newsletters). Substack is a closed network with brand dilution; ConvertKit is creator-tooling without growth surfaces; MailerLite is functional but generic. Beehiiv has the boost + referral + monetization stack we need for Phase 4 paid tier.</li>
+<li><strong>Free up to 2,500 subs, $39/mo to ~10k</strong>, with built-in referral loops, paid subscription primitive, and a usable web archive. Cheapest <em>credible</em> path to a 5,000-subscriber list.</li>
+<li><strong>Beehiiv has a public API</strong>, so AI-agent-authored newsletter drafts can be pushed programmatically. Substack does not.</li>
+</ul>
+<p><strong>Positioning:</strong> <em>&quot;The Insider&#39;s Letter — every Thursday. The weekend ahead, what to book, what we&#39;re drinking. Five minutes. No fluff.&quot;</em></p>
+<p><strong>Sign-up flow:</strong></p>
+<ol>
+<li>Footer form on every page → Beehiiv embed</li>
+<li>End-of-article inline form on every Journal article</li>
+<li>Modal trigger after 60s on the homepage (one per session, ever)</li>
+<li>Dedicated landing page at <code>/letter</code> with archive + sample issues</li>
+<li>Welcome sequence: instant confirmation → 24h later &quot;the 5 best venues you should know&quot; → 7 days later first proper Thursday issue</li>
+</ol>
+<p><strong>First 4 issues:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Date (Thursday)</th>
+<th>Subject</th>
+<th>Anchor article</th>
+<th>Secondary content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#1</td>
+<td>Week 5 Thu</td>
+<td>&quot;The autumn the locals keep to themselves&quot;</td>
+<td>The Field Guide to Autumn (Article 1)</td>
+<td>This weekend&#39;s 3 bookings; 1 winemaker quote</td>
+</tr>
+<tr>
+<td>#2</td>
+<td>Week 6 Thu</td>
+<td>&quot;Three Italian dinners. Only one is worth the wait.&quot;</td>
+<td>Tedesca/Tractor/Laura (Article 2)</td>
+<td>A walk to clear the head after; weekend weather</td>
+</tr>
+<tr>
+<td>#3</td>
+<td>Week 7 Thu</td>
+<td>&quot;The long-lunch list&quot;</td>
+<td>Long Lunch intent piece (Article 3)</td>
+<td>Cellar door pick of the week; one &quot;stop doing this&quot;</td>
+</tr>
+<tr>
+<td>#4</td>
+<td>Week 8 Thu</td>
+<td>&quot;Why I went to Flinders instead of Red Hill&quot;</td>
+<td>Quiet Side of the Peninsula (Article 4)</td>
+<td>New venue spotlight; a reader question</td>
+</tr>
+</tbody></table>
+</div><h3>5.3 Map experience</h3>
+<p><strong>Provider decision: Mapbox GL JS with a custom style.</strong></p>
+<p>Three-bullet rationale:</p>
+<ul>
+<li><strong>Mapbox custom styles are the only way to achieve the warm, editorial map aesthetic</strong> the brand needs. MapTiler is cheaper but its style editor is weaker and the basemaps look generic. Leaflet+OSM is free but shipping a credible custom-styled map on it is 4x the design effort.</li>
+<li><strong>50,000 free monthly map loads</strong> on Mapbox is plenty for our traffic in Phase 2. Cost trip-wires only matter if we hit ~250k monthly visitors, which is a Phase 5+ problem.</li>
+<li><strong>Mapbox vector tiles + GL JS</strong> gives us smooth interaction on mobile. The geography of the Peninsula deserves proper rendering.</li>
+</ul>
+<p><strong>Custom style direction:</strong> Warm cream base (#f6f1e8), terracotta roads (#c45838), basalt-hued coastline (#3a4a52), muted forest greens (#7e8e6f) for parkland. The brand palette transferred to a map. ~1 day of design work in Mapbox Studio.</p>
+<p><strong>Integration approach:</strong></p>
+<ul>
+<li>Full-screen map at <code>/map</code> — every venue pinned, filtered by type/place/mood</li>
+<li>Embedded 300px-tall map on every venue page (showing venue + 3 nearby)</li>
+<li>Embedded route map on every itinerary page (numbered stops with drive time)</li>
+<li>Map strip preview on the homepage linking to <code>/map</code></li>
+<li>Place hub pages (<code>/eat-drink/red-hill/</code>) show a filtered map for that place</li>
+</ul>
+<p><strong>Pin design:</strong> Custom SVG markers per venue type (knife &amp; fork for restaurants, wine glass for wineries, key for stays, footprint for walks). Cluster at low zoom; expand at zoom 13+.</p>
+<h3>5.4 &quot;Where to go for…&quot; intent pages — first 6</h3>
+<p>These are the highest-intent search pages and the strategic review&#39;s #7 priority. Generated as Astro pages reading from venue tags, with editor-written intros.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Search intent</th>
+<th>Editor&#39;s brief</th>
+<th>Word count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/eat-drink/for/long-lunch</code></td>
+<td>&quot;long lunch mornington peninsula&quot;</td>
+<td>The flagship. 12 lunches reviewed, ranked. The single &quot;winner.&quot;</td>
+<td>2,800 (rebuilt from Phase 0 version)</td>
+</tr>
+<tr>
+<td><code>/eat-drink/for/anniversary</code></td>
+<td>&quot;best restaurant anniversary mornington peninsula&quot;</td>
+<td>8 dinners. The &quot;declare your love&quot; tier. Honesty about what&#39;s romantic vs. what&#39;s just expensive.</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td><code>/eat-drink/for/rainy-day</code></td>
+<td>&quot;things to do mornington peninsula rainy day&quot;</td>
+<td>10 indoor places to spend a wet Sunday. Long lunches, hot springs, galleries, fireplaces.</td>
+<td>1,500</td>
+</tr>
+<tr>
+<td><code>/eat-drink/for/kids</code></td>
+<td>&quot;family friendly restaurant mornington peninsula&quot;</td>
+<td>12 family-tested venues. Not just cellar doors with a colouring book.</td>
+<td>1,800</td>
+</tr>
+<tr>
+<td><code>/stay/for/romance</code></td>
+<td>&quot;romantic getaway mornington peninsula&quot;</td>
+<td>10 stays for couples. Tiers from $400 to $1,600/night. Honest about which earn the price.</td>
+<td>2,000</td>
+</tr>
+<tr>
+<td><code>/do/for/sunset</code></td>
+<td>&quot;best sunset mornington peninsula&quot;</td>
+<td>8 sunset spots ranked. Cape Schanck, Pt Nepean, Bridgewater Bay, Schnapper Point. With timing data.</td>
+<td>1,200</td>
+</tr>
+</tbody></table>
+</div><h3>5.5 Bylines + named editor strategy</h3>
+<p><strong>Decision: James as the single named editor through Phase 2, with one named contributor onboarded by Week 9.</strong></p>
+<p>The risk of a &quot;contributor pool&quot; too early is editorial drift. The brand needs to sound like one person until that voice is established. By Week 9, with 5+ Journal articles published in James&#39;s voice, we onboard one named contributor — recommendation: a Mornington-based food writer who can ghostwrite Tier 2 content under their own byline (&quot;The cellar door report&quot; / &quot;The market column&quot;). Budget: $300–500 per piece, monthly cadence.</p>
+<p>Every page from Phase 2 onward shows: byline → date → &quot;Last verified&quot; stamp → editor&#39;s note. Author bios live at <code>/people/{slug}</code> with photo, social, articles authored.</p>
+<h3>5.6 Authority markers integration</h3>
+<p>Every venue page renders an authority block in the right rail (or above the gallery on mobile):</p>
+<pre><code>THE AUTHORITY
+• 2 hats — The Age Good Food Guide 2025
+• Featured in Gourmet Traveller, Broadsheet, The Australian
+• Halliday: 95 (only for wineries)
+• &quot;Best New Restaurant 2024&quot; — Time Out
+</code></pre>
+<p>Authority data is a structured field on every venue. The research subagent populates it during venue authoring. James reviews on the top 30 to make sure no one&#39;s stretching.</p>
+<h3>5.7 Phase 2 milestones</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Workstream</th>
+<th>Milestone</th>
+<th>Owner</th>
+<th>Dependencies</th>
+<th>DoD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>W5</strong></td>
+<td>Journal</td>
+<td>Article 1 published Thu morning + Issue #1 of Insider&#39;s Letter ships</td>
+<td>James</td>
+<td>Beehiiv account from Phase 0</td>
+<td>Article live; newsletter sent; first deploy at 7am AEST</td>
+</tr>
+<tr>
+<td><strong>W5</strong></td>
+<td>Map</td>
+<td>Mapbox custom style v1 in production; embedded on top 10 venue pages</td>
+<td>Pixel + Remy</td>
+<td>Mapbox account, brand tokens</td>
+<td>Map renders on 10 venue pages</td>
+</tr>
+<tr>
+<td><strong>W5</strong></td>
+<td>Content</td>
+<td>Venue total reaches 50 (next 20 added by research subagent)</td>
+<td>Research subagent</td>
+<td>Photography for Tier 5 venues sourced</td>
+<td>50 venue JSON records, 50 live pages</td>
+</tr>
+<tr>
+<td><strong>W6</strong></td>
+<td>Journal</td>
+<td>Article 2 + Issue #2; first intent page live (<code>/for/long-lunch</code>)</td>
+<td>James + research</td>
+<td>Article 1 published</td>
+<td>Two articles live; intent page indexable</td>
+</tr>
+<tr>
+<td><strong>W6</strong></td>
+<td>Map</td>
+<td>Full-screen <code>/map</code> page live with all 50 venues pinned, filterable</td>
+<td>Web dev / Remy</td>
+<td>Mapbox style v1</td>
+<td><code>/map</code> works on mobile + desktop</td>
+</tr>
+<tr>
+<td><strong>W7</strong></td>
+<td>Journal</td>
+<td>Article 3 + Issue #3; intent page #2 (<code>/for/anniversary</code>)</td>
+<td>James</td>
+<td>—</td>
+<td>Three articles, two intent pages</td>
+</tr>
+<tr>
+<td><strong>W7</strong></td>
+<td>Content</td>
+<td>Venue total → 70</td>
+<td>Research subagent</td>
+<td>Photography backfilled</td>
+<td>70 live venue pages</td>
+</tr>
+<tr>
+<td><strong>W8</strong></td>
+<td>Journal</td>
+<td>Article 4 + Issue #4; intent pages #3 + #4 (<code>/for/rainy-day</code>, <code>/for/kids</code>)</td>
+<td>James</td>
+<td>Article 4 draft from W7</td>
+<td>Four articles, four intent pages</td>
+</tr>
+<tr>
+<td><strong>W8</strong></td>
+<td>Authority</td>
+<td>Authority block rolled out across all venue pages with hat/halliday/awards data</td>
+<td>Research subagent + James (audit)</td>
+<td>Schema field populated</td>
+<td>100% venues show authority block where applicable</td>
+</tr>
+<tr>
+<td><strong>W9</strong></td>
+<td>Journal</td>
+<td>Article 5 + Issue #5; first contributor onboarded (named, contracted, briefed)</td>
+<td>James</td>
+<td>Contributor candidate identified</td>
+<td>Contract signed; first contributor draft in pipeline</td>
+</tr>
+<tr>
+<td><strong>W9</strong></td>
+<td>Content</td>
+<td>Venue total → 90</td>
+<td>Research subagent</td>
+<td>—</td>
+<td>90 live venue pages</td>
+</tr>
+<tr>
+<td><strong>W9</strong></td>
+<td>Intent</td>
+<td>Intent pages #5 + #6 (<code>/stay/for/romance</code>, <code>/do/for/sunset</code>)</td>
+<td>Research + James</td>
+<td>—</td>
+<td>Six intent pages live</td>
+</tr>
+<tr>
+<td><strong>W10</strong></td>
+<td>Journal</td>
+<td>Article 6 + Issue #6; first contributor article published as Article 7 in Week 10&#39;s Thursday slot</td>
+<td>James + contributor</td>
+<td>Contributor onboarding complete</td>
+<td>Six James articles + first contributor article</td>
+</tr>
+<tr>
+<td><strong>W10</strong></td>
+<td>Phase review</td>
+<td>Metrics review against Phase 2 success criteria</td>
+<td>James + Remy</td>
+<td>All deliverables shipped</td>
+<td>Go/no-go for Phase 3</td>
+</tr>
+</tbody></table>
+</div><p><strong>Phase 2 Definition of Done:</strong></p>
+<ul>
+<li>7 Journal articles published, weekly cadence held without a missed Thursday</li>
+<li>Newsletter at 1,000+ subscribers</li>
+<li>90+ atomic venue pages</li>
+<li>Custom Mapbox map live on <code>/map</code> and embedded on every venue page</li>
+<li>6 intent pages live and indexed</li>
+<li>Authority markers on every applicable venue page</li>
+<li>One named contributor producing weekly content</li>
+<li>Pages-per-session ≥ 2.5; bounce rate &lt; 55%</li>
+</ul>
+<hr>
+<h2>6. Phase 3 — Commercial &amp; Planning Layer (Weeks 11–16)</h2>
+<p>Phase 1 fixed the architecture. Phase 2 made it editorial. Phase 3 makes it pay.</p>
+<h3>6.1 Stay expansion to 30+ listings + Partnered Stays program</h3>
+<p><strong>Sourcing strategy:</strong></p>
+<ol>
+<li><strong>Audit the existing market</strong> (Week 11): Pull every property from Stayz, Booking.com, Airbnb that&#39;s reasonably reviewed and in our editorial taste range. Research subagent produces a long-list of ~120 candidates with metadata (location, type, price band, rating, review excerpts).</li>
+<li><strong>Editorial cut to 60</strong> (James, Week 11): Half-day review session. Cut to 60 properties across 8 type tiers: The Icons / Design Hotels / Hideaways / Family Houses / Farm Stays / Villas / Glamping / Surprise Value.</li>
+<li><strong>Author the 30 most ready</strong> (research subagent, Weeks 11–13): JSON records with editor&#39;s notes, hero image (sourced from property + supplemented with commission for top 10), authority markers.</li>
+<li><strong>Photograph the top 10 properties</strong> (Weeks 12–13): Second photography commission, ~$3,000–4,000, focused on the partnered stays tier.</li>
+</ol>
+<p><strong>Partnered Stays program — terms to negotiate:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>What partner gets</th>
+<th>What we get</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Featured Partner</strong> (top 5 properties)</td>
+<td>Full editorial feature article + permanent venue page with priority placement on <code>/stay/</code>, mentioned in newsletter twice/year</td>
+<td>12% commission on direct bookings via our affiliate link, first-look on press releases, exclusive content access (2x property visits/year)</td>
+</tr>
+<tr>
+<td><strong>Editorial Partner</strong> (next 15 properties)</td>
+<td>Standard venue page with editor&#39;s note, included in itineraries and intent pages</td>
+<td>8% commission on direct bookings via affiliate link</td>
+</tr>
+<tr>
+<td><strong>Listed</strong> (remaining 10)</td>
+<td>Venue page only</td>
+<td>6% commission via Stayz/Booking.com affiliate (no direct relationship needed)</td>
+</tr>
+</tbody></table>
+</div><p>The first 5 conversations happen in Week 11 (James personally pitching the Icons: Jackalope, Lindenderry, Polperro, Aurora, Continental). Realistic conversion: 2 of 5 sign as Featured Partners by Week 14.</p>
+<h3>6.2 Booking integrations — prioritized order</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Provider</th>
+<th>What it integrates</th>
+<th>Effort</th>
+<th>Why this order</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>OpenTable</strong></td>
+<td>Restaurant reservations on ~20% of our restaurant venues (the most upmarket ones). Affiliate program pays per cover.</td>
+<td>2 days</td>
+<td>Most established, most likely-to-succeed restaurants use it.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Booking.com affiliate</strong></td>
+<td>Hotels, B&amp;Bs, larger properties. Cookie-tracked commission.</td>
+<td>1 day</td>
+<td>Easiest integration; covers ~70% of accommodation venues.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Stayz / Vrbo affiliate</strong></td>
+<td>Villas, holiday houses, cottages — the second-largest stay segment on the Peninsula.</td>
+<td>1 day</td>
+<td>Covers what Booking.com misses.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Peninsula Hot Springs direct</strong></td>
+<td>Wellness experience bookings. Negotiate a direct affiliate code with PHS marketing team.</td>
+<td>3 days (negotiation + integration)</td>
+<td>Single highest-value experience on the Peninsula; bespoke deal warranted.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Tock</strong></td>
+<td>The newer/serious restaurants (Tedesca, Pt Leo Estate).</td>
+<td>2 days</td>
+<td>Tock is harder than OpenTable but covers the venues OpenTable doesn&#39;t.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>GetYourGuide</strong></td>
+<td>Tours, tastings, sculpture tickets, dolphin swims.</td>
+<td>1 day</td>
+<td>Affiliate program; modest revenue but plugs the experience tier.</td>
+</tr>
+</tbody></table>
+</div><p><strong>Resy is explicitly deprioritized</strong> — minimal Mornington Peninsula footprint. We come back to it if a venue specifically requests it.</p>
+<p>Total integration effort: ~10 days across Weeks 12–14, staggered. Each integration is a tiny piece of code in the venue page template: read <code>bookingProvider</code> field, render the right widget/button.</p>
+<h3>6.3 The Planner expansion</h3>
+<p><strong>12 itineraries at launch</strong> (Week 13):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Itinerary</th>
+<th>Mood</th>
+<th>Length</th>
+<th>Audience</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>The Slow Food Weekend</td>
+<td>Slow / indulgent</td>
+<td>2 nights</td>
+<td>Couples, food-led</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The Family Weekend (already in Article 7)</td>
+<td>Family</td>
+<td>2 nights</td>
+<td>Families</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The Wellness Weekend</td>
+<td>Wellness</td>
+<td>2 nights</td>
+<td>Couples or solo</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The Locals&#39; Sunday</td>
+<td>Day trip</td>
+<td>1 day</td>
+<td>Day trippers</td>
+</tr>
+<tr>
+<td>5</td>
+<td>The Wine Pilgrimage</td>
+<td>Food &amp; wine</td>
+<td>3 nights</td>
+<td>Deep-divers</td>
+</tr>
+<tr>
+<td>6</td>
+<td>The First-Timer&#39;s Weekend</td>
+<td>Mixed</td>
+<td>2 nights</td>
+<td>International or interstate</td>
+</tr>
+<tr>
+<td>7</td>
+<td>The Anniversary Splurge</td>
+<td>Luxury</td>
+<td>2 nights</td>
+<td>Couples, big budget</td>
+</tr>
+<tr>
+<td>8</td>
+<td>The Walks &amp; Beaches Long Weekend</td>
+<td>Adventure</td>
+<td>3 nights</td>
+<td>Active travellers</td>
+</tr>
+<tr>
+<td>9</td>
+<td>The Rainy Sunday Plan</td>
+<td>Rainy day</td>
+<td>1 day</td>
+<td>Day trippers, families</td>
+</tr>
+<tr>
+<td>10</td>
+<td>The Sorrento-Portsea Weekend</td>
+<td>Beach + village</td>
+<td>2 nights</td>
+<td>Couples</td>
+</tr>
+<tr>
+<td>11</td>
+<td>The Hinterland Weekend (Red Hill / Main Ridge)</td>
+<td>Wine + countryside</td>
+<td>2 nights</td>
+<td>Couples</td>
+</tr>
+<tr>
+<td>12</td>
+<td>The Friday-Night Escape</td>
+<td>Quick reset</td>
+<td>1 night</td>
+<td>Couples, busy professionals</td>
+</tr>
+</tbody></table>
+</div><p>Each itinerary is a JSON file with <code>stops[]</code> referencing venue slugs. The page template renders:</p>
+<ul>
+<li>Hero + dek</li>
+<li>Day-by-day timeline with stops</li>
+<li>Embedded route map</li>
+<li>Total drive time + distance</li>
+<li>&quot;Save this itinerary&quot; button (creates account in Phase 4)</li>
+<li>Download/share PDF (auto-generated)</li>
+</ul>
+<p><strong>Build-Your-Own wizard architecture (Week 15–16):</strong></p>
+<p>A 3-step interactive form (client-side React island in Astro):</p>
+<ol>
+<li><strong>Who&#39;s coming?</strong> (couple / family / friends / solo)</li>
+<li><strong>How long?</strong> (day trip / 1 night / 2 nights / 3+ nights)</li>
+<li><strong>What matters most?</strong> (slow / adventure / food &amp; wine / wellness / family / mix)</li>
+</ol>
+<p>The form returns the closest pre-built itinerary as a starting point, then lets the user swap individual stops from filtered alternatives. Saves to local storage in Phase 3; saves to account in Phase 4.</p>
+<h3>6.4 &quot;This Weekend&quot; dynamic page</h3>
+<p><strong>URL:</strong> <code>/plan/this-weekend</code>
+<strong>Refresh cadence:</strong> Generated on every Thursday build (manual editorial control over weekend slate); auto-updated for weather/sunset times nightly via build hook.</p>
+<p><strong>Data sources:</strong></p>
+<ul>
+<li><strong>Editorial slate:</strong> A Thursday-morning JSON edit by James/Pixel — <code>weekend.json</code> — picks the 3 dinners, 2 long lunches, 1 walk, 1 market, 1 event, 1 stay deal for the upcoming weekend.</li>
+<li><strong>Weather:</strong> BOM (Bureau of Meteorology) API for Mornington/Sorrento — pulled on build, displayed for Friday/Sat/Sun.</li>
+<li><strong>Events:</strong> Filtered from the events database for events with <code>startDate</code> in the upcoming weekend window.</li>
+<li><strong>Sunset times:</strong> Calculated from coordinates — no API needed.</li>
+<li><strong>Restaurant availability:</strong> Phase 3 placeholder; Phase 4 we add OpenTable&#39;s &quot;show availability&quot; widget for venues that support it.</li>
+</ul>
+<p>The page is cached but rebuilds on Thursday&#39;s deploy. Total build time impact: ~3 seconds.</p>
+<h3>6.5 Place × category SEO pages — first 20</h3>
+<p>Programmatically generated from venue tags. Each is a <code>/eat-drink/{place}/{category}</code> or <code>/stay/{place}</code> page with editor-written intro, filtered venue grid, embedded place-filtered map.</p>
+<p><strong>The first 20 (auto-generated by Week 14):</strong></p>
+<ol>
+<li><code>/eat-drink/red-hill/restaurants</code></li>
+<li><code>/eat-drink/red-hill/wineries</code></li>
+<li><code>/eat-drink/sorrento/restaurants</code></li>
+<li><code>/eat-drink/sorrento/cafes</code></li>
+<li><code>/eat-drink/flinders/restaurants</code></li>
+<li><code>/eat-drink/merricks/wineries</code></li>
+<li><code>/eat-drink/main-ridge/wineries</code></li>
+<li><code>/eat-drink/dromana/restaurants</code></li>
+<li><code>/eat-drink/balnarring/wineries</code></li>
+<li><code>/eat-drink/portsea/restaurants</code></li>
+<li><code>/stay/sorrento</code></li>
+<li><code>/stay/portsea</code></li>
+<li><code>/stay/red-hill</code></li>
+<li><code>/stay/flinders</code></li>
+<li><code>/stay/cape-schanck</code></li>
+<li><code>/do/walks/cape-schanck</code></li>
+<li><code>/do/walks/sorrento</code></li>
+<li><code>/do/beaches/sorrento</code></li>
+<li><code>/do/beaches/back-beaches</code></li>
+<li><code>/do/wellness/peninsula</code></li>
+</ol>
+<p>Each is generated from a single template + a 200-word editor intro per page. AI agent drafts the intros; James reviews. Total editorial effort: ~6 hours for all 20.</p>
+<h3>6.6 Affiliate revenue model — projection</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Revenue stream</th>
+<th>Monthly traffic assumption (Week 24)</th>
+<th>Conversion</th>
+<th>Avg commission</th>
+<th>Monthly $</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Booking.com / Stayz hotel bookings</td>
+<td>8,000 sessions on stay pages</td>
+<td>1.5%</td>
+<td>$40 avg</td>
+<td>$4,800</td>
+</tr>
+<tr>
+<td>OpenTable / Tock restaurant covers</td>
+<td>12,000 sessions on restaurant pages</td>
+<td>0.8%</td>
+<td>$1.20 avg</td>
+<td>$115</td>
+</tr>
+<tr>
+<td>Peninsula Hot Springs direct affiliate</td>
+<td>2,500 sessions on PHS page</td>
+<td>3%</td>
+<td>$8 avg commission</td>
+<td>$600</td>
+</tr>
+<tr>
+<td>GetYourGuide tours</td>
+<td>1,500 sessions on experience pages</td>
+<td>1%</td>
+<td>$12 avg</td>
+<td>$180</td>
+</tr>
+<tr>
+<td>Featured Partner direct deals (2 partners)</td>
+<td>Editorial features 2x/year</td>
+<td>—</td>
+<td>$2,000/yr each</td>
+<td>$333</td>
+</tr>
+<tr>
+<td>Newsletter sponsorships (Phase 4 onset)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>(Phase 4)</td>
+</tr>
+<tr>
+<td><strong>Total monthly (Week 24 target)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>~$6,000</strong></td>
+</tr>
+</tbody></table>
+</div><p>This is conservative. By Week 36 (Phase 5+), the same model with 3x traffic and a Featured Partner program at 8 properties hits ~$25k/month, which is when Insider Membership becomes additive rather than primary revenue.</p>
+<h3>6.7 Phase 3 milestones</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Workstream</th>
+<th>Milestone</th>
+<th>Owner</th>
+<th>DoD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>W11</td>
+<td>Stay</td>
+<td>Long-list of 60 properties; Featured Partner outreach to 5 Icons</td>
+<td>James + research</td>
+<td>5 outreach emails sent; 60-property longlist committed</td>
+</tr>
+<tr>
+<td>W11</td>
+<td>Booking</td>
+<td>OpenTable + Booking.com affiliate accounts created; first integration shipped on 5 venues</td>
+<td>Remy</td>
+<td>5 venues show working &quot;Book&quot; button</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>Stay</td>
+<td>15 stay venue pages live with photography</td>
+<td>Research + photographer</td>
+<td>15 atomic stay pages indexed</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>Booking</td>
+<td>Stayz + Tock integrations live</td>
+<td>Remy</td>
+<td>All upmarket restaurants have working booking</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>Itineraries</td>
+<td>Itineraries 1–6 published as atomic pages</td>
+<td>Research + James</td>
+<td>6 itineraries live with maps</td>
+</tr>
+<tr>
+<td>W13</td>
+<td>Stay</td>
+<td>30 stay venue pages live; first Featured Partner contract signed (target: Jackalope or Lindenderry)</td>
+<td>James</td>
+<td>30 atomic stay pages; ≥1 partner contract</td>
+</tr>
+<tr>
+<td>W13</td>
+<td>Itineraries</td>
+<td>Itineraries 7–12 published</td>
+<td>Research + James</td>
+<td>12 itineraries live</td>
+</tr>
+<tr>
+<td>W14</td>
+<td>This Weekend</td>
+<td><code>/plan/this-weekend</code> page live; first Thursday slate published</td>
+<td>Pixel + Remy</td>
+<td>Page renders with weather, slate, events</td>
+</tr>
+<tr>
+<td>W14</td>
+<td>Place × cat SEO</td>
+<td>First 10 of 20 place×category pages live</td>
+<td>Astro template</td>
+<td>10 pages indexed</td>
+</tr>
+<tr>
+<td>W14</td>
+<td>Booking</td>
+<td>Peninsula Hot Springs direct deal negotiated + integrated</td>
+<td>James + Remy</td>
+<td>PHS booking links live</td>
+</tr>
+<tr>
+<td>W15</td>
+<td>Place × cat SEO</td>
+<td>Remaining 10 pages live</td>
+<td>Same</td>
+<td>20 pages live</td>
+</tr>
+<tr>
+<td>W15</td>
+<td>Build-Your-Own</td>
+<td>Wizard v1 in production (without account save)</td>
+<td>Web dev / Remy</td>
+<td>Wizard generates suggested itinerary</td>
+</tr>
+<tr>
+<td>W16</td>
+<td>Phase review</td>
+<td>Revenue dashboard live; first month of affiliate revenue tracked</td>
+<td>Remy</td>
+<td>Dashboard shows real $ from each provider</td>
+</tr>
+</tbody></table>
+</div><p><strong>Phase 3 Definition of Done:</strong></p>
+<ul>
+<li>30+ atomic stay pages live with original photography on top 10</li>
+<li>5 booking integrations live</li>
+<li>≥2 Featured Partners contracted</li>
+<li>12 itineraries + working Build-Your-Own wizard</li>
+<li><code>/plan/this-weekend</code> live and updating</li>
+<li>20 place × category SEO pages indexed</li>
+<li>Newsletter at 2,500+ subscribers</li>
+<li>First month of affiliate revenue tracked (target: $500+)</li>
+</ul>
+<hr>
+<h2>7. Phase 4 — Authority, Personalization, and Membership (Weeks 17–24)</h2>
+<p>The longer game. Phase 4 turns the audience into a brand and the brand into recurring revenue.</p>
+<h3>7.1 The Peninsula 50 — annual ranked authority list</h3>
+<p><strong>Launch: Week 22 (early November in production cadence — perfect summer-season pre-roll).</strong></p>
+<p><strong>Methodology:</strong></p>
+<ul>
+<li>50 venues across categories (25 food/restaurants, 15 wineries, 10 stays/experiences)</li>
+<li>Editorial panel: James + 2 named contributors + 1 industry voice (a winemaker or chef invited as guest panelist)</li>
+<li>Each entry has a written justification, a numbered rank within tier, and a single &quot;Why it&#39;s on the list&quot; line</li>
+<li>One signature methodology rule: at least 5 entries must be venues that have <em>fallen off</em> a previous list — this becomes the press hook (&quot;the most controversial Peninsula 50 yet&quot;)</li>
+</ul>
+<p><strong>Press strategy:</strong></p>
+<ul>
+<li>Embargo lifts Tuesday, 9am</li>
+<li>Pitched in advance to Broadsheet, The Age Good Food, Gourmet Traveller, Time Out Melbourne, ABC Radio Melbourne (7:15am food slot), Australian Financial Review weekend</li>
+<li>A pre-launch teaser piece in the Journal Week 20 (&quot;How we&#39;re judging the 2026 Peninsula 50&quot;)</li>
+<li>A single-page microsite at <code>/peninsula-50/2026/</code> with shareable sub-pages per entry</li>
+<li>A printed handbill given to venue partners</li>
+<li>Newsletter dedicated issue same morning</li>
+</ul>
+<p>This is the single asset that buys Peninsula Insider category authority in the press world. Done once a year, it becomes the brand&#39;s flagship.</p>
+<h3>7.2 Accounts + saved trips — minimum viable personalization</h3>
+<p><strong>Decision: Clerk for auth, Supabase for user data.</strong></p>
+<ul>
+<li><strong>Why Clerk:</strong> Drop-in auth in Astro takes ~2 hours. Magic links by default (no password drama). Free tier covers 10,000 monthly active users. Zero auth code we have to maintain.</li>
+<li><strong>Why Supabase:</strong> James already uses it for Mission Control. Same patterns, same dashboard. Free tier covers our load.</li>
+</ul>
+<p><strong>Minimum viable account features (Week 18):</strong></p>
+<ul>
+<li>Sign up via magic link</li>
+<li>Save venues (heart icon on venue pages → user_saves table)</li>
+<li>Save itineraries (the Build-Your-Own wizard now persists to account)</li>
+<li>&quot;Send to partner&quot; — email a saved trip to a co-traveller</li>
+<li>Personalized newsletter segmentation: at sign-up, ask 1 question (&quot;couple / family / friends / solo / locals&quot;) → newsletter sends a tailored Thursday issue</li>
+</ul>
+<p><strong>Explicit non-goals for Phase 4:</strong> social features, comments, reviews, user-generated content. Those are Phase 5+ if ever.</p>
+<h3>7.3 Interview series — winemakers, chefs, editor&#39;s voice</h3>
+<p><strong>Cadence:</strong> Monthly. Slot: every 4th Thursday&#39;s Journal article.</p>
+<p><strong>First 4 interviews (Weeks 17–24):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Subject</th>
+<th>Angle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Brigitte Hafner (Tedesca)</td>
+<td>&quot;The 30-seat philosophy: why I made the restaurant smaller&quot;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Rollo Crittenden (Crittenden Wines)</td>
+<td>&quot;Three Pinots that prove the Peninsula is having its moment&quot;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Louis Tikaram (former Doot Doot Doot)</td>
+<td>&quot;What I learned cooking on the Peninsula vs the city&quot;</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Susie Bell (founder, Lindenderry)</td>
+<td>&quot;Forty years of stay on the Peninsula — what changes, what doesn&#39;t&quot;</td>
+</tr>
+</tbody></table>
+</div><p>Each interview: 2,500–3,500 words, original photography (commissioned at the interview), audio clip embed (recorded on phone, hosted on the article page), pull quotes used in social cards.</p>
+<p>This series is the strategic review&#39;s #16 priority and the highest-leverage content we can produce: nobody else is doing it, and it&#39;s the kind of content that earns links from Broadsheet, The Age and trade publications for years.</p>
+<h3>7.4 Insider Membership tier — soft-launch criteria</h3>
+<p><strong>Launch trigger:</strong> Newsletter ≥ 5,000 subscribers AND ≥ 12 weeks of unbroken Thursday cadence AND ≥ 25 Journal articles published. Any earlier and we&#39;re charging for an unproven product.</p>
+<p><strong>Pricing:</strong> <strong>$48/year</strong> (introductory) → $79/year (after first 1,000 members). Annual billing only (avoids churn theatre). One pricing tier — no &quot;premium plus.&quot;</p>
+<p><strong>What&#39;s included:</strong></p>
+<ul>
+<li>Members-only Journal articles (2x/month — the longform investigative pieces)</li>
+<li>The Insider&#39;s full restaurant book (a downloadable PDF: every venue, every editor&#39;s note, twice/year)</li>
+<li>Members-only newsletter (&quot;The Locals&#39; Letter&quot;) — a Sunday morning short, locals-focused</li>
+<li>Annual Peninsula 50 print mailer (one-time per member, real printed thing)</li>
+<li>10% off bookings at Featured Partner properties (negotiated as part of the partnership program)</li>
+<li>Early access to Peninsula Insider events (Phase 5+ — small ticketed editor&#39;s dinners, vineyard walks)</li>
+<li>Soft commitment: zero ads anywhere on the site, ever (use this in marketing copy)</li>
+</ul>
+<p><strong>Stretch target:</strong> 100 paying members by Week 24 = $4,800/year recurring. This is symbolic, not financial — the value of Phase 4 is the <em>proof</em> that members will pay, which validates the business model for Phase 5 expansion.</p>
+<h3>7.5 Press + brand partnerships</h3>
+<p><strong>Q3–Q4 partnership pipeline:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Partner</th>
+<th>Approach</th>
+<th>What we offer</th>
+<th>What we want</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Visit Victoria</strong></td>
+<td>Direct pitch through tourism marketing channel</td>
+<td>&quot;Definitive Mornington Peninsula coverage; place us in the official content ecosystem&quot;</td>
+<td>Co-branded campaign feature; backlink from visitvictoria.com; access to their photographer pool</td>
+</tr>
+<tr>
+<td><strong>Tourism Mornington Peninsula</strong></td>
+<td>Direct relationship (industry body)</td>
+<td>&quot;We will write the editorial layer they cannot — and link out to their member directory&quot;</td>
+<td>Member discount on a media partnership; speaking slot at their AGM; co-sponsored event</td>
+</tr>
+<tr>
+<td><strong>James Halliday Wine Companion</strong></td>
+<td>Pitch via the editorial team</td>
+<td>&quot;Original winemaker interviews they can syndicate&quot;</td>
+<td>Backlink + Halliday content syndication agreement</td>
+</tr>
+<tr>
+<td><strong>Broadsheet</strong></td>
+<td>Pitch a co-branded &quot;Peninsula long lunch&quot; guide</td>
+<td>Free editorial labour from our side</td>
+<td>Co-byline; backlinks; cross-promotion to their membership</td>
+</tr>
+<tr>
+<td><strong>Gourmet Traveller</strong></td>
+<td>Pitch the Peninsula 50 as a feature reprint</td>
+<td>Exclusive first national publication of the list</td>
+<td>National press; subscriber crossover</td>
+</tr>
+</tbody></table>
+</div><p>Two of these five conversion is realistic in Phase 4. Both would be transformative for SEO and brand authority.</p>
+<h3>7.6 Phase 4 milestones</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Workstream</th>
+<th>Milestone</th>
+<th>Owner</th>
+<th>DoD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>W17</td>
+<td>Auth</td>
+<td>Clerk + Supabase auth live; &quot;Save&quot; buttons functional on venues</td>
+<td>Web dev / Remy</td>
+<td>Sign-up flow works end-to-end</td>
+</tr>
+<tr>
+<td>W17</td>
+<td>Interview series</td>
+<td>Interview #1 (Brigitte Hafner) recorded + drafted</td>
+<td>James</td>
+<td>Audio + transcript captured</td>
+</tr>
+<tr>
+<td>W18</td>
+<td>Build-Your-Own</td>
+<td>Wizard now persists to account; &quot;Send to partner&quot; email functional</td>
+<td>Web dev</td>
+<td>Account-saved trip retrievable</td>
+</tr>
+<tr>
+<td>W18</td>
+<td>Interview</td>
+<td>Interview #1 published as Thursday Journal article</td>
+<td>James</td>
+<td>Live + newsletter</td>
+</tr>
+<tr>
+<td>W19</td>
+<td>Peninsula 50</td>
+<td>Methodology + panel locked; longlist of 80 candidates assembled; teaser article in Journal</td>
+<td>James + panel</td>
+<td>Public methodology page live</td>
+</tr>
+<tr>
+<td>W20</td>
+<td>Peninsula 50</td>
+<td>Press list assembled; embargoes pitched; interview #2 published</td>
+<td>James + Remy</td>
+<td>8+ press contacts engaged</td>
+</tr>
+<tr>
+<td>W21</td>
+<td>Peninsula 50</td>
+<td>Final list locked; microsite built; print handbill designed</td>
+<td>Pixel + James</td>
+<td>Microsite ready in staging</td>
+</tr>
+<tr>
+<td>W22</td>
+<td>Peninsula 50</td>
+<td><strong>LAUNCH</strong> — Tuesday 9am embargo lift, microsite live, dedicated newsletter, press push</td>
+<td>All hands</td>
+<td>Press coverage in ≥2 outlets within 7 days</td>
+</tr>
+<tr>
+<td>W22</td>
+<td>Membership</td>
+<td>Membership landing page + Stripe integration in staging</td>
+<td>Remy</td>
+<td>Page renders, Stripe test mode works</td>
+</tr>
+<tr>
+<td>W23</td>
+<td>Membership</td>
+<td>Soft-launch to newsletter list (assuming 5k subscriber threshold met)</td>
+<td>James</td>
+<td>First 50 members signed up</td>
+</tr>
+<tr>
+<td>W23</td>
+<td>Interview</td>
+<td>Interview #3 published</td>
+<td>James</td>
+<td>Live</td>
+</tr>
+<tr>
+<td>W24</td>
+<td>Phase review</td>
+<td>Full 24-week metrics review; Phase 5 planning</td>
+<td>James + Remy</td>
+<td>Go/no-go on Phase 5</td>
+</tr>
+</tbody></table>
+</div><p><strong>Phase 4 Definition of Done:</strong></p>
+<ul>
+<li>Peninsula 50 launched with press coverage in ≥2 outlets</li>
+<li>Accounts live with save/saved-trips functionality</li>
+<li>4 interviews published in the Winemakers &amp; Chefs series</li>
+<li>Insider Membership soft-launched with ≥50 paying members</li>
+<li>Newsletter at 5,000+ subscribers</li>
+<li>25+ total Journal articles published</li>
+<li>Featured Partner program at ≥3 properties</li>
+<li>Monthly affiliate + membership revenue ≥$2,000</li>
+</ul>
+<hr>
+<h2>8. Resourcing &amp; Owners</h2>
+<p><strong>The reality:</strong> This is a solo founder with AI agent leverage, not a team. The roadmap is built around that reality, not around it.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Person</th>
+<th>Time commitment</th>
+<th>Responsibilities</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Founder / Editor</strong></td>
+<td>James</td>
+<td>12–16 hours/week (variable around health)</td>
+<td>Editorial direction, all bylines through Phase 2, Featured Partner negotiations, decision authority, press relationships, final QA on every venue page</td>
+</tr>
+<tr>
+<td><strong>Chief of Staff (orchestration)</strong></td>
+<td>Remy (AI)</td>
+<td>Always-on</td>
+<td>Project management, agent dispatch, schema enforcement, build/deploy, Mission Control alignment, weekly status to James</td>
+</tr>
+<tr>
+<td><strong>Research subagent</strong></td>
+<td>Remy-spawned</td>
+<td>~25 hours/week of agent compute</td>
+<td>Venue record authoring, place page intros, intent page research, Peninsula 50 longlist assembly</td>
+</tr>
+<tr>
+<td><strong>Editorial subagent</strong></td>
+<td>Remy-spawned (drafts only)</td>
+<td>~10 hours/week</td>
+<td>First drafts of Journal articles, ghost-writes intent pages, James edits all output before publish</td>
+</tr>
+<tr>
+<td><strong>Pixel (design subagent)</strong></td>
+<td>Remy-spawned</td>
+<td>~6 hours/week</td>
+<td>Component design, image editing, photography curation, social card generation</td>
+</tr>
+<tr>
+<td><strong>Photographer</strong></td>
+<td>Commissioned (3rd party)</td>
+<td>4 days Phase 1 + 2 days Phase 3 + 4 days Phase 4</td>
+<td>Original photography for top 30 venues, Featured Partner stays, interview portraits</td>
+</tr>
+<tr>
+<td><strong>Named contributor</strong></td>
+<td>TBD (Mornington-based food writer)</td>
+<td>1 article/month from Week 9</td>
+<td>Journal articles in the contributor&#39;s voice, edited by James</td>
+</tr>
+<tr>
+<td><strong>Web developer</strong></td>
+<td>Contracted (4 days total across all phases)</td>
+<td>Phase 1 W1 (architecture spike, 2 days) + Phase 4 W17 (auth wiring, 2 days)</td>
+<td>Hard architectural lifts only; everything else is AI-agent driven</td>
+</tr>
+</tbody></table>
+</div><p><strong>Total external spend across 24 weeks (rough):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Photography (Phase 1)</td>
+<td>$10,000</td>
+</tr>
+<tr>
+<td>Photography (Phase 3, partnered stays)</td>
+<td>$4,000</td>
+</tr>
+<tr>
+<td>Photography (Phase 4, interviews + Peninsula 50)</td>
+<td>$4,000</td>
+</tr>
+<tr>
+<td>Web developer (4 days @ $1,200)</td>
+<td>$4,800</td>
+</tr>
+<tr>
+<td>Beehiiv</td>
+<td>$0–$200 (free until 2,500 subs, then $39/mo)</td>
+</tr>
+<tr>
+<td>Mapbox</td>
+<td>$0 (free tier)</td>
+</tr>
+<tr>
+<td>Sanity, Clerk, Supabase</td>
+<td>$0 (free tiers)</td>
+</tr>
+<tr>
+<td>Vercel hosting</td>
+<td>$0–$240 (free until traffic triggers Pro)</td>
+</tr>
+<tr>
+<td>Named contributor (4 months × 1 article × $400)</td>
+<td>$1,600</td>
+</tr>
+<tr>
+<td>Domain, sundries</td>
+<td>$200</td>
+</tr>
+<tr>
+<td>Press kit + Peninsula 50 print mailer</td>
+<td>$1,500</td>
+</tr>
+<tr>
+<td><strong>Total 24-week external spend</strong></td>
+<td><strong>~$26,000</strong></td>
+</tr>
+</tbody></table>
+</div><p>This is the entire build budget. Everything else is James&#39;s editorial time + AI agent compute (which is effectively zero marginal cost in his existing setup).</p>
+<hr>
+<h2>9. Tech Stack Decisions</h2>
+<p>The full slate. Each pick defended in three bullets. No options menus.</p>
+<h3>Static site generator / framework: <strong>Astro</strong></h3>
+<ul>
+<li><strong>Editorial-first by default</strong> — zero-JS content pages, islands for interactive bits (map, search, wizard), excellent build times</li>
+<li><strong>Content Collections + Zod schemas</strong> make AI-agent authorship trivial and validated</li>
+<li><strong>Component model is more flexible than 11ty/Hugo</strong> without the runtime overhead of Next.js — exactly the sweet spot for a publication</li>
+</ul>
+<h3>CMS approach: <strong>JSON in git, with Sanity Studio (lite) for Journal articles only</strong></h3>
+<ul>
+<li><strong>AI agents author venue/experience/place records directly into JSON</strong> — no GUI, no API rate limits, no human handoff</li>
+<li><strong>Sanity Studio mounted at <code>/admin</code> for the 1–2 articles/week</strong> that James wants to compose visually (his preference for editorial flow)</li>
+<li><strong>Zero lock-in</strong> — if we outgrow this, exporting to a heavyweight CMS is a weekend job</li>
+</ul>
+<h3>Map provider: <strong>Mapbox GL JS with custom brand style</strong></h3>
+<ul>
+<li><strong>Custom styling is the only way to land the brand-correct map aesthetic</strong> — generic OSM pins betray the brand</li>
+<li><strong>50,000 free monthly map loads</strong> is generous for our traffic until we cross 200k monthly visitors</li>
+<li><strong>Vector tiles + smooth interaction on mobile</strong> — the geography of the Peninsula deserves proper rendering</li>
+</ul>
+<h3>Newsletter platform: <strong>Beehiiv</strong></h3>
+<ul>
+<li><strong>Built for newsletter-as-product brands</strong> (Morning Brew, Milk Road) — exactly the model we&#39;re following</li>
+<li><strong>Public API</strong> lets AI agents draft + push newsletter issues programmatically</li>
+<li><strong>Built-in paid subscription primitive</strong> — Phase 4 membership doesn&#39;t need a second platform</li>
+</ul>
+<h3>Booking integration platforms (prioritized): <strong>OpenTable → Booking.com → Stayz → Peninsula Hot Springs (direct) → Tock → GetYourGuide</strong></h3>
+<ul>
+<li><strong>OpenTable + Booking.com</strong> cover the highest commission volume with the lowest integration cost — start there</li>
+<li><strong>Direct deal with Peninsula Hot Springs</strong> is the single highest-leverage bespoke integration on the Peninsula</li>
+<li><strong>Tock + GetYourGuide</strong> cover the upmarket venue gap that OpenTable misses</li>
+</ul>
+<h3>Image hosting/CDN: <strong>Cloudinary</strong></h3>
+<ul>
+<li><strong>Free tier covers 25GB</strong> of bandwidth/month — comfortable for Phase 1–2</li>
+<li><strong>Built-in transforms</strong> (responsive sizing, WebP/AVIF, blur placeholders, focal-point cropping) — eliminates the entire image-pipeline build problem</li>
+<li><strong>DAM-style organization</strong> lets the photographer upload directly + Pixel agent retrieve by tag</li>
+</ul>
+<h3>Analytics: <strong>Plausible</strong></h3>
+<ul>
+<li><strong>Privacy-respecting + cookieless</strong> — appropriate for an editorial brand and avoids GDPR/cookie banner ugliness</li>
+<li><strong>Single-pane dashboard</strong> with real-time + historical — simpler than GA4</li>
+<li><strong>Cheap</strong> — $9/mo at our traffic, no upgrade pressure</li>
+</ul>
+<h3>Search: <strong>Pagefind (build it; do not buy)</strong></h3>
+<ul>
+<li><strong>Static search index built at compile time</strong> — zero infra, no API costs, ships with the site</li>
+<li><strong>Excellent performance</strong> for content sites under 10k entities</li>
+<li><strong>Algolia would cost $50–$500/mo</strong> for capabilities we don&#39;t need until Phase 5+</li>
+</ul>
+<h3>Hosting: <strong>Vercel (migrate from GitHub Pages)</strong></h3>
+<ul>
+<li><strong>GitHub Pages is fine for static HTML; it&#39;s wrong for Astro + image optimization + ISR + redirect rules</strong></li>
+<li><strong>Vercel&#39;s preview deployments per branch</strong> are the killer feature for the parallel-build cutover plan</li>
+<li><strong>Free tier covers our traffic</strong> until Phase 5+; the migration is a one-day effort and gives us instant velocity</li>
+</ul>
+<hr>
+<h2>10. Success Metrics by Phase</h2>
+<p>Specific. Measurable. No &quot;improve engagement.&quot;</p>
+<h3>Phase 0 (Week 0 → Week 1)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pages with byline + date</td>
+<td>0</td>
+<td>8 (all)</td>
+</tr>
+<tr>
+<td>Homepage cliché word count (&quot;world-class,&quot; &quot;charming,&quot; &quot;rugged,&quot; &quot;crystal clear&quot;)</td>
+<td>~12</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Newsletter signups</td>
+<td>0</td>
+<td>25 (organic, no marketing)</td>
+</tr>
+<tr>
+<td>Plausible installed</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+</div><h3>Phase 1 (Weeks 1–4)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>Target Week 4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Atomic venue pages live</td>
+<td>0</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Venues with original photography</td>
+<td>0</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Place hub pages live</td>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Bounce rate</td>
+<td>~70% (estimated)</td>
+<td>&lt;60%</td>
+</tr>
+<tr>
+<td>Pages per session</td>
+<td>~1.4 (estimated)</td>
+<td>≥2.2</td>
+</tr>
+<tr>
+<td>Build time (full site)</td>
+<td>n/a</td>
+<td>&lt;60s</td>
+</tr>
+<tr>
+<td>404s on old URLs</td>
+<td>n/a</td>
+<td>0 (all redirected)</td>
+</tr>
+<tr>
+<td>Indexed pages in Google</td>
+<td>~12</td>
+<td>≥40</td>
+</tr>
+</tbody></table>
+</div><h3>Phase 2 (Weeks 5–10)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Phase 1 exit</th>
+<th>Target Week 10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Atomic venue pages</td>
+<td>30</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Journal articles published</td>
+<td>0</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Newsletter subscribers</td>
+<td>25</td>
+<td>1,000</td>
+</tr>
+<tr>
+<td>Map experience live</td>
+<td>No</td>
+<td>Yes (full-screen + embedded)</td>
+</tr>
+<tr>
+<td>Intent pages live</td>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Authority blocks on venue pages</td>
+<td>0</td>
+<td>100% (where applicable)</td>
+</tr>
+<tr>
+<td>Pages per session</td>
+<td>2.2</td>
+<td>≥2.5</td>
+</tr>
+<tr>
+<td>Bounce rate</td>
+<td>&lt;60%</td>
+<td>&lt;55%</td>
+</tr>
+<tr>
+<td>Thursday cadence misses</td>
+<td>n/a</td>
+<td>0</td>
+</tr>
+</tbody></table>
+</div><h3>Phase 3 (Weeks 11–16)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Phase 2 exit</th>
+<th>Target Week 16</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Atomic stay pages</td>
+<td>~6</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Featured Partners contracted</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Booking integrations live</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Itineraries published</td>
+<td>1</td>
+<td>12 + Build-Your-Own wizard</td>
+</tr>
+<tr>
+<td>Place × category SEO pages</td>
+<td>0</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Newsletter subscribers</td>
+<td>1,000</td>
+<td>2,500</td>
+</tr>
+<tr>
+<td>Monthly affiliate revenue</td>
+<td>$0</td>
+<td>$500+</td>
+</tr>
+<tr>
+<td><code>/plan/this-weekend</code> live</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+</div><h3>Phase 4 (Weeks 17–24)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Phase 3 exit</th>
+<th>Target Week 24</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Newsletter subscribers</td>
+<td>2,500</td>
+<td>5,000</td>
+</tr>
+<tr>
+<td>Total Journal articles</td>
+<td>~13</td>
+<td>25+</td>
+</tr>
+<tr>
+<td>Interviews in series</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Peninsula 50 launched</td>
+<td>No</td>
+<td>Yes (with press coverage in ≥2 outlets)</td>
+</tr>
+<tr>
+<td>Accounts created</td>
+<td>0</td>
+<td>500+</td>
+</tr>
+<tr>
+<td>Saved trips</td>
+<td>0</td>
+<td>200+</td>
+</tr>
+<tr>
+<td>Insider Members (paying)</td>
+<td>0</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Featured Partners</td>
+<td>2</td>
+<td>3+</td>
+</tr>
+<tr>
+<td>Monthly affiliate + membership revenue</td>
+<td>$500</td>
+<td>$2,000+</td>
+</tr>
+</tbody></table>
+</div><hr>
+<h2>11. Risks &amp; Mitigations</h2>
+<p>The honest list.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Probability</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Velocity collapse if James&#39;s health flares</strong> (femur recovery, energy variability)</td>
+<td>Medium-High</td>
+<td>Critical</td>
+<td>Build the cadence around AI-agent leverage, not James&#39;s personal output. Phase 1 is designed so research subagent does 80% of venue authoring. James can miss a week without missing a Thursday if articles are queued 2 weeks ahead. <strong>Always keep 2 Journal articles in the bank.</strong></td>
+</tr>
+<tr>
+<td><strong>Photography quality bar not met</strong> (chosen photographer doesn&#39;t match brand aesthetic)</td>
+<td>Medium</td>
+<td>High</td>
+<td>Sample shoot from each candidate before contracting (Week 0 → Week 1). Negotiate kill fee + reshoot rights. Have backup of licensed Visit Victoria imagery as Plan B for Week 4 launch.</td>
+</tr>
+<tr>
+<td><strong>Booking partner negotiations stall</strong> (Featured Partners say no or take months)</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Phase 3 doesn&#39;t depend on Featured Partners — affiliate-based commission via Booking.com/Stayz works without any negotiation. Featured Partners are upside, not critical path.</td>
+</tr>
+<tr>
+<td><strong>Content debt accumulates faster than migration</strong> (existing 130 venues → only 90 migrated by Week 10)</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Migration order is by commercial value, not by total. The first 30 are worth more than the bottom 100. Accept that long-tail venues migrate in Phase 3–5.</td>
+</tr>
+<tr>
+<td><strong>Tech stack lock-in regret</strong> (we picked Astro and now wish we&#39;d picked Next.js)</td>
+<td>Low</td>
+<td>Medium</td>
+<td>JSON-in-git architecture is portable. The Astro pages are templates over data — replacing the renderer is a 2-week effort, not a rebuild. No content lock-in.</td>
+</tr>
+<tr>
+<td><strong>Newsletter doesn&#39;t grow</strong> (Beehiiv launch but stays under 1,000 by Week 10)</td>
+<td>Medium</td>
+<td>High</td>
+<td>Plan B at Week 8: paid Beehiiv Boost spend ($500) targeted at travel-newsletter-readers, plus a referral campaign offering early Peninsula 50 access. The newsletter is critical path; we don&#39;t let it stall silently.</td>
+</tr>
+<tr>
+<td><strong>Map experience is buggy on mobile</strong> (Mapbox custom style + clusters performs poorly on lower-end phones)</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Test on mid-tier Android in Week 5 before any embed rollout. Fall back to static map snapshot + tap-to-open-fullscreen if interaction is rough.</td>
+</tr>
+<tr>
+<td><strong>Editorial voice drifts when contributor onboards</strong> (Week 9)</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Single editor (James) reviews every contributor draft for first 3 articles. Style guide one-pager committed to repo. Contributor terminated if 2 articles in a row need substantial rewrites.</td>
+</tr>
+<tr>
+<td><strong>SEO dip on cutover</strong> (URL migration breaks ranking on the few terms we already rank for)</td>
+<td>Low</td>
+<td>Medium</td>
+<td>All redirects are 301; sitemap.xml regenerated and submitted; Google Search Console monitored daily for first 14 days post-cutover.</td>
+</tr>
+<tr>
+<td><strong>Insider Membership soft-launch fails</strong> (under 50 members at Week 24)</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Membership is symbolic in Phase 4 — proof of concept, not revenue critical. If under 50, postpone hard launch, run member interviews, refine the offer for Phase 5.</td>
+</tr>
+<tr>
+<td><strong>James gets pulled by M2M day-job urgency</strong></td>
+<td>High</td>
+<td>High</td>
+<td>Heartbeat-style weekly check-in + Mission Control task board keeps the project visible. If a Thursday is at risk, Remy escalates 48h ahead so James can choose to either ship a shorter article or skip with grace (one acknowledged &quot;we&#39;re taking a week off&quot; is survivable; surprise silence is not).</td>
+</tr>
+<tr>
+<td><strong>Photography spend feels heavy in a tight cash month</strong></td>
+<td>Medium</td>
+<td>Medium</td>
+<td>The $10k Phase 1 photography commission can be staged in two payments — 50% on contract, 50% on delivery. Keeps cash-flow palatable.</td>
+</tr>
+</tbody></table>
+</div><hr>
+<h2>12. Decision Points (Things James Must Decide Before Phase 1 Begins)</h2>
+<p>These need answers before EOD Friday Week 0. Without them, Phase 1 cannot start.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Decision</th>
+<th>Recommended answer (defended elsewhere)</th>
+<th>James&#39;s call</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Static site generator</td>
+<td><strong>Astro</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Photographer pick (3 candidates to brief)</td>
+<td>Brief Kate Shanasy + 2 others; pick after sample reels return</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Photography budget tier</td>
+<td><strong>$10,000 Phase 1</strong> (30 venues, full commercial rights)</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Editor — solo voice or contributor pool?</td>
+<td><strong>Solo (James) through Phase 2; one named contributor onboarded Week 9</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Newsletter platform</td>
+<td><strong>Beehiiv</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Booking partners — exclusive or aggregator?</td>
+<td><strong>Aggregator-first (Booking.com, OpenTable) + bespoke deals on top 5 properties only</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Optiflows guides path: keep or sunset the mirror?</td>
+<td><strong>Keep the mirror at optiflows.com.au/guides/peninsula-insider/</strong> as a methodology proof-case for OptiFlows clients; do NOT make it canonical. peninsulainsider.com.au is the brand.</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Hosting: GitHub Pages or Vercel?</td>
+<td><strong>Migrate to Vercel</strong> Week 4 cutover</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Featured Partner outreach — first 5 targets</td>
+<td><strong>Jackalope, Lindenderry, Polperro, Aurora, Continental</strong> — James pitches all 5 personally Week 11</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Content migration — keep old eat.html / wine.html as live archives during transition?</td>
+<td><strong>Yes, until Week 4 cutover, then 301 redirect — old content disappears from indices</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Insider Membership pricing</td>
+<td><strong>$48/year intro → $79/year after first 1,000</strong></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Domain question — do we want <code>the</code> prefix? (<code>thepeninsulainsider.com.au</code>)?</td>
+<td><strong>No. peninsulainsider.com.au is fine.</strong> Don&#39;t fragment SEO authority.</td>
+<td>☐</td>
+</tr>
+</tbody></table>
+</div><p>A 90-minute focus block on Day 5 of Week 0 should clear all 12. Remy will pre-fill the recommended answer column; James edits and signs.</p>
+<hr>
+<h2>13. Kickoff Checklist</h2>
+<p>The first 10 actions, in 3 time windows.</p>
+<h3>Today (next 4 hours)</h3>
+<ol>
+<li><strong>Read this roadmap end to end.</strong> No skimming. Mark anything that feels wrong.</li>
+<li><strong>Open the decision sheet</strong> (Section 12) and write your gut answer next to each item — don&#39;t deliberate, just answer. We refine in the Friday session.</li>
+<li><strong>Send a one-line email to 3 photographers</strong> (Kate Shanasy, Julian Kingma, Andrew Curtis) with subject &quot;Mornington Peninsula editorial commission, 30 venues — quote and sample reel&quot; and a brief paragraph asking for availability May/June. Even if you don&#39;t pick from these three, the responses give you market reference pricing.</li>
+</ol>
+<h3>Next 48 hours</h3>
+<ol start="4">
+<li><strong>Sign up for Beehiiv</strong> (free tier) and create the publication &quot;The Insider&#39;s Letter.&quot; Don&#39;t write anything yet — just claim the URL.</li>
+<li><strong>Set up Plausible analytics</strong> on the live site at peninsulainsider.com.au. (Remy can do this via the JS snippet — needs your account login.)</li>
+<li><strong>Cut the homepage overview tile</strong> (Phase 0 item 0.1). One commit. Ship it.</li>
+<li><strong>Add bylines + last-updated date</strong> to all 8 existing pages. (Remy generates a script, you approve the byline copy.)</li>
+</ol>
+<h3>This week (by Friday Week 0 EOD)</h3>
+<ol start="8">
+<li><strong>Lock the decision sheet</strong> — 90-minute focus block, sign all 12 decisions. Without this, Phase 1 cannot start Monday.</li>
+<li><strong>Approve the photography brief</strong> (Section 4.6) and contract whichever photographer returned the cleanest sample. Get the shoot dates on the calendar for Weeks 2–3.</li>
+<li><strong>Write the editor&#39;s letter for Issue #1</strong> — a 200-word &quot;this is what we&#39;re about&quot; paragraph that becomes the first newsletter and the new homepage hero copy. The single hardest 200 words to write on the entire project. Block 90 minutes for it.</li>
+</ol>
+<hr>
+<p><em>This is a 24-week build plan. The strategic review told us what the brand should become. This roadmap tells us how to get there, week by week, with named owners, real budgets, and the discipline of a Thursday publishing cadence.</em></p>
+<p><em>The first decision is the simplest: pick the answers in Section 12 by Friday. Everything else is execution.</em></p>
+<p><em>— Prepared 9 April 2026. For James Richmond. With love for the Peninsula and zero tolerance for missed Thursdays.</em></p>
+
+</div>
+</body>
+</html>

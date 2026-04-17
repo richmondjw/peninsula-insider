@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const golfCourses = await getCollection('experiences', ({ data }) => data.type === 'golf-course');
+  return golfCourses.map((course) => ({ params: { slug: course.slug }, props: { course } }));
+}
+
+const { course } = Astro.props;
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Golf', href: '/golf' },
+  { label: course.data.name },
+];
+---
+
+<BaseLayout
+  title={`${course.data.name} | Peninsula Insider`}
+  description={course.data.summary}
+  section="explore"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="venue-hero">
+    <div class="container venue-hero__inner">
+      <div class="venue-hero__content">
+        <p class="label label--accent">Golf Course</p>
+        <h1 class="venue-hero__title">{course.data.name}</h1>
+        <p class="venue-hero__intro">{course.data.summary}</p>
+      </div>
+      {course.data.heroImage && (
+        <div class="venue-hero__visual">
+          <img src={course.data.heroImage} alt={course.data.heroAlt || course.data.name} loading="eager" />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container prose">
+      <p>{course.data.description}</p>
+      <h2>What to know</h2>
+      <ul>
+        {course.data.highlights?.map((item) => <li>{item}</li>)}
+      </ul>
+      {course.data.golf?.access && <p><strong>Access:</strong> {course.data.golf.access}</p>}
+      {course.data.website && <p><a href={course.data.website} target="_blank" rel="noreferrer">Visit official website</a></p>}
+    </div>
+  </section>
+</BaseLayout>

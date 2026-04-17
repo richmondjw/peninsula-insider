@@ -1,0 +1,25 @@
+{
+  "slotId": "{slot-id}",
+  "decisionVersion": 1,
+  "decidedAt": "{ISO timestamp}",
+  "decidedBy": "james",
+  "shortlistPath": "ops/image-approvals/shortlists/{slot-id}.json",
+  "selected": "{slot-id}-a",
+  "rejected": [
+    {
+      "candidateId": "{slot-id}-b",
+      "reason": "better-alternative",
+      "note": "Why the selected candidate beat this one."
+    }
+  ],
+  "editorOverrides": [],
+  "notes": "Short editorial note.",
+  "implementerAction": {
+    "downloadTo": "/next/public/images/sourced/{slot-id}.webp",
+    "contentFileUpdates": [],
+    "altText": "",
+    "credit": "",
+    "caption": ""
+  },
+  "implementerStatus": "pending"
+}

@@ -1,0 +1,32 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Astro build output
+next/dist/
+next/.astro/
+
+# Lock files — keep package-lock for reproducibility, skip others
+next/yarn.lock
+next/pnpm-lock.yaml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Approvals / workspace tooling (not part of the public repo)
+.approvals/
+
+.claude/worktrees/

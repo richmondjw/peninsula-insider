@@ -1,0 +1,26 @@
+{
+  "slotId": "place-merricks-01",
+  "decisionVersion": 0,
+  "status": "implemented-pragmatic-approval",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/place-merricks-01.json",
+  "selected": "place-merricks-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "Only candidate, but passes ALL ten §6 rules — the first in the entire Tier A pipeline to do so without any override. CC-BY 4.0 licence is clean. 5303x3047 resolution gives excellent crop headroom. Explicitly geo-tagged to Merricks, Victoria. The brief predicted this slot would defer — this image cancels the deferral."
+  },
+  "rejected": [],
+  "editorOverrides": [],
+  "notes": "AWAITING EDITOR SIGNATURE. Agent pre-filled with strong recommendation. Single candidate but fully rule-compliant.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Vineyard_Merricks_Grove_Victoria_Australia.jpg",
+    "downloadTo": "/next/public/images/sourced/place-merricks-01.webp",
+    "contentFileUpdates": ["next/src/content/places/merricks.json"],
+    "altText": "Working vineyard in early spring at Merricks, Mornington Peninsula",
+    "credit": "BrooksieG / Wikimedia Commons (CC-BY-4.0)",
+    "caption": "Vine rows at Merricks in early spring.",
+    "license": "wikimedia-cc-by"
+  },
+  "implementerStatus": "implemented-pragmatic-approval"
+}

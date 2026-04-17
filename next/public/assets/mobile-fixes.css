@@ -1,0 +1,183 @@
+/* ============================================================
+   Peninsula Insider — Mobile Fix Layer
+   Loaded LAST to override the main stylesheet.
+   Fixes: sticky header, horizontal overflow, z-index stacking.
+   ============================================================ */
+
+/* ------------------------------------------------------------------
+   1. ROOT OVERFLOW CONTAINMENT
+
+   Problem:  body { overflow-x: hidden } in the main CSS creates a
+   scroll container in mobile WebKit. This breaks position:fixed AND
+   position:sticky on all descendants (including .masthead).
+
+   Fix:  Use overflow-x:clip on html — it clips overflow WITHOUT
+   creating a scroll container, so fixed/sticky continue to work.
+   Remove overflow-x:hidden from body entirely.
+   ------------------------------------------------------------------ */
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: unset !important;   /* kill the overflow-x:hidden that breaks fixed */
+}
+
+
+/* ------------------------------------------------------------------
+   2. FIXED HEADER — MOBILE (≤ 768px)
+
+   On mobile, the masthead becomes position:fixed so it never scrolls
+   away. body gets top padding to compensate for the header leaving
+   normal flow. We use left:0;right:0 instead of width:100% to avoid
+   any box-model edge cases.
+   ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+  .masthead {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    /* backdrop-filter and background already set in main CSS */
+  }
+
+  body {
+    padding-top: 64px;   /* = .masthead__inner height */
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   3. MOBILE NAV OVERLAY
+
+   .mobile-nav was moved out of <header> in the DOM so it escapes the
+   masthead's backdrop-filter containing block. z-index:200 puts it
+   above the masthead (100), below the grain overlay (9999).
+   ------------------------------------------------------------------ */
+
+.mobile-nav {
+  z-index: 200 !important;
+}
+
+
+/* ------------------------------------------------------------------
+   4. HORIZONTAL OVERFLOW PREVENTION — STRUCTURAL
+
+   Belt-and-suspenders: every major layout landmark gets overflow-x:clip
+   so no child can push the page wider. clip (not hidden) so it won't
+   create scroll containers or break any sticky/fixed descendants.
+   ------------------------------------------------------------------ */
+
+main,
+footer,
+section,
+.container {
+  overflow-x: clip;
+}
+
+/* Images, video, embeds — hard cap at 100% of parent */
+img,
+video,
+iframe,
+embed,
+object,
+svg {
+  max-width: 100%;
+}
+
+
+/* ------------------------------------------------------------------
+   5. KNOWN OVERFLOW HOTSPOTS
+   ------------------------------------------------------------------ */
+
+/* Pillars nav — force wrap on mobile so the 6 links don't overflow */
+@media (max-width: 768px) {
+  .pillars__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .pillar {
+    padding: 0.5rem 0;
+  }
+}
+
+/* Event badges — ensure the flex container wraps */
+.event-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* Facts/detail tables — prevent long URLs or text from overflowing */
+.facts dd,
+.facts dd a,
+.event-detail__box-list dd,
+.event-detail__box-list dd a,
+.venue-detail__body a,
+.article__body a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Breadcrumbs — wrap when the path is long */
+.breadcrumbs {
+  flex-wrap: wrap;
+}
+
+/* Newsletter form — prevent the input from overflowing its container */
+@media (max-width: 768px) {
+  .newsletter__input,
+  .newsletter__submit {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .newsletter__form {
+    max-width: 100%;
+  }
+}
+
+/* Issue ribbon stats — wrap on mobile */
+@media (max-width: 768px) {
+  .issue-ribbon__stats {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+}
+
+/* Weekend picker CTAs — stack vertically on small screens */
+@media (max-width: 480px) {
+  .weekend-picker__ctas {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   6. GLOBAL SAFETY RAILS
+   ------------------------------------------------------------------ */
+
+/* Constrain the top-level body children so nothing pushes the page wider.
+   We target body > * rather than * to avoid breaking internal flex/grid. */
+body > *:not(.mobile-nav):not(script):not(style) {
+  max-width: 100%;
+}
+
+/* Pre/code blocks — horizontal scroll is intentional, contain it */
+pre, code {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Tables — scroll within their container, not the page */
+table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}

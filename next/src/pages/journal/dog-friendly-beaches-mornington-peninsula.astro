@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const beaches = [
+  'Balnarring Beach — one of the easiest dog-beach options if you want space and less theatre.',
+  'Mount Martha South Beach — useful for owners staying on the northern side of the Peninsula.',
+  'Somers foreshore stretches — calmer and less showy than the more obvious beach picks.',
+  'Rye and Rosebud sections — useful, but always check seasonal and leash restrictions before you go.',
+];
+---
+
+<BaseLayout title="Dog-Friendly Beaches Mornington Peninsula | Peninsula Insider" description="The practical guide to dog-friendly beaches on the Mornington Peninsula, including where it works, what to watch, and how to plan around restrictions." section="explore">
+  <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
+    <p class="label label--accent">Dog-Friendly Peninsula</p>
+    <h1>Dog-Friendly Beaches on the Mornington Peninsula</h1>
+    <p>The Peninsula is full of beach imagery, but not every beach is equally useful when the dog is part of the day. The real question is not whether a beach looks good in a brochure. It is whether the access, parking, leash rules, and general stress level make it worth the drive.</p>
+    <p>The strongest dog-beach options are the ones that let the dog move, let the humans breathe, and do not turn the morning into a bureaucratic negotiation with signage and crowds.</p>
+    <h2>Where to start</h2>
+    <ul>
+      {beaches.map((beach) => <li>{beach}</li>)}
+    </ul>
+    <h2>What matters more than the postcard</h2>
+    <p>For dog owners, the best beach is usually not the most famous one. It is the one with enough space, reasonable access, and fewer ways for the day to go sideways. That means thinking about parking, leash expectations, heat, post-swim rinse options, and what lunch looks like afterwards.</p>
+    <p>This page should become a verified beach-by-beach guide next. For now, treat it as the practical frame for where the hub is going.</p>
+  </main>
+</BaseLayout>

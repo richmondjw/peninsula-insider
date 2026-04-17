@@ -1,0 +1,245 @@
+---
+/**
+ * Peninsula Insider  -  BaseLayout
+ *
+ * Single wrapping layout for every page in the rebuild.
+ * Handles <head>, fonts, global styles, masthead, footer.
+ * Content slots through <slot />.
+ */
+
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import Masthead from '../components/Masthead.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  section?: 'home' | 'eat' | 'stay' | 'wine' | 'explore' | 'journal' | 'places' | 'escape' | 'whats-on';
+  preview?: boolean;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const SITE_URL = 'https://peninsulainsider.com.au';
+
+const {
+  title,
+  description = 'The independent editorial guide to the Mornington Peninsula — no advertisers, no press trips, just honest coverage.',
+  section = 'home',
+  preview = false,
+  canonical,
+  ogImage = '/images/sourced/home-cover.webp',
+  ogType = 'website',
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+
+// Canonical: use explicit prop if provided, otherwise derive from current URL pathname.
+// Strip any /V2/ base prefix so canonicals always point at the production root.
+const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
+const normalizedPath = rawPathname !== '/' ? rawPathname.replace(/\/$/, '') : rawPathname;
+const canonicalUrl = canonical ?? `${SITE_URL}${normalizedPath}`;
+
+// OG image must be an absolute URL.
+const ogImageAbsolute = ogImage.startsWith('http')
+  ? ogImage
+  : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
+---
+
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="content-language" content="en-AU" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="alternate" hrefLang="en-au" href={canonicalUrl} />
+  <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageAbsolute} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content="Peninsula Insider" />
+  <meta property="og:locale" content="en_AU" />
+  {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+  {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageAbsolute} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Peninsula Insider',
+    url: SITE_URL,
+    logo: `${SITE_URL}/images/sourced/home-cover.webp`,
+  })} />
+
+  <!-- View transitions: client-side routing with page fade -->
+  <ClientRouter />
+
+  <!-- Beehiiv embed script — required for newsletter iframe to function -->
+  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+
+  <!-- Enhancement layers -->
+  <link rel="stylesheet" href="/assets/mobile-fixes.css" />
+  <link rel="stylesheet" href="/assets/newsletter-enhance.css" />
+  <link rel="stylesheet" href="/assets/scroll-animations.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DBL14DE975"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DBL14DE975');
+  </script>
+</head>
+<body>
+
+  <Masthead section={section} />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+
+
+  <script is:inline>
+    (function() {
+      function initNav() {
+        var burger = document.querySelector('.masthead__burger');
+        var nav = document.getElementById('mobileNav');
+        if (!burger || !nav) return;
+
+        // Always reset state cleanly on each page load / transition
+        nav.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+
+        // Guard against double-binding on repeated calls
+        if (burger._navBound) return;
+        burger._navBound = true;
+
+        burger.addEventListener('click', function() {
+          var open = nav.classList.toggle('is-open');
+          burger.classList.toggle('is-open', open);
+          burger.setAttribute('aria-expanded', String(open));
+          document.body.style.overflow = open ? 'hidden' : '';
+        });
+
+        nav.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            nav.classList.remove('is-open');
+            burger.classList.remove('is-open');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      // Run on first load and after every view-transition swap
+      initNav();
+      document.addEventListener('astro:page-load', initNav);
+    })();
+  </script>
+
+  <!-- Copy-link share button -->
+  <script is:inline>
+    (function () {
+      function initShareBtn() {
+        var btn = document.getElementById('copyLink');
+        if (!btn || btn._shareBound) return;
+        btn._shareBound = true;
+        btn.addEventListener('click', function () {
+          var url = window.location.href;
+          (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject())
+            .catch(function () {
+              var ta = document.createElement('textarea');
+              ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+              document.body.appendChild(ta); ta.select();
+              document.execCommand('copy'); document.body.removeChild(ta);
+            })
+            .then(function () {
+              var label = btn.querySelector('.article__share-btn-label');
+              btn.classList.add('is-copied');
+              if (label) label.textContent = 'Copied!';
+              setTimeout(function () {
+                btn.classList.remove('is-copied');
+                if (label) label.textContent = 'Copy link';
+              }, 2200);
+            });
+        });
+      }
+      initShareBtn();
+      document.addEventListener('astro:page-load', initShareBtn);
+    })();
+  </script>
+
+  <!-- Enhancement JS -->
+  <script is:inline src="/assets/newsletter-enhance.js"></script>
+  <script is:inline src="/assets/scroll-animations.js"></script>
+
+  <!-- Lenis smooth scroll — buttery weighted physics on every page -->
+  <script>
+    import Lenis from 'lenis';
+
+    let lenis: InstanceType<typeof Lenis> | null = null;
+    let rafId: number | null = null;
+
+    function startLenis() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      lenis = new Lenis({
+        duration: 1.4,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.0,
+        smoothTouch: false,
+      });
+
+      function raf(time: number) {
+        lenis!.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+      rafId = requestAnimationFrame(raf);
+    }
+
+    function stopLenis() {
+      if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+      if (lenis) { lenis.destroy(); lenis = null; }
+    }
+
+    // Boot on first load
+    startLenis();
+
+    // Restart cleanly after each view-transition page swap
+    document.addEventListener('astro:before-swap', stopLenis);
+    document.addEventListener('astro:page-load', startLenis);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const places = (await getCollection('places'))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const venues = await getCollection('venues');
+const experiences = await getCollection('experiences');
+
+// Count venues and experiences mapped to each place, so the all-places
+// grid can surface density rather than treating every hub as equal.
+const placeDensity: Record<string, number> = {};
+places.forEach((place) => {
+  const slug = routeSlug(place);
+  const venueCount = venues.filter((v) => String(v.data.place?.id ?? v.data.place) === slug).length;
+  const experienceCount = experiences.filter((e) => String(e.data.place?.id ?? e.data.place) === slug).length;
+  placeDensity[slug] = venueCount + experienceCount;
+});
+
+// Pull three "signature" reads that work as town-first journal pieces.
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const townReadSlugs = [
+  'a-flinders-weekend',
+  'mornington-day-guide',
+  'how-to-build-a-red-hill-saturday',
+  'the-peninsula-orientation-drive',
+];
+const townReads = townReadSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+
+// Group by editorial geography, not raw zone enum  -  the three pockets
+// most useful to a first-time reader.
+const groups: { key: string; label: string; title: string; intro: string; variant: 'vineyard' | 'bay' | 'sand'; zones: string[] }[] = [
+  {
+    key: 'ridge',
+    label: 'The ridge',
+    title: 'Ridge & hinterland',
+    intro: 'Basalt plateau, pinot noir, ferny gullies, and long lunches. This is the Peninsula\'s lunch-and-wine layer  -  the one readers mean when they say "Red Hill on a Saturday".',
+    variant: 'vineyard',
+    zones: ['red-hill-plateau', 'hinterland'],
+  },
+  {
+    key: 'coast',
+    label: 'The coast',
+    title: 'Southern ocean & tip',
+    intro: 'Flinders, Cape Schanck, Sorrento, Portsea, Point Nepean  -  limestone, open water, dusk walks, and the places the wind goes to get honest.',
+    variant: 'sand',
+    zones: ['ocean-coast', 'back-beaches', 'tip'],
+  },
+  {
+    key: 'bay',
+    label: 'The bay side',
+    title: 'Bayside easy entry',
+    intro: 'Mornington and Mount Martha are the cleanest way into the region if coffee, markets, galleries, and a swim matter more than bookings.',
+    variant: 'bay',
+    zones: ['bayside'],
+  },
+];
+
+const grouped = groups
+  .map((group) => ({
+    ...group,
+    places: places.filter((place) => group.zones.includes(place.data.zone)),
+  }))
+  .filter((group) => group.places.length > 0);
+
+const quickNav = grouped.map((group) => ({
+  href: `#${group.key}`,
+  label: group.label,
+  count: group.places.length,
+}));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Places' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Towns Guide — Places | Peninsula Insider"
+  description="Town and place hubs for the Mornington Peninsula — Red Hill, Sorrento, Flinders, Mornington, and more. Every place with an editorial guide."
+  section="places"
+  canonical="https://peninsulainsider.com.au/places"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+  <SectionHero
+    eyebrow="Places"
+    subEyebrow="Town hubs · local geography · insider terrain"
+    title="The Peninsula, town by <em>town.</em>"
+    dek="The old site flattened the region into a few brochure categories. These place pages start to fix that by giving Red Hill, Sorrento, Flinders, and Merricks their own editorial gravity."
+    gradient="bay"
+    visualLabel="Arthur's Seat · Storm over Port Phillip Bay"
+    heroImage="/images/sourced/places-hub-hero-01.webp"
+  />
+
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Start with geography</p>
+          <h2 class="split-intro__title">The Peninsula is three different trips wearing one postcode</h2>
+        </div>
+        <p class="split-intro__body">The ridge is about lunch and wine. The southern coast is about weather, cliffs, and a cleaner kind of air. The bay side is easier, gentler, and better for a day you don't want to over-plan. These place pages exist so visitors can choose properly.</p>
+      </div>
+      <div class="zone-intro__grid">
+        {grouped.map((group) => (
+          <a href={`#${group.key}`} class="zone-card zone-card--link">
+            <p class="zone-card__label">{group.label}</p>
+            <h3 class="zone-card__title">{group.places.length} hubs · {group.title}</h3>
+            <p class="zone-card__body">{group.intro}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {quickNav.length > 0 && (
+    <section class="format-nav">
+      <div class="container">
+        <p class="label label--accent format-nav__label">Jump to a pocket</p>
+        <div class="format-nav__chips">
+          {quickNav.map((item) => (
+            <a href={item.href} class="format-chip">
+              <span class="format-chip__name">{item.label}</span>
+              <span class="format-chip__count">{item.count}</span>
+            </a>
+          ))}
+          <a href="#all" class="format-chip">
+            <span class="format-chip__name">All places</span>
+            <span class="format-chip__count">{places.length}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {grouped.map((group) => {
+    // Sort within each group by density so the hubs with the most
+    // mapped venues/experiences lead the grid.
+    const ordered = [...group.places].sort(
+      (a, b) => (placeDensity[routeSlug(b)] ?? 0) - (placeDensity[routeSlug(a)] ?? 0),
+    );
+    return (
+      <section class="places" id={group.key}>
+        <div class="container">
+          <div class="places__header">
+            <p class="label label--accent places__label">{group.label}</p>
+            <h2 class="places__title">{group.title}</h2>
+            <p class="places__sub">{group.intro}</p>
+          </div>
+          <div class="places__grid">
+            {ordered.map((place) => (
+              <PlaceCard place={place} variant={group.variant} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="places" id="all">
+    <div class="container">
+      <div class="places__header">
+        <p class="label label--accent places__label">Every hub</p>
+        <h2 class="places__title">All {places.length} places, alphabetical</h2>
+        <p class="places__sub">For when you already know which town you want to read next.</p>
+      </div>
+      <div class="places__grid">
+        {places.map((place, index) => (
+          <PlaceCard
+            place={place}
+            variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {townReads.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">From the Journal</p>
+            <h2 class="venues__title">Town-first reads that map a single stretch properly</h2>
+            <p class="venues__sub">The essays and service pieces that sit closest to the place layer.</p>
+          </div>
+          <a href="/journal" class="venues__link">All in the Journal →</a>
+        </div>
+        <div class="venues__grid">
+          {townReads.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

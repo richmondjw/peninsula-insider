@@ -1,0 +1,219 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import EventBadges from '../../components/EventBadges.astro';
+import EventCard from '../../components/EventCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  eventCategoryLabel,
+  eventDateLabel,
+  eventLensLabel,
+  kidsGradeCopy,
+  routeSlug,
+  venueHrefPrefix,
+  weatherCopy,
+} from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({
+    params: { slug: routeSlug(event) },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
+const venue = event.data.venue ? await getEntry(event.data.venue).catch(() => null) : null;
+
+const allEvents = (await getCollection('events')).filter((e) => routeSlug(e) !== routeSlug(event));
+const related = allEvents
+  .filter((e) => e.data.category === event.data.category)
+  .slice(0, 3);
+const relatedFallback = allEvents.slice(0, 3);
+const sidebar = related.length >= 2 ? related : relatedFallback;
+
+const lensList = (event.data.lens ?? []).map((key: string) => ({
+  key,
+  label: eventLensLabel[key] ?? key,
+}));
+
+const recurrenceCopy: Record<string, string> = {
+  'one-off': 'One-off',
+  weekly: 'Weekly programme',
+  monthly: 'Monthly recurring',
+  annual: 'Annual',
+  seasonal: 'Seasonal',
+  ongoing: 'Ongoing',
+};
+
+const slug = routeSlug(event);
+const placeName = place?.data?.name ?? 'Mornington Peninsula';
+const canonical = `https://peninsulainsider.com.au/whats-on/${slug}`;
+
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: event.data.title,
+  description: event.data.summary,
+  startDate: event.data.startDate.toISOString(),
+  ...(event.data.endDate ? { endDate: event.data.endDate.toISOString() } : {}),
+  location: {
+    '@type': 'Place',
+    name: venue?.data?.name ?? placeName,
+    address: `${placeName}, VIC, Australia`,
+  },
+  url: canonical,
+  ...(event.data.bookingUrl ? { offers: { '@type': 'Offer', url: event.data.bookingUrl } } : {}),
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: "What's On", href: '/whats-on' },
+  { label: event.data.title },
+];
+---
+
+<BaseLayout
+  title={`${event.data.title}, ${placeName} · Peninsula Insider`}
+  description={event.data.summary}
+  section="whats-on"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="event-detail">
+    <div class="container">
+      <div class="event-detail__header">
+        <div class="event-detail__meta">
+          <span class="label label--accent">{eventCategoryLabel[event.data.category] ?? event.data.category}</span>
+          <span class="event-detail__dot" aria-hidden="true"></span>
+          <span class="event-detail__meta-item">{eventDateLabel(event.data.startDate, event.data.endDate)}</span>
+          <span class="event-detail__dot" aria-hidden="true"></span>
+          <span class="event-detail__meta-item">{recurrenceCopy[event.data.recurrence] ?? event.data.recurrence}</span>
+        </div>
+
+        <h1 class="event-detail__title">{event.data.title}</h1>
+        <p class="event-detail__summary">{event.data.summary}</p>
+
+        <EventBadges
+          worthTheDrive={event.data.worthTheDrive}
+          firstTimer={event.data.firstTimer}
+          kidsGrade={event.data.kidsGrade}
+          weather={event.data.weather}
+          skipThis={event.data.skipThis}
+          size="md"
+        />
+      </div>
+
+      <div class="event-detail__body">
+        <div class="event-detail__main">
+          {event.data.editorVerdict && (
+            <aside class="event-verdict">
+              <p class="event-verdict__label">Editor's verdict</p>
+              <p class="event-verdict__body">{event.data.editorVerdict}</p>
+            </aside>
+          )}
+
+          {event.data.editorNote && (
+            <div class="prose">
+              {event.data.editorNote.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
+            </div>
+          )}
+
+          {event.data.kidsGrade && event.data.kidsGradeNote && (
+            <aside class={`kids-grade-note kids-grade-note--${event.data.kidsGrade.toLowerCase()}`}>
+              <p class="kids-grade-note__label">{kidsGradeCopy[event.data.kidsGrade]?.label ?? 'Kids Grade'}</p>
+              <p class="kids-grade-note__body">{event.data.kidsGradeNote}</p>
+              <p class="kids-grade-note__baseline">{kidsGradeCopy[event.data.kidsGrade]?.blurb}</p>
+            </aside>
+          )}
+
+          {event.data.skipThis && event.data.skipReason && (
+            <aside class="skip-callout">
+              <p class="skip-callout__label">Skip this</p>
+              <p class="skip-callout__body">{event.data.skipReason}</p>
+            </aside>
+          )}
+        </div>
+
+        <aside class="event-detail__side">
+          <div class="event-detail__box">
+            <p class="event-detail__box-label">At a glance</p>
+            <dl class="event-detail__box-list">
+              <div>
+                <dt>When</dt>
+                <dd>{eventDateLabel(event.data.startDate, event.data.endDate)}</dd>
+              </div>
+              {place && (
+                <div>
+                  <dt>Where</dt>
+                  <dd><a href={`/places/${routeSlug(place)}`}>{place.data.name}</a></dd>
+                </div>
+              )}
+              {venue && (
+                <div>
+                  <dt>Venue</dt>
+                  <dd><a href={`${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}`}>{venue.data.name}</a></dd>
+                </div>
+              )}
+              <div>
+                <dt>Weather</dt>
+                <dd>{weatherCopy[event.data.weather] ?? 'Weather flexible'}</dd>
+              </div>
+              {event.data.worthTheDrive && (
+                <div>
+                  <dt>Worth the drive</dt>
+                  <dd>Yes — unprompted recommendation</dd>
+                </div>
+              )}
+              {event.data.firstTimer && (
+                <div>
+                  <dt>First time on the Peninsula</dt>
+                  <dd>Start here</dd>
+                </div>
+              )}
+              {event.data.bookingUrl && (
+                <div>
+                  <dt>Book / info</dt>
+                  <dd><a href={event.data.bookingUrl} rel="nofollow noreferrer">Organiser -></a></dd>
+                </div>
+              )}
+            </dl>
+          </div>
+
+          {lensList.length > 0 && (
+            <div class="event-detail__box event-detail__box--lenses">
+              <p class="event-detail__box-label">Filed under</p>
+              <ul class="event-detail__lenses">
+                {lensList.map((lens: { key: string; label: string }) => (
+                  <li><span>{lens.label}</span></li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  {sidebar.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Keep planning</p>
+            <h2 class="venues__title">More from What's On</h2>
+          </div>
+          <a href="/whats-on" class="venues__link">All events -></a>
+        </div>
+        <div class="event-grid">
+          {sidebar.map((entry) => <EventCard event={entry} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

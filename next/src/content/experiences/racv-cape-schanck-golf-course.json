@@ -1,0 +1,55 @@
+{
+  "slug": "racv-cape-schanck-golf-course",
+  "name": "RACV Cape Schanck Golf Course",
+  "type": "golf-course",
+  "place": "cape-schanck",
+  "zone": "ocean-coast",
+  "coordinates": {
+    "lat": -38.4793,
+    "lng": 144.8764
+  },
+  "address": "Trent Jones Dr, Cape Schanck VIC 3939",
+  "website": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
+  "durationMinutes": 270,
+  "seasonBest": [
+    "autumn",
+    "spring",
+    "summer"
+  ],
+  "editorNote": "RACV Cape Schanck is the scenic one. The course plays along the clifftops and through the coastal scrub around the Cape Schanck lighthouse precinct, and the ocean is in play — visually and occasionally physically — on most of the back nine. It is not the Peninsula's most architecturally celebrated course (that's St Andrews Beach or The National), but it is probably its most dramatic setting. For the right round on the right day, few Australian courses match it. The resort integration matters. RACV members get preferential access and packages; non-members can book public tee times and use the clubhouse and facilities. On-site accommodation at RACV Cape Schanck Resort makes it the easiest 'stay and play' option on the Peninsula — walk from your room to the first tee. Conditioning is consistent, service is resort-standard, and the pro shop is well-run. Pair with the Cape Schanck boardwalk and lighthouse precinct for a weekend that feels like a destination rather than just a round.",
+  "tags": {
+    "mood": [
+      "golf",
+      "weekend-escape",
+      "view"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "summer"
+    ],
+    "audience": [
+      "couples",
+      "group"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/placeholder-golf.svg",
+    "alt": "Cape Schanck coastal landscape, RACV Cape Schanck, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "golf": {
+    "tier": "tier-3",
+    "access": "public",
+    "holes": 18,
+    "designers": [
+      "Robert Trent Jones Jr"
+    ],
+    "bookingUrl": "https://www.racv.com.au/travel-leisure/resorts/cape-schanck-resort.html",
+    "approximateGreenFeeNote": "Verify current green fees directly. RACV members receive preferential rates. Resort stay-and-play packages available."
+  },
+  "lastVerified": "2026-04-14",
+  "publishedAt": "2026-04-14"
+}

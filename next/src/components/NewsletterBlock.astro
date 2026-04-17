@@ -1,0 +1,60 @@
+---
+/**
+ * NewsletterBlock  -  the dark CTA block that closes most pages.
+ * Exposes an id="newsletter" anchor so the masthead CTA works from any page.
+ *
+ * Layout: stacked  -  headline → body → embed → proof points.
+ * Centred, single-column flow for a clean editorial feel.
+ */
+
+export interface Props {
+  title?: string;
+  body?: string;
+}
+
+const {
+  title = 'The Peninsula in your inbox, every week.',
+  body = "New openings, cellar-door dispatches, weekend-picker verdicts, and the places we're quietly recommending this season. Written by editors who live here.",
+} = Astro.props;
+---
+
+<section class="newsletter" id="newsletter" aria-label="Newsletter signup">
+  <div class="container">
+    <div class="newsletter__stack">
+      <p class="newsletter__label">The Insider's Dispatch</p>
+      <h2 class="newsletter__title" set:html={title.replace(', ', ',<br />')} />
+      <p class="newsletter__body">{body}</p>
+
+      <div class="newsletter__embed-wrap" aria-label="Email signup">
+        <iframe
+          src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
+          class="newsletter__embed beehiiv-embed"
+          data-test-id="beehiiv-embed"
+          frameborder="0"
+          scrolling="no"
+          title="Subscribe to The Insider's Dispatch"
+        ></iframe>
+        <p class="newsletter__disclaimer">
+          No spam. Unsubscribe any time. Weekly dispatch every Wednesday.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById('newsletter');
+  if (section && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          section.classList.add('newsletter--visible');
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(section);
+  }
+</script>

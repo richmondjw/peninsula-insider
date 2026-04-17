@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+---
+
+<BaseLayout
+  title="Page not found  -  Peninsula Insider"
+  description="The page you're looking for doesn't exist. Try the homepage or browse our sections."
+  section="home"
+>
+  <section class="not-found">
+    <div class="container">
+      <div class="not-found__inner">
+        <p class="not-found__code">404</p>
+        <h1 class="not-found__title">This page doesn't exist</h1>
+        <p class="not-found__body">Either the URL is wrong, the page moved, or it was never here to begin with. The Peninsula is big enough to get lost in  -  the website shouldn't be.</p>
+
+        <nav class="not-found__nav" aria-label="Recovery links">
+          <a href="/" class="not-found__link">← Back to the homepage</a>
+          <a href="/journal" class="not-found__link">Browse the Journal</a>
+          <a href="/eat" class="not-found__link">Eat & Drink</a>
+          <a href="/explore" class="not-found__link">Explore</a>
+          <a href="/places" class="not-found__link">Places</a>
+          <a href="/contact" class="not-found__link">Report a broken link</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    title="While you're here  -  the newsletter is real."
+    body="Weekly Peninsula coverage with honest picks, new openings, and the cellar doors worth knowing."
+  />
+</BaseLayout>

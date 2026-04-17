@@ -1,0 +1,29 @@
+---
+/**
+ * ArticleCard  -  compact card for Journal index and related reads.
+ */
+import { formatLabel, routeSlug } from '../lib/editorial';
+
+export interface Props {
+  article: any;
+}
+
+const { article } = Astro.props;
+const slug = routeSlug(article);
+const authorLabel = article.data.houseByline
+  ? 'The Peninsula Insider'
+  : String(article.data.author?.id ?? article.data.author);
+---
+
+<article class="venue-card">
+  <div class="venue-card__top">
+    <span class="venue-card__type">{formatLabel[article.data.format] ?? article.data.format}</span>
+    {article.data.readingTimeMinutes && <span class="venue-card__price">{article.data.readingTimeMinutes} min</span>}
+  </div>
+  <h3 class="venue-card__name">
+    <a href={`/journal/${slug}`}>{article.data.title}</a>
+  </h3>
+  <p class="venue-card__place">By {authorLabel}</p>
+  <p class="venue-card__signature">{article.data.dek}</p>
+  <a href={`/journal/${slug}`} class="venue-card__cta">Read the piece →</a>
+</article>

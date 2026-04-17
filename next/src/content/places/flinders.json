@@ -1,0 +1,16 @@
+{
+  "slug": "flinders",
+  "name": "Flinders",
+  "kind": "town",
+  "zone": "ocean-coast",
+  "coordinates": { "lat": -38.4716, "lng": 145.0194 },
+  "intro": "Flinders sits on the wild southern edge of the Peninsula and carries itself with a kind of salt-air confidence. The village is compact but smart  -  a bakery, a handful of good shops, an old pub, and a coastline that feels a world away from the bay-facing polish further north. Base yourself here if you want your mornings to begin with wind off Bass Strait, your afternoons with a drive back inland for lunch, and your evenings under a harder, cleaner sky.",
+  "heroImage": {
+    "src": "/images/sourced/place-flinders-01.webp",
+    "alt": "Flinders Pier extending into Western Port Bay on a quiet winter day",
+    "credit": "Daniel Kabel / Wikimedia Commons (CC-BY-SA-4.0)",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "relatedPlaces": ["red-hill", "sorrento"],
+  "publishedAt": "2026-04-01"
+}

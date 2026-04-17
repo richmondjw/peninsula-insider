@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const criteria = [
+  'Clear pet policy, not hidden negotiation.',
+  'Outdoor space or easy walking access nearby.',
+  'A location that still makes the Peninsula easy to do with a dog in the car.',
+  'Enough comfort that the stay still feels like a trip, not a compromise.',
+];
+---
+
+<BaseLayout title="Dog-Friendly Accommodation Mornington Peninsula | Peninsula Insider" description="The practical Peninsula Insider guide to dog-friendly accommodation on the Mornington Peninsula." section="stay">
+  <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
+    <p class="label label--accent">Dog-Friendly Peninsula</p>
+    <h1>Dog-Friendly Accommodation on the Mornington Peninsula</h1>
+    <p>The right dog-friendly stay is not just one that allows pets. It is one that still makes the trip feel worth taking. That means less emphasis on pet-policy copy and more emphasis on whether the base actually works for the weekend you want.</p>
+    <h2>The filter</h2>
+    <ul>
+      {criteria.map((item) => <li>{item}</li>)}
+    </ul>
+    <p>This should become a proper set of Peninsula Insider stay picks, grouped by trip shape and geography.</p>
+  </main>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const venues = [
+  'Outdoor-first cafés with enough room that the dog is not an awkward afterthought.',
+  'Pubs with proper beer-garden logic rather than token pet tolerance.',
+  'Wineries where the outdoor setting makes sense for a longer stop, not just a quick photo.',
+];
+---
+
+<BaseLayout title="Dog-Friendly Cafés, Pubs and Wineries Mornington Peninsula | Peninsula Insider" description="The Peninsula Insider guide to dog-friendly cafés, pubs and wineries on the Mornington Peninsula." section="eat">
+  <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
+    <p class="label label--accent">Dog-Friendly Peninsula</p>
+    <h1>Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula</h1>
+    <p>A lot of venues say they are dog-friendly when what they really mean is that they will tolerate a dog if the place is quiet and you sit out of the way. That is not the same thing as a venue that actually works when the dog is part of the plan.</p>
+    <p>The better dog-friendly venues have space, outdoor logic, enough airflow between tables, and staff who do not look surprised when a water bowl is requested.</p>
+    <h2>What qualifies</h2>
+    <ul>
+      {venues.map((venue) => <li>{venue}</li>)}
+    </ul>
+    <p>This should become a properly verified working list. The right editorial standard is practical usefulness, not token inclusion.</p>
+  </main>
+</BaseLayout>

@@ -1,0 +1,42 @@
+{
+  "slotId": "{slot-id}",
+  "createdAt": "{ISO timestamp}",
+  "createdBy": "{agent-id}",
+  "briefPath": "ops/image-approvals/briefs/{slot-id}.md",
+  "candidates": [
+    {
+      "candidateId": "{slot-id}-a",
+      "source": "wikimedia-commons | visit-victoria-content-hub | unsplash | pexels | venue-media-kit | flickr-cc | generative-leonardo",
+      "url": "https://...",
+      "directUrl": "https://...",
+      "photographer": "Name",
+      "license": "CC-BY-4.0 | CC0 | unsplash | pexels | visit-victoria | venue-media-kit | generative-illustrative",
+      "licenseVerified": true,
+      "licenseNotes": "specific attribution requirement text",
+      "category": 1,
+      "geoVerified": true,
+      "place": "Cape Schanck | — Categorical",
+      "rulesChecked": {
+        "upgrade": true,
+        "geography": true,
+        "voice": true,
+        "clutter": true,
+        "light": true,
+        "human": true,
+        "season": true,
+        "cliche": true,
+        "editorialWeight": true,
+        "license": true
+      },
+      "sourcingAgentNote": "Why this candidate made the shortlist and not the reject pile."
+    }
+  ],
+  "generativeMetadata": {
+    "applies": false,
+    "model": "phoenix",
+    "promptRef": "ops/image-approvals/templates/leonardo-prompts.md#{slot-id}",
+    "variantCount": 6,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  }
+}

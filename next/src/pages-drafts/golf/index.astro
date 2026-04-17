@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import ExperienceCard from '../../components/ExperienceCard.astro';
+
+const articles = (await getCollection('articles'))
+  .filter((entry) => entry.data.section === 'golf' || entry.data.tags?.includes('golf'))
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+const golfCourses = (await getCollection('experiences'))
+  .filter((entry) => entry.data.type === 'golf-course')
+  .sort((a, b) => {
+    const order = { 'tier-1': 1, 'tier-2': 2, 'tier-3': 3, 'tier-4': 4 };
+    return (order[a.data.golf?.tier || 'tier-4'] || 9) - (order[b.data.golf?.tier || 'tier-4'] || 9);
+  });
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Golf' },
+];
+---
+
+<BaseLayout
+  title="Golf on the Mornington Peninsula | Peninsula Insider"
+  description="Peninsula Insider's guide to golf on the Mornington Peninsula, from world-ranked public-access courses to golf weekends, access realities, and where golf fits into a proper Peninsula trip."
+  section="explore"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="section-hero">
+    <div class="container section-hero__inner">
+      <div>
+        <p class="label label--accent">Golf</p>
+        <h1 class="section-hero__title">Golf on the Peninsula</h1>
+        <p class="section-hero__intro">The Peninsula's golf story is not just about prestige. It is about world-ranked public access, serious architecture, and a weekend formula that still makes sense once the round is over.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="container">
+      <div class="section-shell__header">
+        <h2>Start here</h2>
+        <p>The opening package: the category essay, the tier guide, and the lead public-access course.</p>
+      </div>
+      <div class="card-grid card-grid--three">
+        {articles.slice(0, 3).map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-shell section-shell--soft">
+    <div class="container">
+      <div class="section-shell__header">
+        <h2>Course shortlist</h2>
+        <p>This is not a directory. It is the shortlist that matters first.</p>
+      </div>
+      <div class="card-grid card-grid--three">
+        {golfCourses.map((course) => <ExperienceCard experience={course} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

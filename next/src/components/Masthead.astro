@@ -1,0 +1,72 @@
+---
+/**
+ * Masthead  -  Peninsula Insider
+ * Sticky top bar. Highlights the current section.
+ */
+export interface Props {
+  section?: string;
+}
+
+const { section = 'home' } = Astro.props;
+
+// Primary masthead nav  -  seven slots: the six pillars plus the
+// What’s On dispatch row, which is the newest editorial lane and
+// the differentiator versus the DMO.
+const navItems = [
+  { key: 'eat',      label: 'Eat & Drink', href: '/eat'      },
+  { key: 'stay',     label: 'Stay',        href: '/stay'     },
+  { key: 'wine',     label: 'Wine',        href: '/wine'     },
+  { key: 'explore',  label: 'Explore',     href: '/explore'  },
+  { key: 'escape',   label: 'Escape',      href: '/escape'   },
+  { key: 'whats-on', label: "What’s On",   href: '/whats-on' },
+  { key: 'journal',  label: 'Journal',     href: '/journal'  },
+];
+---
+
+<header class="masthead">
+  <div class="container">
+    <div class="masthead__inner">
+      <a href="/" class="masthead__logo">
+        Peninsula <span>Insider</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="masthead__nav">
+          {navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={section === item.key ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <a href="/newsletter" class="masthead__cta">Subscribe</a>
+      <a href="/newsletter" class="masthead__cta-mobile" aria-label="Subscribe to the newsletter">Subscribe</a>
+      <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <div class="mobile-nav__inner">
+    <p class="mobile-nav__eyebrow">Explore the Peninsula</p>
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="mobile-nav__link"
+        aria-current={section === item.key ? 'page' : undefined}
+      >
+        <span>{item.label}</span>
+        <span class="mobile-nav__arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
+    <div class="mobile-nav__footer">
+      <a href="/newsletter" class="mobile-nav__cta">Get the weekly dispatch</a>
+      <p class="mobile-nav__tagline">Independent editorial. No advertisers. Every Wednesday.</p>
+    </div>
+  </div>
+</nav>

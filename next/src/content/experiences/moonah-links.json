@@ -1,0 +1,58 @@
+{
+  "slug": "moonah-links",
+  "name": "Moonah Links",
+  "type": "golf-course",
+  "place": "cape-schanck",
+  "zone": "ocean-coast",
+  "coordinates": {
+    "lat": -38.4328,
+    "lng": 144.8789
+  },
+  "address": "Peter Thomson Dr, Fingal VIC 3939",
+  "website": "https://www.moonahlinks.com.au/",
+  "durationMinutes": 270,
+  "seasonBest": [
+    "autumn",
+    "spring",
+    "summer"
+  ],
+  "editorNote": "Moonah Links is the Peninsula's most complete golf property — two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather. The resort angle matters here. Unlike St Andrews Beach (which is just a course), Moonah Links lets you stay on property, play twice in 24 hours, eat without getting back in the car, and treat the weekend as a destination in itself. Book the Open Course if you are a serious golfer; book the Legends if the group is mixed. Package deals with accommodation are often the best value. Midweek pricing is significantly better than weekends. Non-golfers have less to do on-property than at St Andrews Beach — the surrounding area is quiet. Plan for drives if anyone in the group isn't playing.",
+  "tags": {
+    "mood": [
+      "golf",
+      "weekend-escape"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "summer"
+    ],
+    "audience": [
+      "couples",
+      "group"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/placeholder-golf.svg",
+    "alt": "Cape Schanck coastal landscape near Moonah Links, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "golf": {
+    "tier": "tier-2",
+    "access": "public",
+    "holes": 36,
+    "designers": [
+      "Peter Thomson",
+      "Ross Perrett"
+    ],
+    "rankings": [
+      "Open Course hosted Australian Open 2003, 2005"
+    ],
+    "bookingUrl": "https://www.moonahlinks.com.au/",
+    "approximateGreenFeeNote": "Verify current green fees directly. Package deals with on-site accommodation typically offer the best value."
+  },
+  "lastVerified": "2026-04-14",
+  "publishedAt": "2026-04-14"
+}

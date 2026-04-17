@@ -1,0 +1,80 @@
+---
+/**
+ * Footer  -  Peninsula Insider
+ * Three-column footer with editorial nav, section links, and legal.
+ */
+const year = new Date().getFullYear();
+
+const sectionLinks = [
+  { label: 'Eat & Drink', href: '/eat' },
+  { label: 'Stay', href: '/stay' },
+  { label: 'Wine Country', href: '/wine' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Golf', href: '/golf' },
+  { label: 'Spa & Wellness', href: '/spa' },
+  { label: 'Escape', href: '/escape' },
+  { label: "What's On", href: '/whats-on' },
+  { label: 'Journal', href: '/journal' },
+];
+
+const placeLinks = [
+  { label: 'Red Hill', href: '/places/red-hill' },
+  { label: 'Sorrento', href: '/places/sorrento' },
+  { label: 'Flinders', href: '/places/flinders' },
+  { label: 'Mornington', href: '/places/mornington' },
+  { label: 'Portsea', href: '/places/portsea' },
+  { label: 'Main Ridge', href: '/places/main-ridge' },
+  { label: 'All places', href: '/places' },
+];
+
+const aboutLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Newsletter', href: '/newsletter' },
+  { label: 'Privacy', href: '/privacy' },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">Peninsula <span>Insider</span></span>
+        <p class="footer__tagline">The independent editorial guide to the Mornington Peninsula.</p>
+        <p class="footer__dispatch-note"><em>Peninsula This Weekend</em> dispatches every Wednesday 6 pm &middot; <a href="/#newsletter">Subscribe</a></p>
+      </div>
+
+      <nav class="footer__col" aria-label="Sections">
+        <p class="footer__col-title">Sections</p>
+        <ul>
+          {sectionLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="Places">
+        <p class="footer__col-title">Places</p>
+        <ul>
+          {placeLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-label="About">
+        <p class="footer__col-title">About</p>
+        <ul>
+          {aboutLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; {year} Peninsula Insider. All rights reserved.</p>
+      <p class="footer__independence">Built on the Peninsula, for the Peninsula.</p>
+    </div>
+  </div>
+</footer>

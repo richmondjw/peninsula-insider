@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const walks = [
+  'Balnarring foreshore and beach combinations for owners who want less theatre and more room.',
+  'Mornington foreshore links if you are staying north and want something easy before coffee.',
+  'Hinterland reserve and track options where a beach is not the right fit for the day.',
+  'Shorter town-edge loops that work when you need a walk, not a half-day mission.',
+];
+---
+
+<BaseLayout title="Where to Walk the Dog Mornington Peninsula | Peninsula Insider" description="A practical guide to where to walk the dog on the Mornington Peninsula." section="explore">
+  <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
+    <p class="label label--accent">Dog-Friendly Peninsula</p>
+    <h1>Where to Walk the Dog on the Mornington Peninsula</h1>
+    <p>The best dog walk is rarely the most famous walk. It is the one that suits the day, the dog, and the level of effort you actually want. That usually means less obsession with hero scenery and more attention to parking, crowd pressure, leash logic, and what happens after the walk.</p>
+    <ul>
+      {walks.map((walk) => <li>{walk}</li>)}
+    </ul>
+    <p>This page should become a practical working guide organised by geography and walk type, not a generic trail list.</p>
+  </main>
+</BaseLayout>

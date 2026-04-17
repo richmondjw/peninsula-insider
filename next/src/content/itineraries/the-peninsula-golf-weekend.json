@@ -1,0 +1,69 @@
+{
+  "slug": "the-peninsula-golf-weekend",
+  "title": "The Peninsula Golf Weekend: Two Nights, One Serious Round, Room for the Rest",
+  "dek": "One public-access course with genuine ranking credibility, a long lunch on the ridge, a hot springs session, and a stay within ten minutes of the first tee. For groups where not everyone plays.",
+  "audience": "friends",
+  "mood": "mixed",
+  "lengthNights": 2,
+  "editorNote": "The Peninsula golf weekend that actually makes sense for a group where not everyone plays. One serious round at St Andrews Beach — Tom Doak architecture, public access, world top-100 credibility — anchors Saturday. The rest of the weekend shapes around it: ridge stays, vineyard lunches, coastal walks for the non-golfers, and a Sunday that sends you home slowly through Red Hill. Not a 36-hole grind. A shaped weekend that uses golf as the hero round rather than the only event. Book St Andrews Beach 4+ weeks out; plan the lunch at Montalto the same day.",
+  "stops": [
+    {
+      "day": 1,
+      "order": 1,
+      "venue": "jackalope",
+      "note": "Arrive Friday afternoon, check in, settle. The ridge stay positions both golf days and the non-golf days properly — Cape Schanck is 15 minutes south, Red Hill restaurants are at your door.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 1,
+      "order": 2,
+      "venue": "doot-doot-doot",
+      "note": "Friday dinner at the hotel restaurant. Sets the weekend up as an event rather than a golf grind.",
+      "timeOfDay": "evening"
+    },
+    {
+      "day": 2,
+      "order": 1,
+      "experience": "st-andrews-beach-golf-course",
+      "note": "Saturday morning tee time at St Andrews Beach. Book 4+ weeks ahead. Links country, firm fairways, Tom Doak greens. Allow 4.5 hours for 18 with walk-ups. Non-golfers drive to Cape Schanck for the boardwalk and Bushrangers Bay.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 2,
+      "order": 2,
+      "venue": "montalto",
+      "note": "Late lunch at Montalto piazza — relaxed, no dress code required, close enough to the course to work as a recovery meal. The whole group meets here whether they played or not.",
+      "timeOfDay": "midday"
+    },
+    {
+      "day": 2,
+      "order": 3,
+      "experience": "bushrangers-bay-walk",
+      "note": "Late afternoon walk for the non-golfers (or an easy option for everyone). Southern Ocean cliffs and the light at 5pm. Optional — skip and rest if the morning round was tiring.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 3,
+      "order": 1,
+      "venue": "commonfolk-coffee",
+      "note": "Sunday brunch in Mornington. Strong coffee, good eggs, no queue before 9am. Shake out the Saturday legs.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 3,
+      "order": 2,
+      "venue": "ten-minutes-by-tractor",
+      "note": "One cellar door before the drive home. Serious pinot noir and chardonnay. The ridge sending you off.",
+      "timeOfDay": "midday"
+    }
+  ],
+  "totalDriveMinutes": 120,
+  "heroImage": {
+    "src": "/images/sourced/place-cape-schanck-01.webp",
+    "alt": "Coastal golf course landscape on the Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "tmp-wikimedia"
+  },
+  "gallery": [],
+  "publishedAt": "2026-04-14"
+}

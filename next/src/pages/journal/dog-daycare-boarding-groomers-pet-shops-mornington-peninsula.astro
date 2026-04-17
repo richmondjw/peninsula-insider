@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const utilities = [
+  'Daycare for owners who need a clean half-day handoff before lunch or an event.',
+  'Boarding options when the Peninsula trip includes dog-free windows.',
+  'Groomers and pet retail for practical reset needs, not lifestyle fluff.',
+  'Pet-supply stops that solve forgotten-lead, food, toy, or cleanup problems quickly.',
+];
+---
+
+<BaseLayout title="Dog Daycare, Boarding, Groomers and Pet Shops Mornington Peninsula | Peninsula Insider" description="Utility guide to dog daycare, boarding, groomers and pet shops on the Mornington Peninsula." section="explore">
+  <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
+    <p class="label label--accent">Dog-Friendly Peninsula</p>
+    <h1>Dog Daycare, Boarding, Groomers and Pet Shops on the Mornington Peninsula</h1>
+    <p>Dog-owner utility is where most travel guides fall apart. The glamorous part is easy. The practical layer is what determines whether the trip still works when plans change.</p>
+    <ul>
+      {utilities.map((item) => <li>{item}</li>)}
+    </ul>
+    <p>This page should become the Peninsula’s practical owner-support directory, tightly edited rather than bloated.</p>
+  </main>
+</BaseLayout>

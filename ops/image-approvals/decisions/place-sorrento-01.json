@@ -1,0 +1,29 @@
+{
+  "slotId": "place-sorrento-01",
+  "decisionVersion": 0,
+  "status": "implemented-pragmatic-approval",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/place-sorrento-01.json",
+  "selected": "place-sorrento-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "CC0 licence — the cleanest possible. Zero legal risk, no attribution required, no SA contamination. Peninsula-verifiable morning coastal scene at Sorrento. 2796px clears 2400px hero minimum. Taken August 2021 (Australian winter — ideal off-season alignment). This is the single lowest-risk image in the entire Tier A pipeline."
+  },
+  "rejected": [
+    { "candidateId": "place-sorrento-01-b", "reason": "better-alternative", "note": "Sorrento Back Beach at 5637px is higher-res but CC-BY-SA. Reserve for explore-sorrento-back-beach-01 in Week 3 if SA policy resolves." },
+    { "candidateId": "place-sorrento-01-c", "reason": "weak-as-feature", "note": "Street-level iPhone shot — editorial weight too low for place-page hero." }
+  ],
+  "editorOverrides": [],
+  "notes": "AWAITING EDITOR SIGNATURE. CC0 image — zero licence risk. Strongest recommendation in the pipeline.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Bright_morning_Sorrento_Victoria_%2851527287664%29.jpg",
+    "downloadTo": "/next/public/images/sourced/place-sorrento-01.webp",
+    "contentFileUpdates": ["next/src/content/places/sorrento.json"],
+    "altText": "Bright morning light on the Sorrento coastline, Victoria",
+    "credit": "Alan Travers / Wikimedia Commons (CC0)",
+    "caption": "Morning on the Sorrento coast, winter.",
+    "license": "wikimedia-cc0"
+  },
+  "implementerStatus": "implemented-pragmatic-approval"
+}

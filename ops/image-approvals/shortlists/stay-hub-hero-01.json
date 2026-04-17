@@ -1,0 +1,28 @@
+{
+  "slotId": "stay-hub-hero-01",
+  "createdAt": "2026-04-09T21:51:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/stay-hub-hero-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "Category 6 (hotel interior — design & room). Preferred sources Unsplash → Pexels → venue-media-kit. Same blocker as eat-hub-hero-01: Unsplash and Pexels anti-bot, Commons pool has no editorial-grade design-hotel interiors, venue media-kit outreach not yet authorised. No honest candidate list can be produced from this session.",
+    "blocker": "See eat-hub-hero-01 sourcingNotes.blocker. Same root cause, same unblock paths.",
+    "recommendedUnblockPath": "Same three options as eat-hub-hero-01. For the stay hub specifically, venue media-kit outreach to Jackalope Hotel is the highest-fidelity path — Jackalope is the Peninsula's design-hotel icon and the image most editorially defensible for this slot will be one of its own suites."
+  },
+  "candidates": [],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "unblock-source-access",
+      "question": "See eat-hub-hero-01. Same decision point covers this slot.",
+      "defaultIfNoReply": "Defer."
+    }
+  ]
+}

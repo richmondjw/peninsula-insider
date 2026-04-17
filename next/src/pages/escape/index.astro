@@ -1,0 +1,253 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, stayTypes } from '../../lib/editorial';
+
+const itineraries = (await getCollection('itineraries'))
+  .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
+const allVenues = await getCollection('venues');
+const stays = allVenues.filter((venue) => stayTypes.includes(venue.data.type));
+const places = await getCollection('places');
+const stayHighlights = stays.filter((venue) => ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)));
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// Companion reads: the service and stay-notes pieces that sharpen the trip.
+const companionSlugs = [
+  'the-sorrento-weekend',
+  'a-winter-peninsula-weekend',
+  'the-birthday-weekend',
+  'where-to-stay-for-a-two-night-escape',
+  'the-vineyard-villa-weekend',
+  'the-thermal-springs-weekend',
+  'a-flinders-weekend',
+];
+const companionReads = companionSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a))
+  .slice(0, 4);
+
+const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 'sorrento'].includes(routeSlug(place)));
+
+// Split itineraries into intent buckets for quicker scanning.
+const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
+const twoNight = itineraries.filter((it) => it.data.lengthNights === 2);
+const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
+
+// Mood taxonomy  -  each mood links a real guide if one exists.
+const moodGuides = [
+  { label: 'Food & wine',  slug: 'how-to-build-a-red-hill-saturday',          note: 'Lunch, cellar doors, a slow drive back' },
+  { label: 'Wellness',     slug: 'the-thermal-springs-weekend',               note: 'Springs, sauna, one soft dinner' },
+  { label: 'Slow coast',   slug: 'a-flinders-weekend',                        note: 'Flinders, the pier, Bass Strait air' },
+  { label: 'Tip of the peninsula', slug: 'the-sorrento-weekend',              note: 'Village base, fort walk, back beach' },
+  { label: 'Celebration',  slug: 'the-birthday-weekend',                      note: 'One anchor dinner, everything else softer' },
+  { label: 'Winter reset', slug: 'a-winter-peninsula-weekend',                note: 'Fireplace, hot springs, low-season calm' },
+  { label: 'Quick reset',  slug: 'the-one-night-escape',                      note: '26 hours that feels like three days' },
+  { label: 'With kids',    slug: 'the-peninsula-with-kids',                   note: 'A day that punishes no one' },
+];
+const moodResolved = moodGuides
+  .map((mood) => {
+    const article = articlesAll.find((a) => routeSlug(a) === mood.slug);
+    return article ? { ...mood, article } : null;
+  })
+  .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Escape' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Itineraries · Peninsula Insider"
+  description="Editorial itineraries and weekend plans for doing the Mornington Peninsula slowly and well."
+  section="escape"
+  canonical="https://peninsulainsider.com.au/escape"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+  <SectionHero
+    eyebrow="Escape"
+    subEyebrow="Itineraries · weekends · slow travel"
+    title="Good Peninsula weekends are built in the <em>sequence.</em>"
+    dek="The region is small enough to overdo and varied enough to get wrong. These escape plans are our answer: fewer bookings, better pacing, and just enough structure that the whole thing feels inevitable rather than overplanned."
+    gradient="sand"
+    heroImage="/images/sourced/place-cape-schanck-01.webp"
+    visualLabel="Ridge first, ocean later, no unnecessary backtracking"
+  />
+
+  {moodResolved.length > 0 && (
+    <section class="intent-strip intent-strip--alt" aria-label="Escape by mood">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">Escape by mood</p>
+            <h2 class="split-intro__title">Pick the feeling first, then let the sequence follow</h2>
+          </div>
+          <p class="split-intro__body">Each chip opens a service piece or stay-note that maps the weekend for that mood  -  built the way we'd actually book it.</p>
+        </div>
+        <div class="intent-chips">
+          {moodResolved.map((mood) => (
+            <a href={`/journal/${mood.slug}`} class="intent-chip">
+              <span class="intent-chip__label">{mood.label}</span>
+              <span class="intent-chip__note">{mood.note}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {twoNight.length > 0 && (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="label label--accent">Two-night escapes</p>
+            <h2 class="split-intro__title">The sweet spot  -  long enough to slow down, short enough to commit</h2>
+          </div>
+          <p class="split-intro__body">Two nights is the Peninsula's native rhythm. One lunch that earns the drive, one walk that resets the weekend, one bed that suits the mood.</p>
+        </div>
+        <div class="itinerary-grid">
+          {twoNight.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {oneNight.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">One-night quick</p>
+            <h2 class="venues__title">When the weekend is tight but the Peninsula still earns it</h2>
+            <p class="venues__sub">Designed to feel three times longer than the drive down.</p>
+          </div>
+        </div>
+        <div class="itinerary-grid">
+          {oneNight.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {longer.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Three nights and beyond</p>
+            <h2 class="venues__title">For the weekend that refuses to end</h2>
+            <p class="venues__sub">The longer escapes are where the Peninsula stops performing and starts settling into something quieter.</p>
+          </div>
+        </div>
+        <div class="itinerary-grid">
+          {longer.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {stayHighlights.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Choose the base first</p>
+            <h2 class="venues__title">Three stays that change the whole plan</h2>
+            <p class="venues__sub">A Peninsula itinerary improves dramatically when the bed matches the landscape you want most.</p>
+          </div>
+          <a href="/stay" class="venues__link">All stays →</a>
+        </div>
+        <div class="venues__grid">
+          {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {placeHighlights.length > 0 && (
+    <section class="places">
+      <div class="container">
+        <div class="places__header">
+          <p class="label label--accent places__label">Sequence by geography</p>
+          <h2 class="places__title">The best escapes move through the Peninsula in a clean line</h2>
+          <p class="places__sub">Ridge for the lunch, coast for the light, tip for the walk and the bed.</p>
+        </div>
+        <div class="places__grid">
+          {placeHighlights.map((place, index) => (
+            <PlaceCard place={place} variant={index === 1 ? 'sand' : index === 2 ? 'bay' : 'vineyard'} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="plan-grid">
+    <div class="container">
+      <div class="plan-grid__inner">
+        <article class="plan-note">
+          <p class="plan-note__label">Rule one</p>
+          <h3>Pick one geography per day</h3>
+          <p>Red Hill, Sorrento, Flinders, and Cape Schanck all ask for different tempos. Stringing them together without thought is how good weekends turn into traffic.</p>
+        </article>
+        <article class="plan-note">
+          <p class="plan-note__label">Rule two</p>
+          <h3>Let lunch or dinner be the event, not both</h3>
+          <p>The Peninsula's strongest move is still daylight dining. If lunch is the headline, keep dinner softer. If dinner matters, keep the afternoon light.</p>
+        </article>
+        <article class="plan-note">
+          <p class="plan-note__label">Rule three</p>
+          <h3>Always leave room for weather</h3>
+          <p>The region gets more interesting when the wind shifts, the sky changes, or dusk suddenly looks too good to waste indoors.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {companionReads.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Read before you book</p>
+            <h2 class="venues__title">Journal pieces that sharpen the trip</h2>
+          </div>
+          <a href="/journal" class="venues__link">More from the Journal →</a>
+        </div>
+        <div class="venues__grid">
+          {companionReads.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Planning-guide companions: explicit links to the service pages that
+       sit between itinerary work and the trip itself. These are standalone
+       Astro routes, so they don't appear in the dynamic companionReads
+       block above. -->
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Plan it properly</p>
+          <h2 class="venues__title">Service guides that shape the weekend</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-itinerary">The 3-day Peninsula itinerary</a></h3><p class="venue-card__signature">The plan that balances cellar doors, a hot-springs session, and a dining room that earns the drive — without turning the weekend into a to-do list.</p><a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">Read the guide →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-day-trip">Day trip from Melbourne</a></h3><p class="venue-card__signature">The 12-hour Peninsula. What's worth the drive and back, what's not, and the one pivot that makes or breaks the day.</p><a href="/journal/mornington-peninsula-day-trip" class="venue-card__cta">Read the guide →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-in-autumn">The Peninsula in autumn</a></h3><p class="venue-card__signature">Vintage on the ridge, fireplace lunches, and the back-beaches cleared out. The quietest weekend months of the year.</p><a href="/journal/mornington-peninsula-in-autumn" class="venue-card__cta">Read the guide →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

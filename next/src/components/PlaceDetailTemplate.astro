@@ -1,0 +1,283 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import PlaceCard from './PlaceCard.astro';
+import VenueCard from './VenueCard.astro';
+import ExperienceCard from './ExperienceCard.astro';
+import ItineraryCard from './ItineraryCard.astro';
+import ArticleCard from './ArticleCard.astro';
+import NewsletterBlock from './NewsletterBlock.astro';
+import { titleize, heroBackgroundStyle } from '../lib/editorial';
+
+export interface Props {
+  place: any;
+  eatVenues?: any[];
+  wineVenues?: any[];
+  stayVenues?: any[];
+  experiences?: any[];
+  itineraries?: any[];
+  articles?: any[];
+  relatedPlaces?: any[];
+  snapshotCards?: { label: string; title: string; body: string }[];
+}
+
+const {
+  place,
+  eatVenues = [],
+  wineVenues = [],
+  stayVenues = [],
+  experiences = [],
+  itineraries = [],
+  articles = [],
+  relatedPlaces = [],
+  snapshotCards = [],
+} = Astro.props;
+const zoneLabel = titleize(place.data.zone);
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Places', href: '/places' },
+  { label: place.data.name },
+];
+
+// Map zone to a hero gradient so place pages stop all looking identical.
+const zoneGradient: Record<string, string> = {
+  'red-hill-plateau': 'hero-grad--hinterland',
+  hinterland: 'hero-grad--hinterland',
+  bayside: 'hero-grad--bay',
+  'ocean-coast': 'hero-grad--sand',
+  'back-beaches': 'hero-grad--sand',
+  tip: 'hero-grad--stay',
+};
+const heroGradientClass = zoneGradient[place.data.zone] ?? 'hero-grad--vineyard';
+
+// Anchors for the in-page nav.
+const anchors: { href: string; label: string; count: number }[] = [];
+if (eatVenues.length > 0) anchors.push({ href: '#eat-drink', label: 'Eat & drink', count: eatVenues.length });
+if (wineVenues.length > 0) anchors.push({ href: '#wine', label: 'Wine & producers', count: wineVenues.length });
+if (stayVenues.length > 0) anchors.push({ href: '#stay', label: 'Stay', count: stayVenues.length });
+if (experiences.length > 0) anchors.push({ href: '#explore', label: 'Explore', count: experiences.length });
+if (itineraries.length > 0) anchors.push({ href: '#escapes', label: 'Escape plans', count: itineraries.length });
+if (articles.length > 0) anchors.push({ href: '#journal', label: 'From the journal', count: articles.length });
+
+const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
+---
+
+<Breadcrumbs items={breadcrumbItems} />
+
+<section class="place-detail">
+  <div class="container">
+    <p class="place-detail__eyebrow">{zoneLabel} · {place.data.kind}</p>
+    <h1 class="place-detail__title">{place.data.name}</h1>
+    <p class="place-detail__intro">{place.data.intro}</p>
+
+    <div
+      class={`place-detail__hero ${heroGradientClass}`}
+      aria-hidden="true"
+      style={heroBackgroundStyle(place.data)}
+    >
+      <div class="section-hero__visual-fog"></div>
+      <span class="section-hero__visual-label">{place.data.heroImage.alt}</span>
+    </div>
+
+    <dl class="place-detail__stats">
+      <div><dt>Zone</dt><dd>{zoneLabel}</dd></div>
+      <div><dt>Kind</dt><dd>{titleize(place.data.kind)}</dd></div>
+      <div><dt>Venues mapped</dt><dd>{totalVenues}</dd></div>
+      <div><dt>Experiences</dt><dd>{experiences.length}</dd></div>
+    </dl>
+
+    {anchors.length > 0 && (
+      <nav class="place-detail__nav" aria-label={`${place.data.name} sections`}>
+        {anchors.map((anchor) => (
+          <a href={anchor.href} class="place-detail__nav-link">
+            <span class="place-detail__nav-label">{anchor.label}</span>
+            <span class="place-detail__nav-count">{anchor.count}</span>
+          </a>
+        ))}
+      </nav>
+    )}
+  </div>
+</section>
+
+{snapshotCards.length > 0 && (
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">How this hub works</p>
+          <h2 class="split-intro__title">The place layer is now doing real editorial work</h2>
+        </div>
+        <p class="split-intro__body">Instead of acting like a geography label, the place page connects tables, beds, walks, and weekend logic around one part of the Peninsula.</p>
+      </div>
+      <div class="zone-intro__grid zone-intro__grid--four">
+        {snapshotCards.map((card) => (
+          <article class="zone-card">
+            <p class="zone-card__label">{card.label}</p>
+            <h3 class="zone-card__title">{card.title}</h3>
+            <p class="zone-card__body">{card.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{eatVenues.length > 0 && (
+  <section class="venues" id="eat-drink">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Eat & drink</p>
+          <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
+          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs  -  each with an editor note, not a star rating.</p>
+        </div>
+        <a href="/eat" class="venues__link">All venues →</a>
+      </div>
+      <div class="venues__grid">
+        {eatVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+      <p class="venues__rankings-link"><a href="/eat/best-restaurants">See the editorial rankings → Best Restaurants on the Peninsula</a></p>
+    </div>
+  </section>
+)}
+
+{wineVenues.length > 0 && (
+  <section class="venues venues--plain" id="wine">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Wine & producers</p>
+          <h2 class="venues__title">Cellar doors and makers around {place.data.name}</h2>
+          <p class="venues__sub">The producers worth the appointment  -  and the ones already shaping the region's vintage conversation.</p>
+        </div>
+        <a href="/wine" class="venues__link">All wine →</a>
+      </div>
+      <div class="venues__grid">
+        {wineVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+      </div>
+      <p class="venues__rankings-link"><a href="/wine/best-cellar-doors">See the editorial rankings → Best Cellar Doors on the Peninsula</a></p>
+    </div>
+  </section>
+)}
+
+{stayVenues.length > 0 && (
+  <section class="venues" id="stay">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Stay</p>
+          <h2 class="venues__title">Sleep in {place.data.name}</h2>
+          <p class="venues__sub">When a place has a workable bed attached, it stops being a stop and starts becoming a base.</p>
+        </div>
+        <a href="/stay" class="venues__link">All stays →</a>
+      </div>
+      <div class="venues__grid">
+        {stayVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+      <p class="venues__rankings-link"><a href="/stay/best-accommodation">See the editorial rankings → Best Places to Stay on the Peninsula</a></p>
+    </div>
+  </section>
+)}
+
+{experiences.length > 0 && (
+  <section class="experience-index" id="explore">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Get outside</p>
+          <h2 class="venues__title">Explore moves anchored to {place.data.name}</h2>
+          <p class="venues__sub">Walks, beaches, lookouts, and markets worth scheduling around the meals.</p>
+        </div>
+        <a href="/explore" class="venues__link">Explore all →</a>
+      </div>
+      <div class="experience-grid">
+        {experiences.map((experience) => <ExperienceCard experience={experience} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{itineraries.length > 0 && (
+  <section class="escape-callout" id="escapes">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Use it in sequence</p>
+          <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
+          <p class="venues__sub">These plans have been written around the landscape here  -  not bolted on after.</p>
+        </div>
+        <a href="/escape" class="venues__link">Escape plans →</a>
+      </div>
+      <div class="itinerary-grid">
+        {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{articles.length > 0 && (
+  <section class="venues venues--plain" id="journal">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Read this place properly</p>
+          <h2 class="venues__title">Journal pieces connected to {place.data.name}</h2>
+        </div>
+        <a href="/journal" class="venues__link">Journal →</a>
+      </div>
+      <div class="venues__grid">
+        {articles.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+{/* Service guide links — connect town pages into the article mesh */}
+<section class="venues venues--plain">
+  <div class="container">
+    <div class="venues__header">
+      <div>
+        <p class="label label--accent">Planning guides</p>
+        <h2 class="venues__title">Service guides for your {place.data.name} trip</h2>
+        <p class="venues__sub">Long-form editorial that helps you build a weekend, not just a list of places.</p>
+      </div>
+      <a href="/journal" class="venues__link">All guides →</a>
+    </div>
+    <div class="venues__grid venues__grid--links">
+      <a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
+      {(place.data.zone === 'red-hill-plateau' || place.data.zone === 'hinterland') && (
+        <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Self-Drive Winery Tour →</a>
+      )}
+      {(place.data.zone === 'tip' || place.data.zone === 'back-beaches' || place.data.zone === 'bayside') && (
+        <a href="/journal/free-things-to-do-mornington-peninsula" class="venue-card__cta">Free Things to Do →</a>
+      )}
+      <a href="/journal/best-brunch-mornington-peninsula" class="venue-card__cta">Best Brunch Guide →</a>
+      <a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Hot Springs Guide →</a>
+      <a href="/journal/mornington-peninsula-in-winter" class="venue-card__cta">Winter Guide →</a>
+      {(place.data.kind === 'town') && (
+        <a href="/journal/mornington-peninsula-wedding-venues" class="venue-card__cta">Wedding Venues →</a>
+      )}
+      {(place.data.zone === 'ocean-coast' || place.data.zone === 'back-beaches' || place.data.zone === 'tip') && (
+        <a href="/golf" class="venue-card__cta">Best Golf Courses →</a>
+      )}
+    </div>
+  </div>
+</section>
+
+{relatedPlaces.length > 0 && (
+  <section class="places">
+    <div class="container">
+      <div class="places__header">
+        <p class="label label--accent places__label">Keep going</p>
+        <h2 class="places__title">Nearby places worth knowing next</h2>
+        <p class="places__sub">Because a Peninsula trip is always made up of two or three pockets, not one.</p>
+      </div>
+      <div class="places__grid">
+        {relatedPlaces.map((item, index) => (
+          <PlaceCard place={item} variant={index % 2 === 0 ? 'bay' : 'sand'} />
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<NewsletterBlock />

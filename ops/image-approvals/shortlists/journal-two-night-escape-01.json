@@ -1,0 +1,28 @@
+{
+  "slotId": "journal-two-night-escape-01",
+  "createdAt": "2026-04-10T02:28:00Z",
+  "createdBy": "remy-sourcing-agent",
+  "briefPath": "ops/image-approvals/briefs/journal-two-night-escape-01.md",
+  "status": "blocked-no-candidates",
+  "sourcingNotes": {
+    "poolAssessment": "Category 6 (hotel interior, design & room) is an Unsplash/Pexels/venue-media-kit category. Wikimedia Commons holds no editorial-grade hotel interior imagery for the Peninsula or categorically. Generative is forbidden on this slot because the article lists real venues.",
+    "blocker": "Unsplash/Pexels API access blocked. Venue media kit outreach not yet authorised. Generative forbidden.",
+    "recommendedUnblockPath": ["Unsplash API key", "Venue media kit outreach authorisation (Jackalope, Lindenderry)"]
+  },
+  "candidates": [],
+  "generativeMetadata": {
+    "applies": false,
+    "model": null,
+    "promptRef": null,
+    "variantCount": 0,
+    "preFilterPassed": 0,
+    "preFilterRejects": []
+  },
+  "editorActionsRequested": [
+    {
+      "type": "source-unblock",
+      "question": "This slot is blocked on Unsplash access or venue media kit outreach. The slot forbids generative imagery.",
+      "defaultIfNoReply": "Blocked until unblock."
+    }
+  ]
+}

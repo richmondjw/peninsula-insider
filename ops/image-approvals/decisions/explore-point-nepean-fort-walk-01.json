@@ -1,0 +1,34 @@
+{
+  "slotId": "explore-point-nepean-fort-walk-01",
+  "decisionVersion": 0,
+  "status": "pending-editor-signature",
+  "decidedAt": null,
+  "decidedBy": null,
+  "shortlistPath": "ops/image-approvals/shortlists/explore-point-nepean-fort-walk-01.json",
+  "selected": "explore-point-nepean-fort-walk-01-a",
+  "agentRecommendation": {
+    "confidence": "high",
+    "reasoning": "Defence Road perspective looking east towards Cheviot Beach. Track/road composition invites the reader to walk the fort walk. 3901x2937 clears minimum. Distinct from place-point-nepean-01 (Cheviot Hill waves). SA override required.",
+    "policyDependency": "CC-BY-SA acceptance"
+  },
+  "rejected": [
+    { "candidateId": "explore-point-nepean-fort-walk-01-b", "reason": "better-alternative", "note": "Looking west — risk of twinning with place-point-nepean-01 if that slot picks candidate C." }
+  ],
+  "editorOverrides": [
+    {
+      "rule": "license",
+      "reason": "CC-BY-SA 4.0 accepted — contingent on blanket SA policy approval."
+    }
+  ],
+  "notes": "AWAITING EDITOR SIGNATURE. Contingent on CC-BY-SA policy. Week 3 slot advanced.",
+  "implementerAction": {
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Defence_Road_looking_east_towards_Cheviot_Beach_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+    "downloadTo": "/next/public/images/sourced/explore-point-nepean-fort-walk-01.webp",
+    "contentFileUpdates": ["next/src/content/experiences/point-nepean-fort-walk.json"],
+    "altText": "Defence Road looking east towards Cheviot Beach at Point Nepean",
+    "credit": "Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)",
+    "caption": "On Defence Road, Point Nepean.",
+    "license": "wikimedia-cc-by-sa"
+  },
+  "implementerStatus": "blocked-pending-signature"
+}

@@ -1,0 +1,155 @@
+{
+  "siteTitle": "Peninsula Insider",
+  "siteDescription": "An editorial guide to the Mornington Peninsula, rebuilt as a sharper cover page with weekly curation, featured stories, venue picks, and a clear newsletter invitation.",
+  "brandLine": "Mornington Peninsula editorial guide",
+  "navLinks": [
+    { "label": "Eat & Drink", "href": "#sections" },
+    { "label": "Stay", "href": "#sections" },
+    { "label": "Do", "href": "#weekend" },
+    { "label": "Journal", "href": "#journal" },
+    { "label": "Subscribe", "href": "#newsletter" }
+  ],
+  "hero": {
+    "eyebrow": "Autumn edition",
+    "title": "The smarter way to open a Mornington Peninsula weekend.",
+    "dek": "Less brochure, more editorial cover. Peninsula Insider should feel like the front page of a publication that already knows where you should book first, where you should linger, and what is actually worth the drive.",
+    "meta": "Edited by Peninsula Insider · Updated 9 April 2026",
+    "primaryCta": { "label": "Read the cover story", "href": "#featured-story" },
+    "secondaryCta": { "label": "Get the Thursday letter", "href": "#newsletter" },
+    "highlights": [
+      "A lead story with a clear point of view",
+      "Fast paths to eat, stay, do, and plan",
+      "Handpicked venues instead of generic grids"
+    ]
+  },
+  "sectionLinks": [
+    {
+      "label": "Eat & Drink",
+      "note": "Long lunches, cellar doors, and restaurants with actual editorial judgment.",
+      "href": "#venues"
+    },
+    {
+      "label": "Stay",
+      "note": "Hotels, villas, and weekend bases chosen for mood, not inventory size.",
+      "href": "#venues"
+    },
+    {
+      "label": "Do",
+      "note": "Walks, hot springs, beaches, and the things visitors ask about most.",
+      "href": "#weekend"
+    },
+    {
+      "label": "Plan",
+      "note": "Quick ways to turn a Saturday window into a coherent Peninsula day.",
+      "href": "#weekend"
+    }
+  ],
+  "featuredStory": {
+    "eyebrow": "Featured cover story",
+    "title": "The autumn weekend locals keep to themselves",
+    "dek": "A sharper front page starts with a proper lead, one opinionated dispatch that gives the whole site a centre of gravity. This week it is the argument for slower lunches, one coastal walk, and fewer forgettable stops.",
+    "byline": "By James Richmond",
+    "date": "Thursday 10 April 2026",
+    "cta": { "label": "Open the story", "href": "#journal" },
+    "bullets": [
+      "Why April is the month when the Peninsula feels most earned",
+      "Three bookings worth making before Friday afternoon",
+      "One walk, one lunch, and one cellar door to anchor the weekend"
+    ]
+  },
+  "weekendPlanner": {
+    "eyebrow": "This weekend",
+    "title": "Three moves, one clean itinerary",
+    "dek": "The homepage should help a visitor act quickly. These cards preview the kind of concise editorial planning block the live product needs.",
+    "cards": [
+      {
+        "moment": "Friday dinner",
+        "title": "A candlelit first night in Red Hill",
+        "note": "Lead with one serious booking, then stop. Save the rest of the weekend for daylight.",
+        "tag": "Book early"
+      },
+      {
+        "moment": "Saturday long lunch",
+        "title": "Stretch lunch until the afternoon dissolves",
+        "note": "Choose one winery restaurant with a view, a second glass, and nowhere urgent to be.",
+        "tag": "The main event"
+      },
+      {
+        "moment": "Sunday reset",
+        "title": "Cold air, a cliff walk, then coffee on the way out",
+        "note": "A lighter finish gives the whole weekend shape instead of ending in traffic and regret.",
+        "tag": "Low effort, high return"
+      }
+    ]
+  },
+  "venueStrip": {
+    "eyebrow": "Curated venues",
+    "title": "The kind of shortlist people actually save",
+    "dek": "These are not database cards. They are editorial prompts for the next build phase, a tighter strip of flagship venues with enough context to earn the click.",
+    "venues": [
+      {
+        "name": "Tedesca Osteria",
+        "place": "Red Hill South",
+        "tag": "Long lunch",
+        "blurb": "The meal you plan around, not the fallback after a cellar door.",
+        "accent": "Basalt coast"
+      },
+      {
+        "name": "Jackalope",
+        "place": "Merricks North",
+        "tag": "Stay",
+        "blurb": "Still the Peninsula's most cinematic check-in when you want the weekend to feel decisive.",
+        "accent": "After-dark glamour"
+      },
+      {
+        "name": "Pt Leo Estate",
+        "place": "Merricks",
+        "tag": "Art + wine",
+        "blurb": "One of the easiest ways to combine sculpture, lunch, and a serious vineyard outlook.",
+        "accent": "Big sky"
+      },
+      {
+        "name": "Cape Schanck",
+        "place": "Southern tip",
+        "tag": "Walk",
+        "blurb": "When the weekend needs wind, cliffs, and a clean reset before Melbourne again.",
+        "accent": "Salt air"
+      }
+    ]
+  },
+  "journal": {
+    "eyebrow": "From the Journal",
+    "title": "Recent stories with enough personality to matter",
+    "articles": [
+      {
+        "title": "Where to go for a long lunch on the Mornington Peninsula",
+        "meta": "Guide · 12 venues · 8 min read",
+        "dek": "The flagship intent piece. A ranked shortlist, not a sprawling maybe-list.",
+        "href": "#newsletter"
+      },
+      {
+        "title": "Tedesca, Tractor, Laura: three Italian dinners and the argument between them",
+        "meta": "Journal · Comparative review",
+        "dek": "A stronger editorial engine means naming the differences, not pretending all prestige dinners are interchangeable.",
+        "href": "#newsletter"
+      },
+      {
+        "title": "The quiet side of the Peninsula: a weekend in Flinders, not Red Hill",
+        "meta": "Journal · Weekend plan",
+        "dek": "Proof that the site gets better when it helps people choose a mood, not just a suburb.",
+        "href": "#newsletter"
+      }
+    ]
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "The Insider's Letter, every Thursday.",
+    "dek": "One sharp note before the weekend: what to book, what to skip, what the Peninsula looks like right now.",
+    "benefits": [
+      "Three edited recommendations, not twenty tabs to sort later",
+      "Early access to new guides, lists, and itineraries",
+      "The weekend's most useful booking and timing notes in five minutes"
+    ],
+    "cta": "Get the Thursday letter"
+  }
+}

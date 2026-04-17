@@ -1,0 +1,82 @@
+{
+  "slug": "sorrento-off-season-weekend",
+  "title": "The Sorrento Off-Season Weekend",
+  "dek": "A two-night village-based plan that uses the tip of the Peninsula properly  -  back beach, national park, a village dinner, and the fort walk that turns the weekend into a landscape.",
+  "audience": "couple",
+  "mood": "slow",
+  "lengthNights": 2,
+  "stops": [
+    {
+      "day": 1,
+      "order": 1,
+      "venue": "the-continental-sorrento",
+      "note": "Check in by 3pm. Leave time to walk the village before the first drink. The front lawn is the right pre-dinner space on a calm evening.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 1,
+      "order": 2,
+      "experience": "sorrento-ocean-baths",
+      "note": "A short drive to the back-beach side. Walk the boardwalk above the baths at last light  -  this is the most dramatic orientation move you can make in Sorrento.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 1,
+      "order": 3,
+      "venue": "hotel-sorrento",
+      "note": "Dinner somewhere walkable. Hotel Sorrento's bistro is the right call when you have driven all afternoon and want the bay view to do the work.",
+      "timeOfDay": "evening"
+    },
+    {
+      "day": 2,
+      "order": 1,
+      "experience": "sorrento-back-beach",
+      "note": "Early  -  before nine. Morning light on the basalt reefs is the photograph people keep trying to take. Walk end to end.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 2,
+      "order": 2,
+      "venue": "sorrento-bakery",
+      "note": "Breakfast after the walk. A pie, a coffee, a few minutes in the village sun.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 2,
+      "order": 3,
+      "experience": "point-nepean-fort-walk",
+      "note": "The afternoon move. Shuttle out, walk back. Three hours minimum. This is the landscape move the weekend hinges on.",
+      "timeOfDay": "afternoon"
+    },
+    {
+      "day": 2,
+      "order": 4,
+      "venue": "pt-leo-estate",
+      "note": "Drive east for the second night's dinner. The sculpture park at dusk and a dining room that treats the occasion seriously.",
+      "timeOfDay": "evening"
+    },
+    {
+      "day": 3,
+      "order": 1,
+      "experience": "coppins-track",
+      "note": "A final morning heath walk through the narrow corridor between the front beach and the back coast. One hour, easy pace.",
+      "timeOfDay": "morning"
+    },
+    {
+      "day": 3,
+      "order": 2,
+      "venue": "sorrento-gelato",
+      "note": "One last village move before the drive home. Gelato counts as breakfast at the end of a weekend.",
+      "timeOfDay": "midday"
+    }
+  ],
+  "totalDriveMinutes": 55,
+  "heroImage": {
+    "src": "/images/sourced/place-sorrento-01.webp",
+    "alt": "Morning light over Sorrento foreshore",
+    "credit": "Alan Travers / Wikimedia Commons",
+    "license": "wikimedia-cc0"
+  },
+  "editorNote": "Most Sorrento weekends are built around the summer version of the town  -  crowded, bright, too warm to walk far. This plan inverts that. It assumes you are here in April, May, June, September, or October, and it treats the village as the base rather than a stop. Two nights is enough. Three is ideal.",
+  "publishedAt": "2026-04-12"
+}
