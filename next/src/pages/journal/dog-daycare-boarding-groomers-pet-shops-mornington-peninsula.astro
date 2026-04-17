@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const utilities = [
-  'Daycare for owners who need a clean half-day handoff before lunch or an event.',
-  'Boarding options when the Peninsula trip includes dog-free windows.',
-  'Groomers and pet retail for practical reset needs, not lifestyle fluff.',
-  'Pet-supply stops that solve forgotten-lead, food, toy, or cleanup problems quickly.',
+const sections = [
+  'Daycare for owners who need a clean half-day handoff before a lunch booking, winery afternoon, or event.',
+  'Boarding for owners building a dog-included Peninsula trip with one dog-free window inside it.',
+  'Groomers and pet care services for practical reset needs, not lifestyle fluff.',
+  'Pet-supply stops for leads, food, waste bags, bedding, and the small things that make the trip run smoothly.',
 ];
 ---
 
@@ -13,10 +13,11 @@ const utilities = [
   <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
     <p class="label label--accent">Dog-Friendly Peninsula</p>
     <h1>Dog Daycare, Boarding, Groomers and Pet Shops on the Mornington Peninsula</h1>
-    <p>Dog-owner utility is where most travel guides fall apart. The glamorous part is easy. The practical layer is what determines whether the trip still works when plans change.</p>
+    <p>Dog-owner utility is where most travel guides fall apart. The glamorous part is easy. The practical layer is what determines whether the Peninsula trip still works when plans change, lunch runs long, or the weather makes the original shape of the day less useful.</p>
     <ul>
-      {utilities.map((item) => <li>{item}</li>)}
+      {sections.map((item) => <li>{item}</li>)}
     </ul>
-    <p>This page should become the Peninsula’s practical owner-support directory, tightly edited rather than bloated.</p>
+    <p>The right version of this page becomes a tightly edited support layer, not a bloated directory. Owners need the places that genuinely solve problems, not every listing with the word pet in it.</p>
+    <p>Next editorial pass should turn this into a verified support list with geography, booking friction, and quality notes clearly stated.</p>
   </main>
 </BaseLayout>

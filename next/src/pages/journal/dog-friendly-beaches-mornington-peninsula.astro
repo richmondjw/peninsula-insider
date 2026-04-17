@@ -1,27 +1,94 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const beaches = [
-  'Balnarring Beach — one of the easiest dog-beach options if you want space and less theatre.',
-  'Mount Martha South Beach — useful for owners staying on the northern side of the Peninsula.',
-  'Somers foreshore stretches — calmer and less showy than the more obvious beach picks.',
-  'Rye and Rosebud sections — useful, but always check seasonal and leash restrictions before you go.',
+const yearRound = [
+  {
+    name: 'Tassells Cove',
+    location: 'Safety Beach',
+    note: 'The cleanest year-round off-leash case on the Peninsula if you want calm water, soft sand, and a beach that actually functions as a dog beach rather than a compromise.',
+  },
+  {
+    name: 'Fosters Beach',
+    location: 'Mornington',
+    note: 'Useful for owners staying north. Good as a quick local run, but parking and access are less relaxed than the beach itself.',
+  },
+  {
+    name: 'Royal Beach',
+    location: 'Mornington',
+    note: 'Another strong Mornington option, but the stair access makes it slightly less frictionless than Tassells Cove for some owners.',
+  },
+  {
+    name: 'Hawker Beach',
+    location: 'Mount Martha',
+    note: 'A real option if you are based around Mount Martha, but it is worth checking current beach condition and access comfort before building a full plan around it.',
+  },
+  {
+    name: 'Flinders Dog Beach',
+    location: 'Flinders',
+    note: 'Best used as part of a Flinders day rather than a pure swim run. Good if you want the dog beach and the village in one movement.',
+  },
+  {
+    name: 'Somers beach stretch',
+    location: 'Somers',
+    note: 'One of the calmer owner experiences on the Peninsula if you want less theatre and more breathing room.',
+  },
+];
+
+const restricted = [
+  'Dava Beach',
+  'Birdrock Beach',
+  'Mt Eliza Beach',
+  'Daveys Bay',
+  'Half Moon Bay',
+  'Shelley Beach',
+  'Sorrento Beach sections',
+  'Rosebud Beach sections',
+  'Rye Beach sections',
+  'McCrae Beach sections',
+];
+
+const avoid = [
+  'Bass Strait beaches through Mornington Peninsula National Park',
+  'Point Nepean National Park beaches',
+  'Any beach currently signed dog-prohibited regardless of older blog advice',
 ];
 ---
 
-<BaseLayout title="Dog-Friendly Beaches Mornington Peninsula | Peninsula Insider" description="The practical guide to dog-friendly beaches on the Mornington Peninsula, including where it works, what to watch, and how to plan around restrictions." section="explore" ogImage="/images/sourced/dog-beach-hero-01.webp">
+<BaseLayout title="Dog-Friendly Beaches Mornington Peninsula | Peninsula Insider" description="A practical Peninsula Insider guide to dog-friendly beaches on the Mornington Peninsula, including year-round off-leash options, restricted beaches, and what to avoid." section="explore" ogImage="/images/sourced/dog-beach-hero-01.webp">
   <main class="article-shell container prose" style="padding: 3rem 0 4rem; max-width: 820px;">
     <p class="label label--accent">Dog-Friendly Peninsula</p>
     <h1>Dog-Friendly Beaches on the Mornington Peninsula</h1>
     <p><img src="/images/sourced/dog-beach-hero-01.webp" alt="Dog running on a beach" style="width:100%; border-radius: 18px; margin: 0 0 1.5rem; object-fit: cover;" /></p>
-    <p>The Peninsula is full of beach imagery, but not every beach is equally useful when the dog is part of the day. The real question is not whether a beach looks good in a brochure. It is whether the access, parking, leash rules, and general stress level make it worth the drive.</p>
-    <p>The strongest dog-beach options are the ones that let the dog move, let the humans breathe, and do not turn the morning into a bureaucratic negotiation with signage and crowds.</p>
-    <h2>Where to start</h2>
+    <p>The Peninsula is full of beach imagery, but not every beach is equally useful when the dog is part of the day. The right dog beach is not just pretty. It has workable access, enough space, clear rules, and a lower chance of turning the morning into a signage dispute or a parking headache.</p>
+    <p>The first thing to know is this: dog rules changed across parts of the Mornington Peninsula in late 2024, and the Shire’s current beach controls should always outrank older travel posts. Treat the Shire map and beach signage as the final word before you go.</p>
+
+    <h2>The strongest year-round off-leash beaches</h2>
+    <p>If you want the cleanest dog-beach experiences, start here.</p>
     <ul>
-      {beaches.map((beach) => <li>{beach}</li>)}
+      {yearRound.map((beach) => (
+        <li><strong>{beach.name}</strong> ({beach.location}) — {beach.note}</li>
+      ))}
     </ul>
+
+    <h2>The beaches that only work at certain times</h2>
+    <p>These are the beaches people often mean when they say “dogs are allowed there”, but the detail matters. During daylight saving, many of these beaches move into restricted access windows and only work early or late. In winter, some are effectively more usable. That makes them planning beaches, not default beaches.</p>
+    <ul>
+      {restricted.map((beach) => <li>{beach}</li>)}
+    </ul>
+
+    <h2>Where not to build your dog day</h2>
+    <p>Some of the Peninsula’s most dramatic coastline is simply not for dogs. That is especially true across the national park coast. Do not rely on old “best dog beaches” blog posts that blur this line.</p>
+    <ul>
+      {avoid.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <h2>Best practical use cases</h2>
+    <p><strong>For an easy dog-beach morning:</strong> Tassells Cove or Somers.</p>
+    <p><strong>For a northern-side stay:</strong> Fosters Beach or Royal Beach.</p>
+    <p><strong>For a Flinders day:</strong> Flinders Dog Beach, then coffee or a village stop.</p>
+
     <h2>What matters more than the postcard</h2>
-    <p>For dog owners, the best beach is usually not the most famous one. It is the one with enough space, reasonable access, and fewer ways for the day to go sideways. That means thinking about parking, leash expectations, heat, post-swim rinse options, and what lunch looks like afterwards.</p>
-    <p>This page should become a verified beach-by-beach guide next. For now, treat it as the practical frame for where the hub is going.</p>
+    <p>For dog owners, the real quality test is simple: can the dog move, can the humans stay calm, and can the day keep working after the beach? Parking, rinse options, nearby walks, lunch plans, and the actual stress level matter more than the prettiest view.</p>
+    <p>Use this page as the practical starting point, then double-check the current Mornington Peninsula Shire controls before locking in the plan.</p>
   </main>
 </BaseLayout>

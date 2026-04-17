@@ -2,10 +2,22 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const walks = [
-  'Balnarring foreshore and beach combinations for owners who want less theatre and more room.',
-  'Mornington foreshore links if you are staying north and want something easy before coffee.',
-  'Hinterland reserve and track options where a beach is not the right fit for the day.',
-  'Shorter town-edge loops that work when you need a walk, not a half-day mission.',
+  {
+    name: 'Briars Community Forest off-leash walk',
+    note: 'One of the strongest pure dog-owner utility assets on the Peninsula because it is fenced, large, and built around the dog rather than around a scenic compromise.',
+  },
+  {
+    name: 'Balnarring foreshore combinations',
+    note: 'A strong beach-plus-walk option when you want room and lower theatre.',
+  },
+  {
+    name: 'Mornington foreshore links',
+    note: 'Useful for owners staying north who want something easy before coffee or a shorter movement before lunch.',
+  },
+  {
+    name: 'Shorter hinterland and town-edge loops',
+    note: 'Useful when the beach is not the right answer and you still need a reliable dog run.',
+  },
 ];
 ---
 
@@ -14,10 +26,21 @@ const walks = [
     <p class="label label--accent">Dog-Friendly Peninsula</p>
     <h1>Where to Walk the Dog on the Mornington Peninsula</h1>
     <p><img src="/images/sourced/dog-walk-hero-01.webp" alt="Dog out on a walk" style="width:100%; border-radius: 18px; margin: 0 0 1.5rem; object-fit: cover;" /></p>
-    <p>The best dog walk is rarely the most famous walk. It is the one that suits the day, the dog, and the level of effort you actually want. That usually means less obsession with hero scenery and more attention to parking, crowd pressure, leash logic, and what happens after the walk.</p>
+    <p>The best dog walk is rarely the most famous walk. It is the one that suits the day, the dog, and the level of effort you actually want. That usually means less obsession with hero scenery and more attention to access, leash logic, mud, heat, water, and what happens after the walk.</p>
+
+    <h2>The strongest starting points</h2>
     <ul>
-      {walks.map((walk) => <li>{walk}</li>)}
+      {walks.map((walk) => <li><strong>{walk.name}</strong> — {walk.note}</li>)}
     </ul>
-    <p>This page should become a practical working guide organised by geography and walk type, not a generic trail list.</p>
+
+    <h2>The standout</h2>
+    <p><strong>Briars Community Forest</strong> is one of the most useful owner assets on the Peninsula because it is not pretending to be something it is not. It is practical, dog-first, and large enough to justify the drive if you simply need a good run rather than a scenic social outing.</p>
+
+    <h2>How to choose the right walk</h2>
+    <p><strong>Choose the beach walk</strong> when the weather is good and the dog needs space.</p>
+    <p><strong>Choose the fenced or reserve-style walk</strong> when control matters more than scenery.</p>
+    <p><strong>Choose the short foreshore or town-edge walk</strong> when the dog is part of a larger Peninsula day rather than the whole plan.</p>
+
+    <p>This page should continue to deepen with verified access notes, leash details, parking notes, and seasonal caveats.</p>
   </main>
 </BaseLayout>
