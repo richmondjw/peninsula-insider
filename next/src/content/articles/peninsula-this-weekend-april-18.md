@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
 heroImage:
-  src: "/images/sourced/article-sunset-01.webp"
-  alt: "The Mornington Peninsula at 4pm on an April Saturday"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/sourced/place-mornington-01.webp"
+  alt: "Mornington on a sunny April Saturday"
+  credit: "Simon Yeo / Wikimedia Commons"
+  license: "tmp-wikimedia"
 format: "weekend-picker"
 tags: ["weekend-picker", "mornington-cup", "whats-on", "service"]
 relatedVenues: []

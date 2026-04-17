@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/sourced/dog-beach-hero-01.webp"
-  alt: "Dog-friendly Peninsula outing"
+  src: "/images/sourced/dog-walk-hero-01.webp"
+  alt: "Dog walking on the Mornington Peninsula"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"
