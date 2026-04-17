@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
 
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 const golfArticles = allArticles
@@ -114,10 +115,10 @@ const collectionSchema = {
                 <span class="venue-card__price">{article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : ''}</span>
               </div>
               <h3 class="venue-card__name">
-                <a href={`/journal/${article.slug}`}>{article.data.title}</a>
+                <a href={`/journal/${routeSlug(article)}`}>{article.data.title}</a>
               </h3>
               <p class="venue-card__signature">{article.data.dek}</p>
-              <a href={`/journal/${article.slug}`} class="venue-card__cta">Read the piece →</a>
+              <a href={`/journal/${routeSlug(article)}`} class="venue-card__cta">Read the piece →</a>
             </article>
           ))}
         </div>
