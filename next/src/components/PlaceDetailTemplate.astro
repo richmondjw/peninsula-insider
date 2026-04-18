@@ -59,7 +59,33 @@ if (itineraries.length > 0) anchors.push({ href: '#escapes', label: 'Escape plan
 if (articles.length > 0) anchors.push({ href: '#journal', label: 'From the journal', count: articles.length });
 
 const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
+const canonical = `https://peninsulainsider.com.au/places/${place.slug}`;
+const placeTitle = `${place.data.name} Guide | Peninsula Insider`;
+const placeDescription = place.data.intro;
+const ogImage = place.data.heroImage?.src && !place.data.heroImage.src.includes('placeholder')
+  ? place.data.heroImage.src
+  : '/images/sourced/home-cover.webp';
+const placeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Place',
+  name: place.data.name,
+  description: place.data.intro,
+  url: canonical,
+  ...(ogImage !== '/images/sourced/home-cover.webp' ? { image: `https://peninsulainsider.com.au${ogImage}` } : {}),
+  containedInPlace: 'Mornington Peninsula',
+};
 ---
+
+<Fragment slot="head">
+  <title>{placeTitle}</title>
+  <meta name="description" content={placeDescription} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={placeTitle} />
+  <meta property="og:description" content={placeDescription} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={`https://peninsulainsider.com.au${ogImage}`} />
+  <script type="application/ld+json" set:html={JSON.stringify(placeSchema)} />
+</Fragment>
 
 <Breadcrumbs items={breadcrumbItems} />
 
