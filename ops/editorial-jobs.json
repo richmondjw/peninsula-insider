@@ -9,54 +9,123 @@
       "cadence": "daily 20:20 UTC",
       "type": "accuracy-scan",
       "owner": "PI-accuracy-desk",
-      "inputs": ["homepage", "whats-on surface", "current dispatch", "event source files", "live build output"],
-      "outputs": ["reports/peninsula-accuracy-scan-YYYY-MM-DD.md"],
-      "surfaces": ["index.html", "whats-on/index.html", "journal/peninsula-this-weekend-*/index.html", "next/src/content/events", "next/src/content/articles"]
+      "inputs": [
+        "homepage",
+        "whats-on surface",
+        "current dispatch",
+        "event source files",
+        "live build output"
+      ],
+      "outputs": [
+        "reports/peninsula-accuracy-scan-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "index.html",
+        "whats-on/index.html",
+        "journal/peninsula-this-weekend-*/index.html",
+        "next/src/content/events",
+        "next/src/content/articles"
+      ]
     },
     {
       "name": "pi-daily-accuracy-autofix",
       "cadence": "daily 20:35 UTC",
       "type": "accuracy-autofix",
       "owner": "PI-accuracy-desk + PI-publisher",
-      "inputs": ["reports/peninsula-accuracy-scan-YYYY-MM-DD.md"],
-      "outputs": ["reports/peninsula-accuracy-autofix-YYYY-MM-DD.md"],
-      "surfaces": ["index.html", "whats-on/index.html", "live repo", "GitHub Pages deploy"]
+      "inputs": [
+        "reports/peninsula-accuracy-scan-YYYY-MM-DD.md"
+      ],
+      "outputs": [
+        "reports/peninsula-accuracy-autofix-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "index.html",
+        "whats-on/index.html",
+        "live repo",
+        "GitHub Pages deploy"
+      ]
     },
     {
       "name": "pi-daily-link-audit",
       "cadence": "daily 21:20 UTC",
       "type": "link-audit",
       "owner": "PI-qa-desk",
-      "inputs": ["built site HTML", "source Astro pages", "journal links", "homepage and what's-on rails"],
-      "outputs": ["reports/peninsula-link-audit-YYYY-MM-DD.md"],
-      "surfaces": ["index.html", "whats-on/index.html", "journal/index.html", "all built internal links"]
+      "inputs": [
+        "built site HTML",
+        "source Astro pages",
+        "journal links",
+        "homepage and what's-on rails"
+      ],
+      "outputs": [
+        "reports/peninsula-link-audit-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "index.html",
+        "whats-on/index.html",
+        "journal/index.html",
+        "all built internal links"
+      ]
     },
     {
       "name": "pi-daily-events-scan",
       "cadence": "daily 05:30 UTC",
       "type": "research",
       "owner": "PI-events-desk",
-      "inputs": ["local event sources", "existing whats-on surface", "homepage featured events"],
-      "outputs": ["reports/peninsula-events-brief-YYYY-MM-DD.md", "reports/peninsula-whats-on.json"],
-      "surfaces": ["whats-on.html", "index.html", "itinerary.html"]
+      "inputs": [
+        "local event sources",
+        "existing whats-on surface",
+        "homepage featured events"
+      ],
+      "outputs": [
+        "reports/peninsula-events-brief-YYYY-MM-DD.md",
+        "reports/peninsula-whats-on.json"
+      ],
+      "surfaces": [
+        "whats-on.html",
+        "index.html",
+        "itinerary.html"
+      ]
     },
     {
       "name": "pi-daily-venue-healthcheck",
       "cadence": "daily 06:00 UTC",
       "type": "verification",
       "owner": "PI-venue-verifier",
-      "inputs": ["priority venue list", "venue URLs", "booking links"],
-      "outputs": ["reports/peninsula-venue-health-YYYY-MM-DD.md"],
-      "surfaces": ["eat.html", "stay.html", "wine.html", "next/src/content/venues"]
+      "inputs": [
+        "priority venue list",
+        "venue URLs",
+        "booking links"
+      ],
+      "outputs": [
+        "reports/peninsula-venue-health-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "eat.html",
+        "stay.html",
+        "wine.html",
+        "next/src/content/venues"
+      ]
     },
     {
       "name": "pi-daily-seasonality-refresh",
       "cadence": "daily 06:15 UTC",
       "type": "research",
       "owner": "PI-explore-seasonality",
-      "inputs": ["weather", "school holidays", "local seasonality", "event calendar"],
-      "outputs": ["reports/peninsula-insider-daily-YYYY-MM-DD.md"],
-      "surfaces": ["index.html", "explore.html", "itinerary.html", "next/src/content"]
+      "inputs": [
+        "weather",
+        "school holidays",
+        "local seasonality",
+        "event calendar"
+      ],
+      "outputs": [
+        "reports/peninsula-insider-daily-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "index.html",
+        "explore.html",
+        "itinerary.html",
+        "next/src/content"
+      ]
     },
     {
       "name": "pi-daily-build-draft",
@@ -68,35 +137,202 @@
         "reports/peninsula-venue-health-YYYY-MM-DD.md",
         "reports/peninsula-insider-daily-YYYY-MM-DD.md"
       ],
-      "outputs": ["reports/peninsula-build-draft-YYYY-MM-DD.md"],
-      "surfaces": ["tier-1 live pages", "Astro preview"]
+      "outputs": [
+        "reports/peninsula-build-draft-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "tier-1 live pages",
+        "Astro preview"
+      ]
     },
     {
       "name": "pi-daily-qa-and-publish",
       "cadence": "daily 07:00 UTC",
       "type": "publish",
       "owner": "PI-editor-qa + PI-publisher",
-      "inputs": ["draft changes", "repo diff", "preview build"],
-      "outputs": ["reports/peninsula-qa-publish-YYYY-MM-DD.md"],
-      "surfaces": ["live repo", "preview routes", "GitHub Pages deploy"]
+      "inputs": [
+        "draft changes",
+        "repo diff",
+        "preview build"
+      ],
+      "outputs": [
+        "reports/peninsula-qa-publish-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "live repo",
+        "preview routes",
+        "GitHub Pages deploy"
+      ]
     },
     {
       "name": "pi-weekly-editorial-commissioning",
       "cadence": "weekly Monday 07:30 UTC",
       "type": "writing",
       "owner": "PI-editorial-desk",
-      "inputs": ["seasonal opportunities", "gap analysis", "fresh venue/place research"],
-      "outputs": ["reports/peninsula-weekly-editorial-YYYY-MM-DD.md"],
-      "surfaces": ["Journal", "homepage", "Eat", "Stay", "Explore", "Wine", "Escape"]
+      "inputs": [
+        "seasonal opportunities",
+        "gap analysis",
+        "fresh venue/place research"
+      ],
+      "outputs": [
+        "reports/peninsula-weekly-editorial-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Journal",
+        "homepage",
+        "Eat",
+        "Stay",
+        "Explore",
+        "Wine",
+        "Escape"
+      ]
     },
     {
       "name": "pi-weekly-evergreen-expansion",
       "cadence": "weekly Wednesday 07:30 UTC",
       "type": "writing",
       "owner": "PI-evergreen-desk",
-      "inputs": ["section gaps", "thin hubs", "link gaps", "search intent priorities"],
-      "outputs": ["reports/peninsula-evergreen-expansion-YYYY-MM-DD.md"],
-      "surfaces": ["place hubs", "venue pages", "service lists", "guide pages"]
+      "inputs": [
+        "section gaps",
+        "thin hubs",
+        "link gaps",
+        "search intent priorities"
+      ],
+      "outputs": [
+        "reports/peninsula-evergreen-expansion-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "place hubs",
+        "venue pages",
+        "service lists",
+        "guide pages"
+      ]
+    },
+    {
+      "name": "pi-weekly-seo-authority-audit",
+      "cadence": "weekly Tuesday 07:45 UTC",
+      "type": "seo-audit",
+      "owner": "PI-seo-desk",
+      "inputs": [
+        "live section hubs",
+        "place hubs",
+        "metadata coverage",
+        "internal linking patterns",
+        "top editorial/service pages"
+      ],
+      "outputs": [
+        "reports/peninsula-seo-authority-audit-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Explore",
+        "Stay",
+        "Eat",
+        "Wine",
+        "Spa",
+        "Dog-Friendly",
+        "Places",
+        "Journal",
+        "What\u2019s On"
+      ]
+    },
+    {
+      "name": "pi-weekly-seo-opportunity-scan",
+      "cadence": "weekly Thursday 07:45 UTC",
+      "type": "seo-opportunity",
+      "owner": "PI-seo-desk + PI-editorial-desk",
+      "inputs": [
+        "existing cluster map",
+        "thin pages",
+        "modifier gaps",
+        "place gaps",
+        "commercial-intent gaps",
+        "recent editorial outputs"
+      ],
+      "outputs": [
+        "reports/peninsula-seo-opportunity-scan-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "section hubs",
+        "support pages",
+        "places",
+        "escape",
+        "journal",
+        "dog-friendly",
+        "spa",
+        "golf"
+      ]
+    },
+    {
+      "name": "pi-weekly-metadata-schema-audit",
+      "cadence": "weekly Friday 07:45 UTC",
+      "type": "metadata-audit",
+      "owner": "PI-seo-qa",
+      "inputs": [
+        "live built HTML",
+        "Astro templates",
+        "canonical coverage",
+        "Open Graph coverage",
+        "schema output",
+        "date freshness"
+      ],
+      "outputs": [
+        "reports/peninsula-metadata-schema-audit-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "all flagship hubs",
+        "place hubs",
+        "journal articles",
+        "event pages",
+        "entity pages"
+      ]
+    },
+    {
+      "name": "pi-weekly-internal-linking-audit",
+      "cadence": "weekly Saturday 07:45 UTC",
+      "type": "internal-link-audit",
+      "owner": "PI-seo-qa + PI-places-desk",
+      "inputs": [
+        "place pages",
+        "section hubs",
+        "support pages",
+        "entity pages",
+        "related modules"
+      ],
+      "outputs": [
+        "reports/peninsula-internal-linking-audit-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Places",
+        "Explore",
+        "Stay",
+        "Eat",
+        "Wine",
+        "Dog-Friendly",
+        "Journal",
+        "Escape"
+      ]
+    },
+    {
+      "name": "pi-monthly-seo-refresh-priority-run",
+      "cadence": "monthly day 1 08:00 UTC",
+      "type": "seo-refresh",
+      "owner": "PI-seo-desk + PI-publisher",
+      "inputs": [
+        "weekly SEO audits",
+        "current ranking pages",
+        "stale metadata",
+        "thin hub sections",
+        "internal-link gap reports"
+      ],
+      "outputs": [
+        "reports/peninsula-seo-refresh-priority-run-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "flagship hubs",
+        "place hubs",
+        "top service pages",
+        "priority journal pages"
+      ]
     }
   ]
 }

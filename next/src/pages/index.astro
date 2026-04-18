@@ -31,8 +31,8 @@ const eventsAll = (await getCollection('events'))
     return isUpcoming(end);
   })
   .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
-const upcomingWeekendStart = new Date('2026-04-18T00:00:00+10:00');
-const upcomingWeekendEnd = new Date('2026-04-20T23:59:59+10:00');
+const upcomingWeekendStart = new Date('2026-04-25T00:00:00+10:00');
+const upcomingWeekendEnd = new Date('2026-04-27T23:59:59+10:00');
 const weekendPicks = eventsAll
   .filter((event) => {
     if (!event.data.lens.includes('weekend-pick' as any)) return false;

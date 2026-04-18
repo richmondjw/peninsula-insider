@@ -13,10 +13,10 @@ const { issueDate } = Astro.props;
 const season = currentSeason();
 
 const seasonalHeadlines: Record<string, { line1: string; line2: string; em: string }> = {
-  summer: { line1: 'Where Victoria', line2: 'eats, swims,', em: 'and stays late.' },
-  autumn: { line1: 'Where Victoria', line2: 'eats, drinks,', em: 'and slows down.' },
-  winter: { line1: 'Where Victoria', line2: 'eats, warms up,', em: 'and stays in.' },
-  spring: { line1: 'Where Victoria', line2: 'eats, explores,', em: 'and books ahead.' },
+  summer: { line1: 'Where Victoria', line2: 'eats, swims,', em: 'stays late.' },
+  autumn: { line1: 'Where Victoria', line2: 'eats, drinks,', em: 'slows down.' },
+  winter: { line1: 'Where Victoria', line2: 'eats, warms up,', em: 'stays in.' },
+  spring: { line1: 'Where Victoria', line2: 'eats, explores,', em: 'books ahead.' },
 };
 
 const seasonalDeks: Record<string, string> = {

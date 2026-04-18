@@ -30,8 +30,8 @@ const dispatches = (await getCollection('articles', ({ data }) => data.status ==
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const currentDispatch = dispatches[0];
 
-const upcomingWeekendStart = new Date('2026-04-18T00:00:00+10:00');
-const upcomingWeekendEnd = new Date('2026-04-20T23:59:59+10:00');
+const upcomingWeekendStart = new Date('2026-04-25T00:00:00+10:00');
+const upcomingWeekendEnd = new Date('2026-04-27T23:59:59+10:00');
 const nextWeekendEvents = events.filter((event) => {
   const start = event.data.startDate;
   const end = event.data.endDate ?? event.data.startDate;
@@ -153,7 +153,7 @@ const breadcrumbItems = [
   />
 
   {currentDispatch && (
-    <WeekendPickerBlock dispatch={currentDispatch} weekend="18 to 20 April" />
+    <WeekendPickerBlock dispatch={currentDispatch} weekend="25 to 27 April" />
   )}
 
   <section class="events-lens">
@@ -184,7 +184,7 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">This weekend's anchors</p>
             <h2 class="venues__title">If you only do two things this weekend</h2>
-            <p class="venues__sub">The clearest event anchors shaping the Peninsula from 18 to 20 April.</p>
+            <p class="venues__sub">The clearest event anchors shaping the Peninsula from 25 to 27 April.</p>
           </div>
           <span class="venues__count">{editorsPicks.length} picks</span>
         </div>
