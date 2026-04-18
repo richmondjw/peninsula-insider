@@ -27,10 +27,37 @@ const seasonalDeks: Record<string, string> = {
 };
 
 const hl = seasonalHeadlines[season];
+
+const heroRotation = [
+  {
+    src: '/images/sourced/home-cover.webp',
+    position: 'center 40%',
+    label: 'Peninsula coastline at golden hour',
+  },
+  {
+    src: '/images/sourced/article-dog-friendly-01.webp',
+    position: 'center center',
+    label: 'Morning light on the Peninsula foreshore',
+  },
+  {
+    src: '/images/sourced/dog-beach-hero-01.webp',
+    position: 'center center',
+    label: 'Bay shoreline and open Peninsula water',
+  },
+  {
+    src: '/images/sourced/dog-lifestyle-hero-01.webp',
+    position: 'center 35%',
+    label: 'Peninsula lifestyle in soft afternoon light',
+  },
+];
+
+const hour = Astro.url ? new Date().getUTCHours() : 0;
+const heroIndex = Math.floor(hour / 6) % heroRotation.length;
+const activeHero = heroRotation[heroIndex];
 ---
 
 <section class="hero-v2" aria-label="Cover">
-  <div class="hero-v2__bg"></div>
+  <div class="hero-v2__bg" style={`background-image: url(${activeHero.src}); background-position: ${activeHero.position};`}></div>
   <div class="hero-v2__scrim"></div>
   <div class="hero-v2__grain"></div>
   <div class="hero-v2__content">
@@ -59,7 +86,7 @@ const hl = seasonalHeadlines[season];
 
 <style>
   .hero-v2 { position: relative; min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; background-color: var(--dark); }
-  .hero-v2__bg { position: absolute; inset: 0; background-image: url(/images/sourced/home-cover.webp); background-size: cover; background-position: center 40%; background-attachment: fixed; }
+  .hero-v2__bg { position: absolute; inset: 0; background-size: cover; background-attachment: fixed; }
   .hero-v2__scrim { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,27,24,0.08) 0%, rgba(30,27,24,0.15) 25%, rgba(30,27,24,0.5) 55%, rgba(30,27,24,0.82) 75%, rgba(30,27,24,0.95) 100%); }
   .hero-v2__grain { position: absolute; inset: 0; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 128px; pointer-events: none; }
   .hero-v2__content { position: relative; z-index: 2; width: 100%; padding: 0 clamp(1.25rem,4vw,3rem); padding-bottom: clamp(3.5rem,8vw,6rem); max-width: var(--max-w); margin: 0 auto; }
