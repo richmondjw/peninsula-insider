@@ -1,16 +1,16 @@
 ---
-title: "Peninsula This Weekend  -  18 to 20 April"
-dek: "The weekend of the Mornington Cup, a last swing at autumn light, and a second-act Sunday that's cheaper than it looks. Here's what we'd do if you could only pick one thing."
+title: "Peninsula This Weekend  -  24 to 26 April"
+dek: "An ANZAC dawn service worth the early alarm, a slower autumn long-weekend rhythm, and the kind of Peninsula day that works even if you only commit to one proper outing."
 author: "editorial"
 houseByline: true
-publishedAt: 2026-04-15
+publishedAt: 2026-04-24
 heroImage:
-  src: "/images/sourced/place-mornington-01.webp"
-  alt: "Mornington on a sunny April Saturday"
-  credit: "Simon Yeo / Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/sourced/place-sorrento-01.webp"
+  alt: "Sorrento and the southern Mornington Peninsula in soft autumn light"
+  credit: "Peninsula Insider"
+  license: "other-licensed"
 format: "weekend-picker"
-tags: ["weekend-picker", "mornington-cup", "whats-on", "service"]
+tags: ["weekend-picker", "anzac-day", "whats-on", "service"]
 relatedVenues: []
 readingTimeMinutes: 4
 featured: true
@@ -19,38 +19,32 @@ status: "published"
 
 _Peninsula This Weekend is our Wednesday dispatch: one opinionated pick, one weather-proof backup, and one thing to skip. If it saves you one decision on a Friday night it's doing its job._
 
-## The pick  -  Mornington Cup, Saturday 18 April
+## The pick  -  ANZAC Day dawn in Sorrento
 
-Go to the races.
+If you're on the Peninsula this weekend, the clearest choice is not a lunch booking. It's the dawn service.
 
-We don't say that often. The Peninsula's best weekends are almost always built around a meal and a walk, not a ticketed event. But Mornington Cup is the one annual day when the whole town genuinely takes the afternoon off, the marquee lawn runs like a long lunch rather than a racecourse, and the 4pm light on the grass is the photo you're going to send on the way home.
+**[ANZAC Day Dawn Service in Sorrento](/whats-on/anzac-day-sorrento-dawn/)** is one of the Peninsula events where the setting actually matters. The early cold, the half-light, the foreshore atmosphere, and the fact that people show up quietly and properly all add up to something stronger than a generic civic calendar item.
 
-The move: park at Mornington village rather than the racecourse, walk in through the gardens (25 minutes), arrive by noon, eat before race three, and treat the Cup itself  -  fifth on the card  -  as the afternoon's hinge. Dinner after should be softer than you think: a shared plate at [Allis Wine Bar](/eat/allis-wine-bar) or a pub meal at the [Dromana Hotel](/eat/dromana-hotel) if you still want to be on the Peninsula. Drive home Sunday late morning.
+The move: stay nearby if you can, wake properly early, and treat the morning as the whole point rather than something you squeeze in before a second plan. Afterwards, keep the rest of the day soft. Coffee, breakfast, maybe a foreshore walk, maybe nothing ambitious at all.
 
-This is an adults day. Leave the kids somewhere else.
+**Worth the early alarm?** Yes. Easily.
 
-**Worth the drive from Melbourne?** Yes. The only racing day of the Peninsula year we'd recommend unprompted to a first-timer.
+[Full event guide  -  Sorrento ANZAC Dawn Service →](/whats-on/anzac-day-sorrento-dawn/)
 
-[Full event guide  -  Mornington Cup 2026 →](/whats-on/mornington-cup-2026)
+## The alternative  -  if you want a slower Peninsula day
 
-## The alternative  -  if the weather turns
+If the dawn service is not your weekend move, take the opposite approach and make this a long, unhurried Peninsula day.
 
-Rain is possible on Saturday afternoon. The Cup runs wet or dry, but the marquee lawn is an open-air experience and not worth it in a downpour.
+Do **[Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk)** or the **[Cape Schanck Lighthouse Walk](/explore/cape-schanck-lighthouse-walk)** in the morning, keep lunch simple, and let the afternoon drift toward **[Peninsula Hot Springs](/stay/peninsula-hot-springs/)** or a later cellar door stop.
 
-Plan B: **[Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk)** on the Saturday morning  -  8:45am arrival, a brisk coastal loop before the weather closes in, back in the car by 10:30. Then **[Alba Thermal Springs](/stay/alba-thermal-springs)** at 1:00pm for a two-hour rain-proof recovery session. A long lunch booking at [Quealy Winemakers](/eat/quealy-winemakers) or [Ten Minutes by Tractor](/eat/ten-minutes-by-tractor) at 3:30pm. No racing, no marquee, but a weekend that holds up to a grey sky without flinching.
+This is a very good weekend for that kind of shape. Autumn light is still doing some work, the summer frenzy is gone, and you can get a premium-feeling Peninsula day without forcing too much into it.
 
-## The smarter family move this weekend
+## Skip this
 
-Every Peninsula tourism channel is currently pushing a long list of family activity listings across the southern season shoulder. Most of them are recycled  -  the same strawberry-picking, the same chocolaterie, the same animal encounter. That's fine. What's *not* fine is the low-signal event clutter that gets stapled onto that list without any editorial filter.
+Do not over-schedule the long weekend just because it feels like you should. The Peninsula is stronger right now when it is allowed to breathe a bit. One strong outing and one good meal is enough.
 
-If you're travelling with kids this weekend and you want a genuine day, pick **one** of: [Sunny Ridge strawberry picking](/whats-on/sunny-ridge-strawberry-picking), the [Chocolaterie Junior Chocolatier class](/whats-on/chocolaterie-junior-chocolatier), or a simple foreshore day built around Mornington or Mount Martha. Skip the rest. The Peninsula runs better at the kids level when you do one thing properly than when you try to do four.
+## Peninsula Insider verdict
 
-## Coming up after the Cup
+This is a reflective Peninsula weekend, not a frantic one.
 
-The weekend after (23–26 April) is **[Sorrento Writers Festival](/whats-on/sorrento-writers-festival-2026)**  -  the one Peninsula literary event worth a whole weekend rather than a day trip. Bookings are still open for most sessions as of Wednesday night. If you're reading this on a Thursday, stop, go book a hotel inside Sorrento itself, come back, and finish the email.
-
-More on Writers Festival in next Wednesday's dispatch.
-
----
-
-_Peninsula This Weekend runs every Wednesday at 6pm. It is the anchor of our weekly newsletter and rolls forward each week as the live weekend brief updates._
+If you're here, either commit to the dawn service and let that set the tone, or build a slower walk-and-recovery day around the southern end of the Peninsula. Both are better than trying to turn the weekend into a checklist.
