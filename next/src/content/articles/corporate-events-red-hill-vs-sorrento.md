@@ -1,61 +1,89 @@
 ---
 slug: "corporate-events-red-hill-vs-sorrento"
-title: "Red Hill or Sorrento: Choosing the Right Peninsula Base for a Corporate Event"
-dek: "The two strongest corporate event areas on the Peninsula serve different groups in different ways. Here is the honest comparison planners actually need."
+title: "Red Hill vs Sorrento for a Corporate Offsite"
+dek: "The Peninsula's two strongest offsite moods are not interchangeable. Red Hill and Sorrento suit different formats, different teams, and different ideas of premium."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-19
 heroImage:
-  src: "/images/sourced/category-winery-02.webp"
-  alt: "Mornington Peninsula vineyard estate in the Red Hill hinterland"
+  src: "/images/sourced/stay-vineyard-01.webp"
+  alt: "A polished Mornington Peninsula retreat setting evoking the contrast between Red Hill hinterland and Sorrento coast"
   credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  license: "other-licensed"
 format: "service"
-tags: ["corporate-events", "retreat", "red-hill", "sorrento", "planning", "mornington-peninsula"]
-relatedVenues: []
-relatedExperiences: []
-readingTimeMinutes: 7
-featured: false
-status: "draft"
+tags: ["corporate-events", "red-hill", "sorrento", "retreats", "offsites", "planning"]
+readingTimeMinutes: 6
+featured: true
+status: "published"
 ---
 
-<!-- CONTENT STUB — First-wave corporate events vertical build -->
-<!-- See: docs/new-verticals-first-wave-content-plan-2026-04-19.md -->
-<!-- Priority: 9 of 9 -->
+If you are choosing between Red Hill and Sorrento for a corporate offsite, you are not just choosing a location. You are choosing a tone.
 
-<!-- BRIEF -->
-<!-- Direct comparison. Who each suits. Be honest about tradeoffs. -->
-<!-- Red Hill / hinterland: food-and-wine-led, quieter, retreat feel, weaker on precinct for non-drivers. -->
-<!-- Sorrento: coastal energy, stronger walkable precinct, maritime hospitality, busier in summer. -->
-<!-- Cape Schanck: resort-scale, best for larger groups or golf/spa/meeting combos, less boutique. -->
-<!-- Cross-link to /corporate-events/, /corporate-events/best-corporate-retreat-venues-mornington-peninsula/, /corporate-events/how-to-plan-a-mornington-peninsula-corporate-retreat/, /places/red-hill, /places/sorrento, /stay/ -->
+Both can work. They just work differently.
 
-## The question planners ask second, when they should ask it first
+## Red Hill: better for retreat energy
 
-Most corporate events research on the Peninsula starts with venue names. It should start with location.
+Red Hill is usually stronger when you want the offsite to feel:
+- slower
+- more private
+- more food-and-wine led
+- more obviously separate from the city
+- better suited to strategy or leadership time
 
-Red Hill and Sorrento both have strong venue options. They are not interchangeable. The group you are hosting and the format you need should decide which part of the Peninsula you go to before you shortlist a single venue.
+It works especially well for:
+- executive retreats
+- founder offsites
+- premium team strategy sessions
+- winery lunch centred programmes
 
----
+The advantage here is atmosphere. The hinterland changes the pace of the day.
 
-<!-- Full content to be written by editorial team. Use this stub structure: -->
-<!-- 1. The location-first framing (why this matters before venue selection) -->
-<!-- 2. Red Hill and the hinterland: -->
-<!--    Access: 90 min from Melbourne, no town centre, driving between venues is normal -->
-<!--    Character: food and wine immersion, vineyard landscape, genuine separation from city -->
-<!--    Best for: leadership retreat, small group (6–20), high-focus work, groups that want immersion -->
-<!--    Venue notes: Lindenderry, Jackalope, Montalto — characterised honestly -->
-<!--    Weakness: non-drivers need transfers organised, no walkable precinct -->
-<!-- 3. Sorrento and the tip: -->
-<!--    Access: 90–100 min from Melbourne, direct to town -->
-<!--    Character: coastal, maritime, walkable precinct, resort feel, can be busy in summer -->
-<!--    Best for: groups that want a "town" event feel, client hospitality, mixed-format retreats with free time -->
-<!--    Venue notes: The Continental Sorrento, Hotel Sorrento — characterised honestly -->
-<!--    Weakness: summer crowding, fewer dedicated retreat-format properties -->
-<!-- 4. Cape Schanck: -->
-<!--    Best for: large groups, golf + meeting combos, groups that need resort infrastructure -->
-<!--    RACV Cape Schanck as the main reference -->
-<!--    Weakness: less intimate, resort rather than boutique -->
-<!-- 5. Comparison table (access / venue character / accommodation density / dining quality / activity options / group size sweet spot) -->
-<!-- 6. "Match your group to a location" guide -->
-<!-- 7. FAQ block -->
+The trade-off is logistics. It generally asks for more deliberate transport and accommodation planning than a simpler coastal-town format.
+
+## Sorrento: better for polished coastal hosting
+
+Sorrento is usually stronger when you want the offsite to feel:
+- more recognisable
+- more guest-friendly
+- more coastal and socially legible
+- easier to shape around town energy
+- slightly more polished in a visible way
+
+It works especially well for:
+- client entertainment
+- partner events
+- leadership gatherings with a social or hospitality emphasis
+- smaller premium offsites where town atmosphere matters
+
+The advantage here is ease and familiarity. Guests understand the setting quickly, and the town itself helps the event feel curated.
+
+The trade-off is that it can feel more exposed and less private than the best Red Hill-style retreat.
+
+## Which one is better for what
+
+### Choose Red Hill if:
+- the event is strategy-heavy
+- the group wants depth over polish
+- lunch and wine context matter
+- the retreat should feel removed from everyday rhythm
+
+### Choose Sorrento if:
+- the group is client-facing
+- the social layer matters more
+- you want a clearer town-based weekend shape
+- the event needs easier coastal glamour and simpler guest comprehension
+
+## Peninsula Insider's read
+
+Red Hill is usually the smarter choice for serious retreat logic.
+Sorrento is usually the smarter choice for hosting logic.
+
+That is the cleanest way to think about it.
+
+## Final read
+
+If the goal is deep thinking, strong lunch, and a proper change of pace, Red Hill usually wins.
+
+If the goal is polished coastal hosting, recognisable destination energy, and easier social movement, Sorrento usually wins.
+
+The right answer depends less on which place is prettier and more on what the event is actually trying to do.

@@ -1,57 +1,113 @@
 ---
 slug: "weddings-mornington-peninsula-weekend-planning"
 title: "How to Plan a Mornington Peninsula Wedding Weekend"
-dek: "Ceremony to brunch. The whole weekend, not just the day — where guests arrive, what they do Friday night, what happens Sunday morning, and how to make the sequence work."
+dek: "The Peninsula wedding weekend only works when the event, the guest base, the food, and the next-day recovery all belong to the same idea. Here is how to shape it properly."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-19
 heroImage:
-  src: "/images/sourced/venue-jackalope-hotel-01.webp"
-  alt: "Jackalope Hotel and vineyard at Merricks North, Mornington Peninsula"
+  src: "/images/sourced/article-vineyard-villa-01.webp"
+  alt: "Mornington Peninsula wedding weekend atmosphere among vineyard and boutique stay settings"
   credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  license: "other-licensed"
 format: "service"
-tags: ["weddings", "planning", "weekend", "mornington-peninsula", "itinerary"]
-relatedVenues: []
-relatedExperiences: []
-readingTimeMinutes: 10
-featured: false
-status: "draft"
+tags: ["weddings", "weekend", "planning", "stay", "wine", "peninsula"]
+readingTimeMinutes: 8
+featured: true
+status: "published"
 ---
 
-<!-- CONTENT STUB — First-wave weddings vertical build -->
-<!-- See: docs/new-verticals-first-wave-content-plan-2026-04-19.md -->
-<!-- Priority: 5 of 9 -->
+The best Peninsula weddings feel like more than a ceremony and reception. They feel like a small destination experience with a clear centre of gravity. The region is built for that, but it only works if the weekend is shaped intentionally.
 
-<!-- BRIEF -->
-<!-- The whole weekend, not just the day. Friday arrival → Saturday ceremony/reception → Sunday recovery. -->
-<!-- For each phase: where does this happen, what venues carry the sequence, where do the logistics break down. -->
-<!-- Honest about: transport after late-night reception, Sunday brunch availability in smaller towns. -->
-<!-- Cover: "destination wedding weekend" vs "day event with a few hotel rooms" distinction. -->
-<!-- Cross-link to /weddings/, /weddings/where-guests-stay-mornington-peninsula-wedding/, /eat/, /stay/, /wine/, /explore/ -->
+The mistake is to think of a wedding venue as the weekend plan. It is not. The venue is the anchor. The wedding weekend is everything around it.
 
-## A wedding weekend is three separate planning problems
+## What makes a Peninsula wedding weekend work
 
-Friday: guests arrive. Something has to happen, or nothing does — and "nothing" is usually a chaotic scramble at the nearest pub.
+Four things matter most:
+- the right locality
+- the right guest base
+- the right event flow
+- the right next-day logic
 
-Saturday: the ceremony and reception. This is the easy part, relatively — you've already planned it.
+The Peninsula rewards weddings that stay coherent. If the ceremony, reception, accommodation, rehearsal dinner, and next-day recovery all feel like parts of the same place story, the whole event feels elevated.
 
-Sunday: guests wake up somewhere on the Peninsula, and either there's a gathering point that feels right, or there isn't.
+## Step 1: choose the right Peninsula mood
 
-Most couples plan the Saturday in detail and figure out the rest closer to the time. This guide is for the rest.
+Different parts of the Peninsula create very different weekends.
 
----
+### Red Hill / Main Ridge
+Best for:
+- winery weddings
+- food-and-wine couples
+- rural elegance
+- groups happy to use transport properly
 
-<!-- Full content to be written by editorial team. Use this stub structure: -->
-<!-- 1. The three-day structure framing -->
-<!-- 2. Friday: rehearsal dinner options by area (not just "a nice restaurant" — which venues handle private groups well, by area) -->
-<!--    Cellar door options that suit a pre-wedding group dinner -->
-<!--    Informal alternatives for cost-conscious or low-key couples -->
-<!-- 3. Saturday: ceremony-to-reception logistics that couples sometimes overlook (transport, timing gaps, who handles what) -->
-<!-- 4. Sunday: the recovery brunch question -->
-<!--    Which areas of the Peninsula have good Sunday-morning options -->
-<!--    Catered brunch at accommodation vs book a venue -->
-<!--    When Sunday brunch becomes the best part of the weekend -->
-<!-- 5. Guest activity for Saturday afternoon (pre-ceremony time for guests arriving early) -->
-<!-- 6. How the weekend format changes by venue area (Red Hill vs Sorrento vs Mornington) -->
-<!-- 7. FAQ block -->
+### Sorrento / Portsea
+Best for:
+- polished coastal weddings
+- guests who want a recognisable town base
+- couples who want the wedding to feel like a seaside weekend
+
+### Flinders / Merricks
+Best for:
+- smaller, more intimate weddings
+- design-led events
+- slower, more selective guest experiences
+
+### Cape Schanck / resort-style settings
+Best for:
+- integrated retreat-style weddings
+- couples who want a contained event ecosystem
+
+## Step 2: plan the guest movement early
+
+Do this sooner than you think.
+
+A wedding weekend gets easier when guests know:
+- where they are staying
+- how transport works
+- where the key non-ceremony moments happen
+- whether the weekend is walkable, drivable, or coach-led
+
+The Peninsula is not impossible to navigate, but it is easy to make inconvenient.
+
+## Step 3: design the moments around the wedding
+
+These are the moments that make the weekend feel complete:
+- rehearsal dinner or welcome drinks
+- coffee and breakfast runs the next morning
+- late lunch or recovery brunch
+- optional winery or coastal stop for guests extending the trip
+
+This is where Peninsula Insider can outperform generic wedding directories. A wedding here should not stop at “venue secured”. It should become a Peninsula weekend with shape.
+
+## Step 4: know what kind of weekend you are actually building
+
+### The all-in-one weekend
+Best when you want simplicity and integrated accommodation logic.
+
+### The venue-led weekend
+Best when the venue is the hero and the surrounding pieces are tightly selected around it.
+
+### The town-based weekend
+Best when guests need a strong social base and the wedding should spill into the town before and after the main event.
+
+## Common planning mistakes
+
+- choosing the prettiest venue without solving guest stay logic
+- ignoring how transport changes guest energy and timing
+- over-programming the weekend
+- assuming guests want a full itinerary when many just want a clear, elegant structure
+- failing to plan the day after, which is often one of the most memorable parts of the whole event
+
+## Peninsula Insider's view
+
+The strongest Peninsula wedding weekends are not the ones with the most moving parts. They are the ones where every moving part belongs.
+
+A welcome drink in the wrong town, a stay cluster too far away, or a recovery brunch that feels bolted on can weaken the whole shape. The right version feels inevitable, as though the Peninsula itself is holding the weekend together.
+
+## Final read
+
+If you are getting married on the Mornington Peninsula, do not just plan the wedding. Plan the weekend.
+
+That is the difference between a lovely event and a weekend people talk about for years.
