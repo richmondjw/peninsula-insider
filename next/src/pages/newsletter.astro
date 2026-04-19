@@ -64,15 +64,18 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
         </div>
 
         <div class="newsletter-signup__form-block">
-          <div class="newsletter__embed-wrap newsletter__embed-wrap--standalone" aria-label="Email signup">
-            <iframe
-              src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
-              class="newsletter__embed beehiiv-embed"
-              data-test-id="beehiiv-embed"
-              frameborder="0"
-              scrolling="no"
-              title="Subscribe to The Insider's Dispatch"
-            ></iframe>
+          <div class="newsletter__embed-wrap newsletter__embed-wrap--cta" aria-label="Email signup">
+            <a class="newsletter__cta-card" href="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c" target="_blank" rel="noopener noreferrer">
+              <p class="newsletter__cta-kicker">Every Wednesday</p>
+              <h3 class="newsletter__cta-title">Subscribe to The Insider's Dispatch</h3>
+              <p class="newsletter__cta-body">Openings, weekend picks, cellar doors worth booking, and the corners of the Peninsula actually worth your time.</p>
+              <span class="newsletter__cta-button">Open subscribe form</span>
+            </a>
+            <div class="newsletter__proof-row" aria-hidden="true">
+              <span>Weekly dispatch</span>
+              <span>Independent picks</span>
+              <span>Unsubscribe any time</span>
+            </div>
             <p class="newsletter__disclaimer">
               No spam. Unsubscribe any time. We never share your email  -  read our <a href="/privacy">privacy&nbsp;policy</a>.
             </p>
@@ -138,15 +141,18 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
           <p class="newsletter__body">If you visit the Peninsula  -  or just think about it  -  this is the one email worth opening.</p>
         </div>
         <div>
-          <div class="newsletter__embed-wrap" aria-label="Email signup  -  repeated">
-            <iframe
-              src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
-              class="newsletter__embed beehiiv-embed"
-              data-test-id="beehiiv-embed"
-              frameborder="0"
-              scrolling="no"
-              title="Subscribe to The Insider's Dispatch"
-            ></iframe>
+          <div class="newsletter__embed-wrap newsletter__embed-wrap--cta" aria-label="Email signup  -  repeated">
+            <a class="newsletter__cta-card" href="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c" target="_blank" rel="noopener noreferrer">
+              <p class="newsletter__cta-kicker">One more time</p>
+              <h3 class="newsletter__cta-title">Subscribe to The Insider's Dispatch</h3>
+              <p class="newsletter__cta-body">Weekly Peninsula intelligence, no noise, and a cleaner reason to open your inbox.</p>
+              <span class="newsletter__cta-button">Open subscribe form</span>
+            </a>
+            <div class="newsletter__proof-row" aria-hidden="true">
+              <span>Weekly dispatch</span>
+              <span>Independent picks</span>
+              <span>Privacy respected</span>
+            </div>
             <p class="newsletter__disclaimer">
               Weekly dispatch every Wednesday. <a href="/privacy">Privacy&nbsp;policy</a>.
             </p>
