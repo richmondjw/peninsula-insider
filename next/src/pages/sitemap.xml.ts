@@ -47,7 +47,7 @@ export const GET: APIRoute = async () => {
   entries.push(url('/', 1.0, 'weekly'));
 
   // Section index pages
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'whats-on', 'journal', 'places', 'spa', 'golf']) {
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'whats-on', 'journal', 'places', 'spa', 'golf', 'weddings', 'corporate-events', 'walks']) {
     entries.push(url(`/${section}`, 0.9, 'weekly'));
   }
 

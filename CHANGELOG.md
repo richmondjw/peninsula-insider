@@ -14,6 +14,43 @@ For each meaningful change, include:
 
 ---
 
+## 2026-04-19 — Remy (subagent)
+
+### New vertical hubs: Weddings, Corporate Events, Walks
+
+**Summary**
+Launched three new primary hub pages based on dedicated strategy research docs. Each hub is a publishing-ready editorial navigation surface with strong metadata, FAQ schema, CollectionPage schema, internal linking, and copy that follows the Peninsula Insider tone and editorial approach.
+
+**Files created**
+- `next/src/pages/weddings/index.astro`
+- `next/src/pages/corporate-events/index.astro`
+- `next/src/pages/walks/index.astro`
+
+**Files modified**
+- `next/src/pages/sitemap.xml.ts` — added `weddings`, `corporate-events`, `walks` to sitemap section loop (priority 0.9)
+
+**Pages added**
+- `/weddings/` — Mornington Peninsula Weddings hub with venue-type nav, by-town intel, planning framework, guest-weekend section, FAQ, and internal links to stay/eat/wine/spa
+- `/corporate-events/` — Corporate Retreats & Events hub with format guide (executive retreat through large conference), locality intelligence, programme logic, planning checklist, FAQ
+- `/walks/` — Walks hub with editorial walk selector, long/short walk experience grids, walk+experience pairings, specific trail characterisations, audience-specific guidance, practical notes, FAQ
+
+**Why it matters**
+All three verticals identified as high-intent, high-commercial-value expansion clusters with clear editorial differentiation opportunity vs competitors. Each hub is built to serve search intent, LLM retrieval, and the PI audience. Internal linking to existing site sections (stay, eat, wine, spa, golf, explore, dog-friendly, places) activates the existing content equity for the new verticals.
+
+**Architecture notes**
+- Walks hub integrates with existing `experiences` collection walk entries for ExperienceCard grids
+- Weddings and corporate-events hubs filter `articles` by tag for dynamic journal content (tags `weddings`, `wedding-venues`, `corporate`, `retreats`, `offsite` — add these tags to relevant articles when publishing)
+- No new content collections needed for Phase 1 hub launch
+- Nav: new verticals not added to primary Masthead nav (already 7 items) — discoverable via sitemap, search, and internal links from related sections
+
+**Follow-up / next phase**
+- Add `weddings`, `wedding-venues` tags to `mornington-peninsula-wedding-venues.astro` article for dynamic article pull on weddings hub
+- Commission Phase 2 content per strategy docs (venue-type sub-pages, locality sub-pages, planning guides)
+- Build walk selector as interactive Astro component once walk attribute data schema is populated
+- Add hero images for weddings and corporate-events hubs (currently using existing explore/vineyard images)
+
+---
+
 ## 2026-04-13 — Remy (Claude Code, local session, continued)
 
 ### Town hub expansion (5 towns)
