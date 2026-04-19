@@ -34,8 +34,13 @@ const upcomingWeekendStart = new Date('2026-04-25T00:00:00+10:00');
 const upcomingWeekendEnd = new Date('2026-04-27T23:59:59+10:00');
 const nextWeekendEvents = events.filter((event) => {
   const start = event.data.startDate;
+  if (start > upcomingWeekendEnd) return false;
+
+  const isRecurring = ['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence as string);
+  if (isRecurring) return true;
+
   const end = event.data.endDate ?? event.data.startDate;
-  return start <= upcomingWeekendEnd && end >= upcomingWeekendStart;
+  return end >= upcomingWeekendStart;
 });
 
 // Editor's picks  -  events flagged as weekend-pick, weighted toward the next live weekend window.
@@ -123,7 +128,7 @@ const lensOrder: Array<{ key: string; label: string; note: string }> = [
 ];
 
 const lensCounts = Object.fromEntries(
-  lensOrder.map((lens) => [lens.key, events.filter((event) => event.data.lens.includes(lens.key as any)).length])
+  lensOrder.map((lens) => [lens.key, nextWeekendEvents.filter((event) => event.data.lens.includes(lens.key as any)).length])
 ) as Record<string, number>;
 
 const totalEvents = events.length;
