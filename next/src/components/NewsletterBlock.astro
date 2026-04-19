@@ -1,11 +1,5 @@
 ---
-/**
- * NewsletterBlock  -  the dark CTA block that closes most pages.
- * Exposes an id="newsletter" anchor so the masthead CTA works from any page.
- *
- * Layout: stacked  -  headline → body → embed → proof points.
- * Centred, single-column flow for a clean editorial feel.
- */
+import SubscribeForm from './SubscribeForm.astro';
 
 export interface Props {
   title?: string;
@@ -25,44 +19,32 @@ const {
       <h2 class="newsletter__title" set:html={title.replace(', ', ',<br />')} />
       <p class="newsletter__body">{body}</p>
 
-      <div class="newsletter__embed-wrap newsletter__embed-wrap--restored" aria-label="Email signup">
-        <div class="newsletter__form-frame">
-          <div class="newsletter__form-glow"></div>
-          <iframe
-            src="https://subscribe-forms.beehiiv.com/4d3b47c5-1958-4372-be0d-aa3d28710a1c"
-            class="newsletter__embed beehiiv-embed"
-            data-test-id="beehiiv-embed"
-            frameborder="0"
-            scrolling="no"
-            title="Subscribe to The Insider's Dispatch"
-          ></iframe>
-        </div>
-        <div class="newsletter__proof-row" aria-hidden="true">
-          <span>Weekly dispatch</span>
-          <span>Independent picks</span>
-          <span>Unsubscribe any time</span>
-        </div>
-        <p class="newsletter__disclaimer">
-          No spam. Unsubscribe any time. Weekly dispatch every Wednesday.
-        </p>
-      </div>
+      <SubscribeForm variant="dark" source="footer" />
 
+      <div class="newsletter__proof-row" aria-hidden="true">
+        <span>Weekly dispatch</span>
+        <span>Independent picks</span>
+        <span>Unsubscribe any time</span>
+      </div>
     </div>
   </div>
 </section>
 
-<script>
-  const section = document.getElementById('newsletter');
-  if (section && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+<script is:inline>
+  (function () {
+    function initReveal() {
+      var section = document.getElementById('newsletter');
+      if (!section) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
           section.classList.add('newsletter--visible');
           observer.disconnect();
         }
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(section);
-  }
+      }, { threshold: 0.15 });
+      observer.observe(section);
+    }
+    initReveal();
+    document.addEventListener('astro:page-load', initReveal);
+  })();
 </script>

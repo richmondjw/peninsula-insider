@@ -1,0 +1,35 @@
+---
+export interface Props {
+  variant?: 'dark' | 'light';
+  source?: 'footer' | 'newsletter-page';
+}
+
+const { variant = 'dark', source = 'footer' } = Astro.props;
+const ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
+---
+
+<form
+  class:list={['newsletter__form', variant === 'light' && 'newsletter__form--standalone']}
+  novalidate
+  data-source={source}
+  data-endpoint={ENDPOINT}
+>
+  <div class="newsletter__field">
+    <input
+      class="newsletter__input"
+      type="email"
+      name="email"
+      placeholder="your@email.com"
+      autocomplete="email"
+      aria-label="Email address"
+      required
+    />
+    <button class="newsletter__submit" type="submit">
+      <span class="newsletter__submit-label">Subscribe</span>
+    </button>
+  </div>
+  <p class="newsletter__status" aria-live="polite" aria-atomic="true"></p>
+  <p class="newsletter__disclaimer">
+    No spam. Unsubscribe any time. <a href="/privacy">Privacy&nbsp;policy</a>.
+  </p>
+</form>

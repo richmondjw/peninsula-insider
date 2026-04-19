@@ -99,14 +99,10 @@ const ogImageAbsolute = ogImage.startsWith('http')
   <!-- View transitions: client-side routing with page fade -->
   <ClientRouter />
 
-  <!-- Beehiiv embed script — required for newsletter iframe to function -->
-  <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-
   <link rel="stylesheet" href="/assets/styles.css" />
 
   <!-- Enhancement layers -->
   <link rel="stylesheet" href="/assets/mobile-fixes.css" />
-  <link rel="stylesheet" href="/assets/newsletter-enhance.css" />
   <link rel="stylesheet" href="/assets/scroll-animations.css" />
 
   <!-- Google tag (gtag.js) -->
@@ -202,7 +198,7 @@ const ogImageAbsolute = ogImage.startsWith('http')
   </script>
 
   <!-- Enhancement JS -->
-  <script is:inline src="/assets/newsletter-enhance.js"></script>
+  <script is:inline src="/assets/subscribe-form.js"></script>
   <script is:inline src="/assets/scroll-animations.js"></script>
 
   <!-- Lenis smooth scroll — buttery weighted physics on every page -->
