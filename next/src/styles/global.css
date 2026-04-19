@@ -4385,6 +4385,72 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 
+.newsletter__embed-wrap--restored {
+  gap: 1rem;
+}
+
+.newsletter__form-frame {
+  position: relative;
+  width: min(100%, 30rem);
+  margin: 0 auto;
+  padding: 0.55rem;
+  border-radius: 1.35rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%);
+  border: 1px solid rgba(214, 196, 154, 0.24);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.24);
+  overflow: hidden;
+}
+
+.newsletter__form-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(193, 173, 123, 0.18), transparent 58%);
+  pointer-events: none;
+}
+
+.newsletter__embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 126px !important;
+  height: 126px !important;
+  max-height: 126px !important;
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.98);
+  border: 1px solid rgba(193, 173, 123, 0.22);
+  overflow: hidden;
+}
+
+.newsletter__proof-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem 1.15rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244, 237, 222, 0.68);
+}
+
+.newsletter__proof-row span {
+  position: relative;
+}
+
+.newsletter__proof-row span:not(:last-child)::after {
+  content: '•';
+  position: absolute;
+  right: -0.75rem;
+  color: rgba(193, 173, 123, 0.55);
+}
+
+.newsletter__disclaimer {
+  text-align: center;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (max-width: 768px) {
   .newsletter {
     padding: 2.5rem 0 1.5rem;
@@ -4408,26 +4474,23 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
     gap: 0.85rem;
   }
 
-  .newsletter__fallback {
-    padding: 1.1rem 1rem;
-    border-radius: 1.1rem;
-  }
-
-  .newsletter__fallback-title {
-    font-size: 0.98rem;
-    line-height: 1.55;
-  }
-
-  .newsletter__fallback-body {
-    font-size: 0.88rem;
-    line-height: 1.55;
+  .newsletter__form-frame {
+    width: min(100%, 23rem);
+    padding: 0.45rem;
+    border-radius: 1.05rem;
   }
 
   .newsletter__embed {
-    min-height: 180px !important;
-    height: 180px !important;
-    max-height: 180px !important;
-    border-radius: 1rem;
+    min-height: 112px !important;
+    height: 112px !important;
+    max-height: 112px !important;
+    border-radius: 0.85rem;
+  }
+
+  .newsletter__proof-row {
+    gap: 0.55rem 0.9rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
   }
 
   .newsletter__disclaimer {
