@@ -3,28 +3,30 @@
   "slug": "peninsula-insider",
   "line": "The insider guide to the Mornington Peninsula",
   "colors": {
-    "cream": "#F6F1E8",
-    "paper": "#FBF7F0",
-    "sand": "#DED4C4",
+    "cream": "#F5F1EB",
+    "paper": "#FDFCFA",
+    "sand": "#E8E0D5",
     "fog": "#AEB8B7",
-    "olive": "#657163",
-    "pinot": "#6B3C48",
-    "ink": "#1F201C",
-    "stone": "#7A776F",
-    "white": "#FFFFFF",
-    "clay": "#C7B6A3",
-    "mist": "#D5DDD9",
-    "shadow": "rgba(22, 24, 21, 0.18)"
+    "olive": "#7A8B6D",
+    "pinot": "#8B4E3B",
+    "pinotDeep": "#6D3A2B",
+    "ink": "#1E1B18",
+    "stone": "#7A726A",
+    "white": "#FDFCFA",
+    "clay": "#C9B99A",
+    "mist": "#D8D1C7",
+    "gold": "#B69A6B",
+    "shadow": "rgba(22, 24, 21, 0.16)"
   },
   "fonts": {
-    "display": "Iowan Old Style, Baskerville, 'Palatino Linotype', 'Book Antiqua', Georgia, serif",
-    "body": "Avenir Next, Avenir, 'Segoe UI', 'Helvetica Neue', sans-serif",
-    "utility": "Avenir Next, 'Gill Sans', 'Trebuchet MS', 'Helvetica Neue', sans-serif"
+    "display": "Cormorant Garamond, Baskerville, 'Baskerville Old Face', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif",
+    "body": "Outfit, 'Helvetica Neue', 'Avenir Next', Avenir, 'Segoe UI', sans-serif",
+    "utility": "Outfit, 'Helvetica Neue', 'Avenir Next', Avenir, 'Gill Sans', sans-serif"
   },
   "radii": {
-    "frame": 34,
-    "panel": 26,
-    "chip": 999
+    "frame": 8,
+    "panel": 6,
+    "chip": 4
   },
   "spacing": {
     "outer": 60,

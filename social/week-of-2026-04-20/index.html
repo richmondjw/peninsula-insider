@@ -6,19 +6,23 @@
   <title>Peninsula Insider weekly social pack · 2026-04-20</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #FBF7F0;
-      --cream: #F6F1E8;
-      --ink: #1F201C;
-      --stone: #7A776F;
-      --pinot: #6B3C48;
-      --olive: #657163;
+      --paper: #FDFCFA;
+      --cream: #F5F1EB;
+      --sand: #E8E0D5;
+      --ink: #1E1B18;
+      --stone: #7A726A;
+      --pinot: #8B4E3B;
+      --pinot-deep: #6D3A2B;
+      --olive: #7A8B6D;
       --fog: #AEB8B7;
-      --mist: #D5DDD9;
-      --clay: #C7B6A3;
-      --shadow: rgba(18, 20, 17, 0.12);
+      --gold: #B69A6B;
+      --line: rgba(31, 27, 24, 0.12);
+      --line-soft: rgba(31, 27, 24, 0.08);
+      --shadow: 0 20px 50px rgba(24, 20, 18, 0.08);
+      --shadow-soft: 0 10px 30px rgba(24, 20, 18, 0.05);
     }
 
     * { box-sizing: border-box; }
@@ -26,221 +30,300 @@
     body {
       margin: 0;
       color: var(--ink);
-      font-family: 'Manrope', Avenir Next, Avenir, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      font-family: 'Outfit', Outfit, 'Helvetica Neue', 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(199, 182, 163, 0.26), transparent 34%),
-        linear-gradient(180deg, #f6f0e7 0%, #efe7dc 100%);
+        radial-gradient(circle at top left, rgba(201,185,154,0.22), transparent 28%),
+        linear-gradient(180deg, var(--paper) 0%, var(--cream) 52%, #eee6db 100%);
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 128px;
     }
 
-    a { color: inherit; }
-    main {
-      max-width: 1560px;
-      margin: 0 auto;
-      padding: 32px 28px 72px;
-    }
-
-    .hero {
-      position: sticky;
-      top: 0;
-      z-index: 8;
-      margin-bottom: 28px;
-      padding: 24px 28px 20px;
-      border-radius: 28px;
-      background: rgba(251, 247, 240, 0.84);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(31, 32, 28, 0.08);
-      box-shadow: 0 18px 48px rgba(19, 21, 18, 0.08);
-    }
-
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--stone);
-      font-weight: 800;
-    }
-
+    a { color: inherit; text-decoration: none; }
     h1, h2, h3, h4, p { margin: 0; }
     h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', Iowan Old Style, Baskerville, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+      font-family: 'Cormorant Garamond', Cormorant Garamond, Baskerville, 'Baskerville Old Face', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
       font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 0.96;
+    }
+
+    .board-shell {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .board-rail {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      display: grid;
+      gap: 18px;
+    }
+
+    .rail-card,
+    .cover,
+    .day-section,
+    .platform-card,
+    .copy-card,
+    .thumb {
+      background: rgba(253, 252, 250, 0.78);
+      border: 1px solid var(--line-soft);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+    }
+
+    .rail-card {
+      padding: 18px;
+    }
+
+    .rail-brand {
+      display: grid;
+      gap: 10px;
+      padding: 22px 20px;
+      border-top: 3px solid var(--pinot);
+    }
+
+    .brand-mark {
+      font-family: 'Cormorant Garamond', Cormorant Garamond, Baskerville, 'Baskerville Old Face', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+      font-size: 2rem;
+      line-height: 0.95;
       letter-spacing: -0.02em;
     }
 
-    h1 {
-      margin-top: 10px;
-      font-size: clamp(2.6rem, 4.4vw, 4.8rem);
-      line-height: 0.94;
-      max-width: 10ch;
-    }
-
-    .hero-copy {
-      max-width: 72ch;
-      margin-top: 12px;
+    .brand-line,
+    .rail-card p,
+    .rail-card li,
+    .post-angle,
+    .notes-list,
+    .notes-empty,
+    .thumb-name,
+    pre,
+    .stat-card span:last-child {
       color: var(--stone);
-      line-height: 1.7;
-      font-size: 0.98rem;
     }
 
-    .hero-metrics {
-      min-width: 260px;
+    .eyebrow {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    .rail-nav {
       display: grid;
-      gap: 12px;
+      gap: 1px;
+      border: 1px solid var(--line-soft);
+      background: var(--line-soft);
     }
 
-    .metric-card {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.58);
-      border: 1px solid rgba(31,32,28,0.06);
+    .rail-nav__link {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      background: rgba(253,252,250,0.84);
+      transition: background 0.18s ease, transform 0.18s ease;
     }
 
-    .metric-card strong {
-      display: block;
-      font-size: 1.7rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
+    .rail-nav__link:hover {
+      background: rgba(245,241,235,0.98);
+      transform: translateX(2px);
     }
 
-    .nav-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+    .rail-nav__link span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
     }
 
-    .nav-row a, .tag {
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.62);
-      border: 1px solid rgba(31,32,28,0.08);
+    .rail-nav__link small {
       font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
+      color: var(--stone);
       text-transform: uppercase;
     }
 
-    .tag.muted {
-      color: var(--stone);
-      background: rgba(255,255,255,0.3);
-    }
-
-    .summary-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .summary-card {
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.46);
-      border: 1px solid rgba(31,32,28,0.06);
-    }
-
-    .summary-card ul {
+    .rail-card ul {
       margin: 12px 0 0;
       padding-left: 18px;
-      color: var(--stone);
       line-height: 1.6;
     }
 
+    .board-main {
+      display: grid;
+      gap: 24px;
+    }
+
+    .cover {
+      padding: clamp(1.4rem, 2vw, 2rem);
+      border-top: 3px solid var(--pinot);
+      box-shadow: var(--shadow);
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 22px;
+      align-items: end;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cover h1 {
+      margin-top: 10px;
+      font-size: clamp(3rem, 5vw, 5.4rem);
+      max-width: 8ch;
+    }
+
+    .cover-copy {
+      margin-top: 16px;
+      max-width: 62ch;
+      line-height: 1.72;
+      color: var(--stone);
+      font-size: 1rem;
+    }
+
+    .cover-callouts {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .callout {
+      padding: 14px 16px;
+      border-left: 3px solid var(--pinot);
+      background: rgba(245,241,235,0.72);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .stat-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat-card {
+      padding: 16px;
+      background: rgba(245,241,235,0.86);
+      border: 1px solid var(--line-soft);
+    }
+
+    .stat-card strong {
+      display: block;
+      margin: 10px 0 4px;
+      font-family: 'Cormorant Garamond', Cormorant Garamond, Baskerville, 'Baskerville Old Face', 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+      font-size: 2.2rem;
+      line-height: 0.9;
+      color: var(--ink);
+    }
+
     .day-section {
-      margin-top: 28px;
-      padding: 28px;
-      border-radius: 30px;
-      background: rgba(251,247,240,0.64);
-      border: 1px solid rgba(31,32,28,0.06);
-      box-shadow: 0 14px 40px rgba(18,20,17,0.05);
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      border-top: 2px solid rgba(139, 78, 59, 0.18);
     }
 
     .day-header {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      align-items: flex-start;
-      margin-bottom: 18px;
+      gap: 16px;
+      align-items: start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
     }
 
     .day-header h2 {
       margin-top: 8px;
-      font-size: clamp(2.1rem, 3.4vw, 3.4rem);
-      text-transform: capitalize;
-      line-height: 0.96;
+      font-size: clamp(2.4rem, 4vw, 4rem);
     }
 
     .post-angle {
-      margin-top: 10px;
-      max-width: 64ch;
-      color: var(--stone);
-      line-height: 1.7;
+      margin-top: 14px;
+      max-width: 68ch;
+      line-height: 1.72;
+      font-size: 1rem;
     }
 
     .day-meta-stack {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
       gap: 10px;
+      justify-content: flex-end;
     }
 
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: rgba(245,241,235,0.82);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .tag--muted { color: var(--stone); }
+
     .notes-card {
-      margin-bottom: 18px;
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.72), rgba(246,241,232,0.82));
-      border: 1px solid rgba(31,32,28,0.06);
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(253,252,250,0.92), rgba(245,241,235,0.84));
+      border-left: 3px solid rgba(139, 78, 59, 0.35);
     }
 
     .notes-list {
       margin: 10px 0 0;
       padding-left: 18px;
-      line-height: 1.6;
-      color: var(--stone);
+      line-height: 1.72;
     }
 
-    .notes-empty { margin-top: 10px; color: var(--stone); }
+    .notes-empty { margin-top: 10px; }
     .platform-stack { display: grid; gap: 18px; }
 
-    .platform-card {
-      padding: 22px;
-      border-radius: 26px;
-      background: rgba(255,255,255,0.74);
-      border: 1px solid rgba(31,32,28,0.08);
-      box-shadow: 0 14px 32px rgba(18,20,17,0.05);
-    }
+    .platform-card { padding: 20px; }
 
     .platform-card-head {
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
     }
 
     .platform-card-head h3 {
-      margin-top: 6px;
-      font-size: 1.75rem;
-      line-height: 0.98;
+      margin-top: 8px;
+      font-size: 1.95rem;
     }
 
     .platform-stats {
+      display: inline-flex;
+      align-items: center;
       padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(246,241,232,0.9);
-      border: 1px solid rgba(31,32,28,0.08);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
+      border: 1px solid var(--line);
+      background: rgba(245,241,235,0.86);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: var(--stone);
       white-space: nowrap;
     }
 
@@ -259,56 +342,62 @@
 
     .thumb-grid.count-1 { grid-template-columns: 1fr; }
     .thumb-grid.count-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .thumb-grid.count-3,
-    .thumb-grid.count-4,
-    .thumb-grid.count-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .thumb {
-      position: relative;
       display: grid;
       gap: 10px;
       padding: 12px;
-      text-decoration: none;
-      border-radius: 22px;
-      background: rgba(246,241,232,0.66);
-      border: 1px solid rgba(31,32,28,0.07);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      box-shadow: 0 10px 22px rgba(18,20,17,0.05);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
 
     .thumb:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(18,20,17,0.08);
+      box-shadow: 0 16px 28px rgba(24,20,18,0.09);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .thumb-media {
+      position: relative;
+      background: var(--sand);
+      border: 1px solid var(--line-soft);
+      overflow: hidden;
     }
 
     .thumb img {
       width: 100%;
-      border-radius: 14px;
       display: block;
       background: var(--cream);
     }
 
     .thumb-index {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 34px;
+      top: 14px;
+      left: 14px;
+      min-width: 34px;
       height: 34px;
-      border-radius: 999px;
-      background: rgba(31,32,28,0.72);
+      padding: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30,27,24,0.88);
       color: white;
-      display: grid;
-      place-items: center;
-      font-size: 0.8rem;
-      font-weight: 800;
-      z-index: 1;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .thumb-meta {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--stone);
     }
 
     .thumb-name {
-      font-size: 0.9rem;
-      line-height: 1.45;
-      color: var(--stone);
-      min-height: 2.7em;
+      font-size: 0.96rem;
+      line-height: 1.48;
+      color: var(--ink);
     }
 
     .thumb-empty {
@@ -317,164 +406,229 @@
       color: var(--stone);
     }
 
-    .copy-column {
-      display: grid;
-      gap: 14px;
-    }
+    .copy-column { display: grid; gap: 14px; }
 
     .copy-card {
       padding: 18px;
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.92), rgba(246,241,232,0.86));
-      border: 1px solid rgba(31,32,28,0.07);
+      border-top: 2px solid rgba(139, 78, 59, 0.18);
     }
 
     .copy-card-head {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      align-items: flex-start;
+      align-items: start;
       margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
     }
 
     .copy-card-head h4 {
-      margin-top: 6px;
-      font-size: 1.38rem;
-      line-height: 0.98;
+      margin-top: 8px;
+      font-size: 1.5rem;
     }
 
     button {
       appearance: none;
-      border: 0;
-      border-radius: 999px;
+      border: 1px solid rgba(31,27,24,0.12);
       background: var(--ink);
       color: white;
       padding: 10px 14px;
       font: inherit;
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
     }
+
+    button:hover { background: var(--pinot-deep); border-color: var(--pinot-deep); }
 
     pre {
       margin: 0;
       white-space: pre-wrap;
-      font-family: 'Manrope', Avenir Next, Avenir, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      font-family: 'Outfit', Outfit, 'Helvetica Neue', 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--ink);
     }
 
     .meta-card pre {
       font-size: 0.82rem;
+      line-height: 1.65;
       color: var(--stone);
-      line-height: 1.6;
     }
 
     .empty-copy { color: var(--stone); }
 
-    @media (max-width: 1100px) {
-      .hero { position: static; }
-      .hero-top, .summary-grid, .platform-body { grid-template-columns: 1fr; display: grid; }
-      .day-header, .platform-card-head { flex-direction: column; }
-      .day-meta-stack { justify-content: flex-start; }
+    @media (max-width: 1260px) {
+      .board-shell {
+        grid-template-columns: 1fr;
+      }
+      .board-rail {
+        position: static;
+      }
+      .rail-nav {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
     }
 
-    @media (max-width: 760px) {
-      main { padding: 18px 14px 48px; }
-      .hero, .day-section, .platform-card { padding: 18px; border-radius: 22px; }
-      .thumb-grid { grid-template-columns: 1fr; }
-      .nav-row { gap: 8px; }
-      .nav-row a, .tag { font-size: 0.7rem; }
+    @media (max-width: 960px) {
+      .cover-grid,
+      .platform-body {
+        grid-template-columns: 1fr;
+      }
+      .day-header,
+      .platform-card-head,
+      .copy-card-head {
+        flex-direction: column;
+      }
+      .day-meta-stack { justify-content: flex-start; }
+      .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      .board-shell { padding: 14px; gap: 14px; }
+      .cover,
+      .day-section,
+      .platform-card,
+      .copy-card,
+      .rail-card,
+      .rail-brand { padding: 16px; }
+      .thumb-grid,
+      .stat-grid,
+      .rail-nav { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <section class="hero">
-      <div class="hero-top">
-        <div>
-          <div class="eyebrow">Peninsula Insider · Weekly social review board</div>
-          <h1>Week of 2026-04-20</h1>
-          <p class="hero-copy">Premium editorial social system across five template families, with artwork review and platform copy side by side so each post can be checked and published without hopping between documents.</p>
+  <div class="board-shell">
+    <aside class="board-rail">
+      <section class="rail-card rail-brand">
+        <div class="eyebrow">Peninsula Insider</div>
+        <div class="brand-mark">Weekly social review</div>
+        <p class="brand-line">A premium editorial board for checking creative, copy, and production handoff in one place.</p>
+      </section>
+      <nav class="rail-nav">
+      <a class="rail-nav__link" href="#day-mon">
+        <span>Monday</span>
+        <small>Week Ahead</small>
+      </a>
+      <a class="rail-nav__link" href="#day-tue">
+        <span>Tuesday</span>
+        <small>Start In Sorrento</small>
+      </a>
+      <a class="rail-nav__link" href="#day-wed">
+        <span>Wednesday</span>
+        <small>Walk Lunch Soak</small>
+      </a>
+      <a class="rail-nav__link" href="#day-thu">
+        <span>Thursday</span>
+        <small>Weekend Moods</small>
+      </a>
+      <a class="rail-nav__link" href="#day-fri">
+        <span>Friday</span>
+        <small>This Weekend</small>
+      </a>
+      <a class="rail-nav__link" href="#day-sat">
+        <span>Saturday</span>
+        <small>Peninsula Today</small>
+      </a>
+      <a class="rail-nav__link" href="#day-sun">
+        <span>Sunday</span>
+        <small>Week Close</small>
+      </a></nav>
+      <section class="rail-card">
+        <div class="eyebrow">Known upgrade slots</div>
+        <ul><li>Tuesday and Friday would both improve with a stronger shoulder-season Sorrento streetscape or heritage facade image to replace the softer harbour hero if sourced later.</li><li>Wednesday lunch frame currently uses a place-led image rather than a true table-side lunch still, so that slot is production-ready but still upgradeable.</li><li>Saturday is intentionally atmosphere-led but would benefit from a fresher same-week observational still if the newsroom begins collecting live weekend imagery.</li></ul>
+      </section>
+    </aside>
+    <main class="board-main">
+      <header class="cover">
+        <div class="cover-grid">
+          <div>
+            <div class="eyebrow">Peninsula Insider · Weekly social review board</div>
+            <h1>Week of 2026-04-20</h1>
+            <p class="cover-copy">This pack now follows the live-site language more closely: warm paper, restrained luxury, Cormorant-led editorial hierarchy, calmer metadata, and a more architectural social system rather than bubbly template cards.</p>
+            <div class="cover-callouts">
+              <div class="callout">The creative system is now a tighter extension of the site, not a detached template pack.</div>
+              <div class="callout">All SVG exports are self-contained, so previews travel cleanly through the review board and handoff.</div>
+            </div>
+          </div>
+          <div class="stat-grid">
+            <div class="stat-card"><span class="eyebrow">Total assets</span><strong>36</strong><span>Prepared for review and export</span></div>
+            <div class="stat-card"><span class="eyebrow">Instagram</span><strong>23</strong><span>Exports prepared</span></div><div class="stat-card"><span class="eyebrow">Facebook</span><strong>7</strong><span>Exports prepared</span></div><div class="stat-card"><span class="eyebrow">LinkedIn</span><strong>6</strong><span>Exports prepared</span></div>
+          </div>
         </div>
-        <div class="hero-metrics">
-          <div class="metric-card"><span class="eyebrow">Assets</span><strong>36</strong><span>SVG exports across IG, Facebook, and LinkedIn</span></div>
-          <div class="metric-card"><span class="eyebrow">Publishing handoff</span><strong>Ready</strong><span>See <code>publishing/</code> for copy-and-paste platform sheets</span></div>
-        </div>
-      </div>
-      <div class="nav-row"><a href="#day-mon">Monday</a><a href="#day-tue">Tuesday</a><a href="#day-wed">Wednesday</a><a href="#day-thu">Thursday</a><a href="#day-fri">Friday</a><a href="#day-sat">Saturday</a><a href="#day-sun">Sunday</a></div>
-      <div class="summary-grid">
-        <section class="summary-card">
-          <div class="eyebrow">What improved</div>
-          <ul>
-            <li>Quieter, more editorial art direction with richer paper, framing, and image treatment.</li>
-            <li>One review board that pairs every platform caption with its matching creative set.</li>
-            <li>Publishing handoff files by platform, plus a structured captions JSON export.</li>
-          </ul>
-        </section>
-        <section class="summary-card">
-          <div class="eyebrow">Known upgrade slots</div>
-          <ul><li>Tuesday and Friday would both improve with a stronger shoulder-season Sorrento streetscape or heritage facade image to replace the softer harbour hero if sourced later.</li><li>Wednesday lunch frame currently uses a place-led image rather than a true table-side lunch still, so that slot is production-ready but still upgradeable.</li><li>Saturday is intentionally atmosphere-led but would benefit from a fresher same-week observational still if the newsroom begins collecting live weekend imagery.</li></ul>
-        </section>
-      </div>
-    </section>
-    
+      </header>
+      
       <section class="day-section" id="day-mon">
         <header class="day-header">
-          <div>
+          <div class="day-header__main">
             <div class="eyebrow">Monday</div>
             <h2>Week Ahead</h2>
             <p class="post-angle">Start the week by positioning Peninsula Insider as the smart local filter for the long weekend ahead.</p>
           </div>
           <div class="day-meta-stack">
             <span class="tag">editorial-cover</span>
-            <span class="tag muted">3 platform views</span>
+            <span class="tag tag--muted">3 platform views</span>
           </div>
         </header>
-        <div class="day-notes-shell">
-          <div class="notes-card">
-            <div class="eyebrow">Positioning notes</div>
-            <ul class="notes-list"><li>Goal: authority and anticipation</li><li>Message: PI is a filter, not a listings dump</li><li>CTA: soft, designed to set up later-week posts</li></ul>
-          </div>
+        <div class="notes-card">
+          <div class="eyebrow">Positioning notes</div>
+          <ul class="notes-list"><li>Goal: authority and anticipation</li><li>Message: PI is a filter, not a listings dump</li><li>CTA: soft, designed to set up later-week posts</li></ul>
         </div>
         <div class="platform-stack">
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Instagram review</div>
                 <h3>Monday · Week Ahead</h3>
               </div>
               <div class="platform-stats">5 assets</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column ">
                 <div class="thumb-grid count-5">
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Editorial Cover</span>
               <span class="thumb-name">This week on the Peninsula</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">2</span>
-              <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">2</span>
+                <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Recommendation Hero</span>
               <span class="thumb-name">Start with a base that keeps the day easy</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">3</span>
-              <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">3</span>
+                <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Editorial Cover</span>
               <span class="thumb-name">Pick a walk with some weather in it</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">4</span>
-              <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">4</span>
+                <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Recommendation Hero</span>
               <span class="thumb-name">Leave room for produce, lunch, and one good table</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">5</span>
-              <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">5</span>
+                <img src="exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Atmosphere Single</span>
               <span class="thumb-name">We help you choose well</span>
             </a></div>
               </div>
@@ -501,29 +655,32 @@ Stay close.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-mon-ig">Copy list</button>
                   </div>
-                  <pre id="assets-mon-ig">pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg
-pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg
-pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg
-pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg
-pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg</pre>
+                  <pre id="assets-mon-ig">pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg (4x5)
+pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg (4x5)
+pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg (4x5)
+pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg (4x5)
+pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Facebook review</div>
                 <h3>Monday · Week Ahead</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/fb/pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/fb/pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/fb/pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Facebook · 191x1 · Editorial Cover</span>
               <span class="thumb-name">This week on the Peninsula</span>
             </a></div>
               </div>
@@ -552,25 +709,28 @@ If you want the Peninsula weekender's version, not the generic event-list versio
                     </div>
                     <button type="button" data-copy-target="assets-mon-fb">Copy list</button>
                   </div>
-                  <pre id="assets-mon-fb">pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg</pre>
+                  <pre id="assets-mon-fb">pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">LinkedIn review</div>
                 <h3>Monday · Week Ahead</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/li/pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/li/pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/li/pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">LinkedIn · 191x1 · Editorial Cover</span>
               <span class="thumb-name">Better Peninsula curation</span>
             </a></div>
               </div>
@@ -597,7 +757,7 @@ In a region with constant activity, utility is the differentiator.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-mon-li">Copy list</button>
                   </div>
-                  <pre id="assets-mon-li">pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg</pre>
+                  <pre id="assets-mon-li">pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
@@ -605,47 +765,54 @@ In a region with constant activity, utility is the differentiator.</pre>
       </section>
       <section class="day-section" id="day-tue">
         <header class="day-header">
-          <div>
+          <div class="day-header__main">
             <div class="eyebrow">Tuesday</div>
             <h2>Start In Sorrento</h2>
             <p class="post-angle">Push newsletter value as the easiest way to stay ahead of the weekend.</p>
           </div>
           <div class="day-meta-stack">
             <span class="tag">recommendation-hero</span>
-            <span class="tag muted">3 platform views</span>
+            <span class="tag tag--muted">3 platform views</span>
           </div>
         </header>
-        <div class="day-notes-shell">
-          <div class="notes-card">
-            <div class="eyebrow">Positioning notes</div>
-            <ul class="notes-list"><li>Goal: newsletter subscription intent</li><li>Message: smart local utility, delivered early</li><li>CTA: subscribe / join the newsletter if paired with link in publishing layer</li></ul>
-          </div>
+        <div class="notes-card">
+          <div class="eyebrow">Positioning notes</div>
+          <ul class="notes-list"><li>Goal: newsletter subscription intent</li><li>Message: smart local utility, delivered early</li><li>CTA: subscribe / join the newsletter if paired with link in publishing layer</li></ul>
         </div>
         <div class="platform-stack">
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Instagram review</div>
                 <h3>Tuesday · Start In Sorrento</h3>
               </div>
               <div class="platform-stats">3 assets</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column ">
                 <div class="thumb-grid count-3">
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Recommendation Hero</span>
               <span class="thumb-name">Start in Sorrento</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">2</span>
-              <img src="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">2</span>
+                <img src="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Recommendation Hero</span>
               <span class="thumb-name">Village edge, ferry light, real Peninsula atmosphere</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">3</span>
-              <img src="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">3</span>
+                <img src="exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Recommendation Hero</span>
               <span class="thumb-name">Less bouncing around, more of the day intact</span>
             </a></div>
               </div>
@@ -672,27 +839,30 @@ Subscribe if you want the Peninsula in your inbox with some judgement attached.<
                     </div>
                     <button type="button" data-copy-target="assets-tue-ig">Copy list</button>
                   </div>
-                  <pre id="assets-tue-ig">pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg
-pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg
-pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg</pre>
+                  <pre id="assets-tue-ig">pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg (4x5)
+pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg (4x5)
+pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Facebook review</div>
                 <h3>Tuesday · Start In Sorrento</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/fb/pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/fb/pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/fb/pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Facebook · 191x1 · Recommendation Hero</span>
               <span class="thumb-name">Start in Sorrento</span>
             </a></div>
               </div>
@@ -719,25 +889,28 @@ Join here and stay one step ahead of the usual scramble.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-tue-fb">Copy list</button>
                   </div>
-                  <pre id="assets-tue-fb">pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg</pre>
+                  <pre id="assets-tue-fb">pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">LinkedIn review</div>
                 <h3>Tuesday · Start In Sorrento</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/li/pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/li/pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/li/pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">LinkedIn · 191x1 · Recommendation Hero</span>
               <span class="thumb-name">Choose the right Peninsula base</span>
             </a></div>
               </div>
@@ -764,7 +937,7 @@ We are treating subscription growth as a core editorial priority, not a bolt-on.
                     </div>
                     <button type="button" data-copy-target="assets-tue-li">Copy list</button>
                   </div>
-                  <pre id="assets-tue-li">pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg</pre>
+                  <pre id="assets-tue-li">pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
@@ -772,52 +945,62 @@ We are treating subscription growth as a core editorial priority, not a bolt-on.
       </section>
       <section class="day-section" id="day-wed">
         <header class="day-header">
-          <div>
+          <div class="day-header__main">
             <div class="eyebrow">Wednesday</div>
             <h2>Walk Lunch Soak</h2>
             <p class="post-angle">Introduce the new vertical build-out, framed as deeper service journalism for real Peninsula decisions.</p>
           </div>
           <div class="day-meta-stack">
             <span class="tag">utility-sequence</span>
-            <span class="tag muted">3 platform views</span>
+            <span class="tag tag--muted">3 platform views</span>
           </div>
         </header>
-        <div class="day-notes-shell">
-          <div class="notes-card">
-            <div class="eyebrow">Positioning notes</div>
-            <ul class="notes-list"><li>Goal: signal growth and editorial seriousness</li><li>Message: practical local authority in new categories</li><li>CTA: none required, this is a brand-building post</li></ul>
-          </div>
+        <div class="notes-card">
+          <div class="eyebrow">Positioning notes</div>
+          <ul class="notes-list"><li>Goal: signal growth and editorial seriousness</li><li>Message: practical local authority in new categories</li><li>CTA: none required, this is a brand-building post</li></ul>
         </div>
         <div class="platform-stack">
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Instagram review</div>
                 <h3>Wednesday · Walk Lunch Soak</h3>
               </div>
               <div class="platform-stats">4 assets</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column ">
                 <div class="thumb-grid count-4">
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Utility Sequence</span>
               <span class="thumb-name">Walk → Lunch → Soak</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">2</span>
-              <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">2</span>
+                <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Utility Sequence</span>
               <span class="thumb-name">Start at Point Nepean</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">3</span>
-              <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">3</span>
+                <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Utility Sequence</span>
               <span class="thumb-name">Keep lunch within Sorrento orbit</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">4</span>
-              <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">4</span>
+                <img src="exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Utility Sequence</span>
               <span class="thumb-name">Finish slowly at Alba</span>
             </a></div>
               </div>
@@ -844,28 +1027,31 @@ Not as content filler. As genuinely useful local guides for decisions people are
                     </div>
                     <button type="button" data-copy-target="assets-wed-ig">Copy list</button>
                   </div>
-                  <pre id="assets-wed-ig">pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg
-pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg
-pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg
-pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg</pre>
+                  <pre id="assets-wed-ig">pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg (4x5)
+pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg (4x5)
+pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg (4x5)
+pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Facebook review</div>
                 <h3>Wednesday · Walk Lunch Soak</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/fb/pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/fb/pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/fb/pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Facebook · 191x1 · Utility Sequence</span>
               <span class="thumb-name">Walk → Lunch → Soak</span>
             </a></div>
               </div>
@@ -895,25 +1081,28 @@ Not generic directories. Useful guides with a Peninsula point of view, honest tr
                     </div>
                     <button type="button" data-copy-target="assets-wed-fb">Copy list</button>
                   </div>
-                  <pre id="assets-wed-fb">pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg</pre>
+                  <pre id="assets-wed-fb">pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">LinkedIn review</div>
                 <h3>Wednesday · Walk Lunch Soak</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/li/pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/li/pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/li/pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg" alt="pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">LinkedIn · 191x1 · Utility Sequence</span>
               <span class="thumb-name">Make the sequence usable</span>
             </a></div>
               </div>
@@ -940,7 +1129,7 @@ The editorial logic is straightforward: if a reader is choosing where to base we
                     </div>
                     <button type="button" data-copy-target="assets-wed-li">Copy list</button>
                   </div>
-                  <pre id="assets-wed-li">pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg</pre>
+                  <pre id="assets-wed-li">pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
@@ -948,52 +1137,62 @@ The editorial logic is straightforward: if a reader is choosing where to base we
       </section>
       <section class="day-section" id="day-thu">
         <header class="day-header">
-          <div>
+          <div class="day-header__main">
             <div class="eyebrow">Thursday</div>
             <h2>Weekend Moods</h2>
             <p class="post-angle">Tease the likely weekend shape with Peninsula-specific confidence, especially Sorrento, Point Nepean, and the long weekend mood.</p>
           </div>
           <div class="day-meta-stack">
             <span class="tag">editorial-comparison</span>
-            <span class="tag muted">3 platform views</span>
+            <span class="tag tag--muted">3 platform views</span>
           </div>
         </header>
-        <div class="day-notes-shell">
-          <div class="notes-card">
-            <div class="eyebrow">Positioning notes</div>
-            <ul class="notes-list"><li>Goal: build anticipation for the flagship weekend product</li><li>Message: PI gives a considered local read, not disconnected picks</li><li>CTA: soft tease only</li></ul>
-          </div>
+        <div class="notes-card">
+          <div class="eyebrow">Positioning notes</div>
+          <ul class="notes-list"><li>Goal: build anticipation for the flagship weekend product</li><li>Message: PI gives a considered local read, not disconnected picks</li><li>CTA: soft tease only</li></ul>
         </div>
         <div class="platform-stack">
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Instagram review</div>
                 <h3>Thursday · Weekend Moods</h3>
               </div>
               <div class="platform-stats">4 assets</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column ">
                 <div class="thumb-grid count-4">
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Editorial Comparison</span>
               <span class="thumb-name">Choose your Peninsula weekend</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">2</span>
-              <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">2</span>
+                <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Editorial Comparison</span>
               <span class="thumb-name">Let the coast do the quieting down</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">3</span>
-              <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">3</span>
+                <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Editorial Comparison</span>
               <span class="thumb-name">Go slower, warmer, and a touch more refined</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">4</span>
-              <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">4</span>
+                <img src="exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Editorial Comparison</span>
               <span class="thumb-name">Keep one weather-safe option in reserve</span>
             </a></div>
               </div>
@@ -1020,28 +1219,31 @@ Full weekend edit soon.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-thu-ig">Copy list</button>
                   </div>
-                  <pre id="assets-thu-ig">pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg
-pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg
-pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg
-pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg</pre>
+                  <pre id="assets-thu-ig">pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg (4x5)
+pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg (4x5)
+pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg (4x5)
+pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Facebook review</div>
                 <h3>Thursday · Weekend Moods</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/fb/pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/fb/pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/fb/pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Facebook · 191x1 · Editorial Comparison</span>
               <span class="thumb-name">Choose your Peninsula weekend</span>
             </a></div>
               </div>
@@ -1068,25 +1270,28 @@ We will have the full read in Peninsula This Weekend soon.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-thu-fb">Copy list</button>
                   </div>
-                  <pre id="assets-thu-fb">pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg</pre>
+                  <pre id="assets-thu-fb">pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">LinkedIn review</div>
                 <h3>Thursday · Weekend Moods</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/li/pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/li/pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/li/pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg" alt="pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">LinkedIn · 191x1 · Editorial Comparison</span>
               <span class="thumb-name">Useful local media narrows the field</span>
             </a></div>
               </div>
@@ -1113,7 +1318,7 @@ The strongest recommendations are usually geographic as much as cultural, becaus
                     </div>
                     <button type="button" data-copy-target="assets-thu-li">Copy list</button>
                   </div>
-                  <pre id="assets-thu-li">pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg</pre>
+                  <pre id="assets-thu-li">pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
@@ -1121,57 +1326,70 @@ The strongest recommendations are usually geographic as much as cultural, becaus
       </section>
       <section class="day-section" id="day-fri">
         <header class="day-header">
-          <div>
+          <div class="day-header__main">
             <div class="eyebrow">Friday</div>
             <h2>This Weekend</h2>
             <p class="post-angle">Publish or promote Peninsula This Weekend as the key weekly product.</p>
           </div>
           <div class="day-meta-stack">
             <span class="tag">editorial-cover</span>
-            <span class="tag muted">3 platform views</span>
+            <span class="tag tag--muted">3 platform views</span>
           </div>
         </header>
-        <div class="day-notes-shell">
-          <div class="notes-card">
-            <div class="eyebrow">Positioning notes</div>
-            <ul class="notes-list"><li>Goal: traffic to flagship weekly article</li><li>Message: this is a recommendation product, not just content</li><li>CTA: read now</li></ul>
-          </div>
+        <div class="notes-card">
+          <div class="eyebrow">Positioning notes</div>
+          <ul class="notes-list"><li>Goal: traffic to flagship weekly article</li><li>Message: this is a recommendation product, not just content</li><li>CTA: read now</li></ul>
         </div>
         <div class="platform-stack">
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Instagram review</div>
                 <h3>Friday · This Weekend</h3>
               </div>
               <div class="platform-stats">5 assets</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column ">
                 <div class="thumb-grid count-5">
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Editorial Cover</span>
               <span class="thumb-name">This weekend on the Peninsula</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">2</span>
-              <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">2</span>
+                <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Recommendation Hero</span>
               <span class="thumb-name">Base in Sorrento, not by accident</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">3</span>
-              <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">3</span>
+                <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Utility Sequence</span>
               <span class="thumb-name">Give the day one decisive walk</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">4</span>
-              <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">4</span>
+                <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Recommendation Hero</span>
               <span class="thumb-name">Keep one slower option in reserve</span>
             </a>
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">5</span>
-              <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">5</span>
+                <img src="exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Atmosphere Single</span>
               <span class="thumb-name">Better base. Better pace. Better weekend.</span>
             </a></div>
               </div>
@@ -1198,29 +1416,32 @@ Exactly the sort of weekend guide we wish more places published.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-fri-ig">Copy list</button>
                   </div>
-                  <pre id="assets-fri-ig">pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg
-pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg
-pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg
-pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg
-pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg</pre>
+                  <pre id="assets-fri-ig">pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg (4x5)
+pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg (4x5)
+pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg (4x5)
+pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg (4x5)
+pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Facebook review</div>
                 <h3>Friday · This Weekend</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/fb/pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/fb/pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/fb/pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Facebook · 191x1 · Editorial Cover</span>
               <span class="thumb-name">This weekend on the Peninsula</span>
             </a></div>
               </div>
@@ -1247,25 +1468,28 @@ If you want one clear local read on how to do the weekend well, start here.</pre
                     </div>
                     <button type="button" data-copy-target="assets-fri-fb">Copy list</button>
                   </div>
-                  <pre id="assets-fri-fb">pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg</pre>
+                  <pre id="assets-fri-fb">pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">LinkedIn review</div>
                 <h3>Friday · This Weekend</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/li/pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/li/pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/li/pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">LinkedIn · 191x1 · Editorial Cover</span>
               <span class="thumb-name">A weekend guide that helps readers decide</span>
             </a></div>
               </div>
@@ -1292,7 +1516,7 @@ That level of curation is where local media still has an edge.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-fri-li">Copy list</button>
                   </div>
-                  <pre id="assets-fri-li">pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg</pre>
+                  <pre id="assets-fri-li">pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
@@ -1300,37 +1524,38 @@ That level of curation is where local media still has an edge.</pre>
       </section>
       <section class="day-section" id="day-sat">
         <header class="day-header">
-          <div>
+          <div class="day-header__main">
             <div class="eyebrow">Saturday</div>
             <h2>Peninsula Today</h2>
             <p class="post-angle">Weekend-in-progress post, built to feel timely and companionable rather than promotional.</p>
           </div>
           <div class="day-meta-stack">
             <span class="tag">atmosphere-single</span>
-            <span class="tag muted">3 platform views</span>
+            <span class="tag tag--muted">3 platform views</span>
           </div>
         </header>
-        <div class="day-notes-shell">
-          <div class="notes-card">
-            <div class="eyebrow">Positioning notes</div>
-            <ul class="notes-list"><li>Goal: keep the weekend guide live in circulation</li><li>Message: thoughtful curation over overload</li><li>CTA: read guide if not already</li></ul>
-          </div>
+        <div class="notes-card">
+          <div class="eyebrow">Positioning notes</div>
+          <ul class="notes-list"><li>Goal: keep the weekend guide live in circulation</li><li>Message: thoughtful curation over overload</li><li>CTA: read guide if not already</li></ul>
         </div>
         <div class="platform-stack">
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Instagram review</div>
                 <h3>Saturday · Peninsula Today</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/ig/pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/ig/pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Atmosphere Single</span>
               <span class="thumb-name">Leave a little room in the day</span>
             </a></div>
               </div>
@@ -1357,25 +1582,28 @@ One strong move is often enough.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-sat-ig">Copy list</button>
                   </div>
-                  <pre id="assets-sat-ig">pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg</pre>
+                  <pre id="assets-sat-ig">pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Facebook review</div>
                 <h3>Saturday · Peninsula Today</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/fb/pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/fb/pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/fb/pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Facebook · 4x5 · Atmosphere Single</span>
               <span class="thumb-name">One strong move is often enough</span>
             </a></div>
               </div>
@@ -1404,19 +1632,19 @@ If you have not read this week's weekend guide yet, it is there to help you avoi
                     </div>
                     <button type="button" data-copy-target="assets-sat-fb">Copy list</button>
                   </div>
-                  <pre id="assets-sat-fb">pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg</pre>
+                  <pre id="assets-sat-fb">pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">LinkedIn review</div>
                 <h3>Saturday · Peninsula Today</h3>
               </div>
               <div class="platform-stats">0 assets</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1"><div class="thumb thumb-empty"><span>No artwork mapped</span></div></div>
@@ -1452,37 +1680,38 @@ That is the thinking behind our weekend coverage.</pre>
       </section>
       <section class="day-section" id="day-sun">
         <header class="day-header">
-          <div>
+          <div class="day-header__main">
             <div class="eyebrow">Sunday</div>
             <h2>Week Close</h2>
             <p class="post-angle">Reflective brand post that closes the week and reinforces PI's editorial stance.</p>
           </div>
           <div class="day-meta-stack">
             <span class="tag">atmosphere-single</span>
-            <span class="tag muted">3 platform views</span>
+            <span class="tag tag--muted">3 platform views</span>
           </div>
         </header>
-        <div class="day-notes-shell">
-          <div class="notes-card">
-            <div class="eyebrow">Positioning notes</div>
-            <ul class="notes-list"><li>Goal: brand clarity and long-term positioning</li><li>Message: PI stands for useful local judgement</li><li>CTA: none, this is a close-the-week brand signal</li></ul>
-          </div>
+        <div class="notes-card">
+          <div class="eyebrow">Positioning notes</div>
+          <ul class="notes-list"><li>Goal: brand clarity and long-term positioning</li><li>Message: PI stands for useful local judgement</li><li>CTA: none, this is a close-the-week brand signal</li></ul>
         </div>
         <div class="platform-stack">
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Instagram review</div>
                 <h3>Sunday · Week Close</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/ig/pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/ig/pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/ig/pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Instagram · 4x5 · Atmosphere Single</span>
               <span class="thumb-name">See you next week</span>
             </a></div>
               </div>
@@ -1507,25 +1736,28 @@ a publication that helps the Peninsula feel easier to choose, understand, and en
                     </div>
                     <button type="button" data-copy-target="assets-sun-ig">Copy list</button>
                   </div>
-                  <pre id="assets-sun-ig">pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg</pre>
+                  <pre id="assets-sun-ig">pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">Facebook review</div>
                 <h3>Sunday · Week Close</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/fb/pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/fb/pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/fb/pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg" alt="pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">Facebook · 4x5 · Atmosphere Single</span>
               <span class="thumb-name">What defined the week</span>
             </a></div>
               </div>
@@ -1554,25 +1786,28 @@ More of that to come this week.</pre>
                     </div>
                     <button type="button" data-copy-target="assets-sun-fb">Copy list</button>
                   </div>
-                  <pre id="assets-sun-fb">pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg</pre>
+                  <pre id="assets-sun-fb">pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg (4x5)</pre>
                 </section>
               </aside>
             </div>
           </article>
           <article class="platform-card">
-            <div class="platform-card-head">
+            <header class="platform-card-head">
               <div>
                 <div class="eyebrow">LinkedIn review</div>
                 <h3>Sunday · Week Close</h3>
               </div>
               <div class="platform-stats">1 asset</div>
-            </div>
+            </header>
             <div class="platform-body">
               <div class="visual-column compact">
                 <div class="thumb-grid count-1">
             <a class="thumb" href="exports/li/pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg" target="_blank" rel="noreferrer">
-              <span class="thumb-index">1</span>
-              <img src="exports/li/pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg" loading="lazy" />
+              <div class="thumb-media">
+                <span class="thumb-index">1</span>
+                <img src="exports/li/pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg" alt="pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg" loading="lazy" />
+              </div>
+              <span class="thumb-meta">LinkedIn · 191x1 · Atmosphere Single</span>
               <span class="thumb-name">Useful local judgement is the product</span>
             </a></div>
               </div>
@@ -1600,13 +1835,14 @@ That means specific guidance, local context, strong curation, and products reade
                     </div>
                     <button type="button" data-copy-target="assets-sun-li">Copy list</button>
                   </div>
-                  <pre id="assets-sun-li">pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg</pre>
+                  <pre id="assets-sun-li">pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg (191x1)</pre>
                 </section>
               </aside>
             </div>
           </article></div>
       </section>
-  </main>
+    </main>
+  </div>
   <script>
     document.querySelectorAll('[data-copy-target]').forEach((button) => {
       button.addEventListener('click', async () => {
