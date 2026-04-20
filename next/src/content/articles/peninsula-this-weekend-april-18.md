@@ -51,33 +51,35 @@ The mistake would be to attack the programme like a city festival and try to cra
 
 This is the recommendation for readers who want the weekend to feel cultivated rather than busy.
 
-## If you want the Peninsula version of a reset day
+## If Sunday needs shape
 
-### Walk first, then soak
+### Point Nepean half-day
 
-The strongest non-programmed day on the board is still the southern pairing: **Cape Schanck in the morning, Peninsula Hot Springs later**.
+If Saturday belongs to Sorrento, Sunday morning has a clear answer: **Point Nepean**.
 
-You can take the lighter route with the **[Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk)**, or something more substantial through the **[Cape Schanck Lighthouse Walk](/explore/cape-schanck-lighthouse-walk)**. Either way, the logic holds. Start with wind, cliffs, and some actual movement, then trade that for heat and stillness in the afternoon.
+The logic is simple. You are already at the southern tip. Point Nepean is ten minutes from Portsea and does something Cape Schanck cannot on an ANZAC weekend: it ties landscape directly to the occasion. Fort Nepean, the Quarantine Station, the shuttle up the headland, the tunnels — all of it carries weight that makes more sense on this weekend than a generic walk-and-springs formula.
 
-We have written this up in full in **[Walk Then Hot Springs: The Cape Schanck Day](/journal/walks-cape-schanck-hot-springs-day)** because it is one of the Peninsula's most reliable formulas. It works for couples, visitors, and locals who want the region to feel earned rather than consumed.
+The Parks Victoria shuttle runs from the Visitor Centre. The fort and Quarantine Station infrastructure are open daily. Keep it to the morning. Leave the afternoon deliberately open.
 
-A few rules make it better:
+## The slower luxury move
 
-- pre-book the springs
-- keep lunch simple rather than turning midday into another project
-- choose either the walk or the soak as the emotional centre of the day, not both
+### Alba Thermal Springs
 
-If Sunday needs shape, this is the shape.
+If the weekend needs one quieter indulgence, **Alba Thermal Springs** is the cleaner answer this time around.
 
-## The quiet inclusion that improves the whole weekend
+Alba is the adults-first, sanctuary-grade option — less chaotic than Peninsula Hot Springs on a long weekend, more architecturally considered, and better suited to the reflective register that an ANZAC long weekend already sets.
 
-### Sunday Sessions at Peninsula Hot Springs
+Book a late afternoon slot. Arrive unhurried. Treat it as the period at the end of the weekend's sentence, not another item on the activity list.
 
-There are obvious Peninsula recommendations, and then there are the recurring products that regulars end up trusting more.
+## One local edge
 
-**[Peninsula Hot Springs Sunday Sessions](/whats-on/peninsula-hot-springs-sunday-sessions/)** falls into the second category. It is not a marquee event in the way the dawn service or writers festival is, but it gives Sunday a clearer identity than a generic springs booking. That matters. The Peninsula is full of places that are pleasant by default; what readers need from us is help spotting the version with better shape.
+### Make Sorrento your base
 
-If the weekend has already been socially heavy, this is the better recovery move than another lunch booking.
+The weekend makes far more sense geographically if you treat Sorrento as home for the two days.
+
+Dawn service, Writers Festival, Point Nepean — all within ten minutes of each other at the southern tip. Adding Cape Schanck, Red Hill, or Mornington into this mix costs 30 to 45 minutes each way and flattens the weekend's coherence. The Peninsula rewards a settled base more than a full lap.
+
+If you are not staying in Sorrento, get there early on Saturday and stay south through Sunday before heading home.
 
 ## Best family fallback if conditions wobble
 
@@ -101,9 +103,9 @@ That is especially true this week. ANZAC Day should not be crowded out by an iti
 
 If you want the short version, these are the combinations we would actually recommend:
 
-- **ANZAC dawn service + soft Sorrento day**
-- **Writers festival session + long lunch + foreshore walk**
-- **Cape Schanck morning + Hot Springs afternoon**
+- **ANZAC dawn service + soft Sorrento day + one Writers Festival session**
+- **Saturday Sorrento base + Sunday Point Nepean half-day**
+- **Late Alba thermal session + one good long lunch**
 
 And if you need insurance, keep the family fallback ready without pretending it was always the plan.
 
