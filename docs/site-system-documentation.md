@@ -85,6 +85,8 @@ Peninsula Insider exists to be:
 - **definitive**
 - **local**
 - **opinionated**
+- **selective**
+- **editorially trusted**
 
 It is explicitly NOT:
 - a tourism board
@@ -94,6 +96,7 @@ It is explicitly NOT:
 
 ### Canonical operating documents
 Primary references:
+- `docs/peninsula-insider-branding-and-creative-guide-2026-04-20.md`
 - `docs/peninsula-insider-agentic-editorial-operating-model-2026-04-13.md`
 - `~/.openclaw/skills/peninsula-insider/SKILL.md`
 - `docs/editorial-ops-system-2026-04-09.md`
@@ -105,6 +108,20 @@ Allowed editorial bylines:
 - **The Peninsula Insider**
 
 Agents do not invent named contributors.
+
+### Brand and creative system
+The canonical brand guide defines the shared standards for:
+- voice and tone
+- messaging hierarchy
+- visual identity and design principles
+- typography, colour, and layout behaviour
+- photography and image integrity
+- newsletter and email creative
+- social creative adaptation
+- language guardrails and approval criteria
+
+All public-facing Peninsula Insider work should be checked against:
+- `docs/peninsula-insider-branding-and-creative-guide-2026-04-20.md`
 
 ---
 
