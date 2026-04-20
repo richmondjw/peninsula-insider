@@ -333,6 +333,163 @@
         "top service pages",
         "priority journal pages"
       ]
+    },
+    {
+      "name": "pi-weekly-dispatch-research-scan",
+      "cadence": "weekly Sunday 08:30 UTC",
+      "type": "weekend-dispatch-research",
+      "owner": "PI-dispatch-desk",
+      "inputs": [
+        "events calendars",
+        "recurring events",
+        "family options",
+        "weather-proof options",
+        "luxury options",
+        "under-published local edges"
+      ],
+      "outputs": [
+        "reports/peninsula-this-weekend-research-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "What's On",
+        "Journal",
+        "Explore",
+        "Stay",
+        "Eat",
+        "Places"
+      ]
+    },
+    {
+      "name": "pi-weekly-dispatch-shape-and-shortlist",
+      "cadence": "weekly Sunday 09:15 UTC",
+      "type": "weekend-dispatch-structure",
+      "owner": "PI-dispatch-desk + PI-editorial-desk",
+      "inputs": [
+        "weekly research scan",
+        "current conditions",
+        "seasonal context",
+        "event shortlist"
+      ],
+      "outputs": [
+        "reports/peninsula-this-weekend-shape-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Journal",
+        "What's On",
+        "current weekend product"
+      ]
+    },
+    {
+      "name": "pi-weekly-dispatch-draft",
+      "cadence": "weekly Sunday 10:00 UTC",
+      "type": "weekend-dispatch-draft",
+      "owner": "PI-dispatch-desk",
+      "inputs": [
+        "weekend shape",
+        "lead recommendation",
+        "alternative",
+        "fallback",
+        "local edge",
+        "skip"
+      ],
+      "outputs": [
+        "next/src/content/articles/peninsula-this-weekend-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Journal",
+        "homepage hooks"
+      ]
+    },
+    {
+      "name": "pi-weekly-dispatch-review-and-tighten",
+      "cadence": "weekly Sunday 10:45 UTC",
+      "type": "weekend-dispatch-review",
+      "owner": "PI-editorial-desk + PI-verify-desk + PI-seo-desk",
+      "inputs": [
+        "draft dispatch",
+        "fact checks",
+        "link checks",
+        "date checks",
+        "tone checks"
+      ],
+      "outputs": [
+        "reports/peninsula-this-weekend-review-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Journal",
+        "homepage",
+        "What's On"
+      ]
+    },
+    {
+      "name": "pi-weekly-dispatch-publish",
+      "cadence": "weekly Monday 07:00 UTC",
+      "type": "weekend-dispatch-publish",
+      "owner": "PI-publisher",
+      "inputs": [
+        "approved dispatch article",
+        "homepage references",
+        "current-week hooks"
+      ],
+      "outputs": [
+        "live site publish",
+        "reports/peninsula-this-weekend-publish-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Journal",
+        "homepage",
+        "What's On",
+        "archive/current week surfaces"
+      ]
+    },
+    {
+      "name": "pi-weekly-dispatch-social-production",
+      "cadence": "weekly Monday 07:10 UTC or immediately after successful weekly dispatch publish",
+      "type": "weekend-dispatch-social-production",
+      "owner": "PI-social-desk + PI-publisher",
+      "inputs": [
+        "successfully published weekly dispatch URL",
+        "final live page metadata",
+        "homepage / publication context",
+        "peninsula-social-production skill"
+      ],
+      "outputs": [
+        "social/<week>/ review board refresh",
+        "platform copy pack with URLs and hashtags",
+        "SVG masters",
+        "PNG social exports",
+        "reports/peninsula-this-weekend-social-production-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Instagram",
+        "Facebook",
+        "LinkedIn",
+        "social pack review board",
+        "publishing handoff"
+      ],
+      "trigger": {
+        "after": "pi-weekly-dispatch-publish",
+        "condition": "run only after successful live publish and final URL confirmation"
+      }
+    },
+    {
+      "name": "pi-weekly-dispatch-archive-rollover",
+      "cadence": "weekly Monday 07:20 UTC",
+      "type": "weekend-dispatch-archive",
+      "owner": "PI-publisher + PI-archives-desk",
+      "inputs": [
+        "current dispatch",
+        "previous dispatch",
+        "dated URL structure"
+      ],
+      "outputs": [
+        "archive integrity check",
+        "reports/peninsula-this-weekend-archive-rollover-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "Journal archive",
+        "current weekend surface"
+      ]
     }
   ]
 }
