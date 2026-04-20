@@ -5,19 +5,21 @@
 
 ## Monday — week-ahead
 
-**Assets:**
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.png
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.png
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.png
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.png
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg
-- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.png
+**Post angle:**
+Start the week by positioning Peninsula Insider as the smart local filter for the long weekend ahead.
 
-**Recommended URL:** https://peninsulainsider.com.au/
+**Positioning notes:**
+- Goal: authority and anticipation
+- Message: PI is a filter, not a listings dump
+- CTA: soft, designed to set up later-week posts
+- --
+
+**Assets:**
+- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg (4x5)
+- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg (4x5)
+- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg (4x5)
+- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg (4x5)
+- pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg (4x5)
 
 **Caption:**
 
@@ -27,23 +29,23 @@ We are working on this week's Peninsula This Weekend edit now, with the picks ac
 
 Stay close.
 
-Read more at the link in bio: https://peninsulainsider.com.au/
-
-#MorningtonPeninsula #PeninsulaInsider #VisitVictoria #WeekendGetaway #VictoriaTravel #AustralianTravel #LongWeekend #PeninsulaLife
-
 ---
 
 ## Tuesday — start-in-sorrento
 
-**Assets:**
-- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg
-- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.png
-- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg
-- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.png
-- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg
-- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.png
+**Post angle:**
+Push newsletter value as the easiest way to stay ahead of the weekend.
 
-**Recommended URL:** https://peninsulainsider.com.au/newsletter/
+**Positioning notes:**
+- Goal: newsletter subscription intent
+- Message: smart local utility, delivered early
+- CTA: subscribe / join the newsletter if paired with link in publishing layer
+- --
+
+**Assets:**
+- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg (4x5)
+- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg (4x5)
+- pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg (4x5)
 
 **Caption:**
 
@@ -53,25 +55,24 @@ Our newsletter is where we send the local edit, not just the leftovers.
 
 Subscribe if you want the Peninsula in your inbox with some judgement attached.
 
-Subscribe via the link in bio: https://peninsulainsider.com.au/newsletter/
-
-#MorningtonPeninsula #PeninsulaInsider #Sorrento #TravelPlanning #WeekendEscape #EditorialTravel #AustralianGetaway
-
 ---
 
 ## Wednesday — walk-lunch-soak
 
-**Assets:**
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.png
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.png
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.png
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg
-- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.png
+**Post angle:**
+Introduce the new vertical build-out, framed as deeper service journalism for real Peninsula decisions.
 
-**Recommended URL:** https://peninsulainsider.com.au/walks/
+**Positioning notes:**
+- Goal: signal growth and editorial seriousness
+- Message: practical local authority in new categories
+- CTA: none required, this is a brand-building post
+- --
+
+**Assets:**
+- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg (4x5)
+- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg (4x5)
+- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg (4x5)
+- pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg (4x5)
 
 **Caption:**
 
@@ -81,25 +82,24 @@ Weddings. Walks. Corporate events.
 
 Not as content filler. As genuinely useful local guides for decisions people are already making.
 
-Explore more at the link in bio: https://peninsulainsider.com.au/walks/
-
-#MorningtonPeninsula #PeninsulaInsider #PeninsulaWalks #WalksVictoria #TravelGuide #ServiceJournalism #LuxuryWeekend
-
 ---
 
 ## Thursday — weekend-moods
 
-**Assets:**
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.png
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.png
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.png
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg
-- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.png
+**Post angle:**
+Tease the likely weekend shape with Peninsula-specific confidence, especially Sorrento, Point Nepean, and the long weekend mood.
 
-**Recommended URL:** https://peninsulainsider.com.au/journal/peninsula-this-weekend-april-18/
+**Positioning notes:**
+- Goal: build anticipation for the flagship weekend product
+- Message: PI gives a considered local read, not disconnected picks
+- CTA: soft tease only
+- --
+
+**Assets:**
+- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg (4x5)
+- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg (4x5)
+- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg (4x5)
+- pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg (4x5)
 
 **Caption:**
 
@@ -109,27 +109,25 @@ Pick the right Peninsula pocket, and the whole weekend gets easier.
 
 Full weekend edit soon.
 
-See the weekend guide via the link in bio: https://peninsulainsider.com.au/journal/peninsula-this-weekend-april-18/
-
-#MorningtonPeninsula #PeninsulaInsider #WeekendGuide #Sorrento #PointNepean #LuxuryTravel #WeekendMood
-
 ---
 
 ## Friday — this-weekend
 
-**Assets:**
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.png
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.png
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.png
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.png
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg
-- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.png
+**Post angle:**
+Publish or promote Peninsula This Weekend as the key weekly product.
 
-**Recommended URL:** https://peninsulainsider.com.au/journal/peninsula-this-weekend-april-18/
+**Positioning notes:**
+- Goal: traffic to flagship weekly article
+- Message: this is a recommendation product, not just content
+- CTA: read now
+- --
+
+**Assets:**
+- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg (4x5)
+- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg (4x5)
+- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg (4x5)
+- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg (4x5)
+- pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg (4x5)
 
 **Caption:**
 
@@ -139,19 +137,21 @@ The good picks. The better base. The fallback if plans wobble. The moves to skip
 
 Exactly the sort of weekend guide we wish more places published.
 
-Read via the link in bio: https://peninsulainsider.com.au/journal/peninsula-this-weekend-april-18/
-
-#MorningtonPeninsula #PeninsulaInsider #PeninsulaThisWeekend #WeekendGuide #Sorrento #VisitVictoria #TravelEditor
-
 ---
 
 ## Saturday — peninsula-today
 
-**Assets:**
-- pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg
-- pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.png
+**Post angle:**
+Weekend-in-progress post, built to feel timely and companionable rather than promotional.
 
-**Recommended URL:** https://peninsulainsider.com.au/journal/peninsula-this-weekend-april-18/
+**Positioning notes:**
+- Goal: keep the weekend guide live in circulation
+- Message: thoughtful curation over overload
+- CTA: read guide if not already
+- --
+
+**Assets:**
+- pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg (4x5)
 
 **Caption:**
 
@@ -161,28 +161,26 @@ you do not need to do everything for the day to feel well chosen.
 
 One strong move is often enough.
 
-Weekend guide via the link in bio: https://peninsulainsider.com.au/journal/peninsula-this-weekend-april-18/
-
-#MorningtonPeninsula #PeninsulaInsider #WeekendOnThePeninsula #SlowTravel #LuxuryWeekend #PeninsulaLife
-
 ---
 
 ## Sunday — week-close
 
-**Assets:**
-- pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg
-- pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.png
+**Post angle:**
+Reflective brand post that closes the week and reinforces PI's editorial stance.
 
-**Recommended URL:** https://peninsulainsider.com.au/
+**Positioning notes:**
+- Goal: brand clarity and long-term positioning
+- Message: PI stands for useful local judgement
+- CTA: none, this is a close-the-week brand signal
+- --
+
+**Assets:**
+- pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg (4x5)
 
 **Caption:**
 
 What we want Peninsula Insider to be is simple:
 
 a publication that helps the Peninsula feel easier to choose, understand, and enjoy.
-
-Explore more via the link in bio: https://peninsulainsider.com.au/
-
-#MorningtonPeninsula #PeninsulaInsider #EditorialTravel #LocalGuide #TravelPublication #WeekendInspiration
 
 ---

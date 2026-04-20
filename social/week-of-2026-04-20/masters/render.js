@@ -260,6 +260,30 @@ function photoCard(day, asset, dims, context, opts = {}) {
 </svg>`;
   }
 
+  if (opts.portraitMode === 'immersive-cover') {
+    const safe = 68;
+    const title = measureText({ text: asset.title, width: 760, startSize: 104, minSize: 64, maxLines: 3, lineHeightFactor: 0.98 });
+    const deck = measureText({ text: asset.deck, width: 620, startSize: 31, minSize: 22, maxLines: 4, lineHeightFactor: 1.34 });
+    const image = imageBlock({ id, href, x: 0, y: 0, width: dims.width, height: dims.height, radius: 0, imagePosition: asset.imagePosition, overlay: opts.overlay ?? 'bottom' });
+    const labelY = 118;
+    const kickY = dims.height - 330 - title.height - deck.height;
+    const titleY = kickY + 74;
+    const deckY = titleY + title.height + 24;
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${dims.width}" height="${dims.height}" viewBox="0 0 ${dims.width} ${dims.height}">
+  ${defs(id, image.defs)}
+  ${image.markup}
+  <rect width="${dims.width}" height="${dims.height}" fill="rgba(20,18,16,0.14)" />
+  <line x1="${safe}" y1="82" x2="${dims.width - safe}" y2="82" stroke="rgba(255,251,248,0.36)" stroke-width="1" />
+  <text x="${safe}" y="${labelY}" font-family="${escapeXml(brand.fonts.utility || brand.fonts.body)}" font-size="12" font-weight="600" letter-spacing="2.8" fill="rgba(253,251,248,0.82)">${escapeXml(brand.name.toUpperCase())}</text>
+  <text x="${dims.width - safe}" y="${labelY}" text-anchor="end" font-family="${escapeXml(brand.fonts.utility || brand.fonts.body)}" font-size="12" font-weight="500" letter-spacing="2.2" fill="rgba(253,251,248,0.74)">${escapeXml(rightMeta.toUpperCase())}</text>
+  <rect x="${safe}" y="${kickY - 10}" width="58" height="3" rx="1.5" fill="${accent}" />
+  <text x="${safe}" y="${kickY + 18}" font-family="${escapeXml(brand.fonts.utility || brand.fonts.body)}" font-size="13" font-weight="600" letter-spacing="2.3" fill="rgba(253,251,248,0.90)">${escapeXml(String(asset.kicker ?? '').toUpperCase())}</text>
+  ${renderMeasuredText({ x: safe, y: titleY, fontFamily: brand.fonts.display, fill: brand.colors.white, weight: 700, measure: title })}
+  ${renderMeasuredText({ x: safe, y: deckY, fontFamily: brand.fonts.body, fill: 'rgba(253,251,248,0.86)', weight: 400, measure: deck })}
+</svg>`;
+  }
+
   const outer = 72;
   const contentWidth = dims.width - outer * 2;
   const imageY = outer + 34;
@@ -408,12 +432,13 @@ function renderAsset(day, asset, dims, context) {
   if (asset.template === 'utility-sequence' && (asset.mode === 'cover' || asset.mode === 'summary') && !asset.image) return sequenceSummary(day, asset, dims, context);
   if (asset.template === 'editorial-comparison' && (asset.mode === 'cover' || asset.mode === 'summary') && !asset.image) return comparisonSummary(day, asset, dims, context);
 
+  const isInstagramPortrait = asset.platform === 'ig' && dims.height > dims.width;
   const photoOpts = {
-    'editorial-cover': { metaRight: `${day.label} · editorial cover`, overlay: dims.width > dims.height ? 'none' : 'bottom', titleStart: dims.width > dims.height ? 56 : 88, titleMin: dims.width > dims.height ? 36 : 54 },
-    'recommendation-hero': { metaRight: `${day.label} · recommendation`, overlay: 'none', titleStart: dims.width > dims.height ? 52 : 80, titleMin: dims.width > dims.height ? 34 : 50, accent: brand.colors.olive },
-    'utility-sequence': { metaRight: `${day.label} · step ${asset.step ?? 'feature'}`, overlay: 'none', titleStart: dims.width > dims.height ? 52 : 76, titleMin: dims.width > dims.height ? 32 : 46 },
-    'editorial-comparison': { metaRight: `${day.label} · ${asset.lane ?? 'editorial lane'}`, overlay: 'none', titleStart: dims.width > dims.height ? 50 : 74, titleMin: dims.width > dims.height ? 32 : 48, deckStart: dims.width > dims.height ? 21 : 24 },
-    'atmosphere-single': { metaRight: `${day.label} · atmosphere`, overlay: dims.width > dims.height ? 'side' : 'bottom', titleStart: dims.width > dims.height ? 52 : 80, titleMin: dims.width > dims.height ? 32 : 50, deckLines: 3 }
+    'editorial-cover': { metaRight: `${day.label} · editorial cover`, overlay: dims.width > dims.height ? 'bottom' : 'none', titleStart: dims.width > dims.height ? 88 : 56, titleMin: dims.width > dims.height ? 54 : 36, portraitMode: isInstagramPortrait ? 'immersive-cover' : undefined },
+    'recommendation-hero': { metaRight: `${day.label} · recommendation`, overlay: dims.width > dims.height ? 'bottom' : 'none', titleStart: dims.width > dims.height ? 84 : 52, titleMin: dims.width > dims.height ? 52 : 34, accent: brand.colors.olive, portraitMode: isInstagramPortrait ? 'immersive-cover' : undefined },
+    'utility-sequence': { metaRight: `${day.label} · step ${asset.step ?? 'feature'}`, overlay: dims.width > dims.height ? 'bottom' : 'none', titleStart: dims.width > dims.height ? 80 : 52, titleMin: dims.width > dims.height ? 48 : 32, portraitMode: isInstagramPortrait ? 'immersive-cover' : undefined },
+    'editorial-comparison': { metaRight: `${day.label} · ${asset.lane ?? 'editorial lane'}`, overlay: dims.width > dims.height ? 'bottom' : 'none', titleStart: dims.width > dims.height ? 78 : 50, titleMin: dims.width > dims.height ? 48 : 32, deckStart: dims.width > dims.height ? 24 : 21, portraitMode: isInstagramPortrait ? 'immersive-cover' : undefined },
+    'atmosphere-single': { metaRight: `${day.label} · atmosphere`, overlay: dims.width > dims.height ? 'bottom' : 'side', titleStart: dims.width > dims.height ? 84 : 52, titleMin: dims.width > dims.height ? 50 : 32, deckLines: 3, portraitMode: isInstagramPortrait ? 'immersive-cover' : undefined }
   }[asset.template];
 
   if (!photoOpts) throw new Error(`Unknown template: ${asset.template}`);
