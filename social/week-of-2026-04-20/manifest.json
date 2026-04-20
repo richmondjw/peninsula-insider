@@ -1,0 +1,464 @@
+{
+  "weekStart": "2026-04-20",
+  "version": "v01",
+  "title": "Peninsula Insider weekly social pack",
+  "brand": "Peninsula Insider",
+  "assetCount": 36,
+  "platformCounts": {
+    "ig": 23,
+    "fb": 7,
+    "li": 6
+  },
+  "days": {
+    "mon": {
+      "label": "Monday",
+      "concept": "week-ahead",
+      "templateFamily": "editorial-cover",
+      "assets": [
+        {
+          "filename": "pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s01-v01.svg",
+          "title": "This week on the Peninsula",
+          "template": "editorial-cover",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Monday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s02-v01.svg",
+          "title": "Start with a base that keeps the day easy",
+          "template": "recommendation-hero",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Monday",
+          "image": "images/sourced/explore-sorrento-ferry-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s03-v01.svg",
+          "title": "Look for a walk that leaves some weather in it",
+          "template": "editorial-cover",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Monday",
+          "image": "images/sourced/explore-cape-schanck-boardwalk-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s04-v01.svg",
+          "title": "Leave room for produce, lunch, and one good table",
+          "template": "recommendation-hero",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Monday",
+          "image": "images/sourced/category-market-02.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-mon-week-ahead-ig-4x5-s05-v01.svg",
+          "title": "We help you choose well",
+          "template": "atmosphere-single",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Monday",
+          "image": "images/sourced/place-flinders-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/fb/pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg",
+          "previewPath": "exports/fb/pi-social-2026-04-20-mon-week-ahead-fb-191x1-hero-v01.svg",
+          "title": "This week on the Peninsula",
+          "template": "editorial-cover",
+          "platform": "fb",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Monday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/li/pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg",
+          "previewPath": "exports/li/pi-social-2026-04-20-mon-week-ahead-li-191x1-hero-v01.svg",
+          "title": "Better curation makes the Peninsula easier to read",
+          "template": "editorial-cover",
+          "platform": "li",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Monday",
+          "image": "images/sourced/explore-cape-schanck-boardwalk-01.webp"
+        }
+      ]
+    },
+    "tue": {
+      "label": "Tuesday",
+      "concept": "start-in-sorrento",
+      "templateFamily": "recommendation-hero",
+      "assets": [
+        {
+          "filename": "pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s01-v01.svg",
+          "title": "Start in Sorrento",
+          "template": "recommendation-hero",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Tuesday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s02-v01.svg",
+          "title": "Village edge, ferry light, and enough atmosphere to carry the stay",
+          "template": "recommendation-hero",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Tuesday",
+          "image": "images/sourced/explore-sorrento-ferry-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-tue-start-in-sorrento-ig-4x5-s03-v01.svg",
+          "title": "Less bouncing around, more of the day intact",
+          "template": "recommendation-hero",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Tuesday",
+          "image": "images/sourced/place-flinders-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/fb/pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg",
+          "previewPath": "exports/fb/pi-social-2026-04-20-tue-start-in-sorrento-fb-191x1-hero-v01.svg",
+          "title": "Start in Sorrento",
+          "template": "recommendation-hero",
+          "platform": "fb",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Tuesday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/li/pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg",
+          "previewPath": "exports/li/pi-social-2026-04-20-tue-start-in-sorrento-li-191x1-hero-v01.svg",
+          "title": "Pick the right base, not just the prettiest stop",
+          "template": "recommendation-hero",
+          "platform": "li",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Tuesday",
+          "image": "images/sourced/explore-sorrento-ferry-01.webp"
+        }
+      ]
+    },
+    "wed": {
+      "label": "Wednesday",
+      "concept": "walk-lunch-soak",
+      "templateFamily": "utility-sequence",
+      "assets": [
+        {
+          "filename": "pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s01-v01.svg",
+          "title": "Walk → Lunch → Soak",
+          "template": "utility-sequence",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Wednesday",
+          "image": null
+        },
+        {
+          "filename": "pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s02-v01.svg",
+          "title": "Start at Point Nepean",
+          "template": "utility-sequence",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Wednesday",
+          "image": "images/sourced/place-point-nepean-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s03-v01.svg",
+          "title": "Keep lunch within Sorrento orbit",
+          "template": "utility-sequence",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Wednesday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-wed-walk-lunch-soak-ig-4x5-s04-v01.svg",
+          "title": "Finish slowly at Alba",
+          "template": "utility-sequence",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Wednesday",
+          "image": "images/sourced/spa-alba-thermal-springs-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/fb/pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg",
+          "previewPath": "exports/fb/pi-social-2026-04-20-wed-walk-lunch-soak-fb-191x1-summary-v01.svg",
+          "title": "Walk → Lunch → Soak",
+          "template": "utility-sequence",
+          "platform": "fb",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Wednesday",
+          "image": null
+        },
+        {
+          "filename": "pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/li/pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg",
+          "previewPath": "exports/li/pi-social-2026-04-20-wed-walk-lunch-soak-li-191x1-summary-v01.svg",
+          "title": "Service journalism works when the sequence is usable",
+          "template": "utility-sequence",
+          "platform": "li",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Wednesday",
+          "image": null
+        }
+      ]
+    },
+    "thu": {
+      "label": "Thursday",
+      "concept": "weekend-moods",
+      "templateFamily": "editorial-comparison",
+      "assets": [
+        {
+          "filename": "pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s01-v01.svg",
+          "title": "Choose your Peninsula weekend",
+          "template": "editorial-comparison",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Thursday",
+          "image": null
+        },
+        {
+          "filename": "pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s02-v01.svg",
+          "title": "Let the coast do the quieting down",
+          "template": "editorial-comparison",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Thursday",
+          "image": "images/sourced/explore-cape-schanck-boardwalk-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s03-v01.svg",
+          "title": "Go slower, warmer, and a touch more refined",
+          "template": "editorial-comparison",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Thursday",
+          "image": "images/sourced/venue-lindenderry-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-thu-weekend-moods-ig-4x5-s04-v01.svg",
+          "title": "Keep one weather-safe option in reserve",
+          "template": "editorial-comparison",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Thursday",
+          "image": "images/sourced/article-rainy-day-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/fb/pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg",
+          "previewPath": "exports/fb/pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01.svg",
+          "title": "Choose your Peninsula weekend",
+          "template": "editorial-comparison",
+          "platform": "fb",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Thursday",
+          "image": null
+        },
+        {
+          "filename": "pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/li/pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg",
+          "previewPath": "exports/li/pi-social-2026-04-20-thu-weekend-moods-li-191x1-summary-v01.svg",
+          "title": "Useful local media narrows the field",
+          "template": "editorial-comparison",
+          "platform": "li",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Thursday",
+          "image": null
+        }
+      ]
+    },
+    "fri": {
+      "label": "Friday",
+      "concept": "this-weekend",
+      "templateFamily": "editorial-cover",
+      "assets": [
+        {
+          "filename": "pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s01-v01.svg",
+          "title": "This weekend on the Peninsula",
+          "template": "editorial-cover",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Friday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s02-v01.svg",
+          "title": "Base in Sorrento, not by accident",
+          "template": "recommendation-hero",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Friday",
+          "image": "images/sourced/explore-sorrento-ferry-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s03-v01.svg",
+          "title": "Give the day one decisive walk",
+          "template": "utility-sequence",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Friday",
+          "image": "images/sourced/place-point-nepean-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s04-v01.svg",
+          "title": "Keep one slower option in reserve",
+          "template": "recommendation-hero",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Friday",
+          "image": "images/sourced/venue-jackalope-hotel-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-fri-this-weekend-ig-4x5-s05-v01.svg",
+          "title": "Better base. Better pace. Better weekend.",
+          "template": "atmosphere-single",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Friday",
+          "image": "images/sourced/place-flinders-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/fb/pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg",
+          "previewPath": "exports/fb/pi-social-2026-04-20-fri-this-weekend-fb-191x1-hero-v01.svg",
+          "title": "This weekend on the Peninsula",
+          "template": "editorial-cover",
+          "platform": "fb",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Friday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/li/pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg",
+          "previewPath": "exports/li/pi-social-2026-04-20-fri-this-weekend-li-191x1-hero-v01.svg",
+          "title": "A weekend guide should help readers decide, not just scroll",
+          "template": "editorial-cover",
+          "platform": "li",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Friday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        }
+      ]
+    },
+    "sat": {
+      "label": "Saturday",
+      "concept": "peninsula-today",
+      "templateFamily": "atmosphere-single",
+      "assets": [
+        {
+          "filename": "pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01.svg",
+          "title": "Leave a little room in the day",
+          "template": "atmosphere-single",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Saturday",
+          "image": "images/sourced/category-market-02.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/fb/pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg",
+          "previewPath": "exports/fb/pi-social-2026-04-20-sat-peninsula-today-fb-4x5-hero-v01.svg",
+          "title": "One strong move is often enough",
+          "template": "atmosphere-single",
+          "platform": "fb",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Saturday",
+          "image": "images/sourced/category-market-02.webp"
+        }
+      ]
+    },
+    "sun": {
+      "label": "Sunday",
+      "concept": "week-close",
+      "templateFamily": "atmosphere-single",
+      "assets": [
+        {
+          "filename": "pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/ig/pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg",
+          "previewPath": "exports/ig/pi-social-2026-04-20-sun-week-close-ig-4x5-hero-v01.svg",
+          "title": "See you next week",
+          "template": "atmosphere-single",
+          "platform": "ig",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Sunday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/fb/pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg",
+          "previewPath": "exports/fb/pi-social-2026-04-20-sun-week-close-fb-4x5-hero-v01.svg",
+          "title": "What defined the week",
+          "template": "atmosphere-single",
+          "platform": "fb",
+          "ratio": "4x5",
+          "captionRef": "copy-package:Sunday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        },
+        {
+          "filename": "pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg",
+          "filePath": "social/week-of-2026-04-20/exports/li/pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg",
+          "previewPath": "exports/li/pi-social-2026-04-20-sun-week-close-li-191x1-hero-v01.svg",
+          "title": "Useful local judgement is the real product",
+          "template": "atmosphere-single",
+          "platform": "li",
+          "ratio": "191x1",
+          "captionRef": "copy-package:Sunday",
+          "image": "images/sourced/place-sorrento-01.webp"
+        }
+      ]
+    }
+  },
+  "blockers": [
+    "Tuesday and Friday would both improve with a stronger shoulder-season Sorrento streetscape or heritage facade image to replace the softer harbour hero if sourced later.",
+    "Wednesday lunch frame currently uses a place-led image rather than a true table-side lunch still, so that slot is production-ready but still upgradeable.",
+    "Saturday is intentionally atmosphere-led but would benefit from a fresher same-week observational still if the newsroom begins collecting live weekend imagery."
+  ]
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect width="1080" height="1350" fill="#1F201C" />
+  
+    <defs>
+      <linearGradient id="pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01-overlay-bottom" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#000000" stop-opacity="0.10" />
+        <stop offset="56%" stop-color="#141614" stop-opacity="0.06" />
+        <stop offset="100%" stop-color="#141614" stop-opacity="0.76" />
+      </linearGradient>
+      <linearGradient id="pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01-overlay-soft" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#F6F1E8" stop-opacity="0.10" />
+        <stop offset="100%" stop-color="#F6F1E8" stop-opacity="0.35" />
+      </linearGradient>
+      <linearGradient id="pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01-overlay-left" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0%" stop-color="#141614" stop-opacity="0.72" />
+        <stop offset="48%" stop-color="#141614" stop-opacity="0.18" />
+        <stop offset="100%" stop-color="#141614" stop-opacity="0.04" />
+      </linearGradient>
+    </defs>
+    <image href="../../../../images/sourced/category-market-02.webp" width="1080" height="1350" preserveAspectRatio="xMidYMid slice" />
+    <rect width="1080" height="1350" fill="url(#pi-social-2026-04-20-sat-peninsula-today-ig-4x5-hero-v01-overlay-bottom)" />
+  
+    <g transform="translate(60 60)">
+      <rect width="273.59999999999997" height="36" rx="999" fill="rgba(246,241,232,0.9)" stroke="rgba(255,255,255,0.28)" />
+      <text x="136.79999999999998" y="23" text-anchor="middle" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.4" fill="#1F201C">ON THE PENINSULA TODAY</text>
+    </g>
+  <text x="60" y="1094" font-family="Iowan Old Style, Georgia, &apos;Times New Roman&apos;, serif" font-size="82" font-weight="700" letter-spacing="0" fill="#FFFFFF"><tspan x="60" dy="0">Leave a little room</tspan><tspan x="60" dy="86.92">in the day</tspan></text>
+  <text x="60" y="1232" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="27" font-weight="500" letter-spacing="0" fill="rgba(255,255,255,0.88)"><tspan x="60" dy="0">One market stop, one good meal, one shift in pace is often</tspan><tspan x="60" dy="40">enough.</tspan></text>
+  
+    <g>
+      <line x1="60" y1="1276" x2="1020" y2="1276" stroke="rgba(255,255,255,0.18)" stroke-width="1" />
+      <text x="60" y="1308" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="1.6" fill="rgba(255,255,255,0.78)">PENINSULA INSIDER</text>
+      <text x="1020" y="1308" text-anchor="end" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="15" font-weight="500" letter-spacing="1.2" fill="rgba(255,255,255,0.78)">2026-04-20</text>
+    </g>
+</svg>
