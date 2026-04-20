@@ -12,11 +12,14 @@
     "ink": "#1F201C",
     "stone": "#7A776F",
     "white": "#FFFFFF",
+    "clay": "#C7B6A3",
+    "mist": "#D5DDD9",
     "shadow": "rgba(22, 24, 21, 0.18)"
   },
   "fonts": {
-    "display": "Iowan Old Style, Georgia, 'Times New Roman', serif",
-    "body": "Inter, 'Helvetica Neue', Arial, sans-serif"
+    "display": "Iowan Old Style, Baskerville, 'Palatino Linotype', 'Book Antiqua', Georgia, serif",
+    "body": "Avenir Next, Avenir, 'Segoe UI', 'Helvetica Neue', sans-serif",
+    "utility": "Avenir Next, 'Gill Sans', 'Trebuchet MS', 'Helvetica Neue', sans-serif"
   },
   "radii": {
     "frame": 34,

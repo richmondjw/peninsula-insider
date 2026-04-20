@@ -1,34 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="628" viewBox="0 0 1200 628">
-  <rect width="1200" height="628" fill="#FBF7F0" />
-  <rect x="34" y="34" width="1132" height="560" rx="30" fill="#F6F1E8" stroke="rgba(31,32,28,0.08)" />
   
-    <g transform="translate(68 68)">
-      <rect width="176.39999999999998" height="36" rx="999" fill="#6B3C48" stroke="rgba(107,60,72,0.2)" />
-      <text x="88.19999999999999" y="23" text-anchor="middle" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.4" fill="#FFFFFF">WEEKEND LANES</text>
-    </g>
-  <text x="68" y="204" font-family="Iowan Old Style, Georgia, &apos;Times New Roman&apos;, serif" font-size="54" font-weight="700" letter-spacing="0" fill="#1F201C"><tspan x="68" dy="0">Choose your</tspan><tspan x="68" dy="58">Peninsula</tspan><tspan x="68" dy="58">weekend</tspan></text>
-  <text x="68" y="392" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="22" font-weight="500" letter-spacing="0" fill="#7A776F"><tspan x="68" dy="0">Reflective. Indulgent.</tspan><tspan x="68" dy="30">Family-proof.</tspan></text>
+    <defs>
+      <linearGradient id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-paper-gradient" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stop-color="#FBF7F0" />
+        <stop offset="100%" stop-color="#F6F1E8" />
+      </linearGradient>
+      <linearGradient id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-soft-vignette" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.02" />
+        <stop offset="100%" stop-color="#151714" stop-opacity="0.12" />
+      </linearGradient>
+      <linearGradient id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-image-bottom" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#0F120F" stop-opacity="0.02" />
+        <stop offset="54%" stop-color="#0F120F" stop-opacity="0.08" />
+        <stop offset="100%" stop-color="#0F120F" stop-opacity="0.72" />
+      </linearGradient>
+      <linearGradient id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-image-side" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0%" stop-color="#0F120F" stop-opacity="0.72" />
+        <stop offset="48%" stop-color="#0F120F" stop-opacity="0.18" />
+        <stop offset="100%" stop-color="#0F120F" stop-opacity="0.04" />
+      </linearGradient>
+      <radialGradient id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-pinot-glow" cx="18%" cy="12%" r="88%">
+        <stop offset="0%" stop-color="#C7B6A3" stop-opacity="0.38" />
+        <stop offset="36%" stop-color="#6B3C48" stop-opacity="0.14" />
+        <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+      </radialGradient>
+      <filter id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-paper-shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#121411" flood-opacity="0.16" />
+      </filter>
+      <filter id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#171916" flood-opacity="0.14" />
+      </filter>
+      <filter id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise" />
+        <feColorMatrix type="saturate" values="0" />
+        <feComponentTransfer>
+          <feFuncA type="table" tableValues="0 0.02" />
+        </feComponentTransfer>
+      </filter>
+      <clipPath id="pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-frame-clip">
+        <rect x="30" y="30" width="1140" height="568" rx="32" />
+      </clipPath>
+      
+    </defs>
   
-        <g transform="translate(440 208)">
-          <rect width="220" height="222" rx="28" fill="#AEB8B7" opacity="0.96" />
-          <text x="26" y="68" font-family="Iowan Old Style, Georgia, &apos;Times New Roman&apos;, serif" font-size="28" font-weight="700" letter-spacing="0" fill="#FFFFFF"><tspan x="26" dy="0">Reflective</tspan></text>
-          <text x="26" y="134" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="19" font-weight="500" letter-spacing="0" fill="rgba(255,255,255,0.88)"><tspan x="26" dy="0">Coast and room</tspan></text>
-        </g>
-        <g transform="translate(670 208)">
-          <rect width="220" height="222" rx="28" fill="#6B3C48" opacity="0.96" />
-          <text x="26" y="68" font-family="Iowan Old Style, Georgia, &apos;Times New Roman&apos;, serif" font-size="28" font-weight="700" letter-spacing="0" fill="#FFFFFF"><tspan x="26" dy="0">Indulgent</tspan></text>
-          <text x="26" y="134" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="19" font-weight="500" letter-spacing="0" fill="rgba(255,255,255,0.88)"><tspan x="26" dy="0">Longer lunch,</tspan><tspan x="26" dy="28">warmer finish</tspan></text>
-        </g>
-        <g transform="translate(900 208)">
-          <rect width="220" height="222" rx="28" fill="#657163" opacity="0.96" />
-          <text x="26" y="68" font-family="Iowan Old Style, Georgia, &apos;Times New Roman&apos;, serif" font-size="28" font-weight="700" letter-spacing="0" fill="#FFFFFF"><tspan x="26" dy="0">Family-proof</tspan></text>
-          <text x="26" y="134" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="19" font-weight="500" letter-spacing="0" fill="rgba(255,255,255,0.88)"><tspan x="26" dy="0">Indoor fallback</tspan><tspan x="26" dy="28">that still</tspan><tspan x="26" dy="28">feels…</tspan></text>
-        </g>
+    <rect width="1200" height="628" fill="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-paper-gradient)" />
+    <rect width="1200" height="628" fill="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-pinot-glow)" />
+    <rect width="1200" height="628" fill="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-soft-vignette)" />
+    <rect width="1200" height="628" filter="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-grain)" opacity="0.9" />
+  <rect x="48" y="48" width="1104" height="532" rx="32" fill="rgba(246,241,232,0.94)" stroke="rgba(31,32,28,0.08)" filter="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-paper-shadow)" />
   
     <g>
-      <line x1="60" y1="554" x2="1140" y2="554" stroke="rgba(31,32,28,0.12)" stroke-width="1" />
-      <text x="60" y="586" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="1.6" fill="#7A776F">PENINSULA INSIDER</text>
-      <text x="1140" y="586" text-anchor="end" font-family="Inter, &apos;Helvetica Neue&apos;, Arial, sans-serif" font-size="15" font-weight="500" letter-spacing="1.2" fill="#7A776F">2026-04-20</text>
+      <line x1="84" y1="108" x2="1116" y2="108" stroke="rgba(31,32,28,0.12)" stroke-width="1" />
+      <text x="84" y="98" font-family="Avenir Next, &apos;Gill Sans&apos;, &apos;Trebuchet MS&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="14" font-weight="700" letter-spacing="2.2" fill="#1F201C">PENINSULA INSIDER</text>
+      <text x="1116" y="98" text-anchor="end" font-family="Avenir Next, &apos;Gill Sans&apos;, &apos;Trebuchet MS&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="13" font-weight="600" letter-spacing="1.6" fill="rgba(31,32,28,0.58)">CHOOSE YOUR LANE</text>
     </g>
+  
+    <g transform="translate(84 138)">
+      <rect width="184.20000000000002" height="38" rx="999" fill="#6B3C48" stroke="rgba(107,60,72,0.22)" />
+      <text x="92.10000000000001" y="24" text-anchor="middle" font-family="Avenir Next, &apos;Gill Sans&apos;, &apos;Trebuchet MS&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="15" font-weight="700" letter-spacing="1.5" fill="#FFFFFF">WEEKEND LANES</text>
+    </g>
+  <text x="84" y="214" font-family="Iowan Old Style, Baskerville, &apos;Palatino Linotype&apos;, &apos;Book Antiqua&apos;, Georgia, serif" font-size="58" font-weight="700" letter-spacing="0" fill="#1F201C" text-anchor="start"><tspan x="84" dy="0">Choose</tspan><tspan x="84" dy="60.9">your</tspan><tspan x="84" dy="60.9">Peninsula</tspan><tspan x="84" dy="60.9">weekend</tspan></text>
+  <text x="84" y="474.7" font-family="Avenir Next, Avenir, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="22" font-weight="500" letter-spacing="0" fill="#7A776F" text-anchor="start"><tspan x="84" dy="0">Reflective. Indulgent.</tspan><tspan x="84" dy="31.24">Family-proof.</tspan></text>
+  
+          <g>
+            <rect x="468" y="200" width="208" height="214" rx="30" fill="#AEB8B7" filter="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-card-shadow)" />
+            <text x="496" y="246" font-family="Avenir Next, &apos;Gill Sans&apos;, &apos;Trebuchet MS&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="14" font-weight="700" letter-spacing="1.7" fill="rgba(255,255,255,0.72)">LANE 1</text>
+            <text x="496" y="286" font-family="Iowan Old Style, Baskerville, &apos;Palatino Linotype&apos;, &apos;Book Antiqua&apos;, Georgia, serif" font-size="30" font-weight="700" letter-spacing="0" fill="#FFFFFF" text-anchor="start"><tspan x="496" dy="0">Reflective</tspan></text>
+            <text x="496" y="342" font-family="Avenir Next, Avenir, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="18" font-weight="500" letter-spacing="0" fill="rgba(255,255,255,0.86)" text-anchor="start"><tspan x="496" dy="0">Coast and room</tspan></text>
+          </g>
+          <g>
+            <rect x="696" y="220" width="208" height="214" rx="30" fill="#6B3C48" filter="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-card-shadow)" />
+            <text x="724" y="266" font-family="Avenir Next, &apos;Gill Sans&apos;, &apos;Trebuchet MS&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="14" font-weight="700" letter-spacing="1.7" fill="rgba(255,255,255,0.72)">LANE 2</text>
+            <text x="724" y="306" font-family="Iowan Old Style, Baskerville, &apos;Palatino Linotype&apos;, &apos;Book Antiqua&apos;, Georgia, serif" font-size="30" font-weight="700" letter-spacing="0" fill="#FFFFFF" text-anchor="start"><tspan x="724" dy="0">Indulgent</tspan></text>
+            <text x="724" y="362" font-family="Avenir Next, Avenir, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="18" font-weight="500" letter-spacing="0" fill="rgba(255,255,255,0.86)" text-anchor="start"><tspan x="724" dy="0">Longer lunch,</tspan><tspan x="724" dy="24.84">warmer finish</tspan></text>
+          </g>
+          <g>
+            <rect x="924" y="200" width="208" height="214" rx="30" fill="#657163" filter="url(#pi-social-2026-04-20-thu-weekend-moods-fb-191x1-summary-v01-card-shadow)" />
+            <text x="952" y="246" font-family="Avenir Next, &apos;Gill Sans&apos;, &apos;Trebuchet MS&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="14" font-weight="700" letter-spacing="1.7" fill="rgba(255,255,255,0.72)">LANE 3</text>
+            <text x="952" y="286" font-family="Iowan Old Style, Baskerville, &apos;Palatino Linotype&apos;, &apos;Book Antiqua&apos;, Georgia, serif" font-size="30" font-weight="700" letter-spacing="0" fill="#FFFFFF" text-anchor="start"><tspan x="952" dy="0">Family-proof</tspan></text>
+            <text x="952" y="342" font-family="Avenir Next, Avenir, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="18" font-weight="500" letter-spacing="0" fill="rgba(255,255,255,0.86)" text-anchor="start"><tspan x="952" dy="0">Indoor fallback</tspan><tspan x="952" dy="24.84">that still feels</tspan><tspan x="952" dy="24.84">local</tspan></text>
+          </g>
+  
+    <g>
+      <line x1="84" y1="504" x2="1116" y2="504" stroke="rgba(31,32,28,0.12)" stroke-width="1" />
+      <text x="84" y="536" font-family="Avenir Next, &apos;Gill Sans&apos;, &apos;Trebuchet MS&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="15" font-weight="700" letter-spacing="1.8" fill="#7A776F">PENINSULA INSIDER</text>
+      <text x="1116" y="536" text-anchor="end" font-family="Avenir Next, Avenir, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, sans-serif" font-size="14" font-weight="500" letter-spacing="1.1" fill="#7A776F">Editorial comparison</text>
+    </g>
+  <rect x="30" y="30" width="1140" height="568" rx="32" fill="none" stroke="rgba(31,32,28,0.11)" />
 </svg>

@@ -1,7 +1,7 @@
 # Peninsula Insider weekly social pack
 
 **Week of:** 2026-04-20  
-**Status:** Production-ready source system and SVG export set  
+**Status:** Premium editorial source system and SVG export set  
 **Source payload:** `tools/social-assets/examples/peninsula-insider-week-of-2026-04-20.json`  
 **Renderer:** `tools/social-assets/render.js`
 
@@ -11,9 +11,10 @@
 - `exports/ig` Instagram 4:5 feed assets
 - `exports/fb` Facebook adaptations
 - `exports/li` LinkedIn adaptations
-- `manifest.json` asset manifest with paths and metadata
-- `posting-manifest.json` platform/day posting sheet
-- `index.html` visual QA board
+- `publishing/` copy-and-paste platform handoff sheets
+- `manifest.json` asset manifest with metadata
+- `posting-manifest.json` day/platform posting sheet
+- `index.html` premium review board with captions beside creative
 - `source-images/manifest.json` image usage map
 
 ## Production system
@@ -51,7 +52,7 @@ Run from repo root:
 node tools/social-assets/render.js
 ```
 
-Then open `social/week-of-2026-04-20/index.html` for visual review.
+Then open `social/week-of-2026-04-20/index.html` for review, or use `social/week-of-2026-04-20/publishing/` for copy handoff.
 
 ## Known upgrade slots
 
