@@ -6,8 +6,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-19
 heroImage:
-  src: "/images/sourced/stay-vineyard-01.webp"
-  alt: "A polished Mornington Peninsula retreat setting evoking the contrast between Red Hill hinterland and Sorrento coast"
+  src: "/images/sourced/place-sorrento-01.webp"
+  alt: "Sorrento's coastal village setting on the Mornington Peninsula, representing the polished offsite atmosphere discussed in the guide"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "service"

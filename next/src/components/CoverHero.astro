@@ -30,29 +30,24 @@ const hl = seasonalHeadlines[season];
 
 const heroRotation = [
   {
-    src: '/images/sourced/home-cover.webp',
-    position: 'center 40%',
-    label: 'Peninsula coastline at golden hour',
+    src: '/images/sourced/explore-cape-schanck-boardwalk-01.webp',
+    position: 'center center',
+    label: 'Morning light at Cape Schanck on the Mornington Peninsula',
   },
   {
-    src: '/images/sourced/home-cover.webp',
-    position: 'center 40%',
-    label: 'Peninsula coastline at golden hour',
+    src: '/images/sourced/article-vineyard-villa-01.webp',
+    position: 'center center',
+    label: 'Afternoon vineyard atmosphere on the Mornington Peninsula',
   },
   {
-    src: '/images/sourced/home-cover.webp',
-    position: 'center 40%',
-    label: 'Peninsula coastline at golden hour',
-  },
-  {
-    src: '/images/sourced/home-cover.webp',
-    position: 'center 40%',
-    label: 'Peninsula coastline at golden hour',
+    src: '/images/sourced/article-sunset-01.webp',
+    position: 'center center',
+    label: 'Evening Peninsula light at sunset',
   },
 ];
 
 const hour = Astro.url ? new Date().getUTCHours() : 0;
-const heroIndex = Math.floor(hour / 6) % heroRotation.length;
+const heroIndex = hour < 12 ? 0 : hour < 17 ? 1 : 2;
 const activeHero = heroRotation[heroIndex];
 ---
 

@@ -38,7 +38,7 @@ articles/
 
 ### Creating a place hub
 
-Places are the lowest-effort entity to create but the highest leverage  -  a single place file triggers an auto-generated hub page (`/eat-drink/red-hill/`, etc.) that aggregates every venue tagged to that place.
+Places are the lowest-effort entity to create but the highest leverage  -  a single place file triggers an auto-generated hub page (`/places/red-hill/`, etc.) that aggregates every venue tagged to that place.
 
 ## Slug rules
 
