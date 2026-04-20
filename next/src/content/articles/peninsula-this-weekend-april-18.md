@@ -1,6 +1,6 @@
 ---
 title: "Peninsula This Weekend  -  24 to 26 April"
-dek: "An ANZAC dawn service worth the early alarm, a slower autumn long-weekend rhythm, and the kind of Peninsula day that works even if you only commit to one proper outing."
+dek: "ANZAC dawn is the weekend's clearest call. Around it, the Peninsula is offering a reflective long-weekend mix of writers, walks, warm water, and a few better decisions than the obvious crowd-chase."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-24
@@ -12,39 +12,105 @@ heroImage:
 format: "weekend-picker"
 tags: ["weekend-picker", "anzac-day", "whats-on", "service"]
 relatedVenues: []
-readingTimeMinutes: 4
+readingTimeMinutes: 6
 featured: true
 status: "published"
 ---
 
-_Peninsula This Weekend is our Wednesday dispatch: one opinionated pick, one weather-proof backup, and one thing to skip. If it saves you one decision on a Friday night it's doing its job._
+_Peninsula This Weekend is our recurring Friday-useful dispatch: the plan we'd actually make, the backup we'd keep in our pocket, and the bit of weekend thinking we'd happily do for you._
 
-## The pick  -  ANZAC Day dawn in Sorrento
+This week's recommendation is simple. Build the weekend around one meaningful commitment, not four mediocre ones.
 
-If you're on the Peninsula this weekend, the clearest choice is not a lunch booking. It's the dawn service.
+For 24 to 26 April, that means **ANZAC Day dawn in Sorrento** first. Everything else should work around the mood that creates, not fight it.
 
-**[ANZAC Day Dawn Service in Sorrento](/whats-on/anzac-day-sorrento-dawn/)** is one of the Peninsula events where the setting actually matters. The early cold, the half-light, the foreshore atmosphere, and the fact that people show up quietly and properly all add up to something stronger than a generic civic calendar item.
+## The lead
 
-The move: stay nearby if you can, wake properly early, and treat the morning as the whole point rather than something you squeeze in before a second plan. Afterwards, keep the rest of the day soft. Coffee, breakfast, maybe a foreshore walk, maybe nothing ambitious at all.
+### Go to the dawn service in Sorrento
 
-**Worth the early alarm?** Yes. Easily.
+If you do one fixed thing on the Peninsula this weekend, make it **[ANZAC Day Dawn Service in Sorrento](/whats-on/anzac-day-sorrento-dawn/)**.
 
-[Full event guide  -  Sorrento ANZAC Dawn Service →](/whats-on/anzac-day-sorrento-dawn/)
+There are plenty of civic-calendar events that read as dutiful on paper and feel forgettable in practice. This is not one of them. Sorrento at dawn has the right physical seriousness for the occasion: the cold in the air, the subdued foreshore light, the quiet arrival of locals and visitors who are there for the right reason rather than for atmosphere alone.
 
-## The alternative  -  if you want a slower Peninsula day
+The setting does some of the work, but the larger point is rhythm. This is not a box to tick before breakfast. It is the morning's whole purpose. If you are going, commit to it properly, stay nearby if that helps, get up earlier than you want to, and leave the rest of the day deliberately under-programmed.
 
-If the dawn service is not your weekend move, take the opposite approach and make this a long, unhurried Peninsula day.
+That is the best version of ANZAC Day on the Peninsula this year: dawn service, coffee, breakfast, a foreshore walk, then a slower afternoon without any need to force the day into a performance of productivity.
 
-Do **[Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk)** or the **[Cape Schanck Lighthouse Walk](/explore/cape-schanck-lighthouse-walk)** in the morning, keep lunch simple, and let the afternoon drift toward **[Peninsula Hot Springs](/stay/peninsula-hot-springs/)** or a later cellar door stop.
+**Peninsula Insider call:** worth the early alarm, worth building the day around, and stronger than any brunch-first alternative.
 
-This is a very good weekend for that kind of shape. Autumn light is still doing some work, the summer frenzy is gone, and you can get a premium-feeling Peninsula day without forcing too much into it.
+[Read the full event guide  →](/whats-on/anzac-day-sorrento-dawn/)
 
-## Skip this
+## The second booking that actually earns its place
 
-Do not over-schedule the long weekend just because it feels like you should. The Peninsula is stronger right now when it is allowed to breathe a bit. One strong outing and one good meal is enough.
+### Sorrento Writers Festival
+
+If you want a cultural anchor for the rest of the long weekend, **[Sorrento Writers Festival](/whats-on/sorrento-writers-festival-2026/)** is the cleanest answer.
+
+What makes it useful this weekend is not just the programme itself. It gives Sorrento a more substantial shape than the usual long-weekend drift of coffee, browsing, and half-decided plans. The town feels better when there is a reason to stay put for a few hours, and a writers festival is exactly the sort of event that suits late-autumn Peninsula pacing: thoughtful, low-noise, adult without trying too hard.
+
+The mistake would be to attack the programme like a city festival and try to cram in everything. Do the opposite. Pick one or two sessions with people you genuinely want to hear from, then leave room for lunch and air. The Peninsula is almost always better when there is some unclaimed space around the booked component.
+
+This is the recommendation for readers who want the weekend to feel cultivated rather than busy.
+
+## If you want the Peninsula version of a reset day
+
+### Walk first, then soak
+
+The strongest non-programmed day on the board is still the southern pairing: **Cape Schanck in the morning, Peninsula Hot Springs later**.
+
+You can take the lighter route with the **[Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk)**, or something more substantial through the **[Cape Schanck Lighthouse Walk](/explore/cape-schanck-lighthouse-walk)**. Either way, the logic holds. Start with wind, cliffs, and some actual movement, then trade that for heat and stillness in the afternoon.
+
+We have written this up in full in **[Walk Then Hot Springs: The Cape Schanck Day](/journal/walks-cape-schanck-hot-springs-day)** because it is one of the Peninsula's most reliable formulas. It works for couples, visitors, and locals who want the region to feel earned rather than consumed.
+
+A few rules make it better:
+
+- pre-book the springs
+- keep lunch simple rather than turning midday into another project
+- choose either the walk or the soak as the emotional centre of the day, not both
+
+If Sunday needs shape, this is the shape.
+
+## The quiet inclusion that improves the whole weekend
+
+### Sunday Sessions at Peninsula Hot Springs
+
+There are obvious Peninsula recommendations, and then there are the recurring products that regulars end up trusting more.
+
+**[Peninsula Hot Springs Sunday Sessions](/whats-on/peninsula-hot-springs-sunday-sessions/)** falls into the second category. It is not a marquee event in the way the dawn service or writers festival is, but it gives Sunday a clearer identity than a generic springs booking. That matters. The Peninsula is full of places that are pleasant by default; what readers need from us is help spotting the version with better shape.
+
+If the weekend has already been socially heavy, this is the better recovery move than another lunch booking.
+
+## Best family fallback if conditions wobble
+
+### Keep one weather-proof card in hand
+
+If the weather turns, energy drops, or the group becomes less cooperative than the group chat suggested, the practical save is **[Junior Chocolatier at Mornington Peninsula Chocolates](/whats-on/chocolaterie-junior-chocolatier/)**.
+
+This is not the most stylish recommendation in the dispatch, and that is fine. Weekend usefulness matters more than aesthetic purity. A long weekend often goes wrong not because there were no good options, but because there was no resilient option once the original plan frayed.
+
+Pair it with one decent lunch and a short village or foreshore stop, and the day still feels intentional instead of salvaged.
+
+## What we would skip
+
+Do not confuse a long weekend with a requirement to maximise every daylight hour.
+
+This is exactly the sort of Peninsula weekend that gets worse when over-produced. Too many bookings, too much driving between villages, too many attempts to turn reflection into content will flatten the mood fast. The region is giving you a better cue than that. Take one serious anchor, one secondary move at most, and leave the rest breathable.
+
+That is especially true this week. ANZAC Day should not be crowded out by an itinerary that behaves as if the point is to collect stops.
+
+## The three best weekend shapes
+
+If you want the short version, these are the combinations we would actually recommend:
+
+- **ANZAC dawn service + soft Sorrento day**
+- **Writers festival session + long lunch + foreshore walk**
+- **Cape Schanck morning + Hot Springs afternoon**
+
+And if you need insurance, keep the family fallback ready without pretending it was always the plan.
 
 ## Peninsula Insider verdict
 
-This is a reflective Peninsula weekend, not a frantic one.
+The Peninsula is at its best this weekend when you let it be thoughtful.
 
-If you're here, either commit to the dawn service and let that set the tone, or build a slower walk-and-recovery day around the southern end of the Peninsula. Both are better than trying to turn the weekend into a checklist.
+The flagship move is obvious: dawn in Sorrento. After that, the right decision is not to keep adding more, but to choose the one second act that suits the kind of weekend you actually want, literary, restorative, or low-friction and practical.
+
+That is enough for a very good April weekend on the Peninsula.
