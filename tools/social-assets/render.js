@@ -262,25 +262,30 @@ function photoCard(day, asset, dims, context, opts = {}) {
 
   if (opts.portraitMode === 'immersive-cover') {
     const safe = 68;
-    const title = measureText({ text: asset.title, width: 760, startSize: 104, minSize: 64, maxLines: 3, lineHeightFactor: 0.98 });
-    const deck = measureText({ text: asset.deck, width: 620, startSize: 31, minSize: 22, maxLines: 4, lineHeightFactor: 1.34 });
-    const image = imageBlock({ id, href, x: 0, y: 0, width: dims.width, height: dims.height, radius: 0, imagePosition: asset.imagePosition, overlay: opts.overlay ?? 'bottom' });
+    const leftColX = 182;
+    const titleWidth = 324;
+    const deckWidth = 148;
+    const kickerY = 784;
+    const title = measureText({ text: asset.title, width: titleWidth, startSize: 84, minSize: 58, maxLines: 3, lineHeightFactor: 0.94 });
+    const deck = measureText({ text: asset.deck, width: deckWidth, startSize: 19, minSize: 15, maxLines: 4, lineHeightFactor: 1.34 });
+    const image = imageBlock({ id, href, x: 0, y: 0, width: dims.width, height: dims.height, radius: 0, imagePosition: asset.imagePosition, overlay: 'none' });
     const labelY = 118;
-    const kickY = dims.height - 330 - title.height - deck.height;
-    const titleY = kickY + 74;
-    const deckY = titleY + title.height + 24;
+    const titleY = kickerY + 104;
+    const deckY = titleY + 24;
+    const deckX = 806;
     return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${dims.width}" height="${dims.height}" viewBox="0 0 ${dims.width} ${dims.height}">
   ${defs(id, image.defs)}
   ${image.markup}
-  <rect width="${dims.width}" height="${dims.height}" fill="rgba(20,18,16,0.14)" />
-  <line x1="${safe}" y1="82" x2="${dims.width - safe}" y2="82" stroke="rgba(255,251,248,0.36)" stroke-width="1" />
+  <rect width="${dims.width}" height="${dims.height}" fill="rgba(28,24,22,0.16)" />
+  <rect x="0" y="700" width="${dims.width}" height="650" fill="rgba(28,24,22,0.12)" />
+  <line x1="${safe}" y1="82" x2="${dims.width - safe}" y2="82" stroke="rgba(255,251,248,0.32)" stroke-width="1" />
   <text x="${safe}" y="${labelY}" font-family="${escapeXml(brand.fonts.utility || brand.fonts.body)}" font-size="12" font-weight="600" letter-spacing="2.8" fill="rgba(253,251,248,0.82)">${escapeXml(brand.name.toUpperCase())}</text>
   <text x="${dims.width - safe}" y="${labelY}" text-anchor="end" font-family="${escapeXml(brand.fonts.utility || brand.fonts.body)}" font-size="12" font-weight="500" letter-spacing="2.2" fill="rgba(253,251,248,0.74)">${escapeXml(rightMeta.toUpperCase())}</text>
-  <rect x="${safe}" y="${kickY - 10}" width="58" height="3" rx="1.5" fill="${accent}" />
-  <text x="${safe}" y="${kickY + 18}" font-family="${escapeXml(brand.fonts.utility || brand.fonts.body)}" font-size="13" font-weight="600" letter-spacing="2.3" fill="rgba(253,251,248,0.90)">${escapeXml(String(asset.kicker ?? '').toUpperCase())}</text>
-  ${renderMeasuredText({ x: safe, y: titleY, fontFamily: brand.fonts.display, fill: brand.colors.white, weight: 700, measure: title })}
-  ${renderMeasuredText({ x: safe, y: deckY, fontFamily: brand.fonts.body, fill: 'rgba(253,251,248,0.86)', weight: 400, measure: deck })}
+  <rect x="${leftColX}" y="${kickerY - 12}" width="58" height="3" rx="1.5" fill="${accent}" />
+  <text x="${leftColX}" y="${kickerY + 16}" font-family="${escapeXml(brand.fonts.utility || brand.fonts.body)}" font-size="13" font-weight="600" letter-spacing="2.3" fill="rgba(253,251,248,0.90)">${escapeXml(String(asset.kicker ?? '').toUpperCase())}</text>
+  ${renderMeasuredText({ x: leftColX, y: titleY, fontFamily: brand.fonts.display, fill: brand.colors.white, weight: 700, measure: title })}
+  ${renderMeasuredText({ x: deckX, y: deckY, fontFamily: brand.fonts.body, fill: 'rgba(253,251,248,0.88)', weight: 400, measure: deck })}
 </svg>`;
   }
 
