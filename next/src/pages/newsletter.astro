@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHero from '../components/SectionHero.astro';
+import CoverHero from '../components/CoverHero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import SubscribeForm from '../components/SubscribeForm.astro';
@@ -27,14 +27,17 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
 >
   <Breadcrumbs items={breadcrumbItems} />
 
-  <SectionHero
-    eyebrow="Newsletter"
-    subEyebrow="The Insider's Dispatch"
-    title="The Peninsula in your inbox, every <em>week.</em>"
+  <CoverHero
+    eyebrowIssue="Newsletter"
+    eyebrowSecondary="The Insider's Dispatch"
+    headlineLine1="The Peninsula"
+    headlineLine2="in your inbox,"
+    headlineEm="every week."
+    headlineEmPrefix=""
     dek="New openings, cellar door dispatches, and the places we're quietly recommending this season. Written by editors who live here — never by advertisers."
-    gradient="journal"
-    heroImage="/images/sourced/article-sunset-01.webp"
-    visualLabel="Weekly · independent · subscriber-only picks"
+    ctaPrimary={{ label: 'Subscribe free', href: '#newsletter-bottom' }}
+    ctaSecondary={{ label: 'See recent pieces', href: '#recent-pieces' }}
+    journalLink={{ label: 'Or start reading the Journal →', href: '/journal' }}
   />
 
   <!-- Subscribe block -->
@@ -95,7 +98,7 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
 
   <!-- Recent pieces -->
   {previewPieces.length > 0 && (
-    <section class="venues venues--plain">
+    <section class="venues venues--plain" id="recent-pieces">
       <div class="container">
         <div class="venues__header">
           <div>

@@ -3,6 +3,13 @@
 Generated 11 April 2026. Each image has been sourced from Wikimedia Commons
 with verified provenance and geo-location.
 
+## article-hatted-restaurants-01.webp
+- **Source:** Chefs prepare food in a dimly lit restaurant
+- **Photographer:** Willian Justen de Vasconcellos
+- **Licence:** Unsplash License (free for commercial use, attribution appreciated)
+- **Original:** https://unsplash.com/photos/chefs-prepare-food-in-a-dimly-lit-restaurant-jSGAUxrhtpA
+- **Used for:** Hero image on `/journal/hatted-restaurants-mornington-peninsula-2025/` — editorial illustration of open-kitchen fine-dining service; not a specific Peninsula venue.
+
 ## home-cover.webp
 - **Source:** Bushrangers Bay, Mornington Peninsula National Park Victoria Australia
 - **Photographer:** Wikimedia Commons contributor

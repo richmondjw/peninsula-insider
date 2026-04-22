@@ -1,15 +1,42 @@
 ---
 /**
- * CoverHero — homepage-only opening cover module.
- * Full-bleed immersive cover. Seasonal rotation of headline + dek.
+ * CoverHero — full-bleed immersive cover module.
+ * Homepage passes issueDate to get seasonal copy; other pages pass props to override.
  */
 import { currentSeason } from '../lib/editorial';
 
 export interface Props {
-  issueDate: string;
+  issueDate?: string;
+  eyebrowIssue?: string;
+  eyebrowSecondary?: string;
+  headlineLine1?: string;
+  headlineLine2?: string;
+  headlineEm?: string;
+  headlineEmPrefix?: string;
+  dek?: string;
+  ctaPrimary?: { label: string; href: string };
+  ctaSecondary?: { label: string; href: string };
+  journalLink?: { label: string; href: string } | null;
+  showScrollHint?: boolean;
+  bgImage?: string;
 }
 
-const { issueDate } = Astro.props;
+const {
+  issueDate,
+  eyebrowIssue,
+  eyebrowSecondary = 'The Mornington Peninsula',
+  headlineLine1,
+  headlineLine2,
+  headlineEm,
+  headlineEmPrefix = 'and ',
+  dek,
+  ctaPrimary = { label: 'Start with the restaurants', href: '/eat' },
+  ctaSecondary = { label: 'Get the weekly dispatch', href: '#newsletter' },
+  journalLink = { label: 'Or start reading the Journal →', href: '/journal' },
+  showScrollHint = true,
+  bgImage,
+} = Astro.props;
+
 const season = currentSeason();
 
 const seasonalHeadlines: Record<string, { line1: string; line2: string; em: string }> = {
@@ -26,56 +53,71 @@ const seasonalDeks: Record<string, string> = {
   spring: 'New vintage releases, wildflower walks, menus rewritten for the season, and the most generous midweek bookings of the year.',
 };
 
-const hl = seasonalHeadlines[season];
+const sh = seasonalHeadlines[season];
+const hl = {
+  line1: headlineLine1 ?? sh.line1,
+  line2: headlineLine2 ?? sh.line2,
+  em: headlineEm ?? sh.em,
+};
+const dekResolved = dek ?? seasonalDeks[season];
+const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` : null);
 
 // Images and time boundaries are set client-side so rotation works for every
 // visitor regardless of when the static build ran. See <script is:inline> below.
 ---
 
 <section class="hero-v2" aria-label="Cover">
-  <div class="hero-v2__bg" id="hero-bg"></div>
-  <script is:inline>
-    (function () {
-      var images = [
-        { src: '/images/sourced/explore-cape-schanck-boardwalk-01.webp', pos: 'center center' },
-        { src: '/images/sourced/article-vineyard-villa-01.webp',         pos: 'center center' },
-        { src: '/images/sourced/explore-mornington-foreshore-01.webp',   pos: 'center center' },
-        { src: '/images/sourced/article-sunset-01.webp',                 pos: 'center center' },
-        { src: '/images/sourced/article-long-lunch-01.webp',             pos: 'center center' },
-      ];
-      var h = new Date().getUTCHours();
-      var i = h < 5 ? 0 : h < 10 ? 1 : h < 15 ? 2 : h < 20 ? 3 : 4;
-      var bg = document.getElementById('hero-bg');
-      if (bg) {
-        bg.style.backgroundImage = 'url(' + images[i].src + ')';
-        bg.style.backgroundPosition = images[i].pos;
-      }
-    })();
-  </script>
+  <div class="hero-v2__bg" id="hero-bg" style={bgImage ? `background-image: url(${bgImage})` : ''}></div>
+  {!bgImage && (
+    <script is:inline>
+      (function () {
+        var images = [
+          { src: '/images/sourced/explore-cape-schanck-boardwalk-01.webp', pos: 'center center' },
+          { src: '/images/sourced/article-vineyard-villa-01.webp',         pos: 'center center' },
+          { src: '/images/sourced/explore-mornington-foreshore-01.webp',   pos: 'center center' },
+          { src: '/images/sourced/article-sunset-01.webp',                 pos: 'center center' },
+          { src: '/images/sourced/article-long-lunch-01.webp',             pos: 'center center' },
+        ];
+        var h = new Date().getUTCHours();
+        var i = h < 5 ? 0 : h < 10 ? 1 : h < 15 ? 2 : h < 20 ? 3 : 4;
+        var bg = document.getElementById('hero-bg');
+        if (bg) {
+          bg.style.backgroundImage = 'url(' + images[i].src + ')';
+          bg.style.backgroundPosition = images[i].pos;
+        }
+      })();
+    </script>
+  )}
   <div class="hero-v2__scrim"></div>
   <div class="hero-v2__grain"></div>
   <div class="hero-v2__content">
     <div class="hero-v2__eyebrow">
-      <span class="hero-v2__eyebrow-label hero-v2__eyebrow-label--issue">{issueDate} Issue</span>
-      <span class="hero-v2__eyebrow-rule" aria-hidden="true"></span>
-      <span class="hero-v2__eyebrow-label">The Mornington Peninsula</span>
+      {eyebrowIssueResolved && (
+        <>
+          <span class="hero-v2__eyebrow-label hero-v2__eyebrow-label--issue">{eyebrowIssueResolved}</span>
+          <span class="hero-v2__eyebrow-rule" aria-hidden="true"></span>
+        </>
+      )}
+      <span class="hero-v2__eyebrow-label">{eyebrowSecondary}</span>
     </div>
     <h1 class="hero-v2__headline">
       {hl.line1}<br />
       {hl.line2}<br />
-      and <em>{hl.em}</em>
+      {hl.em && <>{headlineEmPrefix}<em>{hl.em}</em></>}
     </h1>
-    <p class="hero-v2__dek">{seasonalDeks[season]}</p>
+    <p class="hero-v2__dek">{dekResolved}</p>
     <div class="hero-v2__ctas">
-      <a href="/eat" class="hero-v2__cta-primary">Start with the restaurants</a>
-      <a href="#newsletter" class="hero-v2__cta-secondary">Get the weekly dispatch</a>
+      <a href={ctaPrimary.href} class="hero-v2__cta-primary">{ctaPrimary.label}</a>
+      <a href={ctaSecondary.href} class="hero-v2__cta-secondary">{ctaSecondary.label}</a>
     </div>
-    <p class="hero-v2__journal-link"><a href="/journal">Or start reading the Journal →</a></p>
+    {journalLink && <p class="hero-v2__journal-link"><a href={journalLink.href}>{journalLink.label}</a></p>}
   </div>
-  <div class="hero-v2__scroll-hint" aria-hidden="true">
-    <span class="hero-v2__scroll-label">Scroll</span>
-    <div class="hero-v2__scroll-line"></div>
-  </div>
+  {showScrollHint && (
+    <div class="hero-v2__scroll-hint" aria-hidden="true">
+      <span class="hero-v2__scroll-label">Scroll</span>
+      <div class="hero-v2__scroll-line"></div>
+    </div>
+  )}
 </section>
 
 <style>
