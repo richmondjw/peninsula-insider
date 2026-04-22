@@ -15,6 +15,21 @@ relatedVenues: ["kooyong", "dexter-wines", "ocean-eight", "polperro", "quealy-wi
 readingTimeMinutes: 6
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Mornington Peninsula Winery Guide"
+    href: "/journal/mornington-peninsula-winery-guide/"
+  - label: "Dog-Friendly Wineries on the Mornington Peninsula"
+    href: "/journal/dog-friendly-wineries-mornington-peninsula/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "Which Peninsula cellar doors are best for serious wine enthusiasts?"
+    answer: "Kooyong for the region's benchmark single-vineyard pinot flights. Dexter Wines for an appointment-only session with a quietly structured range built for cellaring. Ocean Eight for ageable small-producer pinots. Polperro for a generous tasting with vineyard views. Quealy Winemakers for Italian varieties and a different take on the Peninsula."
+  - question: "Do Peninsula cellar doors require bookings?"
+    answer: "Most of the better smaller cellar doors prefer or require bookings. Dexter Wines is appointment-only (book a week ahead minimum). Kooyong and Polperro accept walk-ins but can be busy on weekends. Midweek walk-in availability is more reliable."
+  - question: "How many cellar doors should you visit in one day?"
+    answer: "Three is the maximum for a useful tasting experience. After three, the palate degrades and the wines blur together. Two is often better — one in the morning, one pre-lunch, then a long lunch. Three cellar doors in a day is wine country; eight is a different kind of trip."
 ---
 
 Every time someone asks us for a Peninsula cellar door list we have the same quiet argument with ourselves: the big, beautiful estates with lawns and restaurants are not the best places to taste wine. They are excellent places to spend a long lunch. But the experience of understanding what the Peninsula actually grows  -  the structural pinot noir, the tight chardonnay, the lesser-known Italian varieties  -  tends to happen in smaller rooms, at smaller tables, with the people who actually made the wine doing the pouring.

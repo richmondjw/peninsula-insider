@@ -16,6 +16,21 @@ relatedExperiences: ["arthurs-seat-lookout", "sorrento-back-beach", "portsea-fro
 readingTimeMinutes: 6
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Couples' Weekend on the Mornington Peninsula"
+    href: "/journal/the-couples-weekend/"
+  - label: "The Sorrento Weekend"
+    href: "/journal/the-sorrento-weekend/"
+  - label: "The Peninsula's Best Late-Afternoon Walks"
+    href: "/journal/the-peninsulas-best-late-afternoon-walks/"
+faq:
+  - question: "Where is the best place to watch the sunset on the Mornington Peninsula?"
+    answer: "Hotel Sorrento rooftop — west-facing over the bay, best light on the Peninsula, book in summer or walk in autumn. Mount Martha bathing boxes for the classic bay shot. Safety Beach foreshore for a quiet local alternative. Cape Schanck boardwalk for the ocean afterglow version — bigger, wilder, faces south-west."
+  - question: "What is the best sunset walk on the Mornington Peninsula?"
+    answer: "Sorrento Back Beach at dusk — sandstone cliffs catch the last indirect light, the beach empties by 5pm in autumn, and a 30-minute walk south is one of the Peninsula's most underrated experiences. Mornington Foreshore for a flat, accessible alternative facing directly west across the bay. Both are free, require no booking, and work best in autumn when the light is warmest."
+  - question: "Where can I have a sunset drink on the Mornington Peninsula?"
+    answer: "Hotel Sorrento rooftop for the social version — arrive 30 minutes before sunset. The Baths Sorrento for a quieter waterfront option, better for couples than groups. Pt Leo Wine Terrace for serious wine and views across Western Port Bay to Phillip Island. Polperro cellar door on evenings they are open — the most intimate option, with vineyard views that catch the last light beautifully."
 ---
 
 The Peninsula's evenings are wasted by almost everyone who visits.

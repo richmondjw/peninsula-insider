@@ -16,6 +16,21 @@ relatedExperiences: ["red-hill-hinterland-cycling", "balnarring-beach", "morning
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+    href: "/journal/the-peninsula-pantry/"
+  - label: "The Peninsula Picnic — How to Assemble One Properly"
+    href: "/journal/the-peninsula-picnic/"
+  - label: "The Market Saturday — Two Weekends Built Around the Markets"
+    href: "/journal/the-market-saturday/"
+faq:
+  - question: "What is the Peninsula producer trail?"
+    answer: "A day built around four farm-gate and artisan producer visits in a single driving loop — cheese dairies, strawberry farms, mussel farmers, olive groves, bakeries — rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Hastings, Somers, and Balnarring (mussels, organic vegetables, bakehouse, cider). Each stop is 15–30 minutes."
+  - question: "Which Peninsula producers are open on weekends?"
+    answer: "Main Ridge Dairy and Red Hill Cheese (Thursday–Sunday). Sunny Ridge Strawberry Farm (October–April, daily). Advance Mussel Supply in Hastings (weekends). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (guided experiences June–August by booking). Saturday is the strongest day for the full producer trail — most are open and at full stock."
+  - question: "What should I bring for a Peninsula producer trail day?"
+    answer: "A hard-sided cooler bag with two large ice bricks for cheese and seafood. Paper bags for bread. Cash — the smallest producers occasionally do not run card readers on quiet days. A small notebook to track which cheese came from which dairy. And restraint — the producer trail works best with four stops and one light lunch, not six stops and a winery tasting. Bring the bag; let the producers fill it."
 ---
 
 The Peninsula's most photographed layer is the dining-room layer  -  the long lunches, the cellar-door tasting menus, the architect-designed terraces. The Peninsula's most interesting layer is one step behind it.

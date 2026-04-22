@@ -16,6 +16,21 @@ relatedExperiences: ["mornington-foreshore-walk"]
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula Pub Guide"
+    href: "/journal/the-pub-guide/"
+  - label: "The Peninsula Pub Crawl"
+    href: "/journal/the-pub-crawl/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "Which Peninsula restaurants take walk-ins without a booking?"
+    answer: "The pub network is the most reliable: Flinders Hotel (best for a walk-in lunch), Dromana Hotel (most reliably available), Rye Hotel, Balnarring Pub, and Merricks Hotel for lunch. Breweries: Red Hill Brewery, St Andrews Beach Brewery, and Jetty Road Brewery all take walk-ins. Bakeries and cafés including Flinders Sourdough, Commonfolk Coffee, and Red Hill Bakery are counter service only, no booking required."
+  - question: "What are the best walk-in towns on the Mornington Peninsula?"
+    answer: "Flinders — hotel, sourdough bakery, general store, pier takeaway, and pier walk, all walk-in. Mornington — Commonfolk, the hotel pub, dumplings, the foreshore, and the gallery. Red Hill — the bakery, Johnny Ripe, Red Hill Brewery, and Red Gum BBQ. Any of these three supports a full day without a reservation."
+  - question: "Can you eat well on the Mornington Peninsula without booking ahead?"
+    answer: "Yes — but you need to use the right circuit. The booked restaurants (hatted rooms, winery dining) are a separate system from the walk-in circuit (pubs, bakeries, breweries, fast-casual). A walk-in Peninsula day is not a compromise version; it is a different version that is cheaper, more spontaneous, and occasionally more memorable than the booked alternative."
 ---
 
 The Peninsula has a booking problem, and most visitors discover it at the wrong moment.

@@ -16,6 +16,21 @@ relatedExperiences: ["mornington-foreshore-walk", "sorrento-back-beach", "portse
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula Pub Guide"
+    href: "/journal/the-pub-guide/"
+  - label: "The Friday Night Arrival"
+    href: "/journal/the-friday-night-arrival/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "Which Mornington Peninsula pub crawl route is best?"
+    answer: "The hinterland circuit for people who care about what they are drinking — Merricks Hotel for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range, Balnarring Pub to finish. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."
+  - question: "What is the best pub on the Mornington Peninsula?"
+    answer: "Flinders Hotel — the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. Merricks Hotel is the most authentic (crossroads pub, winemaker crowd, honest steak sandwich). Balnarring Pub for the quiet side with a garden and genuine local atmosphere."
+  - question: "Can you do a pub crawl on the Mornington Peninsula without a car?"
+    answer: "Only on the Sorrento strip — three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require driving, which means a designated driver or limiting yourself to one to two drinks per stop and spacing them across the day. The Peninsula's roads are narrow and winding. Plan the logistics before you start."
 ---
 
 The Mornington Peninsula has a wine reputation, and it deserves it. But underneath the cellar doors and the vineyard restaurants and the pinot noir tastings, the region runs on pubs.

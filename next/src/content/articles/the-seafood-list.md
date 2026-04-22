@@ -34,6 +34,21 @@ relatedExperiences:
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+    href: "/journal/the-peninsula-pantry/"
+  - label: "The Long Lunch — The Peninsula's Best Format"
+    href: "/journal/the-long-lunch/"
+  - label: "A Flinders Weekend — The Quiet Side of the Peninsula"
+    href: "/journal/a-flinders-weekend/"
+faq:
+  - question: "Where do I buy fresh seafood on the Mornington Peninsula?"
+    answer: "Hastings Fishermen's Co-op for whatever came off the boats that morning — flathead, snapper, calamari, sometimes crayfish. Advance Mussel Supply in Hastings for live mussels by the kilo from the farm in Western Port Bay. Both are dock-side operations selling to locals and commercial kitchens, not tourist fish-and-chip shops."
+  - question: "Where is the best fish and chips on the Mornington Peninsula?"
+    answer: "Flinders Pier Takeaway — fresh fish, hot chips, seats outside on the pier, boats below you, Bass Strait behind. Hastings Fishermen's Co-op also has an excellent beer-battered flathead counter. Both are legitimately fresh because the supply chain is measured in minutes rather than days."
+  - question: "What seafood is in season on the Mornington Peninsula?"
+    answer: "Summer: snapper, calamari, King George whiting, excellent oysters. Autumn: flathead, outstanding mussels, crayfish begins. Winter: mussel peak — cold water produces sweeter, meatier product; flathead reliable; restaurant menus lean into chowder and bouillabaisse. Spring: broad variety, garfish, calamari returns, oysters begin their summer run."
 ---
 
 The Mornington Peninsula's food identity is pinot and long lunches, and that identity is accurate but incomplete. The Peninsula is a literal peninsula  -  water on three sides, commercial fishing out of Hastings, Mornington, and Flinders, mussel farms in Western Port Bay, oyster beds in the channel. The seafood exists at a level that most visitors never encounter because they are driving past the docks on the way to a cellar door.

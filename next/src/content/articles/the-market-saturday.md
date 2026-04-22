@@ -16,6 +16,21 @@ relatedExperiences: ["red-hill-market", "mornington-foreshore-walk", "balnarring
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+    href: "/journal/the-peninsula-pantry/"
+  - label: "How to Build a Red Hill Saturday"
+    href: "/journal/how-to-build-a-red-hill-saturday/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "When do the Mornington Peninsula markets run?"
+    answer: "Mornington Farmers Market — second Saturday of each month, Mornington Racecourse, 8am–1pm. Red Hill Community Market — first Saturday September to May, Red Hill Community Centre on Arthurs Seat Road, 8am–1pm. Balnarring Emu Plains Market — third Saturday September to April, Balnarring Racecourse, 9am–2pm. Somers Makers Market — first Sunday of alternate months, Somers village precinct."
+  - question: "What is the best Peninsula market for food and produce?"
+    answer: "Mornington Farmers Market (second Saturday) for serious food — accredited producers, restaurant-quality protein, mussels, oysters, sourdough, eggs, cheese. Red Hill Community Market (first Saturday) is larger and more atmospheric but tips toward crafts and bric-a-brac alongside producers. If the trip is a food-shopping run, go Mornington; if the goal is a market experience, Red Hill."
+  - question: "What time should I arrive at the Red Hill Community Market?"
+    answer: "7:45am — before the crowds arrive. By 9am the market is full; by 10am the car parks are closed. The early arrival gives you the best light, the best produce, and the experience of the market before it becomes a tourist event. Arriving at 10am is not the same visit."
 ---
 
 There is a quiet rule on the Peninsula that nobody prints on a brochure: if you are already on the ridge on a market Saturday and you have not built the weekend around the market, you have built the weekend wrong.

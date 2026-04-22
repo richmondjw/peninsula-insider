@@ -30,6 +30,21 @@ relatedVenues:
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+    href: "/journal/the-peninsula-pantry/"
+  - label: "The Market Saturday — Two Weekends Built Around the Markets"
+    href: "/journal/the-market-saturday/"
+  - label: "The Four-Hour Peninsula — Compact Day Guide"
+    href: "/journal/the-four-hour-peninsula/"
+faq:
+  - question: "Where do locals eat breakfast on the Mornington Peninsula?"
+    answer: "Commonfolk Coffee in Mornington for serious filter coffee (no smashed avo, no queues after nine). Flinders Sourdough on Cook Street for wood-fired croissants and country loaf — arrive before 9am before the pastries go. The Continental Sorrento for the most complete sit-down hotel breakfast on the Peninsula."
+  - question: "What time should I arrive at Peninsula cafes to avoid crowds?"
+    answer: "Before nine, ideally by 7:30–8:00. At 8am you are in a working cafe serving locals. At 10:30am you are in a queue behind a family from South Yarra. Almost every good Peninsula breakfast spot is transformed by the early arrival — this applies to Flinders Sourdough especially, where the best pastries sell out by 10am."
+  - question: "Is Flinders Sourdough worth the drive?"
+    answer: "Yes — especially for anyone staying on the southern Peninsula. The wood-fired oven runs Thursday to Sunday and produces some of the most serious croissants south of the city. Arrive by 8:15am when the pastries are still hot. It is also the correct start to the peninsula pantry shopping circuit — Flinders first, then inland toward Red Hill."
 ---
 
 The Mornington Peninsula, correctly operated, is a morning region. The light at 7:30am on the bay side is better than the light at midday. The cellar doors do not open until eleven. The hatted restaurants are still finishing their mise. And the cafes  -  if you know which ones, and crucially when to arrive  -  are doing the quiet, specific thing that big-city weekend brunch crowds have almost entirely forgotten: serving an actual breakfast, to an actual local clientele, before the tourists come through the door.

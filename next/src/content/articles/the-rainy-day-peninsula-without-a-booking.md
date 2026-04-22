@@ -16,6 +16,21 @@ relatedExperiences: ["mornington-peninsula-gallery", "cape-schanck-boardwalk", "
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Rainy Day Peninsula — Where to Go When the Weather Turns"
+    href: "/journal/rainy-day-peninsula/"
+  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+    href: "/journal/best-spas-mornington-peninsula/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "What can I do on the Mornington Peninsula on a rainy day without a booking?"
+    answer: "Bayside route: Commonfolk Coffee at 9am, then Mornington Peninsula Regional Gallery (free entry, 45 minutes), then a ridge drive to Red Hill for lunch at Merricks General Wine Store or Red Hill Brewery. Southern route: Flinders Sourdough at 9:30am, Cape Schanck Boardwalk in moderate conditions, then Flinders Hotel for a pub lunch by the fire."
+  - question: "What is the best rainy day lunch on the Mornington Peninsula without a booking?"
+    answer: "Merricks General Wine Store — the old-storefront room handles a wet afternoon well, the wood-oven pizza is the right food, and walk-ins are usually possible. Red Hill Brewery for a looser option with tasting paddles and covered outdoor seating. Flinders Hotel on the southern side — large dining room, fire, and the most walk-in friendly room for a wet family Saturday."
+  - question: "Is Cape Schanck worth visiting in bad weather?"
+    answer: "In moderate rain or low cloud with manageable wind, yes — the basalt darkens, the water turns steel-grey, and the lighthouse looks its best in weather. In severe wind, skip it entirely (the boardwalk is exposed and can be dangerous). On a grey, drizzly day with moderate conditions, the upper section and first lookout deliver a dramatic ten minutes without committing to the full walk."
 ---
 
 The Peninsula in bad weather separates locals from optimists.

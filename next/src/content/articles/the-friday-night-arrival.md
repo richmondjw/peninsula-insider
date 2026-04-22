@@ -36,6 +36,21 @@ relatedExperiences: []
 readingTimeMinutes: 6
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+  - label: "A Flinders Weekend — The Quiet Side of the Peninsula"
+    href: "/journal/a-flinders-weekend/"
+  - label: "The Couples' Weekend on the Mornington Peninsula"
+    href: "/journal/the-couples-weekend/"
+faq:
+  - question: "What should I do on Friday night when arriving on the Mornington Peninsula?"
+    answer: "Three options depending on energy and planning: the pub (no booking needed — Merricks Hotel for hinterland stays, Flinders Hotel for the south, Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route — eat on the deck); or a booked dinner at Tedesca Osteria, Rare Hare, or similar if arranged a week ahead. The pub is the most reliable no-planning option."
+  - question: "Which Peninsula pubs are best for Friday night dinner on arrival?"
+    answer: "Merricks Hotel for Red Hill hinterland stays (beer garden, good pub menu). Flinders Hotel for southern Peninsula stays (a step above standard pub fare, walk-ins usually fine). Hotel Sorrento front bar for Sorrento — order from the bar menu, not the bistro. Balnarring Pub for that corridor — call ahead as the kitchen is small."
+  - question: "Can I do a provisions stop instead of eating out on Friday night on the Peninsula?"
+    answer: "Yes — and it is often the better option. Stop at Epicurean Red Hill or the Red Hill Bakery strip for bread, cheese, and a roast chicken, then Merricks General Wine Store for wine. Alternatively, the Flinders General Store carries a curated range of exactly this combination. The deck dinner — bread, cheese, cold chicken, wine — is one of the best meals the Peninsula offers."
 ---
 
 The Peninsula weekend does not start at the cellar door on Saturday morning. It starts at six o'clock on Friday evening when you pull into the driveway of wherever you are staying and realise that you are hungry, the sun is going down, and the weekend has technically begun but you have not yet done anything with it.

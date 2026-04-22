@@ -15,6 +15,21 @@ relatedVenues: ["jackalope", "lindenderry", "the-continental-sorrento", "hotel-s
 readingTimeMinutes: 6
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "The Vineyard Villa Weekend"
+    href: "/journal/the-vineyard-villa-weekend/"
+  - label: "The Couples' Weekend on the Mornington Peninsula"
+    href: "/journal/the-couples-weekend/"
+faq:
+  - question: "Where is the best place to stay on the Mornington Peninsula for a two-night escape?"
+    answer: "Depends on the trip. For food and wine: Jackalope (design hotel, theatrical) or Lindenderry (country house, softer, often the better choice). For coast and town life: The Continental Sorrento (walkable main street, ferry nearby) or Hotel Sorrento (looser, older, good front rooms with bay views). For quiet: Flinders Hotel — clean, comfortable, village base at the ocean end of the Peninsula."
+  - question: "What is the difference between Jackalope and Lindenderry?"
+    answer: "Jackalope is theatrical — black steel architecture, designed for guests who want the stay to feel like an event. Lindenderry is softer, more like a proper country house with gardens and genuine quiet. Both are on the Red Hill hinterland and within reach of the same restaurants and cellar doors. Jackalope if the aesthetics are part of the point; Lindenderry if the rest is."
+  - question: "Should I stay in Sorrento or Red Hill for a Peninsula weekend?"
+    answer: "Red Hill if the weekend is primarily about food and wine — you are within 15 minutes of the best restaurants and cellar doors. Sorrento if the weekend is about the coast, the village, and the ferry — the accommodation is closer to the ocean beaches and the energy is more social. Flinders if you want both coast and quiet, and are happy to drive 20 minutes for serious dining."
 ---
 
 There are two ways to get the Mornington Peninsula wrong.

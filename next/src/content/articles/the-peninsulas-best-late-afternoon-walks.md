@@ -15,6 +15,21 @@ relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "sorrento
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Bushrangers Bay Walk"
+    href: "/journal/walks-bushrangers-bay-walk-guide/"
+  - label: "Cape Schanck Guide"
+    href: "/journal/cape-schanck-guide/"
+  - label: "The Point Nepean Half-Day"
+    href: "/journal/the-point-nepean-half-day/"
+faq:
+  - question: "What is the best late-afternoon walk on the Mornington Peninsula?"
+    answer: "Bushrangers Bay Walk for a full reset — enough descent and coastline to feel like an event, best in autumn or winter when the light is slanting. Cape Schanck Boardwalk when time is short — basalt, lighthouse, crashing water in forty minutes. Sorrento Back Beach for mood rather than route — the surf side catches dusk better than the bay, and it works as a pre-dinner ritual."
+  - question: "How long does the Bushrangers Bay Walk take?"
+    answer: "Allow 90 minutes return at an unhurried pace. The walk descends through coastal scrub to a secluded bay, with a return climb that gives the outing a proper shape. Best in cooler months — autumn through spring — when the light is low and the air has some bite. Check conditions before attempting in strong wind or after heavy rain."
+  - question: "Is Cape Schanck worth visiting for a short walk?"
+    answer: "Yes — it has the best reward-to-effort ratio on the Peninsula. The boardwalk to the lighthouse and the basalt cliff edge takes about 40 minutes return and delivers dramatic ocean views without requiring a long warm-up. The right choice for first-timers, anyone who has already spent energy on a long lunch, or a late afternoon when you want something memorable without a full hike."
 ---
 
 There is a precise hour on the Mornington Peninsula when the region starts making its strongest argument for being more than a lunch destination. The winery terraces empty a little, the wind drops or turns interesting, and the coast begins doing the thing the inland roads only promise. If you are still here at four-thirty, you should not be driving straight back to Melbourne.

@@ -16,6 +16,21 @@ relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-b
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula with Kids — Family Day Guide"
+    href: "/journal/the-peninsula-with-kids/"
+  - label: "The Four-Hour Peninsula — Compact Day Guide"
+    href: "/journal/the-four-hour-peninsula/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "What are the best activities for children on the Mornington Peninsula during school holidays?"
+    answer: "Arthurs Seat Eagle gondola (book online during school holidays — walk-up queues can reach 45 minutes). Ashcombe Maze for 90 minutes of hedge maze and lavender garden. Point Nepean Fort Walk for children over eight — military tunnels and ocean views on both sides. Sunny Ridge Strawberry Farm for fruit picking in season. All four are morning activities; pair with a pub lunch and something low-key in the afternoon."
+  - question: "How do I avoid the crowds on the Mornington Peninsula in school holidays?"
+    answer: "Move east or uphill. Balnarring Beach instead of Rosebud. Flinders instead of Sorrento. Red Hill hinterland instead of the coastal strip. Somers instead of Mornington. The bay side between Dromana and Sorrento concentrates visitors — the western and southern parts of the Peninsula are significantly quieter and equally good."
+  - question: "What is a good rainy day plan for families on the Mornington Peninsula?"
+    answer: "Morning: Ashcombe Maze in light rain (covered café) or Mornington Peninsula Gallery (free, warm, 45 minutes). Mornington Peninsula Chocolates for a fully indoor factory visit. Lunch: Flinders Hotel in poor weather — fire, large dining room, tolerant of wet families. Afternoon: the rental house. Alternatively, Peninsula Hot Springs or Alba in the rain is genuinely memorable — book online as school-holiday sessions fill."
 ---
 
 School holidays on the Peninsula follow a pattern, and recognising the pattern early saves you.

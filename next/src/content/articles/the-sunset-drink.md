@@ -33,6 +33,21 @@ relatedExperiences:
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Sunset Hour — Where to Be at the End of the Day"
+    href: "/journal/the-sunset-hour/"
+  - label: "The Couples' Weekend on the Mornington Peninsula"
+    href: "/journal/the-couples-weekend/"
+  - label: "The Sorrento Weekend"
+    href: "/journal/the-sorrento-weekend/"
+faq:
+  - question: "Where is the best place for a sunset drink on the Mornington Peninsula?"
+    answer: "Hotel Sorrento front bar verandah for the bay-side golden hour — faces north-west, the limestone turns warm at around 4:30pm, and the front bar menu requires no booking. Pt Leo Wine Terrace for the most cinematic version — sunset over the sculpture park and Western Port Bay. Polperro verandah for the vineyard version — intimate, amber stripes across the pinot rows, less panoramic but more personal."
+  - question: "What time should I arrive for the Peninsula sunset drink?"
+    answer: "Forty-five minutes before the light you want to see. The best golden-hour light lasts about twenty minutes and you want to be settled before it arrives. In autumn (the best season), that means arriving at about 4pm for a 5pm sunset. In summer, the light runs late — bay-side venues are packed and terrace bookings at Montalto and Pt Leo are needed."
+  - question: "Which side of the Peninsula is better for sunset — bay or ocean?"
+    answer: "Bay side for the warm golden sunset — the water reflects the colour, the limestone buildings glow, and the light is photogenic. Ocean (back beach) side for the cooler afterglow — a wide sky and a more dramatic, quieter version of the evening light. Faces south, so the sun is behind you; better for walking than drinking. Most of the Peninsula's sunset drink venues are on the bay side or the ridge."
 ---
 
 The Mornington Peninsula has a structural advantage that no other wine region within two hours of a capital city can match: it faces two ways. The bay side catches the afternoon light coming in flat across Port Phillip, turning everything amber from about four-thirty onwards. The ocean side  -  the back beaches, the headlands, the bluff at Flinders  -  gets the other version, a wider, more dramatic sunset that drops over the Strait and does the pink-and-violet thing the landscape photographers are always chasing.

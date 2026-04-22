@@ -16,6 +16,21 @@ relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthu
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+    href: "/journal/the-peninsula-pantry/"
+  - label: "The Market Saturday — Two Weekends Built Around the Markets"
+    href: "/journal/the-market-saturday/"
+  - label: "The Spring Peninsula — What Changes in October"
+    href: "/journal/the-spring-peninsula/"
+faq:
+  - question: "Where are the best picnic spots on the Mornington Peninsula?"
+    answer: "Pt Leo Estate sculpture park for the most scenic option — coastal hillside views over Western Port, free entry, maintained grounds. Montalto's sculpture trail for the hinterland vineyard setting. Arthurs Seat summit for bay views and a family-friendly option with playground. Mount Martha Beach (northern end, near the bathing boxes) for a sheltered bay picnic. Point Nepean National Park near the fort for the most dramatic setting."
+  - question: "How do I assemble a Peninsula picnic from the farm gate?"
+    answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour, under $100 for two people."
+  - question: "What time of year is best for a Peninsula picnic?"
+    answer: "March to May and September to November. Summer is too hot and too crowded; the cheese sweats, the wine warms, and the good spots are taken. Autumn is the sweet spot — warm enough to sit on grass, cool enough to keep food fresh, quiet enough that the sculpture parks and beaches are not crowded. Arrive before noon, eat by 12:30, and pack up by 3pm before the autumn chill arrives."
 ---
 
 The Peninsula picnic is one of those things that everyone assumes they know how to do and almost nobody does well.
@@ -80,7 +95,7 @@ The best picnic setting on the Peninsula is the grounds of **Pt Leo Estate**  - 
 
 ### The lookout
 
-**Arthurs Seat** summit has dedicated picnic areas with bay views that stretch to Melbourne. The facilities are basic  -  some tables, some grass, a single café  -  but the elevation makes the setting. This is the family picnic option because the playground and the chairlift ride are built in.
+**Arthurs Seat** summit has dedicated picnic areas with bay views that stretch to Melbourne. The facilities are basic  -  some tables, some grass, a single café  -  but the elevation makes the setting. This is the family picnic option because the playground and the gondola ride are built in.
 
 ### The beaches
 

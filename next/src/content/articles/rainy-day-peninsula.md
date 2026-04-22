@@ -16,6 +16,21 @@ relatedExperiences: ["mornington-peninsula-gallery"]
 readingTimeMinutes: 6
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "A Winter Peninsula Weekend — The Case for Coming in July"
+    href: "/journal/a-winter-peninsula-weekend/"
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+    href: "/journal/best-spas-mornington-peninsula/"
+faq:
+  - question: "Is the Mornington Peninsula worth visiting in bad weather?"
+    answer: "Yes — often more so than in good weather. The hot springs are better in the cold, the best dining rooms light their fires, booking availability improves, and the coastal walks become dramatic rather than simply scenic. Build the day around indoor anchors and the weather becomes an asset."
+  - question: "What is the best rainy day activity on the Mornington Peninsula?"
+    answer: "Alba Thermal Springs or Peninsula Hot Springs — outdoor geothermal bathing is better in cold, grey weather. For indoor alternatives: Bass and Flinders Distillery gin school, Mornington Peninsula Regional Gallery (free entry), or Red Hill Brewery's indoor barn with wood-fired pizza."
+  - question: "Which Peninsula restaurants are best for a rainy day?"
+    answer: "Tedesca Osteria in winter — the wood oven and open fire work hardest in cold weather and the set menu leans into braises and heavier plates. Lindenderry's dining room is built for winter. Both are significantly more atmospheric on a grey day than in summer."
 ---
 
 There is a version of the Peninsula that only reveals itself in bad weather, and most visitors never meet it.

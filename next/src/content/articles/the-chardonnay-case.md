@@ -27,6 +27,21 @@ relatedVenues:
 readingTimeMinutes: 8
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Cellar Door Short List — Five Producers Worth the Appointment"
+    href: "/journal/the-cellar-door-short-list/"
+  - label: "Mornington Peninsula Winery Guide"
+    href: "/journal/mornington-peninsula-winery-guide/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "Is the Mornington Peninsula known for chardonnay as well as pinot noir?"
+    answer: "Yes — and the case for chardonnay has strengthened significantly over the last three vintages. The 2022–2024 chardonnays from producers like Kooyong, Ocean Eight, and Ten Minutes by Tractor are tighter, more mineral, and more ageable than the pinot narrative would suggest. Serious collectors are buying Peninsula chardonnay ahead of pinot in those vintages."
+  - question: "Which Mornington Peninsula producers make the best chardonnay?"
+    answer: "Kooyong (Farrago single-vineyard, benchmark and ages 10+ years), Ocean Eight (Aylward Chardonnay, minimal oak, saline backbone, best drunk fresh), Ten Minutes by Tractor (single-vineyard flights — Wallis, McCutcheon, Judd), and Paringa Estate Reserve (richer house style, remarkable at 10 years of age). Port Phillip Estate is the most accessible price point with similar attention to detail."
+  - question: "Should I cellar Mornington Peninsula chardonnay?"
+    answer: "Yes — more so than the pinot. The Kooyong Farrago and Ten Minutes by Tractor single-vineyard chardonnays reward four to eight years in bottle; Paringa Estate Reserve is worth ten to twelve years. Ocean Eight's Aylward is the exception — best drunk within four years while the freshness is intact. Buy the reserve bottles and open the second labels while you wait."
 ---
 
 The Mornington Peninsula sells itself as pinot noir country and always has. Every tourism brochure, every estate map, every long-lunch menu leans on it. Pinot is the hero varietal, the grape that tells the cool-climate story, the thing the collectors came down from Melbourne to buy. None of this is wrong. The region does grow genuinely serious pinot noir  -  the kind that sits credibly alongside the Yarra Valley's best at ten years of age  -  and the argument for pinot has been settled, mostly, for a decade.

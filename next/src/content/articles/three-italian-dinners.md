@@ -15,6 +15,21 @@ relatedVenues: ["tedesca-osteria", "ten-minutes-by-tractor", "laura-pt-leo", "do
 readingTimeMinutes: 9
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+  - label: "The Long Lunch — The Peninsula's Best Format"
+    href: "/journal/the-long-lunch/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+faq:
+  - question: "What is the difference between Tedesca Osteria, Ten Minutes by Tractor, and Laura at Pt Leo?"
+    answer: "Tedesca is the most honest room — one set menu, farmhouse atmosphere, wood oven, best for autumn lunches with small groups who want to be surprised. Ten Minutes by Tractor is technically ambitious fine dining with precise seasonal cooking and a strong estate wine program — best for anniversaries or when the meal should be the headline. Laura at Pt Leo is the smallest and most considered: ten courses, chef's counter, twenty seats, the top of the Peninsula's market."
+  - question: "Which Peninsula restaurant should I book for a special occasion?"
+    answer: "For a serious anniversary or birthday: Laura at Pt Leo (book 6–8 weeks ahead). For first-time visitors wanting to understand the Peninsula's ceiling: Tedesca Osteria for lunch. For a milestone with fine-dining ambition: Ten Minutes by Tractor for Saturday lunch. For a group dinner: Tedesca for Friday evening if you can get a booking, Tractor for Saturday lunch."
+  - question: "How far in advance do I need to book Tedesca, Ten Minutes by Tractor, and Laura?"
+    answer: "All three book out at least a month ahead for weekend sittings. Laura regularly fills 6–8 weeks out. Weekday and Thursday/Friday lunches are significantly easier to secure than Saturday and Sunday. If you have flexibility on the day of the week, a Thursday or Friday autumn lunch at any of the three is better-paced and easier to book than a peak Saturday."
 ---
 
 The Mornington Peninsula has four or five serious dining rooms at any given moment, and three of them do the same thing in almost entirely different ways. The question of which one you book depends on a set of variables people don't usually name out loud: the mood of the group, the time of the year, how long you are staying, and what you actually want a dining room to do to the weekend.
@@ -33,7 +48,7 @@ The cooking is Italian in spirit but not in the cliché sense  -  there is real 
 
 ## Ten Minutes by Tractor: the most technically ambitious
 
-Tractor is three hats and a Wine List of the Year winner, and a degustation that has spent the past five years getting tighter and more confident. If Tedesca is the osteria, Tractor is the fine-dining room  -  the one that benchmarks the Peninsula against the city and wins more arguments than it loses.
+Tractor is two hats (GFG 2025) and a Wine List of the Year winner, and a degustation that has spent the past five years getting tighter and more confident. If Tedesca is the osteria, Tractor is the fine-dining room  -  the one that benchmarks the Peninsula against the city and wins more arguments than it loses.
 
 The cooking is technically precise in a way that reads as restraint rather than flourish. Flavours are clear, portions are careful, the bread service has become a quiet institution, and the charred sourdough with cultured butter is the thing people keep referencing months later. The estate wine program is the serious argument for eating here: the Ridge vineyard outside the window is the source, and the pairings work because the kitchen has been cooking against the wines for years.
 

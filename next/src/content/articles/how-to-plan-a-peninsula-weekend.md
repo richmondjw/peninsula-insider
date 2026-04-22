@@ -16,6 +16,21 @@ relatedExperiences: ["arthurs-seat-lookout", "point-nepean-national-park", "sorr
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "First Time on the Peninsula — The Honest Starter Guide"
+    href: "/journal/first-time-peninsula/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+faq:
+  - question: "What is the most important booking to make for a Mornington Peninsula weekend?"
+    answer: "The anchor meal — the Saturday lunch or dinner the weekend is built around. Book it before the accommodation if necessary. Peninsula Hot Springs and Alba also require advance booking (3–4 weeks in peak season). Everything else can flex around those two bookings."
+  - question: "How far in advance should I book a Mornington Peninsula weekend?"
+    answer: "Accommodation: 4–8 weeks for peak season (December–February, Easter, school holidays). Hatted restaurant lunches: 4–6 weeks for weekends. Peninsula Hot Springs and Alba: 3–4 weeks for weekend sessions. Cellar doors, galleries, and beaches require no advance booking."
+  - question: "How much does a Mornington Peninsula weekend cost?"
+    answer: "A mid-range couple's weekend with one night's accommodation and one hatted lunch runs approximately $800–1,200 all-in. A splurge version (Jackalope or Lindenderry, hatted dinner) runs $1,500–2,500. Family rentals with casual dining are typically $500–900."
 ---
 
 The Peninsula weekend dies in the planning phase more often than it dies on the road.

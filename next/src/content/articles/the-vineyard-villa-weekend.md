@@ -27,6 +27,21 @@ relatedExperiences:
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "The One-Night Peninsula Escape"
+    href: "/journal/the-one-night-escape/"
+  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+    href: "/journal/the-peninsula-pantry/"
+faq:
+  - question: "What is a vineyard villa stay on the Mornington Peninsula?"
+    answer: "A self-contained cottage on a working farm or inside a winery estate — with a fire, a kitchen, and no front desk. The key difference from a hotel: no performance, no meal slots, and a real kitchen that means you can cook rather than book every evening. Typically cheaper than the design hotels, more restorative, and better suited to the kind of Peninsula weekend built around one serious lunch and otherwise staying put."
+  - question: "Which vineyard villa stays are worth booking on the Mornington Peninsula?"
+    answer: "Polperro Villas — two private cottages inside the Polperro estate, walkable cellar door, outdoor bath, breakfast hampers, and vineyard views. One of the most private stays the region has at estate-hotel quality. Hillview Farm Cottages at Main Ridge — three cottages on a working farm with paddock views and ridge fog mornings. Both require booking at least a month ahead for good-weather weekends."
+  - question: "How do you structure a weekend in a Peninsula vineyard villa?"
+    answer: "One booking per day, maximum. Friday: arrive before dark, provisions stop at Merricks General or Flinders Sourdough, light the fire, eat simply. Saturday: one serious lunch booking, a walk beforehand if the weather allows, then back to the villa for the afternoon, bath, fire, dinner in the kitchen. Sunday: slow breakfast, late-morning walk, one coffee on the way home. The aim is two bookings across three days and no check-out queue."
 ---
 
 The Peninsula weekend has a default shape, and most people do not question it.

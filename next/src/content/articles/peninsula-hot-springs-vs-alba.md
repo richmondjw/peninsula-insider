@@ -25,6 +25,13 @@ clusterLinks:
   - label: "The Best Spas on the Mornington Peninsula"
     href: "/journal/best-spas-mornington-peninsula/"
 status: "published"
+faq:
+  - question: "Should I book Peninsula Hot Springs or Alba Thermal Springs?"
+    answer: "Book Alba if this is your first Peninsula hot springs visit as a couple, if design and atmosphere matter, or if you want adults-only pacing without weekend crowds. Book Peninsula Hot Springs if you want the full ritual-circuit experience (70+ pools, Fire & Ice circuit, Spa Dreaming Centre treatments), if you are coming with a group or family, or if you are comfortable booking a midweek or Twilight session to beat the crowds."
+  - question: "What is the best time to visit Peninsula Hot Springs?"
+    answer: "Midweek or Twilight sessions (late afternoon into evening). Weekend afternoon sessions are the busiest and least restorative. A Wednesday or Thursday session at Peninsula Hot Springs is a genuinely different experience from a peak Saturday — quieter pools, shorter waits, more of the atmosphere the facility was designed to provide."
+  - question: "How many pools does Alba Thermal Springs have?"
+    answer: "Alba Thermal Springs has 22 pools across its geothermal bathing complex. Peninsula Hot Springs has more than 70. The difference reflects fundamentally different models: Alba deliberately caps bather numbers and maintains a sanctuary atmosphere; Peninsula Hot Springs is larger and more ambitious in scale, with multiple bathhouse tiers and treatment facilities on site."
 ---
 
 The Mornington Peninsula now has two serious geothermal bathhouses within fifteen minutes of each other, and deciding between them has become the single most common wellness question Peninsula visitors ask. Both are good. They are not interchangeable.

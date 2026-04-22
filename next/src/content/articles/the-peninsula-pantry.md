@@ -36,6 +36,21 @@ relatedVenues:
 readingTimeMinutes: 9
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Market Saturday — Two Weekends Built Around the Markets"
+    href: "/journal/the-market-saturday/"
+  - label: "Breakfast Before the Crowds — Where Locals Eat at 8am"
+    href: "/journal/breakfast-before-the-crowds/"
+  - label: "How to Build a Red Hill Saturday"
+    href: "/journal/how-to-build-a-red-hill-saturday/"
+faq:
+  - question: "What is the best shopping route for Peninsula produce on a Saturday?"
+    answer: "In order: Mornington Farmers Market (second Saturday) for protein, eggs, cheese, and oil. Then Flinders Sourdough for bread. One cellar door — Quealy or Ocean Eight. Then Epicurean Red Hill or Merricks General Wine Store for pantry fill-in. Optional: Red Hill Brewery or Bass & Flinders for beer or gin. The full circuit runs about three hours and sets you up for a serious Saturday night dinner in the rental."
+  - question: "Where can I buy fresh seafood on the Mornington Peninsula?"
+    answer: "Advance Mussel Supply at the Mornington Farmers Market (second Saturday) for mussels shucked in front of you. Pier Street Seafood in Flinders and Hastings Fishermen's Co-op for fresh fish. At the Farmers Market, arrive by 9am before the best fish sells through — chefs shop here too."
+  - question: "Is it worth cooking in a Peninsula rental instead of eating out?"
+    answer: "Yes — once per trip at minimum. The region's producers are the same larder the hatted restaurants draw from, and you can access them directly for roughly a third of the restaurant cost. One weekend shopping the markets, cooking a whole chicken, and opening a bottle of pinot you bought from the winemaker is the version of the Peninsula experience the restaurants are filtering for you."
 ---
 
 The best meal of a Peninsula weekend is usually the one you cook yourself. The region is an absurdly generous pantry  -  sourdough from a wood oven on Friday night, single-origin oil from a grove you can see from the kitchen window, a rib-eye from a farmer whose paddock you drove past on the way in  -  and if you have booked anywhere with a kitchen, the smartest thing you can do on Saturday morning is skip the restaurant and shop.

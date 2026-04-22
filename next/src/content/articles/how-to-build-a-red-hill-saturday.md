@@ -16,6 +16,21 @@ relatedExperiences: ["red-hill-market"]
 readingTimeMinutes: 6
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Cellar Door Short List — Five Producers Worth the Appointment"
+    href: "/journal/the-cellar-door-short-list/"
+  - label: "How to Plan a Peninsula Weekend"
+    href: "/journal/how-to-plan-a-peninsula-weekend/"
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+faq:
+  - question: "What is the best way to spend a Saturday in Red Hill?"
+    answer: "One anchor activity per phase: market in the morning (first Saturday of the month), one cellar door before lunch, then a long lunch at Ten Minutes by Tractor, Montalto, or Merricks General Wine Store. The mistake is over-booking — three cellar doors and two lunch options is a worse day than one of each."
+  - question: "Which Red Hill cellar door is best for a Saturday visit?"
+    answer: "Polperro for a focused single-cellar-door visit — intimate room, serious wine, no need to rush. Montalto if you want to fold sculpture, tasting, and lunch into one address. Both are better mid-morning than mid-afternoon when the Saturday crowds build."
+  - question: "Should I stay overnight for a Red Hill weekend?"
+    answer: "If the Saturday is built around a long lunch, yes — staying overnight at Lindenderry or a hinterland rental turns a single day trip into the experience the region is actually built for. It also means you can drive home Sunday morning before the traffic builds rather than fighting the returning flow on Saturday evening."
 ---
 
 Red Hill is where people get greedy.
