@@ -14,6 +14,14 @@ format: "insider-edit"
 tags: ["spa", "wellness", "hot-springs", "mornington-peninsula", "guide", "rankings"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope", "endota-spa-sorrento", "endota-spa-mornington"]
 readingTimeMinutes: 10
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+  - label: "Where to Stay Near the Hot Springs"
+    href: "/journal/mornington-peninsula-stay-and-soak/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
 status: "published"
 ---
 
@@ -31,7 +39,7 @@ The original. <a href="/stay/peninsula-hot-springs">Peninsula Hot Springs</a> ha
 
 ### Alba Thermal Springs
 
-The newer, architecturally tighter, adults-focused alternative. <a href="/stay/alba-thermal-springs">Alba Thermal Springs</a> opened in 2022 with thirty-one geothermal pools, a sensible vitality circuit, and session caps that keep the experience calm. For couples, design lovers, and first-time Peninsula visitors, Alba is often the stronger single booking. Read our full <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba comparison</a> for the honest side-by-side.
+The newer, architecturally tighter, adults-focused alternative. <a href="/stay/alba-thermal-springs">Alba Thermal Springs</a> opened in 2022 with twenty-two geothermal pools, a sensible vitality circuit, and session caps that keep the experience calm. For couples, design lovers, and first-time Peninsula visitors, Alba is often the stronger single booking. Read our full <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba comparison</a> for the honest side-by-side.
 
 ## Tier 2 — The resort and boutique spas
 
