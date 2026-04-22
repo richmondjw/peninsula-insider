@@ -36,7 +36,9 @@ const nextWeekendEvents = events.filter((event) => {
   const start = event.data.startDate;
   if (start > upcomingWeekendEnd) return false;
 
-  const isRecurring = ['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence as string);
+  // 'seasonal' events have explicit end dates and must not be treated as always-recurring.
+  // Only truly open-ended recurrences bypass the date window check.
+  const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
   if (isRecurring) return true;
 
   const end = event.data.endDate ?? event.data.startDate;
@@ -158,7 +160,7 @@ const breadcrumbItems = [
   />
 
   {currentDispatch && (
-    <WeekendPickerBlock dispatch={currentDispatch} weekend="25 to 27 April" />
+    <WeekendPickerBlock dispatch={currentDispatch} weekend="24 to 26 April" />
   )}
 
   <section class="events-lens">
@@ -189,7 +191,7 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">This weekend's anchors</p>
             <h2 class="venues__title">If you only do two things this weekend</h2>
-            <p class="venues__sub">The clearest event anchors shaping the Peninsula from 25 to 27 April.</p>
+            <p class="venues__sub">The clearest event anchors shaping the Peninsula from 24 to 26 April.</p>
           </div>
           <span class="venues__count">{editorsPicks.length} picks</span>
         </div>

@@ -26,7 +26,9 @@ const itineraries = await getCollection('itineraries');
 // without a click into /whats-on.
 const eventsAll = (await getCollection('events'))
   .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence)) return true;
+    // 'seasonal' events have explicit end dates — they must not bypass the upcoming check.
+    // Only truly open-ended recurrences (weekly, monthly, ongoing) stay permanently visible.
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end);
   })
@@ -38,7 +40,8 @@ const weekendPicks = eventsAll
     if (!event.data.lens.includes('weekend-pick' as any)) return false;
     const start = event.data.startDate;
     if (start > upcomingWeekendEnd) return false; // starts after this weekend
-    const isRecurring = ['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence as string);
+    // 'seasonal' events have explicit end dates and must not be treated as always in-window.
+    const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
     if (isRecurring) return true; // recurring events that have started are always in-window
     const end = event.data.endDate ?? event.data.startDate;
     return end >= upcomingWeekendStart;
