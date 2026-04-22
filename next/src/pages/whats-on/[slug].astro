@@ -80,6 +80,7 @@ const breadcrumbItems = [
   description={event.data.summary}
   section="whats-on"
   canonical={canonical}
+  ogImage={event.data.heroImage?.src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
