@@ -1,3 +1,11 @@
+---
+title: "Peninsula Insider Branding & Creative Guide"
+type: brand-guide
+status: active
+created: 2026-04-20
+tags: [peninsula-insider, brand, editorial, design, newsletter, social]
+---
+
 # Peninsula Insider — Branding & Creative Guide
 
 **Prepared for:** James Richmond  

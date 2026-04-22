@@ -1,0 +1,49 @@
+import { c as createComponent } from './astro-component_DWnrvw-z.mjs';
+import 'piccolore';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from './prerender_DgZBHBwL.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_BLvjf5bd.mjs';
+import { $ as $$SectionHero } from './SectionHero_BlToWmif.mjs';
+import { $ as $$Breadcrumbs } from './Breadcrumbs_DNHb82Kc.mjs';
+import { $ as $$NewsletterBlock } from './NewsletterBlock_CsLef5zT.mjs';
+
+const $$Contact = createComponent(($$result, $$props, $$slots) => {
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Contact" }
+  ];
+  const contactReasons = [
+    {
+      icon: "✉️",
+      title: "Story tips",
+      body: "Know something we should? A new opening, a closure, a chef move, a venue that deserves coverage  -  or one that's coasting? We read everything.",
+      email: "tips@peninsulainsider.com.au"
+    },
+    {
+      icon: "📝",
+      title: "Corrections",
+      body: "If we've got a phone number wrong, a price band out of date, or a detail that doesn't match reality  -  tell us. Accuracy is the whole point.",
+      email: "corrections@peninsulainsider.com.au"
+    },
+    {
+      icon: "🤝",
+      title: "Editorial enquiries",
+      body: "For questions about our editorial process, partnership philosophy, or anything that doesn't fit the other boxes.",
+      email: "hello@peninsulainsider.com.au"
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Contact  -  Peninsula Insider", "description": "Get in touch with Peninsula Insider. Story tips, corrections, and editorial enquiries.", "section": "home" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Breadcrumbs", $$Breadcrumbs, { "items": breadcrumbItems })} ${renderComponent($$result2, "SectionHero", $$SectionHero, { "eyebrow": "Contact", "subEyebrow": "Editorial", "title": "Tips, corrections, and things we should <em>know.</em>", "dek": "We don't run a tips line for clicks. But if something on the Peninsula has changed, opened, closed, or deserves attention  -  we want to hear about it.", "gradient": "stay", "image": "/images/sourced/explore-mornington-foreshore-01.webp", "imageAlt": "Mornington foreshore and bay outlook on the Mornington Peninsula", "visualLabel": "Peninsula Insider · contact" })}  ${maybeRenderHead()}<section class="contact-reasons"> <div class="container"> <div class="contact-reasons__grid"> ${contactReasons.map((reason) => renderTemplate`<article class="contact-card"> <span class="contact-card__icon">${reason.icon}</span> <h3 class="contact-card__title">${reason.title}</h3> <p class="contact-card__body">${reason.body}</p> <a${addAttribute(`mailto:${reason.email}`, "href")} class="contact-card__email">${reason.email}</a> </article>`)} </div> </div> </section>  <section class="contact-policy"> <div class="container"> <div class="contact-policy__grid"> <div class="about-mission__lead"> <p class="label label--accent">For venues</p> <h2 class="about-mission__title">We don't accept paid placements</h2> </div> <div class="about-mission__body prose"> <p>If you run a venue on the Peninsula and you'd like to be covered, there's nothing to buy. We choose what to cover based on editorial merit  -  is this place doing something interesting, doing it well, and would a reader's weekend be better for knowing about it?</p> <p>You're welcome to let us know you exist. Send a note to <a href="mailto:tips@peninsulainsider.com.au">tips@peninsulainsider.com.au</a> with your venue name, location, and what you think makes it worth a visit. We'll add it to our list. No promises, no timelines, no invoices.</p> <p>If your venue is already listed and something has changed  -  new chef, new hours, a renovation, a closure  -  please send corrections to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>. We take accuracy seriously and will update promptly.</p> </div> </div> </div> </section>  <section class="contact-expectations"> <div class="container"> <div class="contact-expectations__inner"> <p class="label label--accent">What to expect</p> <div class="contact-expectations__body"> <p>We're a small editorial operation. We read every email, but we don't always reply  -  especially to tips. If your tip leads to coverage, you'll see it on the site. If a correction is valid, we'll fix it and you'll see the update.</p> <p>We don't do phone calls, media kits, or press events. We do eat lunch, walk the coast, and visit cellar doors  -  often unannounced. That's the job.</p> </div> </div> </div> </section> ${renderComponent($$result2, "NewsletterBlock", $$NewsletterBlock, {})} ` })}`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/contact.astro", void 0);
+
+const $$file = "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/contact.astro";
+const $$url = "/contact";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Contact,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

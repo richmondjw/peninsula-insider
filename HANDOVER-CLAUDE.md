@@ -221,3 +221,17 @@ Start with a **SERP snippet optimisation pass** on the highest-leverage pages:
 - log all work in both changelog and vault
 
 That is the fastest next SEO win.
+
+## Social Publishing
+
+Skills and process docs for social media publishing live at `ops/skills/`:
+
+| File | Contents |
+|------|----------|
+| `ops/skills/social-publishing.md` | Full end-to-end process: copy → image upload → Buffer API push → verification |
+
+Weekly social packs are stored at `social/week-of-YYYY-MM-DD/`. The `push-buffer.sh` script in each week's folder is the reference implementation for that week's publish run.
+
+**Channels:** LinkedIn `69e58e43031bfa423c20f0bf` · Facebook `69e5913b031bfa423c20f7cf` · Instagram `69e5d3b7031bfa423c21c0d8`
+
+**Image hosting:** Upload Instagram PNGs to Supabase bucket `social/ig/` before pushing — GitHub Pages URLs work but Supabase is more reliable for Buffer's image fetcher.

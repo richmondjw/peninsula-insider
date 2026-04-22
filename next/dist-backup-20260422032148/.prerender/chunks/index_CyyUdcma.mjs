@@ -1,0 +1,186 @@
+import { c as createComponent } from './astro-component_DWnrvw-z.mjs';
+import 'piccolore';
+import { m as maybeRenderHead, b as addAttribute, a as renderTemplate, r as renderComponent, u as unescapeHTML } from './prerender_DgZBHBwL.mjs';
+import { g as getCollection } from './_astro_content_CykX4FgV.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_BLvjf5bd.mjs';
+import 'clsx';
+import { c as currentSeason, j as isUpcoming, r as routeSlug, e as stayTypes, d as inSeason, f as experienceInSeason, s as seasonBlurb } from './editorial_CD_uAC75.mjs';
+import { a as $$FeatureArticle, $ as $$PillarNav } from './FeatureArticle_BosM7Fn1.mjs';
+import { $ as $$VenueCard } from './VenueCard_SLu3UDq1.mjs';
+import { $ as $$PlaceCard } from './PlaceCard_xGrkBH_3.mjs';
+import { $ as $$ExperienceCard } from './ExperienceCard_BzrVPHmr.mjs';
+import { $ as $$ItineraryCard } from './ItineraryCard_CecqkvGG.mjs';
+import { $ as $$ArticleCard } from './ArticleCard_D-lJz9rP.mjs';
+import { $ as $$EventCard } from './EventCard_B8KJvECE.mjs';
+import { $ as $$WeekendPickerBlock } from './WeekendPickerBlock_DG9bzSFf.mjs';
+import { $ as $$NewsletterBlock } from './NewsletterBlock_CsLef5zT.mjs';
+
+const $$CoverHero = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$props, $$slots);
+  Astro2.self = $$CoverHero;
+  const { issueDate } = Astro2.props;
+  const season = currentSeason();
+  const seasonalHeadlines = {
+    summer: { line1: "Where Victoria", line2: "eats, swims,", em: "stays late." },
+    autumn: { line1: "Where Victoria", line2: "eats, drinks,", em: "slows down." },
+    winter: { line1: "Where Victoria", line2: "eats, warms up,", em: "stays in." },
+    spring: { line1: "Where Victoria", line2: "eats, explores,", em: "books ahead." }
+  };
+  const seasonalDeks = {
+    summer: "Back beaches at five, vineyard lunches that run until the light goes long, and the places locals actually go when Melbourne empties south.",
+    autumn: "Vintage on the ridge, pinot lunches in low golden light, cellar doors with fires going, and the quieter weekends the Peninsula does best.",
+    winter: "Hot springs without the queue, pub dinners worth the drive, fireplace long lunches, and the coastal walks the crowds have finally left alone.",
+    spring: "New vintage releases, wildflower walks, menus rewritten for the season, and the most generous midweek bookings of the year."
+  };
+  const hl = seasonalHeadlines[season];
+  const heroRotation = [
+    {
+      src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+      position: "center center",
+      label: "Morning light at Cape Schanck on the Mornington Peninsula"
+    },
+    {
+      src: "/images/sourced/article-vineyard-villa-01.webp",
+      position: "center center",
+      label: "Afternoon vineyard atmosphere on the Mornington Peninsula"
+    },
+    {
+      src: "/images/sourced/article-sunset-01.webp",
+      position: "center center",
+      label: "Evening Peninsula light at sunset"
+    }
+  ];
+  const hour = Astro2.url ? (/* @__PURE__ */ new Date()).getUTCHours() : 0;
+  const heroIndex = hour < 12 ? 0 : hour < 17 ? 1 : 2;
+  const activeHero = heroRotation[heroIndex];
+  return renderTemplate`${maybeRenderHead()}<section class="hero-v2" aria-label="Cover" data-astro-cid-ry7qtlxd> <div class="hero-v2__bg"${addAttribute(`background-image: url(${activeHero.src}); background-position: ${activeHero.position};`, "style")} data-astro-cid-ry7qtlxd></div> <div class="hero-v2__scrim" data-astro-cid-ry7qtlxd></div> <div class="hero-v2__grain" data-astro-cid-ry7qtlxd></div> <div class="hero-v2__content" data-astro-cid-ry7qtlxd> <div class="hero-v2__eyebrow" data-astro-cid-ry7qtlxd> <span class="hero-v2__eyebrow-label hero-v2__eyebrow-label--issue" data-astro-cid-ry7qtlxd>${issueDate} Issue</span> <span class="hero-v2__eyebrow-rule" aria-hidden="true" data-astro-cid-ry7qtlxd></span> <span class="hero-v2__eyebrow-label" data-astro-cid-ry7qtlxd>The Mornington Peninsula</span> </div> <h1 class="hero-v2__headline" data-astro-cid-ry7qtlxd> ${hl.line1}<br data-astro-cid-ry7qtlxd> ${hl.line2}<br data-astro-cid-ry7qtlxd>
+and <em data-astro-cid-ry7qtlxd>${hl.em}</em> </h1> <p class="hero-v2__dek" data-astro-cid-ry7qtlxd>${seasonalDeks[season]}</p> <div class="hero-v2__ctas" data-astro-cid-ry7qtlxd> <a href="/eat" class="hero-v2__cta-primary" data-astro-cid-ry7qtlxd>Start with the restaurants</a> <a href="#newsletter" class="hero-v2__cta-secondary" data-astro-cid-ry7qtlxd>Get the weekly dispatch</a> </div> <p class="hero-v2__journal-link" data-astro-cid-ry7qtlxd><a href="/journal" data-astro-cid-ry7qtlxd>Or start reading the Journal →</a></p> </div> <div class="hero-v2__scroll-hint" aria-hidden="true" data-astro-cid-ry7qtlxd> <span class="hero-v2__scroll-label" data-astro-cid-ry7qtlxd>Scroll</span> <div class="hero-v2__scroll-line" data-astro-cid-ry7qtlxd></div> </div> </section>`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/components/CoverHero.astro", void 0);
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$Index = createComponent(async ($$result, $$props, $$slots) => {
+  const venues = await getCollection("venues");
+  const articles = (await getCollection("articles", ({ data }) => data.status === "published")).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  const places = await getCollection("places");
+  const experiences = await getCollection("experiences");
+  const itineraries = await getCollection("itineraries");
+  const eventsAll = (await getCollection("events")).filter((event) => {
+    if (["weekly", "monthly", "ongoing"].includes(event.data.recurrence)) return true;
+    const end = event.data.endDate ?? event.data.startDate;
+    return isUpcoming(end);
+  }).sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+  const upcomingWeekendStart = /* @__PURE__ */ new Date("2026-04-25T00:00:00+10:00");
+  const upcomingWeekendEnd = /* @__PURE__ */ new Date("2026-04-27T23:59:59+10:00");
+  const weekendPicks = eventsAll.filter((event) => {
+    if (!event.data.lens.includes("weekend-pick")) return false;
+    const start = event.data.startDate;
+    if (start > upcomingWeekendEnd) return false;
+    const isRecurring = ["weekly", "monthly", "ongoing"].includes(event.data.recurrence);
+    if (isRecurring) return true;
+    const end = event.data.endDate ?? event.data.startDate;
+    return end >= upcomingWeekendStart;
+  }).slice(0, 3);
+  const weekendDispatch = articles.filter((article) => article.data.format === "weekend-picker").sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+  const featured = articles.find((a) => a.data.featured && a.data.format !== "weekend-picker") ?? articles.find((a) => a.data.format !== "weekend-picker") ?? articles[0];
+  const editorPicks = articles.filter((a) => routeSlug(a) !== routeSlug(featured)).filter((a) => ["the-chardonnay-case", "three-italian-dinners", "the-peninsula-pantry", "the-long-lunch", "the-thermal-springs-weekend"].includes(routeSlug(a))).slice(0, 3);
+  const showcase = venues.filter((venue) => ["ten-minutes-by-tractor", "montalto", "laura"].includes(routeSlug(venue)));
+  const showcaseFallback = venues.filter((venue) => ["restaurant", "winery"].includes(venue.data.type)).slice(0, 3);
+  const diningShowcase = showcase.length >= 3 ? showcase : showcaseFallback;
+  const experienceHighlights = experiences.filter(
+    (entry) => ["bushrangers-bay-walk", "arthurs-seat-lookout", "mornington-peninsula-gallery"].includes(routeSlug(entry))
+  );
+  const escapePlans = itineraries.slice(0, 3);
+  const stayHighlights = venues.filter(
+    (venue) => stayTypes.includes(venue.data.type) && ["jackalope", "hotel-sorrento", "port-phillip-estate"].includes(routeSlug(venue))
+  );
+  const featuredPlaces = places.filter(
+    (place) => ["red-hill", "sorrento", "flinders", "mornington", "portsea", "main-ridge"].includes(routeSlug(place))
+  );
+  const journalHighlights = articles.filter((article) => routeSlug(article) !== routeSlug(featured)).filter((article) => !editorPicks.some((pick) => routeSlug(pick) === routeSlug(article))).slice(0, 3);
+  const intentRoutes = [
+    { label: "Long lunch", slug: "the-long-lunch", note: "Sunday, slow, one decisive table  -  the Peninsula’s strongest move" },
+    { label: "Rainy day", slug: "the-rainy-day-peninsula-without-a-booking", note: "Weather-proof and walk-in  -  no booking, no gamble" },
+    { label: "With kids", slug: "the-peninsula-with-kids", note: "A day that punishes no one  -  graded, honest, tested" },
+    { label: "One night", slug: "the-one-night-escape", note: "26 hours that feel like a long weekend" },
+    { label: "Cellar doors", slug: "the-cellar-door-short-list", note: "Five producers worth the appointment and the drive" },
+    { label: "Wellness", slug: "the-thermal-springs-weekend", note: "Hot springs without wasting the rest of the weekend" },
+    { label: "First visit", slug: "the-peninsula-orientation-drive", note: "Six stops, half a day, zero prior knowledge required" },
+    { label: "Breakfast", slug: "breakfast-before-the-crowds", note: "Where locals actually eat at 8 am  -  not the Instagram queue" }
+  ];
+  const intentResolved = intentRoutes.map((intent) => {
+    const article = articles.find((a) => routeSlug(a) === intent.slug);
+    return article ? { ...intent, article } : null;
+  }).filter((entry) => entry !== null);
+  const issueStats = {
+    articles: articles.length,
+    venues: venues.length,
+    places: places.length,
+    experiences: experiences.length,
+    itineraries: itineraries.length
+  };
+  const now = /* @__PURE__ */ new Date();
+  const issueDate = now.toLocaleDateString("en-AU", { month: "long", year: "numeric" });
+  const season = currentSeason();
+  const seasonBlurbData = seasonBlurb[season];
+  const seasonalVenues = venues.filter((venue) => inSeason(venue, season)).filter((venue) => ["restaurant", "winery", "cafe", "bakery", "spa", "hotel"].includes(venue.data.type)).slice(0, 3);
+  const seasonalExperiences = experiences.filter((e) => experienceInSeason(e, season)).slice(0, 3);
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Peninsula Insider — The Mornington Peninsula Guide", "description": "The independent guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated April 2026.", "section": "home", "canonical": "https://peninsulainsider.com.au" }, { "default": async ($$result2) => renderTemplate(_a || (_a = __template([' <script type="application/ld+json">', '<\/script> <script type="application/ld+json">', "<\/script> ", " ", " ", '<section class="issue-ribbon" aria-label="This issue"> <div class="container"> <div class="issue-ribbon__inner"> <div class="issue-ribbon__label"> <span class="label label--accent">The ', ' issue</span> </div> <dl class="issue-ribbon__stats"> <div><dt>Pieces</dt><dd>', "</dd></div> <div><dt>Venues mapped</dt><dd>", "</dd></div> <div><dt>Places</dt><dd>", "</dd></div> <div><dt>Walks & moves</dt><dd>", "</dd></div> <div><dt>Escape plans</dt><dd>", "</dd></div> </dl> </div> </div> </section> ", "", "", "", "", '<section class="zone-intro"> <div class="container"> <div class="split-intro"> <div> <p class="label label--accent">Build the weekend</p> <h2 class="split-intro__title">Three ways into the Peninsula, depending on what the trip needs</h2> </div> <p class="split-intro__body">Start with the bed if you want the trip to soften, the walk if you want the afternoon to open up, or the itinerary if you want the whole weekend pre-shaped.</p> </div> <div class="zone-intro__grid"> <a href="/stay" class="zone-card zone-card--link"> <p class="zone-card__label">Stay</p> <h3 class="zone-card__title">Choose the base before the booking list</h3> <p class="zone-card__body">Red Hill stays, Sorrento hotels, and the properties that change the tone of the whole weekend.</p> </a> <a href="/explore" class="zone-card zone-card--link"> <p class="zone-card__label">Explore</p> <h3 class="zone-card__title">Use coastline, weather, and timing properly</h3> <p class="zone-card__body">Late-afternoon walks, market starts, and the non-restaurant moves that make the region feel larger.</p> </a> <a href="/escape" class="zone-card zone-card--link"> <p class="zone-card__label">Escape</p> <h3 class="zone-card__title">Follow a complete weekend, not a loose list</h3> <p class="zone-card__body">Shaped Peninsula escapes that sequence lunch, landscape, and bed in the right order.</p> </a> </div> </div> </section> ', "", "", "", "", "", "", ' <section class="why-insider" aria-label="Why Peninsula Insider"> <div class="container"> <div class="why-insider__inner"> <div class="why-insider__lead"> <p class="label label--accent">Why this exists</p> <h2 class="why-insider__title">The Peninsula has 200 cellar doors and no honest guidebook</h2> </div> <div class="why-insider__body"> <p>Most of what exists online is tourism marketing dressed as editorial, or star ratings that tell you a restaurant scored 4.3 without explaining what the 4.3 felt like at the table. Neither helps you build a weekend.</p> <p>Peninsula Insider is the fix: opinionated, service-first coverage that answers the questions visitors actually ask  -  written by editors who live on the Peninsula and eat, walk, and sleep here year-round.</p> </div> </div> </div> </section> ', " "])), unescapeHTML(JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Peninsula Insider",
+    url: "https://peninsulainsider.com.au",
+    description: "The independent editorial guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay.",
+    inLanguage: "en-AU",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://peninsulainsider.com.au/journal?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  })), unescapeHTML(JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is the Mornington Peninsula known for?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The Mornington Peninsula is known for cool-climate Pinot Noir and Chardonnay, vineyard restaurants, natural hot springs, dramatic ocean coastline, and calm bay beaches — all within 90 minutes of Melbourne. The region has over 50 cellar doors, some of Australia's best regional restaurants, and a coastline that runs from sheltered Port Phillip Bay to the wild Southern Ocean."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How far is the Mornington Peninsula from Melbourne?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Mornington town is about 60 km from Melbourne CBD (around 60 minutes via the Mornington Peninsula Freeway). Sorrento and Portsea at the tip of the Peninsula are 95–105 km from the city, roughly 90 minutes in normal traffic. The drive is longer on Friday evenings and Sunday afternoons."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What is the best time to visit the Mornington Peninsula?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Autumn (March to May) is the best season — vintage is underway on the ridge, the crowds thin after Easter, and the light over the vineyards is at its best. Summer is busiest and most expensive but offers swimming and long evenings. Winter is quiet, with cellar door fires and hot springs at their most appealing. Spring brings wildflowers and uncrowded weekends."
+        }
+      }
+    ]
+  })), renderComponent($$result2, "CoverHero", $$CoverHero, { "issueDate": issueDate }), renderComponent($$result2, "PillarNav", $$PillarNav, {}), maybeRenderHead(), issueDate, issueStats.articles, issueStats.venues, issueStats.places, issueStats.experiences, issueStats.itineraries, weekendDispatch && renderTemplate`${renderComponent($$result2, "WeekendPickerBlock", $$WeekendPickerBlock, { "dispatch": weekendDispatch, "weekend": "This weekend" })}`, weekendPicks.length > 0 && renderTemplate`<section class="venues venues--plain" aria-label="Weekend picks"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">This weekend · editor's picks</p> <h2 class="venues__title">${weekendPicks.length === 1 ? "One event" : weekendPicks.length === 2 ? "Two events" : "Three events"} with an opinion attached</h2> <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not  -  because nobody else on the Peninsula event web is brave enough to.</p> </div> <a href="/whats-on" class="venues__link">All What’s On →</a> </div> <div class="event-grid"> ${weekendPicks.map((event, i) => renderTemplate`${renderComponent($$result2, "EventCard", $$EventCard, { "event": event, "featured": i === 0 })}`)} </div> </div> </section>`, featured && renderTemplate`${renderComponent($$result2, "FeatureArticle", $$FeatureArticle, { "article": featured })}`, editorPicks.length > 0 && renderTemplate`<section class="venues venues--plain"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Editor's picks</p> <h2 class="venues__title">Three pieces doing the heaviest lifting this week</h2> <p class="venues__sub">Read one, skim the others, and the Peninsula weekend starts writing itself.</p> </div> <a href="/journal" class="venues__link">All in the journal →</a> </div> <div class="venues__grid"> ${editorPicks.map((article) => renderTemplate`${renderComponent($$result2, "ArticleCard", $$ArticleCard, { "article": article })}`)} </div> </div> </section>`, intentResolved.length > 0 && renderTemplate`<section class="intent-strip" aria-label="Start from what you need"> <div class="container"> <div class="split-intro"> <div> <p class="label label--accent">Start from what you need</p> <h2 class="split-intro__title">Start from what you actually want the weekend to do</h2> </div> <p class="split-intro__body">Each one opens a guide built around the question  -  with real names, real opinions, and a plan you can act on this weekend.</p> </div> <div class="intent-chips"> ${intentResolved.map((intent) => renderTemplate`<a${addAttribute(`/journal/${intent.slug}`, "href")} class="intent-chip"> <span class="intent-chip__label">${intent.label}</span> <span class="intent-chip__note">${intent.note}</span> </a>`)} </div> </div> </section>`, diningShowcase.length > 0 && renderTemplate`<section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Editor's Table</p> <h2 class="venues__title">The dining rooms still doing the strongest work</h2> <p class="venues__sub">Begin with the meal if lunch is the point of the trip.</p> </div> <a href="/eat" class="venues__link">All venues →</a> </div> <div class="venues__grid"> ${diningShowcase.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/eat" })}`)} </div> </div> </section>`, (seasonalVenues.length > 0 || seasonalExperiences.length > 0) && renderTemplate`<section class="seasonal-shelf"> <div class="container"> <div class="split-intro"> <div> <p class="label label--accent">${seasonBlurbData.label}</p> <h2 class="split-intro__title">Right now, the Peninsula is best at this</h2> </div> <p class="split-intro__body">${seasonBlurbData.line}</p> </div> <div class="seasonal-shelf__grid"> ${seasonalVenues.length > 0 && renderTemplate`<div class="seasonal-shelf__col"> <p class="label label--accent">Tables & rooms in season</p> <ul class="seasonal-shelf__list"> ${seasonalVenues.map((venue) => renderTemplate`<li> <a${addAttribute(`/${stayTypes.includes(venue.data.type) ? "stay" : ["winery", "producer", "brewery", "distillery"].includes(venue.data.type) ? "wine" : "eat"}/${routeSlug(venue)}`, "href")}> <span class="seasonal-shelf__name">${venue.data.name}</span> <span class="seasonal-shelf__note">${venue.data.signature}</span> </a> </li>`)} </ul> </div>`} ${seasonalExperiences.length > 0 && renderTemplate`<div class="seasonal-shelf__col"> <p class="label label--accent">Walks & moves in season</p> <ul class="seasonal-shelf__list"> ${seasonalExperiences.map((experience) => renderTemplate`<li> <a${addAttribute(`/explore/${routeSlug(experience)}`, "href")}> <span class="seasonal-shelf__name">${experience.data.name}</span> <span class="seasonal-shelf__note">${experience.data.editorNote.split(".").slice(0, 1).join(".")}</span> </a> </li>`)} </ul> </div>`} </div> </div> </section>`, experienceHighlights.length > 0 && renderTemplate`<section class="experience-index"> <div class="container"> <div class="split-intro"> <div> <p class="label label--accent">After lunch</p> <h2 class="split-intro__title">The moves that stop the Peninsula feeling like one long reservation</h2> </div> <p class="split-intro__body">These are the useful second acts, not filler. A real walk, a market start, or a beach at the right hour changes what kind of place the Peninsula becomes.</p> </div> <div class="experience-grid"> ${experienceHighlights.map((experience) => renderTemplate`${renderComponent($$result2, "ExperienceCard", $$ExperienceCard, { "experience": experience })}`)} </div> </div> </section>`, escapePlans.length > 0 && renderTemplate`<section class="escape-callout"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Escape plans</p> <h2 class="venues__title">When the Peninsula deserves more than a day trip</h2> <p class="venues__sub">A shaped weekend that puts lunch, walk, and bed in the right order  -  so you stop planning and start going.</p> </div> <a href="/escape" class="venues__link">All escapes →</a> </div> <div class="itinerary-grid"> ${escapePlans.map((itinerary) => renderTemplate`${renderComponent($$result2, "ItineraryCard", $$ItineraryCard, { "itinerary": itinerary })}`)} </div> </div> </section>`, places.length > 0 && renderTemplate`<section class="places"> <div class="container"> <div class="places__header"> <p class="label label--accent places__label">Know the terrain</p> <h2 class="places__title">The Peninsula, place by place</h2> <p class="places__sub">Six towns that organise the region around them  -  ridge, coast, and bay.</p> </div> <div class="places__grid"> ${featuredPlaces.map((place, index) => renderTemplate`${renderComponent($$result2, "PlaceCard", $$PlaceCard, { "place": place, "variant": index % 3 === 1 ? "bay" : index % 3 === 2 ? "sand" : "vineyard" })}`)} </div> <div class="places__footer"> <a href="/places" class="venues__link">All ${issueStats.places} places →</a> </div> </div> </section>`, stayHighlights.length > 0 && renderTemplate`<section class="venues venues--plain"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Sleep here</p> <h2 class="venues__title">Three stays that immediately change the plan</h2> </div> <a href="/stay" class="venues__link">All stays →</a> </div> <div class="venues__grid"> ${stayHighlights.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/stay" })}`)} </div> </div> </section>`, journalHighlights.length > 0 && renderTemplate`<section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Fresh from the Journal</p> <h2 class="venues__title">The most recent service pieces and dispatches</h2> </div> <a href="/journal" class="venues__link">Journal →</a> </div> <div class="venues__grid"> ${journalHighlights.map((article) => renderTemplate`${renderComponent($$result2, "ArticleCard", $$ArticleCard, { "article": article })}`)} </div> </div> </section>`, renderComponent($$result2, "NewsletterBlock", $$NewsletterBlock, {})) })}`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/index.astro", void 0);
+
+const $$file = "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/index.astro";
+const $$url = "";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

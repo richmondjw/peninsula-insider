@@ -1,0 +1,72 @@
+import { c as createComponent } from './astro-component_DWnrvw-z.mjs';
+import 'piccolore';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from './prerender_DgZBHBwL.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_BLvjf5bd.mjs';
+import { $ as $$Breadcrumbs } from './Breadcrumbs_DNHb82Kc.mjs';
+import { $ as $$NewsletterBlock } from './NewsletterBlock_CsLef5zT.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Dog-Friendly" }
+  ];
+  const hubCards = [
+    {
+      title: "Dog-Friendly Beaches",
+      href: "/journal/dog-friendly-beaches-mornington-peninsula",
+      dek: "Where the dog can actually go, when leash rules change, and which beaches are worth the effort."
+    },
+    {
+      title: "Dog-Friendly Cafés, Pubs and Wineries",
+      href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula",
+      dek: "The places that genuinely work with the dog in tow, not just the ones with a token water bowl."
+    },
+    {
+      title: "Dog-Friendly Accommodation",
+      href: "/journal/dog-friendly-accommodation-mornington-peninsula",
+      dek: "The stays that make a Peninsula trip with the dog feel easy rather than negotiated."
+    },
+    {
+      title: "A Dog-Friendly Peninsula Weekend",
+      href: "/journal/the-dog-friendly-peninsula",
+      dek: "A realistic weekend shape that works with the dog, not against it."
+    }
+  ];
+  const utilityCards = [
+    {
+      title: "Where to Walk the Dog",
+      href: "/journal/where-to-walk-the-dog-mornington-peninsula"
+    },
+    {
+      title: "Dog Daycare, Boarding, Groomers and Pet Shops",
+      href: "/journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula"
+    },
+    {
+      title: "Emergency Vet and Pet Help",
+      href: "/journal/emergency-vet-pet-help-mornington-peninsula"
+    },
+    {
+      title: "What to Do With a Dog When It’s Wet or Busy",
+      href: "/journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy"
+    },
+    {
+      title: "Best Towns to Base Yourself With a Dog",
+      href: "/journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula"
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Dog-Friendly Mornington Peninsula | Peninsula Insider", "description": "A practical Peninsula Insider guide to dog-friendly beaches, wineries, cafés, stays, and weekends on the Mornington Peninsula.", "section": "explore", "canonical": "https://peninsulainsider.com.au/dog-friendly", "ogImage": "/images/sourced/dog-beach-hero-01.webp" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Breadcrumbs", $$Breadcrumbs, { "items": breadcrumbItems })} ${maybeRenderHead()}<section class="section-hero"> <div class="container"> <div class="section-hero__inner"> <div class="section-hero__content"> <p class="label label--accent">Dog-Friendly Peninsula</p> <h1 class="section-hero__title">The practical guide to doing the Peninsula properly with the dog</h1> <p class="section-hero__dek">Beaches, wineries, cafés, stays, walks, and backup options that actually work with a dog in the plan. No fluffy pet-travel clichés, just useful local trip logic.</p> </div> <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/dog-beach-hero-01.webp); background-size: cover; background-position: center;"> <div class="section-hero__visual-fog"></div> <span class="section-hero__visual-label">Dog-Friendly Peninsula</span> </div> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Start here</p> <h2 class="venues__title">Build the dog-friendly trip</h2> <p class="venues__sub">The four pages that should become the core of the hub.</p> </div> </div> <div class="venues__grid"> ${hubCards.map((card) => renderTemplate`<article class="venue-card"> <h3 class="venue-card__name"><a${addAttribute(card.href, "href")}>${card.title}</a></h3> <p class="venue-card__signature">${card.dek}</p> <a${addAttribute(card.href, "href")} class="venue-card__cta">Open guide →</a> </article>`)} </div> </div> </section> <section class="editorial-promise"> <div class="container"> <div class="editorial-promise__inner"> <div> <p class="label label--accent">Next up</p> <h2 class="editorial-promise__title">Utility the hub should grow into</h2> </div> <div> <ul class="prose" style="margin:0; padding-left: 1.2rem;"> ${utilityCards.map((item) => renderTemplate`<li><a${addAttribute(item.href, "href")}>${item.title}</a></li>`)} </ul> </div> </div> </div> </section> ${renderComponent($$result2, "NewsletterBlock", $$NewsletterBlock, { "title": "Dog-friendly Peninsula picks in your inbox", "body": "Useful beaches, stays, long lunches and practical weekend logic, without the generic pet-travel fluff." })} ` })}`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/dog-friendly/index.astro", void 0);
+
+const $$file = "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/dog-friendly/index.astro";
+const $$url = "/dog-friendly";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

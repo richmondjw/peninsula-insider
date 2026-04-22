@@ -1,0 +1,88 @@
+import { c as createComponent } from './astro-component_DWnrvw-z.mjs';
+import 'piccolore';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead, u as unescapeHTML } from './prerender_DgZBHBwL.mjs';
+import { g as getCollection } from './_astro_content_CykX4FgV.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_BLvjf5bd.mjs';
+import { $ as $$Breadcrumbs } from './Breadcrumbs_DNHb82Kc.mjs';
+import { $ as $$SectionHero } from './SectionHero_BlToWmif.mjs';
+import { $ as $$VenueCard } from './VenueCard_SLu3UDq1.mjs';
+import { $ as $$ArticleCard } from './ArticleCard_D-lJz9rP.mjs';
+import { $ as $$PlaceCard } from './PlaceCard_xGrkBH_3.mjs';
+import { $ as $$NewsletterBlock } from './NewsletterBlock_CsLef5zT.mjs';
+import { c as currentSeason, r as routeSlug, s as seasonBlurb } from './editorial_CD_uAC75.mjs';
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$Index = createComponent(async ($$result, $$props, $$slots) => {
+  const wineTypes = ["winery", "producer", "brewery", "distillery"];
+  const venues = (await getCollection("venues")).filter((venue) => wineTypes.includes(venue.data.type)).sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+  const season = currentSeason();
+  const blurb = seasonBlurb[season];
+  const wineries = venues.filter((venue) => venue.data.type === "winery");
+  const producers = venues.filter((venue) => venue.data.type === "producer");
+  const breweries = venues.filter((venue) => venue.data.type === "brewery");
+  const distilleries = venues.filter((venue) => venue.data.type === "distillery");
+  const benchmarkSlugs = [
+    "pt-leo-estate",
+    "montalto",
+    "paringa-estate",
+    "polperro",
+    "dexter-wines",
+    "ocean-eight"
+  ];
+  const benchmarks = benchmarkSlugs.map((slug) => venues.find((venue) => routeSlug(venue) === slug)).filter((venue) => Boolean(venue));
+  const appointmentOnly = venues.filter((venue) => venue.data.bookingProvider === "direct" || Number(venue.data.authority?.hallidayScore ?? 0) >= 95).filter((venue) => !benchmarks.some((b) => routeSlug(b) === routeSlug(venue))).slice(0, 6);
+  const places = await getCollection("places");
+  const wineHubs = places.filter(
+    (place) => ["red-hill", "main-ridge", "merricks", "balnarring", "moorooduc", "tuerong"].includes(routeSlug(place))
+  );
+  const articlesAll = (await getCollection("articles", ({ data }) => data.status === "published")).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  const companionSlugs = [
+    "the-chardonnay-case",
+    "the-cellar-door-short-list",
+    "how-to-build-a-red-hill-saturday",
+    "the-peninsula-pantry"
+  ];
+  const companionReads = companionSlugs.map((slug) => articlesAll.find((a) => routeSlug(a) === slug)).filter((a) => Boolean(a));
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Wine Country" }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Best Wineries Mornington Peninsula · Peninsula Insider", "description": "The best cellar doors on the Mornington Peninsula — Pinot Noir, Chardonnay, cool-climate producers, breweries, and distilleries. Appointment tastings and walk-in cellar doors. Updated April 2026.", "section": "wine", "canonical": "https://peninsulainsider.com.au/wine", "modifiedTime": "2026-04-13" }, { "default": async ($$result2) => renderTemplate(_a || (_a = __template([' <script type="application/ld+json">', "<\/script> ", " ", " ", `<section class="format-nav"> <div class="container"> <p class="label label--accent format-nav__label">Jump to what you're planning</p> <div class="format-nav__chips"> `, " ", " ", " ", " ", " ", ' <a href="#hubs" class="format-chip"><span class="format-chip__name">By place</span><span class="format-chip__count">', `</span></a> </div> </div> </section> <section class="zone-intro"> <div class="container"> <div class="split-intro"> <div> <p class="label label--accent">How to read this</p> <h2 class="split-intro__title">Three ways a Peninsula wine afternoon works</h2> </div> <p class="split-intro__body">Either you anchor the day to one benchmark cellar door with a long lunch and let the rest of the afternoon be slow driving. Or you book two appointment-only tastings, one either side of a small village meal. Or you skip the wineries altogether and use a brewery, distillery, or orchard to make the day feel a little less formal.</p> </div> <div class="zone-intro__grid"> <a href="#benchmarks" class="zone-card zone-card--link"> <p class="zone-card__label">The long lunch</p> <h3 class="zone-card__title">One decisive cellar door</h3> <p class="zone-card__body">Book a single ambitious vineyard restaurant, commit to the afternoon, and let the pinot shape the drive home.</p> </a> <a href="#appointment" class="zone-card zone-card--link"> <p class="zone-card__label">The appointment</p> <h3 class="zone-card__title">Two producers, one small meal</h3> <p class="zone-card__body">For the wine-literate weekend  -  tastings with the winemaker, and a village lunch that doesn't compete for attention.</p> </a> <a href="#breweries" class="zone-card zone-card--link"> <p class="zone-card__label">The easier version</p> <h3 class="zone-card__title">Brewery, distillery, or farm stop</h3> <p class="zone-card__body">Not every wine-country afternoon has to be wine. The region's producers, breweries, and distilleries work as a gentler spine.</p> </a> </div> </div> </section> `, "", "", "", "", "", "", "", '<section class="venues venues--plain"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Go deeper</p> <h2 class="venues__title">Guides for your cellar door day</h2> </div> </div> <div class="venues__grid venues__grid--links"> <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-winery-tour">Self-Drive Winery Tour</a></h3><p class="venue-card__signature">The route, the order, lunch in the middle, and why four cellar doors is the right number.</p><a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Read the guide →</a></div> <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-itinerary">3-Day Peninsula Itinerary</a></h3><p class="venue-card__signature">Day 2 is the big wine day — this plan sequences it properly.</p><a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">Read the guide →</a></div> <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-in-winter">Winter on the Peninsula</a></h3><p class="venue-card__signature">Cellar door fires, empty tasting rooms, and why winter wine tasting is better than summer.</p><a href="/journal/mornington-peninsula-in-winter" class="venue-card__cta">Read the guide →</a></div> </div> </div> </section> ', " "])), unescapeHTML(JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What wine is the Mornington Peninsula known for?",
+        acceptedAnswer: { "@type": "Answer", text: "Pinot Noir and Chardonnay are the benchmark varieties — the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia's most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge." }
+      },
+      {
+        "@type": "Question",
+        name: "Do I need to book cellar door visits on the Mornington Peninsula?",
+        acceptedAnswer: { "@type": "Answer", text: "Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive — appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest." }
+      },
+      {
+        "@type": "Question",
+        name: "How many wineries are on the Mornington Peninsula?",
+        acceptedAnswer: { "@type": "Answer", text: "The Mornington Peninsula has over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact — you can visit three cellar doors in an afternoon without rushing if you stay on the ridge." }
+      }
+    ]
+  })), renderComponent($$result2, "Breadcrumbs", $$Breadcrumbs, { "items": breadcrumbItems }), renderComponent($$result2, "SectionHero", $$SectionHero, { "eyebrow": "Wine Country", "subEyebrow": "Cellar doors · pinot noir · cool-climate producers", "title": "The Peninsula's best bottles start on the <em>ridge.</em>", "dek": "Pinot noir and chardonnay built on basalt, plus the breweries and distilleries that now round out the region. This hub sorts them by what they're actually for  -  long lunches, appointment tastings, and afternoons that earn the drive.", "gradient": "hinterland", "visualLabel": "Pinot Noir · Main Ridge Estate", "heroImage": "/images/sourced/wine-hub-hero-01.webp" }), maybeRenderHead(), benchmarks.length > 0 && renderTemplate`<a href="#benchmarks" class="format-chip"><span class="format-chip__name">Benchmark cellar doors</span><span class="format-chip__count">${benchmarks.length}</span></a>`, appointmentOnly.length > 0 && renderTemplate`<a href="#appointment" class="format-chip"><span class="format-chip__name">Appointment producers</span><span class="format-chip__count">${appointmentOnly.length}</span></a>`, wineries.length > 0 && renderTemplate`<a href="#wineries" class="format-chip"><span class="format-chip__name">All wineries</span><span class="format-chip__count">${wineries.length}</span></a>`, breweries.length > 0 && renderTemplate`<a href="#breweries" class="format-chip"><span class="format-chip__name">Breweries</span><span class="format-chip__count">${breweries.length}</span></a>`, distilleries.length > 0 && renderTemplate`<a href="#distilleries" class="format-chip"><span class="format-chip__name">Distilleries</span><span class="format-chip__count">${distilleries.length}</span></a>`, producers.length > 0 && renderTemplate`<a href="#producers" class="format-chip"><span class="format-chip__name">Producers & makers</span><span class="format-chip__count">${producers.length}</span></a>`, wineHubs.length, benchmarks.length > 0 && renderTemplate`<section class="venues" id="benchmarks"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Benchmark cellar doors</p> <h2 class="venues__title">The producers anchoring the region right now</h2> <p class="venues__sub">Halliday scores matter less than editorial weight  -  this is the shortlist we'd put in front of a first-time visitor and an obsessive both.</p> </div> <a href="/journal/the-cellar-door-short-list" class="venues__link">Read the shortlist →</a> </div> <div class="venues__grid"> ${benchmarks.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/wine" })}`)} </div> </div> </section>`, appointmentOnly.length > 0 && renderTemplate`<section class="venues venues--plain" id="appointment"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Appointment producers</p> <h2 class="venues__title">Worth planning the drive around</h2> <p class="venues__sub">The producers that reward a booking  -  smaller tastings, closer to the winemaking, often the most interesting conversations of the weekend.</p> </div> </div> <div class="venues__grid"> ${appointmentOnly.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/wine" })}`)} </div> </div> </section>`, wineries.length > 0 && renderTemplate`<section class="venues" id="wineries"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">All wineries</p> <h2 class="venues__title">${wineries.length} cellar doors across the region</h2> <p class="venues__sub">Sorted by authority. Expect a spread from three-hat destinations to back-road pinot rooms.</p> </div> </div> <div class="venues__grid"> ${wineries.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/wine" })}`)} </div> </div> </section>`, breweries.length > 0 && renderTemplate`<section class="venues venues--plain" id="breweries"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Breweries</p> <h2 class="venues__title">The Peninsula's beer shortlist</h2> <p class="venues__sub">Where the weekend wants a slightly less serious spine.</p> </div> </div> <div class="venues__grid"> ${breweries.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/wine" })}`)} </div> </div> </section>`, distilleries.length > 0 && renderTemplate`<section class="venues" id="distilleries"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Distilleries</p> <h2 class="venues__title">Gin, whisky, and the slow craft layer</h2> <p class="venues__sub">Small-batch producers working quietly behind the wine story.</p> </div> </div> <div class="venues__grid"> ${distilleries.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/wine" })}`)} </div> </div> </section>`, producers.length > 0 && renderTemplate`<section class="venues venues--plain" id="producers"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Producers & makers</p> <h2 class="venues__title">Cheese, truffles, olive oil, chocolate, and the wider Peninsula pantry</h2> <p class="venues__sub">The producers that round out a long lunch with everything the cellar door forgot.</p> </div> <a href="/journal/the-peninsula-pantry" class="venues__link">Read the pantry piece →</a> </div> <div class="venues__grid"> ${producers.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/wine" })}`)} </div> </div> </section>`, wineHubs.length > 0 && renderTemplate`<section class="places" id="hubs"> <div class="container"> <div class="places__header"> <p class="label label--accent places__label">Wine country, by place</p> <h2 class="places__title">The hubs that organise the region</h2> <p class="places__sub">Each hub pulls the cellar doors, producers, and long lunches into one stretch of landscape.</p> </div> <div class="places__grid"> ${wineHubs.map((place) => renderTemplate`${renderComponent($$result2, "PlaceCard", $$PlaceCard, { "place": place, "variant": "vineyard" })}`)} </div> </div> </section>`, companionReads.length > 0 && renderTemplate`<section class="venues venues--plain"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">From the Journal</p> <h2 class="venues__title">The wine arguments worth reading before you buy</h2> <p class="venues__sub">${blurb.line}</p> </div> <a href="/journal" class="venues__link">All in the Journal →</a> </div> <div class="venues__grid"> ${companionReads.map((article) => renderTemplate`${renderComponent($$result2, "ArticleCard", $$ArticleCard, { "article": article })}`)} </div> </div> </section>`, renderComponent($$result2, "NewsletterBlock", $$NewsletterBlock, {})) })}`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/wine/index.astro", void 0);
+
+const $$file = "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/wine/index.astro";
+const $$url = "/wine";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

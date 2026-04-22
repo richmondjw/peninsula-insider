@@ -1,0 +1,82 @@
+import { c as createComponent } from './astro-component_DWnrvw-z.mjs';
+import 'piccolore';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead, u as unescapeHTML } from './prerender_DgZBHBwL.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_BLvjf5bd.mjs';
+import { $ as $$NewsletterBlock } from './NewsletterBlock_CsLef5zT.mjs';
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$MorningtonPeninsulaInAutumn = createComponent(($$result, $$props, $$slots) => {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Mornington Peninsula in Autumn — What to Do, Eat & See",
+    description: "The complete guide to the Mornington Peninsula in autumn — vintage season, cellar door fires, long lunches in low sun, and the quiet that follows the summer crowds.",
+    datePublished: "2026-04-01",
+    author: { "@type": "Organization", name: "Peninsula Insider", url: "https://peninsulainsider.com.au" },
+    publisher: {
+      "@type": "Organization",
+      name: "Peninsula Insider",
+      url: "https://peninsulainsider.com.au",
+      logo: { "@type": "ImageObject", url: "https://peninsulainsider.com.au/images/sourced/home-cover.webp" }
+    },
+    mainEntityOfPage: "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn",
+    url: "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn"
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Is autumn a good time to visit Mornington Peninsula?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Autumn is arguably the best season on the Peninsula. Vintage is underway on the ridge, the cellar doors light their fires, the summer crowds are gone, and the light over the vineyards is at its warmest. Prices drop after Easter, restaurant bookings are easier to get, and the beaches are empty but still swimmable through March and into April."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "What is there to do on the Mornington Peninsula in autumn?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The autumn essentials: cellar door visits during vintage, long lunches at vineyard restaurants, coastal walks at Cape Schanck and Point Nepean, Peninsula Hot Springs (better in cool weather), and Red Hill Market on the first Saturday of each month. The region's best restaurants are at peak form in autumn."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Is it too cold to swim on the Mornington Peninsula in autumn?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "March is warm enough for bay-side swimming at Mornington, Mount Martha, and Safety Beach. April can still work on warm days. By May, swimming is for the committed. Ocean beaches are colder year-round but stunning for walks even when swimming is off the table."
+        }
+      }
+    ]
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://peninsulainsider.com.au" },
+      { "@type": "ListItem", position: 2, name: "Journal", item: "https://peninsulainsider.com.au/journal" },
+      { "@type": "ListItem", position: 3, name: "Mornington Peninsula in Autumn", item: "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn" }
+    ]
+  };
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Mornington Peninsula in Autumn · Peninsula Insider", "description": "The complete guide to the Mornington Peninsula in autumn — vintage season on the ridge, cellar door fires, pinot lunches in low sun, and the quiet the summer crowds leave behind.", "section": "journal", "canonical": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn", "ogType": "article" }, { "default": ($$result2) => renderTemplate(_a || (_a = __template([' <script type="application/ld+json">', '<\/script> <script type="application/ld+json">', '<\/script> <script type="application/ld+json">', "<\/script> ", `<article class="article"> <div class="container"> <nav class="article__meta" aria-label="Breadcrumb"> <a href="/">Peninsula Insider</a> <span aria-hidden="true"> › </span> <a href="/journal">Journal</a> <span aria-hidden="true"> › </span> <span>Mornington Peninsula in Autumn</span> </nav> <div class="article__meta"> <span class="article__format">Service</span> <span class="article__dot" aria-hidden="true"></span> <span class="article__meta-item">April 2026</span> </div> <h1 class="article__title">Mornington Peninsula in Autumn — What to Do, Eat & See</h1> <p class="article__dek">Vintage season on the ridge, cellar door fires, pinot lunches in low sun, and the quiet that follows the summer crowds. This is the Peninsula at its most considered.</p> <div class="article__hero feature__image-block feature__image-block--hinterland" aria-hidden="true" style="background-image: url(/images/sourced/article-cellar-door-01.webp); background-size: cover; background-position: center;"> <div class="article__hero-fog"></div> <span class="article__hero-caption">Red Hill plateau, Mornington Peninsula — Autumn</span> </div> <div class="prose"> <h2>Why Autumn</h2> <p>March to May is when the Peninsula earns its reputation. The summer crowds have thinned, the ridge is golden, and the cellar doors — many of which barely felt like they stopped to breathe between Christmas and Easter — have fires lit and the new vintage running in the tanks behind the tasting room.</p> <p>Autumn is vintage season. If you drive the Red Hill plateau in late March or early April on a still morning, you can smell it — a faint yeasty warmth from the processing sheds, the vines stripped back to wire, the quiet industry of people who have been waiting for this exact window since last year. It is not a performative moment. It is just the region doing its actual work, and visitors who time it right get to be adjacent to something real.</p> <p>The light changes in April. The long, flat afternoon sun of summer gives way to something lower and more golden — the kind of light that makes a Sunday lunch table on a winery terrace feel like a painting. The fog comes in the mornings on the plateau, burning off by ten o'clock to reveal the vines in full colour: yellow-green on the Chardonnay, deep burgundy on the Pinot, copper on the older blocks of Cabernet that some producers still maintain for the blending programme.</p> <p>This is the time to be here.</p> <h2>What to Eat & Drink</h2> <p>The autumn menu on the Peninsula is built around the long lunch. The cellar door restaurants are in their best form — <a href="/eat/montalto">Montalto</a> in Red Hill South, <a href="/wine/polperro">Polperro</a> in Main Ridge, and the dining room at <a href="/eat/pt-leo-estate">Pt. Leo Estate</a> overlooking the bay — all running autumn menus that lean into what the kitchen garden has left before the frosts arrive. Root vegetables, preserved summer tomatoes, mushrooms from the Dandenongs, and a protein game that shifts from the light summer seafood to slower-cooked, richer preparations.</p> <p>The cellar door tasting experience is better in autumn than any other season. The new vintage isn't released yet — that happens in spring — but the current-release wines are at peak drinking window, the staff have time for actual conversation rather than summer-crowd management, and the rooms feel more intimate. At <a href="/wine/baillieu-vineyard">Baillieu Vineyard</a> and <a href="/wine/avani-wines">Avani</a>, the smaller operations, the owner is often pouring. That doesn't happen in summer.</p> <p>For something more casual, the <a href="/eat/flinders-general-store">Flinders General Store</a> and <a href="/eat/balnarring-bakehouse">Balnarring Bakehouse</a> are at their best in autumn — less of the tourist rush, quicker tables, and the same honest food that justifies the drive in any season. The <a href="/eat/balnarring-pub">Balnarring Pub</a> in autumn is a particular pleasure: cold outside, fire inside, the kind of afternoon that doesn't need to go anywhere.</p> <h2>Where to Stay</h2> <p>The ridge in autumn is the clearest argument for staying over. Drive back to Melbourne after dark in April and you're leaving the best of the day behind you. A vineyard villa or a cottage on the plateau keeps the morning free for a walk through the vines before the day opens up. <a href="/stay/polperro-villas">Polperro Villas</a> in Main Ridge puts you within walking distance of three cellar doors. The rooms at <a href="/stay/flinders-hotel">Flinders Hotel</a> on the south coast put you into the village pub atmosphere that autumn amplifies — low season, regulars, no pretension.</p> <p>If the budget stretches to it, autumn at <a href="/stay/jackalope">Jackalope</a> on the Merricks North plateau is the Peninsula at its most composed. The rates are marginally more negotiable in autumn than they are in summer, the spa is exactly what a cold April morning asks for, and the restaurant at this time of year is running its tightest menu of the year.</p> <h2>What to Do</h2> <p>The coastal walks are better in autumn than any other season. The tracks at <a href="/explore/cape-schanck-boardwalk">Cape Schanck</a> and <a href="/explore/bushrangers-bay-walk">Bushrangers Bay</a> lose the summer crowds almost immediately after Easter, and the cold Bass Strait air makes the walk feel more purposeful. Low tide in the afternoon reveals the basalt platforms below the lighthouse, where the waves come in with real weight in autumn.</p> <p>The <a href="/explore/red-hill-market">Red Hill Market</a>, held on the first Saturday of the month, is the Peninsula's strongest market in autumn — the summer produce has finished, the autumn vendors are at peak supply, and the crowds are manageable enough that browsing feels like browsing rather than shuffling.</p> <p>The <a href="/explore/montalto-sculpture-trail">Montalto Sculpture Trail</a> in autumn is a walk worth making entirely on its own — 35 works across the estate property, the vines in colour behind them, the lake still and reflective in the morning light. Allow an hour before lunch and you'll want two.</p> <h2>A Weekend Plan</h2> <p><strong>Saturday morning:</strong> Red Hill Market (first Saturday of the month) or, failing that, a walk through Greens Bush in the national park before the day opens up. Coffee at <a href="/eat/commonfolk-coffee">Commonfolk</a> in Mornington or the bakery at Balnarring on the way down.</p> <p><strong>Saturday lunch:</strong> A cellar door restaurant on the plateau. Montalto if you want the full estate experience, Polperro if you want something more intimate. Book ahead regardless — the best Saturday tables in autumn still go fast.</p> <p><strong>Saturday afternoon:</strong> Two cellar door tastings after lunch. The plateau is compact enough that three stops in an afternoon is reasonable; two is more honest. Baillieu and Avani are a logical pair from Main Ridge. Keep the driving to a minimum — one of you should.</p> <p><strong>Saturday evening:</strong> Back to the accommodation for an hour before dinner. Flinders Hotel for a pub dinner if you're on the south coast, or a bottle from the day's purchases opened in the cottage if you're on the ridge. The Peninsula does not need to be a five-courses-and-a-wine-match every night. Sometimes the best version of autumn here is a cold evening, a good bottle, and nothing in particular to do next.</p> <p><strong>Sunday morning:</strong> A coastal walk — Cape Schanck if you're based on the south coast, the Two Bays section through Greens Bush if you want forest. An hour and a half. Then the drive home through the back roads rather than the freeway; the plateau in morning light earns the extra twenty minutes.</p> </div> </div> </article> `, " "])), unescapeHTML(JSON.stringify(articleSchema)), unescapeHTML(JSON.stringify(faqSchema)), unescapeHTML(JSON.stringify(breadcrumbSchema)), maybeRenderHead(), renderComponent($$result2, "NewsletterBlock", $$NewsletterBlock, {})) })}`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/journal/mornington-peninsula-in-autumn.astro", void 0);
+
+const $$file = "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/journal/mornington-peninsula-in-autumn.astro";
+const $$url = "/journal/mornington-peninsula-in-autumn";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$MorningtonPeninsulaInAutumn,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

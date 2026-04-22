@@ -1,0 +1,70 @@
+import { c as createComponent } from './astro-component_DWnrvw-z.mjs';
+import 'piccolore';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead, u as unescapeHTML } from './prerender_DgZBHBwL.mjs';
+import { g as getCollection } from './_astro_content_CykX4FgV.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_BLvjf5bd.mjs';
+import { $ as $$Breadcrumbs } from './Breadcrumbs_DNHb82Kc.mjs';
+import { $ as $$VenueCard } from './VenueCard_SLu3UDq1.mjs';
+import { $ as $$NewsletterBlock } from './NewsletterBlock_CsLef5zT.mjs';
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$BestAccommodation = createComponent(async ($$result, $$props, $$slots) => {
+  const stayTypes = ["hotel", "villa", "cottage", "glamping", "farm-stay", "spa"];
+  const venues = (await getCollection("venues")).filter((v) => stayTypes.includes(v.data.type)).sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+  const luxury = venues.filter((v) => v.data.priceBand === "$$$$");
+  const midRange = venues.filter((v) => v.data.priceBand === "$$$");
+  const affordable = venues.filter((v) => ["$", "$$"].includes(v.data.priceBand));
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Where is the best place to stay on the Mornington Peninsula?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Red Hill and Main Ridge are the best base for cellar door weekends — vineyard restaurants are walkable and the ridge has the highest concentration of serious stays. Sorrento is the best base for atmosphere, village dining, and ocean beach access. Mornington town is the most accessible from Melbourne, ideal for single-night escapes. The right answer depends on the kind of weekend you want."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How much does it cost to stay on the Mornington Peninsula?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Budget around $250–400/night for a good mid-range self-contained villa or cottage. Luxury vineyard stays (Jackalope, Lindenderry, Pt. Leo Estate) run $450–800/night. Budget-friendly options exist in Rosebud, Dromana, and Rye from $150/night, though these are further from the cellar door cluster. Prices peak in summer and over long weekends — autumn midweek is the best value."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Should I stay in Sorrento or Red Hill?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sorrento for a coastal village weekend with ocean swimming, main-street restaurants, and the ferry to Queenscliff. Red Hill for a wine-country weekend with cellar doors, vineyard lunches, and quiet ridge-top stays. They are 20 minutes apart, so you can easily visit both areas — the choice is about where you want to wake up."
+        }
+      }
+    ]
+  };
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Stay", href: "/stay" },
+    { label: "Best Accommodation" }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Best Accommodation Mornington Peninsula · Peninsula Insider", "description": "The best places to stay on the Mornington Peninsula — hotels, vineyard villas, and coastal cottages. Honest editorial picks across every price band.", "section": "stay", "canonical": "https://peninsulainsider.com.au/stay/best-accommodation" }, { "default": async ($$result2) => renderTemplate(_a || (_a = __template([' <script type="application/ld+json">', "<\/script> ", " ", `<article class="article"> <div class="container"> <h1 class="article__title">The Best Places to Stay on the Mornington Peninsula</h1> <div class="prose"> <p>Where you sleep shapes the whole Peninsula weekend. A ridge stay puts you within walking distance of cellar doors and positions lunch as a walk rather than a drive. A Sorrento or Portsea base gives you the village atmosphere and easy access to the ocean beaches. The bayside properties in Mornington and Mount Martha are the most accessible from Melbourne, good for a single-night escape that doesn't require the full commitment.</p> <p>The best Peninsula stays are not hotels in the traditional sense — they're more often vineyard villas, converted farm buildings, and coastal properties that borrow character from the landscape. Jackalope on the Red Hill plateau is the benchmark: a serious room in a serious location, price calibrated to match. Below it, a strong mid-range layer of self-contained villas and cottages that work well for couples and small groups.</p> </div> </div> </article> `, "", "", "", `<section class="faq-section"> <div class="container"> <div class="prose"> <h2>How to choose where to stay</h2> <h3>Ridge vs coast vs bay</h3> <p>The Red Hill ridge puts you in wine country — better for cellar door days, vineyard lunches, and escapes where the wine list is the point. The coastal properties (Flinders, Sorrento, Portsea) are better when beaches, ocean walks, and sunset drinks at the pub are the priority. Bayside properties in Mornington and Mount Martha are the most accessible from Melbourne and work well for single nights.</p> <h3>When to book</h3> <p>Summer weekends (December–February) book out months ahead. Long weekends in autumn — especially the March and April public holiday weekends — are the second hardest to book. Winter is dramatically quieter; the best stays are often available at short notice, and the Peninsula's fireplace-and-thermal-springs character is strongest when it's cold.</p> <h3>Self-contained vs hotel</h3> <p>Most Peninsula accommodation is self-contained — villas, cottages, and private houses rather than traditional hotel rooms. This suits longer stays and groups well. For single-night escapes where you'd rather not cook breakfast, the Hotel Sorrento and the Flinders Hotel offer the most hotel-appropriate experience on the Peninsula.</p> </div> </div> </section> `, " "])), unescapeHTML(JSON.stringify(faqSchema)), renderComponent($$result2, "Breadcrumbs", $$Breadcrumbs, { "items": breadcrumbItems }), maybeRenderHead(), luxury.length > 0 && renderTemplate`<section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Luxury · $$$$</p> <h2 class="venues__title">The benchmark stays</h2> <p class="venues__sub">The properties at the top of the Peninsula's accommodation offer — for occasions that justify the spend.</p> </div> </div> <div class="venues__grid"> ${luxury.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/stay" })}`)} </div> </div> </section>`, midRange.length > 0 && renderTemplate`<section class="venues venues--plain"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Mid-range · $$$</p> <h2 class="venues__title">Strong rooms, calibrated price</h2> <p class="venues__sub">The deepest category on the Peninsula — vineyard villas, coastal properties, and stays with enough character to anchor a weekend without requiring a special occasion.</p> </div> </div> <div class="venues__grid"> ${midRange.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/stay" })}`)} </div> </div> </section>`, affordable.length > 0 && renderTemplate`<section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Accessible · $ – $$</p> <h2 class="venues__title">Honest stays that don't require a justification</h2> </div> </div> <div class="venues__grid"> ${affordable.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/stay" })}`)} </div> </div> </section>`, luxury.length === 0 && midRange.length === 0 && affordable.length === 0 && renderTemplate`<section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">All accommodation · ${venues.length} properties</p> <h2 class="venues__title">Every stay on the Peninsula</h2> </div> <a href="/stay" class="venues__link">Browse all stays →</a> </div> <div class="venues__grid"> ${venues.map((venue) => renderTemplate`${renderComponent($$result2, "VenueCard", $$VenueCard, { "venue": venue, "hrefPrefix": "/stay" })}`)} </div> </div> </section>`, renderComponent($$result2, "NewsletterBlock", $$NewsletterBlock, {})) })}`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/stay/best-accommodation.astro", void 0);
+
+const $$file = "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/stay/best-accommodation.astro";
+const $$url = "/stay/best-accommodation";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$BestAccommodation,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

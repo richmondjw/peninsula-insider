@@ -1,0 +1,52 @@
+import { c as createComponent } from './astro-component_DWnrvw-z.mjs';
+import 'piccolore';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead } from './prerender_DgZBHBwL.mjs';
+import { g as getCollection } from './_astro_content_CykX4FgV.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_BLvjf5bd.mjs';
+import { $ as $$SectionHero } from './SectionHero_BlToWmif.mjs';
+import { $ as $$Breadcrumbs } from './Breadcrumbs_DNHb82Kc.mjs';
+import { $ as $$NewsletterBlock } from './NewsletterBlock_CsLef5zT.mjs';
+
+const $$About = createComponent(async ($$result, $$props, $$slots) => {
+  const venues = await getCollection("venues");
+  const articles = await getCollection("articles", ({ data }) => data.status === "published");
+  const places = await getCollection("places");
+  const experiences = await getCollection("experiences");
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "About" }
+  ];
+  const principles = [
+    {
+      title: "No advertisers",
+      body: "Every venue, every recommendation, every word  -  unprompted. We don't run display ads. We don't accept sponsored content. If a restaurant appears, it's because the editor ate there and had an opinion worth writing."
+    },
+    {
+      title: "No press trips",
+      body: "We pay for our own meals, our own rooms, our own parking. The moment a publication takes a comp, the reader starts doing the work of figuring out what's real. That's your job erased."
+    },
+    {
+      title: "Opinions, not stars",
+      body: "Star ratings are a consensus machine. We write editor notes  -  a short, honest paragraph about what a place actually feels like when you sit down. Agreement is optional; clarity is not."
+    },
+    {
+      title: "Service journalism",
+      body: "Every piece answers a real question a weekend visitor actually asks: where to eat, what to do when it rains, which cellar doors are worth the appointment. The Peninsula doesn't need more content. It needs better answers."
+    }
+  ];
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "About  -  Peninsula Insider", "description": "Peninsula Insider is the independent editorial guide to the Mornington Peninsula. No advertisers, no press trips  -  just honest coverage of eating, drinking, staying, and exploring.", "section": "home" }, { "default": async ($$result2) => renderTemplate` ${renderComponent($$result2, "Breadcrumbs", $$Breadcrumbs, { "items": breadcrumbItems })} ${renderComponent($$result2, "SectionHero", $$SectionHero, { "eyebrow": "About", "subEyebrow": "Independent editorial", "title": "No advertisers. No press trips. Just <em>honest</em> coverage.", "dek": "Peninsula Insider is building the editorial guide the Mornington Peninsula doesn't have yet  -  one that treats readers like adults and venues like subjects, not clients.", "gradient": "journal", "visualLabel": "Peninsula Insider · editorial preview" })}  ${maybeRenderHead()}<section class="about-mission"> <div class="container"> <div class="about-mission__grid"> <div class="about-mission__lead"> <p class="label label--accent">The mission</p> <h2 class="about-mission__title">The Peninsula deserves better than a brochure</h2> </div> <div class="about-mission__body prose"> <p>The Mornington Peninsula has over 200 cellar doors, more Good Food Guide–hatted restaurants per square kilometre than anywhere outside inner Melbourne, and a coastline that changes personality four times in 40 minutes of driving. It deserves coverage that takes it seriously.</p> <p>Most of what exists online is either tourism marketing dressed as editorial, or user-generated review content that tells you a restaurant has 4.3 stars without explaining what the 4.3 actually felt like. Neither helps you build a weekend.</p> <p>Peninsula Insider is an attempt to fix that. We write opinionated, service-first editorial that answers the questions weekend visitors actually have  -  and we do it without taking money from the venues we cover.</p> </div> </div> </div> </section>  <section class="about-principles"> <div class="container"> <div class="split-intro"> <div> <p class="label label--accent">Editorial standards</p> <h2 class="split-intro__title">Four rules we don't bend</h2> </div> <p class="split-intro__body">These aren't aspirations. They're operating constraints. If we break them, the whole thing stops working.</p> </div> <div class="about-principles__grid"> ${principles.map((principle) => renderTemplate`<article class="about-principle"> <h3 class="about-principle__title">${principle.title}</h3> <p class="about-principle__body">${principle.body}</p> </article>`)} </div> </div> </section>  <section class="about-coverage"> <div class="container"> <div class="about-coverage__inner"> <p class="label label--accent">Current coverage</p> <h2 class="about-coverage__title">What's mapped so far</h2> <p class="about-coverage__dek">The rebuild is live and growing. Every number below represents a real, editorially reviewed page  -  not a scraped listing.</p> <dl class="about-coverage__stats"> <div> <dd>${venues.length}</dd> <dt>Venues mapped</dt> </div> <div> <dd>${articles.length}</dd> <dt>Journal pieces</dt> </div> <div> <dd>${places.length}</dd> <dt>Place hubs</dt> </div> <div> <dd>${experiences.length}</dd> <dt>Walks & experiences</dt> </div> </dl> </div> </div> </section>  <section class="about-difference"> <div class="container"> <div class="split-intro"> <div> <p class="label label--accent">The difference</p> <h2 class="split-intro__title">What Peninsula Insider does that nobody else on the Peninsula bothers with</h2> </div> <p class="split-intro__body">These are the editorial commitments that make our coverage useful rather than decorative.</p> </div> <div class="about-principles__grid"> <article class="about-principle"> <h3 class="about-principle__title">Editor notes, not star ratings</h3> <p class="about-principle__body">Every venue carries a short, opinionated paragraph about what the place actually feels like  -  the light at 2 pm, the menu’s weak spot, whether the wine list lives up to the view. Stars flatten; sentences clarify.</p> </article> <article class="about-principle"> <h3 class="about-principle__title">Service journalism that answers real questions</h3> <p class="about-principle__body">Every Journal piece starts from a question a weekend visitor actually asks: <em>Where do I eat if I can’t get a booking? What do I do when it rains? Is the drive to Flinders worth it for one night?</em> If we can’t name the question, we don’t write the piece.</p> </article> <article class="about-principle"> <h3 class="about-principle__title">Weekend-shaped, not list-shaped</h3> <p class="about-principle__body">Most Peninsula content is a flat list of places. Ours is sequenced: itineraries that put lunch, walk, and bed in the right order; service pieces that tell you <em>when</em> to arrive, not just <em>where</em>.</p> </article> <article class="about-principle"> <h3 class="about-principle__title">Seasonal rotation, not stale archives</h3> <p class="about-principle__body">The homepage, section hubs, and venue surfaces shift with the Southern-Hemisphere calendar. What you see in April is different from what you see in December  -  because the Peninsula is a different place in every season.</p> </article> </div> </div> </section>  <section class="about-build"> <div class="container"> <div class="about-mission__grid"> <div class="about-mission__lead"> <p class="label label--accent">How it's built</p> <h2 class="about-mission__title">Structured content, not a WordPress blog</h2> </div> <div class="about-mission__body prose"> <p>Peninsula Insider is built on an atomic content layer. Every venue, place, experience, and event is a structured entity with typed fields  -  not a blog post pretending to be a database. This means every page is connected: a venue knows which place it belongs to, which articles mention it, and which itineraries route through it.</p> <p>The architecture is designed for editorial integrity at scale. When we update a venue's editor note, it flows through to every page that references it. When we add a new experience to a place, the place hub updates automatically. The structure does the work so the editors can focus on the writing.</p> <p>The site is statically generated  -  no server, no database queries at runtime, no third-party trackers. Fast, private, and permanent. Every page has a real URL that will still work in ten years.</p> </div> </div> </div> </section>  <section class="about-colophon"> <div class="container"> <div class="about-mission__grid"> <div class="about-mission__lead"> <p class="label label--accent">Colophon</p> <h2 class="about-mission__title">A small editorial operation, deliberately</h2> </div> <div class="about-mission__body prose"> <p>Peninsula Insider is a one-desk publication. The editorial team lives on the Peninsula, eats on the Peninsula, and walks the same coastline the pieces describe. The coverage is slow, deliberate, and local  -  because the best regional journalism has always worked that way.</p> <p>The site publishes weekly dispatch every Wednesday. The <em>Peninsula This Weekend</em> dispatch lands every Wednesday at 6 pm. The newsletter is the only way to get it all in your inbox.</p> <p>If you’re a venue owner who wants coverage, there’s nothing to buy  -  see our <a href="/contact">contact page</a> for how to reach us. If you’re a reader who spotted an error, we fix fast: <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>.</p> </div> </div> </div> </section> ${renderComponent($$result2, "NewsletterBlock", $$NewsletterBlock, { "title": "The Peninsula in your inbox, every week.", "body": "New openings, cellar-door dispatches, weekend-picker verdicts, and the places we’re quietly recommending this season. Written by editors who live here. No advertiser relationships. Unsubscribe any time." })} ` })}`;
+}, "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/about.astro", void 0);
+
+const $$file = "/home/node/.openclaw/workspace/peninsula-insider/next/src/pages/about.astro";
+const $$url = "/about";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$About,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
