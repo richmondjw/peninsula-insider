@@ -85,11 +85,11 @@ If you are not staying in Sorrento, get there early on Saturday and stay south t
 
 ### Keep one weather-proof card in hand
 
-If the weather turns, energy drops, or the group becomes less cooperative than the group chat suggested, the practical save is **[Junior Chocolatier at Mornington Peninsula Chocolates](/whats-on/chocolaterie-junior-chocolatier/)**.
+If the weather turns, energy drops, or the group becomes less cooperative than the group chat suggested, the practical save is **[Moonlit Sanctuary Easter School Holiday Program](/whats-on/moonlit-sanctuary-easter-program/)**.
 
 This is not the most stylish recommendation in the dispatch, and that is fine. Weekend usefulness matters more than aesthetic purity. A long weekend often goes wrong not because there were no good options, but because there was no resilient option once the original plan frayed.
 
-Pair it with one decent lunch and a short village or foreshore stop, and the day still feels intentional instead of salvaged.
+Moonlit works because it can absorb mixed ages, uncertain weather, and a group whose patience is already running thinner than planned. Pair it with one decent lunch on the drive back and the day still feels intentional instead of salvaged.
 
 ## What we would skip
 
