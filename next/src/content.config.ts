@@ -239,6 +239,9 @@ const articles = defineCollection({
       'investigation',
       'service',
       'weekend-picker',
+      'hub-guide',
+      'trail-guide',
+      'venue-guide',
     ]),
     tags: z.array(z.string()).default([]),
     relatedVenues: z.array(reference('venues')).default([]),
@@ -246,6 +249,9 @@ const articles = defineCollection({
     readingTimeMinutes: z.number().positive().optional(),
     featured: z.boolean().default(false),
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
+    lastVerified: z.coerce.date().optional(),
+    clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
+    faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
   }),
 });
 

@@ -6,6 +6,7 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import ClusterLinks from '../../components/ClusterLinks.astro';
 import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle } from '../../lib/editorial';
 
 export async function getStaticPaths() {
@@ -96,6 +97,16 @@ const articleSchema = {
   url: canonical,
 };
 
+const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: article.data.faq.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+} : null;
+
 ---
 
 <BaseLayout
@@ -109,6 +120,7 @@ const articleSchema = {
   modifiedTime={(article.data.updatedAt ?? article.data.publishedAt).toISOString()}
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <Breadcrumbs items={breadcrumbItems} />
 
   <article class="article">
@@ -135,6 +147,11 @@ const articleSchema = {
             Updated {article.data.updatedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
           </span>
         )}
+        {article.data.lastVerified && (
+          <span class="article__byline-verified">
+            Facts verified {article.data.lastVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </span>
+        )}
       </div>
 
       {article.data.tags.length > 0 && (
@@ -153,6 +170,10 @@ const articleSchema = {
       <div class="prose">
         <Content />
       </div>
+
+      {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
+        <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />
+      )}
 
       <div class="article__share">
         <span class="article__share-label">Share this piece</span>

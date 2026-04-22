@@ -14,6 +14,16 @@ format: "investigation"
 tags: ["hot-springs", "spa", "wellness", "mornington-peninsula", "comparison", "alba", "peninsula-hot-springs"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck"]
 readingTimeMinutes: 11
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Peninsula Hot Springs — full venue guide"
+    href: "/stay/peninsula-hot-springs/"
+  - label: "Alba Thermal Springs — full venue guide"
+    href: "/stay/alba-thermal-springs/"
+  - label: "Where to Stay Near the Hot Springs"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "The Best Spas on the Mornington Peninsula"
+    href: "/journal/best-spas-mornington-peninsula/"
 status: "published"
 ---
 
@@ -35,8 +45,8 @@ Both are worth doing over a full Peninsula year — just not on the same day.
 | | Peninsula Hot Springs | Alba Thermal Springs |
 |--|--|--|
 | Opened | 2005 | 2022 |
-| Location | Springs Lane, Fingal | Mornington-Flinders Rd, Fingal |
-| Pools | 70+ across Bath House, Spa Dreaming Centre, Amphitheatre | 31 geothermal pools plus vitality circuit |
+| Location | Springs Lane, Fingal | Browns Road, Fingal |
+| Pools | 70+ across Bath House, Spa Dreaming Centre, Amphitheatre | 22 geothermal pools |
 | Design era | Early 2000s organic, expanded in layers | 2020s architectural, designed as one |
 | Capacity | Large — several sessions can overlap | Smaller — tighter caps |
 | Children policy | Family sessions available | Adults-only most sessions |
@@ -63,7 +73,7 @@ The *editorial weakness* is also the scale. Weekend daytime sessions can feel cr
 
 Alba is the hot springs the Peninsula had been waiting for. It opened in 2022 on a quieter site a few minutes inland from Peninsula Hot Springs, built by a different operator, with a fundamentally different editorial approach.
 
-Where Peninsula Hot Springs has been expanded across two decades, Alba was designed in one move. The architecture by Hayball is confident and sculptural rather than organic. The thirty-one geothermal pools are arranged through the landscape with proper pacing — hot, warm, plunge, vitality — and the pathways are adult-scaled. There is a better wet-area spa building. There is a sensible cafe. And the ticketing caps bather numbers so the experience does not collapse into chaos on a Saturday at 2pm.
+Where Peninsula Hot Springs has been expanded across two decades, Alba was designed in one move. The architecture by Hayball is confident and sculptural rather than organic. The twenty-two geothermal pools are arranged through the landscape with proper pacing — hot, warm, plunge, vitality — and the pathways are adult-scaled. There is a better wet-area spa building. There is a sensible cafe. And the ticketing caps bather numbers so the experience does not collapse into chaos on a Saturday at 2pm.
 
 What Alba does well that Peninsula Hot Springs does not match:
 

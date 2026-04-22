@@ -22,6 +22,9 @@ export const formatLabel: Record<string, string> = {
   investigation: 'Investigation',
   service: 'Service',
   'weekend-picker': 'Weekend Picker',
+  'hub-guide': 'Hub Guide',
+  'trail-guide': 'Trail Guide',
+  'venue-guide': 'Venue Guide',
 };
 
 // Event taxonomy labels  -  keep in lock-step with events collection schema.

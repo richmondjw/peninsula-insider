@@ -1,0 +1,49 @@
+---
+interface Props {
+  type?: 'info' | 'warning' | 'danger';
+  heading?: string;
+}
+const { type = 'info', heading } = Astro.props;
+---
+<div class={`alert-block alert-block--${type}`} role="note">
+  {heading && <p class="alert-block__heading">{heading}</p>}
+  <div class="alert-block__body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .alert-block {
+    border-left: 4px solid;
+    padding: 1rem 1.25rem;
+    margin: 2rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .alert-block--info {
+    border-color: #4a90a4;
+    background: #f0f7fa;
+  }
+  .alert-block--warning {
+    border-color: #c9920a;
+    background: #fdf8ec;
+  }
+  .alert-block--danger {
+    border-color: #c0392b;
+    background: #fdf2f1;
+  }
+  .alert-block__heading {
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    color: inherit;
+  }
+  .alert-block__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .alert-block__body :global(ul) {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+</style>

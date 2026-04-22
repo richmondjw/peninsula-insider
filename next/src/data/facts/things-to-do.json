@@ -1,0 +1,307 @@
+{
+  "lastUpdated": "2026-04-22",
+  "dataQualityFlag": "Phillip Island Chocolate Factory is NOT on the Mornington Peninsula — do not include in any MP content (Viator error in competitor data).",
+  "entities": [
+    {
+      "name": "Peninsula Hot Springs",
+      "type": "attraction",
+      "address": "140 Springs Lane, Fingal VIC 3939",
+      "distanceFromMelbourne": "Approximately 90 minutes drive",
+      "openedYear": 2005,
+      "zones": {
+        "bathHouse": {
+          "label": "Bath House",
+          "agePolicy": "All ages welcome",
+          "description": "Main bathing complex; 70+ experiences; the 'accessible' entry point"
+        },
+        "spaDreamingCentre": {
+          "label": "Spa Dreaming Centre",
+          "agePolicy": "16+ adults only",
+          "description": "Premium spa experiences; adults-only atmosphere"
+        }
+      },
+      "totalExperiences": "70+",
+      "waterSource": "637m underground aquifer",
+      "waterMinerals": ["magnesium", "potassium", "boron", "sodium"],
+      "pricing": {
+        "note": "Prices NOT published on site — do not include specific prices without verifying directly. Range: ~$65 adult standard; earlybird from ~$45–60.",
+        "confidence": "medium",
+        "mustVerify": true
+      },
+      "tripadvisor": { "stars": 4.1, "reviews": 2305 },
+      "knownIssue": "Overcrowding in Bath House during peak periods (common visitor complaint)",
+      "source": "https://www.peninsulahotsprings.com",
+      "confidence": "high"
+    },
+    {
+      "name": "Alba Thermal Springs & Spa",
+      "type": "attraction",
+      "address": "282 Browns Road, Fingal VIC 3939",
+      "distanceFromPHS": "5-minute drive from Peninsula Hot Springs",
+      "pools": {
+        "count": 22,
+        "note": "22 geothermal pools confirmed on primary site. Urban List cited 31 — this is incorrect. Use 22."
+      },
+      "architecture": "Brutalist; grand entryway; spiral staircase; clean lines",
+      "restaurant": {
+        "name": "Thyme",
+        "chef": "Karen Martini (celebrity chef)",
+        "confidence": "medium",
+        "mustVerify": true,
+        "note": "Celebrity chef partnerships can change — verify current arrangement before publishing"
+      },
+      "accommodationOpened": 2025,
+      "accommodationNote": "The Sanctuary villas opened 2025; adults-only (18+); 7 units total (5 villas + 2 rooms); from $624/night",
+      "nightOwlPrice": "$95 per person (verify)",
+      "adultOnly": true,
+      "minAge": 18,
+      "pricing": {
+        "nightOwl": "~$95 adult (verify)",
+        "confidence": "medium",
+        "mustVerify": true
+      },
+      "source": "https://www.albathermalsprings.com.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Arthurs Seat Eagle",
+      "type": "attraction",
+      "address": "795 Arthurs Seat Road, Arthurs Seat VIC 3936",
+      "height": "314 metres (highest point on Mornington Peninsula)",
+      "cable": "~1km cable",
+      "gondolas": 24,
+      "seatsPerGondola": 8,
+      "openedDate": "3 December 2016",
+      "capitalCost": "$20 million AUD",
+      "accessibility": "Wheelchair and pram accessible gondolas; Companion Card holders admitted free",
+      "pricing": {
+        "adultReturn": "$32.50",
+        "childReturn": "$21.00",
+        "familyReturn": "$89.00",
+        "note": "LP cited $30.90 — outdated. Use official site price $32.50. Prices may change — verify before publishing.",
+        "confidence": "high",
+        "mustVerify": true
+      },
+      "hours": {
+        "standard": "Mon–Fri 10am–5pm; Sat–Sun 10am–6pm; last boarding 4:30pm",
+        "holidays": "Extended in school and public holidays",
+        "confidence": "high",
+        "mustVerify": true
+      },
+      "tripadvisor": { "stars": 4.4, "reviews": 624 },
+      "operatingStatus": "FULLY OPERATIONAL",
+      "statusNote": "Returned after brief COVID administration in March 2020. Confirmed operational.",
+      "source": "https://www.aseagle.com.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Enchanted Adventure Garden",
+      "type": "attraction",
+      "address": "55 Purves Road, Arthurs Seat VIC 3936",
+      "size": "25 acres",
+      "features": [
+        "4 hedge mazes (2 hedge, 1 turf, 1 children's/spring)",
+        "5 giant tube slides",
+        "Canopy Walk",
+        "Sky Scramble (under 135cm)",
+        "20+ themed gardens",
+        "Enchanted Lake",
+        "Sculpture walks"
+      ],
+      "treeSurfing": {
+        "available": true,
+        "price": "Approx $80/adult including general admission (verify)",
+        "confidence": "medium"
+      },
+      "hours": {
+        "summerSeason": "Sep–Apr: 9am–5pm",
+        "winterSeason": "May–Aug: 10am–5pm",
+        "closed": "Christmas Day",
+        "mustVerify": true
+      },
+      "pricing": {
+        "adult18Plus": "$40",
+        "child3to17": "$30",
+        "mustVerify": true
+      },
+      "tripadvisor": { "stars": 4.5, "reviews": 690 },
+      "source": "https://www.enchantedadventure.com.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Ashcombe Maze & Lavender Gardens",
+      "type": "attraction",
+      "address": "15 Shoreham Road, Shoreham VIC 3916",
+      "operatingStatus": "CONFIRMED OPEN",
+      "operatingStatusNote": "NOT CLOSED. Some sources (including prior task research) incorrectly stated closure around 2020. Café re-opened January 2025. TripAdvisor reviews from Jan–Feb 2025 confirm operation. Thu–Mon only is a conversion-relevant detail.",
+      "days": "Thu–Mon 10am–5pm; closed Tue/Wed; open public holidays and school holidays",
+      "pricing": {
+        "from": "$15 per person (verify full breakdown on official site)",
+        "mustVerify": true
+      },
+      "heritageNote": "Australia's oldest traditional hedge maze",
+      "maze": {
+        "hedgeMaze": "1,000+ Cupressus macrocarpa trees; 3m+ high; clipped 3x/year",
+        "lavenderLabyrinth": "4,000+ lavender plants; 40+ varieties; year-round flowering"
+      },
+      "management": "Bortoli family since 1998",
+      "tripadvisor": { "stars": 3.7, "reviews": 221 },
+      "note": "Lower TripAdvisor score (3.7) may reflect price/experience mismatch — note this in content tone",
+      "source": "https://www.ashcombemaze.com.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Moonlit Sanctuary Wildlife Conservation Park",
+      "type": "attraction",
+      "address": "550 Tyabb-Tooradin Road, Pearcedale VIC 3912",
+      "distanceFromMelbourne": "50 minutes drive (northern tip of Peninsula)",
+      "tripadvisorRank": "#1 attraction for Mornington Peninsula on Tripadvisor",
+      "tripadvisor": { "stars": 4.6, "reviews": 741, "award": "Travellers' Choice 2025" },
+      "wildlife": {
+        "species": "60+ Australian native species",
+        "kangaroos": "80+ free-roaming kangaroos and wallabies",
+        "notable": "Critically endangered orange-bellied parrot"
+      },
+      "hours": {
+        "daily": "9:30am–4pm; last entry 3pm",
+        "nightTours": "Available; 1.5–2 hours; must pre-book",
+        "mustVerify": true
+      },
+      "pricing": {
+        "approximate": "~$25–29 AUD adult",
+        "note": "Cannot verify on primary site (robots.txt blocks). Multiple third-party sources suggest $25–29. Verify before publishing.",
+        "confidence": "medium",
+        "mustVerify": true
+      },
+      "accessibility": "Wheelchair accessible; stroller accessible",
+      "editorialNote": "Tripadvisor #1 overall MP attraction yet receives almost no editorial coverage — strong content opportunity",
+      "source": "https://www.tripadvisor.com.au (primary site blocked by robots.txt)",
+      "confidence": "high"
+    },
+    {
+      "name": "Polperro Dolphin Swims",
+      "type": "attraction",
+      "departurePoint": "Sorrento Pier, Esplanade, Sorrento VIC 3943",
+      "season": "September to May",
+      "departures": "8am and 12pm daily",
+      "duration": "3–4 hours",
+      "tripadvisor": { "stars": 4.8, "reviews": 306, "rank": "#1 outdoor activity in Sorrento" },
+      "history": "Established 1986 by Muir family; Victorian Tourism Awards Hall of Fame 2001 (environmental tourism)",
+      "pricing": {
+        "swimTour": "From ~$138–139 per adult (OTA 2025 — verify with Polperro directly)",
+        "sightseeingCruise": "From ~$72–73 per adult (OTA 2025 — verify)",
+        "confidence": "medium",
+        "mustVerify": true
+      },
+      "source": "https://www.tripadvisor.com.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Sunny Ridge Strawberry Farm",
+      "type": "attraction",
+      "season": "November to April (U-Pick)",
+      "crops": ["Strawberries", "Blueberries", "Raspberries"],
+      "history": "60+ years in operation",
+      "distribution": "Distributed to Coles, Woolworths, Aldi nationally",
+      "claimNote": "Official site claims 'Australia's most trusted fresh strawberries' — NOT 'Australia's largest strawberry producer'. Do not use the 'largest' claim.",
+      "source": "https://www.sunnyridge.com.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Cape Schanck Lighthouse",
+      "type": "attraction",
+      "address": "420 Cape Schanck Lighthouse Road, Cape Schanck VIC 3939",
+      "built": 1859,
+      "height": "21 metres (limestone construction)",
+      "management": "Within Mornington Peninsula National Park; managed by Parks Victoria",
+      "grounds": {
+        "entry": "Free",
+        "hours": "6am–6pm daily (verify Parks Victoria)",
+        "confidence": "medium",
+        "mustVerify": true
+      },
+      "tours": {
+        "available": "Weekends, school holidays, public holidays",
+        "duration": "~45 min",
+        "pricing": {
+          "adult15Plus": "~$16–17",
+          "child3to14": "~$9",
+          "family": "~$45",
+          "confidence": "medium",
+          "mustVerify": true
+        }
+      },
+      "nearby": "Boardwalk to Pulpit Rock; basalt cliffs; Bushrangers Bay hike (5.4km return); whale spotting in season",
+      "source": "https://www.parks.vic.gov.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Pt. Leo Estate Sculpture Park",
+      "type": "attraction",
+      "address": "3649 Frankston-Flinders Road, Merricks",
+      "size": "330 acres of manicured gardens",
+      "hours": "Daily 11am–5pm (last entry 4:30pm)",
+      "hoursConfidence": "medium",
+      "pricing": {
+        "adult": "$15",
+        "family2adults2children12to17": "$30",
+        "childrenUnder12": "Free",
+        "note": "Verified Jan 2026 on primary site. Verify before publishing.",
+        "confidence": "high",
+        "mustVerify": true
+      },
+      "notableArtists": "Yayoi Kusama, KAWS (exhibitions rotate — verify current installations)",
+      "source": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "confidence": "high"
+    },
+    {
+      "name": "Coolart Wetlands & Homestead",
+      "type": "attraction",
+      "address": "Lord Somers Road, Somers VIC",
+      "entry": "FREE",
+      "hours": "Daily 9am–5pm; gates close 5pm sharp; closed Christmas Day",
+      "hoursConfidence": "medium",
+      "accessibility": "Wheelchair accessible; wheelchairs available to borrow from Visitor Centre",
+      "source": "https://coolart.org.au",
+      "confidence": "high"
+    },
+    {
+      "name": "Point Nepean National Park",
+      "type": "park",
+      "entry": "Free (vehicle and pedestrian entry)",
+      "vehicleHours": "8am–6pm (5pm standard time)",
+      "pedestrianAccess": "Any time",
+      "shuttle": {
+        "service": "Hop-on hop-off shuttle to Fort Nepean",
+        "pricing": {
+          "adult": "~$12",
+          "childConcession": "~$8",
+          "confidence": "medium",
+          "mustVerify": true
+        }
+      },
+      "heritage": "50+ heritage-listed buildings",
+      "fortNepean": "No car access; walk ~3km from Gunner's Cottage carpark, cycle, or take shuttle",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park",
+      "confidence": "high"
+    },
+    {
+      "name": "Mornington Peninsula wine region",
+      "type": "region",
+      "totalCoastline": "192 kilometres",
+      "wineArea": "792 hectares of vines",
+      "vineyardCount": "~200",
+      "source": "https://wineanorak.com/2025/05/11/mornington-peninsula-pinot-noir-a-study-in-six-wines/",
+      "confidence": "high"
+    },
+    {
+      "name": "Searoad Ferries",
+      "type": "transport",
+      "route": "Sorrento–Queenscliff",
+      "crossingTime": "40 minutes",
+      "petPolicy": "Pets welcome on ferry",
+      "source": "https://www.searoad.com.au",
+      "confidence": "high"
+    }
+  ]
+}

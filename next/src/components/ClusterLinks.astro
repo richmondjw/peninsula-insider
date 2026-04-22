@@ -1,0 +1,56 @@
+---
+interface Props {
+  links: Array<{ label: string; href: string }>;
+  heading?: string;
+}
+const { links, heading = 'In this hub' } = Astro.props;
+---
+<nav class="cluster-links" aria-label={heading}>
+  <p class="cluster-links__heading">{heading}</p>
+  <ul class="cluster-links__list">
+    {links.map(({ label, href }) => (
+      <li class="cluster-links__item">
+        <a href={href} class="cluster-links__link">{label} →</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .cluster-links {
+    border-top: 1px solid #e8e4dc;
+    border-bottom: 1px solid #e8e4dc;
+    padding: 1.5rem 0;
+    margin: 2.5rem 0;
+  }
+  .cluster-links__heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 0 0 1rem;
+  }
+  .cluster-links__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+  .cluster-links__item {
+    margin: 0;
+  }
+  .cluster-links__link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2c5f2e;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .cluster-links__link:hover {
+    border-color: #2c5f2e;
+  }
+</style>

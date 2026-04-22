@@ -1,0 +1,356 @@
+{
+  "lastUpdated": "2026-04-22",
+  "activeAlerts": [
+    {
+      "entity": "Flinders Ocean Beach (Mushroom Reef)",
+      "alert": "Landslip affecting beach WEST of Mushroom Reef — do not approach. Toilet at Flinders Ocean Beach permanently closed.",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+      "risk": "HIGH — safety risk",
+      "confidence": "High",
+      "dateSince": "2026-04",
+      "needsVerify": true
+    },
+    {
+      "entity": "Mornington Peninsula National Park",
+      "alert": "PAPP poison baiting and trapping active from Portsea Ocean Beach to Greens Bush until October 2026. Lethal to dogs. Antidote (methylene blue) available — consult a vet immediately if pet suspected of ingestion.",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+      "risk": "HIGH — dog death risk",
+      "confidence": "High",
+      "dateSince": "2026",
+      "activeUntil": "2026-10",
+      "needsVerify": false
+    },
+    {
+      "entity": "Cape Schanck Boardwalk",
+      "alert": "Parks Victoria completing upgrades: resurfacing tracks, upgrading lookouts, improving boardwalk. Sections may be temporarily closed — follow on-site signage. Expected complete late April 2026.",
+      "source": "https://www.parks.vic.gov.au/coc-listing?status=Closed+Areas",
+      "risk": "Low (temporary works)",
+      "confidence": "High",
+      "dateSince": "2026-04",
+      "needsVerify": true
+    },
+    {
+      "entity": "Bushrangers Bay",
+      "alert": "No walk-specific closure listed, but secondary track closures possible due to fox control activity. Call Parks Victoria 13 1963 before setting out.",
+      "source": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
+      "risk": "Medium — possible secondary closures",
+      "confidence": "High",
+      "dateSince": "2026-04",
+      "needsVerify": true
+    }
+  ],
+  "entities": [
+    {
+      "name": "Sorrento Back Beach (Sorrento Ocean Beach)",
+      "type": "Beach",
+      "coastline": "ocean",
+      "patrolled": true,
+      "patrolSeason": "Summer weekends + school holidays",
+      "dogsPermitted": false,
+      "dogNote": "Dogs not permitted — Mornington Peninsula National Park",
+      "facilities": ["large car park", "picnic area", "toilets", "café/kiosk"],
+      "accessibility": "40m accessible beach ramp (1:12 then 1:14) near kiosk — best ocean-beach accessibility in MPNP",
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches"
+    },
+    {
+      "name": "Portsea Back Beach (Portsea Ocean Beach)",
+      "type": "Beach",
+      "coastline": "ocean",
+      "patrolled": true,
+      "patrolSeason": "Summer + school holidays",
+      "dogsPermitted": false,
+      "dogNote": "Dogs not permitted — MPNP",
+      "facilities": ["four large car parks", "two toilet blocks", "observation car park", "kiosk (summer holidays)"],
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+      "needsManualReview": true,
+      "reviewNote": "TripAdvisor claim re: rescue frequency — unverified"
+    },
+    {
+      "name": "Gunnamatta Ocean Beach",
+      "type": "Beach",
+      "coastline": "ocean",
+      "patrolled": true,
+      "patrolSeason": "Summer + school holidays",
+      "dogsPermitted": false,
+      "dogNote": "Dogs not permitted — MPNP",
+      "facilities": ["two large car parks", "two toilet blocks"],
+      "notes": "Most popular surf beach in MPNP; most hazardous for swimming (VMP). Best conditions April (offshore winds + groundswells).",
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches"
+    },
+    {
+      "name": "Rye Ocean Beach",
+      "type": "Beach",
+      "coastline": "ocean",
+      "patrolled": false,
+      "dogsPermitted": false,
+      "dogNote": "Dogs not permitted — MPNP",
+      "notes": "Swimming not advised (Parks Victoria). Numerous reef breaks, strong rips and currents.",
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches"
+    },
+    {
+      "name": "Flinders Ocean Beach (Mushroom Reef)",
+      "type": "Beach",
+      "coastline": "ocean",
+      "patrolled": false,
+      "dogsPermitted": false,
+      "dogNote": "Dogs not permitted — MPNP",
+      "activeAlert": "Landslip west of Mushroom Reef. Do not approach. Toilet permanently closed.",
+      "notes": "Mushroom Reef Marine Sanctuary — 80ha, basalt reef, weedy seadragons. Snorkelling depth 1–3m, best at low to mid tide.",
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/ocean-beaches",
+      "needsManualReview": true,
+      "reviewNote": "Verify landslip status before each publish"
+    },
+    {
+      "name": "Sorrento Front Beach",
+      "type": "Beach",
+      "coastline": "bay",
+      "patrolled": false,
+      "dogsPermitted": true,
+      "dogNote": "Standard Shire rule applies — leash required; prohibited from sand 9am–7pm during daylight saving",
+      "accessibility": "Beach matting installed Nov–Apr (near The Baths)",
+      "confidence": "Medium",
+      "source": "https://www.visitmorningtonpeninsula.org/Places-To-See/Beaches-Coastline"
+    },
+    {
+      "name": "Portsea Front Beach",
+      "type": "Beach",
+      "coastline": "bay",
+      "patrolled": false,
+      "dogsPermitted": true,
+      "notes": "Scuba diving hub; historic jetties and boat sheds. Portsea pier snorkelling — weedy seadragons.",
+      "confidence": "Medium",
+      "source": "https://exploreshaw.com/a-guide-to-the-mornington-peninsula-beaches/"
+    },
+    {
+      "name": "Mornington Main (Mothers Beach)",
+      "type": "Beach",
+      "coastline": "bay",
+      "patrolled": true,
+      "patrolSeason": "Select summer days",
+      "dogsPermitted": true,
+      "dogNote": "Prohibited 10am–6pm Dec/Jan/Feb (Purple zone)",
+      "accessibility": "Concrete ramps; beach matting Nov–Apr (daily)",
+      "notes": "Protected by pier positioning — generally flat and calm. Schnapper Point Drive Mornington.",
+      "confidence": "High",
+      "source": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches"
+    },
+    {
+      "name": "Mount Martha Beach",
+      "type": "Beach",
+      "coastline": "bay",
+      "patrolled": true,
+      "patrolSeason": "Southern end — weekends, summer season",
+      "dogsPermitted": true,
+      "accessibility": "Beach matting daily Nov–May at SLSC; two MobiChairs (floats) weekends during patrol 12–5pm. Phone (03) 5974 4140.",
+      "notes": "2km beach divided by Balcombe Creek. Southern end recommended (Mt Martha South, 1km).",
+      "confidence": "High",
+      "source": "https://www.melbourneplaygrounds.com.au/the-best-accessible-beaches"
+    },
+    {
+      "name": "Safety Beach",
+      "type": "Beach",
+      "coastline": "bay",
+      "patrolled": false,
+      "dogsPermitted": true,
+      "notes": "Tassells Cove nearby — year-round off-leash. Calm and shallow; good for paddleboarding.",
+      "confidence": "High",
+      "source": "https://vinetrekker.com.au/mornington-peninsula-beaches/"
+    },
+    {
+      "name": "Rosebud Beach",
+      "type": "Beach",
+      "coastline": "bay",
+      "patrolled": false,
+      "dogsPermitted": true,
+      "accessibility": "Beach matting Nov–May at Rosebud Jetty (daily)",
+      "notes": "Shallow; calm; extensive foreshore parklands, BBQs, playgrounds.",
+      "confidence": "High",
+      "source": "https://vinetrekker.com.au/mornington-peninsula-beaches/"
+    },
+    {
+      "name": "Rye Front Beach",
+      "type": "Beach",
+      "coastline": "bay",
+      "patrolled": false,
+      "dogsPermitted": true,
+      "accessibility": "Beach matting Nov–May near pier",
+      "notes": "Rye Pier snorkelling — warm waters, 6m depth near pier. Safe and shallow bay.",
+      "confidence": "High",
+      "source": "https://www.searoad.com.au/blog/best-mornington-peninsula-beaches"
+    },
+    {
+      "name": "Balnarring Beach",
+      "type": "Beach",
+      "coastline": "western-port",
+      "patrolled": false,
+      "dogsPermitted": true,
+      "notes": "Tidal flats. 'Australia's Cleanest Beach' claim from one reviewer — unverified against KAB Council.",
+      "confidence": "Low (award claim unverified)",
+      "source": "https://www.tripadvisor.com.au/",
+      "needsManualReview": true
+    },
+    {
+      "name": "Flinders Beach (Western Port north end)",
+      "type": "Beach",
+      "coastline": "western-port",
+      "patrolled": false,
+      "dogsPermitted": true,
+      "dogNote": "Off-leash year-round between Dodds Creek and Manton Creek (north end, 3km stretch)",
+      "notes": "Distinct from Flinders Ocean Beach / Mushroom Reef (ocean-facing).",
+      "confidence": "High",
+      "source": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula"
+    },
+    {
+      "name": "Bushrangers Bay",
+      "type": "Beach/Walk",
+      "coastline": "ocean",
+      "patrolled": false,
+      "dogsPermitted": false,
+      "dogNote": "Dogs not permitted — MPNP",
+      "walk": {
+        "distanceKm": 5.4,
+        "type": "return",
+        "duration": "~2 hours",
+        "startPoint": "Cape Schanck eastern carpark",
+        "source": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk"
+      },
+      "notes": "Unpredictable rips, strong currents, rocky reefs, large waves — swimming not recommended. Limited emergency service access. Hooded Plover nesting on dunes.",
+      "confidence": "High",
+      "needsManualReview": true,
+      "reviewNote": "Verify walk access status — possible fox baiting secondary closures"
+    },
+    {
+      "name": "Two Bays Walking Track",
+      "type": "Walk",
+      "coastline": null,
+      "walk": {
+        "distanceKm": 26,
+        "distanceNote": "Parks Victoria official 26km. Third-party sources (Trail Hiking AU, Two Bays Trail Run) cite 28km — likely different measurement endpoints. Use 26km as primary.",
+        "grade": "Grade 3 (Moderate) — AWTGS",
+        "direction": "North to south (Dromana → Cape Schanck) recommended",
+        "dogsPermitted": false,
+        "camping": {
+          "name": "Lightwood Creek Camping Area",
+          "campsites": 5,
+          "maxPeople": 20,
+          "facilities": "pit toilet, tank water (boil before drinking)",
+          "bookings": "No fees, no bookings — call 13 1963 to check availability (education groups sometimes occupy)",
+          "maxNights": 2,
+          "access": "Foot only"
+        },
+        "waterOnTrack": false,
+        "wayfinding": "Blue Wren circular symbol; orange markers = through tracks; blue markers = circuit walks"
+      },
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/two-bays-walking-trail",
+      "needsManualReview": true,
+      "reviewNote": "Flag 26km vs 28km discrepancy in all content"
+    },
+    {
+      "name": "Cape Schanck Boardwalk",
+      "type": "Walk",
+      "walk": {
+        "distanceKm": 2.1,
+        "type": "out-and-back",
+        "duration": "45 min–1 hour",
+        "destination": "Pulpit Rock and Pebble Beach",
+        "elevationGain": "75m"
+      },
+      "activeAlert": "Parks Victoria upgrades in progress. Expected complete late April 2026. Follow on-site signage.",
+      "notes": "Cape Schanck Lighthouse built 1859, heritage listed. Guided tours weekends + holidays. Kiosk open weekends/holidays.",
+      "confidence": "High",
+      "source": "https://walkingmaps.com.au/walk/81",
+      "needsManualReview": true,
+      "reviewNote": "Verify if boardwalk works now complete"
+    },
+    {
+      "name": "Point Nepean National Park",
+      "type": "Park",
+      "dogsPermitted": false,
+      "entryFee": "Free (vehicles and pedestrians)",
+      "vehicleHours": "6am–6pm (6am–8pm daylight saving); pedestrians/cyclists any time",
+      "shuttle": "$12 AUD return (Fort Nepean internal transport)",
+      "accessibility": "Quarantine Station, Coles Track, Defence Road accessible; shuttle accommodates standard (not motorised) wheelchair; two all-terrain beach wheelchairs + one standard wheelchair FREE from Information Centre",
+      "swimmingNote": "Bay beach and Quarantine Station swimming permitted with care (strong currents/rips). Ocean beach access from shore PROHIBITED.",
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park"
+    },
+    {
+      "name": "Greens Bush",
+      "type": "Park/Walk",
+      "dogsPermitted": false,
+      "dogNote": "Dogs not permitted — MPNP",
+      "notes": "Largest remnant native bushland on the peninsula, between Arthurs Seat and Cape Schanck. Eucalypt forest, grass trees, tree ferns, kangaroos. Phone reception unreliable — carry printed map.",
+      "walk": {
+        "twoBaysSection": "8.9km of Two Bays Walking Track passes through Greens Bush",
+        "circuits": ["Baldrys Short Circuit", "Baldrys Long Circuit", "Long Point Circuit"]
+      },
+      "confidence": "High",
+      "source": "https://www.parks.vic.gov.au/places-to-see/sites/greens-bush-access---greens-road"
+    },
+    {
+      "name": "Mushroom Reef Marine Sanctuary",
+      "type": "Park/Snorkel",
+      "dogsPermitted": false,
+      "notes": "80ha marine sanctuary at Flinders; basalt reef (ancient lava flows); weedy seadragons, seastars, anemones. 100+ years scientific study. Unique Black-and-white Sea Star found only on basalt reefs in Vic/Tas.",
+      "activeAlert": "Landslip west of Mushroom Reef — do not approach. Toilet permanently closed.",
+      "snorkelling": {
+        "depth": "1–3m",
+        "waterTemp": "17–22°C",
+        "bestConditions": "Low to mid tide (calm water); north/east wind preferred",
+        "caution": "Strong currents at high tide"
+      },
+      "confidence": "High",
+      "source": "https://www.spiritoftasmania.com.au/things-to-do/mushroom-reef-marine-sanctuary/",
+      "needsManualReview": true,
+      "reviewNote": "Verify landslip status before each publish"
+    },
+    {
+      "name": "Dog beaches — year-round off-leash",
+      "type": "Rule",
+      "offLeashYearRound": [
+        "Tassells Cove (Safety Beach)",
+        "Hawker Beach (Mount Martha)",
+        "Somers Beach (east of yacht club — with some time-of-day variation)",
+        "Fossil Beach (Mornington)",
+        "Flinders Beach north end (between Dodds Creek and Manton Creek)",
+        "Anthony's Nose (Dromana)"
+      ],
+      "confidence": "High",
+      "source": "https://www.visitmorningtonpeninsula.org/Stories/peninsulas-ultimate-doggy-destinations",
+      "needsManualReview": true,
+      "reviewNote": "Verify current full Shire list each season"
+    },
+    {
+      "name": "Dog beaches — Shire standard rule",
+      "type": "Rule",
+      "rule": "Dogs allowed on leash at all times on Shire-managed beaches. During daylight saving: prohibited from sand 9am–7pm. Some beaches have additional Purple/Yellow/Green zone restrictions.",
+      "confidence": "High",
+      "source": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
+      "needsManualReview": true,
+      "reviewNote": "Verify current Shire rules URL and zone map each season"
+    },
+    {
+      "name": "Accessible beaches — beach matting program",
+      "type": "Program",
+      "locations": [
+        "Mt Martha Beach (daily at SLSC)",
+        "Mothers Beach, Mornington",
+        "Rosebud Beach (near jetty, daily)",
+        "Rye Front Beach (near pier)",
+        "Sorrento Front Beach (near The Baths)"
+      ],
+      "season": "November to April/May",
+      "mobiChair": "Two floating MobiChairs at Mount Martha SLSC — weekends during patrol 12–5pm. Phone (03) 5974 4140.",
+      "confidence": "High",
+      "source": "https://www.kiaorasafetybeach.com/explore",
+      "needsManualReview": true,
+      "reviewNote": "Verify current season list with MPS Shire"
+    }
+  ]
+}
