@@ -16,6 +16,21 @@ relatedExperiences: ["bushrangers-bay-walk", "red-hill-market", "arthurs-seat-lo
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Bushrangers Bay Walk"
+    href: "/journal/walks-bushrangers-bay-walk-guide/"
+  - label: "Arthurs Seat Eagle — Visitor Guide"
+    href: "/journal/arthurs-seat-eagle-visitor-guide/"
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+faq:
+  - question: "Is spring a good time to visit the Mornington Peninsula?"
+    answer: "September and October are among the Peninsula's best months — the vines return to leaf, wildflowers are on the coastal walks, cellar doors reopen to walk-ins after winter, and crowds are well below summer levels. The Red Hill Community Market restarts in September."
+  - question: "What's special about October on the Mornington Peninsula?"
+    answer: "The vineyards are at their most photogenic — bare winter trellises acquiring spring leaf over about ten days. The heath walks (Bushrangers Bay, Farnsworth Track) are in full flower. Cellar doors run their first spring tastings alongside winter release flights, often with the winemakers present."
+  - question: "Can you swim at the Mornington Peninsula in spring?"
+    answer: "Bay beaches (Mount Martha, Mornington foreshore) are swimmable from late October when the water nudges above 16–17°C. Ocean back beaches (Sorrento, Gunnamatta) are too cold and exposed for casual swimming until December — walk them in spring instead."
 ---
 
 There is a three-week window in the middle of October when the Mornington Peninsula is arguably at its best, and almost no one comes down for it.

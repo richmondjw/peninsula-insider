@@ -15,6 +15,21 @@ tags: ["corporate-events", "red-hill", "sorrento", "retreats", "offsites", "plan
 readingTimeMinutes: 6
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "How to Plan a Mornington Peninsula Corporate Retreat"
+    href: "/journal/corporate-events-how-to-plan-peninsula-retreat/"
+  - label: "Best Spas on the Mornington Peninsula"
+    href: "/journal/best-spas-mornington-peninsula/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+faq:
+  - question: "Is Red Hill better than Sorrento for a corporate offsite?"
+    answer: "Red Hill suits strategy retreats, executive offsites, and winery-led programmes — the hinterland slows the day in a useful way. Sorrento suits client events, partner gatherings, and social-layer offsites. Neither is universally better; the choice depends on what the event is actually trying to do."
+  - question: "Can a Mornington Peninsula corporate retreat be done as a day trip from Melbourne?"
+    answer: "Yes — Mornington town is the easiest answer for a day-trip offsite. For Red Hill or Sorrento, an overnight adds significantly to the experience and gives the environment time to change the rhythm."
+  - question: "What are the best venues for a corporate retreat on the Mornington Peninsula?"
+    answer: "Red Hill has winery venues with private event spaces and strong lunch programmes. Sorrento has hotel venues suited to client events. Cape Schanck's RACV resort offers an integrated stay, spa, and golf programme for groups wanting a single-property retreat."
 ---
 
 If you are choosing between Red Hill and Sorrento for a corporate offsite, you are not just choosing a location. You are choosing a tone.

@@ -44,6 +44,21 @@ relatedExperiences:
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+faq:
+  - question: "What's the ideal couples' weekend structure on the Mornington Peninsula?"
+    answer: "Arrive Friday afternoon, one anchor event for Saturday — a long lunch at a hatted restaurant — and leave Sunday with one stop en route home. The common mistake is over-programming. The Peninsula works best when the itinerary has one clear centrepiece and the rest of the time fills itself."
+  - question: "Which restaurants are best for a couples' anniversary on the Mornington Peninsula?"
+    answer: "Ten Minutes by Tractor (two hats GFG 2025, estate degustation from $145pp) for a serious occasion; Tedesca Osteria for something more intimate and surprising (set menu, farmhouse kitchen, wood-oven cooking); Doot Doot Doot at Jackalope for hotel guests wanting atmosphere with their dinner."
+  - question: "Are the hot springs good for couples?"
+    answer: "Yes — Peninsula Hot Springs and Alba Thermal Springs are both well suited to couples. Alba's session caps make for a calmer, less crowded experience. Private pool sessions are available at Peninsula Hot Springs for those wanting more seclusion. Late afternoon in autumn or winter is the strongest time slot."
 ---
 
 The mistake most couples make with a Peninsula weekend is treating it like a two-day festival. Six cellar doors. Two long lunches. Hot springs. Sculpture park. A sunset somewhere. By Sunday afternoon you are tired, slightly drunk, and wondering why the weekend felt busier than the week.
@@ -92,7 +107,7 @@ If you want movement, take a walk. **Coppins Track** near Sorrento is a short co
 
 Book one of three restaurants. Pick based on mood, not status:
 
-- **Ten Minutes by Tractor** if the meal itself is the event. Three hats, degustation, estate wines, three hours of precision. This is the lunch for an anniversary or a birthday that matters.
+- **Ten Minutes by Tractor** if the meal itself is the event. Two hats (GFG 2025), degustation, estate wines, three hours of precision. This is the lunch for an anniversary or a birthday that matters.
 - **Tedesca Osteria** if you want to be surprised. Set menu, farmhouse kitchen, wood-oven cooking, everyone eating the same thing. This is the lunch for couples who trust each other's taste and want to be fed rather than to choose.
 - **Montalto** if you want the full estate afternoon  -  sculpture garden before, olive grove beside you, kitchen garden behind, and a terrace that stretches the lunch into a four-hour experience without ever feeling hurried.
 

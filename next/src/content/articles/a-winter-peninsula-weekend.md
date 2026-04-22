@@ -16,6 +16,21 @@ relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "morningt
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+  - label: "The Bushrangers Bay Walk"
+    href: "/journal/walks-bushrangers-bay-walk-guide/"
+  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+    href: "/journal/best-spas-mornington-peninsula/"
+faq:
+  - question: "Why visit the Mornington Peninsula in winter?"
+    answer: "Accommodation drops 20–40 per cent, the best restaurants are bookable on short notice, and the hot springs make significantly more sense in cold weather. The coastal landscape is also more dramatic in winter — blacker cliffs, heavier seas, more honest light."
+  - question: "Are the hot springs better in winter on the Mornington Peninsula?"
+    answer: "Yes. Peninsula Hot Springs and Alba Thermal Springs are purpose-built for cold weather — the steam, heated outdoor pools, and contrast between air and water temperature are all more powerful in winter. Book a 4pm session to catch the sunset."
+  - question: "Which restaurants are open in winter on the Mornington Peninsula?"
+    answer: "Most of the Peninsula's best restaurants operate year-round. Tedesca Osteria, Montalto, Ten Minutes by Tractor, Flinders Hotel, and Merricks General Wine Store all run through winter. Smaller cellar doors sometimes move to weekends-only or appointment-only in July — call ahead."
 ---
 
 There is a version of the Peninsula that most visitors never see, and it is the version that locals quietly prefer.

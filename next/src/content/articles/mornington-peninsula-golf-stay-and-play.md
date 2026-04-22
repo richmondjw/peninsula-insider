@@ -15,6 +15,21 @@ tags: ["golf", "stay", "mornington-peninsula", "packages", "weekend-escape"]
 relatedExperiences: ["st-andrews-beach-golf-course", "moonah-links", "the-dunes-golf-links", "racv-cape-schanck-golf-course"]
 readingTimeMinutes: 9
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Best Golf Courses on the Mornington Peninsula — Tier Guide"
+    href: "/journal/best-golf-courses-mornington-peninsula/"
+  - label: "Mornington Peninsula Golf — Why It's Australia's Best Golf Region"
+    href: "/journal/mornington-peninsula-golf-guide/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+faq:
+  - question: "Where is the best place to stay for a Mornington Peninsula golf weekend?"
+    answer: "Match the stay to the course. RACV Cape Schanck Resort for on-property golf (walk from room to first tee). Jackalope Hotel (15 min) for St Andrews Beach with a serious dinner at Doot Doot Doot. Peppers Moonah Links Resort for a 36-hole weekend. Staying within 10 minutes of the course is the single biggest improvement you can make to a golf trip."
+  - question: "Are there stay-and-play golf packages on the Mornington Peninsula?"
+    answer: "Yes. RACV Cape Schanck and Peppers Moonah Links both offer bundled stay, golf, and dining packages. Jackalope paired with St Andrews Beach is commonly packaged separately. Check direct with the venue — bundled packages are often cheaper than separate bookings."
+  - question: "What is the best Peninsula golf weekend for a mixed group?"
+    answer: "Jackalope Hotel paired with St Andrews Beach — the golfer gets a world-class Tom Doak course while the non-golfer has Doot Doot Doot dinner, Spa by Jackalope, and the Red Hill cellar doors 15 minutes away. Both have a full day without needing to be in the same place."
 ---
 
 The single best move a Peninsula golf weekend can make is to cut the driving. Most visitors book a random hotel in Mornington, then commute 30–40 minutes each way to the course. That is 60–80 minutes of daily lost time, multiplied across the trip. Stay within 10 minutes of the first tee and the weekend feels twice as long.

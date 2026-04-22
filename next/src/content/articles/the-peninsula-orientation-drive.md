@@ -16,6 +16,21 @@ relatedExperiences: ["arthurs-seat-lookout", "red-hill-market", "cape-schanck-bo
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "First Time on the Peninsula — The Honest Starter Guide"
+    href: "/journal/first-time-peninsula/"
+  - label: "The Four-Hour Peninsula — Compact Day Guide"
+    href: "/journal/the-four-hour-peninsula/"
+  - label: "Arthurs Seat Eagle — Visitor Guide"
+    href: "/journal/arthurs-seat-eagle-visitor-guide/"
+faq:
+  - question: "What is the best route to drive on the Mornington Peninsula for a first visit?"
+    answer: "The orientation drive: Mornington coffee → Arthurs Seat Eagle gondola → Red Hill ridge → Merricks General Wine Store for lunch → Cape Schanck boardwalk → Flinders or Mount Martha. Six stops, about four hours, and you will come away with a working mental map of all four parts of the Peninsula."
+  - question: "How long does it take to drive across the Mornington Peninsula?"
+    answer: "From Mornington at the top to Point Nepean at the tip is about 60km and roughly 90 minutes at a steady pace. The Red Hill plateau runs east-west across the middle and adds 20–30 minutes to cross. The orientation drive (six stops) takes about four hours total including stops."
+  - question: "What should I do first on a first visit to the Mornington Peninsula?"
+    answer: "The Arthurs Seat Eagle gondola gives the best orientation — from the summit you can see Port Phillip Bay to the north, the back beaches to the south-west, and the wine country in between. Twenty minutes each way; it gives you an aerial map of the region no other single stop can match."
 ---
 
 The hardest question we get from friends planning a first visit to the Peninsula is not where to eat. It is: "I have one day. What do I actually do?"

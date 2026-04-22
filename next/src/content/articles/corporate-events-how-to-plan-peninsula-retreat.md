@@ -15,6 +15,21 @@ tags: ["corporate-events", "retreats", "offsites", "stay", "red-hill", "sorrento
 readingTimeMinutes: 7
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Red Hill vs Sorrento for a Corporate Offsite"
+    href: "/journal/corporate-events-red-hill-vs-sorrento/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+faq:
+  - question: "What makes the Mornington Peninsula good for a corporate retreat?"
+    answer: "Atmosphere, hospitality, strong dining, and setting variety. The Peninsula offers enough separation from Melbourne to shift the rhythm of a working day without a long travel commitment. Red Hill and Sorrento each offer distinct retreat moods suited to different event formats."
+  - question: "Which Peninsula zone is best for a corporate offsite?"
+    answer: "Red Hill and Main Ridge for strategy-heavy retreats and winery-led programmes; Sorrento for client-facing events and social gatherings; Cape Schanck for resort-integrated packages combining stay, spa, and golf."
+  - question: "How far in advance should I book a Mornington Peninsula corporate retreat?"
+    answer: "Venue and accommodation: two to six months for peak-season weekends (December–February, Easter). Hatted restaurant lunches and Peninsula Hot Springs sessions: three to four weeks minimum."
 ---
 
 A Peninsula corporate retreat only works if it gives people something better than staying in Melbourne and sitting in a hotel meeting room. The location has to change the quality of the conversations, the atmosphere, and the rhythm of the day.

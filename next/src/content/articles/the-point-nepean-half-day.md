@@ -16,6 +16,21 @@ relatedExperiences: ["point-nepean-fort-walk", "point-nepean-national-park", "po
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Point Nepean National Park Guide"
+    href: "/journal/point-nepean-national-park-guide/"
+  - label: "The Sorrento Weekend"
+    href: "/journal/the-sorrento-weekend/"
+  - label: "The Four-Hour Peninsula — Compact Day Guide"
+    href: "/journal/the-four-hour-peninsula/"
+faq:
+  - question: "How do you get to Fort Nepean at Point Nepean National Park?"
+    answer: "From the main entrance at the Quarantine Station: shuttle bus (20 min, modest fare, runs every 30–40 min in peak season), walk (5.5km each way on a flat sealed road), or bike hire near the entrance. Recommended shape: shuttle out, walk back — you arrive at the fort fresh and walk the return with the sea on your right."
+  - question: "How long should I allow for Point Nepean National Park?"
+    answer: "A minimum of two and a half to three hours to reach the fort and return. With the Quarantine Station, Cheviot Hill lookout, and fort tunnels, allow four hours. Entry to the park is free; the shuttle carries a small fare."
+  - question: "Is Point Nepean suitable for families with young children?"
+    answer: "The sealed walking road is stroller-friendly and the shuttle removes the 11km return walk, making it accessible for families. Cheviot Hill is a short detour from the main path. The fort tunnels are dark — a phone torch helps but is not required. Allow for slower walking pace with young children."
 ---
 
 There is a stretch of land at the very tip of the Mornington Peninsula that almost nobody plans a day around, and it is the single best landscape move within an hour's drive of anywhere in the region.

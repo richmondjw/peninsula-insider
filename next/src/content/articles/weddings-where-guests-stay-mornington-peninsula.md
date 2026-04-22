@@ -15,6 +15,21 @@ tags: ["weddings", "stay", "planning", "red-hill", "sorrento", "peninsula"]
 readingTimeMinutes: 7
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "How to Plan a Mornington Peninsula Wedding Weekend"
+    href: "/journal/weddings-mornington-peninsula-weekend-planning/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "Dog-Friendly Accommodation on the Mornington Peninsula"
+    href: "/journal/dog-friendly-accommodation-mornington-peninsula/"
+faq:
+  - question: "What's the best area for wedding guests to stay on the Mornington Peninsula?"
+    answer: "It depends on the venue. For Red Hill winery weddings, stay Red Hill or Merricks. For Sorrento coastal weddings, Sorrento first. Keeping guests within 10–15 minutes of the venue is the single most important variable — it determines transport friction and whether the weekend feels effortless or scattered."
+  - question: "How much accommodation is available near Red Hill winery venues?"
+    answer: "Red Hill and Main Ridge have boutique and villa-style accommodation suited to smaller wedding parties. For larger guest lists, Mornington town has broader accommodation stock 20–25 minutes north and is more accessible logistically."
+  - question: "Should wedding guests book accommodation well in advance?"
+    answer: "Yes — Peninsula accommodation fills fast for peak-season weekends (December–February, Easter, school holidays). Couples should communicate accommodation options to guests at least three to four months before the event date."
 ---
 
 One of the easiest ways to make a Peninsula wedding feel effortless is to get the guest-stay logic right early.

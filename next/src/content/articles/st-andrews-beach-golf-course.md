@@ -14,6 +14,21 @@ format: "investigation"
 tags: ["golf", "st-andrews-beach", "public-golf", "mornington-peninsula", "cape-schanck"]
 readingTimeMinutes: 7
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Best Golf Courses on the Mornington Peninsula — Tier Guide"
+    href: "/journal/best-golf-courses-mornington-peninsula/"
+  - label: "Mornington Peninsula Stay and Play Golf"
+    href: "/journal/mornington-peninsula-golf-stay-and-play/"
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+faq:
+  - question: "Can anyone book a round at St Andrews Beach Golf Course?"
+    answer: "Yes — St Andrews Beach is fully public access, bookable online directly. Book at least 4 weeks ahead for weekend tee times in peak season. No membership or member connection required."
+  - question: "What makes St Andrews Beach Golf Course special?"
+    answer: "Tom Doak architecture (Pacific Dunes, Tara Iti, Cape Kidnappers), genuine links character on a windswept coastal site, and a regular world top-100 ranking — while remaining publicly bookable. That combination is rare in Australian golf."
+  - question: "What should I do after playing St Andrews Beach Golf Course?"
+    answer: "The course is near Cape Schanck, 15 minutes from both Peninsula Hot Springs and Alba Thermal Springs, and a short drive from the Red Hill winery lunch corridor. A morning round followed by a late Red Hill lunch or an afternoon hot springs session is the strongest combination."
 ---
 
 If you only need one golf story to understand why the Mornington Peninsula matters, make it St Andrews Beach.

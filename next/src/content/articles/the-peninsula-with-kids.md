@@ -16,6 +16,21 @@ relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-b
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Arthurs Seat Eagle — Visitor Guide"
+    href: "/journal/arthurs-seat-eagle-visitor-guide/"
+  - label: "Ashcombe Maze — Visitor Guide"
+    href: "/journal/ashcombe-maze-visitor-guide/"
+  - label: "Free Things to Do on the Mornington Peninsula"
+    href: "/journal/free-things-to-do-mornington-peninsula/"
+faq:
+  - question: "What's the best thing to do on the Mornington Peninsula with kids?"
+    answer: "Arthurs Seat Eagle gondola is the strongest single move for children between 4 and 12 — about 20 minutes each way, summit views across both bays, a playground, and a café. Red Hill Brewery follows well for a family lunch with outdoor grass, wood-fired pizza, and space to run."
+  - question: "Is the Mornington Peninsula good for young children and toddlers?"
+    answer: "Yes, with the right itinerary. Mount Martha Beach on the bay side is ideal for young children — gentle shallow water, easy parking, no rip. Avoid the ocean back beaches (Sorrento, Gunnamatta) with under-fives: the surf is serious and the car parks are further from the sand than they look."
+  - question: "Which are the most family-friendly restaurants on the Mornington Peninsula?"
+    answer: "Red Hill Brewery (outdoor grass, wood-fired pizza, room to move), Merricks General Wine Store (relaxed dining, fast kitchen), and Epicurean Red Hill are the strongest family lunch options. Avoid long degustation formats or formal terrace restaurants — they don't work with children and neither side will enjoy it."
 ---
 
 The single biggest mistake people make on a Peninsula day with kids is treating it as a compromised version of the grown-up trip.

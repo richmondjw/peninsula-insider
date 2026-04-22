@@ -16,6 +16,21 @@ relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "red-hill
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+faq:
+  - question: "Which is the best Peninsula restaurant for a milestone birthday dinner?"
+    answer: "Laura at Pt Leo Estate for the most visually spectacular setting (sculpture park and bay views, tasting menu). Tedesca Osteria in Red Hill for something more intimate and personally cooked. Doot Doot Doot at Jackalope for groups wanting theatrical atmosphere. Ten Minutes by Tractor for serious food and the Peninsula's deepest wine list."
+  - question: "Where is the best place to stay for a birthday on the Mornington Peninsula?"
+    answer: "Match the stay to the dinner. Jackalope if dining at Doot Doot Doot — no driving, walk from room to table. Lindenderry at Red Hill for the country-house celebration. Point Leo Estate Villas to wake up in the same landscape as the Laura dinner. Crittenden or Polperro Villas for a private vineyard villa for two."
+  - question: "How far in advance should I book a birthday dinner on the Mornington Peninsula?"
+    answer: "Three to six months for peak-season Saturdays at Laura, Tedesca Osteria, or Ten Minutes by Tractor. Six weeks for quieter weekends. Book Doot Doot Doot at Jackalope at least four weeks out for a weekend date."
 ---
 
 The Peninsula is one of the best places in Australia to stage a significant birthday, and it is also the place where most birthday weekends quietly miss the mark.
@@ -38,7 +53,7 @@ The Peninsula has four serious rooms that can hold a milestone birthday dinner. 
 
 **Laura at Pt Leo Estate** is the most visually spectacular. The room sits above the Point Leo sculpture park with a full wall of glass looking south to Western Port Bay and the outline of Phillip Island on the horizon, and the tasting menu is the most architecturally ambitious on the Peninsula. This is the right choice for a birthday that wants the theatrical gesture  -  the one where the guest walks into the room and gasps. It is also the right choice for a fortieth, a fiftieth, or any birthday where the year matters and you want the setting to feel like an event.
 
-**Tedesca Osteria** at Baxter is the opposite answer: smaller, quieter, more intimate, with the wood oven and the farm garden immediately visible from the dining room. Brigitte Hafner's cooking is arguably the most technically grounded on the Peninsula, and the room holds a birthday dinner for two or four in a way that none of the larger dining rooms can. This is the right choice for a birthday that should feel personal rather than grand.
+**Tedesca Osteria** in Red Hill is the opposite answer: smaller, quieter, more intimate, with the wood oven and the farm garden immediately visible from the dining room. Brigitte Hafner's cooking is arguably the most technically grounded on the Peninsula, and the room holds a birthday dinner for two or four in a way that none of the larger dining rooms can. This is the right choice for a birthday that should feel personal rather than grand.
 
 **Doot Doot Doot** at Jackalope is the third choice, and the most polarising. The room is dark, dramatic, and unambiguously theatrical  -  thousands of suspended lightbulbs, a wall of vineyard windows, a tasting menu that leans into spectacle. It is the right choice for a birthday with a group of four to eight where the atmosphere of the room needs to do some of the lifting, and it works particularly well if one of the birthday guests has a taste for visual drama.
 

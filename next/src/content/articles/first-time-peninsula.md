@@ -16,6 +16,21 @@ relatedExperiences: ["arthurs-seat-lookout", "point-nepean-national-park", "sorr
 readingTimeMinutes: 9
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Four-Hour Peninsula — Compact Day Guide"
+    href: "/journal/the-four-hour-peninsula/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+faq:
+  - question: "How far is the Mornington Peninsula from Melbourne?"
+    answer: "The top of the Peninsula (Mornington, Mount Martha) is about an hour from the Melbourne CBD. The tip (Sorrento, Portsea, Point Nepean) is closer to 90 minutes to two hours depending on traffic. Saturday mornings are the slowest — leave by 8am if you want to avoid the worst of it."
+  - question: "What is the Mornington Peninsula best known for?"
+    answer: "Wine and food (one of Victoria's strongest cool-climate regions), hot springs (Peninsula Hot Springs and Alba Thermal Springs), coastal scenery, and boutique accommodation. The Red Hill and Main Ridge hinterland is the culinary and wine heart; Sorrento and Portsea are the coastal destinations."
+  - question: "What is the best season to visit the Mornington Peninsula for the first time?"
+    answer: "Autumn (March–May) is the best for a first visit — warm enough for outdoor activities, vineyard colour in the landscape, and significantly lower crowds after mid-March. Winter is excellent for value and quiet restaurants. Summer (December–February) is the busiest and the hardest to navigate for first-timers."
 ---
 
 Here is what nobody tells you about the Mornington Peninsula before your first visit: it is much larger than you think, the best parts of it are not the most famous parts, the drive from Melbourne takes longer than Google says on a Saturday morning, and the single biggest mistake you can make is trying to do too much.

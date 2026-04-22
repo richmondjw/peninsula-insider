@@ -16,6 +16,21 @@ relatedVenues: ["ten-minutes-by-tractor", "montalto", "pt-leo-estate", "tedesca-
 readingTimeMinutes: 8
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "The Couples' Weekend on the Mornington Peninsula"
+    href: "/journal/the-couples-weekend/"
+faq:
+  - question: "Which are the best restaurants for a long lunch on the Mornington Peninsula?"
+    answer: "Ten Minutes by Tractor (two hats GFG 2025) for the highest-precision degustation. Montalto for a warmer estate experience with a sculpture garden. Laura at Pt Leo Estate for the most cinematic setting with bay views. Tedesca Osteria for something more intimate and farmhouse-style. All require advance booking."
+  - question: "When is the best time to book a Peninsula winery long lunch?"
+    answer: "Saturday lunch is the Peninsula's strongest format — the kitchens are fully staffed and a long meal followed by an unscheduled afternoon is the experience the region was built for. Book four to six weeks ahead for hatted restaurants on summer or long-weekend Saturdays."
+  - question: "How long does a proper long lunch take at a Peninsula restaurant?"
+    answer: "Two to three hours minimum at Montalto or Ten Minutes by Tractor; up to four hours at Laura at Pt Leo Estate if you include time in the sculpture park before sitting down. Plan nothing substantial in the two hours after lunch — the best Peninsula long lunches end in a slow walk, not a drive."
 ---
 
 The argument for the Mornington Peninsula long lunch is simple and not particularly contested by anyone who has made the drive: nowhere within ninety minutes of Melbourne can deliver this combination of kitchen ambition, wine pedigree, and landscape. Sydney people know this. They fly down for it.
@@ -28,7 +43,7 @@ The plateau that runs through Red Hill and Merricks is the key. Altitude and coo
 
 ## The three rooms worth booking
 
-**Ten Minutes by Tractor** is the summit. Three hats, an estate wine program built over two decades, and a degustation that changes with the seasons in ways that feel genuinely responsive rather than performative. Book six weeks ahead for weekends. Lunch is the move; dinner is more formal and less relaxed. The bread service alone is worth the trip.
+**Ten Minutes by Tractor** is the summit. Two hats (GFG 2025), an estate wine program built over two decades, and a degustation that changes with the seasons in ways that feel genuinely responsive rather than performative. Book six weeks ahead for weekends. Lunch is the move; dinner is more formal and less relaxed. The bread service alone is worth the trip.
 
 **Montalto Vineyard & Olive Grove** is the one you bring first-timers to. The estate does everything right  -  olive grove, sculpture garden, kitchen garden, cellar door  -  before you've reached the restaurant. The pasta is made daily. The Single Vineyard Pinot Noir is one of the better bottles on the Peninsula. One hat, earnt honestly, and the terrace in summer gives you an afternoon that goes long in all the right ways.
 

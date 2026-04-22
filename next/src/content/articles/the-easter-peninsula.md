@@ -16,6 +16,21 @@ relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "morningt
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "The Two Bays Walking Track"
+    href: "/journal/two-bays-walk-mornington-peninsula/"
+  - label: "Ashcombe Maze — Visitor Guide"
+    href: "/journal/ashcombe-maze-visitor-guide/"
+  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+    href: "/journal/best-spas-mornington-peninsula/"
+faq:
+  - question: "Is the Mornington Peninsula worth visiting at Easter?"
+    answer: "Yes, but only with the right plan. Easter is the Peninsula's first major crowd-pressure weekend of the year. Book accommodation in February, invert the standard weekend rhythm (quiet moves on Friday and Saturday, booked lunch on Sunday), and leave Monday morning before 11am."
+  - question: "Which restaurants and cellar doors are open at Easter on the Mornington Peninsula?"
+    answer: "Most Peninsula restaurants and cellar doors are open across Easter. Good Friday is the exception — many cellar doors close while bakeries and pubs tend to stay open. Book restaurant lunches for Sunday rather than Saturday — Saturday is the busiest day of the long weekend."
+  - question: "When is the best time to leave the Mornington Peninsula on Easter Monday?"
+    answer: "Before 11.30am. The Mornington Peninsula Freeway typically slows significantly from about 1pm on Easter Monday. Leaving before midday puts you home well ahead of the worst of it."
 ---
 
 The Mornington Peninsula at Easter is one of the most predictable failure modes in Australian short-break travel.

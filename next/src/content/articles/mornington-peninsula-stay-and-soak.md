@@ -15,6 +15,21 @@ tags: ["spa", "hot-springs", "stay", "wellness", "mornington-peninsula", "packag
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope"]
 readingTimeMinutes: 8
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+    href: "/journal/best-spas-mornington-peninsula/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+faq:
+  - question: "Where should I stay if I'm visiting Peninsula Hot Springs or Alba Thermal Springs?"
+    answer: "The Red Hill plateau (10–20 min north) or the Cape Schanck–Sorrento corridor (10–20 min south-west) are the best bases. Avoid Mornington town for a pure spa weekend — it adds 35 minutes of driving each way and dilutes the bathing ritual."
+  - question: "Does Peninsula Hot Springs have on-site accommodation?"
+    answer: "Yes — Peninsula Hot Springs Glamping offers tented accommodation on the property with bathhouse access included. Functional rather than luxurious, but it eliminates the commute entirely and lets you extend into evening and morning sessions."
+  - question: "What is the best hotel near Alba Thermal Springs and Peninsula Hot Springs for couples?"
+    answer: "Jackalope Hotel in Merricks North is 20 minutes from both and is regarded as the Peninsula's most coherent wellness stay — Spa by Jackalope on-site, Doot Doot Doot for dinner, and 20 minutes to either hot springs for day sessions."
 ---
 
 The single best move a Peninsula spa weekend can make is to cut the driving. Most visitors book a random Mornington hotel, then commute thirty to forty-five minutes each way to Alba or Peninsula Hot Springs. That is ninety minutes of lost relaxation per spa visit, multiplied across the trip.

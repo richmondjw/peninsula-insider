@@ -31,6 +31,21 @@ relatedExperiences:
 readingTimeMinutes: 7
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
+    href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "The Dog-Friendly Peninsula — Full Weekend Guide"
+    href: "/journal/the-dog-friendly-peninsula/"
+faq:
+  - question: "Which is the best pub on the Mornington Peninsula?"
+    answer: "Depends what you want. Flinders Hotel for rooms and location in a village that earns an overnight. Hotel Sorrento for heritage and atmosphere outside of peak summer. Balnarring Pub for food and local character. Merricks Hotel for the rural beer-garden setting on a Sunday afternoon."
+  - question: "Are Peninsula pubs dog-friendly?"
+    answer: "Some are. Merricks Hotel beer garden and The Rocks at Mornington are confirmed dog-friendly. Portsea Hotel beer garden allows dogs on-leash outside peak season. Always confirm with the venue directly before bringing a dog."
+  - question: "Which Peninsula pubs have accommodation?"
+    answer: "Flinders Hotel and Hotel Sorrento both have well-renovated rooms above the bar — Flinders from about $280, Hotel Sorrento slightly higher. Portsea Hotel also has renovated accommodation. All three are significantly better than a standard pub room."
 ---
 
 There is a version of the Mornington Peninsula that has nothing to do with cellar doors, degustation menus, or hot springs  -  and it runs on pubs.
@@ -83,7 +98,7 @@ The **Merricks Hotel** sits on the back road between Balnarring and Red Hill in 
 
 The food is solid. The ambience is the point. On a Sunday afternoon with the beer garden full and the light coming in across the vines, the Merricks Hotel is the most rurally beautiful pub setting on the Peninsula. It is also the pub most likely to host a dog, a mud-spattered farmer, and a wine producer who just finished bottling, all at the same table.
 
-**The call:** Sunday afternoon in any season. Drive the back road from Red Hill. Order a pint and a parma. Look at the paddock. Dogs welcome — the Merricks Hotel is one of the few Peninsula venues where a dog at your feet is unremarkable. See our [Peninsula dog guide](/journal/dog-friendly-mornington-peninsula) for the broader circuit.
+**The call:** Sunday afternoon in any season. Drive the back road from Red Hill. Order a pint and a parma. Look at the paddock. Dogs welcome — the Merricks Hotel is one of the few Peninsula venues where a dog at your feet is unremarkable. See our [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the broader circuit.
 
 ## Dromana Hotel  -  the honest one
 

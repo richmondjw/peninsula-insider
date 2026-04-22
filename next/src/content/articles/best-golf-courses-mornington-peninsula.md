@@ -14,6 +14,21 @@ format: "insider-edit"
 tags: ["golf", "rankings", "mornington-peninsula", "guide", "sport"]
 readingTimeMinutes: 10
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "St Andrews Beach Golf Course"
+    href: "/journal/st-andrews-beach-golf-course/"
+  - label: "Mornington Peninsula Golf — Why It's Australia's Best Golf Region"
+    href: "/journal/mornington-peninsula-golf-guide/"
+  - label: "Mornington Peninsula Stay and Play Golf"
+    href: "/journal/mornington-peninsula-golf-stay-and-play/"
+faq:
+  - question: "What is the best public golf course on the Mornington Peninsula?"
+    answer: "St Andrews Beach — world-ranked Tom Doak design, public access, bookable online. If it's full, The Dunes and Moonah Links are the next tier. All three are in the Cape Schanck–Fingal corridor at the southern end of the Peninsula."
+  - question: "Is The National Golf Club on the Mornington Peninsula open to the public?"
+    answer: "No — The National is a private member club. Three courses (Old, Moonah, Gunnamatta), arguably the strongest overall property in the region, but access requires member invitation or reciprocal rights. Important to know about, not bookable directly."
+  - question: "When is the best time to play golf on the Mornington Peninsula?"
+    answer: "Autumn (March–May) and spring (September–November) for the best combination of weather, availability, and pricing. Summer weekends are busiest and most expensive. Midweek rounds are 30–40% cheaper than weekend rates and the courses are significantly quieter."
 ---
 
 Not every respected golf course on the Peninsula is equally useful to a reader. Some are destination rounds you can actually book. Some are excellent but private. Some are better as part of a stay-and-play weekend than as a standalone mission. And some are simply not worth pretending belong in the same conversation.

@@ -16,6 +16,21 @@ relatedExperiences: ["mount-martha-beach", "dromana-beach", "safety-beach-foresh
 readingTimeMinutes: 8
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Dog-Friendly Beaches on the Mornington Peninsula"
+    href: "/journal/dog-friendly-beaches-mornington-peninsula/"
+  - label: "First Time on the Peninsula — The Honest Starter Guide"
+    href: "/journal/first-time-peninsula/"
+  - label: "Point Nepean National Park Guide"
+    href: "/journal/point-nepean-national-park-guide/"
+faq:
+  - question: "Where is the best beach for families with young children on the Mornington Peninsula?"
+    answer: "Mount Martha Beach on the Port Phillip bay side — shallow water, gentle entry, easy parking, bathing boxes at the northern end. In autumn the water stays warm into April. For somewhere quieter, Balnarring Beach on the Western Port side is the same gentle swim with a more local, uncrowded feel."
+  - question: "Is it safe to swim at Sorrento Back Beach or Gunnamatta?"
+    answer: "Not recommended without local knowledge. The back beaches (Sorrento, Gunnamatta, Rye Ocean Beach) have unpredictable rips, strong currents, cold water, and inconsistent lifeguard patrol outside peak summer. Visit them for coastal walks and scenery — swim on the bay side."
+  - question: "What is the best swimming beach near Sorrento village?"
+    answer: "Sorrento Front Beach on the bay side is 5 minutes from the village — clean deeper water with a quick drop-off, ideal for adult swimmers. The Sorrento Baths at the pier end of the foreshore offer an enclosed swim option for less confident swimmers."
 ---
 
 The Peninsula has more publicly accessible coastline than almost any region within ninety minutes of Melbourne, and one of the quiet scandals of how it is usually written about is that the beaches get treated as interchangeable.

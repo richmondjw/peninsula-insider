@@ -15,6 +15,21 @@ tags: ["weddings", "weekend", "planning", "stay", "wine", "peninsula"]
 readingTimeMinutes: 8
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Where Wedding Guests Should Stay on the Mornington Peninsula"
+    href: "/journal/weddings-where-guests-stay-mornington-peninsula/"
+  - label: "Where to Stay on the Mornington Peninsula"
+    href: "/journal/where-to-stay-mornington-peninsula/"
+  - label: "Hatted Restaurants on the Mornington Peninsula 2025"
+    href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
+faq:
+  - question: "What makes the Mornington Peninsula good for a wedding weekend?"
+    answer: "The combination of winery settings, coastal landscape, boutique accommodation, and strong dining means every part of a wedding weekend — venue, guest stay, rehearsal dinner, recovery brunch — can happen within a coherent geography. The Peninsula rewards weekends that are shaped intentionally rather than just venue-led."
+  - question: "What is the most popular wedding zone on the Mornington Peninsula?"
+    answer: "Red Hill and Main Ridge for winery weddings; Sorrento and Portsea for coastal weddings. The right choice depends on whether the couple wants rural elegance or coastal polish — both are strong, but they create different weekends."
+  - question: "How much lead time do Mornington Peninsula weddings need?"
+    answer: "Popular venues — hatted wineries, boutique properties — book twelve to twenty-four months in advance. Guest accommodation, transport, and secondary dining should be locked six to nine months out."
 ---
 
 The best Peninsula weddings feel like more than a ceremony and reception. They feel like a small destination experience with a clear centre of gravity. The region is built for that, but it only works if the weekend is shaped intentionally.

@@ -26,6 +26,21 @@ relatedExperiences:
 readingTimeMinutes: 8
 featured: true
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+    href: "/journal/peninsula-hot-springs-vs-alba/"
+  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+    href: "/journal/best-spas-mornington-peninsula/"
+  - label: "Where to Stay Near the Hot Springs"
+    href: "/journal/mornington-peninsula-stay-and-soak/"
+faq:
+  - question: "How long should I spend at Peninsula Hot Springs or Alba?"
+    answer: "A proper thermal circuit takes two and a half to three hours done correctly — alternating hot and cold pools with genuine rest in between, not rushing between them. The shortest sessions on the menu are rarely enough. Do not book a lunch reservation immediately after your session."
+  - question: "What is the difference between Peninsula Hot Springs and Alba Thermal Springs?"
+    answer: "Peninsula Hot Springs is larger (seventy-plus pools, open since 2005), more varied in programming, and busier on weekends — it rewards experience and midweek or twilight timing. Alba opened in 2022 with 22 pools, a hard cap on daily bather numbers, and a calmer architectural feel. Alba is better for first-timers; Peninsula Hot Springs is better for those who want depth."
+  - question: "Is a Peninsula thermal springs day better as a day trip or an overnight?"
+    answer: "Overnight if possible. The decompression after the bath is half the value — you need a quiet room, a simple dinner, and an early night. Day trips usually end in a rushed lunch or long drive that cuts the rest short. The bath-sleep-Sunday lunch sequence is what the Peninsula wellness weekend is actually built for."
 ---
 
 There is a version of the Peninsula wellness weekend that gets sold to people and a version that actually works.
@@ -42,7 +57,7 @@ The Peninsula has two serious thermal bathing complexes and a handful of hotel s
 
 **Peninsula Hot Springs** is the original. Open since 2005, it has grown into the largest and most ambitious wellness complex in the country, with more than fifty bathing and wellness experiences, a Bath House, a hilltop pool, reflexology walks, private baths, and a long enough menu of add-ons that you can spend an entire day there without repeating yourself. It is also, by a distance, the busier of the two. Weekends can feel more crowded than relaxing, and on the wrong day the Amphitheatre pool is as much about the photograph as the temperature. The program is deeper and more varied than anything else in the category, and the twilight sessions in the cooler months remain the single best value the whole operation offers  -  but it rewards people who know how to use it.
 
-**Alba** opened in 2022 and is the Peninsula thermal bathing the region had been quietly waiting for. Thirty-one pools. Stripped-back architecture. A hard cap on daily bather numbers so it never tips into chaos. A sensible cafe. A spa building that is actually a spa building and not a queue. It feels more like a European bath day than a tourist attraction, and that is a decisive advantage for a first-time visitor or anyone who has been burned by a bad day at the original.
+**Alba** opened in 2022 and is the Peninsula thermal bathing the region had been quietly waiting for. Twenty-two pools. Stripped-back architecture. A hard cap on daily bather numbers so it never tips into chaos. A sensible cafe. A spa building that is actually a spa building and not a queue. It feels more like a European bath day than a tourist attraction, and that is a decisive advantage for a first-time visitor or anyone who has been burned by a bad day at the original.
 
 Pick Alba if this is your first thermal weekend, if you prefer quiet to scale, or if the idea of a cap on bodies in the water matters to you. Pick Peninsula Hot Springs if you know what you are doing, want the deeper menu, and are willing to book a midweek or twilight slot to get the best of it. Do not try to do both on the same day  -  the body cannot absorb a second circuit, and you will waste the second ticket.
 

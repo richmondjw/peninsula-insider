@@ -16,6 +16,21 @@ relatedExperiences: ["mornington-peninsula-gallery", "mount-martha-beach"]
 readingTimeMinutes: 5
 featured: false
 status: "published"
+lastVerified: 2026-04-22
+clusterLinks:
+  - label: "First Time on the Peninsula — The Honest Starter Guide"
+    href: "/journal/first-time-peninsula/"
+  - label: "The Four-Hour Peninsula — Compact Day Guide"
+    href: "/journal/the-four-hour-peninsula/"
+  - label: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
+    href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
+faq:
+  - question: "What should I do on a day trip to Mornington?"
+    answer: "Coffee at Commonfolk, the main street loop (gallery, shops, foreshore), lunch at Bass and Flinders Distillery or a Main Street bistro, then Mount Martha Beach in the afternoon. Four stops in roughly six hours — no wasted driving, and walkable between most of them."
+  - question: "When is the Mornington Farmers' Market?"
+    answer: "Second Saturday of each month on the Esplanade bayfront. It's the best monthly market on the Peninsula for produce, cheese, bread, and local goods — worth structuring a whole day around if you're coming in the morning."
+  - question: "Is Mornington worth visiting on its own, or should I continue to Red Hill?"
+    answer: "Worth a full day on its own — gallery, market, foreshore, good coffee, and Mount Martha Beach. If you want wineries and cellar doors, Red Hill is a separate day. Trying to combine both usually ends with rushing everything and enjoying neither."
 ---
 
 Mornington has a problem and the problem is geography. It is the first stop on the Peninsula when you drive down from Melbourne, and for a long time that meant nobody stayed  -  you bought a coffee, stretched your legs, and pressed on to the wineries or the tip. The town became a waypoint by default.
