@@ -28,31 +28,30 @@ const seasonalDeks: Record<string, string> = {
 
 const hl = seasonalHeadlines[season];
 
-const heroRotation = [
-  {
-    src: '/images/sourced/explore-cape-schanck-boardwalk-01.webp',
-    position: 'center center',
-    label: 'Morning light at Cape Schanck on the Mornington Peninsula',
-  },
-  {
-    src: '/images/sourced/article-vineyard-villa-01.webp',
-    position: 'center center',
-    label: 'Afternoon vineyard atmosphere on the Mornington Peninsula',
-  },
-  {
-    src: '/images/sourced/article-sunset-01.webp',
-    position: 'center center',
-    label: 'Evening Peninsula light at sunset',
-  },
-];
-
-const hour = Astro.url ? new Date().getUTCHours() : 0;
-const heroIndex = hour < 12 ? 0 : hour < 17 ? 1 : 2;
-const activeHero = heroRotation[heroIndex];
+// Images and time boundaries are set client-side so rotation works for every
+// visitor regardless of when the static build ran. See <script is:inline> below.
 ---
 
 <section class="hero-v2" aria-label="Cover">
-  <div class="hero-v2__bg" style={`background-image: url(${activeHero.src}); background-position: ${activeHero.position};`}></div>
+  <div class="hero-v2__bg" id="hero-bg"></div>
+  <script is:inline>
+    (function () {
+      var images = [
+        { src: '/images/sourced/explore-cape-schanck-boardwalk-01.webp', pos: 'center center' },
+        { src: '/images/sourced/article-vineyard-villa-01.webp',         pos: 'center center' },
+        { src: '/images/sourced/explore-mornington-foreshore-01.webp',   pos: 'center center' },
+        { src: '/images/sourced/article-sunset-01.webp',                 pos: 'center center' },
+        { src: '/images/sourced/article-long-lunch-01.webp',             pos: 'center center' },
+      ];
+      var h = new Date().getUTCHours();
+      var i = h < 5 ? 0 : h < 10 ? 1 : h < 15 ? 2 : h < 20 ? 3 : 4;
+      var bg = document.getElementById('hero-bg');
+      if (bg) {
+        bg.style.backgroundImage = 'url(' + images[i].src + ')';
+        bg.style.backgroundPosition = images[i].pos;
+      }
+    })();
+  </script>
   <div class="hero-v2__scrim"></div>
   <div class="hero-v2__grain"></div>
   <div class="hero-v2__content">
