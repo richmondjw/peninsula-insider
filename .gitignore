@@ -30,3 +30,9 @@ Thumbs.db
 .approvals/
 
 .claude/worktrees/
+
+# Google API credentials, OAuth tokens, raw API data, run logs (never commit)
+ops/config/
+ops/tokens/
+ops/data/
+ops/logs/
