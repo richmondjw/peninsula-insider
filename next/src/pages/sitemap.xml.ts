@@ -24,13 +24,12 @@ function dateStr(d?: Date): string | undefined {
 }
 
 export const GET: APIRoute = async () => {
-  const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
+  const [venues, experiences, places, articles, itineraries] = await Promise.all([
     getCollection('venues'),
     getCollection('experiences'),
     getCollection('places'),
     getCollection('articles', ({ data }) => data.status === 'published'),
     getCollection('itineraries'),
-    getCollection('events'),
   ]);
 
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
@@ -46,17 +45,9 @@ export const GET: APIRoute = async () => {
   // Homepage
   entries.push(url('/', 1.0, 'weekly'));
 
-  // Section index pages
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'whats-on', 'journal', 'places', 'spa', 'golf', 'weddings', 'corporate-events', 'walks']) {
+  // Section index pages (whats-on and golf excluded — event/utility pages)
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'journal', 'places', 'spa', 'weddings', 'corporate-events', 'walks']) {
     entries.push(url(`/${section}`, 0.9, 'weekly'));
-  }
-
-  // Static pages
-  for (const page of ['/about', '/contact', '/newsletter', '/search', '/site-index', '/privacy', '/terms']) {
-    const priority = ['/about', '/contact', '/newsletter'].includes(page) ? 0.4
-      : page === '/search' ? 0.6
-      : 0.3;
-    entries.push(url(page, priority, 'monthly'));
   }
 
   // Best-of pages
@@ -111,11 +102,6 @@ export const GET: APIRoute = async () => {
   // Journal articles
   for (const article of articles) {
     entries.push(url(`/journal/${routeSlug(article)}`, 0.7, 'weekly', dateStr(article.data.publishedAt)));
-  }
-
-  // Events
-  for (const event of events) {
-    entries.push(url(`/whats-on/${routeSlug(event)}`, 0.6, 'daily', dateStr(event.data.publishedAt)));
   }
 
   // Itineraries
