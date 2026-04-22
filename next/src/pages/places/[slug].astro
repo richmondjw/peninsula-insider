@@ -254,6 +254,7 @@ const placeSchema = {
   section="places"
   canonical={canonical}
   ogImage={ogImage}
+  noindex={place.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(placeSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}

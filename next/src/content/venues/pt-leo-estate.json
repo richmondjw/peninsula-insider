@@ -4,7 +4,10 @@
   "type": "restaurant",
   "place": "red-hill",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3994, "lng": 145.0101 },
+  "coordinates": {
+    "lat": -38.3994,
+    "lng": 145.0101
+  },
   "address": "3649 Frankston-Flinders Rd, Merricks VIC 3916",
   "phone": "+61 3 5989 9011",
   "website": "https://www.ptleoestate.com.au",
@@ -13,14 +16,31 @@
   "priceBand": "$$$",
   "authority": {
     "hats": 2,
-    "awards": ["Good Food Guide 2024", "Best Winery Restaurant Victoria"]
+    "awards": [
+      "Good Food Guide 2024",
+      "Best Winery Restaurant Victoria"
+    ]
   },
   "signature": "A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant",
   "editorNote": "Pt. Leo is the Peninsula's great ambition made real: 93 hectares where you can walk among large-scale sculptures before sitting down to a two-hat lunch with one of the best bay views in the state. The setting alone is worth the drive.\n\nThe restaurant handles the produce-forward brief with real skill. The wine list is exceptional  -  Peninsula estate wines alongside a sharp selection of European bottles. Book the terrace facing Port Phillip for the full effect.\n\nArrive for the sculpture walk before noon. Give yourself half a day. This is not a quick lunch.",
   "tags": {
-    "mood": ["long-lunch", "anniversary", "view", "waterfront"],
-    "season": ["spring", "summer", "autumn", "all-year"],
-    "audience": ["couples", "group", "first-timers"]
+    "mood": [
+      "long-lunch",
+      "anniversary",
+      "view",
+      "waterfront"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "first-timers"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/place-merricks-01.webp",
@@ -31,5 +51,6 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
-  "publishedAt": "2026-04-01"
+  "publishedAt": "2026-04-01",
+  "sitemapExclude": true
 }

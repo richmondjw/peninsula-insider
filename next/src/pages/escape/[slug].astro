@@ -105,6 +105,7 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
   section="escape"
   canonical={canonical}
   ogImage={ogImage}
+  noindex={itinerary.data.sitemapExclude === true}
 >
   <Breadcrumbs items={breadcrumbItems} />
 

@@ -4,7 +4,10 @@
   "type": "hotel",
   "place": "sorrento",
   "zone": "tip",
-  "coordinates": { "lat": -38.3369, "lng": 144.7408 },
+  "coordinates": {
+    "lat": -38.3369,
+    "lng": 144.7408
+  },
   "address": "5-15 Hotham Rd, Sorrento VIC 3943",
   "phone": "+61 3 5984 8000",
   "website": "https://hotelsorrento.com.au",
@@ -14,9 +17,22 @@
   "signature": "A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school",
   "editorNote": "Hotel Sorrento has been looking over the bay since the 1870s and, when done right, still delivers the classic Peninsula weekend better than almost anyone. The front rooms are the ones to book  -  high ceilings, balconies, and views over the water that explain why Melbourne has been escaping down here for more than a century.\n\nDownstairs, the public bar remains one of the great people-watching rooms in coastal Victoria. Upstairs, the accommodation is more polished than precious. It's less of a destination hotel than Jackalope or The Continental, but often more charming for that.\n\nPerfect for a breezy two-night Sorrento weekend with ferries, beach walks, and late pub lunches.",
   "tags": {
-    "mood": ["weekend-escape", "waterfront", "sunset"],
-    "season": ["spring", "summer", "autumn", "all-year"],
-    "audience": ["couples", "group", "first-timers"]
+    "mood": [
+      "weekend-escape",
+      "waterfront",
+      "sunset"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "first-timers"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/place-sorrento-01.webp",
@@ -27,5 +43,6 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
-  "publishedAt": "2026-04-01"
+  "publishedAt": "2026-04-01",
+  "sitemapExclude": true
 }

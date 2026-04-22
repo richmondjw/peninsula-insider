@@ -36,9 +36,9 @@ export const GET: APIRoute = async () => {
   const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
-  const eatVenues = venues.filter((v) => eatTypes.includes(v.data.type));
-  const stayVenues = venues.filter((v) => stayTypes.includes(v.data.type));
-  const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type));
+  const eatVenues = venues.filter((v) => eatTypes.includes(v.data.type) && !v.data.sitemapExclude);
+  const stayVenues = venues.filter((v) => stayTypes.includes(v.data.type) && !v.data.sitemapExclude);
+  const wineVenues = venues.filter((v) => wineTypes.includes(v.data.type) && !v.data.sitemapExclude);
 
   const entries: string[] = [];
 
@@ -90,22 +90,22 @@ export const GET: APIRoute = async () => {
   }
 
   // Experiences
-  for (const experience of experiences) {
+  for (const experience of experiences.filter((e) => !e.data.sitemapExclude)) {
     entries.push(url(`/explore/${routeSlug(experience)}`, 0.7, 'weekly', dateStr(experience.data.publishedAt)));
   }
 
   // Places
-  for (const place of places) {
+  for (const place of places.filter((p) => !p.data.sitemapExclude)) {
     entries.push(url(`/places/${routeSlug(place)}`, 0.8, 'weekly', dateStr(place.data.publishedAt)));
   }
 
   // Journal articles
-  for (const article of articles) {
+  for (const article of articles.filter((a) => !a.data.sitemapExclude)) {
     entries.push(url(`/journal/${routeSlug(article)}`, 0.7, 'weekly', dateStr(article.data.publishedAt)));
   }
 
   // Itineraries
-  for (const itinerary of itineraries) {
+  for (const itinerary of itineraries.filter((i) => !i.data.sitemapExclude)) {
     entries.push(url(`/escape/${routeSlug(itinerary)}`, 0.7, 'weekly', dateStr(itinerary.data.publishedAt)));
   }
 

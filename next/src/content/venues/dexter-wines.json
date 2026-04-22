@@ -4,7 +4,10 @@
   "type": "winery",
   "place": "main-ridge",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3921, "lng": 144.9789 },
+  "coordinates": {
+    "lat": -38.3921,
+    "lng": 144.9789
+  },
   "address": "210 Foxeys Hangout Rd, Red Hill South VIC 3937",
   "website": "https://www.dexterwines.com.au",
   "bookingUrl": "https://www.dexterwines.com.au/cellar-door",
@@ -12,14 +15,25 @@
   "priceBand": "$$$",
   "authority": {
     "hallidayScore": 96,
-    "awards": ["Halliday 5 Red Stars"]
+    "awards": [
+      "Halliday 5 Red Stars"
+    ]
   },
   "signature": "Tod Dexter's quiet, considered estate  -  appointment-only tastings for a small, serious pinot and chardonnay program",
   "editorNote": "Dexter is the kind of Peninsula cellar door you find by being told about it. There's no signage to speak of, no restaurant attached, and the tastings are strictly by appointment. What you get in return is one of the most rewarding hours in Main Ridge: Tod Dexter himself or his team walking you through a focused range of pinot noir and chardonnay that has been built over three decades.\n\nThe wines are quietly structured  -  long on fruit, a bit austere when young, superb with four or five years on them. The estate is small by Peninsula standards, and the approach is deliberately unflashy. If you want sculpture gardens and lunch menus, go to Montalto. If you want to understand why people keep collecting Peninsula pinot, book here.\n\nAppointment essential. One of the most honest cellar door experiences on the ridge.",
   "tags": {
-    "mood": ["cellar-door", "slow"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo", "locals"]
+    "mood": [
+      "cellar-door",
+      "slow"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo",
+      "locals"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/place-main-ridge-01.webp",
@@ -30,5 +44,6 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
-  "publishedAt": "2026-04-09"
+  "publishedAt": "2026-04-09",
+  "sitemapExclude": true
 }

@@ -92,6 +92,7 @@ const venueSchema = {
   section="eat"
   canonical={canonical}
   ogImage={ogImage}
+  noindex={venue.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
   <VenueDetailTemplate venue={venue} section="eat" related={related} articles={articles} itineraries={itineraries} />

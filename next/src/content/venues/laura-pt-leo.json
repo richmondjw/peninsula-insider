@@ -4,7 +4,10 @@
   "type": "restaurant",
   "place": "red-hill",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3992, "lng": 145.0109 },
+  "coordinates": {
+    "lat": -38.3992,
+    "lng": 145.0109
+  },
   "address": "3649 Frankston-Flinders Rd, Merricks VIC 3916",
   "phone": "+61 3 5989 9011",
   "website": "https://www.ptleoestate.com.au/laura",
@@ -13,14 +16,27 @@
   "priceBand": "$$$$",
   "authority": {
     "hats": 2,
-    "awards": ["Good Food Guide 2024", "Chef Hat × 2"]
+    "awards": [
+      "Good Food Guide 2024",
+      "Chef Hat × 2"
+    ]
   },
   "signature": "A ten-course chef's counter degustation threaded through Phillip Daffara's produce garden",
   "editorNote": "If the main Pt. Leo restaurant is the grand dining room, Laura is the private chef's counter tucked behind it  -  intimate, considered, and the place where Phillip Daffara's cooking is allowed to stretch out. Ten courses, one seating of around twenty, and the kind of quiet technical precision that only a small room can deliver.\n\nThe garden and the paddocks do most of the work. There's a disciplined restraint to the cooking that feels Japanese in its sensibility, and a wine pairing that moves from estate pinot through a tight selection of Victorian and European bottles. This is the Peninsula at the far edge of what it can do.\n\nBook eight weeks ahead. Lunch over dinner  -  the afternoon light through the grounds is part of the experience.",
   "tags": {
-    "mood": ["anniversary", "long-lunch", "view"],
-    "season": ["spring", "summer", "autumn"],
-    "audience": ["couples"]
+    "mood": [
+      "anniversary",
+      "long-lunch",
+      "view"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "couples"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/place-merricks-01.webp",
@@ -31,5 +47,6 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
-  "publishedAt": "2026-04-01"
+  "publishedAt": "2026-04-01",
+  "sitemapExclude": true
 }

@@ -149,6 +149,7 @@ if (experience.data.type === 'golf-course') {
   section="explore"
   canonical={canonical}
   ogImage={ogImage}
+  noindex={experience.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(experienceSchema)} />
   <Breadcrumbs items={breadcrumbItems} />

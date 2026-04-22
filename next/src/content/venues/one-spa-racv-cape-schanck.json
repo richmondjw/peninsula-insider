@@ -4,7 +4,10 @@
   "type": "spa",
   "place": "cape-schanck",
   "zone": "ocean-coast",
-  "coordinates": { "lat": -38.4825, "lng": 144.8831 },
+  "coordinates": {
+    "lat": -38.4825,
+    "lng": 144.8831
+  },
   "address": "Trent Jones Dr, Cape Schanck VIC 3939",
   "phone": "+61 3 5950 8000",
   "website": "https://www.racv.com.au/travel-leisure/racv-resorts/our-destinations/cape-schanck-resort/health-fitness/one-spa.html",
@@ -14,9 +17,21 @@
   "signature": "The Peninsula's best resort-style day spa — proper scale, serious treatment menu, and a cliff-edge location that nobody else on the Peninsula can match",
   "editorNote": "One Spa at RACV Cape Schanck is the Peninsula's most complete resort spa offering. It is larger and better equipped than most of the boutique day-spa rooms on the Peninsula, sits inside a resort with an 18-hole golf course and proper infrastructure, and has one of the most dramatic coastal settings of any spa in the country — high on the cliffs above Cape Schanck with Southern Ocean views the whole way.\n\nThe treatment menu is broad and well-executed rather than experimental: massage, facials, body treatments, couples packages, and scrubs from the major botanical brands. Therapists are consistently strong. The wet areas — steam, sauna, vitality pool — are where the resort layer shows, and they are better than anything offered at a standalone day spa on the Peninsula.\n\nThe pairing that works: a spa morning here, then a round on the RACV Cape Schanck course or a walk on Cape Schanck lighthouse trail, then dinner at the resort or at Jackalope fifteen minutes away. For non-resort guests it is a bookable day-spa experience. For resort guests it is the anchor of a serious wellness stay.\n\nBook midweek if you want the full circuit without feeling rushed. Weekend appointments fill three to four weeks out in peak season.",
   "tags": {
-    "mood": ["wellness", "slow", "anniversary", "weekend-escape", "view"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo", "group"]
+    "mood": [
+      "wellness",
+      "slow",
+      "anniversary",
+      "weekend-escape",
+      "view"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo",
+      "group"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/spa-coastal-pool-01.webp",
@@ -27,5 +42,6 @@
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-14",
-  "publishedAt": "2026-04-14"
+  "publishedAt": "2026-04-14",
+  "sitemapExclude": true
 }
