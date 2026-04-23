@@ -28,4 +28,8 @@ export default defineConfig({
   ],
   // Output: pure static. Vercel/Netlify adapters come in the cutover week.
   output: 'static',
+  redirects: {
+    // PI-EXP-044: merge duplicate bushrangers-bay entity into the walk variant
+    '/explore/bushrangers-bay/': '/explore/bushrangers-bay-walk/',
+  },
 });

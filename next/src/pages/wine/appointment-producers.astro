@@ -20,12 +20,12 @@ const venues = appointmentSlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
   .filter(Boolean) as typeof allVenues;
 
-const itemListSchema = buildItemListSchema(
-  'Appointment-only and small-production Mornington Peninsula wineries',
-  'The boutique and appointment-only producers on the Mornington Peninsula worth planning a dedicated visit for.',
-  canonical,
-  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
-);
+const itemListSchema = buildItemListSchema({
+  name: 'Appointment-only and small-production Mornington Peninsula wineries',
+  description: 'The boutique and appointment-only producers on the Mornington Peninsula worth planning a dedicated visit for.',
+  listPath: '/wine/appointment-producers',
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+});
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE },

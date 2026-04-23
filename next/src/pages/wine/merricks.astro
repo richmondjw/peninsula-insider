@@ -20,12 +20,12 @@ const venues = allVenues
   )
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 
-const itemListSchema = buildItemListSchema(
-  'Merricks wineries — Mornington Peninsula',
-  'The cellar doors of Merricks and Merricks North on the Mornington Peninsula.',
-  canonical,
-  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
-);
+const itemListSchema = buildItemListSchema({
+  name: 'Merricks wineries — Mornington Peninsula',
+  description: 'The cellar doors of Merricks and Merricks North on the Mornington Peninsula.',
+  listPath: '/wine/merricks',
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+});
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE },

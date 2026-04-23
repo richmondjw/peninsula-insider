@@ -20,12 +20,12 @@ const venues = pinotSlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
   .filter(Boolean) as typeof allVenues;
 
-const itemListSchema = buildItemListSchema(
-  'Best Pinot Noir producers — Mornington Peninsula',
-  'The Mornington Peninsula cellar doors producing the most compelling Pinot Noir.',
-  canonical,
-  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
-);
+const itemListSchema = buildItemListSchema({
+  name: 'Best Pinot Noir producers — Mornington Peninsula',
+  description: 'The Mornington Peninsula cellar doors producing the most compelling Pinot Noir.',
+  listPath: '/wine/pinot-noir',
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+});
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE },

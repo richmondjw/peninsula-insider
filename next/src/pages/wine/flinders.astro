@@ -18,12 +18,12 @@ const venues = allVenues
   )
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 
-const itemListSchema = buildItemListSchema(
-  'Flinders wineries — Mornington Peninsula',
-  'The cellar doors of the Flinders subregion on the southern tip of the Mornington Peninsula.',
-  canonical,
-  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
-);
+const itemListSchema = buildItemListSchema({
+  name: 'Flinders wineries — Mornington Peninsula',
+  description: 'The cellar doors of the Flinders subregion on the southern tip of the Mornington Peninsula.',
+  listPath: '/wine/flinders',
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+});
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE },

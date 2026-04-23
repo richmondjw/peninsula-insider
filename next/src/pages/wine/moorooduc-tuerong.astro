@@ -21,12 +21,12 @@ const venues = allVenues
   )
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 
-const itemListSchema = buildItemListSchema(
-  'Moorooduc and Tuerong wineries — Mornington Peninsula',
-  'The cellar doors of Moorooduc and Tuerong — the warmer, bay-side subregions of the Mornington Peninsula wine region.',
-  canonical,
-  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
-);
+const itemListSchema = buildItemListSchema({
+  name: 'Moorooduc and Tuerong wineries — Mornington Peninsula',
+  description: 'The cellar doors of Moorooduc and Tuerong — the warmer, bay-side subregions of the Mornington Peninsula wine region.',
+  listPath: '/wine/moorooduc-tuerong',
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+});
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE },

@@ -19,12 +19,12 @@ const venues = chardonnaySlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
   .filter(Boolean) as typeof allVenues;
 
-const itemListSchema = buildItemListSchema(
-  'Best Chardonnay producers — Mornington Peninsula',
-  'The Mornington Peninsula cellar doors producing the most compelling Chardonnay.',
-  canonical,
-  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
-);
+const itemListSchema = buildItemListSchema({
+  name: 'Best Chardonnay producers — Mornington Peninsula',
+  description: 'The Mornington Peninsula cellar doors producing the most compelling Chardonnay.',
+  listPath: '/wine/chardonnay',
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+});
 
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: SITE },
