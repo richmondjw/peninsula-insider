@@ -85,7 +85,7 @@ const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
 const heroStyle = heroBackgroundStyle(experience.data);
 
-const canonical = `https://peninsulainsider.com.au/explore/${slug}`;
+const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
 const ogImage = experience.data.heroImage?.src && !experience.data.heroImage.src.includes('placeholder')
   ? experience.data.heroImage.src
   : '/images/sourced/home-cover.webp';

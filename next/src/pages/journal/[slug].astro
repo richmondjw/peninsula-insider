@@ -60,7 +60,7 @@ const authorLabel = article.data.houseByline
 const articleHeroStyle = heroBackgroundStyle(article.data);
 
 const slug = routeSlug(article);
-const canonical = `https://peninsulainsider.com.au/journal/${slug}`;
+const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
 const ogImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
   ? article.data.heroImage.src
   : '/images/sourced/home-cover.webp';

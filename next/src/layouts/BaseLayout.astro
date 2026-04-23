@@ -42,9 +42,11 @@ const {
 
 // Canonical: use explicit prop if provided, otherwise derive from current URL pathname.
 // Strip any /V2/ base prefix so canonicals always point at the production root.
+// GitHub Pages serves all pages with trailing slashes — canonicals must match.
 const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
-const normalizedPath = rawPathname !== '/' ? rawPathname.replace(/\/$/, '') : rawPathname;
-const canonicalUrl = canonical ?? `${SITE_URL}${normalizedPath}`;
+const normalizedPath = rawPathname === '/' ? '/' : rawPathname.replace(/\/?$/, '/');
+const rawCanonical = canonical ?? `${SITE_URL}${normalizedPath}`;
+const canonicalUrl = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 
 // OG image must be an absolute URL.
 const ogImageAbsolute = ogImage.startsWith('http')
@@ -67,8 +69,6 @@ const ogImageAbsolute = ogImage.startsWith('http')
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
-  <link rel="alternate" hrefLang="en-au" href={canonicalUrl} />
-  <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
   <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
   <!-- Open Graph -->

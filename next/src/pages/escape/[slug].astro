@@ -92,7 +92,7 @@ const breadcrumbItems = [
 ];
 
 const nightsLabel = `${itinerary.data.lengthNights} night${itinerary.data.lengthNights === 1 ? '' : 's'}`;
-const canonical = `https://peninsulainsider.com.au/escape/${slug}`;
+const canonical = `https://peninsulainsider.com.au/escape/${slug}/`;
 const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.includes('placeholder')
   ? itinerary.data.heroImage.src
   : '/images/sourced/home-cover.webp';

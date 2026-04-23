@@ -44,7 +44,7 @@ const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
 const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
-const canonical = `https://peninsulainsider.com.au/stay/${slug}`;
+const canonical = `https://peninsulainsider.com.au/stay/${slug}/`;
 const ogImage = venue.data.heroImage?.src && !venue.data.heroImage.src.includes('placeholder')
   ? venue.data.heroImage.src
   : '/images/sourced/home-cover.webp';

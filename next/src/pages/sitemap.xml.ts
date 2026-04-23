@@ -6,8 +6,9 @@ const SITE_URL = 'https://peninsulainsider.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
 
 function url(path: string, priority: number, changefreq: string, lastmod?: string): string {
+  const loc = path === '/' ? path : (path.endsWith('/') ? path : path + '/');
   return `  <url>
-    <loc>${SITE_URL}${path}</loc>
+    <loc>${SITE_URL}${loc}</loc>
     <lastmod>${lastmod ?? TODAY}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority.toFixed(1)}</priority>
