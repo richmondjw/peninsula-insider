@@ -3,6 +3,13 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import { routeSlug, typeLabel, titleize } from '../../lib/editorial';
+import {
+  buildWinerySchema,
+  buildRestaurantSchema,
+  buildAccommodationSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
 
 export async function getStaticPaths() {
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
@@ -49,26 +56,21 @@ const ogImage = venue.data.heroImage?.src && !venue.data.heroImage.src.includes(
   ? venue.data.heroImage.src
   : '/images/sourced/home-cover.webp';
 
-const venueSchema = {
-  '@context': 'https://schema.org',
-  '@type': ['Winery', 'LocalBusiness'],
-  name: venue.data.name,
-  description: venue.data.signature,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: venue.data.address,
-    addressRegion: 'VIC',
-    addressCountry: 'AU',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: venue.data.coordinates?.lat,
-    longitude: venue.data.coordinates?.lng,
-  },
-  ...(venue.data.website ? { url: venue.data.website } : {}),
-  ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
-  ...(venue.data.priceBand ? { priceRange: venue.data.priceBand } : {}),
-};
+const isVerified = Boolean(venue.data.lastFactVerified);
+
+const schemas: any[] = [
+  buildWinerySchema(venue.data, slug),
+];
+if (venue.data.restaurant) schemas.push(buildRestaurantSchema(venue.data, slug));
+if (venue.data.accommodation) schemas.push(buildAccommodationSchema(venue.data, slug));
+if (venue.data.faq?.length) schemas.push(buildFaqSchema(venue.data.faq));
+schemas.push(
+  buildBreadcrumbSchema([
+    { name: 'Home', url: 'https://peninsulainsider.com.au' },
+    { name: 'Wine Country', url: 'https://peninsulainsider.com.au/wine' },
+    { name: venue.data.name },
+  ])
+);
 
 ---
 
@@ -78,8 +80,10 @@ const venueSchema = {
   section="wine"
   canonical={canonical}
   ogImage={ogImage}
-  noindex={venue.data.sitemapExclude === true}
+  noindex={venue.data.sitemapExclude === true || venue.data.status === 'closed'}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
+  {schemas.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
   <VenueDetailTemplate venue={venue} section="wine" related={related} articles={articles} itineraries={itineraries} />
 </BaseLayout>

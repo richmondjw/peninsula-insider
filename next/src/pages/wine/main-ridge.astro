@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/main-ridge`;
+
+const wineTypes = ['winery', 'producer'];
+const allVenues = await getCollection('venues');
+const venues = allVenues
+  .filter(
+    (v) =>
+      wineTypes.includes(v.data.type) &&
+      (v.data.place === 'main-ridge' || (v.data as any).subregion === 'main-ridge')
+  )
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const itemListSchema = buildItemListSchema(
+  'Main Ridge wineries — Mornington Peninsula',
+  'The cellar doors of the Main Ridge subregion — the highest and coolest part of the Mornington Peninsula wine region.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Main Ridge', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Main Ridge Wineries · Mornington Peninsula · Peninsula Insider"
+  description="Main Ridge is the highest and coolest subregion of the Mornington Peninsula. Find the best cellar doors in Australia's most elevation-intensive wine district."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Main Ridge Wineries"
+    badgeLabel="Subregion · Main Ridge"
+    introText={`Main Ridge sits at the highest point of the Mornington Peninsula — up to 400m elevation — making it the coolest, most challenging subregion to farm. The short growing season demands discipline: yields are low, ripening requires patience, and the wines that emerge carry a distinctive intensity that marks them immediately.
+
+Main Ridge Estate, planted in 1975 by Nat and Rosalie White, is the oldest winery on the Peninsula. Kooyong follows with single-vineyard bottlings that rank among Victoria's finest. Dexter Wines occupies the newer generation: lower intervention, direct fruit, the same serious acidity.
+
+The roads here are narrow and the properties smaller than the Red Hill plateau. Visiting requires more effort but rewards accordingly — this is where the Peninsula shows its most demanding, wine-first face.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Main Ridge' },
+    ]}
+    faqItems={[
+      {
+        q: 'What makes Main Ridge different from Red Hill?',
+        a: 'Elevation. Main Ridge tops out at around 400m — 100m higher than most Red Hill vineyards — making it significantly cooler and extending the growing season further. The wines have more austerity and intensity on release and typically require more time to open up. Main Ridge Estate and Kooyong are the primary reference points.',
+      },
+    ]}
+  />
+</BaseLayout>

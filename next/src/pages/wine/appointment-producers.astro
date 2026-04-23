@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/appointment-producers`;
+
+// Appointment-only and small-production producers worth planning for
+const appointmentSlugs = [
+  'garagiste', 'onannon', 'dexter-wines', 'eldridge-estate',
+  'paradigm-hill', 'nazaaray-estate', 'baillieu-vineyard', 'elan-vineyard',
+  'phaedrus-estate', 'hurley-vineyard', 'circe-wines',
+];
+
+const allVenues = await getCollection('venues');
+const venues = appointmentSlugs
+  .map((s) => allVenues.find((v) => routeSlug(v) === s))
+  .filter(Boolean) as typeof allVenues;
+
+const itemListSchema = buildItemListSchema(
+  'Appointment-only and small-production Mornington Peninsula wineries',
+  'The boutique and appointment-only producers on the Mornington Peninsula worth planning a dedicated visit for.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Appointment Producers', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Appointment-Only Wineries · Mornington Peninsula · Peninsula Insider"
+  description="The small-production and appointment-only wineries on the Mornington Peninsula that are worth planning a dedicated visit for — Garagiste, Onannon, Dexter, Eldridge, and more."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Appointment-Only Producers"
+    badgeLabel="Access type · By appointment"
+    introText={`These are the producers that don't have a roadside sign and don't need one. Small yields, limited production, and a preference for visitors who arrive with intent rather than habit. Most require a booking — some several weeks in advance for popular releases.
+
+The reward for the extra planning is disproportionate. Appointments at producers like Garagiste, Onannon, and Eldridge Estate mean time with the winemaker, access to library vintages, and wine that rarely appears in retail distribution. These visits are among the best Peninsula experiences for people who are serious about what's in the glass.
+
+Contact each producer directly. Booking windows vary; some open seasonally. Most are happy to accommodate small groups.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Appointment Producers' },
+    ]}
+    faqItems={[
+      {
+        q: 'How do I book an appointment at a Mornington Peninsula winery?',
+        a: 'Contact the winery directly — most have an email address or booking form on their website. Some use Cellar Door by Vinsight or similar booking systems. Lead time varies: popular producers in peak season (March–May, October–November) may be booked weeks in advance. Being specific about what you want to taste — a library vertical, a current release flight — helps the winery plan.',
+      },
+      {
+        q: 'Are appointment-only wineries more expensive?',
+        a: 'Not necessarily. Some charge a tasting fee (typically $30–$60 per person) that is often refundable against purchase. Others charge nothing. The expense is time: these visits reward you most if you set aside two to three hours rather than treating them as a quick stop.',
+      },
+    ]}
+  />
+</BaseLayout>

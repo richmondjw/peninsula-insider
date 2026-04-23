@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/moorooduc-tuerong`;
+
+const wineTypes = ['winery', 'producer'];
+const allVenues = await getCollection('venues');
+const venues = allVenues
+  .filter(
+    (v) =>
+      wineTypes.includes(v.data.type) &&
+      (v.data.place === 'moorooduc' ||
+        v.data.place === 'tuerong' ||
+        (v.data as any).subregion === 'moorooduc' ||
+        (v.data as any).subregion === 'tuerong')
+  )
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const itemListSchema = buildItemListSchema(
+  'Moorooduc and Tuerong wineries — Mornington Peninsula',
+  'The cellar doors of Moorooduc and Tuerong — the warmer, bay-side subregions of the Mornington Peninsula wine region.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Moorooduc & Tuerong', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Moorooduc & Tuerong Wineries · Mornington Peninsula · Peninsula Insider"
+  description="Moorooduc and Tuerong are the warmer bay-facing subregions of the Mornington Peninsula wine region, home to Yabby Lake, Dromana Estate, and Moorooduc Estate."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Moorooduc & Tuerong Wineries"
+    badgeLabel="Subregion · Moorooduc & Tuerong"
+    introText={`Moorooduc and Tuerong occupy the north-facing slopes above Port Phillip Bay — lower altitude than the Red Hill plateau and appreciably warmer. The bay moderates temperatures; the soils here are lighter and better-drained than the heavy clays of the interior.
+
+The result is Pinot Noir and Chardonnay that's approachable earlier than the cooler subregions, with riper fruit expression and rounder textures. Yabby Lake is the prestige name — its single-vineyard Pinot Noirs attract serious collector interest. Dromana Estate and Moorooduc Estate represent the solid, consistent mid-tier.
+
+Cellar doors in this corridor are generally more accessible from Melbourne and open more regularly than the plateau producers — a good entry point for first-time Peninsula visitors.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Moorooduc & Tuerong' },
+    ]}
+    faqItems={[
+      {
+        q: 'Is Yabby Lake worth visiting?',
+        a: 'Yes. Yabby Lake is one of the most consistently awarded estates on the Peninsula — the Block 1 and Block 6 single-vineyard Pinots appear regularly on lists of Victoria\'s finest. The cellar door is by appointment; book ahead. The tasting includes access to library vintages on request.',
+      },
+    ]}
+  />
+</BaseLayout>

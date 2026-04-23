@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/merricks`;
+
+const wineTypes = ['winery', 'producer'];
+const allVenues = await getCollection('venues');
+const venues = allVenues
+  .filter(
+    (v) =>
+      wineTypes.includes(v.data.type) &&
+      (v.data.place === 'merricks' ||
+        v.data.place === 'merricks-north' ||
+        (v.data as any).subregion === 'merricks')
+  )
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const itemListSchema = buildItemListSchema(
+  'Merricks wineries — Mornington Peninsula',
+  'The cellar doors of Merricks and Merricks North on the Mornington Peninsula.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Merricks', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Merricks Wineries · Mornington Peninsula · Peninsula Insider"
+  description="Merricks and Merricks North produce some of the Mornington Peninsula's most approachable Pinot Noir. Find the best cellar doors in this lower-altitude coastal subregion."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Merricks Wineries"
+    badgeLabel="Subregion · Merricks"
+    introText={`Merricks sits lower and closer to Western Port Bay than the Red Hill plateau. The maritime influence is direct — the vineyards are wind-exposed, the soils are heavier clay — producing Pinot Noir that leans riper and more generously textured than the precision wines of Main Ridge above.
+
+Stonier Wines is the anchor: one of the Peninsula's longest-established estates and the producer that first drew serious attention to the subregion. Scorpo follows with single-vineyard bottlings that showcase the complexity available at this latitude when yields are controlled.
+
+Elgee Park, one of the Peninsula's pioneer estates, sits in the broader Merricks North area. The cellar doors here are more intimate than the tourist-scaled operations further north — quieter, more personal, and often selling wines that don't make it to distributors.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Merricks' },
+    ]}
+    faqItems={[
+      {
+        q: 'Is Merricks worth visiting for wine?',
+        a: 'Yes — particularly if you want a quieter experience than the busier Red Hill cellar doors. Stonier Wines and Scorpo are two of the Peninsula\'s most consistent producers. The subregion sits close to Western Port Bay, so the coastal scenery is part of the day.',
+      },
+    ]}
+  />
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/flinders`;
+
+const wineTypes = ['winery', 'producer'];
+const allVenues = await getCollection('venues');
+const venues = allVenues
+  .filter(
+    (v) =>
+      wineTypes.includes(v.data.type) &&
+      (v.data.place === 'flinders' || (v.data as any).subregion === 'flinders')
+  )
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const itemListSchema = buildItemListSchema(
+  'Flinders wineries — Mornington Peninsula',
+  'The cellar doors of the Flinders subregion on the southern tip of the Mornington Peninsula.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Flinders', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Flinders Wineries · Mornington Peninsula · Peninsula Insider"
+  description="Flinders is the southernmost wine subregion of the Mornington Peninsula — exposed, cool, and home to some of the most individual producers on the peninsula."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Flinders Wineries"
+    badgeLabel="Subregion · Flinders"
+    introText={`Flinders sits at the southern tip of the peninsula, exposed to Bass Strait winds and producing some of the coolest, most austere wines in the GI. The growing season is short, yields are minimal, and the wines that result are often the most distinctive on the Peninsula — built for the patient drinker.
+
+Most producers here operate at small scale, often appointment-only. Visiting Flinders combines well with the Flinders General Store, the pier, and the coastal walking tracks — wine country tourism at its quietest and most considered.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Flinders' },
+    ]}
+  />
+</BaseLayout>

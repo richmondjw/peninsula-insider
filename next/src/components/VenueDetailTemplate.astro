@@ -34,6 +34,14 @@ const moodTags = data.tags?.mood ?? [];
 const seasonTags = data.tags?.season ?? [];
 const audienceTags = data.tags?.audience ?? [];
 const allTags = [...moodTags, ...seasonTags, ...audienceTags];
+
+const isWinery = section === 'wine';
+const hasFaq = isWinery && data.faq?.length > 0;
+const hasVisiting = isWinery && data.visiting;
+const hasWines = isWinery && data.wines;
+const hasRestaurant = isWinery && data.restaurant;
+const hasAccommodation = isWinery && data.accommodation;
+const isClosed = data.status === 'closed';
 ---
 
 <Breadcrumbs items={breadcrumbItems} />
@@ -51,6 +59,9 @@ const allTags = [...moodTags, ...seasonTags, ...audienceTags];
     </div>
 
     <h1 class="venue-detail__title">{data.name}</h1>
+    {isClosed && (
+      <p class="venue-detail__closed-notice">This cellar door is permanently closed. The page is preserved for historical reference.</p>
+    )}
     <p class="venue-detail__signature">{data.signature}</p>
 
     {(data.bookingUrl || data.phone) && (
@@ -154,14 +165,144 @@ const allTags = [...moodTags, ...seasonTags, ...audienceTags];
               <dd>{data.lastVerified.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}</dd>
             </>
           )}
+
+          {hasWines && data.wines.winemaker && (
+            <>
+              <dt>Winemaker</dt>
+              <dd>{data.wines.winemaker}</dd>
+            </>
+          )}
+
+          {hasVisiting && data.visiting.tastingFee && (
+            <>
+              <dt>Tasting fee</dt>
+              <dd>{data.visiting.tastingFee}</dd>
+            </>
+          )}
+
+          {hasVisiting && data.visiting.bookingRequired && (
+            <>
+              <dt>Booking</dt>
+              <dd>Required</dd>
+            </>
+          )}
+
+          {data.sameAs?.mpva && (
+            <>
+              <dt>MPVA</dt>
+              <dd><a href={data.sameAs.mpva} target="_blank" rel="noopener noreferrer">Region listing</a></dd>
+            </>
+          )}
+
+          {data.sameAs?.halliday && (
+            <>
+              <dt>Halliday</dt>
+              <dd><a href={data.sameAs.halliday} target="_blank" rel="noopener noreferrer">Halliday listing</a></dd>
+            </>
+          )}
         </dl>
 
         {data.bookingUrl && <a class="facts__cta" href={data.bookingUrl}>Book now</a>}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>
     </div>
+
+    {data.editorVerdict && (
+      <div class="venue-detail__verdict">
+        <p class="label label--accent">Editor's verdict</p>
+        <blockquote class="venue-detail__verdict-text">{data.editorVerdict}</blockquote>
+      </div>
+    )}
   </div>
 </section>
+
+{hasVisiting && (
+  <section class="venue-detail-section">
+    <div class="container">
+      <h2 class="venue-detail-section__title">Visiting</h2>
+      <div class="prose">
+        {data.visiting.tastingNote && <p>{data.visiting.tastingNote}</p>}
+        {data.visiting.openingHours?.length > 0 && (
+          <ul>
+            {data.visiting.openingHours.map((h: any) => (
+              <li>{Array.isArray(h.days) ? h.days.join(', ') : h.days}: {h.opens}–{h.closes}</li>
+            ))}
+          </ul>
+        )}
+        {data.visiting.bookingRequired && (
+          <p><strong>Booking required.</strong>{' '}
+            {data.bookingUrl
+              ? <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Reserve a tasting</a>
+              : 'Contact the winery directly.'}
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+{hasWines && (
+  <section class="venue-detail-section">
+    <div class="container">
+      <h2 class="venue-detail-section__title">The wines</h2>
+      <div class="prose">
+        {data.wines.signature && <p>{data.wines.signature}</p>}
+        {data.wines.keyVarieties?.length > 0 && (
+          <p><strong>Key varieties:</strong> {data.wines.keyVarieties.join(', ')}.</p>
+        )}
+        {data.wines.topLabel && (
+          <p><strong>Worth seeking out:</strong> {data.wines.topLabel}.</p>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+{hasRestaurant && (
+  <section class="venue-detail-section" id="restaurant">
+    <div class="container">
+      <h2 class="venue-detail-section__title">{data.restaurant.name ?? 'Restaurant'}</h2>
+      <div class="prose">
+        {data.restaurant.hats > 0 && (
+          <p class="venue-detail__hat-note">{data.restaurant.hats} Good Food Guide hat{data.restaurant.hats > 1 ? 's' : ''}.</p>
+        )}
+        {data.restaurant.description && <p>{data.restaurant.description}</p>}
+        {data.restaurant.cuisine && <p><strong>Cuisine:</strong> {data.restaurant.cuisine}.</p>}
+        {data.restaurant.reservations !== false && data.bookingUrl && (
+          <p><a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Reserve a table →</a></p>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+{hasAccommodation && (
+  <section class="venue-detail-section" id="accommodation">
+    <div class="container">
+      <h2 class="venue-detail-section__title">{data.accommodation.name ?? 'Stay'}</h2>
+      <div class="prose">
+        {data.accommodation.description && <p>{data.accommodation.description}</p>}
+        {data.accommodation.units && <p>{data.accommodation.units} accommodation unit{data.accommodation.units > 1 ? 's' : ''}.</p>}
+      </div>
+    </div>
+  </section>
+)}
+
+{hasFaq && (
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        {data.faq.map((item: any) => (
+          <>
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
 {articles.length > 0 && (
   <section class="venues venues--plain">

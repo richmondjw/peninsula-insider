@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/balnarring`;
+
+const wineTypes = ['winery', 'producer'];
+const allVenues = await getCollection('venues');
+const venues = allVenues
+  .filter(
+    (v) =>
+      wineTypes.includes(v.data.type) &&
+      (v.data.place === 'balnarring' || (v.data as any).subregion === 'balnarring')
+  )
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const itemListSchema = buildItemListSchema(
+  'Balnarring wineries — Mornington Peninsula',
+  'The cellar doors of the Balnarring subregion on the southern Mornington Peninsula.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Balnarring', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Balnarring Wineries · Mornington Peninsula · Peninsula Insider"
+  description="Balnarring is a quieter corner of the Mornington Peninsula wine region. Find the cellar doors in this south-facing coastal subregion."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Balnarring Wineries"
+    badgeLabel="Subregion · Balnarring"
+    introText={`Balnarring sits on the south-facing slopes above Western Port Bay, south of Merricks. The subregion is cooler and more wind-exposed than the interior plateau, with a character that rewards explorers willing to look beyond the well-signposted cellar doors further north.
+
+The producers here are typically smaller operations — often appointment-only or open on limited days — but they represent some of the most focused winemaking on the Peninsula. The village itself has a good bakery and pub, making a half-day of it straightforward.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Balnarring' },
+    ]}
+  />
+</BaseLayout>

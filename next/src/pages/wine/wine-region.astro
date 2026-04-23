@@ -1,0 +1,118 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { buildBreadcrumbSchema } from '../../lib/schema';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/wine-region`;
+
+const wineTypes = ['winery', 'producer'];
+const venues = (await getCollection('venues'))
+  .filter((v) => wineTypes.includes(v.data.type))
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const spotlightSlugs = [
+  'montalto', 'ten-minutes-by-tractor', 'pt-leo-estate', 'polperro',
+  'paringa-estate', 'kooyong', 'ocean-eight', 'stonier-wines',
+];
+const spotlightVenues = spotlightSlugs
+  .map((s) => venues.find((v) => v.id === s || v.data.slug === s))
+  .filter(Boolean);
+
+const regionSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['TouristDestination', 'Place'],
+  name: 'Mornington Peninsula wine region',
+  alternateName: ['Mornington Peninsula Geographical Indication', 'Mornington Peninsula GI'],
+  description:
+    'A cool-climate wine region south-east of Melbourne, Australia, recognised for Pinot Noir and Chardonnay. Home to roughly 200 vineyards across 12 identifiable subregions.',
+  url: canonical,
+  containedInPlace: { '@type': 'AdministrativeArea', name: 'Victoria, Australia' },
+  geo: { '@type': 'GeoShape', box: '-38.52 144.70 -38.30 145.15' },
+  touristType: ['Wine tourism', 'Food and wine', 'Weekend escape'],
+  includesAttraction: spotlightVenues.map((v) => ({
+    '@type': 'Winery',
+    name: v!.data.name,
+    url: `${SITE}/wine/${v!.data.slug ?? v!.id}`,
+  })),
+};
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Mornington Peninsula Wine Region', url: canonical },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Wine Country', href: '/wine' },
+  { label: 'Wine Region' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Wine Region · Peninsula Insider"
+  description="The definitive guide to the Mornington Peninsula wine region — cool-climate Pinot Noir and Chardonnay, 200 vineyards, 12 subregions, and the cellar doors worth the drive."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(regionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <p class="label label--accent">Region guide</p>
+      <h1 class="article__title">The Mornington Peninsula Wine Region</h1>
+      <div class="prose">
+        <p>The Mornington Peninsula Geographical Indication sits 70 kilometres south-east of Melbourne on a maritime peninsula defined by Port Phillip Bay to the west and Western Port to the east. The cool mesoclimate — shaped by afternoon sea breezes from both directions and the elevation of the Red Hill plateau — produces wines of unusual precision: Pinot Noir with fine tannin and longevity, Chardonnay with taut acid and complexity.</p>
+
+        <p>Roughly 200 growers work the GI. Around 50 cellar doors are open to visitors across 12 identifiable subregions: Red Hill, Main Ridge, Merricks, Merricks North, Balnarring, Moorooduc, Tuerong, Dromana, Arthurs Seat, Mornington, Portsea, and Flinders. The Red Hill plateau and its southern neighbours — Main Ridge and Merricks — form the historic and commercial core.</p>
+
+        <p>The benchmark varieties are Pinot Noir and Chardonnay. Secondary strengths include Pinot Gris, Pinot Blanc, and Viognier. A small but committed group of producers is expanding the canon with Tempranillo, Gamay, and late-harvest styles.</p>
+
+        <h2>Subregions</h2>
+        <p><strong>Red Hill plateau</strong> — the cool, elevated core. Home to Montalto, Ten Minutes by Tractor, Paringa Estate, Polperro, and the majority of the region's most celebrated producers.</p>
+        <p><strong>Main Ridge</strong> — the highest point of the GI at up to 400m. Home to Main Ridge Estate (the oldest) and Kooyong. Wines here have marked intensity.</p>
+        <p><strong>Merricks</strong> — lower-altitude, more maritime-influenced. Stonier Wines and Scorpo are the anchors.</p>
+        <p><strong>Moorooduc / Tuerong</strong> — warmer, near the bay. Yabby Lake and Dromana Estate.</p>
+        <p><strong>Balnarring / Flinders</strong> — the southern fringe; cooler and windier. Smaller producers, often appointment-only.</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="benchmark-producers">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Benchmark producers</p>
+          <h2 class="venues__title">The cellar doors that define the region</h2>
+        </div>
+        <a href="/wine/best-cellar-doors" class="venues__link">Full ranking →</a>
+      </div>
+      <div class="venues__grid">
+        {spotlightVenues.map((venue) => <VenueCard venue={venue!} hrefPrefix="/wine" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>Where exactly is the Mornington Peninsula wine region?</h3>
+        <p>The GI spans the southern half of the Mornington Peninsula, roughly from Dromana in the north to Flinders in the south. The Red Hill plateau — centred around Red Hill, Red Hill South, and Main Ridge — is the heart of the wine-growing district, sitting at 100–400m elevation.</p>
+        <h3>What grapes grow best on the Mornington Peninsula?</h3>
+        <p>Pinot Noir and Chardonnay are the benchmark varieties. The cool maritime climate, basalt and clay soils, and relatively low yields produce wines of elegance rather than power. Pinot Gris is a strong secondary variety; Pinot Blanc is made well by several producers.</p>
+        <h3>How does the Mornington Peninsula compare to the Yarra Valley?</h3>
+        <p>Both are cool-climate Victorian regions focused on Pinot Noir and Chardonnay, but they read differently in the glass. Mornington Peninsula wines tend to be more saline and precise — the maritime influence is more direct. Yarra Valley wines are often richer and more structured. The Peninsula has the edge for cellar door tourism; the Yarra Valley has more hectares under vine.</p>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

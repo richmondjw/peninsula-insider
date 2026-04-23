@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/red-hill`;
+
+const wineTypes = ['winery', 'producer'];
+const allVenues = await getCollection('venues');
+const venues = allVenues
+  .filter(
+    (v) =>
+      wineTypes.includes(v.data.type) &&
+      (v.data.place === 'red-hill' ||
+        v.data.place === 'red-hill-south' ||
+        (v.data as any).subregion === 'red-hill')
+  )
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const itemListSchema = buildItemListSchema(
+  'Red Hill wineries — Mornington Peninsula',
+  'The cellar doors of the Red Hill subregion on the Mornington Peninsula.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Red Hill', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Red Hill Wineries · Mornington Peninsula · Peninsula Insider"
+  description="The Red Hill subregion is the heart of the Mornington Peninsula wine region. Find the best cellar doors, tasting rooms, and producers in Red Hill and Red Hill South."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Red Hill Wineries"
+    badgeLabel="Subregion · Red Hill"
+    introText={`Red Hill is the plateau that defines Mornington Peninsula wine country. Sitting at 100–300m elevation inland from the coast, it catches cool afternoon breezes from both Port Phillip Bay and Western Port — a mesoclimate that lengthens the growing season and builds complexity slowly. The basalt and clay soils retain moisture without waterlogging.
+
+Montalto, Ten Minutes by Tractor, and Paringa Estate are the anchors. The cluster of producers around Shoreham Road and Red Hill South Road contains some of the most consistent Pinot Noir and Chardonnay in Victoria. The restaurant cellars doors here — Montalto's hatted dining room, Ten Minutes by Tractor's three-restaurant estate — set a standard for wine country hospitality that the rest of Australia is still catching up to.
+
+Most cellar doors are open weekends. Several require bookings, particularly in winter. Driving the ridge roads between producers is itself part of the experience.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Red Hill' },
+    ]}
+    faqItems={[
+      {
+        q: 'What is Red Hill known for in wine?',
+        a: 'Red Hill and its southern extension Red Hill South sit on elevated plateau country with basalt soils and cool maritime air. The subregion produces Pinot Noir and Chardonnay with unusual precision — the cooling influence of nearby Bass Strait extends the growing season, allowing slow, complex ripening. Montalto, Ten Minutes by Tractor, and Paringa Estate are the benchmark names.',
+      },
+      {
+        q: 'How far is Red Hill from Melbourne?',
+        a: 'Around 70–75km from central Melbourne, or approximately 75 minutes by car via the Nepean Highway or Mornington Peninsula Freeway. The drive through the peninsula backroads from Mornington to Red Hill takes 30–40 minutes and passes several cellar doors en route.',
+      },
+    ]}
+  />
+</BaseLayout>

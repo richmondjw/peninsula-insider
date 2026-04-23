@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/pinot-noir`;
+
+const pinotSlugs = [
+  'paringa-estate', 'ten-minutes-by-tractor', 'montalto', 'polperro',
+  'kooyong', 'main-ridge-estate', 'ocean-eight', 'stonier-wines',
+  'scorpo-wines', 'dexter-wines', 'yabby-lake', 'pt-leo-estate',
+  'red-hill-estate', 'eldridge-estate', 'garagiste', 'onannon',
+];
+
+const allVenues = await getCollection('venues');
+const venues = pinotSlugs
+  .map((s) => allVenues.find((v) => routeSlug(v) === s))
+  .filter(Boolean) as typeof allVenues;
+
+const itemListSchema = buildItemListSchema(
+  'Best Pinot Noir producers — Mornington Peninsula',
+  'The Mornington Peninsula cellar doors producing the most compelling Pinot Noir.',
+  canonical,
+  venues.map((v) => ({ name: v.data.name, slug: routeSlug(v) }))
+);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Pinot Noir', url: canonical },
+]);
+---
+
+<BaseLayout
+  title="Mornington Peninsula Pinot Noir · Best Producers · Peninsula Insider"
+  description="The Peninsula Insider guide to Mornington Peninsula Pinot Noir — the best producers, the benchmark labels, and what makes the region's signature red worth seeking out."
+  section="wine"
+  canonical={canonical}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <WineHubTemplate
+    h1="Mornington Peninsula Pinot Noir"
+    badgeLabel="Varietal guide · Pinot Noir"
+    introText={`Pinot Noir is the Mornington Peninsula's identity grape. The cool maritime climate — average summer temperature around 19°C, sea breezes from two directions — produces Pinot of unusual finesse: fragrant, precise, with the kind of fine tannin structure that rewards a few years in bottle.
+
+The Red Hill plateau is the heartland. Main Ridge sits higher and cooler; the wines from that altitude carry more perfume and intensity. Merricks and Moorooduc produce Pinot that's rounder and more approachable young.
+
+What separates the best Peninsula Pinot from the rest of Victoria isn't power — it's line. The acidity runs fine and persistent, the fruit sits clearly in the red spectrum, and the best examples have a saline edge that's distinctly maritime. The benchmark producers have been at this for thirty-plus years; the younger generation has inherited the template and is adding to it.`}
+    venues={venues}
+    breadcrumbs={[
+      { label: 'Home', href: '/' },
+      { label: 'Wine Country', href: '/wine' },
+      { label: 'Pinot Noir' },
+    ]}
+    faqItems={[
+      {
+        q: 'Is Mornington Peninsula Pinot Noir the best in Australia?',
+        a: 'It is consistently among the finest. The Yarra Valley, Adelaide Hills, and Tasmania all produce compelling Pinot Noir, but the Mornington Peninsula has a distinctive profile — saline, fine-tannined, and precise — that sets it apart. The concentration of serious producers on a relatively small area is unmatched in Australia.',
+      },
+      {
+        q: 'When should you drink Mornington Peninsula Pinot Noir?',
+        a: 'Entry-level and estate labels are approachable on release. Single-vineyard Pinots from the best producers repay 3–7 years. The benchmark labels — Paringa Estate Single Vineyard, Ten Minutes by Tractor McCutcheon, Kooyong Meres — are genuinely age-worthy. Most cellar doors offer back vintages; it is worth asking.',
+      },
+      {
+        q: 'What food pairs with Mornington Peninsula Pinot Noir?',
+        a: 'Duck, mushroom, and salmon are the classic matches. The peninsula\'s own produce — milk-fed lamb, duck from nearby farms — is the natural pairing. The region\'s restaurant cellar doors lean into this; lunching at Montalto or Ten Minutes by Tractor with the estate Pinot is one of the better food-and-wine experiences in Victoria.',
+      },
+    ]}
+  />
+</BaseLayout>
