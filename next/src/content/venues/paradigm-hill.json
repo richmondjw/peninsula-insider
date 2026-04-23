@@ -2,15 +2,18 @@
   "slug": "paradigm-hill",
   "name": "Paradigm Hill",
   "type": "winery",
-  "place": "main-ridge",
+  "subregion": "merricks",
+  "place": "merricks",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3822,
     "lng": 144.9792
   },
-  "address": "26 Merricks Rd, Merricks North VIC 3926",
+  "address": "26 Merricks Rd, Merricks VIC 3916",
   "phone": "+61 3 5931 0000",
-  "website": "https://paradigmhill.com.au",
+  "website": "https://www.paradigmhill.com.au",
+  "bookingUrl": "https://www.paradigmhill.com.au",
+  "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
     "awards": [
@@ -18,21 +21,50 @@
     ],
     "hats": 0
   },
-  "signature": "George Mihaly's fastidiously farmed single-site Pinot Noir estate  -  appointment-only tastings with the winemaker",
+  "signature": "George Mihaly's fastidiously farmed single-site Pinot Noir estate — appointment-only tastings with the winemaker",
   "editorNote": "Paradigm Hill is a single-site Pinot Noir and Chardonnay estate run by George and Ruth Mihaly, and the tasting experience is deliberately small in scale: appointment-only, usually led by George himself, and structured around the kind of slow walk through a single year's wines that you only get at properties where the founders are still on the ground.\n\nThe wines are among the more cerebral on the Peninsula  -  a house style that leans into acid and structure rather than immediate fruit, and a single-vineyard approach that rewards cellaring. The Col's Block Pinot Noir is the bottle to take home and set aside.\n\nThis is a cellar door for people who want to spend an hour with the person who made the wine. Book well ahead.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Saturday", "Sunday"],
+        "opens": "12:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$20",
+    "bookingRequired": true,
+    "tastingNote": "Appointment required except on the first weekend of each month (open 12pm–5pm walk-in). Standard $20 waived with purchase; Premium/private $25 non-refundable. Dogs welcome on deck and verandah. Seasonal picnic events in spring/summer."
+  },
+  "wines": {
+    "winemaker": "Dr. George Mihaly",
+    "keyVarieties": ["Pinot Noir", "Shiraz", "Riesling", "Pinot Gris"],
+    "topLabel": "L'ami sage Pinot Noir"
+  },
+  "editorVerdict": "Paradigm Hill is a doctor's estate in the best possible sense — George Mihaly brings the same precision to viticulture that he presumably brings to medicine. The result is a zero-carbon operation producing genuinely compelling Pinot Noir, Shiraz, and Riesling from Merricks vines planted in 1999. The name suggests philosophical ambition, and the wines deliver it. It's not an easy drop-in, but the effort is rewarded.",
+  "faq": [
+    {
+      "q": "Does Paradigm Hill take walk-ins or do you need to book?",
+      "a": "Appointment required for most visits. Walk-ins accepted on the first weekend of each month, 12pm–5pm."
+    },
+    {
+      "q": "Does Paradigm Hill have a restaurant?",
+      "a": "No on-site restaurant. Seasonal 'Picnic @ Paradigm Hill' events run in spring and summer — check with the estate for dates."
+    },
+    {
+      "q": "Are dogs allowed at Paradigm Hill?",
+      "a": "Confirmed yes — dogs are welcome on the deck and verandah areas of the cellar door."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.paradigmhill.com.au",
+    "mpva": "https://morningtonpeninsulawine.com.au/paradigm-hill",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/paradigm-hill"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "solo"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo"
-    ]
+    "mood": ["cellar-door", "slow", "solo"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-02.webp",
@@ -44,7 +76,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "bookingUrl": "https://paradigmhill.com.au",
-  "bookingProvider": "direct",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

@@ -2,6 +2,7 @@
   "slug": "moorooduc-estate",
   "name": "Moorooduc Estate",
   "type": "winery",
+  "subregion": "moorooduc",
   "place": "moorooduc",
   "zone": "hinterland",
   "coordinates": {
@@ -21,21 +22,49 @@
     ],
     "hats": 0
   },
-  "signature": "Richard McIntyre's pioneering low-intervention estate  -  home to the Robinson Chardonnay, one of Australia's genuine Chardonnay reference points",
+  "signature": "Richard McIntyre's pioneering low-intervention estate — home to the Robinson Chardonnay, one of Australia's genuine Chardonnay reference points",
   "editorNote": "Moorooduc Estate is one of the quietest landmarks in Australian wine. Richard McIntyre has been making wine here for more than thirty years and is genuinely one of the country's elder statesmen of low-intervention, wild-yeast winemaking. The Robinson Chardonnay  -  made from a single block, wild-fermented, aged in old French oak  -  is a reference point for what Peninsula Chardonnay can be at the very top of its game.\n\nThe cellar door is open on weekends and for booked visits during the week. It is not a destination experience in the modern sense: no sculpture trail, no vineyard accommodation, no restaurant. It is a tasting room at a working winery where the winemaker himself is often in the room. Go when you want to understand what serious Chardonnay tastes like before anyone started chasing fashion.\n\nAsk to taste the Robinson and the Garden Pinot back-to-back. Buy the Robinson. Decant it before you pour it.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": null,
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcome daily 10am–5pm. Groups of 6+ require bookings. Personal wine tasting with a member of the team. No café, restaurant, or wine bar. Dogs on leads welcome."
+  },
+  "wines": {
+    "winemaker": "Richard McIntyre",
+    "keyVarieties": ["Chardonnay", "Pinot Noir", "Pinot Gris", "Shiraz"],
+    "topLabel": "McIntyre Vineyard Chardonnay"
+  },
+  "editorVerdict": "Moorooduc Estate is one of the places you visit to understand where Peninsula wine came from. Richard McIntyre bought the land in 1982, planted the McIntyre Vineyard in 1983, and has been making wine with wild yeast and minimal intervention ever since — well before those approaches had marketing names. No restaurant, no cafe, no sculpture trail: the wines should speak for themselves. They do.",
+  "faq": [
+    {
+      "q": "Does Moorooduc Estate take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome daily 10am–5pm. Groups of 6 or more require bookings."
+    },
+    {
+      "q": "Does Moorooduc Estate have a restaurant?",
+      "a": "No — the estate explicitly states it has no café, restaurant, or wine bar."
+    },
+    {
+      "q": "Are dogs allowed at Moorooduc Estate?",
+      "a": "Confirmed yes — well-behaved dogs on leads are welcome."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://moorooducestate.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/moorooduc-estate"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "solo"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo"
-    ]
+    "mood": ["cellar-door", "slow", "solo"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-03.webp",
@@ -47,5 +76,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

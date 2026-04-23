@@ -1,8 +1,9 @@
 {
   "slug": "pt-leo-estate",
   "name": "Pt. Leo Estate",
-  "type": "restaurant",
-  "place": "red-hill",
+  "type": "winery",
+  "subregion": "merricks",
+  "place": "merricks",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3994,
@@ -18,29 +19,64 @@
     "hats": 2,
     "awards": [
       "Good Food Guide 2024",
-      "Best Winery Restaurant Victoria"
+      "Best Rosé MPWA 2024 and 2025"
     ]
   },
   "signature": "A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant",
   "editorNote": "Pt. Leo is the Peninsula's great ambition made real: 93 hectares where you can walk among large-scale sculptures before sitting down to a two-hat lunch with one of the best bay views in the state. The setting alone is worth the drive.\n\nThe restaurant handles the produce-forward brief with real skill. The wine list is exceptional  -  Peninsula estate wines alongside a sharp selection of European bottles. Book the terrace facing Port Phillip for the full effect.\n\nArrive for the sculpture walk before noon. Give yourself half a day. This is not a quick lunch.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      },
+      {
+        "days": ["Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "21:00"
+      }
+    ],
+    "tastingFee": "$15",
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcome for groups up to 6. Four tasting tiers: Standard $15, Red $25, White $25, Premium $30 — all include 5 wines; $10 refundable on bottle purchase. Laura restaurant requires advance booking."
+  },
+  "wines": {
+    "winemaker": "Tod Dexter",
+    "keyVarieties": ["Chardonnay", "Pinot Noir", "Pinot Gris", "Shiraz"],
+    "topLabel": "Reserve Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Laura",
+    "hats": 2,
+    "cuisine": "Fine Dining",
+    "reservations": true,
+    "description": "Laura holds 2 Hats from the Good Food Guide. The main Pt. Leo Restaurant offers Modern Australian casual dining; the Wine Terrace handles walk-in visits."
+  },
+  "editorVerdict": "Pt. Leo Estate operates at a scale that few Peninsula producers can match: the Gandel family's investment has produced a world-class outdoor sculpture park, a fine-dining restaurant in Laura (2 hats), and a cellar door running four tasting tiers. The Rosé took Best Rosé at the Mornington Peninsula Wine Show in both 2024 and 2025. It's a destination property, and it knows it.",
+  "faq": [
+    {
+      "q": "Does Pt. Leo Estate take walk-ins or do you need to book?",
+      "a": "Walk-ins are welcome at the cellar door for groups of up to 6 guests. Laura and the main restaurant require advance bookings."
+    },
+    {
+      "q": "Does Pt. Leo Estate have a restaurant?",
+      "a": "Yes — two. Laura (2 Hats, Good Food Guide) for fine dining, and Pt. Leo Restaurant for Modern Australian main dining, plus the casual Wine Terrace."
+    },
+    {
+      "q": "Are dogs allowed at Pt. Leo Estate?",
+      "a": "No. Only on-duty Guide Dogs and certified service animals are permitted on the property."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.ptleoestate.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/pt-leo-estate"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "long-lunch",
-      "anniversary",
-      "view",
-      "waterfront"
-    ],
-    "season": [
-      "spring",
-      "summer",
-      "autumn",
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "group",
-      "first-timers"
-    ]
+    "mood": ["long-lunch", "anniversary", "view", "waterfront"],
+    "season": ["spring", "summer", "autumn", "all-year"],
+    "audience": ["couples", "group", "first-timers"]
   },
   "heroImage": {
     "src": "/images/sourced/place-merricks-01.webp",
@@ -52,5 +88,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
   "publishedAt": "2026-04-01",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

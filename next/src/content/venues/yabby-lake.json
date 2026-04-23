@@ -2,6 +2,7 @@
   "slug": "yabby-lake",
   "name": "Yabby Lake Vineyard",
   "type": "winery",
+  "subregion": "moorooduc",
   "place": "tuerong",
   "zone": "hinterland",
   "coordinates": {
@@ -15,29 +16,63 @@
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
+    "hats": 1,
     "awards": [
       "James Halliday 5-Red-Star Winery",
       "Halliday Top 100",
-      "Jimmy Watson Memorial Trophy (2014)"
-    ],
-    "hats": 0
+      "Jimmy Watson Memorial Trophy (2012 Block 1 Pinot Noir)"
+    ]
   },
   "signature": "Tom Carson's single-block Chardonnay and Pinot Noir program, poured from a relaxed cellar door with one of the Peninsula's loveliest lunch decks",
   "editorNote": "Yabby Lake sits slightly east of the main wine-country road, and that off-axis position has worked in its favour. The Kirby family planted the vineyard in 1998 and hired Tom Carson to run the winemaking  -  and what the team has built in the years since is one of the most serious single-block programs in the country. The flagship Block 1 Pinot Noir became the first Pinot ever to win the Jimmy Watson Memorial Trophy in 2014. The Block 1 Chardonnay is, quietly, one of the best Chardonnays in Australia.\n\nThe cellar door is open daily and is deliberately more relaxed than the winemaking philosophy suggests. Seated tastings on the deck, a short early-lunch menu, and room to work through a full flight at your own pace. This is the cellar door we recommend when someone wants to understand why Peninsula Chardonnay is currently among the most interesting in the country.\n\nOrder the Block 1 flight. Stay for lunch. Buy the single-vineyard Chardonnay on the way out  -  it rewards five years in the cellar.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "16:00"
+      }
+    ],
+    "tastingFee": "$10",
+    "bookingRequired": false,
+    "tastingNote": "Walk-in daily 10am–4pm for groups under 6. Groups of 6+ require bookings. $10 per person, redeemable on wine purchase. Dogs welcome outdoors on leash."
+  },
+  "wines": {
+    "winemaker": "Tom Carson",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Syrah"],
+    "topLabel": "Block 1 Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Yabby Lake Restaurant",
+    "hats": 1,
+    "cuisine": "Modern Australian",
+    "reservations": true,
+    "description": "1 Chef Hat, Good Food Guide 2026. Classic seasonal fare with a Modern Australian approach."
+  },
+  "editorVerdict": "Yabby Lake made Peninsula wine history in 2012 when the Block 1 Pinot Noir became the first Pinot Noir to win the Jimmy Watson Memorial Trophy. Tom Carson's single-block release series genuinely rewards side-by-side comparison. The Kirby family's estate is understated in presentation but uncompromising in quality.",
+  "faq": [
+    {
+      "q": "Does Yabby Lake take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome for groups under 6. Groups of 6 or more require a booking. Open daily 10am–4pm."
+    },
+    {
+      "q": "Does Yabby Lake have a restaurant?",
+      "a": "Yes — Yabby Lake Restaurant, 1 Hat in the 2026 Good Food Guide; classic seasonal fare."
+    },
+    {
+      "q": "Are dogs allowed at Yabby Lake?",
+      "a": "Yes — dogs on a leash are welcome in outdoor spaces. Not permitted inside the tasting room or restaurant."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.yabbylake.com",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/yabby-lake-vineyard"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "long-lunch",
-      "view"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "group",
-      "first-timers"
-    ]
+    "mood": ["cellar-door", "long-lunch", "view"],
+    "season": ["all-year"],
+    "audience": ["couples", "group", "first-timers"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-04.webp",
@@ -49,5 +84,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

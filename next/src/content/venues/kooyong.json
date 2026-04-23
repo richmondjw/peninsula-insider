@@ -2,6 +2,7 @@
   "slug": "kooyong",
   "name": "Kooyong",
   "type": "winery",
+  "subregion": "tuerong",
   "place": "main-ridge",
   "zone": "red-hill-plateau",
   "coordinates": {
@@ -23,18 +24,54 @@
   },
   "signature": "Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates",
   "editorNote": "Kooyong is the Peninsula's most consistently serious producer of single-vineyard wine, and the cellar door reflects it. The estate sits on the Main Ridge plateau with forty-odd hectares under vine, split into named single blocks  -  Haven, Meres, Ferrous, Faultline  -  that have given the Peninsula some of its most collectible bottles of the past fifteen years.\n\nThe tasting room is smaller and more contemplative than the trophy estates, and the flight through the range is a proper education: side-by-side pinot noirs from adjacent slopes show what micro-terroir actually looks like in Victoria's cool-climate heartland. The chardonnay program runs just as precise.\n\nBook the single-vineyard tasting. Go midweek if possible. This is where you come to understand what the Peninsula tastes like at the top of its form.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$10",
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins available; bookings essential for structured tastings. Standard $10/person (non-refundable); Single Block & Single Vineyard $30; Wine & Cheese $35. Shared cellar door with Port Phillip Estate."
+  },
+  "wines": {
+    "winemaker": "Tim Perrin",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris"],
+    "topLabel": "Ferrous Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Port Phillip Estate Dining Room",
+    "hats": 1,
+    "cuisine": "Modern Australian / European",
+    "reservations": true,
+    "description": "Shared dining room with Port Phillip Estate; 1 Chef Hat, Age Good Food Guide 2025."
+  },
+  "editorVerdict": "Kooyong is the Gjergja family's Pinot and Chardonnay project, produced from a Tuerong estate planted in 1996 with a philosophy that doesn't deviate: estate-grown, low intervention, spontaneous fermentation, gravity flow. Tim Perrin's single-block releases represent some of the Peninsula's best arguments for site-specific viticulture. The cellar door is shared with Port Phillip Estate, making for an efficient double-tasting.",
+  "faq": [
+    {
+      "q": "Does Kooyong take walk-ins or do you need to book?",
+      "a": "Walk-ins are accepted at the shared cellar door (263 Red Hill Road, Red Hill South). Bookings are essential for structured tastings including the Single Block flight."
+    },
+    {
+      "q": "Does Kooyong have a restaurant?",
+      "a": "The shared cellar door site includes the Port Phillip Estate Dining Room (1 Hat, Age Good Food Guide 2025), which serves both estates."
+    },
+    {
+      "q": "Are dogs allowed at Kooyong?",
+      "a": "No explicit dog policy confirmed in official sources — check before visiting."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.kooyong.com",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/kooyong"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo"
-    ]
+    "mood": ["cellar-door", "slow"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-03.webp",
@@ -46,5 +83,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

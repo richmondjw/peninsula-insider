@@ -2,6 +2,7 @@
   "slug": "t-gallant",
   "name": "T'Gallant",
   "type": "winery",
+  "subregion": "main-ridge",
   "place": "main-ridge",
   "zone": "red-hill-plateau",
   "coordinates": {
@@ -10,8 +11,8 @@
   },
   "address": "1385 Mornington-Flinders Rd, Main Ridge VIC 3928",
   "phone": "+61 3 5989 6565",
-  "website": "https://www.tgallant.com.au",
-  "bookingUrl": "https://www.tgallant.com.au/la-baracca",
+  "website": "https://tgallantvineyard.com.au",
+  "bookingUrl": "https://tgallantvineyard.com.au",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "authority": {
@@ -20,25 +21,56 @@
     ],
     "hats": 0
   },
-  "signature": "The Peninsula's Pinot Grigio pioneer  -  a sprawling, family-friendly winery with a wood-fired Italian trattoria (La Baracca) at its heart",
+  "signature": "The Peninsula's Pinot Grigio pioneer — a sprawling, family-friendly winery with a wood-fired Italian trattoria (La Baracca) at its heart",
   "editorNote": "T'Gallant essentially invented Australian Pinot Grigio as a commercial category  -  Kathleen Quealy and Kevin McCarthy planted the first vines in the late 1980s and spent years convincing everyone else that Italian varieties belonged on the Peninsula. They went on to found Quealy; T'Gallant continued under the Treasury Wine Estates umbrella and is now the most reliably family-friendly cellar door on the Main Ridge.\n\nLa Baracca, the on-site wood-fired trattoria, is the easy answer when you have kids, grandparents, and a wine-curious cousin all in the same car: wood-fired pizzas, handmade pasta, a short carafe list led by the estate's Pinot Grigio, and a huge shaded outdoor area where nobody minds if the kids run between the vines. The tasting room is open daily and the flights move briskly.\n\nCome for Sunday lunch, order the Prosecco and the margherita, and don't try to make it more than it is. T'Gallant is the Peninsula at its most unserious, and that is exactly its purpose.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$10",
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcome daily 10am–5pm. Bookings recommended on weekends. $10 per person for a guided 30-minute tasting of five wines. Restaurant bookings via OpenTable. No dogs."
+  },
+  "wines": {
+    "winemaker": "Tom Shanahan",
+    "keyVarieties": ["Pinot Grigio", "Pinot Gris", "Pinot Noir"],
+    "topLabel": "Pinot Grigio"
+  },
+  "restaurant": {
+    "name": "T'Gallant Vineyard Restaurant",
+    "hats": 0,
+    "cuisine": "Italian-inspired",
+    "reservations": false,
+    "description": "Wood-fired pizzas, seasonal pasta, La Baracca and Spuntino Bar. Daily walk-in — the Peninsula's most relaxed food-and-wine proposition."
+  },
+  "editorVerdict": "T'Gallant's story is tangled but worth knowing: founded in 1990 as Australia's first serious Pinot Grigio operation, sold to Treasury Wine Estates, then sold again in 2022 to independent owners for AUD 9.7 million. The wines remain centred on Pinot Grigio and Gris — historical weight as Australian pioneers of the dual-style approach. And the Italian-inspired wood-fired food makes this the Peninsula's easiest drop-in for a weekday lunch.",
+  "faq": [
+    {
+      "q": "Does T'Gallant take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome daily 10am–5pm. Bookings recommended on weekends. Restaurant bookings via OpenTable."
+    },
+    {
+      "q": "Does T'Gallant have a restaurant?",
+      "a": "Yes — Italian-inspired wood-fired pizzas, seasonal pasta, and casual dining daily in La Baracca and Spuntino Bar."
+    },
+    {
+      "q": "Are dogs allowed at T'Gallant?",
+      "a": "No — the official FAQ explicitly states dogs are not allowed on site."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://tgallantvineyard.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/tgallant"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "long-lunch",
-      "garden",
-      "big-group"
-    ],
-    "season": [
-      "spring",
-      "summer",
-      "autumn"
-    ],
-    "audience": [
-      "families",
-      "group",
-      "first-timers"
-    ]
+    "mood": ["cellar-door", "long-lunch", "garden", "big-group"],
+    "season": ["spring", "summer", "autumn"],
+    "audience": ["families", "group", "first-timers"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-06.webp",
@@ -50,5 +82,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

@@ -2,6 +2,7 @@
   "slug": "willow-creek-vineyard",
   "name": "Willow Creek Vineyard",
   "type": "winery",
+  "subregion": "merricks-north",
   "place": "merricks",
   "zone": "red-hill-plateau",
   "coordinates": {
@@ -10,25 +11,71 @@
   },
   "address": "166 Balnarring Rd, Merricks North VIC 3926",
   "phone": "+61 3 5931 2500",
-  "website": "https://jackalopehotels.com/willow-creek",
-  "bookingUrl": "https://jackalopehotels.com/rare-hare",
+  "website": "https://rarehare.com.au",
+  "bookingUrl": "https://rarehare.com.au",
   "bookingProvider": "direct",
-  "priceBand": "$$$",
-  "signature": "The vineyard at the heart of Jackalope Hotel  -  a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot",
-  "editorNote": "Willow Creek is the vineyard at the heart of Jackalope Hotel and the source of the fruit for Rare Hare's cellar door and Doot Doot Doot's wine list. The estate is a working single-site program  -  Chardonnay, Pinot Noir, and a short experimental range  -  and, despite the hotel wrapping the whole property in a design-hotel identity, the winemaking has maintained its own editorial voice.\n\nYou taste Willow Creek most directly at Rare Hare, which runs the blend-your-own experience from the vineyard's own fruit, or you encounter the wines through the Doot Doot Doot matched pairing at dinner. The vineyard walk itself, between the two, is one of the most quietly beautiful routes on the Merricks North side of the Peninsula.\n\nBest encountered as part of a Jackalope day: cellar door at Rare Hare in the late morning, a vineyard walk, lunch on the lawn, and Doot Doot Doot at night.",
-  "tags": {
-    "mood": [
-      "cellar-door",
-      "walk",
-      "view"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "group"
+  "priceBand": "$$$$",
+  "authority": {
+    "hats": 2,
+    "awards": [
+      "AGFG 2 Hat Doot Doot Doot",
+      "AGFG 1 Hat Rare Hare"
     ]
+  },
+  "signature": "The vineyard at the heart of Jackalope Hotel — a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot",
+  "editorNote": "Willow Creek is the vineyard at the heart of Jackalope Hotel and the source of the fruit for Rare Hare's cellar door and Doot Doot Doot's wine list. The estate is a working single-site program  -  Chardonnay, Pinot Noir, and a short experimental range  -  and, despite the hotel wrapping the whole property in a design-hotel identity, the winemaking has maintained its own editorial voice.\n\nYou taste Willow Creek most directly at Rare Hare, which runs the blend-your-own experience from the vineyard's own fruit, or you encounter the wines through the Doot Doot Doot matched pairing at dinner. The vineyard walk itself, between the two, is one of the most quietly beautiful routes on the Merricks North side of the Peninsula.\n\nBest encountered as part of a Jackalope day: cellar door at Rare Hare in the late morning, a vineyard walk, lunch on the lawn, and Doot Doot Doot at night.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$10",
+    "bookingRequired": false,
+    "tastingNote": "Walk-in daily 11am–5pm (final tastings 4:30pm); group bookings by appointment. Essential Tasting $10 (refundable with purchase); Estate Tasting $25. Dogs enthusiastically welcome at cellar door and outdoor dining."
+  },
+  "wines": {
+    "winemaker": "Geraldine McFaul",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Sauvignon Blanc"],
+    "topLabel": "LL Vineyard Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Doot Doot Doot / Rare Hare",
+    "hats": 2,
+    "cuisine": "Modern Australian",
+    "reservations": true,
+    "description": "Rare Hare: 1 AGFG Chef Hat, Modern Australian casual. Doot Doot Doot: 2 AGFG Chef Hats, fine dining. Together they cover the full range from long lunch to special occasion."
+  },
+  "accommodation": {
+    "name": "Jackalope Hotel",
+    "description": "44 luxury rooms with 30-metre infinity pool and spa. Adults and families welcome."
+  },
+  "editorVerdict": "Willow Creek Vineyard is the skeleton inside the Jackalope: the vineyard, the winemaker (Geraldine McFaul since 2008), and the estate character are all Willow Creek. The hotel, restaurants, and brand identity are all Jackalope. The combination is the Peninsula's most sophisticated wine tourism package: 44 luxury rooms, infinity pool, the two-hat Doot Doot Doot restaurant, one-hat Rare Hare bistro — and dogs are not just welcome; they are insisted upon.",
+  "faq": [
+    {
+      "q": "Does Willow Creek Vineyard / Jackalope take walk-ins or do you need to book?",
+      "a": "Cellar door is walk-in friendly daily 11am–5pm (final tastings 4:30pm). Groups require bookings. Restaurant reservations recommended; hotel bookings required."
+    },
+    {
+      "q": "Does Willow Creek Vineyard have a restaurant?",
+      "a": "Yes — two. Rare Hare (1 AGFG Hat, casual Australian) and Doot Doot Doot (2 AGFG Hats, fine dining)."
+    },
+    {
+      "q": "Are dogs allowed at Willow Creek Vineyard / Jackalope?",
+      "a": "Confirmed yes — 'Absolutely, in fact we insist!' Dogs welcome at cellar door and in outdoor dining areas."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://rarehare.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/willow-creek-vineyard"
+  },
+  "lastFactVerified": "2026-04-01",
+  "tags": {
+    "mood": ["cellar-door", "walk", "view"],
+    "season": ["all-year"],
+    "audience": ["couples", "group"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-01.webp",
@@ -40,5 +87,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

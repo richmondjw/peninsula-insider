@@ -2,6 +2,7 @@
   "slug": "paringa-estate",
   "name": "Paringa Estate",
   "type": "winery",
+  "subregion": "red-hill-south",
   "place": "red-hill",
   "zone": "red-hill-plateau",
   "coordinates": {
@@ -23,23 +24,55 @@
   },
   "signature": "A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces",
   "editorNote": "Paringa Estate has the kind of confidence that comes from having done the work for decades. Lindsay McCall's pinot noir and shiraz have long been among the Peninsula's benchmark bottles, and the restaurant understands the assignment: sharp produce, proper service, and a terrace that makes lunch feel like it should continue into the evening.\n\nThe cellar door is compact but smart, with staff who know the wines in the glass rather than in a script. Come here when you want less theatre than Montalto and more focus on what's happening in the bottle.\n\nIdeal for a Friday tasting that turns into lunch.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": null,
+    "bookingRequired": false,
+    "tastingNote": "Open daily 11am–5pm; bookings recommended. Dogs permitted on a lead in outdoor areas."
+  },
+  "wines": {
+    "winemaker": "Jamie McCall",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Shiraz", "Pinot Gris"],
+    "topLabel": "'LJM' Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Paringa Estate Restaurant",
+    "hats": 1,
+    "cuisine": "Modern Australian",
+    "reservations": true,
+    "description": "1 Chef's Hat, Age Good Food Guide (consistently including 2023). Fine dining. A Peninsula institution for Saturday lunch."
+  },
+  "editorVerdict": "Paringa Estate does not need to justify itself. Lindsay McCall planted his first vines in 1985 and has been producing some of Red Hill South's most reliable Pinot Noir and Shiraz ever since. The one-hat restaurant is a Peninsula institution. This is old-guard Peninsula — estate-grown, single-vineyard, no fuss — and it still outperforms newer arrivals more often than not.",
+  "faq": [
+    {
+      "q": "Does Paringa Estate take walk-ins or do you need to book?",
+      "a": "Open daily 11am–5pm; bookings recommended. Contact the winery to confirm current cellar door arrangements."
+    },
+    {
+      "q": "Does Paringa Estate have a restaurant?",
+      "a": "Yes. Paringa Estate Restaurant holds 1 Chef's Hat consistently in The Age Good Food Guide (including 2023). Fine dining, Modern Australian."
+    },
+    {
+      "q": "Are dogs allowed at Paringa Estate?",
+      "a": "Confirmed yes, on a lead in outdoor areas according to third-party visitor guides. The official site does not address this directly — verify before visiting."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://paringaestate.com.au",
+    "mpva": "https://morningtonpeninsulawine.com.au/paringa-estate-7318535",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/paringa-estate"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "long-lunch",
-      "sunset"
-    ],
-    "season": [
-      "spring",
-      "summer",
-      "autumn",
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "locals",
-      "first-timers"
-    ]
+    "mood": ["cellar-door", "long-lunch", "sunset"],
+    "season": ["spring", "summer", "autumn", "all-year"],
+    "audience": ["couples", "locals", "first-timers"]
   },
   "heroImage": {
     "src": "/images/sourced/venue-paringa-estate-01.webp",
@@ -51,5 +84,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
   "publishedAt": "2026-04-01",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

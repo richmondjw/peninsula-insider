@@ -2,6 +2,7 @@
   "slug": "crittenden-estate",
   "name": "Crittenden Estate",
   "type": "winery",
+  "subregion": "dromana",
   "place": "dromana",
   "zone": "bayside",
   "coordinates": {
@@ -23,20 +24,63 @@
   },
   "signature": "The Peninsula's pioneering estate, now pouring Pinot, Chardonnay and the Spanish-leaning Los Hermanos range from a new lakeside wine centre",
   "editorNote": "Crittenden is one of the founding estates of the Peninsula wine region  -  Garry Crittenden planted the first vines in 1982 and the property has stayed in the family for four decades, now under second-generation winemaker Rollo. That history matters, but it is not why you drive here. You drive here because the Crittenden line-up is one of the few on the Peninsula that genuinely surprises people: alongside textbook Pinot Noir and Chardonnay, Rollo has built out the Los Hermanos range  -  Savagnin, Arneis, Nebbiolo  -  working with Spanish and Italian varieties that barely exist anywhere else in the region.\n\nThe new Wine Centre, completed recently, sits beside the lake at the heart of the estate and is designed for proper seated tastings rather than elbow-to-elbow counter pours. Pair a flight with the lakeside Stillwater restaurant next door for one of the most complete half-days in Dromana. Open daily for tastings; book for the restaurant.\n\nAsk the team to walk you through the skin-contact and amphora-aged experiments  -  it is where the second generation is clearly stretching out.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "10:30",
+        "closes": "17:00"
+      },
+      {
+        "days": ["Friday", "Saturday"],
+        "opens": "10:30",
+        "closes": "18:30"
+      }
+    ],
+    "tastingFee": "$20",
+    "bookingRequired": false,
+    "tastingNote": "Bookings highly preferred. Standard Tasting $20 (6–8 wines); Premium Tasting $30 (Single Vineyard); Private Tasting Room $45. No pets."
+  },
+  "wines": {
+    "winemaker": "Rollo Crittenden",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Savagnin", "Sangiovese", "Nebbiolo"],
+    "topLabel": "Cri de Coeur"
+  },
+  "restaurant": {
+    "name": "Crittenden Restaurant",
+    "hats": 0,
+    "cuisine": "Modern Australian",
+    "reservations": true,
+    "description": "Celebrates local producers. Head Chef Brunno Melo. Open lunch Friday–Tuesday, dinner Friday–Saturday."
+  },
+  "accommodation": {
+    "name": "Crittenden Lakeside Villas",
+    "description": "Three fully appointed, self-contained villas built over the estate lake. Full stay-and-taste proposition."
+  },
+  "editorVerdict": "Crittenden Estate was making wine when the Peninsula was still finding its feet. Garry Crittenden planted the first vines in 1982 with genuine varietal curiosity: Italian varietals, unusual white grapes, and a serious interest in what grows well. Under Rollo Crittenden, the estate has kept that intellectual restlessness alive while refining the flagship range. The restaurant and lakeside villas make it a full-stay destination.",
+  "faq": [
+    {
+      "q": "Does Crittenden Estate take walk-ins or do you need to book?",
+      "a": "Bookings are highly preferred. The cellar door is open daily."
+    },
+    {
+      "q": "Does Crittenden Estate have a restaurant?",
+      "a": "Yes — Crittenden Restaurant serves Modern Australian cuisine. Open lunch Friday–Tuesday, dinner Friday–Saturday."
+    },
+    {
+      "q": "Are dogs allowed at Crittenden Estate?",
+      "a": "No — the official site states no pets for the Terrace and dining areas."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.crittendenwines.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/crittenden"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "waterfront",
-      "slow"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "group",
-      "first-timers"
-    ]
+    "mood": ["cellar-door", "waterfront", "slow"],
+    "season": ["all-year"],
+    "audience": ["couples", "group", "first-timers"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-08.webp",
@@ -48,5 +92,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

@@ -2,15 +2,18 @@
   "slug": "hurley-vineyard",
   "name": "Hurley Vineyard",
   "type": "winery",
+  "subregion": "balnarring",
   "place": "balnarring",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3756,
     "lng": 145.0729
   },
-  "address": "101 Balnarring Rd, Merricks North VIC 3926",
+  "address": "101 Balnarring Rd, Balnarring VIC 3926",
   "phone": "+61 3 5931 3000",
   "website": "https://www.hurleyvineyard.com.au",
+  "bookingUrl": "https://www.hurleyvineyard.com.au",
+  "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
     "awards": [
@@ -19,21 +22,49 @@
     ],
     "hats": 0
   },
-  "signature": "Kevin Bell's boutique single-vineyard Pinot project  -  three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles",
+  "signature": "Kevin Bell's boutique single-vineyard Pinot project — three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles",
   "editorNote": "Hurley is a serious wine person's cellar door. Kevin Bell's project is built around three tiny, meticulously farmed blocks  -  Lodestone, Garamond, and Hommage  -  and the Pinot Noirs that come out of them are allocation-only, routinely top the Peninsula line-ups in blind tastings, and age on the back of a vintage as well as anything in the region.\n\nTastings are by appointment and the experience is unhurried and conversational: Kevin or a senior team member pouring, walking you block by block, and explaining how a hundred metres of vineyard can change a wine's personality. Expect to buy; expect to wait; expect to learn more about Peninsula Pinot in an hour than you could read in a week of reviews.\n\nThis is the cellar door for people who already love Peninsula Pinot and want to understand what it can become when a single operator obsesses over the detail.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": null,
+    "bookingRequired": false,
+    "tastingNote": "Walk-in every weekend 11am–5pm. No appointment required for weekend visits. No on-site restaurant."
+  },
+  "wines": {
+    "winemaker": "Kevin Bell",
+    "keyVarieties": ["Pinot Noir"],
+    "topLabel": "Garamond Pinot Noir"
+  },
+  "editorVerdict": "Hurley Vineyard is a conviction play. Kevin Bell planted in 1998, makes four distinct Pinot Noirs from the estate, uses no other variety, and ferments with indigenous yeast. The result is as site-specific as Peninsula wine gets — Balnarring terroir, nothing else. Serious Pinot drinkers should make the trip.",
+  "faq": [
+    {
+      "q": "Does Hurley Vineyard take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome every weekend 11am–5pm. No appointment required."
+    },
+    {
+      "q": "Does Hurley Vineyard have a restaurant?",
+      "a": "No on-site restaurant."
+    },
+    {
+      "q": "Are dogs allowed at Hurley Vineyard?",
+      "a": "Dog policy not confirmed in official sources — check before visiting."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.hurleyvineyard.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/hurley-vineyard"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "solo"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo"
-    ]
+    "mood": ["cellar-door", "slow", "solo"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-03.webp",
@@ -45,7 +76,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "bookingUrl": "https://www.hurleyvineyard.com.au",
-  "bookingProvider": "direct",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

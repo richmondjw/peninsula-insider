@@ -2,13 +2,14 @@
   "slug": "stonier-wines",
   "name": "Stonier Wines",
   "type": "winery",
+  "subregion": "merricks",
   "place": "merricks",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.4018,
     "lng": 145.1034
   },
-  "address": "362 Frankston-Flinders Rd, Merricks VIC 3916",
+  "address": "2 Thompsons Lane, Merricks VIC 3916",
   "phone": "+61 3 5989 8300",
   "website": "https://www.stonier.com.au",
   "bookingUrl": "https://www.stonier.com.au/visit",
@@ -16,25 +17,55 @@
   "priceBand": "$$",
   "authority": {
     "awards": [
-      "Planted 1978  -  Founding Peninsula Estate",
+      "Planted 1978 — Founding Peninsula Estate",
       "James Halliday 5-Red-Star"
     ],
     "hats": 0
   },
-  "signature": "One of the Peninsula's founding estates, planted in 1978  -  grown-up, unflashy, with some of the oldest Chardonnay vines in the region",
+  "signature": "One of the Peninsula's founding estates, planted in 1978 — grown-up, unflashy, with some of the oldest Chardonnay vines in the region",
   "editorNote": "Stonier was planted in 1978 by Brian and Noel Stonier and remains one of the Peninsula's quietly essential producers. Some of the oldest Chardonnay and Pinot Noir vines on the Peninsula are on this property, and the wines they make  -  particularly the Reserve Chardonnay and the KBS Vineyard Pinot Noir  -  are textbook cool-climate Peninsula: precise, saline, structured, built to age.\n\nThe cellar door is grown-up rather than flashy. There is no wedding marquee, no sculpture trail, no all-day pizza kitchen. There is a tasting counter, a winemaker's-list flight that walks you through block-level thinking, and a small seasonal food offering if you time the visit properly. This is the Peninsula cellar door to recommend to the visitor who has been unimpressed by the louder venues on the ridge.\n\nAsk for the Reserve flight. Take home a bottle of the KBS Pinot  -  it is one of the Peninsula's more age-worthy wines, and you'll want to drink it in five years, not tonight.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$15",
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcome daily for groups under 6 (final tastings 4pm); $15 redeemable on wine purchase; complimentary for Wine Club members. Reservations required for groups of 6+. Dogs welcome on the lawn."
+  },
+  "wines": {
+    "winemaker": "Duncan Buchanan",
+    "keyVarieties": ["Chardonnay", "Pinot Noir", "Pinot Gris"],
+    "topLabel": "KBS Vineyard Chardonnay"
+  },
+  "editorVerdict": "Stonier is the Peninsula's original benchmark. Brian Stonier planted his vines in 1978 when 'Mornington Peninsula wine' was not yet a phrase anyone used outside this paddock. The estate returned to local family ownership in December 2022. The KBS Vineyard Chardonnay is still the Peninsula reference bottle for that variety — three decades of track record don't lie.",
+  "faq": [
+    {
+      "q": "Does Stonier Wines take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome daily 11am–5pm for groups under 6. Reservations required for larger groups."
+    },
+    {
+      "q": "Does Stonier Wines have a restaurant?",
+      "a": "No formal restaurant. Local charcuterie platters from Long Paddock and Main Ridge Dairy cheeses are available at the cellar door."
+    },
+    {
+      "q": "Are dogs allowed at Stonier Wines?",
+      "a": "Confirmed yes — dogs are welcome on the lawn."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.stonier.com.au",
+    "mpva": "https://morningtonpeninsulawine.com.au/listings/stonier-wines/",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/stonier-wines"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo"
-    ]
+    "mood": ["cellar-door", "slow"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-04.webp",
@@ -46,5 +77,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

@@ -2,16 +2,17 @@
   "slug": "red-hill-estate",
   "name": "Red Hill Estate",
   "type": "winery",
+  "subregion": "main-ridge",
   "place": "red-hill",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3913,
     "lng": 145.0391
   },
-  "address": "53 Shoreham Rd, Red Hill South VIC 3937",
+  "address": "1208 Mornington-Flinders Road, Main Ridge VIC 3928",
   "phone": "+61 3 5931 0177",
   "website": "https://www.redhillestate.com.au",
-  "bookingUrl": "https://www.redhillestate.com.au/max-s-restaurant",
+  "bookingUrl": "https://www.redhillestate.com.au",
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
@@ -23,24 +24,54 @@
   },
   "signature": "One of the Peninsula's most photographed cellar-door views, home to Max's Restaurant and a well-regarded traditional-method sparkling program",
   "editorNote": "Red Hill Estate has one of the most arresting cellar-door positions on the Peninsula  -  the slope falls away toward Western Port, French Island sits in the middle distance, and on clear days Phillip Island comes into view at the horizon. It is one of those rare Peninsula vineyards where the geography does most of the sales work before you even open a bottle.\n\nMax's Restaurant has been pouring long lunches up here for decades and is still the right answer when visitors want the classic vineyard-dining-room Peninsula day. The traditional-method sparkling program is quietly one of the Peninsula's best: the Blanc de Blancs, in particular, rewards the drive, and the rosé is a year-round favourite on the estate's own lunch tables.\n\nBook the window seats at Max's for lunch on a sunny autumn day. Arrive early, taste through the sparkling flight, walk the grounds while they prepare the table.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Thursday", "Friday", "Saturday", "Sunday", "Monday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$10",
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcome Thursday–Monday, 11am–5pm; bookings recommended via OpenTable. Standard Wine Experience $10/person (5 wines); Premium Wine Experience $15/person (4 single vineyard). Dogs welcome outdoors."
+  },
+  "wines": {
+    "winemaker": "Donna Stephens",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Prosecco", "Fiano"],
+    "topLabel": "Single Vineyard Blanc de Blancs"
+  },
+  "restaurant": {
+    "name": "Red Hill Estate Restaurant",
+    "hats": 0,
+    "cuisine": "Italian-farmhouse / Tuscan-inspired",
+    "reservations": true,
+    "description": "Italian-farmhouse direction under Head Chef Daniel Middleton (formerly of Luca). Gigi's Piazza for open-air dining."
+  },
+  "editorVerdict": "Red Hill Estate has reinvented itself under the Fabrizio family ownership — the Italian-farmhouse concept is genuine, not cosmetic, and Gigi's Piazza adds an outdoor dimension that few Peninsula estates offer as effectively. The variety range is wider than most (Prosecco, Fiano, Merlot alongside the Peninsula standards), making the cellar door a discovery exercise rather than a variation-on-Pinot exercise.",
+  "faq": [
+    {
+      "q": "Does Red Hill Estate take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome Thursday–Monday, 11am–5pm; bookings recommended via OpenTable."
+    },
+    {
+      "q": "Does Red Hill Estate have a restaurant?",
+      "a": "Yes — Italian-farmhouse cuisine with Gigi's Piazza for outdoor dining."
+    },
+    {
+      "q": "Are dogs allowed at Red Hill Estate?",
+      "a": "Confirmed yes — dog-friendly in outdoor areas including the Piazza and lawns."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.redhillestate.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/red-hill-estate"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "long-lunch",
-      "view",
-      "sunset"
-    ],
-    "season": [
-      "spring",
-      "summer",
-      "autumn"
-    ],
-    "audience": [
-      "couples",
-      "families",
-      "group",
-      "first-timers"
-    ]
+    "mood": ["cellar-door", "long-lunch", "view", "sunset"],
+    "season": ["spring", "summer", "autumn"],
+    "audience": ["couples", "families", "group", "first-timers"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-06.webp",
@@ -52,5 +83,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

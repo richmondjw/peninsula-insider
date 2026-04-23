@@ -2,7 +2,8 @@
   "slug": "quealy-winemakers",
   "name": "Quealy Winemakers",
   "type": "winery",
-  "place": "merricks",
+  "subregion": "balnarring",
+  "place": "balnarring",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3956,
@@ -10,8 +11,8 @@
   },
   "address": "62 Bittern-Dromana Rd, Balnarring VIC 3926",
   "phone": "+61 3 5983 2483",
-  "website": "https://www.quealy.com.au",
-  "bookingUrl": "https://www.quealy.com.au/cellar-door",
+  "website": "https://quealy.com.au",
+  "bookingUrl": "https://quealy.com.au/pages/cellar-door",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "authority": {
@@ -22,23 +23,47 @@
   },
   "signature": "A foundational Peninsula producer best known for pinot gris, friulano, and a cellar door with real local soul",
   "editorNote": "Quealy is important not because it is flashy, but because it helped teach the Peninsula what it could grow. Kathleen Quealy and Kevin McCarthy were early believers in alternative Italian varieties here, and the cellar door still feels grounded in that experimental, quietly pioneering spirit.\n\nThe wines are distinctive, food-friendly, and often better value than the region's higher-profile labels. This is where locals send friends who say they want to understand the Peninsula rather than just photograph it.\n\nStop in before lunch nearby and buy a mixed six on the way out.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": null,
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcome daily 10am–5pm for groups under 6. Bookings preferred for larger groups. Wines by the glass from $13–$17. Artisan cheese plates and seasonal food pop-ups. No dogs."
+  },
+  "wines": {
+    "winemaker": "Tom McCarthy",
+    "keyVarieties": ["Pinot Gris", "Pinot Noir", "Friulano", "Ribolla Gialla", "Chardonnay"],
+    "topLabel": "Pobblebonk"
+  },
+  "editorVerdict": "Quealy Winemakers was the Peninsula estate that kept asking awkward questions: why not Friulano, why not skin-contact Pinot Gris, why not Ribolla Gialla? Kathleen Quealy and Kevin McCarthy started the project in 2003, and the answer turned out to be: those varieties grow beautifully here. Son Tom McCarthy now makes the wines — amphora fermentations, certified organic viticulture, a range that would feel at home in Friuli.",
+  "faq": [
+    {
+      "q": "Does Quealy Winemakers take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome daily 10am–5pm for groups under 6. Bookings preferred for larger groups."
+    },
+    {
+      "q": "Does Quealy Winemakers have a restaurant?",
+      "a": "No formal restaurant. Artisan cheese plates available; seasonal food pop-ups include Sunday pizza and the La Petite Crêperie caravan."
+    },
+    {
+      "q": "Are dogs allowed at Quealy Winemakers?",
+      "a": "No — the official website states 'We kindly ask no dogs'."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://quealy.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/quealy-winemakers"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "garden"
-    ],
-    "season": [
-      "spring",
-      "summer",
-      "autumn",
-      "all-year"
-    ],
-    "audience": [
-      "locals",
-      "couples",
-      "first-timers"
-    ]
+    "mood": ["cellar-door", "slow", "garden"],
+    "season": ["spring", "summer", "autumn", "all-year"],
+    "audience": ["locals", "couples", "first-timers"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-03.webp",
@@ -50,5 +75,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
   "publishedAt": "2026-04-01",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

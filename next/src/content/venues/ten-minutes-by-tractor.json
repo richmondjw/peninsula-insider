@@ -1,21 +1,22 @@
 {
   "slug": "ten-minutes-by-tractor",
   "name": "Ten Minutes by Tractor",
-  "type": "restaurant",
-  "place": "red-hill",
+  "type": "winery",
+  "subregion": "main-ridge",
+  "place": "main-ridge",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3619,
     "lng": 145.0543
   },
-  "address": "1333 Mornington-Flinders Rd, Red Hill VIC 3937",
+  "address": "1333 Mornington-Flinders Rd, Main Ridge VIC 3928",
   "phone": "+61 3 5989 6455",
   "website": "https://www.tenminutesbytractor.com.au",
   "bookingUrl": "https://www.tenminutesbytractor.com.au/reservations",
   "bookingProvider": "direct",
   "priceBand": "$$$$",
   "authority": {
-    "hats": 3,
+    "hats": 2,
     "awards": [
       "Good Food Guide Restaurant of the Year 2023",
       "Wine List of the Year"
@@ -23,21 +24,54 @@
   },
   "signature": "Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vineyard",
   "editorNote": "Three hats and the most considered wine program on the Peninsula  -  Ten Minutes by Tractor earns every accolade with a degustation that feels genuinely rooted in place. The Ridge vineyard slopes outside the window aren't decoration; they're the story. Book the long lunch: you'll want the afternoon.\n\nThe cooking is technically precise without being cold. The team understands restraint  -  flavours are clear and confident, not overwrought. The charred bread with cultured butter has become a quiet institution.\n\nBook at least six weeks ahead for weekends. Lunch is the move.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$15",
+    "bookingRequired": false,
+    "tastingNote": "Reservations recommended; walk-ins accepted subject to availability. Estate & 10X flight $15 (waived on purchase); Single Vineyard flight $50; Terroir Masterclass $80."
+  },
+  "wines": {
+    "winemaker": "Imogen Dillon",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Riesling", "Fiano"],
+    "topLabel": "McCutcheon Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Ten Minutes by Tractor Restaurant",
+    "hats": 2,
+    "cuisine": "Modern Australian",
+    "reservations": true,
+    "description": "Fine dining, 2 Hats Age Good Food Guide 2023–2025. Seasonally driven menu using local produce. A destination in its own right."
+  },
+  "editorVerdict": "Ten Minutes by Tractor is where Mornington Peninsula wine stops apologising for its ambitions. Three original family vineyards, each named and separately vinified, plus a winemaking philosophy pulled straight from Burgundy's manual: high-density planting, spontaneous fermentation, gravity flow. The two-hat restaurant cements it as a full-day destination for anyone who takes wine seriously.",
+  "faq": [
+    {
+      "q": "Does Ten Minutes by Tractor take walk-ins or do you need to book?",
+      "a": "The cellar door is open daily 11am–5pm. Reservations are recommended; walk-ins are accepted subject to availability. The restaurant requires a separate booking."
+    },
+    {
+      "q": "Does Ten Minutes by Tractor have a restaurant?",
+      "a": "Yes — a two-hat Modern Australian fine-dining restaurant, awarded consistently 2023–2025 by The Age Good Food Guide."
+    },
+    {
+      "q": "Are dogs allowed at Ten Minutes by Tractor?",
+      "a": "Dogs are permitted on the estate grounds but are not allowed inside the cellar door, restaurant buildings, or dining terrace."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.tenminutesbytractor.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/ten-minutes-by-tractor"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "long-lunch",
-      "anniversary",
-      "cellar-door"
-    ],
-    "season": [
-      "spring",
-      "summer",
-      "autumn"
-    ],
-    "audience": [
-      "couples",
-      "group"
-    ]
+    "mood": ["long-lunch", "anniversary", "cellar-door"],
+    "season": ["spring", "summer", "autumn"],
+    "audience": ["couples", "group"]
   },
   "heroImage": {
     "src": "/images/sourced/venue-ten-minutes-by-tractor-01.webp",
@@ -49,5 +83,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
   "publishedAt": "2026-04-01",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

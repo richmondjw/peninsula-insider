@@ -2,15 +2,18 @@
   "slug": "eldridge-estate",
   "name": "Eldridge Estate",
   "type": "winery",
+  "subregion": "red-hill",
   "place": "red-hill",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3792,
     "lng": 145.0121
   },
-  "address": "120 Arthurs Seat Rd, Red Hill South VIC 3937",
+  "address": "120 Arthurs Seat Rd, Red Hill VIC 3937",
   "phone": "+61 3 5989 2644",
-  "website": "https://eldridge-estate.com.au",
+  "website": "https://www.eldridge-estate.com.au",
+  "bookingUrl": "https://www.eldridge-estate.com.au/cellar-door/",
+  "bookingProvider": "direct",
   "priceBand": "$$",
   "authority": {
     "awards": [
@@ -19,21 +22,53 @@
     ],
     "hats": 0
   },
-  "signature": "David Lloyd's tiny cult estate  -  single-clone Pinot Noirs from individual rows, plus Gamay, for the Burgundy obsessives",
+  "signature": "David Lloyd's tiny cult estate — single-clone Pinot Noirs from individual rows, plus Gamay, for the Burgundy obsessives",
   "editorNote": "Eldridge is where Peninsula Pinot nerds go to geek out. David Lloyd runs the estate almost single-handedly, makes the wine himself, and produces single-clone bottlings  -  MV6, PTG, 115, 777  -  in quantities so small that most of them are sold out by word of mouth before they reach a shelf. The cellar door is deliberately low-key: a shed, a small counter, Dave behind it, the wines lined up for you to taste one against the other.\n\nThe MV6 is the benchmark bottling, the one you'll still find on the best Melbourne wine lists and the one that quietly reminds everyone what a Peninsula Pinot can be. The Gamay is arguably Australia's most serious take on the variety. Tastings by appointment  -  call ahead  -  and keep an eye out for the tiny Clonal Comparison flight if it is available.\n\nThis is not a place to bring a wedding party. It is a place to arrive alone or as a couple, pay attention, and leave with a bottle you'll open when you want to remember the afternoon.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$15",
+    "bookingRequired": false,
+    "tastingNote": "Weekends 11am–5pm; also open daily in January. Bookings advised for 45-minute sessions. $15 per person for a 4-wine flight. Gourmet cheese, charcuterie, and tapas platters available. Dogs welcome outdoors on leash."
+  },
+  "wines": {
+    "winemaker": "Grace Jiranek",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Gamay", "Sauvignon Blanc"],
+    "topLabel": "MV6 Pinot Noir"
+  },
+  "accommodation": {
+    "name": "Eldridge House",
+    "description": "Original farmhouse on the estate, available as holiday accommodation via Airbnb."
+  },
+  "editorVerdict": "Eldridge Estate has always been a quiet achiever — planted in 1984, small production, estate-grown, no fuss. The change of ownership in 2022 (Elli and Vicki Tutungi bought from founder David Lloyd) has added energy without disturbing the character. The variety list still includes the thing that makes Eldridge unique on the Peninsula: Gamay. If you want to taste one of the few serious Peninsula Gamay expressions, this is the place.",
+  "faq": [
+    {
+      "q": "Does Eldridge Estate take walk-ins or do you need to book?",
+      "a": "Weekends 11am–5pm with bookings advised. Daily during January. Contact the winery for session bookings."
+    },
+    {
+      "q": "Does Eldridge Estate have a restaurant?",
+      "a": "No on-site restaurant. Gourmet cheese, charcuterie, and tapas platters are available at the cellar door."
+    },
+    {
+      "q": "Are dogs allowed at Eldridge Estate?",
+      "a": "Confirmed yes — well-behaved dogs on-leash are welcome in outdoor areas."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.eldridge-estate.com.au",
+    "halliday": "https://winecompanion.com.au/articles/from-the-tasting-team/jane-faulkner-on-eldridge"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "solo"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo"
-    ]
+    "mood": ["cellar-door", "slow", "solo"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-08.webp",
@@ -45,7 +80,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "bookingUrl": "https://eldridge-estate.com.au",
-  "bookingProvider": "direct",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

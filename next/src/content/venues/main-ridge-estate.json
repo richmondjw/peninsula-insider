@@ -2,6 +2,7 @@
   "slug": "main-ridge-estate",
   "name": "Main Ridge Estate",
   "type": "winery",
+  "subregion": "red-hill",
   "place": "main-ridge",
   "zone": "red-hill-plateau",
   "coordinates": {
@@ -16,26 +17,61 @@
   "priceBand": "$$",
   "authority": {
     "awards": [
-      "Planted 1975  -  The Peninsula's Original Vineyard",
+      "Planted 1975 — The Peninsula's Original Vineyard",
       "James Halliday 5-Red-Star Winery"
     ],
     "hats": 0
   },
-  "signature": "Planted in 1975 by Nat and Rosalie White  -  the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks",
+  "signature": "Planted in 1975 by Nat and Rosalie White — the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks",
   "editorNote": "Main Ridge Estate is the vineyard that started it all. Nat and Rosalie White planted the first vines up here in 1975 when nobody in Victoria quite believed cool-climate Pinot could be taken seriously, and the property remains a pilgrimage for anyone who cares about how the Peninsula wine region actually came to exist. The cellar door is small, the tasting room sits in a quiet bush setting on top of the ridge, and the wines  -  Chardonnay from the Half Acre and Three Quarter Acre blocks, Pinot Noir from the Half Acre  -  still hold to the restrained, structured, long-lived style the Whites established four decades ago.\n\nThe kitchen runs a short lunch menu Friday through Sunday, built around the wines rather than competing with them. There is no attempt to turn the place into a wedding venue or sculpture park; this is a working estate where the founders are still quietly in residence and the wines are bottled under Tim Shand's exacting hand.\n\nGo mid-week in winter if you want the quietest tasting. Order the Half Acre Pinot with a cheese plate and an hour to yourself.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$30",
+    "bookingRequired": true,
+    "tastingNote": "Bookings required via the estate reservation system (including for dogs). Open Friday–Sunday 11am–5pm, tastings until 4pm. $30 per person for a selection of 6 wines."
+  },
+  "wines": {
+    "winemaker": "James Sexton",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Pinot Meunier"],
+    "topLabel": "'The Acre' Pinot Noir"
+  },
+  "restaurant": {
+    "name": "The Kitchen",
+    "hats": 0,
+    "cuisine": "Modern Australian",
+    "reservations": false,
+    "description": "Seasonal shared plates and casual lunch on weekend days. Head Chef Ben Lydford. Unpretentious produce-driven menu."
+  },
+  "editorVerdict": "Main Ridge Estate is where the Mornington Peninsula wine story begins. Nat and Rosalie White planted the first vines in 1975; the first commercial vintage came in 1980. The Sexton family now stewards the property, and The Acre and Half Acre Pinot Noir continue to be two of the most recognisable bottles in Peninsula wine. This is a pilgrimage stop for anyone serious about the region's history.",
+  "faq": [
+    {
+      "q": "Does Main Ridge Estate take walk-ins or do you need to book?",
+      "a": "Bookings are required via the estate reservation system, including for dogs. Open Friday–Sunday, 11am–5pm."
+    },
+    {
+      "q": "Does Main Ridge Estate have a restaurant?",
+      "a": "Yes — The Kitchen serves seasonal shared plates and casual lunch on weekends. No current Good Food Guide hat."
+    },
+    {
+      "q": "Are dogs allowed at Main Ridge Estate?",
+      "a": "Confirmed yes — well-behaved dogs on a leash are welcome in the outdoor deck area, but must be pre-booked via the reservation system."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://mre.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/main-ridge-estate"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "fireplace"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo"
-    ]
+    "mood": ["cellar-door", "slow", "fireplace"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo"]
   },
   "heroImage": {
     "src": "/images/sourced/category-winery-06.webp",
@@ -47,5 +83,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

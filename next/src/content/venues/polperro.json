@@ -2,6 +2,7 @@
   "slug": "polperro",
   "name": "Polperro",
   "type": "winery",
+  "subregion": "red-hill",
   "place": "red-hill",
   "zone": "red-hill-plateau",
   "coordinates": {
@@ -15,6 +16,7 @@
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
+    "hats": 1,
     "hallidayScore": 97,
     "awards": [
       "Halliday Top 100 Wineries"
@@ -22,23 +24,58 @@
   },
   "signature": "Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge",
   "editorNote": "Polperro feels smaller and more intimate than some of the region's trophy estates, which is exactly its appeal. The cellar door is tucked into the vines with a line of sight over the ridge, the pours are thoughtful, and the whole place carries the tone of a producer that cares more about the wine than the performance around it.\n\nThe Pennon Hill labels are often the sweet spot if you want quality without chasing the top tier. Pair a tasting with lunch and you have one of the gentlest half-days in Red Hill South.\n\nGo midweek if you can. The room rewards quiet.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$20",
+    "bookingRequired": false,
+    "tastingNote": "Walk-in only, maximum 6 guests, no bookings required for cellar door. Tasting includes Polperro and Even Keel wines. Restaurant requires separate booking."
+  },
+  "wines": {
+    "winemaker": "Sam Coverdale",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris"],
+    "topLabel": "Mill Hill Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Polperro Restaurant",
+    "hats": 1,
+    "cuisine": "Modern Australian",
+    "reservations": true,
+    "description": "1 Hat in the Age Good Food Guide 2024 and 2025. Modern Australian cuisine connected to the estate's organic ethos."
+  },
+  "accommodation": {
+    "name": "Polperro Vineyard Villas",
+    "description": "Luxury on-site villas nestled among the vines. Full stay-and-taste proposition for a Peninsula weekend."
+  },
+  "editorVerdict": "Polperro earns its reputation quietly. Sam Coverdale's winemaking is unhurried and honest, and the organic/biodynamic certification (since 2019) is matched by a level of single-vineyard discipline that few estates sustain. The Red Hill property brings a restaurant with a hat and accommodation in the vines — one of the Peninsula's most complete stay-and-taste propositions.",
+  "faq": [
+    {
+      "q": "Does Polperro take walk-ins or do you need to book?",
+      "a": "The cellar door is walk-in only (maximum 6 guests), no bookings required. Open Wednesday to Sunday, 11am–5pm. The restaurant requires a separate booking."
+    },
+    {
+      "q": "Does Polperro have a restaurant?",
+      "a": "Yes. Polperro Restaurant holds 1 Hat in The Age Good Food Guide 2024 and 2025. Modern Australian cuisine."
+    },
+    {
+      "q": "Are dogs allowed at Polperro?",
+      "a": "No. Free-range chickens and other farm animals are on the property."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.polperrowines.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/polperro"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "view"
-    ],
-    "season": [
-      "spring",
-      "summer",
-      "autumn",
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo",
-      "locals"
-    ]
+    "mood": ["cellar-door", "slow", "view"],
+    "season": ["spring", "summer", "autumn", "all-year"],
+    "audience": ["couples", "solo", "locals"]
   },
   "heroImage": {
     "src": "/images/sourced/venue-polperro-sorrento-pier-01.webp",
@@ -50,5 +87,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
   "publishedAt": "2026-04-01",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

@@ -1,7 +1,8 @@
 {
   "slug": "port-phillip-estate",
   "name": "Port Phillip Estate",
-  "type": "hotel",
+  "type": "winery",
+  "subregion": "red-hill-south",
   "place": "red-hill",
   "zone": "red-hill-plateau",
   "coordinates": {
@@ -18,25 +19,63 @@
     "hats": 1,
     "awards": [
       "AHA Hotel of the Year nominee",
-      "Good Food Guide 2024"
+      "Good Food Guide 2025"
     ]
   },
   "signature": "Rammed-earth architecture, a one-hat restaurant, and six hotel suites set into the pinot rows of Main Ridge",
   "editorNote": "Port Phillip Estate is the Peninsula's most architecturally serious winery stay. The building is a Wood Marsh-designed rammed-earth monolith set into the slope of the plateau, and it holds the cellar door, the one-hat restaurant, and six large hotel-grade suites that look out across Main Ridge pinot country. The scale is deliberate: you check in, you eat at the restaurant, and the only time you really need to leave the estate is to see more of the Peninsula from outside.\n\nThe rooms are generous and quiet, with private terraces facing the vines. The restaurant is one of the best lunch rooms on the ridge, anchored by the estate's own wines and a kitchen that understands the long-lunch brief. Sister estate to Kooyong  -  the single-vineyard tasting flights run through both.\n\nBook the two-night package with dinner included. It removes almost every decision from the weekend.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "17:00"
+      }
+    ],
+    "tastingFee": "$10",
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcomed. Standard $10/person (non-refundable); Wine Tasting & Cheese $35; Single Block & Single Vineyard $32; Wine Flights $30. No pets permitted on premises."
+  },
+  "wines": {
+    "winemaker": "Tim Perrin",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris"],
+    "topLabel": "Morillon Pinot Noir"
+  },
+  "restaurant": {
+    "name": "Port Phillip Estate Dining Room",
+    "hats": 1,
+    "cuisine": "European-influenced",
+    "reservations": true,
+    "description": "1 Chef Hat, Age Good Food Guide 2023 and 2025. Serves both Port Phillip Estate and Kooyong visitor experience."
+  },
+  "accommodation": {
+    "name": "Port Phillip Estate Vineyard Suites",
+    "description": "Six contemporary luxury Vineyard Suites; adults only (16+). Terrace views across the vines."
+  },
+  "editorVerdict": "Port Phillip Estate sits on the same address as Kooyong and shares winemaker Tim Perrin, but is the anchor: the home estate, the accommodation, the dining room, the full infrastructure. The Morillon and Red Hill Pinot Noir wines make a compelling site-specific argument for Red Hill South terroir. Adults-only accommodation, no pets, one-hat restaurant — wine-literate, food-serious destination.",
+  "faq": [
+    {
+      "q": "Does Port Phillip Estate take walk-ins or do you need to book?",
+      "a": "Walk-ins are welcome for the cellar door. Restaurant reservations are recommended. Hotel bookings required in advance."
+    },
+    {
+      "q": "Does Port Phillip Estate have a restaurant?",
+      "a": "Yes — Port Phillip Estate Dining Room, 1 Chef Hat (Age Good Food Guide 2023/2025), European-influenced cuisine."
+    },
+    {
+      "q": "Are dogs allowed at Port Phillip Estate?",
+      "a": "No — no pets are permitted on the premises."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://www.portphillipestate.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/port-phillip-estate"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "anniversary",
-      "long-lunch",
-      "cellar-door",
-      "weekend-escape",
-      "view"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples"
-    ]
+    "mood": ["anniversary", "long-lunch", "cellar-door", "weekend-escape", "view"],
+    "season": ["all-year"],
+    "audience": ["couples"]
   },
   "heroImage": {
     "src": "/images/sourced/category-hotel-02.webp",
@@ -48,5 +87,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }

@@ -2,16 +2,17 @@
   "slug": "ocean-eight",
   "name": "Ocean Eight Vineyard",
   "type": "winery",
+  "subregion": "shoreham",
   "place": "main-ridge",
   "zone": "red-hill-plateau",
   "coordinates": {
     "lat": -38.3911,
     "lng": 144.9723
   },
-  "address": "10 Shands Rd, Shoreham VIC 3916",
+  "address": "271 Tucks Road, Shoreham VIC 3916",
   "phone": "+61 3 5989 8862",
-  "website": "https://www.oceaneight.com",
-  "bookingUrl": "https://www.oceaneight.com/cellar-door",
+  "website": "https://oceaneight.com.au",
+  "bookingUrl": "https://oceaneight.com.au/pages/contact",
   "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
@@ -23,20 +24,52 @@
   },
   "signature": "Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir",
   "editorNote": "Ocean Eight is the kind of cellar door that wine people send other wine people to and casual tasters sometimes overlook. That's a mistake. Mike Aylward grew up in Peninsula wine country  -  his family founded Kooyong  -  and Ocean Eight was the project he built when he decided he wanted to do something smaller, quieter, and more single-minded than the big names allow.\n\nThe Verve and Aylward Pinot Noirs are among the most structured and ageable wines being made on the Peninsula. The chardonnay holds its own against the region's benchmarks. The tasting room is minimal and unpretentious: you sit down, the wines come out, and Mike or one of the family walks you through them without any of the theatre that creeps into larger cellar doors.\n\nBook ahead  -  they keep numbers deliberately small. This is a tasting for people who want to understand why the Peninsula matters.",
+  "visiting": {
+    "openingHours": [
+      {
+        "days": ["Friday", "Saturday"],
+        "opens": "12:00",
+        "closes": "17:00"
+      },
+      {
+        "days": ["Sunday"],
+        "opens": "12:00",
+        "closes": "15:00"
+      }
+    ],
+    "tastingFee": null,
+    "bookingRequired": false,
+    "tastingNote": "Walk-ins welcome Fri–Sat 12pm–5pm, Sun 12pm–3pm. Barrel tastings available by appointment. BYO picnic food welcome in the garden. Dogs welcome on leash."
+  },
+  "wines": {
+    "winemaker": "Mike Aylward",
+    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris"],
+    "topLabel": "Verve Chardonnay"
+  },
+  "editorVerdict": "Ocean Eight is the kind of place the Peninsula used to be full of: a small family estate run by the people who planted the vines, making wine that prioritises food-pairing honesty over points-chasing spectacle. The Verve Chardonnay and Aylward Reserve Pinot Noir are better than most visitors expect. No restaurant, but dogs are welcome and the garden is set up for picnics.",
+  "faq": [
+    {
+      "q": "Does Ocean Eight take walk-ins or do you need to book?",
+      "a": "Walk-ins welcome Friday–Saturday 12pm–5pm, Sunday 12pm–3pm. Barrel tastings available by appointment."
+    },
+    {
+      "q": "Does Ocean Eight have a restaurant?",
+      "a": "No restaurant on-site. Visitors are welcome to bring their own picnic food to enjoy in the gardens."
+    },
+    {
+      "q": "Are dogs allowed at Ocean Eight?",
+      "a": "Confirmed yes — dogs are welcome on a leash in the outdoor garden areas."
+    }
+  ],
+  "sameAs": {
+    "officialSite": "https://oceaneight.com.au",
+    "halliday": "https://winecompanion.com.au/wineries/victoria/mornington-peninsula/ocean-eight-vineyard-winery"
+  },
+  "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": [
-      "cellar-door",
-      "slow",
-      "view"
-    ],
-    "season": [
-      "all-year"
-    ],
-    "audience": [
-      "couples",
-      "solo",
-      "locals"
-    ]
+    "mood": ["cellar-door", "slow", "view"],
+    "season": ["all-year"],
+    "audience": ["couples", "solo", "locals"]
   },
   "heroImage": {
     "src": "/images/sourced/place-moorooduc-01.webp",
@@ -48,5 +81,5 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": false
 }
