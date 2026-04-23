@@ -29,7 +29,19 @@ export default defineConfig({
   // Output: pure static. Vercel/Netlify adapters come in the cutover week.
   output: 'static',
   redirects: {
-    // PI-EXP-044: merge duplicate bushrangers-bay entity into the walk variant
+    // PI-EXP-044 — merge duplicate bushrangers-bay entity
     '/explore/bushrangers-bay/': '/explore/bushrangers-bay-walk/',
+
+    // PI-EXP-007 — rename /explore/best-walks to /explore/walks; top-level /walks stub
+    '/explore/best-walks/': '/explore/walks/',
+    '/explore/mornington-peninsula-walk/': '/explore/walks/',
+    '/walks/': '/explore/walks/',
+
+    // PI-EXP-009 — consolidate duplicate journal pillar pairs
+    '/journal/the-peninsula-beach-swimming-guide/': '/journal/mornington-peninsula-beach-guide/',
+    '/journal/the-peninsula-with-kids/': '/journal/mornington-peninsula-with-kids/',
+    '/journal/the-dog-friendly-peninsula/': '/journal/dog-friendly-mornington-peninsula/',
+    '/journal/the-rainy-day-peninsula-without-a-booking/': '/journal/rainy-day-peninsula/',
+    '/journal/the-family-day-out/': '/escape/the-family-day-out/',
   },
 });

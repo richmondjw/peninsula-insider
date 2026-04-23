@@ -1,5 +1,9 @@
 const SITE = 'https://peninsulainsider.com.au';
 
+// PI-EXP-045: interim publisher logo — same asset BaseLayout uses for Organization schema.
+// Replace with /logo.png (≥112×112px square) once a proper logo asset is created.
+export const PUBLISHER_LOGO_URL = `${SITE}/images/sourced/home-cover.webp`;
+
 // Always returns an absolute URL with a trailing slash.
 // File URLs (.png, .webp, .jpg) are intentionally excluded by callers.
 export const absUrl = (path: string): string => {
