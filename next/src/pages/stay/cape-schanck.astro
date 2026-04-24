@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['one-spa-racv-cape-schanck'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Cape Schanck' }];
+---
+<BaseLayout title="Where to Stay in Cape Schanck · Peninsula Insider" description="Where to stay in Cape Schanck on the Mornington Peninsula, for resort-led, golf-adjacent, and slower coastal retreat weekends." section="stay" canonical="https://peninsulainsider.com.au/stay/cape-schanck/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Where to Stay in Cape Schanck</h1><div class="prose"><p>Cape Schanck is not a town-base choice in the same way Sorrento or Mornington are. It is a retreat-base choice. You stay here for wind, cliffs, golf, spa time, and distance from busier Peninsula rhythms. That makes it useful for readers who want the trip to feel sealed off rather than socially full.</p><p>The category is therefore narrow but clear. If Cape Schanck is the right answer, it is because the weekend is about reset, not browsing.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Cape Schanck stays</p><h2 class="venues__title">Retreat-led Cape Schanck base</h2><p class="venues__sub">For golf, spa, weather, and a more sealed-off southern Peninsula weekend.</p></div><a href="/places/cape-schanck/" class="venues__link">Cape Schanck guide →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>

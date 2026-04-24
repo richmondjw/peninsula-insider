@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['hotel-sorrento','the-continental-sorrento','sorrento-coastal-retreat','endota-spa-sorrento'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Sorrento' }];
+---
+<BaseLayout title="Where to Stay in Sorrento · Peninsula Insider" description="The best places to stay in Sorrento, from grand old coastal hotels to refined weekend bases near both bay and back beach." section="stay" canonical="https://peninsulainsider.com.au/stay/sorrento/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Where to Stay in Sorrento</h1><div class="prose"><p>Sorrento is the Peninsula's cleanest answer for readers who want atmosphere, walkability, and a weekend that does not require constant re-driving. It gives you both sides of the place, bay calm on one side, back-beach energy on the other, plus a village core that actually carries a dinner-and-morning-coffee rhythm properly.</p><p>The strongest Sorrento stays differ less by star rating than by how they shape the weekend. <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> is the classic hilltop answer. <a href="/stay/the-continental-sorrento/">The Continental</a> is the stronger choice if you want the centre of town. <a href="/stay/sorrento-coastal-retreat/">Sorrento Coastal Retreat</a> works better when privacy and a softer residential base matter more than hotel service.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Sorrento stays</p><h2 class="venues__title">{venues.length} Sorrento bases worth booking around</h2><p class="venues__sub">For weekends built around village access, bay-to-back-beach movement, and a stronger sense of arrival.</p></div><a href="/places/sorrento/" class="venues__link">Sorrento guide →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>

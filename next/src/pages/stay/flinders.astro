@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['flinders-hotel'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Flinders' }];
+---
+<BaseLayout title="Where to Stay in Flinders · Peninsula Insider" description="Where to stay in Flinders on the Mornington Peninsula, led by the village-hotel logic that makes the ocean-side weekend work properly." section="stay" canonical="https://peninsulainsider.com.au/stay/flinders/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Where to Stay in Flinders</h1><div class="prose"><p>Flinders is the Peninsula's quieter, sharper village answer. It is what you pick when you want the coast but not the Sorrento crowd, and when you care more about a clean village rhythm, pier walks, golf, weather, and an early dinner than about being in the middle of the Peninsula's most social postcode.</p><p><a href="/stay/flinders-hotel/">Flinders Hotel</a> is the obvious base because it understands the town's scale. This is not the place to hunt for a huge accommodation set. It is the place to base a quieter ocean-side Peninsula weekend correctly.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Flinders stays</p><h2 class="venues__title">The right base for a Flinders weekend</h2><p class="venues__sub">Small inventory, strong positioning. Flinders is about choosing the town well, not browsing dozens of options.</p></div><a href="/places/flinders/" class="venues__link">Flinders guide →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>

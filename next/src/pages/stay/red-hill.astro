@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['jackalope','lindenderry','polperro-villas','point-leo-estate-villas','peninsula-hot-springs-glamping'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Red Hill & Hinterland' }];
+---
+<BaseLayout title="Where to Stay in Red Hill and the Hinterland · Peninsula Insider" description="The best stays in Red Hill and the Mornington Peninsula hinterland, from design hotels to vineyard villas and slower wine-country bases." section="stay" canonical="https://peninsulainsider.com.au/stay/red-hill/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Where to Stay in Red Hill and the Hinterland</h1><div class="prose"><p>If the Peninsula weekend is really about food, wine, fireplaces, and a slower morning, the hinterland is the correct base. Red Hill and the surrounding ridge are where the trip gets depth, not just scenery. Staying here means lunch turns into dinner more naturally, and the drive home after a proper cellar-door day stops dictating everything.</p><p><a href="/stay/jackalope/">Jackalope</a> is the Peninsula's most dramatic hotel expression. <a href="/stay/lindenderry/">Lindenderry</a> is the calmer classic. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a> are stronger when the stay should feel private and more embedded in the landscape. <a href="/stay/peninsula-hot-springs-glamping/">Peninsula Hot Springs Glamping</a> sits slightly outside the strict vineyard lane, but it belongs in the broader hinterland-and-Fingal conversation because of how often readers are actually trying to combine wine country with thermal downtime.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Hinterland stays</p><h2 class="venues__title">{venues.length} food-and-wine bases worth prioritising</h2><p class="venues__sub">The strongest Peninsula stays for appetite-led weekends, vineyard lunches, and slower couple-focused itineraries.</p></div><a href="/places/red-hill/" class="venues__link">Red Hill guide →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>

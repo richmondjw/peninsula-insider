@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['endota-spa-mornington'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Mornington' }];
+---
+<BaseLayout title="Where to Stay in Mornington · Peninsula Insider" description="Where to stay in Mornington on the Mornington Peninsula, and why the town works as a practical northern Peninsula base." section="stay" canonical="https://peninsulainsider.com.au/stay/mornington/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Where to Stay in Mornington</h1><div class="prose"><p>Mornington is not the Peninsula's most romantic base, but it is one of its most practical. It works well for readers who want easier access from Melbourne, a stronger town centre, gallery-and-marina energy, and a weekend that can flex between bay coast and hinterland without committing all the way to the tip.</p><p>The accommodation supply here is less iconic than Sorrento or Red Hill, which is exactly why the editorial job matters. Mornington is a smart base when efficiency, normal-town infrastructure, and a cleaner northern Peninsula launch point matter more than destination-theatre.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Mornington stays</p><h2 class="venues__title">A practical northern Peninsula base</h2><p class="venues__sub">Less showy than the tip, more usable than many first-time visitors expect.</p></div><a href="/places/mornington/" class="venues__link">Mornington guide →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>
