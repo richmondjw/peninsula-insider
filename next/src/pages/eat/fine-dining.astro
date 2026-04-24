@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const fineDiningSlugs = [
+  'tedesca-osteria', 'laura-pt-leo', 'doot-doot-doot', 'polperro',
+  'montalto', 'ten-minutes-by-tractor', 'paringa-estate', 'port-phillip-estate',
+  'barragunda-dining'
+];
+
+const venues = fineDiningSlugs
+  .map(s => allVenues.find(v => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v))
+  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Eat & Drink', href: '/eat/' },
+  { label: 'Fine Dining' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Fine Dining Mornington Peninsula',
+  description: 'Destination fine dining on the Mornington Peninsula — embedded in vineyard estates, converted farmhouses, and working properties. Not city fine dining.',
+  url: 'https://peninsulainsider.com.au/eat/fine-dining/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Fine Dining', item: 'https://peninsulainsider.com.au/eat/fine-dining/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem', position: i + 1, name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best fine dining restaurant on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'By Good Food Guide recognition: Barragunda Dining, Laura at Pt. Leo Estate, and Tedesca Osteria all hold two hats. Laura is the most internationally credentialled (Relais & Châteaux, seventh consecutive two-hat year). Barragunda is the newest and hardest booking. Tedesca is the most farm-forward and personal.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there a dress code at Peninsula fine dining restaurants?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Peninsula fine dining is generally smart casual rather than formal. Tedesca Osteria and Laura lean more considered; Rare Hare and Montalto are relaxed. No Peninsula restaurant has a strict jacket requirement. The vineyard and farm settings set a slightly more casual register than a Melbourne CBD fine dining room.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I book Peninsula fine dining for a group?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Groups of 6+ should contact venues directly as most hatted rooms have private dining options or set-menu formats for larger parties. Foxeys Hangout accepts maximum groups of 6. Montalto and Port Phillip Estate both have event space options. Contact venues directly for group enquiries.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the best time to visit for fine dining?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Autumn (March–May) is the strongest season — vintage is running, summer crowds have thinned, and bookings are more achievable. Spring is excellent for new menus and release wines. Winter fine dining with fires in cellar door rooms is underrated and offers the best availability.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Fine Dining Mornington Peninsula · Peninsula Insider"
+  description="Destination fine dining on the Mornington Peninsula — hatted vineyard restaurants, converted farmhouses, and the rooms worth planning a whole day around."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/fine-dining/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Fine Dining on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>Fine dining on the Mornington Peninsula is not city fine dining. The format here is embedded in vineyard estates, working farms, and converted heritage buildings. You eat in a 40-seat room in a converted 1940s farmhouse where the kitchen garden is outside the window. Or in a glass-walled dining room above a sculpture park overlooking Western Port Bay. Or under a 10,000-globe chandelier in a boutique winery hotel.</p>
+        <p>The Peninsula's best fine dining rooms share a few things: serious winemaker relationships, produce sourced within a few kilometres, and service rhythms calibrated to a long afternoon rather than a city turnover. The long lunch is the defining format.</p>
+        <p>Four venues carry two hats from the Good Food Guide — Barragunda, Laura, Tedesca, and Ten Minutes by Tractor. Below them, a strong one-hat tier and several venues doing serious work without the formal recognition. All require bookings, often well in advance.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026 · Source: Good Food Guide 2025</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Fine dining shortlist</p>
+          <h2 class="venues__title">{venues.length} destination dining rooms</h2>
+          <p class="venues__sub">Ranked by editorial authority — two-hat venues first, then the one-hat rooms, then the places working seriously without formal recognition.</p>
+        </div>
+        <a href="/eat/hatted-restaurants/" class="venues__link">Hatted restaurants →</a>
+      </div>
+      <div class="venues__grid venues__grid--ranked">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>What is the best fine dining restaurant on the Mornington Peninsula?</h3>
+        <p>By Good Food Guide recognition, Barragunda Dining, Laura at Pt. Leo Estate, and Tedesca Osteria all hold two hats. Laura is the most internationally credentialled. Barragunda is the newest and hardest booking. Tedesca is the most farm-forward and personal.</p>
+        <h3>Is there a dress code?</h3>
+        <p>Smart casual throughout — no Peninsula restaurant has a strict jacket requirement. The vineyard and farm settings register slightly more relaxed than a Melbourne CBD fine dining room, but the food is every bit as serious.</p>
+        <h3>Can I book for a group?</h3>
+        <p>Groups of 6+ should contact venues directly. Most hatted rooms have private dining options or set-menu formats for larger parties. Contact venues directly for group enquiries.</p>
+        <h3>When is the best time to visit?</h3>
+        <p>Autumn (March to May) is the strongest season — vintage running, summer crowds thinned, bookings more achievable. Winter fine dining with cellar door fires is underrated and offers better availability than peak season.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">More ways to eat on the Peninsula</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/hatted-restaurants/">Hatted Restaurants</a></h3><p class="venue-card__signature">The complete Good Food Guide hat list with booking realities for each venue.</p><a href="/eat/hatted-restaurants/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/long-lunch/">Long Lunch</a></h3><p class="venue-card__signature">The best rooms for a two-to-three-hour afternoon at the table with estate wine.</p><a href="/eat/long-lunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/cellar-door-lunch/">Cellar Door Lunch</a></h3><p class="venue-card__signature">Winery restaurants where the kitchen and the cellar door are the same experience.</p><a href="/eat/cellar-door-lunch/" class="venue-card__cta">See the list →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

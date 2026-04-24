@@ -1,0 +1,139 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const venues = (await getCollection('venues'))
+  .filter(v => v.data.type === 'bakery')
+  .sort((a, b) => (a.data.name ?? '').localeCompare(b.data.name ?? ''));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Eat & Drink', href: '/eat/' },
+  { label: 'Best Bakeries' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Best Bakeries Mornington Peninsula',
+  description: 'The best bakeries on the Mornington Peninsula — six honest bakeries, where each one is, and what each does well.',
+  url: 'https://peninsulainsider.com.au/eat/bakeries/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Best Bakeries', item: 'https://peninsulainsider.com.au/eat/bakeries/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem', position: i + 1, name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best bakery on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Flinders Sourdough is the strongest argument — loaves that hold their crust for days, a pastry counter that changes with the seasons, and good coffee in the back room. It is closed Monday and Tuesday and sells out by early afternoon on weekends — arrive by 9am. Johnny Ripe in Mornington is the best option if you need something on the main strip.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When do Peninsula bakeries open?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most Peninsula bakeries open between 7am and 8am. Flinders Sourdough is closed Monday and Tuesday. Weekend sell-outs are common — arriving before 10am is strongly advised.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where can I find the best sourdough on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Flinders Sourdough (Flinders village) is the benchmark. The miche and seeded rye are the loaves to buy. Sourdough Kitchen in Balnarring and Red Hill Bakery are strong alternatives, each with a slightly different style and hours.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Best Bakeries Mornington Peninsula · Peninsula Insider"
+  description="The best bakeries on the Mornington Peninsula — Flinders Sourdough, Johnny Ripe, Balnarring Bakehouse, and three others worth knowing. Where each is and what each does well."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/bakeries/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Best Bakeries on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Peninsula bakery scene is smaller than the cafe scene and better for it. There are six bakeries worth knowing about, scattered across the Peninsula from Mornington to Flinders. Each has a reason: a particular loaf, a particular morning, a particular detour that makes it worth the drive from wherever you are staying.</p>
+        <p>The sell-out-by-noon problem is real across most of them. Arriving before ten on weekends is strongly advised. None of them have the inventory depth of a city bakery — they make what they make and stop when it is gone. That is largely the point.</p>
+        <p>Flinders Sourdough is the benchmark. Everything else maps from there by location and what you need the stop to do for the rest of the day.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">All Peninsula bakeries</p>
+          <h2 class="venues__title">All {venues.length} Peninsula bakeries, by location</h2>
+          <p class="venues__sub">Sorted alphabetically. The Peninsula is small enough that location determines which one you visit — find yours by where you're staying.</p>
+        </div>
+        <a href="/eat/" class="venues__link">All dining venues →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>What is the best bakery on the Mornington Peninsula?</h3>
+        <p>Flinders Sourdough — closed Monday and Tuesday, sells out by early afternoon on weekends. Arrive before 9am for the best selection. Johnny Ripe in Mornington is the best option on the main strip. Sourdough Kitchen in Balnarring and Red Hill Bakery are strong hinterland alternatives.</p>
+        <h3>When do Peninsula bakeries open?</h3>
+        <p>Most open between 7am and 8am. Weekend sell-outs are common. Arriving before 10am is strongly advised across all six.</p>
+        <h3>Where is the best sourdough on the Peninsula?</h3>
+        <p>Flinders Sourdough is the benchmark. The miche and seeded rye are the loaves to buy. Sourdough Kitchen (Balnarring) and Red Hill Bakery are strong alternatives with slightly different styles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">More ways to eat on the Peninsula</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/cafes/">Best Cafes</a></h3><p class="venue-card__signature">The specialty coffee destination and the village cafes worth knowing — from Commonfolk to Flinders General Store.</p><a href="/eat/cafes/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/brunch/">Best Brunch</a></h3><p class="venue-card__signature">The brunch spots worth planning a morning around — not just a coffee stop.</p><a href="/eat/brunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/">All Eat & Drink</a></h3><p class="venue-card__signature">The full Peninsula dining guide — restaurants, cellar doors, cafes, bakeries, and pubs.</p><a href="/eat/" class="venue-card__cta">Explore all →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

@@ -1,0 +1,143 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const cafeTypes = ['cafe'];
+const cafeSlugs = ['commonfolk-coffee','many-little','somers-general','small-stone-pantry',
+  'merricks-general-wine-store','store-ten','stringers-mornington','flinders-general-store',
+  'rocker','sorrento-gelato'];
+
+const venues = cafeSlugs
+  .map(s => allVenues.find(v => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Eat & Drink', href: '/eat/' },
+  { label: 'Best Cafes' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Best Cafes Mornington Peninsula',
+  description: 'The best cafes on the Mornington Peninsula — specialty coffee, brunch rooms, and village stops worth planning a detour for.',
+  url: 'https://peninsulainsider.com.au/eat/cafes/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Best Cafes', item: 'https://peninsulainsider.com.au/eat/cafes/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem', position: i + 1, name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best cafe on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Commonfolk Coffee in Mornington (16 Progress Street) is widely regarded as the Peninsula\'s best specialty coffee. House roaster, excellent food menu, dog-friendly back courtyard. For a village cafe experience, Somers General Store (Somers) and Small Stone Pantry (Shoreham) are both worth planning a stop around.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which cafes on the Mornington Peninsula are dog-friendly?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Commonfolk Coffee (back courtyard), Somers General Store (outdoor seating), and Flinders General Store (outdoor area) are confirmed dog-friendly. Check directly with venues as outdoor seating policies can change seasonally.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where should I go for brunch on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Commonfolk Coffee (Mornington) for specialty coffee and a serious brunch menu. Many Little Bar & Dining (Red Hill South) for a more elevated cafe experience — hatted restaurant with a casual daytime offer. Merricks General Wine Store for a village brunch in a genuinely beautiful setting.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Best Cafes Mornington Peninsula · Peninsula Insider"
+  description="The best cafes on the Mornington Peninsula — specialty coffee at Commonfolk, village stops in Somers and Flinders, and the brunch rooms worth the drive."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/cafes/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Best Cafes on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Peninsula's cafe scene concentrates in Mornington and the hinterland villages. Commonfolk Coffee in Mornington is the benchmark for specialty coffee — a house roaster, an excellent kitchen, and the kind of back courtyard that makes a weekday morning feel like a weekend decision. Below it, a scattered set of village cafes and general stores doing honest work without trying to be anything they are not.</p>
+        <p>The pattern on the Peninsula is the general store cafe: a converted grocery or provisions building now serving coffee, pastries, and a limited food menu. Somers General, Flinders General Store, and Merricks General Wine Store are the strongest examples. Each is worth a stop rather than a destination, unless you are already in the right part of the Peninsula for another reason.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Peninsula cafes</p>
+          <h2 class="venues__title">{venues.length} coffee rooms and village stops</h2>
+          <p class="venues__sub">The specialty coffee destination first, then the village cafes worth knowing by location.</p>
+        </div>
+        <a href="/eat/" class="venues__link">All dining venues →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>What is the best cafe on the Mornington Peninsula?</h3>
+        <p>Commonfolk Coffee (Mornington, 16 Progress Street) is the benchmark for specialty coffee on the Peninsula. House roaster, serious food menu, dog-friendly back courtyard, open every day except Christmas.</p>
+        <h3>Which cafes are dog-friendly?</h3>
+        <p>Commonfolk Coffee (back courtyard), Somers General Store (outdoor seating), and Flinders General Store (outdoor area) are confirmed dog-friendly. Check directly with venues as outdoor seating policies can change.</p>
+        <h3>Where should I go for brunch?</h3>
+        <p>Commonfolk Coffee for specialty coffee and a serious brunch menu. Many Little Bar & Dining (Red Hill South) for a more elevated cafe-daytime experience. Merricks General Wine Store for a village brunch in a genuinely beautiful setting.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">More ways to eat on the Peninsula</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/bakeries/">Best Bakeries</a></h3><p class="venue-card__signature">The six Peninsula bakeries worth knowing — where they are and what makes each one different.</p><a href="/eat/bakeries/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/brunch/">Best Brunch</a></h3><p class="venue-card__signature">The brunch spots worth planning a detour for — from Mornington to the hinterland.</p><a href="/eat/brunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/">All Eat & Drink</a></h3><p class="venue-card__signature">The full Peninsula dining guide — restaurants, cellar doors, cafes, bakeries, and pubs.</p><a href="/eat/" class="venue-card__cta">Explore all →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

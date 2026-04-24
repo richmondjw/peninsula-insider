@@ -1,0 +1,154 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const longLunchSlugs = [
+  'montalto', 'laura-pt-leo', 'polperro', 'pt-leo-estate',
+  'paringa-estate', 'ten-minutes-by-tractor', 'foxeys-hangout', 'barragunda-dining',
+  'port-phillip-estate', 'red-hill-estate'
+];
+
+const venues = longLunchSlugs
+  .map(s => allVenues.find(v => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Eat & Drink', href: '/eat/' },
+  { label: 'Long Lunch' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Long Lunch Mornington Peninsula',
+  description: 'The best long lunch venues on the Mornington Peninsula — vineyard restaurants with the ambition to carry a whole afternoon.',
+  url: 'https://peninsulainsider.com.au/eat/long-lunch/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Long Lunch', item: 'https://peninsulainsider.com.au/eat/long-lunch/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best long lunch on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Montalto (Red Hill South) is the most complete long lunch estate on the Peninsula — sculpture trail, kitchen garden, walk-in Piazza option, and a main restaurant that earns a GFG hat. For the most celebrated destination lunch, Laura at Pt. Leo Estate (Merricks) holds two GFG hats and books four months in advance.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need to book a long lunch on the Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most serious long lunch venues require bookings weeks or months ahead on weekends. Walk-in alternatives: Montalto\'s Piazza (daily, 11am–5pm), Foxeys Hangout (no bookings, max group 6), and Rare Hare at Willow Creek (walk-in from 2pm weekends). Book all hatted venues as early as possible.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the best time to visit the Mornington Peninsula for a long lunch?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Autumn (March to May) is the strongest season. Vintage is running on the ridge, the summer crowds have thinned, and the best tables are actually bookable. Spring is a close second — new menus, release wines, and strong light from early afternoon. Winter long lunches with fires lit are underrated.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which long lunch venues are dog-friendly on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Foxeys Hangout (Red Hill) permits dogs in outdoor areas. Many Little Bar & Dining (Red Hill South) has dog-friendly outdoor seating. Green Olive at Red Hill is dog-friendly in the garden. Most cellar door restaurants do not permit dogs — check directly with the venue before you go.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Long Lunch Mornington Peninsula · Peninsula Insider"
+  description="The best long lunch venues on the Mornington Peninsula — vineyard restaurants with hatted kitchens, estate wine, and enough ambition to carry a whole afternoon."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/long-lunch/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">The Long Lunch on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The long lunch is the Peninsula's defining dining format. A two-to-three-hour table, estate wine from the vineyard outside, produce grown within five kilometres, and an unhurried service rhythm that makes a Melbourne city restaurant feel rushed by comparison. The Peninsula does this better than almost anywhere else in Victoria.</p>
+        <p>The strongest version of the long lunch here is built around a vineyard restaurant with a hatted kitchen — a room serious enough to justify the drive, with wine and food working together rather than in parallel. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the obvious landmarks. Below them, a second tier of rooms doing honest, seasonal work without the fanfare: Paringa Estate's garden dining, Port Phillip Estate's panoramic rammed-earth room, and Foxeys Hangout's no-bookings, biodynamic outdoor setting.</p>
+        <p>The practical advice: arrive before noon to get the full arc of the afternoon. Allow three hours at the table and plan nothing afterwards that requires energy. The day will not improve by trying to squeeze a cellar door tasting in between the dessert course and the drive home.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Long lunch shortlist</p>
+          <h2 class="venues__title">{venues.length} rooms that carry the whole afternoon</h2>
+          <p class="venues__sub">Ordered by editorial authority. Hatted rooms first, then the places doing the strongest quiet work below them.</p>
+        </div>
+        <a href="/eat/" class="venues__link">All dining venues →</a>
+      </div>
+      <div class="venues__grid venues__grid--ranked">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>What is the best long lunch on the Mornington Peninsula?</h3>
+        <p>Montalto (Red Hill South) is the most complete estate: sculpture trail, kitchen garden, and a walk-in Piazza option alongside the hatted main restaurant. For destination dining, Laura at Pt. Leo Estate (Merricks) holds two GFG hats and books four months in advance.</p>
+        <h3>Do I need to book?</h3>
+        <p>Most serious long lunch venues require bookings weeks or months ahead on weekends. Walk-in alternatives: Montalto's Piazza (daily, 11am–5pm), Foxeys Hangout (no bookings accepted), and Rare Hare at Willow Creek (walk-in from 2pm weekends).</p>
+        <h3>When is the best time for a Peninsula long lunch?</h3>
+        <p>Autumn is the strongest season. Vintage is running, the summer crowds have thinned, and the best tables are bookable. Spring is a close second. Winter long lunches with fires lit in cellar door rooms are underrated.</p>
+        <h3>Which long lunch venues are dog-friendly?</h3>
+        <p>Foxeys Hangout and Green Olive at Red Hill are dog-friendly in outdoor areas. Many Little has dog-friendly outdoor seating. Most cellar door restaurants do not permit dogs — check directly before you go.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Keep planning</p>
+          <h2 class="venues__title">Related guides</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/cellar-door-lunch/">Cellar Door Lunch</a></h3><p class="venue-card__signature">The winery experience with a kitchen — estate wine, estate produce, no city-strip noise.</p><a href="/eat/cellar-door-lunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/hatted-restaurants/">Hatted Restaurants</a></h3><p class="venue-card__signature">The complete Good Food Guide hat list with booking realities and what each restaurant actually is.</p><a href="/eat/hatted-restaurants/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/the-long-lunch/">The Long Lunch Guide</a></h3><p class="venue-card__signature">How to build the right long lunch day — timing, sequencing, and what to avoid.</p><a href="/journal/the-long-lunch/" class="venue-card__cta">Read the guide →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

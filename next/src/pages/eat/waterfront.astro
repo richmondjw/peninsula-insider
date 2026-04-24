@@ -1,0 +1,150 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const waterfrontSlugs = ['the-baths-sorrento', 'the-rocks-mornington', 'portsea-hotel', 'afloat-mornington'];
+
+const venues = waterfrontSlugs
+  .map(s => allVenues.find(v => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Eat & Drink', href: '/eat/' },
+  { label: 'Waterfront Dining' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Waterfront Restaurants Mornington Peninsula',
+  description: 'The best waterfront restaurants on the Mornington Peninsula — genuine bay-facing positions at Sorrento, Mornington, and Portsea.',
+  url: 'https://peninsulainsider.com.au/eat/waterfront/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Waterfront Dining', item: 'https://peninsulainsider.com.au/eat/waterfront/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What are the best waterfront restaurants on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Baths at Sorrento (panoramic Port Phillip Bay views, 2-course $75pp), The Rocks at Mornington (harbour deck, Melbourne skyline views, dog-friendly outdoor deck), and Portsea Hotel (sweeping bay views, pub format, dog-friendly beer garden) are the three main waterfront dining options. All face Port Phillip Bay — none face the ocean.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are any Mornington Peninsula waterfront restaurants dog-friendly?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Rocks at Mornington (outdoor deck) and Portsea Hotel (beer garden) both confirm dog-friendly outdoor areas. The Baths Sorrento is not confirmed as dog-friendly — check before visiting.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need to book waterfront restaurants on the Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Baths: booking required most of the year. Portsea Hotel: walk-in only from 23 December to 31 January (peak season), bookings accepted otherwise. The Rocks: bookings advised on weekends.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which is better — The Baths Sorrento or The Rocks Mornington?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Baths is the better special-occasion choice: more formal, wider views, seafood-focused set menu. The Rocks is the better casual choice: more accessible price point, harbour setting, dog-friendly deck, and a menu that changes weekly. Neither is hatted.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Waterfront Restaurants Mornington Peninsula · Peninsula Insider"
+  description="The best waterfront restaurants on the Mornington Peninsula — The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel. Genuine bay positions, honest comparison."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/waterfront/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Waterfront Restaurants on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Peninsula's waterfront dining concentrates on Port Phillip Bay — the calmer, bay-facing side rather than the ocean. Three venues define the category. The Baths at Sorrento for special-occasion seafood with panoramic views. The Rocks at Mornington for casual waterfront dining at the marina. The Portsea Hotel for a pub setting with the most dramatic bay outlook of any pub on the Peninsula.</p>
+        <p>None of these venues are hatted. All three have genuine waterfront positions. The choice between them is not about quality — it is about what kind of afternoon you are building.</p>
+        <p>Important: waterfront dining here means Port Phillip Bay, not the ocean. If you want ocean views, you are looking at a walk, not a table.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Waterfront dining on Port Phillip Bay</p>
+          <h2 class="venues__title">{venues.length} venues with genuine bay positions</h2>
+          <p class="venues__sub">All face Port Phillip Bay. Different formats, different crowds, different reasons to go.</p>
+        </div>
+        <a href="/journal/waterfront-restaurants-mornington-peninsula/" class="venues__link">Full comparison →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>What are the best waterfront restaurants on the Mornington Peninsula?</h3>
+        <p>The Baths (Sorrento), The Rocks (Mornington), and the Portsea Hotel are the three main waterfront dining options. All face Port Phillip Bay. The Baths is the most formal and has the widest views. The Rocks is more casual and dog-friendly. The Portsea Hotel is a pub with a spectacular clifftop beer garden.</p>
+        <h3>Which waterfront restaurants are dog-friendly?</h3>
+        <p>The Rocks (outdoor deck) and the Portsea Hotel (beer garden) are both dog-friendly. The Baths is not confirmed as dog-friendly — check before visiting.</p>
+        <h3>Do I need to book?</h3>
+        <p>The Baths: yes, booking required most of the year. The Rocks: booking advised on weekends. Portsea Hotel: walk-in only December 23 to January 31, bookings accepted the rest of the year.</p>
+        <h3>Which is better for a special occasion?</h3>
+        <p>The Baths Sorrento — more formal, wider views, seafood-focused set menu ($75pp two courses). For a casual birthday or group lunch, The Rocks at Mornington is the more relaxed and accessible option.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">More ways to eat on the Peninsula</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/waterfront-restaurants-mornington-peninsula/">Full Waterfront Guide</a></h3><p class="venue-card__signature">Side-by-side comparison of The Baths, The Rocks, and Portsea Hotel — what each actually is and when each makes sense.</p><a href="/journal/waterfront-restaurants-mornington-peninsula/" class="venue-card__cta">Read the guide →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/seafood/">Seafood</a></h3><p class="venue-card__signature">The best places for seafood on the Peninsula — not just waterfront, but the places doing it well.</p><a href="/eat/seafood/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/dog-friendly/">Dog-Friendly Dining</a></h3><p class="venue-card__signature">Where you can bring a dog on the Peninsula — outdoor dining options confirmed as of April 2026.</p><a href="/eat/dog-friendly/" class="venue-card__cta">See the list →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

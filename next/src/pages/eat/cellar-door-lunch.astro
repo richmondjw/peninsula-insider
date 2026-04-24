@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const cellarDoorSlugs = [
+  'montalto', 'ten-minutes-by-tractor', 'polperro', 'pt-leo-estate',
+  'paringa-estate', 'port-phillip-estate', 'foxeys-hangout', 'rare-hare',
+  'red-hill-estate', 't-gallant', 'barmah-park'
+];
+
+const venues = cellarDoorSlugs
+  .map(s => allVenues.find(v => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v))
+  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Eat & Drink', href: '/eat/' },
+  { label: 'Cellar Door Lunch' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Cellar Door Lunch Mornington Peninsula',
+  description: 'The best cellar door lunch venues on the Mornington Peninsula — wineries with kitchens, estate wine, and lunches worth building a weekend around.',
+  url: 'https://peninsulainsider.com.au/eat/cellar-door-lunch/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Cellar Door Lunch', item: 'https://peninsulainsider.com.au/eat/cellar-door-lunch/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem', position: i + 1, name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best cellar door lunch on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Montalto (Red Hill South) is the most complete cellar door lunch estate — sculpture trail, kitchen garden, a walk-in Piazza option and a one-hat main restaurant. For the most celebrated destination experience, Laura at Pt. Leo Estate holds two hats and requires bookings four months ahead.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which cellar door restaurants accept walk-ins on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Montalto Piazza is walk-in daily 11am–5pm. Foxeys Hangout accepts no bookings (max group 6). Rare Hare at Willow Creek is walk-in only from 2pm weekends. All other cellar door restaurants on this list require bookings, often well in advance on weekends.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you need to book a cellar door lunch on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes for most venues. Red Hill cellar door restaurants book out quickly on weekends, especially in autumn and spring. Book four to eight weeks ahead for weekends at serious venues. Walk-ins available at Montalto Piazza, Foxeys Hangout, and Rare Hare.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you combine a cellar door tasting with lunch on the same visit?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — most Peninsula cellar door restaurants offer tastings and lunch on the same visit. The standard move: arrive at 11am or 12pm for a tasting, then book the main restaurant or Piazza for lunch. Montalto, Pt. Leo Estate, and Paringa Estate all do this well. Allow a full afternoon.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Cellar Door Lunch Mornington Peninsula · Peninsula Insider"
+  description="The best cellar door lunch venues on the Mornington Peninsula — winery restaurants with hatted kitchens, estate wine, and lunches worth building a Peninsula day around."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/cellar-door-lunch/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Cellar Door Lunch on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The cellar door lunch is the Peninsula's most distinctive food experience. A winery with a kitchen — estate wine poured from the vineyard outside, produce grown or sourced within a few kilometres, and a dining room that exists because the place earned it rather than because a marketing brief suggested it would convert tastings.</p>
+        <p>The Peninsula has more serious cellar door restaurants than almost any other wine region in Australia. The best sit in the Red Hill and Main Ridge sub-regions — the coolest part of the plateau, where the pinot grows slowest and the dining rooms feel most grounded in the landscape. Montalto, Ten Minutes by Tractor, and Polperro are the landmarks. Below them, eleven more worth knowing about.</p>
+        <p>The practical rule: arrive at the cellar door for a tasting first, book the restaurant for 12pm or 12:30pm, and plan nothing for the afternoon. The day will not improve by trying to fit another estate in afterwards.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Cellar door lunch shortlist</p>
+          <h2 class="venues__title">{venues.length} wineries with kitchens worth sitting down at</h2>
+          <p class="venues__sub">Ordered by editorial authority. Hatted rooms first, then the places doing the strongest quiet work.</p>
+        </div>
+        <a href="/wine/" class="venues__link">All wineries →</a>
+      </div>
+      <div class="venues__grid venues__grid--ranked">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>What is the best cellar door lunch on the Mornington Peninsula?</h3>
+        <p>Montalto (Red Hill South) is the most complete estate: sculpture trail, kitchen garden, a walk-in Piazza option, and a one-hat main restaurant. For the most celebrated destination, Laura at Pt. Leo Estate holds two hats and requires bookings four months ahead.</p>
+        <h3>Which cellar door restaurants accept walk-ins?</h3>
+        <p>Montalto Piazza (daily, 11am–5pm), Foxeys Hangout (no bookings, max group 6), and Rare Hare at Willow Creek (walk-in from 2pm weekends). All other venues on this list require bookings.</p>
+        <h3>Do I need to book?</h3>
+        <p>Yes, for almost all venues. Red Hill cellar door restaurants book out quickly on weekends in autumn and spring. Book four to eight weeks ahead for serious venues. Walk-ins available at Montalto Piazza, Foxeys, and Rare Hare.</p>
+        <h3>Can I combine tasting and lunch on the same visit?</h3>
+        <p>Yes — most Peninsula cellar door restaurants offer both. The move: arrive at 11am or 12pm for a tasting, then book the restaurant for lunch. Allow a full afternoon. Do not plan another estate after lunch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">More ways to eat on the Peninsula</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/long-lunch/">Long Lunch</a></h3><p class="venue-card__signature">The best rooms for a two-to-three-hour afternoon at the table with estate wine.</p><a href="/eat/long-lunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/wine/">Wine Country</a></h3><p class="venue-card__signature">All Peninsula cellar doors — with and without kitchens, by sub-region.</p><a href="/wine/" class="venue-card__cta">Explore wineries →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/hatted-restaurants/">Hatted Restaurants</a></h3><p class="venue-card__signature">The complete Good Food Guide hat list for the Peninsula, with booking realities.</p><a href="/eat/hatted-restaurants/" class="venue-card__cta">See the list →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

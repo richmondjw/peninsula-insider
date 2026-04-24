@@ -1,0 +1,156 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const hattedSlugs = [
+  'tedesca-osteria', 'laura-pt-leo', 'doot-doot-doot', 'pt-leo-estate',
+  'ten-minutes-by-tractor', 'willow-creek-vineyard', 'montalto', 'paringa-estate',
+  'polperro', 'port-phillip-estate', 'yabby-lake', 'epicurean-red-hill',
+  'barragunda-dining', 'rare-hare', 'many-little'
+];
+
+const venues = hattedSlugs
+  .map(s => allVenues.find(v => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v))
+  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Eat & Drink', href: '/eat/' },
+  { label: 'Hatted Restaurants' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Hatted Restaurants on the Mornington Peninsula',
+  description: 'The complete Good Food Guide hat list for the Mornington Peninsula — four two-hat venues, seven one-hat tables, with booking realities and what each restaurant actually is.',
+  url: 'https://peninsulainsider.com.au/eat/hatted-restaurants/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Hatted Restaurants', item: 'https://peninsulainsider.com.au/eat/hatted-restaurants/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How many hatted restaurants are on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Good Food Guide awarded 15 hats across 11 Peninsula venues — four two-hat restaurants and seven one-hat restaurants. The Australian Good Food Guide (AGFG) recognises additional venues including Lancemore Lindenderry and Paringa Estate.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best restaurant on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'By formal recognition, Barragunda Dining (Cape Schanck), Laura (Merricks), Tedesca Osteria (Red Hill), and Ten Minutes by Tractor (Main Ridge) all hold two hats in the Good Food Guide. Tedesca Osteria won Regional Restaurant of the Year. Barragunda is the most recent addition, opening in February and winning two hats in its debut year.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which hatted restaurants on the Mornington Peninsula accept walk-ins?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Rare Hare (Jackalope Hotel, Merricks North) is walk-in only — no reservations taken. Many Little Bar & Dining (Red Hill South) takes walk-ins for some sessions. Montalto\'s Piazza is walk-in daily as a more casual alternative to the main hatted restaurant.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How far in advance do you need to book at Peninsula hatted restaurants?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Laura at Pt. Leo Estate: book four months ahead. Barragunda: book immediately — very hard to get. Tedesca Osteria: books out weeks ahead for Friday–Monday lunch. Ten Minutes by Tractor: four to eight weeks for weekend lunch. Doot Doot Doot: two to four weeks ahead.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Hatted Restaurants on the Mornington Peninsula · Peninsula Insider"
+  description="The Good Food Guide awarded 15 hats across 11 Mornington Peninsula venues. Four two-hat tables, seven one-hat rooms, and honest booking realities for each."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/hatted-restaurants/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Hatted Restaurants on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Good Food Guide awarded 15 hats across 11 Peninsula venues. Four venues carry two hats — the highest recognition in the region. What distinguishes the Peninsula's hatted scene is its context: these are not city strip restaurants. You eat in a converted 1940s farmhouse on a biodynamic property, a 40-seat room inside a sculpture park estate, or a cave-like dining room beneath a boutique winery hotel. The long lunch is the defining format.</p>
+        <p>The four two-hat venues are Barragunda Dining (Cape Schanck), Laura at Pt. Leo Estate (Merricks), Tedesca Osteria (Red Hill), and Ten Minutes by Tractor (Main Ridge). Each is different in character. Barragunda is the Peninsula's newest and hardest booking. Tedesca is the most farm-forward. Laura is the most internationally credentialled. Ten Minutes by Tractor is the most established.</p>
+        <p>Below the two-hat tier, seven one-hat venues cover a wider range of formats — from Doot Doot Doot's formal dinner-only room at Jackalope Hotel to Rare Hare's walk-in wood-fired outdoor sessions on the same estate. The list is ordered by hat count, then by editorial weight.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026 · Source: Good Food Guide 2025</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Ranked by Good Food Guide recognition</p>
+          <h2 class="venues__title">{venues.length} hatted and hatted-adjacent rooms</h2>
+          <p class="venues__sub">Two-hat venues first, then one-hat, then the AGFG-recognised rooms working below the GFG list.</p>
+        </div>
+        <a href="/eat/" class="venues__link">All dining venues →</a>
+      </div>
+      <div class="venues__grid venues__grid--ranked">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>How many hatted restaurants are on the Mornington Peninsula?</h3>
+        <p>The Good Food Guide awarded 15 hats across 11 Peninsula venues — four two-hat restaurants and seven one-hat restaurants. The Australian Good Food Guide recognises additional venues including Lancemore Lindenderry Dining Room (two AGFG hats) and Paringa Estate (one AGFG hat).</p>
+        <h3>Which hatted restaurants accept walk-ins?</h3>
+        <p>Rare Hare (Merricks North) is walk-in only — no reservations taken. Many Little Bar & Dining (Red Hill South) takes walk-ins for some sessions. Montalto's Piazza is walk-in daily as a casual alternative to the main restaurant. All other hatted venues require bookings.</p>
+        <h3>How far ahead do I need to book?</h3>
+        <p>Laura: four months ahead. Barragunda: book immediately when dates open — extremely hard to get. Tedesca: weeks ahead for Friday to Monday lunch. Ten Minutes by Tractor: four to eight weeks for weekend lunch. Doot Doot Doot: two to four weeks ahead.</p>
+        <h3>What are the best hatted venues for a special occasion?</h3>
+        <p>Laura at Pt. Leo Estate is the strongest special-occasion choice — the sculpture park setting, Relais & Châteaux membership, and consistent two-hat recognition make it the clearest destination-restaurant argument on the Peninsula. Barragunda Dining is the newest and most talked-about; Tedesca Osteria is the most personal and farm-driven.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">More ways to eat on the Peninsula</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/fine-dining/">Fine Dining</a></h3><p class="venue-card__signature">The destination dining rooms worth planning a whole Peninsula day around.</p><a href="/eat/fine-dining/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/long-lunch/">Long Lunch</a></h3><p class="venue-card__signature">Two to three hours at the table, estate wine, and a reason not to drive home at noon.</p><a href="/eat/long-lunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/hatted-restaurants-mornington-peninsula-2025/">Full Hat Guide</a></h3><p class="venue-card__signature">The complete Good Food Guide hat table with booking realities and what each restaurant actually is.</p><a href="/journal/hatted-restaurants-mornington-peninsula-2025/" class="venue-card__cta">Read the guide →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
