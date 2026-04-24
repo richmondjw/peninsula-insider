@@ -15,6 +15,22 @@ const venues = (await getCollection('venues'))
 const topVenues = venues.slice(0, 15);
 const top3Names = topVenues.slice(0, 3).map((v) => v.data.name);
 
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Restaurants Mornington Peninsula',
+  description: 'The editorial ranked list of the best restaurants on the Mornington Peninsula, ordered from most authoritative to most approachable.',
+  url: 'https://peninsulainsider.com.au/eat/best-restaurants/',
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  numberOfItems: topVenues.length,
+  itemListElement: topVenues.map((v, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: v.data.name,
+    url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+  })),
+};
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -59,6 +75,7 @@ const breadcrumbItems = [
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/best-restaurants"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
@@ -113,5 +130,15 @@ const breadcrumbItems = [
   </section>
 
 
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header"><div><p class="label label--accent">Go deeper</p><h2 class="venues__title">Browse by category</h2></div></div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/hatted-restaurants/">Hatted Restaurants</a></h3><p class="venue-card__signature">Good Food Guide hat table with booking realities for every venue.</p><a href="/eat/hatted-restaurants/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/long-lunch/">Long Lunch</a></h3><p class="venue-card__signature">The rooms that carry a whole afternoon — two to three hours at the table.</p><a href="/eat/long-lunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/fine-dining/">Fine Dining</a></h3><p class="venue-card__signature">Destination dining rooms worth planning a whole Peninsula day around.</p><a href="/eat/fine-dining/" class="venue-card__cta">See the list →</a></div>
+      </div>
+    </div>
+  </section>
   <NewsletterBlock />
 </BaseLayout>
