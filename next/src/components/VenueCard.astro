@@ -41,19 +41,22 @@ const placeLabel = String(data.place?.id ?? data.place ?? '')
 
 const shortAddress = data.address?.split(',').slice(-2).join(',').trim() ?? '';
 const hats = data.authority?.hats ?? 0;
+const moodTags = Array.isArray(data.tags?.mood) ? data.tags.mood.slice(0, 2) : [];
+const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 ---
 
 <article class="venue-card">
+  <div class="venue-card__wash"></div>
   <div class="venue-card__top">
     <span class="venue-card__type">
-      {typeLabel[data.type] ?? data.type} · <a href={`/places/${data.place?.id ?? data.place}`} class="venue-card__place-link">{placeLabel}</a>
+      {typeLabel[data.type] ?? data.type}
     </span>
-    <span class="venue-card__price">{data.priceBand}</span>
+    <a href={`/places/${data.place?.id ?? data.place}`} class="venue-card__place-link">{placeLabel}</a>
   </div>
   <h3 class="venue-card__name">
     <a href={href}>{data.name}</a>
   </h3>
-  <p class="venue-card__place">{shortAddress}</p>
+  {summaryLine && <p class="venue-card__place">{summaryLine}</p>}
   {hats > 0 && (
     <div class="venue-card__hats" aria-label={`${hats} Good Food Guide hat${hats > 1 ? 's' : ''}`}>
       {Array.from({ length: hats }).map(() => (
@@ -62,10 +65,15 @@ const hats = data.authority?.hats ?? 0;
     </div>
   )}
   <p class="venue-card__signature">{data.signature}</p>
+  {moodTags.length > 0 && (
+    <div class="venue-card__tags">
+      {moodTags.map((tag: string) => <span class="venue-card__tag">{tag.replace(/-/g, ' ')}</span>)}
+    </div>
+  )}
   <div class="venue-card__actions">
-    <a href={href} class="venue-card__cta">Editor's notes →</a>
+    <a href={href} class="venue-card__cta">Read notes</a>
     {data.bookingUrl && data.bookingProvider !== 'none' && (
-      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>Book →</a>
+      <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>Book</a>
     )}
   </div>
 </article>
