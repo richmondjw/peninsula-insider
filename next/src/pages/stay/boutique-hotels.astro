@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['flinders-hotel','hotel-sorrento','lindenderry','jackalope','the-continental-sorrento'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Boutique Hotels' }];
+---
+<BaseLayout title="Boutique Hotels Mornington Peninsula · Peninsula Insider" description="The best boutique hotels on the Mornington Peninsula, from Flinders and Sorrento to Red Hill design-led stays." section="stay" canonical="https://peninsulainsider.com.au/stay/boutique-hotels/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Boutique Hotels on the Mornington Peninsula</h1><div class="prose"><p>The Peninsula's boutique hotels work best when they feel grounded in place rather than merely upscale. That usually means village access, architectural character, or a clear relationship to the hinterland and coast. <a href="/stay/flinders-hotel/">Flinders Hotel</a>, <a href="/stay/hotel-sorrento/">Hotel Sorrento</a>, <a href="/stay/lindenderry/">Lindenderry</a>, and <a href="/stay/jackalope/">Jackalope</a> all do that in different registers.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Boutique stays</p><h2 class="venues__title">{venues.length} boutique hotels worth prioritising</h2><p class="venues__sub">Character over scale, and a stronger sense of place than generic accommodation stock.</p></div><a href="/stay/" class="venues__link">All stays →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>

@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['point-leo-estate-villas','polperro-villas','crittenden-villas','sorrento-coastal-retreat'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Villas' }];
+---
+<BaseLayout title="Villas Mornington Peninsula · Peninsula Insider" description="The best villa stays on the Mornington Peninsula, including vineyard villas and refined coastal retreats." section="stay" canonical="https://peninsulainsider.com.au/stay/villas/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Villa Stays on the Mornington Peninsula</h1><div class="prose"><p>The Peninsula's best villa stays are less about scale than privacy, setting, and how well they carry a long weekend. Vineyard villas in Merricks and Red Hill work differently from coastal villas in Sorrento, but the principle is the same: the stay should hold the trip together without forcing hotel behaviour onto a trip that wants more room to breathe.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Villa stays</p><h2 class="venues__title">{venues.length} villa bases worth booking well</h2><p class="venues__sub">Private, slower, and strongest when the trip needs more than a room and a lobby.</p></div><a href="/stay/winery-accommodation/" class="venues__link">Wine-country stays →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>

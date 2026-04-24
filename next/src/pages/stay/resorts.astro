@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['peninsula-hot-springs','one-spa-racv-cape-schanck','alba-thermal-springs'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Resorts & Retreats' }];
+---
+<BaseLayout title="Resorts and Retreats Mornington Peninsula · Peninsula Insider" description="Thermal, spa, and retreat-style accommodation on the Mornington Peninsula for slower, wellness-led escapes." section="stay" canonical="https://peninsulainsider.com.au/stay/resorts/" modifiedTime="2026-04-24">
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article"><div class="container"><h1 class="article__title">Resorts and Retreats on the Mornington Peninsula</h1><div class="prose"><p>Strictly speaking, parts of this category sit adjacent to accommodation rather than inside it, but from a Peninsula trip-shaping perspective the logic is coherent: readers want the thermal, resort, or retreat-style stay that lets them disappear for a night or two without turning the trip into a generic hotel booking.</p><p>The strongest versions of that on the Peninsula cluster around Fingal and Cape Schanck, where wellness, slower pace, and enough spatial separation from the busier coastal villages combine properly.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Resort-style stays</p><h2 class="venues__title">Thermal and retreat-led Peninsula bases</h2><p class="venues__sub">For readers who want the escape itself to be the product.</p></div><a href="/explore/hot-springs/" class="venues__link">Hot springs →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>

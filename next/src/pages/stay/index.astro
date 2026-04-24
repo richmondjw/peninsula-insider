@@ -23,6 +23,19 @@ const featuredStays = featuredStaySlugs
   .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
+const stayHubs = [
+  { href: '/stay/luxury/', label: 'Luxury', sub: 'Design hotels, vineyard villas, refined coastal bases' },
+  { href: '/stay/boutique-hotels/', label: 'Boutique Hotels', sub: 'Character stays in Flinders, Sorrento, and Red Hill' },
+  { href: '/stay/winery-accommodation/', label: 'Winery Accommodation', sub: 'Stay where the long lunch actually happens' },
+  { href: '/stay/couples/', label: 'Couples', sub: 'Stays that properly shape a weekend for two' },
+  { href: '/stay/dog-friendly/', label: 'Dog-Friendly', sub: 'Useful stays when the dog is coming too' },
+  { href: '/stay/glamping/', label: 'Glamping', sub: 'Thermal and experience-led stays' },
+  { href: '/stay/villas/', label: 'Villas', sub: 'Private Peninsula bases with room to breathe' },
+  { href: '/stay/cottages/', label: 'Cottages', sub: 'Slow rural weekends and fireplace logic' },
+  { href: '/stay/resorts/', label: 'Resorts & Retreats', sub: 'Wellness, thermal, and retreat-style stays' },
+  { href: '/stay/where-to-stay-mornington-peninsula/', label: 'Where to Base Yourself', sub: 'How to choose the right Peninsula zone' },
+];
+
 // Split stays by geography  -  ridge, coast, bay  -  so the hub starts to feel
 // like a geography-first choice rather than a flat list.
 const ridgeZones = ['red-hill-plateau', 'hinterland'];
@@ -163,6 +176,27 @@ const breadcrumbItems = [
       </div>
     </section>
   )}
+
+  <section class="venues venues--plain" id="browse-stay-hubs">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Browse by stay type</p>
+          <h2 class="venues__title">The stay section, fully organised</h2>
+          <p class="venues__sub">Start with the kind of Peninsula weekend you want, then move into the right properties and zones.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        {stayHubs.map((hub) => (
+          <div class="venue-card">
+            <h3 class="venue-card__name"><a href={hub.href}>{hub.label}</a></h3>
+            <p class="venue-card__signature">{hub.sub}</p>
+            <a href={hub.href} class="venue-card__cta">Explore →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
   {vineyardStays.length > 0 && (
     <section class="venues venues--plain" id="vineyard">
