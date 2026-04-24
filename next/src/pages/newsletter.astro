@@ -5,6 +5,7 @@ import CoverHero from '../components/CoverHero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import SubscribeForm from '../components/SubscribeForm.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { routeSlug } from '../lib/editorial';
 
 const breadcrumbItems = [
@@ -35,7 +36,7 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
     headlineEm="every week."
     headlineEmPrefix=""
     dek="New openings, cellar door dispatches, and the places we're quietly recommending this season. Written by editors who live here — never by advertisers."
-    ctaPrimary={{ label: 'Subscribe free', href: '#newsletter-bottom' }}
+    ctaPrimary={{ label: 'Subscribe free', href: '#newsletter' }}
     ctaSecondary={{ label: 'See recent pieces', href: '#recent-pieces' }}
     journalLink={{ label: 'Or start reading the Journal →', href: '/journal' }}
   />
@@ -106,7 +107,7 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
             <h2 class="venues__title">The kind of writing subscribers receive first</h2>
             <p class="venues__sub">These pieces mirror the editorial voice of the newsletter — service-first, opinionated, and built around real decisions.</p>
           </div>
-          <a href="/journal" class="venues__link">More in the Journal →</a>
+          <a href="/journal/" class="venues__link">More in the Journal →</a>
         </div>
         <div class="venues__grid">
           {previewPieces.map((article) => <ArticleCard article={article} />)}
@@ -115,20 +116,5 @@ const previewPieces = dispatches.length > 0 ? dispatches : highlights;
     </section>
   )}
 
-  <!-- Final CTA — dark block -->
-  <section class="newsletter" id="newsletter-bottom" aria-label="Newsletter signup">
-    <div class="container">
-      <div class="newsletter__stack">
-        <p class="newsletter__label">One more time</p>
-        <h2 class="newsletter__title">Join the list. Skip the noise.</h2>
-        <p class="newsletter__body">If you visit the Peninsula — or just think about it — this is the one email worth opening.</p>
-        <SubscribeForm variant="dark" source="newsletter-page" />
-        <div class="newsletter__proof-row" aria-hidden="true">
-          <span>Weekly dispatch</span>
-          <span>Independent picks</span>
-          <span>Privacy respected</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <NewsletterBlock />
 </BaseLayout>

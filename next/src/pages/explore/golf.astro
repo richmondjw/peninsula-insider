@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Mornington Peninsula Golf Courses — Peninsula Insider',
+  description: 'All 11 Mornington Peninsula golf courses ranked. Public vs private, what to book, best value, best views.',
+  path: '/explore/golf',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Mornington Peninsula Golf Courses',
+  description: '11 Mornington Peninsula golf courses ranked by editorial value.',
+  listPath: '/explore/golf',
+  items: [
+    { name: 'Moonah Links', path: '/explore/moonah-links', itemType: 'GolfCourse', addressLocality: 'Fingal' },
+    { name: 'The National Golf Club', path: '/explore/the-national-golf-club', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
+    { name: 'St Andrews Beach Golf Course', path: '/explore/st-andrews-beach-golf-course', itemType: 'GolfCourse', addressLocality: 'Fingal' },
+    { name: 'RACV Cape Schanck Resort Golf Course', path: '/explore/racv-cape-schanck-golf-course', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
+    { name: 'Flinders Golf Club', path: '/explore/flinders-golf-club', itemType: 'GolfCourse', addressLocality: 'Flinders' },
+    { name: 'Eagle Ridge Golf Course', path: '/explore/eagle-ridge-golf-course', itemType: 'GolfCourse', addressLocality: 'Merricks North' },
+    { name: 'Mornington Golf Club', path: '/explore/mornington-golf-club', itemType: 'GolfCourse', addressLocality: 'Mornington' },
+    { name: 'The Dunes Golf Links', path: '/explore/the-dunes-golf-links', itemType: 'GolfCourse', addressLocality: 'Rye' },
+    { name: 'Sorrento Golf Club', path: '/explore/sorrento-golf-club', itemType: 'GolfCourse', addressLocality: 'Sorrento' },
+    { name: 'Portsea Golf Club', path: '/explore/portsea-golf-club', itemType: 'GolfCourse', addressLocality: 'Portsea' },
+    { name: 'Rosebud Country Club', path: '/explore/rosebud-country-club', itemType: 'GolfCourse', addressLocality: 'Rosebud' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'What is the best golf course on the Mornington Peninsula?',
+    a: "The National's Ocean Course is the most cited for prestige. Moonah Links' Open Course delivers better value and a more enjoyable round for most visiting golfers.",
+  },
+  {
+    q: 'Can you play golf on the Mornington Peninsula without a club membership?',
+    a: 'Yes. Moonah Links, The National (Ocean Course), St Andrews Beach, RACV Cape Schanck, Flinders, Mornington, The Dunes, and Rosebud Country Club all accept visitor green fees.',
+  },
+  {
+    q: 'How much does golf cost on the Mornington Peninsula?',
+    a: 'Rates vary significantly. Expect to pay a premium at The National and Moonah Links. St Andrews Beach, Mornington, Rosebud, and The Dunes are more accessible in price.',
+  },
+  {
+    q: 'Is there accommodation near the Peninsula golf courses?',
+    a: 'RACV Cape Schanck Resort is on-site. Moonah Links has nearby accommodation. Read the stay-and-play options for the full picture.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Golf' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Golf' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Golf Courses — 11 Courses Ranked · Peninsula Insider"
+  description="All 11 Mornington Peninsula golf courses ranked. Moonah Links, The National, St Andrews Beach, Flinders, and more — public access, best value, best views."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/golf/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Mornington Peninsula Golf</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>The Peninsula has 11 golf courses in this guide — ranging from sandbelt-adjacent private clubs to accessible public links.</li>
+            <li>Moonah Links and The National are the two marquee public-access courses; side by side at Cape Schanck.</li>
+            <li>St Andrews Beach is the best value experience of the three Cape Schanck courses.</li>
+            <li>All courses in this guide accept green-fee visitors unless marked Private.</li>
+          </ul>
+        </blockquote>
+
+        <p>The Mornington Peninsula, Victoria, Australia has one of the most concentrated collections of notable golf courses of any region in Australia. The southern end — around Cape Schanck and Fingal — has three world-ranked courses within 10 minutes of each other. The bay-side corridor from Mornington to Sorrento has a further run of accessible public and semi-private clubs. This hub ranks 11 courses in editorial order — not by prestige rankings but by what a visiting golfer actually gets for their money and time.</p>
+
+        <h2>The 11 courses ranked</h2>
+
+        <h3>The Cape Schanck / Fingal group</h3>
+
+        <h4>1. Moonah Links — Fingal</h4>
+        <p><em>Access:</em> Public green fees. <em>Format:</em> 36 holes (Open Course + Legends Course). <em>Difficulty:</em> Challenging.</p>
+        <p>The Peninsula's most consistently excellent public-access golf. The Open Course is a Peter Thomson/Ross Perrett sandbelt design that has hosted the Australian Open. Strong ocean views on several holes. Better value than The National for mid-handicappers who want a great round rather than a punishment. The Legends Course is shorter, more accessible, and worth playing if you want a second round without the Open Course's exposure.</p>
+        <p><em>Best for:</em> Mid-handicap players wanting a top-tier round. Anyone hosting a group.</p>
+
+        <h4>2. The National Golf Club — Cape Schanck</h4>
+        <p><em>Access:</em> Public green fees (Ocean Course). Private for members (Moonah/Gunnamatta courses).</p>
+        <p>The National's Ocean Course is the most-discussed and most-photographed course on the Peninsula. Clifftop holes over Bass Strait. Regularly listed among Australia's top ten courses. Expensive. Exposed and difficult in wind. For a single-digit handicapper, it delivers. For mid-handicappers who need to focus on the round rather than the scenery, Moonah Links is a better experience.</p>
+        <p><em>Best for:</em> Low-handicap players seeking a bucket-list round. Groups who want the "best on the Peninsula" experience.</p>
+
+        <h4>3. St Andrews Beach Golf Course — Fingal</h4>
+        <p><em>Access:</em> Public green fees. <em>Format:</em> 18 holes.</p>
+        <p>Often overlooked between its famous neighbours, St Andrews Beach is a genuinely enjoyable course with good ocean views, less exposure than The National, and a substantially lower green fee. The clubhouse experience is relaxed. Best value of the three Cape Schanck courses.</p>
+        <p><em>Best for:</em> Those who want Cape Schanck golf without the premium price or the difficulty.</p>
+
+        <h4>4. RACV Cape Schanck Resort Golf Course — Cape Schanck</h4>
+        <p><em>Access:</em> Public green fees; resort guests. <em>Format:</em> 18 holes.</p>
+        <p>A Graham Marsh resort design. Not at the level of Moonah or National in prestige but a solid resort round, and the only option in this cluster that integrates directly with accommodation and spa. Good for golf-and-wellness trips.</p>
+        <p><em>Best for:</em> Resort stays. Golf + spa combination days. Accessible difficulty.</p>
+
+        <h3>Bay corridor clubs (Mornington to Sorrento)</h3>
+
+        <h4>5. Flinders Golf Club — Flinders</h4>
+        <p><em>Access:</em> Public green fees. <em>Format:</em> 18 holes.</p>
+        <p>Cliff-top and paddock golf with Bass Strait views on several holes. The club punches above its tier in scenery. A genuine hidden-gem course that most Melbourne golfers haven't played. The town of <a href="/places/flinders/">Flinders</a> adds a worthwhile food-and-drink stop afterward.</p>
+        <p><em>Best for:</em> Those based in the south; golfers who want ocean views without Cape Schanck prices.</p>
+
+        <h4>6. Eagle Ridge Golf Course — Merricks North</h4>
+        <p><em>Access:</em> Public green fees. <em>Format:</em> 18 holes.</p>
+        <p>Hinterland setting, rolling terrain. Not the ocean drama of the Cape courses but a well-regarded public course in the hinterland corridor. Near several Red Hill wineries for a natural pairing.</p>
+        <p><em>Best for:</em> Hinterland-based visits; combining with a winery lunch.</p>
+
+        <h4>7. Mornington Golf Club — Mornington</h4>
+        <p><em>Access:</em> Public green fees. <em>Format:</em> 18 holes.</p>
+        <p>Bay-side position, accessible pricing, and a comfortable clubhouse. The Peninsula's most approachable layout for high-handicappers and occasional golfers. <a href="/places/mornington/">Mornington town</a> is immediately adjacent.</p>
+        <p><em>Best for:</em> High-handicappers. Social golf. A town day that includes a round.</p>
+
+        <h4>8. The Dunes Golf Links — Rye</h4>
+        <p><em>Access:</em> Public green fees. <em>Format:</em> 18 holes.</p>
+        <p>Links-style layout in the dune country near Rye. Less dramatic than the Cape Schanck group but a genuine links feel and affordable. Exposed to wind — plays completely differently in a south-westerly.</p>
+        <p><em>Best for:</em> Links enthusiasts. Midweek green fees at accessible pricing.</p>
+
+        <h4>9. Sorrento Golf Club — Sorrento</h4>
+        <p><em>Access:</em> Members and guest days. Visitor green fees available but check availability. <em>Format:</em> 18 holes.</p>
+        <p>One of the Peninsula's older clubs, in a clifftop setting at the tip. Semi-private with visitor access on non-competition days. Call ahead. The position is outstanding.</p>
+        <p><em>Best for:</em> Those staying in Sorrento who want a local round.</p>
+
+        <h4>10. Portsea Golf Club — Portsea</h4>
+        <p><em>Access:</em> Members and reciprocal. Limited visitor access.</p>
+        <p>Largely private. The course occupies part of the Point Nepean headland. Outstanding natural setting; restricted access.</p>
+        <p><em>Best for:</em> Members and reciprocal club visitors only.</p>
+
+        <h4>11. Rosebud Country Club — Rosebud</h4>
+        <p><em>Access:</em> Public green fees. <em>Format:</em> 18 holes.</p>
+        <p>The most accessible public course in the mid-Peninsula. Flat, straightforward, and affordable. Not a destination round but a convenient option for those based in the Rosebud/Rye corridor.</p>
+        <p><em>Best for:</em> Convenience; high-handicappers; family groups.</p>
+
+        <h2>Public vs private: the access picture</h2>
+        <table>
+          <thead><tr><th>Fully public</th><th>Semi-private (call ahead)</th><th>Primarily private</th></tr></thead>
+          <tbody>
+            <tr><td>Moonah Links</td><td>Sorrento Golf Club</td><td>Portsea Golf Club</td></tr>
+            <tr><td>The National (Ocean Course)</td><td>Eagle Ridge</td><td>The National (Moonah/Gunnamatta)</td></tr>
+            <tr><td>St Andrews Beach</td><td></td><td></td></tr>
+            <tr><td>RACV Cape Schanck</td><td></td><td></td></tr>
+            <tr><td>Flinders Golf Club</td><td></td><td></td></tr>
+            <tr><td>Mornington Golf Club</td><td></td><td></td></tr>
+            <tr><td>The Dunes</td><td></td><td></td></tr>
+            <tr><td>Rosebud Country Club</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Stay and play</h2>
+        <p>For a full golf-stay itinerary, see the <a href="/journal/mornington-peninsula-golf-stay-and-play/">stay-and-play editorial</a>. The RACV Cape Schanck Resort and Moonah Links both offer on-site accommodation.</p>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>What is the best golf course on the Mornington Peninsula?</h3>
+        <p>The National's Ocean Course is the most cited for prestige. Moonah Links' Open Course delivers better value and a more enjoyable round for most visiting golfers.</p>
+
+        <h3>Can you play golf on the Mornington Peninsula without a club membership?</h3>
+        <p>Yes. Moonah Links, The National (Ocean Course), St Andrews Beach, RACV Cape Schanck, Flinders, Mornington, The Dunes, and Rosebud Country Club all accept visitor green fees.</p>
+
+        <h3>How much does golf cost on the Mornington Peninsula?</h3>
+        <p>Rates vary significantly. Expect to pay a premium at The National and Moonah Links. St Andrews Beach, Mornington, Rosebud, and The Dunes are more accessible.</p>
+
+        <h3>Is there accommodation near the Peninsula golf courses?</h3>
+        <p>RACV Cape Schanck Resort is on-site. Moonah Links has nearby accommodation.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

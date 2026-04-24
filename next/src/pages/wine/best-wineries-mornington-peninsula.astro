@@ -1,0 +1,202 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
+const allVenues = (await getCollection('venues'))
+  .filter((v) => wineTypes.includes(v.data.type));
+
+// Halliday-scored estates first, then alphabetical
+const scored = allVenues
+  .filter((v) => v.data.authority?.hallidayScore)
+  .sort((a, b) => Number(b.data.authority.hallidayScore) - Number(a.data.authority.hallidayScore));
+const unscored = allVenues
+  .filter((v) => !v.data.authority?.hallidayScore)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const ranked = [...scored, ...unscored];
+
+// Sub-region buckets
+const redHillPlaces = ['red-hill', 'red-hill-south', 'main-ridge'];
+const redHill = ranked.filter((v) => redHillPlaces.includes(String(v.data.place?.id ?? v.data.place ?? '')));
+const merricks = ranked.filter((v) => ['merricks', 'merricks-north'].includes(String(v.data.place?.id ?? v.data.place ?? '')));
+const other = ranked.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return !redHillPlaces.includes(p) && !['merricks', 'merricks-north'].includes(p);
+});
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What are the best wineries on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The benchmark estates are Kooyong, Paringa Estate, Ocean Eight, Polperro, and Dexter Wines — all concentrated on the Red Hill plateau and Main Ridge. These are the producers consistently rated at the top of the Peninsula by James Halliday and other national critics. Below them, a strong mid-tier of boutique wineries makes the Peninsula one of Australia\'s richest cool-climate wine regions.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between a winery and a cellar door on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Every estate with a tasting room is technically both a winery and a cellar door. "Winery" refers to the whole operation — the vineyard, the winemaking facility, the label. "Cellar door" specifically means the tasting and retail space where visitors buy wine direct. When people search for "best wineries," they typically mean the full estate experience: land, wine, food, and the sense of place. The Mornington Peninsula has over 50 working estates open to visitors.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which sub-region has the best wineries on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Red Hill and Main Ridge form the densest cluster of serious estates — the altitude and basalt soils produce the Peninsula\'s most structured Pinot Noir and Chardonnay. Merricks and Merricks North are quieter but contain Polperro and Pt. Leo Estate, two of the Peninsula\'s most ambitious producers. The coastal sub-regions (Dromana, Mornington, Moorooduc) have strong individual estates but are more scattered.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you do a self-drive winery tour on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — the Red Hill plateau is compact enough that four or five cellar doors can be visited in a single morning on a self-drive route. The standard circuit runs Moorooduc → Dromana → Red Hill South → Main Ridge → Merricks, a loop of under 40 kilometres. Most serious estates require appointments for tastings, especially smaller producers — always check before you arrive. Designated driver or a car tour operator is the responsible approach for a full day.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the best time to visit Mornington Peninsula wineries?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Autumn (March–May) is peak season: vintage is underway, cellar doors have fires lit, and the plateau is at its most atmospheric. Spring brings new vintage releases with lower crowds. Summer is the busiest period — book ahead and expect the vineyard restaurants to be full. Winter is the best-kept secret: most estates stay open with reduced hours, the coast empties out, and the Pinot is at its most approachable.',
+      },
+    },
+  ],
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Wine Country', href: '/wine' },
+  { label: 'Best Wineries' },
+];
+---
+
+<BaseLayout
+  title="Best Wineries Mornington Peninsula · Peninsula Insider"
+  description="The best wineries on the Mornington Peninsula — editorial picks across Red Hill, Main Ridge, and Merricks. The estates, the sub-regions, and how to plan the visit properly."
+  section="wine"
+  canonical="https://peninsulainsider.com.au/wine/best-wineries-mornington-peninsula"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">The Best Wineries on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <p>The Mornington Peninsula is one of Australia's most consistently excellent cool-climate wine regions. With over 200 growers working the Red Hill plateau and its surrounding sub-regions, the question is no longer whether the drive is worth it — it's knowing which estates to visit and in what order. This list is editorial. No advertising, no paid placement. The wine has been drunk at the source.</p>
+
+        <p>The Peninsula's signature varieties are Pinot Noir and Chardonnay, shaped by a maritime climate and the free-draining basalt soils of the ridge. The best wineries here are not just producing strong wine — they're doing it in locations that justify sitting down for an hour. A tasting paired with a lunch at the right estate is still one of the best ways to spend a Peninsula day.</p>
+
+        <p>The list is organised by sub-region, with the Halliday-scored benchmark estates leading each section. Below them: the smaller rooms doing quiet, interesting work that rarely makes the tourism brochures.</p>
+      </div>
+    </div>
+  </article>
+
+  {redHill.length > 0 && (
+    <section class="venues" id="red-hill">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Red Hill · Main Ridge · Red Hill South</p>
+            <h2 class="venues__title">The plateau — the Peninsula's wine heartland</h2>
+            <p class="venues__sub">The highest concentration of serious estates on the Peninsula. Kooyong, Paringa, Ocean Eight, and Dexter are all here — alongside a dense cluster of smaller producers that rewards a full day.</p>
+          </div>
+          <a href="/wine/" class="venues__link">All producers →</a>
+        </div>
+        <div class="venues__grid">
+          {redHill.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {merricks.length > 0 && (
+    <section class="venues venues--plain" id="merricks">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Merricks · Merricks North</p>
+            <h2 class="venues__title">The coastal flank — Polperro, Pt. Leo, and the bayside estates</h2>
+            <p class="venues__sub">Slightly lower altitude, slightly warmer — but some of the Peninsula's most ambitious producers have staked ground here. Polperro and Pt. Leo Estate are the anchors.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {merricks.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {other.length > 0 && (
+    <section class="venues" id="other">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Dromana · Moorooduc · Mornington · Balnarring</p>
+            <h2 class="venues__title">The wider region — strong individual estates worth finding</h2>
+            <p class="venues__sub">Scattered across the broader Peninsula, these producers are worth visiting on their own terms — especially Crittenden Estate at Dromana and Quealy in Balnarring.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {other.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Planning your winery visit</h2>
+
+        <h3>What makes the Mornington Peninsula wine region different?</h3>
+        <p>Scale and style. The Peninsula is a small, maritime-influenced region producing cool-climate wines at a fraction of the volume of the Yarra Valley or Barossa. The best Pinot Noirs here have a structural elegance — they're lighter in colour and weight than warmer-climate versions, with high acidity and fine tannin. The Chardonnays are restrained, minerally, and built for the table. This is food wine in a food region, which is why the combination of cellar door + restaurant works so well here.</p>
+
+        <h3>Do I need to book cellar doors in advance?</h3>
+        <p>Smaller boutique producers require appointments — often a week or more ahead in summer. Larger estates like Montalto, Crittenden, and Kooyong are generally open without bookings, though the restaurant tables always require a reservation. Check each estate's website before visiting; opening hours and booking requirements shift seasonally, and many reduce days in winter.</p>
+
+        <h3>Red Hill vs Main Ridge vs Merricks</h3>
+        <p>Red Hill and Red Hill South have the highest density of cellar doors in the smallest area — good for a self-drive half-day. Main Ridge is quieter, with the highest altitude estates (Ocean Eight, Dexter) producing the Peninsula's most structured wines. Merricks sits lower and warmer, closer to the coast — Polperro and Pt. Leo Estate define what this sub-region can do. A two-day visit can cover all three if you're not rushing.</p>
+
+        <h3>What food goes with Mornington Peninsula wine?</h3>
+        <p>The Peninsula's best restaurants have been designed around the local wine. Pinot Noir pairs with mushrooms, duck, salmon, and the wood-fired preparations that characterise places like Montalto, Paringa, and Ten Minutes by Tractor. Chardonnay works with anything briny — oysters, cured fish, the Peninsula's excellent cheese producers. The rule here is simpler than anywhere: drink what's made nearby with what's grown nearby.</p>
+
+        <h3>Best Mornington Peninsula wineries for a day trip from Melbourne</h3>
+        <p>Crittenden Estate in Dromana is the closest serious cellar door to Melbourne — about an hour down the freeway, with a strong tasting room and good grounds. From there, Red Hill South and Main Ridge are another 20 minutes. A day-trip circuit from Melbourne can realistically cover three or four estates if you leave early, pick estates in sequence, and resist turning lunch into a three-hour event (or embrace it).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Plan the full wine weekend</p>
+          <h2 class="venues__title">More Peninsula wine guides</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <a href="/wine/best-cellar-doors/" class="venue-card__cta">Best Cellar Doors →</a>
+        <a href="/wine/wine-region/" class="venue-card__cta">The Wine Region Guide →</a>
+        <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
+        <a href="/places/red-hill/" class="venue-card__cta">Red Hill Guide →</a>
+        <a href="/places/main-ridge/" class="venue-card__cta">Main Ridge Guide →</a>
+        <a href="/stay/best-accommodation/" class="venue-card__cta">Where to Stay →</a>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

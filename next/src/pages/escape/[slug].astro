@@ -7,7 +7,7 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, stayTypes, titleize, venueHrefPrefix } from '../../lib/editorial';
+import { routeSlug, stayTypes, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
 
 const audienceLabel: Record<string, string> = {
   couple: 'Couples',
@@ -112,7 +112,7 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
   <section class="itinerary-detail">
     <div class="container">
       <div class="itinerary-detail__meta">
-        <a href="/escape" class="itinerary-detail__back">Escape</a>
+        <a href="/escape/" class="itinerary-detail__back">Escape</a>
         <span class="itinerary-detail__dot" aria-hidden="true"></span>
         <span class="itinerary-detail__nights">{nightsLabel}</span>
       </div>
@@ -126,7 +126,11 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
         {itinerary.data.totalDriveMinutes && <span>{itinerary.data.totalDriveMinutes} min driving</span>}
       </div>
 
-      <div class="itinerary-detail__hero feature__image-block feature__image-block--sand" aria-hidden="true">
+      <div
+        class="itinerary-detail__hero feature__image-block feature__image-block--sand"
+        aria-hidden="true"
+        style={heroBackgroundStyle(itinerary.data)}
+      >
         <div class="itinerary-detail__hero-fog"></div>
         <span class="itinerary-detail__hero-label">{itinerary.data.heroImage.alt}</span>
       </div>
@@ -184,7 +188,7 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
             )}
           </dl>
 
-          <a class="facts__cta" href="/stay">Choose the stay</a>
+          <a class="facts__cta" href="/stay/">Choose the stay</a>
         </aside>
       </div>
     </div>
@@ -198,7 +202,7 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
             <p class="label label--accent">Sleep here</p>
             <h2 class="venues__title">Stays that anchor this escape properly</h2>
           </div>
-          <a href="/stay" class="venues__link">All stays →</a>
+          <a href="/stay/" class="venues__link">All stays →</a>
         </div>
         <div class="venues__grid">
           {featuredStays.map((venue: any) => <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />)}
@@ -215,7 +219,7 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
             <p class="label label--accent">Move the trip outside</p>
             <h2 class="venues__title">Explore stops inside this plan</h2>
           </div>
-          <a href="/explore" class="venues__link">Explore →</a>
+          <a href="/explore/" class="venues__link">Explore →</a>
         </div>
         <div class="experience-grid">
           {highlightedExperiences.slice(0, 3).map((experience: any) => <ExperienceCard experience={experience} />)}
@@ -232,7 +236,7 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
             <p class="label label--accent">Further reading</p>
             <h2 class="venues__title">Journal pieces that sharpen this version of the Peninsula</h2>
           </div>
-          <a href="/journal" class="venues__link">Journal →</a>
+          <a href="/journal/" class="venues__link">Journal →</a>
         </div>
         <div class="venues__grid venues__grid--two">
           {relatedArticles.map((article) => <ArticleCard article={article} />)}
@@ -249,7 +253,7 @@ const ogImage = itinerary.data.heroImage?.src && !itinerary.data.heroImage.src.i
             <p class="label label--accent">Try another shape</p>
             <h2 class="venues__title">More escape plans from the rebuild</h2>
           </div>
-          <a href="/escape" class="venues__link">All escapes →</a>
+          <a href="/escape/" class="venues__link">All escapes →</a>
         </div>
         <div class="itinerary-grid">
           {relatedItineraries.map((entry) => <ItineraryCard itinerary={entry} />)}

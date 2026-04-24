@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Mornington Peninsula Hot Springs — Peninsula Insider Guide',
+  description: 'Peninsula Hot Springs vs Alba: when to go, how to book, what to pair with your soak. The editorial guide to thermal springs on the Mornington Peninsula.',
+  path: '/explore/hot-springs',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Mornington Peninsula Hot Springs',
+  description: 'Thermal springs operators on the Mornington Peninsula — Peninsula Hot Springs and Alba Thermal Springs.',
+  listPath: '/explore/hot-springs',
+  items: [
+    { name: 'Peninsula Hot Springs', path: '/stay/peninsula-hot-springs', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
+    { name: 'Alba Thermal Springs', path: '/stay/alba-thermal-springs', itemType: 'TouristAttraction', addressLocality: 'Rye' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'Do I need to book Peninsula Hot Springs in advance?',
+    a: 'Yes. Same-day booking on weekends is almost impossible in peak season (December–February, July school holidays). Book 1–2 weeks ahead for weekends. Midweek is easier.',
+  },
+  {
+    q: 'Can you visit Peninsula Hot Springs without booking ahead?',
+    a: 'Occasionally midweek in low season, but the risk of turning up to a full site is real. The website shows real-time availability.',
+  },
+  {
+    q: 'What is the difference between Peninsula Hot Springs and Alba?',
+    a: 'Peninsula Hot Springs is larger, older, and has more pool variety but is significantly busier on weekends. Alba is smaller, quieter, and easier to book.',
+  },
+  {
+    q: 'Are hot springs suitable in summer?',
+    a: 'Yes. Many pools are at 38–40°C year-round. Some sites offer cooler plunge pools. Winter soaks in the open air are uniquely atmospheric, but the springs operate year-round.',
+  },
+  {
+    q: 'Is there anything else near Peninsula Hot Springs to visit on the same day?',
+    a: 'Cape Schanck (15 minutes south) for a walk before the soak. Rye Ocean Beach (15 minutes north) for a surf-and-soak combination.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Hot Springs' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Hot Springs' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Hot Springs — Peninsula Hot Springs vs Alba · Peninsula Insider"
+  description="Peninsula Hot Springs vs Alba Thermal Springs: when to go, how to book, what to pair with your soak. The complete editorial guide to thermal springs on the Mornington Peninsula."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/hot-springs/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Mornington Peninsula Hot Springs</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>There are two thermal springs operators on the Mornington Peninsula: <a href="/stay/peninsula-hot-springs/">Peninsula Hot Springs</a> at Fingal and <a href="/stay/alba-thermal-springs/">Alba Thermal Springs</a> at Rye.</li>
+            <li>Peninsula Hot Springs is larger, older, more facilities — and more crowded. Book 1–2 weeks ahead on weekends, year-round.</li>
+            <li>Alba is newer, smaller, quieter, and easier to book. It suits visitors who find Peninsula Hot Springs too busy.</li>
+            <li>Both operate in all weather. Wet and cold days are, counter-intuitively, the best time to visit.</li>
+            <li>See the direct comparison at <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba</a>.</li>
+          </ul>
+        </blockquote>
+
+        <p>The Mornington Peninsula, Victoria, Australia sits above a geothermal aquifer that the Peninsula Hot Springs complex has been tapping since 2005. The thermal springs have become the Peninsula's most-booked paid experience — and the opening of <a href="/stay/alba-thermal-springs/">Alba Thermal Springs</a> at Rye gave visitors a genuine alternative for the first time.</p>
+
+        <h2>Peninsula Hot Springs</h2>
+
+        <p><strong>Location:</strong> Springs Lane, Fingal, VIC 3939. Getting there: 20 km south of Dromana via Boneo Road. Car access only — no public transport to the site.</p>
+
+        <p>Peninsula Hot Springs is the Peninsula's flagship thermal experience. The site covers a hillside at Fingal with over 60 bathing experiences — pools at different temperatures, a bathhouse, a spa facility, a day spa, glamping accommodation, and a café. The scale and range of experience types are genuinely unique in Victoria.</p>
+
+        <p><strong>What to expect:</strong> Bathing terraces built into a hillside, each pool at a different temperature (typically 38–42°C for the main thermal pools). The hilltop pool has the best views. The cave pool is popular and often crowded. Crowds are the main complaint — Saturday mornings in summer can feel less like relaxation and more like managing queues between pools.</p>
+
+        <p><strong>Best time to visit:</strong></p>
+        <ul>
+          <li><strong>Midweek:</strong> Noticeably quieter. Monday–Thursday.</li>
+          <li><strong>Winter:</strong> The contrast between cold air and hot water is the whole point. Also the most atmospheric. Book a midweek slot in July for the Peninsula's peak immersive experience.</li>
+          <li><strong>Early morning or evening session:</strong> Avoid the 11am–3pm peak window.</li>
+          <li><strong>Avoid:</strong> Saturday afternoons in summer. Long queues between pools are the rule not the exception.</li>
+        </ul>
+
+        <h2>Alba Thermal Springs</h2>
+
+        <p><strong>Location:</strong> Rye, VIC. Getting there: within Rye township, accessible from the Nepean Highway.</p>
+
+        <p>Alba opened after Peninsula Hot Springs and positioned itself deliberately as a quieter, more design-focused alternative. Fewer pools — and fewer people. The site is smaller, which is its primary differentiator: you are unlikely to feel crowded at Alba on a midweek visit, and even peak weekends are more manageable than Peninsula Hot Springs.</p>
+
+        <p>Less variety than Peninsula Hot Springs; more consistency in the quality of each experience. The design aesthetic is considered where Peninsula Hot Springs has grown organically.</p>
+
+        <h2>Deciding between them</h2>
+
+        <p>See the full editorial analysis at <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba</a>. In brief:</p>
+
+        <table>
+          <thead><tr><th></th><th>Peninsula Hot Springs</th><th>Alba</th></tr></thead>
+          <tbody>
+            <tr><td>Scale</td><td>Large (60+ pools)</td><td>Small (curated selection)</td></tr>
+            <tr><td>Crowd level</td><td>High on weekends</td><td>Lower, even on weekends</td></tr>
+            <tr><td>Booking difficulty</td><td>Hard (weekends)</td><td>Easier</td></tr>
+            <tr><td>Atmosphere</td><td>Variable — calm to crowded</td><td>Consistently calmer</td></tr>
+            <tr><td>Best for</td><td>First-timers; maximum variety</td><td>Return visitors; those who want peace</td></tr>
+          </tbody>
+        </table>
+
+        <p>Peninsula Hot Springs is the place to understand what the fuss is about. Alba is the place to return to once you've ticked the main experience.</p>
+
+        <h2>What to pair with a hot springs visit</h2>
+        <ul>
+          <li><strong>Walk + soak:</strong> <a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> or <a href="/explore/bushrangers-bay-walk/">Bushrangers Bay walk</a> before an afternoon soak (both within 15–20 minutes by car).</li>
+          <li><strong>Dinner + soak:</strong> A midday soak followed by dinner at Fingal or in Rye.</li>
+          <li><strong>Spa + springs:</strong> Book a treatment at <a href="/explore/spas-and-wellness/">a Peninsula day spa</a> on the same day.</li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>Do I need to book Peninsula Hot Springs in advance?</h3>
+        <p>Yes. Same-day booking on weekends is almost impossible in peak season (December–February, July school holidays). Book 1–2 weeks ahead for weekends. Midweek is easier.</p>
+
+        <h3>Can you visit Peninsula Hot Springs without booking ahead?</h3>
+        <p>Occasionally midweek in low season, but the risk of turning up to a full site is real. The website shows real-time availability.</p>
+
+        <h3>What is the difference between Peninsula Hot Springs and Alba?</h3>
+        <p>Peninsula Hot Springs is larger, older, and has more pool variety but is significantly busier on weekends. Alba is smaller, quieter, and easier to book. Full comparison: <a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs vs Alba</a>.</p>
+
+        <h3>Are hot springs suitable in summer?</h3>
+        <p>Yes. Many pools are at 38–40°C year-round. Winter soaks in the open air are uniquely atmospheric, but the springs operate year-round.</p>
+
+        <h3>Is there anything else near Peninsula Hot Springs to visit on the same day?</h3>
+        <p>Cape Schanck (15 minutes south) for a walk before the soak. Rye Ocean Beach (15 minutes north) for a surf-and-soak combination.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

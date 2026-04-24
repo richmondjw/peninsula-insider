@@ -313,7 +313,7 @@ const isClosed = data.status === 'closed';
           <h2 class="venues__title">Stories that mention {data.name}</h2>
           <p class="venues__sub">These pieces give you the context a listing page never does  -  the when, the why, and the who-it's-for.</p>
         </div>
-        <a href="/journal" class="venues__link">Journal →</a>
+        <a href="/journal/" class="venues__link">Journal →</a>
       </div>
       <div class="venues__grid">
         {articles.map((article) => <ArticleCard article={article} />)}
@@ -331,7 +331,7 @@ const isClosed = data.status === 'closed';
           <h2 class="venues__title">Weekend plans that already include {data.name}</h2>
           <p class="venues__sub">Skip the planning  -  these itineraries sequence this venue into a proper Peninsula weekend.</p>
         </div>
-        <a href="/escape" class="venues__link">All escapes →</a>
+        <a href="/escape/" class="venues__link">All escapes →</a>
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -368,26 +368,26 @@ const isClosed = data.status === 'closed';
       </div>
     </div>
     <div class="venues__grid venues__grid--links">
-      <a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
+      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
       {(section === 'eat') && (
         <>
-          <a href="/journal/best-brunch-mornington-peninsula" class="venue-card__cta">Best Brunch Guide →</a>
-          <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Winery Tour Route →</a>
+          <a href="/journal/best-brunch-mornington-peninsula/" class="venue-card__cta">Best Brunch Guide →</a>
+          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Winery Tour Route →</a>
         </>
       )}
       {(section === 'wine') && (
         <>
-          <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Self-Drive Winery Tour →</a>
-          <a href="/eat/best-restaurants" class="venue-card__cta">Best Restaurants →</a>
+          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
+          <a href="/eat/best-restaurants/" class="venue-card__cta">Best Restaurants →</a>
         </>
       )}
       {(section === 'stay') && (
         <>
-          <a href="/journal/mornington-peninsula-in-winter" class="venue-card__cta">Winter Peninsula Guide →</a>
-          <a href="/journal/free-things-to-do-mornington-peninsula" class="venue-card__cta">Free Things to Do →</a>
+          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter Peninsula Guide →</a>
+          <a href="/journal/free-things-to-do-mornington-peninsula/" class="venue-card__cta">Free Things to Do →</a>
         </>
       )}
-      <a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Hot Springs Guide →</a>
+      <a href="/journal/mornington-peninsula-hot-springs-guide/" class="venue-card__cta">Hot Springs Guide →</a>
     </div>
   </div>
 </section>

@@ -36,7 +36,7 @@ const { h1, badgeLabel, introText, venues, breadcrumbs, faqItems = [] } = Astro.
         <h2 class="venues__title">{venues.length} producer{venues.length !== 1 ? 's' : ''}</h2>
         <p class="venues__sub">Ordered by editorial authority and Halliday score.</p>
       </div>
-      <a href="/wine" class="venues__link">All producers →</a>
+      <a href="/wine/" class="venues__link">All producers →</a>
     </div>
     <div class="venues__grid">
       {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}

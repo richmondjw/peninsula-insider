@@ -19,7 +19,7 @@ const base = process.env.ASTRO_BASE || undefined;
 export default defineConfig({
   site: 'https://peninsulainsider.com.au',
   base,
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   build: {
     format: 'directory',
   },
@@ -37,11 +37,31 @@ export default defineConfig({
     '/explore/mornington-peninsula-walk/': '/explore/walks/',
     '/walks/': '/explore/walks/',
 
+    // PI-EXP-006 — consolidate journal things-to-do article into hub
+    '/journal/things-to-do-mornington-peninsula/': '/explore/things-to-do/',
+
+    // PI-EXP-011 — beaches hub (absorbs journal beach guide)
+    '/journal/mornington-peninsula-beach-guide/': '/explore/beaches/',
+
+    // PI-EXP-012 — hot-springs hub (absorbs journal guide)
+    '/journal/mornington-peninsula-hot-springs-guide/': '/explore/hot-springs/',
+
+    // PI-EXP-013 — golf hub (absorbs two journal guide URLs)
+    '/journal/mornington-peninsula-golf-guide/': '/explore/golf/',
+    '/journal/best-golf-courses-mornington-peninsula/': '/explore/golf/',
+
+    // PI-EXP-014 — spas hub (absorbs /spa top-level and journal URL)
+    '/spa/': '/explore/spas-and-wellness/',
+    '/journal/best-spas-mornington-peninsula/': '/explore/spas-and-wellness/',
+
     // PI-EXP-009 — consolidate duplicate journal pillar pairs
     '/journal/the-peninsula-beach-swimming-guide/': '/journal/mornington-peninsula-beach-guide/',
     '/journal/the-peninsula-with-kids/': '/journal/mornington-peninsula-with-kids/',
     '/journal/the-dog-friendly-peninsula/': '/journal/dog-friendly-mornington-peninsula/',
     '/journal/the-rainy-day-peninsula-without-a-booking/': '/journal/rainy-day-peninsula/',
     '/journal/the-family-day-out/': '/escape/the-family-day-out/',
+
+    // PI-EXP-022 — where-to-base-yourself hub (absorbs journal stay guide)
+    '/journal/where-to-stay-mornington-peninsula/': '/explore/where-to-base-yourself/',
   },
 });

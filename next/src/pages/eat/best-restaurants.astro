@@ -84,7 +84,7 @@ const breadcrumbItems = [
           <h2 class="venues__title">The top {topVenues.length} dining rooms, by authority</h2>
           <p class="venues__sub">Ordered by editorial weight. Rooms with a hat rating first, then the places doing the strongest quiet work.</p>
         </div>
-        <a href="/eat" class="venues__link">All {venues.length} venues →</a>
+        <a href="/eat/" class="venues__link">All {venues.length} venues →</a>
       </div>
       <div class="venues__grid venues__grid--ranked">
         {topVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}

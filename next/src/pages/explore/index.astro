@@ -9,6 +9,7 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, currentSeason, seasonBlurb, experienceInSeason, heroBackgroundStyle } from '../../lib/editorial';
+import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 const experiences = (await getCollection('experiences'))
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
@@ -30,7 +31,6 @@ const blurb = seasonBlurb[season];
 
 const featured = experiences.find((entry) => routeSlug(entry) === 'bushrangers-bay-walk') ?? experiences[0];
 
-// Split experiences by type so the hub is a real navigation surface.
 const walks = experiences.filter((e) => e.data.type === 'walk');
 const beaches = experiences.filter((e) => e.data.type === 'beach');
 const lookouts = experiences.filter((e) => e.data.type === 'lookout');
@@ -38,12 +38,9 @@ const markets = experiences.filter((e) => e.data.type === 'market');
 const wellness = experiences.filter((e) => e.data.type === 'wellness');
 const galleriesAttractions = experiences.filter((e) => ['gallery', 'attraction', 'park', 'tour'].includes(e.data.type));
 
-// Short walks under 60 min  -  "between meals" layer.
 const shortWalks = walks.filter((e) => (e.data.durationMinutes ?? 999) <= 60).slice(0, 4);
-// Proper coastal walks  -  anything 60+ minutes, tagged a walk.
 const longWalks = walks.filter((e) => (e.data.durationMinutes ?? 0) > 60).slice(0, 6);
 
-// Seasonal experiences that actually match right now.
 const seasonal = experiences.filter((e) => experienceInSeason(e, season)).slice(0, 8);
 
 const featuredPlaces = places.filter((place) => ['cape-schanck', 'point-nepean', 'sorrento', 'red-hill'].includes(routeSlug(place)));
@@ -64,26 +61,57 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Explore' },
 ];
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Explore the Mornington Peninsula — Peninsula Insider',
+  description: 'The editorial guide to things to do on the Mornington Peninsula, Victoria. Ranked lists, experience hubs, use-case guides, and itineraries — all fact-verified.',
+  path: '/explore',
+  dateModified: '2026-04-23',
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'What is the Mornington Peninsula?',
+    a: 'The Mornington Peninsula is a peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne\'s CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland — Red Hill, Main Ridge, Merricks — is wine and food country.',
+  },
+  {
+    q: 'How far is the Mornington Peninsula from Melbourne?',
+    a: 'The peninsula begins around 40–50 km from central Melbourne. Mornington town is about 60 km by road (50–60 min). Sorrento is 110 km by road (1 hr 20 min without traffic) or reachable via the Searoad Ferry from Queenscliff.',
+  },
+  {
+    q: 'What is there to do on the Mornington Peninsula?',
+    a: 'Hot springs, beaches (bay and ocean), coastal walks, golf, winery lunches, day spas, surf, markets, lookouts, and whale-watching in season. See the full ranked list at things to do on the Mornington Peninsula.',
+  },
+  {
+    q: 'When is the best time to visit the Mornington Peninsula?',
+    a: 'Summer (December–February) is peak beach season and most crowded. Autumn (March–May) is the best eating and drinking season and the most comfortable for hinterland visits. Winter is quiet, atmospheric, and ideal for hot springs. Spring is underrated, especially for wildflowers and walking.',
+  },
+  {
+    q: 'Is a car necessary to visit the Mornington Peninsula?',
+    a: 'For most itineraries, yes. Public transport connects Melbourne to Frankston and a limited bus network extends further, but the hinterland, beaches, and most attractions are car-dependent.',
+  },
+  {
+    q: 'Does Peninsula Insider accept advertising from the businesses it covers?',
+    a: 'Peninsula Insider operates an independent editorial model. Commercial relationships are disclosed. No business can buy a ranking, a recommendation, or a link within our editorial content.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+]);
 ---
 
 <BaseLayout
   title="Things to Do on the Mornington Peninsula · Peninsula Insider"
-  description="The best things to do on the Mornington Peninsula — coastal walks, swimming beaches, lookouts, hot springs, markets, and the experiences that earn the weekend. Updated April 2026."
+  description="The editorial guide to things to do on the Mornington Peninsula — coastal walks, beaches, hot springs, golf, markets, and the experiences worth the drive. Ranked, fact-verified, updated April 2026."
   section="explore"
-  canonical="https://peninsulainsider.com.au/explore"
-  modifiedTime="2026-04-13"
+  canonical="https://peninsulainsider.com.au/explore/"
+  modifiedTime="2026-04-23"
 >
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org', '@type': 'FAQPage',
-    mainEntity: [
-      { '@type': 'Question', name: 'What are the best things to do on the Mornington Peninsula?',
-        acceptedAnswer: { '@type': 'Answer', text: 'The essentials: walk Bushrangers Bay or Cape Schanck boardwalk, swim at Sorrento Back Beach or Mornington foreshore, visit Peninsula Hot Springs, explore cellar doors on the Red Hill plateau, eat a vineyard lunch, and catch Red Hill Market (first Saturday of the month). For a full day, combine a morning walk with an afternoon cellar door visit and a sunset beach.' }},
-      { '@type': 'Question', name: 'What are the best beaches on the Mornington Peninsula?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Bay side (calm, family-friendly): Mornington, Mount Martha, Safety Beach. Ocean side (surf, dramatic): Sorrento Back Beach, Gunnamatta, Rye Back Beach, Point Nepean. The two coasts feel completely different — the bay is sheltered and warm, the ocean is wild Southern Ocean. Most visitors underestimate how close they are (15–20 minutes apart).' }},
-      { '@type': 'Question', name: 'Is Peninsula Hot Springs worth it?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Yes — but book a weekday or early morning session. Weekend afternoons are crowded and the experience suffers. The hilltop pools with bay views are the highlight. Family sessions are time-limited and must be booked in advance. Alba Thermal Springs near Red Hill is a quieter alternative with dedicated silent bathing circuits.' }},
-    ],
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
   <SectionHero
     eyebrow="Explore"
@@ -95,9 +123,46 @@ const breadcrumbItems = [
     heroImage="/images/sourced/explore-hub-hero-01.webp"
   />
 
+  <section class="article">
+    <div class="container">
+      <div class="prose">
+        <p>The Mornington Peninsula, Victoria, Australia — a narrow strip of land an hour south of Melbourne — concentrates more worth-your-time experiences per kilometre than any comparable distance from the CBD. Hot springs, world-class golf, back-beach surf, bay swimming, hinterland wine, coastal walks, food worth driving for. The problem has never been what's there. It's knowing where to start.</p>
+        <p>This is where you start. The <a href="/journal/first-time-peninsula/">first-time visitor guide</a> is the quickest way to orient yourself; <a href="/journal/how-to-plan-a-peninsula-weekend/">how to plan a Peninsula weekend</a> is the fastest route to an actual itinerary.</p>
+
+        <h2>Start here</h2>
+        <p><strong>Experience hubs</strong> — ranked, opinionated guides to every category of activity on the Peninsula.</p>
+        <table>
+          <thead><tr><th>Hub</th><th>What it covers</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/explore/beaches/">The Peninsula's best beaches</a></td><td>Bay vs back-beach, ranked with best-for tags</td></tr>
+            <tr><td><a href="/explore/walks/">Coastal walks and hinterland tracks</a></td><td>11 walks ranked by effort and payoff</td></tr>
+            <tr><td><a href="/explore/hot-springs/">Peninsula hot springs</a></td><td>Peninsula Hot Springs, Alba, when to go, how to book</td></tr>
+            <tr><td><a href="/explore/golf/">The Peninsula's golf courses</a></td><td>All courses ranked; public vs private</td></tr>
+            <tr><td><a href="/explore/spas-and-wellness/">Day spas and wellness</a></td><td>Spa days, treatments, the full wellness picture</td></tr>
+            <tr><td><a href="/explore/markets/">Peninsula markets</a></td><td>Ranked and calendarised; what sells where</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Use-case hubs</strong> — built around why you're coming, not just what's there.</p>
+        <table>
+          <thead><tr><th>Hub</th><th>Who it's for</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/explore/things-to-do/">Things to do on the Mornington Peninsula</a></td><td>The head-term ranked list of 25</td></tr>
+            <tr><td><a href="/explore/day-trips/">Day-trip itineraries</a></td><td>One-day visits from Melbourne, five routes</td></tr>
+            <tr><td><a href="/explore/weekend-trips/">Weekend itineraries</a></td><td>2-day/1-night framing, multiple styles</td></tr>
+            <tr><td><a href="/explore/family-friendly/">Family-friendly things to do</a></td><td>Kid-tested picks by category</td></tr>
+            <tr><td><a href="/explore/dog-friendly/">Dog-friendly Peninsula</a></td><td>Beaches, cafés, walks, cellar doors</td></tr>
+            <tr><td><a href="/explore/rainy-day/">Rainy-day plans</a></td><td>Hot springs, galleries, cellar-door lunches</td></tr>
+            <tr><td><a href="/explore/free/">Free things to do</a></td><td>Beaches, walks, lookouts, foreshore</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <section class="format-nav">
     <div class="container">
-      <p class="label label--accent format-nav__label">Pick a move</p>
+      <p class="label label--accent format-nav__label">Browse by type</p>
       <div class="format-nav__chips">
         {longWalks.length > 0 && <a href="#long-walks" class="format-chip"><span class="format-chip__name">Coastal walks</span><span class="format-chip__count">{longWalks.length}</span></a>}
         {shortWalks.length > 0 && <a href="#short-walks" class="format-chip"><span class="format-chip__name">Between-meal walks</span><span class="format-chip__count">{shortWalks.length}</span></a>}
@@ -169,7 +234,7 @@ const breadcrumbItems = [
             <h2 class="venues__title">The proper walks that reset the weekend</h2>
             <p class="venues__sub">Cape Schanck, Bushrangers Bay, the Two Bays. These are the walks worth clearing an afternoon for.</p>
           </div>
-          <a href="/journal/the-peninsulas-best-late-afternoon-walks" class="venues__link">Read the walks piece →</a>
+          <a href="/explore/walks/" class="venues__link">All 11 walks →</a>
         </div>
         <div class="experience-grid">
           {longWalks.map((experience) => <ExperienceCard experience={experience} />)}
@@ -202,9 +267,9 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">Beaches</p>
             <h2 class="venues__title">Which beach, and why</h2>
-            <p class="venues__sub">The bay calm versus the back beaches  -  pick the one that matches the weather, not the one closest to the car.</p>
+            <p class="venues__sub">The bay calm versus the back beaches — pick the one that matches the weather, not the one closest to the car.</p>
           </div>
-          <a href="/journal/the-peninsula-beach-swimming-guide" class="venues__link">Beach guide →</a>
+          <a href="/journal/mornington-peninsula-beach-guide/" class="venues__link">Beach guide →</a>
         </div>
         <div class="experience-grid">
           {beaches.map((experience) => <ExperienceCard experience={experience} />)}
@@ -220,7 +285,7 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">Lookouts</p>
             <h2 class="venues__title">Where the Peninsula lays itself out for you</h2>
-            <p class="venues__sub">Short stops, long views  -  the moments that make the drive home feel considered.</p>
+            <p class="venues__sub">Short stops, long views — the moments that make the drive home feel considered.</p>
           </div>
         </div>
         <div class="experience-grid">
@@ -239,7 +304,7 @@ const breadcrumbItems = [
             <h2 class="venues__title">Saturday mornings that shape the rest of the trip</h2>
             <p class="venues__sub">Farmers' markets, makers' days, and the produce-first way into a Peninsula weekend.</p>
           </div>
-          <a href="/journal/the-market-saturday" class="venues__link">Market guide →</a>
+          <a href="/journal/the-market-saturday/" class="venues__link">Market guide →</a>
         </div>
         <div class="experience-grid">
           {markets.map((experience) => <ExperienceCard experience={experience} />)}
@@ -272,7 +337,7 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">Galleries & attractions</p>
             <h2 class="venues__title">Non-beach, non-cellar-door afternoons</h2>
-            <p class="venues__sub">The culture layer  -  useful when the weather turns or the weekend needs a quieter pace.</p>
+            <p class="venues__sub">The culture layer — useful when the weather turns or the weekend needs a quieter pace.</p>
           </div>
         </div>
         <div class="experience-grid">
@@ -313,6 +378,7 @@ const breadcrumbItems = [
             />
           ))}
         </div>
+        <p style="margin-top: 1.5rem;"><a href="/places/">Browse all towns →</a></p>
       </div>
     </section>
   )}
@@ -326,7 +392,7 @@ const breadcrumbItems = [
             <h2 class="venues__title">These explore notes feed directly into our escape plans</h2>
             <p class="venues__sub">Walks and lookouts matter most when they are sequenced with the right lunch and the right bed.</p>
           </div>
-          <a href="/escape" class="venues__link">See all escapes →</a>
+          <a href="/escape/" class="venues__link">See all escapes →</a>
         </div>
         <div class="itinerary-grid">
           {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -343,7 +409,7 @@ const breadcrumbItems = [
             <p class="label label--accent">From the Journal</p>
             <h2 class="venues__title">Further reading for the afternoon half of the trip</h2>
           </div>
-          <a href="/journal" class="venues__link">Journal →</a>
+          <a href="/journal/" class="venues__link">Journal →</a>
         </div>
         <div class="venues__grid">
           {companionReads.map((article) => <ArticleCard article={article} />)}
@@ -352,21 +418,62 @@ const breadcrumbItems = [
     </section>
   )}
 
-  <section class="venues venues--plain">
+  <section class="article">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Go deeper</p>
-          <h2 class="venues__title">Guides for getting outside on the Peninsula</h2>
-        </div>
-      </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/explore/best-walks">Best Walks on the Peninsula</a></h3><p class="venue-card__signature">Coastal boardwalks, cliff-top traverses, and short hinterland loops — the ten walks that define the region.</p><a href="/explore/best-walks" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/free-things-to-do-mornington-peninsula">Free Things to Do</a></h3><p class="venue-card__signature">Beaches, walks, lookouts, markets — the experiences that cost nothing and deliver everything.</p><a href="/journal/free-things-to-do-mornington-peninsula" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-hot-springs-guide">Hot Springs Guide</a></h3><p class="venue-card__signature">Peninsula Hot Springs vs Alba — when to go, which session, and what most guides get wrong.</p><a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-with-kids">Peninsula With Kids</a></h3><p class="venue-card__signature">The honest family-weekend playbook. What actually works with under-10s, and the places that pretend to be kid-friendly but aren't.</p><a href="/journal/mornington-peninsula-with-kids" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/dog-friendly-mornington-peninsula">Dog-Friendly Peninsula</a></h3><p class="venue-card__signature">Off-leash beaches, cafés that say yes, and the stays that actually want a labrador in the lounge.</p><a href="/journal/dog-friendly-mornington-peninsula" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/golf">Best Golf Courses</a></h3><p class="venue-card__signature">St Andrews Beach, Moonah Links, The Dunes — tier-ranked public and private courses, with weekend-planning guidance.</p><a href="/golf" class="venue-card__cta">Read the guide →</a></div>
+      <div class="prose">
+
+        <h2>Plan your trip</h2>
+        <table>
+          <tbody>
+            <tr><td><a href="/explore/getting-here/">Getting to the Peninsula</a></td><td>Drive, train + bus, or Searoad Ferries from Queenscliff</td></tr>
+            <tr><td><a href="/explore/getting-around/">Getting around</a></td><td>Car is dominant; what's possible without one</td></tr>
+            <tr><td><a href="/explore/where-to-base-yourself/">Where to base yourself</a></td><td>How the Peninsula's subregions differ for a stay</td></tr>
+            <tr><td><a href="/explore/map/">The Peninsula map</a></td><td>Towns, distances, and how it all fits together</td></tr>
+          </tbody>
+        </table>
+        <p>New to the Peninsula? Read the <a href="/journal/first-time-peninsula/">first-time visitor guide</a> before you book anything.</p>
+
+        <h2>Season by season</h2>
+        <p>The Peninsula is genuinely different across seasons. Summer means crowds at Sorrento and queues at Peninsula Hot Springs but also the full beach menu and open-air everything. Winter means quiet roads, fireplace dinners, and the hot springs at their most atmospheric. Autumn is arguably the best season for anyone who eats and drinks well.</p>
+        <ul>
+          <li><a href="/journal/mornington-peninsula-in-summer/">Summer on the Peninsula</a></li>
+          <li><a href="/journal/mornington-peninsula-in-autumn/">Autumn on the Peninsula</a></li>
+          <li><a href="/journal/mornington-peninsula-in-winter/">Winter on the Peninsula</a></li>
+          <li><a href="/journal/the-spring-peninsula/">Spring on the Peninsula</a></li>
+        </ul>
+
+        <h2>Guides for getting outside</h2>
+        <ul>
+          <li><a href="/explore/walks/">Best walks on the Peninsula</a> — 11 walks ranked by effort and payoff</li>
+          <li><a href="/journal/free-things-to-do-mornington-peninsula/">Free things to do</a> — beaches, walks, lookouts, markets</li>
+          <li><a href="/journal/mornington-peninsula-hot-springs-guide/">Hot springs guide</a> — Peninsula Hot Springs vs Alba</li>
+          <li><a href="/journal/mornington-peninsula-with-kids/">Peninsula with kids</a> — the honest family-weekend playbook</li>
+          <li><a href="/journal/dog-friendly-mornington-peninsula/">Dog-friendly Peninsula</a> — off-leash beaches, cafés, stays</li>
+          <li><a href="/golf/">Best golf courses</a> — tier-ranked public and private</li>
+        </ul>
+
+        <h2>FAQ</h2>
+
+        <h3>What is the Mornington Peninsula?</h3>
+        <p>The Mornington Peninsula is a peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne's CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland — Red Hill, Main Ridge, Merricks — is wine and food country.</p>
+
+        <h3>How far is the Mornington Peninsula from Melbourne?</h3>
+        <p>The peninsula begins around 40–50 km from central Melbourne. Mornington town is about 60 km by road (50–60 min). Sorrento is 110 km by road (1 hr 20 min without traffic) or reachable via the Searoad Ferry from Queenscliff.</p>
+
+        <h3>What is there to do on the Mornington Peninsula?</h3>
+        <p>Hot springs, beaches (bay and ocean), coastal walks, golf, winery lunches, day spas, surf, markets, lookouts, and whale-watching in season. See the full ranked list at <a href="/explore/things-to-do/">things to do on the Mornington Peninsula</a>.</p>
+
+        <h3>When is the best time to visit?</h3>
+        <p>Summer (December–February) is peak beach season and most crowded. Autumn (March–May) is the best eating and drinking season and the most comfortable for hinterland visits. Winter is quiet, atmospheric, and ideal for hot springs. Spring is underrated, especially for wildflowers and walking. See the <a href="/journal/mornington-peninsula-in-autumn/">seasonal guides</a> for specifics.</p>
+
+        <h3>Is a car necessary?</h3>
+        <p>For most itineraries, yes. Public transport connects Melbourne to Frankston and a limited bus network extends further, but the hinterland, beaches, and most attractions are car-dependent. See <a href="/explore/getting-around/">getting around</a> for the full picture.</p>
+
+        <h3>Does Peninsula Insider accept advertising?</h3>
+        <p>Peninsula Insider operates an independent editorial model. Commercial relationships are disclosed. No business can buy a ranking, a recommendation, or a link within our editorial content.</p>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
       </div>
     </div>
   </section>

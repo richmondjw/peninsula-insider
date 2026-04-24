@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Family-Friendly Things to Do on the Mornington Peninsula',
+  description: 'Kid-tested picks for families visiting the Mornington Peninsula — beaches, attractions, walks, cafés, and markets.',
+  path: '/explore/family-friendly',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Family-Friendly Things to Do on the Mornington Peninsula',
+  description: 'Kid-tested picks for families on the Mornington Peninsula.',
+  listPath: '/explore/family-friendly',
+  items: [
+    { name: 'Arthurs Seat Eagle gondola', path: '/explore/arthurs-seat-lookout', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
+    { name: 'Balnarring Beach', path: '/explore/balnarring-beach', itemType: 'Beach', addressLocality: 'Balnarring' },
+    { name: 'Safety Beach foreshore', path: '/explore/safety-beach-foreshore', itemType: 'Beach', addressLocality: 'Safety Beach' },
+    { name: 'Mount Martha Beach', path: '/explore/mount-martha-beach', itemType: 'Beach', addressLocality: 'Mount Martha' },
+    { name: 'Ashcombe Maze and Lavender Gardens', path: '/journal/ashcombe-maze-visitor-guide', itemType: 'TouristAttraction', addressLocality: 'Shoreham' },
+    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Red Hill Community Market', path: '/explore/red-hill-market', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'What is the best beach on the Mornington Peninsula for families with young children?',
+    a: 'Balnarring Beach — shallow, calm, clear water, easy parking. Safety Beach is a close second.',
+  },
+  {
+    q: 'Is Peninsula Hot Springs suitable for children?',
+    a: 'Peninsula Hot Springs has a children\'s bathing area, but the experience is primarily designed for adults. Ages 5+ can enjoy parts of it; under-5s are a judgment call.',
+  },
+  {
+    q: 'What is the best paid attraction for families on the Mornington Peninsula?',
+    a: 'Arthurs Seat Eagle gondola for children 2–12. Ashcombe Maze for children 5+.',
+  },
+  {
+    q: 'What is the best season for a family Peninsula trip?',
+    a: 'Summer for beaches. The school holidays (January, July) are crowded; October and early December have good weather with lower crowds.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Family Friendly' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Family Friendly' },
+];
+---
+
+<BaseLayout
+  title="Family-Friendly Things to Do on the Mornington Peninsula · Peninsula Insider"
+  description="Kid-tested picks for families visiting the Mornington Peninsula — the best beaches for young children, gondola, maze, walks, and markets."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/family-friendly/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Family-Friendly Things to Do on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>The Peninsula works well for families but the best family activities are concentrated on the bay side and in specific hinterland attractions — not the ocean beach side.</li>
+            <li><a href="/explore/arthurs-seat-lookout/">Arthurs Seat Eagle</a> is the single most consistently useful family attraction: short, visual, and manageable.</li>
+            <li><a href="/explore/balnarring-beach/">Balnarring Beach</a> and <a href="/explore/safety-beach-foreshore/">Safety Beach</a> are the best bay beaches for children under 8.</li>
+            <li>Ashcombe Maze is more engaging for children than its description suggests.</li>
+          </ul>
+        </blockquote>
+
+        <p>The Mornington Peninsula, Victoria, Australia is a genuine family destination — but it works best with clear category thinking. The Peninsula's most celebrated experiences (hot springs, winery lunches, sunset walks) don't map well to children. What does map well: calm bay beaches, the gondola, the maze, specific wildlife, a handful of foreshore walks, and a market morning.</p>
+
+        <h2>Beaches</h2>
+
+        <h3>Best for young children (under 8)</h3>
+
+        <p><a href="/explore/balnarring-beach/"><strong>Balnarring Beach</strong></a> — Shallow gradient, small waves, clear water, foreshore shading. The Peninsula's best toddler-friendly beach by a margin.</p>
+
+        <p><a href="/explore/safety-beach-foreshore/"><strong>Safety Beach foreshore</strong></a> — Long and accessible, easy parking, calm water. Less character than Balnarring but consistently uncrowded.</p>
+
+        <p><a href="/explore/mount-martha-beach/"><strong>Mount Martha Beach</strong></a> — Slightly more facilities nearby than Balnarring. Good for children 5+ who want a longer beach run.</p>
+
+        <h3>What to avoid for young families</h3>
+        <p>Ocean beaches (Sorrento Back Beach, Gunnamatta, Rye Ocean Beach). Rip activity and cold water make these unsuitable for swimming with children. Fine for a clifftop walk, not for beach play.</p>
+
+        <h2>Attractions</h2>
+
+        <p><a href="/explore/arthurs-seat-lookout/"><strong>Arthurs Seat Eagle</strong></a> — The gondola to the Arthurs Seat summit. 15 minutes each way. Manageable for all ages. The summit views are genuinely arresting — you see both the bay side and the ocean side simultaneously. The <a href="/journal/arthurs-seat-eagle-visitor-guide/">Arthurs Seat Eagle visitor guide</a> has timings and booking advice. Pairs naturally with <a href="/explore/dromana-beach/">Dromana Beach</a> nearby.</p>
+
+        <p><strong>Ashcombe Maze and Lavender Gardens — Shoreham</strong> — More engaging than it sounds. The hedge maze holds genuine mystery for children. The lavender gardens give parents something. Recommend ages 5+; the maze is better for children who can navigate independently.</p>
+
+        <h2>Walks</h2>
+
+        <p><a href="/explore/cape-schanck-boardwalk/"><strong>Cape Schanck boardwalk</strong></a> — Short, flat, dramatic. Children understand what they're looking at immediately — the blowholes and sea platforms are engaging without narration. 30–40 minutes round trip.</p>
+
+        <p><a href="/explore/mornington-foreshore-walk/"><strong>Mornington foreshore walk</strong></a> — Flat, accessible, with café stops. Good for families with prams.</p>
+
+        <p><a href="/explore/summit-circuit-arthurs-seat/"><strong>Arthurs Seat summit circuit</strong></a> — The circuit from the gondola top station. Manageable for children 6+ with adult supervision.</p>
+
+        <h2>Markets</h2>
+        <p><a href="/explore/red-hill-market/">Red Hill Community Market</a> — First Saturdays. Food stalls, space to run. A reliable family morning anchor.</p>
+        <p>Balnarring Farmers Market — Third Saturdays. Similar format, quieter.</p>
+
+        <h2>Food</h2>
+        <p>Family dining on the Peninsula is better than the national average. Most good cafés and mid-range restaurants accommodate children without drama. High chairs are standard in the better family-oriented areas (Mornington, Dromana, Safety Beach). Avoid expecting high-end winery restaurant dining to be child-friendly without checking first.</p>
+
+        <h2>Further reading</h2>
+        <ul>
+          <li><a href="/journal/mornington-peninsula-with-kids/">Peninsula with kids — the full guide</a></li>
+          <li><a href="/escape/the-family-day-out/">The family day out package</a></li>
+          <li><a href="/explore/beaches/">The Peninsula's best beaches</a> — for beach-by-beach detail</li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>What is the best beach on the Mornington Peninsula for families with young children?</h3>
+        <p>Balnarring Beach — shallow, calm, clear water, easy parking. Safety Beach is a close second.</p>
+
+        <h3>Is Peninsula Hot Springs suitable for children?</h3>
+        <p>Peninsula Hot Springs has a children's bathing area, but the experience is primarily designed for adults. Ages 5+ can enjoy parts of it; under-5s are a judgment call.</p>
+
+        <h3>What is the best paid attraction for families on the Mornington Peninsula?</h3>
+        <p>Arthurs Seat Eagle gondola for children 2–12. Ashcombe Maze for children 5+.</p>
+
+        <h3>What is the best season for a family Peninsula trip?</h3>
+        <p>Summer for beaches. The school holidays (January, July) are crowded; October and early December have good weather with lower crowds.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

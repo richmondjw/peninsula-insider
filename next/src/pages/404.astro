@@ -7,6 +7,7 @@ import NewsletterBlock from '../components/NewsletterBlock.astro';
   title="Page not found  -  Peninsula Insider"
   description="The page you're looking for doesn't exist. Try the homepage or browse our sections."
   section="home"
+  noindex={true}
 >
   <section class="not-found">
     <div class="container">
@@ -17,11 +18,11 @@ import NewsletterBlock from '../components/NewsletterBlock.astro';
 
         <nav class="not-found__nav" aria-label="Recovery links">
           <a href="/" class="not-found__link">← Back to the homepage</a>
-          <a href="/journal" class="not-found__link">Browse the Journal</a>
-          <a href="/eat" class="not-found__link">Eat & Drink</a>
-          <a href="/explore" class="not-found__link">Explore</a>
-          <a href="/places" class="not-found__link">Places</a>
-          <a href="/contact" class="not-found__link">Report a broken link</a>
+          <a href="/journal/" class="not-found__link">Browse the Journal</a>
+          <a href="/eat/" class="not-found__link">Eat & Drink</a>
+          <a href="/explore/" class="not-found__link">Explore</a>
+          <a href="/places/" class="not-found__link">Places</a>
+          <a href="/contact/" class="not-found__link">Report a broken link</a>
         </nav>
       </div>
     </div>

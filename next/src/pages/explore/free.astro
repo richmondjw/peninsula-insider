@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Free Things to Do on the Mornington Peninsula',
+  description: 'Beaches, walks, lookouts, foreshore, and markets — the best free activities on the Mornington Peninsula.',
+  path: '/explore/free',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Free Things to Do on the Mornington Peninsula',
+  description: 'Free beaches, walks, lookouts, and markets on the Mornington Peninsula.',
+  listPath: '/explore/free',
+  items: [
+    { name: 'Balnarring Beach', path: '/explore/balnarring-beach', itemType: 'Beach', addressLocality: 'Balnarring' },
+    { name: 'Sorrento Back Beach', path: '/explore/sorrento-back-beach', itemType: 'Beach', addressLocality: 'Sorrento' },
+    { name: 'Gunnamatta Ocean Beach', path: '/explore/gunnamatta-ocean-beach', itemType: 'Beach', addressLocality: 'Rye' },
+    { name: 'Cape Schanck boardwalk', path: '/explore/cape-schanck-boardwalk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Bushrangers Bay walk', path: '/explore/bushrangers-bay-walk', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+    { name: 'Mornington foreshore walk', path: '/explore/mornington-foreshore-walk', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Greens Bush, Two Bays Walking Track', path: '/explore/greens-bush-two-bays-section', itemType: 'TouristAttraction', addressLocality: 'Dromana' },
+    { name: 'Arthurs Seat State Park summit (drive-in)', path: '/explore/arthurs-seat-lookout', itemType: 'TouristAttraction', addressLocality: 'Arthurs Seat' },
+    { name: 'Red Hill Community Market', path: '/explore/red-hill-market', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'Balnarring Farmers Market', path: '/eat/balnarring-market', itemType: 'TouristAttraction', addressLocality: 'Balnarring' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'What can you do on the Mornington Peninsula for free?',
+    a: 'Most beaches are free. The national park foreshore walks are largely free. Cape Schanck boardwalk is free; the lighthouse precinct charges a separate entry fee. Arthurs Seat summit car park is free; the gondola is paid. All markets are free to browse.',
+  },
+  {
+    q: 'Is Cape Schanck boardwalk free?',
+    a: 'The boardwalk itself is free. The Cape Schanck lighthouse precinct charges a Parks Victoria entry fee if you want to visit the lighthouse. The boardwalk walk to the basalt wave platform is accessible without paying the lighthouse fee.',
+  },
+  {
+    q: 'Is Point Nepean National Park free?',
+    a: 'No. Point Nepean National Park requires a Parks Victoria entry fee. Most of the rest of the Mornington Peninsula National Park (foreshore access, clifftop walks) is free.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Free' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Free Things to Do' },
+];
+---
+
+<BaseLayout
+  title="Free Things to Do on the Mornington Peninsula · Peninsula Insider"
+  description="Beaches, walks, lookouts, foreshore, and markets — the best free activities on the Mornington Peninsula. All free, no booking required."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/free/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Free Things to Do on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>The Peninsula's best free activities are beaches, coastal walks, and lookouts — all requiring nothing but a car and a park.</li>
+            <li><a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> is free. The lighthouse precinct entry fee is separate and optional.</li>
+            <li><a href="/explore/point-nepean-national-park/">Point Nepean National Park</a> requires a Parks Victoria entry fee — not free.</li>
+            <li>Mornington Peninsula National Park foreshore access is largely free.</li>
+          </ul>
+        </blockquote>
+
+        <p>The Mornington Peninsula, Victoria, Australia has a meaningful free-activities menu. Beaches are free. Most foreshore walks are free. Lookouts are free. Markets are free to browse. The paid attractions — Peninsula Hot Springs, Arthurs Seat Eagle, Ashcombe Maze, Point Nepean — are all optional additions to what's already here.</p>
+
+        <h2>Beaches — all free</h2>
+        <p>Every beach on the Peninsula is free to access. Parking may charge fees in some locations but the beach itself is public.</p>
+        <ul>
+          <li><a href="/explore/balnarring-beach/">Balnarring Beach</a> — Bay side. Free parking. Best family beach on the Peninsula.</li>
+          <li><a href="/explore/mount-martha-beach/">Mount Martha Beach</a> — Bay side. Foreshore strip, good walking.</li>
+          <li><a href="/explore/sorrento-back-beach/">Sorrento Back Beach</a> — Ocean side. One of the best free coastal experiences in Victoria.</li>
+          <li><a href="/explore/gunnamatta-ocean-beach/">Gunnamatta Ocean Beach</a> — Ocean side. Remote, powerful. No charge.</li>
+          <li><a href="/explore/safety-beach-foreshore/">Safety Beach foreshore</a> — Bay side. Long foreshore. Free.</li>
+        </ul>
+
+        <h2>Walks — most are free</h2>
+
+        <p><strong>Fully free:</strong></p>
+        <ul>
+          <li><a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> — The boardwalk itself is free. The lighthouse precinct charges a separate entry fee (optional).</li>
+          <li><a href="/explore/bushrangers-bay-walk/">Bushrangers Bay walk</a> — Free. One of the Peninsula's best walks.</li>
+          <li><a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> — Free. Flat and accessible.</li>
+          <li><a href="/explore/coppins-track/">Coppins Track</a>, Sorrento — Free access to the track. Check current national park rules.</li>
+          <li><a href="/explore/greens-bush-two-bays-section/">Greens Bush section, Two Bays Walking Track</a> — Free.</li>
+        </ul>
+
+        <p><strong>Requires entry fee:</strong></p>
+        <ul>
+          <li><a href="/explore/point-nepean-national-park/">Point Nepean National Park</a> — Parks Victoria fee applies.</li>
+          <li>Cape Schanck lighthouse precinct — Entry fee if you want to visit the lighthouse itself.</li>
+        </ul>
+
+        <h2>Lookouts — all free</h2>
+        <ul>
+          <li><strong>Arthurs Seat State Park summit</strong> — Drive to the summit car park (free). The gondola is a separate paid experience. The views from the summit car park itself are excellent and free.</li>
+          <li><strong>Cape Schanck clifftop area</strong> — Significant views accessible without paying the lighthouse entry.</li>
+          <li><strong>Flinders cliff walk</strong> — The headland above Flinders pier has cliff-top views over Bass Strait with no fee.</li>
+        </ul>
+
+        <h2>Markets — free to browse</h2>
+        <ul>
+          <li><a href="/explore/red-hill-market/">Red Hill Community Market</a> — Free entry. First Saturdays.</li>
+          <li>Balnarring Farmers Market — Free entry. Third Saturdays.</li>
+          <li>Rye Beachside Market — Free entry.</li>
+        </ul>
+
+        <h2>Foreshore activities</h2>
+        <p>The Peninsula's bay-side foreshore from Mornington to Sorrento is public land. The Mornington foreshore strip, the Safety Beach to Dromana path, and the Sorrento bay side are all free to use.</p>
+
+        <h2>Further reading</h2>
+        <ul>
+          <li><a href="/journal/free-things-to-do-mornington-peninsula/">Free Peninsula guide</a> — the full editorial treatment</li>
+          <li><a href="/explore/walks/">Peninsula walks</a> — all 11 walks, most are free</li>
+          <li><a href="/explore/beaches/">Peninsula beaches</a> — all free to access</li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>What can you do on the Mornington Peninsula for free?</h3>
+        <p>Most beaches are free. The national park foreshore walks are largely free. Cape Schanck boardwalk is free; the lighthouse precinct charges a separate entry fee. Arthurs Seat summit car park is free; the gondola is paid. All markets are free to browse.</p>
+
+        <h3>Is Cape Schanck boardwalk free?</h3>
+        <p>The boardwalk itself is free. The Cape Schanck lighthouse precinct charges a Parks Victoria entry fee if you want to visit the lighthouse. The boardwalk walk to the basalt wave platform is accessible without paying the lighthouse fee.</p>
+
+        <h3>Is Point Nepean National Park free?</h3>
+        <p>No. Point Nepean National Park requires a Parks Victoria entry fee. Most of the rest of the Mornington Peninsula National Park (foreshore access, clifftop walks) is free.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

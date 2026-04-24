@@ -207,7 +207,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
             <p class="label label--accent">Keep reading</p>
             <h2 class="venues__title">More from the Journal</h2>
           </div>
-          <a href="/journal" class="venues__link">All stories →</a>
+          <a href="/journal/" class="venues__link">All stories →</a>
         </div>
         <div class="venues__grid">
           {relatedArticles.map((entry) => <ArticleCard article={entry} />)}
@@ -241,7 +241,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
             <p class="label label--accent">Experiences in this piece</p>
             <h2 class="venues__title">The non-restaurant moves that round out the trip</h2>
           </div>
-          <a href="/explore" class="venues__link">Explore all →</a>
+          <a href="/explore/" class="venues__link">Explore all →</a>
         </div>
         <div class="experience-grid">
           {relatedExperiences.map((exp) => <ExperienceCard experience={exp} />)}

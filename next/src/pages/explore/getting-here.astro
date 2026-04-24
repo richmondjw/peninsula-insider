@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildArticleSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+  PUBLISHER_LOGO_URL,
+} from '../../lib/schema';
+
+const articleSchema = buildArticleSchema({
+  headline: 'How to Get to the Mornington Peninsula from Melbourne',
+  description: 'Drive times, routes, public transport options, and the Sorrento–Queenscliff ferry — everything you need to reach the Mornington Peninsula from Melbourne CBD, the airport, or interstate.',
+  path: '/explore/getting-here',
+  datePublished: '2026-04-23',
+  dateModified: '2026-04-23',
+  imageUrl: 'https://peninsulainsider.com.au/images/sourced/home-cover.webp',
+  publisherLogoUrl: PUBLISHER_LOGO_URL,
+  articleSection: 'Planning',
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'How long does it take to drive from Melbourne to Sorrento?',
+    a: 'About 1 hour 20 minutes on a clear run via the Mornington Peninsula Freeway (EastLink → Peninsula Link). On a Friday afternoon in summer, allow 2 hours or more.',
+  },
+  {
+    q: 'Do I need a car to visit the Mornington Peninsula?',
+    a: 'For most itineraries, yes. Public transport connects Melbourne to Frankston and a limited bus network runs down the bayside corridor, but the hinterland, beaches, and most attractions are car-dependent.',
+  },
+  {
+    q: 'Where does the Sorrento ferry go?',
+    a: 'Searoad Ferries crosses from Sorrento to Queenscliff across the mouth of Port Phillip Bay. The crossing takes about 40 minutes. It is useful for visitors coming from Geelong, the Surf Coast, or the Great Ocean Road, and for completing a one-way Peninsula loop.',
+  },
+  {
+    q: 'Is there public transport from Melbourne to the Mornington Peninsula?',
+    a: 'Yes, but limited. The Frankston train line reaches Frankston in 45–55 minutes. From Frankston, the 788 bus runs to Sorrento and Portsea (about 80 minutes). The hinterland and most beaches are not accessible without a car.',
+  },
+  {
+    q: 'Can I get from Melbourne Airport to the Mornington Peninsula without a car?',
+    a: 'Not practically. The standard route is Skybus to Southern Cross Station, then train to Frankston, then bus. Allow 2.5–3.5 hours total, with limited destinations. Hiring a car at the airport is strongly recommended.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Getting Here' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Getting Here' },
+];
+---
+
+<BaseLayout
+  title="How to Get to the Mornington Peninsula from Melbourne · Peninsula Insider"
+  description="Drive times, routes, public transport options, and the Sorrento–Queenscliff ferry — everything you need to reach the Mornington Peninsula from Melbourne CBD, the airport, or interstate."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/getting-here/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">How to Get to the Mornington Peninsula from Melbourne</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li><strong>Primary route from Melbourne CBD:</strong> Mornington Peninsula Freeway (EastLink → Peninsula Link). Allow 1 hour to Mornington, 1 hour 20 minutes to Sorrento on a clear run.</li>
+            <li><strong>Scenic coastal alternative:</strong> Nepean Highway via Frankston — adds 15–30 minutes but runs along the bay.</li>
+            <li><strong>Ferry option from Queenscliff:</strong> Searoad Ferries crosses Port Phillip to Sorrento in 40 minutes. Useful for a one-way loop or if you're coming from Geelong or the Surf Coast.</li>
+            <li><strong>Train:</strong> Frankston line to Frankston (45 minutes from Flinders Street), then buses run down the Peninsula — infrequent and slow.</li>
+            <li><strong>Driving is not optional for most trips.</strong> Hire a car if you're flying in.</li>
+          </ul>
+        </blockquote>
+
+        <p>The Mornington Peninsula sits roughly 90–110 km south of Melbourne CBD depending on your destination. You need a car. The Mornington Peninsula Freeway (Melbourne → Frankston → Peninsula Link) is fast, well-signed, and the right choice almost every time. Public transport exists but it is slow, infrequent, and constrains your itinerary significantly.</p>
+
+        <h2>The Mornington Peninsula Freeway — your primary route</h2>
+        <p>From Melbourne CBD, take the M3 (Eastern Freeway) to EastLink southbound, then merge onto the Mornington Peninsula Freeway (M11), which becomes Peninsula Link south of Frankston. Peninsula Link runs tolled and uninterrupted to Dromana, where it feeds onto Point Nepean Road for the remaining distance to Sorrento and Portsea.</p>
+
+        <p><strong>Tolls:</strong> EastLink is a tolled road. Peninsula Link is free. Budget around $5–8 AUD in tolls from the CBD via EastLink for a standard car.</p>
+
+        <p><strong>Drive times from Melbourne CBD (clear conditions):</strong></p>
+        <table>
+          <thead><tr><th>Destination</th><th>Distance</th><th>Drive time</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/places/mornington/">Mornington</a></td><td>~46 km</td><td>~1 hour</td></tr>
+            <tr><td><a href="/places/dromana/">Dromana</a></td><td>~57 km</td><td>~1 hr 10 min</td></tr>
+            <tr><td><a href="/places/rosebud/">Rosebud</a></td><td>~61 km</td><td>~1 hr 15 min</td></tr>
+            <tr><td><a href="/places/rye/">Rye</a></td><td>~94 km</td><td>~1 hr 20 min</td></tr>
+            <tr><td><a href="/places/sorrento/">Sorrento</a></td><td>~103 km</td><td>~1 hr 20 min</td></tr>
+            <tr><td><a href="/places/portsea/">Portsea</a></td><td>~110 km</td><td>~1 hr 40 min</td></tr>
+            <tr><td><a href="/places/flinders/">Flinders</a></td><td>~73 km</td><td>~1 hr 25 min</td></tr>
+            <tr><td><a href="/places/red-hill/">Red Hill</a></td><td>~63 km</td><td>~1 hour</td></tr>
+            <tr><td><a href="/places/cape-schanck/">Cape Schanck</a></td><td>~72 km</td><td>~1 hr 20 min</td></tr>
+            <tr><td><a href="/places/mount-martha/">Mount Martha</a></td><td>~50 km</td><td>~1 hr 20 min</td></tr>
+          </tbody>
+        </table>
+        <p>Add 30–45 minutes on Friday afternoon peak or holiday weekends. The Peninsula is longer than first-timers expect — Mornington to Portsea is another 60+ km beyond the CBD-to-Mornington leg.</p>
+
+        <h2>Nepean Highway — the coastal scenic route</h2>
+        <p>Nepean Highway (A3) follows the eastern shore of Port Phillip Bay from Frankston south through <a href="/places/mornington/">Mornington</a>, <a href="/places/mount-martha/">Mount Martha</a>, <a href="/places/safety-beach/">Safety Beach</a>, <a href="/places/dromana/">Dromana</a>, and <a href="/places/rosebud/">Rosebud</a>. Genuinely beautiful on a clear morning. On a Friday afternoon in peak season, it's stationary through Mornington and Dromana.</p>
+        <p><strong>Use it:</strong> midweek with light traffic, if heading to Mornington town specifically, or when you want the bay view. <strong>Avoid it:</strong> Friday afternoons, summer Saturdays, long weekends, or if your destination is Sorrento or beyond.</p>
+
+        <h2>The Sorrento–Queenscliff Ferry</h2>
+        <p><a href="/explore/sorrento-ferry/">Searoad Ferries</a> operates a vehicle and passenger ferry between Sorrento and Queenscliff across the mouth of Port Phillip Bay. The crossing takes approximately 40 minutes, with multiple services daily year-round and additional sailings in summer.</p>
+        <p><strong>When it makes sense:</strong></p>
+        <ul>
+          <li>You're coming from the Surf Coast, Great Ocean Road, or Geelong — crossing from Queenscliff means you never deal with Melbourne traffic.</li>
+          <li>You want a one-way loop: drive down from Melbourne, do the Peninsula, cross to Queenscliff, return via Geelong or the Great Ocean Road.</li>
+          <li>You want the most cinematic arrival possible.</li>
+        </ul>
+        <p>Book in advance for vehicles on summer weekends and public holidays — the ferry fills. Walk-on passengers have more flexibility. Check <a href="https://www.searoad.com.au/" rel="nofollow noopener">Searoad Ferries</a> for current fares.</p>
+
+        <h2>From Melbourne Airport (Tullamarine)</h2>
+        <p>Melbourne Airport is on the northwest fringe of the city. Standard route: Tullamarine Freeway → CityLink (tolled) → Monash Freeway east → EastLink south → Peninsula Link. Expect 1 hour 45 minutes to 2 hours to Sorrento in ordinary conditions.</p>
+        <p>There is no direct public transport from Melbourne Airport to the Peninsula. Options:</p>
+        <ul>
+          <li><strong>Hire car at the airport</strong> — the most practical option by a wide margin.</li>
+          <li><strong>Skybus to Southern Cross Station</strong>, then train to Frankston, then bus. Allow 2.5–3.5 hours total. Only viable if your destination is Mornington or Rosebud.</li>
+          <li><strong>Rideshare or taxi</strong> — available but expensive. Indicative airport-to-Sorrento fares run $150–220+.</li>
+        </ul>
+
+        <h2>Public transport: the honest assessment</h2>
+        <p><strong>Train to Frankston:</strong> The Frankston train line runs Flinders Street to Frankston in 45–55 minutes. Trains run frequently at peak hours, roughly every 20–30 minutes off-peak.</p>
+        <p><strong>Buses from Frankston:</strong> The 788 runs Frankston → Dromana → Rosebud → Rye → Sorrento → Portsea. Frankston to Sorrento is about 80 minutes by bus. Services run every 30–60 minutes during the day with limited evening coverage.</p>
+        <p><strong>The practical summary:</strong> Public transport can work for a single-base, slow-paced trip if your destination is on the 788 corridor and you have flexible timing. For any itinerary involving wine country, multiple towns, or national parks — you need a car.</p>
+
+        <h2>Common mistakes</h2>
+        <ul>
+          <li><strong>Underestimating drive times on peak days.</strong> Friday afternoon from Melbourne to Sorrento regularly exceeds two hours. Leave before 1 pm or after 7 pm.</li>
+          <li><strong>Not booking the ferry.</strong> Walk-ons rarely miss out; vehicles on summer weekends frequently do. Book online in advance.</li>
+          <li><strong>Assuming Frankston is the Peninsula.</strong> The Peninsula begins south of Frankston. First-time visitors are sometimes surprised their GPS says they've arrived when they're still in suburban Melbourne.</li>
+          <li><strong>Failing to account for the full length.</strong> Driving from <a href="/places/mornington/">Mornington</a> to <a href="/places/portsea/">Portsea</a> takes another 50–60 minutes. People plan to cover both ends of the Peninsula in a day trip and spend most of it in the car.</li>
+        </ul>
+
+        <h2>Practical</h2>
+        <ul>
+          <li><strong>Timing:</strong> The Peninsula is busiest in summer (December–February) and on long weekends. Shoulder months — May, June, September, October — have better traffic.</li>
+          <li><strong>Hire car:</strong> All major companies operate from Melbourne Airport. A standard small car is adequate; 4WD is only needed for specific off-road or camping tracks.</li>
+          <li><strong>Fuel:</strong> Fill up at Frankston before heading to the Tip. Fuel is available in Rosebud and Sorrento but tends to be slightly more expensive than at Frankston metro stations.</li>
+        </ul>
+
+        <h2>Further reading</h2>
+        <ul>
+          <li><a href="/explore/getting-around/">Getting around the Peninsula</a> — what to do once you're here</li>
+          <li><a href="/explore/where-to-base-yourself/">Where to base yourself</a> — the most important planning decision</li>
+          <li><a href="/explore/map/">The Peninsula map</a> — how the geography actually works</li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>How long does it take to drive from Melbourne to Sorrento?</h3>
+        <p>About 1 hour 20 minutes on a clear run via the Mornington Peninsula Freeway. On a Friday afternoon in summer, allow 2 hours or more.</p>
+
+        <h3>Do I need a car to visit the Mornington Peninsula?</h3>
+        <p>For most itineraries, yes. Public transport connects Melbourne to Frankston and a limited bus network runs the bayside corridor, but the hinterland, beaches, and most attractions are car-dependent.</p>
+
+        <h3>Where does the Sorrento ferry go?</h3>
+        <p>Searoad Ferries crosses from Sorrento to Queenscliff across the mouth of Port Phillip Bay. The crossing takes about 40 minutes and is useful for completing a one-way Peninsula loop or for visitors coming from the Geelong or Surf Coast direction.</p>
+
+        <h3>Is there public transport from Melbourne to the Mornington Peninsula?</h3>
+        <p>Yes, but limited. The Frankston train line reaches Frankston in 45–55 minutes. From Frankston, the 788 bus runs to Sorrento and Portsea. The hinterland and most beaches are not accessible without a car.</p>
+
+        <h3>Can I get from Melbourne Airport to the Mornington Peninsula without a car?</h3>
+        <p>Not practically. Skybus to Southern Cross Station, then train to Frankston, then bus is possible but takes 2.5–3.5 hours and limits your destinations significantly. Hiring a car at the airport is strongly recommended.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

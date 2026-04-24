@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Day Spas and Wellness on the Mornington Peninsula',
+  description: 'Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula — treatments, hot springs, and spa days.',
+  path: '/explore/spas-and-wellness',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Day Spas and Wellness on the Mornington Peninsula',
+  description: 'Ranked guide to day spas and wellness experiences on the Mornington Peninsula.',
+  listPath: '/explore/spas-and-wellness',
+  items: [
+    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
+    { name: 'Endota Spa Sorrento', path: '/stay/endota-spa-sorrento', itemType: 'SportsActivityLocation', addressLocality: 'Sorrento' },
+    { name: 'Endota Spa Mornington', path: '/stay/endota-spa-mornington', itemType: 'SportsActivityLocation', addressLocality: 'Mornington' },
+    { name: 'Peninsula Hot Springs spa treatments', path: '/stay/peninsula-hot-springs', itemType: 'SportsActivityLocation', addressLocality: 'Fingal' },
+    { name: 'One Spa at RACV Cape Schanck', path: '/stay/one-spa-racv-cape-schanck', itemType: 'SportsActivityLocation', addressLocality: 'Cape Schanck' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'What is the best spa on the Mornington Peninsula?',
+    a: 'Spa by Jackalope is the highest design standard. Endota Spa Sorrento offers the best mid-range experience. For a combination of thermal bathing and treatment, Peninsula Hot Springs\' on-site spa is the most comprehensive.',
+  },
+  {
+    q: 'Can you do a spa day on the Mornington Peninsula without staying overnight?',
+    a: 'Yes. All day spas listed offer day-visitor bookings. Peninsula Hot Springs also accepts day visitors for bathing. Book treatments well in advance for weekends.',
+  },
+  {
+    q: 'What is the difference between Peninsula Hot Springs and a day spa?',
+    a: 'Peninsula Hot Springs is primarily a thermal bathing experience — outdoor pools at various temperatures. A day spa offers booked treatment sessions with a therapist. Peninsula Hot Springs also has on-site treatment facilities, bridging the two.',
+  },
+  {
+    q: 'Is Jackalope Spa open to non-guests?',
+    a: 'Yes, treatments are bookable for non-guests. Availability is limited — book 2–3 weeks ahead for weekend slots.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Spas and Wellness' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Spas and Wellness' },
+];
+---
+
+<BaseLayout
+  title="Day Spas and Wellness on the Mornington Peninsula · Peninsula Insider"
+  description="Ranked editorial guide to day spas and wellness experiences on the Mornington Peninsula — Jackalope, Endota, Peninsula Hot Springs treatments, and more."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/spas-and-wellness/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Day Spas and Wellness on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>The Mornington Peninsula has the best spa-and-wellness offering of any region within 90 minutes of Melbourne.</li>
+            <li>Thermal springs (<a href="/explore/hot-springs/">Peninsula Hot Springs</a>, <a href="/stay/alba-thermal-springs/">Alba</a>) and treatment-focused day spas are different experiences — this page covers the treatment side.</li>
+            <li><a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> is the Peninsula's highest-design standalone spa. Book treatments well in advance.</li>
+            <li><a href="/stay/endota-spa-sorrento/">Endota Spa Sorrento</a> and <a href="/stay/endota-spa-mornington/">Endota Spa Mornington</a> are the accessible mid-range options with good treatment menus.</li>
+          </ul>
+        </blockquote>
+
+        <p>The Mornington Peninsula, Victoria, Australia has, within an hour's drive from Mornington to Cape Schanck, more genuine spa and wellness options than most Australian regions manage across a whole state. Thermal springs. Treatment-focused day spas in converted properties. Resort spa facilities integrated with accommodation.</p>
+
+        <p>This page covers the treatment-focused spa options. Thermal springs (bathing without treatments) are covered in the <a href="/explore/hot-springs/">Peninsula hot springs guide</a>.</p>
+
+        <h2>Hot springs vs day spa: the distinction</h2>
+        <p>A hot springs visit is primarily a bathing experience — thermal pools at various temperatures, outdoor soaking, no appointments. A spa day involves booked treatments: massages, facials, body wraps, hydrotherapy circuits with a therapist element. Many Peninsula operators offer both. This page focuses on those where the treatment experience is the point.</p>
+
+        <h2>The spa options ranked</h2>
+
+        <h3>1. Spa by Jackalope — Merricks North</h3>
+        <p>The Peninsula's most architecturally considered spa experience, integrated into the <a href="/stay/jackalope/">Jackalope hotel</a> on the Red Hill–Merricks corridor. Treatment rooms are among the best-appointed in regional Victoria. Menu covers massage, facials, and body treatments. A non-guest spa day is bookable, though treatments sell out; book 2–3 weeks ahead on weekends.</p>
+        <p><em>Best for:</em> Couples seeking a design-led spa experience. Those staying at Jackalope.</p>
+        <p><em>Price point:</em> Premium.</p>
+
+        <h3>2. Endota Spa Sorrento — Sorrento</h3>
+        <p>The Sorrento outpost of the Endota chain — the Peninsula's strongest mid-market spa option. Good treatment menu, reliable quality, easy to book compared with Jackalope. Sorrento positioning means it pairs naturally with a morning back-beach walk or an afternoon at the Sorrento Ocean Baths.</p>
+        <p><em>Best for:</em> Those based in Sorrento. Mid-range spa days. Uncomplicated booking.</p>
+
+        <h3>3. Endota Spa Mornington — Mornington</h3>
+        <p>Same operator as Sorrento. Slightly larger treatment menu. Good for those based in the northern Peninsula or combining with a <a href="/places/mornington/">Mornington town</a> visit.</p>
+        <p><em>Best for:</em> Northern Peninsula stays. Combining with a Mornington day.</p>
+
+        <h3>4. Peninsula Hot Springs — spa treatments</h3>
+        <p>Peninsula Hot Springs has an on-site spa treatment facility in addition to its bathing pools. The combination of thermal bathing and a treatment in a single visit is the most complete wellness day on the Peninsula. Book the spa element separately from the bathing entry.</p>
+        <p><em>Best for:</em> Those already visiting Peninsula Hot Springs who want treatments added.</p>
+
+        <h3>5. One Spa at RACV Cape Schanck — Cape Schanck</h3>
+        <p>Resort-integrated spa at the RACV Cape Schanck property. Good for those staying at the resort or wanting to combine golf with a treatment. Standard resort spa quality.</p>
+        <p><em>Best for:</em> Resort guests. Golf + spa combinations.</p>
+
+        <h2>Building a spa day</h2>
+        <p><strong>The thermal-and-treatment day:</strong> Morning bathing session at <a href="/explore/hot-springs/">Peninsula Hot Springs or Alba</a> → afternoon treatment at Endota Spa Sorrento. This requires managing booking windows carefully.</p>
+        <p><strong>The Jackalope day:</strong> Morning at <a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> → lunch along the <a href="/places/red-hill/">Red Hill</a> corridor → afternoon winery session. The Peninsula's most elevated single-day combination.</p>
+        <p><strong>The wellness weekend:</strong> The full built-out version is at <a href="/escape/wellness-weekend/">the wellness weekend</a> — a structured two-day itinerary with accommodation included.</p>
+
+        <h2>Also consider</h2>
+        <ul>
+          <li><a href="/explore/hot-springs/">Peninsula hot springs guide</a> — the full bathing experience picture</li>
+          <li><a href="/escape/wellness-weekend/">The wellness weekend package</a> — stay-based full itinerary</li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>What is the best spa on the Mornington Peninsula?</h3>
+        <p>Spa by Jackalope is the highest design standard. Endota Spa Sorrento offers the best mid-range experience. For a combination of thermal bathing and treatment, Peninsula Hot Springs' on-site spa is the most comprehensive.</p>
+
+        <h3>Can you do a spa day on the Mornington Peninsula without staying overnight?</h3>
+        <p>Yes. All day spas listed offer day-visitor bookings. Peninsula Hot Springs also accepts day visitors for bathing. Book treatments well in advance for weekends.</p>
+
+        <h3>What is the difference between Peninsula Hot Springs and a day spa?</h3>
+        <p>Peninsula Hot Springs is primarily a thermal bathing experience — outdoor pools at various temperatures. A day spa offers booked treatment sessions with a therapist. Full comparison at <a href="/explore/hot-springs/">Peninsula hot springs guide</a>.</p>
+
+        <h3>Is Jackalope Spa open to non-guests?</h3>
+        <p>Yes, treatments are bookable for non-guests. Availability is limited — book 2–3 weeks ahead for weekend slots.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

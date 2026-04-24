@@ -17,7 +17,7 @@ export interface Props {
   itineraries?: any[];
   articles?: any[];
   relatedPlaces?: any[];
-  snapshotCards?: { label: string; title: string; body: string }[];
+  snapshotCards?: { label: string; title: string; body: string; href?: string }[];
 }
 
 const {
@@ -104,9 +104,19 @@ const placeSchema = {
       <span class="section-hero__visual-label">{place.data.heroImage.alt}</span>
     </div>
 
+    {place.data.tldr && place.data.tldr.length > 0 && (
+      <div class="place-detail__tldr">
+        <p class="label label--accent">Quick take</p>
+        <ul class="place-detail__tldr-list">
+          {place.data.tldr.map((item: string) => <li>{item}</li>)}
+        </ul>
+      </div>
+    )}
+
     <dl class="place-detail__stats">
       <div><dt>Zone</dt><dd>{zoneLabel}</dd></div>
       <div><dt>Kind</dt><dd>{titleize(place.data.kind)}</dd></div>
+      {place.data.driveTime && <div><dt>From Melbourne</dt><dd>{place.data.driveTime}</dd></div>}
       <div><dt>Venues mapped</dt><dd>{totalVenues}</dd></div>
       <div><dt>Experiences</dt><dd>{experiences.length}</dd></div>
     </dl>
@@ -136,11 +146,21 @@ const placeSchema = {
       </div>
       <div class="zone-intro__grid zone-intro__grid--four">
         {snapshotCards.map((card) => (
-          <article class="zone-card">
-            <p class="zone-card__label">{card.label}</p>
-            <h3 class="zone-card__title">{card.title}</h3>
-            <p class="zone-card__body">{card.body}</p>
-          </article>
+          card.href
+            ? (
+              <a href={card.href} class="zone-card zone-card--link">
+                <p class="zone-card__label">{card.label}</p>
+                <h3 class="zone-card__title">{card.title}</h3>
+                <p class="zone-card__body">{card.body}</p>
+              </a>
+            )
+            : (
+              <article class="zone-card">
+                <p class="zone-card__label">{card.label}</p>
+                <h3 class="zone-card__title">{card.title}</h3>
+                <p class="zone-card__body">{card.body}</p>
+              </article>
+            )
         ))}
       </div>
     </div>
@@ -156,12 +176,12 @@ const placeSchema = {
           <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
           <p class="venues__sub">Restaurants, cafés, bakeries, and pubs  -  each with an editor note, not a star rating.</p>
         </div>
-        <a href="/eat" class="venues__link">All venues →</a>
+        <a href="/eat/" class="venues__link">All venues →</a>
       </div>
       <div class="venues__grid">
         {eatVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
       </div>
-      <p class="venues__rankings-link"><a href="/eat/best-restaurants">See the editorial rankings → Best Restaurants on the Peninsula</a></p>
+      <p class="venues__rankings-link"><a href="/eat/best-restaurants/">See the editorial rankings → Best Restaurants on the Peninsula</a></p>
     </div>
   </section>
 )}
@@ -175,12 +195,12 @@ const placeSchema = {
           <h2 class="venues__title">Cellar doors and makers around {place.data.name}</h2>
           <p class="venues__sub">The producers worth the appointment  -  and the ones already shaping the region's vintage conversation.</p>
         </div>
-        <a href="/wine" class="venues__link">All wine →</a>
+        <a href="/wine/" class="venues__link">All wine →</a>
       </div>
       <div class="venues__grid">
         {wineVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
       </div>
-      <p class="venues__rankings-link"><a href="/wine/best-cellar-doors">See the editorial rankings → Best Cellar Doors on the Peninsula</a></p>
+      <p class="venues__rankings-link"><a href="/wine/best-cellar-doors/">See the editorial rankings → Best Cellar Doors on the Peninsula</a></p>
     </div>
   </section>
 )}
@@ -194,12 +214,12 @@ const placeSchema = {
           <h2 class="venues__title">Sleep in {place.data.name}</h2>
           <p class="venues__sub">When a place has a workable bed attached, it stops being a stop and starts becoming a base.</p>
         </div>
-        <a href="/stay" class="venues__link">All stays →</a>
+        <a href="/stay/" class="venues__link">All stays →</a>
       </div>
       <div class="venues__grid">
         {stayVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
       </div>
-      <p class="venues__rankings-link"><a href="/stay/best-accommodation">See the editorial rankings → Best Places to Stay on the Peninsula</a></p>
+      <p class="venues__rankings-link"><a href="/stay/best-accommodation/">See the editorial rankings → Best Places to Stay on the Peninsula</a></p>
     </div>
   </section>
 )}
@@ -213,7 +233,7 @@ const placeSchema = {
           <h2 class="venues__title">Explore moves anchored to {place.data.name}</h2>
           <p class="venues__sub">Walks, beaches, lookouts, and markets worth scheduling around the meals.</p>
         </div>
-        <a href="/explore" class="venues__link">Explore all →</a>
+        <a href="/explore/" class="venues__link">Explore all →</a>
       </div>
       <div class="experience-grid">
         {experiences.map((experience) => <ExperienceCard experience={experience} />)}
@@ -231,7 +251,7 @@ const placeSchema = {
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
           <p class="venues__sub">These plans have been written around the landscape here  -  not bolted on after.</p>
         </div>
-        <a href="/escape" class="venues__link">Escape plans →</a>
+        <a href="/escape/" class="venues__link">Escape plans →</a>
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -248,7 +268,7 @@ const placeSchema = {
           <p class="label label--accent">Read this place properly</p>
           <h2 class="venues__title">Journal pieces connected to {place.data.name}</h2>
         </div>
-        <a href="/journal" class="venues__link">Journal →</a>
+        <a href="/journal/" class="venues__link">Journal →</a>
       </div>
       <div class="venues__grid">
         {articles.map((article) => <ArticleCard article={article} />)}
@@ -266,24 +286,24 @@ const placeSchema = {
         <h2 class="venues__title">Service guides for your {place.data.name} trip</h2>
         <p class="venues__sub">Long-form editorial that helps you build a weekend, not just a list of places.</p>
       </div>
-      <a href="/journal" class="venues__link">All guides →</a>
+      <a href="/journal/" class="venues__link">All guides →</a>
     </div>
     <div class="venues__grid venues__grid--links">
-      <a href="/journal/mornington-peninsula-itinerary" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
+      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
       {(place.data.zone === 'red-hill-plateau' || place.data.zone === 'hinterland') && (
-        <a href="/journal/mornington-peninsula-winery-tour" class="venue-card__cta">Self-Drive Winery Tour →</a>
+        <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
       )}
       {(place.data.zone === 'tip' || place.data.zone === 'back-beaches' || place.data.zone === 'bayside') && (
-        <a href="/journal/free-things-to-do-mornington-peninsula" class="venue-card__cta">Free Things to Do →</a>
+        <a href="/journal/free-things-to-do-mornington-peninsula/" class="venue-card__cta">Free Things to Do →</a>
       )}
-      <a href="/journal/best-brunch-mornington-peninsula" class="venue-card__cta">Best Brunch Guide →</a>
-      <a href="/journal/mornington-peninsula-hot-springs-guide" class="venue-card__cta">Hot Springs Guide →</a>
-      <a href="/journal/mornington-peninsula-in-winter" class="venue-card__cta">Winter Guide →</a>
+      <a href="/journal/best-brunch-mornington-peninsula/" class="venue-card__cta">Best Brunch Guide →</a>
+      <a href="/journal/mornington-peninsula-hot-springs-guide/" class="venue-card__cta">Hot Springs Guide →</a>
+      <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter Guide →</a>
       {(place.data.kind === 'town') && (
-        <a href="/journal/mornington-peninsula-wedding-venues" class="venue-card__cta">Wedding Venues →</a>
+        <a href="/journal/mornington-peninsula-wedding-venues/" class="venue-card__cta">Wedding Venues →</a>
       )}
       {(place.data.zone === 'ocean-coast' || place.data.zone === 'back-beaches' || place.data.zone === 'tip') && (
-        <a href="/golf" class="venue-card__cta">Best Golf Courses →</a>
+        <a href="/golf/" class="venue-card__cta">Best Golf Courses →</a>
       )}
     </div>
   </div>

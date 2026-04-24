@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildArticleSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+  PUBLISHER_LOGO_URL,
+} from '../../lib/schema';
+
+const articleSchema = buildArticleSchema({
+  headline: 'Best Corporate Retreat Venues on the Mornington Peninsula',
+  description: 'The best corporate retreat venues on the Mornington Peninsula — Jackalope, Lancemore Lindenderry, The Continental Sorrento, RACV Cape Schanck, and Montalto. Matched to group size, format, and what each venue actually does well.',
+  path: '/corporate-events/best-corporate-retreat-venues-mornington-peninsula',
+  datePublished: '2026-04-23',
+  dateModified: '2026-04-23',
+  imageUrl: 'https://peninsulainsider.com.au/images/sourced/venue-jackalope-hotel-01.webp',
+  publisherLogoUrl: PUBLISHER_LOGO_URL,
+  articleSection: 'Corporate Events',
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'Which is the best corporate retreat venue on the Mornington Peninsula?',
+    a: 'Depends on group size and format. For executive retreats (6–20 people): Jackalope in Merricks North or Lancemore Lindenderry in Red Hill. For medium groups (15–60): The Continental Sorrento or a Red Hill hinterland property. For conference scale (40+): RACV Cape Schanck Resort or The Continental Sorrento. For a winery-led offsite: Montalto, Ten Minutes by Tractor, or Pt. Leo Estate. There is no single best — the right venue is the one whose format matches the group.',
+  },
+  {
+    q: 'What is the biggest corporate event venue on the Mornington Peninsula?',
+    a: 'RACV Cape Schanck Resort is the Peninsula\'s largest conference facility — accommodation, multiple meeting rooms, AV infrastructure, golf, and spa all on one property. The Continental Sorrento is the second largest, with hotel conference capacity in a coastal town precinct. Both handle groups of 100+ without the resort feel collapsing.',
+  },
+  {
+    q: 'Which venues are best for small executive retreats on the Peninsula?',
+    a: 'Jackalope (Merricks North) for design-led boutique executive retreats — architecturally distinctive, onsite spa, limited capacity that suits a small senior group. Lancemore Lindenderry (Red Hill) for hinterland stay-and-retreat with vineyard surroundings and a strong dining programme. Boutique Flinders and Shoreham corridor properties for maximum focus and privacy when you genuinely want the group unreachable.',
+  },
+  {
+    q: 'Can Peninsula retreat venues handle groups of 50 or more?',
+    a: 'Yes, at the right venues. The Continental Sorrento handles events up to 200. RACV Cape Schanck handles large groups with resort infrastructure. Montalto can host up to 120 for a vineyard-led event. Most boutique Peninsula properties max out at 20–40 for retreat formats — forcing a large group into a boutique venue undermines the retreat character.',
+  },
+  {
+    q: 'What is the best winery venue for a corporate offsite on the Peninsula?',
+    a: 'Montalto for medium-large groups wanting a full estate experience. Ten Minutes by Tractor for a more intimate winery-led offsite where the food is the programme. Pt. Leo Estate for a coastal-architecture setting with capacity for larger groups. The winery format works best when the dining programme is genuinely the centrepiece — not when wine and food are add-ons to a standard meeting-room day.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Corporate Events', url: 'https://peninsulainsider.com.au/corporate-events/' },
+  { name: 'Best Retreat Venues' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Corporate Events', href: '/corporate-events' },
+  { label: 'Best Retreat Venues' },
+];
+---
+
+<BaseLayout
+  title="Best Corporate Retreat Venues on the Mornington Peninsula · Peninsula Insider"
+  description="The best corporate retreat venues on the Mornington Peninsula — Jackalope, Lancemore Lindenderry, The Continental Sorrento, RACV Cape Schanck, and Montalto. Matched to group size and format."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/corporate-events/best-corporate-retreat-venues-mornington-peninsula"
+  modifiedTime="2026-04-23"
+  ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="section-hero">
+    <div class="container">
+      <div class="section-hero__inner">
+        <div class="section-hero__content">
+          <p class="label label--accent">Best Retreat Venues</p>
+          <h1 class="section-hero__title">Best Corporate Retreat Venues on the Mornington Peninsula</h1>
+          <p class="section-hero__dek">A corporate retreat venue on the Peninsula should do more than look good in photos. It should change the quality of the conversations. This guide matches venues to group size, event format, and what each property actually delivers — not what the marketing suggests.</p>
+        </div>
+        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/venue-jackalope-hotel-01.webp); background-size: cover; background-position: center;">
+          <div class="section-hero__visual-fog"></div>
+          <span class="section-hero__visual-label">Corporate Retreats · Jackalope · Peninsula</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial-promise">
+    <div class="container">
+      <div class="editorial-promise__inner">
+        <div>
+          <p class="label label--accent">How this guide works</p>
+          <h2 class="editorial-promise__title">Start with the format. Then choose the venue.</h2>
+        </div>
+        <div>
+          <p>The most common retreat planning mistake is choosing the venue before deciding the format. A beautiful vineyard property that is optimised for intimate dinners is not the same as a strong executive retreat venue. A conference centre with resort infrastructure is not a leadership offsite venue. These distinctions matter and most venue comparison guides ignore them.</p>
+          <p>This guide structures venues by use case — small executive retreats, medium offsites, large conference events, and winery-led programmes. Match your format first, then choose within the relevant category.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues" id="executive">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">6–20 people</p>
+          <h2 class="venues__title">Executive retreat venues</h2>
+          <p class="venues__sub">Small senior-team gatherings where the venue character is the programme. Boutique properties with privacy, distinctive atmosphere, and a dining programme that does not require an external caterer.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Boutique · Merricks North</span>
+          </div>
+          <h3 class="venue-card__name">Jackalope</h3>
+          <p class="venue-card__signature">The Peninsula's most architecturally distinctive boutique hotel — a black monolith in a vineyard, with a hatted restaurant (Doot Doot Doot) and a spa onsite. Suited to small executive teams where the visual context of the event matters and the group is happy to stay within the property ecosystem for two days. <strong>Does well:</strong> design distinctiveness, exceptional food and wine, onsite spa, sense of arrival. <strong>Watch out for:</strong> the architecture is bold — not every group finds it relaxing. Limited capacity. Not suitable for groups over 30.</p>
+          <a href="/places/merricks/" class="venue-card__cta">Merricks guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Retreat hotel · Red Hill</span>
+          </div>
+          <h3 class="venue-card__name">Lancemore Lindenderry</h3>
+          <p class="venue-card__signature">A retreat hotel on the Red Hill plateau with vineyard surroundings, onsite rooms and suites, a strong restaurant programme, and event spaces suited to leadership sessions and strategy days. Less architecturally assertive than Jackalope — better for groups that want quality without theatre. <strong>Does well:</strong> accommodation integration, hinterland atmosphere, reliable dining. <strong>Watch out for:</strong> the event infrastructure is functional but not purpose-designed for large or complex programmes.</p>
+          <a href="/places/red-hill/" class="venue-card__cta">Red Hill guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Private · Flinders / Shoreham corridor</span>
+          </div>
+          <h3 class="venue-card__name">Boutique hinterland properties</h3>
+          <p class="venue-card__signature">For retreats where focus matters more than amenity. The Flinders and Shoreham corridor has private properties available for exclusive-use bookings — suited to boards, founding teams, and senior groups that want to be genuinely unreachable from the office for 48 hours. <strong>Does well:</strong> privacy, distance, authenticity. <strong>Watch out for:</strong> limited inventory; availability and AV infrastructure vary significantly by property. Requires earlier planning than name-brand venues.</p>
+          <a href="/places/flinders/" class="venue-card__cta">Flinders guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="offsite">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">15–60 people</p>
+          <h2 class="venues__title">Leadership offsite venues</h2>
+          <p class="venues__sub">Mixed-format retreats that need structured session space, accommodation within 10 minutes, and an evening programme that does not require a coach between venues.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Coastal hotel · Sorrento</span>
+          </div>
+          <h3 class="venue-card__name">The Continental Sorrento</h3>
+          <p class="venue-card__signature">A full-service coastal hotel with conference capacity, onsite accommodation, a precinct of restaurants, and direct foreshore access. The strongest Peninsula option for groups that want everything walkable and a town atmosphere after the sessions end. <strong>Does well:</strong> walkability, group accommodation under one roof, town-centre evening energy. <strong>Watch out for:</strong> Sorrento is busy in summer; the town atmosphere can cut both ways depending on the group.</p>
+          <a href="/places/sorrento/" class="venue-card__cta">Sorrento guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Winery · Red Hill</span>
+          </div>
+          <h3 class="venue-card__name">Montalto</h3>
+          <p class="venue-card__signature">Up to 120 guests for a vineyard-led leadership event. The dining programme is the centrepiece — a working lunch or private dinner at Montalto does more for group cohesion than most facilitated activities. <strong>Does well:</strong> food and wine quality, estate atmosphere, sculpture garden for post-session walking. <strong>Watch out for:</strong> AV and formal session infrastructure is not the strength; better suited to programme formats where dining is the main structured activity.</p>
+          <a href="/places/red-hill/" class="venue-card__cta">Red Hill guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues" id="conference">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">40+ people</p>
+          <h2 class="venues__title">Conference and large-group venues</h2>
+          <p class="venues__sub">Events that need delegate infrastructure — structured AV, breakout rooms, accommodation blocks, and catering at scale.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Resort · Cape Schanck</span>
+          </div>
+          <h3 class="venue-card__name">RACV Cape Schanck Resort</h3>
+          <p class="venue-card__signature">The Peninsula's largest conference venue — accommodation, multiple meeting rooms with AV infrastructure, golf, and a spa all on one property. The right choice when group size, logistical containment, and activities variety are the primary requirements. <strong>Does well:</strong> scale, accommodation density, multi-activity programme integration. <strong>Watch out for:</strong> feels less boutique than the Red Hill or Sorrento options — better for logistics than for intimate retreat atmosphere.</p>
+          <a href="/places/cape-schanck/" class="venue-card__cta">Cape Schanck guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Coastal hotel · Sorrento</span>
+          </div>
+          <h3 class="venue-card__name">The Continental Sorrento</h3>
+          <p class="venue-card__signature">Also the Peninsula's strongest large-group option outside RACV Cape Schanck — up to 200 for events, hotel accommodation onsite, and a town precinct that gives delegates genuine evening options without a coach. The atmosphere is more curated than a resort; better when the group quality is the priority. <strong>Does well:</strong> coastal hotel atmosphere, delegate walkability, strong evening programme. <strong>Watch out for:</strong> conference-scale events here can feel crowded in the available session spaces; verify breakout room availability explicitly.</p>
+          <a href="/places/sorrento/" class="venue-card__cta">Sorrento guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="matrix">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Venue comparison</p>
+          <h2 class="venues__title">Quick reference: venue matched to use case</h2>
+        </div>
+      </div>
+      <div style="overflow-x: auto;">
+        <table class="content-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--color-border, #e5e7eb);">
+              <th style="text-align: left; padding: 0.75rem 1rem;">Venue</th>
+              <th style="text-align: left; padding: 0.75rem 1rem;">Best for</th>
+              <th style="text-align: left; padding: 0.75rem 1rem;">Group size</th>
+              <th style="text-align: left; padding: 0.75rem 1rem;">Accom onsite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--color-border, #e5e7eb);">
+              <td style="padding: 0.75rem 1rem; font-weight: 600;">Jackalope</td>
+              <td style="padding: 0.75rem 1rem;">Executive retreat, design-led brands</td>
+              <td style="padding: 0.75rem 1rem;">6–25</td>
+              <td style="padding: 0.75rem 1rem;">Yes</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border, #e5e7eb);">
+              <td style="padding: 0.75rem 1rem; font-weight: 600;">Lancemore Lindenderry</td>
+              <td style="padding: 0.75rem 1rem;">Executive retreat, leadership offsite</td>
+              <td style="padding: 0.75rem 1rem;">6–40</td>
+              <td style="padding: 0.75rem 1rem;">Yes</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border, #e5e7eb);">
+              <td style="padding: 0.75rem 1rem; font-weight: 600;">Montalto</td>
+              <td style="padding: 0.75rem 1rem;">Winery-led offsite, client hospitality</td>
+              <td style="padding: 0.75rem 1rem;">15–120</td>
+              <td style="padding: 0.75rem 1rem;">No (nearby)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border, #e5e7eb);">
+              <td style="padding: 0.75rem 1rem; font-weight: 600;">The Continental Sorrento</td>
+              <td style="padding: 0.75rem 1rem;">Leadership offsite, medium conference</td>
+              <td style="padding: 0.75rem 1rem;">20–200</td>
+              <td style="padding: 0.75rem 1rem;">Yes</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.75rem 1rem; font-weight: 600;">RACV Cape Schanck</td>
+              <td style="padding: 0.75rem 1rem;">Large conference, multi-activity groups</td>
+              <td style="padding: 0.75rem 1rem;">40–300+</td>
+              <td style="padding: 0.75rem 1rem;">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues" id="faq">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Common questions</p>
+          <h2 class="venues__title">What planners actually ask</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name">Red Hill or Sorrento for a corporate offsite?</h3>
+          <p class="venue-card__signature">Red Hill for strategy-heavy retreats where food and wine are central and you want immersion. Sorrento for polished coastal hosting, client-facing events, and groups where walkability and a recognisable town format matter. Cape Schanck when group size or multi-activity logistics are the primary consideration. → <a href="/journal/corporate-events-red-hill-vs-sorrento/">Full comparison →</a></p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">How far in advance should I book a Peninsula retreat venue?</h3>
+          <p class="venue-card__significance">For peak-season weekends at boutique properties — Jackalope, Lindenderry — book 3 to 6 months ahead. For RACV Cape Schanck or The Continental for large group dates, 2 to 4 months is usually sufficient outside peak. For the most in-demand properties, longer. If you have a fixed event date, confirm venue availability before committing it to participants.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Is Peninsula Hot Springs usable as a retreat activity?</h3>
+          <p class="venue-card__significance">Yes — Peninsula Hot Springs is 25 minutes from Cape Schanck and easily bookable as a group activity. It works best as an evening recovery session on the first day of a two-day retreat, or as a second-morning activity before the drive back. Pre-book group sessions in advance — it fills on weekends and the best private pool options require lead time. → <a href="/spa/">Hot springs guide</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Go deeper</p>
+          <h2 class="venues__title">More from the Peninsula Insider corporate events guide</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/corporate-events/">Corporate Events Hub</a></h3>
+          <p class="venue-card__signature">The full Peninsula corporate events guide — event formats, locality guide, programme logic, and what planners most commonly underestimate.</p>
+          <a href="/corporate-events/" class="venue-card__cta">All corporate events →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/corporate-events-how-to-plan-peninsula-retreat/">How to Plan a Peninsula Retreat</a></h3>
+          <p class="venue-card__signature">The actual planning sequence — format first, venue second, programme before activities. What makes a Peninsula offsite worth leaving Melbourne for.</p>
+          <a href="/journal/corporate-events-how-to-plan-peninsula-retreat/" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/corporate-events-red-hill-vs-sorrento/">Red Hill vs Sorrento</a></h3>
+          <p class="venue-card__signature">The Peninsula's two strongest offsite moods — honest comparison of who each suits and why the choice matters more than it appears.</p>
+          <a href="/journal/corporate-events-red-hill-vs-sorrento/" class="venue-card__cta">Read the comparison →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/eat/best-restaurants/">Team Dinner Venues</a></h3>
+          <p class="venue-card__signature">The Peninsula's best restaurants for private group dinners — places with private rooms or buyout capacity that justify the drive.</p>
+          <a href="/eat/best-restaurants/" class="venue-card__cta">Restaurant guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/spa/">Spa and Recovery</a></h3>
+          <p class="venue-card__signature">Peninsula Hot Springs and Alba Thermal Springs — bookable for groups and more useful as a retreat activity than most structured programmes.</p>
+          <a href="/spa/" class="venue-card__cta">Spa guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/golf/">Golf on the Peninsula</a></h3>
+          <p class="venue-card__signature">St Andrews Beach and Moonah Links — world-ranked public access within 20 minutes of the retreat corridor. The right add-on for groups with golfers.</p>
+          <a href="/golf/" class="venue-card__cta">Golf guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    title="The Peninsula, inside and out"
+    body="Peninsula Insider dispatches every Wednesday — venues, wines, places, and what is actually worth making the drive for."
+  />
+</BaseLayout>

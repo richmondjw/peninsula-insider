@@ -1,0 +1,333 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildArticleSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+  PUBLISHER_LOGO_URL,
+} from '../../lib/schema';
+
+const articleSchema = buildArticleSchema({
+  headline: 'Easy Walks on the Mornington Peninsula',
+  description: 'The best easy walks on the Mornington Peninsula — Cape Schanck boardwalk, Mornington foreshore, Farnsworth Track, Arthurs Seat circuit, and more. Honest difficulty notes, dog access, and what to do after.',
+  path: '/walks/easy-walks-mornington-peninsula',
+  datePublished: '2026-04-23',
+  dateModified: '2026-04-23',
+  imageUrl: 'https://peninsulainsider.com.au/images/sourced/explore-bushrangers-bay-walk-01.webp',
+  publisherLogoUrl: PUBLISHER_LOGO_URL,
+  articleSection: 'Walks',
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'What counts as an easy walk on the Mornington Peninsula?',
+    a: 'An easy walk is flat or near-flat, under 2 hours return, with no scrambling or exposed clifftop sections requiring confidence at heights. The Cape Schanck boardwalk (20 min return), the Mornington foreshore walk (3km, flat), and Baldrys Short Circuit in Greens Bush (1.6km, 45 min) are the clearest examples. The Farnsworth Track is technically short (1.5km one way) but has clifftop exposure that may not suit everyone.',
+  },
+  {
+    q: 'Are there easy walks with good views on the Mornington Peninsula?',
+    a: 'Yes. The Cape Schanck boardwalk gives you Bass Strait views and the 1859 lighthouse in 20 minutes return — genuinely spectacular for a walk this short. The Arthurs Seat summit circuit has Melbourne-to-Mt-Macedon views on a clear day. The Farnsworth Track reaches a clifftop lookout above the Southern Ocean. Easy does not mean dull on the Peninsula.',
+  },
+  {
+    q: 'Can I do easy Peninsula walks with young children?',
+    a: 'Yes, with the right choice. The Cape Schanck boardwalk is fully accessible (stroller-compatible to the lighthouse platform). The Mornington foreshore walk is flat and has cafés nearby. Baldrys Short Circuit in Greens Bush suits older children who are comfortable on bush tracks. Avoid any clifftop walks with toddlers — the Farnsworth Track and Coppins Track have exposed drop-offs.',
+  },
+  {
+    q: 'Are dogs allowed on easy walks on the Mornington Peninsula?',
+    a: 'No for most of the best ones. Mornington Peninsula National Park (Cape Schanck, Farnsworth Track, Coppins Track, Two Bays sections) prohibits dogs entirely — including in carparks. Greens Bush also prohibits dogs. On-lead dogs are generally allowed on the Mornington and Mount Martha foreshore paths. Check current Parks Victoria and council rules before visiting.',
+  },
+  {
+    q: 'What is the easiest walk near Sorrento?',
+    a: 'The first section of the Coppins Track from Sorrento Ocean Beach is easy walking above the clifftop — flat, broad path, dramatic Bass Strait views, and you can turn back whenever you like. For something even shorter, the walk between Sorrento back beach and the limestone cliffs at the western end is 20 minutes and accessible without equipment or fitness preparation.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Walks', url: 'https://peninsulainsider.com.au/walks/' },
+  { name: 'Easy Walks' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Walks', href: '/walks' },
+  { label: 'Easy Walks' },
+];
+---
+
+<BaseLayout
+  title="Easy Walks on the Mornington Peninsula · Peninsula Insider"
+  description="The best easy walks on the Mornington Peninsula — Cape Schanck boardwalk, Mornington foreshore, Farnsworth Track, Arthurs Seat circuit, and more. Honest difficulty notes and what to do after each walk."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/walks/easy-walks-mornington-peninsula"
+  modifiedTime="2026-04-23"
+  ogImage="/images/sourced/explore-bushrangers-bay-walk-01.webp"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="section-hero">
+    <div class="container">
+      <div class="section-hero__inner">
+        <div class="section-hero__content">
+          <p class="label label--accent">Easy Walks</p>
+          <h1 class="section-hero__title">Easy Walks on the Mornington Peninsula</h1>
+          <p class="section-hero__dek">Not all easy walks are the same. The Cape Schanck boardwalk, the Mornington foreshore, and the first section of Coppins Track are all technically "easy" — but they serve completely different days. This guide matches you to the right easy walk rather than just ranking them.</p>
+        </div>
+        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/explore-cape-schanck-boardwalk-01.webp); background-size: cover; background-position: center;">
+          <div class="section-hero__visual-fog"></div>
+          <span class="section-hero__visual-label">Easy walks · Cape Schanck · Mornington foreshore</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial-promise">
+    <div class="container">
+      <div class="editorial-promise__inner">
+        <div>
+          <p class="label label--accent">What "easy" actually means here</p>
+          <h2 class="editorial-promise__title">Flat, short, and genuinely good — all three matter.</h2>
+        </div>
+        <div>
+          <p>"Easy walk" is one of the most abused phrases in Peninsula tourism. It has been used to describe walks that are perfectly fine for a fit adult but genuinely not appropriate for a family with a two-year-old, or for someone who gets anxious on exposed clifftops. We use it specifically: flat or near-flat, under 2 hours return, no scrambling, and suitable for most adults without walking experience. Where a walk has conditions, we say so.</p>
+          <p>Dogs are banned from Mornington Peninsula National Park and Greens Bush. Easy walk or not, that is a hard rule and it eliminates most of the Peninsula's best short tracks. The honest sections below say so clearly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues" id="walks">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">The walks</p>
+          <h2 class="venues__title">Six easy walks worth making the drive for</h2>
+          <p class="venues__sub">Each one is genuinely easy by any reasonable definition. Each one is also genuinely good — not a consolation prize for people who don't want a proper hike.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">20 min return · Accessible</span>
+            <span class="venue-card__price">No dogs</span>
+          </div>
+          <h3 class="venue-card__name">Cape Schanck Boardwalk</h3>
+          <p class="venue-card__signature">20 minutes return from the Cape Schanck carpark to the lighthouse platform above Bass Strait. The boardwalk is surfaced and accessible for most mobility levels. The view from the platform — lighthouse, ocean, and the basalt stack called Pulpit Rock — is one of the strongest short-walk payoffs on the Peninsula. Do not skip it because it is short. <strong>Best time:</strong> any daylight, but late afternoon light is exceptional. Dogs not permitted in the national park.</p>
+          <a href="/explore/cape-schanck-boardwalk/" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">3km one way · Flat</span>
+            <span class="venue-card__price">Dogs on lead OK</span>
+          </div>
+          <h3 class="venue-card__name">Mornington Foreshore Walk</h3>
+          <p class="venue-card__signature">The flat path between Mornington Pier and Schnapper Point, passing the bathing boxes and foreshore reserve. 3km one way, easily shortened. No elevation. Cafés at both ends. The best family or low-effort walk in the northern Peninsula corridor — not spectacular, but reliably good and works in any weather or fitness level. Dogs on lead are permitted on most foreshore sections. <strong>Best time:</strong> early morning or dusk for the bathing boxes light.</p>
+          <a href="/places/mornington/" class="venue-card__cta">Mornington guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">1.5km one way · Clifftop exposure</span>
+            <span class="venue-card__price">No dogs</span>
+          </div>
+          <h3 class="venue-card__name">Farnsworth Track</h3>
+          <p class="venue-card__signature">1.5km one way from London Bridge carpark to the Portsea Ocean Beach lookout. Technically easy — the track is clear and not steep — but it has genuine clifftop exposure above Bass Strait that may not suit everyone. The reward is the best lookout above the Southern Ocean near Sorrento. <strong>Best time:</strong> late afternoon (4–5pm) for the light on the cliffs. Dogs not permitted. Not suitable for people uncomfortable near cliffs.</p>
+          <a href="/explore/farnsworth-track/" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">1.8km circuit · Some steps</span>
+            <span class="venue-card__price">No dogs</span>
+          </div>
+          <h3 class="venue-card__name">Arthurs Seat Summit Circuit</h3>
+          <p class="venue-card__signature">1.8km circuit from the Arthurs Seat summit — the TC McKeller Walk. Formed path with some steps, well-maintained, shaded by messmate and manna gum. Views to Melbourne, the You Yangs, and Mt Macedon on a clear day. Can be combined with the Arthurs Seat Eagle gondola for a one-way walk down. <strong>Best time:</strong> clear mornings in autumn and winter for the furthest views. Dogs not permitted in the State Park.</p>
+          <a href="/explore/arthurs-seat-lookout/" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">1.6km circuit · 45 min</span>
+            <span class="venue-card__price">No dogs</span>
+          </div>
+          <h3 class="venue-card__name">Baldrys Short Circuit, Greens Bush</h3>
+          <p class="venue-card__signature">The entry-level walk into Victoria's largest surviving coastal heathland remnant. 1.6km, 45 minutes, easy grades, ancient grasstrees. Quiet on weekdays. The bush here feels wilder than the distance from Melbourne suggests — nothing on the Peninsula looks like Greens Bush in the early morning. <strong>Best time:</strong> dawn or dusk for wildlife (kangaroos, echidnas, wallabies). Dogs not permitted.</p>
+          <a href="/explore/" class="venue-card__cta">See all experiences →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Open distance · Flat clifftop</span>
+            <span class="venue-card__price">No dogs</span>
+          </div>
+          <h3 class="venue-card__name">Coppins Track — first section</h3>
+          <p class="venue-card__signature">The full Coppins Track from Sorrento Ocean Beach to Diamond Bay is 4km one way and moderate. The first section from Sorrento is easy — flat clifftop path above Bass Strait, you walk as far as you want and turn back. Broad views, no scrambling, clear path. A strong option for anyone who wants a clifftop walk without committing to the full route. <strong>Best time:</strong> morning before the wind picks up. Dogs not permitted in the national park.</p>
+          <a href="/explore/coppins-track/" class="venue-card__cta">Read the guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="by-day">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Walk selector</p>
+          <h2 class="venues__title">Which easy walk belongs to your day?</h2>
+          <p class="venues__sub">Easy walks are still part of a Peninsula day. Match the walk to what comes before and after it.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name">If you want spectacular without effort</h3>
+          <p class="venue-card__signature"><strong>Cape Schanck boardwalk.</strong> 20 minutes. Lighthouse, Bass Strait, Pulpit Rock. The most impressive short walk on the Peninsula by any measure. Combine with Bushrangers Bay (5km return) if the group wants more after.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">If you're bringing small children</h3>
+          <p class="venue-card__signature"><strong>Mornington foreshore.</strong> Flat, café at both ends, bathing boxes for photographs, and the children can play on the beach after. The Cape Schanck boardwalk also works for prams as far as the lighthouse platform — check current access conditions.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">If you want a walk before lunch in Sorrento</h3>
+          <p class="venue-card__signature"><strong>Coppins Track first section.</strong> Start at Sorrento Ocean Beach, walk the clifftop as far as you like, return, and walk into town for lunch. Earns the meal without requiring commitment to the full route.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">If you want views + wine in one morning</h3>
+          <p class="venue-card__signature"><strong>Arthurs Seat summit circuit, then Red Hill cellar doors.</strong> 1.8km at the summit, then drop into the Red Hill plateau for the afternoon. The gondola gives you an easy way up or down without the drive.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">If you want something genuinely different</h3>
+          <p class="venue-card__signature"><strong>Baldrys Short Circuit in Greens Bush.</strong> Ancient grasstrees, real bush, wildlife if you are there at the right time of day. Nothing looks like Greens Bush anywhere else on the Peninsula. Quiet on weekdays.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">If you want drama with a short time window</h3>
+          <p class="venue-card__signature"><strong>Farnsworth Track at 4pm.</strong> 1.5km to a clifftop lookout above Bass Strait. Do it in the last two hours of daylight — the light on the cliffs and the Southern Ocean at that hour is the best thing you can do on the Peninsula in 30 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues" id="after">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">After the walk</p>
+          <h2 class="venues__title">What to do when the walk ends</h2>
+          <p class="venues__sub">Easy walks are short enough to fit into a larger Peninsula day. These are the natural second acts.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name">After Cape Schanck</h3>
+          <p class="venue-card__signature"><strong>Peninsula Hot Springs</strong> — 25 minutes north via the Cape Schanck Road. The walk-then-springs day is the strongest combination on the southern Peninsula. Book the springs session in advance. → <a href="/spa/">Hot springs guide</a></p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">After Mornington foreshore</h3>
+          <p class="venue-card__signature"><strong>Main Street lunch</strong> — walk directly from the foreshore into Mornington town. Multiple good brunch and lunch spots. The Wednesday farmers' market is worth timing the walk around if you can. → <a href="/places/mornington/">Mornington guide</a></p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">After Farnsworth Track or Coppins Track</h3>
+          <p class="venue-card__signature"><strong>Sorrento lunch</strong> — 10 minutes from the Sorrento end of Coppins Track. Several good restaurants and cafés on Ocean Beach Road and the main street. → <a href="/eat/best-restaurants/">Restaurant guide</a></p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">After Arthurs Seat</h3>
+          <p class="venue-card__signature"><strong>Red Hill cellar doors</strong> — the plateau is right there. Montalto, Polperro, or any of a dozen producers within 15 minutes. The best walk-then-wine sequence on the Peninsula. → <a href="/wine/best-cellar-doors/">Cellar door guide</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="dog-access">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Dogs and easy walks</p>
+          <h2 class="venues__title">The honest guide to dog access</h2>
+        </div>
+      </div>
+      <div class="editorial-promise__inner">
+        <div>
+          <p>Mornington Peninsula National Park — which includes Cape Schanck, the Farnsworth Track, the Coppins Track, Two Bays sections, Point Nepean, and the Coastal Walk corridor — prohibits dogs entirely. This includes carparks. There are no exceptions for small dogs, for leads, or for national park boundaries you cannot see from the trailhead.</p>
+          <p>Greens Bush and Arthurs Seat State Park also prohibit dogs.</p>
+          <p>For dogs, the clearest options are: the Mornington foreshore (on lead, check local council rules for specific sections), Mount Martha clifftop sections (on lead), and Rosebud foreshore. These are genuinely good walks with dogs. The clifftop national park walks are not available to you. Plan accordingly.</p>
+        </div>
+        <div>
+          <a href="/dog-friendly/" class="venue-card__cta">Dog-friendly Peninsula guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="faq">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Common questions</p>
+          <h2 class="venues__title">What walkers ask about easy Peninsula walks</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name">Is the Cape Schanck boardwalk wheelchair accessible?</h3>
+          <p class="venue-card__signature">The boardwalk is surfaced and largely accessible, but it is not flat throughout and some sections have inclines. Parks Victoria lists it as accessible with assistance. Call 13 1963 before visiting if accessibility is a primary concern. Current upgrade works (as of April 2026) may affect sections — check the Parks Victoria website for current conditions.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Can I do an easy Peninsula walk in winter?</h3>
+          <p class="venue-card__significance">Yes — winter is underrated for short walks. The Cape Schanck boardwalk in a moderate swell is dramatically better than the same walk in flat summer conditions. Greens Bush is quiet and atmospheric in winter. Bring a waterproof layer; the weather can change quickly on exposed clifftop sections. Mud on bush tracks after rain is the main practical consideration.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">How far is Cape Schanck from Melbourne?</h3>
+          <p class="venue-card__significance">About 90 minutes from Melbourne CBD via the Mornington Peninsula Freeway and Cape Schanck Road. Worth it for a day trip, especially paired with a stop at Peninsula Hot Springs on the return drive. Drive time varies significantly on peak summer weekends — allow 30 minutes extra on Saturdays in January and February.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Go deeper</p>
+          <h2 class="venues__title">More from the Peninsula Insider walks guide</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/walks/">Walks Hub</a></h3>
+          <p class="venue-card__signature">The full Peninsula walks guide — all difficulty levels, walk selector, and the combinations that make a walk part of a proper Peninsula day.</p>
+          <a href="/walks/" class="venue-card__cta">All walks →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/walks-bushrangers-bay-walk-guide/">The Bushrangers Bay Walk</a></h3>
+          <p class="venue-card__signature">5km return from Cape Schanck. Not quite easy — but the best walk on the Peninsula if you want something more substantial. The guide explains exactly what to expect.</p>
+          <a href="/journal/walks-bushrangers-bay-walk-guide/" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/walks-cape-schanck-hot-springs-day/">Walk Then Hot Springs</a></h3>
+          <p class="venue-card__signature">The full Cape Schanck day — walk in the morning, Peninsula Hot Springs in the afternoon. The Peninsula's strongest one-day combination.</p>
+          <a href="/journal/walks-cape-schanck-hot-springs-day/" class="venue-card__cta">Read the itinerary →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/explore/best-walks/">Best Walks — All Levels</a></h3>
+          <p class="venue-card__signature">If easy wasn't what you were looking for, the best walks guide covers everything from the Cape Schanck boardwalk to the 26km Two Bays Walking Trail.</p>
+          <a href="/explore/best-walks/" class="venue-card__cta">All walks guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/dog-friendly/">Dog-Friendly Walking</a></h3>
+          <p class="venue-card__signature">Where you can actually walk with a dog on the Peninsula — including honest coverage of which parks prohibit dogs and which foreshore paths allow them.</p>
+          <a href="/dog-friendly/" class="venue-card__cta">Dog-friendly guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/spa/">Walk Then Hot Springs</a></h3>
+          <p class="venue-card__signature">Peninsula Hot Springs and Alba Thermal Springs — both close to the Cape Schanck walking corridor. The natural second act to a morning walk.</p>
+          <a href="/spa/" class="venue-card__cta">Hot springs guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    title="The right walk for the weekend you're planning"
+    body="Peninsula Insider dispatches every Wednesday — walks, dining, wine, and what is actually worth making the drive for."
+  />
+</BaseLayout>

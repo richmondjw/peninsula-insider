@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { getCollection } from 'astro:content';
+import { routeSlug } from '../../lib/editorial';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const itinerariesAll = await getCollection('itineraries');
+const itinerarySlugs = [
+  'flinders-and-cape-reset',
+  'ridge-to-sea-two-night-escape',
+  'sorrento-off-season-weekend',
+];
+const itineraries = itinerarySlugs
+  .map((slug) => itinerariesAll.find((i) => routeSlug(i) === slug))
+  .filter((i): i is NonNullable<typeof i> => Boolean(i));
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Mornington Peninsula Weekend Trips — Planning Guide',
+  description: 'How to plan a Mornington Peninsula weekend — 2 nights, 1 night, and base options. Linked itineraries for every style.',
+  path: '/explore/weekend-trips',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Mornington Peninsula Weekend Formats',
+  description: 'Six weekend formats for visiting the Mornington Peninsula.',
+  listPath: '/explore/weekend-trips',
+  items: [
+    { name: 'The default Peninsula weekend', path: '/escape/the-weekend-peninsula', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
+    { name: 'The Sorrento weekend', path: '/journal/the-sorrento-weekend', itemType: 'TouristTrip', addressLocality: 'Sorrento' },
+    { name: 'The Flinders weekend', path: '/journal/a-flinders-weekend', itemType: 'TouristTrip', addressLocality: 'Flinders' },
+    { name: 'The couples weekend', path: '/journal/the-couples-weekend', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
+    { name: 'The winter Peninsula weekend', path: '/journal/a-winter-peninsula-weekend', itemType: 'TouristTrip', addressLocality: 'Mornington Peninsula' },
+    { name: 'The hinterland-first weekend', path: '/escape/ridge-to-sea-two-night-escape', itemType: 'TouristTrip', addressLocality: 'Red Hill' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'How long should a Mornington Peninsula weekend trip be?',
+    a: '2 days/1 night is the most common format and is sufficient for a complete experience. 3 days/2 nights allows the addition of a third location or a more relaxed pace.',
+  },
+  {
+    q: 'When is the best time for a Peninsula weekend?',
+    a: 'Autumn (March–May) is consistently the best overall season: good weather, harvest timing at the wineries, lower crowds than summer. Winter is excellent for hot springs and quiet roads. Summer is peak beach season but also peak crowds.',
+  },
+  {
+    q: 'What does a Mornington Peninsula weekend cost?',
+    a: 'Mid-range accommodation on a summer weekend: $250–$400/night. Premium properties: $400–$800+/night. Add hot springs ($50–$120/person), meals ($60–$200/person/day), and activities.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Weekend Trips' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Weekend Trips' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Weekend Trips — 6 Formats · Peninsula Insider"
+  description="How to plan a Mornington Peninsula weekend — 2D/1N and 3D/2N formats, six linked itineraries, where to base yourself, and when to book."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/weekend-trips/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Mornington Peninsula Weekend Trips</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>A 2-day/1-night trip is the Peninsula's most popular format. <a href="/escape/the-weekend-peninsula/">The default Peninsula weekend</a> is the built-out version.</li>
+            <li><a href="/explore/where-to-base-yourself/">Where to base yourself</a> is the most important planning decision — Sorrento and Red Hill anchor different kinds of trips.</li>
+            <li>Six linked itineraries below — from the classic bay-and-hinterland weekend to couples and winter-specific formats.</li>
+            <li>Booking 4–6 weeks ahead for accommodation on summer weekends is realistic in most price brackets; earlier for premium properties.</li>
+          </ul>
+        </blockquote>
+
+        <p>A Peninsula weekend is a particular thing. It's not a resort holiday — there are no casino hotels, no package-tour infrastructure. It's the combination of good food, coastal access, and hinterland space that works. Two nights can plausibly include a thermal soak, a winery lunch, a beach walk, a decent dinner, and something genuinely unexpected.</p>
+
+        <h2>The 2D/1N frame</h2>
+        <p>Most Peninsula weekends work best as a 2-day, 1-night structure. Enough time to reach the southern end of the Peninsula (Sorrento, Flinders, Cape Schanck) without rushing, to have a proper dinner the night before, and to leave the following afternoon. The 3-day/2-night version (<a href="/escape/the-three-day-peninsula/">the three-day Peninsula</a>) is available but the 2D/1N is the default.</p>
+
+        <h2>Six weekend formats</h2>
+
+        <h3>1. The default Peninsula weekend</h3>
+        <p>The fully built itinerary — <a href="/escape/the-weekend-peninsula/">the default Peninsula weekend</a> covers accommodation selection, day-by-day structure, and linked venues. <em>Best for:</em> First-time overnight visitors wanting a complete plan.</p>
+
+        <h3>2. The Sorrento weekend</h3>
+        <p>A tip-of-the-Peninsula frame based in or near Sorrento. Bay swimming, back-beach walking, coastal dining, a potential ferry leg. Read: <a href="/journal/the-sorrento-weekend/">The Sorrento weekend</a>. <em>Best for:</em> Those who want the most iconic Peninsula setting.</p>
+
+        <h3>3. The Flinders weekend</h3>
+        <p>A south-ocean frame based in Flinders — slower pace, the best pub on the Peninsula, and access to Cape Schanck. Read: <a href="/journal/a-flinders-weekend/">A Flinders weekend</a>. <em>Best for:</em> Those who want to avoid the Sorrento crowds; couples; slower-paced visits.</p>
+
+        <h3>4. The couples weekend</h3>
+        <p>A romance-framed itinerary built around Spa by Jackalope, winery lunches, and the Sorrento off-season. Read: <a href="/journal/the-couples-weekend/">The couples weekend</a>. <em>Best for:</em> Anniversaries, birthdays, first serious weekends away.</p>
+
+        <h3>5. The winter Peninsula weekend</h3>
+        <p>A cold-weather frame: hot springs, fireplace dinners, quiet roads. Read: <a href="/journal/a-winter-peninsula-weekend/">A winter Peninsula weekend</a>. <em>Best for:</em> Winter visitors; off-peak travel; those who find summer crowds off-putting.</p>
+
+        <h3>6. The hinterland-first weekend</h3>
+        <p>Based in Red Hill or Merricks, built around winery lunches, walking, and the <a href="/explore/red-hill-market/">Red Hill Market</a> anchor on Saturday mornings. Read: <a href="/journal/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a> and <a href="/escape/ridge-to-sea-two-night-escape/">Ridge to Sea escape</a>. <em>Best for:</em> Food-and-wine visitors.</p>
+
+        <h2>Where to base yourself</h2>
+        <p>The base decision shapes everything else. Sorrento gives ocean access, back-beach walks, and ferry options. Red Hill gives the food-and-wine hinterland character. Flinders gives the most authentically quiet Peninsula experience. Read <a href="/explore/where-to-base-yourself/">where to base yourself</a> for the full breakdown.</p>
+
+        <h2>When to book</h2>
+        <p>Peak weekends (December–February and Easter) require 6–8 weeks' lead time for good accommodation. The shoulder seasons (autumn and spring) are 3–4 weeks for most properties. Winter midweek breaks often have availability with 1–2 weeks' notice. Peninsula Hot Springs requires its own separate booking.</p>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>How long should a Mornington Peninsula weekend trip be?</h3>
+        <p>2 days/1 night is the most common format and sufficient for a complete experience. 3 days/2 nights allows a third location or more relaxed pace. <a href="/escape/the-three-day-peninsula/">The three-day Peninsula</a> covers the extended format.</p>
+
+        <h3>When is the best time for a Peninsula weekend?</h3>
+        <p>Autumn (March–May) is consistently the best overall season: good weather, harvest timing at the wineries, lower crowds than summer. Winter is excellent for hot springs and quiet roads. Summer is peak beach season but also peak crowds.</p>
+
+        <h3>What does a Mornington Peninsula weekend cost?</h3>
+        <p>Mid-range accommodation on a summer weekend: $250–$400/night. Premium (Jackalope, Hotel Sorrento): $400–$800+/night. Add hot springs ($50–$120/person), meals ($60–$200/person/day), and activities. See <a href="/escape/the-weekend-peninsula/">the default Peninsula weekend</a> for an indicative total.</p>
+      </div>
+    </div>
+  </article>
+
+  {itineraries.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Escape packages</p>
+            <h2 class="venues__title">Pre-built Peninsula weekends</h2>
+            <p class="venues__sub">Fully structured itineraries with accommodation as the spine.</p>
+          </div>
+          <a href="/escape/" class="venues__link">All escapes →</a>
+        </div>
+        <div class="itinerary-grid">
+          {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

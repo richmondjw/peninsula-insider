@@ -1,0 +1,185 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, stayTypes } from '../../lib/editorial';
+
+const itineraries = (await getCollection('itineraries'))
+  .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
+
+const allVenues = await getCollection('venues');
+const stays = allVenues.filter((v) => stayTypes.includes(v.data.type));
+const anchorStays = stays.filter((v) =>
+  ['jackalope', 'hotel-sorrento', 'flinders-hotel', 'lindenderry-at-red-hill'].includes(routeSlug(v))
+);
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best Mornington Peninsula itinerary?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The best two-night Peninsula itinerary runs like this: arrive Friday evening and check in to a ridge stay. Saturday is wine country — cellar doors in the morning, a vineyard lunch, a slow afternoon. Sunday morning is the coast — a swim at Sorrento back beach or a walk at Cape Schanck — followed by a late lunch before heading home. Three nights allows you to add Point Nepean, a hot springs session, or a second day on the ridge without rushing. The key rule: pick one geography per day and resist the temptation to see everything.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How many days do you need on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Two nights is the Peninsula\'s native rhythm — long enough to slow down properly, short enough to commit to on a regular weekend. One night is possible and works well if you have a clear anchor (a specific lunch booking, the hot springs, a particular beach). Three nights or more allows you to cover wine country, the south coast, and Point Nepean without any rushing, which is when the Peninsula stops feeling like a checklist and starts feeling like a place.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you do the Mornington Peninsula as a day trip from Melbourne?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, but the maths is tight. From Melbourne CBD, you\'re looking at an hour each way minimum. A well-planned day trip can include one cellar door, one proper lunch, and one beach or experience without feeling rushed — if you leave by 9am and accept that you\'re home after 7pm. The day trip works best anchored around a single objective: a specific winery lunch, the Peninsula Hot Springs, or a Point Nepean walk. Trying to cover wine country and the coast in one day produces a trip that feels like a drive between car parks.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best time of year to visit the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Autumn (March–May) is the most atmospheric: vintage underway on the ridge, fires lit at the cellar doors, and the landscape at its most vivid. Spring (September–November) brings new vintage releases, lower crowds, and reliable weather. Summer is peak season — beaches, atmosphere, and the full Peninsula experience, but with crowds and premium pricing. Winter is the insider pick: the thermal springs and fireplaces are at their best, pricing drops significantly, and the coast is dramatically empty. The Peninsula is worth visiting in every season; the right answer depends on what you want from it.',
+      },
+    },
+  ],
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Escape', href: '/escape' },
+  { label: 'Mornington Peninsula Itinerary' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Itinerary · Peninsula Insider"
+  description="The best Mornington Peninsula itinerary — 1, 2, and 3-day plans built around wine, coast, hot springs, and the places that make the region worth the drive from Melbourne."
+  section="escape"
+  canonical="https://peninsulainsider.com.au/escape/mornington-peninsula-itinerary"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">The Mornington Peninsula Itinerary</h1>
+
+      <div class="prose">
+        <p>The Peninsula is small enough to overdo and varied enough to get wrong. The wineries are on the ridge. The ocean beaches are on the south coast. The thermal springs are in Rye. Sorrento is at the tip. None of these are near each other, and trying to visit all of them in one day produces a trip that feels like a highway with occasional stops.</p>
+
+        <p>The itineraries below are built around a different logic: pick the geography first, let everything else follow. One area, properly done, is worth three areas rushed. The plans are arranged by length — from a single night up to three — so you can match the commitment to the weekend you actually have.</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="plan-grid">
+    <div class="container">
+      <div class="plan-grid__inner">
+        <article class="plan-note">
+          <p class="plan-note__label">The rule</p>
+          <h3>One geography per day</h3>
+          <p>The ridge, the coast, and the tip all ask for different tempos. Stringing them together in a single day is how good weekends become stressful ones. Commit to the area, know what you're going for, and let the plan breathe.</p>
+        </article>
+        <article class="plan-note">
+          <p class="plan-note__label">The anchor</p>
+          <h3>Let one thing be the event</h3>
+          <p>A vineyard lunch, the hot springs, Point Nepean at dusk — one thing per day that the rest of the day flows around. Everything else should be softer. The Peninsula punishes over-planning and rewards the long lunch.</p>
+        </article>
+        <article class="plan-note">
+          <p class="plan-note__label">The rhythm</p>
+          <h3>Two nights is the native length</h3>
+          <p>Long enough to slow down properly, short enough to commit to on a regular weekend. One night is possible with a clear purpose. Three nights is when the Peninsula stops performing and starts settling.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {itineraries.length > 0 && (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Escape plans · sequenced and ready</p>
+            <h2 class="venues__title">Peninsula itineraries, built stop by stop</h2>
+            <p class="venues__sub">Each plan has a named anchor, a sequenced set of stops, and an editor note explaining why the order matters. Not a wishlist — a working trip.</p>
+          </div>
+          <a href="/escape/" class="venues__link">All escapes →</a>
+        </div>
+        <div class="itinerary-grid">
+          {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Building the right Peninsula itinerary</h2>
+
+        <h3>The 2-day itinerary (most common)</h3>
+        <p><strong>Day 1 — Wine country.</strong> Arrive mid-morning on the ridge. One cellar door before lunch, a long vineyard lunch, one more cellar door in the afternoon if you're not moving too slowly. Check in to your stay before 5pm. Dinner at the property or somewhere close — nothing that requires a 40-minute drive after wine.</p>
+        <p><strong>Day 2 — Coast.</strong> Morning swim or walk, then south. Sorrento ocean baths for the view, back beach if the swell is up, Cape Schanck if you want the dramatic option. Late lunch before leaving — Flinders or Sorrento are both good choices. Home before the Sunday evening traffic builds on the freeway.</p>
+
+        <h3>The 3-day itinerary</h3>
+        <p>Adds a third day for whatever the 2-day version had to skip. Peninsula Hot Springs works best mid-week (quieter, easier to book). Point Nepean is a full-morning commitment — the fort walk is 8km return — and belongs on a day when you're not also trying to do something else. Mornington town is good for a Saturday morning market run and breakfast before heading south.</p>
+
+        <h3>The 1-night escape</h3>
+        <p>Tight but doable if you pick one clear purpose. The best single-night Peninsula trips are anchored around a specific booking: a cellar door lunch, a hot springs session, or dinner at Tedesca or Ten Minutes by Tractor. Check in late afternoon, do the one thing, sleep, light breakfast, home by midday. Don't try to fit the whole region in — that's a different trip.</p>
+
+        <h3>Seasonal notes</h3>
+        <p>Summer weekends require everything booked weeks in advance. Autumn is the best all-round season: vintage, fires, fewer cars. Winter is the underrated pick — the springs are at their best in the cold, accommodation prices drop, and the Peninsula feels like it's been handed back to the people who actually live here. Spring is reliable for weather and strong for new vintage releases.</p>
+      </div>
+    </div>
+  </section>
+
+  {anchorStays.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Choose the base first</p>
+            <h2 class="venues__title">Stays that change the shape of the trip</h2>
+            <p class="venues__sub">The right accommodation is the one that positions you for the area you've committed to — not the one with the best photos.</p>
+          </div>
+          <a href="/stay/where-to-stay-mornington-peninsula/" class="venues__link">Full stay guide →</a>
+        </div>
+        <div class="venues__grid">
+          {anchorStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related planning guides</p>
+          <h2 class="venues__title">More ways to plan the Peninsula</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Itinerary (Journal) →</a>
+        <a href="/journal/mornington-peninsula-day-trip/" class="venue-card__cta">Day Trip from Melbourne →</a>
+        <a href="/explore/hot-springs/" class="venue-card__cta">Hot Springs Guide →</a>
+        <a href="/wine/best-wineries-mornington-peninsula/" class="venue-card__cta">Best Wineries →</a>
+        <a href="/stay/where-to-stay-mornington-peninsula/" class="venue-card__cta">Where to Stay →</a>
+        <a href="/explore/where-to-base-yourself/" class="venue-card__cta">Choosing Your Base →</a>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

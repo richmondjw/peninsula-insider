@@ -157,7 +157,7 @@ if (experience.data.type === 'golf-course') {
   <section class="experience-detail">
     <div class="container">
       <div class="experience-detail__meta">
-        <a href="/explore" class="experience-detail__type">{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</a>
+        <a href="/explore/" class="experience-detail__type">{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</a>
         <span class="experience-detail__dot" aria-hidden="true"></span>
         <a href={`/places/${placeSlug}`} class="experience-detail__place">{experiencePlace}</a>
         {duration && (
@@ -261,7 +261,7 @@ if (experience.data.type === 'golf-course') {
             <p class="label label--accent">Use it in a weekend</p>
             <h2 class="venues__title">Escape plans that already sequence this stop properly</h2>
           </div>
-          <a href="/escape" class="venues__link">All escapes →</a>
+          <a href="/escape/" class="venues__link">All escapes →</a>
         </div>
         <div class="itinerary-grid">
           {relatedItineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -278,7 +278,7 @@ if (experience.data.type === 'golf-course') {
             <p class="label label--accent">Keep going</p>
             <h2 class="venues__title">More ways to use this side of the Peninsula</h2>
           </div>
-          <a href="/explore" class="venues__link">Explore more →</a>
+          <a href="/explore/" class="venues__link">Explore more →</a>
         </div>
         <div class="experience-grid">
           {relatedExperiences.map((entry) => <ExperienceCard experience={entry} />)}
@@ -295,7 +295,7 @@ if (experience.data.type === 'golf-course') {
             <p class="label label--accent">Further reading</p>
             <h2 class="venues__title">Journal pieces that deepen this stop</h2>
           </div>
-          <a href="/journal" class="venues__link">Journal →</a>
+          <a href="/journal/" class="venues__link">Journal →</a>
         </div>
         <div class="venues__grid venues__grid--two">
           {relatedArticles.map((article) => <ArticleCard article={article} />)}

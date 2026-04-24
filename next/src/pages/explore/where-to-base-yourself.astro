@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildArticleSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+  PUBLISHER_LOGO_URL,
+} from '../../lib/schema';
+
+const articleSchema = buildArticleSchema({
+  headline: 'Where to Base Yourself on the Mornington Peninsula — The Honest Guide',
+  description: 'Sorrento, Mornington, Red Hill, Portsea, Blairgowrie, Flinders, Rye — the trade-offs, who each town suits, and who it does not. The single most useful planning page before you book accommodation.',
+  path: '/explore/where-to-base-yourself',
+  datePublished: '2026-04-23',
+  dateModified: '2026-04-23',
+  imageUrl: 'https://peninsulainsider.com.au/images/sourced/home-cover.webp',
+  publisherLogoUrl: PUBLISHER_LOGO_URL,
+  articleSection: 'Planning',
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'Should I stay in Sorrento or Mornington?',
+    a: 'Sorrento for restaurants, character, and beach access in one place — but more expensive and crowded in summer. Mornington for value, a walkable town, and the shortest drive from Melbourne. First-timers wanting the classic Peninsula experience should base in Sorrento; those on a shorter budget or a briefer trip may find Mornington better value.',
+  },
+  {
+    q: 'Is Red Hill a good base on the Mornington Peninsula?',
+    a: 'Yes, for wine-focused trips. Red Hill puts you in the middle of the cellar-door corridor with boutique self-contained accommodation nearby. It is not suitable for beach-first trips — the bay beaches are 20–30 minutes by car.',
+  },
+  {
+    q: 'What is the best base for families with young children?',
+    a: 'Blairgowrie or Rye. Blairgowrie gives Sorrento-adjacent geography at lower accommodation cost, with calm bay beach access. Rye has the most affordable family beach accommodation on the Peninsula and a long foreshore. Both suit families needing beach access and space over village atmosphere.',
+  },
+  {
+    q: 'How far in advance should I book accommodation on the Mornington Peninsula?',
+    a: 'Summer (December–February) and Easter weekends: 6–8 weeks. Shoulder season (autumn/spring): 3–4 weeks. Winter midweek: 1–2 weeks. Sorrento, Portsea, and Flinders book fastest. Mornington, Rye, and Rosebud have more inventory for late bookers.',
+  },
+  {
+    q: 'What is the most underrated base on the Mornington Peninsula?',
+    a: 'Mornington is consistently underrated. It has a genuinely strong café and restaurant scene, is the most accessible Peninsula town by road, has the most CBD parking, and is significantly cheaper than Sorrento. First-timers who discount it in favour of Sorrento sometimes find they would have been just as happy.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Where to Base Yourself' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Where to Base Yourself' },
+];
+---
+
+<BaseLayout
+  title="Where to Base Yourself on the Mornington Peninsula · Peninsula Insider"
+  description="Sorrento, Mornington, Red Hill, Portsea, Blairgowrie, Flinders, Rye — honest trade-offs and who each base suits before you book accommodation."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/where-to-base-yourself/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Where to Base Yourself on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li><strong><a href="/places/sorrento/">Sorrento</a></strong> is the most complete base — restaurants, beaches, character, ferry access — but the most expensive and most crowded in summer.</li>
+            <li><strong><a href="/places/mornington/">Mornington</a></strong> is underrated: walkable, excellent café culture, bay beaches, most accessible by public transport.</li>
+            <li><strong><a href="/places/red-hill/">Red Hill</a></strong> suits wine-country trips. You'll drive everywhere, and that's the point.</li>
+            <li><strong><a href="/places/portsea/">Portsea</a></strong> is quiet, expensive, and at the end of the road. Right for the right person.</li>
+            <li><strong><a href="/places/blairgowrie/">Blairgowrie</a></strong> is the family-and-value sweet spot: bay and ocean beaches, proximity to Sorrento, lower accommodation costs.</li>
+            <li><strong><a href="/places/flinders/">Flinders</a></strong> is the wild card — remote enough to reset you. Not for first-timers.</li>
+            <li><strong><a href="/places/rye/">Rye</a></strong> has the most affordable family beach accommodation on the Peninsula.</li>
+          </ul>
+        </blockquote>
+
+        <p>Where you base yourself is the single most important decision you'll make before a Peninsula trip. The Peninsula is 40 km long across two coastlines and a hinterland. Your base determines which beaches you wake up to, how long you drive each day, and whether dinner works without thinking about roads. Get it right and everything else flows.</p>
+
+        <h2><a href="/places/sorrento/">Sorrento</a> — coastal beauty, eats-led, the Peninsula's capital</h2>
+        <p><strong>Best for:</strong> Couples, honeymooners, food-focused weekends, first-timers wanting the Peninsula's greatest hits in one place, anyone who wants to walk to dinner.</p>
+        <p><a href="/places/sorrento/">Sorrento</a> is the closest thing the Peninsula has to a complete destination. Ocean Beach Road delivers restaurants, cafes, and bars within a 10-minute walk of most accommodation. Two beaches — the calm bay front beach and the dramatic limestone back beach on the ocean side — are accessible without a car. The ferry to Queenscliff departs from the pier. A handful of the Peninsula's best restaurants are in or near Sorrento — Hotel Sorrento, Bistro Elba, The Baths.</p>
+        <p><strong>The catches:</strong> The most expensive base on the Peninsula. January on Ocean Beach Road is a sea of people. Parking is limited. The hinterland wine country is 35–40 minutes by car.</p>
+        <p><strong>Who it's NOT for:</strong> Budget travellers. Anyone wanting quietude. Families with young children who need flat lawns and calm beach access rather than limestone cliffs and crowds.</p>
+
+        <h2><a href="/places/mornington/">Mornington</a> — walkable, cafes, most accessible</h2>
+        <p><strong>Best for:</strong> First-timers, couples on a shorter weekend, anyone arriving by public transport, visitors who want café culture and a walkable main street without the Sorrento price tag.</p>
+        <p><a href="/places/mornington/">Mornington</a> is the most accessible Peninsula town — 46 km from the CBD. Main Street is genuinely walkable: independent cafes, the regional gallery, boutique shops, and restaurants all within easy reach. Mothers Beach and nearby bay beaches are calm and family-suitable. The town has energy without pretension.</p>
+        <p><strong>The catches:</strong> At the northern end of the Peninsula — a Sorrento day trip is 1 hour each way. The eating scene is good but not at Sorrento's level. Bay beaches only; the dramatic ocean side requires driving.</p>
+        <p><strong>Who it's NOT for:</strong> Wine-country focused trips. Anyone wanting ocean beaches within walking distance. Visitors seeking remoteness.</p>
+
+        <h2><a href="/places/red-hill/">Red Hill</a> — wine country, hinterland, for the deliberate traveller</h2>
+        <p><strong>Best for:</strong> Wine lovers, couples who've done the Peninsula before and want something different, slow-food enthusiasts, anyone who wants hills and vineyards rather than beaches.</p>
+        <p><a href="/places/red-hill/">Red Hill</a> sits on the elevated ridge that forms the Peninsula's hinterland spine. From here, the region's best cellar doors are 5–20 minutes away — Montalto, Ten Minutes by Tractor, Paringa Estate, Foxeys Hangout. The Red Hill Community Market on the first Saturday is one of Victoria's best. Accommodation tends toward boutique self-contained cottages and vineyard stays.</p>
+        <p><strong>The catches:</strong> No beach is within walking distance. Effectively no public transport. Limited village eating options outside market days. Roads are narrow and unsealed in parts.</p>
+        <p><strong>Who it's NOT for:</strong> Families needing beach access. First-timers wanting the Peninsula's highlights in one trip. Anyone who doesn't drink wine or care for slow rural tourism.</p>
+
+        <h2><a href="/places/portsea/">Portsea</a> — quiet, expensive, end of the road</h2>
+        <p><strong>Best for:</strong> Couples who've done the Peninsula many times and want seclusion, scuba divers, those with a specific event at the Portsea Hotel, visitors who find Sorrento too busy.</p>
+        <p><a href="/places/portsea/">Portsea</a> is at the very end of Point Nepean Road. Portsea Surf Beach and Shelley Beach are exceptional. Point Nepean National Park is walkable from the village. The Portsea Hotel does genuine history.</p>
+        <p><strong>The catches:</strong> Accommodation is scarce and expensive. Eating options are extremely limited. 110 km from Melbourne at the end of a narrow road — on long weekends the drive in and out through Sorrento can be slow.</p>
+        <p><strong>Who it's NOT for:</strong> First-timers. Food-focused travellers. Budget travellers. Families with young children who need facilities.</p>
+
+        <h2><a href="/places/blairgowrie/">Blairgowrie</a> — family and value sweet spot</h2>
+        <p><strong>Best for:</strong> Families, value-conscious travellers, divers, visitors who want both bay and ocean beach access without Sorrento's price or crowds.</p>
+        <p><a href="/places/blairgowrie/">Blairgowrie</a> sits immediately before Sorrento — close enough to walk in if you're energetic, or drive in 5 minutes. The bay beach is calm and family-suitable. The ocean side — Koonya, Pearces Beach, Monforts Beach — delivers proper surf and wind without the crowds that plague Gunnamatta. Accommodation is generally more affordable than Sorrento with similar geography.</p>
+        <p><strong>The catches:</strong> Blairgowrie has almost no village scene — a petrol station, a supermarket, a handful of small businesses. You'll eat in Sorrento, Rosebud, or self-cater.</p>
+        <p><strong>Who it's NOT for:</strong> Couples who want to walk to dinner. Travellers who value a distinctive sense of place from their base.</p>
+
+        <h2><a href="/places/flinders/">Flinders</a> — remote, Western Port, the wild card</h2>
+        <p><strong>Best for:</strong> Repeat Peninsula visitors wanting something different, writers and creatives seeking total reset, couples who actively want to be away from it all, golf obsessives (Flinders Golf Club is renowned).</p>
+        <p><a href="/places/flinders/">Flinders</a> sits on the Western Port side — Bass Strait ocean beach, Flinders pier, Mushroom Reef marine sanctuary. The streetscape retains genuine historic character. The eating scene — Barragunda Dining, Flinders General Store, Flinders Hotel — punches well above the town's size. 73 km from Melbourne, 1 hour 25 minutes of drive time. Far enough to commit to being there. Cape Schanck is 20 minutes away.</p>
+        <p><strong>The catches:</strong> Genuinely remote. Limited services. No direct public transport. Can be very quiet in winter.</p>
+        <p><strong>Who it's NOT for:</strong> First-timers who want a curated Peninsula experience. Groups with mixed agendas. Visitors without a car.</p>
+
+        <h2><a href="/places/rye/">Rye</a> — family affordability</h2>
+        <p><strong>Best for:</strong> Families on a budget, visitors who want both bay and ocean beach access, those planning multiple days and prioritising value over village character.</p>
+        <p><a href="/places/rye/">Rye</a> has a long foreshore on Port Phillip Bay and direct access to Rye Ocean Beach. It's large enough to have a supermarket and services without the premium pricing of Sorrento. 94 km from Melbourne.</p>
+        <p><strong>The catches:</strong> Rye's village character is functional rather than charming. The eating scene is limited. The town can feel transitional rather than destination-grade.</p>
+        <p><strong>Who it's NOT for:</strong> Couples looking for romantic ambience. Food-focused visitors. Anyone for whom atmosphere matters as much as beaches.</p>
+
+        <h2>The comparison matrix</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Base</th>
+              <th>Dining</th>
+              <th>Beach access</th>
+              <th>Wine country</th>
+              <th>Family</th>
+              <th>Value</th>
+              <th>Character</th>
+              <th>Drive from Melbourne</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><a href="/places/sorrento/">Sorrento</a></td><td>★★★★★</td><td>★★★★★</td><td>★★★</td><td>★★★</td><td>★★</td><td>★★★★★</td><td>~1 hr 20 min</td></tr>
+            <tr><td><a href="/places/mornington/">Mornington</a></td><td>★★★★</td><td>★★★★ (bay)</td><td>★★★</td><td>★★★★</td><td>★★★★</td><td>★★★★</td><td>~1 hr</td></tr>
+            <tr><td><a href="/places/red-hill/">Red Hill</a></td><td>★★★</td><td>★★</td><td>★★★★★</td><td>★★</td><td>★★★</td><td>★★★★</td><td>~1 hr</td></tr>
+            <tr><td><a href="/places/portsea/">Portsea</a></td><td>★★</td><td>★★★★★</td><td>★★</td><td>★★★</td><td>★</td><td>★★★★</td><td>~1 hr 40 min</td></tr>
+            <tr><td><a href="/places/blairgowrie/">Blairgowrie</a></td><td>★★</td><td>★★★★★</td><td>★★★</td><td>★★★★★</td><td>★★★★</td><td>★★</td><td>~1 hr 18 min</td></tr>
+            <tr><td><a href="/places/flinders/">Flinders</a></td><td>★★★★</td><td>★★★★</td><td>★★★★</td><td>★★★</td><td>★★★</td><td>★★★★★</td><td>~1 hr 25 min</td></tr>
+            <tr><td><a href="/places/rye/">Rye</a></td><td>★★</td><td>★★★★★</td><td>★★★</td><td>★★★★★</td><td>★★★★★</td><td>★★</td><td>~1 hr 20 min</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Quick decision guide</h2>
+        <table>
+          <thead><tr><th>If you want…</th><th>Base here</th></tr></thead>
+          <tbody>
+            <tr><td>The Peninsula's best restaurants within walking distance</td><td><a href="/places/sorrento/">Sorrento</a></td></tr>
+            <tr><td>Wine country as your primary purpose</td><td><a href="/places/red-hill/">Red Hill</a></td></tr>
+            <tr><td>First trip, want the highlights</td><td><a href="/places/sorrento/">Sorrento</a> or <a href="/places/mornington/">Mornington</a></td></tr>
+            <tr><td>Families with young children, value matters</td><td><a href="/places/blairgowrie/">Blairgowrie</a> or <a href="/places/rye/">Rye</a></td></tr>
+            <tr><td>Complete isolation and quiet</td><td><a href="/places/flinders/">Flinders</a> or <a href="/places/portsea/">Portsea</a></td></tr>
+            <tr><td>Easy drive from Melbourne, walkable town</td><td><a href="/places/mornington/">Mornington</a></td></tr>
+            <tr><td>Ocean beaches without Sorrento prices</td><td><a href="/places/blairgowrie/">Blairgowrie</a></td></tr>
+            <tr><td>You've done it before and want something new</td><td><a href="/places/flinders/">Flinders</a></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Common mistakes</h2>
+        <ul>
+          <li><strong>Booking Sorrento for a family trip in January.</strong> The back beach has a strong rip and is not suited to young children. The main streets are packed. Families with young children are frequently happier at Blairgowrie or Rye.</li>
+          <li><strong>Treating Red Hill as a base for beach days.</strong> The drive to ocean beaches takes 25–35 minutes. If beaches dominate the itinerary, base closer to the coast.</li>
+          <li><strong>Underestimating <a href="/places/mornington/">Mornington</a>.</strong> Consistently overlooked in favour of Sorrento and underpriced relative to quality. The café and restaurant scene is genuinely strong, the town is walkable, and the drive time is the shortest on the Peninsula.</li>
+          <li><strong>Assuming you can see the whole Peninsula from one base.</strong> If your itinerary covers the hinterland AND Sorrento AND Flinders, consider two bases or a longer stay.</li>
+        </ul>
+
+        <h2>Practical</h2>
+        <ul>
+          <li><strong>Booking:</strong> Summer accommodation books out months in advance — particularly Sorrento, Portsea, and Flinders for Christmas to Australia Day. For late bookings, Mornington, Rye, and Rosebud have more inventory.</li>
+          <li><strong>Length of stay:</strong> Two nights is the minimum to feel unhurried. One night is doable but tight. Three nights reveals the Peninsula properly.</li>
+          <li><strong>Self-contained vs hotel:</strong> The Peninsula tilts heavily toward self-contained holiday houses. Couples wanting hotel service: Hotel Sorrento, Jackalope (near Red Hill), Lindenderry, or RACV Cape Schanck are the main options. Confirm current operating status before booking.</li>
+        </ul>
+
+        <h2>Further reading</h2>
+        <ul>
+          <li><a href="/stay/">Browse all accommodation</a> — every stay on the Peninsula</li>
+          <li><a href="/explore/map/">The Peninsula map</a> — where each base sits geographically</li>
+          <li><a href="/explore/getting-around/">Getting around</a> — why your base affects your transport reality</li>
+          <li><a href="/explore/getting-here/">Getting to the Peninsula</a> — drive times from Melbourne by base</li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>Should I stay in Sorrento or Mornington?</h3>
+        <p>Sorrento for restaurants, character, and beach access in one place — but more expensive and crowded in summer. Mornington for value, a walkable town, and the shortest drive from Melbourne. First-timers wanting the classic Peninsula experience should base in Sorrento; those on a shorter budget may find Mornington better value.</p>
+
+        <h3>Is Red Hill a good base on the Mornington Peninsula?</h3>
+        <p>Yes, for wine-focused trips. Red Hill puts you in the middle of the cellar-door corridor. It is not suitable for beach-first trips — the bay beaches are 20–30 minutes by car.</p>
+
+        <h3>What is the best base for families with young children?</h3>
+        <p>Blairgowrie or Rye. Blairgowrie gives Sorrento-adjacent geography at lower accommodation cost with calm bay beach access. Rye has the most affordable family beach accommodation on the Peninsula.</p>
+
+        <h3>How far in advance should I book accommodation on the Mornington Peninsula?</h3>
+        <p>Summer and Easter weekends: 6–8 weeks. Shoulder seasons: 3–4 weeks. Winter midweek: 1–2 weeks. Sorrento, Portsea, and Flinders book fastest.</p>
+
+        <h3>What is the most underrated base on the Mornington Peninsula?</h3>
+        <p>Mornington. It has a strong café and restaurant scene, is the most accessible Peninsula town, has the most CBD parking, and is significantly cheaper than Sorrento. First-timers who discount it in favour of Sorrento sometimes find they would have been just as happy.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

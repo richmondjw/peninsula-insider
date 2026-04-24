@@ -75,6 +75,7 @@ const snapshotCards = [
     body: eatVenues.length > 0
       ? 'Restaurants, cafés, bakeries, and pubs already connected to the place layer — each with its own editor note.'
       : 'This hub will add dining picks as the rebuild continues filling in the venue layer.',
+    ...(eatVenues.length > 0 ? { href: '#eat-drink' } : {}),
   },
   {
     label: 'Wine & producers',
@@ -85,6 +86,7 @@ const snapshotCards = [
     body: wineVenues.length > 0
       ? 'Wineries, producers, and distillers worth working into the day. The place hub anchors them into real geography.'
       : 'The wine layer is still being mapped for this hub — expect producers as the rebuild progresses.',
+    ...(wineVenues.length > 0 ? { href: '#wine' } : {}),
   },
   {
     label: 'Stay',
@@ -95,6 +97,7 @@ const snapshotCards = [
     body: stayVenues.length > 0
       ? 'When a place has a workable bed attached, it stops being a stop and starts becoming a base.'
       : 'Stay coverage will appear here as rooms, villas, and cottages are added.',
+    ...(stayVenues.length > 0 ? { href: '#stay' } : {}),
   },
   {
     label: 'Explore',
@@ -105,6 +108,7 @@ const snapshotCards = [
     body: experiences.length > 0
       ? 'Walks, lookouts, beaches, and market moves are connected into the place layer rather than floating off on their own.'
       : 'Explore entries will connect into this hub as the experiences layer is expanded.',
+    ...(experiences.length > 0 ? { href: '#explore' } : {}),
   },
 ];
 
@@ -220,6 +224,41 @@ const townFaqs: Record<string, Array<{q: string; a: string}>> = {
     { q: 'Is Point Nepean worth visiting?', a: 'Absolutely — Point Nepean National Park is one of the most historically significant and scenically dramatic places on the Peninsula. The walk to Fort Nepean at the tip passes through military history, coastal scrub, and ends with views across the Rip to Queenscliff. Allow 3–4 hours for the full experience.' },
     { q: 'How long is the Point Nepean walk?', a: 'The walk from the visitor centre to Fort Nepean is approximately 7 km one way (14 km return). A shuttle bus runs regularly and you can hop on/off, making it possible to walk one way and ride back. The fort itself takes 30–45 minutes to explore properly.' },
     { q: 'Do you need to pay to enter Point Nepean?', a: 'Yes — there is a Parks Victoria entry fee. As of 2026, it is included in a Parks Victoria annual pass. The visitor centre at the entrance has a cafe, parking, and the shuttle departure point. Arrive before 10am on weekends to avoid parking pressure.' },
+  ],
+  'moorooduc': [
+    { q: 'What is Moorooduc known for?', a: 'Moorooduc is the northernmost wine-country locality on the Peninsula — known to wine enthusiasts for serious single-vineyard chardonnay from producers like Moorooduc Estate and Barmah Park, and to families for the Moorooduc Quarry Flora and Fauna Reserve walk. It sits off the main tourist loop, which keeps it quiet year-round.' },
+    { q: 'Is Moorooduc worth visiting without an interest in wine?', a: 'The Moorooduc Quarry reserve has a short accessible walk through remnant bush habitat. The heritage steam railway occasionally runs weekend services through the area. For a half-day with wine tasting, the locality works well paired with Mornington or Red Hill.' },
+    { q: 'How long do you need in Moorooduc?', a: 'Half a day is sufficient. The main activity is a cellar-door visit at Moorooduc Estate or one of the smaller producers, combined with a walk at the quarry reserve. Pair it with Mornington for a full day that covers both a town and wine country.' },
+  ],
+  'tuerong': [
+    { q: 'What is Tuerong known for?', a: 'Tuerong is primarily known as the address of Yabby Lake Vineyard — a Halliday Top 100 winery with one of the most relaxed and welcoming cellar door programs on the Peninsula. The Devilbend Reservoir reserve provides walking trails, birdlife, and open farmland scenery for non-wine visitors.' },
+    { q: 'What is there to do in Tuerong besides wine?', a: 'The Devilbend Natural Features Reserve surrounds the reservoir with walking trails and significant birdlife, including migratory shorebirds in season. The landscape here — softer and more pastoral than the southern hinterland — rewards a morning walk followed by a cellar-door visit.' },
+    { q: 'How long do you need in Tuerong?', a: 'Half a day is ideal — Yabby Lake cellar door plus a walk at Devilbend. Tuerong is best paired with Moorooduc or Mornington for a full day on the northern hinterland.' },
+  ],
+  'safety-beach': [
+    { q: 'What is Safety Beach good for?', a: 'Safety Beach is one of the Peninsula\'s best spots for young children — the bay water is calm and very shallow for a long way out, the foreshore lawn is wide, and Martha Cove marina at the western end gives it a small community of sailors and boaters. The ridge behind rises quickly to Arthurs Seat and the wine country.' },
+    { q: 'Is Safety Beach good for families?', a: 'Yes — it\'s the most family-friendly shallow beach between Mount Martha and Dromana. The water is calm, there\'s extensive foreshore lawn for picnics, and the sailing club creates a safe, community-oriented feel. One of the best spots for toddlers and early swimmers on Port Phillip Bay.' },
+    { q: 'How close is Safety Beach to Dromana?', a: 'About 5 minutes by car. The two towns effectively share the same bay stretch. Use Safety Beach for the quieter foreshore and Dromana for Arthur\'s Seat Eagle and hinterland access. They are naturally paired as a single half-day destination.' },
+  ],
+  'rosebud': [
+    { q: 'What is Rosebud known for on the Mornington Peninsula?', a: 'Rosebud is the Peninsula\'s most practical bayside town — a long sheltered beach, foreshore camping, a genuine main street with supermarket and services, and honest ethnic kitchens that make it a better lunch stop than the brochures suggest. It\'s the service hub for the lower bay side of the Peninsula.' },
+    { q: 'Is Rosebud good for a family holiday?', a: 'Yes — foreshore camping directly on the beach, calm family swimming, a pier good for fishing at dusk, and a main street with enough variety for a week\'s stay. Less polished than Sorrento but far more affordable and more liveable for families with young children.' },
+    { q: 'Can you camp in Rosebud?', a: 'Yes — the Rosebud Foreshore Camping Reserve is directly on the beach and is one of the best foreshore camping spots on Port Phillip Bay. Sites book out months in advance for peak summer. Off-peak bookings are much more accessible.' },
+  ],
+  'blairgowrie': [
+    { q: 'What is Blairgowrie known for?', a: 'Blairgowrie is best known among divers for its back-beach pier — one of Victoria\'s top shore dives, with weedy sea dragons, octopus, nudibranchs, and leafy sea dragons visible year-round on the pier pylons. The bay front is calm and underused for a town between Rye and Sorrento. The yacht club marina gives the foreshore a working, community character.' },
+    { q: 'Is Blairgowrie pier good for diving?', a: 'It\'s consistently rated one of Australia\'s best shore dives. The pier pylons host weedy sea dragons, octopus, nudibranchs, and reef fish. Best visibility in the morning before boat traffic. A diving day-trip from Melbourne is entirely viable. The back beach entry is on the ocean side, about 5 minutes from the main foreshore.' },
+    { q: 'Is Blairgowrie quieter than Sorrento?', a: 'Yes — significantly. Five minutes from Sorrento but a fraction of the summer crowd. Families and divers are the primary visitors. The pub, bakery, and deli are the main services. If you want the tip-of-the-Peninsula position without the Sorrento bustle, Blairgowrie is the answer.' },
+  ],
+  'shoreham': [
+    { q: 'What is Shoreham known for?', a: 'Shoreham is the Peninsula\'s least-known beach — Honeysuckle Beach is a quiet, pine-backed foreshore on Western Port with rock platforms at low tide, a handful of studios and galleries nearby, and almost no commercial development. Locals use it when the Southern Peninsula beaches start to feel crowded.' },
+    { q: 'Is Shoreham good for families?', a: 'Yes — the beach is protected, shallow, and family-scaled, with rock platform exploration at low tide. The walking track south toward Point Leo suits older children. The absence of crowds is the main appeal over more-visited Peninsula beaches.' },
+    { q: 'How do I get to Shoreham from Melbourne?', a: 'About 70 minutes via the Mornington Peninsula Freeway to Mornington, then south through Red Hill. Shoreham is on the eastern (Western Port) side of the ridge. Keep heading south past Red Hill — the roads narrow quickly and that\'s a sign you\'re close.' },
+  ],
+  'hastings': [
+    { q: 'What is Hastings known for on the Mornington Peninsula?', a: 'Hastings is the Peninsula\'s working port town — home to a fishermen\'s co-op, offshore mussel farms that supply much of Melbourne\'s restaurant trade, and the Stony Point ferry terminal for connections to French Island and Phillip Island. It is genuinely unvarnished, which is exactly its value.' },
+    { q: 'Can you get to Phillip Island from Hastings?', a: 'Yes — the Western Port ferry runs from Stony Point (5 minutes from Hastings town centre) to Cowes on Phillip Island and to French Island. It is the scenic, uncrowded alternative to the Bass Highway bridge. Day trips combining Hastings and Phillip Island are feasible from Melbourne.' },
+    { q: 'Is Hastings worth visiting on the Mornington Peninsula?', a: 'For fresh seafood, yes — the fishermen\'s co-op is one of the best places to buy fish and shellfish on the Peninsula, and the mussel farms offshore produce some of Australia\'s best. Otherwise Hastings is a practical stop on the way south rather than a destination in its own right.' },
   ],
 };
 const currentFaqs = townFaqs[placeSlug];

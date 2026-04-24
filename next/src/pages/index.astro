@@ -205,7 +205,7 @@ const seasonalExperiences = experiences
             <h2 class="venues__title">{weekendPicks.length === 1 ? 'One event' : weekendPicks.length === 2 ? 'Two events' : 'Three events'} with an opinion attached</h2>
             <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not  -  because nobody else on the Peninsula event web is brave enough to.</p>
           </div>
-          <a href="/whats-on" class="venues__link">All What’s On →</a>
+          <a href="/whats-on/" class="venues__link">All What’s On →</a>
         </div>
         <div class="event-grid">
           {weekendPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
@@ -225,7 +225,7 @@ const seasonalExperiences = experiences
             <h2 class="venues__title">Three pieces doing the heaviest lifting this week</h2>
             <p class="venues__sub">Read one, skim the others, and the Peninsula weekend starts writing itself.</p>
           </div>
-          <a href="/journal" class="venues__link">All in the journal →</a>
+          <a href="/journal/" class="venues__link">All in the journal →</a>
         </div>
         <div class="venues__grid">
           {editorPicks.map((article) => <ArticleCard article={article} />)}
@@ -266,17 +266,17 @@ const seasonalExperiences = experiences
         <p class="split-intro__body">Start with the bed if you want the trip to soften, the walk if you want the afternoon to open up, or the itinerary if you want the whole weekend pre-shaped.</p>
       </div>
       <div class="zone-intro__grid">
-        <a href="/stay" class="zone-card zone-card--link">
+        <a href="/stay/" class="zone-card zone-card--link">
           <p class="zone-card__label">Stay</p>
           <h3 class="zone-card__title">Choose the base before the booking list</h3>
           <p class="zone-card__body">Red Hill stays, Sorrento hotels, and the properties that change the tone of the whole weekend.</p>
         </a>
-        <a href="/explore" class="zone-card zone-card--link">
+        <a href="/explore/" class="zone-card zone-card--link">
           <p class="zone-card__label">Explore</p>
           <h3 class="zone-card__title">Use coastline, weather, and timing properly</h3>
           <p class="zone-card__body">Late-afternoon walks, market starts, and the non-restaurant moves that make the region feel larger.</p>
         </a>
-        <a href="/escape" class="zone-card zone-card--link">
+        <a href="/escape/" class="zone-card zone-card--link">
           <p class="zone-card__label">Escape</p>
           <h3 class="zone-card__title">Follow a complete weekend, not a loose list</h3>
           <p class="zone-card__body">Shaped Peninsula escapes that sequence lunch, landscape, and bed in the right order.</p>
@@ -294,7 +294,7 @@ const seasonalExperiences = experiences
             <h2 class="venues__title">The dining rooms still doing the strongest work</h2>
             <p class="venues__sub">Begin with the meal if lunch is the point of the trip.</p>
           </div>
-          <a href="/eat" class="venues__link">All venues →</a>
+          <a href="/eat/" class="venues__link">All venues →</a>
         </div>
         <div class="venues__grid">
           {diningShowcase.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
@@ -375,7 +375,7 @@ const seasonalExperiences = experiences
             <h2 class="venues__title">When the Peninsula deserves more than a day trip</h2>
             <p class="venues__sub">A shaped weekend that puts lunch, walk, and bed in the right order  -  so you stop planning and start going.</p>
           </div>
-          <a href="/escape" class="venues__link">All escapes →</a>
+          <a href="/escape/" class="venues__link">All escapes →</a>
         </div>
         <div class="itinerary-grid">
           {escapePlans.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -401,7 +401,7 @@ const seasonalExperiences = experiences
           ))}
         </div>
         <div class="places__footer">
-          <a href="/places" class="venues__link">All {issueStats.places} places →</a>
+          <a href="/places/" class="venues__link">All {issueStats.places} places →</a>
         </div>
       </div>
     </section>
@@ -415,7 +415,7 @@ const seasonalExperiences = experiences
             <p class="label label--accent">Sleep here</p>
             <h2 class="venues__title">Three stays that immediately change the plan</h2>
           </div>
-          <a href="/stay" class="venues__link">All stays →</a>
+          <a href="/stay/" class="venues__link">All stays →</a>
         </div>
         <div class="venues__grid">
           {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
@@ -432,7 +432,7 @@ const seasonalExperiences = experiences
             <p class="label label--accent">Fresh from the Journal</p>
             <h2 class="venues__title">The most recent service pieces and dispatches</h2>
           </div>
-          <a href="/journal" class="venues__link">Journal →</a>
+          <a href="/journal/" class="venues__link">Journal →</a>
         </div>
         <div class="venues__grid">
           {journalHighlights.map((article) => <ArticleCard article={article} />)}

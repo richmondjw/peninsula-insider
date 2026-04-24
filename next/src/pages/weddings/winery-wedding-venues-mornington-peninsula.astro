@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildArticleSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+  PUBLISHER_LOGO_URL,
+} from '../../lib/schema';
+
+const articleSchema = buildArticleSchema({
+  headline: 'Winery Wedding Venues on the Mornington Peninsula',
+  description: 'The Peninsula\'s best winery wedding venues — Montalto, Polperro, Pt. Leo Estate, Ten Minutes by Tractor, and more. Honest guide to what a vineyard wedding actually delivers, who it suits, and what to watch out for.',
+  path: '/weddings/winery-wedding-venues-mornington-peninsula',
+  datePublished: '2026-04-23',
+  dateModified: '2026-04-23',
+  imageUrl: 'https://peninsulainsider.com.au/images/sourced/article-vineyard-villa-01.webp',
+  publisherLogoUrl: PUBLISHER_LOGO_URL,
+  articleSection: 'Weddings',
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'Which is the best winery wedding venue on the Mornington Peninsula?',
+    a: 'There is no single best — it depends on the size and style of the wedding. Montalto (Red Hill South) is the strongest choice for food-led vineyard weddings up to 120 guests. Polperro (Main Ridge) suits intimate weddings under 80 guests at a serious cool-climate producer. Pt. Leo Estate handles up to 200 guests with a coastal sculpture park setting. Ten Minutes by Tractor is exceptional for food but limited in capacity. The right choice is the one whose character matches the couple.',
+  },
+  {
+    q: 'What makes a winery wedding different from a regular venue wedding?',
+    a: 'The setting is working farmland, not a purpose-built event space. You get vines outside the window, a cellar-door backstory, and food and wine that are integrated into the property rather than brought in. The trade-offs are scale (most Peninsula winery venues cap at 80–150 guests), indoor backup quality (weather matters more than at a hotel), and transport logistics (nothing is walkable from these properties).',
+  },
+  {
+    q: 'Do winery wedding venues on the Mornington Peninsula have accommodation?',
+    a: 'Some do. Lindenderry at Red Hill has onsite rooms and suites. Jackalope (Merricks North — a boutique hotel adjacent to a vineyard) has designer onsite rooms. Most winery venues do not have accommodation but sit within 15 minutes of holiday houses that sleep 8–12 guests. The Sorrento hotel cluster (The Continental, boutique properties) is 30–45 minutes from Red Hill and Main Ridge.',
+  },
+  {
+    q: 'How many guests can Peninsula winery venues accommodate?',
+    a: 'Pt. Leo Estate is the largest Peninsula winery wedding venue at up to 200 guests. Montalto handles up to 120. Ten Minutes by Tractor caps around 60–80. Polperro and smaller producer venues are best at under 60. For guest lists over 100, Montalto or Pt. Leo are the primary winery options; everything else requires creative use of the site or a different venue type.',
+  },
+  {
+    q: 'Is summer the best time for a winery wedding on the Mornington Peninsula?',
+    a: 'Summer (December–February) is peak demand but not necessarily peak experience. Summer heat can be uncomfortable for outdoor vineyard ceremonies — a 35°C day with guests in formal wear among sun-exposed vines is not ideal. Autumn (March–May) gives better light, lower temperatures, and foliage on the vines that photographs better than bare summer green. Winter Peninsula weddings with open fires are underrated. Spring (September–November) is good but busy with competing bookings.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Weddings', url: 'https://peninsulainsider.com.au/weddings/' },
+  { name: 'Winery Wedding Venues' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Weddings', href: '/weddings' },
+  { label: 'Winery Wedding Venues' },
+];
+---
+
+<BaseLayout
+  title="Winery Wedding Venues on the Mornington Peninsula · Peninsula Insider"
+  description="The Peninsula's best winery wedding venues — Montalto, Polperro, Pt. Leo Estate, Ten Minutes by Tractor, and more. Honest guide to what a vineyard wedding delivers and who it suits."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/weddings/winery-wedding-venues-mornington-peninsula"
+  modifiedTime="2026-04-23"
+  ogImage="/images/sourced/article-vineyard-villa-01.webp"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="section-hero">
+    <div class="container">
+      <div class="section-hero__inner">
+        <div class="section-hero__content">
+          <p class="label label--accent">Winery Weddings</p>
+          <h1 class="section-hero__title">Winery Wedding Venues on the Mornington Peninsula</h1>
+          <p class="section-hero__dek">A winery wedding on the Peninsula is not just a location choice. It is a commitment to a particular kind of day — food and wine at the centre, working farmland as the backdrop, and guests who need to get there and get home. This guide helps you understand what that actually means before you choose a venue.</p>
+        </div>
+        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/article-vineyard-villa-01.webp); background-size: cover; background-position: center;">
+          <div class="section-hero__visual-fog"></div>
+          <span class="section-hero__visual-label">Winery Weddings · Red Hill · Merricks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial-promise">
+    <div class="container">
+      <div class="editorial-promise__inner">
+        <div>
+          <p class="label label--accent">What a winery wedding actually is</p>
+          <h2 class="editorial-promise__title">A vineyard is not a blank-canvas event space.</h2>
+        </div>
+        <div>
+          <p>The best winery weddings on the Peninsula work because the venue contributes something genuine to the day — the wine is the wine you have been drinking all weekend, the kitchen is run by a chef who knows the estate, and the setting is the same landscape that shaped the bottles on the table. The photography is almost incidental to that.</p>
+          <p>The trade-offs are real: capacity caps, weather dependency, transport obligations (you cannot walk to any of these properties), and indoor-backup quality that varies significantly by venue. Understanding both sides is the right way to make this decision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues" id="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">The venues</p>
+          <h2 class="venues__title">Peninsula winery wedding venues, honestly characterised</h2>
+          <p class="venues__sub">Not a directory. A selective editorial guide to what each venue is actually like for a wedding.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Up to 120 guests · Red Hill South</span>
+          </div>
+          <h3 class="venue-card__name">Montalto</h3>
+          <p class="venue-card__signature">The strongest complete winery wedding package on the Peninsula. Montalto has the estate, the kitchen, the cellar door, and the sculpture garden — a rare combination of serious food, genuine wine credentials, and a setting that photographs beautifully without needing embellishment. The indoor pavilion handles most weather conditions. Up to 120 guests. <strong>Best for:</strong> couples who want food and wine as central to the day. <strong>Watch out for:</strong> peak season dates fill early; the kitchen's output is tied to the estate's restaurant programme, which is a strength until it creates a constraint.</p>
+          <a href="/places/red-hill/" class="venue-card__cta">Red Hill guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Up to 200 guests · Red Hill South</span>
+          </div>
+          <h3 class="venue-card__name">Pt. Leo Estate</h3>
+          <p class="venue-card__signature">The largest Peninsula winery wedding venue, with a coastal-architecture setting and the LUME sculpture park as a distinctive backdrop. Pt. Leo is the only Peninsula winery that can handle over 150 guests without feeling crowded. The indoor event spaces are purpose-built for wedding scale. <strong>Best for:</strong> larger guest lists that want a vineyard setting without compromising on logistics. <strong>Watch out for:</strong> the scale makes it feel slightly less intimate than the smaller producer estates; the sculpture park is shared with day visitors depending on booking arrangements.</p>
+          <a href="/places/merricks/" class="venue-card__cta">Merricks guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Up to 80 guests · Main Ridge</span>
+          </div>
+          <h3 class="venue-card__name">Polperro</h3>
+          <p class="venue-card__signature">An intimate cool-climate producer on the Main Ridge plateau — lower key and more private than Montalto, with a cellar door and indoor event space that rewards smaller guest lists. The Polperro wines are among the Peninsula's best, which means a wine-forward reception here is genuinely exceptional. <strong>Best for:</strong> intimate weddings under 80 guests for couples who value authenticity over scale. <strong>Watch out for:</strong> limited accommodation nearby; Main Ridge is not easily accessible without a coach for a full guest list.</p>
+          <a href="/places/main-ridge/" class="venue-card__cta">Main Ridge guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Up to 60 guests · Main Ridge</span>
+          </div>
+          <h3 class="venue-card__name">Ten Minutes by Tractor</h3>
+          <p class="venue-card__signature">The Peninsula's most celebrated restaurant-winery, and the strongest option for a food-led wedding that treats the meal as the event itself. Hatted kitchen, exceptional Pinot Noir programme. The constraint is capacity — Ten Minutes by Tractor is genuinely intimate and does not scale gracefully beyond 60 guests. <strong>Best for:</strong> couples who want the Peninsula's best food to be the centrepiece of the day. <strong>Watch out for:</strong> the intimacy means the wedding experience is inseparable from the restaurant rhythm; works best when the couple and guests appreciate that context.</p>
+          <a href="/places/main-ridge/" class="venue-card__cta">Main Ridge guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Onsite accommodation · Red Hill</span>
+          </div>
+          <h3 class="venue-card__name">Lindenderry at Red Hill</h3>
+          <p class="venue-card__signature">A boutique hotel on the Red Hill plateau with vineyard surroundings, onsite rooms and suites for the bridal party and guests, and event spaces that suit medium-scale weddings. The accommodation integration makes it different from pure winery venues — guests can walk from their room to the ceremony. <strong>Best for:</strong> couples who want the vineyard atmosphere with the convenience of integrated guest accommodation. <strong>Watch out for:</strong> it is more hotel-and-vineyard than pure winery; the wine programme is genuine but not the same as an estate like Montalto or Polperro.</p>
+          <a href="/places/red-hill/" class="venue-card__cta">Red Hill guide →</a>
+        </div>
+        <div class="venue-card">
+          <div class="venue-card__top">
+            <span class="venue-card__type">Relaxed · Merricks</span>
+          </div>
+          <h3 class="venue-card__name">Merricks General Wine Store</h3>
+          <p class="venue-card__signature">The most relaxed and informal winery wedding option on the Peninsula. Merricks General Wine Store is a village institution — a general store turned wine bar and restaurant with a character that no purpose-built event venue can replicate. Best for smaller, more casual receptions where the feel of the place matters more than the scale. <strong>Best for:</strong> intimate weddings and receptions where informality is a deliberate choice. <strong>Watch out for:</strong> limited capacity; the format works only when matched to the right group size and style.</p>
+          <a href="/places/merricks/" class="venue-card__cta">Merricks guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="strengths">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Honest assessment</p>
+          <h2 class="venues__title">What winery weddings do well — and don't do well</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name">What winery weddings do well</h3>
+          <p class="venue-card__signature">Food and wine integration — the kitchen and the cellar door tell the same story. Setting that photographs without editing. An event that feels like a place rather than a hired space. Character that a hotel ballroom cannot replicate. Autumn and winter winery weddings, specifically, are some of the Peninsula's best kept secrets — low light, open fires, and a guest list who chose to be there.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">What winery weddings don't do well</h3>
+          <p class="venue-card__signature">Scale beyond 120–150 guests without venue infrastructure stress. Indoor backup quality when the weather turns — some estates handle this better than others, and it is worth asking explicitly. Transport logistics for large guest lists on rural roads. Guest accommodation density — you cannot cluster 80 guests near Main Ridge the way you can in Sorrento.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Summer heat</h3>
+          <p class="venue-card__signature">February at a vineyard in formal wear can be genuinely uncomfortable. The Peninsula bakes. If you are set on an outdoor vineyard ceremony, autumn is a better season for comfort and photography than the height of summer. A venue with a credible shaded outdoor area or a strong indoor option makes a summer date viable.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Guest transport</h3>
+          <p class="venue-card__signature">These venues are not in towns. A coach from Melbourne to Red Hill or Main Ridge is not optional for a full guest list — it is the right call for guest safety and timing control. Budget $1,500 to $3,000 for a return coach before committing to a venue location. Build that cost into the venue comparison, not the contingency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues" id="guest-stay">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Guest accommodation</p>
+          <h2 class="venues__title">Where guests stay for a Red Hill or Main Ridge winery wedding</h2>
+          <p class="venues__sub">The accommodation question is harder for winery weddings than for Sorrento coastal weddings. These are the realistic options.</p>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name">Holiday houses, Red Hill and surrounds</h3>
+          <p class="venue-card__signature">The most common solution. Houses sleeping 8–12 near the venue work well for the bridal party and core guests. Book 6–12 months in advance. Ask the venue for recommendations — they know the closest properties.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Lindenderry, Jackalope, boutique stays</h3>
+          <p class="venue-card__signature">For smaller guest lists or for the bridal party specifically. Lindenderry is on the plateau; Jackalope is in Merricks North. Both have onsite accommodation that makes the morning-after logistics simple.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Mornington town, 20–25 minutes north</h3>
+          <p class="venue-card__signature">For larger guest lists that cannot be accommodated near the venue. Mornington has broader accommodation stock — hotels, self-contained apartments, holiday houses. The drive to Red Hill venues is manageable but requires coordination on wedding day.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Sorrento, 30–45 minutes south-west</h3>
+          <p class="venue-card__signature">Only makes sense if the guest list has independent transport, or if the wedding is in the southern Red Hill corridor. The drive times from Sorrento to Main Ridge are realistic on a non-peak morning but add complexity to wedding-day logistics.</p>
+        </div>
+      </div>
+      <p><a href="/journal/weddings-where-guests-stay-mornington-peninsula/" class="venue-card__cta">Full guest accommodation guide →</a></p>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="faq">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Common questions</p>
+          <h2 class="venues__title">What couples want to know about winery weddings</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name">How far in advance do Peninsula winery venues book out?</h3>
+          <p class="venue-card__signature">For the most in-demand properties — Montalto, Pt. Leo, Ten Minutes by Tractor — Saturday dates in peak season can fill 14 to 18 months ahead. If you have a date range in mind before a venue, check availability before you fall in love with a specific property. Winter and non-Saturday dates are much easier.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Is a winter winery wedding worth considering?</h3>
+          <p class="venue-card__signature">Yes — and it is underrated. Cellar doors have open fires. The vine foliage in May and June photographs differently, with warmth that summer green lacks. Rates are lower. The guest list, by necessity, is people who wanted to be there. A winter Peninsula winery wedding is not a compromise. It is a deliberate choice that often produces a better event than a crowded February Saturday.</p>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name">Do we need a wedding coordinator for a winery venue?</h3>
+          <p class="venue-card__significance">Not always, but the logistics are more complex than an in-city event. Transport coordination, accommodation spread across multiple properties, and supplier access across the Peninsula all require more planning. Most Peninsula winery venues have a wedding coordinator function in-house or can recommend one. The cost is worth it if you are doing this without events management experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Go deeper</p>
+          <h2 class="venues__title">More Peninsula Insider wedding reading</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/weddings/">Weddings Hub</a></h3>
+          <p class="venue-card__signature">The full Peninsula weddings guide — venue types, planning questions, guest weekend logic, and the intelligence that most wedding directories skip.</p>
+          <a href="/weddings/" class="venue-card__cta">All weddings →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/weddings-where-guests-stay-mornington-peninsula/">Where Guests Should Stay</a></h3>
+          <p class="venue-card__signature">The question couples most often answer too late. Peninsula area matched to guest base options — for Red Hill winery weddings specifically.</p>
+          <a href="/journal/weddings-where-guests-stay-mornington-peninsula/" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/weddings-mornington-peninsula-weekend-planning/">How to Plan the Wedding Weekend</a></h3>
+          <p class="venue-card__signature">Rehearsal dinner, recovery brunch, guest activities, and how the Peninsula stays coherent across a full weekend.</p>
+          <a href="/journal/weddings-mornington-peninsula-weekend-planning/" class="venue-card__cta">Read the guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/wine/best-cellar-doors/">Cellar Doors</a></h3>
+          <p class="venue-card__signature">The Peninsula's best cellar doors for the guest weekend — Friday afternoon before the wedding, or Saturday morning for early arrivals.</p>
+          <a href="/wine/best-cellar-doors/" class="venue-card__cta">Wine guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/stay/best-accommodation/">Where to Stay</a></h3>
+          <p class="venue-card__signature">Peninsula accommodation options for wedding guests — villas, holiday houses, boutique hotels, and the properties that work for groups.</p>
+          <a href="/stay/best-accommodation/" class="venue-card__cta">Accommodation guide →</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/places/red-hill/">Red Hill Guide</a></h3>
+          <p class="venue-card__signature">The Peninsula's wine and dining epicentre — the town context that surrounds most Peninsula winery wedding venues.</p>
+          <a href="/places/red-hill/" class="venue-card__cta">Red Hill guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    title="The Peninsula, inside and out"
+    body="Peninsula Insider dispatches every Wednesday — venues, wines, places, and what is actually worth making the drive for."
+  />
+</BaseLayout>

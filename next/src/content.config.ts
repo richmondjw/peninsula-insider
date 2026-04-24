@@ -215,6 +215,8 @@ const places = defineCollection({
     heroImage: imageRef,
     relatedPlaces: z.array(reference('places')).default([]),
     publishedAt: z.coerce.date(),
+    tldr: z.array(z.string()).optional(),
+    driveTime: z.string().optional(),
   }),
 });
 

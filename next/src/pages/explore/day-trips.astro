@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Mornington Peninsula Day Trips from Melbourne',
+  description: 'Five day-trip routes for visiting the Mornington Peninsula in a single day — hinterland, coast, tip, wine, and walk routes.',
+  path: '/explore/day-trips',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Mornington Peninsula Day Trip Routes',
+  description: 'Five distinct day-trip routes from Melbourne to the Mornington Peninsula.',
+  listPath: '/explore/day-trips',
+  items: [
+    { name: 'The Hinterland Loop', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'The Bay Coast Run', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'The Sorrento Tip', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Sorrento' },
+    { name: 'The Wine Crawl', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
+    { name: 'The Walk and Soak', path: '/explore/day-trips', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'How far is the Mornington Peninsula from Melbourne for a day trip?',
+    a: 'Mornington is about 60 km (50–60 min). Sorrento is about 110 km by road (1 hr 20 min without traffic). Allow extra time on weekends.',
+  },
+  {
+    q: 'Is a day trip to the Mornington Peninsula worth it?',
+    a: 'Yes, with a plan. A generic drive with no itinerary tends to result in an afternoon in a car park in Sorrento. The five routes above give structure that makes the day work.',
+  },
+  {
+    q: 'Can you do the Mornington Peninsula as a day trip from Melbourne without a car?',
+    a: 'Technically yes — train to Frankston, bus toward the Peninsula — but the coverage is limited. Most hinterland, national park, and beach destinations are car-dependent.',
+  },
+  {
+    q: 'What is the best season for a Mornington Peninsula day trip?',
+    a: 'Autumn (March–May) for hinterland and food-and-wine visits. Summer for beaches. Winter for hot springs. Spring for walks.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Day Trips' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Day Trips' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Day Trips from Melbourne — 5 Routes · Peninsula Insider"
+  description="Five day-trip routes for visiting the Mornington Peninsula from Melbourne — hinterland loop, bay coast, Sorrento tip, wine crawl, and walk + hot springs."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/day-trips/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Mornington Peninsula Day Trips</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>A day trip to the Mornington Peninsula from Melbourne works with a car and an early start.</li>
+            <li>Five distinct day-trip routes below: Hinterland loop, Bay coast, Sorrento tip, Wine crawl, Walk + hot springs.</li>
+            <li>Allow at least 5–6 hours of on-Peninsula time; 7–8 hours is better.</li>
+            <li>Avoid Saturday market day without a plan — Red Hill Market is worth it but you need to arrive by 9am.</li>
+          </ul>
+        </blockquote>
+
+        <p>The Mornington Peninsula, Victoria, Australia is 60–110 km from central Melbourne — a range that makes a day trip genuinely worthwhile but requires clear pre-thinking to avoid the driving-for-driving's-sake trap. This page gives you five distinct day-trip routes based on what kind of day you want.</p>
+
+        <h2>Five day-trip routes</h2>
+
+        <h3>Route 1 — The Hinterland Loop</h3>
+        <p><strong>Best for:</strong> First-timers, food and wine visitors, market days.</p>
+        <ul>
+          <li>Drive to Red Hill via Moorooduc Highway.</li>
+          <li>Morning: <a href="/explore/red-hill-market/">Red Hill Market</a> (first Saturdays) or a hinterland drive through Main Ridge.</li>
+          <li>Midday: Winery lunch — Montalto, Ten Minutes by Tractor, or Foxeys Hangout.</li>
+          <li>Afternoon: <a href="/explore/arthurs-seat-lookout/">Arthurs Seat Eagle</a> from Dromana (15 min from Red Hill) for the aerial orientation.</li>
+          <li>Drive home via Peninsula Link.</li>
+        </ul>
+        <p>The hinterland route covers the Peninsula's food-and-wine identity, a landmark attraction, and a sense of the geography. The gondola gives the view that makes everything else make sense. Full planning detail: <a href="/journal/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a>.</p>
+
+        <h3>Route 2 — The Bay Coast Run</h3>
+        <p><strong>Best for:</strong> Families, beach-focused visitors, first-timers with children.</p>
+        <ul>
+          <li>Drive to <a href="/places/mornington/">Mornington</a> via the Nepean Highway.</li>
+          <li>Morning: <a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> and town.</li>
+          <li>Midday: Drive to <a href="/explore/mount-martha-beach/">Mount Martha Beach</a> or <a href="/explore/safety-beach-foreshore/">Safety Beach</a> for a bay swim. Lunch from Dromana food options.</li>
+          <li>Afternoon: <a href="/explore/arthurs-seat-lookout/">Arthurs Seat Eagle</a> from Dromana.</li>
+        </ul>
+        <p>Keeps everything on the calm bay side; predictable for families; the gondola adds the "worth the drive" element.</p>
+
+        <h3>Route 3 — The Sorrento Tip</h3>
+        <p><strong>Best for:</strong> Those who want the Peninsula's most photogenic town; ferry users from Queenscliff.</p>
+        <ul>
+          <li>Drive or catch Searoad Ferries from Queenscliff to Sorrento.</li>
+          <li>Morning: <a href="/explore/sorrento-back-beach/">Sorrento Back Beach</a> and <a href="/explore/coppins-track/">Coppins Track</a>.</li>
+          <li>Midday: Lunch in Sorrento town.</li>
+          <li>Afternoon: <a href="/explore/portsea-front-beach/">Portsea Front Beach</a> and Portsea Hotel, or <a href="/explore/point-nepean-fort-walk/">Point Nepean fort walk</a>.</li>
+        </ul>
+        <p>The tip of the Peninsula is the most iconic section. Coppins Track delivers a 45-minute walk without a major time commitment. Full Sorrento detail: <a href="/journal/the-sorrento-weekend/">the Sorrento weekend</a>.</p>
+
+        <h3>Route 4 — The Wine Crawl</h3>
+        <p><strong>Best for:</strong> Wine-focused visitors, groups of adults, cellar-door explorers.</p>
+        <ul>
+          <li>Drive to Red Hill/Main Ridge via Moorooduc Highway.</li>
+          <li>Morning: Paringa Estate cellar door (Main Ridge) — one of the Peninsula's most respected pinots.</li>
+          <li>Midday: Lunch at Montalto or Polperro (book in advance).</li>
+          <li>Afternoon: Foxeys Hangout or Ten Minutes by Tractor depending on style preference.</li>
+          <li>Drive home early to avoid freeway peak traffic.</li>
+        </ul>
+        <p>The hinterland triangle (Red Hill, Main Ridge, Merricks) can be covered in a circuit with minimal backtracking. Don't plan more than three stops — the experience is better at depth than breadth.</p>
+
+        <h3>Route 5 — The Walk and Soak</h3>
+        <p><strong>Best for:</strong> Active visitors; those wanting a physical-and-restorative combination.</p>
+        <ul>
+          <li>Early start: Drive to <a href="/places/cape-schanck/">Cape Schanck</a>.</li>
+          <li>Morning: <a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> and <a href="/explore/bushrangers-bay-walk/">Bushrangers Bay walk</a> (combined, 2–3 hours).</li>
+          <li>Late morning/midday: Drive 15 minutes to <a href="/explore/hot-springs/">Peninsula Hot Springs</a> for an afternoon session (book in advance).</li>
+          <li>Return to Melbourne in the late afternoon.</li>
+        </ul>
+        <p>Walk before the soak; arrive at the hot springs with physical tiredness as part of the experience. The geography is efficient — Cape Schanck and Fingal are close together.</p>
+
+        <h2>Getting to the Peninsula</h2>
+        <p>Full logistics at <a href="/explore/getting-here/">getting to the Peninsula</a>. The fastest car route from Melbourne is Peninsula Link (M11) to Frankston, then the Mornington Peninsula Freeway or the Nepean Highway depending on your destination.</p>
+
+        <h2>Day-trip planning notes</h2>
+        <ul>
+          <li><strong>Traffic:</strong> Outbound Friday afternoon and Sunday afternoon are peak. Leave Melbourne by 8–9am on Saturday for market routes.</li>
+          <li><strong>Bookings:</strong> Winery lunches, Peninsula Hot Springs, and Arthurs Seat Eagle all benefit from advance booking. Don't assume walk-in availability.</li>
+          <li><strong>Weather:</strong> The Peninsula is exposed. Check the forecast. Ocean-beach visits in strong southerlies are dramatic but cold.</li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>How far is the Mornington Peninsula from Melbourne for a day trip?</h3>
+        <p>Mornington is about 60 km (50–60 min). Sorrento is about 110 km by road (1 hr 20 min without traffic). Allow extra time on weekends.</p>
+
+        <h3>Is a day trip to the Mornington Peninsula worth it?</h3>
+        <p>Yes, with a plan. A generic drive with no itinerary tends to result in an afternoon in a car park in Sorrento. The five routes above give structure that makes the day work.</p>
+
+        <h3>Can you do the Mornington Peninsula as a day trip from Melbourne without a car?</h3>
+        <p>Technically yes — train to Frankston, bus toward the Peninsula — but the coverage is limited. Most hinterland, national park, and beach destinations are car-dependent. See <a href="/explore/getting-around/">getting around</a>.</p>
+
+        <h3>What is the best season for a Mornington Peninsula day trip?</h3>
+        <p>Autumn (March–May) for hinterland and food-and-wine visits. Summer for beaches. Winter for hot springs. Spring for walks.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

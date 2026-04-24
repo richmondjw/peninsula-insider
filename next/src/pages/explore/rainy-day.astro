@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import {
+  buildCollectionPageSchema,
+  buildItemListSchema,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+} from '../../lib/schema';
+
+const collectionSchema = buildCollectionPageSchema({
+  name: 'Rainy Day Things to Do on the Mornington Peninsula',
+  description: 'Indoor and weather-proof activities on the Mornington Peninsula — hot springs, cellar doors, galleries, and indoor dining.',
+  path: '/explore/rainy-day',
+  dateModified: '2026-04-23',
+});
+
+const itemListSchema = buildItemListSchema({
+  name: 'Rainy Day Activities on the Mornington Peninsula',
+  description: 'Weather-proof and indoor activities on the Mornington Peninsula.',
+  listPath: '/explore/rainy-day',
+  items: [
+    { name: 'Peninsula Hot Springs', path: '/explore/hot-springs', itemType: 'TouristAttraction', addressLocality: 'Fingal' },
+    { name: 'Alba Thermal Springs', path: '/stay/alba-thermal-springs', itemType: 'TouristAttraction', addressLocality: 'Rye' },
+    { name: 'Montalto winery lunch', path: '/eat/montalto', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
+    { name: 'Ten Minutes by Tractor winery lunch', path: '/eat/ten-minutes-by-tractor', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
+    { name: 'Spa by Jackalope', path: '/stay/spa-by-jackalope', itemType: 'SportsActivityLocation', addressLocality: 'Merricks North' },
+    { name: 'Endota Spa Sorrento', path: '/stay/endota-spa-sorrento', itemType: 'SportsActivityLocation', addressLocality: 'Sorrento' },
+    { name: 'Mornington Peninsula Regional Gallery', path: '/places/mornington', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+  ],
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    q: 'What is there to do on the Mornington Peninsula on a rainy day?',
+    a: 'Hot springs (Peninsula Hot Springs, Alba), cellar-door lunches at covered winery restaurants, spa treatments, and the Mornington Peninsula Regional Gallery.',
+  },
+  {
+    q: 'Are Peninsula Hot Springs good in the rain?',
+    a: 'Yes. Cold rain + 40°C thermal pools = the whole point of hot springs. Both Peninsula Hot Springs and Alba operate in all weather.',
+  },
+  {
+    q: 'Can you still enjoy the Mornington Peninsula if it rains the whole weekend?',
+    a: 'Comfortably, if you plan around indoor and weather-proof activities. A hot springs visit, a winery lunch, a spa treatment, and a long dinner cover a full two days in the rain without any sacrifice.',
+  },
+  {
+    q: 'What should I avoid on the Mornington Peninsula on a rainy day?',
+    a: 'Ocean-beach walks in heavy rain and strong south-westerlies are miserable and potentially dangerous. Outdoor markets in heavy rain are thin. Long drives between open-air attractions add friction.',
+  },
+]);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
+  { name: 'Rainy Day' },
+]);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Explore', href: '/explore' },
+  { label: 'Rainy Day' },
+];
+---
+
+<BaseLayout
+  title="Rainy Day Things to Do on the Mornington Peninsula · Peninsula Insider"
+  description="Indoor and weather-proof activities on the Mornington Peninsula — hot springs, cellar-door lunches, spa treatments, and galleries for when the weather turns."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/explore/rainy-day/"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Rainy Day Activities on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <blockquote>
+          <p><strong>TL;DR</strong></p>
+          <ul>
+            <li>Rain doesn't ruin a Peninsula trip — in several categories (hot springs, cellar-door lunches) it improves it.</li>
+            <li><a href="/explore/hot-springs/">Peninsula Hot Springs</a> and <a href="/stay/alba-thermal-springs/">Alba Thermal Springs</a> operate in all weather; wet conditions are, for many visitors, their best.</li>
+            <li>Cellar-door lunches are the Peninsula's strongest indoor activity — most have covered dining and operate year-round.</li>
+          </ul>
+        </blockquote>
+
+        <p>A rainy weekend on the Mornington Peninsula, Victoria, Australia is not a failed weekend. The Peninsula's worst categories in rain are beaches and outdoor markets. Its best categories — thermal soaking, long lunches at a winery table, spa treatments, coastal walk with all the atmosphere and none of the Sunday crowds — are all genuinely better when it's cold and grey outside.</p>
+
+        <h2>Hot springs — the obvious choice, and correctly so</h2>
+        <p>Rain makes hot springs more atmospheric, not less. The contrast between cold air and 40°C water is the whole sensory experience. Both <a href="/explore/hot-springs/">Peninsula Hot Springs</a> and <a href="/stay/alba-thermal-springs/">Alba Thermal Springs</a> are open in all weather. Rainy-day availability at Peninsula Hot Springs in the off-peak season (May–August, non-school holidays, midweek) is the most reliable window for a spontaneous visit. Summer rain days are still crowded.</p>
+
+        <h2>Cellar doors and winery dining</h2>
+        <p>The Peninsula's cellar doors, and particularly those with restaurant or casual dining attached, are the best rainy-day activity outside the hot springs. Most have covered dining. The experience is, arguably, better on a rainy day — tables are easier to get, the wines taste different, and the experience has an unhurried quality that summer lunch services don't allow.</p>
+        <p><strong>Recommended cellar-door lunch options in rain:</strong></p>
+        <ul>
+          <li>Montalto, Red Hill — Full restaurant with covered terrace. The most complete rainy-day winery lunch on the Peninsula.</li>
+          <li>Ten Minutes by Tractor, Main Ridge — Covered dining, outstanding wine list, warm service.</li>
+          <li>Polperro, Red Hill — Casual, covered outdoor section, good charcuterie menu.</li>
+          <li>Foxeys Hangout, Red Hill — Casual and covered; less formal than Montalto.</li>
+        </ul>
+
+        <h2>Spa treatments</h2>
+        <p>Rainy days are the natural booking window for treatment-focused spa time. All Peninsula spas operate year-round indoors. See <a href="/explore/spas-and-wellness/">day spas and wellness</a> for the full list.</p>
+        <ul>
+          <li><a href="/stay/spa-by-jackalope/">Spa by Jackalope</a> — Premium, indoor, year-round.</li>
+          <li><a href="/stay/endota-spa-sorrento/">Endota Spa Sorrento</a> — Mid-range, indoor, reliable.</li>
+          <li><a href="/stay/endota-spa-mornington/">Endota Spa Mornington</a> — Mid-range, northern Peninsula.</li>
+        </ul>
+
+        <h2>Galleries</h2>
+        <p>The Peninsula's gallery scene is modest compared with its food-and-wine offering. The most accessible option: Mornington Peninsula Regional Gallery in Langwarrin — a genuine regional gallery with permanent and travelling exhibitions.</p>
+
+        <h2>Markets — partial exception</h2>
+        <p><a href="/explore/red-hill-market/">Red Hill Market</a> runs in light rain — most stalls are covered or have gazebos. Heavy rain thins the stall count. An overcast or lightly drizzly first Saturday is better than a summer Saturday with 3000 visitors.</p>
+
+        <h2>Further reading</h2>
+        <ul>
+          <li><a href="/journal/rainy-day-peninsula/">Rainy-day guide</a> — the full editorial treatment</li>
+          <li><a href="/explore/hot-springs/">Peninsula hot springs guide</a></li>
+          <li><a href="/explore/spas-and-wellness/">Day spas and wellness</a></li>
+        </ul>
+
+        <p><em>Last fact-verified 23 April 2026</em></p>
+
+        <h2>FAQ</h2>
+
+        <h3>What is there to do on the Mornington Peninsula on a rainy day?</h3>
+        <p>Hot springs (Peninsula Hot Springs, Alba), cellar-door lunches at covered winery restaurants, spa treatments, and the Mornington Peninsula Regional Gallery.</p>
+
+        <h3>Are Peninsula Hot Springs good in the rain?</h3>
+        <p>Yes. Cold rain + 40°C thermal pools = the whole point of hot springs. Both Peninsula Hot Springs and Alba operate in all weather.</p>
+
+        <h3>Can you still enjoy the Mornington Peninsula if it rains the whole weekend?</h3>
+        <p>Comfortably, if you plan around indoor and weather-proof activities. A hot springs visit, a winery lunch, a spa treatment, and a long dinner cover a full two days in the rain without any sacrifice.</p>
+
+        <h3>What should I avoid on the Mornington Peninsula on a rainy day?</h3>
+        <p>Ocean-beach walks in heavy rain and strong south-westerlies are miserable. Outdoor markets in heavy rain are thin. Long drives between open-air attractions add friction.</p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

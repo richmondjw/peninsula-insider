@@ -1,0 +1,212 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const allStays = (await getCollection('venues'))
+  .filter((v) => stayTypes.includes(v.data.type) && !['spa'].includes(v.data.type))
+  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+
+// Area buckets — where you base determines what kind of trip you have
+const ridgeStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['red-hill', 'red-hill-south', 'main-ridge', 'merricks', 'merricks-north'].includes(p);
+});
+const tipStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['sorrento', 'portsea', 'blairgowrie', 'rye', 'cape-schanck'].includes(p);
+});
+const flindersStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['flinders', 'shoreham', 'balnarring'].includes(p);
+});
+const baysideStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['mornington', 'mount-martha', 'safety-beach', 'dromana', 'rosebud'].includes(p);
+});
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Where is the best place to stay on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The answer depends on the trip. Red Hill and Main Ridge are the best base for a wine-country weekend — cellar doors are within a short drive, vineyard restaurants are within walking distance of some stays, and the ridge has a quiet, self-contained character that rewards two nights. Sorrento is the best base for atmosphere: a working village with ocean baths, ocean beaches, the ferry to Queenscliff, and a proper main street with restaurants and bars. Mornington town is the most accessible from Melbourne, good for a single night. Flinders is the quietest and most authentic — a fishing village that still works.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How far is the Mornington Peninsula from Melbourne?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mornington town is about an hour from Melbourne CBD. Sorrento and Portsea at the tip are 1 hour 30–40 minutes. Red Hill and Main Ridge on the plateau are 1 hour 15–30 minutes. Cape Schanck and Flinders on the south coast are 1 hour 30 minutes. Traffic on the Mornington Peninsula Freeway is heaviest Friday afternoons and Sunday evenings — if you can leave earlier or later, the drive improves significantly.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I stay in Sorrento or Red Hill?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sorrento for a coastal village weekend: ocean swimming, limestone cliffs, the back beach, a strong dining scene, and the ferry. Red Hill for a wine-country weekend: cellar doors, vineyard lunches, and quiet ridge-top stays. They are 20 minutes apart, so you can visit both areas from either base — the choice is really about where you want to wake up. For a three-night trip, basing on the ridge and driving to Sorrento for dinner and a swim is the natural move.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What type of accommodation is available on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most Peninsula accommodation is self-contained — vineyard villas, converted farm buildings, and private coastal cottages rather than hotel rooms. The notable hotels are Jackalope (Red Hill, design-led luxury), The Continental (Sorrento, heritage grand hotel), Hotel Sorrento (Sorrento, boutique heritage), Lindenderry (Red Hill, boutique retreat hotel), and the Flinders Hotel (Flinders, country pub with rooms). Self-contained stays suit couples and small groups. The hotels suit single-night visits where cooking breakfast feels like work.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the cheapest time to stay on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Winter weekdays (June–August) are the lowest-demand period. Prices drop significantly, availability is good even at short notice, and the Peninsula\'s thermal springs and fireplace character are at their strongest. Autumn midweek is the best value if you want good weather — after the summer crowds have gone but before the property prices spike for the long weekends. Summer weekends and all public holiday periods are peak pricing and book out months ahead.',
+      },
+    },
+  ],
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay' },
+  { label: 'Where to Stay' },
+];
+---
+
+<BaseLayout
+  title="Where to Stay Mornington Peninsula · Peninsula Insider"
+  description="Where to stay on the Mornington Peninsula — area-by-area guide covering the ridge, the tip, Flinders, and the bay. Hotels, villas, and cottages with honest editorial picks."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/where-to-stay-mornington-peninsula"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Where to Stay on the Mornington Peninsula</h1>
+
+      <div class="prose">
+        <p>Where you sleep determines which Peninsula you get. The ridge puts you in wine country — winery restaurants are accessible without a long drive and the morning light over the plateau makes the second coffee worth sitting still for. Sorrento puts you in the village, with ocean swimming, limestone streets, and the back beach ten minutes away. Flinders puts you in the quiet south coast, where the fishing boat still leaves at dawn and the pub has been there since 1855.</p>
+
+        <p>None of these are wrong. They're just different trips. The guide below works through the Peninsula area by area so the stay matches the weekend you're actually planning — not a generic shortlist of properties sorted by price.</p>
+      </div>
+    </div>
+  </article>
+
+  {ridgeStays.length > 0 && (
+    <section class="venues" id="ridge">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Red Hill · Main Ridge · Merricks</p>
+            <h2 class="venues__title">The wine ridge — best base for cellar door weekends</h2>
+            <p class="venues__sub">Jackalope is the benchmark. Lindenderry and Hillview work well for groups and longer stays. Polperro Villas and Point Leo Villas add vineyard immersion if the estate is your destination.</p>
+          </div>
+          <a href="/stay/" class="venues__link">All stays →</a>
+        </div>
+        <div class="venues__grid">
+          {ridgeStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {tipStays.length > 0 && (
+    <section class="venues venues--plain" id="tip">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Sorrento · Portsea · Rye · Cape Schanck</p>
+            <h2 class="venues__title">The tip — best base for coast, village, and back beach</h2>
+            <p class="venues__sub">The Continental and Hotel Sorrento anchor the village end. The Peninsula Hot Springs glamping is the choice if the springs are the trip. Sorrento Coastal Retreat for couples who want privacy and sea air.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {tipStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {flindersStays.length > 0 && (
+    <section class="venues" id="flinders">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Flinders · Shoreham · Balnarring</p>
+            <h2 class="venues__title">The south coast — quietest base, strongest atmosphere</h2>
+            <p class="venues__sub">The Flinders Hotel is the anchor: a proper country pub with rooms that has aged well. Smaller self-contained properties in Shoreham and Balnarring work for those who want the south coast without sharing it with anyone.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {flindersStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {baysideStays.length > 0 && (
+    <section class="venues venues--plain" id="bayside">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Mornington · Mount Martha · Dromana</p>
+            <h2 class="venues__title">Bayside — most accessible from Melbourne, best for a single night</h2>
+            <p class="venues__sub">Closest to the freeway. Good when you want the Peninsula without the full commitment — a single night, a morning swim, and back before Sunday traffic builds.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {baysideStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>How to choose where to stay</h2>
+
+        <h3>Match the stay to the trip, not the other way around</h3>
+        <p>The most common Peninsula planning mistake is booking accommodation before deciding what kind of weekend you want. A ridge villa is wrong for a beach trip. A Sorrento hotel is wrong if all your plans are in the hinterland. Work out the one or two things that define the trip — a particular winery, a particular beach, the hot springs — and then pick the accommodation that positions you for those things without a long drive each way.</p>
+
+        <h3>Self-contained vs hotel</h3>
+        <p>Self-contained properties — villas, cottages, farm houses — dominate the Peninsula and suit longer stays and groups well. You get privacy, a proper kitchen for weekend cooking, and usually a better view-to-price ratio than a hotel room. For single nights where you'd rather not cook breakfast or manage check-in logistics, the hotel end of the market (Hotel Sorrento, The Continental, Flinders Hotel, Jackalope) makes more sense.</p>
+
+        <h3>When to book</h3>
+        <p>Summer weekends book out months ahead. The Easter and June-holiday long weekends are the second hardest period — expect to pay peak rates and find limited availability at short notice. Winter is the opposite: most properties are available within days, prices drop, and the Peninsula's fireplace character is at its strongest. Autumn midweek is the best value-per-quality ratio of the year.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Plan the stay properly</p>
+          <h2 class="venues__title">Connected guides</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <a href="/stay/best-accommodation/" class="venue-card__cta">Best Accommodation →</a>
+        <a href="/explore/where-to-base-yourself/" class="venue-card__cta">Where to Base Yourself →</a>
+        <a href="/escape/" class="venue-card__cta">Weekend Escape Plans →</a>
+        <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Itinerary →</a>
+        <a href="/places/sorrento/" class="venue-card__cta">Sorrento Guide →</a>
+        <a href="/places/red-hill/" class="venue-card__cta">Red Hill Guide →</a>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
