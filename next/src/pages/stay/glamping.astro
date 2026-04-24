@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['peninsula-hot-springs-glamping'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Glamping' },
+];
+---
+<BaseLayout
+  title="Glamping Mornington Peninsula · Peninsula Insider"
+  description="Glamping on the Mornington Peninsula, led by Peninsula Hot Springs Glamping and the slower thermal-wellness stay logic around Fingal."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/glamping/"
+  modifiedTime="2026-04-24"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Glamping on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>Glamping is not a huge Peninsula category yet, which makes the current answer simple: if you want a proper glamping stay on the Mornington Peninsula, <a href="/stay/peninsula-hot-springs-glamping/">Peninsula Hot Springs Glamping</a> is the defining option. It works because it pairs the accommodation format with an experience the region already owns, rather than trying to sell canvas alone as the whole idea.</p>
+        <p>This is less a crowded category than a strategic one. The reason to stay this way is not just novelty. It is to shape a thermal, slower, more sealed-off weekend around Fingal and the back-beach side of the Peninsula.</p>
+        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header"><div><p class="label label--accent">Glamping</p><h2 class="venues__title">Current Peninsula glamping leader</h2><p class="venues__sub">A category still in early formation, but already useful if the trip is built around soaking and switching off.</p></div><a href="/explore/hot-springs/" class="venues__link">Hot springs →</a></div>
+      <div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>

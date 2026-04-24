@@ -1,0 +1,147 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['jackalope','lindenderry','the-continental-sorrento','point-leo-estate-villas','polperro-villas','crittenden-villas','peninsula-hot-springs-glamping','hotel-sorrento'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Luxury' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Luxury Accommodation Mornington Peninsula',
+  description: 'The best luxury accommodation on the Mornington Peninsula, from design hotels and vineyard villas to refined coastal stays.',
+  url: 'https://peninsulainsider.com.au/stay/luxury/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
+      { position: 3, name: 'Luxury', item: 'https://peninsulainsider.com.au/stay/luxury/' },
+    ].map((item) => ({ '@type': 'ListItem', ...item })),
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((venue, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: venue.data.name,
+      url: `https://peninsulainsider.com.au/stay/${routeSlug(venue)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best luxury stay on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Jackalope is the Peninsula\'s most distinct luxury hotel if you want design, drama, and a wine-country base. Lindenderry is the quieter classic for a slower Red Hill weekend. The Continental and Hotel Sorrento are the strongest options if you want refined coastal access at the tip.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I stay in Red Hill or Sorrento for a luxury Peninsula weekend?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Stay in Red Hill if the weekend is built around wine, lunches, and hinterland pace. Stay in Sorrento if you want village atmosphere, bay and ocean access, and the strongest walkable coastal base. The right answer depends on what the trip is for, not which postcode sounds grander.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are the Peninsula\'s best luxury stays hotels or villas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Both. Hotels like Jackalope, Lindenderry, Hotel Sorrento, and The Continental work best when service, dining, and easy flow matter. Villas like Point Leo Estate Villas, Polperro Villas, and Crittenden Estate Villas work better when privacy, vineyard setting, and a slower self-contained rhythm matter more.',
+      },
+    },
+  ],
+};
+---
+<BaseLayout
+  title="Luxury Accommodation Mornington Peninsula · Peninsula Insider"
+  description="The best luxury accommodation on the Mornington Peninsula, from Jackalope and Lindenderry to vineyard villas and refined coastal stays in Sorrento."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/luxury/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Luxury Accommodation on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Peninsula does luxury best when it stops trying to impersonate an international resort strip. The strongest stays here are either rooted in the landscape, vineyard, ridge, ocean edge, village main street, or they are not especially interesting. A good Peninsula luxury stay should shape the whole weekend, not just provide a handsome room key.</p>
+        <p>That usually means one of two modes. The first is hinterland luxury, where the trip leans into wine, long lunches, fireplaces, and slower mornings, with <a href="/stay/jackalope/">Jackalope</a>, <a href="/stay/lindenderry/">Lindenderry</a>, <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a>, and <a href="/stay/polperro-villas/">Polperro Villas</a> doing the heavy lifting. The second is coastal luxury, where the base matters because it decides the rhythm of the trip, and <a href="/stay/the-continental-sorrento/">The Continental</a> and <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> become the right answer.</p>
+        <p>The question is not simply what is most expensive. It is what gives the Peninsula weekend the right shape.</p>
+        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Luxury stays</p>
+          <h2 class="venues__title">{venues.length} luxury stays worth prioritising</h2>
+          <p class="venues__sub">Design hotels, vineyard villas, and the coastal properties that genuinely shape a Peninsula weekend well.</p>
+        </div>
+        <a href="/stay/" class="venues__link">All stays →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>How to choose well</h2>
+        <h3>Red Hill or Sorrento?</h3>
+        <p><strong>Red Hill</strong> is the right base when the weekend is about wine, long lunches, and a slower food-led Peninsula. <strong>Sorrento</strong> is the right base when the weekend is about village atmosphere, walking, bay and ocean access, and a stronger sense of arrival.</p>
+        <h3>Hotel or villa?</h3>
+        <p>Choose a hotel if you want service, restaurant access, and easier flow. Choose a villa if privacy, vineyard setting, and a more self-contained long-weekend rhythm matter more than formal hotel infrastructure.</p>
+        <h3>The publication's view</h3>
+        <p><a href="/stay/jackalope/">Jackalope</a> is still the Peninsula's most singular luxury hotel expression. <a href="/stay/lindenderry/">Lindenderry</a> is the calmer, more classic counterpoint. <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a> and <a href="/stay/polperro-villas/">Polperro Villas</a> make the strongest case for luxury through place rather than spectacle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related stay guides</p>
+          <h2 class="venues__title">Build the weekend properly</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/couples/">Couples Accommodation</a></h3><p class="venue-card__signature">The stays that work best for two-night escapes, anniversaries, and slower Peninsula weekends.</p><a href="/stay/couples/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/winery-accommodation/">Winery Accommodation</a></h3><p class="venue-card__signature">Where to stay when the trip is built around cellar doors, lunch, and the hinterland.</p><a href="/stay/winery-accommodation/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/where-to-stay-mornington-peninsula/">Where to Base Yourself</a></h3><p class="venue-card__signature">The practical Peninsula logic behind Sorrento, Red Hill, Flinders, Mornington, and beyond.</p><a href="/stay/where-to-stay-mornington-peninsula/" class="venue-card__cta">Read the guide →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

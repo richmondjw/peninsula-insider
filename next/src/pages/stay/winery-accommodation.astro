@@ -1,0 +1,109 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['polperro-villas','point-leo-estate-villas','crittenden-villas','jackalope','lindenderry'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Winery Accommodation' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Winery Accommodation Mornington Peninsula',
+  description: 'The best winery accommodation on the Mornington Peninsula, from vineyard villas to design-led wine-country hotels.',
+  url: 'https://peninsulainsider.com.au/stay/winery-accommodation/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
+      { position: 3, name: 'Winery Accommodation', item: 'https://peninsulainsider.com.au/stay/winery-accommodation/' },
+    ].map((item) => ({ '@type': 'ListItem', ...item })),
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((venue, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: venue.data.name,
+      url: `https://peninsulainsider.com.au/stay/${routeSlug(venue)}/`,
+    })),
+  },
+};
+---
+<BaseLayout
+  title="Winery Accommodation Mornington Peninsula · Peninsula Insider"
+  description="The best winery accommodation on the Mornington Peninsula, from vineyard villas to design-led wine-country hotels in Red Hill and beyond."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/winery-accommodation/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Winery Accommodation on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The best Peninsula wine weekends improve dramatically when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens, instead of spending the whole weekend running transfers between Sorrento beds and Red Hill lunches.</p>
+        <p>Winery accommodation on the Mornington Peninsula is not a giant category. That is what makes it useful. The good options are limited, distinct, and easy to choose between once you know what sort of weekend you are building. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a> are for couples who want to stay close to the vineyard experience itself. <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are stronger for a quieter bay-side wine-country crossover. <a href="/stay/jackalope/">Jackalope</a> and <a href="/stay/lindenderry/">Lindenderry</a> sit slightly adjacent to the strict winery-villa category, but they belong in any serious wine-stay conversation because of how well they shape a Peninsula food-and-wine weekend.</p>
+        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Wine-country stays</p>
+          <h2 class="venues__title">{venues.length} stays that work best for a Peninsula wine weekend</h2>
+          <p class="venues__sub">The strongest bases for long lunches, cellar doors, and slower mornings in Red Hill, Merricks, and the surrounding ridge country.</p>
+        </div>
+        <a href="/wine/" class="venues__link">Wine country →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>How to use this category</h2>
+        <h3>Best for a one-night wine weekend?</h3>
+        <p><a href="/stay/jackalope/">Jackalope</a> if you want drama and a stronger hotel experience. <a href="/stay/polperro-villas/">Polperro Villas</a> if you want something quieter, more intimate, and directly embedded in the wine-country mood.</p>
+        <h3>Best for a slower two-night stay?</h3>
+        <p><a href="/stay/lindenderry/">Lindenderry</a>, <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a>, and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> all work well when the weekend is less about ticking off cellar doors and more about pace, meals, and place.</p>
+        <h3>Why this matters</h3>
+        <p>The Peninsula's wine-country roads are beautiful but narrow and badly lit at night. The more you can collapse dining, tasting, and sleeping into the same zone, the better the weekend becomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header"><div><p class="label label--accent">Related guides</p><h2 class="venues__title">Build around food and wine</h2></div></div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/wine/cellar-doors/">Best Cellar Doors</a></h3><p class="venue-card__signature">The cellar doors worth structuring a Peninsula day around.</p><a href="/wine/cellar-doors/" class="venue-card__cta">See the guide →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/cellar-door-lunch/">Cellar Door Lunch</a></h3><p class="venue-card__signature">The winery restaurants and long lunches that make the overnight stay worthwhile.</p><a href="/eat/cellar-door-lunch/" class="venue-card__cta">Read the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/places/red-hill/">Red Hill</a></h3><p class="venue-card__signature">The Peninsula's food-and-wine centre of gravity.</p><a href="/places/red-hill/" class="venue-card__cta">Explore the town →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

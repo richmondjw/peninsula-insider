@@ -1,0 +1,171 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+
+// Vineyard stays: ridge zones + cellar-door mood tag
+const ridgeZones = ['red-hill-plateau', 'hinterland'];
+const vineyardSlugs = [
+  'jackalope',
+  'polperro-villas',
+  'point-leo-estate-villas',
+  'lindenderry',
+  'hillview-cottages',
+  'crittenden-villas',
+  'spa-by-jackalope',
+];
+
+const venues = vineyardSlugs
+  .map((s) => allVenues.find((v) => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v) && stayTypes.includes(v.data.type));
+
+// Fallback: any stay in ridge zone not already captured
+const extraRidgeStays = allVenues.filter((v) =>
+  stayTypes.includes(v.data.type) &&
+  ridgeZones.includes(v.data.zone) &&
+  !vineyardSlugs.includes(routeSlug(v))
+);
+const allVineyardStays = [...venues, ...extraRidgeStays];
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Vineyard Stays' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Vineyard Stays Mornington Peninsula',
+  description: 'Vineyard stays and winery accommodation on the Mornington Peninsula — where cellar doors, long lunches, and beds are on the same property or within walking distance.',
+  url: 'https://peninsulainsider.com.au/stay/vineyard-stays/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
+      { '@type': 'ListItem', position: 3, name: 'Vineyard Stays', item: 'https://peninsulainsider.com.au/stay/vineyard-stays/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: allVineyardStays.length,
+    itemListElement: allVineyardStays.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.data.name,
+      url: `https://peninsulainsider.com.au/stay/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which Mornington Peninsula winery has accommodation?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Jackalope Hotel sits inside a working Merricks North vineyard with Doot Doot Doot on site. Polperro Villas are estate villas attached to the Polperro winery in Red Hill. Point Leo Estate Villas adjoin the Pt. Leo Estate sculpture park and winery. Lindenderry at Red Hill is a boutique hotel on a small vineyard. Crittenden Estate has self-contained villas on the estate grounds.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which part of the Mornington Peninsula is wine country?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Red Hill, Main Ridge, and Merricks North on the central plateau are the wine country core. The elevation, cool-climate conditions, and concentration of cellar doors here are what makes Mornington Peninsula Pinot Noir and Chardonnay distinctive. Staying in this zone puts you within minutes of 20+ cellar doors.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long do I need for a vineyard stay on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Two nights is the natural unit. Day one: arrive, check in, afternoon cellar door session, dinner at the property restaurant. Day two: morning walk, two or three cellar doors, a long vineyard lunch (book Doot Doot Doot, Tedesca, or Laura in advance). Drive home Sunday evening. One night is doable but rushed — you end up spending most of Saturday driving.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Vineyard Stays Mornington Peninsula · Peninsula Insider"
+  description="Vineyard accommodation and winery stays on the Mornington Peninsula — from Jackalope's design-hotel to private estate villas where the cellar door is next door."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/vineyard-stays/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Vineyard Stays on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Peninsula's wine country is a 20-kilometre belt of plateau running through Red Hill, Main Ridge, and Merricks North. Staying in this zone changes what the weekend is — cellar doors become a morning walk rather than a drive, vineyard lunches are the main event rather than a detour, and the ridge light at dusk is what you came for.</p>
+        <p>Jackalope is the design-hotel benchmark: a black-steel structure set inside a working vineyard with one of Victoria's most ambitious dining rooms. Polperro and Point Leo Estate Villas offer the more private version — self-contained on a working estate, close to serious winemaking. Lindenderry and Hillview Cottages give the boutique-hotel and cottage register that suits those who want character over spectacle.</p>
+        <p>If you're spending two nights on the Peninsula and wine is the main reason, these are the properties that make the trip hold together.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="vineyard-stays">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Vineyard & winery stays</p>
+          <h2 class="venues__title">{allVineyardStays.length} properties on or near the ridge</h2>
+          <p class="venues__sub">Estate villas and boutique hotels where the cellar door is either on site or within a short walk along vineyard rows.</p>
+        </div>
+        <a href="/wine/" class="venues__link">Wine country →</a>
+      </div>
+      <div class="venues__grid">
+        {allVineyardStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>Which winery has accommodation on the Peninsula?</h3>
+        <p>Jackalope Hotel (Merricks North vineyard), Polperro Villas (Red Hill estate), Point Leo Estate Villas (sculpture park and winery), Lindenderry at Red Hill (boutique vineyard hotel), and Crittenden Estate (self-contained villas on the estate).</p>
+        <h3>Which part of the Peninsula is wine country?</h3>
+        <p>Red Hill, Main Ridge, and Merricks North on the central plateau. The elevation and cool-climate conditions here are what produces Mornington Pinot Noir and Chardonnay with the character that's made the region internationally credentialled. Staying in this zone puts you within minutes of 20+ cellar doors.</p>
+        <h3>How long do I need?</h3>
+        <p>Two nights. Day one: arrive, afternoon cellar door session, dinner on the property. Day two: morning walk, two or three cellar doors, a long vineyard lunch (book ahead). Drive home Sunday evening. One night is doable but leaves most of Saturday dedicated to travel.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">Complete the wine country weekend</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/wine/">Wine Country Guide</a></h3><p class="venue-card__signature">Every cellar door on the Peninsula with opening hours, food, and honest notes.</p><a href="/wine/" class="venue-card__cta">Explore wineries →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/cellar-door-lunch/">Cellar Door Lunch</a></h3><p class="venue-card__signature">The best winery restaurants where kitchen and cellar door are the same experience.</p><a href="/eat/cellar-door-lunch/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/best-accommodation/">Best Accommodation</a></h3><p class="venue-card__signature">All Peninsula stays ranked by editorial authority across every price band.</p><a href="/stay/best-accommodation/" class="venue-card__cta">See the list →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

@@ -1,0 +1,198 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+
+// Wellness stays: wellness mood, spa type, glamping with thermal access
+const wellnessSlugs = [
+  'peninsula-hot-springs',
+  'peninsula-hot-springs-glamping',
+  'spa-by-jackalope',
+  'alba-thermal-springs',
+  'one-spa-racv-cape-schanck',
+  'endota-spa-sorrento',
+  'endota-spa-mornington',
+];
+
+const venues = wellnessSlugs
+  .map((s) => allVenues.find((v) => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+
+// Also show the accommodation that pairs well with wellness (not spa-only)
+const wellnessStaySlugs = [
+  'peninsula-hot-springs-glamping',
+  'jackalope',
+  'lindenderry',
+  'hillview-cottages',
+  'flinders-hotel',
+];
+const wellnessStays = wellnessStaySlugs
+  .map((s) => allVenues.find((v) => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v) && stayTypes.includes(v.data.type));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Wellness Retreats' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Wellness Retreats Mornington Peninsula',
+  description: 'Spa stays, thermal springs, and wellness retreats on the Mornington Peninsula — from Peninsula Hot Springs glamping to Spa by Jackalope and RACV Cape Schanck.',
+  url: 'https://peninsulainsider.com.au/stay/wellness-retreats/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
+      { '@type': 'ListItem', position: 3, name: 'Wellness Retreats', item: 'https://peninsulainsider.com.au/stay/wellness-retreats/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.data.name,
+      url: `https://peninsulainsider.com.au/stay/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is Peninsula Hot Springs and can you stay there?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Peninsula Hot Springs is a large geothermal bathing complex near Rye with more than 50 pools. The Springs itself is a day-visit experience — you cannot stay inside the facility — but Peninsula Hot Springs Glamping operates directly adjacent and gives overnight guests priority entry and a quieter experience of the pools in the evening and early morning.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there a full spa retreat on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Spa by Jackalope at Jackalope Hotel (Red Hill) is the most comprehensive resort spa on the Peninsula: six treatment rooms, a thermal suite, scrub rooms, and access to the hotel\'s private bathing facilities. One Spa at RACV Cape Schanck Resort is a full-service spa with ocean views on the south coast. Both require property bookings or day-spa appointments.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between Peninsula Hot Springs and Alba Thermal Springs?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Peninsula Hot Springs (Rye) is the larger public facility — geothermal water, 50+ pools, family-friendly, day-visit focused. Alba Thermal Springs (Red Hill) is the newer, more design-conscious property: a smaller, curated experience with cave pools, cold plunge, and a stronger focus on the adult wellness experience. Alba is quieter and better suited to a couple\'s retreat day.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I do a wellness weekend on the Mornington Peninsula without a car?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'It is difficult. The wellness properties are spread across the Peninsula and public transport connections between them are limited. Peninsula Hot Springs runs a shuttle from Frankston station on weekends. For a car-free wellness stay, the best option is Jackalope Hotel and Spa by Jackalope — the hotel, spa, and Doot Doot Doot dining room are all on the same property and you can walk between them.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Wellness Retreats Mornington Peninsula · Peninsula Insider"
+  description="Spa stays and wellness retreats on the Mornington Peninsula — Peninsula Hot Springs glamping, Spa by Jackalope, Alba Thermal Springs, and day spas worth staying for."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/wellness-retreats/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Wellness Retreats on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Peninsula's wellness infrastructure is more serious than most people expect before they arrive. Peninsula Hot Springs is the largest geothermal bathing complex in the southern hemisphere. Alba Thermal Springs at Red Hill is a newer, design-led alternative with a more curated adult experience. Spa by Jackalope is a full resort spa operating at Jackalope Hotel on the wine ridge. RACV Cape Schanck's One Spa adds an ocean-view treatment experience on the south coast.</p>
+        <p>None of these feel like the hotel-spa-as-afterthought that fills most resort brochures. They're the primary reason many people come. The question is whether you want the thermal bathing experience centred (Peninsula Hot Springs, Alba), the spa-as-luxury-hotel experience (Jackalope, Cape Schanck), or something more restorative and slow (glamping adjacent to the springs, cottage with private garden).</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="thermal-springs">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Thermal springs & spas</p>
+          <h2 class="venues__title">{venues.length} wellness properties on the Peninsula</h2>
+          <p class="venues__sub">From geothermal bathing complexes to resort spas — ordered by the depth of the overnight wellness experience each offers.</p>
+        </div>
+        <a href="/spa/" class="venues__link">Spa guide →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain" id="stays-for-wellness">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Stay nearby</p>
+          <h2 class="venues__title">Accommodation that pairs well with a wellness day</h2>
+          <p class="venues__sub">When the spa or springs is the day's main event, the right overnight base means you don't have to drive home tired.</p>
+        </div>
+      </div>
+      <div class="venues__grid">
+        {wellnessStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>Can you stay at Peninsula Hot Springs?</h3>
+        <p>The Springs itself is a day-visit facility — you cannot stay inside the complex. Peninsula Hot Springs Glamping operates adjacent to the property and gives overnight guests priority entry. It's the closest overnight option to the pools.</p>
+        <h3>Peninsula Hot Springs vs Alba Thermal Springs?</h3>
+        <p>Peninsula Hot Springs (Rye): larger, more varied, family-friendly, geothermal water. Alba Thermal Springs (Red Hill): smaller, design-conscious, adult-focused, cave pools and cold plunge. Alba suits couples better. Peninsula Hot Springs is better for a first visit or a group.</p>
+        <h3>Where's the best full resort spa?</h3>
+        <p>Spa by Jackalope (Red Hill) — six treatment rooms, thermal suite, and the whole Jackalope Hotel experience around it. One Spa at RACV Cape Schanck offers a full-service spa with ocean views on the south coast.</p>
+        <h3>Is a car needed for a wellness weekend?</h3>
+        <p>Almost always. Peninsula Hot Springs runs a weekend shuttle from Frankston station. Jackalope Hotel and Spa by Jackalope are co-located so you can walk between them — the only car-free wellness stay option on the Peninsula.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">Plan the wellness weekend</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/spa/">Spa Guide</a></h3><p class="venue-card__signature">Every spa on the Peninsula with honest notes on which is worth the spend.</p><a href="/spa/" class="venue-card__cta">Read the guide →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/couples-retreats/">Couples Retreats</a></h3><p class="venue-card__signature">Romantic accommodation across the Peninsula for anniversary and honeymoon stays.</p><a href="/stay/couples-retreats/" class="venue-card__cta">Explore →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/best-accommodation/">Best Accommodation</a></h3><p class="venue-card__signature">All Peninsula stays ranked by editorial authority across every price band.</p><a href="/stay/best-accommodation/" class="venue-card__cta">See the list →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

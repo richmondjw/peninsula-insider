@@ -1,0 +1,173 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+
+// Romantic / couples stays: anniversary, romance, slow mood tags + audience: couples
+const romanticSlugs = [
+  'jackalope',
+  'polperro-villas',
+  'point-leo-estate-villas',
+  'the-continental-sorrento',
+  'sorrento-coastal-retreat',
+  'crittenden-villas',
+  'lindenderry',
+  'peninsula-hot-springs-glamping',
+  'hillview-cottages',
+  'hotel-sorrento',
+];
+
+const venues = romanticSlugs
+  .map((s) => allVenues.find((v) => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v) && stayTypes.includes(v.data.type));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Couples Retreats' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Couples Retreats Mornington Peninsula',
+  description: 'Romantic accommodation and couples retreats on the Mornington Peninsula — vineyard villas, heritage hotels, and coastal stays for anniversaries, honeymoons, and long weekends together.',
+  url: 'https://peninsulainsider.com.au/stay/couples-retreats/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
+      { '@type': 'ListItem', position: 3, name: 'Couples Retreats', item: 'https://peninsulainsider.com.au/stay/couples-retreats/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.data.name,
+      url: `https://peninsulainsider.com.au/stay/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the most romantic place to stay on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Jackalope Hotel (Red Hill) is the most dramatic option — a design-hotel set inside a working vineyard with a two-hat dining room and oversized baths. Polperro Villas and Point Leo Estate Villas are better for couples who want privacy over spectacle: self-contained estate villas with vineyard views and no shared common areas. For coastal romance, the Sorrento Coastal Retreat or The Continental Sorrento put you on the water\'s edge with easy access to back beach walks and sunset dinners.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where should I take my partner for a weekend on the Mornington Peninsula?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Two nights at a Red Hill vineyard stay (Jackalope, Polperro Villas, or Lindenderry) is the classic Peninsula couple\'s weekend — cellar door afternoon, long vineyard lunch, thermal springs on the second morning. For a coast-focused version: base in Sorrento, swim at the back beach, walk the coastal path, and book dinner at Bistro Elba or Hotel Sorrento. Match the stay to the weekend shape you actually want rather than picking a property and working backwards.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best Peninsula stay for an anniversary?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'For a significant anniversary, Jackalope is the answer — it was built to feel like an occasion. Book Doot Doot Doot (one hat) for dinner and the Flaggerdoot bar for nightcaps. For a more personal and less performative anniversary, Tedesca Osteria\'s farm setting plus a nearby villa stay has a warmer quality. The Continental Sorrento has a landmark heritage ballast if the big coastal hotel suits the occasion.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Mornington Peninsula stays include hot tubs or private baths?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Several do. Jackalope Hotel rooms are known for oversized freestanding baths. Polperro Villas and Point Leo Estate Villas have private outdoor spaces and bath setups. The Peninsula Hot Springs Glamping has access to private thermal pools. Check individual properties — bath and private outdoor bath details vary by room type at most estates.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Couples Retreats Mornington Peninsula · Peninsula Insider"
+  description="Romantic accommodation and couples retreats on the Mornington Peninsula — vineyard villas, boutique hotels, and coastal stays for anniversaries, honeymoons, and weekends away."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/couples-retreats/"
+  modifiedTime="2026-04-24"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Couples Retreats on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The Peninsula doesn't try to be a resort destination. The best couples' stays here work because they remove planning pressure — the cellar door is next to the bedroom, the vineyard restaurant is downstairs, the thermal springs are a short drive, and the itinerary largely arranges itself once you're in the right place.</p>
+        <p>Jackalope is the cinematic choice: a design hotel that operates at an event register, best when the trip needs to feel like an occasion. Polperro and Point Leo Estate Villas are more private — self-contained on working estates, with vineyard views and no shared corridors to navigate. Lindenderry runs at a slightly warmer frequency: a boutique hotel on a small vineyard that works for couples who want a room with character rather than spectacle.</p>
+        <p>For coast-focused weekends, Hotel Sorrento and The Continental are the main-street village hotel options. Sorrento Coastal Retreat suits those who want seclusion close to the ocean.</p>
+        <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="couples-stays">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Romantic stays</p>
+          <h2 class="venues__title">{venues.length} Peninsula stays for couples</h2>
+          <p class="venues__sub">From vineyard estate villas to heritage hotels on the water — ordered by how private and self-contained each option is.</p>
+        </div>
+        <a href="/stay/" class="venues__link">All stays →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        <h3>Most romantic place to stay?</h3>
+        <p>Jackalope (Red Hill) for dramatic design and on-site dining. Polperro Villas and Point Leo Estate Villas for private estate-villa seclusion. Sorrento Coastal Retreat or The Continental for coastal romance with ocean access and back beach walks within reach.</p>
+        <h3>Best for an anniversary?</h3>
+        <p>Jackalope if the trip needs to feel like an event. Lindenderry for a warmer, more personal register. For the most impressive setting in Victoria: Laura at Pt. Leo Estate for dinner (book four months ahead), combined with Point Leo Estate Villas for the stay.</p>
+        <h3>Properties with private baths or outdoor soaking?</h3>
+        <p>Jackalope rooms feature oversized freestanding baths. Polperro and Point Leo Estate Villas have private outdoor spaces. Peninsula Hot Springs Glamping includes access to private thermal pools.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">Complete the couples' weekend</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/eat/date-night/">Date Night Restaurants</a></h3><p class="venue-card__signature">The intimate hatted rooms and vineyard settings best suited to a couple's dinner.</p><a href="/eat/date-night/" class="venue-card__cta">See the list →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/wellness-retreats/">Wellness Retreats</a></h3><p class="venue-card__signature">Spa stays, thermal springs, and the restorative layer of the Peninsula.</p><a href="/stay/wellness-retreats/" class="venue-card__cta">Explore →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/vineyard-stays/">Vineyard Stays</a></h3><p class="venue-card__signature">Estate accommodation on or near the Red Hill plateau wine ridge.</p><a href="/stay/vineyard-stays/" class="venue-card__cta">Explore →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

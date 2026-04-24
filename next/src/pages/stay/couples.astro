@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['polperro-villas','point-leo-estate-villas','jackalope','lindenderry','peninsula-hot-springs-glamping','sorrento-coastal-retreat','hotel-sorrento','the-continental-sorrento'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Couples' },
+];
+---
+<BaseLayout
+  title="Couples Accommodation Mornington Peninsula · Peninsula Insider"
+  description="The best couples accommodation on the Mornington Peninsula, from vineyard villas and design hotels to slower coastal stays built for two."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/couples/"
+  modifiedTime="2026-04-24"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Couples Accommodation on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>The right Peninsula stay for two should do more than look good in a booking thumbnail. It should give the weekend shape. That usually means one of four things: vineyard quiet, coastal village access, thermal-springs atmosphere, or a design-led hotel that makes the staying itself part of the point.</p>
+        <p>The strongest couples stays on the Peninsula tend to be slower rather than louder. <a href="/stay/polperro-villas/">Polperro Villas</a>, <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a>, and <a href="/stay/lindenderry/">Lindenderry</a> work best when the weekend is built around wine, long lunches, and a late breakfast. <a href="/stay/jackalope/">Jackalope</a> is sharper and more performative. <a href="/stay/peninsula-hot-springs-glamping/">Peninsula Hot Springs Glamping</a> is the most obviously experience-led option. <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> and <a href="/stay/the-continental-sorrento/">The Continental</a> make more sense when the trip needs the village and the coast as much as the room.</p>
+        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">For two</p>
+          <h2 class="venues__title">{venues.length} stays that make the strongest Peninsula couples weekend</h2>
+          <p class="venues__sub">Vineyard stays, design hotels, thermal glamping, and coastal bases that give the trip the right pace.</p>
+        </div>
+        <a href="/stay/" class="venues__link">All stays →</a>
+      </div>
+      <div class="venues__grid">
+        {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Editorial guide</h2>
+        <h3>Most romantic?</h3>
+        <p><a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a> are the strongest if intimacy and setting matter most. <a href="/stay/jackalope/">Jackalope</a> is the more dramatic answer.</p>
+        <h3>Best for a food-and-wine weekend?</h3>
+        <p><a href="/stay/lindenderry/">Lindenderry</a>, <a href="/stay/jackalope/">Jackalope</a>, and <a href="/stay/polperro-villas/">Polperro Villas</a> all sit inside the strongest Peninsula appetite zone.</p>
+        <h3>Best for coast plus village?</h3>
+        <p><a href="/stay/hotel-sorrento/">Hotel Sorrento</a> and <a href="/stay/the-continental-sorrento/">The Continental</a> are the right answer when the weekend is supposed to include walking, bay-and-ocean access, and dinner without a long drive home.</p>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

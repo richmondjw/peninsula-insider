@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import VenueCard from '../../components/VenueCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['sorrento-coastal-retreat','polperro-villas','hillview-cottages','crittenden-villas'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Dog-Friendly' },
+];
+---
+<BaseLayout
+  title="Dog-Friendly Accommodation Mornington Peninsula · Peninsula Insider"
+  description="Dog-friendly accommodation on the Mornington Peninsula, including coastal retreats, cottages, and selected vineyard stays that genuinely work with a dog."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/dog-friendly/"
+  modifiedTime="2026-04-24"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+  <article class="article">
+    <div class="container">
+      <h1 class="article__title">Dog-Friendly Accommodation on the Mornington Peninsula</h1>
+      <div class="prose">
+        <p>Dog-friendly stays on the Peninsula matter because the region's dog logic is uneven. Some beaches are friendly, some are not. Some wineries welcome dogs outdoors, many do not. The right accommodation therefore does more than permit a pet. It reduces friction across the whole weekend.</p>
+        <p>The strongest dog-friendly stay choices tend to be self-contained properties or slower rural bases, where outdoor access, privacy, and easier arrival matter more than hotel formalities. <a href="/stay/sorrento-coastal-retreat/">Sorrento Coastal Retreat</a> works for a tip-of-Peninsula stay with beach-town access. <a href="/stay/hillview-cottages/">Hillview Farm Cottages</a> fits a quieter hinterland rhythm. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are useful when the weekend leans food-and-wine but still needs a workable dog policy.</p>
+        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+      </div>
+    </div>
+  </article>
+  <section class="venues" id="rankings">
+    <div class="container">
+      <div class="venues__header"><div><p class="label label--accent">Dog-friendly stays</p><h2 class="venues__title">{venues.length} stays that work best when the dog is coming too</h2><p class="venues__sub">The practical answer is rarely the fanciest answer. It is the stay that makes the whole Peninsula plan easier.</p></div><a href="/journal/dog-friendly-mornington-peninsula/" class="venues__link">Dog guide →</a></div>
+      <div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>
