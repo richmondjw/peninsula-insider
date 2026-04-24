@@ -72,7 +72,9 @@ const isClosed = data.status === 'closed';
               ? 'Check availability'
               : data.type === 'winery'
                 ? 'Book a tasting'
-                : 'Reserve a table'}
+                : data.type === 'spa'
+                  ? 'Book a treatment'
+                  : 'Reserve a table'}
           </a>
         )}
         {data.phone && (
