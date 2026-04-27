@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend — 1 to 2 May"
+title: "Peninsula This Weekend — 2 to 3 May"
 dek: "Red Hill Market is this Saturday. After that, stay south."
 author: "editorial"
 houseByline: true
@@ -24,7 +24,7 @@ clusterLinks:
   - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
-  - question: "What is the best thing to do on the Mornington Peninsula this weekend, 1–2 May?"
+  - question: "What is the best thing to do on the Mornington Peninsula this weekend, 2–3 May?"
     answer: "Red Hill Market on Saturday morning is the anchor — go before 10am, leave room for a cellar door or long lunch in the afternoon. If you are staying Saturday night, Allara Briggs Pattison performs at Peninsula Hot Springs in the evening, included with bathing. A clean two-move Saturday that works whether you are staying overnight or doing a long day trip."
   - question: "Is Red Hill Market worth going to in May?"
     answer: "Yes. The first Saturday of May is one of the better Red Hill Market days of the year — the long-weekend crowd has cleared, the produce stalls are still at full autumn strength, and the hinterland air has the first proper edge of winter in it. Go before 10am. Stay south afterwards."

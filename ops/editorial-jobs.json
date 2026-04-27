@@ -1,8 +1,16 @@
 {
   "site": "Peninsula Insider",
-  "version": "2026-04-09",
+  "version": "2026-04-27",
   "status": "active-design",
   "timezone": "UTC",
+  "dispatchCadence": {
+    "rule": "Peninsula This Weekend dispatches every Sunday for the weekend ahead. The dispatch is researched, shaped, drafted, reviewed, and published on Sunday (UTC), covering the Saturday and Sunday of the immediately following calendar week.",
+    "publishDay": "Sunday",
+    "publishTimeUTC": "11:30",
+    "weekendCovered": "Saturday and Sunday of the week immediately following the Sunday publish date (i.e. publish-date + 6 days = Saturday, publish-date + 7 days = Sunday)",
+    "titleConvention": "Peninsula This Weekend — D[D] to D[D] Month (Saturday and Sunday dates of the upcoming weekend, e.g. Sunday 26 April publish → 'Peninsula This Weekend — 2 to 3 May')",
+    "lockedAt": "2026-04-27"
+  },
   "jobs": [
     {
       "name": "pi-daily-accuracy-scan",
@@ -337,6 +345,7 @@
     {
       "name": "pi-weekly-dispatch-research-scan",
       "cadence": "weekly Sunday 08:30 UTC",
+      "coversWeekend": "the Saturday and Sunday of the week immediately after this Sunday run (publish-date + 6 and + 7 days)",
       "type": "weekend-dispatch-research",
       "owner": "PI-dispatch-desk",
       "inputs": [
@@ -423,7 +432,9 @@
     },
     {
       "name": "pi-weekly-dispatch-publish",
-      "cadence": "weekly Monday 07:00 UTC",
+      "cadence": "weekly Sunday 11:30 UTC",
+      "coversWeekend": "the Saturday and Sunday immediately following this publish (publish-date + 6 and + 7 days)",
+      "titleConvention": "Peninsula This Weekend — D[D] to D[D] Month (Sat-Sun of the upcoming weekend)",
       "type": "weekend-dispatch-publish",
       "owner": "PI-publisher",
       "inputs": [
@@ -444,7 +455,7 @@
     },
     {
       "name": "pi-weekly-dispatch-social-production",
-      "cadence": "weekly Monday 07:10 UTC or immediately after successful weekly dispatch publish",
+      "cadence": "weekly Sunday 11:40 UTC or immediately after successful weekly dispatch publish",
       "type": "weekend-dispatch-social-production",
       "owner": "PI-social-desk + PI-publisher",
       "inputs": [
@@ -474,7 +485,7 @@
     },
     {
       "name": "pi-weekly-dispatch-archive-rollover",
-      "cadence": "weekly Monday 07:20 UTC",
+      "cadence": "weekly Sunday 11:50 UTC",
       "type": "weekend-dispatch-archive",
       "owner": "PI-publisher + PI-archives-desk",
       "inputs": [

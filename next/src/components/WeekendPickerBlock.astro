@@ -5,7 +5,8 @@
  *
  * Pulls the newest published article with format=weekend-picker and
  * showcases its dek + CTA, plus a simple cadence line to telegraph the
- * Wednesday 6pm editorial rhythm.
+ * Sunday-evening editorial rhythm: dispatch drops Sunday for the
+ * weekend ahead (Saturday + Sunday).
  */
 import { routeSlug } from '../lib/editorial';
 
@@ -28,7 +29,7 @@ const pubDate = dispatch?.data?.publishedAt?.toLocaleDateString('en-AU', {
     <div class="weekend-picker__inner">
       <div class="weekend-picker__label-block">
         <span class="label label--accent">Peninsula This Weekend</span>
-        <p class="weekend-picker__cadence">Published Wednesday 6pm · one pick, one backup, one thing to skip</p>
+        <p class="weekend-picker__cadence">Published Sunday for the weekend ahead · one pick, one backup, one thing to skip</p>
       </div>
       <div class="weekend-picker__content">
         <p class="weekend-picker__kicker">
