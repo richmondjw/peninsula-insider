@@ -129,3 +129,10 @@ with verified provenance and geo-location.
 - **Photographer:** Sarah Stierch (Missvain)
 - **Licence:** CC-BY-4.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Tablas_Creek_Vineyard_-_Stierch_-_July_2019_03.jpg
+
+## venue-pt-leo-sculpture-01.webp
+- **Source:** Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's "Drummer" hare and other works on the lawn above Western Port)
+- **Photographer:** Emma White (uploaded by BrooksieG), 6 October 2023
+- **Licence:** CC-BY-SA-4.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg
+- **Used on:** /stay/point-leo-estate-villas/, /wine/pt-leo-estate/, /explore/pt-leo-sculpture-park/
