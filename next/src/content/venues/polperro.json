@@ -27,7 +27,13 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +44,11 @@
   },
   "wines": {
     "winemaker": "Sam Coverdale",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Pinot Gris"
+    ],
     "topLabel": "Mill Hill Pinot Noir"
   },
   "restaurant": {
@@ -73,15 +83,28 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "slow", "view"],
-    "season": ["spring", "summer", "autumn", "all-year"],
-    "audience": ["couples", "solo", "locals"]
+    "mood": [
+      "cellar-door",
+      "slow",
+      "view"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo",
+      "locals"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/venue-polperro-sorrento-pier-01.webp",
-    "alt": "Polperro's coastal heritage — the mooring at Sorrento pier, tied to the Polperro winery's Peninsula identity",
-    "credit": "Polperro",
-    "license": "venue-media-kit"
+    "src": "/images/sourced/place-red-hill-01.webp",
+    "alt": "Red Hill wine country, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

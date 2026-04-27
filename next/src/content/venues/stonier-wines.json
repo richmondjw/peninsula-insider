@@ -27,7 +27,15 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +46,11 @@
   },
   "wines": {
     "winemaker": "Duncan Buchanan",
-    "keyVarieties": ["Chardonnay", "Pinot Noir", "Pinot Gris"],
+    "keyVarieties": [
+      "Chardonnay",
+      "Pinot Noir",
+      "Pinot Gris"
+    ],
     "topLabel": "KBS Vineyard Chardonnay"
   },
   "editorVerdict": "Stonier is the Peninsula's original benchmark. Brian Stonier planted his vines in 1978 when 'Mornington Peninsula wine' was not yet a phrase anyone used outside this paddock. The estate returned to local family ownership in December 2022. The KBS Vineyard Chardonnay is still the Peninsula reference bottle for that variety — three decades of track record don't lie.",
@@ -63,15 +75,23 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "slow"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo"]
+    "mood": [
+      "cellar-door",
+      "slow"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-04.webp",
-    "alt": "Peninsula vineyard landscape evocative of Stonier Wines, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-rosebud-01.webp",
+    "alt": "Mornington Peninsula wine country — Stonier Wines",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

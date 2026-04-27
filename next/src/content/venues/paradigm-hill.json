@@ -26,7 +26,10 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Saturday", "Sunday"],
+        "days": [
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "12:00",
         "closes": "17:00"
       }
@@ -37,7 +40,12 @@
   },
   "wines": {
     "winemaker": "Dr. George Mihaly",
-    "keyVarieties": ["Pinot Noir", "Shiraz", "Riesling", "Pinot Gris"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Shiraz",
+      "Riesling",
+      "Pinot Gris"
+    ],
     "topLabel": "L'ami sage Pinot Noir"
   },
   "editorVerdict": "Paradigm Hill is a doctor's estate in the best possible sense — George Mihaly brings the same precision to viticulture that he presumably brings to medicine. The result is a zero-carbon operation producing genuinely compelling Pinot Noir, Shiraz, and Riesling from Merricks vines planted in 1999. The name suggests philosophical ambition, and the wines deliver it. It's not an easy drop-in, but the effort is rewarded.",
@@ -62,15 +70,24 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "slow", "solo"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo"]
+    "mood": [
+      "cellar-door",
+      "slow",
+      "solo"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-02.webp",
-    "alt": "Peninsula vineyard landscape evocative of Paradigm Hill, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-flinders-01.webp",
+    "alt": "Flinders, Mornington Peninsula wine country",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

@@ -27,7 +27,11 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Friday", "Saturday", "Sunday"],
+        "days": [
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +42,12 @@
   },
   "wines": {
     "winemaker": "James Sexton",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Pinot Meunier"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Pinot Gris",
+      "Pinot Meunier"
+    ],
     "topLabel": "'The Acre' Pinot Noir"
   },
   "restaurant": {
@@ -69,15 +78,24 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "slow", "fireplace"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo"]
+    "mood": [
+      "cellar-door",
+      "slow",
+      "fireplace"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-06.webp",
-    "alt": "Peninsula vineyard landscape evocative of Main Ridge Estate, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/article-chardonnay-case-01.webp",
+    "alt": "Peninsula Chardonnay — Main Ridge Estate",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

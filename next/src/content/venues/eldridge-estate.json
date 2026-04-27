@@ -27,7 +27,10 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Saturday", "Sunday"],
+        "days": [
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +41,12 @@
   },
   "wines": {
     "winemaker": "Grace Jiranek",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Gamay", "Sauvignon Blanc"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Gamay",
+      "Sauvignon Blanc"
+    ],
     "topLabel": "MV6 Pinot Noir"
   },
   "accommodation": {
@@ -66,15 +74,24 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "slow", "solo"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo"]
+    "mood": [
+      "cellar-door",
+      "slow",
+      "solo"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-08.webp",
-    "alt": "Peninsula vineyard landscape evocative of Eldridge Estate, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/article-cellar-door-01.webp",
+    "alt": "Mornington Peninsula cellar door wine tasting",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

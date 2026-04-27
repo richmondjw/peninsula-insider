@@ -26,7 +26,15 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "10:00",
         "closes": "17:00"
       }
@@ -37,7 +45,11 @@
   },
   "wines": {
     "winemaker": "Tom Shanahan",
-    "keyVarieties": ["Pinot Grigio", "Pinot Gris", "Pinot Noir"],
+    "keyVarieties": [
+      "Pinot Grigio",
+      "Pinot Gris",
+      "Pinot Noir"
+    ],
     "topLabel": "Pinot Grigio"
   },
   "restaurant": {
@@ -68,15 +80,28 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "long-lunch", "garden", "big-group"],
-    "season": ["spring", "summer", "autumn"],
-    "audience": ["families", "group", "first-timers"]
+    "mood": [
+      "cellar-door",
+      "long-lunch",
+      "garden",
+      "big-group"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "families",
+      "group",
+      "first-timers"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-06.webp",
-    "alt": "Peninsula vineyard landscape evocative of T'Gallant, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/article-italian-dinners-01.webp",
+    "alt": "Italian-inspired wine and dining on the Peninsula — T'Gallant",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

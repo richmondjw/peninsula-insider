@@ -27,7 +27,10 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Saturday", "Sunday"],
+        "days": [
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +41,9 @@
   },
   "wines": {
     "winemaker": "Kevin Bell",
-    "keyVarieties": ["Pinot Noir"],
+    "keyVarieties": [
+      "Pinot Noir"
+    ],
     "topLabel": "Garamond Pinot Noir"
   },
   "editorVerdict": "Hurley Vineyard is a conviction play. Kevin Bell planted in 1998, makes four distinct Pinot Noirs from the estate, uses no other variety, and ferments with indigenous yeast. The result is as site-specific as Peninsula wine gets — Balnarring terroir, nothing else. Serious Pinot drinkers should make the trip.",
@@ -62,15 +67,24 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "slow", "solo"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo"]
+    "mood": [
+      "cellar-door",
+      "slow",
+      "solo"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-03.webp",
-    "alt": "Peninsula vineyard landscape evocative of Hurley Vineyard, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-safety-beach-01.webp",
+    "alt": "Safety Beach, Mornington Peninsula wine country",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

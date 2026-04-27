@@ -27,7 +27,15 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +46,12 @@
   },
   "wines": {
     "winemaker": "Geraldine McFaul",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Sauvignon Blanc"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Pinot Gris",
+      "Sauvignon Blanc"
+    ],
     "topLabel": "LL Vineyard Pinot Noir"
   },
   "restaurant": {
@@ -73,15 +86,24 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "walk", "view"],
-    "season": ["all-year"],
-    "audience": ["couples", "group"]
+    "mood": [
+      "cellar-door",
+      "walk",
+      "view"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "group"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-01.webp",
-    "alt": "Peninsula vineyard landscape evocative of Willow Creek Vineyard, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-point-nepean-01.webp",
+    "alt": "Point Nepean, Mornington Peninsula — Willow Creek Vineyard",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

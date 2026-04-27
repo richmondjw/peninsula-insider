@@ -27,12 +27,21 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        "days": [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
         "opens": "10:30",
         "closes": "17:00"
       },
       {
-        "days": ["Friday", "Saturday"],
+        "days": [
+          "Friday",
+          "Saturday"
+        ],
         "opens": "10:30",
         "closes": "18:30"
       }
@@ -43,7 +52,13 @@
   },
   "wines": {
     "winemaker": "Rollo Crittenden",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Savagnin", "Sangiovese", "Nebbiolo"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Savagnin",
+      "Sangiovese",
+      "Nebbiolo"
+    ],
     "topLabel": "Cri de Coeur"
   },
   "restaurant": {
@@ -78,15 +93,25 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "waterfront", "slow"],
-    "season": ["all-year"],
-    "audience": ["couples", "group", "first-timers"]
+    "mood": [
+      "cellar-door",
+      "waterfront",
+      "slow"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "first-timers"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-08.webp",
-    "alt": "Peninsula vineyard landscape evocative of Crittenden Estate, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-dromana-01.webp",
+    "alt": "Dromana wine region, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

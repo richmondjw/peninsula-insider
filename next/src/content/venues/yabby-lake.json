@@ -28,7 +28,15 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "10:00",
         "closes": "16:00"
       }
@@ -39,7 +47,12 @@
   },
   "wines": {
     "winemaker": "Tom Carson",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Syrah"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Pinot Gris",
+      "Syrah"
+    ],
     "topLabel": "Block 1 Pinot Noir"
   },
   "restaurant": {
@@ -70,15 +83,25 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "long-lunch", "view"],
-    "season": ["all-year"],
-    "audience": ["couples", "group", "first-timers"]
+    "mood": [
+      "cellar-door",
+      "long-lunch",
+      "view"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "first-timers"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-winery-04.webp",
-    "alt": "Peninsula vineyard landscape evocative of Yabby Lake Vineyard, Mornington Peninsula wine country",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+    "alt": "Cape Schanck boardwalk, Mornington Peninsula — Yabby Lake Vineyard",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

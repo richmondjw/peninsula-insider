@@ -27,7 +27,15 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +46,12 @@
   },
   "wines": {
     "winemaker": "Tim Perrin",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Sauvignon Blanc", "Pinot Gris"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Sauvignon Blanc",
+      "Pinot Gris"
+    ],
     "topLabel": "Morillon Pinot Noir"
   },
   "restaurant": {
@@ -73,15 +86,25 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["anniversary", "long-lunch", "cellar-door", "weekend-escape", "view"],
-    "season": ["all-year"],
-    "audience": ["couples"]
+    "mood": [
+      "anniversary",
+      "long-lunch",
+      "cellar-door",
+      "weekend-escape",
+      "view"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples"
+    ]
   },
   "heroImage": {
-    "src": "/images/sourced/category-hotel-02.webp",
-    "alt": "Boutique hotel imagery evocative of Port Phillip Estate, Mornington Peninsula",
-    "credit": "Unsplash",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-cape-schanck-01.webp",
+    "alt": "Cape Schanck, Mornington Peninsula — Port Phillip Estate",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,

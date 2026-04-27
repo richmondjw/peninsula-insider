@@ -136,3 +136,10 @@ with verified provenance and geo-location.
 - **Licence:** CC-BY-SA-4.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg
 - **Used on:** /stay/point-leo-estate-villas/, /wine/pt-leo-estate/, /explore/pt-leo-sculpture-park/
+
+## venue-nazaaray-estate-01.webp
+- **Source:** Nazaaray Estate Winery, Merricks, Mornington Peninsula
+- **Photographer:** User:Melburnian / Wikimedia Commons
+- **Licence:** CC-BY-SA-3.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Nazaaray_Estate_Winery.jpg
+- **Used on:** /wine/nazaaray-estate/
