@@ -17,11 +17,6 @@ export interface Props {
 
 const { dispatch, weekend } = Astro.props;
 const slug = routeSlug(dispatch);
-const pubDate = dispatch?.data?.publishedAt?.toLocaleDateString('en-AU', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-});
 ---
 
 <section class="weekend-picker" aria-label="Peninsula This Weekend">
@@ -33,7 +28,7 @@ const pubDate = dispatch?.data?.publishedAt?.toLocaleDateString('en-AU', {
       </div>
       <div class="weekend-picker__content">
         <p class="weekend-picker__kicker">
-          {weekend ?? 'This weekend'} · dispatch {pubDate}
+          {weekend ?? 'This weekend'}
         </p>
         <h2 class="weekend-picker__title">
           <a href={`/journal/${slug}`}>{dispatch.data.title}</a>

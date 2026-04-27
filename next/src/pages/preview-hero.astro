@@ -16,7 +16,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 import EventCard from '../components/EventCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason } from '../lib/editorial';
+import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason, dispatchWeekend } from '../lib/editorial';
 
 const venues = await getCollection('venues');
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
@@ -36,6 +36,9 @@ const weekendPicks = eventsAll.filter((event) => event.data.lens.includes('weeke
 const weekendDispatch = articles
   .filter((article) => article.data.format === 'weekend-picker')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+const dispatchWindow = weekendDispatch
+  ? dispatchWeekend(weekendDispatch.data.publishedAt)
+  : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
 
 const featured = articles.find((a) => a.data.featured && a.data.format !== 'weekend-picker') ?? articles.find((a) => a.data.format !== 'weekend-picker') ?? articles[0];
 const editorPicks = articles
@@ -195,7 +198,7 @@ const hl = seasonalHeadlines[season];
   </div>
 </section>
 
-{weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend="This weekend" />}
+{weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />}
 
 {weekendPicks.length > 0 && (
   <section class="venues venues--plain" aria-label="Weekend picks">

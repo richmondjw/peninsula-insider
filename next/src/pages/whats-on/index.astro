@@ -7,6 +7,7 @@ import EventCard from '../../components/EventCard.astro';
 import WeekendPickerBlock from '../../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
+  dispatchWeekend,
   eventCategoryLabel,
   eventLensLabel,
   isUpcoming,
@@ -30,8 +31,13 @@ const dispatches = (await getCollection('articles', ({ data }) => data.status ==
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const currentDispatch = dispatches[0];
 
-const upcomingWeekendStart = new Date('2026-04-25T00:00:00+10:00');
-const upcomingWeekendEnd = new Date('2026-04-27T23:59:59+10:00');
+// Derive the upcoming weekend from the latest dispatch under the
+// Sunday-ahead cadence (publish + 6 days = Sat, + 7 = Sun).
+const dispatchWindow = currentDispatch
+  ? dispatchWeekend(currentDispatch.data.publishedAt)
+  : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
+const upcomingWeekendStart = dispatchWindow.start;
+const upcomingWeekendEnd = dispatchWindow.end;
 const nextWeekendEvents = events.filter((event) => {
   const start = event.data.startDate;
   if (start > upcomingWeekendEnd) return false;
@@ -161,7 +167,7 @@ const breadcrumbItems = [
   />
 
   {currentDispatch && (
-    <WeekendPickerBlock dispatch={currentDispatch} weekend="24 to 26 April" />
+    <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
   )}
 
   <section class="events-lens">

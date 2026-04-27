@@ -12,7 +12,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 import EventCard from '../components/EventCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason } from '../lib/editorial';
+import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason, dispatchWeekend } from '../lib/editorial';
 
 const venues = await getCollection('venues');
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
@@ -33,8 +33,17 @@ const eventsAll = (await getCollection('events'))
     return isUpcoming(end);
   })
   .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
-const upcomingWeekendStart = new Date('2026-04-25T00:00:00+10:00');
-const upcomingWeekendEnd = new Date('2026-04-27T23:59:59+10:00');
+const weekendDispatch = articles
+  .filter((article) => article.data.format === 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+// Derive the weekend the dispatch covers from its publishedAt under the
+// Sunday-ahead cadence, so the picker label and events filter stay in sync
+// without per-week edits. Falls back to a static window if no dispatch.
+const dispatchWindow = weekendDispatch
+  ? dispatchWeekend(weekendDispatch.data.publishedAt)
+  : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
+const upcomingWeekendStart = dispatchWindow.start;
+const upcomingWeekendEnd = dispatchWindow.end;
 const weekendPicks = eventsAll
   .filter((event) => {
     if (!event.data.lens.includes('weekend-pick' as any)) return false;
@@ -47,9 +56,6 @@ const weekendPicks = eventsAll
     return end >= upcomingWeekendStart;
   })
   .slice(0, 3);
-const weekendDispatch = articles
-  .filter((article) => article.data.format === 'weekend-picker')
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
 
 const featured = articles.find((a) => a.data.featured && a.data.format !== 'weekend-picker') ?? articles.find((a) => a.data.format !== 'weekend-picker') ?? articles[0];
 const editorPicks = articles
@@ -194,7 +200,7 @@ const seasonalExperiences = experiences
     </div>
   </section>
 
-  {weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend="This weekend" />}
+  {weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />}
 
   {weekendPicks.length > 0 && (
     <section class="venues venues--plain" aria-label="Weekend picks">
