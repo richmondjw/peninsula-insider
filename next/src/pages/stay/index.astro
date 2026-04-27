@@ -182,22 +182,18 @@ const breadcrumbItems = [
     </section>
   )}
 
-  <section class="venues venues--plain" id="browse-stay-hubs">
+  <!-- Hub navigation grid — matches /eat/ "Start here" pattern -->
+  <section class="format-nav" id="browse-stay-hubs" style="padding: clamp(2rem,4vw,3.5rem) 0; border-bottom: 1px solid var(--border);">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Browse by stay type</p>
-          <h2 class="venues__title">The stay section, fully organised</h2>
-          <p class="venues__sub">Start with the kind of Peninsula weekend you want, then move into the right properties and zones.</p>
-        </div>
-      </div>
-      <div class="venues__grid venues__grid--links">
+      <p class="label label--accent format-nav__label" style="margin-bottom:0.4rem">Browse by stay type</p>
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;line-height:1.1;letter-spacing:-0.015em;color:var(--dark);margin-bottom:0.4rem;">The stay section, fully organised</h2>
+      <p style="font-size:0.95rem;color:var(--soft);max-width:42rem;margin-bottom:1.5rem;">Start with the kind of Peninsula weekend you want, then move into the right properties and zones.</p>
+      <div class="format-nav__chips" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);">
         {stayHubs.map((hub) => (
-          <div class="venue-card">
-            <h3 class="venue-card__name"><a href={hub.href}>{hub.label}</a></h3>
-            <p class="venue-card__signature">{hub.sub}</p>
-            <a href={hub.href} class="venue-card__cta">Explore →</a>
-          </div>
+          <a href={hub.href} style="background:var(--white);padding:1.25rem 1.5rem;display:block;text-decoration:none;transition:background 0.2s;">
+            <span style="display:block;font-size:0.95rem;font-weight:600;color:var(--dark);margin-bottom:0.2rem;">{hub.label}</span>
+            <span style="display:block;font-size:0.72rem;color:var(--soft);letter-spacing:0.03em;line-height:1.45;">{hub.sub}</span>
+          </a>
         ))}
       </div>
     </div>

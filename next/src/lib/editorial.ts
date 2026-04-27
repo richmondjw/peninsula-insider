@@ -187,22 +187,96 @@ export const placesWithHero = new Set<string>([
 ]);
 
 /**
+ * Available `category-{type}-NN.webp` variants in `public/images/sourced/`.
+ * Keep in sync with what actually ships. Order doesn't matter; the resolver
+ * picks deterministically by slug-hash so adjacent grid cards differ.
+ *
+ * `distillery` borrows brewery variants where we don't have native imagery.
+ *
+ * Stay-related types (hotel/cottage/villa/glamping/farm-stay) intentionally
+ * use thematic Peninsula `article-*` scenes (vineyard rows, bay water) rather
+ * than the original `category-*` files, which were stock images of tropical
+ * resorts/overwater bungalows/sports cars that didn't read as Peninsula. The
+ * editor's directive: better to show a thematic close-up than fake a venue.
+ */
+const categoryVariantsByType: Record<string, string[]> = {
+  pub:        ['category-pub-01.webp', 'category-pub-02.webp', 'category-pub-03.webp'],
+  cafe:       ['category-cafe-01.webp', 'category-cafe-02.webp', 'category-cafe-03.webp', 'category-cafe-04.webp'],
+  bakery:     ['category-bakery-01.webp', 'category-bakery-02.webp'],
+  brewery:    ['category-brewery-01.webp', 'category-brewery-02.webp'],
+  distillery: ['category-brewery-01.webp', 'category-brewery-02.webp'],
+  market:     ['category-market-01.webp', 'category-market-02.webp'],
+  producer:   ['category-producer-01.webp', 'category-producer-02.webp', 'category-producer-03.webp', 'category-producer-04.webp'],
+  restaurant: ['category-restaurant-01.webp', 'category-restaurant-02.webp', 'category-restaurant-03.webp', 'category-restaurant-04.webp', 'category-restaurant-06.webp'],
+  winery:     ['category-winery-01.webp', 'category-winery-02.webp', 'category-winery-03.webp', 'category-winery-04.webp', 'category-winery-06.webp', 'category-winery-08.webp'],
+  hotel:      ['article-sorrento-weekend-01.webp'],
+  cottage:    ['article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp'],
+  villa:      ['article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp'],
+  glamping:   [],
+  'farm-stay':['article-vineyard-villa-01.webp'],
+  spa:        [],
+};
+
+/**
+ * Images that look wrong on Peninsula content (mislabeled stock — tropical
+ * resort, sports car, gym, etc.). Treated like placeholders so the resolver
+ * routes around them via the place/article fallback chain.
+ */
+const BLOCKED_IMAGES = new Set<string>([
+  'category-cottage-01.webp',
+  'category-hotel-02.webp',
+  'category-glamping-01.webp',
+  'spa-coastal-pool-01.webp',
+]);
+
+const CATEGORY_FALLBACK_RE = /\/category-[a-z-]+-\d+\.[a-z]+$/;
+
+function hashSlug(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+
+/**
  * Resolve a usable hero image src. The source content often contains
- * placeholder paths (e.g. `/images/placeholder-foo.jpg`) that don't
- * exist on disk; templates used to skip those entirely, leaving blank
- * hero blocks. This walks a fallback chain instead:
- *   1. The content's own heroImage.src, if it isn't a placeholder
- *   2. `place-{place}-01.webp` when the place has a sourced image
- *   3. `home-cover.webp` as the ultimate backstop
+ * placeholder paths (legacy `/images/placeholder-foo.jpg`) or shared
+ * `category-{type}-NN.webp` fallbacks that, when assigned in bulk, made
+ * every pub/cafe/winery render the same image on grid pages. This walks
+ * a fallback chain that ends with a deterministic spread:
+ *   1. The content's own heroImage.src, if it's a real per-venue image
+ *      (not legacy placeholder, not a shared category fallback).
+ *   2. A candidate pool of [place-{place}-01.webp (when available)] +
+ *      all category variants for this type, picked deterministically by
+ *      slug-hash so the same venue always renders the same image but
+ *      adjacent venues of the same type get different ones.
+ *   3. `home-cover.webp` as the ultimate backstop.
  */
 export function resolveHeroSrc(data: any): string {
-  const src = data?.heroImage?.src;
-  if (src && !src.includes('placeholder')) return src;
+  const src = String(data?.heroImage?.src ?? '');
+  const type = String(data?.type ?? '');
   const place = String(data?.place?.id ?? data?.place ?? '');
+  const slug = String(data?.slug ?? data?.id ?? data?.name ?? '');
+
+  const filename = src.split('/').pop() ?? '';
+  const isFallback = !src
+    || src.includes('placeholder')
+    || CATEGORY_FALLBACK_RE.test(src)
+    || BLOCKED_IMAGES.has(filename);
+  if (!isFallback) return src;
+
+  const candidates: string[] = [];
   if (place && placesWithHero.has(place)) {
-    return baseHref(`/images/sourced/place-${place}-01.webp`);
+    candidates.push(`place-${place}-01.webp`);
   }
-  return baseHref('/images/sourced/home-cover.webp');
+  candidates.push(...(categoryVariantsByType[type] ?? []));
+
+  if (candidates.length === 0) {
+    return baseHref('/images/sourced/home-cover.webp');
+  }
+  const idx = hashSlug(slug || place || type) % candidates.length;
+  return baseHref(`/images/sourced/${candidates[idx]}`);
 }
 
 /**

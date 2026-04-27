@@ -257,12 +257,83 @@ const articles = defineCollection({
   }),
 });
 
+// /escape/ taxonomy — 7 axes from peninsula_insider_escape_v1 pack.
+// All seven axes are optional with sensible defaults so legacy itineraries
+// (which only carried `audience` + `mood` + `lengthNights`) continue to validate.
+// Pre-publish gate (lib/escape.ts) enforces non-default values for new commissions.
+const escapeDuration = z.enum([
+  'half-day',
+  'day',
+  'one-night',
+  'weekend',
+  'three-night',
+  'midweek',
+  'week',
+]);
+
+const escapeTheme = z.enum([
+  'wine',
+  'food',
+  'food+wine',
+  'wellness',
+  'coastal',
+  'hinterland',
+  'golf',
+  'wedding',
+  'cultural',
+  'adventure',
+  'cycling',
+  'surfing',
+  'producer',
+  'garden',
+  'general',
+]);
+
+const escapeOccasion = z.enum([
+  'none',
+  'birthday',
+  'anniversary',
+  'proposal',
+  'honeymoon',
+  'babymoon',
+  'christmas',
+  'new-year',
+  'easter',
+  'mothers-day',
+  'fathers-day',
+  'valentines',
+  'special',
+  'milestone',
+  'reunion',
+  'work-retreat',
+  'wedding-guest',
+]);
+
+const escapeBudget = z.enum(['luxe', 'mid', 'budget', 'mixed']);
+
+const escapeOrigin = z.enum(['melbourne', 'interstate', 'international', 'ferry', 'train']);
+
+const escapeSeason = z.enum([
+  'year-round',
+  'summer',
+  'autumn',
+  'winter',
+  'spring',
+  'christmas-period',
+  'easter-period',
+  'school-holidays',
+  'whale-season',
+  'rainy',
+]);
+
 const itineraries = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/itineraries' }),
   schema: z.object({
     slug: z.string(),
     title: z.string(),
     dek: z.string(),
+
+    // Legacy axes — kept for back-compat with the 6 itineraries pre-pack.
     audience: z.enum(['couple', 'family', 'friends', 'solo', 'locals']),
     mood: z.enum([
       'slow',
@@ -274,6 +345,63 @@ const itineraries = defineCollection({
       'quick',
     ]),
     lengthNights: z.number().int().nonnegative(),
+
+    // 7-axis taxonomy from /escape/ pack. Optional during the migration window
+    // so legacy entries don't fail validation; new commissions must populate.
+    duration: escapeDuration.optional(),
+    theme: z.array(escapeTheme).max(2).default([]),
+    occasion: escapeOccasion.default('none'),
+    origin: escapeOrigin.default('melbourne'),
+    budget: escapeBudget.default('mixed'),
+    season: escapeSeason.default('year-round'),
+
+    // Conversion architecture — anchor stay drives the 3-placement rule
+    // (hero CTA, day-N "where you sleep" block, related rail).
+    anchorStay: reference('venues').optional(),
+    anchorStayBlurb: z.string().optional(),
+    altStays: z.array(reference('venues')).default([]),
+    anchorTown: reference('places').optional(),
+    baseTowns: z.array(reference('places')).default([]),
+
+    // Anatomy fields beyond stops — populated as itineraries graduate to the
+    // canonical 11-section template.
+    editorialFrame: z.string().optional(),
+    drivingDistanceKm: z.number().nonnegative().optional(),
+    walkingIntensity: z.enum(['low', 'moderate', 'high']).optional(),
+    budgetRangeAud: z.string().optional(), // e.g. "$850–$1,200 per couple"
+    costBreakdown: z
+      .object({
+        stay: z.string().optional(),
+        food: z.string().optional(),
+        drink: z.string().optional(),
+        activities: z.string().optional(),
+        fuel: z.string().optional(),
+      })
+      .optional(),
+    bookingChecklist: z
+      .array(
+        z.object({
+          item: z.string(),
+          priority: z.enum(['essential', 'recommended', 'optional']).default('recommended'),
+          windowWeeksAhead: z.number().nonnegative().optional(),
+        })
+      )
+      .default([]),
+    variations: z
+      .array(
+        z.object({
+          label: z.string(), // e.g. "Rainy day", "With kids", "Luxe-up"
+          body: z.string(),
+          relatedItinerary: z.string().optional(), // slug of sibling itinerary
+        })
+      )
+      .default([]),
+    skipThese: z.string().optional(), // 60–100 word "what to skip" panel
+    faq: z
+      .array(z.object({ question: z.string(), answer: z.string() }))
+      .default([]),
+
+    // Existing fields preserved.
     stops: z.array(
       z.object({
         day: z.number().int().positive(),
@@ -282,12 +410,16 @@ const itineraries = defineCollection({
         experience: reference('experiences').optional(),
         note: z.string().optional(),
         timeOfDay: z.enum(['morning', 'midday', 'afternoon', 'evening', 'night']),
+        timeRange: z.string().optional(), // e.g. "9:30–10:30am" — preferred over timeOfDay
+        practical: z.string().optional(), // "Booking required · 90 min · $$ · Parking on-site"
+        driveMinutesToNext: z.number().nonnegative().optional(),
       })
     ),
     totalDriveMinutes: z.number().nonnegative().optional(),
     heroImage: imageRef,
     editorNote: z.string(),
     publishedAt: z.coerce.date(),
+    lastVerified: z.coerce.date().optional(),
   }),
 });
 
