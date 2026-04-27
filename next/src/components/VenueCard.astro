@@ -6,6 +6,8 @@
  * Expects a full Astro content-collection entry from `venues`.
  */
 
+import { resolveHeroSrc } from '../lib/editorial';
+
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
   winery:      'Winery',
@@ -43,10 +45,13 @@ const shortAddress = data.address?.split(',').slice(-2).join(',').trim() ?? '';
 const hats = data.authority?.hats ?? 0;
 const moodTags = Array.isArray(data.tags?.mood) ? data.tags.mood.slice(0, 2) : [];
 const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
+const heroSrc = resolveHeroSrc(data);
+const heroAlt = data.heroImage?.alt ?? data.name ?? '';
 ---
 
 <article class="venue-card">
   <div class="venue-card__wash"></div>
+  <a href={href} class="venue-card__hero" aria-hidden="true" tabindex="-1" style={`background-image: url(${heroSrc})`}></a>
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}
