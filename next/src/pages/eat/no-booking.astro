@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -18,7 +19,17 @@ const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Walk-In Restaurants on the Mornington Peninsula</h1><div class="prose"><p>Most serious Peninsula restaurants require bookings — often weeks or months in advance for hatted venues. But there are genuine walk-in options, and two of them are hatted: Rare Hare at Willow Creek takes no reservations at all and is walk-in only from 2pm on weekends; Foxeys Hangout accepts no bookings and has a maximum group size of 6.</p><p>Below the hatted tier, Montalto Piazza (daily, 11am–5pm), most of the Peninsula's village cafes and bakeries, and most pub bistros operate on a walk-in basis. If you have arrived on the Peninsula without a booking for the destination you wanted, this list is where to start.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div></div></article>
+  <SubpageHero
+  title="Walk-In Restaurants on the Mornington Peninsula"
+  category="Walk-In"
+  heroImage="/images/sourced/explore-mornington-foreshore-01.webp"
+  imageAlt="Mornington foreshore and harbour — casual dining and walk-in venues on the Peninsula"
+  imageCaption="Mornington"
+>
+  <div class="prose">
+    <p>Most serious Peninsula restaurants require bookings — often weeks or months in advance for hatted venues. But there are genuine walk-in options, and two of them are hatted: Rare Hare at Willow Creek takes no reservations at all and is walk-in only from 2pm on weekends; Foxeys Hangout accepts no bookings and has a maximum group size of 6.</p><p>Below the hatted tier, Montalto Piazza (daily, 11am–5pm), most of the Peninsula's village cafes and bakeries, and most pub bistros operate on a walk-in basis. If you have arrived on the Peninsula without a booking for the destination you wanted, this list is where to start.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div>
+  </div>
+</SubpageHero>
   <section class="venues" id="rankings"><div class="container"><div class="venues__header"><div><p class="label label--accent">Walk-in options</p><h2 class="venues__title">{venues.length} venues you can walk into</h2><p class="venues__sub">Hatted walk-in-only venues first, then casual options by format.</p></div><a href="/eat/" class="venues__link">All dining venues →</a></div><div class="venues__grid">{venues.map(v=><VenueCard venue={v} hrefPrefix="/eat" />)}</div></div></section>
   <section class="faq-section"><div class="container"><div class="prose"><h2>Frequently asked questions</h2><h3>Which restaurants do not require a booking?</h3><p>Rare Hare (Merricks North): walk-in only, no reservations, from 2pm weekends. Foxeys Hangout (Red Hill): no bookings, max group 6. Montalto Piazza: walk-in daily 11am–5pm. Most cafes and pub bistros also operate walk-in.</p><h3>Can I walk in to a hatted restaurant?</h3><p>Rare Hare (one hat) and Many Little (one hat, some sessions) are the only hatted walk-in options. All other hatted Peninsula restaurants require advance booking.</p><h3>What if I haven't booked?</h3><p>Try Rare Hare, Foxeys Hangout, or Montalto Piazza. Village cafes and bakeries are almost always walk-in. Pub bistros usually have midweek capacity.</p></div></div></section>
   <NewsletterBlock />

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -77,17 +78,21 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Best Bakeries on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Peninsula bakery scene is smaller than the cafe scene and better for it. There are six bakeries worth knowing about, scattered across the Peninsula from Mornington to Flinders. Each has a reason: a particular loaf, a particular morning, a particular detour that makes it worth the drive from wherever you are staying.</p>
+  <SubpageHero
+  title="Best Bakeries on the Mornington Peninsula"
+  category="Bakeries"
+  heroImage="/images/sourced/explore-dromana-beach-01.webp"
+  imageAlt="Dromana beach morning light, Mornington Peninsula"
+  imageCaption="Mornington Peninsula"
+>
+  <div class="prose">
+    <p>The Peninsula bakery scene is smaller than the cafe scene and better for it. There are six bakeries worth knowing about, scattered across the Peninsula from Mornington to Flinders. Each has a reason: a particular loaf, a particular morning, a particular detour that makes it worth the drive from wherever you are staying.</p>
         <p>The sell-out-by-noon problem is real across most of them. Arriving before ten on weekends is strongly advised. None of them have the inventory depth of a city bakery — they make what they make and stop when it is gone. That is largely the point.</p>
         <p>Flinders Sourdough is the benchmark. Everything else maps from there by location and what you need the stop to do for the rest of the day.</p>
         <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
       </div>
-    </div>
-  </article>
+  </div>
+</SubpageHero>
 
   <section class="venues" id="rankings">
     <div class="container">

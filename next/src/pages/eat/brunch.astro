@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -83,17 +84,21 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Best Brunch on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>Brunch on the Mornington Peninsula means either a specialty coffee destination in Mornington or a village cafe you would drive forty minutes for if you were not already nearby. The Peninsula's brunch scene is not a destination category in itself — it is the first half of a Peninsula day, the thing you do before the cellar door or the beach walk.</p>
+  <SubpageHero
+  title="Best Brunch on the Mornington Peninsula"
+  category="Brunch"
+  heroImage="/images/sourced/explore-mount-martha-beach-01.webp"
+  imageAlt="Mount Martha beach, Mornington Peninsula — morning light and bay views"
+  imageCaption="Mount Martha · Mornington Peninsula"
+>
+  <div class="prose">
+    <p>Brunch on the Mornington Peninsula means either a specialty coffee destination in Mornington or a village cafe you would drive forty minutes for if you were not already nearby. The Peninsula's brunch scene is not a destination category in itself — it is the first half of a Peninsula day, the thing you do before the cellar door or the beach walk.</p>
         <p>Commonfolk Coffee (Mornington) is the benchmark. Everything else organises around it by geography. Somers General for the southern Mornington Shire bayside corridor. Merricks General for the ridge. Flinders General for the ocean coast. Many Little if you want something that reads more as a proper restaurant with a daytime offer.</p>
         <p>The weekend queues are real at the popular spots. Arriving before 9:30am solves most of them.</p>
         <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
       </div>
-    </div>
-  </article>
+  </div>
+</SubpageHero>
 
   <section class="venues" id="rankings">
     <div class="container">

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -92,17 +93,21 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Hatted Restaurants on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Good Food Guide awarded 15 hats across 11 Peninsula venues. Four venues carry two hats — the highest recognition in the region. What distinguishes the Peninsula's hatted scene is its context: these are not city strip restaurants. You eat in a converted 1940s farmhouse on a biodynamic property, a 40-seat room inside a sculpture park estate, or a cave-like dining room beneath a boutique winery hotel. The long lunch is the defining format.</p>
+  <SubpageHero
+  title="Hatted Restaurants on the Mornington Peninsula"
+  category="Hatted Restaurants"
+  heroImage="/images/sourced/venue-pt-leo-sculpture-01.webp"
+  imageAlt="Pt. Leo Estate sculpture park and fine dining, Merricks — two-hat Peninsula restaurant"
+  imageCaption="Pt. Leo Estate · Merricks"
+>
+  <div class="prose">
+    <p>The Good Food Guide awarded 15 hats across 11 Peninsula venues. Four venues carry two hats — the highest recognition in the region. What distinguishes the Peninsula's hatted scene is its context: these are not city strip restaurants. You eat in a converted 1940s farmhouse on a biodynamic property, a 40-seat room inside a sculpture park estate, or a cave-like dining room beneath a boutique winery hotel. The long lunch is the defining format.</p>
         <p>The four two-hat venues are Barragunda Dining (Cape Schanck), Laura at Pt. Leo Estate (Merricks), Tedesca Osteria (Red Hill), and Ten Minutes by Tractor (Main Ridge). Each is different in character. Barragunda is the Peninsula's newest and hardest booking. Tedesca is the most farm-forward. Laura is the most internationally credentialled. Ten Minutes by Tractor is the most established.</p>
         <p>Below the two-hat tier, seven one-hat venues cover a wider range of formats — from Doot Doot Doot's formal dinner-only room at Jackalope Hotel to Rare Hare's walk-in wood-fired outdoor sessions on the same estate. The list is ordered by hat count, then by editorial weight.</p>
         <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026 · Source: Good Food Guide 2025</p>
       </div>
-    </div>
-  </article>
+  </div>
+</SubpageHero>
 
   <section class="venues" id="rankings">
     <div class="container">

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -18,7 +19,17 @@ const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Date Night on the Mornington Peninsula</h1><div class="prose"><p>A Peninsula date night works best when you resist the temptation to over-programme it. Pick one destination: dinner at a hatted room, or a long late-afternoon at a vineyard restaurant, then somewhere comfortable to stay. Trying to fit a cellar door tasting, a sunset walk, and a dinner at a restaurant forty minutes away never improves the evening.</p><p>The Peninsula's strongest date-night rooms are intimate: Tedesca Osteria (30 seats), Polperro (small, seasonal, vineyard), and Bistro Elba in Sorrento (French-inflected, dinner-focused, village-based). For the most impressive setting, Laura at Pt. Leo Estate has no peer in Victoria. For the most dramatic interior, Doot Doot Doot at Jackalope Hotel is the answer.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div></div></article>
+  <SubpageHero
+  title="Date Night on the Mornington Peninsula"
+  category="Date Night"
+  heroImage="/images/sourced/article-couples-weekend-01.webp"
+  imageAlt="Couples weekend at a Mornington Peninsula vineyard estate — Peninsula date night"
+  imageCaption="Mornington Peninsula"
+>
+  <div class="prose">
+    <p>A Peninsula date night works best when you resist the temptation to over-programme it. Pick one destination: dinner at a hatted room, or a long late-afternoon at a vineyard restaurant, then somewhere comfortable to stay. Trying to fit a cellar door tasting, a sunset walk, and a dinner at a restaurant forty minutes away never improves the evening.</p><p>The Peninsula's strongest date-night rooms are intimate: Tedesca Osteria (30 seats), Polperro (small, seasonal, vineyard), and Bistro Elba in Sorrento (French-inflected, dinner-focused, village-based). For the most impressive setting, Laura at Pt. Leo Estate has no peer in Victoria. For the most dramatic interior, Doot Doot Doot at Jackalope Hotel is the answer.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div>
+  </div>
+</SubpageHero>
   <section class="venues" id="rankings"><div class="container"><div class="venues__header"><div><p class="label label--accent">Date night shortlist</p><h2 class="venues__title">{venues.length} rooms ranked for a Peninsula date night</h2><p class="venues__sub">Hatted and intimate rooms first, then the waterfront and atmosphere-led options below them.</p></div><a href="/eat/fine-dining/" class="venues__link">Fine dining →</a></div><div class="venues__grid venues__grid--ranked">{venues.map(v=><VenueCard venue={v} hrefPrefix="/eat" />)}</div></div></section>
   <section class="faq-section"><div class="container"><div class="prose"><h2>Frequently asked questions</h2><h3>Best restaurant for a date night on the Mornington Peninsula?</h3><p>Tedesca Osteria (Red Hill): 30 seats, biodynamic farmhouse, five-course set menu. The most personal fine dining room on the Peninsula. Polperro: intimate, hatted vineyard setting, bookable with a week's notice in shoulder season.</p><h3>Best for a very special occasion?</h3><p>Laura at Pt. Leo Estate (two hats, Relais & Châteaux): floor-to-ceiling glass, sculpture park views, Western Port Bay outlook. Book four months ahead.</p><h3>Best option without a long drive home afterwards?</h3><p>Stay in Sorrento and dine at Bistro Elba. Or stay at Jackalope Hotel for dinner at Doot Doot Doot — no driving required.</p></div></div></section>
   <section class="venues venues--plain"><div class="container"><div class="venues__header"><div><p class="label label--accent">Related guides</p><h2 class="venues__title">Plan the full night</h2></div></div><div class="venues__grid venues__grid--links"><div class="venue-card"><h3 class="venue-card__name"><a href="/eat/hatted-restaurants/">Hatted Restaurants</a></h3><p class="venue-card__signature">The complete Good Food Guide hat list — every hatted room with booking reality.</p><a href="/eat/hatted-restaurants/" class="venue-card__cta">See the list →</a></div><div class="venue-card"><h3 class="venue-card__name"><a href="/stay/">Where to Stay</a></h3><p class="venue-card__signature">Hotels, vineyard villas, and boutique stays on the Peninsula.</p><a href="/stay/" class="venue-card__cta">Explore stays →</a></div><div class="venue-card"><h3 class="venue-card__name"><a href="/eat/fine-dining/">Fine Dining</a></h3><p class="venue-card__signature">Destination dining rooms worth planning a whole Peninsula day around.</p><a href="/eat/fine-dining/" class="venue-card__cta">See the list →</a></div></div></div></section>

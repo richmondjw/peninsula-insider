@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, titleize } from '../../lib/editorial';
@@ -79,19 +80,22 @@ const breadcrumbItems = [
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">The Best Restaurants on the Mornington Peninsula</h1>
-
-      <div class="prose">
-        <p>The Mornington Peninsula runs on the Sunday long lunch. From the ridge-top dining rooms of Red Hill to the fisherman's-wharf-adjacent tables of Mornington, the dining options are deep, opinionated, and worth the drive. This list is built on editorial judgement — every entry has been visited and earned its sentence. No advertising, no paid placement, no sponsored rankings. If a restaurant appears here, it's because the meal was worth the drive and the editor was willing to say so.</p>
+  <SubpageHero
+  title="The Best Restaurants on the Mornington Peninsula"
+  category="Best Restaurants"
+  heroImage="/images/sourced/article-hatted-restaurants-01.webp"
+  imageAlt="Open kitchen at a Peninsula fine dining restaurant — hatted dining on the Mornington Peninsula"
+  imageCaption="Peninsula fine dining"
+>
+  <div class="prose">
+    <p>The Mornington Peninsula runs on the Sunday long lunch. From the ridge-top dining rooms of Red Hill to the fisherman's-wharf-adjacent tables of Mornington, the dining options are deep, opinionated, and worth the drive. This list is built on editorial judgement — every entry has been visited and earned its sentence. No advertising, no paid placement, no sponsored rankings. If a restaurant appears here, it's because the meal was worth the drive and the editor was willing to say so.</p>
 
         <p>The Peninsula's strongest category is the vineyard restaurant — a dining room attached to or embedded within a working winery, where the produce is grown within a few kilometres and the wine list is anchored by the estate. Montalto, Ten Minutes by Tractor, and Polperro operate at the serious end of this format. Below them, a deep bench of rooms doing honest, seasonal work without the fanfare.</p>
 
         <p>The list is ordered by editorial authority: top-rated rooms first, then the places doing quietly strong work below them.</p>
       </div>
-    </div>
-  </article>
+  </div>
+</SubpageHero>
 
   <section class="venues" id="rankings">
     <div class="container">

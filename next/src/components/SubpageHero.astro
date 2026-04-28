@@ -1,0 +1,61 @@
+---
+/**
+ * SubpageHero — editorial split hero for category subpages
+ * (eat/cafes, eat/bakeries, eat/pubs, etc.)
+ *
+ * Left column: eyebrow → H1 → prose slot
+ * Right column: hero photo, fills full column height
+ */
+
+export interface Props {
+  /** Section label shown in accent colour before the rule — e.g. "Eat & Drink" */
+  eyebrow?: string;
+  /** Category label shown after the rule — e.g. "Bakeries" */
+  category?: string;
+  /** H1 text; supports inline <em> for italic accent */
+  title: string;
+  /** Absolute path to hero image, e.g. /images/sourced/... */
+  heroImage: string;
+  /** Descriptive alt text for the image */
+  imageAlt: string;
+  /** Optional small location label overlaid at the bottom of the photo */
+  imageCaption?: string;
+}
+
+const {
+  eyebrow = 'Eat & Drink',
+  category,
+  title,
+  heroImage,
+  imageAlt,
+  imageCaption,
+} = Astro.props;
+---
+
+<section class="subpage-hero">
+  <div class="container">
+    <div class="subpage-hero__inner">
+
+      <div class="subpage-hero__body">
+        <div class="subpage-hero__eyebrow">
+          <span class="label label--accent">{eyebrow}</span>
+          <span class="subpage-hero__rule" aria-hidden="true"></span>
+          {category && <span class="label">{category}</span>}
+        </div>
+        <h1 class="subpage-hero__title" set:html={title} />
+        <div class="subpage-hero__prose">
+          <slot />
+        </div>
+      </div>
+
+      <div class="subpage-hero__visual" aria-hidden="true">
+        <img src={heroImage} alt={imageAlt} loading="lazy" decoding="async" />
+        <div class="subpage-hero__fog"></div>
+        {imageCaption && (
+          <span class="subpage-hero__caption">{imageCaption}</span>
+        )}
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -83,17 +84,21 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Dog-Friendly Dining on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p style="background:rgba(180,100,40,0.08);border-left:3px solid var(--accent);padding:1rem 1.25rem;border-radius:0 4px 4px 0"><strong>Dog policies change.</strong> This list is based on outdoor-seating policies as of April 2026. Verify directly with the venue before you visit with a dog.</p>
+  <SubpageHero
+  title="Dog-Friendly Dining on the Mornington Peninsula"
+  category="Dog-Friendly"
+  heroImage="/images/sourced/article-dog-friendly-01.webp"
+  imageAlt="Dog-friendly Peninsula — outdoor dining and café culture on the Mornington Peninsula"
+  imageCaption="Mornington Peninsula"
+>
+  <div class="prose">
+    <p style="background:rgba(180,100,40,0.08);border-left:3px solid var(--accent);padding:1rem 1.25rem;border-radius:0 4px 4px 0"><strong>Dog policies change.</strong> This list is based on outdoor-seating policies as of April 2026. Verify directly with the venue before you visit with a dog.</p>
         <p>Dog-friendly dining on the Peninsula concentrates at three types of venue: outdoor-seating specialty cafes, village pub beer gardens, and a small number of winery casual dining areas. Most Peninsula restaurants, cellar door dining rooms, and hatted venues do not permit dogs.</p>
         <p>The clearest options: Commonfolk Coffee in Mornington has a proper back courtyard. The Portsea Hotel and Balnarring Pub both have dog-friendly beer gardens with outdoor dining. Green Olive at Red Hill and Merricks General Wine Store are the best winery-adjacent options.</p>
         <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
       </div>
-    </div>
-  </article>
+  </div>
+</SubpageHero>
 
   <section class="venues" id="rankings">
     <div class="container">

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -17,7 +18,17 @@ const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Best Pubs on the Mornington Peninsula</h1><div class="prose"><p>The Peninsula's pub scene is spread across its towns and coastal villages rather than concentrated in one area. Portsea Hotel leads for setting — the clifftop position above Portsea beach, bay views, and a dog-friendly beer garden make it the strongest pub experience on the Peninsula. Balnarring Pub is the most local and genuinely village-feeling. The Bay Hotel Mornington works as a practical stop for anyone based in or passing through town.</p><p>Peninsula pub kitchens range from honest bistro meals to better-than-expected seasonal menus. The general rule: pub food here is not the reason to drive; the setting is. Pair any pub stop with a coastal walk or afternoon activity nearby to get the most from it.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div></div></article>
+  <SubpageHero
+  title="Best Pubs on the Mornington Peninsula"
+  category="Pubs"
+  heroImage="/images/sourced/place-portsea-01.webp"
+  imageAlt="Portsea coastline, Mornington Peninsula — gateway to the Peninsula's best pubs"
+  imageCaption="Portsea · Mornington Peninsula"
+>
+  <div class="prose">
+    <p>The Peninsula's pub scene is spread across its towns and coastal villages rather than concentrated in one area. Portsea Hotel leads for setting — the clifftop position above Portsea beach, bay views, and a dog-friendly beer garden make it the strongest pub experience on the Peninsula. Balnarring Pub is the most local and genuinely village-feeling. The Bay Hotel Mornington works as a practical stop for anyone based in or passing through town.</p><p>Peninsula pub kitchens range from honest bistro meals to better-than-expected seasonal menus. The general rule: pub food here is not the reason to drive; the setting is. Pair any pub stop with a coastal walk or afternoon activity nearby to get the most from it.</p><p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p></div>
+  </div>
+</SubpageHero>
   <section class="venues" id="rankings"><div class="container"><div class="venues__header"><div><p class="label label--accent">Peninsula pubs</p><h2 class="venues__title">All {venues.length} Peninsula pubs</h2><p class="venues__sub">Sorted alphabetically. Location usually determines which one you visit.</p></div><a href="/eat/" class="venues__link">All dining venues →</a></div><div class="venues__grid">{venues.map(v=><VenueCard venue={v} hrefPrefix="/eat" />)}</div></div></section>
   <section class="faq-section"><div class="container"><div class="prose"><h2>Frequently asked questions</h2><h3>Best pub on the Mornington Peninsula?</h3><p>Portsea Hotel: best setting (clifftop, bay views, dog-friendly). Balnarring Pub: most genuine village local. Merricks Hotel: historic roadhouse still doing its job.</p><h3>Which pubs are dog-friendly?</h3><p>Portsea Hotel (beer garden), Balnarring Pub (beer garden), Rye Hotel (outdoor area). Verify directly before visiting.</p><h3>Best for a pub meal?</h3><p>Portsea Hotel (bay views, pub bistro, Ishka Restaurant for more formal). Balnarring Pub (local favourite). The Bay Hotel Mornington (waterfront adjacent). Check kitchen hours before visiting — midweek service can be limited.</p></div></div></section>
   <section class="venues venues--plain"><div class="container"><div class="venues__header"><div><p class="label label--accent">Related guides</p><h2 class="venues__title">More ways to eat on the Peninsula</h2></div></div><div class="venues__grid venues__grid--links"><div class="venue-card"><h3 class="venue-card__name"><a href="/eat/dog-friendly/">Dog-Friendly Dining</a></h3><p class="venue-card__signature">Confirmed dog-friendly outdoor dining — cafes, pubs, and winery casual areas.</p><a href="/eat/dog-friendly/" class="venue-card__cta">See the list →</a></div><div class="venue-card"><h3 class="venue-card__name"><a href="/eat/waterfront/">Waterfront Dining</a></h3><p class="venue-card__signature">Bay-facing restaurants at Sorrento, Mornington, and Portsea.</p><a href="/eat/waterfront/" class="venue-card__cta">See the list →</a></div><div class="venue-card"><h3 class="venue-card__name"><a href="/eat/">All Eat & Drink</a></h3><p class="venue-card__signature">The full Peninsula dining guide — restaurants, cellar doors, cafes, bakeries, and pubs.</p><a href="/eat/" class="venue-card__cta">Explore all →</a></div></div></div></section>

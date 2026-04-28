@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
@@ -82,16 +83,20 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Best Cafes on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Peninsula's cafe scene concentrates in Mornington and the hinterland villages. Commonfolk Coffee in Mornington is the benchmark for specialty coffee — a house roaster, an excellent kitchen, and the kind of back courtyard that makes a weekday morning feel like a weekend decision. Below it, a scattered set of village cafes and general stores doing honest work without trying to be anything they are not.</p>
+  <SubpageHero
+  title="Best Cafes on the Mornington Peninsula"
+  category="Cafes"
+  heroImage="/images/sourced/explore-mprg-01.webp"
+  imageAlt="Mornington Peninsula Regional Gallery and foreshore, Mornington"
+  imageCaption="Mornington"
+>
+  <div class="prose">
+    <p>The Peninsula's cafe scene concentrates in Mornington and the hinterland villages. Commonfolk Coffee in Mornington is the benchmark for specialty coffee — a house roaster, an excellent kitchen, and the kind of back courtyard that makes a weekday morning feel like a weekend decision. Below it, a scattered set of village cafes and general stores doing honest work without trying to be anything they are not.</p>
         <p>The pattern on the Peninsula is the general store cafe: a converted grocery or provisions building now serving coffee, pastries, and a limited food menu. Somers General, Flinders General Store, and Merricks General Wine Store are the strongest examples. Each is worth a stop rather than a destination, unless you are already in the right part of the Peninsula for another reason.</p>
         <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
       </div>
-    </div>
-  </article>
+  </div>
+</SubpageHero>
 
   <section class="venues" id="rankings">
     <div class="container">
