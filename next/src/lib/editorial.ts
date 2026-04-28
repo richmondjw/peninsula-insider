@@ -200,21 +200,98 @@ export const placesWithHero = new Set<string>([
  * editor's directive: better to show a thematic close-up than fake a venue.
  */
 const categoryVariantsByType: Record<string, string[]> = {
-  pub:        ['category-pub-01.webp', 'category-pub-02.webp', 'category-pub-03.webp'],
-  cafe:       ['category-cafe-01.webp', 'category-cafe-02.webp', 'category-cafe-03.webp', 'category-cafe-04.webp'],
-  bakery:     ['category-bakery-01.webp', 'category-bakery-02.webp'],
-  brewery:    ['category-brewery-01.webp', 'category-brewery-02.webp'],
-  distillery: ['category-brewery-01.webp', 'category-brewery-02.webp'],
-  market:     ['category-market-01.webp', 'category-market-02.webp'],
-  producer:   ['category-producer-01.webp', 'category-producer-02.webp', 'category-producer-03.webp', 'category-producer-04.webp'],
-  restaurant: ['category-restaurant-01.webp', 'category-restaurant-02.webp', 'category-restaurant-03.webp', 'category-restaurant-04.webp', 'category-restaurant-06.webp'],
-  winery:     ['category-winery-01.webp', 'category-winery-02.webp', 'category-winery-03.webp', 'category-winery-04.webp', 'category-winery-06.webp', 'category-winery-08.webp'],
-  hotel:      ['article-sorrento-weekend-01.webp'],
-  cottage:    ['article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp'],
-  villa:      ['article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp'],
-  glamping:   [],
-  'farm-stay':['article-vineyard-villa-01.webp'],
-  spa:        [],
+  pub: [
+    'explore-mornington-foreshore-01.webp', 'explore-portsea-front-beach-01.webp',
+    'explore-sorrento-ocean-baths-01.webp', 'explore-rye-ocean-beach-01.webp',
+    'explore-dromana-beach-01.webp', 'explore-balnarring-beach-01.webp',
+    'explore-mount-martha-beach-01.webp', 'explore-gunnamatta-01.webp',
+    'explore-cape-schanck-lighthouse-01.webp',
+    'category-pub-01.webp', 'category-pub-02.webp', 'category-pub-03.webp',
+  ],
+  cafe: [
+    'journal-late-afternoon-walks-01.webp', 'article-dog-friendly-01.webp',
+    'article-kids-peninsula-01.webp', 'article-peninsula-pantry-01.webp',
+    'explore-mornington-foreshore-01.webp', 'explore-farnsworth-track-01.webp',
+    'explore-balnarring-beach-01.webp', 'explore-two-bays-walk-01.webp',
+    'category-cafe-01.webp', 'category-cafe-02.webp',
+    'category-cafe-03.webp', 'category-cafe-04.webp',
+  ],
+  bakery: [
+    'article-red-hill-saturday-01.webp', 'article-peninsula-pantry-01.webp',
+    'article-picnic-01.webp', 'journal-late-afternoon-walks-01.webp',
+    'category-bakery-01.webp', 'category-bakery-02.webp',
+  ],
+  brewery: [
+    'article-beach-swimming-01.webp', 'article-long-lunch-01.webp',
+    'explore-arthurs-seat-lookout-01.webp', 'explore-cape-schanck-boardwalk-01.webp',
+    'explore-two-bays-walk-01.webp', 'explore-gunnamatta-01.webp',
+    'category-brewery-01.webp', 'category-brewery-02.webp',
+  ],
+  distillery: [
+    'article-cellar-door-01.webp', 'article-chardonnay-case-01.webp',
+    'explore-mornington-foreshore-01.webp',
+    'category-brewery-01.webp', 'category-brewery-02.webp',
+  ],
+  market: [
+    'article-picnic-01.webp', 'article-red-hill-saturday-01.webp',
+    'article-peninsula-pantry-01.webp', 'explore-mprg-01.webp',
+    'category-market-01.webp', 'category-market-02.webp',
+  ],
+  producer: [
+    'article-seafood-01.webp', 'article-peninsula-pantry-01.webp',
+    'article-picnic-01.webp', 'article-producer-trail-01.webp',
+    'explore-two-bays-walk-01.webp', 'explore-farnsworth-track-01.webp',
+    'category-producer-01.webp', 'category-producer-02.webp',
+    'category-producer-03.webp', 'category-producer-04.webp',
+  ],
+  restaurant: [
+    'place-mornington-01.webp', 'place-red-hill-01.webp', 'place-merricks-01.webp',
+    'place-sorrento-01.webp', 'place-flinders-01.webp', 'place-dromana-01.webp',
+    'place-cape-schanck-01.webp', 'place-rosebud-01.webp', 'place-safety-beach-01.webp',
+    'place-rye-01.webp', 'place-mount-martha-01.webp', 'place-moorooduc-01.webp',
+    'place-balnarring-01.webp', 'place-main-ridge-01.webp', 'place-portsea-01.webp',
+    'article-long-lunch-01.webp', 'article-hatted-restaurants-01.webp',
+    'article-italian-dinners-01.webp', 'article-sunset-01.webp',
+    'article-couples-weekend-01.webp', 'article-vineyard-villa-01.webp',
+    'venue-italian-dining-01.webp',
+    'category-restaurant-01.webp', 'category-restaurant-02.webp',
+    'category-restaurant-03.webp', 'category-restaurant-04.webp',
+    'category-restaurant-06.webp',
+  ],
+  winery: [
+    'place-red-hill-01.webp', 'place-merricks-01.webp', 'place-main-ridge-01.webp',
+    'place-mornington-01.webp', 'place-dromana-01.webp', 'place-balnarring-01.webp',
+    'place-moorooduc-01.webp', 'place-flinders-01.webp',
+    'article-cellar-door-01.webp', 'article-vineyard-villa-01.webp',
+    'article-chardonnay-case-01.webp', 'article-sunset-01.webp',
+    'category-winery-01.webp', 'category-winery-02.webp', 'category-winery-03.webp',
+    'category-winery-04.webp', 'category-winery-06.webp', 'category-winery-08.webp',
+  ],
+  hotel: [
+    'article-sorrento-weekend-01.webp', 'article-couples-weekend-01.webp',
+    'place-sorrento-01.webp', 'place-portsea-01.webp', 'place-flinders-01.webp',
+  ],
+  cottage: [
+    'article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp',
+    'article-sunset-01.webp', 'journal-late-afternoon-walks-01.webp',
+    'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',
+  ],
+  villa: [
+    'article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp',
+    'article-sunset-01.webp', 'journal-late-afternoon-walks-01.webp',
+    'explore-greens-bush-01.webp', 'explore-sorrento-ocean-baths-01.webp',
+  ],
+  glamping: [
+    'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',
+    'explore-two-bays-walk-01.webp',
+  ],
+  'farm-stay': [
+    'article-vineyard-villa-01.webp', 'article-picnic-01.webp', 'explore-greens-bush-01.webp',
+  ],
+  spa: [
+    'spa-treatment-room-rose-01.webp', 'spa-wellness-stones-01.webp',
+    'spa-peninsula-hot-springs-hilltop-01.webp',
+  ],
 };
 
 /**
