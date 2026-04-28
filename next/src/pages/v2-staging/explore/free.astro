@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const sections = [
+  {
+    title: 'Beaches',
+    items: [
+      'Every Peninsula beach is free to access. Pick bay side for swimming, back side for drama.',
+      'Sorrento Back Beach — free parking (limited on summer Saturdays). The Peninsula\'s most consequential back beach.',
+      'Mills Beach, Mornington — bathing boxes, flat sand, free foreshore parking most of the year.',
+      'Shelly Beach, Portsea — short easy walk from the carpark; one of the Peninsula\'s best free swim beaches.',
+      'Safety Beach — long, broad, quiet. Free parking and easy access.',
+    ],
+  },
+  {
+    title: 'Walks',
+    items: [
+      'Cape Schanck boardwalk — 20 min return, free, accessible. Park fees apply at the Mornington Peninsula National Park carpark.',
+      'Mornington foreshore — flat, unfenced, 3km of beachfront walking. Free.',
+      'Coppins Track from Sorrento — free, accessible clifftop walking as far as you want to go.',
+      'Arthurs Seat summit walks — free once you\'re at the top (parking is free for short stays).',
+      'Baldrys Short Circuit, Greens Bush — free Parks Victoria access point.',
+    ],
+  },
+  {
+    title: 'Lookouts',
+    items: [
+      'Arthurs Seat summit — free, panoramic views to Melbourne on clear days.',
+      'Cape Schanck Lighthouse platform — free access via the boardwalk.',
+      'Diamond Bay lookout — free clifftop platform at the end of Coppins Track.',
+      'Point Nepean clifftop lookouts — free once inside the park (small entry fee may apply).',
+      'Mount Martha clifftop path — free roadside parking, dramatic southern views.',
+    ],
+  },
+  {
+    title: 'Markets',
+    items: [
+      'Mornington Farmers Market — 2nd Saturday, free entry.',
+      'Red Hill Community Market — 1st Saturday Sept–May, free entry.',
+      'Balnarring Racecourse Community Market — 3rd Saturday, free entry.',
+      'Markets cost nothing to browse — bring cash if you plan to buy.',
+    ],
+  },
+  {
+    title: 'Foreshore',
+    items: [
+      'The foreshore between Dromana and Rosebud — 15km of continuous bay-side walking.',
+      'Bay Trail cycling path — shared path along Port Phillip Bay; free to use.',
+      'Sorrento foreshore and pier — free evening walks; one of the Peninsula\'s best sunset spots.',
+      'Portsea pier and foreshore — quieter than Sorrento, same coastal feel, free access.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Free Things to Do on the Mornington Peninsula — Peninsula Insider"
+  description="The Peninsula’s best free experiences — beaches, walks, lookouts, markets and foreshore. Not a budget list; a list of what’s reliably good and doesn’t charge admission."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Free cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Free Peninsula</span>
+          </div>
+          <h1 class="hero__headline">The Peninsula, for free.</h1>
+          <p class="hero__dek">Beaches, walks, lookouts, markets and foreshore — the Peninsula's best experiences without an entry fee. The paid experiences are excellent too, but plenty of the best moments cost nothing.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Peninsula coast</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The editor's note</span>
+        </div>
+        <h2 class="letter__head">Free does not mean second-tier.</h2>
+        <div class="letter__prose">
+          <p>The Cape Schanck boardwalk is free. Bushrangers Bay is free. The Mornington Farmers Market is free to enter. Arthurs Seat's summit views are free. Every Peninsula beach is free. Most of what defines the Peninsula as a destination costs nothing beyond the drive in and a parking spot.</p>
+          <p>The paid experiences — Peninsula Hot Springs, hatted restaurants, the Arthurs Seat Eagle gondola — are excellent and deserve their prices. But a Peninsula day that stacks several free experiences together reliably produces one of the better weekends of the year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {sections.map(s => (
+    <section class="letter">
+      <div class="container">
+        <div class="letter__frame" style="display:block;">
+          <div class="letter__eyebrow">
+            <span class="letter__eyebrow-rule"></span>
+            <span class="eyebrow eyebrow--ochre">{s.title}</span>
+          </div>
+          <h2 class="letter__head">Free {s.title.toLowerCase()}.</h2>
+          <div class="letter__prose">
+            <ul style="padding-left:1.25rem;">
+              {s.items.map(line => <li style="margin-bottom:.6rem;">{line}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <NewsletterBlock />
+
+</BaseLayout>

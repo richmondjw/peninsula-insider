@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const hubCards = [
+  {
+    title: 'Dog-friendly beaches',
+    href: 'journal/dog-friendly-beaches-mornington-peninsula/',
+    dek: 'Where the dog can actually go, when leash rules change, and which beaches are worth the effort.',
+  },
+  {
+    title: 'Dog-friendly cafés, pubs and wineries',
+    href: 'journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/',
+    dek: 'The places that genuinely work with the dog in tow, not just the ones with a token water bowl.',
+  },
+  {
+    title: 'Dog-friendly accommodation',
+    href: 'journal/dog-friendly-accommodation-mornington-peninsula/',
+    dek: 'The stays that make a Peninsula trip with the dog feel easy rather than negotiated.',
+  },
+  {
+    title: 'A dog-friendly Peninsula weekend',
+    href: 'journal/the-dog-friendly-peninsula/',
+    dek: 'A realistic weekend shape that works with the dog, not against it.',
+  },
+];
+
+const utilityCards = [
+  { title: 'Where to walk the dog', href: 'journal/where-to-walk-the-dog-mornington-peninsula/' },
+  { title: 'Dog daycare, boarding, groomers and pet shops', href: 'journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula/' },
+  { title: 'Emergency vet and pet help', href: 'journal/emergency-vet-pet-help-mornington-peninsula/' },
+  { title: 'What to do with a dog when it\'s wet or busy', href: 'journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy/' },
+  { title: 'Best towns to base yourself with a dog', href: 'journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula/' },
+];
+---
+
+<BaseLayout
+  title="Dog-Friendly Mornington Peninsula — Peninsula Insider"
+  description="A practical Peninsula Insider guide to dog-friendly beaches, wineries, cafés, stays, and weekends on the Mornington Peninsula."
+  section="explore"
+  ogImage="/images/sourced/dog-beach-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Dog-friendly cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <span class="hero__meta-tag">Dog-Friendly</span>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Peninsula with a dog</span>
+          </div>
+          <h1 class="hero__headline">The Peninsula, properly, with the dog.</h1>
+          <p class="hero__dek">Beaches, wineries, cafés, stays, walks, and backup options that actually work with a dog in the plan. No fluffy pet-travel clichés — just useful local trip logic.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/dog-beach-hero-01.webp`} alt="Dog-friendly Peninsula" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Peninsula foreshore <span class="ornament">—</span> Mornington</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Read this first</span>
+        </div>
+        <h2 class="letter__head">The national park bans dogs.</h2>
+        <div class="letter__prose">
+          <p>Mornington Peninsula National Park prohibits dogs entirely — including Cape Schanck, Point Nepean, and most of the Peninsula's best walks. Greens Bush and Arthurs Seat State Park are the same.</p>
+          <p>The bay-side foreshores, most cafés with outdoor seating, and a reasonable number of cellar doors and holiday rentals are the Peninsula dogs can enjoy — and genuinely enjoy. Plan around those.</p>
+          <blockquote class="pullquote">Dogs banned from the park. Welcomed on the foreshore. Both are true.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Start here</span>
+        <h2 class="dept__title">Build the dog-friendly trip.</h2>
+      </div>
+      <div class="dept__grid">
+        {hubCards.map(card => (
+          <a class="venue" href={`${base}${card.href}`}>
+            <div class="venue__body">
+              <h3 class="venue__title">{card.title}</h3>
+              <p class="venue__blurb">{card.dek}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Utility</span>
+        </div>
+        <h2 class="letter__head">What the hub grows into.</h2>
+        <div class="letter__prose">
+          <ul style="padding-left:1.25rem;">
+            {utilityCards.map(item => (
+              <li style="margin-bottom:.5rem;"><a href={`${base}${item.href}`}>{item.title}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

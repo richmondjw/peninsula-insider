@@ -1,0 +1,138 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, placeLabel } from '../../../lib/editorial';
+
+const experiences = await getCollection('experiences');
+const markets = experiences.filter(e => e.data.type === 'market');
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const ranked = [
+  { rank: 1, name: 'Mornington Farmers Market', place: 'Mornington Racecourse', schedule: '2nd Saturday monthly · 8.30–12.30', note: 'The Peninsula\'s strongest producer market. Serious growers, serious butchers, serious cheesemakers. Go early — the best stallholders sell out by 10.30am. Parking on the racecourse itself.' },
+  { rank: 2, name: 'Red Hill Community Market', place: 'Red Hill showgrounds', schedule: '1st Saturday, Sept–May · 8–1', note: 'Bigger than it sounds — 400+ stalls. Eclectic mix: produce, crafts, food, music. More festival than farmers market. Best approached as a destination morning, not a grocery run.' },
+  { rank: 3, name: 'Balnarring Racecourse Community Market', place: 'Balnarring Racecourse', schedule: '3rd Saturday monthly · 9–1', note: 'Broader produce focus, quieter atmosphere than Mornington. Often better for browsing, easier parking, strong local butcher and seafood stalls. The Peninsula market for people who found Mornington too busy.' },
+  { rank: 4, name: 'Emu Plains Market', place: 'Balnarring Racecourse', schedule: '3rd Saturday monthly · 9–2', note: 'Held on the same date and site as Balnarring Racecourse market, but larger and craft-focused. Strong for browsing and gifts rather than groceries. Check dates — this and the racecourse market can be confused.' },
+  { rank: 5, name: 'Peninsula Sunday Market', place: 'Rosebud', schedule: 'Every Sunday · 8–1', note: 'Weekly general market — less producer-focused, more everyday. Useful for visitors staying near Rosebud for a casual Sunday browse. Food trucks, coffee, family-friendly atmosphere.' },
+];
+---
+
+<BaseLayout
+  title="Best Markets on the Mornington Peninsula — Peninsula Insider"
+  description="The Peninsula's farmers markets and community markets, ranked. Mornington, Red Hill, Balnarring — when each is on, what to buy, and which to prioritise."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Markets cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">5 markets <span class="ornament">·</span> timed right</span>
+          </div>
+          <h1 class="hero__headline">The Peninsula markets guide.</h1>
+          <p class="hero__dek">Timing a weekend around a Peninsula market changes the quality of the weekend. These are the five markets worth building a morning around — and when each one is on.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula markets" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Mornington Farmers Market</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The editor's note</span>
+        </div>
+        <h2 class="letter__head">Plan the weekend, then look at the market calendar.</h2>
+        <div class="letter__prose">
+          <p>The best Peninsula weekends are the ones that happen to overlap with a market. The Mornington Farmers Market on the second Saturday of the month is the anchor — it is better than every other Peninsula market by a measurable margin, and it is worth pinning a weekend to. The Red Hill Community Market on the first Saturday is larger and more festival-like; different energy, still worth attending.</p>
+          <p>Markets start early. The best producers sell out by mid-morning. Arrive between 8.30 and 9.30am to get the full experience. Coffee is easier to buy at the market than to queue for in Mornington or Red Hill town centres on the same morning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shortlist" aria-labelledby="markets-title">
+    <div class="container">
+      <div class="shortlist__head">
+        <span class="eyebrow eyebrow--ochre">The ranking</span>
+        <h2 class="shortlist__title" id="markets-title">Five markets, <em>ranked and scheduled</em>.</h2>
+      </div>
+      <ol class="sl-list">
+        {ranked.map(m => (
+          <li class="sl-item">
+            <div class="sl-item__rank">{String(m.rank).padStart(2, '0')}</div>
+            <div class="sl-item__body">
+              <div class="sl-item__head">
+                <h3 class="sl-item__name">{m.name}</h3>
+                <span class="sl-item__meta">{m.place} <span class="ornament">·</span> {m.schedule}</span>
+              </div>
+              <p class="sl-item__note">{m.note}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Market calendar</span>
+        </div>
+        <h2 class="letter__head">Which Saturday.</h2>
+        <div class="letter__prose">
+          <p><strong>1st Saturday (Sept–May):</strong> Red Hill Community Market.</p>
+          <p><strong>2nd Saturday:</strong> Mornington Farmers Market. The month's anchor.</p>
+          <p><strong>3rd Saturday:</strong> Balnarring Racecourse Community Market and Emu Plains Market (same site, different organisers).</p>
+          <p><strong>Every Sunday:</strong> Peninsula Sunday Market in Rosebud.</p>
+          <p>If you are choosing a weekend for the market, the second Saturday is the answer. Everything else arranges itself around that.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {markets.length > 0 && (
+    <section class="dept" aria-labelledby="market-profiles">
+      <div class="container">
+        <div class="dept__head">
+          <div class="dept__titles">
+            <span class="eyebrow eyebrow--ochre">Market profiles</span>
+            <h2 class="dept__title" id="market-profiles">Full <em>profiles</em>.</h2>
+          </div>
+        </div>
+        <div class="dept__grid">
+          {markets.map(m => (
+            <article class="venue">
+              <div class="venue__image" style={`background-image:url(${base}${(m.data.heroImage?.src ?? 'images/sourced/home-cover.webp').replace(/^\//,'')});background-size:cover;background-position:center;`}>
+                <span class="venue__image-marker">Market</span>
+              </div>
+              <div class="venue__meta">
+                <span>{placeLabel(m.data.place)}</span>
+              </div>
+              <a href={`${base}explore/${routeSlug(m)}/`}><h3 class="venue__name">{m.data.name}</h3></a>
+              <p class="venue__sig">{m.data.signature}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+
+</BaseLayout>

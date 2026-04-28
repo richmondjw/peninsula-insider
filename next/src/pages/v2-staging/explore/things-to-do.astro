@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const items = [
+  { rank: 1, name: 'Walk Bushrangers Bay', place: 'Cape Schanck', note: '5km return from the Cape Schanck carpark. The Peninsula moment that consistently surprises. 2 hours. Finish at the lighthouse platform.' },
+  { rank: 2, name: 'Soak at Peninsula Hot Springs or Alba', place: 'Fingal', note: 'The Peninsula\'s two serious geothermal bathhouses. Book mid-week Twilight for the calmest sessions. One visit per trip, not both.' },
+  { rank: 3, name: 'A long lunch at Montalto', place: 'Red Hill South', note: 'The Peninsula\'s most complete food-and-wine estate experience — two hatted, vineyard setting, sculpture garden walk after. Book well ahead.' },
+  { rank: 4, name: 'Red Hill cellar door afternoon', place: 'Red Hill', note: 'Three cellar doors, three hours. Ten Minutes by Tractor, Polperro, Foxeys Hangout are the strongest sequence. Arrange a driver.' },
+  { rank: 5, name: 'Play St Andrews Beach Golf Course', place: 'Fingal', note: 'Tom Doak-designed links, world top-100. One of the rare globally-ranked public-access courses in Australia.' },
+  { rank: 6, name: 'The Cape Schanck boardwalk', place: 'Cape Schanck', note: '20 minutes return, fully accessible, genuinely spectacular. The Peninsula\'s best short-walk payoff.' },
+  { rank: 7, name: 'Coppins Track, Sorrento to Diamond Bay', place: 'Sorrento', note: '4km one-way clifftop walk above Bass Strait. Dramatic views, then lunch in Sorrento back in town.' },
+  { rank: 8, name: 'Sorrento on a Sunday morning', place: 'Sorrento', note: 'Breakfast on Ocean Beach Road, a walk along the foreshore, a coffee on the pier. The Peninsula\'s definitive town-on-the-water morning.' },
+  { rank: 9, name: 'Ride the Arthurs Seat Eagle', place: 'Arthurs Seat', note: 'The gondola to the summit, then the TC McKeller Walk around the top. Views to Melbourne on a clear day.' },
+  { rank: 10, name: 'The Mornington Farmers Market', place: 'Mornington', note: 'Second Saturday of the month on the Mornington Racecourse. The Peninsula\'s best producers in one place.' },
+  { rank: 11, name: 'A tasting at Ten Minutes by Tractor', place: 'Main Ridge', note: 'Two-hat restaurant and cellar door. Pinot Noir you will remember, food that justifies the drive on its own.' },
+  { rank: 12, name: 'Sunset at Point Nepean', place: 'Point Nepean', note: 'Drive to the end, walk the last section to the tip, watch the light fall on Bass Strait. Free parking late in the day.' },
+  { rank: 13, name: 'Breakfast at Commonfolk', place: 'Mornington', note: 'The Peninsula\'s most referenced coffee roastery. Sunday queues are real; weekdays are better.' },
+  { rank: 14, name: 'The Sorrento–Queenscliff ferry', place: 'Sorrento', note: 'Car ferry across Port Phillip Bay. Use it either as a scenic detour or as a genuinely useful leg of a Great Ocean Road week.' },
+  { rank: 15, name: 'Wander the sculpture park at Pt. Leo Estate', place: 'Red Hill South', note: 'Free (with a wine tasting) outdoor sculpture park among the vines. An hour, ideally with a glass in hand.' },
+  { rank: 16, name: 'Dinner at Laura at Pt. Leo Estate', place: 'Red Hill South', note: 'Three-hat tasting-menu dinner, views across the vines to Western Port. For a significant occasion.' },
+  { rank: 17, name: 'Coffee on the Mornington pier', place: 'Mornington', note: 'The bathing boxes in one direction, Schnapper Point in the other. Foreshore walk either way to make a morning of it.' },
+  { rank: 18, name: 'Sorrento back beach at low tide', place: 'Sorrento', note: 'The limestone cliffs at the western end are the Peninsula\'s best back-beach photograph. Check tide times.' },
+  { rank: 19, name: 'Cycle the Bay Trail', place: 'Mornington → Dromana', note: 'Flat shared path along Port Phillip Bay. 15km one way; turn around wherever you want. Bring the kids.' },
+  { rank: 20, name: 'Chef\'s Hat lunch at Tedesca Osteria', place: 'Red Hill', note: 'Serious Italian, vineyard setting, intimate. Harder to book than Montalto; worth it when you can.' },
+  { rank: 21, name: 'The Balnarring Racecourse Community Market', place: 'Balnarring', note: 'Third Saturday. Broader produce focus, less celebrated than Mornington, often better for the browse.' },
+  { rank: 22, name: 'Point Nepean on a fat-bike tour', place: 'Point Nepean', note: 'Cover the 13.5km of the park without the walk. The guided tour includes the quarantine station history that walking alone does not.' },
+  { rank: 23, name: 'Golf at Moonah Links', place: 'Fingal', note: '36 holes, home of the Victorian Open, genuinely strong public-access course. Book the Open course.' },
+  { rank: 24, name: 'A weekend at Jackalope', place: 'Merricks North', note: 'The Peninsula\'s most architecturally distinctive boutique hotel. Doot Doot Doot, the spa, and the black monolith in the vines.' },
+  { rank: 25, name: 'Cape Schanck Lighthouse tour', place: 'Cape Schanck', note: 'The 1859 lighthouse opened for guided visits. A short guided piece of Peninsula history inside the most recognisable landmark.' },
+];
+---
+
+<BaseLayout
+  title="25 Things to Do on the Mornington Peninsula — Peninsula Insider"
+  description="The definitive list of things to do on the Mornington Peninsula — walks, wineries, spas, restaurants, markets. Editorial ranking, no filler."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Things to do cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">25 things <span class="ornament">·</span> editorial ranking</span>
+          </div>
+          <h1 class="hero__headline">Twenty-five things worth making the drive for.</h1>
+          <p class="hero__dek">Not everything the Peninsula offers. Everything that earns your time. Walks, wineries, spas, restaurants, markets — ranked by what they actually deliver, not by tourism listing order.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Mornington Peninsula</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">How the list works</span>
+        </div>
+        <h2 class="letter__head">Ranked by delivery, not by fame.</h2>
+        <div class="letter__prose">
+          <p>Plenty of Peninsula lists exist. Most of them rank by volume — every winery, every beach, every lookout. This one ranks by whether the thing repays the time it takes. Bushrangers Bay is at number one because if you only do one thing outdoors on the Peninsula, you should do that. Peninsula Hot Springs is at two because the spa-day format is the Peninsula's most reliably good experience. From there, the ranking is editorial.</p>
+          <p>Book the wineries, the hatted restaurants, and the hot springs ahead. Most of the walks you can simply turn up for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shortlist" aria-labelledby="things-title">
+    <div class="container">
+      <div class="shortlist__head">
+        <span class="eyebrow eyebrow--ochre">The ranking</span>
+        <h2 class="shortlist__title" id="things-title">Twenty-five, <em>ordered</em>.</h2>
+      </div>
+      <ol class="sl-list">
+        {items.map(item => (
+          <li class="sl-item">
+            <div class="sl-item__rank">{String(item.rank).padStart(2, '0')}</div>
+            <div class="sl-item__body">
+              <div class="sl-item__head">
+                <h3 class="sl-item__name">{item.name}</h3>
+                <span class="sl-item__meta">{item.place}</span>
+              </div>
+              <p class="sl-item__note">{item.note}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

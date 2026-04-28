@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const sections = [
+  {
+    title: 'The Peninsula road structure',
+    body: [
+      'The Mornington Peninsula Freeway (M11) is the spine. It runs south from Melbourne to Rosebud, with exits to every major town along Port Phillip Bay.',
+      'Point Nepean Road runs along the bay from Mornington to Portsea — the old coastal road, slower but more scenic. Use it for short hops between bay-side towns; use the freeway for longer jumps.',
+      'For Red Hill, Main Ridge, Merricks and the hinterland, the main arterial is Arthurs Seat Road (up from Dromana) and then a series of scenic connecting roads through the plateau. The roads are narrow, winding and full of cellar-door traffic on weekends.',
+      'For Cape Schanck and the southern tip, Boneo Road and Cape Schanck Road are the routes. Expect slower going on summer weekends.',
+    ],
+  },
+  {
+    title: 'Parking',
+    body: [
+      'Most Peninsula towns have free on-street parking outside peak season. Summer Saturdays in Sorrento, Mornington and Portsea are the exception — arrive early (before 10am) or late (after 3pm).',
+      'Parks Victoria charges a day-parking fee at some Mornington Peninsula National Park carparks (Cape Schanck, Point Nepean). Check the Parks Victoria site for current rates.',
+      'Cellar doors and wineries provide their own parking; usually free for guests with a booking or buying.',
+      'Beach carparks — most are free. Sorrento Back Beach and Portsea Back Beach fill by 10am in summer; arrive early.',
+    ],
+  },
+  {
+    title: 'Scenic drives',
+    body: [
+      'Arthurs Seat Road from Dromana up to the summit — the classic Peninsula ascent. Panoramic view at the top. Drive up, park briefly, walk the summit circuit.',
+      'The Red Hill plateau loop — Mornington-Flinders Road through Red Hill, down Shoreham Road, along the southern coast via Flinders to Cape Schanck and back north via Rosebud. 90 minutes of driving, half a day with stops.',
+      'Point Nepean Road from Mornington to Portsea — the old coastal route with bay views. Slow, pretty, best mid-morning or late afternoon.',
+      'The Western Port side — Stony Point, Crib Point, Flinders. Quieter than the Port Phillip side, different character. Good for a less-travelled Peninsula morning.',
+    ],
+  },
+  {
+    title: 'Cycling',
+    body: [
+      'The Bay Trail — shared path along Port Phillip Bay from Mount Martha to Rosebud. Flat, family-friendly, 20+ km. Hire e-bikes in Mornington if you don\'t have your own.',
+      'Red Hill cellar-door circuit — the plateau is rideable but the roads are narrow and traffic is real. Cycle it on weekday mornings, not summer weekends.',
+      'Peninsula Hot Springs to Cape Schanck — the back roads are scenic but not purpose-built for cycling. Take care.',
+      'Most Peninsula towns have bike racks; few have dedicated bike lanes outside the Bay Trail.',
+    ],
+  },
+  {
+    title: 'Ferry',
+    body: [
+      'The Sorrento–Queenscliff ferry is the most useful non-driving connection. 40 minutes across Port Phillip Bay, every hour. Takes cars, bikes, and foot passengers.',
+      'Useful for three reasons: combining Peninsula with the Bellarine or Great Ocean Road; avoiding the Melbourne drive loop; and as a scenic experience on its own.',
+      'The Stony Point to Phillip Island ferry is a useful connection for the eastern side — pedestrian only, useful if you\'re touring without a car.',
+      'Book the car ferry ahead in peak season; walk-up tickets are available but spaces fill.',
+    ],
+  },
+  {
+    title: 'Rideshare',
+    body: [
+      'Uber and DiDi operate on the Peninsula but coverage is inconsistent, especially at night and in the hinterland. Taxis are almost non-existent outside central Mornington.',
+      'Pre-booked winery tour drivers are the Peninsula-specific solution for a cellar-door afternoon. Multiple operators. Book ahead; expect $400–800 for half-day private charter.',
+      'Hotel concierges can arrange drivers for longer-distance transfers. Useful when driving yourself after a long lunch is not sensible.',
+      'For a full wine-tasting day, assume you will need a driver. Tasting responsibly and driving are in tension; the answer is a pre-booked driver.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Getting Around the Mornington Peninsula — Peninsula Insider"
+  description="How to move around the Peninsula — roads, parking, scenic drives, cycling, ferry and rideshare. Practical intelligence for planning a trip that actually flows."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Getting around cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Practical transport</span>
+          </div>
+          <h1 class="hero__headline">Moving around the Peninsula.</h1>
+          <p class="hero__dek">The Peninsula is genuinely hard to navigate without a car. These are the roads, routes, parking realities and alternatives that actually work — and when rideshare or the ferry makes more sense than driving.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula roads" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Peninsula hinterland</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {sections.map(s => (
+    <section class="letter">
+      <div class="container">
+        <div class="letter__frame" style="display:block;">
+          <div class="letter__eyebrow">
+            <span class="letter__eyebrow-rule"></span>
+            <span class="eyebrow eyebrow--ochre">{s.title}</span>
+          </div>
+          <h2 class="letter__head">{s.title}.</h2>
+          <div class="letter__prose">
+            {s.body.map(p => <p>{p}</p>)}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <NewsletterBlock />
+
+</BaseLayout>

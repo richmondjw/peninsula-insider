@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const executive = [
+  { tag: 'Boutique · Merricks North', title: 'Jackalope',
+    body: 'The Peninsula\'s most architecturally distinctive boutique hotel — a black monolith in a vineyard, with a hatted restaurant (Doot Doot Doot) and a spa onsite. Suited to small executive teams where the visual context of the event matters and the group is happy to stay within the property ecosystem for two days. Does well: design distinctiveness, exceptional food and wine, onsite spa, sense of arrival. Watch out for: the architecture is bold — not every group finds it relaxing. Limited capacity.' },
+  { tag: 'Retreat hotel · Red Hill', title: 'Lancemore Lindenderry',
+    body: 'A retreat hotel on the Red Hill plateau with vineyard surroundings, onsite rooms and suites, a strong restaurant programme, and event spaces suited to leadership sessions and strategy days. Less architecturally assertive than Jackalope — better for groups that want quality without theatre. Does well: accommodation integration, hinterland atmosphere, reliable dining. Watch out for: event infrastructure is functional but not purpose-designed for large or complex programmes.' },
+  { tag: 'Private · Flinders / Shoreham', title: 'Boutique hinterland properties',
+    body: 'For retreats where focus matters more than amenity. The Flinders and Shoreham corridor has private properties available for exclusive-use bookings — suited to boards, founding teams, and senior groups that want to be genuinely unreachable from the office for 48 hours. Does well: privacy, distance, authenticity. Watch out for: limited inventory; availability and AV infrastructure vary significantly by property.' },
+];
+
+const offsite = [
+  { tag: 'Coastal hotel · Sorrento', title: 'The Continental Sorrento',
+    body: 'A full-service coastal hotel with conference capacity, onsite accommodation, a precinct of restaurants, and direct foreshore access. The strongest Peninsula option for groups that want everything walkable and a town atmosphere after the sessions end. Does well: walkability, group accommodation under one roof, town-centre evening energy. Watch out for: Sorrento is busy in summer; the town atmosphere can cut both ways depending on the group.' },
+  { tag: 'Winery · Red Hill', title: 'Montalto',
+    body: 'Up to 120 guests for a vineyard-led leadership event. The dining programme is the centrepiece — a working lunch or private dinner at Montalto does more for group cohesion than most facilitated activities. Does well: food and wine quality, estate atmosphere, sculpture garden for post-session walking. Watch out for: AV and formal session infrastructure is not the strength; better suited to programme formats where dining is the main structured activity.' },
+];
+
+const conference = [
+  { tag: 'Resort · Cape Schanck', title: 'RACV Cape Schanck Resort',
+    body: 'The Peninsula\'s largest conference venue — accommodation, multiple meeting rooms with AV infrastructure, golf, and a spa all on one property. The right choice when group size, logistical containment, and activities variety are the primary requirements. Does well: scale, accommodation density, multi-activity programme integration. Watch out for: feels less boutique than the Red Hill or Sorrento options — better for logistics than for intimate retreat atmosphere.' },
+  { tag: 'Coastal hotel · Sorrento', title: 'The Continental Sorrento',
+    body: 'Also the Peninsula\'s strongest large-group option outside RACV Cape Schanck — up to 200 for events, hotel accommodation onsite, and a town precinct that gives delegates genuine evening options without a coach. The atmosphere is more curated than a resort; better when the group quality is the priority. Does well: coastal hotel atmosphere, delegate walkability, strong evening programme. Watch out for: conference-scale events here can feel crowded in available session spaces.' },
+];
+
+const matrix = [
+  { venue: 'Jackalope', bestFor: 'Executive retreat, design-led brands', size: '6–25', accom: 'Yes' },
+  { venue: 'Lancemore Lindenderry', bestFor: 'Executive retreat, leadership offsite', size: '6–40', accom: 'Yes' },
+  { venue: 'Montalto', bestFor: 'Winery-led offsite, client hospitality', size: '15–120', accom: 'No (nearby)' },
+  { venue: 'The Continental Sorrento', bestFor: 'Leadership offsite, medium conference', size: '20–200', accom: 'Yes' },
+  { venue: 'RACV Cape Schanck', bestFor: 'Large conference, multi-activity groups', size: '40–300+', accom: 'Yes' },
+];
+
+const faqs = [
+  { q: 'Red Hill or Sorrento for a corporate offsite?', a: 'Red Hill for strategy-heavy retreats where food and wine are central and you want immersion. Sorrento for polished coastal hosting, client-facing events, and groups where walkability and a recognisable town format matter. Cape Schanck when group size or multi-activity logistics are the primary consideration.' },
+  { q: 'How far in advance should I book?', a: 'For peak-season weekends at boutique properties — Jackalope, Lindenderry — book 3 to 6 months ahead. For RACV Cape Schanck or The Continental for large group dates, 2 to 4 months is usually sufficient outside peak. For the most in-demand properties, longer.' },
+  { q: 'Is Peninsula Hot Springs usable as a retreat activity?', a: 'Yes — Peninsula Hot Springs is 25 minutes from Cape Schanck and easily bookable as a group activity. It works best as an evening recovery session on the first day of a two-day retreat, or as a second-morning activity before the drive back. Pre-book group sessions in advance.' },
+];
+---
+
+<BaseLayout
+  title="Best Corporate Retreat Venues on the Mornington Peninsula — Peninsula Insider"
+  description="The best corporate retreat venues on the Mornington Peninsula — Jackalope, Lancemore Lindenderry, The Continental Sorrento, RACV Cape Schanck, and Montalto. Matched to group size and format."
+  section=""
+  ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
+>
+
+  <section class="hero" aria-label="Best corporate retreat venues cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}corporate-events/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Corporate Events</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Best retreat venues</span>
+          </div>
+          <h1 class="hero__headline">Best corporate retreat venues.</h1>
+          <p class="hero__dek">A corporate retreat venue on the Peninsula should do more than look good in photos. It should change the quality of the conversations. This guide matches venues to group size, event format, and what each property actually delivers — not what the marketing suggests.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/venue-jackalope-hotel-01.webp`} alt="Jackalope retreat venue" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Jackalope <span class="ornament">—</span> Merricks North</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">How this guide works</span>
+        </div>
+        <h2 class="letter__head">Start with the format. Then choose the venue.</h2>
+        <div class="letter__prose">
+          <p>The most common retreat planning mistake is choosing the venue before deciding the format. A beautiful vineyard property that is optimised for intimate dinners is not the same as a strong executive retreat venue. A conference centre with resort infrastructure is not a leadership offsite venue. These distinctions matter and most venue comparison guides ignore them.</p>
+          <p>This guide structures venues by use case — small executive retreats, medium offsites, large conference events, and winery-led programmes. Match your format first, then choose within the relevant category.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">6–20 people</span>
+        <h2 class="dept__title">Executive retreat venues.</h2>
+      </div>
+      <div class="dept__grid">
+        {executive.map(v => (
+          <article class="venue">
+            <div class="venue__body">
+              <span class="eyebrow">{v.tag}</span>
+              <h3 class="venue__title">{v.title}</h3>
+              <p class="venue__blurb">{v.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">15–60 people</span>
+        <h2 class="dept__title">Leadership offsite venues.</h2>
+      </div>
+      <div class="dept__grid">
+        {offsite.map(v => (
+          <article class="venue">
+            <div class="venue__body">
+              <span class="eyebrow">{v.tag}</span>
+              <h3 class="venue__title">{v.title}</h3>
+              <p class="venue__blurb">{v.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">40+ people</span>
+        <h2 class="dept__title">Conference and large-group venues.</h2>
+      </div>
+      <div class="dept__grid">
+        {conference.map(v => (
+          <article class="venue">
+            <div class="venue__body">
+              <span class="eyebrow">{v.tag}</span>
+              <h3 class="venue__title">{v.title}</h3>
+              <p class="venue__blurb">{v.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Venue comparison</span>
+        </div>
+        <h2 class="letter__head">Quick reference: venue matched to use case.</h2>
+        <div class="letter__prose">
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+              <thead>
+                <tr style="border-bottom:2px solid currentColor;">
+                  <th style="text-align:left;padding:.6rem .75rem;">Venue</th>
+                  <th style="text-align:left;padding:.6rem .75rem;">Best for</th>
+                  <th style="text-align:left;padding:.6rem .75rem;">Group size</th>
+                  <th style="text-align:left;padding:.6rem .75rem;">Accom onsite</th>
+                </tr>
+              </thead>
+              <tbody>
+                {matrix.map(r => (
+                  <tr style="border-bottom:1px solid rgba(0,0,0,.1);">
+                    <td style="padding:.6rem .75rem;font-weight:600;">{r.venue}</td>
+                    <td style="padding:.6rem .75rem;">{r.bestFor}</td>
+                    <td style="padding:.6rem .75rem;">{r.size}</td>
+                    <td style="padding:.6rem .75rem;">{r.accom}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Common questions</span>
+        <h2 class="dept__title">What planners actually ask.</h2>
+      </div>
+      <div class="dept__grid">
+        {faqs.map(f => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{f.q}</h3>
+              <p class="venue__blurb">{f.a}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

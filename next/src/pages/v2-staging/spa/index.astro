@@ -1,0 +1,123 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug } from '../../../lib/editorial';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const spaArticles = allArticles
+  .filter((a) => a.data.tags?.some((t) => ['spa', 'hot-springs', 'wellness'].includes(t)))
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+
+const allVenues = await getCollection('venues');
+const spaVenues = allVenues.filter((v) => v.data.type === 'spa');
+---
+
+<BaseLayout
+  title="The Best Spas on the Mornington Peninsula — Peninsula Insider"
+  description="The best spas on the Mornington Peninsula — Peninsula Hot Springs, Alba Thermal Springs, One Spa at RACV Cape Schanck, Spa by Jackalope, Endota. Tier-ranked hot springs, resort spas, and day spas."
+  section="spa"
+  ogImage="/images/sourced/spa-alba-thermal-springs-01.webp"
+>
+
+  <section class="hero" aria-label="Spa cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <span class="hero__meta-tag">Spa & Wellness</span>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Hot springs country</span>
+          </div>
+          <h1 class="hero__headline">Spa and wellness on the Peninsula.</h1>
+          <p class="hero__dek">Two serious geothermal bathhouses. Cliff-top resort spas. Boutique treatment rooms inside design hotels. Australia's most complete wellness destination for a weekend that actually resets you.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/spa-alba-thermal-springs-01.webp`} alt="Alba Thermal Springs" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Thermal bathing <span class="ornament">—</span> Peninsula</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's note</span>
+        </div>
+        <h2 class="letter__head">Honest, locally literate, useful.</h2>
+        <div class="letter__prose">
+          <p>Not every spa on the Peninsula is equally useful to a visitor. This guide tells you which bathhouse session is worth building a weekend around, which resort spa adds to a stay, and which day-spa rooms fit around lunch rather than defining the trip.</p>
+          <p>Prices change. Session timing changes everything. We do not publish session prices without live verification — check direct before booking, and choose midweek where your calendar allows.</p>
+          <blockquote class="pullquote">For couples and design lovers, Alba usually wins. For the full ritual and wellness program, Peninsula Hot Springs is stronger.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {spaArticles.length > 0 && (
+    <section class="dept">
+      <div class="container">
+        <div class="dept__head">
+          <span class="eyebrow eyebrow--ochre">Start here</span>
+          <h2 class="dept__title">Three pieces that explain Peninsula wellness.</h2>
+        </div>
+        <div class="dept__grid">
+          {spaArticles.slice(0, 3).map((article) => {
+            const data: any = article.data;
+            const href = `${base}journal/${routeSlug(article)}/`;
+            return (
+              <a class="venue" href={href}>
+                <div class="venue__body">
+                  <span class="eyebrow">Wellness {data.readingTimeMinutes ? `· ${data.readingTimeMinutes} min` : ''}</span>
+                  <h3 class="venue__title">{data.title}</h3>
+                  <p class="venue__blurb">{data.dek}</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {spaVenues.length > 0 && (
+    <section class="dept">
+      <div class="container">
+        <div class="dept__head">
+          <span class="eyebrow eyebrow--ochre">The spas</span>
+          <h2 class="dept__title">Every spa we cover.</h2>
+        </div>
+        <div class="dept__grid">
+          {spaVenues.map((venue) => {
+            const data: any = venue.data;
+            const href = `${base}stay/${data.slug}/`;
+            const img = `${base}${(data.heroImage?.src ?? 'images/sourced/home-cover.webp').replace(/^\//,'')}`;
+            return (
+              <a class="venue" href={href}>
+                <div class="venue__image-wrap">
+                  <img class="venue__image" src={img} alt={data.name} loading="lazy" />
+                </div>
+                <div class="venue__body">
+                  <span class="eyebrow">{data.place} <span class="ornament">·</span> {data.priceBand}</span>
+                  <h3 class="venue__title">{data.name}</h3>
+                  <p class="venue__blurb">{data.signature}</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+
+</BaseLayout>

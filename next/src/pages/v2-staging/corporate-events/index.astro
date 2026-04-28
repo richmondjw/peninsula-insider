@@ -1,0 +1,234 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug } from '../../../lib/editorial';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const corporateArticles = allArticles
+  .filter((a) => a.data.tags?.some((t) => ['corporate', 'corporate-events', 'retreats', 'offsite'].includes(t)))
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+
+const formats = [
+  { tag: '6–20 people', title: 'Executive retreat',
+    body: 'A small senior-team gathering focused on strategy, reset, or culture work. The format that benefits most from a boutique or private property where the group is not sharing space with other events. The Peninsula excels here — the hinterland and Flinders corridor have quiet, private properties that create the right conditions for focused work. Best areas: Red Hill, Flinders, Merricks North.' },
+  { tag: '15–60 people', title: 'Leadership offsite',
+    body: 'A structured working retreat with a mix of sessions, activities, and shared meals. Needs space for focused work, decent AV, accommodation either onsite or within 10 minutes, and an evening programme that does not feel forced. The Peninsula handles this well at the right venue — avoid oversizing the venue to the group. Best areas: Red Hill, Sorrento, Cape Schanck.' },
+  { tag: '40–200 people', title: 'Conference & large-group events',
+    body: 'Events that need delegate infrastructure — structured AV, breakout rooms, catering at scale, and accommodation blocks. The Peninsula\'s capacity here is more limited than Melbourne, but RACV Cape Schanck and The Continental Sorrento both handle genuine conference-scale groups with the right infrastructure.' },
+  { tag: 'Any size', title: 'Winery & dining-led offsite',
+    body: 'An offsite structured around the Peninsula\'s food and wine identity. Morning session, vineyard lunch, afternoon cellar door visit, private dinner. The Peninsula is built for this format — the quality of the dining experience is the programme. Best areas: Red Hill, Main Ridge, Merricks.' },
+  { tag: 'Day trip', title: 'Daytrip strategy session',
+    body: 'Out and back from Melbourne in a day. Morning drive, structured session, working lunch, afternoon activity, drive home. Requires a venue with a strong private dining or meeting room, not full retreat infrastructure. Mornington and Dromana are the easiest access points.' },
+  { tag: 'Any size', title: 'End-of-year & client events',
+    body: 'The Peninsula as a destination for a premium end-of-year event or client dinner. The vineyard and coastal settings feel like a gesture rather than a venue hire. Private dining rooms, cellar door exclusives, and coastal terrace events all work well. Best venues: Montalto, Ten Minutes by Tractor, Pt. Leo Estate.' },
+];
+
+const locations = [
+  { title: 'Red Hill & Main Ridge', body: 'The food-and-wine retreat territory. Best for groups where the dining programme is the centrepiece — long vineyard lunches, private cellar door sessions, and dinners at restaurants that would be difficult to book otherwise. Accommodation is scattered in villas and cottages; not the most convenient for large groups. Strong for boutique executive retreat formats and client hospitality events.' },
+  { title: 'Sorrento', body: 'A coastal town with a concentrated precinct feel. The Continental Sorrento handles conference-scale events with accommodation, AV, and catering under one roof. The town\'s restaurants and foreshore create a genuine evening programme without a coach. The strongest coastal Peninsula base for medium-sized events.' },
+  { title: 'Cape Schanck & Fingal', body: 'Resort infrastructure. RACV Cape Schanck has the largest accommodation and conference capacity on the Peninsula, with golf, spa, and recreation built in. Best for large-group events where everything needs to be on one property. Less boutique; more infrastructure.' },
+  { title: 'Merricks North & Balnarring', body: 'Design-led retreat country. Jackalope in Merricks North is the Peninsula\'s most architecturally distinctive property — a strong choice for brands and teams where the visual context of the event matters. Limited group size but high quality. The spa at Jackalope adds a recovery dimension for multi-day retreats.' },
+  { title: 'Flinders & Shoreham', body: 'Quiet, private, away from the main Peninsula tourist corridors. Best for small senior-team retreats where focus matters more than amenity — the kind of offsite where you want participants to be unreachable from the office. Limited venue inventory, which is partly the point.' },
+  { title: 'Mornington & Dromana', body: 'Easiest access from Melbourne. Best for daytrip strategy sessions and events where the primary constraint is minimising drive time. Less resort-feel than the southern Peninsula, but logistically the most practical option for Melbourne-based teams.' },
+];
+
+const programme = [
+  { title: 'The one-night retreat structure', body: 'Day 1: drive down, 2-hour focused session, vineyard lunch, 90-minute afternoon session, private dinner, accommodation onsite or nearby. Day 2: morning walk or spa, 2-hour wrap session, lunch, drive back. The Peninsula retreat format that consistently works — enough time to disconnect, structured enough to justify the travel.' },
+  { title: 'The vineyard lunch programme', body: 'A 2-hour morning session, followed by a private vineyard lunch at Montalto, Ten Minutes by Tractor, or Pt. Leo Estate. The lunch is the programme. No forced activities, no team-building theatre — just a genuinely exceptional meal that creates the right conversation conditions.' },
+  { title: 'Walk + workshop structure', body: 'A structured coastal walk in the morning (Cape Schanck, Bushrangers Bay, or the Sorrento foreshore), followed by a working session in the afternoon. The walk creates the energy shift that most conference rooms cannot. Works best for groups of 15 or fewer.' },
+  { title: 'Spa as recovery layer', body: 'Peninsula Hot Springs or Alba Thermal Springs as the second-day recovery move for a two-night retreat. Either a morning session before the drive back, or a booked twilight session on the first evening as a group activity. The hot springs work as a natural conversation space.' },
+  { title: 'Golf add-on', body: 'The Peninsula has world-ranked public-access golf at St Andrews Beach and Moonah Links, within 20 minutes of the main retreat corridor. For groups with golfers, a morning round followed by lunch is a strong add-on to a one-night retreat.' },
+  { title: 'Cellar door afternoon', body: 'The Red Hill cellar door circuit as a structured afternoon activity — 2 or 3 stops over 3 hours, each with a private tasting and a producer conversation. More enjoyable than it sounds, even for non-wine people, when the venues are curated correctly.' },
+];
+
+const planning = [
+  { title: 'Transport', body: 'A coach from Melbourne to Red Hill or Cape Schanck is $800–$2,000 depending on size and vehicle type. For groups over 20, it is usually the right call — removes the parking question, means everyone arrives together, and allows drinks without driving decisions. For smaller groups, self-drive with accommodation onsite often works better.' },
+  { title: 'AV and meeting infrastructure', body: 'Not every Peninsula venue has strong in-room AV. Boutique properties and vineyard venues often have limited infrastructure — appropriate for retreat-format sessions but not for presentation-heavy conferences. Check AV capability explicitly before committing.' },
+  { title: 'Venue vs. format fit', body: 'A luxurious vineyard property is not automatically a strong working-session venue. The aesthetics that make it beautiful for a dinner may not suit a morning that needs whiteboards, reliable WiFi, and a room that does not look exactly like a wine tasting room.' },
+  { title: 'Accommodation block logistics', body: 'Unless the venue has onsite accommodation for the full group, you are managing accommodation spread across the Peninsula. Holiday houses sleeping 8–12 are the common solution — book in advance, assign by internal team structure, centralise near the venue.' },
+  { title: 'Lead time', body: 'Peak season (October to April) at popular retreat venues books 3 to 6 months ahead. For the most in-demand properties, longer. If the event date is fixed, confirm venue availability before committing to participants.' },
+  { title: 'Wet weather', body: 'The Peninsula\'s weather is variable, especially in autumn and winter. If the programme includes outdoor activities, have an indoor backup that does not feel like a fallback. The best retreat programmes are designed to work in any weather; the outdoor elements are the bonus, not the plan.' },
+];
+
+const faqs = [
+  { q: 'Is Red Hill or Sorrento better for a team offsite?', a: 'Red Hill is better if the dining programme is central — vineyard lunches and private dinners at serious restaurants. Sorrento is better if delegate walkability and a coastal town feel matter — everything is within walking distance, and The Continental handles conference-scale groups under one roof. For a small executive retreat, Red Hill is usually the stronger choice. For medium or large groups, Sorrento is more practical.' },
+  { q: 'Which venues handle 50+ people?', a: 'The Continental Sorrento (up to 200 for events), RACV Cape Schanck, and Montalto (up to 120) are the primary options for larger groups. Most boutique vineyard and hinterland properties max out at 30–40 for a retreat format. Be honest about group size — overfitting a small boutique property undermines the retreat character.' },
+  { q: 'What team-building activities are worth doing?', a: 'The best Peninsula activities are the ones that do not feel like team-building: a coastal walk, a guided cellar door circuit, a cooking class, a golf morning. Avoid anything that requires "facilitation" to justify its existence — Peninsula hospitality creates connection conditions better than most structured activities.' },
+  { q: 'Can we do a Peninsula retreat as a daytrip?', a: 'Yes, but it compresses the value. A daytrip to Red Hill or Cape Schanck works for a focused strategy session with a vineyard lunch. It does not capture the overnight reset dimension that makes Peninsula retreats genuinely useful. One night makes a large difference. If you can swing it, stay.' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Corporate Events & Retreats — Peninsula Insider"
+  description="A selective guide to corporate retreats, executive offsites, and business events on the Mornington Peninsula — venue intelligence, programme design, and the localities that suit different event formats."
+  section=""
+  ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
+>
+
+  <section class="hero" aria-label="Corporate events cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <span class="hero__meta-tag">Corporate Events & Retreats</span>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Executive offsites</span>
+          </div>
+          <h1 class="hero__headline">Corporate events on the Peninsula.</h1>
+          <p class="hero__dek">Teams and planners are not only choosing a venue. They are choosing what kind of Peninsula offsite or retreat will actually work — executive retreat, leadership offsite, strategy day, or conference. This section helps you make that decision with the right information.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/venue-jackalope-hotel-01.webp`} alt="Corporate retreats" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Corporate retreats <span class="ornament">—</span> Peninsula</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The Peninsula Insider approach</span>
+        </div>
+        <h2 class="letter__head">Premium hospitality lens. Zero MICE jargon.</h2>
+        <div class="letter__prose">
+          <p>Most corporate event guides choose between destination marketing and venue-sales copy. We do neither. Peninsula Insider helps planners and teams understand what kind of offsite the Peninsula can genuinely deliver — and which venues suit which groups, formats, and objectives.</p>
+          <p>A strong conference venue is not automatically a strong leadership retreat venue. A brilliant lunch venue may not be a strong all-day offsite location. These distinctions matter. We make them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Event formats</span>
+        <h2 class="dept__title">Start with the format, not the venue.</h2>
+      </div>
+      <div class="dept__grid">
+        {formats.map(f => (
+          <article class="venue">
+            <div class="venue__body">
+              <span class="eyebrow">{f.tag}</span>
+              <h3 class="venue__title">{f.title}</h3>
+              <p class="venue__blurb">{f.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">By location</span>
+        <h2 class="dept__title">The Peninsula localities, matched to event types.</h2>
+      </div>
+      <div class="dept__grid">
+        {locations.map(l => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{l.title}</h3>
+              <p class="venue__blurb">{l.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Programme logic</span>
+        <h2 class="dept__title">How to build the offsite programme.</h2>
+      </div>
+      <div class="dept__grid">
+        {programme.map(p => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{p.title}</h3>
+              <p class="venue__blurb">{p.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Planning</span>
+        <h2 class="dept__title">What planners most often underestimate.</h2>
+      </div>
+      <div class="dept__grid">
+        {planning.map(p => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{p.title}</h3>
+              <p class="venue__blurb">{p.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {corporateArticles.length > 0 && (
+    <section class="dept">
+      <div class="container">
+        <div class="dept__head">
+          <span class="eyebrow eyebrow--ochre">From the journal</span>
+          <h2 class="dept__title">Peninsula corporate event guides.</h2>
+        </div>
+        <div class="dept__grid">
+          {corporateArticles.slice(0, 3).map((article) => {
+            const data: any = article.data;
+            const href = `${base}journal/${routeSlug(article)}/`;
+            return (
+              <a class="venue" href={href}>
+                <div class="venue__body">
+                  <span class="eyebrow">Corporate Events {data.readingTimeMinutes ? `· ${data.readingTimeMinutes} min` : ''}</span>
+                  <h3 class="venue__title">{data.title}</h3>
+                  <p class="venue__blurb">{data.dek}</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Common questions</span>
+        <h2 class="dept__title">What planners actually ask.</h2>
+      </div>
+      <div class="dept__grid">
+        {faqs.map(f => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{f.q}</h3>
+              <p class="venue__blurb">{f.a}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

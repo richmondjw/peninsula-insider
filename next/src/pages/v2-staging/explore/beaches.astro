@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const beaches = [
+  { rank: 1, name: 'Sorrento Back Beach', place: 'Sorrento', type: 'Back beach', note: 'The Peninsula back-beach most visitors remember. Patrolled, limestone cliffs at the western end, strong surf; swim only in patrolled hours and inside the flags. Near Coppins Track for the best clifftop walk on the Peninsula.' },
+  { rank: 2, name: 'Portsea Back Beach', place: 'Portsea', type: 'Back beach', note: 'The big, wild Bass Strait beach. Long, open, consequential — the kind of beach you visit for the drama rather than the swim. Unpatrolled outside peak; respect conditions.' },
+  { rank: 3, name: 'Bushrangers Bay', place: 'Cape Schanck', type: 'Hidden bay', note: 'Reached only on foot (5km return walk from Cape Schanck). Basalt cliffs framing a sandy bay where Main Creek meets the sea. The Peninsula beach experience that most visitors never have. Not for swimming — for standing still.' },
+  { rank: 4, name: 'Diamond Bay', place: 'Sorrento', type: 'Hidden bay', note: 'A clifftop drop-away onto a small sand beach. Access via stairs; not always safe at the bottom depending on surf. The view from the top platform at Coppins Track end is the better experience than the beach itself.' },
+  { rank: 5, name: 'Shelly Beach', place: 'Portsea', type: 'Bay', note: 'Soft, calm, clear water on the Port Phillip side. Sheltered, family-friendly, and one of the most under-visited easy swims on the Peninsula. The path in is short and flat.' },
+  { rank: 6, name: 'Mills Beach', place: 'Mornington', type: 'Bay', note: 'The northern Peninsula\'s bathing-box beach, 100 metres from Mornington centre. Flat, calm, walkable, and served by the foreshore path either direction. The default beach for a northern Peninsula morning.' },
+  { rank: 7, name: 'Mornington Main Beach', place: 'Mornington', type: 'Bay', note: 'Similar character to Mills but with the pier and Schnapper Point as visual anchors. Sunrise and sunset both work. The foreshore path links it to the main town strip in under ten minutes.' },
+  { rank: 8, name: 'Balnarring Beach', place: 'Balnarring', type: 'Back beach', note: 'Long, flat, Western-Port side. Quieter than the Bass Strait back beaches. Works well for dog-walking sections (check local rules) and for a broader, less dramatic beach day.' },
+  { rank: 9, name: 'Safety Beach', place: 'Safety Beach', type: 'Bay', note: 'Broad, open, sheltered — Port Phillip side, long flat expanse. Better for long walks and casual swims than for the visual drama of the back beaches. Works well with a coffee from Dromana after.' },
+  { rank: 10, name: 'Rye Front Beach', place: 'Rye', type: 'Bay', note: 'A gentler, family-oriented Port Phillip beach. Good for paddleboarding on calm mornings. The pier is a good photographic anchor. Close to supplies in Rye town.' },
+  { rank: 11, name: 'St Andrews Beach', place: 'St Andrews', type: 'Back beach', note: 'Long, quiet, open Bass Strait beach. Often fewer people than Sorrento or Portsea back beaches. Pair with a round at St Andrews Beach Golf Course for a very Peninsula kind of day.' },
+  { rank: 12, name: 'Gunnamatta Beach', place: 'Fingal', type: 'Back beach', note: 'The surfers\' back beach. Open Bass Strait. Patrolled in summer at certain hours only; consequences real outside patrols. Not the casual swim beach; the serious-surf beach.' },
+  { rank: 13, name: 'Shoreham Beach', place: 'Shoreham', type: 'Bay', note: 'Western-Port side, long and quiet. The Honeysuckles side of Shoreham is often overlooked. Good for long beach walks and for escaping the southern Peninsula crowds in summer.' },
+];
+---
+
+<BaseLayout
+  title="Best Beaches on the Mornington Peninsula — Peninsula Insider"
+  description="The Peninsula's best beaches, honestly ranked. Bay and back beach — when each suits, patrol status, and what makes the Peninsula's coast different."
+  section="explore"
+  ogImage="/images/sourced/beach-sorrento-back-01.webp"
+>
+
+  <section class="hero" aria-label="Beaches cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">13 beaches <span class="ornament">·</span> bay and back</span>
+          </div>
+          <h1 class="hero__headline">The Peninsula's best beaches.</h1>
+          <p class="hero__dek">Two coasts. Two entirely different beach experiences. This is the honest ranking — back-beach drama, bay-side calm, and the hidden ones that reward the effort.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/beach-sorrento-back-01.webp`} alt="Sorrento Back Beach" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Sorrento Back Beach <span class="ornament">—</span> Mornington Peninsula</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame">
+        <div class="letter__body">
+          <div class="letter__eyebrow">
+            <span class="letter__eyebrow-rule"></span>
+            <span class="eyebrow eyebrow--ochre">Start here</span>
+          </div>
+          <h2 class="letter__head">Bay or back. Choose correctly.</h2>
+          <div class="letter__prose">
+            <p>The Peninsula has two coastlines, and the difference between them is the single most important beach decision you will make. The bay side — Port Phillip — is calm, shallow, walkable, and reliable. The back beaches — Bass Strait — are open, consequential, often rough, and occasionally extraordinary.</p>
+            <p>First-time visitors default to the back beaches for drama. Regulars default to the bay for swimming and save the back beach for the photograph. Both are correct. The list below is ordered by character, not by ranking as "best swim" — where a beach needs specific conditions, we say so.</p>
+            <blockquote class="pullquote">Swim between the flags. Bass Strait is not a forgiving coast.</blockquote>
+          </div>
+        </div>
+        <aside class="letter__side">
+          <div class="facts-card" style="background:rgba(0,0,0,0.03); padding:1.75rem; border:1px solid rgba(0,0,0,0.08);">
+            <p class="eyebrow eyebrow--ochre" style="margin-bottom:1rem;">If you only have one…</p>
+            <p style="font-family:var(--sans,'Inter'),sans-serif; font-size:.92rem; line-height:1.6;">
+              <strong>For drama:</strong> Sorrento Back Beach at low tide.<br><br>
+              <strong>For swimming:</strong> Shelly Beach or Mills Beach.<br><br>
+              <strong>For a walk:</strong> Mornington foreshore either direction from the pier.<br><br>
+              <strong>For a photograph:</strong> Bushrangers Bay (walk in, bring a camera).
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="shortlist" aria-labelledby="beaches-title">
+    <div class="container">
+      <div class="shortlist__head">
+        <span class="eyebrow eyebrow--ochre">The ranking</span>
+        <h2 class="shortlist__title" id="beaches-title">Thirteen beaches, <em>properly ranked</em>.</h2>
+      </div>
+      <ol class="sl-list">
+        {beaches.map(b => (
+          <li class="sl-item">
+            <div class="sl-item__rank">{String(b.rank).padStart(2, '0')}</div>
+            <div class="sl-item__body">
+              <div class="sl-item__head">
+                <h3 class="sl-item__name">{b.name}</h3>
+                <span class="sl-item__meta">{b.place} <span class="ornament">·</span> {b.type}</span>
+              </div>
+              <p class="sl-item__note">{b.note}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Common questions</span>
+        </div>
+        <h2 class="letter__head">Beaches, answered.</h2>
+        <div class="letter__prose" style="columns:2; column-gap:2rem;">
+          <p><strong>Which side should I swim?</strong> Bay side — Port Phillip — unless you are an experienced ocean swimmer and the back beach is patrolled. Mills, Shelly, and Mornington Main are the best default swim options.</p>
+          <p><strong>Are back beaches dangerous?</strong> Bass Strait is a serious coast with rips and currents. Stick to patrolled beaches in patrolled hours (Sorrento Back, Gunnamatta in summer). Outside that, walk the beach, take the photograph, do not swim.</p>
+          <p><strong>Dog-friendly beaches?</strong> Dogs are banned from Mornington Peninsula National Park. On-lead access is generally available on the Mornington, Mount Martha, Balnarring and Rosebud foreshores. Check council rules — they change seasonally.</p>
+          <p><strong>Best beach for children?</strong> Shelly Beach (Portsea) or Mills Beach (Mornington). Both are shallow, sheltered, and close to supplies.</p>
+          <p><strong>Bathing boxes?</strong> Mornington foreshore for the northern Peninsula's most photogenic row. Mills Beach has them directly in front; the full foreshore walk shows them all.</p>
+          <p><strong>Sunset beach?</strong> Any Port Phillip beach on a clear evening. Safety Beach and Rye Front work especially well when the sky settles behind the Bellarine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

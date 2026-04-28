@@ -1,0 +1,216 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug } from '../../../lib/editorial';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const experiences = await getCollection('experiences');
+const walks = experiences
+  .filter((e) => e.data.type === 'walk')
+  .sort((a, b) => (b.data.durationMinutes ?? 0) - (a.data.durationMinutes ?? 0));
+
+const shortWalks = walks.filter((e) => (e.data.durationMinutes ?? 999) <= 60);
+const longWalks = walks.filter((e) => (e.data.durationMinutes ?? 0) > 60);
+
+const selector = [
+  { label: 'Short · Spectacular', duration: 'Under 2 hrs', head: 'Best short walk with a proper payoff',
+    body: 'Bushrangers Bay walk — 5km return from Cape Schanck, 2 hours. Basalt cliffs, a creek-to-sea bay, almost no one after 11am on weekdays. The walk that most consistently surprises first-timers. Finish at Cape Schanck Lighthouse.' },
+  { label: 'Clifftop · Views', duration: '2–3 hrs', head: 'Best clifftop walk near a town',
+    body: 'Coppins Track, Sorrento to Diamond Bay — 4km one way, 1.5 hours. Start at Sorrento Ocean Beach, walk the clifftop above Bass Strait to Diamond Bay. Coffee in Sorrento before, or at Sorrento back after.' },
+  { label: 'Bush · Wildlife', duration: '1.5–3 hrs', head: 'Best bush walk away from the crowds',
+    body: 'Greens Bush, Baldrys Long Circuit — 3.6km, 1.5 hours. Victoria\'s largest surviving coastal heathland remnant. Ancient grasstrees, fern gullies, and a consistent chance of kangaroos at dusk. Dogs not permitted.' },
+  { label: 'History · Coastal', duration: 'Half day', head: 'Best walk for history and views combined',
+    body: 'Point Nepean walk — 13.5km, 4–5 hours. Military fortifications from 1878, the quarantine station, Cheviot Beach where PM Harold Holt disappeared, and a walking track built by convicts.' },
+  { label: 'Multi-day', duration: '8–10 hrs one-way', head: 'Best full challenge',
+    body: 'Two Bays Walking Trail — 26km from Dromana to Bushrangers Bay. Ancient grasstrees possibly 200+ years old, eucalypt forest, fern gullies, grassland, and two coasts at either end.' },
+  { label: 'Quick · Accessible', duration: '20–45 min', head: 'Best walk when time is short',
+    body: 'Cape Schanck boardwalk — 20 minutes return, fully accessible, genuinely spectacular. The lighthouse platform above Bass Strait is the best short-stop on the southern Peninsula.' },
+];
+
+const linked = [
+  { tag: 'Walk + Hot Springs', head: 'Bushrangers Bay → Peninsula Hot Springs',
+    body: 'The Cape Schanck corridor\'s best full-day combination. Walk Bushrangers Bay in the morning — 2 hours, back by 11am. Drive 15 minutes to Peninsula Hot Springs for a midday thermal session.' },
+  { tag: 'Walk + Wine', head: 'Arthurs Seat → Red Hill Cellar Doors',
+    body: 'The Summit Circuit at Arthurs Seat in the morning — 1.8km, 1 hour, with views to Melbourne on a clear day. Then drop into the Red Hill cellar door circuit for the afternoon.' },
+  { tag: 'Walk + Lunch', head: 'Coppins Track → Sorrento lunch',
+    body: 'Start at Sorrento Ocean Beach, walk the Coppins Track to Diamond Bay (4km, 90 minutes), return, and walk into Sorrento town for lunch. The walk earns the meal.' },
+  { tag: 'Walk + Stay', head: 'Two Bays Walking Trail → overnight',
+    body: 'The Two Bays is best broken into two days with overnight camping at Lightwood Creek, or as a point-to-point with a stay at either Dromana or Cape Schanck end.' },
+  { tag: 'Walk + Sunset', head: 'Farnsworth Track → Portsea for sunset',
+    body: 'The Farnsworth Track from London Bridge carpark is 1.5km one way — do it in the late afternoon. Arrive at the Portsea Ocean Beach lookout by 5pm. The light on Bass Strait at that hour is extraordinary.' },
+  { tag: 'Walk + Dog', head: 'Dog-friendly foreshore walks',
+    body: 'Dogs are banned from the National Park and most major Peninsula walking tracks. The best dog-friendly walks are on the bay-side foreshore: Mornington, Mount Martha clifftop sections, and the Safety Beach to Dromana route.' },
+];
+---
+
+<BaseLayout
+  title="Walks on the Mornington Peninsula — Peninsula Insider"
+  description="The best walks on the Mornington Peninsula — Bushrangers Bay, Cape Schanck, Two Bays, Greens Bush, Point Nepean, and more. Honest difficulty notes and what to do before and after each walk."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Walks cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <span class="hero__meta-tag">Walks</span>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">The Peninsula afoot</span>
+          </div>
+          <h1 class="hero__headline">Walks on the Peninsula.</h1>
+          <p class="hero__dek">People are not just looking for a track. They are looking for a Peninsula experience anchored by a walk. This section matches you to the right walk for the day you are trying to have — and tells you what to do before and after.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula walking" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Coastal walks <span class="ornament">—</span> Cape Schanck</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editorial voice</span>
+        </div>
+        <h2 class="letter__head">Not a trail database.</h2>
+        <div class="letter__prose">
+          <p>Parks Victoria has the official facts. AllTrails has user reviews. This section has something neither of them offers: honest characterisation of what each walk is actually like, who it suits, when to go, and how to make it part of a better Peninsula day.</p>
+          <p>We are not neutral about the walks. The Bushrangers Bay walk is exceptional. The Long Point Circuit in Greens Bush is one of the Peninsula's most undervisited good walks. The Cape Schanck boardwalk is short but not to be dismissed. We say so.</p>
+          <blockquote class="pullquote">Dogs are banned from Mornington Peninsula National Park — including most of the clifftop network. Accurate is more useful than aspirational.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shortlist">
+    <div class="container">
+      <div class="shortlist__head">
+        <span class="eyebrow eyebrow--ochre">Walk selector</span>
+        <h2 class="shortlist__title">Which walk belongs to the day you're trying to have?</h2>
+      </div>
+      <ol class="sl-list">
+        {selector.map((s, i) => (
+          <li class="sl-item">
+            <div class="sl-item__rank">{i + 1}</div>
+            <div class="sl-item__body">
+              <span class="eyebrow">{s.label} <span class="ornament">·</span> {s.duration}</span>
+              <h3 class="sl-item__name">{s.head}</h3>
+              <p class="sl-item__note">{s.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Walk + something</span>
+        <h2 class="dept__title">Peninsula walks linked to what comes before and after.</h2>
+      </div>
+      <div class="dept__grid">
+        {linked.map(l => (
+          <article class="venue">
+            <div class="venue__body">
+              <span class="eyebrow">{l.tag}</span>
+              <h3 class="venue__title">{l.head}</h3>
+              <p class="venue__blurb">{l.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {longWalks.length > 0 && (
+    <section class="dept">
+      <div class="container">
+        <div class="dept__head">
+          <span class="eyebrow eyebrow--ochre">Coastal & full-day</span>
+          <h2 class="dept__title">Walks worth clearing an afternoon for.</h2>
+        </div>
+        <div class="dept__grid">
+          {longWalks.map(e => {
+            const data: any = e.data;
+            const href = `${base}explore/${routeSlug(e)}/`;
+            const img = `${base}${(data.heroImage?.src ?? 'images/sourced/home-cover.webp').replace(/^\//,'')}`;
+            return (
+              <a class="venue" href={href}>
+                <div class="venue__image-wrap">
+                  <img class="venue__image" src={img} alt={data.title} loading="lazy" />
+                </div>
+                <div class="venue__body">
+                  <span class="eyebrow">{data.place ?? 'Peninsula'}</span>
+                  <h3 class="venue__title">{data.title}</h3>
+                  {data.blurb && <p class="venue__blurb">{data.blurb}</p>}
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {shortWalks.length > 0 && (
+    <section class="dept">
+      <div class="container">
+        <div class="dept__head">
+          <span class="eyebrow eyebrow--ochre">Under an hour</span>
+          <h2 class="dept__title">Between lunch and dinner, or before coffee.</h2>
+        </div>
+        <div class="dept__grid">
+          {shortWalks.map(e => {
+            const data: any = e.data;
+            const href = `${base}explore/${routeSlug(e)}/`;
+            const img = `${base}${(data.heroImage?.src ?? 'images/sourced/home-cover.webp').replace(/^\//,'')}`;
+            return (
+              <a class="venue" href={href}>
+                <div class="venue__image-wrap">
+                  <img class="venue__image" src={img} alt={data.title} loading="lazy" />
+                </div>
+                <div class="venue__body">
+                  <span class="eyebrow">{data.place ?? 'Peninsula'}</span>
+                  <h3 class="venue__title">{data.title}</h3>
+                  {data.blurb && <p class="venue__blurb">{data.blurb}</p>}
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Before you go</span>
+        </div>
+        <h2 class="letter__head">Practical notes.</h2>
+        <div class="letter__prose">
+          <p><strong>Snakes.</strong> The Peninsula has Eastern Brown Snakes and Tiger Snakes, both dangerous. Warm months (October to April) require alertness on all bushy and coastal tracks. Stick to the marked track, wear closed shoes.</p>
+          <p><strong>Sun and water.</strong> The Peninsula's exposed clifftop walks have no shade. In summer, midday is not the right time. Early morning or late afternoon are the better windows. Carry at least 500ml per person for any walk over an hour.</p>
+          <p><strong>Mobile coverage.</strong> Variable across the national park. Download offline maps before you go if you are walking anything more than an out-and-back on a marked track.</p>
+          <p><strong>Dogs.</strong> Mornington Peninsula National Park, Greens Bush and Arthurs Seat State Park — no dogs at all, including in carparks. Bay foreshore areas — generally on-lead permitted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

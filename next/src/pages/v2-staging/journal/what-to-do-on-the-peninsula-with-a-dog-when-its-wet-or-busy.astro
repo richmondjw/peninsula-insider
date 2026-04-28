@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+<BaseLayout
+  title="What to Do on the Peninsula With a Dog When It's Wet or Busy — Peninsula Insider"
+  description="A practical wet-weather and busy-day guide for doing the Mornington Peninsula with the dog."
+  section="journal"
+>
+
+<section class="hero" aria-label="Article cover">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <span class="hero__meta-tag">Journal</span>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Dog-friendly Peninsula <span class="ornament">—</span> Service guide</span>
+        </div>
+        <h1 class="hero__headline">What to Do on the Peninsula With a Dog When <em>It's Wet or Busy</em></h1>
+        <p class="hero__dek">A practical wet-weather and busy-day guide for doing the Mornington Peninsula with the dog.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Editors</strong></span>
+          <span class="hero__byline-read">3 min read</span>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/explore-farnsworth-track-01.webp`} alt="Peninsula wet weather with a dog" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Peninsula wet weather with a dog</span>
+          <span>Peninsula Insider <span class="ornament">/</span> Dog-friendly</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-label="Article body">
+  <div class="container">
+    <div class="letter__frame" style="display:block; max-width:46rem; margin-inline:auto;">
+      <div class="letter__body">
+        <div class="letter__prose v2-article-body">
+          <p>The Peninsula gets harder with a dog when the weather turns or the obvious places get packed. That is exactly when a good guide becomes useful. The answer is usually not to force the postcard version of the day. It is to reshape the day around space, shelter, and lower-friction stops.</p>
+          <p>This page should become the wet-weather and high-traffic recovery guide for the hub.</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+
+<style is:global>
+  .v2-article-body h2 { font-family: var(--serif, 'Newsreader'), serif; font-weight: 500; font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1rem; font-feature-settings: 'opsz' 32; }
+  .v2-article-body h3 { font-family: var(--serif, 'Newsreader'), serif; font-weight: 500; font-size: 1.35rem; margin-top: 2rem; margin-bottom: .75rem; }
+  .v2-article-body p { margin-bottom: 1.2rem; }
+  .v2-article-body blockquote { border-left: 3px solid var(--ochre, #a0612d); padding-left: 1.25rem; margin: 2rem 0; font-family: var(--serif, 'Newsreader'), serif; font-style: italic; font-size: 1.2rem; }
+  .v2-article-body ul, .v2-article-body ol { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+  .v2-article-body li { margin-bottom: .5rem; }
+  .v2-article-body a { color: var(--ochre, #a0612d); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+</style>
+</BaseLayout>

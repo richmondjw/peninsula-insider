@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const routes = [
+  {
+    name: 'The Coastal Morning',
+    area: 'Sorrento → Cape Schanck',
+    stops: [
+      'Breakfast at Sorrento Ocean Beach or a coffee on Ocean Beach Road.',
+      'Walk the Coppins Track toward Diamond Bay (as far as you like).',
+      'Drive to Cape Schanck; do the boardwalk to the lighthouse platform.',
+      'Lunch back in Sorrento town or at Portsea Hotel on the terrace.',
+      'Afternoon beach time at Shelly Beach for the calm side, or Sorrento Back Beach for drama.',
+    ],
+  },
+  {
+    name: 'The Cellar Door Day',
+    area: 'Red Hill and Main Ridge',
+    stops: [
+      'Arrive at 11am. First stop: Foxeys Hangout for the view.',
+      'Lunch at Montalto — the Peninsula\'s best complete winery-lunch experience. Book ahead.',
+      'Afternoon cellar doors: Ten Minutes by Tractor or Polperro.',
+      'Finish with a sculpture-garden walk at Pt. Leo Estate (time permitting).',
+      'Drive home before dusk; arrange a driver if you are seriously tasting.',
+    ],
+  },
+  {
+    name: 'The Hot Springs Reset',
+    area: 'Cape Schanck & Fingal',
+    stops: [
+      'Walk Bushrangers Bay from Cape Schanck (5km return, 2 hrs). Arrive 8.30am.',
+      'Mid-morning coffee at the Cape Schanck Lighthouse café, or drive to Rye.',
+      'Pre-book a Twilight or afternoon session at Peninsula Hot Springs or Alba. Three hours.',
+      'Light lunch at the springs or drive to Rye/St Andrews for a café meal.',
+      'Drive back to Melbourne late afternoon; you will want an early night.',
+    ],
+  },
+  {
+    name: 'The Mornington Foreshore Loop',
+    area: 'Mornington and Mount Martha',
+    stops: [
+      'Breakfast at Commonfolk in Mornington (or Bayview in Mount Martha for a quieter start).',
+      'Walk the Mornington foreshore past the bathing boxes to Schnapper Point.',
+      'Coffee on the pier. Browse Main Street.',
+      'Drive to Mount Martha and walk the clifftop section for a southern view.',
+      'Lunch at Mount Martha Beach or in Mornington town on the return.',
+    ],
+  },
+  {
+    name: 'The Arthurs Seat Panorama',
+    area: 'Arthurs Seat and Red Hill',
+    stops: [
+      'Drive up or take the Arthurs Seat Eagle gondola.',
+      'Walk the TC McKeller summit circuit — 1.8km, 1 hr, big views.',
+      'Late morning: drive into the Red Hill plateau. Coffee at Red Hill Brewery or a cellar door.',
+      'Lunch: Tedesca Osteria (book ahead) or Merricks General Wine Store for something more relaxed.',
+      'Afternoon: one or two cellar doors, or a sculpture-park walk at Pt. Leo Estate.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Day Trips on the Mornington Peninsula — Peninsula Insider"
+  description="Five Peninsula day-trip routes, sequenced hour by hour. Coastal, wine, hot springs, foreshore and panorama — the Peninsula day that repays the drive."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Day trips cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">5 day-trip routes</span>
+          </div>
+          <h1 class="hero__headline">Day trips that repay the drive.</h1>
+          <p class="hero__dek">Melbourne to Peninsula in 90 minutes. These are the day-trip routes worth making — sequenced as itineraries, not lists, so the drive, the meal, and the walk actually fit together.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula day trip" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Peninsula day-trip country</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The editor's note</span>
+        </div>
+        <h2 class="letter__head">Don't try to see everything.</h2>
+        <div class="letter__prose">
+          <p>The best Peninsula day trip picks one thread — coast, wine, hot springs, foreshore, panorama — and commits to it. The failure mode is trying to combine two: a morning winery visit plus an afternoon at Cape Schanck plus sunset at Sorrento means too much driving, rushed lunches, and a long evening back to Melbourne.</p>
+          <p>Each of the routes below is a complete day. Pick one; do it properly. Drive times between the anchor points are short enough that you will cover more ground than you expect even when you move slowly.</p>
+          <blockquote class="pullquote">One Peninsula day, done well, is worth two done in a hurry.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {routes.map(route => (
+    <section class="letter">
+      <div class="container">
+        <div class="letter__frame" style="display:block;">
+          <div class="letter__eyebrow">
+            <span class="letter__eyebrow-rule"></span>
+            <span class="eyebrow eyebrow--ochre">{route.area}</span>
+          </div>
+          <h2 class="letter__head">{route.name}</h2>
+          <div class="letter__prose">
+            <ol style="padding-left:1.25rem;">
+              {route.stops.map(step => <li style="margin-bottom:.6rem;">{step}</li>)}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <NewsletterBlock />
+
+</BaseLayout>

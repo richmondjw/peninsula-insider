@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const comparisonRows = [
+  { k: 'Scale', phs: 'Large (60+ pools)', alba: 'Small (curated selection)' },
+  { k: 'Crowd level', phs: 'High on weekends', alba: 'Lower, even on weekends' },
+  { k: 'Booking difficulty', phs: 'Hard (weekends)', alba: 'Easier' },
+  { k: 'Atmosphere', phs: 'Variable — calm to crowded', alba: 'Consistently calmer' },
+  { k: 'Best for', phs: 'First-timers; maximum variety', alba: 'Return visitors; those who want peace' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Hot Springs — Peninsula Hot Springs vs Alba · Peninsula Insider"
+  description="Peninsula Hot Springs vs Alba Thermal Springs: when to go, how to book, what to pair with your soak. The complete editorial guide to thermal springs on the Mornington Peninsula."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Hot springs cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Thermal springs</span>
+          </div>
+          <h1 class="hero__headline">Peninsula Hot Springs, honestly.</h1>
+          <p class="hero__dek">Two operators on one geothermal aquifer. Peninsula Hot Springs is the flagship — larger, older, more crowded. Alba is the quieter alternative. The honest comparison, and when each one is right.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Hot springs" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Thermal bathing <span class="ornament">—</span> Peninsula</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The short version</span>
+        </div>
+        <h2 class="letter__head">Two operators, one aquifer.</h2>
+        <div class="letter__prose">
+          <p>The Mornington Peninsula sits above a geothermal aquifer that Peninsula Hot Springs has been tapping since 2005. In recent years, Alba Thermal Springs opened at Rye — giving visitors a genuine alternative for the first time.</p>
+          <p>Peninsula Hot Springs is larger, older, more facilities — and more crowded. Book 1–2 weeks ahead on weekends, year-round. Alba is newer, smaller, quieter, and easier to book. Both operate in all weather; wet and cold days are, counter-intuitively, the best time to visit.</p>
+          <blockquote class="pullquote">Peninsula Hot Springs is the place to understand what the fuss is about. Alba is the place to return to once you've ticked the main experience.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Peninsula Hot Springs</span>
+        </div>
+        <h2 class="letter__head">The flagship, at Fingal.</h2>
+        <div class="letter__prose">
+          <p><strong>Location:</strong> Springs Lane, Fingal. 20 km south of Dromana via Boneo Road. Car access only — no public transport to the site.</p>
+          <p>Peninsula Hot Springs is the Peninsula's flagship thermal experience. The site covers a hillside at Fingal with over 60 bathing experiences — pools at different temperatures, a bathhouse, a spa facility, a day spa, glamping accommodation, and a café. The scale and range of experience types are genuinely unique in Victoria.</p>
+          <p><strong>What to expect:</strong> Bathing terraces built into a hillside, each pool at a different temperature (typically 38–42°C for the main thermal pools). The hilltop pool has the best views. The cave pool is popular and often crowded. Crowds are the main complaint — Saturday mornings in summer can feel less like relaxation and more like managing queues between pools.</p>
+          <p><strong>Best time to visit:</strong> Midweek is noticeably quieter — Monday to Thursday. Winter is the most atmospheric: the contrast between cold air and hot water is the whole point. Early morning or evening sessions avoid the 11am–3pm peak window. Avoid Saturday afternoons in summer; long queues between pools are the rule, not the exception.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Alba Thermal Springs</span>
+        </div>
+        <h2 class="letter__head">The quieter alternative, at Rye.</h2>
+        <div class="letter__prose">
+          <p><strong>Location:</strong> Rye, accessible from the Nepean Highway.</p>
+          <p>Alba opened after Peninsula Hot Springs and positioned itself deliberately as a quieter, more design-focused alternative. Fewer pools — and fewer people. The site is smaller, which is its primary differentiator: you are unlikely to feel crowded at Alba on a midweek visit, and even peak weekends are more manageable than Peninsula Hot Springs.</p>
+          <p>Less variety than Peninsula Hot Springs; more consistency in the quality of each experience. The design aesthetic is considered where Peninsula Hot Springs has grown organically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The comparison</span>
+        </div>
+        <h2 class="letter__head">Deciding between them.</h2>
+        <div class="letter__prose">
+          <table style="width:100%; border-collapse:collapse; font-family:var(--sans,'Inter'),sans-serif; font-size:.95rem;">
+            <thead>
+              <tr style="border-bottom:2px solid rgba(0,0,0,0.1);">
+                <th style="text-align:left; padding:.6rem 0;"></th>
+                <th style="text-align:left; padding:.6rem 0;">Peninsula Hot Springs</th>
+                <th style="text-align:left; padding:.6rem 0;">Alba</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map(row => (
+                <tr style="border-bottom:1px solid rgba(0,0,0,0.08);">
+                  <td style="padding:.6rem 0; font-weight:600;">{row.k}</td>
+                  <td style="padding:.6rem 0;">{row.phs}</td>
+                  <td style="padding:.6rem 0;">{row.alba}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Pairings</span>
+        </div>
+        <h2 class="letter__head">What to pair with a hot springs visit.</h2>
+        <div class="letter__prose">
+          <p><strong>Walk + soak.</strong> Cape Schanck boardwalk or Bushrangers Bay walk before an afternoon soak — both within 15–20 minutes by car.</p>
+          <p><strong>Dinner + soak.</strong> A midday soak followed by dinner at Fingal or in Rye.</p>
+          <p><strong>Spa + springs.</strong> Book a treatment at a Peninsula day spa on the same day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

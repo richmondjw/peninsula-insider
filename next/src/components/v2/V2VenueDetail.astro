@@ -1,0 +1,250 @@
+---
+import { placeLabel, typeLabel, routeSlug, titleize } from '../../lib/editorial';
+
+export interface Props {
+  venue: any;
+  section: 'eat' | 'stay' | 'wine';
+  related?: any[];
+  articles?: any[];
+  itineraries?: any[];
+}
+
+const { venue, section, related = [], articles = [] } = Astro.props;
+const data = venue.data;
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const sectionLabel =
+  section === 'stay' ? 'Stay' :
+  section === 'wine' ? 'Wine Country' : 'Eat & Drink';
+const sectionHref = `${base}${section}/`;
+
+const hats = data.authority?.hats ?? 0;
+const awards = data.authority?.awards ?? [];
+const pressMentions = data.authority?.pressMentions ?? [];
+
+const placeName = placeLabel(data.place);
+
+const heroImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder')
+  ? (data.heroImage.src.startsWith('/') ? `${base}${data.heroImage.src.slice(1)}` : data.heroImage.src)
+  : `${base}images/sourced/home-cover.webp`;
+
+const isClosed = data.status === 'closed';
+
+const moodTags = data.tags?.mood ?? [];
+const seasonTags = data.tags?.season ?? [];
+const audienceTags = data.tags?.audience ?? [];
+const allTags = [...moodTags, ...seasonTags, ...audienceTags];
+
+const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean);
+const pullquote = data.editorVerdict;
+
+// Type-specific booking label
+const bookLabel =
+  data.type === 'hotel' || data.type === 'villa' || data.type === 'cottage' || data.type === 'glamping' || data.type === 'farm-stay'
+    ? 'Check availability'
+    : data.type === 'winery'
+      ? 'Book a tasting'
+      : data.type === 'spa'
+        ? 'Book a treatment'
+        : 'Reserve a table';
+
+// Related venue href prefix mirrors section
+const venueHrefBase = `${base}${section}/`;
+---
+
+<section class="hero" aria-label={`${data.name} cover`}>
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={sectionHref} class="hero__meta-tag" style="color:inherit;text-decoration:none;">{sectionLabel}</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">{placeName} <span class="ornament">·</span> {typeLabel[data.type] ?? data.type}</span>
+        </div>
+        <h1 class="hero__headline">{data.name}</h1>
+        <p class="hero__dek">{data.signature}</p>
+        <div class="hero__byline">
+          <span>{data.priceBand} {hats > 0 && <>· <strong>{hats} hat{hats > 1 ? 's' : ''}</strong></>}</span>
+          {data.bookingUrl && (
+            <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="hero__byline-read">{bookLabel} →</a>
+          )}
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={heroImage} alt={`${data.name}, ${placeName}`} loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>{data.name} <span class="ornament">—</span> {placeName}</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+{isClosed && (
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <blockquote class="pullquote">This venue is permanently closed. The page is preserved for historical reference.</blockquote>
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="letter" aria-labelledby={`editor-${routeSlug(venue)}`}>
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The Insider's note</span>
+        </div>
+        <h2 class="letter__head" id={`editor-${routeSlug(venue)}`}>On {data.name}.</h2>
+        <div class="letter__prose">
+          {editorParas.map((p: string, i: number) => (
+            i === 1 && pullquote
+              ? <><p>{p}</p><blockquote class="pullquote">{pullquote}</blockquote></>
+              : <p>{p}</p>
+          ))}
+          {editorParas.length < 2 && pullquote && (
+            <blockquote class="pullquote">{pullquote}</blockquote>
+          )}
+          {allTags.length > 0 && (
+            <p style="margin-top:1.5rem;">
+              {allTags.map((tag: string) => (
+                <span class="sl-item__tag" style="margin-right:.4rem;">{titleize(tag)}</span>
+              ))}
+            </p>
+          )}
+        </div>
+      </div>
+
+      <aside class="letter__side">
+        <div class="facts-card" style="background:rgba(0,0,0,0.03); padding:1.75rem; border:1px solid rgba(0,0,0,0.08);">
+          <p class="eyebrow eyebrow--ochre" style="margin-bottom:1rem;">At a glance</p>
+          <dl style="display:grid; grid-template-columns:auto 1fr; gap:.6rem 1rem; font-family:var(--sans,'Inter'),sans-serif; font-size:.92rem;">
+            <dt style="font-weight:500;">Type</dt>
+            <dd style="margin:0;">{typeLabel[data.type] ?? data.type}</dd>
+
+            <dt style="font-weight:500;">Location</dt>
+            <dd style="margin:0;">{data.address}</dd>
+
+            <dt style="font-weight:500;">Spend</dt>
+            <dd style="margin:0;">{data.priceBand}</dd>
+
+            {data.phone && (<>
+              <dt style="font-weight:500;">Call</dt>
+              <dd style="margin:0;"><a href={`tel:${data.phone.replace(/\s/g, '')}`} style="color:inherit;">{data.phone}</a></dd>
+            </>)}
+
+            {hats > 0 && (<>
+              <dt style="font-weight:500;">Guide</dt>
+              <dd style="margin:0;">{hats} Good Food hat{hats > 1 ? 's' : ''}</dd>
+            </>)}
+
+            {data.authority?.hallidayScore && (<>
+              <dt style="font-weight:500;">Halliday</dt>
+              <dd style="margin:0;">{data.authority.hallidayScore} points</dd>
+            </>)}
+
+            {awards.length > 0 && (<>
+              <dt style="font-weight:500;">Awards</dt>
+              <dd style="margin:0;">{awards.join(' · ')}</dd>
+            </>)}
+
+            {pressMentions.length > 0 && (<>
+              <dt style="font-weight:500;">Press</dt>
+              <dd style="margin:0;">{pressMentions.join(' · ')}</dd>
+            </>)}
+
+            {data.website && (<>
+              <dt style="font-weight:500;">Web</dt>
+              <dd style="margin:0;"><a href={data.website} target="_blank" rel="noopener noreferrer" style="color:inherit;">{data.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></dd>
+            </>)}
+          </dl>
+
+          {data.bookingUrl && (
+            <a class="masthead__cta" href={data.bookingUrl} target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:1.5rem;">
+              {bookLabel}
+            </a>
+          )}
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{related.length > 0 && (
+  <section class="dept" aria-labelledby="related-title">
+    <div class="container">
+      <div class="dept__head">
+        <div class="dept__titles">
+          <span class="eyebrow eyebrow--ochre">Nearby</span>
+          <h2 class="dept__title" id="related-title">More in <em>{placeName}</em>.</h2>
+        </div>
+        <a href={sectionHref} class="well__head-link">All {sectionLabel.toLowerCase()} →</a>
+      </div>
+      <div class="dept__grid">
+        {related.map((r: any) => {
+          const rData = r.data;
+          const rHero = rData.heroImage?.src && !rData.heroImage.src.includes('placeholder')
+            ? (rData.heroImage.src.startsWith('/') ? `${base}${rData.heroImage.src.slice(1)}` : rData.heroImage.src)
+            : `${base}images/sourced/home-cover.webp`;
+          return (
+            <article class="venue">
+              <div class="venue__image" style={`background-image:url(${rHero});background-size:cover;background-position:center;`}>
+                <span class="venue__image-marker">{typeLabel[rData.type] ?? rData.type}</span>
+                {rData.authority?.hats > 0 && <span class="venue__image-hat">{rData.authority.hats} hat{rData.authority.hats > 1 ? 's' : ''}</span>}
+              </div>
+              <div class="venue__meta">
+                <span>{placeLabel(rData.place)}</span>
+                <span class="venue__meta-sep"></span>
+                <span>{rData.priceBand}</span>
+              </div>
+              <a href={`${venueHrefBase}${routeSlug(r)}/`}><h3 class="venue__name">{rData.name}</h3></a>
+              <p class="venue__sig">{rData.signature}</p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+{articles.length > 0 && (
+  <section class="well" aria-labelledby="related-articles">
+    <div class="container">
+      <div class="well__head">
+        <div>
+          <span class="eyebrow eyebrow--ochre">Related reading</span>
+          <h2 class="well__head-title" id="related-articles" style="margin-top:.5rem;">From the <em>journal</em>.</h2>
+        </div>
+        <a href={`${base}journal/`} class="well__head-link">All journal →</a>
+      </div>
+      <div class="well__grid">
+        {articles.map((a: any, i: number) => {
+          const aData = a.data;
+          const aHero = aData.heroImage?.src && !aData.heroImage.src.includes('placeholder')
+            ? (aData.heroImage.src.startsWith('/') ? `${base}${aData.heroImage.src.slice(1)}` : aData.heroImage.src)
+            : `${base}images/sourced/home-cover.webp`;
+          return (
+            <article class={i === 0 ? 'feat feat--lead' : 'feat feat--std'}>
+              <img class="feat__image" src={aHero} alt={aData.title} loading="lazy">
+              <div class="feat__body">
+                <div class="feat__eyebrow">Journal</div>
+                <a href={`${base}journal/${routeSlug(a)}/`}><h3 class="feat__title">{aData.title}</h3></a>
+                {aData.excerpt && <p class="feat__excerpt">{aData.excerpt}</p>}
+                <div class="feat__byline">
+                  <span>{aData.publishedAt?.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' }) ?? ''}</span>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}

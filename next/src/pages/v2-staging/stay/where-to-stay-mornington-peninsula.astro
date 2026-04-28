@@ -1,0 +1,353 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const allStays = (await getCollection('venues'))
+  .filter((v) => stayTypes.includes(v.data.type) && !['spa'].includes(v.data.type))
+  .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
+
+const ridgeStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['red-hill', 'red-hill-south', 'main-ridge', 'merricks', 'merricks-north'].includes(p);
+});
+const tipStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['sorrento', 'portsea', 'blairgowrie', 'rye', 'cape-schanck'].includes(p);
+});
+const flindersStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['flinders', 'shoreham', 'balnarring'].includes(p);
+});
+const baysideStays = allStays.filter((v) => {
+  const p = String(v.data.place?.id ?? v.data.place ?? '');
+  return ['mornington', 'mount-martha', 'safety-beach', 'dromana', 'rosebud'].includes(p);
+});
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Where is the best place to stay on the Mornington Peninsula?', acceptedAnswer: { '@type': 'Answer', text: 'The answer depends on the trip. Red Hill and Main Ridge are the best base for a wine-country weekend — cellar doors are within a short drive, vineyard restaurants are within walking distance of some stays, and the ridge has a quiet, self-contained character that rewards two nights. Sorrento is the best base for atmosphere: a working village with ocean baths, ocean beaches, the ferry to Queenscliff, and a proper main street with restaurants and bars. Mornington town is the most accessible from Melbourne, good for a single night. Flinders is the quietest and most authentic — a fishing village that still works.' } },
+    { '@type': 'Question', name: 'How far is the Mornington Peninsula from Melbourne?', acceptedAnswer: { '@type': 'Answer', text: 'Mornington town is about an hour from Melbourne CBD. Sorrento and Portsea at the tip are 1 hour 30–40 minutes. Red Hill and Main Ridge on the plateau are 1 hour 15–30 minutes. Cape Schanck and Flinders on the south coast are 1 hour 30 minutes. Traffic on the Mornington Peninsula Freeway is heaviest Friday afternoons and Sunday evenings — if you can leave earlier or later, the drive improves significantly.' } },
+    { '@type': 'Question', name: 'Should I stay in Sorrento or Red Hill?', acceptedAnswer: { '@type': 'Answer', text: 'Sorrento for a coastal village weekend: ocean swimming, limestone cliffs, the back beach, a strong dining scene, and the ferry. Red Hill for a wine-country weekend: cellar doors, vineyard lunches, and quiet ridge-top stays. They are 20 minutes apart, so you can visit both areas from either base — the choice is really about where you want to wake up. For a three-night trip, basing on the ridge and driving to Sorrento for dinner and a swim is the natural move.' } },
+    { '@type': 'Question', name: 'What type of accommodation is available on the Mornington Peninsula?', acceptedAnswer: { '@type': 'Answer', text: 'Most Peninsula accommodation is self-contained — vineyard villas, converted farm buildings, and private coastal cottages rather than hotel rooms. The notable hotels are Jackalope (Red Hill, design-led luxury), The Continental (Sorrento, heritage grand hotel), Hotel Sorrento (Sorrento, boutique heritage), Lindenderry (Red Hill, boutique retreat hotel), and the Flinders Hotel (Flinders, country pub with rooms). Self-contained stays suit couples and small groups. The hotels suit single-night visits where cooking breakfast feels like work.' } },
+    { '@type': 'Question', name: 'When is the cheapest time to stay on the Mornington Peninsula?', acceptedAnswer: { '@type': 'Answer', text: 'Winter weekdays (June–August) are the lowest-demand period. Prices drop significantly, availability is good even at short notice, and the Peninsula\'s thermal springs and fireplace character are at their strongest. Autumn midweek is the best value if you want good weather — after the summer crowds have gone but before the property prices spike for the long weekends. Summer weekends and all public holiday periods are peak pricing and book out months ahead.' } },
+  ],
+};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+
+function renderItem(v: any, i: number) {
+  const data = v.data;
+  const hats = data.authority?.hats ?? 0;
+  const num = String(i + 1).padStart(2, '0');
+  const place = placeLabel(data.place);
+  const type = typeLabel[data.type] ?? data.type;
+  const allTags = [
+    ...(data.tags?.mood ?? []),
+    ...(data.tags?.audience ?? []),
+  ].slice(0, 3);
+  return { data, hats, num, place, type, allTags };
+}
+---
+<BaseLayout
+  title="Where to Stay Mornington Peninsula · Peninsula Insider"
+  description="Where to stay on the Mornington Peninsula — area-by-area guide covering the ridge, the tip, Flinders, and the bay. Hotels, villas, and cottages with honest editorial picks."
+  section="stay"
+>
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="hero" aria-label="Where to Stay on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}stay/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Stay</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Where to Stay <span class="ornament">—</span> {new Date().getFullYear()}</span>
+        </div>
+        <h1 class="hero__headline">Where to stay on the <em>Mornington Peninsula</em>.</h1>
+        <p class="hero__dek">Where you sleep determines which Peninsula you get. The ridge, the tip, Flinders, the bay — four distinct trips, four distinct bases.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#ridge" class="hero__byline-read">Jump to the areas <span style="opacity:.5;margin-left:.3rem;">4 bases</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill ridge country" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Red Hill ridge <span class="ornament">—</span> wine-country base</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="methodology-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Note</span>
+        </div>
+        <h2 class="letter__head" id="methodology-title">Match the stay to the <em>trip</em>.</h2>
+        <div class="letter__prose">
+          <p>Where you sleep determines which Peninsula you get. The ridge puts you in wine country — winery restaurants are accessible without a long drive and the morning light over the plateau makes the second coffee worth sitting still for. Sorrento puts you in the village, with ocean swimming, limestone streets, and the back beach ten minutes away. Flinders puts you in the quiet south coast, where the fishing boat still leaves at dawn and the pub has been there since 1855.</p>
+          <p>None of these are wrong. They're just different trips. The guide below works through the Peninsula area by area so the stay matches the weekend you're actually planning — not a generic shortlist of properties sorted by price.</p>
+          <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/place-sorrento-01.webp`} alt="Sorrento main street">
+        <figcaption class="letter__image-cap">Sorrento <em>— village-base territory.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+{ridgeStays.length > 0 && (
+<section class="shortlist" id="ridge" aria-labelledby="ridge-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">Red Hill · Main Ridge · Merricks</span>
+        <h2 id="ridge-title">The wine ridge — best base for <em>cellar door</em> weekends.</h2>
+        <p class="shortlist__intro-body">Jackalope is the benchmark. Lindenderry and Hillview work well for groups and longer stays. Polperro Villas and Point Leo Villas add vineyard immersion if the estate is your destination.</p>
+        <a href={`${base}stay/`} class="shortlist__intro-link">All Peninsula stays
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {ridgeStays.map((v, i) => {
+          const { data, hats, num, place, type, allTags } = renderItem(v, i);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}stay/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+)}
+
+{tipStays.length > 0 && (
+<section class="shortlist" id="tip" aria-labelledby="tip-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">Sorrento · Portsea · Rye · Cape Schanck</span>
+        <h2 id="tip-title">The tip — best base for coast, village, and <em>back beach</em>.</h2>
+        <p class="shortlist__intro-body">The Continental and Hotel Sorrento anchor the village end. The Peninsula Hot Springs glamping is the choice if the springs are the trip. Sorrento Coastal Retreat for couples who want privacy and sea air.</p>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {tipStays.map((v, i) => {
+          const { data, hats, num, place, type, allTags } = renderItem(v, i);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}stay/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+)}
+
+{flindersStays.length > 0 && (
+<section class="shortlist" id="flinders" aria-labelledby="flinders-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">Flinders · Shoreham · Balnarring</span>
+        <h2 id="flinders-title">The south coast — quietest base, strongest <em>atmosphere</em>.</h2>
+        <p class="shortlist__intro-body">The Flinders Hotel is the anchor: a proper country pub with rooms that has aged well. Smaller self-contained properties in Shoreham and Balnarring work for those who want the south coast without sharing it with anyone.</p>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {flindersStays.map((v, i) => {
+          const { data, hats, num, place, type, allTags } = renderItem(v, i);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}stay/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+)}
+
+{baysideStays.length > 0 && (
+<section class="shortlist" id="bayside" aria-labelledby="bayside-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">Mornington · Mount Martha · Dromana</span>
+        <h2 id="bayside-title">Bayside — most accessible from Melbourne, best for a <em>single night</em>.</h2>
+        <p class="shortlist__intro-body">Closest to the freeway. Good when you want the Peninsula without the full commitment — a single night, a morning swim, and back before Sunday traffic builds.</p>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {baysideStays.map((v, i) => {
+          const { data, hats, num, place, type, allTags } = renderItem(v, i);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}stay/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+)}
+
+<section class="letter" aria-labelledby="howto-title">
+  <div class="container">
+    <div class="letter__frame" style="display:block;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">How to choose</span>
+        </div>
+        <h2 class="letter__head" id="howto-title">How to choose where to <em>stay</em>.</h2>
+        <div class="letter__prose">
+          <p><strong>Match the stay to the trip, not the other way around.</strong><br>The most common Peninsula planning mistake is booking accommodation before deciding what kind of weekend you want. A ridge villa is wrong for a beach trip. A Sorrento hotel is wrong if all your plans are in the hinterland. Work out the one or two things that define the trip — a particular winery, a particular beach, the hot springs — and then pick the accommodation that positions you for those things without a long drive each way.</p>
+          <p><strong>Self-contained vs hotel.</strong><br>Self-contained properties — villas, cottages, farm houses — dominate the Peninsula and suit longer stays and groups well. You get privacy, a proper kitchen for weekend cooking, and usually a better view-to-price ratio than a hotel room. For single nights where you'd rather not cook breakfast or manage check-in logistics, the hotel end of the market (Hotel Sorrento, The Continental, Flinders Hotel, Jackalope) makes more sense.</p>
+          <p><strong>When to book.</strong><br>Summer weekends book out months ahead. The Easter and June-holiday long weekends are the second hardest period — expect to pay peak rates and find limited availability at short notice. Winter is the opposite: most properties are available within days, prices drop, and the Peninsula's fireplace character is at its strongest. Autumn midweek is the best value-per-quality ratio of the year.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="related-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Plan the stay properly</span>
+        <h2 class="dept__title" id="related-title">Connected <em>guides</em>.</h2>
+      </div>
+      <a href={`${base}stay/`} class="well__head-link">All Stay →</a>
+    </div>
+    <div class="dept__grid">
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}stay/best-accommodation/`}><h3 class="venue__name">Best Accommodation</h3></a>
+        <p class="venue__sig">The full shortlist of Peninsula accommodation, ordered by price and strength.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}explore/where-to-base-yourself/`}><h3 class="venue__name">Where to Base Yourself</h3></a>
+        <p class="venue__sig">The practical Peninsula logic behind Sorrento, Red Hill, Flinders, and Mornington.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}escape/`}><h3 class="venue__name">Weekend Escape Plans</h3></a>
+        <p class="venue__sig">Structured weekends built around the right Peninsula base.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}journal/mornington-peninsula-itinerary/`}><h3 class="venue__name">3-Day Itinerary</h3></a>
+        <p class="venue__sig">A walked-through three-day Peninsula trip with accommodation logic built in.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}places/sorrento/`}><h3 class="venue__name">Sorrento Guide</h3></a>
+        <p class="venue__sig">The village, the beaches, the food — and why it's the Peninsula's strongest coastal base.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}places/red-hill/`}><h3 class="venue__name">Red Hill Guide</h3></a>
+        <p class="venue__sig">The ridge, the wineries, the lunches — and why it's the wine-country base.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

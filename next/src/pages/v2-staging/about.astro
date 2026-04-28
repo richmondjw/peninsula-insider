@@ -1,0 +1,236 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../components/v2/NewsletterBlock.astro';
+
+const venues = await getCollection('venues');
+const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+const places = await getCollection('places');
+const experiences = await getCollection('experiences');
+
+const principles = [
+  {
+    title: 'Editorial first, always',
+    body: 'Every venue, every recommendation, every word  -  earned, not bought. If a restaurant appears, it\'s because the editor ate there and had an opinion worth writing.',
+  },
+  {
+    title: 'We pay our own way',
+    body: 'We pay for our own meals, our own rooms, our own parking. The moment a publication starts taking comps without saying so, the reader has to do the work of figuring out what\'s real. We\'d rather just write it straight.',
+  },
+  {
+    title: 'Opinions, not stars',
+    body: 'Star ratings are a consensus machine. We write editor notes  -  a short, honest paragraph about what a place actually feels like when you sit down. Agreement is optional; clarity is not.',
+  },
+  {
+    title: 'Service journalism',
+    body: 'Every piece answers a real question a weekend visitor actually asks: where to eat, what to do when it rains, which cellar doors are worth the appointment. The Peninsula doesn\'t need more content. It needs better answers.',
+  },
+];
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="About — Peninsula Insider"
+  description="Peninsula Insider is the independent editorial guide to the Mornington Peninsula  -  honest, opinionated coverage of eating, drinking, staying, and exploring."
+  section=""
+>
+
+<section class="hero" aria-label="Page cover">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <span class="eyebrow eyebrow--ochre">About <span class="ornament">·</span> Independent editorial</span>
+        <h1 class="hero__headline">Independent editorial. Honest, <em>opinionated</em> coverage.</h1>
+        <p class="hero__dek">Peninsula Insider is building the editorial guide the Mornington Peninsula doesn't have yet — one that treats readers like adults and venues like subjects, not clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-label="The mission">
+  <div class="container">
+    <div class="letter__frame" style="display:block; max-width:46rem; margin-inline:auto;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The Mission</span>
+        </div>
+        <h2 class="letter__head">The Peninsula deserves better than a <em>brochure</em>.</h2>
+        <div class="letter__prose v2-article-body">
+          <p>The Mornington Peninsula has over 200 cellar doors, more Good Food Guide–hatted restaurants per square kilometre than anywhere outside inner Melbourne, and a coastline that changes personality four times in 40 minutes of driving. It deserves coverage that takes it seriously.</p>
+          <p>Most of what exists online is either tourism marketing dressed as editorial, or user-generated review content that tells you a restaurant has 4.3 stars without explaining what the 4.3 actually felt like. Neither helps you build a weekend.</p>
+          <p>Peninsula Insider is an attempt to fix that. We write opinionated, service-first editorial that answers the questions weekend visitors actually have — and we do it without taking money from the venues we cover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" aria-labelledby="principles-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">Editorial standards</span>
+        <h2 id="principles-title">Four rules we don't <em>bend</em>.</h2>
+        <p class="shortlist__intro-body">These aren't aspirations. They're operating constraints. If we break them, the whole thing stops working.</p>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {principles.map((principle, index) => (
+          <li class="sl-item">
+            <span class="sl-item__num">{String(index + 1).padStart(2, '0')}</span>
+            <div class="sl-item__body">
+              <a class="sl-item__name">{principle.title}</a>
+              <p class="sl-item__why">{principle.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="briefing" aria-label="Current coverage">
+  <div class="container">
+    <div class="briefing__head">
+      <div class="briefing__titles">
+        <div class="briefing__eyebrow">Current coverage</div>
+        <h2 class="briefing__title">What's <em>mapped</em> so far.</h2>
+        <p class="briefing__dek">The rebuild is live and growing. Every number below represents a real, editorially reviewed page — not a scraped listing.</p>
+      </div>
+    </div>
+    <dl class="briefing__foot">
+      <div class="bf-meta">
+        <dt>Venues mapped</dt>
+        <dd>{venues.length}</dd>
+      </div>
+      <div class="bf-meta">
+        <dt>Journal pieces</dt>
+        <dd>{articles.length}</dd>
+      </div>
+      <div class="bf-meta">
+        <dt>Place hubs</dt>
+        <dd>{places.length}</dd>
+      </div>
+      <div class="bf-meta">
+        <dt>Walks &amp; experiences</dt>
+        <dd>{experiences.length}</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="letter" aria-label="The difference">
+  <div class="container">
+    <div class="letter__frame" style="display:block; max-width:46rem; margin-inline:auto;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The Difference</span>
+        </div>
+        <h2 class="letter__head">What Peninsula Insider does that nobody else on the Peninsula <em>bothers with</em>.</h2>
+        <div class="letter__prose v2-article-body">
+          <h3>Editor notes, not star ratings</h3>
+          <p>Every venue carries a short, opinionated paragraph about what the place actually feels like — the light at 2 pm, the menu's weak spot, whether the wine list lives up to the view. Stars flatten; sentences clarify.</p>
+          <h3>Service journalism that answers real questions</h3>
+          <p>Every Journal piece starts from a question a weekend visitor actually asks: <em>Where do I eat if I can't get a booking? What do I do when it rains? Is the drive to Flinders worth it for one night?</em> If we can't name the question, we don't write the piece.</p>
+          <h3>Weekend-shaped, not list-shaped</h3>
+          <p>Most Peninsula content is a flat list of places. Ours is sequenced: itineraries that put lunch, walk, and bed in the right order; service pieces that tell you <em>when</em> to arrive, not just <em>where</em>.</p>
+          <h3>Seasonal rotation, not stale archives</h3>
+          <p>The homepage, section hubs, and venue surfaces shift with the Southern-Hemisphere calendar. What you see in April is different from what you see in December — because the Peninsula is a different place in every season.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-label="How it's built">
+  <div class="container">
+    <div class="letter__frame" style="display:block; max-width:46rem; margin-inline:auto;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">How it's built</span>
+        </div>
+        <h2 class="letter__head">Structured content, not a <em>WordPress blog</em>.</h2>
+        <div class="letter__prose v2-article-body">
+          <p>Peninsula Insider is built on an atomic content layer. Every venue, place, experience, and event is a structured entity with typed fields — not a blog post pretending to be a database. This means every page is connected: a venue knows which place it belongs to, which articles mention it, and which itineraries route through it.</p>
+          <p>The architecture is designed for editorial integrity at scale. When we update a venue's editor note, it flows through to every page that references it. When we add a new experience to a place, the place hub updates automatically. The structure does the work so the editors can focus on the writing.</p>
+          <p>The site is statically generated — no server, no database queries at runtime, no third-party trackers. Fast, private, and permanent. Every page has a real URL that will still work in ten years.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-label="Colophon">
+  <div class="container">
+    <div class="letter__frame" style="display:block; max-width:46rem; margin-inline:auto;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Colophon</span>
+        </div>
+        <h2 class="letter__head">A small editorial operation, <em>deliberately</em>.</h2>
+        <div class="letter__prose v2-article-body">
+          <p>Peninsula Insider is a one-desk publication. The editorial team lives on the Peninsula, eats on the Peninsula, and walks the same coastline the pieces describe. The coverage is slow, deliberate, and local — because the best regional journalism has always worked that way.</p>
+          <p>The site publishes a weekly dispatch every Wednesday. The <em>Peninsula This Weekend</em> dispatch lands every Wednesday at 6 pm. The newsletter is the only way to get it all in your inbox.</p>
+          <p>If you're a venue owner who wants coverage, there's nothing to buy — see our <a href={`${base}contact/`}>contact page</a> for how to reach us. If you're a reader who spotted an error, we fix fast: <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>.</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock
+  title="The Peninsula in your inbox, <em>every week</em>."
+  body="New openings, cellar-door dispatches, weekend-picker verdicts, and the places we're quietly recommending this season. Written by editors who live here. Unsubscribe any time."
+/>
+
+<style is:global>
+  .v2-article-body h2 {
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-feature-settings: 'opsz' 32;
+  }
+  .v2-article-body h3 {
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: .75rem;
+  }
+  .v2-article-body p { margin-bottom: 1.2rem; }
+  .v2-article-body blockquote {
+    border-left: 3px solid var(--ochre, #a0612d);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+  .v2-article-body ul, .v2-article-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .v2-article-body li { margin-bottom: .5rem; }
+  .v2-article-body a {
+    color: var(--ochre, #a0612d);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+</style>
+
+</BaseLayout>

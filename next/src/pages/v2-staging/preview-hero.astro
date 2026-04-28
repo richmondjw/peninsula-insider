@@ -1,0 +1,156 @@
+---
+/**
+ * DRAFT PREVIEW — v2-staging wrapper
+ * Originally a hero preview tool in the production tree.
+ * In v2, the canonical home is at /v2-staging/. This page is retained
+ * as a branded landing for the preview URL.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../components/v2/NewsletterBlock.astro';
+import { currentSeason, seasonBlurb } from '../../lib/editorial';
+
+const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const venues = await getCollection('venues');
+const places = await getCollection('places');
+const experiences = await getCollection('experiences');
+const itineraries = await getCollection('itineraries');
+
+const issueStats = {
+  articles: articles.length,
+  venues: venues.length,
+  places: places.length,
+  experiences: experiences.length,
+  itineraries: itineraries.length,
+};
+
+const now = new Date();
+const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+const season = currentSeason();
+const seasonBlurbData = seasonBlurb[season];
+
+const seasonalHeadlines: Record<string, { line1: string; line2: string; em: string }> = {
+  summer: { line1: 'Where Victoria', line2: 'eats, swims,', em: 'and stays late.' },
+  autumn: { line1: 'Where Victoria', line2: 'eats, drinks,', em: 'and slows down.' },
+  winter: { line1: 'Where Victoria', line2: 'eats, warms up,', em: 'and stays in.' },
+  spring: { line1: 'Where Victoria', line2: 'eats, explores,', em: 'and books ahead.' },
+};
+const seasonalDeks: Record<string, string> = {
+  summer: 'Back beaches at five, vineyard lunches that run until the light goes long, and the places locals actually go when Melbourne empties south.',
+  autumn: 'Vintage on the ridge, pinot lunches in low golden light, cellar doors with fires going, and the quieter weekends the Peninsula does best.',
+  winter: 'Hot springs without the queue, pub dinners worth the drive, fireplace long lunches, and the coastal walks the crowds have finally left alone.',
+  spring: 'New vintage releases, wildflower walks, menus rewritten for the season, and the most generous midweek bookings of the year.',
+};
+const hl = seasonalHeadlines[season];
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="DRAFT — Hero Preview | Peninsula Insider"
+  description="Preview page — not for public."
+  section=""
+>
+
+<section class="hero" aria-label="Preview cover">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <span class="hero__meta-tag">{issueDate} Issue</span>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">The Mornington Peninsula <span class="ornament">—</span> Draft preview</span>
+        </div>
+        <h1 class="hero__headline">
+          {hl.line1} {hl.line2} and <em>{hl.em}</em>
+        </h1>
+        <p class="hero__dek">{seasonalDeks[season]}</p>
+        <div class="hero__byline">
+          <a href={`${base}eat/`} class="hero__byline-read">Start with the restaurants →</a>
+          <a href="#newsletter" class="hero__byline-read">Get the weekly dispatch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="briefing" aria-label="This issue">
+  <div class="container">
+    <div class="briefing__head">
+      <div class="briefing__titles">
+        <div class="briefing__eyebrow">The {issueDate} issue</div>
+        <h2 class="briefing__title">{seasonBlurbData.label} — <em>{seasonBlurbData.line}</em></h2>
+      </div>
+      <a href={`${base}`} class="briefing__link">The full home →</a>
+    </div>
+    <dl class="briefing__foot">
+      <div class="bf-meta"><dt>Pieces</dt><dd>{issueStats.articles}</dd></div>
+      <div class="bf-meta"><dt>Venues mapped</dt><dd>{issueStats.venues}</dd></div>
+      <div class="bf-meta"><dt>Places</dt><dd>{issueStats.places}</dd></div>
+      <div class="bf-meta"><dt>Walks &amp; moves</dt><dd>{issueStats.experiences}</dd></div>
+      <div class="bf-meta"><dt>Escape plans</dt><dd>{issueStats.itineraries}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="letter" aria-label="Preview note">
+  <div class="container">
+    <div class="letter__frame" style="display:block; max-width:46rem; margin-inline:auto;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's note</span>
+        </div>
+        <h2 class="letter__head">A <em>draft hero</em> preview.</h2>
+        <div class="letter__prose v2-article-body">
+          <p>This page is a staging draft — not linked from anywhere, not indexed, and not the canonical v2 home. The working v2 home lives at <a href={base}>the root of v2-staging</a>.</p>
+          <p>Use this page to review hero copy, seasonal headline variants, and the editorial furniture under the fold before promoting anything to the live home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+
+<style is:global>
+  .v2-article-body h2 {
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-feature-settings: 'opsz' 32;
+  }
+  .v2-article-body h3 {
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: .75rem;
+  }
+  .v2-article-body p { margin-bottom: 1.2rem; }
+  .v2-article-body blockquote {
+    border-left: 3px solid var(--ochre, #a0612d);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+  .v2-article-body ul, .v2-article-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .v2-article-body li { margin-bottom: .5rem; }
+  .v2-article-body a {
+    color: var(--ochre, #a0612d);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+</style>
+
+</BaseLayout>

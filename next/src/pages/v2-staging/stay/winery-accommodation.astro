@@ -1,0 +1,197 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['polperro-villas','point-leo-estate-villas','crittenden-villas','jackalope','lindenderry'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Winery Accommodation Mornington Peninsula',
+  description: 'The best winery accommodation on the Mornington Peninsula, from vineyard villas to design-led wine-country hotels.',
+  url: 'https://peninsulainsider.com.au/stay/winery-accommodation/',
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((venue, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: venue.data.name,
+      url: `https://peninsulainsider.com.au/stay/${routeSlug(venue)}/`,
+    })),
+  },
+};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="Winery Accommodation Mornington Peninsula · Peninsula Insider"
+  description="The best winery accommodation on the Mornington Peninsula, from vineyard villas to design-led wine-country hotels in Red Hill and beyond."
+  section="stay"
+>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<section class="hero" aria-label="Winery Accommodation on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}stay/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Stay</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Winery Accommodation <span class="ornament">—</span> {new Date().getFullYear()}</span>
+        </div>
+        <h1 class="hero__headline">Winery accommodation on the <em>Mornington Peninsula</em>.</h1>
+        <p class="hero__dek">The best Peninsula wine weekends improve dramatically when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#rankings" class="hero__byline-read">Jump to the list <span style="opacity:.5;margin-left:.3rem;">{venues.length} stays</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill vineyard country" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Red Hill &amp; Merricks <span class="ornament">—</span> winery villa country</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="methodology-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Note</span>
+        </div>
+        <h2 class="letter__head" id="methodology-title">Drink once, eat properly, <em>wake up on the vineyard</em>.</h2>
+        <div class="letter__prose">
+          <p>The best Peninsula wine weekends improve dramatically when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens, instead of spending the whole weekend running transfers between Sorrento beds and Red Hill lunches.</p>
+          <p>Winery accommodation on the Mornington Peninsula is not a giant category. That is what makes it useful. The good options are limited, distinct, and easy to choose between once you know what sort of weekend you are building. Polperro Villas and Point Leo Estate Villas are for couples who want to stay close to the vineyard experience itself. Crittenden Estate Villas are stronger for a quieter bay-side wine-country crossover. Jackalope and Lindenderry sit slightly adjacent to the strict winery-villa category, but they belong in any serious wine-stay conversation because of how well they shape a Peninsula food-and-wine weekend.</p>
+          <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill plateau">
+        <figcaption class="letter__image-cap">Red Hill <em>— the wine-country centre of gravity.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" id="rankings" aria-labelledby="shortlist-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">Wine-country stays</span>
+        <h2 id="shortlist-title">{venues.length} stays that work best for a Peninsula <em>wine weekend</em>.</h2>
+        <p class="shortlist__intro-body">The strongest bases for long lunches, cellar doors, and slower mornings in Red Hill, Merricks, and the surrounding ridge country.</p>
+        <a href={`${base}wine/`} class="shortlist__intro-link">Wine country
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {venues.map((v, i) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const num = String(i + 1).padStart(2, '0');
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          const allTags = [
+            ...(data.tags?.mood ?? []),
+            ...(data.tags?.audience ?? []),
+          ].slice(0, 3);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}stay/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="howto-title">
+  <div class="container">
+    <div class="letter__frame" style="display:block;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">How to use this category</span>
+        </div>
+        <h2 class="letter__head" id="howto-title">How to use this <em>category</em>.</h2>
+        <div class="letter__prose">
+          <p><strong>Best for a one-night wine weekend?</strong><br>Jackalope if you want drama and a stronger hotel experience. Polperro Villas if you want something quieter, more intimate, and directly embedded in the wine-country mood.</p>
+          <p><strong>Best for a slower two-night stay?</strong><br>Lindenderry, Point Leo Estate Villas, and Crittenden Estate Villas all work well when the weekend is less about ticking off cellar doors and more about pace, meals, and place.</p>
+          <p><strong>Why this matters.</strong><br>The Peninsula's wine-country roads are beautiful but narrow and badly lit at night. The more you can collapse dining, tasting, and sleeping into the same zone, the better the weekend becomes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="related-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Related guides</span>
+        <h2 class="dept__title" id="related-title">Build around food and <em>wine</em>.</h2>
+      </div>
+      <a href={`${base}stay/`} class="well__head-link">All Stay →</a>
+    </div>
+    <div class="dept__grid">
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}wine/cellar-doors/`}><h3 class="venue__name">Best Cellar Doors</h3></a>
+        <p class="venue__sig">The cellar doors worth structuring a Peninsula day around.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}eat/cellar-door-lunch/`}><h3 class="venue__name">Cellar Door Lunch</h3></a>
+        <p class="venue__sig">The winery restaurants and long lunches that make the overnight stay worthwhile.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}places/red-hill/`}><h3 class="venue__name">Red Hill</h3></a>
+        <p class="venue__sig">The Peninsula's food-and-wine centre of gravity.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>
