@@ -1,0 +1,189 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['tedesca-osteria','polperro','doot-doot-doot','bistro-elba','barragunda-dining','laura-pt-leo','the-baths-sorrento','montalto'];
+const venues = slugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v)).sort((a,b)=>Number(b.data.authority?.hats??0)-Number(a.data.authority?.hats??0));
+
+const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'Date Night Mornington Peninsula',description:'The best restaurants for a date night on the Mornington Peninsula — intimate dining rooms, hatted kitchens, and the waterfront tables worth booking ahead.',url:'https://peninsulainsider.com.au/eat/date-night/',breadcrumb:{'@type':'BreadcrumbList',itemListElement:[{position:1,name:'Home',item:'https://peninsulainsider.com.au/'},{position:2,name:'Eat & Drink',item:'https://peninsulainsider.com.au/eat/'},{position:3,name:'Date Night',item:'https://peninsulainsider.com.au/eat/date-night/'}].map(e=>({'@type':'ListItem',...e}))},mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListOrderDescending',numberOfItems:venues.length,itemListElement:venues.map((v,i)=>({'@type':'ListItem',position:i+1,name:v.data.name,url:`https://peninsulainsider.com.au/eat/${routeSlug(v)}/`}))}};
+const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'What is the best restaurant for a date night on the Mornington Peninsula?',acceptedAnswer:{'@type':'Answer',text:'Tedesca Osteria (Red Hill) is the strongest choice — 30 seats, a converted 1940s farmhouse, biodynamic farm setting, and a five-course set menu. The most personal fine dining room on the Peninsula. Polperro Restaurant is the best vineyard date-night option: intimate, hatted, and bookable with a week\'s notice in shoulder season.'}},{'@type':'Question',name:'Where should I take my partner for a special occasion on the Mornington Peninsula?',acceptedAnswer:{'@type': 'Answer',text:'For a very special occasion, Laura at Pt. Leo Estate (two hats, Relais & Châteaux) is the most impressive setting — floor-to-ceiling glass overlooking the sculpture lawns and Western Port Bay. Book four months ahead. For a more accessible special-occasion dinner: Doot Doot Doot at Jackalope Hotel (one hat, dinner only, dramatic interior).'}},{'@type':'Question',name:'Can I do a date-night dinner without a long drive home afterwards?',acceptedAnswer:{'@type':'Answer',text:'Yes — stay in Sorrento and dine at Bistro Elba for a proper French-inflected dinner without needing to drive back to Red Hill. Or stay at Jackalope Hotel for dinner at Doot Doot Doot — two hatted rooms on site, no driving required.'}}]};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout title="Date Night Mornington Peninsula · Peninsula Insider" description="The best restaurants for a date night on the Mornington Peninsula — intimate hatted dining rooms, vineyard settings, and the waterfront tables worth booking ahead." section="eat" canonical="https://peninsulainsider.com.au/eat/date-night/" modifiedTime="2026-04-24">
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="hero" aria-label="Date Night on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}eat/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Eat &amp; Drink</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Date Night <span class="ornament">—</span> Updated April 2026</span>
+        </div>
+        <h1 class="hero__headline">Date night on the <em>Mornington Peninsula</em>.</h1>
+        <p class="hero__dek">Intimate hatted dining rooms, vineyard settings, and the waterfront tables worth booking ahead.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#rankings" class="hero__byline-read">Jump to the list <span style="opacity:.5;margin-left:.3rem;">{venues.length} rooms</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill — date night country" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Red Hill <span class="ornament">—</span> the small, serious rooms</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="intro-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Letter</span>
+        </div>
+        <h2 class="letter__head" id="intro-title">Resist the temptation to <em>over-programme</em> it.</h2>
+        <div class="letter__prose">
+          <p>A Peninsula date night works best when you resist the temptation to over-programme it. Pick one destination: dinner at a hatted room, or a long late-afternoon at a vineyard restaurant, then somewhere comfortable to stay. Trying to fit a cellar door tasting, a sunset walk, and a dinner at a restaurant forty minutes away never improves the evening.</p>
+
+          <p>The Peninsula's strongest date-night rooms are intimate: Tedesca Osteria (30 seats), Polperro (small, seasonal, vineyard), and Bistro Elba in Sorrento (French-inflected, dinner-focused, village-based). For the most impressive setting, Laura at Pt. Leo Estate has no peer in Victoria. For the most dramatic interior, Doot Doot Doot at Jackalope Hotel is the answer.</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Last fact-verified 23 April 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/home-cover.webp`} alt="Peninsula evening">
+        <figcaption class="letter__image-cap">A Peninsula evening — <em>one decision, done well.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" id="rankings" aria-labelledby="shortlist-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">The Shortlist</span>
+        <h2 id="shortlist-title">{venues.length} rooms ranked for a <em>Peninsula date night</em>.</h2>
+        <p class="shortlist__intro-body">Hatted and intimate rooms first, then the waterfront and atmosphere-led options below them.</p>
+        <a href={`${base}eat/fine-dining/`} class="shortlist__intro-link">Fine dining
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {venues.map((v, i) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const num = String(i + 1).padStart(2, '0');
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          const allTags = [
+            ...(data.tags?.mood ?? []),
+            ...(data.tags?.audience ?? []),
+          ].slice(0, 3);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}eat/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="letter__frame" style="display:block;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Frequently Asked</span>
+        </div>
+        <h2 class="letter__head" id="faq-title">The <em>questions</em> we get asked.</h2>
+        <div class="letter__prose">
+          <p><strong>Best restaurant for a date night on the Mornington Peninsula?</strong><br>Tedesca Osteria (Red Hill): 30 seats, biodynamic farmhouse, five-course set menu. The most personal fine dining room on the Peninsula. Polperro: intimate, hatted vineyard setting, bookable with a week's notice in shoulder season.</p>
+
+          <p><strong>Best for a very special occasion?</strong><br>Laura at Pt. Leo Estate (two hats, Relais &amp; Châteaux): floor-to-ceiling glass, sculpture park views, Western Port Bay outlook. Book four months ahead.</p>
+
+          <p><strong>Best option without a long drive home afterwards?</strong><br>Stay in Sorrento and dine at Bistro Elba. Or stay at Jackalope Hotel for dinner at Doot Doot Doot — no driving required.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="related-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Plan the full night</span>
+        <h2 class="dept__title" id="related-title">Related <em>guides</em>.</h2>
+      </div>
+      <a href={`${base}eat/`} class="well__head-link">All Eat &amp; Drink →</a>
+    </div>
+    <div class="dept__grid">
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-red-hill-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/hatted-restaurants/`}><h3 class="venue__name">Hatted Restaurants</h3></a>
+        <p class="venue__sig">The complete Good Food Guide hat list — every hatted room with booking reality.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/home-cover.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Section</span>
+        </div>
+        <div class="venue__meta"><span>Where to Stay</span></div>
+        <a href={`${base}stay/`}><h3 class="venue__name">Where to Stay</h3></a>
+        <p class="venue__sig">Hotels, vineyard villas, and boutique stays on the Peninsula.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-main-ridge-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/fine-dining/`}><h3 class="venue__name">Fine Dining</h3></a>
+        <p class="venue__sig">Destination dining rooms worth planning a whole Peninsula day around.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

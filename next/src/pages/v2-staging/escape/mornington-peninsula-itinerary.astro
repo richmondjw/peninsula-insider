@@ -1,0 +1,221 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, stayTypes, titleize } from '../../../lib/editorial';
+
+const itineraries = (await getCollection('itineraries'))
+  .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
+
+const allVenues = await getCollection('venues');
+const stays = allVenues.filter((v) => stayTypes.includes(v.data.type));
+const anchorStays = stays.filter((v) =>
+  ['jackalope', 'hotel-sorrento', 'flinders-hotel', 'lindenderry-at-red-hill'].includes(routeSlug(v))
+);
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+function resolveImage(src?: string) {
+  if (!src || src.includes('placeholder')) return `${base}images/sourced/home-cover.webp`;
+  return src.startsWith('/') ? `${base}${src.slice(1)}` : src;
+}
+
+const moodLabel: Record<string, string> = {
+  slow: 'Slow',
+  indulgent: 'Indulgent',
+  wellness: 'Wellness',
+  adventure: 'Adventure',
+  'food-wine': 'Food & Wine',
+  mixed: 'Mixed',
+  quick: 'Quick',
+};
+---
+<BaseLayout
+  title="Mornington Peninsula Itinerary · Peninsula Insider"
+  description="The best Mornington Peninsula itinerary — 1, 2, and 3-day plans built around wine, coast, hot springs, and the places that make the region worth the drive from Melbourne."
+  section="escape"
+>
+
+<section class="hero" aria-label="Mornington Peninsula Itinerary cover">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}escape/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Escape</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Itinerary <span class="ornament">—</span> 1, 2, 3 days</span>
+        </div>
+        <h1 class="hero__headline">The Mornington Peninsula <em>itinerary</em>.</h1>
+        <p class="hero__dek">The Peninsula is small enough to overdo and varied enough to get wrong. The itineraries below are built around a different logic: pick the geography first, let everything else follow.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Editors</strong></span>
+          <span class="hero__byline-read">{itineraries.length} plans <span style="opacity:.5;margin-left:.3rem;">8 min</span></span>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/home-cover.webp`} alt="Mornington Peninsula itinerary" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>One geography per day <span class="ornament">—</span> The Peninsula</span>
+          <span>Peninsula Insider <span class="ornament">/</span> Escape</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-label="Article body">
+  <div class="container">
+    <div class="letter__frame" style="display:block; max-width:46rem; margin-inline:auto;">
+      <div class="letter__body">
+        <div class="letter__prose v2-article-body">
+          <p>The Peninsula is small enough to overdo and varied enough to get wrong. The wineries are on the ridge. The ocean beaches are on the south coast. The thermal springs are in Rye. Sorrento is at the tip. None of these are near each other, and trying to visit all of them in one day produces a trip that feels like a highway with occasional stops.</p>
+
+          <p>The itineraries below are built around a different logic: pick the geography first, let everything else follow. One area, properly done, is worth three areas rushed. The plans are arranged by length — from a single night up to three — so you can match the commitment to the weekend you actually have.</p>
+
+          <h2>Three rules for a good Peninsula weekend</h2>
+
+          <h3>One geography per day</h3>
+          <p>The ridge, the coast, and the tip all ask for different tempos. Stringing them together in a single day is how good weekends become stressful ones. Commit to the area, know what you're going for, and let the plan breathe.</p>
+
+          <h3>Let one thing be the event</h3>
+          <p>A vineyard lunch, the hot springs, Point Nepean at dusk — one thing per day that the rest of the day flows around. Everything else should be softer. The Peninsula punishes over-planning and rewards the long lunch.</p>
+
+          <h3>Two nights is the native length</h3>
+          <p>Long enough to slow down properly, short enough to commit to on a regular weekend. One night is possible with a clear purpose. Three nights is when the Peninsula stops performing and starts settling.</p>
+
+          <blockquote>Two nights is the Peninsula's native rhythm. One lunch that earns the drive, one walk that resets the weekend, one bed that suits the mood.</blockquote>
+
+          <h2>Building the right Peninsula itinerary</h2>
+
+          <h3>The 2-day itinerary (most common)</h3>
+          <p><strong>Day 1 — Wine country.</strong> Arrive mid-morning on the ridge. One cellar door before lunch, a long vineyard lunch, one more cellar door in the afternoon if you're not moving too slowly. Check in to your stay before 5pm. Dinner at the property or somewhere close — nothing that requires a 40-minute drive after wine.</p>
+          <p><strong>Day 2 — Coast.</strong> Morning swim or walk, then south. Sorrento ocean baths for the view, back beach if the swell is up, Cape Schanck if you want the dramatic option. Late lunch before leaving — Flinders or Sorrento are both good choices. Home before the Sunday evening traffic builds on the freeway.</p>
+
+          <h3>The 3-day itinerary</h3>
+          <p>Adds a third day for whatever the 2-day version had to skip. Peninsula Hot Springs works best mid-week (quieter, easier to book). Point Nepean is a full-morning commitment — the fort walk is 8km return — and belongs on a day when you're not also trying to do something else. Mornington town is good for a Saturday morning market run and breakfast before heading south.</p>
+
+          <h3>The 1-night escape</h3>
+          <p>Tight but doable if you pick one clear purpose. The best single-night Peninsula trips are anchored around a specific booking: a cellar door lunch, a hot springs session, or dinner at Tedesca or Ten Minutes by Tractor. Check in late afternoon, do the one thing, sleep, light breakfast, home by midday. Don't try to fit the whole region in — that's a different trip.</p>
+
+          <h3>Seasonal notes</h3>
+          <p>Summer weekends require everything booked weeks in advance. Autumn is the best all-round season: vintage, fires, fewer cars. Winter is the underrated pick — the springs are at their best in the cold, accommodation prices drop, and the Peninsula feels like it's been handed back to the people who actually live here. Spring is reliable for weather and strong for new vintage releases.</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider <span class="ornament">·</span> Escape</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{itineraries.length > 0 && (
+  <section class="escapes" aria-labelledby="all-plans">
+    <div class="container">
+      <div class="escapes__head">
+        <div>
+          <span class="eyebrow eyebrow--ochre">Escape plans <span class="ornament">·</span> sequenced and ready</span>
+          <h2 class="dept__title" id="all-plans" style="margin-top:.5rem;">Peninsula itineraries, built <em>stop by stop</em>.</h2>
+          <p class="dept__dek">Each plan has a named anchor, a sequenced set of stops, and an editor note explaining why the order matters. Not a wishlist — a working trip.</p>
+        </div>
+        <a href={`${base}escape/`} class="well__head-link">All escapes →</a>
+      </div>
+      <div class="escapes__grid">
+        {itineraries.map((it) => (
+          <article class="escape">
+            <div class="escape__image" style={`background-image:url(${resolveImage(it.data.heroImage?.src)});background-size:cover;background-position:center;`}>
+              <span class="escape__image-tag"><strong>{it.data.lengthNights}</strong> night{it.data.lengthNights === 1 ? '' : 's'}</span>
+            </div>
+            <div class="escape__body">
+              <span class="escape__eyebrow">Plan <span class="ornament">·</span> {moodLabel[it.data.mood] ?? titleize(it.data.mood)}</span>
+              <a href={`${base}escape/${routeSlug(it)}/`}><h3 class="escape__title">{it.data.title}</h3></a>
+              <p class="escape__dek">{it.data.dek}</p>
+              <div class="escape__foot">
+                <span>{it.data.stops.length} stops</span>
+                <span class="escape__foot-read">Plan →</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{anchorStays.length > 0 && (
+  <section class="dept" aria-labelledby="anchor-stays">
+    <div class="container">
+      <div class="dept__head">
+        <div class="dept__titles">
+          <span class="eyebrow eyebrow--ochre">Choose the base first</span>
+          <h2 class="dept__title" id="anchor-stays">Stays that <em>change the shape</em> of the trip.</h2>
+          <p class="dept__dek">The right accommodation is the one that positions you for the area you've committed to — not the one with the best photos.</p>
+        </div>
+        <a href={`${base}stay/`} class="well__head-link">All stays →</a>
+      </div>
+      <div class="dept__grid">
+        {anchorStays.map((v) => (
+          <article class="venue">
+            <div class="venue__image" style={`background-image:url(${resolveImage(v.data.heroImage?.src)});background-size:cover;background-position:center;`}>
+              <span class="venue__image-marker">{titleize(v.data.type)}</span>
+            </div>
+            <div class="venue__meta">
+              <span>{titleize(String(v.data.place?.id ?? v.data.place ?? ''))}</span>
+              <span class="venue__meta-sep"></span>
+              <span>{v.data.priceBand}</span>
+            </div>
+            <a href={`${base}stay/${routeSlug(v)}/`}><h3 class="venue__name">{v.data.name}</h3></a>
+            <p class="venue__sig">{v.data.signature}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<NewsletterBlock />
+
+<style is:global>
+  .v2-article-body h2 {
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-feature-settings: 'opsz' 32;
+  }
+  .v2-article-body h3 {
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    margin-top: 2rem;
+    margin-bottom: .75rem;
+  }
+  .v2-article-body p { margin-bottom: 1.2rem; }
+  .v2-article-body blockquote {
+    border-left: 3px solid var(--ochre, #a0612d);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    font-family: var(--serif, 'Newsreader'), serif;
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+  .v2-article-body ul, .v2-article-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .v2-article-body li { margin-bottom: .5rem; }
+  .v2-article-body a {
+    color: var(--ochre, #a0612d);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+</style>
+
+</BaseLayout>

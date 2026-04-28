@@ -1,0 +1,415 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, stayTypes, currentSeason, seasonBlurb, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const venues = (await getCollection('venues'))
+  .filter((venue) => stayTypes.includes(venue.data.type));
+const itineraries = await getCollection('itineraries');
+const places = await getCollection('places');
+
+const season = currentSeason();
+const blurb = seasonBlurb[season];
+
+const featuredStaySlugs = ['jackalope', 'hotel-sorrento', 'flinders-hotel'];
+const featuredStays = featuredStaySlugs
+  .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
+  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const stayHubs = [
+  { href: 'stay/luxury/', label: 'Luxury', sub: 'Design hotels, vineyard villas, refined coastal bases' },
+  { href: 'stay/boutique-hotels/', label: 'Boutique Hotels', sub: 'Character stays in Flinders, Sorrento, and Red Hill' },
+  { href: 'stay/winery-accommodation/', label: 'Winery Accommodation', sub: 'Stay where the long lunch actually happens' },
+  { href: 'stay/couples/', label: 'Couples', sub: 'Stays that properly shape a weekend for two' },
+  { href: 'stay/dog-friendly/', label: 'Dog-Friendly', sub: 'Useful stays when the dog is coming too' },
+  { href: 'stay/glamping/', label: 'Glamping', sub: 'Thermal and experience-led stays' },
+  { href: 'stay/villas/', label: 'Villas', sub: 'Private Peninsula bases with room to breathe' },
+  { href: 'stay/cottages/', label: 'Cottages', sub: 'Slow rural weekends and fireplace logic' },
+  { href: 'stay/resorts/', label: 'Resorts & Retreats', sub: 'Wellness, thermal, and retreat-style stays' },
+  { href: 'stay/where-to-stay-mornington-peninsula/', label: 'Where to Base Yourself', sub: 'How to choose the right Peninsula zone' },
+];
+
+const ridgeZones = ['red-hill-plateau', 'hinterland'];
+const coastZones = ['ocean-coast', 'back-beaches', 'tip'];
+const bayZones = ['bayside'];
+const ridgeStays = venues.filter((venue) => ridgeZones.includes(venue.data.zone));
+const coastStays = venues.filter((venue) => coastZones.includes(venue.data.zone));
+const bayStays = venues.filter((venue) => bayZones.includes(venue.data.zone));
+
+const vineyardStays = venues.filter((venue) => {
+  const moods: string[] = venue.data.tags?.mood ?? [];
+  return moods.includes('cellar-door') || moods.includes('long-lunch') || ridgeZones.includes(venue.data.zone);
+}).slice(0, 6);
+const coastalStays = venues.filter((venue) => {
+  const moods: string[] = venue.data.tags?.mood ?? [];
+  return moods.includes('beach') || moods.includes('waterfront') || coastZones.includes(venue.data.zone);
+}).slice(0, 6);
+const wellnessStays = venues.filter((venue) => {
+  const moods: string[] = venue.data.tags?.mood ?? [];
+  return moods.includes('wellness') || venue.data.type === 'spa';
+}).slice(0, 4);
+
+const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const companionSlugs = [
+  'where-to-stay-for-a-two-night-escape',
+  'the-one-night-escape',
+  'the-vineyard-villa-weekend',
+  'the-thermal-springs-weekend',
+];
+const companionReads = companionSlugs
+  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+
+const placeHighlights = places.filter((place) => ['red-hill', 'sorrento', 'flinders'].includes(routeSlug(place)));
+
+const stayStats = {
+  total: venues.length,
+  ridge: ridgeStays.length,
+  coast: coastStays.length,
+  bay: bayStays.length,
+};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="Where to Stay on the Mornington Peninsula · Peninsula Insider"
+  description="Where to stay on the Mornington Peninsula — hotels, vineyard villas, coastal cottages, and farm stays. Every property visited and reviewed. Prices from $150/night. Updated April 2026."
+  section="stay"
+>
+
+<section class="hero" aria-label="Where to Stay on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <span class="hero__meta-tag">Stay</span>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Hotels <span class="ornament">·</span> Vineyard stays <span class="ornament">·</span> Coastal weekends</span>
+        </div>
+        <h1 class="hero__headline">Choose the base, and the whole <em>weekend</em> changes.</h1>
+        <p class="hero__dek">The Peninsula is a region of different moods packed close together. A Red Hill country-house stay produces a different trip from a Sorrento main-street hotel. This hub sorts the beds by the kind of weekend you actually want.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#editors" class="hero__byline-read">Jump to picks <span style="opacity:.5;margin-left:.3rem;">{stayStats.total} stays</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-sorrento-01.webp`} alt="Vines inland · limestone coast beyond" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Vines inland <span class="ornament">—</span> limestone coast beyond</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="letter-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">How to choose</span>
+        </div>
+        <h2 class="letter__head" id="letter-title">Start with the <em>geography</em>, then pick the room.</h2>
+        <div class="letter__prose">
+          <p>Red Hill suits couples who want vineyard calm and long lunches nearby. Sorrento works when you want the social theatre of the tip and late light on the coast. Flinders is the quieter southern reset, better for one-night decompressions and ocean weather.</p>
+          <p>{blurb.line}</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill plateau">
+        <figcaption class="letter__image-cap">The ridge <em>— autumn, the quiet version.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+{featuredStays.length > 0 && (
+  <section class="shortlist" id="editors" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="shortlist__frame">
+        <div class="shortlist__intro">
+          <span class="eyebrow eyebrow--ochre">Editor's Picks</span>
+          <h2 id="featured-title">Three stays worth <em>planning</em> the trip around.</h2>
+          <p class="shortlist__intro-body">From design-hotel spectacle to quieter village-hotel weekends — the rooms that change what the trip feels like.</p>
+          <a href={`${base}journal/where-to-stay-for-a-two-night-escape/`} class="shortlist__intro-link">Editor's stay guide
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+          </a>
+        </div>
+        <ol class="shortlist__list" style="list-style:none;">
+          {featuredStays.map((v, i) => {
+            const data = v.data;
+            const hats = data.authority?.hats ?? 0;
+            const num = String(i + 1).padStart(2, '0');
+            const place = placeLabel(data.place);
+            const type = typeLabel[data.type] ?? data.type;
+            return (
+              <li class="sl-item">
+                <span class="sl-item__num">{num}</span>
+                <div class="sl-item__body">
+                  <div class="sl-item__meta">
+                    <span>{place}</span>
+                    <span class="sl-item__meta-sep"></span>
+                    <span>{type}</span>
+                    <span class="sl-item__meta-sep"></span>
+                    <span>{data.priceBand}</span>
+                  </div>
+                  <a href={`${base}stay/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                  <p class="sl-item__why">{data.signature}</p>
+                  {hats > 0 && (
+                    <div class="sl-item__tags">
+                      <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>
+                    </div>
+                  )}
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="dept" aria-labelledby="hubs-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Department <span class="ornament">·</span> I</span>
+        <h2 class="dept__title" id="hubs-title">Browse by <em>stay type</em>.</h2>
+        <p class="dept__dek">Start with the kind of Peninsula weekend you want, then move into the right properties and zones.</p>
+      </div>
+    </div>
+    <div class="dept__grid">
+      {stayHubs.map((hub) => (
+        <article class="venue">
+          <div class="venue__meta"><span>Guide</span></div>
+          <a href={`${base}${hub.href}`}><h3 class="venue__name">{hub.label}</h3></a>
+          <p class="venue__sig">{hub.sub}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+{vineyardStays.length > 0 && (
+  <section class="dept" id="vineyard" aria-labelledby="vineyard-title">
+    <div class="container">
+      <div class="dept__head">
+        <div class="dept__titles">
+          <span class="eyebrow eyebrow--ochre">Department <span class="ornament">·</span> II</span>
+          <h2 class="dept__title" id="vineyard-title">Vineyard <em>weekends</em>.</h2>
+          <p class="dept__dek">{stayStats.ridge} stays that make the Red Hill version of the Peninsula hold together — close to cellar doors, built for pinot pacing.</p>
+        </div>
+        <a href={`${base}wine/`} class="well__head-link">Wine country →</a>
+      </div>
+      <div class="dept__grid">
+        {vineyardStays.map((v) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const hero = data.heroImage?.src;
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          return (
+            <article class="venue">
+              <div class="venue__image" style={hero ? `background-image:url(${hero});background-size:cover;background-position:center;` : ''}>
+                <span class="venue__image-marker">{type}</span>
+                {hats > 0 && <span class="venue__image-hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+              </div>
+              <div class="venue__meta">
+                <span>{place}</span>
+                <span class="venue__meta-sep"></span>
+                <span>{data.priceBand}</span>
+              </div>
+              <a href={`${base}stay/${routeSlug(v)}/`}><h3 class="venue__name">{data.name}</h3></a>
+              <p class="venue__sig">{data.signature}</p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+{coastalStays.length > 0 && (
+  <section class="dept" id="coastal" aria-labelledby="coastal-title">
+    <div class="container">
+      <div class="dept__head">
+        <div class="dept__titles">
+          <span class="eyebrow eyebrow--ochre">Department <span class="ornament">·</span> III</span>
+          <h2 class="dept__title" id="coastal-title">Coastal <em>weekends</em>.</h2>
+          <p class="dept__dek">{stayStats.coast} rooms that put you near limestone, open water, and the quieter southern end of the region.</p>
+        </div>
+        <a href={`${base}places/sorrento/`} class="well__head-link">Sorrento hub →</a>
+      </div>
+      <div class="dept__grid">
+        {coastalStays.map((v) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const hero = data.heroImage?.src;
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          return (
+            <article class="venue">
+              <div class="venue__image" style={hero ? `background-image:url(${hero});background-size:cover;background-position:center;` : ''}>
+                <span class="venue__image-marker">{type}</span>
+                {hats > 0 && <span class="venue__image-hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+              </div>
+              <div class="venue__meta">
+                <span>{place}</span>
+                <span class="venue__meta-sep"></span>
+                <span>{data.priceBand}</span>
+              </div>
+              <a href={`${base}stay/${routeSlug(v)}/`}><h3 class="venue__name">{data.name}</h3></a>
+              <p class="venue__sig">{data.signature}</p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+{wellnessStays.length > 0 && (
+  <section class="dept" id="wellness" aria-labelledby="wellness-title">
+    <div class="container">
+      <div class="dept__head">
+        <div class="dept__titles">
+          <span class="eyebrow eyebrow--ochre">Department <span class="ornament">·</span> IV</span>
+          <h2 class="dept__title" id="wellness-title">Wellness <em>&amp;</em> retreats.</h2>
+          <p class="dept__dek">Springs, spa cabins, and farm-stay beds for the weekend that has to do more with less.</p>
+        </div>
+        <a href={`${base}journal/the-thermal-springs-weekend/`} class="well__head-link">Thermal springs guide →</a>
+      </div>
+      <div class="dept__grid">
+        {wellnessStays.map((v) => {
+          const data = v.data;
+          const hero = data.heroImage?.src;
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          return (
+            <article class="venue">
+              <div class="venue__image" style={hero ? `background-image:url(${hero});background-size:cover;background-position:center;` : ''}>
+                <span class="venue__image-marker">{type}</span>
+              </div>
+              <div class="venue__meta">
+                <span>{place}</span>
+                <span class="venue__meta-sep"></span>
+                <span>{data.priceBand}</span>
+              </div>
+              <a href={`${base}stay/${routeSlug(v)}/`}><h3 class="venue__name">{data.name}</h3></a>
+              <p class="venue__sig">{data.signature}</p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="dept" id="all" aria-labelledby="all-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">All stays</span>
+        <h2 class="dept__title" id="all-title">Every bed currently <em>mapped</em>.</h2>
+        <p class="dept__dek">From hotel to cottage. {blurb.line}</p>
+      </div>
+    </div>
+    <div class="dept__grid">
+      {venues.map((v) => {
+        const data = v.data;
+        const hats = data.authority?.hats ?? 0;
+        const hero = data.heroImage?.src;
+        const place = placeLabel(data.place);
+        const type = typeLabel[data.type] ?? data.type;
+        return (
+          <article class="venue">
+            <div class="venue__image" style={hero ? `background-image:url(${hero});background-size:cover;background-position:center;` : ''}>
+              <span class="venue__image-marker">{type}</span>
+              {hats > 0 && <span class="venue__image-hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+            </div>
+            <div class="venue__meta">
+              <span>{place}</span>
+              <span class="venue__meta-sep"></span>
+              <span>{data.priceBand}</span>
+            </div>
+            <a href={`${base}stay/${routeSlug(v)}/`}><h3 class="venue__name">{data.name}</h3></a>
+            <p class="venue__sig">{data.signature}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+{companionReads.length > 0 && (
+  <section class="well" aria-labelledby="reads-title">
+    <div class="container">
+      <div class="well__head">
+        <div>
+          <span class="eyebrow eyebrow--ochre">From the Journal</span>
+          <h2 class="well__head-title" id="reads-title" style="margin-top:.5rem;">Read the stay logic <em>before</em> you book.</h2>
+        </div>
+        <a href={`${base}journal/`} class="well__head-link">Journal →</a>
+      </div>
+      <div class="well__grid">
+        {companionReads.map((article, i) => (
+          <article class={`feat ${i === 0 ? 'feat--lead' : 'feat--std'}`}>
+            {article.data.heroImage?.src && (
+              <img class="feat__image" src={article.data.heroImage.src} alt={article.data.title}>
+            )}
+            <div class="feat__body">
+              <div class="feat__eyebrow">Journal <span class="ornament">—</span> Stay</div>
+              <a href={`${base}journal/${routeSlug(article)}/`}><h3 class="feat__title">{article.data.title}</h3></a>
+              <p class="feat__excerpt">{article.data.excerpt ?? article.data.description ?? ''}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{placeHighlights.length > 0 && (
+  <section class="places" aria-labelledby="places-title">
+    <div class="container">
+      <div class="places__head">
+        <div>
+          <span class="eyebrow eyebrow--ochre">Choose the district</span>
+          <h2 class="dept__title" id="places-title" style="margin-top:.5rem;">Browse stays through the <em>places</em> they belong to.</h2>
+        </div>
+        <a href={`${base}places/`} class="well__head-link">All places →</a>
+      </div>
+      <div class="places__grid">
+        {placeHighlights.map((place) => {
+          const hero = place.data.heroImage?.src;
+          return (
+            <a href={`${base}places/${routeSlug(place)}/`} class="place">
+              <div class="place__image" style={hero ? `background-image:url(${hero});` : ''}></div>
+              <div class="place__name">{place.data.name}</div>
+              <div class="place__count">View stays →</div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+<NewsletterBlock />
+</BaseLayout>

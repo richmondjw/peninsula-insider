@@ -1,0 +1,256 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+
+const longLunchSlugs = [
+  'montalto', 'laura-pt-leo', 'polperro', 'pt-leo-estate',
+  'paringa-estate', 'ten-minutes-by-tractor', 'foxeys-hangout', 'barragunda-dining',
+  'port-phillip-estate', 'red-hill-estate'
+];
+
+const venues = longLunchSlugs
+  .map(s => allVenues.find(v => routeSlug(v) === s))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Long Lunch Mornington Peninsula',
+  description: 'The best long lunch venues on the Mornington Peninsula — vineyard restaurants with the ambition to carry a whole afternoon.',
+  url: 'https://peninsulainsider.com.au/eat/long-lunch/',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+      { '@type': 'ListItem', position: 2, name: 'Eat & Drink', item: 'https://peninsulainsider.com.au/eat/' },
+      { '@type': 'ListItem', position: 3, name: 'Long Lunch', item: 'https://peninsulainsider.com.au/eat/long-lunch/' },
+    ],
+  },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: v.data.name,
+      url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    })),
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best long lunch on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Montalto (Red Hill South) is the most complete long lunch estate on the Peninsula — sculpture trail, kitchen garden, walk-in Piazza option, and a main restaurant that earns a GFG hat. For the most celebrated destination lunch, Laura at Pt. Leo Estate (Merricks) holds two GFG hats and books four months in advance.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need to book a long lunch on the Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most serious long lunch venues require bookings weeks or months ahead on weekends. Walk-in alternatives: Montalto\'s Piazza (daily, 11am–5pm), Foxeys Hangout (no bookings, max group 6), and Rare Hare at Willow Creek (walk-in from 2pm weekends). Book all hatted venues as early as possible.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the best time to visit the Mornington Peninsula for a long lunch?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Autumn (March to May) is the strongest season. Vintage is running on the ridge, the summer crowds have thinned, and the best tables are actually bookable. Spring is a close second — new menus, release wines, and strong light from early afternoon. Winter long lunches with fires lit are underrated.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which long lunch venues are dog-friendly on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Foxeys Hangout (Red Hill) permits dogs in outdoor areas. Many Little Bar & Dining (Red Hill South) has dog-friendly outdoor seating. Green Olive at Red Hill is dog-friendly in the garden. Most cellar door restaurants do not permit dogs — check directly with the venue before you go.' },
+    },
+  ],
+};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="Long Lunch Mornington Peninsula · Peninsula Insider"
+  description="The best long lunch venues on the Mornington Peninsula — vineyard restaurants with hatted kitchens, estate wine, and enough ambition to carry a whole afternoon."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/long-lunch/"
+  modifiedTime="2026-04-24"
+>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="hero" aria-label="The Long Lunch on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}eat/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Eat &amp; Drink</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Long Lunch <span class="ornament">—</span> Updated April 2026</span>
+        </div>
+        <h1 class="hero__headline">The long <em>lunch</em> on the Mornington Peninsula.</h1>
+        <p class="hero__dek">Two to three hours at the table. Estate wine from the vineyard outside, produce grown within five kilometres, and a rhythm that makes the city feel rushed.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#rankings" class="hero__byline-read">Jump to the list <span style="opacity:.5;margin-left:.3rem;">{venues.length} rooms</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Peninsula long lunch — vineyard afternoon" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Red Hill <span class="ornament">—</span> the vineyard afternoon, the Peninsula's defining format</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="intro-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Letter</span>
+        </div>
+        <h2 class="letter__head" id="intro-title">The Peninsula's <em>defining format</em>.</h2>
+        <div class="letter__prose">
+          <p>The long lunch is the Peninsula's defining dining format. A two-to-three-hour table, estate wine from the vineyard outside, produce grown within five kilometres, and an unhurried service rhythm that makes a Melbourne city restaurant feel rushed by comparison. The Peninsula does this better than almost anywhere else in Victoria.</p>
+
+          <p>The strongest version of the long lunch here is built around a vineyard restaurant with a hatted kitchen — a room serious enough to justify the drive, with wine and food working together rather than in parallel. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the obvious landmarks. Below them, a second tier of rooms doing honest, seasonal work without the fanfare: Paringa Estate's garden dining, Port Phillip Estate's panoramic rammed-earth room, and Foxeys Hangout's no-bookings, biodynamic outdoor setting.</p>
+
+          <blockquote class="pullquote">Arrive before noon to get the full arc of the afternoon. Allow three hours at the table and plan nothing afterwards that requires energy.</blockquote>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Last fact-verified 23 April 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/home-cover.webp`} alt="Peninsula vineyard afternoon">
+        <figcaption class="letter__image-cap">The vineyard afternoon — <em>three hours at the table, nothing afterwards that requires energy.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" id="rankings" aria-labelledby="shortlist-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">The Shortlist</span>
+        <h2 id="shortlist-title">{venues.length} rooms that <em>carry the whole afternoon</em>.</h2>
+        <p class="shortlist__intro-body">Ordered by editorial authority. Hatted rooms first, then the places doing the strongest quiet work below them.</p>
+      </div>
+
+      <ol class="shortlist__list" style="list-style:none;">
+        {venues.map((v, i) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const num = String(i + 1).padStart(2, '0');
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          const allTags = [
+            ...(data.tags?.mood ?? []),
+            ...(data.tags?.audience ?? []),
+          ].slice(0, 3);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}eat/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="letter__frame" style="display:block;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Frequently Asked</span>
+        </div>
+        <h2 class="letter__head" id="faq-title">The <em>questions</em> we get asked.</h2>
+        <div class="letter__prose">
+          <p><strong>What is the best long lunch on the Mornington Peninsula?</strong><br>Montalto (Red Hill South) is the most complete estate: sculpture trail, kitchen garden, and a walk-in Piazza option alongside the hatted main restaurant. For destination dining, Laura at Pt. Leo Estate (Merricks) holds two GFG hats and books four months in advance.</p>
+
+          <p><strong>Do I need to book?</strong><br>Most serious long lunch venues require bookings weeks or months ahead on weekends. Walk-in alternatives: Montalto's Piazza (daily, 11am–5pm), Foxeys Hangout (no bookings accepted), and Rare Hare at Willow Creek (walk-in from 2pm weekends).</p>
+
+          <p><strong>When is the best time for a Peninsula long lunch?</strong><br>Autumn is the strongest season. Vintage is running, the summer crowds have thinned, and the best tables are bookable. Spring is a close second. Winter long lunches with fires lit in cellar door rooms are underrated.</p>
+
+          <p><strong>Which long lunch venues are dog-friendly?</strong><br>Foxeys Hangout and Green Olive at Red Hill are dog-friendly in outdoor areas. Many Little has dog-friendly outdoor seating. Most cellar door restaurants do not permit dogs — check directly before you go.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="related-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Keep planning</span>
+        <h2 class="dept__title" id="related-title">Related <em>guides</em>.</h2>
+      </div>
+      <a href={`${base}eat/`} class="well__head-link">All Eat &amp; Drink →</a>
+    </div>
+    <div class="dept__grid">
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-mornington-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/cellar-door-lunch/`}><h3 class="venue__name">Cellar Door Lunch</h3></a>
+        <p class="venue__sig">The winery experience with a kitchen — estate wine, estate produce, no city-strip noise.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-red-hill-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/hatted-restaurants/`}><h3 class="venue__name">Hatted Restaurants</h3></a>
+        <p class="venue__sig">The complete Good Food Guide hat list with booking realities and what each restaurant actually is.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/home-cover.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Journal</span>
+        </div>
+        <div class="venue__meta"><span>Guide</span></div>
+        <a href={`${base}journal/the-long-lunch/`}><h3 class="venue__name">The Long Lunch Guide</h3></a>
+        <p class="venue__sig">How to build the right long lunch day — timing, sequencing, and what to avoid.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

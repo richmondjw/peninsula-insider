@@ -1,0 +1,32 @@
+---
+export interface Props {
+  issueMark?: string;
+  issueLabel?: string;
+}
+const {
+  issueMark = 'Vol 04',
+  issueLabel = 'The Autumn Issue · April 2026',
+} = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+<div class="util">
+  <div class="container">
+    <div class="util__inner">
+      <span class="util__issue">
+        <span class="util__issue-mark">{issueMark}</span>
+        <span set:html={issueLabel} />
+      </span>
+      <div class="util__now">
+        <span><strong>Port Phillip</strong> 16°C</span>
+        <span><strong>Sunset</strong> 5:48 pm</span>
+        <span><strong>Next dispatch</strong> Wed 6 pm</span>
+      </div>
+      <div class="util__links">
+        <a href="#newsletter">Subscribe</a>
+        <a href={`${base}about/`}>About</a>
+      </div>
+    </div>
+  </div>
+</div>

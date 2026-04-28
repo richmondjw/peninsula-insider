@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const courses = [
+  { rank: 1, name: 'St Andrews Beach Golf Course', place: 'Fingal', access: 'Public', note: 'Tom Doak-designed links, ranked in the world top 100 by every serious publication that ranks them. The strongest public-access round on the Peninsula by a considerable margin. Book online; 3–4 weeks ahead for weekends.' },
+  { rank: 2, name: 'The National Golf Club', place: 'Cape Schanck', access: 'Private', note: 'Australia\'s best 54-hole property. Three courses across a serious property. Member-only or member-guest; not part of most weekend plans unless you have a connection.' },
+  { rank: 3, name: 'The Dunes', place: 'Rye', access: 'Public', note: 'Serious coastal links character, bookable online without a member connection. Consistently strong in the national rankings. The right second choice when St Andrews Beach is booked out.' },
+  { rank: 4, name: 'Moonah Links', place: 'Fingal', access: 'Public', note: '36 holes including the Open Course — genuinely tournament-standard. Hosts the Victorian Open. The better choice for golfers who want two rounds in a weekend without repeating a course.' },
+  { rank: 5, name: 'Cape Schanck Golf Course (RACV)', place: 'Cape Schanck', access: 'Public', note: 'The resort course at RACV Cape Schanck. Drops towards Bass Strait with dramatic coastal holes. Strong for a group staying onsite or combining with the spa and walking corridor.' },
+  { rank: 6, name: 'Rosebud Country Club', place: 'Rosebud', access: 'Public', note: 'Two courses at a serious Peninsula club. Strong mid-tier public option — less dramatic than the coastal links, more forgiving for casual rounds.' },
+  { rank: 7, name: 'Eagle Ridge', place: 'Boneo', access: 'Public', note: 'Flatter, more forgiving course. The right choice for mixed-ability groups or for golfers wanting a reliable round without the coastal-links exposure.' },
+  { rank: 8, name: 'Mornington Golf Club', place: 'Mornington', access: 'Public', note: 'The closest Peninsula course to Melbourne. Works well for a round before lunch in Mornington town. Less distinctive than the southern courses but genuinely useful.' },
+  { rank: 9, name: 'Flinders Golf Club', place: 'Flinders', access: 'Public', note: 'Clifftop course overlooking Bass Strait. Shorter than the links courses but with some of the Peninsula\'s most dramatic views on a coastal hole.' },
+  { rank: 10, name: 'Portsea Golf Club', place: 'Portsea', access: 'Public', note: 'At the tip of the Peninsula. Less prestigious than the coastal links of Fingal and Rye, but a pleasant course for a round combined with lunch at Portsea Hotel.' },
+  { rank: 11, name: 'Sorrento Golf Club', place: 'Sorrento', access: 'Public (restricted)', note: 'A compact coastal club. Access rules vary; check before booking. Best for golfers basing themselves in Sorrento who want a walk-distance round.' },
+];
+---
+
+<BaseLayout
+  title="Best Golf Courses on the Mornington Peninsula — Peninsula Insider"
+  description="The Peninsula's golf courses, ranked. St Andrews Beach, Moonah Links, The Dunes, The National — public access and private, honest access notes and pairing suggestions."
+  section="golf"
+  ogImage="/images/sourced/golf-rye-sunrise-01.webp"
+>
+
+  <section class="hero" aria-label="Golf cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}golf/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Golf</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">11 courses <span class="ornament">·</span> public and private</span>
+          </div>
+          <h1 class="hero__headline">The Peninsula golf guide.</h1>
+          <p class="hero__dek">World-ranked public access. Serious course architecture. Hot springs fifteen minutes away. Australia's most complete golf destination for a weekend that still works for non-golfers.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/golf-rye-sunrise-01.webp`} alt="Peninsula golf" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Coastal links <span class="ornament">—</span> Rye &amp; Fingal</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The editor's note</span>
+        </div>
+        <h2 class="letter__head">Why this list matters.</h2>
+        <div class="letter__prose">
+          <p>Australia has world-class golf; very little of it is genuinely public access. The Peninsula is the exception. St Andrews Beach is bookable online, consistently listed in the world top 100, and you do not need a member connection to play it. The Dunes, Moonah Links, and Cape Schanck RACV similarly accept public bookings at courses that would be private clubs in most other markets.</p>
+          <p>We do not publish green fees — they change, pricing tiers shift, and dynamic pricing has arrived. Check course websites directly before booking. Weekends at the top courses book 3–4 weeks ahead; the most-referenced times (Saturday morning at St Andrews Beach) book further out still.</p>
+          <blockquote class="pullquote">World top-100, bookable online. Do not take that for granted.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shortlist" aria-labelledby="courses-title">
+    <div class="container">
+      <div class="shortlist__head">
+        <span class="eyebrow eyebrow--ochre">The ranking</span>
+        <h2 class="shortlist__title" id="courses-title">Eleven courses, <em>honestly ranked</em>.</h2>
+      </div>
+      <ol class="sl-list">
+        {courses.map(c => (
+          <li class="sl-item">
+            <div class="sl-item__rank">{String(c.rank).padStart(2, '0')}</div>
+            <div class="sl-item__body">
+              <div class="sl-item__head">
+                <h3 class="sl-item__name">{c.name}</h3>
+                <span class="sl-item__meta">{c.place} <span class="ornament">·</span> {c.access}</span>
+              </div>
+              <p class="sl-item__note">{c.note}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Public access matrix</span>
+        </div>
+        <h2 class="letter__head">Booking access, summarised.</h2>
+        <div class="letter__prose">
+          <p><strong>Public-access, world-ranked:</strong> St Andrews Beach. The rare combination.</p>
+          <p><strong>Public-access, serious architecture:</strong> The Dunes, Moonah Links (Open Course), Cape Schanck (RACV).</p>
+          <p><strong>Public-access, reliable:</strong> Rosebud Country Club, Eagle Ridge, Mornington Golf Club, Flinders, Portsea, Sorrento.</p>
+          <p><strong>Private / member-guest only:</strong> The National Golf Club.</p>
+          <p>Most public courses accept online bookings directly through the course website. For weekend mornings in peak season (October–April), book three to four weeks ahead; for the flagship courses, plan further out. Winter weekends are almost always available at short notice — and links courses like St Andrews Beach drain faster than inland courses, staying open when others close.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

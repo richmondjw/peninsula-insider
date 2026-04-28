@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['point-leo-estate-villas','polperro-villas','crittenden-villas','sorrento-coastal-retreat'];
+const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="Villas Mornington Peninsula · Peninsula Insider"
+  description="The best villa stays on the Mornington Peninsula, including vineyard villas and refined coastal retreats."
+  section="stay"
+>
+
+<section class="hero" aria-label="Villa Stays on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}stay/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Stay</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Villas <span class="ornament">—</span> {new Date().getFullYear()}</span>
+        </div>
+        <h1 class="hero__headline">Villa stays on the <em>Mornington Peninsula</em>.</h1>
+        <p class="hero__dek">Less about scale than privacy, setting, and how well they carry a long weekend. The stay should hold the trip together without forcing hotel behaviour.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#rankings" class="hero__byline-read">Jump to the list <span style="opacity:.5;margin-left:.3rem;">{venues.length} villas</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill vineyards" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Red Hill &amp; Merricks <span class="ornament">—</span> villa country</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="methodology-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Note</span>
+        </div>
+        <h2 class="letter__head" id="methodology-title">Privacy, setting, <em>duration</em>.</h2>
+        <div class="letter__prose">
+          <p>The Peninsula's best villa stays are less about scale than privacy, setting, and how well they carry a long weekend. Vineyard villas in Merricks and Red Hill work differently from coastal villas in Sorrento, but the principle is the same: the stay should hold the trip together without forcing hotel behaviour onto a trip that wants more room to breathe.</p>
+          <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/place-sorrento-01.webp`} alt="Sorrento coast">
+        <figcaption class="letter__image-cap">Sorrento coast <em>— villa-by-the-sea territory.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" id="rankings" aria-labelledby="shortlist-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">The Shortlist</span>
+        <h2 id="shortlist-title">{venues.length} villa bases worth booking <em>well</em>.</h2>
+        <p class="shortlist__intro-body">Private, slower, and strongest when the trip needs more than a room and a lobby.</p>
+        <a href={`${base}stay/winery-accommodation/`} class="shortlist__intro-link">Wine-country stays
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {venues.map((v, i) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const num = String(i + 1).padStart(2, '0');
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          const allTags = [
+            ...(data.tags?.mood ?? []),
+            ...(data.tags?.audience ?? []),
+          ].slice(0, 3);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}stay/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

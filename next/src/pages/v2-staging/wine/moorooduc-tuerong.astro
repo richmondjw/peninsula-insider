@@ -1,0 +1,162 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { buildItemListSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { routeSlug } from '../../../lib/editorial';
+
+const SITE = 'https://peninsulainsider.com.au';
+const canonical = `${SITE}/wine/moorooduc-tuerong/`;
+
+const wineTypes = ['winery', 'producer'];
+const allVenues = await getCollection('venues');
+const venues = allVenues
+  .filter(
+    (v) =>
+      wineTypes.includes(v.data.type) &&
+      (v.data.place === 'moorooduc' ||
+        v.data.place === 'tuerong' ||
+        (v.data as any).subregion === 'moorooduc' ||
+        (v.data as any).subregion === 'tuerong')
+  )
+  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const itemListSchema = buildItemListSchema({
+  name: 'Moorooduc and Tuerong wineries — Mornington Peninsula',
+  description: 'The cellar doors of Moorooduc and Tuerong — the warmer, bay-side subregions of the Mornington Peninsula wine region.',
+  listPath: '/wine/moorooduc-tuerong',
+  items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
+});
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: SITE },
+  { name: 'Wine Country', url: `${SITE}/wine` },
+  { name: 'Moorooduc & Tuerong', url: canonical },
+]);
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="Moorooduc & Tuerong Wineries · Mornington Peninsula · Peninsula Insider"
+  description="Moorooduc and Tuerong are the warmer bay-facing subregions of the Mornington Peninsula wine region, home to Yabby Lake, Dromana Estate, and Moorooduc Estate."
+  section="wine"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<section class="hero" aria-label="Moorooduc and Tuerong wineries">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <span class="hero__meta-tag">Wine Country</span>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Subregion <span class="ornament">·</span> Moorooduc &amp; Tuerong</span>
+        </div>
+        <h1 class="hero__headline">Moorooduc &amp; Tuerong <em>wineries</em>.</h1>
+        <p class="hero__dek">The warmer bay-facing subregions of the Mornington Peninsula wine region — home to Yabby Lake, Dromana Estate, and Moorooduc Estate.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Editors</strong></span>
+        </div>
+      </div>
+      <figure>
+        <div class="hero__image ph ph-vine" role="img" aria-label="Moorooduc vineyard"></div>
+        <figcaption class="hero__image-cap">
+          <span>Moorooduc &amp; Tuerong <span class="ornament">—</span> the bay-facing corridor</span>
+          <span>{venues.length} cellar door{venues.length !== 1 ? 's' : ''}</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="mt-letter">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Note</span>
+        </div>
+        <h2 class="letter__head" id="mt-letter">A good entry point for <em>first-time</em> visitors.</h2>
+        <div class="letter__prose">
+          <p>Moorooduc and Tuerong occupy the north-facing slopes above Port Phillip Bay — lower altitude than the Red Hill plateau and appreciably warmer. The bay moderates temperatures; the soils here are lighter and better-drained than the heavy clays of the interior.</p>
+          <blockquote class="pullquote">Yabby Lake is the prestige name — its single-vineyard Pinot Noirs attract serious collector interest.</blockquote>
+          <p>The result is Pinot Noir and Chardonnay that's approachable earlier than the cooler subregions, with riper fruit expression and rounder textures. Dromana Estate and Moorooduc Estate represent the solid, consistent mid-tier.</p>
+          <p>Cellar doors in this corridor are generally more accessible from Melbourne and open more regularly than the plateau producers — a good entry point for first-time Peninsula visitors.</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider · Wine</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <div class="letter__image ph ph-vine" role="img" aria-label="Bay-facing vines"></div>
+        <figcaption class="letter__image-cap">North-facing slopes above Port Phillip Bay — <em>riper fruit, rounder textures</em>.</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+{venues.length > 0 && (
+  <section class="dept" aria-labelledby="mt-producers">
+    <div class="container">
+      <div class="dept__head">
+        <div class="dept__titles">
+          <span class="eyebrow eyebrow--ochre">Editorial ranking · {new Date().getFullYear()}</span>
+          <h2 class="dept__title" id="mt-producers">{venues.length} producer{venues.length !== 1 ? 's' : ''} in <em>Moorooduc &amp; Tuerong</em>.</h2>
+          <p class="dept__dek">Ordered by editorial authority and Halliday score.</p>
+        </div>
+        <a href={`${base}wine/`} class="well__head-link">All producers
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+      <div class="dept__grid">
+        {venues.map((venue) => {
+          const placeLabel = String(venue.data.place?.id ?? venue.data.place ?? '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+          const hats = venue.data.authority?.hats ?? 0;
+          return (
+            <article class="venue">
+              <div class="venue__image ph ph-vine" role="img" aria-label={venue.data.name}>
+                <span class="venue__image-marker">Winery</span>
+                {hats > 0 && <span class="venue__image-hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+              </div>
+              <div class="venue__meta">
+                <span>{placeLabel}</span>
+                {venue.data.priceBand && <><span class="venue__meta-sep"></span><span>{venue.data.priceBand}</span></>}
+              </div>
+              <a href={`${base}wine/${routeSlug(venue)}/`}><h3 class="venue__name">{venue.data.name}</h3></a>
+              <p class="venue__sig">{venue.data.signature}</p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="letter" aria-labelledby="mt-faq">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body" style="grid-column: 1 / -1;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Frequently asked</span>
+        </div>
+        <h2 class="letter__head" id="mt-faq">Questions on <em>Moorooduc &amp; Tuerong</em>.</h2>
+        <div class="letter__prose">
+          <h3>Is Yabby Lake worth visiting?</h3>
+          <p>Yes. Yabby Lake is one of the most consistently awarded estates on the Peninsula — the Block 1 and Block 6 single-vineyard Pinots appear regularly on lists of Victoria's finest. The cellar door is by appointment; book ahead. The tasting includes access to library vintages on request.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

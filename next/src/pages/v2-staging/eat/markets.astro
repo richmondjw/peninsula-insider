@@ -1,0 +1,192 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const venues=(await getCollection('venues')).filter(v=>v.data.type==='market').sort((a,b)=>(a.data.name??'').localeCompare(b.data.name??''));
+
+const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'Best Markets Mornington Peninsula',description:'The best food markets on the Mornington Peninsula — Red Hill Market, Mornington Farmers\' Market, and the seasonal produce markets worth planning a Saturday around.',url:'https://peninsulainsider.com.au/eat/markets/',breadcrumb:{'@type':'BreadcrumbList',itemListElement:[{position:1,name:'Home',item:'https://peninsulainsider.com.au/'},{position:2,name:'Eat & Drink',item:'https://peninsulainsider.com.au/eat/'},{position:3,name:'Markets',item:'https://peninsulainsider.com.au/eat/markets/'}].map(e=>({'@type':'ListItem',...e}))},mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListOrderDescending',numberOfItems:venues.length,itemListElement:venues.map((v,i)=>({'@type':'ListItem',position:i+1,name:v.data.name,url:`https://peninsulainsider.com.au/eat/${routeSlug(v)}/`}))}};
+const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'What is the best market on the Mornington Peninsula?',acceptedAnswer:{'@type':'Answer',text:'Red Hill Market (Red Hill Showgrounds, first Saturday of the month) is the Peninsula\'s largest and most established market — produce, local food, artisan goods, and a good coffee scene on-site. Mornington Farmers\' Market (Craig\'s Reserve, Mornington, every Wednesday) is the best for fresh local produce — smaller, focused, and less tourist-facing.'}},{'@type':'Question',name:'When is Red Hill Market?',acceptedAnswer:{'@type':'Answer',text:'Red Hill Market runs on the first Saturday of every month at the Red Hill Showgrounds. Gates open 8am, most stalls wind down by 1pm. Arrive by 9am for the best produce selection. Dogs are welcome on leashes.'}},{'@type':'Question',name:'Are Peninsula markets dog-friendly?',acceptedAnswer:{'@type':'Answer',text:'Red Hill Market (leashed dogs welcome), Balnarring Farmers\' Market (usually dog-friendly outdoors), and Mornington Farmers\' Market (outdoor area, generally dog-friendly) are the main dog-welcoming markets. Verify current policy directly before visiting.'}}]};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="Best Markets Mornington Peninsula · Peninsula Insider"
+  description="The best food markets on the Mornington Peninsula — Red Hill Market on the first Saturday, Mornington Farmers' Market every Wednesday, and seasonal produce worth the detour."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/markets/"
+  modifiedTime="2026-04-24"
+>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="hero" aria-label="Best Markets on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}eat/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Eat &amp; Drink</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Markets <span class="ornament">—</span> Updated April 2026</span>
+        </div>
+        <h1 class="hero__headline">Best <em>markets</em> on the Mornington Peninsula.</h1>
+        <p class="hero__dek">Red Hill on the first Saturday, Mornington every Wednesday, Balnarring seasonally — the three Peninsula food markets worth planning a morning around.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#rankings" class="hero__byline-read">Jump to the list <span style="opacity:.5;margin-left:.3rem;">{venues.length} markets</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill Market — the Peninsula's largest" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Red Hill Showgrounds <span class="ornament">—</span> the first Saturday of every month</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="intro-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Letter</span>
+        </div>
+        <h2 class="letter__head" id="intro-title">Three markets, <em>three characters</em>.</h2>
+        <div class="letter__prose">
+          <p>The Peninsula has three established food markets, each with a different character. Red Hill Market is the one worth planning a morning around — a large monthly market on the first Saturday of the month at Red Hill Showgrounds, with Peninsula produce, artisan food, and a coffee and brunch scene that makes the visit feel like an event rather than a shopping errand.</p>
+
+          <p>Mornington Farmers' Market runs every Wednesday at Craig's Reserve and is the best option for fresh local produce during the week — smaller, more focused, and less tourist-facing than Red Hill. Balnarring Farmers' Market is the most genuinely local of the three — a village-scale market with strong produce and a relaxed pace.</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Last fact-verified 23 April 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/home-cover.webp`} alt="Peninsula market morning">
+        <figcaption class="letter__image-cap">The Peninsula market morning — <em>first Saturday of the month at Red Hill.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" id="rankings" aria-labelledby="shortlist-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">The Shortlist</span>
+        <h2 id="shortlist-title">All {venues.length} Peninsula <em>food markets</em>.</h2>
+        <p class="shortlist__intro-body">Red Hill on the first Saturday, Mornington every Wednesday, Balnarring seasonally.</p>
+      </div>
+
+      <ol class="shortlist__list" style="list-style:none;">
+        {venues.map((v, i) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const num = String(i + 1).padStart(2, '0');
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          const allTags = [
+            ...(data.tags?.mood ?? []),
+            ...(data.tags?.audience ?? []),
+          ].slice(0, 3);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}eat/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="letter__frame" style="display:block;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Frequently Asked</span>
+        </div>
+        <h2 class="letter__head" id="faq-title">The <em>questions</em> we get asked.</h2>
+        <div class="letter__prose">
+          <p><strong>Best market on the Mornington Peninsula?</strong><br>Red Hill Market (first Saturday of the month, Red Hill Showgrounds). Mornington Farmers' Market (every Wednesday, Craig's Reserve) for weekday produce. Balnarring for the most local village-scale experience.</p>
+
+          <p><strong>When is Red Hill Market?</strong><br>First Saturday of every month. Gates open 8am, most stalls wind down by 1pm. Arrive by 9am for best produce. Dogs welcome on leashes.</p>
+
+          <p><strong>Are markets dog-friendly?</strong><br>Red Hill (leashed dogs welcome) and Balnarring (outdoor, generally dog-friendly). Verify before visiting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="related-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Related guides</span>
+        <h2 class="dept__title" id="related-title">More ways to <em>eat</em> on the Peninsula.</h2>
+      </div>
+      <a href={`${base}eat/`} class="well__head-link">All Eat &amp; Drink →</a>
+    </div>
+    <div class="dept__grid">
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/home-cover.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/bakeries/`}><h3 class="venue__name">Best Bakeries</h3></a>
+        <p class="venue__sig">Six honest bakeries across the Peninsula — where each is and what each does well.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-mornington-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/cafes/`}><h3 class="venue__name">Best Cafes</h3></a>
+        <p class="venue__sig">The specialty coffee destination and the village cafes worth knowing.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-red-hill-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/`}><h3 class="venue__name">All Eat &amp; Drink</h3></a>
+        <p class="venue__sig">The full Peninsula dining guide.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

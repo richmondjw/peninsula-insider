@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const bases = [
+  {
+    slug: 'sorrento',
+    name: 'Sorrento',
+    tag: 'Coastal beauty, eats-led, the Peninsula\'s capital',
+    best: 'Couples, honeymooners, food-focused weekends, first-timers wanting the Peninsula\'s greatest hits in one place, anyone who wants to walk to dinner.',
+    body: 'Sorrento is the closest thing the Peninsula has to a complete destination. Ocean Beach Road delivers restaurants, cafes, and bars within a 10-minute walk of most accommodation. Two beaches — the calm bay front beach and the dramatic limestone back beach on the ocean side — are accessible without a car. The ferry to Queenscliff departs from the pier. A handful of the Peninsula\'s best restaurants are in or near Sorrento — Hotel Sorrento, Bistro Elba, The Baths.',
+    catch: 'The most expensive base on the Peninsula. January on Ocean Beach Road is a sea of people. Parking is limited. The hinterland wine country is 35–40 minutes by car.',
+    not: 'Budget travellers. Anyone wanting quietude. Families with young children who need flat lawns and calm beach access rather than limestone cliffs and crowds.',
+  },
+  {
+    slug: 'mornington',
+    name: 'Mornington',
+    tag: 'Walkable, cafes, most accessible',
+    best: 'First-timers, couples on a shorter weekend, anyone arriving by public transport, visitors who want café culture and a walkable main street without the Sorrento price tag.',
+    body: 'Mornington is the most accessible Peninsula town — 46 km from the CBD. Main Street is genuinely walkable: independent cafes, the regional gallery, boutique shops, and restaurants all within easy reach. Mothers Beach and nearby bay beaches are calm and family-suitable. The town has energy without pretension.',
+    catch: 'At the northern end of the Peninsula — a Sorrento day trip is 1 hour each way. The eating scene is good but not at Sorrento\'s level. Bay beaches only; the dramatic ocean side requires driving.',
+    not: 'Wine-country focused trips. Anyone wanting ocean beaches within walking distance. Visitors seeking remoteness.',
+  },
+  {
+    slug: 'red-hill',
+    name: 'Red Hill',
+    tag: 'Wine country, hinterland, for the deliberate traveller',
+    best: 'Wine lovers, couples who\'ve done the Peninsula before and want something different, slow-food enthusiasts, anyone who wants hills and vineyards rather than beaches.',
+    body: 'Red Hill sits on the elevated ridge that forms the Peninsula\'s hinterland spine. From here, the region\'s best cellar doors are 5–20 minutes away — Montalto, Ten Minutes by Tractor, Paringa Estate, Foxeys Hangout. The Red Hill Community Market on the first Saturday is one of Victoria\'s best. Accommodation tends toward boutique self-contained cottages and vineyard stays.',
+    catch: 'No beach is within walking distance. Effectively no public transport. Limited village eating options outside market days. Roads are narrow and unsealed in parts.',
+    not: 'Families needing beach access. First-timers wanting the Peninsula\'s highlights in one trip. Anyone who doesn\'t drink wine or care for slow rural tourism.',
+  },
+  {
+    slug: 'portsea',
+    name: 'Portsea',
+    tag: 'Quiet, expensive, end of the road',
+    best: 'Couples who\'ve done the Peninsula many times and want seclusion, scuba divers, those with a specific event at the Portsea Hotel, visitors who find Sorrento too busy.',
+    body: 'Portsea is at the very end of Point Nepean Road. Portsea Surf Beach and Shelley Beach are exceptional. Point Nepean National Park is walkable from the village. The Portsea Hotel does genuine history.',
+    catch: 'Accommodation is scarce and expensive. Eating options are extremely limited. 110 km from Melbourne at the end of a narrow road — on long weekends the drive in and out through Sorrento can be slow.',
+    not: 'First-timers. Food-focused travellers. Budget travellers. Families with young children who need facilities.',
+  },
+  {
+    slug: 'blairgowrie',
+    name: 'Blairgowrie',
+    tag: 'Family and value sweet spot',
+    best: 'Families, value-conscious travellers, divers, visitors who want both bay and ocean beach access without Sorrento\'s price or crowds.',
+    body: 'Blairgowrie sits immediately before Sorrento — close enough to walk in if you\'re energetic, or drive in 5 minutes. The bay beach is calm and family-suitable. The ocean side — Koonya, Pearces Beach, Monforts Beach — delivers proper surf and wind without the crowds that plague Gunnamatta. Accommodation is generally more affordable than Sorrento with similar geography.',
+    catch: 'Blairgowrie has almost no village scene — a petrol station, a supermarket, a handful of small businesses. You\'ll eat in Sorrento, Rosebud, or self-cater.',
+    not: 'Couples who want to walk to dinner. Travellers who value a distinctive sense of place from their base.',
+  },
+  {
+    slug: 'flinders',
+    name: 'Flinders',
+    tag: 'Remote, Western Port, the wild card',
+    best: 'Repeat Peninsula visitors wanting something different, writers and creatives seeking total reset, couples who actively want to be away from it all, golf obsessives.',
+    body: 'Flinders sits on the Western Port side — Bass Strait ocean beach, Flinders pier, Mushroom Reef marine sanctuary. The streetscape retains genuine historic character. The eating scene — Barragunda Dining, Flinders General Store, Flinders Hotel — punches well above the town\'s size. 73 km from Melbourne, 1 hour 25 minutes of drive time. Cape Schanck is 20 minutes away.',
+    catch: 'Genuinely remote. Limited services. No direct public transport. Can be very quiet in winter.',
+    not: 'First-timers who want a curated Peninsula experience. Groups with mixed agendas. Visitors without a car.',
+  },
+  {
+    slug: 'rye',
+    name: 'Rye',
+    tag: 'Family affordability',
+    best: 'Families on a budget, visitors who want both bay and ocean beach access, those planning multiple days and prioritising value over village character.',
+    body: 'Rye has a long foreshore on Port Phillip Bay and direct access to Rye Ocean Beach. It\'s large enough to have a supermarket and services without the premium pricing of Sorrento. 94 km from Melbourne.',
+    catch: 'Rye\'s village character is functional rather than charming. The eating scene is limited. The town can feel transitional rather than destination-grade.',
+    not: 'Couples looking for romantic ambience. Food-focused visitors. Anyone for whom atmosphere matters as much as beaches.',
+  },
+];
+
+const matrix = [
+  { base: 'Sorrento', dining: '★★★★★', beach: '★★★★★', wine: '★★★', family: '★★★', value: '★★', character: '★★★★★', drive: '~1 hr 20 min' },
+  { base: 'Mornington', dining: '★★★★', beach: '★★★★ (bay)', wine: '★★★', family: '★★★★', value: '★★★★', character: '★★★★', drive: '~1 hr' },
+  { base: 'Red Hill', dining: '★★★', beach: '★★', wine: '★★★★★', family: '★★', value: '★★★', character: '★★★★', drive: '~1 hr' },
+  { base: 'Portsea', dining: '★★', beach: '★★★★★', wine: '★★', family: '★★★', value: '★', character: '★★★★', drive: '~1 hr 40 min' },
+  { base: 'Blairgowrie', dining: '★★', beach: '★★★★★', wine: '★★★', family: '★★★★★', value: '★★★★', character: '★★', drive: '~1 hr 18 min' },
+  { base: 'Flinders', dining: '★★★★', beach: '★★★★', wine: '★★★★', family: '★★★', value: '★★★', character: '★★★★★', drive: '~1 hr 25 min' },
+  { base: 'Rye', dining: '★★', beach: '★★★★★', wine: '★★★', family: '★★★★★', value: '★★★★★', character: '★★', drive: '~1 hr 20 min' },
+];
+
+const quickDecide = [
+  { want: 'The Peninsula\'s best restaurants within walking distance', base: 'Sorrento' },
+  { want: 'Wine country as your primary purpose', base: 'Red Hill' },
+  { want: 'First trip, want the highlights', base: 'Sorrento or Mornington' },
+  { want: 'Families with young children, value matters', base: 'Blairgowrie or Rye' },
+  { want: 'Complete isolation and quiet', base: 'Flinders or Portsea' },
+  { want: 'Easy drive from Melbourne, walkable town', base: 'Mornington' },
+  { want: 'Ocean beaches without Sorrento prices', base: 'Blairgowrie' },
+  { want: 'You\'ve done it before and want something new', base: 'Flinders' },
+];
+---
+
+<BaseLayout
+  title="Where to Base Yourself on the Mornington Peninsula — Peninsula Insider"
+  description="Sorrento, Mornington, Red Hill, Portsea, Blairgowrie, Flinders, Rye — honest trade-offs and who each base suits before you book accommodation."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Where to base cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">The base decision</span>
+          </div>
+          <h1 class="hero__headline">Where to base yourself.</h1>
+          <p class="hero__dek">The single most important decision before a Peninsula trip. The Peninsula is 40 km long across two coastlines and a hinterland — your base determines which beaches you wake up to, how long you drive each day, and whether dinner works without thinking about roads.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula bases" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Peninsula towns</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The short version</span>
+        </div>
+        <h2 class="letter__head">Seven bases, seven rhythms.</h2>
+        <div class="letter__prose">
+          <p>Sorrento is the most complete base — restaurants, beaches, character, ferry access — but the most expensive and most crowded in summer. Mornington is underrated: walkable, excellent café culture, bay beaches, most accessible by public transport. Red Hill suits wine-country trips. Portsea is quiet, expensive, and at the end of the road. Blairgowrie is the family-and-value sweet spot. Flinders is the wild card. Rye has the most affordable family beach accommodation on the Peninsula.</p>
+          <blockquote class="pullquote">Get the base right and everything else flows.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {bases.map(b => (
+    <section class="letter">
+      <div class="container">
+        <div class="letter__frame" style="display:block;">
+          <div class="letter__eyebrow">
+            <span class="letter__eyebrow-rule"></span>
+            <span class="eyebrow eyebrow--ochre">{b.name}</span>
+          </div>
+          <h2 class="letter__head">{b.name} <span class="ornament">—</span> {b.tag}.</h2>
+          <div class="letter__prose">
+            <p><strong>Best for:</strong> {b.best}</p>
+            <p>{b.body}</p>
+            <p><strong>The catches:</strong> {b.catch}</p>
+            <p><strong>Who it's not for:</strong> {b.not}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Comparison matrix</span>
+        </div>
+        <h2 class="letter__head">Side by side.</h2>
+        <div class="letter__prose">
+          <table style="width:100%; border-collapse:collapse; font-family:var(--sans,'Inter'),sans-serif; font-size:.9rem;">
+            <thead>
+              <tr style="border-bottom:2px solid rgba(0,0,0,0.1);">
+                <th style="text-align:left; padding:.5rem .3rem;">Base</th>
+                <th style="text-align:left; padding:.5rem .3rem;">Dining</th>
+                <th style="text-align:left; padding:.5rem .3rem;">Beach</th>
+                <th style="text-align:left; padding:.5rem .3rem;">Wine</th>
+                <th style="text-align:left; padding:.5rem .3rem;">Family</th>
+                <th style="text-align:left; padding:.5rem .3rem;">Value</th>
+                <th style="text-align:left; padding:.5rem .3rem;">Character</th>
+                <th style="text-align:left; padding:.5rem .3rem;">Drive</th>
+              </tr>
+            </thead>
+            <tbody>
+              {matrix.map(row => (
+                <tr style="border-bottom:1px solid rgba(0,0,0,0.08);">
+                  <td style="padding:.5rem .3rem; font-weight:600;">{row.base}</td>
+                  <td style="padding:.5rem .3rem;">{row.dining}</td>
+                  <td style="padding:.5rem .3rem;">{row.beach}</td>
+                  <td style="padding:.5rem .3rem;">{row.wine}</td>
+                  <td style="padding:.5rem .3rem;">{row.family}</td>
+                  <td style="padding:.5rem .3rem;">{row.value}</td>
+                  <td style="padding:.5rem .3rem;">{row.character}</td>
+                  <td style="padding:.5rem .3rem;">{row.drive}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Quick decision</span>
+        </div>
+        <h2 class="letter__head">If you want… base here.</h2>
+        <div class="letter__prose">
+          <table style="width:100%; border-collapse:collapse; font-family:var(--sans,'Inter'),sans-serif; font-size:.95rem;">
+            <tbody>
+              {quickDecide.map(row => (
+                <tr style="border-bottom:1px solid rgba(0,0,0,0.08);">
+                  <td style="padding:.6rem 0;">{row.want}</td>
+                  <td style="padding:.6rem 0; font-weight:600;">{row.base}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Common mistakes</span>
+        </div>
+        <h2 class="letter__head">What people get wrong.</h2>
+        <div class="letter__prose">
+          <p><strong>Booking Sorrento for a family trip in January.</strong> The back beach has a strong rip and is not suited to young children. The main streets are packed. Families with young children are frequently happier at Blairgowrie or Rye.</p>
+          <p><strong>Treating Red Hill as a base for beach days.</strong> The drive to ocean beaches takes 25–35 minutes. If beaches dominate the itinerary, base closer to the coast.</p>
+          <p><strong>Underestimating Mornington.</strong> Consistently overlooked in favour of Sorrento and underpriced relative to quality. The café and restaurant scene is genuinely strong, the town is walkable, and the drive time is the shortest on the Peninsula.</p>
+          <p><strong>Assuming you can see the whole Peninsula from one base.</strong> If your itinerary covers the hinterland AND Sorrento AND Flinders, consider two bases or a longer stay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

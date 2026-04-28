@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+// Top cellar doors - walk-in first, appointment-recommended second
+const walkInSlugs = ['montalto','foxeys-hangout','paringa-estate','polperro','t-gallant','red-hill-estate','green-olive-red-hill','ocean-eight','crittenden-estate'];
+const appointmentSlugs = ['ten-minutes-by-tractor','pt-leo-estate','kooyong','yabby-lake','main-ridge-estate','eldridge-estate','dexter-wines','garagiste'];
+const allSlugs = [...walkInSlugs,...appointmentSlugs];
+const venues = allSlugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v));
+const walkIns = walkInSlugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v));
+const appointments = appointmentSlugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v));
+
+const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'Best Cellar Doors Mornington Peninsula',description:'The best cellar doors on the Mornington Peninsula — walk-in and appointment-only tastings, ranked by editorial authority.',url:'https://peninsulainsider.com.au/wine/cellar-doors/',breadcrumb:{'@type':'BreadcrumbList',itemListElement:[{position:1,name:'Home',item:'https://peninsulainsider.com.au/'},{position:2,name:'Wine Country',item:'https://peninsulainsider.com.au/wine/'},{position:3,name:'Cellar Doors',item:'https://peninsulainsider.com.au/wine/cellar-doors/'}].map(e=>({'@type':'ListItem',...e}))},mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListOrderDescending',numberOfItems:venues.length,itemListElement:venues.map((v,i)=>({'@type':'ListItem',position:i+1,name:v.data.name,url:`https://peninsulainsider.com.au/wine/${routeSlug(v)}/`}))}};
+const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'Which Mornington Peninsula cellar doors can I visit without a booking?',acceptedAnswer:{'@type':'Answer',text:'Walk-in (no booking required for groups of 1–8): Montalto, Foxeys Hangout (no bookings accepted at all), Paringa Estate, T\'Gallant, Red Hill Estate, Polperro, Green Olive at Red Hill, Ocean Eight, Crittenden Estate. Most others welcome walk-ins but recommend booking ahead on weekends.'}},{'@type': 'Question',name:'Which Mornington Peninsula wineries are best for a first visit?',acceptedAnswer:{'@type':'Answer',text:'Montalto is the most complete first-visit cellar door — sculpture trail, kitchen, walk-in Piazza, tasting room, and wine shop in one place. Paringa Estate and Foxeys Hangout are good entry points for a more intimate single-focus visit.'}},{'@type':'Question',name:'What is a tasting fee at Peninsula cellar doors?',acceptedAnswer:{'@type':'Answer',text:'Typically $15–$25 per person, usually redeemable on a purchase. Some cellar doors charge for premium tastings. Ten Minutes by Tractor and Pt. Leo Estate have formal tasting experiences at higher price points. Foxeys Hangout charges no tasting fee.'}}]};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout title="Best Cellar Doors Mornington Peninsula · Peninsula Insider" description="The best cellar doors on the Mornington Peninsula — walk-in and appointment-only tastings ranked by editorial authority. Montalto, Foxeys, Paringa, Ten Minutes by Tractor, and more." section="wine">
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="hero" aria-label="Best cellar doors">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <span class="hero__meta-tag">Wine Country</span>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Walk-in <span class="ornament">·</span> Appointment <span class="ornament">·</span> {new Date().getFullYear()}</span>
+        </div>
+        <h1 class="hero__headline">Best cellar doors on the <em>Mornington Peninsula</em>.</h1>
+        <p class="hero__dek">Walk-in and appointment-only tastings ranked by editorial authority. Montalto, Foxeys, Paringa, Ten Minutes by Tractor, and more.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Editors</strong></span>
+        </div>
+      </div>
+      <figure>
+        <div class="hero__image ph ph-cellar" role="img" aria-label="Cellar door tasting"></div>
+        <figcaption class="hero__image-cap">
+          <span>{venues.length} cellar doors <span class="ornament">—</span> by format</span>
+          <span>Last fact-verified <span class="ornament">/</span> 23 April 2026</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="cd-letter">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Letter</span>
+        </div>
+        <h2 class="letter__head" id="cd-letter">More than forty <em>cellar doors</em>. Not all are worth the stop.</h2>
+        <div class="letter__prose">
+          <p>The Peninsula has more than forty cellar doors. Not all of them are worth the stop, and the ones worth visiting have different formats — some are walk-in, some work better with a booking, and a handful are appointment-only operations where the wines are good enough that you should plan around them rather than drop in.</p>
+          <p>The walk-in group is the easiest entry point. Montalto is the most complete estate: tasting room, Piazza dining, kitchen garden, and a sculpture trail. Foxeys Hangout is the most genuinely informal and biodynamically committed. Paringa Estate is the clearest value-for-tasting stop on the ridge.</p>
+          <blockquote class="pullquote">The appointment wineries — Ten Minutes by Tractor, Pt. Leo Estate, Kooyong, Yabby Lake — require more planning but produce the Peninsula's most serious wines.</blockquote>
+          <p>If you are interested in what the region's best terroir-driven production actually tastes like, build a trip around at least one of them.</p>
+          <p style="font-size:0.8rem;opacity:0.6;">Last fact-verified: 23 April 2026</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <div class="letter__image ph ph-cellar" role="img" aria-label="Tasting room interior"></div>
+        <figcaption class="letter__image-cap">Montalto tasting room — <em>walk-in, most complete</em>.</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="walkin-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Walk-in cellar doors</span>
+        <h2 class="dept__title" id="walkin-title">{walkIns.length} cellar doors you can visit <em>without a booking</em>.</h2>
+        <p class="dept__dek">For groups of 1–8. Weekend mornings still fill — arrive before noon for the best experience.</p>
+      </div>
+      <a href={`${base}wine/`} class="well__head-link">All wineries
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+      </a>
+    </div>
+    <div class="dept__grid">
+      {walkIns.map((venue) => {
+        const placeLabel = String(venue.data.place?.id ?? venue.data.place ?? '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+        const hats = venue.data.authority?.hats ?? 0;
+        return (
+          <article class="venue">
+            <div class="venue__image ph ph-cellar" role="img" aria-label={venue.data.name}>
+              <span class="venue__image-marker">Walk-in</span>
+              {hats > 0 && <span class="venue__image-hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+            </div>
+            <div class="venue__meta">
+              <span>{placeLabel}</span>
+              {venue.data.priceBand && <><span class="venue__meta-sep"></span><span>{venue.data.priceBand}</span></>}
+            </div>
+            <a href={`${base}wine/${routeSlug(venue)}/`}><h3 class="venue__name">{venue.data.name}</h3></a>
+            <p class="venue__sig">{venue.data.signature}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="appt-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Appointment-recommended wineries</span>
+        <h2 class="dept__title" id="appt-title">{appointments.length} serious estates that <em>reward planning</em>.</h2>
+        <p class="dept__dek">Book ahead. The tasting experience at these properties is calibrated for visitors who made the effort.</p>
+      </div>
+    </div>
+    <div class="dept__grid">
+      {appointments.map((venue) => {
+        const placeLabel = String(venue.data.place?.id ?? venue.data.place ?? '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+        const hats = venue.data.authority?.hats ?? 0;
+        return (
+          <article class="venue">
+            <div class="venue__image ph ph-cellar" role="img" aria-label={venue.data.name}>
+              <span class="venue__image-marker">Appointment</span>
+              {hats > 0 && <span class="venue__image-hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+            </div>
+            <div class="venue__meta">
+              <span>{placeLabel}</span>
+              {venue.data.priceBand && <><span class="venue__meta-sep"></span><span>{venue.data.priceBand}</span></>}
+            </div>
+            <a href={`${base}wine/${routeSlug(venue)}/`}><h3 class="venue__name">{venue.data.name}</h3></a>
+            <p class="venue__sig">{venue.data.signature}</p>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="cd-faq">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body" style="grid-column: 1 / -1;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Frequently asked</span>
+        </div>
+        <h2 class="letter__head" id="cd-faq">Questions before you <em>book</em>.</h2>
+        <div class="letter__prose">
+          <h3>Which cellar doors can I visit without a booking?</h3>
+          <p>Montalto, Foxeys Hangout (no bookings taken at all), Paringa Estate, T'Gallant, Red Hill Estate, Polperro, Green Olive at Red Hill, Ocean Eight, Crittenden Estate all welcome walk-ins for groups of 1–8.</p>
+          <h3>Best for a first visit?</h3>
+          <p>Montalto — the most complete first-visit estate. Paringa Estate and Foxeys Hangout for a more focused single-estate experience.</p>
+          <h3>What is a typical tasting fee?</h3>
+          <p>$15–$25 per person, usually redeemable on a purchase. Foxeys Hangout charges no tasting fee. Ten Minutes by Tractor and Pt. Leo Estate have formal tasting experiences at higher price points.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

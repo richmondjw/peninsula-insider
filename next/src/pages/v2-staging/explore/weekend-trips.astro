@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { getCollection } from 'astro:content';
+import { routeSlug } from '../../../lib/editorial';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const itinerariesAll = await getCollection('itineraries');
+const itinerarySlugs = [
+  'flinders-and-cape-reset',
+  'ridge-to-sea-two-night-escape',
+  'sorrento-off-season-weekend',
+];
+const itineraries = itinerarySlugs
+  .map((slug) => itinerariesAll.find((i) => routeSlug(i) === slug))
+  .filter((i): i is NonNullable<typeof i> => Boolean(i));
+
+const formats = [
+  {
+    num: 1,
+    title: 'The default Peninsula weekend',
+    body: 'The fully built itinerary — the default Peninsula weekend covers accommodation selection, day-by-day structure, and linked venues. Best for first-time overnight visitors wanting a complete plan.',
+  },
+  {
+    num: 2,
+    title: 'The Sorrento weekend',
+    body: 'A tip-of-the-Peninsula frame based in or near Sorrento. Bay swimming, back-beach walking, coastal dining, a potential ferry leg. Best for those who want the most iconic Peninsula setting.',
+  },
+  {
+    num: 3,
+    title: 'The Flinders weekend',
+    body: 'A south-ocean frame based in Flinders — slower pace, the best pub on the Peninsula, and access to Cape Schanck. Best for those who want to avoid the Sorrento crowds; couples; slower-paced visits.',
+  },
+  {
+    num: 4,
+    title: 'The couples weekend',
+    body: 'A romance-framed itinerary built around Spa by Jackalope, winery lunches, and the Sorrento off-season. Best for anniversaries, birthdays, first serious weekends away.',
+  },
+  {
+    num: 5,
+    title: 'The winter Peninsula weekend',
+    body: 'A cold-weather frame: hot springs, fireplace dinners, quiet roads. Best for winter visitors; off-peak travel; those who find summer crowds off-putting.',
+  },
+  {
+    num: 6,
+    title: 'The hinterland-first weekend',
+    body: 'Based in Red Hill or Merricks, built around winery lunches, walking, and the Red Hill Market anchor on Saturday mornings. Best for food-and-wine visitors.',
+  },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Weekend Trips — Peninsula Insider"
+  description="How to plan a Mornington Peninsula weekend — 2D/1N and 3D/2N formats, six linked itineraries, where to base yourself, and when to book."
+  section="explore"
+  ogImage="/images/sourced/explore-hub-hero-01.webp"
+>
+
+  <section class="hero" aria-label="Weekend trips cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}explore/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Explore</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Planning</span>
+          </div>
+          <h1 class="hero__headline">Six ways to weekend the Peninsula.</h1>
+          <p class="hero__dek">A Peninsula weekend is a particular thing — not a resort holiday, but the combination of good food, coastal access and hinterland space. These are the six formats that actually work.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/explore-hub-hero-01.webp`} alt="Peninsula weekend" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Peninsula weekending</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The short version</span>
+        </div>
+        <h2 class="letter__head">Two nights is the Peninsula's native format.</h2>
+        <div class="letter__prose">
+          <p>A 2-day/1-night trip is the Peninsula's most popular format. Where you base yourself is the most important planning decision — Sorrento and Red Hill anchor different kinds of trips. Booking 4–6 weeks ahead for accommodation on summer weekends is realistic in most price brackets; earlier for premium properties.</p>
+          <blockquote class="pullquote">Two nights can plausibly include a thermal soak, a winery lunch, a beach walk, a decent dinner, and something genuinely unexpected.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The 2D/1N frame</span>
+        </div>
+        <h2 class="letter__head">Why two nights is enough.</h2>
+        <div class="letter__prose">
+          <p>Most Peninsula weekends work best as a 2-day, 1-night structure. Enough time to reach the southern end of the Peninsula (Sorrento, Flinders, Cape Schanck) without rushing, to have a proper dinner the night before, and to leave the following afternoon. The 3-day/2-night version is available, but the 2D/1N is the default.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {formats.map(f => (
+    <section class="letter">
+      <div class="container">
+        <div class="letter__frame" style="display:block;">
+          <div class="letter__eyebrow">
+            <span class="letter__eyebrow-rule"></span>
+            <span class="eyebrow eyebrow--ochre">Format {f.num}</span>
+          </div>
+          <h2 class="letter__head">{f.title}.</h2>
+          <div class="letter__prose">
+            <p>{f.body}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Where to base</span>
+        </div>
+        <h2 class="letter__head">The base decision shapes everything else.</h2>
+        <div class="letter__prose">
+          <p>Sorrento gives ocean access, back-beach walks, and ferry options. Red Hill gives the food-and-wine hinterland character. Flinders gives the most authentically quiet Peninsula experience.</p>
+          <p><a href={`${base}explore/where-to-base-yourself/`}>Where to base yourself</a> has the full breakdown.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">When to book</span>
+        </div>
+        <h2 class="letter__head">Booking windows.</h2>
+        <div class="letter__prose">
+          <p>Peak weekends (December–February and Easter) require 6–8 weeks' lead time for good accommodation. The shoulder seasons (autumn and spring) are 3–4 weeks for most properties. Winter midweek breaks often have availability with 1–2 weeks' notice. Peninsula Hot Springs requires its own separate booking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {itineraries.length > 0 && (
+    <section class="dept">
+      <div class="container">
+        <div class="dept__head">
+          <span class="eyebrow eyebrow--ochre">Pre-built escapes</span>
+          <h2 class="dept__title">Weekend itineraries.</h2>
+        </div>
+        <div class="dept__grid">
+          {itineraries.map(i => {
+            const data: any = i.data;
+            const href = `${base}escape/${routeSlug(i)}/`;
+            const img = `${base}${(data.heroImage?.src ?? 'images/sourced/home-cover.webp').replace(/^\//,'')}`;
+            return (
+              <a class="venue" href={href}>
+                <div class="venue__image-wrap">
+                  <img class="venue__image" src={img} alt={data.title} loading="lazy" />
+                </div>
+                <div class="venue__body">
+                  <span class="eyebrow">{data.duration ?? 'Weekend'}</span>
+                  <h3 class="venue__title">{data.title}</h3>
+                  {data.blurb && <p class="venue__blurb">{data.blurb}</p>}
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+
+</BaseLayout>

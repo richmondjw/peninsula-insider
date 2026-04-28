@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const spas = [
+  { rank: 1, name: 'Alba Thermal Springs', place: 'Fingal', type: 'Geothermal bathhouse · Adults', note: 'Opened 2022. Architecturally tight, quieter than Peninsula Hot Springs, adult-focused with session caps that protect the atmosphere. The strongest single booking on the Peninsula for first-time visitors who value design and calm over volume. Book mid-week Twilight sessions for the best experience.' },
+  { rank: 2, name: 'Peninsula Hot Springs', place: 'Fingal', type: 'Geothermal wellness complex', note: 'Opened 2005, expanded steadily since. The larger, more varied Peninsula bathhouse. More pools, more treatment options, more program depth — and more crowds. Best approached with a plan rather than wandered through. Avoid peak weekends; book the Bath House Twilight or early-morning sessions for the fullest experience.' },
+  { rank: 3, name: 'One Spa at RACV Cape Schanck', place: 'Cape Schanck', type: 'Resort day spa', note: 'Clifftop views, resort infrastructure, strong treatment programme. The Peninsula\'s best resort-style day spa when you want a structured treatment rather than a bathing session. Works particularly well combined with a round at the RACV golf course.' },
+  { rank: 4, name: 'Spa by Jackalope', place: 'Merricks North', type: 'Boutique hotel spa', note: 'Design-led treatment rooms inside the Peninsula\'s most architecturally distinctive boutique hotel. Small, intimate, and more about the treatment than the facility. Strongest when paired with an overnight stay at Jackalope.' },
+  { rank: 5, name: 'Endota Spa (Various)', place: 'Mornington, Sorrento', type: 'Day spa · Treatment rooms', note: 'The reliable day-spa option — bookable without much notice, treatment-focused rather than bathing-focused. Works as a shorter wellness booking between other Peninsula activities. Less distinctive than the flagship spas but practical and consistent.' },
+];
+---
+
+<BaseLayout
+  title="Best Spas and Wellness on the Mornington Peninsula — Peninsula Insider"
+  description="The Peninsula's hot springs, spas and wellness venues, ranked. Alba, Peninsula Hot Springs, One Spa, Jackalope — honest comparison and booking guidance."
+  section="spa"
+  ogImage="/images/sourced/spa-alba-thermal-springs-01.webp"
+>
+
+  <section class="hero" aria-label="Spa cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <a href={`${base}spa/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Spa &amp; Wellness</a>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">5 venues <span class="ornament">·</span> ranked and compared</span>
+          </div>
+          <h1 class="hero__headline">The Peninsula spa guide.</h1>
+          <p class="hero__dek">Two serious geothermal bathhouses. A clifftop resort spa. A design-hotel treatment programme. Five wellness venues on the Peninsula, honestly ranked and matched to the weekend you are trying to have.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/spa-alba-thermal-springs-01.webp`} alt="Alba Thermal Springs" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Alba Thermal Springs <span class="ornament">—</span> Fingal</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The editor's note</span>
+        </div>
+        <h2 class="letter__head">Alba or Peninsula Hot Springs.</h2>
+        <div class="letter__prose">
+          <p>The question every first-time visitor asks. Both are excellent. They are different experiences and the right answer depends on the weekend.</p>
+          <p><strong>Choose Alba</strong> if you value design, calm, and adult-only sessions. Alba is architecturally tighter, quieter, and session-capped — which is its strength. For couples, design enthusiasts, and for people who want a bathhouse where you can hear yourself think, Alba is the stronger choice.</p>
+          <p><strong>Choose Peninsula Hot Springs</strong> if you want the fuller bathing circuit, more pool variety, and a programme that rewards a longer session. Peninsula Hot Springs is the more complete wellness destination — and can feel crowded on weekends. Book the Twilight session or an early-morning weekday to get the best of it.</p>
+          <p>Doing both in one day is not recommended. The second bathhouse blurs into the first; your skin notices. Do one per visit, or two visits across a two-night stay with a full day between them.</p>
+          <blockquote class="pullquote">One bathhouse per visit. Both across two visits.</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shortlist" aria-labelledby="spas-title">
+    <div class="container">
+      <div class="shortlist__head">
+        <span class="eyebrow eyebrow--ochre">The ranking</span>
+        <h2 class="shortlist__title" id="spas-title">Five venues, <em>ranked and matched</em>.</h2>
+      </div>
+      <ol class="sl-list">
+        {spas.map(s => (
+          <li class="sl-item">
+            <div class="sl-item__rank">{String(s.rank).padStart(2, '0')}</div>
+            <div class="sl-item__body">
+              <div class="sl-item__head">
+                <h3 class="sl-item__name">{s.name}</h3>
+                <span class="sl-item__meta">{s.place} <span class="ornament">·</span> {s.type}</span>
+              </div>
+              <p class="sl-item__note">{s.note}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Planning</span>
+        </div>
+        <h2 class="letter__head">How to book properly.</h2>
+        <div class="letter__prose">
+          <p><strong>Session length.</strong> A proper bathhouse visit is three to four hours. An hour is not enough to do the circuit properly or recover from it. Block the time.</p>
+          <p><strong>Timing.</strong> Midweek and early morning or Twilight sessions are significantly better than Saturday midday. Booking ahead is required at both Alba and Peninsula Hot Springs — walk-ups are increasingly rare.</p>
+          <p><strong>Pair with a walk.</strong> Cape Schanck walks are 15 minutes from both bathhouses. The combination — walk in the morning, spa in the afternoon — is the Peninsula's strongest single-day format.</p>
+          <p><strong>Pair with accommodation.</strong> For a full wellness reset, stay within 15 minutes of the bathhouse. Fingal, Cape Schanck and the Rye / St Andrews corridor all work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

@@ -1,0 +1,228 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug } from '../../../lib/editorial';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const weddingArticles = allArticles
+  .filter((a) => a.data.tags?.some((t) => ['weddings', 'wedding', 'wedding-venues'].includes(t)))
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+
+const venueTypes = [
+  { tag: 'Vineyard', title: 'Winery wedding venues', body: 'Estate grounds, long-table lunches, and cellar-door receptions. The Peninsula\'s strongest point of difference — wineries where the food is as serious as the setting. Best picks: Montalto, Polperro, Ten Minutes by Tractor, Pt. Leo Estate.' },
+  { tag: 'Coastal', title: 'Coastal & hotel wedding venues', body: 'Bay views, clifftop terraces, and hotel precincts where guests can stay, walk to breakfast, and not think about transport. Best picks: The Continental Sorrento, The Portsea Hotel, RACV Cape Schanck Resort.' },
+  { tag: 'Estate', title: 'Boutique estate & design hotel weddings', body: 'For couples who want a Peninsula wedding that looks like nothing else. Design-led properties where the architecture is part of the brief, not just the backdrop. Best picks: Jackalope (Merricks North), Lindenderry at Red Hill.' },
+  { tag: 'Intimate', title: 'Small & intimate weddings', body: 'Under 60 guests. The Peninsula has a handful of properties that work best at this scale — where the wedding feels like a dinner party that happens to be a wedding. Best picks: Polperro, Ten Minutes by Tractor, private property buyouts.' },
+  { tag: 'Large', title: 'Weddings for 120+ guests', body: 'Not every Peninsula property scales gracefully. These are the venues where guest flow, bathroom logistics, and reception room size were actually designed for large events. Best picks: The Continental Sorrento, RACV Cape Schanck, Pt. Leo Estate, Montalto.' },
+  { tag: 'All-in-one', title: 'Ceremony & reception at one property', body: 'For couples who want guests to arrive once and stay for everything — ceremony, reception, and often accommodation — without moving between sites. Best picks: Jackalope, Lindenderry, RACV Cape Schanck, The Continental Sorrento.' },
+];
+
+const byTown = [
+  { title: 'Red Hill & Main Ridge', body: 'The food-and-wine heartland. Best for couples who want a vineyard wedding with serious dining credentials. Guest accommodation is scattered across the plateau in cottages and villas — holiday houses sleep 8–12 and work well for bridal parties. The trade-off is that nothing is walkable; a coach is not optional.' },
+  { title: 'Sorrento & Portsea', body: 'Coastal village feel with enough hotel and holiday rental stock to accommodate a large wedding party within walking distance of the venues. The Continental Sorrento and Portsea Hotel are the anchors. Best for couples who want a wedding weekend where guests can arrive, walk everywhere, and not need to drive.' },
+  { title: 'Merricks & Balnarring', body: 'Estate country. Properties here — including Jackalope — sit between the vineyard plateau and the coast, with a mix of privacy and access. Less concentrated guest accommodation than Sorrento, but venue quality at the top end is exceptional.' },
+  { title: 'Cape Schanck & Fingal', body: 'Resort territory. RACV Cape Schanck handles large groups with accommodation, golf, spa, and full conference infrastructure. Best for weddings where logistics simplicity and group size matter more than boutique character.' },
+  { title: 'Flinders & Shoreham', body: 'Privacy and distance. Flinders attracts couples who want to be away from the busier Peninsula corridors. Guest accommodation is limited compared to Sorrento; this works best for smaller weddings with a committed guest list happy to travel and stay locally.' },
+  { title: 'Mornington & Dromana', body: 'Easiest access from Melbourne. Less premium than the hinterland or the tip of the Peninsula, but logistically simpler and more affordable. Works well for larger guest lists where distance from Melbourne is a real concern.' },
+];
+
+const planning = [
+  { title: 'Guest count', body: 'Under 80 guests opens up the intimate vineyard properties that don\'t work at larger scale. Over 120 guests narrows you to venues with genuine event infrastructure. The number is the first filter — not the aesthetic.' },
+  { title: 'Transport logic', body: 'Melbourne to Main Ridge is 90 minutes in Saturday traffic. A coach for guests is $1,500 to $3,000 return and worth every dollar — it removes the drink-driving question and puts the timing in your hands. Build the transport cost into the budget before you shortlist venues.' },
+  { title: 'Guest accommodation', body: 'The Peninsula does not have dense hotel stock in any single town. The most practical model is a mix of onsite rooms (if the venue has them), nearby holiday houses sleeping 8–12, and Sorrento\'s hotel cluster for the larger coastal weddings.' },
+  { title: 'Season', body: 'October to April is peak season. The weather is warmest, competition for venues is highest, and prices reflect it. Winter weddings — May to July — are genuinely compelling on the Peninsula: fires lit at the cellar doors, golden low light, no crowd pressure, and rates that reflect the quieter season.' },
+  { title: 'Ceremony location', body: 'Most Peninsula venues handle ceremony onsite, which avoids the church-to-reception problem. The exception is couples who want a Sorrento or Portsea foreshore ceremony — beautiful, but adds a guest movement that needs coordinating. Have a weather backup.' },
+  { title: 'Booking lead time', body: 'For peak season Saturday dates, 14 to 18 months is standard. The most sought-after properties fill earlier. Winter and non-Saturday dates are easier across the board. If you have a fixed date in mind, check date availability before you fall in love with the property.' },
+];
+
+const guestWeekend = [
+  { title: 'Where guests should stay', body: 'The best Peninsula accommodation for wedding guests — by location, group size, and how close they need to be to the venue. Hotels, villas, and holiday houses with the right logistics.' },
+  { title: 'Rehearsal dinner venues', body: 'Friday night before the wedding. The best Peninsula restaurants for a private room, a long table, or a buyout that sets the right tone without outshining the day itself.' },
+  { title: 'Recovery brunch', body: 'Sunday morning after. The best spots for a low-key recovery brunch — the format that makes guests glad they stayed the night. Sorrento and Red Hill have the best options.' },
+  { title: 'Cellar door Saturday afternoon', body: 'For guests arriving Friday and filling Saturday before the ceremony. The Red Hill and Main Ridge cellar door circuit is one of the Peninsula\'s best half-days.' },
+  { title: 'Morning-of walks', body: 'A coastal walk on the morning of the wedding day — for the bridal party or the guests clearing their heads. Cape Schanck and Sorrento both have walks within 20 minutes of most wedding venues.' },
+  { title: 'Spa & recovery', body: 'Peninsula Hot Springs and Alba Thermal Springs are both within 20 minutes of the Fingal corridor. A Sunday session for the bridal party the morning after is the recovery move most couples don\'t think of until someone else suggests it.' },
+];
+
+const faqs = [
+  { q: 'Are winery weddings the best fit for most couples?', a: 'For couples where food and wine are central to the event, yes. For couples who want a hotel weekend with dancing and a large guest list, a coastal venue will work better. The vineyard format is not automatically the superior one — it is the most photographed one. Those are different things.' },
+  { q: 'Which venues have the best onsite accommodation?', a: 'Jackalope has onsite designer rooms that sleep the wedding party comfortably. The Continental Sorrento is a full-service hotel. Lindenderry at Red Hill has onsite rooms. RACV Cape Schanck has large accommodation capacity for groups.' },
+  { q: 'Is a winter Peninsula wedding a real option?', a: 'Yes, and it is underrated. Cellar doors have open fires. The light in May and June is exceptional for photography. Competition for venues is lower. Rates are lower. A winter Saturday at a warm, firelit vineyard with a guest list of 60–80 people who actually wanted to be there is a better event than a crowded summer Saturday.' },
+  { q: 'Do I need a wedding planner?', a: 'Not necessarily, but the logistics are more complex than a Melbourne venue. Transport coordination, accommodation spread, and supplier access across the Peninsula all require more planning than in-city events. A local coordinator who knows the Peninsula\'s suppliers and venues is worth the cost.' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Weddings — Peninsula Insider"
+  description="A selective guide to getting married on the Mornington Peninsula — vineyard estates, coastal venues, boutique hotels, and the wedding-weekend planning intelligence that most guides skip."
+  section=""
+  ogImage="/images/sourced/article-vineyard-villa-01.webp"
+>
+
+  <section class="hero" aria-label="Weddings cover">
+    <div class="container">
+      <div class="hero__frame">
+        <div class="hero__above">
+          <div class="hero__meta">
+            <span class="hero__meta-tag">Weddings</span>
+            <span class="hero__meta-divider"></span>
+            <span class="hero__meta-date">Vineyard & coastal venues</span>
+          </div>
+          <h1 class="hero__headline">Weddings on the Peninsula.</h1>
+          <p class="hero__dek">Couples are not only choosing a venue. They are choosing the kind of Peninsula wedding that fits them — vineyard, coastal, estate, intimate, or destination weekend. This section helps you make that decision properly.</p>
+        </div>
+        <figure>
+          <img class="hero__image" src={`${base}images/sourced/article-vineyard-villa-01.webp`} alt="Peninsula weddings" loading="eager" fetchpriority="high">
+          <figcaption class="hero__image-cap">
+            <span>Vineyard weddings <span class="ornament">—</span> Red Hill</span>
+            <span>Photography <span class="ornament">/</span> The Insider</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter">
+    <div class="container">
+      <div class="letter__frame" style="display:block;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">The Peninsula Insider approach</span>
+        </div>
+        <h2 class="letter__head">Curation over volume. Decision support over directories.</h2>
+        <div class="letter__prose">
+          <p>Most wedding content shows you where you can get married. We help you understand which Peninsula wedding actually fits the couple you are. That means honest tradeoffs, specific place intelligence, and practical guidance on what the surrounding weekend looks like — not a scrollable list of venues with star ratings and enquiry buttons.</p>
+          <p>The Peninsula has the raw ingredients: vineyards, boutique hotels, coastline, world-class food, destination-weekend appeal. What it needs is good guidance. That is what this vertical is for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Venue types</span>
+        <h2 class="dept__title">Choose by setting, not by search rank.</h2>
+      </div>
+      <div class="dept__grid">
+        {venueTypes.map(v => (
+          <article class="venue">
+            <div class="venue__body">
+              <span class="eyebrow">{v.tag}</span>
+              <h3 class="venue__title">{v.title}</h3>
+              <p class="venue__blurb">{v.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">By town</span>
+        <h2 class="dept__title">Choose by place, not just venue.</h2>
+      </div>
+      <div class="dept__grid">
+        {byTown.map(t => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{t.title}</h3>
+              <p class="venue__blurb">{t.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Planning</span>
+        <h2 class="dept__title">The questions that shape the decision.</h2>
+      </div>
+      <div class="dept__grid">
+        {planning.map(p => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{p.title}</h3>
+              <p class="venue__blurb">{p.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">The guest weekend</span>
+        <h2 class="dept__title">Build the weekend around the wedding, not just the day.</h2>
+      </div>
+      <div class="dept__grid">
+        {guestWeekend.map(g => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{g.title}</h3>
+              <p class="venue__blurb">{g.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {weddingArticles.length > 0 && (
+    <section class="dept">
+      <div class="container">
+        <div class="dept__head">
+          <span class="eyebrow eyebrow--ochre">From the journal</span>
+          <h2 class="dept__title">Peninsula wedding guides.</h2>
+        </div>
+        <div class="dept__grid">
+          {weddingArticles.slice(0, 3).map((article) => {
+            const data: any = article.data;
+            const href = `${base}journal/${routeSlug(article)}/`;
+            return (
+              <a class="venue" href={href}>
+                <div class="venue__body">
+                  <span class="eyebrow">Weddings {data.readingTimeMinutes ? `· ${data.readingTimeMinutes} min` : ''}</span>
+                  <h3 class="venue__title">{data.title}</h3>
+                  <p class="venue__blurb">{data.dek}</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="dept">
+    <div class="container">
+      <div class="dept__head">
+        <span class="eyebrow eyebrow--ochre">Common questions</span>
+        <h2 class="dept__title">What couples actually want to know.</h2>
+      </div>
+      <div class="dept__grid">
+        {faqs.map(f => (
+          <article class="venue">
+            <div class="venue__body">
+              <h3 class="venue__title">{f.q}</h3>
+              <p class="venue__blurb">{f.a}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+
+</BaseLayout>

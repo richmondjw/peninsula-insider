@@ -1,0 +1,142 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+// Dog-friendly wineries confirmed as of April 2026
+const slugs = ['stonier-wines','main-ridge-estate','kerri-greens','green-olive-red-hill','montalto','foxeys-hangout','paringa-estate'];
+const venues = slugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v));
+
+const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'Dog-Friendly Wineries Mornington Peninsula',description:'Wineries on the Mornington Peninsula that welcome dogs — confirmed outdoor areas and policies as of April 2026.',url:'https://peninsulainsider.com.au/wine/dog-friendly/',breadcrumb:{'@type':'BreadcrumbList',itemListElement:[{position:1,name:'Home',item:'https://peninsulainsider.com.au/'},{position:2,name:'Wine Country',item:'https://peninsulainsider.com.au/wine/'},{position:3,name:'Dog-Friendly Wineries',item:'https://peninsulainsider.com.au/wine/dog-friendly/'}].map(e=>({'@type':'ListItem',...e}))},mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListOrderDescending',numberOfItems:venues.length,itemListElement:venues.map((v,i)=>({'@type':'ListItem',position:i+1,name:v.data.name,url:`https://peninsulainsider.com.au/wine/${routeSlug(v)}/`}))}};
+const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'Which wineries on the Mornington Peninsula allow dogs?',acceptedAnswer:{'@type':'Answer',text:'Confirmed dog-friendly as of April 2026: Stonier Wines (lawn area), Main Ridge Estate (on-lead, must pre-book), Kerri Greens (outdoor area), Green Olive at Red Hill (garden, dog-friendly, also a restaurant). Most Peninsula cellar doors do not permit dogs — Foxeys Hangout and Quealy Winemakers explicitly do not. Always confirm directly before visiting.'}},{'@type':'Question',name:'Do any hatted winery restaurants allow dogs?',acceptedAnswer:{'@type':'Answer',text:'Montalto Piazza (walk-in, outdoor) is the closest — confirmed dog-friendly in the casual outdoor dining area. Most hatted restaurants including Montalto\'s main restaurant, Polperro, and Ten Minutes by Tractor do not permit dogs.'}},{'@type':'Question',name:'Do I need to call ahead to bring a dog to a winery on the Mornington Peninsula?',acceptedAnswer:{'@type':'Answer',text:'Yes — Main Ridge Estate explicitly requires pre-booking before arriving with a dog. For all other venues, calling or emailing ahead is strongly recommended as dog policies can change seasonally or with events.'}}]};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout title="Dog-Friendly Wineries Mornington Peninsula · Peninsula Insider" description="Wineries on the Mornington Peninsula that welcome dogs — confirmed outdoor areas at Stonier, Main Ridge Estate, Kerri Greens, Green Olive, and Montalto Piazza. Verified April 2026." section="wine">
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="hero" aria-label="Dog-friendly wineries">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <span class="hero__meta-tag">Wine Country</span>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Confirmed <span class="ornament">·</span> April 2026</span>
+        </div>
+        <h1 class="hero__headline">Dog-friendly <em>wineries</em> on the Mornington Peninsula.</h1>
+        <p class="hero__dek">Confirmed outdoor areas at Stonier, Main Ridge Estate, Kerri Greens, Green Olive, and Montalto Piazza. Policies change — always call ahead.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Editors</strong></span>
+        </div>
+      </div>
+      <figure>
+        <div class="hero__image ph ph-vine" role="img" aria-label="Vineyard with dog-friendly lawn"></div>
+        <figcaption class="hero__image-cap">
+          <span>{venues.length} confirmed venues <span class="ornament">—</span> April 2026</span>
+          <span>Call ahead <span class="ornament">/</span> policies shift seasonally</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="df-letter">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Note</span>
+        </div>
+        <h2 class="letter__head" id="df-letter">Genuinely possible, but <em>limited</em>.</h2>
+        <div class="letter__prose">
+          <p><strong>Dog policies change.</strong> This list is based on confirmed outdoor-area policies as of April 2026. Call or email ahead before visiting with a dog.</p>
+          <p>Dog-friendly winery visits on the Peninsula are genuinely possible but limited. Most cellar doors and winery restaurants do not permit dogs. The exceptions are outdoor garden areas and casual dining spaces at a small number of estates. Main Ridge Estate requires pre-booking before arriving with a dog — do not assume you can walk in.</p>
+          <blockquote class="pullquote">The clearest options: Stonier Wines (lawn), Kerri Greens (outdoor), Green Olive at Red Hill (garden and restaurant), and Montalto Piazza (casual outdoor dining, walk-in).</blockquote>
+          <p>For confirmed non-dog-friendly venues: Foxeys Hangout and Quealy Winemakers explicitly do not permit dogs.</p>
+          <p style="font-size:0.8rem;opacity:0.6;">Last fact-verified: 23 April 2026</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Peninsula Insider</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <div class="letter__image ph ph-vine" role="img" aria-label="Lawn at cellar door"></div>
+        <figcaption class="letter__image-cap">Stonier lawn — <em>the easiest dog-friendly visit on the Peninsula</em>.</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" aria-labelledby="df-list" id="rankings">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">Dog-friendly wineries — confirmed April 2026</span>
+        <h2 id="df-list">{venues.length} wineries with confirmed <em>outdoor dog areas</em>.</h2>
+        <p class="shortlist__intro-body">Call ahead. Policies change. Main Ridge Estate requires pre-booking before arriving with a dog.</p>
+        <a href={`${base}wine/`} class="shortlist__intro-link">All wineries
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+      <ol class="shortlist__list" style="list-style:none;">
+        {venues.map((venue, i) => {
+          const placeLabel = String(venue.data.place?.id ?? venue.data.place ?? '').replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
+          const hats = venue.data.authority?.hats ?? 0;
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{String(i + 1).padStart(2, '0')}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{placeLabel}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>Dog-friendly</span>
+                  {venue.data.priceBand && <><span class="sl-item__meta-sep"></span><span>{venue.data.priceBand}</span></>}
+                </div>
+                <a href={`${base}wine/${routeSlug(venue)}/`} class="sl-item__name">{venue.data.name}</a>
+                <p class="sl-item__why">{venue.data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  <span class="sl-item__tag">Call ahead</span>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="df-faq">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body" style="grid-column: 1 / -1;">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Frequently asked</span>
+        </div>
+        <h2 class="letter__head" id="df-faq">Questions before you <em>arrive</em>.</h2>
+        <div class="letter__prose">
+          <h3>Which wineries allow dogs?</h3>
+          <p>Confirmed as of April 2026: Stonier (lawn), Main Ridge Estate (on-lead, pre-book required), Kerri Greens (outdoor), Green Olive at Red Hill (garden). Most Peninsula cellar doors do not permit dogs. Foxeys Hangout and Quealy Winemakers explicitly exclude dogs.</p>
+          <h3>Do I need to call ahead?</h3>
+          <p>Yes, always. Main Ridge Estate explicitly requires pre-booking before arriving with a dog. For all other venues, call or email ahead as policies change seasonally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>

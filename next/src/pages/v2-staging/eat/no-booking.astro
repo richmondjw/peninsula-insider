@@ -1,0 +1,193 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/v2/BaseLayout.astro';
+import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
+import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
+
+const allVenues = await getCollection('venues');
+const slugs = ['rare-hare','foxeys-hangout','many-little','montalto','green-olive-red-hill','commonfolk-coffee','flinders-general-store','flinders-pier-takeaway','somers-general','balnarring-pub'];
+const venues = slugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v));
+
+const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'Walk-In Restaurants Mornington Peninsula — No Booking Required',description:'Restaurants on the Mornington Peninsula that accept walk-ins — from hatted walk-in-only venues to cafes and pub bistros where no reservation is needed.',url:'https://peninsulainsider.com.au/eat/no-booking/',breadcrumb:{'@type':'BreadcrumbList',itemListElement:[{position:1,name:'Home',item:'https://peninsulainsider.com.au/'},{position:2,name:'Eat & Drink',item:'https://peninsulainsider.com.au/eat/'},{position:3,name:'Walk-In Restaurants',item:'https://peninsulainsider.com.au/eat/no-booking/'}].map(e=>({'@type':'ListItem',...e}))},mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListOrderDescending',numberOfItems:venues.length,itemListElement:venues.map((v,i)=>({'@type':'ListItem',position:i+1,name:v.data.name,url:`https://peninsulainsider.com.au/eat/${routeSlug(v)}/`}))}};
+const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{'@type':'Question',name:'Which restaurants on the Mornington Peninsula do not require a booking?',acceptedAnswer:{'@type':'Answer',text:'Rare Hare at Willow Creek (Merricks North): walk-in only, no reservations taken, from 2pm weekends and 5pm weekdays. Foxeys Hangout (Red Hill): no bookings accepted at all, maximum group of 6. Montalto Piazza (Red Hill South): walk-in daily 11am–5pm. Many Little Bar & Dining (Red Hill South): walk-in for evening sessions. Most cafes, bakeries, and pub bistros also operate walk-in.'}},{'@type':'Question',name:'Can I walk in to a hatted restaurant on the Mornington Peninsula?',acceptedAnswer:{'@type':'Answer',text:'Rare Hare at Willow Creek (one hat) is walk-in only — no reservations. Many Little Bar & Dining (one hat) takes walk-ins for some sessions. All other hatted Peninsula restaurants require advance bookings, often weeks or months ahead.'}},{'@type':'Question',name:'What do I do if I have not booked a restaurant on the Mornington Peninsula?',acceptedAnswer:{'@type':'Answer',text:'Try: Rare Hare (walk-in, hatted), Foxeys Hangout (no bookings, biodynamic, outdoor), Montalto Piazza (walk-in daily). Cafes and bakeries across the Peninsula are almost always walk-in. Village pub bistros usually have capacity, especially midweek.'}}]};
+
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/';
+---
+<BaseLayout
+  title="Walk-In Restaurants Mornington Peninsula · No Booking Required · Peninsula Insider"
+  description="Restaurants on the Mornington Peninsula that accept walk-ins — including hatted venues Rare Hare and Many Little, plus cafes, pub bistros, and casual stops."
+  section="eat"
+  canonical="https://peninsulainsider.com.au/eat/no-booking/"
+  modifiedTime="2026-04-24"
+>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section class="hero" aria-label="Walk-In Restaurants on the Mornington Peninsula">
+  <div class="container">
+    <div class="hero__frame">
+      <div class="hero__above">
+        <div class="hero__meta">
+          <a href={`${base}eat/`} class="hero__meta-tag" style="color:inherit;text-decoration:none;">Eat &amp; Drink</a>
+          <span class="hero__meta-divider"></span>
+          <span class="hero__meta-date">Walk-In <span class="ornament">—</span> Updated April 2026</span>
+        </div>
+        <h1 class="hero__headline">Walk-in <em>restaurants</em> on the Mornington Peninsula.</h1>
+        <p class="hero__dek">No booking required. Two hatted walk-in rooms, Montalto Piazza daily, and the cafes, bakeries, and pub bistros that will always have capacity.</p>
+        <div class="hero__byline">
+          <span>— By <strong>The Peninsula Insider Editors</strong></span>
+          <a href="#rankings" class="hero__byline-read">Jump to the list <span style="opacity:.5;margin-left:.3rem;">{venues.length} venues</span></a>
+        </div>
+      </div>
+      <figure>
+        <img class="hero__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Peninsula walk-in — Rare Hare" loading="eager" fetchpriority="high">
+        <figcaption class="hero__image-cap">
+          <span>Willow Creek <span class="ornament">—</span> where Rare Hare takes no reservations, ever</span>
+          <span>Photography <span class="ornament">/</span> The Insider</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="intro-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Editor's Letter</span>
+        </div>
+        <h2 class="letter__head" id="intro-title">Two hatted rooms <em>take no bookings</em>.</h2>
+        <div class="letter__prose">
+          <p>Most serious Peninsula restaurants require bookings — often weeks or months in advance for hatted venues. But there are genuine walk-in options, and two of them are hatted: Rare Hare at Willow Creek takes no reservations at all and is walk-in only from 2pm on weekends; Foxeys Hangout accepts no bookings and has a maximum group size of 6.</p>
+
+          <p>Below the hatted tier, Montalto Piazza (daily, 11am–5pm), most of the Peninsula's village cafes and bakeries, and most pub bistros operate on a walk-in basis. If you have arrived on the Peninsula without a booking for the destination you wanted, this list is where to start.</p>
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">The Editors</div>
+            <div class="letter__sig-role">Last fact-verified 23 April 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter__side">
+        <img class="letter__image" src={`${base}images/sourced/home-cover.webp`} alt="Peninsula walk-in">
+        <figcaption class="letter__image-cap">The Peninsula without a booking — <em>where to start when the destination is full.</em></figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="shortlist" id="rankings" aria-labelledby="shortlist-title">
+  <div class="container">
+    <div class="shortlist__frame">
+      <div class="shortlist__intro">
+        <span class="eyebrow eyebrow--ochre">The Shortlist</span>
+        <h2 id="shortlist-title">{venues.length} venues you can <em>walk into</em>.</h2>
+        <p class="shortlist__intro-body">Hatted walk-in-only venues first, then casual options by format.</p>
+      </div>
+
+      <ol class="shortlist__list" style="list-style:none;">
+        {venues.map((v, i) => {
+          const data = v.data;
+          const hats = data.authority?.hats ?? 0;
+          const num = String(i + 1).padStart(2, '0');
+          const place = placeLabel(data.place);
+          const type = typeLabel[data.type] ?? data.type;
+          const allTags = [
+            ...(data.tags?.mood ?? []),
+            ...(data.tags?.audience ?? []),
+          ].slice(0, 3);
+          return (
+            <li class="sl-item">
+              <span class="sl-item__num">{num}</span>
+              <div class="sl-item__body">
+                <div class="sl-item__meta">
+                  <span>{place}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{type}</span>
+                  <span class="sl-item__meta-sep"></span>
+                  <span>{data.priceBand}</span>
+                </div>
+                <a href={`${base}eat/${routeSlug(v)}/`} class="sl-item__name">{data.name}</a>
+                <p class="sl-item__why">{data.signature}</p>
+                <div class="sl-item__tags">
+                  {hats > 0 && <span class="sl-item__tag sl-item__tag--hat">{hats} hat{hats > 1 ? 's' : ''}</span>}
+                  {allTags.map((tag: string) => (
+                    <span class="sl-item__tag">{titleize(tag)}</span>
+                  ))}
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="letter" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="letter__frame" style="display:block;">
+      <div class="letter__body">
+        <div class="letter__eyebrow">
+          <span class="letter__eyebrow-rule"></span>
+          <span class="eyebrow eyebrow--ochre">Frequently Asked</span>
+        </div>
+        <h2 class="letter__head" id="faq-title">The <em>questions</em> we get asked.</h2>
+        <div class="letter__prose">
+          <p><strong>Which restaurants do not require a booking?</strong><br>Rare Hare (Merricks North): walk-in only, no reservations, from 2pm weekends. Foxeys Hangout (Red Hill): no bookings, max group 6. Montalto Piazza: walk-in daily 11am–5pm. Most cafes and pub bistros also operate walk-in.</p>
+
+          <p><strong>Can I walk in to a hatted restaurant?</strong><br>Rare Hare (one hat) and Many Little (one hat, some sessions) are the only hatted walk-in options. All other hatted Peninsula restaurants require advance booking.</p>
+
+          <p><strong>What if I haven't booked?</strong><br>Try Rare Hare, Foxeys Hangout, or Montalto Piazza. Village cafes and bakeries are almost always walk-in. Pub bistros usually have midweek capacity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dept" aria-labelledby="related-title">
+  <div class="container">
+    <div class="dept__head">
+      <div class="dept__titles">
+        <span class="eyebrow eyebrow--ochre">Related guides</span>
+        <h2 class="dept__title" id="related-title">More ways to <em>eat</em> on the Peninsula.</h2>
+      </div>
+      <a href={`${base}eat/`} class="well__head-link">All Eat &amp; Drink →</a>
+    </div>
+    <div class="dept__grid">
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-red-hill-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/hatted-restaurants/`}><h3 class="venue__name">Hatted Restaurants</h3></a>
+        <p class="venue__sig">The complete Good Food Guide hat list with booking realities for each venue.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/home-cover.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/cafes/`}><h3 class="venue__name">Best Cafes</h3></a>
+        <p class="venue__sig">The specialty coffee destination and the village cafes worth knowing.</p>
+      </article>
+      <article class="venue">
+        <div class="venue__image" style={`background-image:url(${base}images/sourced/place-mornington-01.webp);background-size:cover;background-position:center;`}>
+          <span class="venue__image-marker">Guide</span>
+        </div>
+        <div class="venue__meta"><span>Category</span></div>
+        <a href={`${base}eat/pubs/`}><h3 class="venue__name">Best Pubs</h3></a>
+        <p class="venue__sig">Village pubs with bistros, beer gardens, and midweek capacity.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<NewsletterBlock />
+</BaseLayout>
