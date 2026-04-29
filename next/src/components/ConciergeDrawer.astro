@@ -41,6 +41,14 @@
   <!-- Main panel -->
   <div class="pi-drawer__panel" id="pi-drawer-panel" role="dialog" aria-label="Ask The Insider">
 
+    <!-- Mobile drag handle (tap to minimise) -->
+    <button
+      class="pi-drawer__handle"
+      id="pi-drawer-handle"
+      type="button"
+      aria-label="Minimise chat"
+    ></button>
+
     <!-- Drawer header -->
     <div class="pi-drawer__header">
       <div class="pi-drawer__id">
@@ -403,6 +411,41 @@
   }
   .pi-drawer__icon-btn--close:hover {
     color: var(--pi-terra-deep);
+  }
+
+  /* Mobile: bigger touch targets + visible close affordance */
+  @media (max-width: 720px) {
+    .pi-drawer__icon-btn {
+      width: 40px; height: 40px;
+    }
+    .pi-drawer__icon-btn--close {
+      background: var(--pi-terra-haze);
+      border-color: rgba(139, 78, 59, 0.32);
+      color: var(--pi-terra);
+    }
+  }
+
+  /* Drag handle at the top of the mobile sheet — tells the user "I'm a sheet,
+     you can dismiss me." Tappable region triggers minimise. */
+  .pi-drawer__handle {
+    display: none;
+  }
+  @media (max-width: 720px) {
+    .pi-drawer__handle {
+      display: block;
+      width: 40px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(139, 78, 59, 0.32);
+      margin: 8px auto -2px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .pi-drawer__handle::after {
+      content: '';
+      position: absolute;
+      inset: -16px -40% -8px -40%;  /* expand tap area */
+    }
   }
 
   /* ── BODY (scrollable thread) ─────────────────────────── */
@@ -849,6 +892,10 @@
     closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', minimiseDrawer);
 
+    // Mobile drag-handle: tap to minimise. Big tap target via CSS.
+    const handle = document.getElementById('pi-drawer-handle');
+    if (handle) handle.addEventListener('click', minimiseDrawer);
+
     // ESC key — minimises (preserves convo) when open
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
@@ -868,12 +915,22 @@
       sendBtn.disabled = true;
       appendTyping();
 
+      // 60s explicit timeout. Some mobile browsers + cellular proxies abort
+      // long-running fetches at 15-30s; better to control the failure mode.
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 60000);
+
       try {
         const res = await fetch(apiUrl() + '/concierge/ask', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId },
           body: JSON.stringify({ query: query }),
+          signal: controller.signal,
+          keepalive: true,
+          mode: 'cors',
+          credentials: 'omit',
         });
+        clearTimeout(timeoutId);
         const data = await res.json();
         removeTyping();
 
@@ -886,14 +943,21 @@
           appendHistory({ role: 'pi', data: data });
         }
       } catch (err) {
+        clearTimeout(timeoutId);
         removeTyping();
-        const msg = "I couldn't reach the server. Mind trying that again?";
+        let msg;
+        if (err && err.name === 'AbortError') {
+          msg = "That took too long — your connection or the server. Try once more, the second go is usually faster.";
+        } else {
+          msg = "I couldn't reach the server. Mind trying that again?";
+        }
         appendErrorMessage(msg);
         appendHistory({ role: 'error', data: msg });
       } finally {
         askInFlight = false;
         sendBtn.disabled = false;
-        input.focus();
+        // On mobile keyboards opening can be jarring; only refocus on desktop
+        if (window.matchMedia('(min-width: 721px)').matches) input.focus();
       }
     }
 
