@@ -167,11 +167,11 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         <h2 class="contents__title" id="contents-title">Find what you're <em>looking for</em>.</h2>
         <p class="contents__dek">The Peninsula dining scene organised by format, occasion, and practicality.</p>
       </div>
-      <ul class="contents__list" style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);">
+      <ul class="contents__list" style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--line);">
         {hubs.map((hub, i) => (
           <li style="margin:0;">
-            <a href={`${base}${hub.href}`} style="display:block;background:var(--bg);padding:1.25rem 1.5rem;text-decoration:none;color:inherit;">
-              <span class="contents__num" style="display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:0.85rem;opacity:.5;margin-bottom:0.25rem;">{String(i + 1).padStart(2, '0')}</span>
+            <a href={`${base}${hub.href}`} style="display:block;background:var(--paper);padding:1.25rem 1.5rem;text-decoration:none;color:inherit;">
+              <span class="contents__num" style="display:block;font-family:var(--serif);font-size:0.85rem;opacity:.5;margin-bottom:0.25rem;">{String(i + 1).padStart(2, '0')}</span>
               <span style="display:block;font-size:1rem;font-weight:600;margin-bottom:0.2rem;">{hub.label}</span>
               <span style="display:block;font-size:0.75rem;opacity:.65;letter-spacing:0.02em;">{hub.sub}</span>
             </a>
@@ -211,12 +211,12 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         </div>
       </div>
       <div class="letter__side">
-        <div style="background:var(--bg-alt, #f6f2ea);padding:2rem;border-left:3px solid var(--accent, #9a6a3a);">
+        <div style="background:var(--paper-warm);padding:2rem;border-left:3px solid var(--ochre);">
           <span class="eyebrow eyebrow--ochre" style="margin-bottom:1rem;display:block;">By the numbers</span>
           <dl style="display:grid;gap:1.25rem;margin:0;">
-            <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:.65;margin-bottom:0.25rem;">Two-hat restaurants</dt><dd style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;font-weight:700;line-height:1;margin:0;">4</dd></div>
-            <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:.65;margin-bottom:0.25rem;">Total GFG hats</dt><dd style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;font-weight:700;line-height:1;margin:0;">15</dd></div>
-            <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:.65;margin-bottom:0.25rem;">Venues mapped</dt><dd style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;font-weight:700;line-height:1;margin:0;">{venues.length}</dd></div>
+            <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:.65;margin-bottom:0.25rem;">Two-hat restaurants</dt><dd style="font-family:var(--serif);font-size:2.5rem;font-weight:500;line-height:1;margin:0;letter-spacing:-0.02em;">4</dd></div>
+            <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:.65;margin-bottom:0.25rem;">Total GFG hats</dt><dd style="font-family:var(--serif);font-size:2.5rem;font-weight:500;line-height:1;margin:0;letter-spacing:-0.02em;">15</dd></div>
+            <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:.65;margin-bottom:0.25rem;">Venues mapped</dt><dd style="font-family:var(--serif);font-size:2.5rem;font-weight:500;line-height:1;margin:0;letter-spacing:-0.02em;">{venues.length}</dd></div>
             <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:.65;margin-bottom:0.25rem;">Best dining season</dt><dd style="font-size:0.95rem;font-weight:600;margin:0.25rem 0 0 0;">Autumn (Mar–May)</dd></div>
           </dl>
         </div>
@@ -318,18 +318,19 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         <a href={`${base}journal/`} class="well__head-link">All in the Journal →</a>
       </div>
       <div class="well__grid">
-        {featuredGuides.map((article) => {
+        {featuredGuides.map((article, i) => {
           const data = article.data;
+          const modClass = i === 0 ? 'feat feat--lead' : 'feat feat--std';
           return (
-            <article class="feat">
-              <a href={`${base}journal/${routeSlug(article)}/`} class="feat__link">
-                <div class="feat__image" style={`background-image:url(${base}images/sourced/${data.heroImage || 'home-cover.webp'});background-size:cover;background-position:center;`}></div>
-                <div class="feat__body">
-                  <span class="feat__eyebrow">Journal</span>
+            <article class={modClass}>
+              <div class="feat__image" style={`background-image:url(${base}images/sourced/${data.heroImage || 'home-cover.webp'});background-size:cover;background-position:center;`}></div>
+              <div class="feat__body">
+                <div class="feat__eyebrow">Journal</div>
+                <a href={`${base}journal/${routeSlug(article)}/`}>
                   <h3 class="feat__title">{data.title}</h3>
-                  <p class="feat__dek">{data.description || data.summary}</p>
-                </div>
-              </a>
+                </a>
+                <p class="feat__excerpt">{data.description || data.summary}</p>
+              </div>
             </article>
           );
         })}
