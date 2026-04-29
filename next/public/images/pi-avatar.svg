@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Peninsula Insider — PI">
+  <!--
+    Peninsula Insider mark — "PI"
+    A Carmen-Sandiego-style silhouette, redrawn for the Mornington Peninsula:
+    coastal akubra-brim hat, salt-stained canvas coat with the collar up,
+    half-turned away, notebook in hand. The local who's already there.
+  -->
+  <defs>
+    <linearGradient id="pi-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#F3EEE5"/>
+      <stop offset="65%" stop-color="#E8DECB"/>
+      <stop offset="100%" stop-color="#D9CDB6"/>
+    </linearGradient>
+    <linearGradient id="pi-fig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1F1D1A"/>
+      <stop offset="100%" stop-color="#2C2825"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Disc background — paper / sand tone -->
+  <circle cx="100" cy="100" r="100" fill="url(#pi-bg)"/>
+
+  <!-- Subtle horizon line — coastal cliff suggestion -->
+  <path d="M0 132 Q60 124 100 128 T200 130 L200 200 L0 200 Z" fill="#1F1D1A" opacity="0.06"/>
+  <path d="M0 145 Q70 140 110 142 T200 144 L200 200 L0 200 Z" fill="#1F1D1A" opacity="0.04"/>
+
+  <!-- Figure: full silhouette in dark fig colour, slightly turned (head profile-ish, body 3/4) -->
+  <g fill="url(#pi-fig)">
+    <!--
+      Hat: wide akubra brim, slight upcurl at front and back, low crown.
+      Drawn as a single path so the silhouette reads cleanly even at small sizes.
+    -->
+    <path d="
+      M 50 78
+      Q 48 72 58 70
+      Q 75 64 100 64
+      Q 125 64 142 70
+      Q 152 72 150 78
+      Q 148 80 138 80
+      Q 125 81 100 81
+      Q 75 81 62 80
+      Q 52 80 50 78 Z
+    "/>
+    <!-- Hat crown -->
+    <path d="
+      M 70 70
+      Q 70 50 100 49
+      Q 130 50 130 70
+      Q 130 73 100 73
+      Q 70 73 70 70 Z
+    "/>
+    <!-- Hat band suggestion — same colour, slightly inset by background opacity -->
+    <rect x="71" y="68" width="58" height="3" fill="#F3EEE5" opacity="0.18"/>
+
+    <!-- Head / jaw — peeking under brim, suggestion of a profile -->
+    <path d="
+      M 86 80
+      Q 86 100 96 105
+      Q 104 107 110 102
+      Q 114 96 113 84
+      Q 113 81 100 81
+      Q 87 81 86 80 Z
+    "/>
+
+    <!-- Coat / shoulders — collar popped, asymmetric for that turned-away look -->
+    <path d="
+      M 38 200
+      L 38 168
+      Q 40 138 70 124
+      L 84 128
+      Q 88 134 88 142
+      L 92 116
+      Q 100 110 110 116
+      L 116 144
+      Q 116 134 120 128
+      L 134 124
+      Q 162 138 164 168
+      L 164 200 Z
+    "/>
+
+    <!-- Collar peaks -->
+    <path d="M 80 122 L 92 116 L 92 138 L 86 130 Z"/>
+    <path d="M 120 122 L 108 116 L 108 138 L 114 130 Z"/>
+
+    <!-- Notebook (small editorial detail — peeking from coat pocket) -->
+    <rect x="128" y="156" width="14" height="20" rx="1" fill="#F3EEE5" opacity="0.92"/>
+    <line x1="131" y1="161" x2="139" y2="161" stroke="#1F1D1A" stroke-width="0.8" opacity="0.7"/>
+    <line x1="131" y1="165" x2="139" y2="165" stroke="#1F1D1A" stroke-width="0.8" opacity="0.7"/>
+    <line x1="131" y1="169" x2="137" y2="169" stroke="#1F1D1A" stroke-width="0.8" opacity="0.7"/>
+  </g>
+
+  <!-- Small "PI" wordmark, bottom centre, integrated like a crest -->
+  <text
+    x="100" y="194"
+    text-anchor="middle"
+    font-family="Cormorant Garamond, Baskerville, serif"
+    font-size="11"
+    font-style="italic"
+    font-weight="600"
+    letter-spacing="3"
+    fill="#1F1D1A"
+    opacity="0.55"
+  >PENINSULA INSIDER</text>
+</svg>

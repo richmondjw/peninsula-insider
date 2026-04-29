@@ -1,10 +1,9 @@
 ---
 /**
  * /ask — Peninsula Insider Concierge
- * The pocket concierge. Ask anything about the Mornington Peninsula.
+ * Chat with PI. Editorial recommendations, on the Peninsula.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NewsletterBlock from '../components/NewsletterBlock.astro';
 
 const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
 ---
@@ -16,141 +15,323 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
 
   <main class="ask-page">
 
-    <!-- Intro -->
+    <!-- Hero -->
     <section class="ask-hero">
       <div class="ask-hero__inner">
-        <p class="ask-hero__eyebrow">Peninsula Insider</p>
+        <div class="ask-hero__avatar" aria-hidden="true">
+          <img src="/images/pi-avatar.svg" alt="" width="120" height="120" />
+        </div>
+        <p class="ask-hero__eyebrow">The Peninsula Insider</p>
         <h1 class="ask-hero__heading">Ask PI</h1>
-        <p class="ask-hero__sub">The Peninsula, distilled. Tell us what you're after and we'll point you in the right direction.</p>
+        <p class="ask-hero__sub">
+          The local who's been everywhere on the Peninsula and has opinions about all of it.
+          Tell us what you're after.
+        </p>
       </div>
     </section>
 
-    <!-- Main concierge area -->
-    <section class="ask-main">
-      <div class="ask-main__inner">
+    <!-- Chat dialog -->
+    <section class="ask-chat-section">
+      <div class="ask-dialog" role="region" aria-label="Conversation with PI">
 
-        <!-- Suggestion chips — shown until first query -->
-        <div class="ask-chips" id="ask-chips">
-          <p class="ask-chips__label">Try asking...</p>
-          <div class="ask-chips__row">
-            <button class="ask-chip" data-query="Best cellar door lunch near Red Hill">Cellar door lunch, Red Hill</button>
-            <button class="ask-chip" data-query="Rainy day with two kids near Rye">Rainy day, two kids</button>
-            <button class="ask-chip" data-query="One night away, couple, near Sorrento">One night, Sorrento</button>
-            <button class="ask-chip" data-query="Dog-friendly cafes on the Peninsula">Dog-friendly cafes</button>
-            <button class="ask-chip" data-query="Hatted restaurants worth booking in advance">Hatted restaurants</button>
-            <button class="ask-chip" data-query="Where to go for a long lunch without too much driving">Long lunch, minimal driving</button>
+        <!-- Dialog header -->
+        <div class="ask-dialog__header">
+          <div class="ask-dialog__id">
+            <span class="ask-dialog__avatar" aria-hidden="true">
+              <img src="/images/pi-mark.svg" alt="" width="38" height="38" />
+            </span>
+            <div>
+              <p class="ask-dialog__name">PI</p>
+              <p class="ask-dialog__status"><span class="ask-dialog__pulse" aria-hidden="true"></span>Local · usually responds in seconds</p>
+            </div>
           </div>
+          <button type="button" class="ask-dialog__reset" id="ask-reset" aria-label="Start over" hidden>
+            New chat
+          </button>
         </div>
 
-        <!-- Conversation thread -->
-        <div class="ask-thread" id="ask-thread" aria-live="polite" aria-label="Conversation"></div>
+        <!-- Messages -->
+        <div class="ask-dialog__body" id="ask-thread" aria-live="polite">
 
-        <!-- Sticky composer -->
-        <div class="ask-composer-wrap" id="ask-composer-wrap">
-          <form class="ask-composer" id="ask-form" autocomplete="off">
-            <textarea
-              id="ask-input"
-              class="ask-composer__input"
-              placeholder="What are you looking for on the Peninsula?"
-              rows="1"
-              maxlength="500"
-              aria-label="Your question"
-            ></textarea>
-            <button type="submit" class="ask-composer__send" id="ask-send" aria-label="Send">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M2 10L18 2L12 18L10 11L2 10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </form>
-          <p class="ask-composer__disclaimer">Based on Peninsula Insider editorial research. Verify details before visiting.</p>
+          <!-- Greeting message -->
+          <div class="ask-msg ask-msg--pi">
+            <div class="ask-msg__avatar" aria-hidden="true">
+              <img src="/images/pi-mark.svg" alt="" width="36" height="36" />
+            </div>
+            <div class="ask-msg__content">
+              <p class="ask-msg__text">
+                Tell me what you're after. A long lunch, a hatted dinner, a dog-friendly cafe, a rainy Sunday with kids. The more specific you are, the sharper my answer.
+              </p>
+              <div class="ask-msg__chips" id="ask-suggestions">
+                <button class="ask-chip" data-query="Best cellar door lunch near Red Hill">Cellar door lunch, Red Hill</button>
+                <button class="ask-chip" data-query="Rainy day with two kids near Rye">Rainy day, two kids</button>
+                <button class="ask-chip" data-query="One night away, couple, near Sorrento">One night away, Sorrento</button>
+                <button class="ask-chip" data-query="Dog-friendly cafes on the Peninsula">Dog-friendly cafes</button>
+                <button class="ask-chip" data-query="Hatted restaurants worth booking in advance">Hatted restaurants worth booking</button>
+                <button class="ask-chip" data-query="Where to go for a long lunch without too much driving">Long lunch, easy drive</button>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        <!-- Composer -->
+        <form class="ask-dialog__composer" id="ask-form" autocomplete="off">
+          <textarea
+            id="ask-input"
+            class="ask-composer__input"
+            placeholder="What are you looking for on the Peninsula?"
+            rows="1"
+            maxlength="500"
+            aria-label="Your question"
+          ></textarea>
+          <button type="submit" class="ask-composer__send" id="ask-send" aria-label="Send message">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M2 10L18 2L12 18L10 11L2 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+
+        <p class="ask-dialog__disclaimer">
+          PI works from Peninsula Insider editorial research. Verify hours and bookings before you go.
+        </p>
 
       </div>
     </section>
 
   </main>
 
-  <NewsletterBlock />
-
 </BaseLayout>
 
 <style>
-  /* ============================================================
+  /* ===========================================================
      ASK PAGE — Peninsula Insider Concierge
-     Tokens from global.css: --bg, --text, --soft, --accent,
-     --sage, --border, --gold, --bg-alt, --dark, --white
-  ============================================================ */
+     Chat dialog with horizontal-scroll recommendation tiles.
+     Tokens: --bg, --text, --soft, --accent, --sage, --border,
+             --gold, --bg-alt, --dark, --white
+  =========================================================== */
 
   .ask-page {
     min-height: 100vh;
     background: var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(123, 142, 122, 0.06), transparent 45%),
+      radial-gradient(circle at 90% 30%, rgba(178, 142, 90, 0.04), transparent 50%);
   }
 
-  /* HERO */
+  /* ---------- HERO ---------- */
   .ask-hero {
-    border-bottom: 1px solid var(--border);
-    padding: 3rem 1.5rem 2.5rem;
+    padding: 4rem 1.5rem 2.5rem;
     text-align: center;
+    border-bottom: 1px solid var(--border);
   }
   .ask-hero__inner { max-width: 640px; margin: 0 auto; }
+
+  .ask-hero__avatar {
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02), 0 12px 32px rgba(20,32,28,0.08);
+  }
+  .ask-hero__avatar img { width: 100%; height: 100%; display: block; }
+
   .ask-hero__eyebrow {
     font-family: 'Outfit', sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--soft);
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.5rem;
   }
   .ask-hero__heading {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
     font-weight: 500;
-    line-height: 1.05;
+    font-style: italic;
+    line-height: 1;
     color: var(--text);
-    margin: 0 0 1rem;
-    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.025em;
   }
   .ask-hero__sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--soft);
+    margin: 0 auto;
+    max-width: 520px;
+    font-style: italic;
+  }
+
+  /* ---------- CHAT DIALOG ---------- */
+  .ask-chat-section {
+    padding: 2.5rem 1rem 6rem;
+  }
+  .ask-dialog {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow:
+      0 1px 0 rgba(0,0,0,0.02),
+      0 12px 40px rgba(20,32,28,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 540px;
+  }
+
+  /* Dialog header */
+  .ask-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-alt);
+  }
+  .ask-dialog__id { display: flex; align-items: center; gap: 0.75rem; }
+  .ask-dialog__avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  }
+  .ask-dialog__avatar img { width: 100%; height: 100%; display: block; }
+  .ask-dialog__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+  .ask-dialog__status {
     font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: 0.73rem;
     color: var(--soft);
     margin: 0;
-    max-width: 480px;
-    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
   }
-
-  /* MAIN AREA */
-  .ask-main { padding: 0 1.5rem 6rem; }
-  .ask-main__inner { max-width: 720px; margin: 0 auto; }
-
-  /* CHIPS */
-  .ask-chips {
-    padding: 2rem 0 1.5rem;
-    transition: opacity 0.3s ease;
+  .ask-dialog__pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--sage);
+    box-shadow: 0 0 0 0 rgba(123, 142, 122, 0.6);
+    animation: pulse 2s ease-out infinite;
+    display: inline-block;
   }
-  .ask-chips__label {
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0   rgba(123, 142, 122, 0.5); }
+    70%  { box-shadow: 0 0 0 8px rgba(123, 142, 122, 0); }
+    100% { box-shadow: 0 0 0 0   rgba(123, 142, 122, 0); }
+  }
+  .ask-dialog__reset {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
     color: var(--soft);
-    margin: 0 0 0.75rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.4rem 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
   }
-  .ask-chips__row {
+  .ask-dialog__reset:hover { color: var(--text); border-color: var(--text); }
+
+  /* Dialog body — scrolling messages */
+  .ask-dialog__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background:
+      linear-gradient(var(--white), var(--white)) padding-box,
+      repeating-linear-gradient(0deg, transparent 0, transparent 39px, rgba(123,142,122,0.04) 39px, rgba(123,142,122,0.04) 40px);
+    background-attachment: local, local;
+  }
+  .ask-dialog__body::-webkit-scrollbar { width: 8px; }
+  .ask-dialog__body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .ask-dialog__body::-webkit-scrollbar-thumb:hover { background: var(--soft); }
+
+  /* ---------- MESSAGES ---------- */
+  .ask-msg {
+    display: flex;
+    gap: 0.85rem;
+    animation: fadeUp 0.35s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .ask-msg--user { justify-content: flex-end; }
+  .ask-msg--user .ask-msg__avatar { display: none; }
+
+  .ask-msg__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  }
+  .ask-msg__avatar img { width: 100%; height: 100%; display: block; }
+
+  .ask-msg__content { max-width: 100%; flex: 1; min-width: 0; }
+  .ask-msg--user .ask-msg__content { max-width: 78%; flex: 0 1 auto; }
+
+  /* User bubble */
+  .ask-msg--user .ask-msg__text {
+    background: var(--text);
+    color: var(--white);
+    padding: 0.7rem 1rem;
+    border-radius: 14px 14px 3px 14px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    word-wrap: break-word;
+  }
+
+  /* PI message — editorial layout, no bubble */
+  .ask-msg--pi .ask-msg__text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.13rem;
+    line-height: 1.65;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+  }
+  .ask-msg--pi .ask-msg__text + .ask-msg__text { margin-top: 0.85rem; }
+
+  /* Followup chips inside a message */
+  .ask-msg__chips {
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.45rem;
   }
   .ask-chip {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.83rem;
     color: var(--text);
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 2rem;
-    padding: 0.45rem 1rem;
+    padding: 0.42rem 0.95rem;
     cursor: pointer;
     transition: all 0.15s ease;
     line-height: 1.3;
@@ -159,428 +340,506 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
     border-color: var(--sage);
     background: var(--bg-alt);
     color: var(--sage);
+    transform: translateY(-1px);
   }
 
-  /* THREAD */
-  .ask-thread {
+  /* ---------- TILE RAIL — horizontal scroll of PI-style cards ---------- */
+  .ask-rail {
+    margin: 1.25rem -1.5rem 0;
+    padding: 0 1.5rem 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: var(--border) transparent;
+    scrollbar-width: thin;
+  }
+  .ask-rail::-webkit-scrollbar { height: 8px; }
+  .ask-rail::-webkit-scrollbar-track { background: transparent; }
+  .ask-rail::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+  .ask-rail::-webkit-scrollbar-thumb:hover { background: var(--soft); }
+
+  .ask-rail__inner {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-bottom: 2rem;
+    gap: 1rem;
+    padding: 0.5rem 0 1rem;
+    width: max-content;
   }
 
-  /* TURN — a user question + PI response pair */
-  .ask-turn {}
-
-  .ask-turn__question {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--text);
-    line-height: 1.4;
-    margin: 0 0 1.25rem;
-    padding-left: 1rem;
-    border-left: 2px solid var(--border);
-  }
-
-  /* PI response card */
-  .ask-response {
+  /* ---------- TILE CARD — matches PI VenueCard aesthetic ---------- */
+  .ask-tile {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 4px;
     overflow: hidden;
-  }
-  .ask-response__body {
-    padding: 1.5rem;
-  }
-  .ask-response__answer {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: var(--text);
-    margin: 0 0 1.5rem;
-    white-space: pre-wrap;
-  }
-
-  /* RECOMMENDATION CARDS */
-  .ask-recs {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-  .ask-rec {
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
-    padding: 0.875rem 1rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 3px;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.15s ease, background 0.15s ease;
-  }
-  .ask-rec:hover {
-    border-color: var(--sage);
-    background: var(--bg-alt);
-  }
-  .ask-rec__tier {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--sage);
-    border-radius: 2px;
-    padding: 0.2rem 0.45rem;
-    flex-shrink: 0;
-    margin-top: 0.1rem;
-  }
-  .ask-rec__tier--A { background: var(--accent); }
-  .ask-rec__tier--B { background: var(--sage); }
-  .ask-rec__tier--C { background: var(--soft); }
-  .ask-rec__info { min-width: 0; }
-  .ask-rec__title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--text);
-    margin: 0 0 0.2rem;
-    line-height: 1.3;
-  }
-  .ask-rec__why {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.8rem;
-    color: var(--soft);
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  /* FOLLOW-ON CHIPS */
-  .ask-followon {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--border);
-    margin: 0 -1.5rem -1.5rem;
-    padding: 1rem 1.5rem;
-    background: var(--bg-alt);
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   }
-  .ask-followon__label {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--soft);
-    width: 100%;
-    margin-bottom: 0.35rem;
-  }
-  .ask-followon__chip {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.8rem;
-    color: var(--soft);
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 2rem;
-    padding: 0.35rem 0.85rem;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-  .ask-followon__chip:hover {
+  .ask-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(20, 32, 28, 0.1);
     border-color: var(--sage);
-    color: var(--sage);
-    background: var(--white);
   }
 
-  /* Provenance footer */
-  .ask-response__provenance {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    color: var(--soft);
-    margin: 0;
-    padding: 0.75rem 1.5rem;
-    background: var(--bg-alt);
-    border-top: 1px solid var(--border);
+  .ask-tile__hero {
+    aspect-ratio: 4 / 3;
+    background-color: var(--bg-alt);
+    background-size: cover;
+    background-position: center;
+    position: relative;
   }
-
-  /* LOADING SKELETON */
-  .ask-loading {
+  .ask-tile__hero--placeholder {
+    background-image:
+      linear-gradient(135deg, var(--bg-alt), var(--white));
     display: flex;
-    gap: 0.4rem;
-    padding: 1.5rem;
     align-items: center;
-  }
-  .ask-loading__dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--border);
-    animation: dot-pulse 1.4s ease-in-out infinite;
-  }
-  .ask-loading__dot:nth-child(2) { animation-delay: 0.2s; }
-  .ask-loading__dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes dot-pulse {
-    0%, 80%, 100% { transform: scale(1); opacity: 0.5; }
-    40% { transform: scale(1.4); opacity: 1; }
+    justify-content: center;
+    color: var(--soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
   }
 
-  /* COMPOSER */
-  .ask-composer-wrap {
-    position: sticky;
-    bottom: 0;
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 1rem 0 0.5rem;
-    margin-top: 1rem;
-  }
-  .ask-composer {
+  .ask-tile__rank {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.65rem;
+    background: var(--text);
+    color: var(--white);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
     display: flex;
-    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .ask-tile__price {
+    position: absolute;
+    bottom: 0.65rem;
+    right: 0.65rem;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .ask-tile__body { padding: 0.95rem 1rem 1.05rem; flex: 1; display: flex; flex-direction: column; }
+
+  .ask-tile__top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .ask-tile__type {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+  .ask-tile__region {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    color: var(--soft);
+    text-transform: capitalize;
+  }
+  .ask-tile__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.32rem;
+    font-weight: 600;
+    line-height: 1.18;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .ask-tile__why {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin: 0 0 0.85rem;
+    flex: 1;
+    border-left: 2px solid var(--sage);
+    padding-left: 0.7rem;
+    font-style: italic;
+  }
+  .ask-tile__signature {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--soft);
+    margin: 0 0 0.85rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .ask-tile__cta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--sage);
+    text-transform: uppercase;
+    align-self: flex-start;
+    border-bottom: 1px solid var(--sage);
+    padding-bottom: 1px;
+  }
+  .ask-tile:hover .ask-tile__cta { color: var(--text); border-color: var(--text); }
+
+  /* ---------- COMPOSER ---------- */
+  .ask-dialog__composer {
+    border-top: 1px solid var(--border);
+    padding: 0.85rem 1rem;
+    display: flex;
+    gap: 0.6rem;
     align-items: flex-end;
     background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 4px;
-    padding: 0.75rem 0.75rem 0.75rem 1rem;
-    transition: border-color 0.15s ease;
-  }
-  .ask-composer:focus-within {
-    border-color: var(--sage);
   }
   .ask-composer__input {
     flex: 1;
     font-family: 'Outfit', sans-serif;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.45;
     color: var(--text);
-    background: transparent;
-    border: none;
-    outline: none;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 0.65rem 1rem;
     resize: none;
-    min-height: 1.5em;
-    max-height: 8em;
-    overflow-y: auto;
+    max-height: 140px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .ask-composer__input:focus {
+    outline: none;
+    border-color: var(--sage);
+    background: var(--white);
   }
   .ask-composer__input::placeholder { color: var(--soft); }
+
   .ask-composer__send {
-    flex-shrink: 0;
-    width: 36px; height: 36px;
-    background: var(--sage);
-    color: var(--white);
+    width: 38px;
+    height: 38px;
     border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    border-radius: 50%;
+    background: var(--text);
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.15s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s ease, transform 0.15s ease;
   }
-  .ask-composer__send:hover { background: var(--accent); }
-  .ask-composer__send:disabled { background: var(--border); cursor: not-allowed; }
-  .ask-composer__disclaimer {
+  .ask-composer__send:hover { background: var(--sage); transform: scale(1.04); }
+  .ask-composer__send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  /* Disclaimer */
+  .ask-dialog__disclaimer {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     color: var(--soft);
-    margin: 0.5rem 0 0;
     text-align: center;
+    padding: 0.5rem 1rem 0.85rem;
+    margin: 0;
+    border-top: 1px solid var(--border);
+    background: var(--bg-alt);
   }
 
-  /* Hidden state */
-  .ask-chips.is-hidden { display: none; }
+  /* ---------- TYPING INDICATOR ---------- */
+  .ask-typing {
+    display: flex;
+    gap: 5px;
+    padding: 0.55rem 0;
+  }
+  .ask-typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--soft);
+    animation: typing-bounce 1.2s ease infinite;
+  }
+  .ask-typing span:nth-child(2) { animation-delay: 0.15s; }
+  .ask-typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes typing-bounce {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30%           { opacity: 1;   transform: translateY(-4px); }
+  }
 
-  /* Partner chip */
-  .ask-partner-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+  /* ---------- ERROR ---------- */
+  .ask-msg--error .ask-msg__text {
+    background: #fef3f3;
+    border-left: 3px solid #c44;
+    padding: 0.8rem 1rem;
+    color: #802020;
     font-family: 'Outfit', sans-serif;
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--sage);
-    background: color-mix(in srgb, var(--sage) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--sage) 25%, transparent);
-    border-radius: 2rem;
-    padding: 0.25rem 0.65rem;
-    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    border-radius: 0 4px 4px 0;
   }
 
-  @media (max-width: 600px) {
-    .ask-hero { padding: 2rem 1.25rem 1.75rem; }
-    .ask-main { padding: 0 1.25rem 5rem; }
-    .ask-chips__row { gap: 0.4rem; }
-    .ask-chip { font-size: 0.8rem; padding: 0.4rem 0.85rem; }
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 640px) {
+    .ask-hero { padding: 2.5rem 1.25rem 1.75rem; }
+    .ask-chat-section { padding: 1.25rem 0.5rem 4rem; }
+    .ask-dialog { border-radius: 4px; min-height: 70vh; }
+    .ask-dialog__body { padding: 1.25rem 1rem; gap: 1.5rem; }
+    .ask-rail { margin: 1rem -1rem 0; padding: 0 1rem 0.5rem; }
+    .ask-tile { flex-basis: 240px; }
   }
 </style>
 
 <script define:vars={{ API_URL }}>
-  // ============================================================
-  // Peninsula Insider Concierge — client-side chat logic
-  // ============================================================
-
-  const sessionId = 'pi-' + Math.random().toString(36).slice(2, 10);
   const form = document.getElementById('ask-form');
   const input = document.getElementById('ask-input');
-  const send = document.getElementById('ask-send');
+  const sendBtn = document.getElementById('ask-send');
   const thread = document.getElementById('ask-thread');
-  const chips = document.getElementById('ask-chips');
-  let isLoading = false;
+  const greetingChips = document.getElementById('ask-suggestions');
+  const resetBtn = document.getElementById('ask-reset');
 
-  // Auto-grow textarea
-  input.addEventListener('input', () => {
+  const sessionId = `pi-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+  let askInFlight = false;
+
+  // ---------- Helpers ----------
+  const escapeHtml = (s) => String(s ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+  const titleCase = (s) => String(s ?? '').replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+  const VENUE_TYPE_LABEL = {
+    restaurant: 'Restaurant', winery: 'Cellar Door', cafe: 'Café',
+    bakery: 'Bakery', pub: 'Pub', brewery: 'Brewery',
+    distillery: 'Distillery', producer: 'Producer', market: 'Market',
+    accommodation: 'Stay', hotel: 'Hotel', spa: 'Spa',
+    experience: 'Experience',
+  };
+
+  // ---------- Render ----------
+  function autoGrow() {
     input.style.height = 'auto';
-    input.style.height = Math.min(input.scrollHeight, 128) + 'px';
-  });
-
-  // Submit on Enter (not Shift+Enter)
+    input.style.height = Math.min(input.scrollHeight, 140) + 'px';
+  }
+  input.addEventListener('input', autoGrow);
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      if (!isLoading) handleSubmit();
+      form.requestSubmit();
     }
   });
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!isLoading) handleSubmit();
-  });
-
-  // Suggestion chips
-  document.querySelectorAll('.ask-chip').forEach((chip) => {
-    chip.addEventListener('click', () => {
-      input.value = chip.dataset.query || '';
-      input.style.height = 'auto';
-      handleSubmit();
-    });
-  });
-
-  function handleSubmit() {
-    const query = input.value.trim();
-    if (!query || query.length < 3) return;
-    input.value = '';
-    input.style.height = 'auto';
-    chips.classList.add('is-hidden');
-    runQuery(query);
+  function appendUserMessage(text) {
+    const el = document.createElement('div');
+    el.className = 'ask-msg ask-msg--user';
+    el.innerHTML = `<div class="ask-msg__content"><p class="ask-msg__text">${escapeHtml(text)}</p></div>`;
+    thread.appendChild(el);
+    scrollToBottom();
   }
 
-  async function runQuery(query) {
-    isLoading = true;
-    send.disabled = true;
-
-    // Append user turn
-    const turn = document.createElement('div');
-    turn.className = 'ask-turn';
-    turn.innerHTML = `
-      <p class="ask-turn__question">${escapeHtml(query)}</p>
-      <div class="ask-response" role="status">
-        <div class="ask-loading">
-          <div class="ask-loading__dot"></div>
-          <div class="ask-loading__dot"></div>
-          <div class="ask-loading__dot"></div>
-        </div>
+  function appendTyping() {
+    const el = document.createElement('div');
+    el.className = 'ask-msg ask-msg--pi ask-msg--typing';
+    el.id = 'ask-typing-indicator';
+    el.innerHTML = `
+      <div class="ask-msg__avatar" aria-hidden="true">
+        <img src="/images/pi-mark.svg" alt="" width="28" height="28" />
+      </div>
+      <div class="ask-msg__content">
+        <div class="ask-typing"><span></span><span></span><span></span></div>
       </div>
     `;
-    thread.appendChild(turn);
-    turn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    thread.appendChild(el);
+    scrollToBottom();
+  }
 
-    const responseEl = turn.querySelector('.ask-response');
+  function removeTyping() {
+    const el = document.getElementById('ask-typing-indicator');
+    if (el) el.remove();
+  }
+
+  function appendPiMessage(data) {
+    const el = document.createElement('div');
+    el.className = 'ask-msg ask-msg--pi';
+
+    // Split answer into paragraphs (LLM should produce 2-3)
+    const paragraphs = String(data.answer || '').split(/\n\s*\n+/).filter(Boolean);
+    const paragraphsHtml = paragraphs.map((p) => `<p class="ask-msg__text">${escapeHtml(p)}</p>`).join('');
+
+    // Recommendation tile rail
+    let railHtml = '';
+    if (Array.isArray(data.recommendations) && data.recommendations.length > 0) {
+      const tiles = data.recommendations.map((rec, i) => renderTile(rec, i + 1)).join('');
+      railHtml = `
+        <div class="ask-rail" role="list" aria-label="Peninsula Insider recommendations">
+          <div class="ask-rail__inner">${tiles}</div>
+        </div>
+      `;
+    }
+
+    // Follow-on chips
+    let chipsHtml = '';
+    if (Array.isArray(data.follow_on) && data.follow_on.length > 0) {
+      chipsHtml = `
+        <div class="ask-msg__chips">
+          ${data.follow_on.map((q) => `<button class="ask-chip" data-query="${escapeHtml(q)}">${escapeHtml(q)}</button>`).join('')}
+        </div>
+      `;
+    }
+
+    el.innerHTML = `
+      <div class="ask-msg__avatar" aria-hidden="true">
+        <img src="/images/pi-mark.svg" alt="" width="28" height="28" />
+      </div>
+      <div class="ask-msg__content">
+        ${paragraphsHtml}
+        ${railHtml}
+        ${chipsHtml}
+      </div>
+    `;
+    thread.appendChild(el);
+    scrollToBottom();
+  }
+
+  function renderTile(rec, rank) {
+    const heroSrc = rec.hero_image ? escapeHtml(rec.hero_image) : null;
+    const heroStyle = heroSrc
+      ? `background-image: url('${heroSrc}')`
+      : '';
+    const heroClass = heroSrc ? 'ask-tile__hero' : 'ask-tile__hero ask-tile__hero--placeholder';
+    const heroInner = heroSrc ? '' : `<span>${escapeHtml(rec.title || 'Peninsula Insider')}</span>`;
+    const priceHtml = rec.price_band ? `<span class="ask-tile__price">${escapeHtml(rec.price_band)}</span>` : '';
+    const typeLabel = VENUE_TYPE_LABEL[rec.venue_type] || titleCase(rec.venue_type || rec.category || 'Pick');
+    const region = rec.region ? titleCase(rec.region) : '';
+    const href = escapeHtml(rec.href || rec.slug || '#');
+    const why = escapeHtml(rec.why || '');
+    const signature = rec.signature ? escapeHtml(rec.signature) : '';
+
+    return `
+      <a href="${href}" class="ask-tile" role="listitem">
+        <div class="${heroClass}" style="${heroStyle}" aria-hidden="true">
+          <span class="ask-tile__rank">${rank}</span>
+          ${heroInner}
+          ${priceHtml}
+        </div>
+        <div class="ask-tile__body">
+          <div class="ask-tile__top">
+            <span class="ask-tile__type">${escapeHtml(typeLabel)}</span>
+            ${region ? `<span class="ask-tile__region">${escapeHtml(region)}</span>` : ''}
+          </div>
+          <h3 class="ask-tile__name">${escapeHtml(rec.title || 'Untitled')}</h3>
+          ${why ? `<p class="ask-tile__why">${why}</p>` : ''}
+          ${signature ? `<p class="ask-tile__signature">${signature}</p>` : ''}
+          <span class="ask-tile__cta">Read PI's notes →</span>
+        </div>
+      </a>
+    `;
+  }
+
+  function appendErrorMessage(message) {
+    const el = document.createElement('div');
+    el.className = 'ask-msg ask-msg--pi ask-msg--error';
+    el.innerHTML = `
+      <div class="ask-msg__avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><circle cx="12" cy="12" r="10" opacity="0.4"/></svg>
+      </div>
+      <div class="ask-msg__content">
+        <p class="ask-msg__text">${escapeHtml(message)}</p>
+      </div>
+    `;
+    thread.appendChild(el);
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    requestAnimationFrame(() => {
+      thread.scrollTop = thread.scrollHeight;
+    });
+  }
+
+  // ---------- Submit ----------
+  async function ask(query) {
+    if (!query || query.length < 3 || askInFlight) return;
+    askInFlight = true;
+
+    // Hide greeting chips after first query
+    if (greetingChips) greetingChips.style.display = 'none';
+    resetBtn.hidden = false;
+
+    appendUserMessage(query);
+    input.value = '';
+    autoGrow();
+    sendBtn.disabled = true;
+    appendTyping();
 
     try {
       const res = await fetch(`${API_URL}/concierge/ask`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Session-Id': sessionId,
-        },
+        headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId },
         body: JSON.stringify({ query }),
       });
-
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
+      removeTyping();
 
-      if (data.error) {
-        renderError(responseEl, data.error);
+      if (!res.ok) {
+        appendErrorMessage(data.error || 'Something went wrong. Try again in a moment.');
       } else {
-        renderResponse(responseEl, data, query);
+        appendPiMessage(data);
       }
     } catch (err) {
-      renderError(responseEl, 'Something went wrong. Please try again.');
-      console.error('Concierge error:', err);
+      removeTyping();
+      appendErrorMessage("I couldn't reach the server. Mind trying that again?");
     } finally {
-      isLoading = false;
-      send.disabled = false;
+      askInFlight = false;
+      sendBtn.disabled = false;
       input.focus();
-      responseEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
-  function renderResponse(el, data, originalQuery) {
-    const recs = (data.recommendations || []).slice(0, 5);
-    const followOn = (data.follow_on || []).slice(0, 3);
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    ask(input.value.trim());
+  });
 
-    const recsHtml = recs.length
-      ? `<div class="ask-recs">
-          ${recs.map((r) => `
-            <a class="ask-rec" href="https://peninsulainsider.com.au${r.slug || ''}" target="_blank" rel="noopener">
-              <span class="ask-rec__tier ask-rec__tier--${r.editorial_tier || 'B'}">${r.editorial_tier || 'B'}</span>
-              <div class="ask-rec__info">
-                <p class="ask-rec__title">${escapeHtml(r.title || '')}</p>
-                <p class="ask-rec__why">${escapeHtml(r.why || '')}</p>
-              </div>
-            </a>
-          `).join('')}
-        </div>`
-      : '';
+  // Delegated chip clicks (handles greeting + follow-on chips)
+  document.addEventListener('click', (e) => {
+    const chip = e.target.closest('.ask-chip');
+    if (!chip) return;
+    const q = chip.dataset.query;
+    if (q) {
+      input.value = q;
+      ask(q);
+    }
+  });
 
-    const followOnHtml = followOn.length
-      ? `<div class="ask-followon">
-          <span class="ask-followon__label">Keep going</span>
-          ${followOn.map((q) => `
-            <button class="ask-followon__chip" data-query="${escapeHtml(q)}">${escapeHtml(q)}</button>
-          `).join('')}
-        </div>`
-      : '';
-
-    el.innerHTML = `
-      <div class="ask-response__body">
-        <div class="ask-partner-chip">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1"/>
-          </svg>
-          Editorial
-        </div>
-        <p class="ask-response__answer">${escapeHtml(data.answer || '')}</p>
-        ${recsHtml}
-        ${followOnHtml}
-      </div>
-      <p class="ask-response__provenance">${escapeHtml(data.provenance_footer || '')}</p>
-    `;
-
-    // Wire follow-on chips
-    el.querySelectorAll('.ask-followon__chip').forEach((chip) => {
-      chip.addEventListener('click', () => {
-        const q = chip.dataset.query || '';
-        if (q) runQuery(q);
-      });
-    });
-  }
-
-  function renderError(el, message) {
-    el.innerHTML = `
-      <div class="ask-response__body">
-        <p class="ask-response__answer" style="color: var(--soft);">${escapeHtml(message)}</p>
-      </div>
-    `;
-  }
-
-  function escapeHtml(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-  }
+  // Reset
+  resetBtn.addEventListener('click', () => {
+    // Keep just the greeting message
+    const greeting = thread.querySelector('.ask-msg');
+    thread.innerHTML = '';
+    if (greeting) thread.appendChild(greeting);
+    if (greetingChips) greetingChips.style.display = '';
+    resetBtn.hidden = true;
+    input.value = '';
+    input.focus();
+  });
 </script>
