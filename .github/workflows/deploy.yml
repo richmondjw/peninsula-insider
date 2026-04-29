@@ -108,9 +108,14 @@ jobs:
             exit 0
           fi
 
-          git commit -m "build: deploy site (auto) [skip ci]
+          # Use a heredoc + first-line-only of the trigger commit message to
+          # avoid shell-injection from quotes/special chars in commit text.
+          TRIGGER_MSG=$(echo "${{ github.event.head_commit.message }}" | head -1 | tr -d '"' | tr -d '`')
+          git commit -F - <<EOF
+          build: deploy site (auto) [skip ci]
 
-          Built from ${GITHUB_SHA::7}: ${{ github.event.head_commit.message }}"
+          Built from ${GITHUB_SHA::7}: ${TRIGGER_MSG}
+          EOF
 
           # Use a retry loop in case the branch moved while we were building
           for attempt in 1 2 3; do
