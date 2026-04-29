@@ -1,61 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Peninsula Insider — PI mark">
   <!--
-    PI compact mark — same Carmen-Sandiego silhouette, cropped tight,
-    on a dark disc. Reads at 24px upward. Profile faces viewer's right.
+    PI compact mark — coastal palette, simplified for chat/nav contexts.
+    Two-tone hat brim, profile silhouette, dusty-blue disc.
   -->
-  <circle cx="32" cy="32" r="32" fill="#1F1D1A"/>
+  <defs>
+    <clipPath id="m-disc"><circle cx="32" cy="32" r="32"/></clipPath>
+  </defs>
 
-  <!--
-    Single-path silhouette in cream tone, traced from top-back of crown
-    clockwise around brim, down face profile, into collar/coat.
-  -->
-  <path
-    fill="#F3EEE5"
-    d="
-      M 30 6
-      Q 22 7 19 11
-      Q 16 17 17 22
-      L 17 23
-      Q 12 22 8 25
-      Q 4 27 4 30
-      Q 4 33 7 34
-      Q 11 35 15 35
-      L 17 35
-      Q 17 42 19 48
-      L 17 52
-      Q 13 56 12 62
-      Q 11 64 11 64
-      L 53 64
-      Q 53 64 52 62
-      Q 51 56 47 52
-      L 45 50
-      Q 50 47 51 43
-      Q 51 40 49 38
-      L 47 37
-      Q 49 36 51 34
-      Q 53 32 52 30
-      L 51 29
-      Q 53 28 54 27
-      Q 56 24 54 22
-      Q 51 20 47 19
-      L 45 19
-      Q 44 14 42 11
-      Q 40 7 35 6
-      Q 32 5 30 6 Z
-    "
-  />
+  <g clip-path="url(#m-disc)">
+    <!-- Bay sky -->
+    <rect width="64" height="64" fill="#6E89A8"/>
 
-  <!-- Hat band — subtle dark line across the crown -->
-  <path
-    d="M 18 21 Q 32 25 47 21 L 47 23 Q 32 27 18 23 Z"
-    fill="#1F1D1A"
-    opacity="0.5"
-  />
+    <!-- Sun behind hat -->
+    <circle cx="32" cy="18" r="7" fill="#D67148"/>
 
-  <!-- Eye glint -->
-  <path
-    d="M 41 26 Q 45 26.5 48 27 L 47.7 28.2 Q 45 27.7 41 27.2 Z"
-    fill="#1F1D1A"
-    opacity="0.6"
-  />
+    <!-- Body fading at bottom -->
+    <path d="M 14 64 Q 14 50 24 46 L 40 46 Q 50 50 50 64 Z" fill="#F3EEE5"/>
+
+    <!-- Neck -->
+    <rect x="28" y="40" width="8" height="8" fill="#F3EEE5"/>
+
+    <!-- Head with profile bump -->
+    <path d="M 22 28 Q 22 20 30 19 Q 38 19 41 24 Q 44 28 42 33 Q 42 38 38 42 Q 32 45 26 42 Q 21 38 22 28 Z" fill="#F3EEE5"/>
+
+    <!-- Hair tress on right side -->
+    <path d="M 41 30 Q 44 38 44 50 L 50 52 Q 52 42 49 30 Z" fill="#C56848" stroke="#F3EEE5" stroke-width="0.8"/>
+
+    <!-- Coastline arc -->
+    <path d="M -4 50 Q 32 44 68 50" stroke="#C56848" stroke-width="1" fill="none"/>
+
+    <!-- Hat brim back (sage) -->
+    <path d="M 6 22 Q 22 18 32 18 L 32 26 Q 22 26 8 28 Q 4 26 6 22 Z" fill="#8FA180" stroke="#F3EEE5" stroke-width="0.9"/>
+
+    <!-- Hat brim front (terracotta) -->
+    <path d="M 32 18 Q 48 18 58 22 Q 60 26 58 28 Q 48 30 32 28 Z" fill="#C56848" stroke="#F3EEE5" stroke-width="0.9"/>
+
+    <!-- Hat crown -->
+    <path d="M 22 19 Q 22 10 32 10 Q 42 10 42 19 Z" fill="#D67148" stroke="#F3EEE5" stroke-width="0.9"/>
+
+    <!-- Hat band -->
+    <path d="M 23 20 Q 32 22 41 20" stroke="#F3EEE5" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Disc ring -->
+  <circle cx="32" cy="32" r="32" fill="none" stroke="#1F1D1A" stroke-width="0.6" opacity="0.2"/>
 </svg>
