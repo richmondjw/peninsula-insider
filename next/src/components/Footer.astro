@@ -2,37 +2,22 @@
 /**
  * Footer  -  Peninsula Insider
  * Three-column footer with editorial nav, section links, and legal.
+ *
+ * Section + about links come from `lib/nav.ts` so the masthead, pillar grid,
+ * and footer stay in sync. The "Places" column is built from the live places
+ * collection so editorial picks lead but new published places surface
+ * automatically without a manual edit here.
  */
+import { getCollection } from 'astro:content';
+import {
+  footerSectionLinks as sectionLinks,
+  footerAboutLinks as aboutLinks,
+  buildFooterPlaceLinks,
+} from '../lib/nav';
+
 const year = new Date().getFullYear();
-
-const sectionLinks = [
-  { label: 'Eat & Drink', href: '/eat/' },
-  { label: 'Stay', href: '/stay/' },
-  { label: 'Wine Country', href: '/wine/' },
-  { label: 'Explore', href: '/explore/' },
-  { label: 'Golf', href: '/golf/' },
-  { label: 'Spa & Wellness', href: '/spa/' },
-  { label: 'Escape', href: '/escape/' },
-  { label: "What's On", href: '/whats-on/' },
-  { label: 'Journal', href: '/journal/' },
-];
-
-const placeLinks = [
-  { label: 'Red Hill', href: '/places/red-hill/' },
-  { label: 'Sorrento', href: '/places/sorrento/' },
-  { label: 'Flinders', href: '/places/flinders/' },
-  { label: 'Mornington', href: '/places/mornington/' },
-  { label: 'Portsea', href: '/places/portsea/' },
-  { label: 'Main Ridge', href: '/places/main-ridge/' },
-  { label: 'All places', href: '/places/' },
-];
-
-const aboutLinks = [
-  { label: 'About', href: '/about/' },
-  { label: 'Contact', href: '/contact/' },
-  { label: 'Newsletter', href: '/newsletter/' },
-  { label: 'Privacy', href: '/privacy/' },
-];
+const places = await getCollection('places');
+const placeLinks = buildFooterPlaceLinks(places);
 ---
 
 <footer class="footer">

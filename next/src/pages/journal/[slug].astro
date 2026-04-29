@@ -7,7 +7,10 @@ import VenueCard from '../../components/VenueCard.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import ClusterLinks from '../../components/ClusterLinks.astro';
+import ItineraryCard from '../../components/ItineraryCard.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
 import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle } from '../../lib/editorial';
+import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -27,32 +30,25 @@ const currentIndex = allArticles.findIndex((a) => routeSlug(a) === routeSlug(art
 const prevArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;
 const nextArticle = currentIndex > 0 ? allArticles[currentIndex - 1] : null;
 
-const moreArticles = allArticles
-  .filter((entry) => routeSlug(entry) !== routeSlug(article))
-  .filter((entry) => {
-    // Prefer same format or overlapping tags
-    if (entry.data.format === article.data.format) return true;
-    return entry.data.tags.some((tag) => article.data.tags.includes(tag));
-  })
-  .slice(0, 3);
-const moreFallback = allArticles
-  .filter((entry) => routeSlug(entry) !== routeSlug(article))
-  .slice(0, 3);
-const relatedArticles = moreArticles.length >= 2 ? moreArticles : moreFallback;
+// Related articles: explicit relatedArticles refs lead, then format/tag
+// similarity, then a recency fallback. Single helper keeps all three layers
+// in one place so no surface ever shows an empty rail.
+const relatedArticles = pickRelatedArticles(article, allArticles, {
+  explicit: article.data.relatedArticles,
+  limit: 3,
+});
 
-// Resolve related venues
 const allVenues = await getCollection('venues');
-const relatedVenueSlugs = (article.data.relatedVenues ?? []).map((entry: any) => String(entry.id ?? entry));
-const relatedVenues = allVenues
-  .filter((venue) => relatedVenueSlugs.includes(routeSlug(venue)))
-  .slice(0, 3);
+const relatedVenues = resolveRefs(article.data.relatedVenues, allVenues).slice(0, 3);
 
-// Resolve related experiences
 const allExperiences = await getCollection('experiences');
-const relatedExperienceSlugs = (article.data.relatedExperiences ?? []).map((entry: any) => String(entry.id ?? entry));
-const relatedExperiences = allExperiences
-  .filter((exp) => relatedExperienceSlugs.includes(routeSlug(exp)))
-  .slice(0, 3);
+const relatedExperiences = resolveRefs(article.data.relatedExperiences, allExperiences).slice(0, 3);
+
+const allPlaces = await getCollection('places');
+const relatedPlaces = resolveRefs(article.data.relatedPlaces, allPlaces).slice(0, 3);
+
+const allItineraries = await getCollection('itineraries');
+const relatedItineraries = resolveRefs(article.data.relatedItineraries, allItineraries).slice(0, 3);
 
 const authorLabel = article.data.houseByline
   ? 'The Peninsula Insider'
@@ -245,6 +241,40 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
         </div>
         <div class="experience-grid">
           {relatedExperiences.map((exp) => <ExperienceCard experience={exp} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedPlaces.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Places anchored in this piece</p>
+            <h2 class="venues__title">Where on the Peninsula this lands</h2>
+          </div>
+          <a href="/places/" class="venues__link">All places →</a>
+        </div>
+        <div class="venues__grid">
+          {relatedPlaces.map((place) => <PlaceCard place={place} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedItineraries.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Make this a weekend</p>
+            <h2 class="venues__title">Itineraries that pick up where this piece leaves off</h2>
+          </div>
+          <a href="/escape/" class="venues__link">All itineraries →</a>
+        </div>
+        <div class="venues__grid">
+          {relatedItineraries.map((it) => <ItineraryCard itinerary={it} />)}
         </div>
       </div>
     </section>

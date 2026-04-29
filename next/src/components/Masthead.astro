@@ -3,6 +3,8 @@
  * Masthead  -  Peninsula Insider
  * Sticky top bar. Highlights the current section.
  */
+import { mastheadNav as navItems } from '../lib/nav';
+
 export interface Props {
   section?: string;
 }
@@ -11,19 +13,6 @@ const { section = 'home' } = Astro.props;
 
 // Hide the "Ask The Insider" masthead button on /ask itself — redundant.
 const isAskPage = Astro.url.pathname.startsWith('/ask');
-
-// Primary masthead nav  -  seven slots: the six pillars plus the
-// What’s On dispatch row, which is the newest editorial lane and
-// the differentiator versus the DMO.
-const navItems = [
-  { key: 'eat',      label: 'Eat & Drink', href: '/eat'      },
-  { key: 'stay',     label: 'Stay',        href: '/stay'     },
-  { key: 'wine',     label: 'Wine',        href: '/wine'     },
-  { key: 'explore',  label: 'Explore',     href: '/explore'  },
-  { key: 'escape',   label: 'Escape',      href: '/escape'   },
-  { key: 'whats-on', label: "What’s On",   href: '/whats-on' },
-  { key: 'journal',  label: 'Journal',     href: '/journal'  },
-];
 ---
 
 <header class="masthead">
@@ -51,7 +40,7 @@ const navItems = [
           href="/ask/"
           class="masthead__concierge"
           id="masthead-concierge"
-          aria-label="Ask PI, your local Peninsula concierge"
+          aria-label="Ask The Insider, your local Peninsula concierge"
           data-pi-trigger="true"
         >
           <span class="masthead__concierge-avatar" aria-hidden="true">
@@ -202,7 +191,7 @@ const navItems = [
     .masthead__concierge { display: none; }
   }
 
-  /* Mobile-menu Ask-PI CTA — italic terracotta link */
+  /* Mobile-menu Ask-The-Insider CTA — italic terracotta link */
   .mobile-nav__cta--ask {
     background: transparent !important;
     color: #8B4E3B !important;
