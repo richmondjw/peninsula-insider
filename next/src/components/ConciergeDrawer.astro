@@ -598,7 +598,9 @@
     const greeting   = document.getElementById('pi-drawer-greeting');
     const sugWrap    = document.getElementById('pi-drawer-suggestions-wrap');
 
-    const API_URL = (window.PI_API_URL) || 'http://localhost:8787';
+    // Resolved fresh on every request so a late-binding window.PI_API_URL
+    // still works (defensive against script-load-order issues).
+    const apiUrl = () => window.PI_API_URL || 'http://localhost:8787';
     const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
 
     // ── State ────────────────────────────────────────
@@ -852,7 +854,7 @@
       appendTyping();
 
       try {
-        const res = await fetch(API_URL + '/concierge/ask', {
+        const res = await fetch(apiUrl() + '/concierge/ask', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId },
           body: JSON.stringify({ query: query }),

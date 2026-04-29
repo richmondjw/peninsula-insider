@@ -131,14 +131,15 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <Footer />
 
-  <!-- PI concierge drawer — slides in from the right edge.
-       Suppressed on /ask itself (which is the full-page version). -->
-  {!isAskPage && <ConciergeDrawer />}
-
-  <!-- Expose API URL to the drawer's inline script -->
+  <!-- Set API URL BEFORE the drawer renders — its boot script reads
+       window.PI_API_URL at parse time, so this must come first. -->
   <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
     window.PI_API_URL = API_URL;
   </script>
+
+  <!-- PI concierge drawer — slides in from the right edge.
+       Suppressed on /ask itself (which is the full-page version). -->
+  {!isAskPage && <ConciergeDrawer />}
 
   <script is:inline>
     (function() {
