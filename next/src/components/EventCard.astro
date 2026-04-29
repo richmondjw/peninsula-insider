@@ -30,8 +30,12 @@ function recurrenceAwareDateLabel(data: any): string {
   return eventDateLabel(data.startDate, data.endDate);
 }
 const dateLabel = recurrenceAwareDateLabel(event.data);
-const placeLabel =
+const placeId =
   typeof event.data.place === 'string' ? event.data.place : event.data.place?.id;
+const placeLabel = placeId
+  ? String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())
+  : null;
+const placeHref = placeId ? `/places/${placeId}/` : null;
 ---
 
 <article class={`event-card ${featured ? 'event-card--featured' : ''}`}>
@@ -46,7 +50,9 @@ const placeLabel =
     <a href={`/whats-on/${slug}`}>{event.data.title}</a>
   </h3>
   {placeLabel && (
-    <p class="event-card__place">{String(placeLabel).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}</p>
+    <p class="event-card__place">
+      {placeHref ? <a href={placeHref}>{placeLabel}</a> : placeLabel}
+    </p>
   )}
   <p class="event-card__summary">{event.data.summary}</p>
   {event.data.editorVerdict && (

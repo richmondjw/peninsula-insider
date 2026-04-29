@@ -157,6 +157,7 @@ const venues = defineCollection({
     featuredPartner: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
   }),
 });
 
@@ -200,6 +201,7 @@ const experiences = defineCollection({
     gallery: z.array(imageRef).default([]),
     lastVerified: z.coerce.date(),
     publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
   }),
 });
 
@@ -217,6 +219,7 @@ const places = defineCollection({
     publishedAt: z.coerce.date(),
     tldr: z.array(z.string()).optional(),
     driveTime: z.string().optional(),
+    sitemapExclude: z.boolean().default(false),
   }),
 });
 
@@ -248,12 +251,16 @@ const articles = defineCollection({
     tags: z.array(z.string()).default([]),
     relatedVenues: z.array(reference('venues')).default([]),
     relatedExperiences: z.array(reference('experiences')).default([]),
+    relatedPlaces: z.array(reference('places')).default([]),
+    relatedArticles: z.array(reference('articles')).default([]),
+    relatedItineraries: z.array(reference('itineraries')).default([]),
     readingTimeMinutes: z.number().positive().optional(),
     featured: z.boolean().default(false),
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
     lastVerified: z.coerce.date().optional(),
     clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+    sitemapExclude: z.boolean().default(false),
   }),
 });
 
@@ -420,6 +427,7 @@ const itineraries = defineCollection({
     editorNote: z.string(),
     publishedAt: z.coerce.date(),
     lastVerified: z.coerce.date().optional(),
+    sitemapExclude: z.boolean().default(false),
   }),
 });
 
@@ -482,6 +490,7 @@ const events = defineCollection({
     editorNote: z.string().optional(),
     heroImage: imageRef.optional(),
     publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
   }),
 });
 

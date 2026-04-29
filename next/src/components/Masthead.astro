@@ -3,24 +3,13 @@
  * Masthead  -  Peninsula Insider
  * Sticky top bar. Highlights the current section.
  */
+import { mastheadNav as navItems } from '../lib/nav';
+
 export interface Props {
   section?: string;
 }
 
 const { section = 'home' } = Astro.props;
-
-// Primary masthead nav  -  seven slots: the six pillars plus the
-// What’s On dispatch row, which is the newest editorial lane and
-// the differentiator versus the DMO.
-const navItems = [
-  { key: 'eat',      label: 'Eat & Drink', href: '/eat'      },
-  { key: 'stay',     label: 'Stay',        href: '/stay'     },
-  { key: 'wine',     label: 'Wine',        href: '/wine'     },
-  { key: 'explore',  label: 'Explore',     href: '/explore'  },
-  { key: 'escape',   label: 'Escape',      href: '/escape'   },
-  { key: 'whats-on', label: "What’s On",   href: '/whats-on' },
-  { key: 'journal',  label: 'Journal',     href: '/journal'  },
-];
 ---
 
 <header class="masthead">

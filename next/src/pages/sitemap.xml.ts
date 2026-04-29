@@ -25,12 +25,13 @@ function dateStr(d?: Date): string | undefined {
 }
 
 export const GET: APIRoute = async () => {
-  const [venues, experiences, places, articles, itineraries] = await Promise.all([
+  const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
     getCollection('venues'),
     getCollection('experiences'),
     getCollection('places'),
     getCollection('articles', ({ data }) => data.status === 'published'),
     getCollection('itineraries'),
+    getCollection('events'),
   ]);
 
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
@@ -46,8 +47,12 @@ export const GET: APIRoute = async () => {
   // Homepage
   entries.push(url('/', 1.0, 'weekly'));
 
-  // Section index pages (whats-on and golf excluded — event/utility pages)
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'journal', 'places', 'spa', 'weddings', 'corporate-events', 'walks']) {
+  // Section index pages. /spa/ and /walks/ are intentionally omitted because
+  // astro.config.mjs redirects them to canonical homes (/explore/spas-and-wellness/
+  // and /explore/walks/); listing redirect URLs in the sitemap creates noise
+  // for crawlers. /whats-on/, /golf/, and /dog-friendly/ are real lanes and
+  // were missing from this list previously.
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'journal', 'places', 'whats-on', 'golf', 'dog-friendly', 'weddings', 'corporate-events']) {
     entries.push(url(`/${section}`, 0.9, 'weekly'));
   }
 
@@ -108,6 +113,21 @@ export const GET: APIRoute = async () => {
   // Itineraries
   for (const itinerary of itineraries.filter((i) => !i.data.sitemapExclude)) {
     entries.push(url(`/escape/${routeSlug(itinerary)}`, 0.7, 'weekly', dateStr(itinerary.data.publishedAt)));
+  }
+
+  // Event detail pages — emit each /whats-on/{slug}/. Events are a primary
+  // editorial lane (the dispatch differentiator) so they belong in the sitemap.
+  // Past one-off events stay in the index (the [slug] route generates a static
+  // page for every event), but skip them in the sitemap to avoid signalling
+  // stale URLs; recurring events keep emitting because they remain valid.
+  const today = new Date();
+  for (const event of events.filter((e) => !e.data.sitemapExclude)) {
+    const recurrence = event.data.recurrence ?? 'one-off';
+    const isRecurring = recurrence !== 'one-off';
+    const endish = event.data.endDate ?? event.data.startDate;
+    const stillCurrent = endish && endish.getTime() >= today.getTime() - 24 * 60 * 60 * 1000;
+    if (!isRecurring && !stillCurrent) continue;
+    entries.push(url(`/whats-on/${routeSlug(event)}`, 0.6, 'weekly', dateStr(event.data.publishedAt)));
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
