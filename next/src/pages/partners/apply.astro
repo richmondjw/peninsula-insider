@@ -1,0 +1,406 @@
+---
+/**
+ * /partners/apply — Vendor intake form
+ * Submits to POST /vendors/apply on the PI Concierge API.
+ * Editorial firewall: Tyler reviews every submission. No paid placements without disclosure.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
+---
+
+<BaseLayout
+  title="Partner with Peninsula Insider"
+  description="Run a venue on the Mornington Peninsula? Tell Peninsula Insider about your business. We review every submission. No pay-to-play, ever."
+>
+  <main class="apply-page">
+
+    <section class="apply-hero">
+      <div class="apply-hero__inner">
+        <p class="apply-hero__eyebrow">Peninsula Insider</p>
+        <h1 class="apply-hero__heading">Partner with PI</h1>
+        <p class="apply-hero__sub">
+          Run a venue on the Peninsula? We're always interested in places worth writing about.
+          Tell us a bit about your business and we'll be in touch if it's a fit.
+        </p>
+      </div>
+    </section>
+
+    <section class="apply-main">
+      <div class="apply-main__inner">
+
+        <aside class="apply-note">
+          <p class="apply-note__title">How this works</p>
+          <p>
+            Every submission lands with our editorial team. We don't accept paid placements,
+            and we don't guarantee coverage. If your venue fits the PI editorial brief,
+            we'll arrange a visit. If it doesn't, we'll tell you.
+          </p>
+        </aside>
+
+        <form class="apply-form" id="apply-form" autocomplete="on">
+
+          <fieldset class="apply-form__group">
+            <legend>Your business</legend>
+
+            <label class="apply-field">
+              <span class="apply-field__label">Business name <em>*</em></span>
+              <input type="text" name="business_name" required maxlength="120" />
+            </label>
+
+            <div class="apply-field-row">
+              <label class="apply-field">
+                <span class="apply-field__label">Venue type <em>*</em></span>
+                <select name="venue_type" required>
+                  <option value="">Select...</option>
+                  <option value="restaurant">Restaurant</option>
+                  <option value="winery">Cellar door / Winery</option>
+                  <option value="cafe">Cafe</option>
+                  <option value="brewery">Brewery</option>
+                  <option value="distillery">Distillery</option>
+                  <option value="accommodation">Accommodation</option>
+                  <option value="experience">Experience / Activity</option>
+                  <option value="producer">Producer / Maker</option>
+                  <option value="market">Market / Retail</option>
+                  <option value="pub">Pub</option>
+                </select>
+              </label>
+
+              <label class="apply-field">
+                <span class="apply-field__label">Suburb <em>*</em></span>
+                <select name="suburb" required>
+                  <option value="">Select...</option>
+                  <option value="balnarring">Balnarring</option>
+                  <option value="cape-schanck">Cape Schanck</option>
+                  <option value="dromana">Dromana</option>
+                  <option value="flinders">Flinders</option>
+                  <option value="main-ridge">Main Ridge</option>
+                  <option value="merricks">Merricks</option>
+                  <option value="mornington">Mornington</option>
+                  <option value="portsea">Portsea</option>
+                  <option value="red-hill">Red Hill</option>
+                  <option value="rosebud">Rosebud</option>
+                  <option value="rye">Rye</option>
+                  <option value="shoreham">Shoreham</option>
+                  <option value="sorrento">Sorrento</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="apply-field-row">
+              <label class="apply-field">
+                <span class="apply-field__label">Website</span>
+                <input type="url" name="website" placeholder="https://" maxlength="200" />
+              </label>
+
+              <label class="apply-field">
+                <span class="apply-field__label">Instagram</span>
+                <input type="text" name="instagram" placeholder="@yourvenue" maxlength="80" />
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="apply-form__group">
+            <legend>Your contact</legend>
+
+            <div class="apply-field-row">
+              <label class="apply-field">
+                <span class="apply-field__label">Your name <em>*</em></span>
+                <input type="text" name="contact_name" required maxlength="120" />
+              </label>
+
+              <label class="apply-field">
+                <span class="apply-field__label">Phone</span>
+                <input type="tel" name="phone" maxlength="40" />
+              </label>
+            </div>
+
+            <label class="apply-field">
+              <span class="apply-field__label">Email <em>*</em></span>
+              <input type="email" name="email" required maxlength="200" />
+            </label>
+          </fieldset>
+
+          <fieldset class="apply-form__group">
+            <legend>Tell us more</legend>
+            <label class="apply-field">
+              <span class="apply-field__label">What should we know?</span>
+              <textarea
+                name="notes"
+                rows="5"
+                maxlength="1500"
+                placeholder="Briefly: what makes your venue worth a visit? Any upcoming events or seasonal moments we should know about?"
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <div class="apply-form__submit">
+            <button type="submit" class="apply-submit" id="apply-submit">Submit enquiry</button>
+            <p class="apply-form__legal">
+              We'll only use these details to respond to your enquiry. Read our <a href="/privacy/">privacy policy</a>.
+            </p>
+          </div>
+
+          <div class="apply-result" id="apply-result" role="status" aria-live="polite"></div>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  /* ============================================================
+     PARTNER APPLY PAGE — Peninsula Insider
+     Tokens: --bg, --text, --soft, --accent, --sage, --border, --bg-alt, --white
+  ============================================================ */
+
+  .apply-page { min-height: 100vh; background: var(--bg); }
+
+  /* HERO */
+  .apply-hero {
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+  .apply-hero__inner { max-width: 640px; margin: 0 auto; }
+  .apply-hero__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0 0 0.75rem;
+  }
+  .apply-hero__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--text);
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+  .apply-hero__sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--soft);
+    margin: 0 auto;
+    max-width: 520px;
+  }
+
+  /* MAIN */
+  .apply-main { padding: 0 1.5rem 6rem; }
+  .apply-main__inner { max-width: 720px; margin: 0 auto; }
+
+  /* NOTE */
+  .apply-note {
+    margin: 2rem 0 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-alt);
+    border-left: 3px solid var(--sage);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .apply-note__title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+  .apply-note p:not(.apply-note__title) { margin: 0; }
+
+  /* FORM */
+  .apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .apply-form__group {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .apply-form__group legend {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft);
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+
+  .apply-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+  .apply-field:last-child { margin-bottom: 0; }
+
+  .apply-field__label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .apply-field__label em {
+    color: var(--accent);
+    font-style: normal;
+    margin-left: 2px;
+  }
+
+  .apply-field input,
+  .apply-field select,
+  .apply-field textarea {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.7rem 0.85rem;
+    line-height: 1.4;
+    transition: border-color 0.15s ease;
+  }
+  .apply-field input:focus,
+  .apply-field select:focus,
+  .apply-field textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(123, 142, 122, 0.12);
+  }
+  .apply-field textarea { resize: vertical; min-height: 100px; }
+
+  .apply-field-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .apply-field-row .apply-field { margin-bottom: 0; }
+
+  @media (max-width: 600px) {
+    .apply-field-row { flex-direction: column; gap: 0; }
+    .apply-field-row .apply-field { margin-bottom: 1rem; }
+  }
+
+  /* SUBMIT */
+  .apply-form__submit {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  .apply-submit {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    background: var(--sage);
+    border: none;
+    border-radius: 3px;
+    padding: 0.95rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .apply-submit:hover:not(:disabled) { background: var(--text); }
+  .apply-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .apply-form__legal {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    color: var(--soft);
+    margin: 1rem 0 0;
+    line-height: 1.5;
+  }
+  .apply-form__legal a { color: var(--sage); text-decoration: underline; }
+
+  /* RESULT */
+  .apply-result {
+    margin-top: 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 1rem 1.25rem;
+    border-radius: 3px;
+    display: none;
+  }
+  .apply-result--success {
+    display: block;
+    background: var(--bg-alt);
+    border-left: 3px solid var(--sage);
+    color: var(--text);
+  }
+  .apply-result--error {
+    display: block;
+    background: #fef3f3;
+    border-left: 3px solid #c44;
+    color: #802020;
+  }
+</style>
+
+<script define:vars={{ API_URL }}>
+  const form = document.getElementById('apply-form');
+  const submitBtn = document.getElementById('apply-submit');
+  const result = document.getElementById('apply-result');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    result.className = 'apply-result';
+    result.textContent = '';
+
+    const fd = new FormData(form);
+    const payload = {};
+    for (const [k, v] of fd.entries()) {
+      const trimmed = String(v).trim();
+      if (trimmed) payload[k] = trimmed;
+    }
+
+    try {
+      const res = await fetch(`${API_URL}/vendors/apply`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        result.className = 'apply-result apply-result--success';
+        result.innerHTML = `
+          <strong>Thanks — we've got it.</strong><br>
+          ${data.message || "We review every submission. If there's a good fit, you'll hear from us."}
+        `;
+        form.reset();
+        submitBtn.textContent = 'Submitted';
+      } else {
+        result.className = 'apply-result apply-result--error';
+        result.textContent = data.error || 'Something went wrong. Please try again.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit enquiry';
+      }
+    } catch (err) {
+      result.className = 'apply-result apply-result--error';
+      result.textContent = 'Couldn\'t reach the server. Please try again in a moment.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit enquiry';
+    }
+
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
