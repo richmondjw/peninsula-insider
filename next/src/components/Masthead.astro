@@ -9,6 +9,9 @@ export interface Props {
 
 const { section = 'home' } = Astro.props;
 
+// Hide the "Ask PI" masthead button on /ask itself — redundant.
+const isAskPage = Astro.url.pathname.startsWith('/ask');
+
 // Primary masthead nav  -  seven slots: the six pillars plus the
 // What’s On dispatch row, which is the newest editorial lane and
 // the differentiator versus the DMO.
@@ -43,6 +46,22 @@ const navItems = [
           ))}
         </ul>
       </nav>
+      {!isAskPage && (
+        <a
+          href="/ask/"
+          class="masthead__concierge"
+          id="masthead-concierge"
+          aria-label="Ask PI, your local Peninsula concierge"
+          data-pi-trigger="true"
+        >
+          <span class="masthead__concierge-avatar" aria-hidden="true">
+            <span class="masthead__concierge-fallback">PI</span>
+            <img src="/images/pi-concierge.svg" alt="" width="22" height="22" onerror="this.remove()" />
+          </span>
+          <span class="masthead__concierge-label">Ask <em>PI</em></span>
+          <span class="masthead__concierge-pulse" aria-hidden="true"></span>
+        </a>
+      )}
       <a href="/newsletter/" class="masthead__cta">Subscribe</a>
       <a href="/newsletter/" class="masthead__cta-mobile" aria-label="Subscribe to the newsletter">Subscribe</a>
       <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
@@ -65,8 +84,152 @@ const navItems = [
       </a>
     ))}
     <div class="mobile-nav__footer">
+      <a href="/ask/" class="mobile-nav__cta mobile-nav__cta--ask" data-pi-trigger="true">
+        Ask PI for a recommendation
+      </a>
       <a href="/newsletter/" class="mobile-nav__cta">Get the weekly dispatch</a>
       <p class="mobile-nav__tagline">Independent editorial. Every Sunday.</p>
     </div>
   </div>
 </nav>
+
+<style is:global>
+  /* ── "Ask PI" masthead button ── pill, hat avatar, pulse dot ── */
+  .masthead__concierge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.42rem 0.95rem 0.42rem 0.42rem;
+    background: #FFFCF6;
+    border: 1px solid rgba(139, 78, 59, 0.28);
+    border-radius: 100px;
+    color: #2B2520;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.18s ease,
+      box-shadow 0.2s ease;
+    margin-right: 0.55rem;
+    box-shadow: 0 1px 0 rgba(255, 252, 247, 0.8) inset;
+  }
+  .masthead__concierge:hover {
+    background: #FAF6EE;
+    border-color: rgba(139, 78, 59, 0.5);
+    color: #8B4E3B;
+    transform: translateY(-1px);
+    box-shadow:
+      0 1px 0 rgba(255, 252, 247, 0.8) inset,
+      0 4px 12px rgba(34, 24, 16, 0.07);
+  }
+  .masthead__concierge-avatar {
+    position: relative;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
+    border: 1px solid rgba(139, 78, 59, 0.22);
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+  }
+  .masthead__concierge-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .masthead__concierge-fallback {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    color: #8B4E3B;
+    font-size: 0.6rem;
+    line-height: 1;
+  }
+  .masthead__concierge-label {
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    font-weight: 700;
+  }
+  .masthead__concierge-label em {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    text-transform: none;
+    font-size: 1.05em;
+    letter-spacing: 0.02em;
+    margin-left: 0.18em;
+    color: #8B4E3B;
+  }
+  /* Sage pulse dot — same as the /ask page status indicator */
+  .masthead__concierge-pulse {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #7A8B6D;
+    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.55);
+    animation: masthead-concierge-pulse 2.4s ease-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes masthead-concierge-pulse {
+    0%   { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0.6); }
+    70%  { box-shadow: 0 0 0 7px rgba(122, 139, 109, 0); }
+    100% { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0); }
+  }
+
+  /* Tablet — collapse to avatar-only */
+  @media (max-width: 1080px) {
+    .masthead__concierge {
+      padding: 0.3rem;
+      border-radius: 50%;
+    }
+    .masthead__concierge-label,
+    .masthead__concierge-pulse { display: none; }
+  }
+  /* Mobile — hide entirely (mobile menu has its own "Ask PI" CTA) */
+  @media (max-width: 720px) {
+    .masthead__concierge { display: none; }
+  }
+
+  /* Mobile-menu Ask-PI CTA — italic terracotta link */
+  .mobile-nav__cta--ask {
+    background: transparent !important;
+    color: #8B4E3B !important;
+    border: 1px solid rgba(139, 78, 59, 0.4) !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .mobile-nav__cta--ask:hover {
+    background: rgba(139, 78, 59, 0.06) !important;
+    border-color: #8B4E3B !important;
+  }
+</style>
+
+<!-- Trigger drawer when the button is clicked (progressive enhancement: still navigates if JS fails) -->
+<script is:inline>
+(function () {
+  function bindTriggers() {
+    document.querySelectorAll('[data-pi-trigger="true"]').forEach((el) => {
+      if (el._piTrigBound) return;
+      el._piTrigBound = true;
+      el.addEventListener('click', (e) => {
+        if (typeof window.openConcierge !== 'function') return; // fall back to <a href="/ask/">
+        e.preventDefault();
+        window.openConcierge();
+      });
+    });
+  }
+  bindTriggers();
+  document.addEventListener('astro:page-load', bindTriggers);
+})();
+</script>

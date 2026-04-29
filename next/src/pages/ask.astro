@@ -1,0 +1,424 @@
+---
+/**
+ * /ask — Peninsula Insider Concierge
+ * "PI's Notebook": editorial chat with dropcap prose, postcard tiles,
+ * filed-under tags. Designed as a magazine column, not a chatbot.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
+---
+
+<BaseLayout
+  title="Ask PI — Your Peninsula Concierge"
+  description="Ask Peninsula Insider anything about the Mornington Peninsula. Cellar doors, dining, stays, rainy days, dog-friendly spots. Local knowledge, editorial taste."
+>
+
+  <main class="ask-page">
+
+    <!-- Hero -->
+    <section class="ask-hero">
+      <div class="ask-hero__inner">
+        <div class="ask-hero__avatar" aria-hidden="true">
+          <span class="pi-avatar pi-avatar--xl">
+            <span class="pi-avatar__fallback">PI</span>
+            <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
+          </span>
+        </div>
+        <p class="ask-hero__eyebrow">Peninsula Insider · Field notes</p>
+        <h1 class="ask-hero__heading">Ask <em>PI</em></h1>
+        <p class="ask-hero__sub">
+          The local who's been everywhere on the Peninsula and has opinions about all of it. Tell me what you're after.
+        </p>
+      </div>
+    </section>
+
+    <!-- Chat dialog: PI's open notebook -->
+    <section class="ask-chat-section">
+      <div class="ask-dialog" role="region" aria-label="Conversation with PI">
+
+        <!-- Notebook header -->
+        <div class="ask-dialog__header">
+          <div class="ask-dialog__id">
+            <span class="pi-avatar pi-avatar--md" aria-hidden="true">
+              <span class="pi-avatar__fallback">PI</span>
+              <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
+            </span>
+            <div class="ask-dialog__id-text">
+              <p class="ask-dialog__name">PI <span class="ask-dialog__name-mark" aria-hidden="true">✦</span></p>
+              <p class="ask-dialog__status">
+                <span class="ask-dialog__pulse" aria-hidden="true"></span>
+                Local · usually responds in seconds
+              </p>
+            </div>
+          </div>
+          <button type="button" class="ask-dialog__reset" id="ask-reset" aria-label="Start over" hidden>
+            New chat
+          </button>
+        </div>
+
+        <!-- Notebook body — paper grain, editorial column width -->
+        <!-- data-lenis-prevent: keep native scroll inside the chat (Lenis runs page-level) -->
+        <div class="ask-dialog__body" id="ask-thread" aria-live="polite" data-lenis-prevent>
+
+          <!-- Greeting -->
+          <article class="ask-msg ask-msg--pi">
+            <div class="ask-msg__byline">
+              <span class="pi-avatar pi-avatar--sm" aria-hidden="true">
+                <span class="pi-avatar__fallback">PI</span>
+                <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
+              </span>
+              <span class="ask-msg__byline-name">PI</span>
+              <span class="ask-msg__byline-rule" aria-hidden="true"></span>
+            </div>
+            <div class="ask-msg__prose ask-msg__prose--greeting">
+              <p>Tell me what you're after. A long lunch, a hatted dinner, a dog-friendly café, a rainy Sunday with kids. The more specific you are, the sharper my answer.</p>
+            </div>
+            <div class="ask-msg__followup" id="ask-suggestions-wrap">
+              <p class="ask-msg__followup-label">
+                <span>Try one of these</span>
+              </p>
+              <div class="ask-msg__chips" id="ask-suggestions">
+                <button class="pi-chip" data-query="Best cellar door lunch near Red Hill">
+                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+                  <span>Cellar door lunch, Red Hill</span>
+                </button>
+                <button class="pi-chip" data-query="Rainy day with two kids near Rye">
+                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+                  <span>Rainy day, two kids</span>
+                </button>
+                <button class="pi-chip" data-query="One night away, couple, near Sorrento">
+                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+                  <span>One night away, Sorrento</span>
+                </button>
+                <button class="pi-chip" data-query="Dog-friendly cafes on the Peninsula">
+                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+                  <span>Dog-friendly cafés</span>
+                </button>
+                <button class="pi-chip" data-query="Hatted restaurants worth booking in advance">
+                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+                  <span>Hatted restaurants worth booking</span>
+                </button>
+                <button class="pi-chip" data-query="Where to go for a long lunch without too much driving">
+                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+                  <span>Long lunch, easy drive</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Composer -->
+        <form class="ask-dialog__composer" id="ask-form" autocomplete="off">
+          <textarea
+            id="ask-input"
+            class="ask-composer__input"
+            placeholder="Ask PI…"
+            rows="1"
+            maxlength="500"
+            aria-label="Your question"
+          ></textarea>
+          <a
+            href="/contact/"
+            class="ask-composer__contact"
+            target="_blank"
+            rel="noopener"
+            aria-label="Get in touch with the Peninsula Insider editors"
+            title="Get in touch with a human editor"
+          >
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="2.5" y="4.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M3 5l7 5.5L17 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <button type="submit" class="ask-composer__send" id="ask-send" aria-label="Send message">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M2 10L18 2L12 18L10 11L2 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+
+        <p class="ask-dialog__disclaimer">
+          PI works from Peninsula Insider editorial research. Verify hours and bookings before you go.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+</BaseLayout>
+
+
+<script define:vars={{ API_URL }}>
+  const form = document.getElementById('ask-form');
+  const input = document.getElementById('ask-input');
+  const sendBtn = document.getElementById('ask-send');
+  const thread = document.getElementById('ask-thread');
+  const greetingWrap = document.getElementById('ask-suggestions-wrap');
+  const resetBtn = document.getElementById('ask-reset');
+
+  const sessionId = `pi-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+  let askInFlight = false;
+
+  // ---------- Helpers ----------
+  const escapeHtml = (s) => String(s ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+  const titleCase = (s) => String(s ?? '').replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+  const VENUE_TYPE_LABEL = {
+    restaurant: 'Restaurant', winery: 'Cellar Door', cafe: 'Café',
+    bakery: 'Bakery', pub: 'Pub', brewery: 'Brewery',
+    distillery: 'Distillery', producer: 'Producer', market: 'Market',
+    accommodation: 'Stay', hotel: 'Hotel', spa: 'Spa',
+    experience: 'Experience',
+  };
+
+  // Avatar markup with graceful fallback. Explicit width/height attrs
+  // prevent the SVG rendering at its intrinsic (huge) size before CSS lands.
+  const AVATAR_PX = { xl: 96, md: 42, sm: 22 };
+  function avatarMarkup(size) {
+    const px = AVATAR_PX[size] || 22;
+    return `
+      <span class="pi-avatar pi-avatar--${size}" aria-hidden="true">
+        <span class="pi-avatar__fallback">PI</span>
+        <img src="/images/pi-concierge.svg" alt="" width="${px}" height="${px}" onerror="this.remove()" />
+      </span>
+    `;
+  }
+
+  // ---------- Composer behaviour ----------
+  function autoGrow() {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 130) + 'px';
+  }
+  input.addEventListener('input', autoGrow);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      form.requestSubmit();
+    }
+  });
+
+  // ---------- Render ----------
+  function appendUserMessage(text) {
+    const el = document.createElement('article');
+    el.className = 'ask-msg ask-msg--user';
+    el.innerHTML = `
+      <div class="ask-msg__meta">You</div>
+      <div class="ask-msg__bubble">${escapeHtml(text)}</div>
+    `;
+    thread.appendChild(el);
+    scrollToBottom();
+  }
+
+  function appendTyping() {
+    const el = document.createElement('article');
+    el.className = 'ask-msg ask-msg--pi ask-msg--typing';
+    el.id = 'ask-typing-indicator';
+    el.innerHTML = `
+      <div class="ask-msg__byline">
+        ${avatarMarkup('sm')}
+        <span class="ask-msg__byline-name">PI is writing</span>
+        <span class="ask-msg__byline-rule"></span>
+      </div>
+      <div class="ask-msg__prose">
+        <div class="ask-typing"><span></span><span></span><span></span></div>
+      </div>
+    `;
+    thread.appendChild(el);
+    scrollToBottom();
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('ask-typing-indicator');
+    if (el) el.remove();
+  }
+
+  function appendPiMessage(data) {
+    const el = document.createElement('article');
+    el.className = 'ask-msg ask-msg--pi';
+
+    // Split answer into paragraphs (LLM should produce 2-3)
+    const paragraphs = String(data.answer || '').split(/\n\s*\n+/).filter(Boolean);
+    const paragraphsHtml = paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join('');
+
+    // Recommendation rail
+    let railHtml = '';
+    if (Array.isArray(data.recommendations) && data.recommendations.length > 0) {
+      const tiles = data.recommendations.map((rec, i) => renderTile(rec, i + 1, i)).join('');
+      railHtml = `
+        <div class="ask-rail" role="list" aria-label="Peninsula Insider recommendations">
+          ${tiles}
+        </div>
+      `;
+    }
+
+    // Follow-on filed-under tags
+    let followupHtml = '';
+    if (Array.isArray(data.follow_on) && data.follow_on.length > 0) {
+      const chips = data.follow_on.map((q) => `
+        <button class="pi-chip" data-query="${escapeHtml(q)}">
+          <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+          <span>${escapeHtml(q)}</span>
+        </button>
+      `).join('');
+      followupHtml = `
+        <div class="ask-msg__followup">
+          <p class="ask-msg__followup-label"><span>More from PI's notebook</span></p>
+          <div class="ask-msg__chips">${chips}</div>
+        </div>
+      `;
+    }
+
+    el.innerHTML = `
+      <div class="ask-msg__byline">
+        ${avatarMarkup('sm')}
+        <span class="ask-msg__byline-name">PI</span>
+        <span class="ask-msg__byline-rule"></span>
+      </div>
+      <div class="ask-msg__prose">${paragraphsHtml}</div>
+      ${railHtml}
+      ${followupHtml}
+    `;
+    thread.appendChild(el);
+    scrollToBottom();
+  }
+
+  function renderTile(rec, rank, idx) {
+    const heroSrc = rec.hero_image ? escapeHtml(rec.hero_image) : null;
+    const heroStyle = heroSrc ? `background-image: url('${heroSrc}')` : '';
+    const heroClass = heroSrc ? 'ask-tile__hero' : 'ask-tile__hero ask-tile__hero--placeholder';
+    const priceHtml = rec.price_band ? `<span class="ask-tile__price">${escapeHtml(rec.price_band)}</span>` : '';
+    const typeLabel = VENUE_TYPE_LABEL[rec.venue_type] || titleCase(rec.venue_type || rec.category || 'Pick');
+    const region = rec.region ? titleCase(rec.region) : '';
+    const href = escapeHtml(rec.href || rec.slug || '#');
+    const why = escapeHtml(rec.why || '');
+    const signature = rec.signature ? escapeHtml(rec.signature) : '';
+
+    return `
+      <a href="${href}" class="ask-tile" role="listitem" style="--idx:${idx};">
+        <div class="${heroClass}" style="${heroStyle}" aria-hidden="true">
+          <span class="ask-tile__rank">${rank}</span>
+          ${priceHtml}
+        </div>
+        <div class="ask-tile__body">
+          <div class="ask-tile__top">
+            <span class="ask-tile__type">${escapeHtml(typeLabel)}</span>
+            ${region ? `<span class="ask-tile__region">${escapeHtml(region)}</span>` : ''}
+          </div>
+          <h3 class="ask-tile__name">${escapeHtml(rec.title || 'Untitled')}</h3>
+          ${why ? `<p class="ask-tile__why">${why}</p>` : ''}
+          ${signature ? `<p class="ask-tile__signature">${signature}</p>` : ''}
+          <span class="ask-tile__cta">
+            <span>Read PI's notes</span>
+            <span class="ask-tile__cta-arrow" aria-hidden="true">→</span>
+          </span>
+        </div>
+      </a>
+    `;
+  }
+
+  function appendErrorMessage(message) {
+    const el = document.createElement('article');
+    el.className = 'ask-msg ask-msg--pi ask-msg--error';
+    el.innerHTML = `
+      <div class="ask-msg__byline">
+        ${avatarMarkup('sm')}
+        <span class="ask-msg__byline-name">PI</span>
+        <span class="ask-msg__byline-rule"></span>
+      </div>
+      <div class="ask-msg__prose">
+        <p>${escapeHtml(message)}</p>
+      </div>
+    `;
+    thread.appendChild(el);
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    requestAnimationFrame(() => {
+      thread.scrollTop = thread.scrollHeight;
+    });
+  }
+
+  // ---------- Submit ----------
+  async function ask(query) {
+    if (!query || query.length < 3 || askInFlight) return;
+    askInFlight = true;
+
+    if (greetingWrap) greetingWrap.style.display = 'none';
+    resetBtn.hidden = false;
+
+    appendUserMessage(query);
+    input.value = '';
+    autoGrow();
+    sendBtn.disabled = true;
+    appendTyping();
+
+    try {
+      const res = await fetch(`${API_URL}/concierge/ask`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId },
+        body: JSON.stringify({ query }),
+      });
+      const data = await res.json();
+      removeTyping();
+
+      if (!res.ok) {
+        appendErrorMessage(data.error || 'Something went wrong. Try again in a moment.');
+      } else {
+        appendPiMessage(data);
+      }
+    } catch (err) {
+      removeTyping();
+      appendErrorMessage("I couldn't reach the server. Mind trying that again?");
+    } finally {
+      askInFlight = false;
+      sendBtn.disabled = false;
+      input.focus();
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    ask(input.value.trim());
+  });
+
+  // Auto-fire if the URL has a `?q=…` (used as a fallback path from CTA links)
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    if (q && q.length >= 3) {
+      input.value = q;
+      autoGrow();
+      ask(q);
+    }
+  })();
+
+  // Delegated chip clicks (handles greeting + follow-on chips)
+  document.addEventListener('click', (e) => {
+    const chip = e.target.closest('.pi-chip');
+    if (!chip) return;
+    const q = chip.dataset.query;
+    if (q) {
+      input.value = q;
+      ask(q);
+    }
+  });
+
+  // Reset
+  resetBtn.addEventListener('click', () => {
+    const greeting = thread.querySelector('.ask-msg');
+    thread.innerHTML = '';
+    if (greeting) thread.appendChild(greeting);
+    if (greetingWrap) greetingWrap.style.display = '';
+    resetBtn.hidden = true;
+    input.value = '';
+    input.focus();
+  });
+</script>
