@@ -4,7 +4,7 @@
     gtag('js', new Date());
     gtag('config', 'G-0MR9YVZ9NW');
   </script><link rel="stylesheet" href="/_astro/BaseLayout.D2SzKxCu.css">
-<link rel="stylesheet" href="/_astro/CoverHero.P_EvDrB5.css"></head> <body> <header class="masthead"> <div class="container"> <div class="masthead__inner"> <a href="/" class="masthead__logo">
+<link rel="stylesheet" href="/_astro/CoverHero.DH5j7G-T.css"></head> <body> <header class="masthead"> <div class="container"> <div class="masthead__inner"> <a href="/" class="masthead__logo">
 Peninsula <span>Insider</span> </a> <nav aria-label="Primary"> <ul class="masthead__nav"> <li> <a href="/eat"> Eat &amp; Drink </a> </li><li> <a href="/stay"> Stay </a> </li><li> <a href="/wine"> Wine </a> </li><li> <a href="/explore"> Explore </a> </li><li> <a href="/escape"> Escape </a> </li><li> <a href="/whats-on"> What’s On </a> </li><li> <a href="/journal"> Journal </a> </li> </ul> </nav> <a href="/ask/" class="masthead__concierge" id="masthead-concierge" aria-label="Ask The Insider, your local Peninsula concierge" data-pi-trigger="true"> <span class="masthead__concierge-avatar" aria-hidden="true"> <span class="masthead__concierge-fallback">PI</span> <img src="/images/pi-concierge.svg" alt="" width="22" height="22" onerror="this.remove()"> </span> <span class="masthead__concierge-label">Ask <em>The Insider</em></span> <span class="masthead__concierge-pulse" aria-hidden="true"></span> </a> <a href="/newsletter/" class="masthead__cta">Subscribe</a> <a href="/newsletter/" class="masthead__cta-mobile" aria-label="Subscribe to the newsletter">Subscribe</a> <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"> <span></span><span></span><span></span> </button> </div> </div> </header> <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation"> <div class="mobile-nav__inner"> <p class="mobile-nav__eyebrow">Explore the Peninsula</p> <a href="/eat" class="mobile-nav__link"> <span>Eat &amp; Drink</span> <span class="mobile-nav__arrow" aria-hidden="true">→</span> </a><a href="/stay" class="mobile-nav__link"> <span>Stay</span> <span class="mobile-nav__arrow" aria-hidden="true">→</span> </a><a href="/wine" class="mobile-nav__link"> <span>Wine</span> <span class="mobile-nav__arrow" aria-hidden="true">→</span> </a><a href="/explore" class="mobile-nav__link"> <span>Explore</span> <span class="mobile-nav__arrow" aria-hidden="true">→</span> </a><a href="/escape" class="mobile-nav__link"> <span>Escape</span> <span class="mobile-nav__arrow" aria-hidden="true">→</span> </a><a href="/whats-on" class="mobile-nav__link"> <span>What’s On</span> <span class="mobile-nav__arrow" aria-hidden="true">→</span> </a><a href="/journal" class="mobile-nav__link"> <span>Journal</span> <span class="mobile-nav__arrow" aria-hidden="true">→</span> </a> <div class="mobile-nav__footer"> <a href="/ask/" class="mobile-nav__cta mobile-nav__cta--ask" data-pi-trigger="true">
 Ask The Insider for a recommendation
 </a> <a href="/newsletter/" class="mobile-nav__cta">Get the weekly dispatch</a> <p class="mobile-nav__tagline">Independent editorial. Every Sunday.</p> </div> </div> </nav>  <!-- Trigger drawer when the button is clicked (progressive enhancement: still navigates if JS fails) --> <script>
@@ -44,7 +44,44 @@ Ask The Insider for a recommendation
           bg.style.backgroundPosition = images[i].pos;
         }
       })();
-    </script> <div class="hero-v2__scrim" data-astro-cid-ry7qtlxd></div> <div class="hero-v2__grain" data-astro-cid-ry7qtlxd></div> <div class="hero-v2__content" data-astro-cid-ry7qtlxd> <div class="hero-v2__eyebrow" data-astro-cid-ry7qtlxd>  <span class="hero-v2__eyebrow-label hero-v2__eyebrow-label--issue" data-astro-cid-ry7qtlxd>Newsletter</span> <span class="hero-v2__eyebrow-rule" aria-hidden="true" data-astro-cid-ry7qtlxd></span>  <span class="hero-v2__eyebrow-label" data-astro-cid-ry7qtlxd>The Insider&#39;s Dispatch</span> </div> <h1 class="hero-v2__headline" data-astro-cid-ry7qtlxd> The Peninsula<br data-astro-cid-ry7qtlxd> in your inbox,<br data-astro-cid-ry7qtlxd> <em data-astro-cid-ry7qtlxd>every week.</em> </h1> <p class="hero-v2__dek" data-astro-cid-ry7qtlxd>New openings, cellar door dispatches, and the places we&#39;re quietly recommending this season. Written by editors who live here.</p> <div class="hero-v2__ctas" data-astro-cid-ry7qtlxd> <a href="#newsletter" class="hero-v2__cta-primary" data-astro-cid-ry7qtlxd>Subscribe free</a> <a href="#recent-pieces" class="hero-v2__cta-secondary" data-astro-cid-ry7qtlxd>See recent pieces</a> </div> <p class="hero-v2__journal-link" data-astro-cid-ry7qtlxd><a href="/journal" data-astro-cid-ry7qtlxd>Or start reading the Journal →</a></p> </div> <div class="hero-v2__scroll-hint" aria-hidden="true" data-astro-cid-ry7qtlxd> <span class="hero-v2__scroll-label" data-astro-cid-ry7qtlxd>Scroll</span> <div class="hero-v2__scroll-line" data-astro-cid-ry7qtlxd></div> </div> </section>  <section class="newsletter-signup"> <div class="container"> <div class="newsletter-signup__inner"> <div class="newsletter-signup__pitch"> <h2 class="newsletter-signup__title">What you'll get</h2> <ul class="newsletter-signup__list"> <li> <strong>Weekly dispatch</strong> — one curated email every week with the openings, closures, and stories that matter.
+    </script> <!-- Parallax: drift the video at ~30% of scroll speed.
+       Skipped when the user prefers reduced motion. --> <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var hero = document.querySelector('.hero-v2');
+      var video = hero && hero.querySelector('.hero-v2__video');
+      var bg = hero && hero.querySelector('.hero-v2__bg');
+      if (!hero || (!video && !bg)) return;
+      // Avoid double-binding on Astro view-transition reloads.
+      if (hero._parallaxBound) return;
+      hero._parallaxBound = true;
+
+      var ticking = false;
+      function update() {
+        var rect = hero.getBoundingClientRect();
+        // Only animate while the hero overlaps the viewport (perf).
+        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+          ticking = false;
+          return;
+        }
+        // Scroll progress through the hero, roughly:
+        var y = -rect.top;
+        var t = 'translate3d(0,' + (y * 0.3) + 'px,0)';
+        if (video) video.style.transform = t;
+        if (bg) bg.style.transform = 'translate3d(0,' + (y * 0.18) + 'px,0)';
+        ticking = false;
+      }
+      function onScroll() {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      update();
+    })();
+  </script> <div class="hero-v2__scrim" data-astro-cid-ry7qtlxd></div> <div class="hero-v2__grain" data-astro-cid-ry7qtlxd></div> <div class="hero-v2__content" data-astro-cid-ry7qtlxd> <div class="hero-v2__eyebrow" data-astro-cid-ry7qtlxd>  <span class="hero-v2__eyebrow-label hero-v2__eyebrow-label--issue" data-astro-cid-ry7qtlxd>Newsletter</span> <span class="hero-v2__eyebrow-rule" aria-hidden="true" data-astro-cid-ry7qtlxd></span>  <span class="hero-v2__eyebrow-label" data-astro-cid-ry7qtlxd>The Insider&#39;s Dispatch</span> </div> <h1 class="hero-v2__headline" data-astro-cid-ry7qtlxd> The Peninsula<br data-astro-cid-ry7qtlxd> in your inbox,<br data-astro-cid-ry7qtlxd> <em data-astro-cid-ry7qtlxd>every week.</em> </h1> <p class="hero-v2__dek" data-astro-cid-ry7qtlxd>New openings, cellar door dispatches, and the places we&#39;re quietly recommending this season. Written by editors who live here.</p> <div class="hero-v2__ctas" data-astro-cid-ry7qtlxd> <a href="#newsletter" class="hero-v2__cta-primary" data-astro-cid-ry7qtlxd>Subscribe free</a> <a href="#recent-pieces" class="hero-v2__cta-secondary" data-astro-cid-ry7qtlxd>See recent pieces</a> </div> <p class="hero-v2__journal-link" data-astro-cid-ry7qtlxd><a href="/journal" data-astro-cid-ry7qtlxd>Or start reading the Journal →</a></p> </div> <div class="hero-v2__scroll-hint" aria-hidden="true" data-astro-cid-ry7qtlxd> <span class="hero-v2__scroll-label" data-astro-cid-ry7qtlxd>Scroll</span> <div class="hero-v2__scroll-line" data-astro-cid-ry7qtlxd></div> </div> </section>  <section class="newsletter-signup"> <div class="container"> <div class="newsletter-signup__inner"> <div class="newsletter-signup__pitch"> <h2 class="newsletter-signup__title">What you'll get</h2> <ul class="newsletter-signup__list"> <li> <strong>Weekly dispatch</strong> — one curated email every week with the openings, closures, and stories that matter.
 </li> <li> <strong>Weekend Picker</strong> — our Sunday Peninsula This Weekend note for the weekend ahead: one opinionated pick, one weather-proof backup, one thing to skip.
 </li> <li> <strong>Subscriber-only notes</strong> — short editorial observations we don't publish on the site. The things we'd text a friend.
 </li> <li> <strong>Early access</strong> — new guides and long-form pieces land in the newsletter before they hit the site.
