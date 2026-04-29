@@ -1,50 +1,362 @@
 ---
-import SubscribeForm from './SubscribeForm.astro';
+/* NewsletterBlock — V2 design, namespaced (.v2-newsletter*).
+   Strangler-fig migration of the V1 newsletter band.
+   Every page that imports this component now ships the V2 magazine
+   newsletter band: dark, two-column, preview-card, ochre-on-paper.
+   CSS is inline in this file so it travels with the component
+   without depending on V1's main stylesheet. */
 
 export interface Props {
   title?: string;
   body?: string;
+  issueNumber?: string;
+  issueDate?: string;
+  previewHeadline?: string;
+  previewItems?: string[];
+  endpoint?: string;
+  source?: string;
 }
 
 const {
-  title = 'The Peninsula in your inbox, every week.',
-  body = "New openings, cellar-door dispatches, weekend-picker verdicts, and the places we're quietly recommending this season. Written by editors who live here.",
+  title = 'The briefing that <em>arrives Wednesday</em> at six.',
+  body = "One email. The weekend's pick, the tables that have opened up, the cellar doors with windows this week, and the walk worth doing before it's too cold. Read in five minutes, used all weekend.",
+  issueNumber = '№ 214',
+  issueDate = 'Wed 23 Apr',
+  previewHeadline = 'A <em>quiet</em> autumn weekend — the post-Easter reset.',
+  previewItems = [
+    'The cellar-door shortlist lands — five producers, ranked.',
+    'Laura opens three extra Sunday lunches for autumn.',
+    'The long-lunch piece — three Italian rooms that actually matter.',
+    'Weather brief: dry, cool, best light of the year.',
+    'One walk worth doing: Bushrangers Bay before sunset.',
+  ],
+  endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe',
+  source = 'footer',
 } = Astro.props;
 ---
 
-<section class="newsletter" id="newsletter" aria-label="Newsletter signup">
-  <div class="container">
-    <div class="newsletter__stack">
-      <p class="newsletter__label">The Insider's Dispatch</p>
-      <h2 class="newsletter__title" set:html={title.replace(', ', ',<br />')} />
-      <p class="newsletter__body">{body}</p>
+<section class="v2-newsletter" id="newsletter" aria-labelledby="newsletter-title">
+  <div class="v2-newsletter__container">
+    <div class="v2-newsletter__frame">
+      <div class="v2-newsletter__copy">
+        <div class="v2-newsletter__eyebrow">Peninsula This Weekend</div>
+        <h2 class="v2-newsletter__title" id="newsletter-title" set:html={title} />
+        <p class="v2-newsletter__body">{body}</p>
 
-      <SubscribeForm variant="dark" source="footer" />
+        <form
+          class="v2-newsletter__form"
+          novalidate
+          data-source={source}
+          data-endpoint={endpoint}
+        >
+          <input
+            class="v2-newsletter__input"
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            aria-label="Email address"
+            autocomplete="email"
+            required
+          />
+          <button class="v2-newsletter__submit" type="submit">Subscribe</button>
+        </form>
 
-      <div class="newsletter__proof-row" aria-hidden="true">
-        <span>Weekly dispatch</span>
-        <span>Independent picks</span>
-        <span>Unsubscribe any time</span>
+        <div class="v2-newsletter__meta">
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+            4,812 Peninsula readers
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+            Curated by editors who live here
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+            Unsubscribe any time
+          </span>
+        </div>
+      </div>
+
+      <div class="v2-newsletter__preview" aria-hidden="true">
+        <div class="v2-np__head">
+          <span class="v2-np__mark">Peninsula This Weekend</span>
+          <span class="v2-np__issue">{issueNumber} · {issueDate}</span>
+        </div>
+        <h3 class="v2-np__title" set:html={previewHeadline} />
+        <ul class="v2-np__items">
+          {previewItems.map((item) => <li>{item}</li>)}
+        </ul>
+        <div class="v2-np__foot">Read in 4 minutes · Used all weekend</div>
       </div>
     </div>
   </div>
 </section>
 
 <script is:inline>
+  /* V2 newsletter — namespaced submit handler. Survives view transitions. */
   (function () {
-    function initReveal() {
-      var section = document.getElementById('newsletter');
-      if (!section) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var observer = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          section.classList.add('newsletter--visible');
-          observer.disconnect();
-        }
-      }, { threshold: 0.15 });
-      observer.observe(section);
+    function emailValid(s) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s); }
+    function setStatus(form, msg, kind) {
+      var parent = form.parentNode;
+      var st = parent && parent.querySelector(':scope > .v2-newsletter__status');
+      if (!st) {
+        st = document.createElement('p');
+        st.className = 'v2-newsletter__status';
+        st.setAttribute('role', 'status');
+        st.setAttribute('aria-live', 'polite');
+        parent && parent.insertBefore(st, form.nextSibling);
+      }
+      st.textContent = msg;
+      st.className = 'v2-newsletter__status' + (kind ? ' v2-newsletter__status--' + kind : '');
     }
-    initReveal();
-    document.addEventListener('astro:page-load', initReveal);
+    function init() {
+      document.querySelectorAll('.v2-newsletter__form').forEach(function (form) {
+        if (form._v2nlInit) return;
+        form._v2nlInit = true;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var input = form.querySelector('.v2-newsletter__input');
+          var btn   = form.querySelector('.v2-newsletter__submit');
+          var email = ((input && input.value) || '').trim();
+          if (!emailValid(email)) {
+            setStatus(form, 'Please enter a valid email address.', 'err');
+            input && input.focus();
+            return;
+          }
+          var endpoint = form.dataset.endpoint || '';
+          var source   = form.dataset.source   || 'v2-newsletter';
+          if (btn) { btn.disabled = true; btn.textContent = 'Joining…'; }
+          setStatus(form, '', '');
+          function ok() {
+            if (btn) btn.textContent = 'Done';
+            setStatus(form, 'Thanks — Wednesday’s dispatch is on its way.', 'ok');
+            if (input) { input.value = ''; input.disabled = true; }
+          }
+          function fail(msg) {
+            if (btn) { btn.textContent = 'Subscribe'; btn.disabled = false; }
+            setStatus(form, msg || 'Something went wrong. Please try again.', 'err');
+          }
+          if (!endpoint) { setTimeout(ok, 350); return; }
+          fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: source }),
+          })
+            .then(function (r) { return r.json().catch(function () { return {}; }); })
+            .then(function (d) { if (d && (d.ok || d.success)) ok(); else fail(d && d.message); })
+            .catch(function () { fail(); });
+        });
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+    document.addEventListener('astro:page-load', init);
   })();
 </script>
+
+<style is:global>
+  .v2-newsletter {
+    position: relative;
+    background: var(--deep, #201B17);
+    color: var(--paper, #FAF7F0);
+    padding: clamp(4rem, 9vw, 7rem) 0;
+    overflow: hidden;
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  }
+  .v2-newsletter::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -30%;
+    width: 70%; height: 100%;
+    background: radial-gradient(circle at center, rgba(160,84,31,0.15), transparent 65%);
+    pointer-events: none;
+  }
+  .v2-newsletter__container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .v2-newsletter__frame {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+  @media (max-width: 880px) {
+    .v2-newsletter__frame { grid-template-columns: 1fr; }
+  }
+  .v2-newsletter__copy { max-width: 56ch; }
+  .v2-newsletter__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--gold, #B69456);
+    margin-bottom: 1.2rem;
+  }
+  .v2-newsletter__title {
+    font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--paper, #FAF7F0);
+    margin: 0 0 1.4rem;
+    font-variation-settings: 'opsz' 60;
+  }
+  .v2-newsletter__title em {
+    color: var(--gold, #B69456);
+    font-style: italic;
+    font-weight: 300;
+  }
+  .v2-newsletter__body {
+    font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(250,247,240,0.7);
+    max-width: 48ch;
+    font-variation-settings: 'opsz' 20;
+    margin: 0 0 2rem;
+  }
+  .v2-newsletter__form {
+    display: flex;
+    max-width: 460px;
+    background: rgba(250,247,240,0.05);
+    border: 1px solid rgba(250,247,240,0.15);
+    border-radius: 100px;
+    overflow: hidden;
+    transition: border-color .25s ease;
+  }
+  .v2-newsletter__form:focus-within { border-color: rgba(182,148,86,0.5); }
+  .v2-newsletter__input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+    font-size: 0.95rem;
+    background: transparent;
+    color: var(--paper, #FAF7F0);
+    border: none;
+    outline: none;
+    min-width: 0;
+  }
+  .v2-newsletter__input::placeholder { color: rgba(250,247,240,0.4); }
+  .v2-newsletter__submit {
+    padding: 1rem 1.8rem;
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--gold, #B69456);
+    color: var(--deep, #201B17);
+    border: 0;
+    cursor: pointer;
+    transition: background .25s ease;
+    white-space: nowrap;
+  }
+  .v2-newsletter__submit:hover { background: #c9a767; }
+  .v2-newsletter__submit:disabled { opacity: 0.6; cursor: default; }
+  .v2-newsletter__status {
+    margin-top: 0.85rem;
+    font-size: 0.85rem;
+    color: rgba(250,247,240,0.7);
+    min-height: 1.2em;
+    font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
+    font-style: italic;
+  }
+  .v2-newsletter__status--err { color: #e7a7a3; }
+  .v2-newsletter__status--ok  { color: var(--gold, #B69456); }
+  .v2-newsletter__meta {
+    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    color: rgba(250,247,240,0.4);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .v2-newsletter__meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .v2-newsletter__meta svg { color: var(--gold, #B69456); }
+
+  .v2-newsletter__preview {
+    position: relative;
+    background: var(--paper, #FAF7F0);
+    color: var(--ink, #171413);
+    padding: 2rem 2rem 1.8rem;
+    border-radius: 2px;
+    transform: rotate(-1deg);
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.4), 0 8px 18px -4px rgba(0,0,0,0.25);
+    max-width: 28rem;
+    justify-self: end;
+  }
+  @media (max-width: 880px) {
+    .v2-newsletter__preview { transform: none; margin-top: 2rem; justify-self: stretch; max-width: none; }
+  }
+  .v2-newsletter__preview::before {
+    content: '';
+    position: absolute;
+    top: -10px; left: 20px; right: 20px;
+    height: 20px;
+    background: var(--gold, #B69456);
+    z-index: -1;
+    border-radius: 2px;
+    transform: rotate(0.5deg);
+  }
+  .v2-np__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--line, #D9D1BE);
+    margin-bottom: 1.2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .v2-np__mark {
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ochre, #A0541F);
+  }
+  .v2-np__issue {
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted, #6E655C);
+  }
+  .v2-np__title {
+    font-family: var(--serif, 'Newsreader', 'Times New Roman', serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.012em;
+    color: var(--ink, #171413);
+    margin: 0 0 1rem;
+    font-variation-settings: 'opsz' 32;
+  }
+  .v2-np__title em { font-style: italic; color: var(--ochre, #A0541F); font-weight: 400; }
+  .v2-np__items {
+    list-style: none;
+    margin: 0 0 1.2rem;
+    padding: 0;
+    font-family: var(--serif, 'Newsreader', serif);
+    font-size: 0.96rem;
+    line-height: 1.55;
+    color: var(--ink-soft, #3A3531);
+    font-variation-settings: 'opsz' 18;
+  }
+  .v2-np__items li { padding-left: 1rem; position: relative; margin-bottom: 0.4rem; }
+  .v2-np__items li::before { content: '\2022'; position: absolute; left: 0; color: var(--ochre, #A0541F); }
+  .v2-np__foot {
+    font-family: var(--sans, 'Inter', sans-serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted, #6E655C);
+    border-top: 1px solid var(--line, #D9D1BE);
+    padding-top: 0.85rem;
+  }
+</style>
