@@ -10,7 +10,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
 ---
 
 <BaseLayout
-  title="Ask PI — Your Peninsula Concierge"
+  title="Ask The Insider — Your Peninsula Concierge"
   description="Ask Peninsula Insider anything about the Mornington Peninsula. Cellar doors, dining, stays, rainy days, dog-friendly spots. Local knowledge, editorial taste."
 >
 
@@ -26,7 +26,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
           </span>
         </div>
         <p class="ask-hero__eyebrow">Peninsula Insider · Field notes</p>
-        <h1 class="ask-hero__heading">Ask <em>PI</em></h1>
+        <h1 class="ask-hero__heading">Ask <em>The Insider</em></h1>
         <p class="ask-hero__sub">
           The local who's been everywhere on the Peninsula and has opinions about all of it. Tell me what you're after.
         </p>
@@ -45,7 +45,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
               <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
             </span>
             <div class="ask-dialog__id-text">
-              <p class="ask-dialog__name">PI <span class="ask-dialog__name-mark" aria-hidden="true">✦</span></p>
+              <p class="ask-dialog__name">The Insider <span class="ask-dialog__name-mark" aria-hidden="true">✦</span></p>
               <p class="ask-dialog__status">
                 <span class="ask-dialog__pulse" aria-hidden="true"></span>
                 Local · usually responds in seconds
@@ -68,7 +68,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
                 <span class="pi-avatar__fallback">PI</span>
                 <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
               </span>
-              <span class="ask-msg__byline-name">PI</span>
+              <span class="ask-msg__byline-name">The Insider</span>
               <span class="ask-msg__byline-rule" aria-hidden="true"></span>
             </div>
             <div class="ask-msg__prose ask-msg__prose--greeting">
@@ -114,7 +114,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
           <textarea
             id="ask-input"
             class="ask-composer__input"
-            placeholder="Ask PI…"
+            placeholder="Ask The Insider…"
             rows="1"
             maxlength="500"
             aria-label="Your question"
@@ -140,7 +140,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
         </form>
 
         <p class="ask-dialog__disclaimer">
-          PI works from Peninsula Insider editorial research. Verify hours and bookings before you go.
+          The Insider works from Peninsula Insider editorial research. Verify hours and bookings before you go.
         </p>
 
       </div>
@@ -223,7 +223,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
     el.innerHTML = `
       <div class="ask-msg__byline">
         ${avatarMarkup('sm')}
-        <span class="ask-msg__byline-name">PI is writing</span>
+        <span class="ask-msg__byline-name">The Insider is writing</span>
         <span class="ask-msg__byline-rule"></span>
       </div>
       <div class="ask-msg__prose">
@@ -269,7 +269,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
       `).join('');
       followupHtml = `
         <div class="ask-msg__followup">
-          <p class="ask-msg__followup-label"><span>More from PI's notebook</span></p>
+          <p class="ask-msg__followup-label"><span>More from The Insider's notebook</span></p>
           <div class="ask-msg__chips">${chips}</div>
         </div>
       `;
@@ -278,7 +278,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
     el.innerHTML = `
       <div class="ask-msg__byline">
         ${avatarMarkup('sm')}
-        <span class="ask-msg__byline-name">PI</span>
+        <span class="ask-msg__byline-name">The Insider</span>
         <span class="ask-msg__byline-rule"></span>
       </div>
       <div class="ask-msg__prose">${paragraphsHtml}</div>
@@ -329,7 +329,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
     el.innerHTML = `
       <div class="ask-msg__byline">
         ${avatarMarkup('sm')}
-        <span class="ask-msg__byline-name">PI</span>
+        <span class="ask-msg__byline-name">The Insider</span>
         <span class="ask-msg__byline-rule"></span>
       </div>
       <div class="ask-msg__prose">

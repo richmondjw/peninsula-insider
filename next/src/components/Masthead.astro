@@ -9,7 +9,7 @@ export interface Props {
 
 const { section = 'home' } = Astro.props;
 
-// Hide the "Ask PI" masthead button on /ask itself — redundant.
+// Hide the "Ask The Insider" masthead button on /ask itself — redundant.
 const isAskPage = Astro.url.pathname.startsWith('/ask');
 
 // Primary masthead nav  -  seven slots: the six pillars plus the
@@ -58,7 +58,7 @@ const navItems = [
             <span class="masthead__concierge-fallback">PI</span>
             <img src="/images/pi-concierge.svg" alt="" width="22" height="22" onerror="this.remove()" />
           </span>
-          <span class="masthead__concierge-label">Ask <em>PI</em></span>
+          <span class="masthead__concierge-label">Ask <em>The Insider</em></span>
           <span class="masthead__concierge-pulse" aria-hidden="true"></span>
         </a>
       )}
@@ -85,7 +85,7 @@ const navItems = [
     ))}
     <div class="mobile-nav__footer">
       <a href="/ask/" class="mobile-nav__cta mobile-nav__cta--ask" data-pi-trigger="true">
-        Ask PI for a recommendation
+        Ask The Insider for a recommendation
       </a>
       <a href="/newsletter/" class="mobile-nav__cta">Get the weekly dispatch</a>
       <p class="mobile-nav__tagline">Independent editorial. Every Sunday.</p>
@@ -94,7 +94,7 @@ const navItems = [
 </nav>
 
 <style is:global>
-  /* ── "Ask PI" masthead button ── pill, hat avatar, pulse dot ── */
+  /* ── "Ask The Insider" masthead button ── pill, hat avatar, pulse dot ── */
   .masthead__concierge {
     display: inline-flex;
     align-items: center;
@@ -197,7 +197,7 @@ const navItems = [
     .masthead__concierge-label,
     .masthead__concierge-pulse { display: none; }
   }
-  /* Mobile — hide entirely (mobile menu has its own "Ask PI" CTA) */
+  /* Mobile — hide entirely (mobile menu has its own "Ask The Insider" CTA) */
   @media (max-width: 720px) {
     .masthead__concierge { display: none; }
   }

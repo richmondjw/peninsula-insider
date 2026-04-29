@@ -17,27 +17,29 @@
   class="pi-drawer"
   id="pi-drawer"
   data-state="closed"
-  aria-label="Ask PI — Peninsula Insider concierge"
+  aria-label="Ask The Insider — Peninsula Insider concierge"
 >
   <!-- Backdrop (mobile only) -->
   <div class="pi-drawer__backdrop" id="pi-drawer-backdrop" aria-hidden="true"></div>
 
-  <!-- Floating bubble (visible when minimised) — bottom-right corner -->
+  <!-- Floating "Ask The Insider" button — always visible on mobile, only when
+       minimised on desktop. Bottom-right corner. -->
   <button
     class="pi-drawer__bubble"
     id="pi-drawer-tab"
     type="button"
-    aria-label="Continue your conversation with PI"
+    aria-label="Ask PI, your local Peninsula concierge"
   >
     <span class="pi-drawer__bubble-avatar" aria-hidden="true">
       <span class="pi-drawer__bubble-fallback">PI</span>
       <img src="/images/pi-concierge.svg" alt="" width="40" height="40" onerror="this.remove()" />
     </span>
+    <span class="pi-drawer__bubble-label">Ask <em>The Insider</em></span>
     <span class="pi-drawer__bubble-pulse" aria-hidden="true"></span>
   </button>
 
   <!-- Main panel -->
-  <div class="pi-drawer__panel" id="pi-drawer-panel" role="dialog" aria-label="Ask PI">
+  <div class="pi-drawer__panel" id="pi-drawer-panel" role="dialog" aria-label="Ask The Insider">
 
     <!-- Drawer header -->
     <div class="pi-drawer__header">
@@ -47,7 +49,7 @@
           <img src="/images/pi-concierge.svg" alt="" width="42" height="42" onerror="this.remove()" />
         </span>
         <div>
-          <p class="pi-drawer__name">PI <span class="pi-drawer__name-mark" aria-hidden="true">✦</span></p>
+          <p class="pi-drawer__name">The Insider <span class="pi-drawer__name-mark" aria-hidden="true">✦</span></p>
           <p class="pi-drawer__status">
             <span class="pi-drawer__pulse" aria-hidden="true"></span>
             Local · usually responds in seconds
@@ -56,17 +58,6 @@
       </div>
 
       <div class="pi-drawer__actions">
-        <button
-          type="button"
-          class="pi-drawer__icon-btn"
-          id="pi-drawer-fullscreen"
-          aria-label="Open full chat page"
-          title="Open full page"
-        >
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M3 7V3h4M13 9v4H9M9 3h4v4M7 13H3V9"/>
-          </svg>
-        </button>
         <button
           type="button"
           class="pi-drawer__icon-btn"
@@ -106,7 +97,7 @@
             <span class="pi-avatar__fallback">PI</span>
             <img src="/images/pi-concierge.svg" alt="" width="22" height="22" onerror="this.remove()" />
           </span>
-          <span class="ask-msg__byline-name">PI</span>
+          <span class="ask-msg__byline-name">The Insider</span>
           <span class="ask-msg__byline-rule" aria-hidden="true"></span>
         </div>
         <div class="ask-msg__prose ask-msg__prose--greeting">
@@ -141,7 +132,7 @@
       <textarea
         id="pi-drawer-input"
         class="ask-composer__input"
-        placeholder="Ask PI…"
+        placeholder="Ask The Insider…"
         rows="1"
         maxlength="500"
         aria-label="Your question"
@@ -172,7 +163,7 @@
     </form>
 
     <p class="pi-drawer__disclaimer">
-      PI works from Peninsula Insider editorial research. Verify hours and bookings before you go.
+      The Insider works from Peninsula Insider editorial research. Verify hours and bookings before you go.
     </p>
 
   </div>
@@ -469,107 +460,133 @@
     letter-spacing: 0.02em;
   }
 
-  /* ── SIDE TAB (visible when minimised) ────────────────── */
-  .pi-drawer__tab {
+  /* ── FLOATING "ASK THE INSIDER" BUBBLE ─────────────────────
+     Desktop: hidden by default, visible only when state="minimised".
+     Mobile:  always visible as a labeled pill (except when open).
+     Both:    pinned bottom-right with a hat avatar + sage pulse dot.
+  ──────────────────────────────────────────────────────────── */
+  .pi-drawer__bubble {
     position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translate(100%, -50%);
-    transform-origin: right center;
-    background: var(--pi-paper-warm);
-    border: 1px solid rgba(139, 78, 59, 0.32);
-    border-right: none;
-    border-radius: 12px 0 0 12px;
-    padding: 0.95rem 0.55rem 1rem 0.6rem;
+    bottom: 22px;
+    right: 22px;
+    z-index: 9001;
     cursor: pointer;
     pointer-events: auto;
-    z-index: 9001;
-    display: flex;
-    flex-direction: column;
+    /* Pill shape — avatar left, label right */
+    display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.55rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    background: var(--pi-paper-warm);
+    border: 1px solid rgba(139, 78, 59, 0.35);
+    border-radius: 100px;
+    color: var(--pi-terra);
+    font-family: inherit;
+    text-align: left;
     box-shadow:
-      -2px 0 0 rgba(255, 252, 247, 0.8) inset,
-      -4px 4px 14px rgba(34, 24, 16, 0.08),
-      -10px 8px 26px rgba(34, 24, 16, 0.06);
-    transition: transform 0.32s var(--ease-soft), box-shadow 0.22s var(--ease-soft);
+      0 1px 0 rgba(255, 252, 247, 0.85) inset,
+      0 4px 14px rgba(34, 24, 16, 0.10),
+      0 14px 36px rgba(34, 24, 16, 0.14);
+    /* Slide in from bottom-right */
+    transform: translateY(calc(100% + 32px));
+    opacity: 0;
+    transition:
+      transform 0.34s var(--ease-soft),
+      opacity 0.28s var(--ease-soft),
+      box-shadow 0.22s var(--ease-soft);
   }
-  .pi-drawer[data-state="minimised"] .pi-drawer__tab {
-    transform: translate(0, -50%);
+
+  /* Show on minimised (any breakpoint) */
+  .pi-drawer[data-state="minimised"] .pi-drawer__bubble {
+    transform: translateY(0);
+    opacity: 1;
   }
-  .pi-drawer__tab:hover {
+
+  .pi-drawer__bubble:hover {
+    transform: translateY(-2px);
     box-shadow:
-      -2px 0 0 rgba(255, 252, 247, 0.8) inset,
-      -6px 6px 18px rgba(34, 24, 16, 0.10),
-      -14px 12px 32px rgba(34, 24, 16, 0.08);
+      0 1px 0 rgba(255, 252, 247, 0.85) inset,
+      0 6px 18px rgba(34, 24, 16, 0.13),
+      0 18px 42px rgba(34, 24, 16, 0.16);
+    border-color: rgba(139, 78, 59, 0.55);
   }
-  .pi-drawer__tab-avatar {
+
+  .pi-drawer__bubble-avatar {
     position: relative;
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     overflow: hidden;
-    background:
-      radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
-    border: 1px solid rgba(139, 78, 59, 0.22);
+    flex-shrink: 0;
+    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
+    border: 1px solid rgba(139, 78, 59, 0.25);
     display: grid;
     place-items: center;
   }
-  .pi-drawer__tab-avatar img {
+  .pi-drawer__bubble-avatar img {
     position: absolute;
     inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     z-index: 1;
   }
-  .pi-drawer__tab-fallback {
+  .pi-drawer__bubble-fallback {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
     font-weight: 600;
     color: var(--pi-terra);
-    font-size: 0.68rem;
+    font-size: 0.78rem;
     line-height: 1;
   }
-  .pi-drawer__tab-label {
+  .pi-drawer__bubble-label {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--pi-terra);
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    font-weight: 700;
     line-height: 1;
+    color: var(--pi-terra);
+    white-space: nowrap;
   }
-  .pi-drawer__tab-pulse {
+  .pi-drawer__bubble-label em {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    text-transform: none;
+    font-size: 1.15em;
+    letter-spacing: 0.01em;
+    margin-left: 0.25em;
+    color: var(--pi-ink);
+  }
+  .pi-drawer__bubble-pulse {
     position: absolute;
-    top: 0.5rem; right: 0.4rem;
-    width: 6px; height: 6px;
+    top: 6px; right: 12px;
+    width: 8px; height: 8px;
     border-radius: 50%;
     background: var(--pi-sage);
     box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.5);
     animation: pi-drawer-pulse 2.4s ease-out infinite;
   }
 
-  @media (max-width: 640px) {
-    /* On mobile, the side tab becomes a bottom-pinned chip when minimised */
-    .pi-drawer__tab {
-      top: auto;
-      bottom: 1rem;
-      right: 1rem;
-      transform: translate(110%, 0);
-      flex-direction: row;
-      border-radius: 100px;
-      border-right: 1px solid rgba(139, 78, 59, 0.32);
-      padding: 0.45rem 0.85rem 0.45rem 0.5rem;
+  /* ── MOBILE — always visible pill (except when drawer is open) ── */
+  @media (max-width: 720px) {
+    .pi-drawer__bubble {
+      bottom: 18px;
+      right: 18px;
+      /* Visible by default on mobile */
+      transform: translateY(0);
+      opacity: 1;
     }
-    .pi-drawer__tab-label {
-      writing-mode: horizontal-tb;
-      transform: none;
+    /* Only hide when drawer's full sheet is up */
+    .pi-drawer[data-state="open"] .pi-drawer__bubble {
+      transform: translateY(calc(100% + 32px));
+      opacity: 0;
     }
-    .pi-drawer[data-state="minimised"] .pi-drawer__tab {
-      transform: translate(0, 0);
+    /* Slightly tighter on mobile for thumb reach */
+    .pi-drawer__bubble {
+      padding: 0.45rem 0.95rem 0.45rem 0.45rem;
     }
+    .pi-drawer__bubble-avatar { width: 34px; height: 34px; }
   }
 
   /* ── BODY-LEVEL: prevent page scroll when drawer is open on mobile ── */
@@ -589,7 +606,6 @@
     const tab        = document.getElementById('pi-drawer-tab');
     const minimise   = document.getElementById('pi-drawer-minimise');
     const closeBtn   = document.getElementById('pi-drawer-close');
-    const fullscreen = document.getElementById('pi-drawer-fullscreen');
     const backdrop   = document.getElementById('pi-drawer-backdrop');
     const form       = document.getElementById('pi-drawer-form');
     const input      = document.getElementById('pi-drawer-input');
@@ -695,7 +711,7 @@
       el.innerHTML = ''
         + '<div class="ask-msg__byline" aria-hidden="true">'
         +   avatarMarkup('sm')
-        +   '<span class="ask-msg__byline-name">PI is writing</span>'
+        +   '<span class="ask-msg__byline-name">The Insider is writing</span>'
         +   '<span class="ask-msg__byline-rule"></span>'
         + '</div>'
         + '<div class="ask-msg__prose">'
@@ -766,7 +782,7 @@
       el.innerHTML = ''
         + '<div class="ask-msg__byline">'
         +   avatarMarkup('sm')
-        +   '<span class="ask-msg__byline-name">PI</span>'
+        +   '<span class="ask-msg__byline-name">The Insider</span>'
         +   '<span class="ask-msg__byline-rule"></span>'
         + '</div>'
         + '<div class="ask-msg__prose">' + paragraphsHtml + '</div>'
@@ -782,7 +798,7 @@
       el.innerHTML = ''
         + '<div class="ask-msg__byline">'
         +   avatarMarkup('sm')
-        +   '<span class="ask-msg__byline-name">PI</span>'
+        +   '<span class="ask-msg__byline-name">The Insider</span>'
         +   '<span class="ask-msg__byline-rule"></span>'
         + '</div>'
         + '<div class="ask-msg__prose"><p>' + escapeHtml(message) + '</p></div>';
@@ -831,7 +847,6 @@
     tab.addEventListener('click', open);
     minimise.addEventListener('click', minimiseDrawer);
     closeBtn.addEventListener('click', closeDrawer);
-    fullscreen.addEventListener('click', () => { window.location.href = '/ask/'; });
     backdrop.addEventListener('click', minimiseDrawer);
 
     // ESC key — minimises (preserves convo) when open
