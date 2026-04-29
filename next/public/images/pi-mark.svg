@@ -1,23 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Peninsula Insider — PI mark">
   <!--
-    PI compact mark — for chat avatars, nav, small contexts.
-    The hat-and-collar silhouette only. Reads clearly at 24px.
+    PI compact mark — same Carmen-Sandiego silhouette, cropped tight,
+    on a dark disc. Reads at 24px upward. Profile faces viewer's right.
   -->
   <circle cx="32" cy="32" r="32" fill="#1F1D1A"/>
 
-  <g fill="#F3EEE5">
-    <!-- Hat brim -->
-    <ellipse cx="32" cy="22" rx="20" ry="2.6"/>
-    <!-- Hat crown — slightly low, akubra-ish -->
-    <path d="M19 21 Q19 11 32 11 Q45 11 45 21 Z"/>
-    <!-- Hat band cutout for definition -->
-    <rect x="20" y="19.5" width="24" height="1.5" fill="#1F1D1A" opacity="0.55"/>
-    <!-- Head/jaw -->
-    <ellipse cx="32" cy="33" rx="6" ry="6.5"/>
-    <!-- Coat / shoulders — collar popped -->
-    <path d="M11 60 Q11 41 32 39 Q53 41 53 60 Z"/>
-    <!-- Collar peaks -->
-    <path d="M22 39 L29 36 L29 47 L25 43 Z" fill="#1F1D1A" opacity="0.4"/>
-    <path d="M42 39 L35 36 L35 47 L39 43 Z" fill="#1F1D1A" opacity="0.4"/>
-  </g>
+  <!--
+    Single-path silhouette in cream tone, traced from top-back of crown
+    clockwise around brim, down face profile, into collar/coat.
+  -->
+  <path
+    fill="#F3EEE5"
+    d="
+      M 30 6
+      Q 22 7 19 11
+      Q 16 17 17 22
+      L 17 23
+      Q 12 22 8 25
+      Q 4 27 4 30
+      Q 4 33 7 34
+      Q 11 35 15 35
+      L 17 35
+      Q 17 42 19 48
+      L 17 52
+      Q 13 56 12 62
+      Q 11 64 11 64
+      L 53 64
+      Q 53 64 52 62
+      Q 51 56 47 52
+      L 45 50
+      Q 50 47 51 43
+      Q 51 40 49 38
+      L 47 37
+      Q 49 36 51 34
+      Q 53 32 52 30
+      L 51 29
+      Q 53 28 54 27
+      Q 56 24 54 22
+      Q 51 20 47 19
+      L 45 19
+      Q 44 14 42 11
+      Q 40 7 35 6
+      Q 32 5 30 6 Z
+    "
+  />
+
+  <!-- Hat band — subtle dark line across the crown -->
+  <path
+    d="M 18 21 Q 32 25 47 21 L 47 23 Q 32 27 18 23 Z"
+    fill="#1F1D1A"
+    opacity="0.5"
+  />
+
+  <!-- Eye glint -->
+  <path
+    d="M 41 26 Q 45 26.5 48 27 L 47.7 28.2 Q 45 27.7 41 27.2 Z"
+    fill="#1F1D1A"
+    opacity="0.6"
+  />
 </svg>
