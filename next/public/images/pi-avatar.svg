@@ -1,204 +1,192 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Peninsula Insider — PI">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Peninsula Insider — PI">
   <!--
     Peninsula Insider — "PI"
-    Modern coastal portrait. Wide-brim sun hat (terracotta crown,
-    sage-and-terra brim), flowing hair on the right, profile in
-    cream against a dusty-blue bay. Sun behind, coastline below.
+    Hand-traced recreation of the brand reference: woman in profile
+    under a wide-brim sun hat (terracotta + sage), flowing hair with
+    texture lines, dusty-blue bay disc, sun behind, lens-shaped wave
+    arc at the bottom. Cream stroke outlines throughout.
   -->
   <defs>
     <clipPath id="pi-disc">
-      <circle cx="120" cy="120" r="100"/>
+      <circle cx="300" cy="300" r="248"/>
     </clipPath>
   </defs>
 
-  <rect width="240" height="240" fill="#F3EEE5"/>
+  <!-- Cream paper background -->
+  <rect width="600" height="600" fill="#F3EEE5"/>
 
   <g clip-path="url(#pi-disc)">
 
-    <!-- Bay sky -->
-    <rect width="240" height="240" fill="#6E89A8"/>
+    <!-- 1. Dusty blue bay -->
+    <rect width="600" height="600" fill="#6E89A8"/>
 
-    <!-- Sun behind hat -->
-    <circle cx="118" cy="62" r="22" fill="#D67148"/>
-    <circle cx="118" cy="62" r="22" fill="none" stroke="#F3EEE5" stroke-width="2"/>
+    <!-- 2. SUN behind the hat — terracotta dome, only the top visible -->
+    <circle cx="300" cy="225" r="58" fill="#D67148"/>
+    <circle cx="300" cy="225" r="58" fill="none" stroke="#F3EEE5" stroke-width="5"/>
 
     <!--
-      Layering order (back to front):
-      1. back hair (peeks behind shoulder on right)
-      2. body (cream silhouette of shoulders + dress)
-      3. neck
-      4. head (with profile bumps on right side)
-      5. front hair tress
-      6. hat crown
-      7. hat brim back (sage)
-      8. hat brim front (terra)
-      9. coastline horizon arc (over the bottom of body)
+      3. HAIR — flowing tress sweeping from under the hat brim down
+         the LEFT side of the figure (back of head), curving outward
+         before falling. Drawn first so the figure body sits in front.
     -->
-
-    <!-- 1. Back hair behind right shoulder -->
     <path
       d="
-        M 152 116
-        Q 168 130 174 156
-        Q 178 184 170 215
-        L 192 222
-        Q 204 192 200 158
-        Q 196 130 178 110
+        M 240 305
+        C 200 340 180 400 200 470
+        C 215 525 250 555 290 565
+        L 320 540
+        C 290 510 270 470 270 420
+        C 270 380 282 345 305 320
+        L 290 300
         Z
       "
       fill="#C56848"
       stroke="#F3EEE5"
-      stroke-width="2.2"
+      stroke-width="6"
       stroke-linejoin="round"
     />
 
-    <!-- 2. Body — soft trapezoid of cream that fades into bottom of disc -->
-    <path
-      d="
-        M 70 232
-        Q 70 200 100 188
-        L 144 188
-        Q 174 200 174 232
-        L 174 260
-        L 70 260 Z
-      "
-      fill="#F3EEE5"
-    />
-
-    <!-- 3. Neck -->
-    <path
-      d="M 110 162 L 110 188 L 134 188 L 134 158 L 110 162 Z"
-      fill="#F3EEE5"
-    />
+    <!-- 3b. Hair texture lines — multiple flowing curves -->
+    <path d="M 230 340 C 215 400 215 470 240 525" stroke="#F3EEE5" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 250 360 C 240 420 240 480 260 535" stroke="#F3EEE5" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.65"/>
+    <path d="M 275 380 C 270 430 275 485 295 540" stroke="#F3EEE5" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.5"/>
 
     <!--
-      4. HEAD — egg-shaped, with prominent profile bumps on the right
-      side: brow → bridge of nose → nose tip → upper lip → chin.
+      4. FACE / NECK — cream silhouette, profile facing right.
+      Smooth outline with subtle nose / chin curves on the right side.
     -->
     <path
       d="
-        M 100 110
-        Q 96 92 116 88
-        Q 130 86 142 90
-        Q 150 94 152 102
-        L 156 110
-        Q 162 116 164 124
-        Q 168 132 162 138
-        L 160 142
-        Q 162 150 156 154
-        L 150 160
-        Q 142 166 130 166
-        Q 116 166 106 158
-        Q 96 148 96 134
-        Q 96 122 100 110 Z
+        M 290 290
+        L 300 290
+        C 340 295 380 320 380 360
+        L 380 380
+        C 384 395 380 408 370 414
+        L 365 420
+        C 365 432 358 442 348 446
+        L 348 470
+        C 348 478 352 484 358 488
+        L 380 502
+        L 380 600
+        L 220 600
+        L 220 502
+        L 245 488
+        C 252 484 258 478 258 470
+        L 258 445
+        C 250 440 246 430 246 420
+        L 246 400
+        C 240 392 240 380 244 370
+        L 248 350
+        C 250 320 270 295 290 290
+        Z
       "
       fill="#F3EEE5"
     />
 
-    <!-- 4b. Profile contour — single soft line tracing the face -->
+    <!-- 4b. Profile contour shadow line -->
     <path
-      d="M 156 110 Q 162 118 162 128 Q 162 138 158 142 Q 158 150 152 156"
+      d="M 372 360 C 376 374 374 388 370 398 C 372 412 366 422 358 428 C 354 440 348 448 340 452"
       stroke="#1F1D1A"
-      stroke-width="1.1"
+      stroke-width="2"
       fill="none"
       opacity="0.18"
       stroke-linecap="round"
     />
 
-    <!-- 5. Front hair tress — single dramatic lock falling from under
-         the brim, in front of the shoulder, on the right side. -->
+    <!--
+      5. HAT BRIM — single wide wavy shape with TWO color zones.
+      Drawn as two abutting paths with a shared white seam.
+      The brim has an organic curve: dips down on the sides, peaks in the middle.
+    -->
+    <!-- Back (sage) half — left side -->
     <path
       d="
-        M 156 116
-        Q 152 140 148 168
-        Q 144 192 152 218
-        L 168 220
-        Q 172 192 170 162
-        Q 168 138 162 116
+        M 50 240
+        C 130 200 220 195 300 200
+        L 300 270
+        C 220 270 130 285 60 305
+        C 35 285 30 260 50 240
+        Z
+      "
+      fill="#8FA180"
+      stroke="#F3EEE5"
+      stroke-width="6"
+      stroke-linejoin="round"
+    />
+
+    <!-- Front (terracotta) half — right side, dipping a bit lower -->
+    <path
+      d="
+        M 300 200
+        C 380 200 470 215 540 245
+        C 565 265 562 295 540 312
+        C 460 320 380 320 300 308
+        L 300 200
         Z
       "
       fill="#C56848"
       stroke="#F3EEE5"
-      stroke-width="2.2"
+      stroke-width="6"
       stroke-linejoin="round"
     />
 
-    <!-- Hair flow strands -->
-    <path d="M 156 134 Q 154 162 158 198" stroke="#F3EEE5" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.55"/>
-    <path d="M 164 144 Q 164 172 165 205" stroke="#F3EEE5" stroke-width="1.3" fill="none" stroke-linecap="round" opacity="0.4"/>
-
     <!--
-      6. HAT CROWN — terracotta dome, sits on top of head only.
-      Lower bound at y=82, leaving the face visible below.
+      6. HAT CROWN — terracotta dome above the brim.
+      Subtle squashed dome shape (sun-hat, not bowler).
     -->
     <path
       d="
-        M 84 82
-        Q 80 50 122 46
-        Q 162 50 160 82
+        M 220 200
+        C 215 130 270 110 305 110
+        C 345 110 395 135 390 200
         Z
       "
       fill="#D67148"
       stroke="#F3EEE5"
-      stroke-width="2.4"
+      stroke-width="6"
       stroke-linejoin="round"
     />
 
-    <!--
-      7. HAT BRIM — back half (sage) and front half (terra).
-      Stays HIGH (y=80-100) so the face below is clearly visible.
-    -->
+    <!-- 7. HAT BAND — cream stripe across crown base -->
     <path
-      d="
-        M 14 90
-        Q 56 78 122 78
-        L 122 100
-        Q 56 100 18 108
-        Q 6 100 14 90 Z
-      "
-      fill="#8FA180"
+      d="M 224 196 C 270 210 340 210 386 196"
       stroke="#F3EEE5"
-      stroke-width="2.4"
-      stroke-linejoin="round"
-    />
-    <path
-      d="
-        M 122 78
-        Q 184 78 226 92
-        Q 232 100 226 108
-        Q 200 116 168 116
-        Q 144 116 122 110
-        L 122 78 Z
-      "
-      fill="#C56848"
-      stroke="#F3EEE5"
-      stroke-width="2.4"
-      stroke-linejoin="round"
-    />
-
-    <!-- 8. Hat band -->
-    <path
-      d="M 90 84 Q 122 88 154 84"
-      stroke="#F3EEE5"
-      stroke-width="3"
+      stroke-width="7"
       fill="none"
       stroke-linecap="round"
     />
 
     <!--
-      9. COASTLINE — sits OVER the lower body to read as the
-      figure standing at the waterline.
+      8. WAVE / COASTLINE — lens-shaped horizontal arc at the bottom.
+      A flat curve that arcs up at both ends (like a boat hull).
+      Sits in front of the figure's torso so the figure stands in the water.
     -->
     <path
-      d="M -20 208 Q 120 184 260 208"
+      d="
+        M 80 510
+        C 200 460 400 460 520 510
+        C 400 555 200 555 80 510
+        Z
+      "
+      fill="#F3EEE5"
       stroke="#C56848"
-      stroke-width="2.6"
+      stroke-width="6"
+      stroke-linejoin="round"
+    />
+
+    <!-- 8b. Inner wave line — second curve inside the lens -->
+    <path
+      d="M 140 510 C 240 480 360 480 460 510"
+      stroke="#C56848"
+      stroke-width="3"
       fill="none"
+      stroke-linecap="round"
+      opacity="0.7"
     />
 
   </g>
 
-  <!-- Disc outline -->
-  <circle cx="120" cy="120" r="100" fill="none" stroke="#F3EEE5" stroke-width="2.5"/>
-  <circle cx="120" cy="120" r="102.5" fill="none" stroke="#1F1D1A" stroke-width="0.6" opacity="0.18"/>
+  <!-- Disc outline — cream ring with subtle dark hint -->
+  <circle cx="300" cy="300" r="248" fill="none" stroke="#F3EEE5" stroke-width="6"/>
+  <circle cx="300" cy="300" r="252" fill="none" stroke="#1F1D1A" stroke-width="1.5" opacity="0.18"/>
 </svg>

@@ -8,9 +8,11 @@
  */
 
 import '../styles/global.css';
+import '../styles/concierge.css';   // chat & drawer styles — loaded on every page
 import { ClientRouter } from 'astro:transitions';
 import Masthead from '../components/Masthead.astro';
 import Footer from '../components/Footer.astro';
+import ConciergeDrawer from '../components/ConciergeDrawer.astro';
 
 export interface Props {
   title: string;
@@ -52,6 +54,10 @@ const canonicalUrl = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + 
 const ogImageAbsolute = ogImage.startsWith('http')
   ? ogImage
   : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
+
+// Don't render the floating drawer when the visitor is on /ask itself —
+// /ask IS the full-screen chat, the drawer would be a duplicate.
+const isAskPage = rawPathname.startsWith('/ask');
 ---
 
 <!doctype html>
@@ -125,6 +131,14 @@ const ogImageAbsolute = ogImage.startsWith('http')
 
   <Footer />
 
+  <!-- PI concierge drawer — slides in from the right edge.
+       Suppressed on /ask itself (which is the full-page version). -->
+  {!isAskPage && <ConciergeDrawer />}
+
+  <!-- Expose API URL to the drawer's inline script -->
+  <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
+    window.PI_API_URL = API_URL;
+  </script>
 
   <script is:inline>
     (function() {

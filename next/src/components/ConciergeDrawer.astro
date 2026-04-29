@@ -1,0 +1,922 @@
+---
+/**
+ * ConciergeDrawer — right-edge slide-in panel for PI.
+ *
+ * Lives in BaseLayout so every page has access. Reuses the /ask
+ * chat machinery (.ask-* classes, all global) inside a drawer chrome.
+ *
+ * State (persisted in sessionStorage):
+ *   pi-drawer-state    : 'closed' | 'open' | 'minimised'
+ *   pi-drawer-history  : array of {role, data} — conversation
+ *
+ * Trigger from anywhere: window.openConcierge() / window.openConcierge(prefill)
+ */
+---
+
+<aside
+  class="pi-drawer"
+  id="pi-drawer"
+  data-state="closed"
+  aria-label="Ask PI — Peninsula Insider concierge"
+>
+  <!-- Backdrop (mobile only) -->
+  <div class="pi-drawer__backdrop" id="pi-drawer-backdrop" aria-hidden="true"></div>
+
+  <!-- Floating bubble (visible when minimised) — bottom-right corner -->
+  <button
+    class="pi-drawer__bubble"
+    id="pi-drawer-tab"
+    type="button"
+    aria-label="Continue your conversation with PI"
+  >
+    <span class="pi-drawer__bubble-avatar" aria-hidden="true">
+      <span class="pi-drawer__bubble-fallback">PI</span>
+      <img src="/images/pi-concierge.svg" alt="" width="40" height="40" onerror="this.remove()" />
+    </span>
+    <span class="pi-drawer__bubble-pulse" aria-hidden="true"></span>
+  </button>
+
+  <!-- Main panel -->
+  <div class="pi-drawer__panel" id="pi-drawer-panel" role="dialog" aria-label="Ask PI">
+
+    <!-- Drawer header -->
+    <div class="pi-drawer__header">
+      <div class="pi-drawer__id">
+        <span class="pi-avatar pi-avatar--md" aria-hidden="true">
+          <span class="pi-avatar__fallback">PI</span>
+          <img src="/images/pi-concierge.svg" alt="" width="42" height="42" onerror="this.remove()" />
+        </span>
+        <div>
+          <p class="pi-drawer__name">PI <span class="pi-drawer__name-mark" aria-hidden="true">✦</span></p>
+          <p class="pi-drawer__status">
+            <span class="pi-drawer__pulse" aria-hidden="true"></span>
+            Local · usually responds in seconds
+          </p>
+        </div>
+      </div>
+
+      <div class="pi-drawer__actions">
+        <button
+          type="button"
+          class="pi-drawer__icon-btn"
+          id="pi-drawer-fullscreen"
+          aria-label="Open full chat page"
+          title="Open full page"
+        >
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 7V3h4M13 9v4H9M9 3h4v4M7 13H3V9"/>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="pi-drawer__icon-btn"
+          id="pi-drawer-minimise"
+          aria-label="Minimise"
+          title="Minimise"
+        >
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 11h10"/>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="pi-drawer__icon-btn pi-drawer__icon-btn--close"
+          id="pi-drawer-close"
+          aria-label="Close and clear conversation"
+          title="Close"
+        >
+          <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 4l8 8M12 4l-8 8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat thread (scrollable, Lenis-exempt) -->
+    <div
+      class="pi-drawer__body"
+      id="pi-drawer-thread"
+      aria-live="polite"
+      data-lenis-prevent
+    >
+      <!-- Greeting -->
+      <article class="ask-msg ask-msg--pi" id="pi-drawer-greeting">
+        <div class="ask-msg__byline">
+          <span class="pi-avatar pi-avatar--sm" aria-hidden="true">
+            <span class="pi-avatar__fallback">PI</span>
+            <img src="/images/pi-concierge.svg" alt="" width="22" height="22" onerror="this.remove()" />
+          </span>
+          <span class="ask-msg__byline-name">PI</span>
+          <span class="ask-msg__byline-rule" aria-hidden="true"></span>
+        </div>
+        <div class="ask-msg__prose ask-msg__prose--greeting">
+          <p>What are you after? A long lunch, a quiet stay, a rainy Sunday with the kids. The more specific you are, the sharper my answer.</p>
+        </div>
+        <div class="ask-msg__followup" id="pi-drawer-suggestions-wrap">
+          <p class="ask-msg__followup-label"><span>Try one of these</span></p>
+          <div class="ask-msg__chips">
+            <button class="pi-chip" data-query="Best cellar door lunch near Red Hill">
+              <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+              <span>Cellar door lunch, Red Hill</span>
+            </button>
+            <button class="pi-chip" data-query="One night away, couple, near Sorrento">
+              <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+              <span>One night away, Sorrento</span>
+            </button>
+            <button class="pi-chip" data-query="Dog-friendly cafes on the Peninsula">
+              <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+              <span>Dog-friendly cafés</span>
+            </button>
+            <button class="pi-chip" data-query="Hatted restaurants worth booking in advance">
+              <span class="pi-chip__bullet" aria-hidden="true">♦</span>
+              <span>Hatted, worth booking</span>
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Composer -->
+    <form class="pi-drawer__composer" id="pi-drawer-form" autocomplete="off">
+      <textarea
+        id="pi-drawer-input"
+        class="ask-composer__input"
+        placeholder="Ask PI…"
+        rows="1"
+        maxlength="500"
+        aria-label="Your question"
+      ></textarea>
+      <a
+        href="/contact/"
+        class="ask-composer__contact"
+        target="_blank"
+        rel="noopener"
+        aria-label="Get in touch with the Peninsula Insider editors"
+        title="Get in touch with a human editor"
+      >
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <rect x="2.5" y="4.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M3 5l7 5.5L17 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <button
+        type="submit"
+        class="ask-composer__send"
+        id="pi-drawer-send"
+        aria-label="Send message"
+      >
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M2 10L18 2L12 18L10 11L2 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+
+    <p class="pi-drawer__disclaimer">
+      PI works from Peninsula Insider editorial research. Verify hours and bookings before you go.
+    </p>
+
+  </div>
+</aside>
+
+<style is:global>
+  /* ===========================================================
+     CONCIERGE DRAWER — right-edge slide-in panel
+     Sits above the page. Reuses the .ask-* / .pi-avatar / .pi-chip
+     editorial styles from /ask, wrapped in drawer chrome.
+  =========================================================== */
+
+  .pi-drawer {
+    --pi-drawer-w: 440px;
+    --pi-drawer-h: 640px;
+    --pi-drawer-margin: 24px;
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    /* Local design tokens (mirror /ask) */
+    --pi-paper:       #FAF6EE;
+    --pi-paper-deep:  #F0E9DA;
+    --pi-paper-warm:  #FFFCF6;
+    --pi-ink:         #2B2520;
+    --pi-ink-soft:    #5C4F40;
+    --pi-ink-muted:   #8A7E6E;
+    --pi-terra:       #8B4E3B;
+    --pi-terra-deep:  #6D3A2B;
+    --pi-terra-haze:  rgba(139, 78, 59, 0.08);
+    --pi-rule:        rgba(139, 78, 59, 0.18);
+    --pi-rule-soft:   rgba(139, 78, 59, 0.10);
+    --pi-sage:        #7A8B6D;
+    --ease-soft:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* Mobile: full-bleed bottom sheet, edge-to-edge with rounded top */
+  @media (max-width: 640px) {
+    .pi-drawer {
+      --pi-drawer-w: 100vw;
+      --pi-drawer-h: 90vh;
+      --pi-drawer-margin: 0px;
+    }
+  }
+
+  /* Backdrop — mobile only when open */
+  .pi-drawer__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(34, 24, 16, 0.35);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s var(--ease-soft);
+  }
+  @media (max-width: 640px) {
+    .pi-drawer[data-state="open"] .pi-drawer__backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  /* ── PANEL — floating, bottom-right, rounded all-around ── */
+  .pi-drawer__panel {
+    position: fixed;
+    bottom: var(--pi-drawer-margin);
+    right: var(--pi-drawer-margin);
+    width: var(--pi-drawer-w);
+    height: var(--pi-drawer-h);
+    max-width: calc(100vw - 2 * var(--pi-drawer-margin));
+    max-height: calc(100vh - 2 * var(--pi-drawer-margin));
+    background: var(--pi-paper-warm);
+    border: 1px solid rgba(139, 78, 59, 0.18);
+    border-radius: 18px;          /* rounded all-around */
+    box-shadow:
+      0 1px 0 rgba(255, 252, 247, 0.8) inset,
+      0 4px 12px rgba(34, 24, 16, 0.06),
+      0 18px 40px rgba(34, 24, 16, 0.12),
+      0 40px 80px rgba(34, 24, 16, 0.10);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Open transition: slide up from bottom + fade in */
+    transform: translateY(20px) scale(0.985);
+    opacity: 0;
+    transform-origin: bottom right;
+    transition:
+      transform 0.32s var(--ease-soft),
+      opacity 0.28s var(--ease-soft);
+    pointer-events: none;
+  }
+
+  /* Gilt edge along top of panel — kept rounded */
+  .pi-drawer__panel::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+      rgba(139, 78, 59, 0) 0%,
+      rgba(167, 118, 55, 0.85) 18%,
+      rgba(223, 197, 158, 0.95) 50%,
+      rgba(167, 118, 55, 0.85) 82%,
+      rgba(139, 78, 59, 0) 100%);
+    border-radius: 18px 18px 0 0;
+    z-index: 5;
+  }
+
+  /* Mobile: bottom sheet, edge-to-edge, rounded only on top */
+  @media (max-width: 640px) {
+    .pi-drawer__panel {
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: var(--pi-drawer-h);
+      max-width: 100vw;
+      border-radius: 18px 18px 0 0;
+      border-bottom: none;
+      transform: translateY(100%);
+    }
+    .pi-drawer__panel::before {
+      border-radius: 18px 18px 0 0;
+    }
+  }
+
+  /* OPEN — slides + fades into place */
+  .pi-drawer[data-state="open"] .pi-drawer__panel {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  @media (max-width: 640px) {
+    .pi-drawer[data-state="open"] .pi-drawer__panel {
+      transform: translateY(0);
+    }
+  }
+
+  /* CLOSED / MINIMISED — slide back down + fade */
+  .pi-drawer[data-state="closed"] .pi-drawer__panel,
+  .pi-drawer[data-state="minimised"] .pi-drawer__panel {
+    transform: translateY(20px) scale(0.985);
+    opacity: 0;
+    pointer-events: none;
+  }
+  @media (max-width: 640px) {
+    .pi-drawer[data-state="closed"] .pi-drawer__panel,
+    .pi-drawer[data-state="minimised"] .pi-drawer__panel {
+      transform: translateY(100%);
+    }
+  }
+
+  /* ── HEADER ───────────────────────────────────────────── */
+  .pi-drawer__header {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.95rem 1rem 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--pi-rule);
+    background: var(--pi-paper-warm);
+    position: relative;
+  }
+  .pi-drawer__header::after {
+    content: '';
+    position: absolute;
+    left: 1rem; right: 1rem; bottom: -3px;
+    height: 1px;
+    background: var(--pi-rule-soft);
+  }
+  .pi-drawer__id {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+  }
+  .pi-drawer__name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.32rem;
+    font-weight: 600;
+    color: var(--pi-ink);
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3rem;
+  }
+  .pi-drawer__name-mark {
+    color: var(--pi-terra);
+    font-size: 0.6em;
+    transform: translateY(-0.18em);
+  }
+  .pi-drawer__status {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    color: var(--pi-ink-muted);
+    margin: 0.18rem 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .pi-drawer__pulse {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--pi-sage);
+    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.5);
+    animation: pi-drawer-pulse 2.4s ease-out infinite;
+  }
+  @keyframes pi-drawer-pulse {
+    0%   { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0.6); }
+    70%  { box-shadow: 0 0 0 8px rgba(122, 139, 109, 0); }
+    100% { box-shadow: 0 0 0 0   rgba(122, 139, 109, 0); }
+  }
+
+  .pi-drawer__actions {
+    display: flex;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+  .pi-drawer__icon-btn {
+    width: 30px; height: 30px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--pi-ink-muted);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all 0.18s var(--ease-soft);
+  }
+  .pi-drawer__icon-btn:hover {
+    color: var(--pi-terra);
+    background: var(--pi-terra-haze);
+    border-color: var(--pi-rule);
+  }
+  .pi-drawer__icon-btn--close:hover {
+    color: var(--pi-terra-deep);
+  }
+
+  /* ── BODY (scrollable thread) ─────────────────────────── */
+  .pi-drawer__body {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 1.5rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background:
+      url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.42 0 0 0 0 0.28 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
+      var(--pi-paper);
+  }
+  .pi-drawer__body::-webkit-scrollbar { width: 6px; }
+  .pi-drawer__body::-webkit-scrollbar-track {
+    background: rgba(139, 78, 59, 0.06);
+    border-radius: 3px;
+  }
+  .pi-drawer__body::-webkit-scrollbar-thumb {
+    background: rgba(139, 78, 59, 0.3);
+    border-radius: 3px;
+  }
+  .pi-drawer__body::-webkit-scrollbar-thumb:hover { background: rgba(139, 78, 59, 0.5); }
+
+  /* ── COMPOSER ─────────────────────────────────────────── */
+  .pi-drawer__composer {
+    flex-shrink: 0;
+    border-top: 1px solid var(--pi-rule);
+    padding: 0.85rem 1rem;
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-end;
+    background: var(--pi-paper-warm);
+    position: relative;
+  }
+  .pi-drawer__composer::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 1rem; right: 1rem;
+    height: 1px;
+    background: var(--pi-rule-soft);
+  }
+  .pi-drawer__disclaimer {
+    flex-shrink: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
+    color: var(--pi-ink-muted);
+    text-align: center;
+    padding: 0.45rem 1rem 0.6rem;
+    margin: 0;
+    border-top: 1px solid var(--pi-rule);
+    background: var(--pi-paper);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── SIDE TAB (visible when minimised) ────────────────── */
+  .pi-drawer__tab {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(100%, -50%);
+    transform-origin: right center;
+    background: var(--pi-paper-warm);
+    border: 1px solid rgba(139, 78, 59, 0.32);
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    padding: 0.95rem 0.55rem 1rem 0.6rem;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 9001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    box-shadow:
+      -2px 0 0 rgba(255, 252, 247, 0.8) inset,
+      -4px 4px 14px rgba(34, 24, 16, 0.08),
+      -10px 8px 26px rgba(34, 24, 16, 0.06);
+    transition: transform 0.32s var(--ease-soft), box-shadow 0.22s var(--ease-soft);
+  }
+  .pi-drawer[data-state="minimised"] .pi-drawer__tab {
+    transform: translate(0, -50%);
+  }
+  .pi-drawer__tab:hover {
+    box-shadow:
+      -2px 0 0 rgba(255, 252, 247, 0.8) inset,
+      -6px 6px 18px rgba(34, 24, 16, 0.10),
+      -14px 12px 32px rgba(34, 24, 16, 0.08);
+  }
+  .pi-drawer__tab-avatar {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
+    border: 1px solid rgba(139, 78, 59, 0.22);
+    display: grid;
+    place-items: center;
+  }
+  .pi-drawer__tab-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  .pi-drawer__tab-fallback {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--pi-terra);
+    font-size: 0.68rem;
+    line-height: 1;
+  }
+  .pi-drawer__tab-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pi-terra);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    line-height: 1;
+  }
+  .pi-drawer__tab-pulse {
+    position: absolute;
+    top: 0.5rem; right: 0.4rem;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--pi-sage);
+    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.5);
+    animation: pi-drawer-pulse 2.4s ease-out infinite;
+  }
+
+  @media (max-width: 640px) {
+    /* On mobile, the side tab becomes a bottom-pinned chip when minimised */
+    .pi-drawer__tab {
+      top: auto;
+      bottom: 1rem;
+      right: 1rem;
+      transform: translate(110%, 0);
+      flex-direction: row;
+      border-radius: 100px;
+      border-right: 1px solid rgba(139, 78, 59, 0.32);
+      padding: 0.45rem 0.85rem 0.45rem 0.5rem;
+    }
+    .pi-drawer__tab-label {
+      writing-mode: horizontal-tb;
+      transform: none;
+    }
+    .pi-drawer[data-state="minimised"] .pi-drawer__tab {
+      transform: translate(0, 0);
+    }
+  }
+
+  /* ── BODY-LEVEL: prevent page scroll when drawer is open on mobile ── */
+  body.pi-drawer-open-mobile {
+    overflow: hidden;
+  }
+</style>
+
+<script is:inline>
+(function () {
+  // Idempotent boot — handles Astro view transitions
+  function bootDrawer() {
+    const drawer = document.getElementById('pi-drawer');
+    if (!drawer || drawer._piBound) return;
+    drawer._piBound = true;
+
+    const tab        = document.getElementById('pi-drawer-tab');
+    const minimise   = document.getElementById('pi-drawer-minimise');
+    const closeBtn   = document.getElementById('pi-drawer-close');
+    const fullscreen = document.getElementById('pi-drawer-fullscreen');
+    const backdrop   = document.getElementById('pi-drawer-backdrop');
+    const form       = document.getElementById('pi-drawer-form');
+    const input      = document.getElementById('pi-drawer-input');
+    const sendBtn    = document.getElementById('pi-drawer-send');
+    const thread     = document.getElementById('pi-drawer-thread');
+    const greeting   = document.getElementById('pi-drawer-greeting');
+    const sugWrap    = document.getElementById('pi-drawer-suggestions-wrap');
+
+    const API_URL = (window.PI_API_URL) || 'http://localhost:8787';
+    const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
+
+    // ── State ────────────────────────────────────────
+    const STATE_KEY   = 'pi-drawer-state';     // 'closed' | 'open' | 'minimised'
+    const HISTORY_KEY = 'pi-drawer-history';
+    const SESSION_KEY = 'pi-drawer-session';
+
+    let askInFlight = false;
+    let sessionId = sessionStorage.getItem(SESSION_KEY);
+    if (!sessionId) {
+      sessionId = 'pi-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
+      sessionStorage.setItem(SESSION_KEY, sessionId);
+    }
+
+    function getState()  { return sessionStorage.getItem(STATE_KEY) || 'closed'; }
+    function setState(s) {
+      drawer.setAttribute('data-state', s);
+      sessionStorage.setItem(STATE_KEY, s);
+      document.body.classList.toggle('pi-drawer-open-mobile', s === 'open' && isMobile());
+    }
+
+    // ── History persistence ──────────────────────────
+    function getHistory() {
+      try { return JSON.parse(sessionStorage.getItem(HISTORY_KEY) || '[]'); }
+      catch { return []; }
+    }
+    function saveHistory(h) {
+      try { sessionStorage.setItem(HISTORY_KEY, JSON.stringify(h)); } catch {}
+    }
+    function appendHistory(entry) {
+      const h = getHistory();
+      h.push(entry);
+      if (h.length > 40) h.splice(0, h.length - 40);  // cap
+      saveHistory(h);
+    }
+    function clearHistory() {
+      sessionStorage.removeItem(HISTORY_KEY);
+    }
+
+    // ── Helpers (mirror /ask) ────────────────────────
+    const escapeHtml = (s) => String(s ?? '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+    const titleCase = (s) => String(s ?? '').replace(/[-_]/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+
+    const VENUE_TYPE_LABEL = {
+      restaurant: 'Restaurant', winery: 'Cellar Door', cafe: 'Café',
+      bakery: 'Bakery', pub: 'Pub', brewery: 'Brewery',
+      distillery: 'Distillery', producer: 'Producer', market: 'Market',
+      accommodation: 'Stay', hotel: 'Hotel', spa: 'Spa', experience: 'Experience',
+    };
+
+    const AVATAR_PX = { md: 42, sm: 22 };
+    function avatarMarkup(size) {
+      const px = AVATAR_PX[size] || 22;
+      return ''
+        + '<span class="pi-avatar pi-avatar--' + size + '" aria-hidden="true">'
+        +   '<span class="pi-avatar__fallback">PI</span>'
+        +   '<img src="/images/pi-concierge.svg" alt="" width="' + px + '" height="' + px + '" onerror="this.remove()" />'
+        + '</span>';
+    }
+
+    // ── Render ───────────────────────────────────────
+    function autoGrow() {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 130) + 'px';
+    }
+    input.addEventListener('input', autoGrow);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        form.requestSubmit();
+      }
+    });
+
+    function appendUserMessage(text) {
+      const el = document.createElement('article');
+      el.className = 'ask-msg ask-msg--user';
+      el.innerHTML = ''
+        + '<div class="ask-msg__meta">You</div>'
+        + '<div class="ask-msg__bubble">' + escapeHtml(text) + '</div>';
+      thread.appendChild(el);
+      scrollToBottom();
+    }
+
+    function appendTyping() {
+      const el = document.createElement('article');
+      el.className = 'ask-msg ask-msg--pi ask-msg--typing';
+      el.id = 'pi-drawer-typing';
+      el.innerHTML = ''
+        + '<div class="ask-msg__byline" aria-hidden="true">'
+        +   avatarMarkup('sm')
+        +   '<span class="ask-msg__byline-name">PI is writing</span>'
+        +   '<span class="ask-msg__byline-rule"></span>'
+        + '</div>'
+        + '<div class="ask-msg__prose">'
+        +   '<div class="ask-typing"><span></span><span></span><span></span></div>'
+        + '</div>';
+      thread.appendChild(el);
+      scrollToBottom();
+    }
+    function removeTyping() {
+      const el = document.getElementById('pi-drawer-typing');
+      if (el) el.remove();
+    }
+
+    function renderTile(rec, rank, idx) {
+      const heroSrc = rec.hero_image ? escapeHtml(rec.hero_image) : null;
+      const heroStyle = heroSrc ? "background-image: url('" + heroSrc + "')" : '';
+      const heroClass = heroSrc ? 'ask-tile__hero' : 'ask-tile__hero ask-tile__hero--placeholder';
+      const priceHtml = rec.price_band ? '<span class="ask-tile__price">' + escapeHtml(rec.price_band) + '</span>' : '';
+      const typeLabel = VENUE_TYPE_LABEL[rec.venue_type] || titleCase(rec.venue_type || rec.category || 'Pick');
+      const region = rec.region ? titleCase(rec.region) : '';
+      const href = escapeHtml(rec.href || rec.slug || '#');
+      const why = escapeHtml(rec.why || '');
+
+      return ''
+        + '<a href="' + href + '" class="ask-tile" role="listitem" style="--idx:' + idx + ';">'
+        +   '<div class="' + heroClass + '" style="' + heroStyle + '" aria-hidden="true">'
+        +     '<span class="ask-tile__rank">' + rank + '</span>'
+        +   '</div>'
+        +   '<div class="ask-tile__body">'
+        +     '<div class="ask-tile__top">'
+        +       '<span class="ask-tile__type">' + escapeHtml(typeLabel) + '</span>'
+        +       (region ? '<span class="ask-tile__region">' + escapeHtml(region) + '</span>' : '')
+        +       priceHtml
+        +     '</div>'
+        +     '<h3 class="ask-tile__name">' + escapeHtml(rec.title || 'Untitled') + '</h3>'
+        +     (why ? '<p class="ask-tile__why">' + why + '</p>' : '')
+        +   '</div>'
+        + '</a>';
+    }
+
+    function appendPiMessage(data) {
+      const el = document.createElement('article');
+      el.className = 'ask-msg ask-msg--pi';
+
+      const paragraphs = String(data.answer || '').split(/\n\s*\n+/).filter(Boolean);
+      const paragraphsHtml = paragraphs.map((p) => '<p>' + escapeHtml(p) + '</p>').join('');
+
+      let railHtml = '';
+      if (Array.isArray(data.recommendations) && data.recommendations.length > 0) {
+        const tiles = data.recommendations.map((rec, i) => renderTile(rec, i + 1, i)).join('');
+        railHtml = '<div class="ask-rail" role="list" aria-label="Peninsula Insider recommendations">' + tiles + '</div>';
+      }
+
+      let followupHtml = '';
+      if (Array.isArray(data.follow_on) && data.follow_on.length > 0) {
+        const chips = data.follow_on.map((q) => ''
+          + '<button class="pi-chip" data-query="' + escapeHtml(q) + '">'
+          +   '<span class="pi-chip__bullet" aria-hidden="true">♦</span>'
+          +   '<span>' + escapeHtml(q) + '</span>'
+          + '</button>').join('');
+        followupHtml = ''
+          + '<div class="ask-msg__followup">'
+          +   '<p class="ask-msg__followup-label"><span>More from PI&rsquo;s notebook</span></p>'
+          +   '<div class="ask-msg__chips">' + chips + '</div>'
+          + '</div>';
+      }
+
+      el.innerHTML = ''
+        + '<div class="ask-msg__byline">'
+        +   avatarMarkup('sm')
+        +   '<span class="ask-msg__byline-name">PI</span>'
+        +   '<span class="ask-msg__byline-rule"></span>'
+        + '</div>'
+        + '<div class="ask-msg__prose">' + paragraphsHtml + '</div>'
+        + railHtml
+        + followupHtml;
+      thread.appendChild(el);
+      scrollToBottom();
+    }
+
+    function appendErrorMessage(message) {
+      const el = document.createElement('article');
+      el.className = 'ask-msg ask-msg--pi ask-msg--error';
+      el.innerHTML = ''
+        + '<div class="ask-msg__byline">'
+        +   avatarMarkup('sm')
+        +   '<span class="ask-msg__byline-name">PI</span>'
+        +   '<span class="ask-msg__byline-rule"></span>'
+        + '</div>'
+        + '<div class="ask-msg__prose"><p>' + escapeHtml(message) + '</p></div>';
+      thread.appendChild(el);
+      scrollToBottom();
+    }
+
+    function scrollToBottom() {
+      requestAnimationFrame(() => { thread.scrollTop = thread.scrollHeight; });
+    }
+
+    // ── Replay history (when drawer is loaded mid-session) ──
+    function replayHistory() {
+      const h = getHistory();
+      if (h.length === 0) return;
+
+      // Hide greeting suggestions if there's history
+      if (sugWrap) sugWrap.style.display = 'none';
+
+      h.forEach((entry) => {
+        if (entry.role === 'user') appendUserMessage(entry.data);
+        else if (entry.role === 'pi') appendPiMessage(entry.data);
+        else if (entry.role === 'error') appendErrorMessage(entry.data);
+      });
+    }
+    replayHistory();
+
+    // ── Drawer controls ──────────────────────────────
+    function open() {
+      setState('open');
+      setTimeout(() => input.focus(), 320);
+      scrollToBottom();
+    }
+    function minimiseDrawer() { setState('minimised'); }
+    function closeDrawer() {
+      setState('closed');
+      // Full close clears the conversation
+      clearHistory();
+      // Reset thread to just the greeting
+      thread.querySelectorAll('.ask-msg:not(#pi-drawer-greeting)').forEach((n) => n.remove());
+      if (sugWrap) sugWrap.style.display = '';
+      input.value = '';
+      autoGrow();
+    }
+
+    tab.addEventListener('click', open);
+    minimise.addEventListener('click', minimiseDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    fullscreen.addEventListener('click', () => { window.location.href = '/ask/'; });
+    backdrop.addEventListener('click', minimiseDrawer);
+
+    // ESC key — minimises (preserves convo) when open
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
+    });
+
+    // ── Submit ───────────────────────────────────────
+    async function ask(query) {
+      if (!query || query.length < 3 || askInFlight) return;
+      askInFlight = true;
+
+      if (sugWrap) sugWrap.style.display = 'none';
+
+      appendUserMessage(query);
+      appendHistory({ role: 'user', data: query });
+      input.value = '';
+      autoGrow();
+      sendBtn.disabled = true;
+      appendTyping();
+
+      try {
+        const res = await fetch(API_URL + '/concierge/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId },
+          body: JSON.stringify({ query: query }),
+        });
+        const data = await res.json();
+        removeTyping();
+
+        if (!res.ok) {
+          const msg = data.error || 'Something went wrong. Try again in a moment.';
+          appendErrorMessage(msg);
+          appendHistory({ role: 'error', data: msg });
+        } else {
+          appendPiMessage(data);
+          appendHistory({ role: 'pi', data: data });
+        }
+      } catch (err) {
+        removeTyping();
+        const msg = "I couldn't reach the server. Mind trying that again?";
+        appendErrorMessage(msg);
+        appendHistory({ role: 'error', data: msg });
+      } finally {
+        askInFlight = false;
+        sendBtn.disabled = false;
+        input.focus();
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      ask(input.value.trim());
+    });
+
+    // Delegated chip clicks (greeting + follow-ons inside drawer)
+    drawer.addEventListener('click', (e) => {
+      const chip = e.target.closest('.pi-chip');
+      if (!chip || !drawer.contains(chip)) return;
+      const q = chip.dataset.query;
+      if (q) {
+        input.value = q;
+        ask(q);
+      }
+    });
+
+    // ── Public API ───────────────────────────────────
+    window.openConcierge = function (prefill) {
+      open();
+      if (prefill && typeof prefill === 'string') {
+        input.value = prefill;
+        autoGrow();
+        // Auto-send if it looks like a complete question
+        if (prefill.length > 6) {
+          ask(prefill);
+        }
+      }
+    };
+    window.minimiseConcierge = minimiseDrawer;
+    window.closeConcierge = closeDrawer;
+
+    // ── Initial state ────────────────────────────────
+    // Restore drawer state from sessionStorage. Default 'closed' on first load.
+    setState(getState());
+  }
+
+  bootDrawer();
+  document.addEventListener('astro:page-load', bootDrawer);
+})();
+</script>
