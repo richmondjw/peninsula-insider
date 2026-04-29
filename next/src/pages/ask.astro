@@ -1,0 +1,586 @@
+---
+/**
+ * /ask — Peninsula Insider Concierge
+ * The pocket concierge. Ask anything about the Mornington Peninsula.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
+---
+
+<BaseLayout
+  title="Ask PI — Your Peninsula Concierge"
+  description="Ask Peninsula Insider anything about the Mornington Peninsula. Cellar doors, dining, stays, rainy days, dog-friendly spots. Local knowledge, editorial taste."
+>
+
+  <main class="ask-page">
+
+    <!-- Intro -->
+    <section class="ask-hero">
+      <div class="ask-hero__inner">
+        <p class="ask-hero__eyebrow">Peninsula Insider</p>
+        <h1 class="ask-hero__heading">Ask PI</h1>
+        <p class="ask-hero__sub">The Peninsula, distilled. Tell us what you're after and we'll point you in the right direction.</p>
+      </div>
+    </section>
+
+    <!-- Main concierge area -->
+    <section class="ask-main">
+      <div class="ask-main__inner">
+
+        <!-- Suggestion chips — shown until first query -->
+        <div class="ask-chips" id="ask-chips">
+          <p class="ask-chips__label">Try asking...</p>
+          <div class="ask-chips__row">
+            <button class="ask-chip" data-query="Best cellar door lunch near Red Hill">Cellar door lunch, Red Hill</button>
+            <button class="ask-chip" data-query="Rainy day with two kids near Rye">Rainy day, two kids</button>
+            <button class="ask-chip" data-query="One night away, couple, near Sorrento">One night, Sorrento</button>
+            <button class="ask-chip" data-query="Dog-friendly cafes on the Peninsula">Dog-friendly cafes</button>
+            <button class="ask-chip" data-query="Hatted restaurants worth booking in advance">Hatted restaurants</button>
+            <button class="ask-chip" data-query="Where to go for a long lunch without too much driving">Long lunch, minimal driving</button>
+          </div>
+        </div>
+
+        <!-- Conversation thread -->
+        <div class="ask-thread" id="ask-thread" aria-live="polite" aria-label="Conversation"></div>
+
+        <!-- Sticky composer -->
+        <div class="ask-composer-wrap" id="ask-composer-wrap">
+          <form class="ask-composer" id="ask-form" autocomplete="off">
+            <textarea
+              id="ask-input"
+              class="ask-composer__input"
+              placeholder="What are you looking for on the Peninsula?"
+              rows="1"
+              maxlength="500"
+              aria-label="Your question"
+            ></textarea>
+            <button type="submit" class="ask-composer__send" id="ask-send" aria-label="Send">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M2 10L18 2L12 18L10 11L2 10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+          <p class="ask-composer__disclaimer">Based on Peninsula Insider editorial research. Verify details before visiting.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <NewsletterBlock />
+
+</BaseLayout>
+
+<style>
+  /* ============================================================
+     ASK PAGE — Peninsula Insider Concierge
+     Tokens from global.css: --bg, --text, --soft, --accent,
+     --sage, --border, --gold, --bg-alt, --dark, --white
+  ============================================================ */
+
+  .ask-page {
+    min-height: 100vh;
+    background: var(--bg);
+  }
+
+  /* HERO */
+  .ask-hero {
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+  .ask-hero__inner { max-width: 640px; margin: 0 auto; }
+  .ask-hero__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0 0 0.75rem;
+  }
+  .ask-hero__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--text);
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+  .ask-hero__sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--soft);
+    margin: 0;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  /* MAIN AREA */
+  .ask-main { padding: 0 1.5rem 6rem; }
+  .ask-main__inner { max-width: 720px; margin: 0 auto; }
+
+  /* CHIPS */
+  .ask-chips {
+    padding: 2rem 0 1.5rem;
+    transition: opacity 0.3s ease;
+  }
+  .ask-chips__label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0 0 0.75rem;
+  }
+  .ask-chips__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .ask-chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    line-height: 1.3;
+  }
+  .ask-chip:hover {
+    border-color: var(--sage);
+    background: var(--bg-alt);
+    color: var(--sage);
+  }
+
+  /* THREAD */
+  .ask-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* TURN — a user question + PI response pair */
+  .ask-turn {}
+
+  .ask-turn__question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 0 0 1.25rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+  }
+
+  /* PI response card */
+  .ask-response {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .ask-response__body {
+    padding: 1.5rem;
+  }
+  .ask-response__answer {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--text);
+    margin: 0 0 1.5rem;
+    white-space: pre-wrap;
+  }
+
+  /* RECOMMENDATION CARDS */
+  .ask-recs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .ask-rec {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.875rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .ask-rec:hover {
+    border-color: var(--sage);
+    background: var(--bg-alt);
+  }
+  .ask-rec__tier {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--sage);
+    border-radius: 2px;
+    padding: 0.2rem 0.45rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .ask-rec__tier--A { background: var(--accent); }
+  .ask-rec__tier--B { background: var(--sage); }
+  .ask-rec__tier--C { background: var(--soft); }
+  .ask-rec__info { min-width: 0; }
+  .ask-rec__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.2rem;
+    line-height: 1.3;
+  }
+  .ask-rec__why {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    color: var(--soft);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* FOLLOW-ON CHIPS */
+  .ask-followon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    margin: 0 -1.5rem -1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-alt);
+  }
+  .ask-followon__label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--soft);
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+  .ask-followon__chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    color: var(--soft);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    padding: 0.35rem 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .ask-followon__chip:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+    background: var(--white);
+  }
+
+  /* Provenance footer */
+  .ask-response__provenance {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    color: var(--soft);
+    margin: 0;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+  }
+
+  /* LOADING SKELETON */
+  .ask-loading {
+    display: flex;
+    gap: 0.4rem;
+    padding: 1.5rem;
+    align-items: center;
+  }
+  .ask-loading__dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    animation: dot-pulse 1.4s ease-in-out infinite;
+  }
+  .ask-loading__dot:nth-child(2) { animation-delay: 0.2s; }
+  .ask-loading__dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes dot-pulse {
+    0%, 80%, 100% { transform: scale(1); opacity: 0.5; }
+    40% { transform: scale(1.4); opacity: 1; }
+  }
+
+  /* COMPOSER */
+  .ask-composer-wrap {
+    position: sticky;
+    bottom: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 1rem 0 0.5rem;
+    margin-top: 1rem;
+  }
+  .ask-composer {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-end;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    padding: 0.75rem 0.75rem 0.75rem 1rem;
+    transition: border-color 0.15s ease;
+  }
+  .ask-composer:focus-within {
+    border-color: var(--sage);
+  }
+  .ask-composer__input {
+    flex: 1;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 1.5em;
+    max-height: 8em;
+    overflow-y: auto;
+  }
+  .ask-composer__input::placeholder { color: var(--soft); }
+  .ask-composer__send {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--sage);
+    color: var(--white);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+  }
+  .ask-composer__send:hover { background: var(--accent); }
+  .ask-composer__send:disabled { background: var(--border); cursor: not-allowed; }
+  .ask-composer__disclaimer {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    color: var(--soft);
+    margin: 0.5rem 0 0;
+    text-align: center;
+  }
+
+  /* Hidden state */
+  .ask-chips.is-hidden { display: none; }
+
+  /* Partner chip */
+  .ask-partner-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage);
+    background: color-mix(in srgb, var(--sage) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--sage) 25%, transparent);
+    border-radius: 2rem;
+    padding: 0.25rem 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .ask-hero { padding: 2rem 1.25rem 1.75rem; }
+    .ask-main { padding: 0 1.25rem 5rem; }
+    .ask-chips__row { gap: 0.4rem; }
+    .ask-chip { font-size: 0.8rem; padding: 0.4rem 0.85rem; }
+  }
+</style>
+
+<script define:vars={{ API_URL }}>
+  // ============================================================
+  // Peninsula Insider Concierge — client-side chat logic
+  // ============================================================
+
+  const sessionId = 'pi-' + Math.random().toString(36).slice(2, 10);
+  const form = document.getElementById('ask-form');
+  const input = document.getElementById('ask-input');
+  const send = document.getElementById('ask-send');
+  const thread = document.getElementById('ask-thread');
+  const chips = document.getElementById('ask-chips');
+  let isLoading = false;
+
+  // Auto-grow textarea
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 128) + 'px';
+  });
+
+  // Submit on Enter (not Shift+Enter)
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (!isLoading) handleSubmit();
+    }
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!isLoading) handleSubmit();
+  });
+
+  // Suggestion chips
+  document.querySelectorAll('.ask-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      input.value = chip.dataset.query || '';
+      input.style.height = 'auto';
+      handleSubmit();
+    });
+  });
+
+  function handleSubmit() {
+    const query = input.value.trim();
+    if (!query || query.length < 3) return;
+    input.value = '';
+    input.style.height = 'auto';
+    chips.classList.add('is-hidden');
+    runQuery(query);
+  }
+
+  async function runQuery(query) {
+    isLoading = true;
+    send.disabled = true;
+
+    // Append user turn
+    const turn = document.createElement('div');
+    turn.className = 'ask-turn';
+    turn.innerHTML = `
+      <p class="ask-turn__question">${escapeHtml(query)}</p>
+      <div class="ask-response" role="status">
+        <div class="ask-loading">
+          <div class="ask-loading__dot"></div>
+          <div class="ask-loading__dot"></div>
+          <div class="ask-loading__dot"></div>
+        </div>
+      </div>
+    `;
+    thread.appendChild(turn);
+    turn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    const responseEl = turn.querySelector('.ask-response');
+
+    try {
+      const res = await fetch(`${API_URL}/concierge/ask`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Session-Id': sessionId,
+        },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      if (data.error) {
+        renderError(responseEl, data.error);
+      } else {
+        renderResponse(responseEl, data, query);
+      }
+    } catch (err) {
+      renderError(responseEl, 'Something went wrong. Please try again.');
+      console.error('Concierge error:', err);
+    } finally {
+      isLoading = false;
+      send.disabled = false;
+      input.focus();
+      responseEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  function renderResponse(el, data, originalQuery) {
+    const recs = (data.recommendations || []).slice(0, 5);
+    const followOn = (data.follow_on || []).slice(0, 3);
+
+    const recsHtml = recs.length
+      ? `<div class="ask-recs">
+          ${recs.map((r) => `
+            <a class="ask-rec" href="https://peninsulainsider.com.au${r.slug || ''}" target="_blank" rel="noopener">
+              <span class="ask-rec__tier ask-rec__tier--${r.editorial_tier || 'B'}">${r.editorial_tier || 'B'}</span>
+              <div class="ask-rec__info">
+                <p class="ask-rec__title">${escapeHtml(r.title || '')}</p>
+                <p class="ask-rec__why">${escapeHtml(r.why || '')}</p>
+              </div>
+            </a>
+          `).join('')}
+        </div>`
+      : '';
+
+    const followOnHtml = followOn.length
+      ? `<div class="ask-followon">
+          <span class="ask-followon__label">Keep going</span>
+          ${followOn.map((q) => `
+            <button class="ask-followon__chip" data-query="${escapeHtml(q)}">${escapeHtml(q)}</button>
+          `).join('')}
+        </div>`
+      : '';
+
+    el.innerHTML = `
+      <div class="ask-response__body">
+        <div class="ask-partner-chip">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1"/>
+          </svg>
+          Editorial
+        </div>
+        <p class="ask-response__answer">${escapeHtml(data.answer || '')}</p>
+        ${recsHtml}
+        ${followOnHtml}
+      </div>
+      <p class="ask-response__provenance">${escapeHtml(data.provenance_footer || '')}</p>
+    `;
+
+    // Wire follow-on chips
+    el.querySelectorAll('.ask-followon__chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const q = chip.dataset.query || '';
+        if (q) runQuery(q);
+      });
+    });
+  }
+
+  function renderError(el, message) {
+    el.innerHTML = `
+      <div class="ask-response__body">
+        <p class="ask-response__answer" style="color: var(--soft);">${escapeHtml(message)}</p>
+      </div>
+    `;
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+</script>
