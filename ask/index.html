@@ -238,7 +238,8 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
       ${followupHtml}
     `;
     thread.appendChild(el);
-    scrollToBottom();
+    // Land the reader at the TOP of PI's response, not the bottom (chips/recs).
+    scrollMsgToTop(el);
   }
 
   function renderTile(rec, rank, idx) {
@@ -289,12 +290,27 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
       </div>
     `;
     thread.appendChild(el);
-    scrollToBottom();
+    scrollMsgToTop(el);
   }
 
   function scrollToBottom() {
     requestAnimationFrame(() => {
       thread.scrollTop = thread.scrollHeight;
+    });
+  }
+
+  /**
+   * Scroll a newly-added message so its TOP sits at the top of the visible
+   * chat area. Used for PI responses so long answers read top-to-bottom
+   * naturally instead of dropping the user at the chips/recs at the bottom.
+   */
+  function scrollMsgToTop(messageEl) {
+    if (!messageEl) return;
+    requestAnimationFrame(() => {
+      const threadRect = thread.getBoundingClientRect();
+      const msgRect = messageEl.getBoundingClientRect();
+      const target = msgRect.top - threadRect.top + thread.scrollTop - 12;
+      thread.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
     });
   }
 
