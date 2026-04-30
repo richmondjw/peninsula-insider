@@ -241,7 +241,7 @@ const breadcrumbItems = [
           <span class="venues__count">{group.articles.length} pieces</span>
         </div>
         <div class="venues__grid">
-          {group.articles.map((article) => <ArticleCard article={article} />)}
+          {group.articles.map((article) => <ArticleCard article={article} hideType />)}
         </div>
       </div>
     </section>

@@ -874,6 +874,42 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 0.6rem 1.05rem;
 }
 
+/* ---------------------------------------------------------
+   Editorial variant of the venue card  -  used by ArticleCard
+   for journal pieces and any other text-only editorial tile.
+   Whole card is the link (stretched-link via title ::before),
+   no CTA pill, no hairline divider above the dek. Title
+   carries the click affordance; hover lift inherited from
+   base .venue-card. Apply via class="venue-card venue-card--editorial".
+   --------------------------------------------------------- */
+.venue-card--editorial { cursor: pointer; }
+.venue-card--editorial .venue-card__name a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.venue-card--editorial .venue-card__signature {
+  border-top: none;
+  padding-top: 0;
+  margin-bottom: 0;
+}
+.venue-card--editorial .venue-card__cta {
+  display: none;
+}
+.venue-card--editorial .venue-card__name {
+  margin-bottom: 0.3rem;
+}
+.venue-card--editorial .venue-card__place {
+  margin-bottom: 1rem;
+}
+.venue-card--editorial:hover .venue-card__name a {
+  color: var(--accent);
+}
+.venue-card--editorial > .venue-card__top {
+  min-height: 0.95rem;
+}
+
 /* =========================================================
    PLACES (homepage + hub grid)
    ========================================================= */
