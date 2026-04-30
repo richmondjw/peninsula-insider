@@ -11,6 +11,7 @@ import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles — loaded on every page
 import { ClientRouter } from 'astro:transitions';
 import Masthead from '../components/Masthead.astro';
+import UtilityBar from '../components/UtilityBar.astro';
 import Footer from '../components/Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
 
@@ -68,48 +69,6 @@ const isAskPage = rawPathname.startsWith('/ask');
   <meta http-equiv="content-language" content="en-AU" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!--
-    Size-adjusted fallback @font-face declarations.
-
-    These declare a "fake" Cormorant Garamond and Outfit using locally
-    available system fonts (Georgia and Arial) with metric overrides
-    tuned to approximate the real web fonts. Until Google Fonts finishes
-    loading, the browser uses these — and because the metrics match,
-    when the real fonts swap in, text does NOT reflow.
-
-    This is the same pattern Astro, Next.js next/font, and major
-    publications (NYT, The Atlantic) use to eliminate FOUC layout shift.
-    Numbers tuned conservatively; can be refined with a tool like
-    screenspan.net/fallback if a more exact match is needed.
-
-    MUST appear before the Google Fonts <link> below so the fallback
-    metrics are registered before the real font face declarations.
-  -->
-  <style>
-    @font-face {
-      font-family: 'Cormorant Garamond';
-      src: local('Georgia');
-      size-adjust: 87%;
-      ascent-override: 91%;
-      descent-override: 22%;
-      line-gap-override: 0%;
-    }
-    @font-face {
-      font-family: 'Outfit';
-      src: local('Arial');
-      size-adjust: 99%;
-      ascent-override: 100%;
-      descent-override: 22%;
-      line-gap-override: 0%;
-    }
-  </style>
-
-  <link
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
-  />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
     rel="stylesheet"
@@ -165,6 +124,7 @@ const isAskPage = rawPathname.startsWith('/ask');
 </head>
 <body>
 
+  <UtilityBar />
   <Masthead section={section} />
 
   <main>
