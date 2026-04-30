@@ -5173,3 +5173,36 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
     letter-spacing: 0.14em;
   }
 }
+
+/* ─── Tour vertical ─────────────────────────────────────────────────────── */
+.tour-card { background: var(--bg); border: 1px solid var(--border); border-radius: 2px; display: flex; flex-direction: column; overflow: hidden; transition: box-shadow 0.2s; }
+.tour-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); }
+.tour-card__image { aspect-ratio: 16/9; overflow: hidden; }
+.tour-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tour-card__body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+.tour-card__meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.tour-card__badge { font-family: 'Outfit', sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: 1px; background: var(--bg-alt); color: var(--body); border: 1px solid var(--border); }
+.tour-card__badge--accent { background: var(--accent-muted, #f5ede4); color: var(--accent); border-color: var(--accent-muted, #f5ede4); }
+.tour-card__name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.5rem; }
+.tour-card__name a { color: var(--dark); text-decoration: none; }
+.tour-card__name a:hover { color: var(--accent); }
+.tour-card__operator { font-size: 0.8rem; color: var(--body-light, #888); margin-bottom: 0.5rem; }
+.tour-card__excerpt { font-size: 0.875rem; color: var(--body); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
+.tour-card__price { font-size: 0.8rem; color: var(--body); }
+.tour-card__cta { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: 0.04em; margin-top: auto; }
+.tour-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+.operator-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+.package-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+.tour-filter-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.tour-filter-chip { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4em 1em; border: 1px solid var(--border); border-radius: 2px; color: var(--body); text-decoration: none; background: var(--bg); transition: background 0.15s, color 0.15s; }
+.tour-filter-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.at-a-glance { border: 1px solid var(--border); border-radius: 2px; overflow: hidden; margin: 2rem 0; }
+.at-a-glance__row { display: flex; border-bottom: 1px solid var(--border); }
+.at-a-glance__row:last-child { border-bottom: none; }
+.at-a-glance__label { padding: 0.75rem 1rem; font-size: 0.8rem; font-weight: 600; color: var(--body); background: var(--bg-alt); min-width: 160px; text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Outfit', sans-serif; }
+.at-a-glance__value { padding: 0.75rem 1rem; font-size: 0.9rem; color: var(--dark); flex: 1; }
+.affiliate-disclosure { font-size: 0.8rem; color: var(--body-light, #888); font-style: italic; margin: 1.5rem 0; padding: 0.75rem 1rem; border-left: 3px solid var(--border); background: var(--bg-alt); }
+.tour-cta-block { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 2px; padding: 1.5rem; margin: 2rem 0; }
+.tour-cta-block__title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.tour-cta-primary { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 0.75em 1.5em; border-radius: 2px; text-decoration: none; margin-top: 1rem; letter-spacing: 0.04em; }
+.tour-cta-primary:hover { opacity: 0.9; }

@@ -1,0 +1,89 @@
+---
+/**
+ * TourCard  -  editorial card for a single tour entry.
+ * Expects a full Astro content-collection entry from `tours`.
+ */
+
+export interface Props {
+  tour: any;
+  operatorName?: string;
+}
+
+const { tour, operatorName } = Astro.props;
+const data = tour.data;
+const slug = tour.id ?? data.slug;
+const href = `/tour/${slug}/`;
+
+const durationLabel: Record<string, string> = {
+  'under-2h': 'Under 2 hours',
+  'half-day': 'Half day',
+  'full-day': 'Full day',
+  'multi-2n': '2-night',
+  'multi-3n': '3-night',
+  'multi-extended': 'Extended',
+};
+
+const budgetLabel: Record<string, string> = {
+  'budget': 'Budget',
+  'moderate': 'Moderate',
+  'mid-range': 'Mid-range',
+  'premium': 'Premium',
+  'luxury': 'Luxury',
+};
+
+const audienceLabel: Record<string, string> = {
+  'adults': 'Adults',
+  'families': 'Families',
+  'solo': 'Solo',
+  'couples': 'Couples',
+  'seniors': 'Seniors',
+  'accessible': 'Accessible',
+  'general': 'All guests',
+};
+
+const excerpt = data.intro
+  ? data.intro.length > 120
+    ? data.intro.slice(0, 117) + '...'
+    : data.intro
+  : '';
+
+const priceDisplay = data.priceLow
+  ? data.priceHigh && data.priceHigh !== data.priceLow
+    ? `From $${data.priceLow} per person`
+    : `$${data.priceLow} per person`
+  : null;
+---
+
+<article class="tour-card">
+  {data.heroImage?.src && (
+    <div class="tour-card__image">
+      <a href={href} tabindex="-1" aria-hidden="true">
+        <img src={data.heroImage.src} alt={data.heroImage.alt ?? data.name} loading="lazy" decoding="async" />
+      </a>
+    </div>
+  )}
+  <div class="tour-card__body">
+    <div class="tour-card__meta">
+      {data.duration && (
+        <span class="tour-card__badge">{durationLabel[data.duration] ?? data.duration}</span>
+      )}
+      {data.audience && (
+        <span class="tour-card__badge tour-card__badge--accent">{audienceLabel[data.audience] ?? data.audience}</span>
+      )}
+      {data.budgetBand && (
+        <span class="tour-card__badge">{budgetLabel[data.budgetBand] ?? data.budgetBand}</span>
+      )}
+    </div>
+    <h3 class="tour-card__name">
+      <a href={href}>{data.name}</a>
+    </h3>
+    {(operatorName || data.operatorSlug) && (
+      <p class="tour-card__operator">
+        by <a href={`/tour/operators/${data.operatorSlug}/`}>{operatorName ?? data.operatorSlug.replace(/-/g, ' ')}</a>
+      </p>
+    )}
+    <p class="tour-card__excerpt">{excerpt}</p>
+    {priceDisplay && <p class="tour-card__price">{priceDisplay}</p>}
+    <a href={href} class="tour-card__cta">Read notes &rarr;</a>
+  </div>
+</article>

@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import TourCard from '../../components/TourCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const allTours = await getCollection('tours');
+const allOperators = await getCollection('tourOperators');
+const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
+
+const familyTours = allTours.filter(t => t.data.audience === 'families');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Tours', href: '/tour/' },
+  { label: 'For Families' },
+];
+---
+
+<BaseLayout
+  title="Family Tours Mornington Peninsula · Peninsula Insider"
+  description="Family-friendly guided tours on the Mornington Peninsula — wildlife experiences, coastal activities, and operator-led days that work for guests with children."
+  section="escape"
+  canonical="https://peninsulainsider.com.au/tour/for-families/"
+  modifiedTime="2026-04-29"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow="Tours"
+    category="For Families"
+    title="Family Tours on the Mornington Peninsula"
+    heroImage="/images/sourced/explore-mprg-01.webp"
+    imageAlt="Family friendly experience on the Mornington Peninsula"
+    imageCaption="Mornington Peninsula"
+  >
+    <div class="prose">
+      <p>The Peninsula's family-suited guided tours concentrate around wildlife experiences, coastal activities, and walking tours that work for a range of ages. Most wine-focused tours are adult-oriented — the family-friendly options tend to sit in the wildlife, nature, and activity categories.</p>
+      <p>Check each operator's minimum age policy before booking. Some experiences have age restrictions for safety or participation reasons that are not always obvious in the tour description.</p>
+    </div>
+  </SubpageHero>
+
+  {familyTours.length > 0 ? (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Family tours</p>
+            <h2 class="venues__title">{familyTours.length} Peninsula family-friendly {familyTours.length === 1 ? 'tour' : 'tours'}</h2>
+          </div>
+        </div>
+        <div class="tour-grid">
+          {familyTours.map((tour) => (
+            <TourCard tour={tour} operatorName={operatorMap[tour.data.operatorSlug]?.name} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="prose">
+          <p>More family tour listings coming soon. <a href="/tour/">Browse all Peninsula tours</a>.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="experience-index">
+    <div class="container">
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/journal/mornington-peninsula-with-kids/">Peninsula with kids</a></h3>
+          <p class="venue-card__signature">Our editorial guide to a Peninsula day that works for everyone in the group — activities, timing, and the stops that don't test anyone's patience.</p>
+          <a href="/journal/mornington-peninsula-with-kids/" class="venue-card__cta">Read the guide &rarr;</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/tour/">All tours</a></h3>
+          <p class="venue-card__signature">The full Peninsula tour catalogue — filter by audience, experience type, and budget.</p>
+          <a href="/tour/" class="venue-card__cta">All tours &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

@@ -1,0 +1,80 @@
+---
+/**
+ * TourPackageCard  -  editorial card for a curated multi-experience package.
+ * Expects a full Astro content-collection entry from `tourPackages`.
+ */
+
+export interface Props {
+  pkg: any;
+}
+
+const { pkg } = Astro.props;
+const data = pkg.data;
+const slug = pkg.id ?? data.slug;
+const href = `/tour-packages/${slug}/`;
+
+const occasionLabel: Record<string, string> = {
+  'anniversary': 'Anniversary',
+  'hens': "Hen's Party",
+  'bucks': "Bucks' Party",
+  'corporate': 'Corporate',
+  'birthday': 'Birthday',
+  'family-reunion': 'Family Reunion',
+  'school': 'School',
+  'general': 'General',
+  'winter': 'Winter Escape',
+  'foodies': 'Foodies',
+};
+
+const audienceLabel: Record<string, string> = {
+  'adults': 'Adults',
+  'families': 'Families',
+  'solo': 'Solo',
+  'couples': 'Couples',
+  'seniors': 'Seniors',
+  'general': 'All guests',
+};
+
+const excerpt = data.intro
+  ? data.intro.length > 120
+    ? data.intro.slice(0, 117) + '...'
+    : data.intro
+  : '';
+
+const priceDisplay = data.priceLow
+  ? data.priceHigh && data.priceHigh !== data.priceLow
+    ? `$${data.priceLow}&ndash;$${data.priceHigh} per person`
+    : `From $${data.priceLow} per person`
+  : null;
+---
+
+<article class="tour-card">
+  {data.heroImage?.src && (
+    <div class="tour-card__image">
+      <a href={href} tabindex="-1" aria-hidden="true">
+        <img src={data.heroImage.src} alt={data.heroImage.alt ?? data.name} loading="lazy" decoding="async" />
+      </a>
+    </div>
+  )}
+  <div class="tour-card__body">
+    <div class="tour-card__meta">
+      {data.occasion && data.occasion !== 'general' && (
+        <span class="tour-card__badge tour-card__badge--accent">
+          {occasionLabel[data.occasion] ?? data.occasion}
+        </span>
+      )}
+      {data.audience && (
+        <span class="tour-card__badge">{audienceLabel[data.audience] ?? data.audience}</span>
+      )}
+      {data.durationNights != null && (
+        <span class="tour-card__badge">{data.durationNights === 0 ? 'Day trip' : `${data.durationNights} nights`}</span>
+      )}
+    </div>
+    <h3 class="tour-card__name">
+      <a href={href}>{data.name}</a>
+    </h3>
+    <p class="tour-card__excerpt">{excerpt}</p>
+    {priceDisplay && <p class="tour-card__price" set:html={priceDisplay} />}
+    <a href={href} class="tour-card__cta">View package &rarr;</a>
+  </div>
+</article>

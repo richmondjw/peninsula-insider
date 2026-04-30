@@ -418,6 +418,172 @@ export const buildTouristTripSchema = ({
     : {}),
 });
 
+// ─── Tour vertical schema builders ───────────────────────────────────────────
+
+const TOUR_SITE = 'https://peninsulainsider.com.au';
+
+export function buildTourSchema(tour: any, operatorData: any) {
+  const pageUrl = absUrl(`/tour/${tour.slug}`);
+  const graph: any[] = [
+    {
+      '@type': ['TouristTrip', 'Service'],
+      '@id': `${pageUrl}#TouristTrip`,
+      name: tour.name,
+      description: tour.intro,
+      url: pageUrl,
+      serviceType: 'Tour',
+      ...(tour.durationHours ? { duration: `PT${tour.durationHours}H` } : {}),
+      ...(tour.heroImage?.src ? { image: `${TOUR_SITE}${tour.heroImage.src}` } : {}),
+      touristType: [tour.audience, ...(tour.theme || [])].filter(Boolean),
+      availableLanguage: tour.languages || ['en'],
+      provider: {
+        '@type': 'LocalBusiness',
+        '@id': absUrl(`/tour/operators/${tour.operatorSlug}`) + '#LocalBusiness',
+        name: operatorData?.name || tour.operatorSlug,
+        url: operatorData?.website || undefined,
+      },
+      ...(tour.bookingUrl || tour.aggregatorGYG ? {
+        offers: {
+          '@type': 'Offer',
+          '@id': `${pageUrl}#Offer`,
+          url: `${tour.bookingUrl || tour.aggregatorGYG}&utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=${tour.slug}&utm_content=hero`,
+          priceCurrency: 'AUD',
+          ...(tour.priceLow ? { price: String(tour.priceLow) } : { price: '0', description: 'Contact operator for pricing' }),
+          ...(tour.priceLow && tour.priceHigh && tour.priceLow !== tour.priceHigh ? {
+            priceSpecification: { '@type': 'PriceSpecification', minPrice: tour.priceLow, maxPrice: tour.priceHigh, priceCurrency: 'AUD' }
+          } : {}),
+          availability: 'https://schema.org/InStock',
+          validFrom: tour.lastVerified,
+          validThrough: new Date(new Date(tour.lastVerified).getTime() + 365*24*60*60*1000).toISOString().split('T')[0],
+          seller: { '@type': 'LocalBusiness', name: operatorData?.name || tour.operatorSlug, url: operatorData?.website || '' },
+        }
+      } : {}),
+      areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
+    },
+  ];
+  if (tour.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#FAQPage`,
+      mainEntity: tour.faq.map((f: any) => ({
+        '@type': 'Question', name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#BreadcrumbList`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Tours', item: absUrl('/tour/') },
+      { '@type': 'ListItem', position: 3, name: tour.name, item: pageUrl },
+    ],
+  });
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
+  const pageUrl = absUrl(`/tour-packages/${pkg.slug}`);
+  const graph: any[] = [
+    {
+      '@type': 'TouristTrip',
+      '@id': `${pageUrl}#TouristTrip`,
+      name: pkg.name,
+      description: pkg.intro,
+      url: pageUrl,
+      ...(pkg.heroImage?.src ? { image: `${TOUR_SITE}${pkg.heroImage.src}` } : {}),
+      ...(pkg.anchorStaySlug ? {
+        locationCreatedIn: {
+          '@type': 'LodgingBusiness',
+          '@id': absUrl(`/stay/${pkg.anchorStaySlug}`) + '#LodgingBusiness',
+          name: pkg.anchorStaySlug.replace(/-/g, ' '),
+          url: absUrl(`/stay/${pkg.anchorStaySlug}`),
+        }
+      } : {}),
+      subTrip: (pkg.componentTourSlugs || []).map((slug: string) => ({
+        '@type': 'TouristTrip',
+        '@id': absUrl(`/tour/${slug}`) + '#TouristTrip',
+        name: componentToursData.find((t: any) => t.slug === slug)?.name || slug,
+        url: absUrl(`/tour/${slug}`),
+      })),
+      ...(pkg.priceLow != null ? {
+        offers: {
+          '@type': 'AggregateOffer',
+          '@id': `${pageUrl}#AggregateOffer`,
+          lowPrice: String(pkg.priceLow),
+          highPrice: String(pkg.priceHigh || pkg.priceLow),
+          priceCurrency: 'AUD',
+          offerCount: (pkg.componentTourSlugs || []).length,
+        }
+      } : {}),
+    },
+  ];
+  if (pkg.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#FAQPage`,
+      mainEntity: pkg.faq.map((f: any) => ({
+        '@type': 'Question', name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#BreadcrumbList`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Tour Packages', item: absUrl('/tour-packages/') },
+      { '@type': 'ListItem', position: 3, name: pkg.name, item: pageUrl },
+    ],
+  });
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+export function buildOperatorProfileSchema(operator: any, toursList: any[]) {
+  const pageUrl = absUrl(`/tour/operators/${operator.slug}`);
+  const graph: any[] = [
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${pageUrl}#LocalBusiness`,
+      name: operator.name,
+      url: operator.website || pageUrl,
+      ...(operator.phone ? { telephone: operator.phone } : {}),
+      ...(operator.languages ? { knowsLanguage: operator.languages } : {}),
+      areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
+      currenciesAccepted: 'AUD',
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#ItemList`,
+      name: `Tours by ${operator.name}`,
+      itemListOrder: 'https://schema.org/ItemListOrderDescending',
+      itemListElement: toursList.map((t, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'TouristTrip',
+          '@id': absUrl(`/tour/${t.slug}`) + '#TouristTrip',
+          name: t.name,
+          url: absUrl(`/tour/${t.slug}`),
+        },
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageUrl}#BreadcrumbList`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+        { '@type': 'ListItem', position: 2, name: 'Tours', item: absUrl('/tour/') },
+        { '@type': 'ListItem', position: 3, name: 'Operators', item: absUrl('/tour/operators/') },
+        { '@type': 'ListItem', position: 4, name: operator.name, item: pageUrl },
+      ],
+    },
+  ];
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
 // ─── Article (for /journal/ and /explore/ utility pages) ─────────────────────
 
 interface BuildArticleInput {

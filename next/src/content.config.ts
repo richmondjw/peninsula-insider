@@ -513,6 +513,94 @@ const authors = defineCollection({
   }),
 });
 
+// ─── Tour vertical collections ───────────────────────────────────────────────
+
+const tourOperators = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/tour-operators' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    operatorType: z.enum(['volume', 'wine-specialist', 'premium-private', 'activity-specialist']),
+    website: z.string().url().optional(),
+    phone: z.string().optional(),
+    pickupPoints: z.array(z.string()).default([]),
+    languages: z.array(z.string()).default(['en']),
+    maxCapacity: z.number().positive().optional(),
+    affiliateProgram: z.enum(['yes', 'no', 'unknown']).default('unknown'),
+    affiliateUrl: z.string().url().optional(),
+    vetted: z.boolean().default(false),
+    intro: z.string(),
+    whatGoodAt: z.string(),
+    notSuitedFor: z.string(),
+    heroImage: imageRef,
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+  }),
+});
+
+const tours = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/tours' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    operatorSlug: z.string(),
+    experienceType: z.enum(['food-wine','wildlife-nature','history-heritage','kayak-paddle','cycling','walking-hiking','scenic-sightseeing','cruise-sailing','art-culture','surf-water','private-charter','wellness']),
+    duration: z.enum(['under-2h','half-day','full-day','multi-2n','multi-3n','multi-extended']),
+    theme: z.array(z.enum(['romantic','family','adventure','relaxed','gourmet','wellness','educational','eco','seasonal'])).max(2).default([]),
+    audience: z.enum(['adults','families','solo','couples','seniors','accessible','general']),
+    occasion: z.enum(['anniversary','hens','bucks','corporate','birthday','family-reunion','school','general']).default('general'),
+    origin: z.enum(['mornington','sorrento','portsea','red-hill','merricks','flinders','dromana','rosebud','rye','blairgowrie','peninsula-wide','melbourne-cbd']),
+    budgetBand: z.enum(['budget','moderate','mid-range','premium','luxury']),
+    groupSize: z.enum(['intimate','small-group','large-group','private-charter']),
+    priceLow: z.number().positive().optional(),
+    priceHigh: z.number().positive().optional(),
+    durationHours: z.number().positive().optional(),
+    maxGroupSize: z.number().positive().optional(),
+    departsFrom: z.string().optional(),
+    languages: z.array(z.string()).default(['en']),
+    accessibility: z.string().optional(),
+    bookingUrl: z.string().url().optional(),
+    aggregatorGYG: z.string().url().optional(),
+    aggregatorViator: z.string().url().optional(),
+    intro: z.string(),
+    whatHappens: z.string(),
+    whoSuits: z.string(),
+    whoDoesnt: z.string(),
+    bookingIntelligence: z.string().optional(),
+    cancellationPolicy: z.string().optional(),
+    faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
+    heroImage: imageRef,
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+  }),
+});
+
+const tourPackages = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/tour-packages' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    occasion: z.enum(['anniversary','hens','bucks','corporate','birthday','family-reunion','school','general','winter','foodies']),
+    audience: z.enum(['adults','families','solo','couples','seniors','general']),
+    theme: z.array(z.string()).max(2).default([]),
+    bundleType: z.enum(['sequential-day','stay-anchored','flexible']),
+    durationNights: z.number().nonnegative().optional(),
+    componentTourSlugs: z.array(z.string()).default([]),
+    anchorStaySlug: z.string().optional(),
+    anchorStayBlurb: z.string().optional(),
+    altStaySlug: z.string().optional(),
+    priceLow: z.number().positive().optional(),
+    priceHigh: z.number().positive().optional(),
+    intro: z.string(),
+    whyThisCombination: z.string(),
+    bookingSequence: z.string().optional(),
+    faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
+    heroImage: imageRef,
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -521,4 +609,7 @@ export const collections = {
   itineraries,
   events,
   authors,
+  tourOperators,
+  tours,
+  tourPackages,
 };

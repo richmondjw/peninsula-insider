@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import TourCard from '../../components/TourCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const allTours = await getCollection('tours');
+const allOperators = await getCollection('tourOperators');
+const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
+
+const fullDayTours = allTours.filter(t => t.data.duration === 'full-day');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Tours', href: '/tour/' },
+  { label: 'Full Day Tours' },
+];
+---
+
+<BaseLayout
+  title="Full Day Tours Mornington Peninsula · Peninsula Insider"
+  description="Full-day guided tours on the Mornington Peninsula — complete Peninsula days with transport, a guide, and an itinerary that earns the drive."
+  section="escape"
+  canonical="https://peninsulainsider.com.au/tour/full-day-tours/"
+  modifiedTime="2026-04-29"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow="Tours"
+    category="Full Day"
+    title="Full Day Tours"
+    heroImage="/images/sourced/explore-sorrento-ferry-01.webp"
+    imageAlt="Mornington Peninsula full day tour experience"
+    imageCaption="Mornington Peninsula"
+  >
+    <div class="prose">
+      <p>Full-day tours on the Mornington Peninsula typically run eight to ten hours, departing Melbourne in the morning and returning by early evening. They cover multiple stops — cellar doors, produce destinations, the hot springs, or coastal walks — depending on the operator's product.</p>
+      <p>A full day is the minimum useful format for visitors from Melbourne who want to get a proper introduction to the region. Half-day formats rarely justify the drive time.</p>
+    </div>
+  </SubpageHero>
+
+  {fullDayTours.length > 0 ? (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Full day tours</p>
+            <h2 class="venues__title">{fullDayTours.length} full-day Peninsula {fullDayTours.length === 1 ? 'tour' : 'tours'}</h2>
+          </div>
+        </div>
+        <div class="tour-grid">
+          {fullDayTours.map((tour) => (
+            <TourCard tour={tour} operatorName={operatorMap[tour.data.operatorSlug]?.name} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="prose">
+          <p>More full-day tour listings coming soon. <a href="/tour/">Browse all Peninsula tours</a>.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="experience-index">
+    <div class="container">
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/tour-packages/">Multi-day packages</a></h3>
+          <p class="venue-card__signature">Combine a full-day tour with an anchor stay for a two or three-night Peninsula escape. We do the pairing work.</p>
+          <a href="/tour-packages/" class="venue-card__cta">Browse packages &rarr;</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/tour/">All tours</a></h3>
+          <p class="venue-card__signature">The complete Peninsula tour guide — all formats, all experience types.</p>
+          <a href="/tour/" class="venue-card__cta">All tours &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

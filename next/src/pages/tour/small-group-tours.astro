@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import TourCard from '../../components/TourCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const allTours = await getCollection('tours');
+const allOperators = await getCollection('tourOperators');
+const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
+
+const smallGroupTours = allTours.filter(t => t.data.groupSize === 'small-group');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Tours', href: '/tour/' },
+  { label: 'Small Group Tours' },
+];
+---
+
+<BaseLayout
+  title="Small-Group Tours Mornington Peninsula · Peninsula Insider"
+  description="Small-group guided tours on the Mornington Peninsula — the best value for couples and small parties who want a structured day without the cost of a private charter."
+  section="escape"
+  canonical="https://peninsulainsider.com.au/tour/small-group-tours/"
+  modifiedTime="2026-04-29"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow="Tours"
+    category="Small Group"
+    title="Small-Group Tours"
+    heroImage="/images/sourced/explore-mprg-01.webp"
+    imageAlt="Small group experience on the Mornington Peninsula"
+    imageCaption="Mornington Peninsula"
+  >
+    <div class="prose">
+      <p>Small-group tours — typically 8 to 24 guests sharing a vehicle — are the practical middle ground between a private charter and a large coach. You get the logistics removed, a guide, and a structured itinerary, without the premium of a private booking.</p>
+      <p>They work best for couples or small parties travelling independently who want to spend the day with others in a similar mindset. They work less well if you want to control the pace or extend your time at any one stop.</p>
+    </div>
+  </SubpageHero>
+
+  {smallGroupTours.length > 0 ? (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Small-group tours</p>
+            <h2 class="venues__title">{smallGroupTours.length} Peninsula small-group {smallGroupTours.length === 1 ? 'tour' : 'tours'}</h2>
+          </div>
+        </div>
+        <div class="tour-grid">
+          {smallGroupTours.map((tour) => (
+            <TourCard tour={tour} operatorName={operatorMap[tour.data.operatorSlug]?.name} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="experience-index experience-index--plain">
+      <div class="container">
+        <div class="prose">
+          <p>More small-group tour listings coming soon. <a href="/tour/">Browse all Peninsula tours</a>.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="experience-index">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related</p>
+          <h2 class="venues__title">Other tour formats</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/tour/private-tours/">Private tours</a></h3>
+          <p class="venue-card__signature">Your own vehicle, your own itinerary. Better for groups of four or more who want full control over the day.</p>
+          <a href="/tour/private-tours/" class="venue-card__cta">Private tour options &rarr;</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/tour/">All tours</a></h3>
+          <p class="venue-card__signature">The complete Peninsula tour catalogue — wine, hot springs, wildlife, cycling, and more.</p>
+          <a href="/tour/" class="venue-card__cta">Browse all tours &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

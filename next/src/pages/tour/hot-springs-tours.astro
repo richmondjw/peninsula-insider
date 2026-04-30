@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import TourCard from '../../components/TourCard.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const allTours = await getCollection('tours');
+const allOperators = await getCollection('tourOperators');
+const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
+
+const hotSpringsTours = allTours.filter(t =>
+  t.data.experienceType === 'wellness' ||
+  t.data.name.toLowerCase().includes('hot spring') ||
+  t.data.name.toLowerCase().includes('thermal')
+);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Tours', href: '/tour/' },
+  { label: 'Hot Springs Tours' },
+];
+---
+
+<BaseLayout
+  title="Mornington Peninsula Hot Springs Tours · Peninsula Insider"
+  description="Guided hot springs tours on the Mornington Peninsula — from Melbourne with transport included, or on-Peninsula packages for guests already staying nearby."
+  section="escape"
+  canonical="https://peninsulainsider.com.au/tour/hot-springs-tours/"
+  modifiedTime="2026-04-29"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow="Tours"
+    category="Wellness &amp; Hot Springs"
+    title="Hot Springs Tours on the Mornington Peninsula"
+    heroImage="/images/sourced/explore-mount-martha-beach-01.webp"
+    imageAlt="Mornington Peninsula coastline near hot springs"
+    imageCaption="Mornington Peninsula"
+  >
+    <div class="prose">
+      <p>Peninsula Hot Springs at Fingal is the region's main thermal bathing destination. Most guided tours that include hot springs combine them with a wine component or a beach stop. Pure hot springs tours are less common from Melbourne — the most practical option for visitors who want to focus the day on bathing is to stay on the Peninsula and book directly with the springs.</p>
+    </div>
+  </SubpageHero>
+
+  <section class="experience-index experience-index--plain">
+    <div class="container">
+      <div class="prose">
+        <h2>From Melbourne versus on-Peninsula</h2>
+        <p>Tours from Melbourne that include the hot springs typically run as a combination day: cellar doors first, springs for two to three hours in the afternoon, return to Melbourne by early evening. The hot springs component is genuine but secondary to the wine stops. If the springs are your primary reason for visiting, a day trip from Melbourne gives you limited time in the water.</p>
+        <p>If you are staying on the Peninsula, book directly with Peninsula Hot Springs. Timed entry sessions can be reserved in advance online. The property also offers spa treatments and bathing packages that are only accessible as direct bookings. A guided tour adds no value if you are already based nearby.</p>
+      </div>
+    </div>
+  </section>
+
+  {hotSpringsTours.length > 0 ? (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Hot springs tours</p>
+            <h2 class="venues__title">{hotSpringsTours.length} Peninsula hot springs {hotSpringsTours.length === 1 ? 'tour' : 'tours'}</h2>
+          </div>
+        </div>
+        <div class="tour-grid">
+          {hotSpringsTours.map((tour) => (
+            <TourCard tour={tour} operatorName={operatorMap[tour.data.operatorSlug]?.name} />
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="experience-index">
+      <div class="container">
+        <div class="prose">
+          <p>More hot springs tour listings coming soon. In the meantime, <a href="/tour/">browse all Peninsula tours</a>.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="experience-index experience-index--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related</p>
+          <h2 class="venues__title">Stays near the springs</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/stay/">Peninsula stay guide</a></h3>
+          <p class="venue-card__signature">The closest spa properties and stays to Peninsula Hot Springs — sorted by distance, price, and our editorial assessment.</p>
+          <a href="/stay/" class="venue-card__cta">Browse stays &rarr;</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/tour/">All Peninsula tours</a></h3>
+          <p class="venue-card__signature">Wine, wildlife, cycling, and private charters. The full guided tour catalogue.</p>
+          <a href="/tour/" class="venue-card__cta">Browse all tours &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

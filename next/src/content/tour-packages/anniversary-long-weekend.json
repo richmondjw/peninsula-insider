@@ -1,0 +1,31 @@
+{
+  "slug": "anniversary-long-weekend",
+  "name": "Anniversary Long Weekend",
+  "occasion": "anniversary",
+  "audience": "couples",
+  "theme": ["romantic", "gourmet"],
+  "bundleType": "stay-anchored",
+  "durationNights": 2,
+  "componentTourSlugs": ["bunyip-mornington-peninsula-wine-tour"],
+  "anchorStaySlug": "jackalope",
+  "anchorStayBlurb": "Jackalope on the Mornington Peninsula is the anchor for this package. Book it first — availability is limited and the property sets the tone for everything else.",
+  "priceLow": 650,
+  "priceHigh": 1200,
+  "intro": "Two nights on the Peninsula built around a private wine tour and a cellar door lunch. The structure is simple: arrive on Friday, take the wine tour on Saturday, spend Sunday slowly at the estate before the drive back.",
+  "whyThisCombination": "The Peninsula's wine country is at its best when you are not rushing back to Melbourne. Two nights removes the time pressure that compresses every single-day visit. The wine tour on day two is the event; the stay is what makes the event possible.",
+  "bookingSequence": "Book Jackalope first — it has limited availability and a longer booking window than any tour on the Peninsula. Book the wine tour second, confirming the Saturday departure aligns with your stay dates. Restaurant bookings at the cellar door can be made at a shorter lead time.",
+  "faq": [
+    {
+      "question": "Can we do this as a one-night stay instead of two?",
+      "answer": "Yes, but the two-night structure is specifically designed to remove the time pressure of a single-day visit. With one night, Saturday becomes compressed and Sunday morning feels rushed. The two-night version is the intended experience."
+    }
+  ],
+  "heroImage": {
+    "src": "/images/sourced/article-couples-weekend-01.webp",
+    "alt": "Couples weekend on the Mornington Peninsula — anniversary escape",
+    "credit": "Peninsula Insider",
+    "license": "original-commissioned"
+  },
+  "lastVerified": "2026-04-29",
+  "publishedAt": "2026-04-29"
+}

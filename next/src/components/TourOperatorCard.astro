@@ -1,0 +1,55 @@
+---
+/**
+ * TourOperatorCard  -  editorial card for a tour operator profile.
+ * Expects a full Astro content-collection entry from `tourOperators`.
+ */
+
+export interface Props {
+  operator: any;
+}
+
+const { operator } = Astro.props;
+const data = operator.data;
+const slug = operator.id ?? data.slug;
+const href = `/tour/operators/${slug}/`;
+
+const typeLabel: Record<string, string> = {
+  'volume': 'Group Tours',
+  'wine-specialist': 'Wine Specialist',
+  'premium-private': 'Premium Private',
+  'activity-specialist': 'Activity Specialist',
+};
+
+const excerpt = data.intro
+  ? data.intro.length > 120
+    ? data.intro.slice(0, 117) + '...'
+    : data.intro
+  : '';
+---
+
+<article class="tour-card">
+  {data.heroImage?.src && (
+    <div class="tour-card__image">
+      <a href={href} tabindex="-1" aria-hidden="true">
+        <img src={data.heroImage.src} alt={data.heroImage.alt ?? data.name} loading="lazy" decoding="async" />
+      </a>
+    </div>
+  )}
+  <div class="tour-card__body">
+    <div class="tour-card__meta">
+      {data.operatorType && (
+        <span class="tour-card__badge tour-card__badge--accent">
+          {typeLabel[data.operatorType] ?? data.operatorType}
+        </span>
+      )}
+      {data.vetted && (
+        <span class="tour-card__badge">Verified</span>
+      )}
+    </div>
+    <h3 class="tour-card__name">
+      <a href={href}>{data.name}</a>
+    </h3>
+    <p class="tour-card__excerpt">{excerpt}</p>
+    <a href={href} class="tour-card__cta">View operator &rarr;</a>
+  </div>
+</article>
