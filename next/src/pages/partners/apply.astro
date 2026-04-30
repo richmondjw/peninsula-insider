@@ -11,18 +11,18 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
 ---
 
 <BaseLayout
-  title="Partner with Peninsula Insider"
-  description="Run a venue on the Mornington Peninsula? Tell Peninsula Insider about your business. We review every submission. No pay-to-play, ever."
+  title="Tell us about your venue  -  Peninsula Insider"
+  description="Two ways to get in touch with Peninsula Insider. Editorial submission for venues we should be writing about. Commercial enquiry for partnerships and placement."
 >
   <main class="apply-page">
 
     <section class="apply-hero">
       <div class="apply-hero__inner">
         <p class="apply-hero__eyebrow">Peninsula Insider</p>
-        <h1 class="apply-hero__heading">Partner with PI</h1>
+        <h1 class="apply-hero__heading">Tell us about your venue</h1>
         <p class="apply-hero__sub">
-          Run a venue on the Peninsula? We're always interested in places worth writing about.
-          Tell us a bit about your business and we'll be in touch if it's a fit.
+          Two ways to get in touch. Editorial submission for venues we should be writing
+          about. Commercial enquiry for partnerships and placement.
         </p>
       </div>
     </section>
@@ -33,13 +33,43 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
         <aside class="apply-note">
           <p class="apply-note__title">How this works</p>
           <p>
-            Every submission lands with our editorial team. We don't accept paid placements,
-            and we don't guarantee coverage. If your venue fits the PI editorial brief,
-            we'll arrange a visit. If it doesn't, we'll tell you.
+            Editorial submissions are reviewed by our editorial team. We do not accept every
+            venue, and we do not guarantee coverage. If your venue fits the PI editorial
+            brief, we will arrange a visit.
+          </p>
+          <p>
+            Commercial enquiries are read by James and Emma personally. We respond within
+            48 hours.
+          </p>
+          <p>
+            Either way, every submission lands with us. Nothing is automated. Nothing is
+            filtered out. Nothing is ignored.
           </p>
         </aside>
 
         <form class="apply-form" id="apply-form" autocomplete="on">
+
+          <fieldset class="apply-form__group apply-form__group--type">
+            <legend>What kind of enquiry is this?</legend>
+            <div class="apply-radio-group">
+              <label class="apply-radio">
+                <input type="radio" name="enquiry_type" value="editorial" required checked />
+                <span class="apply-radio__title">Editorial submission</span>
+                <span class="apply-radio__body">
+                  We run a Peninsula business and we think you should be writing about it.
+                  No charge, no guarantee.
+                </span>
+              </label>
+              <label class="apply-radio">
+                <input type="radio" name="enquiry_type" value="commercial" required />
+                <span class="apply-radio__title">Commercial enquiry</span>
+                <span class="apply-radio__body">
+                  We are interested in a Charter Story, placement, listing, or the
+                  Founders' Circle.
+                </span>
+              </label>
+            </div>
+          </fieldset>
 
           <fieldset class="apply-form__group">
             <legend>Your business</legend>
@@ -242,6 +272,46 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
     color: var(--soft);
     padding: 0;
     margin: 0 0 1rem;
+  }
+
+  /* Enquiry type chooser */
+  .apply-radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .apply-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--white);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .apply-radio:hover { border-color: var(--sage); }
+  .apply-radio:has(input:checked) {
+    border-color: var(--sage);
+    background: var(--bg-alt);
+  }
+  .apply-radio input[type='radio'] {
+    align-self: flex-start;
+    accent-color: var(--sage);
+    margin: 0 0 0.25rem;
+  }
+  .apply-radio__title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .apply-radio__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--soft);
   }
 
   .apply-field {
