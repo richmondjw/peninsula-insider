@@ -3199,16 +3199,30 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0;
   background-size: cover;
   background-position: center;
-  /* Editorial monochrome treatment — faded warm B&W. Improves legibility
-     of the white serif title regardless of the underlying photo and gives
-     every guide hero a unified moody look, like a magazine cover. The
-     subtle sepia keeps the palette warm rather than going clinical. */
-  filter: grayscale(1) sepia(0.18) brightness(0.68) contrast(0.95);
+  /* Light editorial desaturation — keeps the image's life and form
+     while pulling colour back so the photo never overpowers the title.
+     This is "muted-colour editorial," not B&W. Combined with the
+     asymmetric scrim below for text legibility. */
+  filter: saturate(0.55) contrast(1.02);
 }
 .guide-hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 78%, rgba(0,0,0,0.78) 100%);
+  /* Two-layer asymmetric scrim:
+     - left-to-right vignette: dark on the left where the title sits,
+       clearing to fully transparent by the right third so the image
+       keeps its presence on the side without text.
+     - bottom-edge wash: subtle darken at the very bottom for the meta
+       row, shallow enough not to muddy the image as a whole. */
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,0.62) 0%,
+      rgba(0,0,0,0.42) 28%,
+      rgba(0,0,0,0.18) 55%,
+      rgba(0,0,0,0)    78%),
+    linear-gradient(180deg,
+      rgba(0,0,0,0)    55%,
+      rgba(0,0,0,0.48) 100%);
 }
 .guide-hero__inner {
   position: relative;
