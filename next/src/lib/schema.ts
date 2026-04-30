@@ -629,3 +629,388 @@ export const buildArticleSchema = ({
     name: 'Mornington Peninsula, Victoria, Australia',
   },
 });
+
+// ─── Boating + Fishing vertical schema builders ──────────────────────────────
+//
+// Source: peninsula_insider_boating_fishing_v1 — bf_schema_blocks.md.
+// Six builders: species, fishing-location, charter-operator, boat-hire,
+// boat-ramp, hub. All emit @graph nodes with stable @id = {url}#{Type}.
+// No Review or AggregateRating (ACCC + authorship integrity).
+// No Product (publisher/operator/traveller three-party model).
+
+const REGION_LABEL: Record<string, string> = {
+  'port-phillip-bay': 'Port Phillip Bay',
+  'western-port': 'Western Port',
+  'bass-strait-fringe': 'Bass Strait fringe',
+};
+
+export function buildSpeciesPageSchema(s: any) {
+  const pageUrl = absUrl(`/fishing/species/${s.slug}/`);
+  const graph: any[] = [
+    {
+      '@type': 'Article',
+      '@id': `${pageUrl}#Article`,
+      headline: `${s.commonName} on the Mornington Peninsula`,
+      description: s.intro,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      datePublished: s.publishedAt,
+      dateModified: s.lastVerified,
+      author: { '@type': 'Organization', name: 'Peninsula Insider', url: absUrl('/') },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Peninsula Insider',
+        url: absUrl('/'),
+        logo: { '@type': 'ImageObject', url: PUBLISHER_LOGO_URL },
+      },
+      ...(s.heroImage?.src ? { image: `${SITE}${s.heroImage.src}` } : {}),
+      about: {
+        '@type': 'Thing',
+        name: s.commonName,
+        alternateName: [s.scientificName, ...(s.aliases ?? [])],
+      },
+      isBasedOn: s.vfaCitationUrl,
+      articleSection: 'Fishing',
+    },
+  ];
+  if (s.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#FAQPage`,
+      mainEntity: s.faq.map((f: any) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#BreadcrumbList`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Fishing', item: absUrl('/fishing/') },
+      { '@type': 'ListItem', position: 3, name: 'Species', item: absUrl('/fishing/species/') },
+      { '@type': 'ListItem', position: 4, name: s.commonName, item: pageUrl },
+    ],
+  });
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+export function buildFishingLocationSchema(loc: any) {
+  const pageUrl = absUrl(`/fishing/locations/${loc.slug}/`);
+  const graph: any[] = [
+    {
+      '@type': 'Place',
+      '@id': `${pageUrl}#Place`,
+      name: loc.name,
+      url: pageUrl,
+      description: loc.intro,
+      ...(loc.coordinates?.lat != null
+        ? {
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: loc.coordinates.lat,
+              longitude: loc.coordinates.lng,
+            },
+          }
+        : {}),
+      containedInPlace: {
+        '@type': 'Place',
+        name: REGION_LABEL[loc.region] ?? loc.region,
+      },
+      ...(loc.heroImage?.src ? { image: `${SITE}${loc.heroImage.src}` } : {}),
+    },
+    {
+      '@type': 'Article',
+      '@id': `${pageUrl}#Article`,
+      headline: loc.name,
+      description: loc.intro,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      datePublished: loc.publishedAt,
+      dateModified: loc.lastVerified,
+      author: { '@type': 'Organization', name: 'Peninsula Insider', url: absUrl('/') },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Peninsula Insider',
+        url: absUrl('/'),
+        logo: { '@type': 'ImageObject', url: PUBLISHER_LOGO_URL },
+      },
+      articleSection: 'Fishing',
+    },
+  ];
+  if (loc.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#FAQPage`,
+      mainEntity: loc.faq.map((f: any) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#BreadcrumbList`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Fishing', item: absUrl('/fishing/') },
+      { '@type': 'ListItem', position: 3, name: 'Locations', item: absUrl('/fishing/locations/') },
+      { '@type': 'ListItem', position: 4, name: loc.name, item: pageUrl },
+    ],
+  });
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+export function buildCharterOperatorSchema(c: any) {
+  const pageUrl = absUrl(`/fishing/charters/${c.slug}/`);
+  const services = (c.targetSpecies ?? []).map((sp: string) => ({
+    '@type': 'Service',
+    name: `${sp.replace(/-/g, ' ')} fishing charter`,
+    provider: { '@id': `${pageUrl}#LocalBusiness` },
+    areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
+  }));
+  const graph: any[] = [
+    {
+      '@type': ['LocalBusiness', 'TouristInformationCenter'],
+      '@id': `${pageUrl}#LocalBusiness`,
+      name: c.name,
+      url: c.operatorWebsite ?? pageUrl,
+      description: c.intro,
+      ...(c.heroImage?.src ? { image: `${SITE}${c.heroImage.src}` } : {}),
+      areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
+      ...(c.priceLow != null
+        ? {
+            priceRange:
+              c.priceHigh != null && c.priceHigh !== c.priceLow
+                ? `from $${c.priceLow}`
+                : `$${c.priceLow}`,
+          }
+        : {}),
+      currenciesAccepted: 'AUD',
+    },
+  ];
+  if (services.length) {
+    graph.push({
+      '@type': 'OfferCatalog',
+      '@id': `${pageUrl}#OfferCatalog`,
+      name: `Fishing charters by ${c.name}`,
+      itemListElement: services.map((svc: any, i: number) => ({
+        '@type': 'Offer',
+        position: i + 1,
+        itemOffered: svc,
+        ...(c.affiliateUrl ? { url: c.affiliateUrl } : {}),
+        priceCurrency: 'AUD',
+        ...(c.priceLow != null ? { price: String(c.priceLow) } : {}),
+      })),
+    });
+  }
+  if (c.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#FAQPage`,
+      mainEntity: c.faq.map((f: any) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#BreadcrumbList`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Fishing', item: absUrl('/fishing/') },
+      { '@type': 'ListItem', position: 3, name: 'Charters', item: absUrl('/fishing/charters/') },
+      { '@type': 'ListItem', position: 4, name: c.name, item: pageUrl },
+    ],
+  });
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+export function buildBoatHireOperatorSchema(h: any) {
+  const pageUrl = absUrl(`/boating/hire/${h.slug}/`);
+  const graph: any[] = [
+    {
+      '@type': ['LocalBusiness', 'TouristInformationCenter'],
+      '@id': `${pageUrl}#LocalBusiness`,
+      name: h.name,
+      url: h.operatorWebsite ?? pageUrl,
+      description: h.intro,
+      ...(h.heroImage?.src ? { image: `${SITE}${h.heroImage.src}` } : {}),
+      areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
+      ...(h.priceLow != null ? { priceRange: `from $${h.priceLow}` } : {}),
+      currenciesAccepted: 'AUD',
+    },
+  ];
+  if (h.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#FAQPage`,
+      mainEntity: h.faq.map((f: any) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#BreadcrumbList`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Boating', item: absUrl('/boating/') },
+      { '@type': 'ListItem', position: 3, name: 'Boat hire', item: absUrl('/boating/hire/') },
+      { '@type': 'ListItem', position: 4, name: h.name, item: pageUrl },
+    ],
+  });
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+export function buildBoatRampSchema(r: any) {
+  const pageUrl = absUrl(`/boating/ramps/${r.slug}/`);
+  const amenities: any[] = [];
+  if (r.laneCount != null) amenities.push({ name: 'Launch lanes', value: String(r.laneCount) });
+  if (r.surface) amenities.push({ name: 'Surface', value: r.surface });
+  if (r.tideDependence) amenities.push({ name: 'Tide dependence', value: r.tideDependence });
+  if (r.fee) amenities.push({ name: 'Fee', value: r.fee });
+
+  const graph: any[] = [
+    {
+      '@type': 'Place',
+      '@id': `${pageUrl}#Place`,
+      name: r.name,
+      url: pageUrl,
+      description: r.intro,
+      ...(r.coordinates?.lat != null
+        ? {
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: r.coordinates.lat,
+              longitude: r.coordinates.lng,
+            },
+          }
+        : {}),
+      containedInPlace: {
+        '@type': 'Place',
+        name: REGION_LABEL[r.region] ?? r.region,
+      },
+      ...(amenities.length
+        ? {
+            amenityFeature: amenities.map((a) => ({
+              '@type': 'LocationFeatureSpecification',
+              name: a.name,
+              value: a.value,
+            })),
+          }
+        : {}),
+      ...(r.heroImage?.src ? { image: `${SITE}${r.heroImage.src}` } : {}),
+    },
+    {
+      '@type': 'Article',
+      '@id': `${pageUrl}#Article`,
+      headline: r.name,
+      description: r.intro,
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      datePublished: r.publishedAt,
+      dateModified: r.lastVerified,
+      author: { '@type': 'Organization', name: 'Peninsula Insider', url: absUrl('/') },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Peninsula Insider',
+        url: absUrl('/'),
+        logo: { '@type': 'ImageObject', url: PUBLISHER_LOGO_URL },
+      },
+      articleSection: 'Boating',
+    },
+  ];
+  if (r.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#FAQPage`,
+      mainEntity: r.faq.map((f: any) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#BreadcrumbList`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Boating', item: absUrl('/boating/') },
+      { '@type': 'ListItem', position: 3, name: 'Boat ramps', item: absUrl('/boating/ramps/') },
+      { '@type': 'ListItem', position: 4, name: r.name, item: pageUrl },
+    ],
+  });
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+interface BuildBfHubInput {
+  name: string;
+  description: string;
+  path: string;
+  dateModified: string;
+  breadcrumbs: Array<{ name: string; path?: string }>;
+  items: Array<{ name: string; path: string; description?: string; itemType?: string }>;
+}
+
+export function buildBfHubSchema({
+  name,
+  description,
+  path,
+  dateModified,
+  breadcrumbs,
+  items,
+}: BuildBfHubInput) {
+  const pageUrl = absUrl(path);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#CollectionPage`,
+        name,
+        description,
+        url: pageUrl,
+        inLanguage: 'en-AU',
+        about: PENINSULA_PLACE,
+        dateModified,
+        isPartOf: { '@type': 'WebSite', name: 'Peninsula Insider', url: absUrl('/') },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#ItemList`,
+        name,
+        numberOfItems: items.length,
+        itemListOrder: 'https://schema.org/ItemListOrderDescending',
+        itemListElement: items.map((it, idx) => ({
+          '@type': 'ListItem',
+          position: idx + 1,
+          item: {
+            '@type': it.itemType ?? 'Thing',
+            name: it.name,
+            url: absUrl(it.path),
+            ...(it.description ? { description: it.description } : {}),
+          },
+        })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#BreadcrumbList`,
+        itemListElement: breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          ...(b.path ? { item: absUrl(b.path) } : { item: pageUrl }),
+        })),
+      },
+    ],
+  };
+}

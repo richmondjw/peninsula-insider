@@ -25,13 +25,30 @@ function dateStr(d?: Date): string | undefined {
 }
 
 export const GET: APIRoute = async () => {
-  const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
+  const [
+    venues,
+    experiences,
+    places,
+    articles,
+    itineraries,
+    events,
+    species,
+    fishingLocations,
+    fishingCharters,
+    boatRamps,
+    boatHire,
+  ] = await Promise.all([
     getCollection('venues'),
     getCollection('experiences'),
     getCollection('places'),
     getCollection('articles', ({ data }) => data.status === 'published'),
     getCollection('itineraries'),
     getCollection('events'),
+    getCollection('species', ({ data }) => data.status === 'published'),
+    getCollection('fishingLocations', ({ data }) => data.status === 'published'),
+    getCollection('fishingCharters', ({ data }) => data.status === 'published'),
+    getCollection('boatRamps', ({ data }) => data.status === 'published'),
+    getCollection('boatHire', ({ data }) => data.status === 'published'),
   ]);
 
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
@@ -52,8 +69,13 @@ export const GET: APIRoute = async () => {
   // and /explore/walks/); listing redirect URLs in the sitemap creates noise
   // for crawlers. /whats-on/, /golf/, and /dog-friendly/ are real lanes and
   // were missing from this list previously.
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'journal', 'places', 'whats-on', 'golf', 'dog-friendly', 'weddings', 'corporate-events']) {
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'journal', 'places', 'whats-on', 'golf', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
     entries.push(url(`/${section}`, 0.9, 'weekly'));
+  }
+  // /fishing/ and /boating/ sub-hubs — emit unconditionally so crawlers find
+  // them once Phase 1 ships, even before all leaf entities are populated.
+  for (const subhub of ['fishing/species', 'fishing/locations', 'fishing/charters', 'boating/ramps', 'boating/hire']) {
+    entries.push(url(`/${subhub}`, 0.8, 'weekly'));
   }
   // Concierge surfaces — chat front page + vendor intake.
   entries.push(url('/ask', 0.8, 'weekly'));
@@ -116,6 +138,27 @@ export const GET: APIRoute = async () => {
   // Itineraries
   for (const itinerary of itineraries.filter((i) => !i.data.sitemapExclude)) {
     entries.push(url(`/escape/${routeSlug(itinerary)}`, 0.7, 'weekly', dateStr(itinerary.data.publishedAt)));
+  }
+
+  // /fishing/species/* — only published, non-excluded.
+  for (const sp of species.filter((s) => !s.data.sitemapExclude)) {
+    entries.push(url(`/fishing/species/${routeSlug(sp)}`, 0.8, 'weekly', dateStr(sp.data.publishedAt)));
+  }
+  // /fishing/locations/*
+  for (const loc of fishingLocations.filter((l) => !l.data.sitemapExclude)) {
+    entries.push(url(`/fishing/locations/${routeSlug(loc)}`, 0.7, 'weekly', dateStr(loc.data.publishedAt)));
+  }
+  // /fishing/charters/*
+  for (const ch of fishingCharters.filter((c) => !c.data.sitemapExclude)) {
+    entries.push(url(`/fishing/charters/${routeSlug(ch)}`, 0.8, 'weekly', dateStr(ch.data.publishedAt)));
+  }
+  // /boating/ramps/*
+  for (const r of boatRamps.filter((rp) => !rp.data.sitemapExclude)) {
+    entries.push(url(`/boating/ramps/${routeSlug(r)}`, 0.7, 'weekly', dateStr(r.data.publishedAt)));
+  }
+  // /boating/hire/*
+  for (const h of boatHire.filter((bh) => !bh.data.sitemapExclude)) {
+    entries.push(url(`/boating/hire/${routeSlug(h)}`, 0.7, 'weekly', dateStr(h.data.publishedAt)));
   }
 
   // Event detail pages — emit each /whats-on/{slug}/. Events are a primary

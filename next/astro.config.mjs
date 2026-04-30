@@ -64,5 +64,23 @@ export default defineConfig({
 
     // PI-EXP-022 — where-to-base-yourself hub (absorbs journal stay guide)
     '/journal/where-to-stay-mornington-peninsula/': '/explore/where-to-base-yourself/',
+
+    // PI-BF-001 — boating + fishing pack defensive redirects.
+    // Source: peninsula_insider_boating_fishing_v1/bf_redirect_map.csv +
+    //          bf_taxonomy_spec.md §5.3. Pack is greenfield, so these guard
+    //          shape variants and legacy /journal/ posts that mention species
+    //          or ramps in case they get retired into the new tree.
+    '/fish/': '/fishing/',
+    '/fishing/charter/': '/fishing/charters/',
+    '/boating/ramp/': '/boating/ramps/',
+    '/boating/boat-hire/': '/boating/hire/',
+    '/journal/snapper-mornington-peninsula/': '/fishing/species/snapper/',
+    '/journal/king-george-whiting-port-phillip-bay/': '/fishing/species/king-george-whiting/',
+    '/journal/squid-fishing-mornington-peninsula/': '/fishing/species/squid/',
+    '/journal/mornington-peninsula-fishing-charters/': '/fishing/charters/',
+    '/journal/mornington-peninsula-boat-hire/': '/boating/hire/',
+    '/journal/mornington-peninsula-boat-ramps/': '/boating/ramps/',
+    '/journal/snapper-season-port-phillip-bay/': '/fishing/seasons/snapper-run-oct-dec/',
+    '/journal/best-fishing-spots-mornington-peninsula/': '/fishing/locations/',
   },
 });

@@ -114,6 +114,8 @@ export const footerSectionLinks: NavItem[] = [
   { key: 'explore',          label: 'Explore',         href: '/explore/' },
   { key: 'golf',             label: 'Golf',            href: '/golf/' },
   { key: 'spa',              label: 'Spa & Wellness',  href: '/spa/' },
+  { key: 'fishing',          label: 'Fishing',         href: '/fishing/' },
+  { key: 'boating',          label: 'Boating',         href: '/boating/' },
   { key: 'escape',           label: 'Escape',          href: '/escape/' },
   { key: 'tour',             label: 'Tours',           href: '/tour/' },
   { key: 'tour-packages',    label: 'Tour Packages',   href: '/tour-packages/' },
