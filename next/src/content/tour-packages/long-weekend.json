@@ -1,0 +1,39 @@
+{
+  "slug": "long-weekend",
+  "name": "Foodie Long Weekend",
+  "occasion": "foodies",
+  "audience": "adults",
+  "theme": ["gourmet", "wine"],
+  "bundleType": "stay-anchored",
+  "durationNights": 2,
+  "componentTourSlugs": ["ricks-mornington-peninsula-wine-tour", "amour-of-the-grape-boutique-wine-tour"],
+  "anchorStaySlug": "jackalope",
+  "anchorStayBlurb": "Jackalope Hotel at Merricks North is on the Willow Creek Vineyard estate. The on-site Doot Doot Doot restaurant and the cellar door mean the accommodation is part of the gastronomic experience, not just a bed between meals. Sunday morning is an on-site cellar door visit before departure.",
+  "priceLow": 380,
+  "priceHigh": 680,
+  "intro": "Two nights at Jackalope built around a Saturday morning Peninsula produce trail, a small-group guided cellar door tour in the afternoon, and a degustation dinner on Saturday evening. The day moves deliberately from raw produce to estate wine to the kitchen's interpretation of both.",
+  "whyThisCombination": "The Peninsula has a density of food and wine producers per square kilometre that most Australian regions cannot match, but accessing that density requires a sequencing solution that wine-focused packages typically ignore. The morning is produce and provenance: the Saturday market and a producer visit, where the conversation happens with the person who made the thing you are eating. The afternoon is guided wine: a small-group tour at premium family-owned estates where the emphasis on food alongside wine is the differentiating feature. The evening is the chef's table: the arrival point that the whole Saturday has been building towards. The Jackalope anchor is the specific argument: a design hotel on a working vineyard where Sunday morning can be spent at the on-site cellar door rather than driving to a separate property. For a food-and-wine audience, the accommodation being part of the gastronomic experience rather than incidental to it is a meaningful consideration.",
+  "bookingSequence": "Book Jackalope first, 8 to 10 weeks ahead for peak weekends. Book the degustation at Doot Doot Doot immediately after confirming the stay — the Saturday evening chef's table is time-sensitive and is the culminating experience the whole Saturday builds towards. Book the guided cellar door tour after the degustation is confirmed. Confirm the produce trail details last: check whether the Red Hill Market falls on your chosen Saturday (it runs the third Saturday of each month only) and arrange the producer visit with any advance contact required.",
+  "faq": [
+    {
+      "question": "What if the Red Hill Market isn't running on our Saturday?",
+      "answer": "The Red Hill Consolidated School Market runs the third Saturday of each month. If your chosen weekend does not align, substitute a self-guided produce route through the Red Hill corridor: Red Hill Estate cellar door and kitchen, a local providore, and a coffee at a Red Hill area cafe. The Saturday structure still works; the market is the ideal version, the substitute is functional."
+    },
+    {
+      "question": "Can the full-day wine tour be adapted to an afternoon-only session to allow for the morning market?",
+      "answer": "A full-day tour operator and a Saturday morning produce trail cannot occupy the same day. The solution is to book a flexible-timing operator such as Rick's Wine Tours for the afternoon cellar door component, or to move the produce trail to Friday afternoon and run the full-day tour on Saturday. Confirm the timing configuration with the tour operator before booking."
+    },
+    {
+      "question": "Is Peninsula Insider the booking agent for this package?",
+      "answer": "No. Peninsula Insider is an editorial publisher. Each component is a direct transaction with its operator. Peninsula Insider provides no booking guarantee or customer service for any component."
+    }
+  ],
+  "heroImage": {
+    "src": "/images/sourced/article-cellar-door-01.webp",
+    "alt": "Foodie long weekend on the Mornington Peninsula — produce trail, cellar doors, degustation",
+    "credit": "Peninsula Insider",
+    "license": "venue-media-kit"
+  },
+  "lastVerified": "2026-04-29",
+  "publishedAt": "2026-04-29"
+}
