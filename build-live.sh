@@ -24,6 +24,7 @@ echo "Copying live build output to site root..."
 # Preserve repo metadata and known non-site files while replacing the public site surface.
 find . -mindepth 1 -maxdepth 1 \
   ! -name '.git' \
+  ! -name '.github' \
   ! -name '.gitignore' \
   ! -name '.nojekyll' \
   ! -name 'CNAME' \
@@ -31,10 +32,12 @@ find . -mindepth 1 -maxdepth 1 \
   ! -name 'docs' \
   ! -name 'ops' \
   ! -name 'reports' \
+  ! -name 'design-reviews' \
   ! -name 'build-v2.sh' \
   ! -name 'build-live.sh' \
   ! -name 'CHANGELOG.md' \
   ! -name 'HANDOVER-CLAUDE.md' \
+  ! -name 'BRAND-PI.md' \
   ! -name '.approvals' \
   ! -name '.claude' \
   -exec rm -rf {} +
