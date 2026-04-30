@@ -1,6 +1,6 @@
 # Peninsula Insider — Founders' Prospectus
 
-**Status:** Private. Hand-delivered by James and Emma Richmond. Not for public download.
+**Status:** Private. Hand-delivered by James and Emma. Not for public download.
 **Audience:** Six founding partners, hand-picked across stay, eat, wine, wellness, experience.
 **Window:** Cohort closes 30 June 2026 or when six seats are filled, whichever comes first.
 **Date:** 30 April 2026
@@ -19,7 +19,7 @@ We are not selling banner space. We do not have an audience to brag about yet. W
 
 If your venue belongs on this masthead, we would like to talk.
 
-*James and Emma Richmond, Founders & Editors*
+*James and Emma, Founders & Editors*
 
 ---
 
@@ -153,7 +153,7 @@ We will close the cohort by 30 June or when full. Conversations after that point
 
 ## 9. Contact
 
-James Richmond and Emma Richmond
+James and Emma
 Founders, Peninsula Insider
 hello@peninsulainsider.com.au
 peninsulainsider.com.au
