@@ -14,6 +14,60 @@ For each meaningful change, include:
 
 ---
 
+## 2026-05-01 — Remy (Claude local agent)
+
+### Concierge corpus expansion + cron operationalisation
+
+**Summary**
+Tripled the effective coverage of the Ask The Insider concierge by extending the refresh pipeline beyond venues + articles to all six structured content collections, plus a new `editorial_blocks/` collection for hub framing copy that previously lived hard-coded in `.astro` pages. Same change institutionalises the daily refresh as a fully owned IT pipeline: relocated the script to a path that survives deploy scrubs, moved the schedule to evening Melbourne, added stale-row pruning with a grace window, added a metadata fingerprint to close the partner-flip / freshness-update gap, and persisted a daily JSON + Markdown report under `reports/concierge-corpus/`.
+
+**Critical recovery**
+`scripts/refresh-corpus.mjs` (added 2026-04-29) was being deleted on every deploy because the deploy workflow's preserve list does not include `scripts/`. The cron has been silently failing every night since the file was first added. Fix: relocated to `ops/scripts/refresh-corpus.mjs` (`ops/` is preserved) and updated the workflow to match.
+
+**What the concierge now sees**
+- Venues (135), Articles (78) — already chunked, unchanged
+- Places (20) — NEW: town and zone framing
+- Itineraries (6) — NEW: per-day stop sequences with editorial framing
+- Experiences (42) — NEW: walks, beaches, attractions, galleries
+- Events (16) — NEW: with auto-prune past 14-day grace
+- Editorial blocks (10) — NEW: best-of and hub intros migrated from `.astro` pages
+
+Total: 1,157 chunks from source vs ~600 before. Dry run validated.
+
+**Files created**
+- `ops/scripts/refresh-corpus.mjs` — extended refresh script (recovered + 5 new walkers + prune + fingerprint + per-collection report)
+- `ops/migrations/2026-04-30-concierge-chunks-fingerprint-and-event-date.sql` — DB migration adding `metadata_fingerprint` and `event_date` columns
+- `next/src/content/editorial_blocks/best-restaurants-intro.md`
+- `next/src/content/editorial_blocks/best-cellar-doors-intro.md`
+- `next/src/content/editorial_blocks/best-walks-intro.md`
+- `next/src/content/editorial_blocks/best-accommodation-intro.md`
+- `next/src/content/editorial_blocks/long-lunch-intro.md`
+- `next/src/content/editorial_blocks/cellar-door-lunch-intro.md`
+- `next/src/content/editorial_blocks/hatted-restaurants-intro.md`
+- `next/src/content/editorial_blocks/hot-springs-intro.md`
+- `next/src/content/editorial_blocks/rainy-day-intro.md`
+- `next/src/content/editorial_blocks/day-trips-intro.md`
+- `reports/concierge-corpus/README.md`
+- `docs/peninsula-insider-concierge-corpus-cron-brief-2026-04-30.md` (handover brief for IT)
+
+**Files modified**
+- `next/src/content.config.ts` — registered `editorial_blocks` collection
+
+**Manual follow-up needed (PAT lacks `workflow` scope)**
+The proposed workflow update lives at `ops/workflows-pending/refresh-corpus.yml`. To apply: open `.github/workflows/refresh-corpus.yml` on GitHub, replace its contents with the proposed version, commit to main, then delete the pending file. This is the change that moves the schedule to 21:00 Melbourne, points the workflow at `ops/scripts/refresh-corpus.mjs`, expands push triggers to all collections, and adds the daily report-commit step. Until that lands, the cron will keep failing on the missing `scripts/refresh-corpus.mjs` path.
+
+**Why it matters**
+The concierge was answering on roughly half the editorial corpus. Reader queries about Sorrento as a place, weekend itineraries, Peninsula walks, and "rainy day" framing all bottomed out against venues only. After this change those queries hit the same editorial sentences a reader would see on the live page, so concierge answers carry the framing context that makes them actually useful. The pipeline is also now fail-loud rather than fail-silent: the daily run produces an auditable artifact, and IT has a runbook.
+
+**Required follow-up before next refresh**
+Run the SQL migration at `ops/migrations/2026-04-30-concierge-chunks-fingerprint-and-event-date.sql` against the Supabase project. Idempotent. Can be applied via the Supabase SQL editor or `psql`.
+
+**Optional future**
+- Refactor the migrated hub pages to read their intros from the `editorial_blocks` collection instead of duplicating the copy. Currently both render fine; this just removes the duplication.
+- Split the Supabase service key into a write-only role for the refresh job and a read-only role for the concierge API.
+
+---
+
 ## 2026-04-19 — Remy (subagent)
 
 ### New vertical hubs: Weddings, Corporate Events, Walks
