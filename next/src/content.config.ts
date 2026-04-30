@@ -199,6 +199,7 @@ const experiences = defineCollection({
     rainyDayDogSuitability: z.enum(['low', 'medium', 'high']).optional(),
     heroImage: imageRef,
     gallery: z.array(imageRef).default([]),
+    golf: z.any().optional(),
     lastVerified: z.coerce.date(),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
