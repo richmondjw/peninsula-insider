@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthModal from '../../components/v2/AuthModal.astro';
+---
+
+<BaseLayout title="Saved articles — Peninsula Insider" description="Articles you've saved to read later." noindex={true}>
+  <main class="v2-account-page">
+    <div class="v2-account-page__container">
+      <p class="v2-account-page__eyebrow">Your account</p>
+      <h1 class="v2-account-page__title">Saved <em>to read later</em>.</h1>
+      <div class="v2-account-page__nav" data-account-nav>
+        <a class="v2-account-page__nav-item" href="/account/">Profile</a>
+        <a class="v2-account-page__nav-item" href="/account/saved/" aria-current="page">Saved</a>
+        <a class="v2-account-page__nav-item" href="/account/likes/">Likes</a>
+      </div>
+
+      <div data-saved-list class="v2-saved-list" hidden></div>
+      <div data-saved-empty class="v2-saved-empty" hidden>
+        <p>Nothing saved yet. Open a journal piece you want to come back to and tap the Save button below the article.</p>
+        <a class="v2-account-page__cta" href="/journal/">Browse the Journal</a>
+      </div>
+      <div data-saved-anon class="v2-account-page__signed-out" hidden>
+        <p class="v2-account-page__lead">Sign in to view your saved articles.</p>
+        <button class="v2-account-page__cta" type="button" data-open-auth>Sign in</button>
+      </div>
+    </div>
+  </main>
+  <AuthModal />
+</BaseLayout>
+
+<script>
+  import { getUser, listSaves, onAuthChange, isAuthEnabled } from '../../lib/auth';
+
+  async function render() {
+    const list = document.querySelector('[data-saved-list]') as HTMLElement;
+    const empty = document.querySelector('[data-saved-empty]') as HTMLElement;
+    const anon = document.querySelector('[data-saved-anon]') as HTMLElement;
+    if (!list || !empty || !anon) return;
+
+    if (!isAuthEnabled()) { anon.hidden = false; return; }
+
+    const u = await getUser();
+    if (!u) { list.hidden = true; empty.hidden = true; anon.hidden = false; return; }
+    anon.hidden = true;
+    const items = await listSaves(u.id);
+    if (!items.length) { list.hidden = true; empty.hidden = false; return; }
+    empty.hidden = true; list.hidden = false;
+    list.innerHTML = items.map((it: any) => `
+      <a class="v2-saved-card" href="/${it.section}/${it.article_slug}/">
+        ${it.image_url ? `<div class="v2-saved-card__img" style="background-image:url(${it.image_url})"></div>` : ''}
+        <div class="v2-saved-card__body">
+          <p class="v2-saved-card__eyebrow">${it.section}</p>
+          <h3 class="v2-saved-card__title">${it.title || it.article_slug}</h3>
+          ${it.dek ? `<p class="v2-saved-card__dek">${it.dek}</p>` : ''}
+        </div>
+      </a>
+    `).join('');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+  else render();
+  document.addEventListener('astro:page-load', render);
+  onAuthChange(render);
+</script>
+
+<style is:global>
+  .v2-saved-list { display: grid; gap: 1rem; }
+  .v2-saved-card { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding: 0.8rem; border: 1px solid var(--line, #D9D1BE); border-radius: 4px; background: #fff; text-decoration: none; color: inherit; transition: border-color .18s ease; }
+  .v2-saved-card:hover { border-color: var(--ochre, #A0541F); }
+  .v2-saved-card__img { aspect-ratio: 1; background-size: cover; background-position: center; background-color: var(--paper-warm, #F3EDDE); border-radius: 2px; }
+  .v2-saved-card__eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ochre, #A0541F); margin: 0 0 0.3rem; }
+  .v2-saved-card__title { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 1.05rem; font-weight: 500; line-height: 1.2; margin: 0 0 0.3rem; color: var(--ink, #171413); }
+  .v2-saved-card__dek { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 0.88rem; line-height: 1.4; color: var(--ink-soft, #3A3531); margin: 0; }
+  .v2-saved-empty { padding: 2rem 0; }
+  .v2-saved-empty p { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 1rem; color: var(--ink-soft, #3A3531); margin: 0 0 1rem; max-width: 36ch; }
+</style>

@@ -1,0 +1,152 @@
+---
+/* ProfileDropdown — replaces the Subscribe link in the masthead when
+   the user is signed in. Shows avatar, profile menu, sign-out.
+   When NOT signed in, renders nothing — caller controls fallback. */
+---
+
+<div class="v2-profile" id="v2-profile" hidden>
+  <button class="v2-profile__trigger" type="button" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+    <span class="v2-profile__avatar" data-avatar></span>
+    <span class="v2-profile__name" data-name>Account</span>
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+  </button>
+  <div class="v2-profile__menu" hidden role="menu">
+    <a class="v2-profile__menu-item" role="menuitem" href="/account/">Profile</a>
+    <a class="v2-profile__menu-item" role="menuitem" href="/account/saved/">Saved</a>
+    <a class="v2-profile__menu-item" role="menuitem" href="/account/likes/">Likes</a>
+    <button class="v2-profile__menu-item v2-profile__signout" type="button" role="menuitem" data-signout>Sign out</button>
+  </div>
+</div>
+
+<script>
+  import { onAuthChange, signOut, isAuthEnabled } from '../../lib/auth';
+
+  function init() {
+    if (!isAuthEnabled()) return;
+    const el = document.getElementById('v2-profile');
+    if (!el || (el as any)._init) return;
+    (el as any)._init = true;
+
+    // Mount into the utility bar link cluster so it sits where "Account" was.
+    const utilLinks = document.querySelector('.v2-util__links');
+    if (utilLinks && el.parentElement !== utilLinks) {
+      utilLinks.appendChild(el);
+    }
+
+    const trigger = el.querySelector('.v2-profile__trigger') as HTMLButtonElement;
+    const menu = el.querySelector('.v2-profile__menu') as HTMLElement;
+    const avatarEl = el.querySelector('[data-avatar]') as HTMLElement;
+    const nameEl = el.querySelector('[data-name]') as HTMLElement;
+    const signoutBtn = el.querySelector('[data-signout]') as HTMLButtonElement;
+
+    function setOpen(open: boolean) {
+      menu.hidden = !open;
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(menu.hidden);
+    });
+    document.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+
+    signoutBtn?.addEventListener('click', async () => {
+      await signOut();
+      setOpen(false);
+    });
+
+    // React to auth state changes — show/hide and update avatar/name
+    onAuthChange((user) => {
+      if (!user) {
+        el.hidden = true;
+        document.querySelectorAll<HTMLElement>('[data-auth-anonymous]').forEach((n) => { n.hidden = false; });
+        document.querySelectorAll<HTMLElement>('[data-auth-signed-in]').forEach((n) => { n.hidden = true; });
+        return;
+      }
+      el.hidden = false;
+      document.querySelectorAll<HTMLElement>('[data-auth-anonymous]').forEach((n) => { n.hidden = true; });
+      document.querySelectorAll<HTMLElement>('[data-auth-signed-in]').forEach((n) => { n.hidden = false; });
+      const meta: any = user.user_metadata || {};
+      const name = meta.full_name || meta.name || (user.email ? user.email.split('@')[0] : 'Account');
+      const avatar = meta.avatar_url as string | undefined;
+      nameEl.textContent = name;
+      if (avatar) {
+        avatarEl.style.backgroundImage = `url(${avatar})`;
+        avatarEl.textContent = '';
+      } else {
+        avatarEl.style.backgroundImage = '';
+        avatarEl.textContent = (name || '?').slice(0, 1).toUpperCase();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style is:global>
+  .v2-profile { position: relative; font-family: var(--sans, 'Inter', system-ui, sans-serif); }
+  /* When mounted inside the dark utility bar, invert colours */
+  .v2-util .v2-profile__trigger {
+    border-color: rgba(250,247,240,0.2);
+    color: rgba(250,247,240,0.85);
+    padding: 0.18rem 0.6rem 0.18rem 0.25rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+  .v2-util .v2-profile__trigger:hover {
+    border-color: var(--gold, #B69456);
+    background: rgba(250,247,240,0.05);
+    color: var(--gold, #B69456);
+  }
+  .v2-util .v2-profile__avatar {
+    width: 1.1rem; height: 1.1rem; font-size: 0.6rem;
+  }
+  .v2-util .v2-profile__name {
+    max-width: 8rem;
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+  .v2-profile__trigger {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.4rem 0.7rem 0.4rem 0.4rem;
+    background: transparent; border: 1px solid var(--line, #D9D1BE);
+    border-radius: 100px;
+    font: inherit; font-size: 0.78rem; cursor: pointer;
+    color: var(--ink, #171413);
+    transition: border-color .2s ease, background .2s ease;
+  }
+  .v2-profile__trigger:hover { border-color: var(--ink, #171413); background: var(--paper-warm, #F3EDDE); }
+  .v2-profile__avatar {
+    width: 1.5rem; height: 1.5rem; border-radius: 50%;
+    background: var(--ochre, #A0541F) center/cover no-repeat;
+    color: #fff; font-size: 0.7rem; font-weight: 600;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .v2-profile__name { max-width: 10rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .v2-profile__menu {
+    position: absolute; top: calc(100% + 0.4rem); right: 0;
+    min-width: 11rem;
+    background: var(--paper, #FAF7F0);
+    border: 1px solid var(--line, #D9D1BE);
+    border-radius: 4px;
+    padding: 0.4rem;
+    box-shadow: 0 12px 32px -12px rgba(0,0,0,.2);
+    z-index: 50;
+    display: grid; gap: 0.1rem;
+  }
+  .v2-profile__menu-item {
+    display: block; width: 100%; text-align: left;
+    padding: 0.5rem 0.7rem;
+    background: transparent; border: 0;
+    font: inherit; font-size: 0.86rem;
+    color: var(--ink, #171413);
+    text-decoration: none; cursor: pointer;
+    border-radius: 3px;
+  }
+  .v2-profile__menu-item:hover { background: var(--paper-warm, #F3EDDE); color: var(--ochre, #A0541F); }
+  .v2-profile__signout { color: var(--ink-muted, #6E655C); border-top: 1px solid var(--line-soft, #E8E2D1); margin-top: 0.2rem; padding-top: 0.55rem; }
+</style>

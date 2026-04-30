@@ -15,6 +15,8 @@ import Masthead from '../components/Masthead.astro';
 // utility row. Keeping this comment as a breadcrumb for the migration.
 import Footer from '../components/Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
+import AuthModal from '../components/v2/AuthModal.astro';
+import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 
 export interface Props {
   title: string;
@@ -132,6 +134,12 @@ const isAskPage = rawPathname.startsWith('/ask');
   </main>
 
   <Footer />
+
+  <!-- V2 auth phase 1 — modal + profile dropdown.
+       Modal hidden until any [data-open-auth] element triggers it.
+       Dropdown auto-mounts into the masthead utility row when signed in. -->
+  <ProfileDropdown />
+  <AuthModal />
 
   <!-- Set API URL BEFORE the drawer renders — its boot script reads
        window.PI_API_URL at parse time, so this must come first. -->

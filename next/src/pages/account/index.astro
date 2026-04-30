@@ -1,0 +1,168 @@
+---
+/* /account/ — profile page.
+   Renders client-side; if no session, prompts sign-in.
+   Server-side this is a static shell. */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthModal from '../../components/v2/AuthModal.astro';
+---
+
+<BaseLayout
+  title="Your account — Peninsula Insider"
+  description="Your Peninsula Insider account: saved articles, likes, profile settings."
+  noindex={true}
+>
+  <main class="v2-account-page">
+    <div class="v2-account-page__container">
+      <div class="v2-account-page__head" data-account-head hidden>
+        <span class="v2-account-page__avatar" data-account-avatar></span>
+        <div>
+          <p class="v2-account-page__eyebrow">Your account</p>
+          <h1 class="v2-account-page__title" data-account-name>Account</h1>
+          <p class="v2-account-page__email" data-account-email></p>
+        </div>
+      </div>
+
+      <div class="v2-account-page__signed-out" data-account-signedout hidden>
+        <p class="v2-account-page__eyebrow">Peninsula Insider</p>
+        <h1 class="v2-account-page__title">Sign in to your account.</h1>
+        <p class="v2-account-page__lead">
+          Your saved articles, your likes, your profile.
+          No password required — Google or magic link.
+        </p>
+        <button class="v2-account-page__cta" type="button" data-open-auth>Sign in</button>
+      </div>
+
+      <div class="v2-account-page__nav" data-account-nav hidden>
+        <a class="v2-account-page__nav-item" href="/account/">Profile</a>
+        <a class="v2-account-page__nav-item" href="/account/saved/">Saved</a>
+        <a class="v2-account-page__nav-item" href="/account/likes/">Likes</a>
+      </div>
+
+      <section class="v2-account-page__panel" data-account-panel hidden>
+        <h2 class="v2-account-page__panel-title">Profile</h2>
+        <form class="v2-account-page__form" data-profile-form>
+          <label>
+            <span>Display name</span>
+            <input type="text" name="display_name" autocomplete="name" />
+          </label>
+          <label>
+            <span>Bio</span>
+            <textarea name="bio" rows="3" placeholder="Optional. Shown next to your comments."></textarea>
+          </label>
+          <label class="v2-account-page__checkbox">
+            <input type="checkbox" name="newsletter_optin" />
+            <span>Send me Peninsula This Weekend on Wednesdays</span>
+          </label>
+          <button class="v2-account-page__save" type="submit">Save changes</button>
+          <p class="v2-account-page__status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+  <AuthModal />
+</BaseLayout>
+
+<script>
+  import { getUser, getProfile, updateProfile, onAuthChange, isAuthEnabled } from '../../lib/auth';
+
+  async function render() {
+    const head = document.querySelector('[data-account-head]') as HTMLElement;
+    const signedOut = document.querySelector('[data-account-signedout]') as HTMLElement;
+    const nav = document.querySelector('[data-account-nav]') as HTMLElement;
+    const panel = document.querySelector('[data-account-panel]') as HTMLElement;
+    if (!head || !signedOut) return;
+
+    if (!isAuthEnabled()) {
+      signedOut.hidden = false;
+      const cta = signedOut.querySelector('[data-open-auth]') as HTMLElement;
+      if (cta) cta.textContent = 'Sign-in not yet configured';
+      return;
+    }
+    const user = await getUser();
+    if (!user) {
+      head.hidden = true;
+      nav.hidden = true;
+      panel.hidden = true;
+      signedOut.hidden = false;
+      return;
+    }
+    signedOut.hidden = true;
+    head.hidden = false;
+    nav.hidden = false;
+    panel.hidden = false;
+
+    const meta: any = user.user_metadata || {};
+    const name = meta.full_name || meta.name || (user.email ? user.email.split('@')[0] : 'Account');
+    const avatarUrl = meta.avatar_url as string | undefined;
+    const avatarEl = document.querySelector('[data-account-avatar]') as HTMLElement;
+    const nameEl = document.querySelector('[data-account-name]') as HTMLElement;
+    const emailEl = document.querySelector('[data-account-email]') as HTMLElement;
+    nameEl.textContent = name;
+    emailEl.textContent = user.email || '';
+    if (avatarUrl) {
+      avatarEl.style.backgroundImage = `url(${avatarUrl})`;
+      avatarEl.textContent = '';
+    } else {
+      avatarEl.textContent = name.slice(0, 1).toUpperCase();
+    }
+
+    const profile = await getProfile(user.id);
+    const form = document.querySelector('[data-profile-form]') as HTMLFormElement;
+    if (form && profile) {
+      (form.elements.namedItem('display_name') as HTMLInputElement).value = profile.display_name || '';
+      (form.elements.namedItem('bio') as HTMLTextAreaElement).value = profile.bio || '';
+      (form.elements.namedItem('newsletter_optin') as HTMLInputElement).checked = !!profile.newsletter_optin;
+    }
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector('.v2-account-page__status') as HTMLElement;
+      const btn = form.querySelector('.v2-account-page__save') as HTMLButtonElement;
+      btn.disabled = true; btn.textContent = 'Saving…';
+      const r = await updateProfile(user.id, {
+        display_name: (form.elements.namedItem('display_name') as HTMLInputElement).value.trim(),
+        bio: (form.elements.namedItem('bio') as HTMLTextAreaElement).value.trim(),
+        newsletter_optin: (form.elements.namedItem('newsletter_optin') as HTMLInputElement).checked,
+      });
+      btn.disabled = false; btn.textContent = 'Save changes';
+      if (r.ok) {
+        status.textContent = 'Saved.';
+        status.className = 'v2-account-page__status v2-account-page__status--ok';
+      } else {
+        status.textContent = r.error || 'Could not save.';
+        status.className = 'v2-account-page__status v2-account-page__status--err';
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+  else render();
+  document.addEventListener('astro:page-load', render);
+  onAuthChange(render);
+</script>
+
+<style is:global>
+  .v2-account-page { padding: clamp(3rem, 7vw, 5rem) 0; min-height: 70vh; }
+  .v2-account-page__container { max-width: 44rem; margin: 0 auto; padding: 0 1.5rem; }
+  .v2-account-page__eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ochre, #A0541F); margin: 0 0 .5rem; }
+  .v2-account-page__title { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 500; line-height: 1.1; margin: 0; letter-spacing: -.018em; font-variation-settings: 'opsz' 48; }
+  .v2-account-page__email { color: var(--ink-muted, #6E655C); margin: 0.3rem 0 0; font-size: 0.92rem; }
+  .v2-account-page__lead { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 1.05rem; color: var(--ink-soft, #3A3531); margin: 1rem 0 1.6rem; max-width: 36ch; }
+  .v2-account-page__cta { padding: 0.8rem 1.4rem; background: var(--ink, #171413); color: var(--paper, #FAF7F0); border: 0; border-radius: 100px; font: inherit; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; }
+  .v2-account-page__cta:hover { background: var(--ochre, #A0541F); }
+  .v2-account-page__head { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem; }
+  .v2-account-page__avatar { width: 4rem; height: 4rem; border-radius: 50%; background: var(--ochre, #A0541F) center/cover no-repeat; color: #fff; font-size: 1.6rem; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .v2-account-page__nav { display: flex; gap: 0.4rem; padding: 0.4rem; background: var(--paper-warm, #F3EDDE); border-radius: 100px; margin: 0 0 2rem; width: max-content; }
+  .v2-account-page__nav-item { padding: 0.5rem 1rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--ink-soft, #3A3531); text-decoration: none; border-radius: 100px; }
+  .v2-account-page__nav-item:hover, .v2-account-page__nav-item[aria-current="page"] { background: var(--ink, #171413); color: var(--paper, #FAF7F0); }
+  .v2-account-page__panel { background: var(--paper, #FAF7F0); border: 1px solid var(--line, #D9D1BE); border-radius: 4px; padding: 1.6rem; }
+  .v2-account-page__panel-title { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 1.1rem; font-weight: 500; margin: 0 0 1rem; }
+  .v2-account-page__form { display: grid; gap: 1rem; }
+  .v2-account-page__form label { display: grid; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--ink-soft, #3A3531); }
+  .v2-account-page__form input[type=text], .v2-account-page__form textarea { padding: 0.65rem 0.85rem; border: 1px solid var(--line, #D9D1BE); border-radius: 4px; font: inherit; font-size: 0.92rem; background: #fff; color: var(--ink, #171413); }
+  .v2-account-page__form textarea { resize: vertical; min-height: 5rem; font-family: var(--serif, 'Newsreader', Georgia, serif); }
+  .v2-account-page__checkbox { flex-direction: row !important; align-items: center; gap: 0.55rem !important; font-weight: 400 !important; color: var(--ink, #171413) !important; }
+  .v2-account-page__save { padding: 0.65rem 1.3rem; background: var(--ink, #171413); color: var(--paper, #FAF7F0); border: 0; border-radius: 100px; font: inherit; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; justify-self: start; }
+  .v2-account-page__status { font-size: 0.84rem; color: var(--ink-muted, #6E655C); font-style: italic; margin: 0; }
+  .v2-account-page__status--ok { color: var(--ochre, #A0541F); }
+  .v2-account-page__status--err { color: #B3261E; }
+</style>

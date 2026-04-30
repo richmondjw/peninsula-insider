@@ -6,6 +6,8 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import LikeButton from '../../components/v2/LikeButton.astro';
+import SaveButton from '../../components/v2/SaveButton.astro';
 import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
@@ -170,6 +172,17 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
       {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
         <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />
       )}
+
+      <div class="v2-article-actions">
+        <LikeButton slug={article.id} section="journal" />
+        <SaveButton
+          slug={article.id}
+          section="journal"
+          title={article.data.title}
+          dek={article.data.dek}
+          imageUrl={article.data.heroImage?.src}
+        />
+      </div>
 
       <div class="article__share">
         <span class="article__share-label">Share this piece</span>
