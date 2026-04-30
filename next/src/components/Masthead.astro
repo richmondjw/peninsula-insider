@@ -74,10 +74,18 @@ const {
     </div>
   </div>
 
-  <!-- Row 3 — Nav -->
+  <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
+       left, wordmark centred, subscribe right — single-row magazine
+       pattern used by NYT, Atlantic, Monocle, etc.) -->
   <div class="masthead__nav-row">
     <div class="container">
       <div class="masthead__nav-inner">
+        <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+        <a href="/" class="masthead__logo-mobile" aria-label="Peninsula Insider, home">
+          Peninsula <span>Insider</span>
+        </a>
         <nav aria-label="Primary">
           <ul class="masthead__nav">
             {navItems.map((item) => (
@@ -94,9 +102,6 @@ const {
         </nav>
         <a href="/newsletter/" class="masthead__cta">Subscribe</a>
         <a href="/newsletter/" class="masthead__cta-mobile" aria-label="Subscribe to the newsletter">Subscribe</a>
-        <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </div>
   </div>
