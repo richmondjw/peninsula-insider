@@ -1,0 +1,124 @@
+---
+/**
+ * HomeCover — magazine-style cover feature for the homepage.
+ *
+ * Inspired by the v2 staging design. Two-column split on desktop:
+ *   LEFT: small caps eyebrow ("THE COVER FEATURE · VOL 04 · AUTUMN 2026"),
+ *         Cormorant headline with italic em accent, italic dek, byline +
+ *         read time pill on a hairline rule.
+ *   RIGHT: cross-fading image rotator showing scenes across the Peninsula,
+ *          with a small uppercase image caption beneath.
+ *
+ * Replaces CoverHero (seasonal headline + 2 CTAs) AND the FeatureArticle
+ * "Lead story" block — the cover feature plays both roles. One front
+ * door to the issue, like a real magazine.
+ */
+
+export interface RotatorImage {
+  src: string;
+  alt?: string;
+}
+
+export interface Props {
+  /** Small uppercase tag — e.g. "The Cover Feature". */
+  tag?: string;
+  /** Issue / date — e.g. "Vol 04 · Autumn 2026". */
+  issue: string;
+  /** Optional sub-label after the issue — e.g. "The Long Read". */
+  subLabel?: string;
+  /** Headline. <em> tags inside render in italic accent. */
+  title: string;
+  /** Dek paragraph. */
+  dek: string;
+  /** Byline name. */
+  byline?: string;
+  /** Read time string — e.g. "8 min". */
+  readingTime?: string;
+  /** Link to the underlying article. */
+  href: string;
+  /** Rotator images (first one is the active starting frame). */
+  images: RotatorImage[];
+  /** Optional caption beneath the image (left half + right half). */
+  captionLeft?: string;
+  captionRight?: string;
+}
+
+const {
+  tag = 'The Cover Feature',
+  issue,
+  subLabel,
+  title,
+  dek,
+  byline = 'The Peninsula Insider Editors',
+  readingTime,
+  href,
+  images,
+  captionLeft = 'Scenes from across the Peninsula',
+  captionRight = 'Photography · The Insider',
+} = Astro.props;
+---
+
+<section class="home-cover" aria-label="Cover feature">
+  <div class="container">
+    <div class="home-cover__frame">
+      <div class="home-cover__above">
+        <div class="home-cover__meta">
+          <span class="home-cover__meta-tag">{tag}</span>
+          <span class="home-cover__meta-divider" aria-hidden="true"></span>
+          <span class="home-cover__meta-date">
+            {issue}
+            {subLabel && (<><span class="home-cover__ornament">—</span>{subLabel}</>)}
+          </span>
+        </div>
+        <a href={href} class="home-cover__headline-link">
+          <h1 class="home-cover__headline" set:html={title} />
+        </a>
+        <p class="home-cover__dek">{dek}</p>
+        <div class="home-cover__byline">
+          <span class="home-cover__byline-name">— By <strong>{byline}</strong></span>
+          <a href={href} class="home-cover__byline-read">
+            Read{readingTime && <span class="home-cover__byline-time"> {readingTime}</span>}
+          </a>
+        </div>
+      </div>
+      <figure class="home-cover__figure">
+        <div class="home-cover__rotator" role="img" aria-label="Scenes from across the Mornington Peninsula">
+          {images.map((img, i) => (
+            <img
+              class={`home-cover__slide${i === 0 ? ' is-active' : ''}`}
+              src={img.src}
+              alt={img.alt ?? ''}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchpriority={i === 0 ? 'high' : undefined}
+            />
+          ))}
+        </div>
+        <figcaption class="home-cover__cap">
+          <span>{captionLeft}<span class="home-cover__ornament">·</span>Autumn 2026</span>
+          <span>{captionRight}</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+(function () {
+  function bind() {
+    document.querySelectorAll('.home-cover__rotator').forEach(function (rot) {
+      if (rot._piRotBound) return;
+      rot._piRotBound = true;
+      var slides = rot.querySelectorAll('.home-cover__slide');
+      if (slides.length < 2) return;
+      var i = 0;
+      setInterval(function () {
+        slides[i].classList.remove('is-active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('is-active');
+      }, 5500);
+    });
+  }
+  bind();
+  document.addEventListener('astro:page-load', bind);
+})();
+</script>

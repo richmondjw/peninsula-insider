@@ -1,11 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CoverHero from '../components/CoverHero.astro';
+import HomeCover from '../components/HomeCover.astro';
 import PillarNav from '../components/PillarNav.astro';
 import IssueFlag from '../components/IssueFlag.astro';
 import SectionDivider from '../components/SectionDivider.astro';
-import FeatureArticle from '../components/FeatureArticle.astro';
 import VenueCard from '../components/VenueCard.astro';
 import PlaceCard from '../components/PlaceCard.astro';
 import ExperienceCard from '../components/ExperienceCard.astro';
@@ -181,7 +180,27 @@ const seasonalExperiences = experiences
       },
     ],
   })} />
-  <CoverHero issueDate={issueDate} ctaSecondary={null} />
+  {featured && (
+    <HomeCover
+      tag="The Cover Feature"
+      issue={`Vol 04 · ${issueDate}`}
+      subLabel="The Long Read"
+      title={featured.data.title}
+      dek={featured.data.dek}
+      byline={featured.data.houseByline ? 'The Peninsula Insider Editors' : (featured.data.author?.id ? String(featured.data.author.id) : 'The Peninsula Insider Editors')}
+      readingTime={featured.data.readingTimeMinutes ? `${featured.data.readingTimeMinutes} min` : undefined}
+      href={`/journal/${routeSlug(featured)}`}
+      images={[
+        { src: '/images/sourced/home-cover.webp', alt: '' },
+        { src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp', alt: '' },
+        { src: '/images/sourced/explore-bushrangers-bay-walk-01.webp', alt: '' },
+        { src: '/images/sourced/article-sunset-01.webp', alt: '' },
+        { src: '/images/sourced/place-red-hill-01.webp', alt: '' },
+        { src: '/images/sourced/explore-mount-martha-beach-01.webp', alt: '' },
+        { src: '/images/sourced/explore-arthurs-seat-lookout-01.webp', alt: '' },
+      ]}
+    />
+  )}
 
   <PillarNav />
 
@@ -275,7 +294,7 @@ const seasonalExperiences = experiences
     </section>
   )}
 
-  {featured && <FeatureArticle article={featured} />}
+  {/* FeatureArticle removed — the HomeCover at the top is the lead story now. */}
 
 
   {editorPicks.length > 0 && (
