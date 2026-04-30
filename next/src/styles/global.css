@@ -3199,6 +3199,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0;
   background-size: cover;
   background-position: center;
+  /* Editorial monochrome treatment — faded warm B&W. Improves legibility
+     of the white serif title regardless of the underlying photo and gives
+     every guide hero a unified moody look, like a magazine cover. The
+     subtle sepia keeps the palette warm rather than going clinical. */
+  filter: grayscale(1) sepia(0.18) brightness(0.68) contrast(0.95);
 }
 .guide-hero__scrim {
   position: absolute;
