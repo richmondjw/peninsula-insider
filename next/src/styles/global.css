@@ -3844,172 +3844,137 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   GUIDE HERO  -  cinematic full-bleed header for evergreen
-   guide pages (explore/*, escape/*, long-form features).
-   Image fills the section, scrim darkens the lower third for
-   legibility, title and dek sit bottom-left in the container.
+   GUIDE HERO  -  split-layout editorial header for hub pages.
+   Two columns on desktop: text on cream LEFT, image RIGHT.
+   Stacks vertically on mobile (text first, image below). The
+   bulletproof magazine pattern — text always perfectly legible,
+   image always intact, no scrim-vs-image fight.
    ========================================================= */
 .guide-hero {
-  position: relative;
-  min-height: clamp(380px, 62vh, 680px);
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  margin-bottom: clamp(2rem, 5vw, 4rem);
-  background: var(--bg-dark);
-  color: #FDFCFA;
-}
-.guide-hero--compact { min-height: clamp(300px, 44vh, 460px); }
-.guide-hero__image {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  /* Fixed parallax — the image is anchored to the viewport, so as the
-     reader scrolls the page over it, the image stays put. Single-line
-     parallax that works across every page using GuideHero. iOS Safari
-     ignores 'fixed' and falls back to 'scroll' for performance reasons,
-     which is the desired graceful degradation on small screens. */
-  background-attachment: fixed;
-  /* Light editorial desaturation — keeps the image's life and form
-     while pulling colour back so the photo never overpowers the title. */
-  filter: saturate(0.55) contrast(1.02);
-}
-/* Disable parallax explicitly on small screens to avoid the iOS scaling
-   issue where 'fixed' images inflate to viewport size and crop badly. */
-@media (max-width: 768px) {
-  .guide-hero__image {
-    background-attachment: scroll;
-  }
-}
-/* Honour user motion preference. */
-@media (prefers-reduced-motion: reduce) {
-  .guide-hero__image {
-    background-attachment: scroll;
-  }
-}
-.guide-hero__scrim {
-  position: absolute;
-  inset: 0;
-  /* Three-layer scrim, anchored at the bottom-left where the title and
-     meta row sit. The radial vignette gives the text its own dark
-     "spotlight" without crushing the rest of the image — so the photo
-     keeps its colour and form on the right and top while the text really
-     punches in the bottom-left. */
-  background:
-    /* 1 — strong radial darkness anchored at bottom-left */
-    radial-gradient(ellipse 65% 75% at 0% 100%,
-      rgba(0,0,0,0.82) 0%,
-      rgba(0,0,0,0.62) 24%,
-      rgba(0,0,0,0.32) 52%,
-      rgba(0,0,0,0)    82%),
-    /* 2 — bottom-edge wash for the meta row */
-    linear-gradient(180deg,
-      rgba(0,0,0,0)    55%,
-      rgba(0,0,0,0.45) 100%),
-    /* 3 — faint left-to-right horizontal so the title still reads cleanly
-            across multi-line wrap on wider viewports */
-    linear-gradient(90deg,
-      rgba(0,0,0,0.28) 0%,
-      rgba(0,0,0,0.08) 35%,
-      rgba(0,0,0,0)    62%);
+  background: var(--bg);
+  padding: clamp(2.2rem, 5vw, 4rem) 0 clamp(2.2rem, 5vw, 3.5rem);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
 }
 .guide-hero__inner {
-  position: relative;
-  z-index: 1;
-  padding-block: clamp(2.2rem, 6vw, 4.5rem);
-  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
 }
-.guide-hero__inner-content { max-width: 880px; }
+.guide-hero__content {
+  min-width: 0;
+}
 .guide-hero__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: rgba(245, 220, 178, 0.85);
-  margin-bottom: 1rem;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
 }
 .guide-hero__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 600;
   line-height: 1.04;
   letter-spacing: -0.02em;
-  color: #FDFCFA;
-  margin-bottom: 1.1rem;
+  color: var(--dark);
+  margin: 0 0 1.1rem;
   text-wrap: balance;
 }
-.guide-hero__title em { color: rgba(245, 220, 178, 0.95); font-style: italic; }
+.guide-hero__title em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
 .guide-hero__dek {
-  font-size: clamp(1.04rem, 1.4vw, 1.2rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 56ch;
-  margin-bottom: 1.5rem;
+  color: #44372b;
+  max-width: 52ch;
+  margin: 0 0 1.6rem;
 }
 .guide-hero__meta {
   display: flex;
-  gap: 0.6rem 1.4rem;
+  gap: 0.5rem 1.4rem;
   flex-wrap: wrap;
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(121, 92, 58, 0.18);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--soft);
 }
 .guide-hero__meta-item {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
 }
-/* Subtle bullet between meta items on desktop, no bullet on mobile
-   where items stack into a clean two-column grid instead. */
 .guide-hero__meta-item:not(:last-child)::after {
   content: '·';
   margin-left: 1.4rem;
   margin-right: -1rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(121, 92, 58, 0.4);
 }
-@media (max-width: 720px) {
+
+.guide-hero__figure {
+  margin: 0;
+  position: relative;
+}
+.guide-hero__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  overflow: hidden;
+  /* Light editorial desaturation — keeps the image vivid but tones
+     the rare over-saturated photo so the page feels editorial. */
+  filter: saturate(0.92) contrast(1.02);
+}
+.guide-hero__credit {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0.55rem 0 0;
+  text-align: right;
+}
+
+/* ── Mobile: stack vertically — text first, image below ── */
+@media (max-width: 768px) {
   .guide-hero {
-    min-height: clamp(360px, 56vh, 540px);
+    padding: clamp(1.6rem, 5vw, 2.4rem) 0 clamp(1.6rem, 5vw, 2.4rem);
   }
   .guide-hero__inner {
-    padding-block: clamp(1.6rem, 5vw, 2.4rem);
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .guide-hero__title {
-    font-size: clamp(2rem, 8vw, 2.8rem);
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
   }
   .guide-hero__dek {
-    font-size: 0.98rem;
+    font-size: 1rem;
     line-height: 1.5;
   }
   .guide-hero__meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.7rem 1rem;
-    margin-top: 0.4rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    gap: 0.45rem 1rem;
   }
   .guide-hero__meta-item:not(:last-child)::after {
-    content: none;
+    margin-left: 1rem;
+    margin-right: -0.7rem;
   }
-  .guide-hero__credit {
-    bottom: 0.5rem;
-    right: 0.8rem;
-    font-size: 0.55rem;
+  .guide-hero__image {
+    aspect-ratio: 16 / 10;
   }
-}
-.guide-hero__credit {
-  position: absolute;
-  bottom: 0.7rem;
-  right: 1.2rem;
-  z-index: 2;
-  font-size: 0.6rem;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.45);
 }
 
 /* =========================================================
