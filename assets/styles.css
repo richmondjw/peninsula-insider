@@ -1295,6 +1295,155 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
+   ARTICLE HERO — split magazine cover for journal articles.
+   Text on cream LEFT (meta · title · dek · byline · tags),
+   image RIGHT. Mirrors HomeCover / GuideHero. Stacks on mobile.
+   ========================================================= */
+.article-hero {
+  background: var(--bg);
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--border);
+}
+.article-hero__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+.article-hero__head { min-width: 0; }
+.article-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--soft);
+}
+.article-hero__format {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.article-hero__format::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 1rem; height: 1px;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+.article-hero__sep {
+  width: 1px; height: 0.7rem;
+  background: rgba(121, 92, 58, 0.3);
+}
+.article-hero__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 4.8vw, 4rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  color: var(--dark);
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+}
+.article-hero__title em { color: var(--accent); font-style: italic; font-weight: 600; }
+.article-hero__dek {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.6vw, 1.32rem);
+  line-height: 1.55;
+  color: #44372b;
+  max-width: 52ch;
+  margin: 0 0 1.6rem;
+}
+.article-hero__byline {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(121, 92, 58, 0.18);
+  border-bottom: 1px solid rgba(121, 92, 58, 0.18);
+  margin-bottom: 1.2rem;
+}
+.article-hero__byline-name strong { color: var(--dark); font-weight: 500; }
+.article-hero__byline-verified {
+  margin-left: auto;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.article-hero__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.article-hero__tag {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+  padding: 0.3rem 0.65rem;
+  background: var(--bg-alt);
+  border: 1px solid rgba(121, 92, 58, 0.18);
+  border-radius: 999px;
+}
+
+.article-hero__figure { margin: 0; position: relative; }
+.article-hero__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-alt);
+  border-radius: 4px;
+  filter: saturate(0.92) contrast(1.02);
+}
+.article-hero__credit {
+  margin-top: 0.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .article-hero__frame { grid-template-columns: 1fr; gap: 1.6rem; }
+  .article-hero__title { font-size: clamp(1.95rem, 7.5vw, 2.6rem); }
+  .article-hero__dek { font-size: 1.05rem; }
+  .article-hero__image { aspect-ratio: 16 / 10; }
+}
+
+/* Drop-cap on .prose first paragraph when explicitly opted in by
+   adding .has-drop-cap on the prose container (e.g., for journal
+   long-form articles). */
+.prose.has-drop-cap > p:first-of-type::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  float: left;
+  font-size: 4.6em;
+  line-height: 0.85;
+  padding: 0.18em 0.18em 0 0;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* =========================================================
    ARTICLE / JOURNAL (long-form typography)
    ========================================================= */
 .article {
