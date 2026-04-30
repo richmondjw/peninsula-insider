@@ -397,7 +397,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .pillars__inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   max-width: var(--max-w);
   margin: 0 auto;

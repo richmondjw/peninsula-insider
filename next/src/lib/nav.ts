@@ -39,9 +39,10 @@ export const mastheadNav: NavItem[] = [
 ];
 
 /**
- * Homepage pillar strip — eight tiles with sub-lines and icons. The first
- * five mirror the masthead pillars; What's On replaces Journal in this view,
- * and Golf + Spa round out the lane set.
+ * Homepage pillar strip — nine tiles with sub-lines and icons. The first
+ * five mirror the masthead pillars; Tours sits next to Escape (booking-led
+ * companion to Escape's self-drive); What's On replaces Journal in this
+ * view; Golf + Spa round out the lane set.
  */
 export const pillarNav: NavItem[] = [
   {
@@ -78,6 +79,13 @@ export const pillarNav: NavItem[] = [
     label: 'Escape',
     sub: 'Itineraries · Slow Travel',
     icon: `<path d="M2 20 L8 10 L12 15 L16 7 L22 20 Z M8 10 L10 13 M16 7 L14 11" stroke-linecap="round" stroke-linejoin="round"/>`,
+  },
+  {
+    key: 'tour',
+    href: '/tour',
+    label: 'Tours',
+    sub: 'Operator-led Experiences',
+    icon: `<path d="M4 18 L20 18 L20 12 L16 12 L14 8 L10 8 L8 12 L4 12 Z M7 18 L7 20 M17 18 L17 20" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="18" r="1.4"/><circle cx="16" cy="18" r="1.4"/>`,
   },
   {
     key: 'whats-on',
