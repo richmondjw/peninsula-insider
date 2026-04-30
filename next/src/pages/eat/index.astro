@@ -213,19 +213,19 @@ const faqSchema = {
   <!-- ═══════════════════════════════════════════════════════════════
        5. HUB NAVIGATION — find what you're looking for
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="eat-hubs" aria-label="Eat and drink categories">
+  <section class="hub-formats" aria-label="Eat and drink categories">
     <div class="container">
-      <div class="eat-hubs__intro">
+      <div class="hub-formats__intro">
         <p class="label label--accent">Or jump to a format</p>
-        <h2 class="eat-hubs__title">Find the right table for the day</h2>
-        <p class="eat-hubs__dek">Sixteen ways to slice the Peninsula's eating. Each lane is a curated list with editorial notes — not a directory dump.</p>
+        <h2 class="hub-formats__title">Find the right table for the day</h2>
+        <p class="hub-formats__dek">Sixteen ways to slice the Peninsula's eating. Each lane is a curated list with editorial notes — not a directory dump.</p>
       </div>
-      <ul class="eat-hubs__grid">
+      <ul class="hub-formats__grid">
         {hubs.map((hub) => (
-          <li class="eat-hub">
-            <a href={hub.href} class="eat-hub__link">
-              <span class="eat-hub__label">{hub.label}</span>
-              <span class="eat-hub__sub">{hub.sub}</span>
+          <li class="hub-formats__cell">
+            <a href={hub.href} class="hub-formats__link">
+              <span class="hub-formats__label">{hub.label}</span>
+              <span class="hub-formats__sub">{hub.sub}</span>
             </a>
           </li>
         ))}
@@ -299,36 +299,36 @@ const faqSchema = {
   <!-- ═══════════════════════════════════════════════════════════════
        9. FAQ
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="eat-faq" aria-label="Frequently asked questions">
+  <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
-      <div class="eat-faq__intro">
+      <div class="hub-faq__intro">
         <p class="label label--accent">Frequently asked</p>
-        <h2 class="eat-faq__title">Six honest answers before you plan the day</h2>
+        <h2 class="hub-faq__title">Six honest answers before you plan the day</h2>
       </div>
-      <div class="eat-faq__list">
-        <details class="eat-faq__item">
-          <summary class="eat-faq__q">What are the best restaurants on the Peninsula?</summary>
-          <div class="eat-faq__a"><p>The Good Food Guide awarded 15 hats across 11 venues. The four two-hat restaurants — Barragunda Dining, Laura at Pt. Leo, Tedesca Osteria, and Ten Minutes by Tractor — are the clearest destination dining choices. For long lunch without the hatted commitment: Montalto, Polperro, and Paringa Estate.</p></div>
+      <div class="hub-faq__list">
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">What are the best restaurants on the Peninsula?</summary>
+          <div class="hub-faq__a"><p>The Good Food Guide awarded 15 hats across 11 venues. The four two-hat restaurants — Barragunda Dining, Laura at Pt. Leo, Tedesca Osteria, and Ten Minutes by Tractor — are the clearest destination dining choices. For long lunch without the hatted commitment: Montalto, Polperro, and Paringa Estate.</p></div>
         </details>
-        <details class="eat-faq__item">
-          <summary class="eat-faq__q">Do I need to book?</summary>
-          <div class="eat-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries.</p></div>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Do I need to book?</summary>
+          <div class="hub-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries.</p></div>
         </details>
-        <details class="eat-faq__item">
-          <summary class="eat-faq__q">What is the best area for food?</summary>
-          <div class="eat-faq__a"><p>The Red Hill plateau has the highest concentration of serious dining. Mornington has the strongest casual eating scene. For wine-paired long lunches, stay on the ridge — Main Ridge and Red Hill South are where the best rooms are.</p></div>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">What is the best area for food?</summary>
+          <div class="hub-faq__a"><p>The Red Hill plateau has the highest concentration of serious dining. Mornington has the strongest casual eating scene. For wine-paired long lunches, stay on the ridge — Main Ridge and Red Hill South are where the best rooms are.</p></div>
         </details>
-        <details class="eat-faq__item">
-          <summary class="eat-faq__q">When is the best time to visit for food?</summary>
-          <div class="eat-faq__a"><p>Autumn (March–May) — vintage running, summer crowds thinned, best tables actually bookable. Spring is a close second. Winter cellar door lunches with fires are underrated.</p></div>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">When is the best time to visit for food?</summary>
+          <div class="hub-faq__a"><p>Autumn (March–May) — vintage running, summer crowds thinned, best tables actually bookable. Spring is a close second. Winter cellar door lunches with fires are underrated.</p></div>
         </details>
-        <details class="eat-faq__item">
-          <summary class="eat-faq__q">Are there dog-friendly dining options?</summary>
-          <div class="eat-faq__a"><p>Yes — outdoor seating at cafes, village pub beer gardens, and a small number of winery casual areas. Commonfolk (back courtyard), Portsea Hotel (beer garden), The Rocks Mornington (outdoor deck), and Green Olive at Red Hill (garden) are confirmed as of April 2026. Verify before visiting.</p></div>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Are there dog-friendly dining options?</summary>
+          <div class="hub-faq__a"><p>Yes — outdoor seating at cafes, village pub beer gardens, and a small number of winery casual areas. Commonfolk (back courtyard), Portsea Hotel (beer garden), The Rocks Mornington (outdoor deck), and Green Olive at Red Hill (garden) are confirmed as of April 2026. Verify before visiting.</p></div>
         </details>
-        <details class="eat-faq__item">
-          <summary class="eat-faq__q">What is the Peninsula's signature food experience?</summary>
-          <div class="eat-faq__a"><p>The long lunch. A two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions.</p></div>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">What is the Peninsula's signature food experience?</summary>
+          <div class="hub-faq__a"><p>The long lunch. A two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions.</p></div>
         </details>
       </div>
     </div>
@@ -337,142 +337,3 @@ const faqSchema = {
   <NewsletterBlock />
 </BaseLayout>
 
-<style>
-  /* ─────────────────────────────────────────────────────────────────
-     EAT HUB NAVIGATION — compact format-finder grid
-     ───────────────────────────────────────────────────────────────── */
-  .eat-hubs {
-    padding: clamp(2.5rem, 5vw, 4rem) 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-  .eat-hubs__intro {
-    max-width: 60ch;
-    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-  }
-  .eat-hubs__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.85rem, 3.4vw, 2.4rem);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.012em;
-    color: var(--dark);
-    margin-top: 0.6rem;
-    margin-bottom: 0.7rem;
-  }
-  .eat-hubs__dek {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.55;
-    color: #6b4f33;
-    max-width: 56ch;
-  }
-  .eat-hubs__grid {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1px;
-    background: rgba(121, 92, 58, 0.18);
-    border: 1px solid rgba(121, 92, 58, 0.18);
-    border-radius: 0.85rem;
-    overflow: hidden;
-  }
-  .eat-hub {
-    background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
-    transition: background 0.18s var(--ease);
-  }
-  .eat-hub__link {
-    display: block;
-    padding: 1.15rem 1.35rem;
-    text-decoration: none;
-    color: inherit;
-  }
-  .eat-hub:hover { background: rgba(165, 129, 92, 0.06); }
-  .eat-hub__label {
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 0.25rem;
-    letter-spacing: -0.005em;
-  }
-  .eat-hub__sub {
-    display: block;
-    font-size: 0.7rem;
-    color: var(--soft);
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-  }
-  .eat-hub:hover .eat-hub__label { color: var(--accent); }
-
-  /* ─────────────────────────────────────────────────────────────────
-     EAT FAQ — disclosure accordion (no JS, browser-native)
-     ───────────────────────────────────────────────────────────────── */
-  .eat-faq {
-    padding: clamp(3rem, 6vw, 4.5rem) 0;
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-  }
-  .eat-faq__intro {
-    max-width: 60ch;
-    margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
-  }
-  .eat-faq__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.85rem, 3.4vw, 2.4rem);
-    font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.012em;
-    color: var(--dark);
-    margin-top: 0.5rem;
-  }
-  .eat-faq__list {
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(121, 92, 58, 0.14);
-    border-radius: 1rem;
-    overflow: hidden;
-    background: var(--white);
-  }
-  .eat-faq__item {
-    border-bottom: 1px solid rgba(121, 92, 58, 0.1);
-    transition: background 0.18s var(--ease);
-  }
-  .eat-faq__item:last-child { border-bottom: none; }
-  .eat-faq__item[open] { background: rgba(139, 78, 59, 0.03); }
-  .eat-faq__q {
-    cursor: pointer;
-    list-style: none;
-    padding: 1.15rem 1.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: var(--dark);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    user-select: none;
-  }
-  .eat-faq__q::-webkit-details-marker { display: none; }
-  .eat-faq__q::after {
-    content: '+';
-    font-size: 1.25rem;
-    font-weight: 300;
-    color: var(--accent);
-    flex-shrink: 0;
-    transition: transform 0.2s;
-  }
-  .eat-faq__item[open] .eat-faq__q::after { content: '−'; }
-  .eat-faq__a {
-    padding: 0 1.5rem 1.25rem;
-    font-size: 0.92rem;
-    color: #44372b;
-    line-height: 1.65;
-  }
-  .eat-faq__a p { margin: 0; }
-</style>

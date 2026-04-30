@@ -3533,6 +3533,149 @@ p.has-drop-cap::first-letter {
   letter-spacing: 0.005em;
 }
 
+/* =========================================================
+   HUB FORMATS  -  compact format-finder grid used at the foot
+   of hub pages (eat, stay, wine, escape) as the "or jump to
+   format" lane. Gold-hairline cell grid with an editorial
+   sub-line per chip.
+   ========================================================= */
+.hub-formats {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.hub-formats__intro {
+  max-width: 60ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.hub-formats__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin-top: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+.hub-formats__dek {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #6b4f33;
+  max-width: 56ch;
+}
+.hub-formats__grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(121, 92, 58, 0.18);
+  border: 1px solid rgba(121, 92, 58, 0.18);
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+.hub-formats__cell {
+  background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
+  transition: background 0.18s var(--ease);
+}
+.hub-formats__cell:hover { background: rgba(165, 129, 92, 0.06); }
+.hub-formats__link {
+  display: block;
+  padding: 1.15rem 1.35rem;
+  text-decoration: none;
+  color: inherit;
+}
+.hub-formats__label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.005em;
+}
+.hub-formats__sub {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--soft);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.hub-formats__cell:hover .hub-formats__label { color: var(--accent); }
+
+/* =========================================================
+   HUB FAQ  -  native-disclosure accordion used at the foot
+   of hub pages. No JS — uses <details>/<summary>. The +/−
+   indicator is built with ::after.
+   ========================================================= */
+.hub-faq {
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.hub-faq__intro {
+  max-width: 60ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
+}
+.hub-faq__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin-top: 0.5rem;
+}
+.hub-faq__list {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(121, 92, 58, 0.14);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--white);
+}
+.hub-faq__item {
+  border-bottom: 1px solid rgba(121, 92, 58, 0.1);
+  transition: background 0.18s var(--ease);
+}
+.hub-faq__item:last-child { border-bottom: none; }
+.hub-faq__item[open] { background: rgba(139, 78, 59, 0.03); }
+.hub-faq__q {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.15rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  user-select: none;
+}
+.hub-faq__q::-webkit-details-marker { display: none; }
+.hub-faq__q::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.hub-faq__item[open] .hub-faq__q::after { content: '−'; }
+.hub-faq__a {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.92rem;
+  color: #44372b;
+  line-height: 1.65;
+}
+.hub-faq__a p { margin: 0; }
+
 /* Safety / advisory callout — single panel for editorial alerts
    (rip warning, weather, booking-window, etc.). Reusable wherever
    a serious editorial caution belongs above the main content. */

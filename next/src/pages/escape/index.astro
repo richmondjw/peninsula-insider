@@ -2,7 +2,9 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SectionHero from '../../components/SectionHero.astro';
+import GuideHero from '../../components/GuideHero.astro';
+import CompareBlock from '../../components/CompareBlock.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
@@ -10,16 +12,19 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, stayTypes } from '../../lib/editorial';
 
-const itineraries = (await getCollection('itineraries'))
-  .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
+// ── Data ──────────────────────────────────────────────────────────────────────
+const itineraries = (await getCollection('itineraries')).sort(
+  (a, b) => b.data.lengthNights - a.data.lengthNights,
+);
 const allVenues = await getCollection('venues');
 const stays = allVenues.filter((venue) => stayTypes.includes(venue.data.type));
 const places = await getCollection('places');
-const stayHighlights = stays.filter((venue) => ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)));
+const stayHighlights = stays.filter((venue) =>
+  ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)),
+);
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-// Companion reads: the service and stay-notes pieces that sharpen the trip.
 const companionSlugs = [
   'the-sorrento-weekend',
   'a-winter-peninsula-weekend',
@@ -34,23 +39,23 @@ const companionReads = companionSlugs
   .filter((a): a is NonNullable<typeof a> => Boolean(a))
   .slice(0, 4);
 
-const placeHighlights = places.filter((place) => ['red-hill', 'cape-schanck', 'sorrento'].includes(routeSlug(place)));
+const placeHighlights = places.filter((place) =>
+  ['red-hill', 'cape-schanck', 'sorrento'].includes(routeSlug(place)),
+);
 
-// Split itineraries into intent buckets for quicker scanning.
 const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
 const twoNight = itineraries.filter((it) => it.data.lengthNights === 2);
 const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
 
-// Mood taxonomy  -  each mood links a real guide if one exists.
 const moodGuides = [
-  { label: 'Food & wine',  slug: 'how-to-build-a-red-hill-saturday',          note: 'Lunch, cellar doors, a slow drive back' },
-  { label: 'Wellness',     slug: 'the-thermal-springs-weekend',               note: 'Springs, sauna, one soft dinner' },
-  { label: 'Slow coast',   slug: 'a-flinders-weekend',                        note: 'Flinders, the pier, Bass Strait air' },
-  { label: 'Tip of the peninsula', slug: 'the-sorrento-weekend',              note: 'Village base, fort walk, back beach' },
-  { label: 'Celebration',  slug: 'the-birthday-weekend',                      note: 'One anchor dinner, everything else softer' },
-  { label: 'Winter reset', slug: 'a-winter-peninsula-weekend',                note: 'Fireplace, hot springs, low-season calm' },
-  { label: 'Quick reset',  slug: 'the-one-night-escape',                      note: '26 hours that feels like three days' },
-  { label: 'With kids',    slug: 'the-peninsula-with-kids',                   note: 'A day that punishes no one' },
+  { label: 'Food & wine',           slug: 'how-to-build-a-red-hill-saturday', sub: 'Lunch, cellar doors, slow drive back' },
+  { label: 'Wellness',              slug: 'the-thermal-springs-weekend',      sub: 'Springs, sauna, one soft dinner' },
+  { label: 'Slow coast',            slug: 'a-flinders-weekend',               sub: 'Flinders, the pier, Bass Strait air' },
+  { label: 'Tip of the peninsula',  slug: 'the-sorrento-weekend',             sub: 'Village base, fort walk, back beach' },
+  { label: 'Celebration',           slug: 'the-birthday-weekend',             sub: 'One anchor dinner, the rest softer' },
+  { label: 'Winter reset',          slug: 'a-winter-peninsula-weekend',       sub: 'Fireplace, hot springs, low-season calm' },
+  { label: 'Quick reset',           slug: 'the-one-night-escape',             sub: '26 hours that feels like three days' },
+  { label: 'With kids',             slug: 'the-peninsula-with-kids',          sub: 'A day that punishes no one' },
 ];
 const moodResolved = moodGuides
   .map((mood) => {
@@ -63,56 +68,95 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Escape' },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How many nights do I need on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Two nights is the Peninsula\'s native rhythm — long enough to slow down, short enough to commit. One night works for a focused escape (Friday evening to Sunday afternoon). Three nights or more turns the trip into something genuinely restorative; the back-beaches and quieter walks reward longer stays.' } },
+    { '@type': 'Question', name: 'Can the Mornington Peninsula be done as a day trip from Melbourne?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, but you must choose a single anchor — a long lunch, a hot springs session, or a coastal walk. Trying to fit all three into a day is how good weekends become traffic stories. The drive is 60–90 minutes each way; account for that in your sequence.' } },
+    { '@type': 'Question', name: 'When is the best time to plan a Peninsula escape?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Autumn (March–May) is the strongest season — vintage running on the ridge, summer crowds gone, weekends actually bookable. Spring is a close second. Winter weekends are underrated; cellar doors with fires lit, hot springs steaming, and almost no queue. Summer is the busiest and hardest to book well.' } },
+    { '@type': 'Question', name: 'How much does a Peninsula weekend cost?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A two-night weekend with a mid-range stay, two cellar door visits, and one serious lunch typically runs $800–1,400 per couple including accommodation. Luxury vineyard weekends with a hatted dinner run $1,800+. Budget weekends with self-contained accommodation and walk-in eating start around $500.' } },
+  ],
+};
 ---
 
 <BaseLayout
   title="Mornington Peninsula Itineraries · Peninsula Insider"
-  description="Editorial itineraries and weekend plans for doing the Mornington Peninsula slowly and well."
+  description="Editorial itineraries and weekend plans for doing the Mornington Peninsula slowly and well — one-night quick escapes, two-night sweet-spot weekends, and longer reset trips."
   section="escape"
   canonical="https://peninsulainsider.com.au/escape"
+  modifiedTime="2026-04-30"
+  ogImage="/images/sourced/place-cape-schanck-01.webp"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <Breadcrumbs items={breadcrumbItems} />
-  <SectionHero
-    eyebrow="Escape"
-    subEyebrow="Itineraries · weekends · slow travel"
-    title="Good Peninsula weekends are built in the <em>sequence.</em>"
-    dek="The region is small enough to overdo and varied enough to get wrong. These escape plans are our answer: fewer bookings, better pacing, and just enough structure that the whole thing feels inevitable rather than overplanned."
-    gradient="sand"
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. CINEMATIC HERO
+       ═══════════════════════════════════════════════════════════════ -->
+  <GuideHero
+    eyebrow={`Escape · ${itineraries.length} weekend plans · Last verified 30 Apr 2026`}
+    title="Good Peninsula weekends are built in the <em>sequence</em>"
+    dek="The region is small enough to overdo and varied enough to get wrong. These escape plans are our answer — fewer bookings, better pacing, and just enough structure that the whole thing feels inevitable rather than overplanned."
+    meta={[
+      { label: `${twoNight.length} two-night escapes` },
+      { label: `${oneNight.length} one-night quick resets` },
+      { label: `${longer.length} longer trips` },
+      { label: '7 min read' },
+    ]}
     heroImage="/images/sourced/place-cape-schanck-01.webp"
-    visualLabel="Ridge first, ocean later, no unnecessary backtracking"
+    imageAlt="Cape Schanck cliffs at dusk — the Peninsula at its most cinematic"
+    imageCredit="Peninsula Insider"
   />
 
-  {moodResolved.length > 0 && (
-    <section class="intent-strip intent-strip--alt" aria-label="Escape by mood">
-      <div class="container">
-        <div class="split-intro">
-          <div>
-            <p class="label label--accent">Escape by mood</p>
-            <h2 class="split-intro__title">Pick the feeling first, then let the sequence follow</h2>
-          </div>
-          <p class="split-intro__body">Each chip opens a service piece or stay-note that maps the weekend for that mood  -  built the way we'd actually book it.</p>
-        </div>
-        <div class="intent-chips">
-          {moodResolved.map((mood) => (
-            <a href={`/journal/${mood.slug}`} class="intent-chip">
-              <span class="intent-chip__label">{mood.label}</span>
-              <span class="intent-chip__note">{mood.note}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. ORIENTATION: One night vs Two nights
+       ═══════════════════════════════════════════════════════════════ -->
+  <CompareBlock
+    eyebrow="The decision that shapes everything"
+    heading="One night or two — they are not the same trip"
+    dek="The Peninsula reads completely differently across these two windows. Get the length right and the rest of the planning is easy."
+    left={{
+      label: 'One night · quick reset',
+      title: 'A focused escape. Pick one anchor and let the rest go.',
+      rows: [
+        { label: 'Format', value: 'Drive down Friday evening, one ambitious meal, one walk on Saturday, drive home Sunday afternoon. 26 hours that earns three days of feeling.' },
+        { label: 'Best for', value: 'Couples without long weekends, friends from Melbourne, anyone with limited time who wants the Peninsula to actually land.' },
+        { label: 'Best base', value: 'Mornington or Sorrento — central, walkable, no extra driving once you arrive.' },
+        { label: 'Trade-offs', value: 'No second region. Either you do the ridge or you do the coast, not both. Choose before you book.' },
+        { label: 'Pair with', value: 'A pre-booked hatted dinner Friday night and a Saturday morning walk before brunch.' },
+      ],
+    }}
+    right={{
+      label: 'Two nights · the sweet spot',
+      title: 'The Peninsula\'s native rhythm. Long enough to soften.',
+      rows: [
+        { label: 'Format', value: 'Friday arrival, full Saturday on the ridge, full Sunday on the coast (or vice versa), Monday-morning drive home. The trip stops performing and starts settling.' },
+        { label: 'Best for', value: 'Two-region trips — wine plus walks, ridge plus tip, hot springs plus a beach. Restorative weekends that need a real second day.' },
+        { label: 'Best base', value: 'Red Hill if the food is the centre. Sorrento or Flinders if the coast is the centre. Pick one and commit.' },
+        { label: 'Trade-offs', value: 'More planning, more booking. Hatted rooms and best stays book 4–8 weeks ahead.' },
+        { label: 'Pair with', value: 'A long Saturday lunch on the ridge, hot springs Sunday morning, a coastal walk before the drive home.' },
+      ],
+    }}
+  />
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. TWO-NIGHT ESCAPES — the sweet spot
+       ═══════════════════════════════════════════════════════════════ -->
   {twoNight.length > 0 && (
-    <section class="experience-index experience-index--plain">
+    <section class="experience-index" aria-label="Two-night escapes">
       <div class="container">
-        <div class="split-intro">
+        <div class="venues__header">
           <div>
             <p class="label label--accent">Two-night escapes</p>
-            <h2 class="split-intro__title">The sweet spot  -  long enough to slow down, short enough to commit</h2>
+            <h2 class="venues__title">The sweet spot — long enough to slow down, short enough to commit</h2>
+            <p class="venues__sub venues__sub--standfirst">One lunch that earns the drive, one walk that resets the weekend, one bed that suits the mood. The Peninsula's native shape.</p>
           </div>
-          <p class="split-intro__body">Two nights is the Peninsula's native rhythm. One lunch that earns the drive, one walk that resets the weekend, one bed that suits the mood.</p>
         </div>
         <div class="itinerary-grid">
           {twoNight.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -121,14 +165,17 @@ const breadcrumbItems = [
     </section>
   )}
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. ONE-NIGHT QUICK RESETS
+       ═══════════════════════════════════════════════════════════════ -->
   {oneNight.length > 0 && (
-    <section class="escape-callout">
+    <section class="experience-index experience-index--plain" aria-label="One-night escapes">
       <div class="container">
         <div class="venues__header">
           <div>
             <p class="label label--accent">One-night quick</p>
             <h2 class="venues__title">When the weekend is tight but the Peninsula still earns it</h2>
-            <p class="venues__sub">Designed to feel three times longer than the drive down.</p>
+            <p class="venues__sub venues__sub--standfirst">Designed to feel three times longer than the drive down. Pick one anchor — the meal, the walk, or the soak — and let the rest find its level.</p>
           </div>
         </div>
         <div class="itinerary-grid">
@@ -138,8 +185,11 @@ const breadcrumbItems = [
     </section>
   )}
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. THREE NIGHTS AND BEYOND
+       ═══════════════════════════════════════════════════════════════ -->
   {longer.length > 0 && (
-    <section class="experience-index">
+    <section class="experience-index" aria-label="Longer escapes">
       <div class="container">
         <div class="venues__header">
           <div>
@@ -155,41 +205,36 @@ const breadcrumbItems = [
     </section>
   )}
 
-  {stayHighlights.length > 0 && (
-    <section class="venues">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Choose the base first</p>
-            <h2 class="venues__title">Three stays that change the whole plan</h2>
-            <p class="venues__sub">A Peninsula itinerary improves dramatically when the bed matches the landscape you want most.</p>
-          </div>
-          <a href="/stay/" class="venues__link">All stays →</a>
-        </div>
-        <div class="venues__grid">
-          {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-        </div>
-      </div>
-    </section>
-  )}
+  <SectionDivider />
 
-  {placeHighlights.length > 0 && (
-    <section class="places">
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. ESCAPE BY MOOD — hub-formats lane
+       ═══════════════════════════════════════════════════════════════ -->
+  {moodResolved.length > 0 && (
+    <section class="hub-formats" aria-label="Escape by mood">
       <div class="container">
-        <div class="places__header">
-          <p class="label label--accent places__label">Sequence by geography</p>
-          <h2 class="places__title">The best escapes move through the Peninsula in a clean line</h2>
-          <p class="places__sub">Ridge for the lunch, coast for the light, tip for the walk and the bed.</p>
+        <div class="hub-formats__intro">
+          <p class="label label--accent">Or jump in by mood</p>
+          <h2 class="hub-formats__title">Pick the feeling first, let the sequence follow</h2>
+          <p class="hub-formats__dek">Eight ways to enter a Peninsula weekend. Each lane opens a service piece or stay-note that maps the trip the way we'd actually book it.</p>
         </div>
-        <div class="places__grid">
-          {placeHighlights.map((place, index) => (
-            <PlaceCard place={place} variant={index === 1 ? 'sand' : index === 2 ? 'bay' : 'vineyard'} />
+        <ul class="hub-formats__grid">
+          {moodResolved.map((mood) => (
+            <li class="hub-formats__cell">
+              <a href={`/journal/${mood.slug}`} class="hub-formats__link">
+                <span class="hub-formats__label">{mood.label}</span>
+                <span class="hub-formats__sub">{mood.sub}</span>
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   )}
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       7. THREE PLANNING RULES — editorial voice moment
+       ═══════════════════════════════════════════════════════════════ -->
   <section class="plan-grid">
     <div class="container">
       <div class="plan-grid__inner">
@@ -212,6 +257,50 @@ const breadcrumbItems = [
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       8. STAY HIGHLIGHTS
+       ═══════════════════════════════════════════════════════════════ -->
+  {stayHighlights.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Choose the base first</p>
+            <h2 class="venues__title">Three stays that change the whole plan</h2>
+            <p class="venues__sub">A Peninsula itinerary improves dramatically when the bed matches the landscape you want most.</p>
+          </div>
+          <a href="/stay/" class="venues__link">All stays →</a>
+        </div>
+        <div class="venues__grid">
+          {stayHighlights.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       9. PLACES — sequence by geography
+       ═══════════════════════════════════════════════════════════════ -->
+  {placeHighlights.length > 0 && (
+    <section class="places">
+      <div class="container">
+        <div class="places__header">
+          <p class="label label--accent places__label">Sequence by geography</p>
+          <h2 class="places__title">The best escapes move through the Peninsula in a clean line</h2>
+          <p class="places__sub">Ridge for the lunch, coast for the light, tip for the walk and the bed.</p>
+        </div>
+        <div class="places__grid">
+          {placeHighlights.map((place, index) => (
+            <PlaceCard place={place} variant={index === 1 ? 'sand' : index === 2 ? 'bay' : 'vineyard'} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       10. EDITORIAL GUIDES
+       ═══════════════════════════════════════════════════════════════ -->
   {companionReads.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
@@ -219,6 +308,7 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">Read before you book</p>
             <h2 class="venues__title">Journal pieces that sharpen the trip</h2>
+            <p class="venues__sub">Service pieces and stay-notes that turn a list of bookings into a proper weekend.</p>
           </div>
           <a href="/journal/" class="venues__link">More from the Journal →</a>
         </div>
@@ -229,39 +319,32 @@ const breadcrumbItems = [
     </section>
   )}
 
-  <section class="venues venues--plain">
+  <!-- ═══════════════════════════════════════════════════════════════
+       11. FAQ
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Have it pre-shaped</p>
-          <h2 class="venues__title">Tour packages: the weekend, but without the planning</h2>
-          <p class="venues__sub">Operator-led multi-day Peninsula packages with the bed, the cellar doors, and the lunch already arranged. Useful when the trip needs to run itself.</p>
-        </div>
-        <a href="/tour-packages/" class="venues__link">All tour packages →</a>
+      <div class="hub-faq__intro">
+        <p class="label label--accent">Frequently asked</p>
+        <h2 class="hub-faq__title">Four honest answers before you plan the weekend</h2>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/tour-packages/">Multi-day tour packages</a></h3><p class="venue-card__signature">Two- and three-night Peninsula packages anchored on a stay, with cellar-door visits, walks, and meals already sequenced.</p><a href="/tour-packages/" class="venue-card__cta">Browse packages →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/tour/">Single-day operator tours</a></h3><p class="venue-card__signature">Wine tours, hot-springs days, and private charters with editorial notes on who each one actually suits.</p><a href="/tour/" class="venue-card__cta">Browse tours →</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Planning-guide companions: explicit links to the service pages that
-       sit between itinerary work and the trip itself. These are standalone
-       Astro routes, so they don't appear in the dynamic companionReads
-       block above. -->
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Plan it properly</p>
-          <h2 class="venues__title">Service guides that shape the weekend</h2>
-        </div>
-      </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-itinerary/">The 3-day Peninsula itinerary</a></h3><p class="venue-card__signature">The plan that balances cellar doors, a hot-springs session, and a dining room that earns the drive — without turning the weekend into a to-do list.</p><a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-day-trip/">Day trip from Melbourne</a></h3><p class="venue-card__signature">The 12-hour Peninsula. What's worth the drive and back, what's not, and the one pivot that makes or breaks the day.</p><a href="/journal/mornington-peninsula-day-trip/" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-in-autumn/">The Peninsula in autumn</a></h3><p class="venue-card__signature">Vintage on the ridge, fireplace lunches, and the back-beaches cleared out. The quietest weekend months of the year.</p><a href="/journal/mornington-peninsula-in-autumn/" class="venue-card__cta">Read the guide →</a></div>
+      <div class="hub-faq__list">
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">How many nights do I need on the Peninsula?</summary>
+          <div class="hub-faq__a"><p>Two nights is the Peninsula's native rhythm — long enough to slow down, short enough to commit. One night works for a focused escape (Friday evening to Sunday afternoon). Three nights or more turns the trip into something genuinely restorative; the back-beaches and quieter walks reward longer stays.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Can the Peninsula be done as a day trip from Melbourne?</summary>
+          <div class="hub-faq__a"><p>Yes, but you must choose a single anchor — a long lunch, a hot springs session, or a coastal walk. Trying to fit all three into a day is how good weekends become traffic stories. The drive is 60–90 minutes each way; account for that in your sequence.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">When is the best time to plan an escape?</summary>
+          <div class="hub-faq__a"><p>Autumn (March–May) is the strongest season — vintage running on the ridge, summer crowds gone, weekends actually bookable. Spring is a close second. Winter weekends are underrated; cellar doors with fires lit, hot springs steaming, and almost no queue. Summer is the busiest and hardest to book well.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">How much does a Peninsula weekend cost?</summary>
+          <div class="hub-faq__a"><p>A two-night weekend with a mid-range stay, two cellar door visits, and one serious lunch typically runs $800–1,400 per couple including accommodation. Luxury vineyard weekends with a hatted dinner run $1,800+. Budget weekends with self-contained accommodation and walk-in eating start around $500.</p></div>
+        </details>
       </div>
     </div>
   </section>
