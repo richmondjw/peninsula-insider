@@ -120,6 +120,30 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
       </div>
     </section>
 
+    <section class="partners-section partners-download">
+      <div class="partners-section__inner">
+        <a href="/downloads/peninsula-insider-advertising-kit.pdf" class="partners-download__card" target="_blank" rel="noopener">
+          <div class="partners-download__text">
+            <p class="partners-download__eyebrow">Download</p>
+            <h2 class="partners-download__heading">The Partnership Kit, 2026</h2>
+            <p class="partners-download__sub">
+              Twelve pages. Full menu, transparent pricing, the firewall in plain
+              language, and the standards we hold. Updated quarterly.
+            </p>
+          </div>
+          <div class="partners-download__action">
+            <span class="partners-download__format">PDF · A4</span>
+            <span class="partners-download__cta">Download the kit  →</span>
+          </div>
+        </a>
+        <p class="partners-download__aside">
+          Looking for the Founders' Circle prospectus? It is by invitation, not download.
+          Email <a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a>
+          and we will send it through.
+        </p>
+      </div>
+    </section>
+
     <section class="partners-section partners-coming">
       <div class="partners-section__inner">
         <p class="partners-section__eyebrow">Coming in 2026</p>
@@ -156,7 +180,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
         </p>
         <a href="/partners/apply/" class="partners-cta__button">Tell us about your venue</a>
         <p class="partners-cta__signoff">
-          James and Emma Richmond, Founders &amp; Editors
+          James and Emma, Founders &amp; Editors
         </p>
       </div>
     </section>
@@ -325,6 +349,96 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
   }
   .partners-standards__list li:last-child { border-bottom: none; }
   .partners-standards__list strong { color: var(--sage); font-weight: 600; }
+
+  /* DOWNLOAD */
+  .partners-download { background: var(--bg-alt); }
+  .partners-download__card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem 2.25rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .partners-download__card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 4px 18px rgba(43, 37, 32, 0.06);
+    transform: translateY(-1px);
+  }
+  .partners-download__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 0.5rem;
+  }
+  .partners-download__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+  }
+  .partners-download__sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--soft);
+    margin: 0;
+    max-width: 460px;
+  }
+  .partners-download__action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .partners-download__format {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+  .partners-download__cta {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .partners-download__card:hover .partners-download__cta {
+    color: var(--text);
+    border-color: var(--text);
+  }
+  .partners-download__aside {
+    margin-top: 1.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--soft);
+  }
+  .partners-download__aside a { color: var(--sage); border-bottom: 1px solid var(--sage); }
+  @media (max-width: 600px) {
+    .partners-download__card {
+      grid-template-columns: 1fr;
+      padding: 1.5rem;
+      gap: 1.25rem;
+    }
+    .partners-download__action { align-items: flex-start; }
+  }
 
   /* COMING */
   .partners-coming__grid {

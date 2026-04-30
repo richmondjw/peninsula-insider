@@ -16,7 +16,7 @@ We cover the Peninsula across five pillars: Eat & Drink, Stay, Do, Plan, and the
 
 Two products carry the brand. The publication itself, at peninsulainsider.com.au. And The Insider's Letter, a weekly five-minute read sent every Thursday morning, written and signed by the editor.
 
-The publication is founded and edited by **James and Emma Richmond**, with a structured editorial desk handling commissioning, research, drafting, fact-checking, copy, and scheduling.
+The publication is founded and edited by **James and Emma**, with a structured editorial desk handling commissioning, research, drafting, fact-checking, copy, and scheduling.
 
 ---
 
@@ -218,7 +218,7 @@ Express interest in either through the partners enquiry form. We will contact th
 
 **Annual audit.** Once a year, we publish a one-page firewall audit naming what we ran, what we declined, and where the line strained. The first audit publishes November 2026.
 
-**No fake bylines.** Every PI piece carries either a James Richmond byline, an Emma Richmond byline, the byline of a named human contributor, or "The Peninsula Insider" house byline. We do not invent writers.
+**No fake bylines.** Every PI piece carries either a byline from James, a byline from Emma, the byline of a named human contributor, or "The Peninsula Insider" house byline. We do not invent writers.
 
 **No surprise pricing.** Everything in this kit is the price you will pay. No hidden production fees, no rate-card-versus-actual gap.
 
@@ -226,7 +226,7 @@ Express interest in either through the partners enquiry form. We will contact th
 
 ## 14. Contact
 
-James Richmond and Emma Richmond
+James and Emma
 Founders, Peninsula Insider
 hello@peninsulainsider.com.au
 peninsulainsider.com.au

@@ -11,12 +11,15 @@
     "build:search": "astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check",
+    "pdfs": "node scripts/render-pdfs.mjs",
+    "pdfs:rebuild": "npm run build && node scripts/render-pdfs.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
     "astro": "^6.1.6",
     "pagefind": "^1.3.0",
+    "puppeteer": "^24.42.0",
     "typescript": "^5.5.0"
   },
   "dependencies": {

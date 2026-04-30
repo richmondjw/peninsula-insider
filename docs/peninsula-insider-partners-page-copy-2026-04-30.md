@@ -97,7 +97,7 @@ Then the form.
 
 > Peninsula Insider is a modern newsroom for the Mornington Peninsula. We publish on Thursdays, we mean what we recommend, and we tell you who is paying.
 >
-> James and Emma Richmond, Founders & Editors
+> James and Emma, Founders & Editors
 
 ---
 
@@ -149,7 +149,7 @@ Replace the current "How this works" aside with:
 
 **Masthead update.** The about page masthead is updated to read:
 
-> Founders, Editors & Publishers: James Richmond and Emma Richmond
+> Founders, Editors & Publishers: James and Emma
 > Editorial desk: The Peninsula Insider
 > Photography: [contracted name]
 > Contributors: [as named]
