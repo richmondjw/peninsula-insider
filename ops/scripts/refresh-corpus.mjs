@@ -702,6 +702,23 @@ const REQUIRED_DEFAULTS = {
   generation: 0,
 };
 
+// The live concierge_chunks.source_entity_type column has a CHECK constraint
+// that allows only: venue, article, experience, itinerary, event. Two of our
+// chunker types are not in that allow-list, so we map them at write time:
+//   - place   → experience  (places are non-establishment locations to discover)
+//   - editorial_block → article (editorial framing copy is an article-shaped artefact)
+// Chunk metadata still distinguishes them via category/chunk_purpose, and the
+// concierge API doesn't filter by source_entity_type by default — so this
+// remap doesn't affect retrieval or ranking.
+const SOURCE_TYPE_MAP = {
+  place: "experience",
+  editorial_block: "article",
+};
+
+function safeSourceType(chunk) {
+  return SOURCE_TYPE_MAP[chunk.source_entity_type] || chunk.source_entity_type;
+}
+
 function safeTier(chunk) {
   // If chunker said tier A and the chunk carries a populated last_otto_verified
   // (typically copied from the source record's `lastVerified` date), keep A.
@@ -715,6 +732,7 @@ async function upsertChunk(chunk, embedding, textHash, metaHash) {
   const body = stripUnsupportedFields({
     ...REQUIRED_DEFAULTS,
     ...chunk,
+    source_entity_type: safeSourceType(chunk),
     editorial_tier: safeTier(chunk),
     embedding: `[${embedding.join(",")}]`,
     embedding_source_hash: textHash,
@@ -745,6 +763,7 @@ async function upsertMetadataOnly(chunk, metaHash) {
   const body = stripUnsupportedFields({
     ...REQUIRED_DEFAULTS,
     ...rest,
+    source_entity_type: safeSourceType(rest),
     editorial_tier: safeTier(rest),
     metadata_fingerprint: metaHash,
     extracted_at: new Date().toISOString(),
