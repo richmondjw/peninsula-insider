@@ -3177,6 +3177,216 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-color: rgba(121, 92, 58, 0.4);
 }
 
+/* =========================================================
+   GUIDE HERO  -  cinematic full-bleed header for evergreen
+   guide pages (explore/*, escape/*, long-form features).
+   Image fills the section, scrim darkens the lower third for
+   legibility, title and dek sit bottom-left in the container.
+   ========================================================= */
+.guide-hero {
+  position: relative;
+  min-height: clamp(380px, 62vh, 680px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  background: var(--bg-dark);
+  color: #FDFCFA;
+}
+.guide-hero--compact { min-height: clamp(300px, 44vh, 460px); }
+.guide-hero__image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.guide-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 78%, rgba(0,0,0,0.78) 100%);
+}
+.guide-hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(2.2rem, 6vw, 4.5rem);
+  width: 100%;
+}
+.guide-hero__inner-content { max-width: 880px; }
+.guide-hero__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(245, 220, 178, 0.85);
+  margin-bottom: 1rem;
+}
+.guide-hero__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: #FDFCFA;
+  margin-bottom: 1.1rem;
+  text-wrap: balance;
+}
+.guide-hero__title em { color: rgba(245, 220, 178, 0.95); font-style: italic; }
+.guide-hero__dek {
+  font-size: clamp(1.04rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 56ch;
+  margin-bottom: 1.5rem;
+}
+.guide-hero__meta {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.guide-hero__meta-item { display: inline-flex; align-items: center; gap: 0.4rem; }
+.guide-hero__credit {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 1.2rem;
+  z-index: 2;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =========================================================
+   COMPARE BLOCK  -  side-by-side comparison card. Used for
+   bay vs ocean, hot springs vs alba, neighborhood vs neighborhood,
+   and any other A vs B editorial frame.
+   ========================================================= */
+.compare-block {
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.compare-block__intro {
+  max-width: 60ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.compare-block__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin-top: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+.compare-block__dek {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #44372b;
+}
+.compare-block__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2vw, 1.6rem);
+}
+@media (max-width: 720px) {
+  .compare-block__grid { grid-template-columns: 1fr; }
+}
+.compare-block__col {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
+  border: 1px solid rgba(121, 92, 58, 0.14);
+  border-radius: 1.25rem;
+  padding: clamp(1.6rem, 3vw, 2.2rem);
+  box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
+  overflow: hidden;
+}
+.compare-block__col::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(167,118,55,0.95), rgba(223,197,158,0.65), rgba(167,118,55,0.14));
+}
+.compare-block__chip {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(165, 129, 92, 0.08);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+.compare-block__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  margin-bottom: 1.3rem;
+}
+.compare-block__rows {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+.compare-block__row {
+  display: grid;
+  grid-template-columns: minmax(110px, 32%) 1fr;
+  gap: 0.9rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(121, 92, 58, 0.1);
+}
+.compare-block__row:first-child { border-top: none; padding-top: 0.2rem; }
+.compare-block__row dt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0;
+  align-self: start;
+}
+.compare-block__row dd {
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: #44372b;
+  margin: 0;
+}
+
+/* Safety / advisory callout — single panel for editorial alerts
+   (rip warning, weather, booking-window, etc.). Reusable wherever
+   a serious editorial caution belongs above the main content. */
+.guide-callout {
+  border-left: 4px solid var(--accent);
+  background: rgba(165, 129, 92, 0.06);
+  padding: 1.1rem 1.4rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0;
+}
+.guide-callout__label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.guide-callout__body {
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: #44372b;
+  margin: 0;
+}
+.guide-callout__body a { color: var(--accent); text-decoration: underline; }
+
 /* Events lens chips  -  reader-intent filter strip on whats-on index */
 .events-lens {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
