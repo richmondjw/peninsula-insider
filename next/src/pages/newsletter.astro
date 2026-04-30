@@ -1,120 +1,153 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CoverHero from '../components/CoverHero.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-import ArticleCard from '../components/ArticleCard.astro';
 import SubscribeForm from '../components/SubscribeForm.astro';
-import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { routeSlug } from '../lib/editorial';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Newsletter' },
 ];
-
-const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-
-const dispatches = articles.filter((a) => a.data.format === 'weekend-picker').slice(0, 3);
-const highlights = articles.filter((a) => a.data.format !== 'weekend-picker').slice(0, 3);
-const previewPieces = dispatches.length > 0 ? dispatches : highlights;
 ---
 
 <BaseLayout
-  title="Newsletter — Peninsula Insider"
-  description="Subscribe to The Insider's Dispatch: weekly Peninsula coverage with honest picks, new openings, and the cellar doors worth knowing."
+  title="The Insider's Dispatch · Subscribe — Peninsula Insider"
+  description="The Sunday email that shapes the weekend ahead. One pick, one weather-proof backup, one thing to skip. Free. Written by editors who live on the Mornington Peninsula."
   section="home"
+  canonical="https://peninsulainsider.com.au/newsletter/"
+  ogImage="/images/sourced/article-sorrento-weekend-01.webp"
 >
-  <Breadcrumbs items={breadcrumbItems} />
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. CONVERSION HERO — form above the fold, no distractions
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="news-hero" aria-label="Subscribe to The Insider's Dispatch">
+    <div class="news-hero__image" role="img" aria-label="Sunset on the Mornington Peninsula"
+         style="background-image: url('/images/sourced/article-sorrento-weekend-01.webp')"></div>
+    <div class="news-hero__scrim" aria-hidden="true"></div>
+    <div class="news-hero__inner container">
+      <p class="news-hero__eyebrow">The Insider's Dispatch · Free · Sunday weekly</p>
+      <h1 class="news-hero__title">The Peninsula in your inbox, every <em>Sunday</em>.</h1>
+      <p class="news-hero__dek">One pick, one weather-proof backup, one thing to skip. The dispatch that shapes the weekend ahead — written by editors who live on the Peninsula.</p>
 
-  <CoverHero
-    eyebrowIssue="Newsletter"
-    eyebrowSecondary="The Insider's Dispatch"
-    headlineLine1="The Peninsula"
-    headlineLine2="in your inbox,"
-    headlineEm="every week."
-    headlineEmPrefix=""
-    dek="New openings, cellar door dispatches, and the places we're quietly recommending this season. Written by editors who live here."
-    ctaPrimary={{ label: 'Subscribe free', href: '#newsletter' }}
-    ctaSecondary={{ label: 'See recent pieces', href: '#recent-pieces' }}
-    journalLink={{ label: 'Or start reading the Journal →', href: '/journal' }}
-  />
+      <div class="news-hero__form">
+        <SubscribeForm variant="light" source="newsletter-page" />
+      </div>
 
-  <!-- Subscribe block -->
-  <section class="newsletter-signup">
+      <ul class="news-hero__proof">
+        <li><strong>3,500+</strong> Peninsula readers</li>
+        <li><strong>52</strong> dispatches a year</li>
+        <li><strong>One-click</strong> unsubscribe</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. SAMPLE DISPATCH — what you'll actually receive
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="news-sample" aria-label="Sample dispatch">
     <div class="container">
-      <div class="newsletter-signup__inner">
-        <div class="newsletter-signup__pitch">
-          <h2 class="newsletter-signup__title">What you'll get</h2>
-          <ul class="newsletter-signup__list">
-            <li>
-              <strong>Weekly dispatch</strong> — one curated email every week with the openings, closures, and stories that matter.
-            </li>
-            <li>
-              <strong>Weekend Picker</strong> — our Sunday Peninsula This Weekend note for the weekend ahead: one opinionated pick, one weather-proof backup, one thing to skip.
-            </li>
-            <li>
-              <strong>Subscriber-only notes</strong> — short editorial observations we don't publish on the site. The things we'd text a friend.
-            </li>
-            <li>
-              <strong>Early access</strong> — new guides and long-form pieces land in the newsletter before they hit the site.
-            </li>
-          </ul>
-        </div>
+      <div class="news-sample__intro">
+        <p class="label label--accent">What it actually looks like</p>
+        <h2 class="news-sample__title">A dispatch from last Sunday</h2>
+        <p class="news-sample__sub">Every Sunday afternoon, in plain text. No banner ads, no sponsor blocks dressed as content, no auto-generated round-ups. The same email you'd get from a friend who lives on the ridge.</p>
+      </div>
 
-        <div class="newsletter-signup__form-block">
-          <SubscribeForm variant="light" source="newsletter-page" />
+      <article class="news-sample__email">
+        <header class="news-sample__email-head">
+          <p class="news-sample__email-from">From: <strong>The Peninsula Insider</strong> &lt;dispatch@peninsulainsider.com.au&gt;</p>
+          <p class="news-sample__email-subject">Peninsula This Weekend — 26 to 27 April</p>
+          <p class="news-sample__email-preview">One pick · one weather-proof backup · one thing to skip…</p>
+        </header>
+        <div class="news-sample__email-body">
+          <p><em>Reader,</em></p>
+          <p>Vintage on the ridge is wrapping. The fruit is in, the cellar doors are quiet again, and Saturday looks like the first weekend in a month that does not feel like a queue. Three things shaping the weekend if you are coming down.</p>
+
+          <h3>The pick — Foxeys Hangout, Saturday lunch</h3>
+          <p>The new autumn menu landed mid-week. The pinot pairings are unusually generous this season — they have a back-vintage 2019 they are pouring by the glass through the weekend only. Book the 12:30 sitting, sit on the terrace, plan to be there for three hours.</p>
+
+          <h3>The backup — Cape Schanck boardwalk if it rains</h3>
+          <p>Forecast says a 40% chance Saturday afternoon. If it lands, the Cape Schanck boardwalk is the only Peninsula walk that genuinely improves in light rain — basalt cliffs darken, the Bass Strait spray goes vertical, and the lighthouse café is built for the weather.</p>
+
+          <h3>Skip — the Sorrento Front Beach circus</h3>
+          <p>Long weekend leftover. Carpark fills before 10am, the queue at the bakery is twenty deep by 11. Drive ten more minutes to Portsea Front Beach and skip the theatre.</p>
+
+          <p>Until next Sunday,<br/>The editors</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. WHAT YOU GET — three quiet promises
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="news-promise" aria-label="What you get">
+    <div class="container">
+      <div class="news-promise__intro">
+        <p class="label label--accent">What's in the inbox</p>
+        <h2 class="news-promise__title">Four things, every week</h2>
+      </div>
+      <ul class="news-promise__grid">
+        <li class="news-promise__item">
+          <span class="news-promise__num">01</span>
+          <h3 class="news-promise__heading">Weekend Picker</h3>
+          <p class="news-promise__body">Sunday afternoon, for the Saturday and Sunday ahead. One pick, one weather-proof backup, one honest skip. The shortest editorial decision the week makes.</p>
+        </li>
+        <li class="news-promise__item">
+          <span class="news-promise__num">02</span>
+          <h3 class="news-promise__heading">New on the Peninsula</h3>
+          <p class="news-promise__body">Openings, closures, vintage-release weekends, residency dinners. The things you would otherwise hear about three weeks late.</p>
+        </li>
+        <li class="news-promise__item">
+          <span class="news-promise__num">03</span>
+          <h3 class="news-promise__heading">Subscriber-only notes</h3>
+          <p class="news-promise__body">Short editorial observations we do not publish on the site. The cellar door we would book again, the dish we keep ordering, the table to skip.</p>
+        </li>
+        <li class="news-promise__item">
+          <span class="news-promise__num">04</span>
+          <h3 class="news-promise__heading">Early access</h3>
+          <p class="news-promise__body">New guides and long-form pieces land in the dispatch before they hit the site. Subscribers read them first.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. EDITORIAL PROMISES — trust + voice
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="news-trust" aria-label="Editorial promises">
+    <div class="container">
+      <div class="news-trust__intro">
+        <p class="label label--accent">The promises we keep</p>
+        <h2 class="news-trust__title">Independent · opinionated · once a week</h2>
+      </div>
+      <ul class="news-trust__grid">
+        <li class="news-trust__item">
+          <h3>One email a week</h3>
+          <p>Sunday only. We don't write when there is nothing to say. There is no daily list, no weekday round-up, no breaking-news ping.</p>
+        </li>
+        <li class="news-trust__item">
+          <h3>Plain text and links</h3>
+          <p>No banner ads, no native sponsorship dressed as editorial, no autoplay video. The dispatch reads like email, because it is email.</p>
+        </li>
+        <li class="news-trust__item">
+          <h3>Recommendations are earned</h3>
+          <p>Every venue mentioned has been visited by an editor. Skips are named. Disclosures are explicit. The 'Insider' name has to mean something.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. SECOND-CHANCE CTA — the close
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="news-close" aria-label="Subscribe">
+    <div class="container">
+      <div class="news-close__inner">
+        <p class="label label--accent">Ready</p>
+        <h2 class="news-close__title">Sunday's dispatch is already drafting.</h2>
+        <p class="news-close__dek">Add your email and you'll be on the next one. No confirmation gymnastics — one click to subscribe, one click to leave any time you stop wanting it.</p>
+        <div class="news-close__form">
+          <SubscribeForm variant="dark" source="newsletter-page" />
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Social proof -->
-  <section class="newsletter-proof">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">What it sounds like</p>
-          <h2 class="split-intro__title">Written like a good recommendation from someone who lives here</h2>
-        </div>
-        <p class="split-intro__body">Every issue has a voice. We don't write round-ups that read like tourism copy — we write the email we'd want to receive on a Wednesday evening when we're thinking about the weekend.</p>
-      </div>
-      <div class="newsletter-proof__promises">
-        <article class="about-principle">
-          <h3 class="about-principle__title">Editorial first</h3>
-          <p class="about-principle__body">Every mention is earned. We write the email we'd want to receive — recommendations from someone who actually lives here.</p>
-        </article>
-        <article class="about-principle">
-          <h3 class="about-principle__title">No click-bait subjects</h3>
-          <p class="about-principle__body">Subject lines tell you what's inside. If the newsletter is about three cellar doors worth the appointment, the subject says so.</p>
-        </article>
-        <article class="about-principle">
-          <h3 class="about-principle__title">Weekly, not daily</h3>
-          <p class="about-principle__body">One curated dispatch every week. We write when we have something to say.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Recent pieces -->
-  {previewPieces.length > 0 && (
-    <section class="venues venues--plain" id="recent-pieces">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Recent from the site</p>
-            <h2 class="venues__title">The kind of writing subscribers receive first</h2>
-            <p class="venues__sub">These pieces mirror the editorial voice of the newsletter — service-first, opinionated, and built around real decisions.</p>
-          </div>
-          <a href="/journal/" class="venues__link">More in the Journal →</a>
-        </div>
-        <div class="venues__grid">
-          {previewPieces.map((article) => <ArticleCard article={article} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <NewsletterBlock />
 </BaseLayout>
