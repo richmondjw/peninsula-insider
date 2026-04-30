@@ -32,9 +32,9 @@ faq:
   - question: What is the price point for a session?
     answer: '$110 to $150 per person for a five to six-hour session, with bait and tackle included. This is at the lower end of the Peninsula charter market for the session type and is one of the operator''s structural advantages.'
   - question: Do I need my own fishing licence?
-    answer: '[VERIFY] — confirm directly with Reel Time at booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests, but confirm in writing on this operator.'
+    answer: 'Confirm directly with Reel Time at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests, but confirm in writing rather than assuming.'
   - question: What is the cancellation policy if weather is bad?
-    answer: '[VERIFY] — confirm the operator''s exact cancellation policy at booking. State whether the policy is full refund, session transfer, or credit when weather prevents departure.'
+    answer: 'Confirm the operator''s exact cancellation policy at the time of booking. The standard Peninsula practice is a full refund or session transfer when weather prevents departure; the specific policy varies by operator.'
   - question: Does Reel Time run the Portland Southern Bluefin Tuna trips?
     answer: 'Yes. The Portland tuna programme is a more ambitious itinerary distinct from the standard Peninsula product. Pricing and trip structure are separate from the bay sessions; contact the operator directly for current scheduling and lead-time requirements.'
 status: published

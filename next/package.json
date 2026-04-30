@@ -11,7 +11,9 @@
     "build:search": "astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check",
+    "bf:lint": "node ../scripts/bf-import/verify-lint.mjs",
+    "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

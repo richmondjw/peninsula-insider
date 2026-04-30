@@ -14,7 +14,7 @@ parkingCapacity: Ample trailer parking on site
 parkingPressure: medium
 tideDependence: high-tide-only
 tideStation: Portsea (southern bay) and Port Melbourne (northern bay)
-maxVesselLength: Approximately 6m at high water. [VERIFY] for vessels over this size.
+maxVesselLength: Approximately 6m at high water. Vessels over 6m should confirm tidal-window and approach-depth feasibility with the Shire before launching.
 nearbyRampAlternatives:
   - mornington-park-boat-ramp
   - rye-boat-ramp

@@ -32,11 +32,11 @@ faq:
   - question: Does Proline run shark fishing trips?
     answer: 'Yes. Eight to ten-hour trips into Bass Strait target gummy shark, mako, and blue shark. These sessions require anglers comfortable with offshore conditions and extended travel time to the grounds. Heavy tackle and traces are provided. Return timing is at the skipper''s discretion based on sea conditions.'
   - question: Do I need my own fishing licence?
-    answer: '[VERIFY] — confirm directly with Proline Charters at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests, but confirm in writing.'
+    answer: 'Confirm directly with Proline Charters at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests, but confirm in writing rather than assuming.'
   - question: What about King Island and Portland trips?
     answer: 'King Island multi-day itineraries run January to March; Portland tuna runs March to July. These are expedition-grade trips with their own pricing and minimum-numbers requirements. Contact the operator directly for current scheduling.'
   - question: What is the cancellation policy on offshore trips?
-    answer: '[VERIFY] — confirm the exact refund and transfer policy at booking. Offshore cancellations due to Bass Strait conditions are more common than bay cancellations; the operator''s policy on offshore weather holds is important to confirm before booking a shark or King Island trip.'
+    answer: 'Confirm the exact refund and transfer policy at the time of booking. Offshore cancellations due to Bass Strait conditions are more common than bay cancellations; the operator''s policy on offshore weather holds is important to confirm before booking a shark or King Island trip.'
 status: published
 verified: true
 lastVerified: 2026-04-30

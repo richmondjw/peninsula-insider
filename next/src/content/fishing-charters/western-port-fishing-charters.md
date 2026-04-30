@@ -32,7 +32,7 @@ faq:
   - question: Do you target snapper here?
     answer: 'Pink snapper are a target species, but understand that Western Port''s pink-snapper population is distinct from the Port Phillip Bay warm-water snapper run. If you specifically want the Oct to Dec southern bay snapper experience, a Port Phillip Bay operator like I''m Hooked, Proline, or Reel Time is the right call.'
   - question: Do I need my own fishing licence?
-    answer: '[VERIFY] — confirm directly with the operator at booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests; confirm in writing.'
+    answer: 'Confirm directly with the operator at the time of booking whether guests are covered for the day or required to BYO licence. Most licensed Victorian charters cover guests; confirm in writing rather than assuming.'
   - question: When should I book?
     answer: 'Western Port does not have the snapper-season booking surge that Port Phillip Bay operators experience. Summer weekends and the whiting peak still fill quickly; book 2 to 4 weeks ahead for weekend summer sessions. Corporate and large-group bookings require more lead time for logistics.'
 status: published

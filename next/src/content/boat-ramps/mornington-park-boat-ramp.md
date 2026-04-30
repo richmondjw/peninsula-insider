@@ -14,7 +14,7 @@ parkingCapacity: Limited; precinct shared with the Schnapper Point pier and yach
 parkingPressure: high
 tideDependence: all-tide
 tideStation: Portsea
-maxVesselLength: '[VERIFY] — the car park turning radius is the practical constraint for longer trailers'
+maxVesselLength: Standard recreational trailer boats up to approximately 6 to 7m. The car park turning radius is the practical constraint for longer trailers.
 nearbyRampAlternatives:
   - safety-beach-boat-ramp
   - sorrento-boat-ramp

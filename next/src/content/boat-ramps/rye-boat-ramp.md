@@ -14,7 +14,7 @@ parkingCapacity: Approximately 127 trailer spaces plus overflow
 parkingPressure: high
 tideDependence: mid-to-high
 tideStation: Portsea
-maxVesselLength: Suits standard recreational trailer boats up to approximately 6 to 7m. [VERIFY] for vessels over 7m.
+maxVesselLength: Suits standard recreational trailer boats up to approximately 6 to 7m. Vessels over 7m should confirm tidal-window and approach-depth feasibility before launching.
 nearbyRampAlternatives:
   - sorrento-boat-ramp
   - safety-beach-boat-ramp

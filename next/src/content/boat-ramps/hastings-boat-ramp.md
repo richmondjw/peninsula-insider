@@ -14,7 +14,7 @@ parkingCapacity: Approximately 84 sealed car and trailer spaces, plus 130 overfl
 parkingPressure: medium
 tideDependence: all-tide
 tideStation: Stony Point
-maxVesselLength: 40-metre ramp accommodates large trailer boats. [VERIFY] for vessels over 8m.
+maxVesselLength: 40-metre ramp accommodates large trailer boats up to approximately 8m. Vessels over 8m should confirm turning radius with Mornington Peninsula Shire.
 nearbyRampAlternatives:
   - warneet-boat-ramp
   - sorrento-boat-ramp

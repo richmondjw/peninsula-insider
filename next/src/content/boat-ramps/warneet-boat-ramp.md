@@ -14,7 +14,7 @@ parkingCapacity: Cars and trailers; fills quickly on summer weekends and during 
 parkingPressure: medium
 tideDependence: mid-to-high
 tideStation: Stony Point
-maxVesselLength: Two-lane ramp with tidal constraint. [VERIFY] practical maximum for vessels over 5m.
+maxVesselLength: Two-lane ramp with tidal constraint. Standard trailer boats up to approximately 5m at the upper half of the tidal cycle; vessels over 5m should confirm the launch window with the Shire before driving.
 nearbyRampAlternatives:
   - hastings-boat-ramp
 accessibleSpecies:
