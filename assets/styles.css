@@ -3844,6 +3844,172 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
+   HOME COVER  -  magazine-style split cover feature for the
+   homepage. Text on cream LEFT, cross-fading image rotator
+   RIGHT. Replaces both the seasonal CoverHero and the
+   FeatureArticle lead block on the homepage.
+   ========================================================= */
+.home-cover {
+  background: var(--bg);
+  padding: clamp(1.6rem, 3.5vw, 2.6rem) 0 clamp(2rem, 4.5vw, 3.5rem);
+  border-bottom: 1px solid var(--border);
+}
+.home-cover__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+.home-cover__above { min-width: 0; }
+.home-cover__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--soft);
+}
+.home-cover__meta-tag {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--accent);
+}
+.home-cover__meta-tag::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 1rem; height: 1px;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+.home-cover__meta-divider {
+  width: 1px; height: 0.7rem;
+  background: rgba(121, 92, 58, 0.3);
+}
+.home-cover__ornament {
+  display: inline-block;
+  margin: 0 0.45rem;
+  color: rgba(121, 92, 58, 0.4);
+}
+.home-cover__headline-link { text-decoration: none; color: inherit; display: block; }
+.home-cover__headline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  color: var(--dark);
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+  transition: color 0.2s var(--ease);
+}
+.home-cover__headline-link:hover .home-cover__headline { color: var(--accent); }
+.home-cover__headline em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
+.home-cover__dek {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.55;
+  color: #44372b;
+  max-width: 52ch;
+  margin: 0 0 1.6rem;
+}
+.home-cover__byline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(121, 92, 58, 0.18);
+}
+.home-cover__byline-name strong { color: var(--dark); font-weight: 500; }
+.home-cover__byline-read {
+  margin-left: auto;
+  position: relative;
+  padding-left: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+.home-cover__byline-read::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--soft);
+}
+.home-cover__byline-read:hover { color: var(--acc-h); }
+.home-cover__byline-time { opacity: 0.55; margin-left: 0.35rem; }
+
+.home-cover__figure {
+  position: relative;
+  margin: 0;
+}
+.home-cover__rotator {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border-radius: 4px;
+}
+.home-cover__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s var(--ease);
+  filter: saturate(0.92) contrast(1.02);
+}
+.home-cover__slide.is-active { opacity: 1; }
+.home-cover__cap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.65rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+@media (max-width: 768px) {
+  .home-cover { padding: 1.4rem 0 1.8rem; }
+  .home-cover__frame {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .home-cover__headline {
+    font-size: clamp(2rem, 7.5vw, 2.8rem);
+  }
+  .home-cover__dek {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .home-cover__rotator { aspect-ratio: 16 / 10; }
+  .home-cover__cap {
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.58rem;
+  }
+}
+
+/* =========================================================
    GUIDE HERO  -  split-layout editorial header for hub pages.
    Two columns on desktop: text on cream LEFT, image RIGHT.
    Stacks vertically on mobile (text first, image below). The
