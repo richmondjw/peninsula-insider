@@ -52,6 +52,12 @@ const {
     letter-spacing: 0.05em;
     border-bottom: 1px solid rgba(250,247,240,0.08);
     font-family: var(--sans, 'Inter', system-ui, sans-serif);
+    /* Pinned to the very top of every page, always visible. The
+       Masthead has its top offset bumped down by 34px (the bar's
+       height) in global.css so they stack cleanly. */
+    position: sticky;
+    top: 0;
+    z-index: 10000;
   }
   .v2-util__inner {
     display: flex;
