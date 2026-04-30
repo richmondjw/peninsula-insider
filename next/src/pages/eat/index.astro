@@ -2,26 +2,23 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SectionHero from '../../components/SectionHero.astro';
+import GuideHero from '../../components/GuideHero.astro';
+import CompareBlock from '../../components/CompareBlock.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import {
-  routeSlug,
-  currentSeason,
-  seasonBlurb,
-  isLocalFavourite,
-  isFirstTimer,
-  inSeason,
-} from '../../lib/editorial';
+import { routeSlug } from '../../lib/editorial';
 
+// ── Data ──────────────────────────────────────────────────────────────────────
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const venues = (await getCollection('venues'))
   .filter((venue) => eatTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
-const season = currentSeason();
-const blurb = seasonBlurb[season];
+const hattedCount = venues.filter((v) => Number(v.data.authority?.hats ?? 0) > 0).length;
+const twoHatCount = venues.filter((v) => Number(v.data.authority?.hats ?? 0) >= 2).length;
+const totalHats = venues.reduce((acc, v) => acc + Number(v.data.authority?.hats ?? 0), 0);
 
 const editorPickSlugs = ['tedesca-osteria', 'barragunda-dining', 'laura-pt-leo'];
 const editorPicks = editorPickSlugs
@@ -33,9 +30,7 @@ const longLunches = longLunchSlugs
   .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
-const casualStops = venues.filter((venue) =>
-  ['cafe', 'bakery'].includes(venue.data.type),
-).slice(0, 6);
+const casualStops = venues.filter((venue) => ['cafe', 'bakery'].includes(venue.data.type)).slice(0, 6);
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -50,26 +45,25 @@ const featuredGuides = featuredGuideSlugs
   .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
 const hubs = [
-  { href: '/eat/best-restaurants/', label: 'Best Restaurants', sub: 'Ranked by authority' },
-  { href: '/eat/hatted-restaurants/', label: 'Hatted Restaurants', sub: '4 two-hat · 7 one-hat' },
-  { href: '/eat/long-lunch/', label: 'Long Lunch', sub: 'Two-to-three hour tables' },
-  { href: '/eat/cellar-door-lunch/', label: 'Cellar Door Lunch', sub: 'Estate wine, estate produce' },
-  { href: '/eat/fine-dining/', label: 'Fine Dining', sub: 'Destination dining rooms' },
-  { href: '/eat/waterfront/', label: 'Waterfront Dining', sub: 'Bay-facing positions' },
-  { href: '/eat/seafood/', label: 'Seafood', sub: 'Waterfront fish and hatted seafood' },
-  { href: '/eat/brunch/', label: 'Best Brunch', sub: 'Coffee rooms worth the drive' },
-  { href: '/eat/cafes/', label: 'Best Cafes', sub: 'Village stops and specialty roasters' },
-  { href: '/eat/bakeries/', label: 'Best Bakeries', sub: '6 bakeries across the Peninsula' },
-  { href: '/eat/dog-friendly/', label: 'Dog-Friendly', sub: 'Confirmed outdoor options' },
-  { href: '/eat/family-friendly/', label: 'Family-Friendly', sub: 'Relaxed formats for kids' },
-  { href: '/eat/date-night/', label: 'Date Night', sub: 'Intimate rooms worth booking' },
-  { href: '/eat/pubs/', label: 'Best Pubs', sub: 'Bay views and village locals' },
-  { href: '/eat/paddock-to-plate/', label: 'Paddock to Plate', sub: 'Farm kitchens and produce trails' },
-  { href: '/eat/markets/', label: 'Markets', sub: 'Red Hill · Mornington · Balnarring' },
-  { href: '/eat/no-booking/', label: 'Walk-In Venues', sub: 'No reservation required' },
-  { href: '/journal/where-to-eat-mornington-peninsula/', label: 'Full Eat Guide', sub: 'Comprehensive Peninsula dining' },
+  { href: '/eat/best-restaurants/',     label: 'Best Restaurants',     sub: 'Ranked by authority' },
+  { href: '/eat/hatted-restaurants/',   label: 'Hatted Restaurants',   sub: '4 two-hat · 7 one-hat' },
+  { href: '/eat/long-lunch/',           label: 'Long Lunch',           sub: 'Two-to-three hour tables' },
+  { href: '/eat/cellar-door-lunch/',    label: 'Cellar Door Lunch',    sub: 'Estate wine, estate produce' },
+  { href: '/eat/fine-dining/',          label: 'Fine Dining',          sub: 'Destination dining rooms' },
+  { href: '/eat/waterfront/',           label: 'Waterfront Dining',    sub: 'Bay-facing positions' },
+  { href: '/eat/seafood/',              label: 'Seafood',              sub: 'Waterfront fish, hatted seafood' },
+  { href: '/eat/brunch/',               label: 'Best Brunch',          sub: 'Coffee rooms worth the drive' },
+  { href: '/eat/cafes/',                label: 'Best Cafes',           sub: 'Village stops · roasters' },
+  { href: '/eat/bakeries/',             label: 'Best Bakeries',        sub: '6 bakeries across the Peninsula' },
+  { href: '/eat/dog-friendly/',         label: 'Dog-Friendly',         sub: 'Confirmed outdoor options' },
+  { href: '/eat/family-friendly/',      label: 'Family-Friendly',      sub: 'Relaxed formats for kids' },
+  { href: '/eat/date-night/',           label: 'Date Night',           sub: 'Intimate rooms worth booking' },
+  { href: '/eat/pubs/',                 label: 'Best Pubs',            sub: 'Bay views and village locals' },
+  { href: '/eat/paddock-to-plate/',     label: 'Paddock to Plate',     sub: 'Farm kitchens, produce trails' },
+  { href: '/eat/markets/',              label: 'Markets',              sub: 'Red Hill · Mornington · Balnarring' },
 ];
 
+// ── Schemas ───────────────────────────────────────────────────────────────────
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Eat & Drink' },
@@ -94,36 +88,18 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What are the best restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants — Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor — are the clearest destination dining choices. For long lunch without the hat commitment: Montalto, Polperro, and Paringa Estate are the strongest options.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do I need to book restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Most serious restaurants on the Peninsula require bookings, especially on weekends. Hatted venues can book out weeks or months in advance. Walk-in options exist: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the best area for food on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The Red Hill plateau — including Main Ridge and Red Hill South — has the highest concentration of serious dining. Mornington town has the strongest casual eating scene. Sorrento and Portsea have the best waterfront and atmosphere-first dining. For wine-paired long lunches, stick to the ridge.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'When is the best time to visit the Mornington Peninsula for food?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Autumn (March to May) is the peak dining season — vintage is running on the ridge, fires are lit in cellar door dining rooms, and the summer crowds have thinned enough that the best tables are actually bookable. Spring is a close second.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are there dog-friendly restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes — outdoor seating options at cafes, village pub beer gardens, and a small number of winery casual dining areas permit dogs. Commonfolk Coffee (back courtyard), The Rocks Mornington (outdoor deck), Portsea Hotel (beer garden), and Green Olive at Red Hill (garden) are confirmed dog-friendly as of April 2026. Verify directly before visiting.' },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the signature food experience on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The long lunch — a two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions of the format.' },
-    },
+    { '@type': 'Question', name: 'What are the best restaurants on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants — Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor — are the clearest destination dining choices.' } },
+    { '@type': 'Question', name: 'Do I need to book restaurants on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most serious restaurants require bookings, especially on weekends. Hatted venues can book out weeks or months in advance. Walk-in options exist: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries.' } },
+    { '@type': 'Question', name: 'What is the best area for food on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Red Hill plateau — including Main Ridge and Red Hill South — has the highest concentration of serious dining. Mornington town has the strongest casual eating scene. Sorrento and Portsea have the best waterfront and atmosphere-first dining. For wine-paired long lunches, stick to the ridge.' } },
+    { '@type': 'Question', name: 'When is the best time to visit the Mornington Peninsula for food?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Autumn (March to May) is the peak dining season — vintage is running on the ridge, fires are lit in cellar door dining rooms, and the summer crowds have thinned enough that the best tables are actually bookable. Spring is a close second.' } },
+    { '@type': 'Question', name: 'Are there dog-friendly restaurants on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — outdoor seating options at cafes, village pub beer gardens, and a small number of winery casual dining areas permit dogs. Commonfolk Coffee (back courtyard), The Rocks Mornington (outdoor deck), Portsea Hotel (beer garden), and Green Olive at Red Hill (garden) are confirmed dog-friendly as of April 2026. Verify directly before visiting.' } },
+    { '@type': 'Question', name: 'What is the signature food experience on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The long lunch — a two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions of the format.' } },
   ],
 };
 ---
@@ -133,80 +109,74 @@ const faqSchema = {
   description="The best restaurants, long lunches, cellar door dining, cafes, and bakeries on the Mornington Peninsula — editorial picks, not a directory. Updated April 2026."
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
-  modifiedTime="2026-04-24"
+  modifiedTime="2026-04-30"
+  ogImage="/images/sourced/article-long-lunch-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <Breadcrumbs items={breadcrumbItems} />
-  <SectionHero
-    eyebrow="Eat & Drink"
-    subEyebrow="Long lunches · hatted restaurants · cellar door dining"
-    title="The dining rooms that justify the <em>drive.</em>"
-    dek="The Mornington Peninsula has more serious cellar door restaurants, more hatted venues, and more long-lunch opportunities than almost any other regional destination in Victoria. This is the guide that tells you where to go and how to sequence the day."
-    gradient="vineyard"
-    visualLabel="Red Hill plateau · lunch country"
-    heroImage="/images/sourced/place-merricks-01.webp"
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. CINEMATIC HERO
+       ═══════════════════════════════════════════════════════════════ -->
+  <GuideHero
+    eyebrow={`Eat & Drink · ${venues.length} venues mapped · Last verified 30 Apr 2026`}
+    title="The dining rooms that justify the <em>drive</em>"
+    dek="The Peninsula has more serious cellar door restaurants, more hatted venues, and more long-lunch tables than any region within ninety minutes of Melbourne. This is the editorial guide, not the directory."
+    meta={[
+      { label: `${twoHatCount} two-hat restaurants` },
+      { label: `${totalHats} GFG hats total` },
+      { label: `${hattedCount} hatted venues` },
+      { label: '10 min read' },
+    ]}
+    heroImage="/images/sourced/article-long-lunch-01.webp"
+    imageAlt="A long lunch table at a Mornington Peninsula vineyard — fire lit, bottle on the table"
+    imageCredit="Peninsula Insider"
   />
 
-  <!-- Hub navigation grid -->
-  <section class="format-nav" style="padding: clamp(2rem,4vw,3.5rem) 0; border-bottom: 1px solid var(--border);">
-    <div class="container">
-      <p class="label label--accent format-nav__label" style="margin-bottom:1.25rem">Start here — find what you're looking for</p>
-      <div class="format-nav__chips" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);">
-        {hubs.map(hub => (
-          <a href={hub.href} style="background:var(--white);padding:1.25rem 1.5rem;display:block;text-decoration:none;transition:background 0.2s;">
-            <span style="display:block;font-size:0.95rem;font-weight:600;color:var(--dark);margin-bottom:0.2rem;">{hub.label}</span>
-            <span style="display:block;font-size:0.72rem;color:var(--soft);letter-spacing:0.03em;">{hub.sub}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. ORIENTATION: Red Hill plateau vs Bay corridor
+       ═══════════════════════════════════════════════════════════════ -->
+  <CompareBlock
+    eyebrow="Two dining cultures, one Peninsula"
+    heading="Red Hill plateau or the Bay corridor"
+    dek="The Peninsula's food scene splits cleanly along geography. Knowing which side you're eating on decides the rest of the day."
+    left={{
+      label: 'Red Hill plateau',
+      title: 'Long lunch country. Estate wine, fires, three-hour tables.',
+      rows: [
+        { label: 'Flagship rooms', value: 'Tedesca Osteria, Laura at Pt. Leo, Ten Minutes by Tractor, Barragunda, Montalto, Polperro, Foxeys Hangout' },
+        { label: 'Format', value: 'Vineyard kitchens with estate wine, kitchen-garden produce, and service built for unhurried multi-hour sittings.' },
+        { label: 'Best for', value: 'Long lunch, special occasions, wine-paired meals, the slow afternoon you came for.' },
+        { label: 'Booking', value: 'Hatted rooms book 4–8 weeks ahead for weekends. Walk-in is rare. Plan first, drive after.' },
+        { label: 'Pair with', value: 'A cellar-door tasting before the table; an Arthurs Seat lookout or Red Hill walk after.' },
+      ],
+    }}
+    right={{
+      label: 'Bay corridor — Mornington to Portsea',
+      title: 'Casual eating, waterfront positions, walk-in possible.',
+      rows: [
+        { label: 'Standout venues', value: 'Commonfolk, The Rocks Mornington, Hotel Sorrento, Portsea Hotel, Mornington and Sorrento bakeries, the village cafes between' },
+        { label: 'Format', value: 'Cafes, bakeries, pubs, waterfront seafood. Day-to-day eating that does not demand a four-hour commitment.' },
+        { label: 'Best for', value: 'Brunch, families, walk-in flexibility, drinks with a view, the meal between activities.' },
+        { label: 'Booking', value: 'Most casual venues take walk-ins. Pub lunches book a day or two ahead. Sorrento Front Beach restaurants book up in summer.' },
+        { label: 'Pair with', value: 'A bay-side beach walk; a Mornington Peninsula winery drive afterwards.' },
+      ],
+    }}
+  />
 
-  <!-- Editorial essay -->
-  <section style="padding: clamp(3rem,6vw,5rem) 0; border-bottom: 1px solid var(--border); background: var(--bg-alt);">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:clamp(3rem,6vw,6rem);align-items:start;" class="editorial-essay-grid">
-        <div class="prose">
-          <p class="label label--accent" style="margin-bottom:1rem">How the Peninsula eats</p>
-          <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.05;letter-spacing:-0.02em;color:var(--dark);margin-bottom:1.5rem;">A region that runs on the long lunch</h2>
-          <p>The Mornington Peninsula's food scene is built around one format: the long lunch. A two-to-three-hour table in a vineyard restaurant, estate wine poured from the vines outside the window, produce grown or sourced within five kilometres, and a kitchen serious enough to have earned it. The Peninsula does this better than almost anywhere else in Victoria.</p>
-          <p>What makes the region distinctive is the density. Within the Red Hill plateau — a twenty-minute drive at most — there are four two-hat restaurants, seven one-hat venues, and a dozen more cellar door dining rooms doing honest, seasonal work without the formal recognition. The concentration of serious food in a small geographic area is closer to what you'd find in a Burgundy village or a Barossa sub-region than in most Australian wine country.</p>
-          <p>Below the hatted tier, the Peninsula's food scene organises around two more useful categories. The first is the cellar door with a kitchen: a winery that has earned the right to charge for lunch by being serious about both the wine and the table. Foxeys Hangout, Red Hill Estate, and T'Gallant operate at this level. The second is the village cafe or general store: Commonfolk Coffee in Mornington, Somers General, and Flinders General Store — places that are not destinations in themselves but are essential to making a Peninsula day feel properly inhabited.</p>
-          <p>The Peninsula's strongest dining windows are autumn and spring. In autumn, vintage is running on the ridge, the summer crowds have thinned, and the best tables are actually bookable. In spring, new menus, release wines, and the right light. Winter fine dining with fires lit in cellar door rooms is underrated. Summer is beautiful and chaotic and the bookings problem is hardest to solve.</p>
-          <p>The practical advice: pick one destination per day, not three. Book as far ahead as the venue requires. Arrive at the cellar door before the table, not after. And do not try to fit another estate in after a three-hour lunch. The day will not improve.</p>
-          <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 23 April 2026</p>
-        </div>
-        <div>
-          <div style="background:var(--white);padding:2rem;border-left:3px solid var(--accent);">
-            <p class="label label--accent" style="margin-bottom:1rem">By the numbers</p>
-            <dl style="display:grid;gap:1.25rem;">
-              <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:0.25rem;">Two-hat restaurants</dt><dd style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;font-weight:700;color:var(--dark);line-height:1;">4</dd></div>
-              <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:0.25rem;">Total GFG hats</dt><dd style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;font-weight:700;color:var(--dark);line-height:1;">15</dd></div>
-              <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:0.25rem;">Venues mapped</dt><dd style="font-family:'Cormorant Garamond',Georgia,serif;font-size:2.5rem;font-weight:700;color:var(--dark);line-height:1;">{venues.length}</dd></div>
-              <div><dt style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--soft);margin-bottom:0.25rem;">Best dining season</dt><dd style="font-size:0.95rem;font-weight:600;color:var(--dark);margin-top:0.25rem;">Autumn (Mar–May)</dd></div>
-            </dl>
-          </div>
-          <div style="margin-top:1.5rem;">
-            <a href="/eat/best-restaurants/" style="display:block;background:var(--accent);color:#fff;padding:1rem 1.5rem;font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-align:center;text-decoration:none;">See the ranked list →</a>
-          </div>
-          <div style="margin-top:1px;">
-            <a href="/journal/where-to-eat-mornington-peninsula/" style="display:block;background:var(--white);color:var(--accent);border:1px solid var(--accent);padding:1rem 1.5rem;font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-align:center;text-decoration:none;">Full eat guide →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Editor's picks -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. EDITOR'S PICKS — The hatted tier
+       ═══════════════════════════════════════════════════════════════ -->
   {editorPicks.length > 0 && (
     <section class="venues" id="picks">
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Editor's picks right now</p>
+            <p class="label label--accent">The hatted tier</p>
             <h2 class="venues__title">Three rooms doing the heaviest lifting</h2>
-            <p class="venues__sub">If lunch is the event and you only have one booking, start with one of these three.</p>
+            <p class="venues__sub venues__sub--standfirst">If lunch is the event and you only have one booking, start with one of these three. Each is a two-hat venue; each is a different argument for what fine dining on the Peninsula should feel like.</p>
           </div>
           <a href="/eat/hatted-restaurants/" class="venues__link">All hatted venues →</a>
         </div>
@@ -217,7 +187,9 @@ const faqSchema = {
     </section>
   )}
 
-  <!-- Long lunch shortlist -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. LONG LUNCH SHORTLIST
+       ═══════════════════════════════════════════════════════════════ -->
   {longLunches.length > 0 && (
     <section class="venues venues--plain" id="long-lunch">
       <div class="container">
@@ -225,7 +197,7 @@ const faqSchema = {
           <div>
             <p class="label label--accent">Long lunch shortlist</p>
             <h2 class="venues__title">The tables that carry the whole afternoon</h2>
-            <p class="venues__sub">The Peninsula's defining dining format — estate wine, kitchen-garden produce, and a room that earns a two-hour sit.</p>
+            <p class="venues__sub venues__sub--standfirst">Below the hatted tier — the rooms that earn three hours without a Good Food Guide rosette. Estate wine, kitchen-garden produce, and service that knows when to leave you alone.</p>
           </div>
           <a href="/eat/long-lunch/" class="venues__link">Full long lunch list →</a>
         </div>
@@ -236,7 +208,57 @@ const faqSchema = {
     </section>
   )}
 
-  <!-- Featured service guides -->
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. HUB NAVIGATION — find what you're looking for
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="eat-hubs" aria-label="Eat and drink categories">
+    <div class="container">
+      <div class="eat-hubs__intro">
+        <p class="label label--accent">Or jump to a format</p>
+        <h2 class="eat-hubs__title">Find the right table for the day</h2>
+        <p class="eat-hubs__dek">Sixteen ways to slice the Peninsula's eating. Each lane is a curated list with editorial notes — not a directory dump.</p>
+      </div>
+      <ul class="eat-hubs__grid">
+        {hubs.map((hub) => (
+          <li class="eat-hub">
+            <a href={hub.href} class="eat-hub__link">
+              <span class="eat-hub__label">{hub.label}</span>
+              <span class="eat-hub__sub">{hub.sub}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. CASUAL STOPS — cafes & bakeries
+       ═══════════════════════════════════════════════════════════════ -->
+  {casualStops.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Before and after the booking</p>
+            <h2 class="venues__title">Coffee rooms and bakeries that keep the day inhabited</h2>
+            <p class="venues__sub">Not the destination lunch — the village stops that make a Peninsula day feel local.</p>
+          </div>
+          <a href="/eat/cafes/" class="venues__link">All cafes →</a>
+        </div>
+        <div class="venues__grid">
+          {casualStops.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       7. EDITORIAL GUIDES
+       ═══════════════════════════════════════════════════════════════ -->
   {featuredGuides.length > 0 && (
     <section class="venues" id="guides">
       <div class="container">
@@ -255,26 +277,9 @@ const faqSchema = {
     </section>
   )}
 
-  <!-- Cafes and casual stops -->
-  {casualStops.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Before and after the booking</p>
-            <h2 class="venues__title">Coffee rooms and bakeries that keep the day from feeling scheduled</h2>
-            <p class="venues__sub">Not the destination lunch — the stops that make a Peninsula day feel inhabited.</p>
-          </div>
-          <a href="/eat/cafes/" class="venues__link">All cafes →</a>
-        </div>
-        <div class="venues__grid">
-          {casualStops.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Full venue list -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       8. FULL DIRECTORY
+       ═══════════════════════════════════════════════════════════════ -->
   <section class="venues" id="all">
     <div class="container">
       <div class="venues__header">
@@ -291,23 +296,40 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section style="padding: clamp(3rem,6vw,5rem) 0; border-top: 1px solid var(--border);">
+  <!-- ═══════════════════════════════════════════════════════════════
+       9. FAQ
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="eat-faq" aria-label="Frequently asked questions">
     <div class="container">
-      <div class="prose" style="max-width:720px;margin:0 auto;">
-        <h2>Frequently asked questions</h2>
-        <h3>What are the best restaurants on the Mornington Peninsula?</h3>
-        <p>The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants — Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor — are the definitive destination dining choices. For long lunch without the commitment: Montalto, Polperro, and Paringa Estate are the strongest options below the hatted tier.</p>
-        <h3>Do I need to book?</h3>
-        <p>Most serious restaurants require bookings, especially on weekends. Hatted venues book out weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (walk-in from 2pm weekends), and most cafes and bakeries.</p>
-        <h3>What is the best area for food?</h3>
-        <p>The Red Hill plateau has the highest concentration of serious dining. Mornington has the strongest casual eating scene. For wine-paired long lunches, stay on the ridge — Main Ridge and Red Hill South are where the best rooms are.</p>
-        <h3>When is the best time to visit for food?</h3>
-        <p>Autumn (March to May) — vintage is running, summer crowds have thinned, best tables are bookable. Spring is a close second. Winter cellar door lunches with fires are underrated.</p>
-        <h3>Are there dog-friendly dining options?</h3>
-        <p>Yes — outdoor seating at cafes, village pub beer gardens, and a small number of winery casual areas. Commonfolk Coffee (back courtyard), Portsea Hotel (beer garden), The Rocks Mornington (outdoor deck), and Green Olive at Red Hill (garden) are confirmed as of April 2026. Verify directly before visiting.</p>
-        <h3>What is the Peninsula's signature food experience?</h3>
-        <p>The long lunch. A two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions of the format.</p>
+      <div class="eat-faq__intro">
+        <p class="label label--accent">Frequently asked</p>
+        <h2 class="eat-faq__title">Six honest answers before you plan the day</h2>
+      </div>
+      <div class="eat-faq__list">
+        <details class="eat-faq__item">
+          <summary class="eat-faq__q">What are the best restaurants on the Peninsula?</summary>
+          <div class="eat-faq__a"><p>The Good Food Guide awarded 15 hats across 11 venues. The four two-hat restaurants — Barragunda Dining, Laura at Pt. Leo, Tedesca Osteria, and Ten Minutes by Tractor — are the clearest destination dining choices. For long lunch without the hatted commitment: Montalto, Polperro, and Paringa Estate.</p></div>
+        </details>
+        <details class="eat-faq__item">
+          <summary class="eat-faq__q">Do I need to book?</summary>
+          <div class="eat-faq__a"><p>Most serious restaurants require bookings, especially on weekends. Hatted venues book weeks or months ahead. Walk-in options: Montalto Piazza (daily), Foxeys Hangout (no bookings taken), Rare Hare at Willow Creek (from 2pm weekends), and most cafes and bakeries.</p></div>
+        </details>
+        <details class="eat-faq__item">
+          <summary class="eat-faq__q">What is the best area for food?</summary>
+          <div class="eat-faq__a"><p>The Red Hill plateau has the highest concentration of serious dining. Mornington has the strongest casual eating scene. For wine-paired long lunches, stay on the ridge — Main Ridge and Red Hill South are where the best rooms are.</p></div>
+        </details>
+        <details class="eat-faq__item">
+          <summary class="eat-faq__q">When is the best time to visit for food?</summary>
+          <div class="eat-faq__a"><p>Autumn (March–May) — vintage running, summer crowds thinned, best tables actually bookable. Spring is a close second. Winter cellar door lunches with fires are underrated.</p></div>
+        </details>
+        <details class="eat-faq__item">
+          <summary class="eat-faq__q">Are there dog-friendly dining options?</summary>
+          <div class="eat-faq__a"><p>Yes — outdoor seating at cafes, village pub beer gardens, and a small number of winery casual areas. Commonfolk (back courtyard), Portsea Hotel (beer garden), The Rocks Mornington (outdoor deck), and Green Olive at Red Hill (garden) are confirmed as of April 2026. Verify before visiting.</p></div>
+        </details>
+        <details class="eat-faq__item">
+          <summary class="eat-faq__q">What is the Peninsula's signature food experience?</summary>
+          <div class="eat-faq__a"><p>The long lunch. A two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. The Peninsula does this better than almost anywhere else in Victoria. Montalto, Laura, Polperro, and Ten Minutes by Tractor are the definitive versions.</p></div>
+        </details>
       </div>
     </div>
   </section>
@@ -316,9 +338,141 @@ const faqSchema = {
 </BaseLayout>
 
 <style>
-  @media (max-width: 760px) {
-    .editorial-essay-grid {
-      grid-template-columns: 1fr !important;
-    }
+  /* ─────────────────────────────────────────────────────────────────
+     EAT HUB NAVIGATION — compact format-finder grid
+     ───────────────────────────────────────────────────────────────── */
+  .eat-hubs {
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
   }
+  .eat-hubs__intro {
+    max-width: 60ch;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .eat-hubs__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.012em;
+    color: var(--dark);
+    margin-top: 0.6rem;
+    margin-bottom: 0.7rem;
+  }
+  .eat-hubs__dek {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: #6b4f33;
+    max-width: 56ch;
+  }
+  .eat-hubs__grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: rgba(121, 92, 58, 0.18);
+    border: 1px solid rgba(121, 92, 58, 0.18);
+    border-radius: 0.85rem;
+    overflow: hidden;
+  }
+  .eat-hub {
+    background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
+    transition: background 0.18s var(--ease);
+  }
+  .eat-hub__link {
+    display: block;
+    padding: 1.15rem 1.35rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .eat-hub:hover { background: rgba(165, 129, 92, 0.06); }
+  .eat-hub__label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.005em;
+  }
+  .eat-hub__sub {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--soft);
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+  }
+  .eat-hub:hover .eat-hub__label { color: var(--accent); }
+
+  /* ─────────────────────────────────────────────────────────────────
+     EAT FAQ — disclosure accordion (no JS, browser-native)
+     ───────────────────────────────────────────────────────────────── */
+  .eat-faq {
+    padding: clamp(3rem, 6vw, 4.5rem) 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .eat-faq__intro {
+    max-width: 60ch;
+    margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
+  }
+  .eat-faq__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.012em;
+    color: var(--dark);
+    margin-top: 0.5rem;
+  }
+  .eat-faq__list {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(121, 92, 58, 0.14);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .eat-faq__item {
+    border-bottom: 1px solid rgba(121, 92, 58, 0.1);
+    transition: background 0.18s var(--ease);
+  }
+  .eat-faq__item:last-child { border-bottom: none; }
+  .eat-faq__item[open] { background: rgba(139, 78, 59, 0.03); }
+  .eat-faq__q {
+    cursor: pointer;
+    list-style: none;
+    padding: 1.15rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    user-select: none;
+  }
+  .eat-faq__q::-webkit-details-marker { display: none; }
+  .eat-faq__q::after {
+    content: '+';
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .eat-faq__item[open] .eat-faq__q::after { content: '−'; }
+  .eat-faq__a {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.92rem;
+    color: #44372b;
+    line-height: 1.65;
+  }
+  .eat-faq__a p { margin: 0; }
 </style>
