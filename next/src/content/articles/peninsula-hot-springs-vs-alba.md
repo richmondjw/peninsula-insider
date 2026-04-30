@@ -24,6 +24,8 @@ clusterLinks:
     href: "/journal/where-to-stay-mornington-peninsula/"
   - label: "The Best Spas on the Mornington Peninsula"
     href: "/journal/best-spas-mornington-peninsula/"
+  - label: "Guided Hot Springs Tours — From Melbourne"
+    href: "/tour/hot-springs-tours/"
 status: "published"
 faq:
   - question: "Should I book Peninsula Hot Springs or Alba Thermal Springs?"

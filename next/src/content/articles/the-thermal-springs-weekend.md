@@ -34,6 +34,10 @@ clusterLinks:
     href: "/journal/best-spas-mornington-peninsula/"
   - label: "Where to Stay Near the Hot Springs"
     href: "/journal/mornington-peninsula-stay-and-soak/"
+  - label: "Guided Hot Springs Tours — From Melbourne"
+    href: "/tour/hot-springs-tours/"
+  - label: "Thermal Springs Wine Weekend Package"
+    href: "/tour-packages/thermal-springs-wine-weekend/"
 faq:
   - question: "How long should I spend at Peninsula Hot Springs or Alba?"
     answer: "A proper thermal circuit takes two and a half to three hours done correctly — alternating hot and cold pools with genuine rest in between, not rushing between them. The shortest sessions on the menu are rarely enough. Do not book a lunch reservation immediately after your session."
