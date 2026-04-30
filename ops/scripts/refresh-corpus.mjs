@@ -501,11 +501,18 @@ function chunkEvent(ev, slug, today) {
   const end = ev.endDate ? new Date(ev.endDate) : start;
   const effectiveEnd = end > start ? end : start;
 
-  // Freshness: future or current = fresh, recently past (<= grace) = stale-warning, otherwise expired
+  // Freshness state machine:
+  //   future or in-progress  → fresh        (write to DB)
+  //   recently past (≤grace) → recently_past (skip DB; auto-prune handles it)
+  //   beyond grace           → expired      (skip DB; reconciliation pruning)
+  // The live DB's freshness_flag CHECK constraint only allows 'fresh' (and
+  // possibly other values we haven't probed), so any non-fresh state means
+  // we don't write the row at all. The reader is best served by either a
+  // current event surface or the prune list, not a half-stale tile.
   const cutoffPrune = daysAgo(EVENT_GRACE_DAYS);
-  let freshness_flag = "fresh";
   if (effectiveEnd < today) {
-    freshness_flag = effectiveEnd >= cutoffPrune ? "stale" : "expired";
+    const stillInGrace = effectiveEnd >= cutoffPrune;
+    return { chunks: [], expired: !stillInGrace, recentlyPast: stillInGrace };
   }
 
   const base = {
@@ -517,13 +524,9 @@ function chunkEvent(ev, slug, today) {
     category: ev.category || "event",
     region,
     vendor_relationship: "none",
-    freshness_flag,
+    freshness_flag: "fresh",
     event_date: isoDate(effectiveEnd),
   };
-
-  // If expired beyond grace, return no chunks. The reconciliation pass will
-  // detect the missing IDs and prune them from the database.
-  if (freshness_flag === "expired") return { chunks: [], expired: true };
 
   const out = [];
   const dateStr = ev.endDate
@@ -884,18 +887,26 @@ async function main() {
   }
   console.log(`  Experiences: ${experiences.length} files`);
 
-  // 6. Events (auto-prunes expired)
+  // 6. Events. Future / in-progress events get chunked; recently-past
+  // (≤14d) and fully expired events are skipped at write time and rely on
+  // the reconciliation prune to clean up matching DB rows on a later run.
   const events = await readJsonDir(join(CONTENT_DIR, "events"));
+  let recentlyPastCount = 0;
   for (const { slug, data } of events) {
     if (data.status && data.status !== "published") continue;
-    const { chunks, expired } = chunkEvent(data, slug, today);
-    if (expired) expiredEventIds.push(eventId(slug));
-    else {
+    const { chunks, expired, recentlyPast } = chunkEvent(data, slug, today);
+    if (expired) {
+      expiredEventIds.push(eventId(slug));
+    } else if (recentlyPast) {
+      recentlyPastCount += 1;
+    } else {
       allChunks.push(...chunks);
       counts.event += 1;
     }
   }
-  console.log(`  Events:      ${events.length} files (${expiredEventIds.length} expired)`);
+  console.log(
+    `  Events:      ${events.length} files (${expiredEventIds.length} expired, ${recentlyPastCount} recently past)`
+  );
 
   // 7. Editorial blocks (optional collection — silent if missing)
   const editorialDir = join(CONTENT_DIR, "editorial_blocks");
@@ -931,13 +942,24 @@ async function main() {
     const newMetaHash = metadataFingerprint(chunk);
     const ex = existing.get(chunk.chunk_id);
 
-    if (!FORCE && ex && ex.text_hash === newTextHash && ex.meta_hash === newMetaHash) {
+    // In compat mode (metadata_fingerprint column doesn't exist), text-hash
+    // match is sufficient evidence the row is current — there's no persisted
+    // metadata fingerprint to diff against, so we can't detect metadata-only
+    // drift until the migration lands. Treating text-match as unchanged
+    // prevents the metadata-only branch from firing and throwing.
+    const textMatches = !!ex && ex.text_hash === newTextHash;
+    const metaMatches = schema.hasMetadataFingerprint
+      ? !!ex && ex.meta_hash === newMetaHash
+      : true;
+    if (!FORCE && ex && textMatches && metaMatches) {
       unchanged++;
       continue;
     }
 
     const textChanged = !ex || ex.text_hash !== newTextHash;
-    const metaChanged = !ex || ex.meta_hash !== newMetaHash;
+    // metaChanged is only meaningful when the column exists; in compat mode
+    // we never take the metadata-only branch.
+    const metaChanged = schema.hasMetadataFingerprint && (!ex || ex.meta_hash !== newMetaHash);
 
     if (DRY) {
       const verb = !ex ? "WOULD add" : textChanged ? "WOULD re-embed" : "WOULD update meta-only";
