@@ -72,6 +72,14 @@ const isAskPage = Astro.url.pathname.startsWith('/ask');
         <span class="mobile-nav__arrow" aria-hidden="true">→</span>
       </a>
     ))}
+    <a
+      href="/contact/"
+      class="mobile-nav__link"
+      aria-current={section === 'contact' ? 'page' : undefined}
+    >
+      <span>Contact</span>
+      <span class="mobile-nav__arrow" aria-hidden="true">→</span>
+    </a>
     <div class="mobile-nav__footer">
       <a href="/ask/" class="mobile-nav__cta mobile-nav__cta--ask" data-pi-trigger="true">
         Ask The Insider for a recommendation

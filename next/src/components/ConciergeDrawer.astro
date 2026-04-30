@@ -530,19 +530,21 @@
       0 1px 0 rgba(255, 252, 247, 0.85) inset,
       0 4px 14px rgba(34, 24, 16, 0.10),
       0 14px 36px rgba(34, 24, 16, 0.14);
-    /* Slide in from bottom-right */
-    transform: translateY(calc(100% + 32px));
-    opacity: 0;
+    /* Visible by default at every breakpoint — only concealed while the
+       drawer panel is open (handled below). Animates in/out via transform. */
+    transform: translateY(0);
+    opacity: 1;
     transition:
       transform 0.34s var(--ease-soft),
       opacity 0.28s var(--ease-soft),
       box-shadow 0.22s var(--ease-soft);
   }
 
-  /* Show on minimised (any breakpoint) */
-  .pi-drawer[data-state="minimised"] .pi-drawer__bubble {
-    transform: translateY(0);
-    opacity: 1;
+  /* Hide while the panel is open so the bubble doesn't sit on top of it. */
+  .pi-drawer[data-state="open"] .pi-drawer__bubble {
+    transform: translateY(calc(100% + 32px));
+    opacity: 0;
+    pointer-events: none;
   }
 
   .pi-drawer__bubble:hover {
@@ -611,22 +613,13 @@
     animation: pi-drawer-pulse 2.4s ease-out infinite;
   }
 
-  /* ── MOBILE — always visible pill (except when drawer is open) ── */
+  /* ── MOBILE — tighter spacing for thumb reach.
+     Visibility is the same as desktop: visible unless the drawer is open
+     (handled by the generic rules above). ── */
   @media (max-width: 720px) {
     .pi-drawer__bubble {
       bottom: 18px;
       right: 18px;
-      /* Visible by default on mobile */
-      transform: translateY(0);
-      opacity: 1;
-    }
-    /* Only hide when drawer's full sheet is up */
-    .pi-drawer[data-state="open"] .pi-drawer__bubble {
-      transform: translateY(calc(100% + 32px));
-      opacity: 0;
-    }
-    /* Slightly tighter on mobile for thumb reach */
-    .pi-drawer__bubble {
       padding: 0.45rem 0.95rem 0.45rem 0.45rem;
     }
     .pi-drawer__bubble-avatar { width: 34px; height: 34px; }
