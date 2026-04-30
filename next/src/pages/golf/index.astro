@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -108,19 +109,7 @@ const collectionSchema = {
           <a href="/journal/" class="venues__link">All journal pieces →</a>
         </div>
         <div class="venues__grid">
-          {golfArticles.slice(0, 3).map((article) => (
-            <article class="venue-card">
-              <div class="venue-card__top">
-                <span class="venue-card__type">Golf</span>
-                <span class="venue-card__price">{article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : ''}</span>
-              </div>
-              <h3 class="venue-card__name">
-                <a href={`/journal/${routeSlug(article)}`}>{article.data.title}</a>
-              </h3>
-              <p class="venue-card__signature">{article.data.dek}</p>
-              <a href={`/journal/${routeSlug(article)}`} class="venue-card__cta">Read the piece →</a>
-            </article>
-          ))}
+          {golfArticles.slice(0, 3).map((article) => <ArticleCard article={article} />)}
         </div>
       </div>
     </section>
@@ -150,21 +139,18 @@ const collectionSchema = {
         </div>
       </div>
       <div class="venues__grid venues__grid--links">
-        <div class="venue-card">
+        <article class="venue-card venue-card--editorial">
           <h3 class="venue-card__name"><a href="/journal/mornington-peninsula-itinerary/">3-Day Peninsula Itinerary</a></h3>
           <p class="venue-card__signature">Where golf fits in a broader weekend — day-by-day plan with cellar doors, walks, and restaurants.</p>
-          <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">Read the guide →</a>
-        </div>
-        <div class="venue-card">
+        </article>
+        <article class="venue-card venue-card--editorial">
           <h3 class="venue-card__name"><a href="/journal/mornington-peninsula-hot-springs-guide/">Hot Springs Guide</a></h3>
           <p class="venue-card__signature">The perfect post-round recovery. Peninsula Hot Springs or Alba Thermal Springs — when to go, which session.</p>
-          <a href="/journal/mornington-peninsula-hot-springs-guide/" class="venue-card__cta">Read the guide →</a>
-        </div>
-        <div class="venue-card">
+        </article>
+        <article class="venue-card venue-card--editorial">
           <h3 class="venue-card__name"><a href="/stay/best-accommodation/">Where to Stay</a></h3>
           <p class="venue-card__signature">Accommodation within 20 minutes of St Andrews Beach and Moonah Links — the southern Peninsula stays.</p>
-          <a href="/stay/best-accommodation/" class="venue-card__cta">Read the guide →</a>
-        </div>
+        </article>
       </div>
     </div>
   </section>
