@@ -629,6 +629,29 @@
   body.pi-drawer-open-mobile {
     overflow: hidden;
   }
+
+  /* ── LEGIBILITY OVERRIDE — force every readable word inside the drawer
+        to pure black for maximum contrast against the paper background.
+        Decorative glyphs (sparkle ✦, asterism ⁂, byline rule) stay terracotta. */
+  .pi-drawer .ask-msg__prose p,
+  .pi-drawer .ask-msg__prose--greeting p,
+  .pi-drawer .ask-msg__bubble,
+  .pi-drawer .ask-msg__prose p:first-of-type::first-letter,
+  .pi-drawer .ask-msg__byline-name,
+  .pi-drawer .ask-msg__followup-label span,
+  .pi-drawer .pi-drawer__name,
+  .pi-drawer .pi-drawer__status,
+  .pi-drawer .pi-drawer__disclaimer,
+  .pi-drawer .ask-composer__input,
+  .pi-drawer .ask-tile__name,
+  .pi-drawer .ask-tile__why,
+  .pi-drawer .ask-tile__type,
+  .pi-drawer .ask-tile__region,
+  .pi-drawer .ask-tile__price,
+  .pi-drawer .ask-tile__rank,
+  .pi-drawer .pi-chip {
+    color: #000;
+  }
 </style>
 
 <script is:inline>
