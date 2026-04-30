@@ -178,10 +178,7 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
 </section>
 
 <style>
-  /* Match the height of GuideHero used on every category section so the
-     homepage cover and the hub heroes feel like part of one editorial
-     system rather than the homepage being noticeably taller. */
-  .hero-v2 { position: relative; min-height: clamp(420px, 62vh, 720px); display: flex; align-items: flex-end; overflow: hidden; background-color: var(--dark); }
+  .hero-v2 { position: relative; min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; background-color: var(--dark); }
   /* Still-image fallback. Oversized like the video so the JS parallax can
      drift it without revealing empty space. */
   .hero-v2__bg {
@@ -275,7 +272,7 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
     }
   }
   @media (max-width: 768px) {
-    .hero-v2 { min-height: clamp(380px, 60vh, 580px); }
+    .hero-v2 { min-height: 85vh; }
     .hero-v2__bg { background-position: center 30%; background-attachment: scroll; }
     /* Heavier scrim on mobile — image is bright and text needs to float cleanly */
     .hero-v2__scrim { background: linear-gradient(to bottom,
