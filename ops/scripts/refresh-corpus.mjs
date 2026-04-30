@@ -622,21 +622,62 @@ async function embed(text, retries = 3) {
 }
 
 // ─── Supabase ops ─────────────────────────────────────────────
+
+// Schema detection. The columns metadata_fingerprint and event_date are added
+// by ops/migrations/2026-04-30-...sql. The script needs to work both before
+// and after that migration is applied, so we probe once and adapt.
+const schema = {
+  hasMetadataFingerprint: false,
+  hasEventDate: false,
+};
+
+async function detectSchema() {
+  // Probe with a 1-row select that asks for both columns. PostgREST returns
+  // PGRST204 if a column doesn't exist; we degrade per-column on failure.
+  async function probeColumn(col) {
+    const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?select=${col}&limit=1`;
+    const res = await fetch(url, { headers: sbHeaders });
+    if (res.ok) return true;
+    const body = await res.text();
+    if (res.status === 400 || /Could not find the .+ column/i.test(body)) return false;
+    // Any other error (auth, network, etc.) should surface loudly
+    throw new Error(`Schema probe for "${col}" failed: ${res.status} ${body}`);
+  }
+  schema.hasMetadataFingerprint = await probeColumn("metadata_fingerprint");
+  schema.hasEventDate = await probeColumn("event_date");
+  if (!schema.hasMetadataFingerprint || !schema.hasEventDate) {
+    console.warn(
+      `\n  ⚠  Schema is pre-migration (metadata_fingerprint=${schema.hasMetadataFingerprint}, event_date=${schema.hasEventDate}).\n     Running in compat mode. Apply ops/migrations/2026-04-30-concierge-chunks-fingerprint-and-event-date.sql\n     to unlock metadata-only upserts and event_date filtering.\n`
+    );
+  }
+}
+
+function stripUnsupportedFields(payload) {
+  const out = { ...payload };
+  if (!schema.hasMetadataFingerprint) delete out.metadata_fingerprint;
+  if (!schema.hasEventDate) delete out.event_date;
+  return out;
+}
+
 async function fetchExistingRows() {
+  const cols = ["chunk_id", "embedding_source_hash", "source_entity_type", "extracted_at"];
+  if (schema.hasMetadataFingerprint) cols.push("metadata_fingerprint");
+  const select = cols.join(",");
+
   const map = new Map();
   let offset = 0;
   const PAGE = 1000;
   while (true) {
-    const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?select=chunk_id,embedding_source_hash,metadata_fingerprint,source_entity_type,ingested_at&limit=${PAGE}&offset=${offset}`;
+    const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?select=${select}&limit=${PAGE}&offset=${offset}`;
     const res = await fetch(url, { headers: sbHeaders });
     if (!res.ok) throw new Error(`Failed listing chunks: ${res.status} ${await res.text()}`);
     const rows = await res.json();
     rows.forEach((r) =>
       map.set(r.chunk_id, {
         text_hash: r.embedding_source_hash,
-        meta_hash: r.metadata_fingerprint,
+        meta_hash: schema.hasMetadataFingerprint ? r.metadata_fingerprint : null,
         type: r.source_entity_type,
-        ingested_at: r.ingested_at,
+        extracted_at: r.extracted_at,
       })
     );
     if (rows.length < PAGE) break;
@@ -647,17 +688,18 @@ async function fetchExistingRows() {
 
 async function upsertChunk(chunk, embedding, textHash, metaHash) {
   const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?on_conflict=chunk_id`;
+  const body = stripUnsupportedFields({
+    ...chunk,
+    embedding: `[${embedding.join(",")}]`,
+    embedding_source_hash: textHash,
+    metadata_fingerprint: metaHash,
+    approx_tokens: tokens(chunk.text),
+    extracted_at: new Date().toISOString(),
+  });
   const res = await fetch(url, {
     method: "POST",
     headers: { ...sbHeaders, Prefer: "resolution=merge-duplicates,return=minimal" },
-    body: JSON.stringify({
-      ...chunk,
-      embedding: `[${embedding.join(",")}]`,
-      embedding_source_hash: textHash,
-      metadata_fingerprint: metaHash,
-      approx_tokens: tokens(chunk.text),
-      ingested_at: new Date().toISOString(),
-    }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) {
     throw new Error(`Upsert ${chunk.chunk_id} failed: ${res.status} ${await res.text()}`);
@@ -666,18 +708,23 @@ async function upsertChunk(chunk, embedding, textHash, metaHash) {
 
 async function upsertMetadataOnly(chunk, metaHash) {
   // Used when only metadata changed: avoid re-embedding, just update the row's
-  // metadata fields and fingerprint. Embedding stays as-is.
+  // metadata fields and fingerprint. Embedding stays as-is. Skipped entirely
+  // when the schema lacks metadata_fingerprint.
+  if (!schema.hasMetadataFingerprint) {
+    throw new Error("metadata-only upsert called but schema lacks metadata_fingerprint");
+  }
   const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?on_conflict=chunk_id`;
   const { embedding, ...rest } = chunk;
   void embedding;
+  const body = stripUnsupportedFields({
+    ...rest,
+    metadata_fingerprint: metaHash,
+    extracted_at: new Date().toISOString(),
+  });
   const res = await fetch(url, {
     method: "POST",
     headers: { ...sbHeaders, Prefer: "resolution=merge-duplicates,return=minimal" },
-    body: JSON.stringify({
-      ...rest,
-      metadata_fingerprint: metaHash,
-      ingested_at: new Date().toISOString(),
-    }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) {
     throw new Error(`Metadata upsert ${chunk.chunk_id} failed: ${res.status} ${await res.text()}`);
@@ -816,7 +863,8 @@ async function main() {
 
   console.log(`\n  → ${allChunks.length} chunks built from source\n`);
 
-  // ─── Diff against existing ────────────────────────────────────
+  // ─── Probe schema, then diff against existing ─────────────────
+  await detectSchema();
   const existing = await fetchExistingRows();
   console.log(`  ${existing.size} chunks currently in Supabase\n`);
 
@@ -914,7 +962,7 @@ async function main() {
     const graceCutoff = daysAgo(STALE_GRACE_DAYS);
     for (const id of staleOther) {
       const meta = existing.get(id);
-      if (meta?.ingested_at && new Date(meta.ingested_at) < graceCutoff) {
+      if (meta?.extracted_at && new Date(meta.extracted_at) < graceCutoff) {
         try {
           await deleteChunk(id);
           pruned++;
@@ -931,7 +979,7 @@ async function main() {
     const graceCutoff = daysAgo(STALE_GRACE_DAYS);
     for (const id of staleOther) {
       const meta = existing.get(id);
-      if (meta?.ingested_at && new Date(meta.ingested_at) < graceCutoff) {
+      if (meta?.extracted_at && new Date(meta.extracted_at) < graceCutoff) {
         console.log(`  WOULD prune (stale): ${id}`);
       }
     }
