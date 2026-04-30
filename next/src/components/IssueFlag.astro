@@ -1,0 +1,47 @@
+---
+/**
+ * IssueFlag — magazine-style edition masthead.
+ *
+ * Replaces the previous hidden .issue-ribbon block with a proper editorial
+ * flag: the edition month at top, a centered fleuron rule, and the live
+ * issue stats arranged as a clean horizontal index. This is the moment
+ * the homepage tells the reader "this is a magazine, not a feed."
+ */
+export interface IssueStat {
+  label: string;
+  value: number | string;
+}
+
+export interface Props {
+  /** "April 2026" — month-and-year string, falls back to current month. */
+  issueDate: string;
+  /** Optional contextual line shown under the flag (e.g. "Autumn — vintage on the ridge"). */
+  context?: string;
+  /** Statistics rendered as a horizontal data row at the bottom. */
+  stats: IssueStat[];
+}
+
+const { issueDate, context, stats } = Astro.props;
+---
+
+<section class="issue-flag" aria-label={`The ${issueDate} edition`}>
+  <div class="container">
+    <p class="issue-flag__edition">The {issueDate} edition</p>
+    <div class="issue-flag__rule" aria-hidden="true">
+      <span class="issue-flag__rule-line"></span>
+      <span class="issue-flag__rule-mark">✦</span>
+      <span class="issue-flag__rule-line"></span>
+    </div>
+    {context && <p class="issue-flag__context">{context}</p>}
+    {stats.length > 0 && (
+      <dl class="issue-flag__stats">
+        {stats.map((s) => (
+          <div class="issue-flag__stat">
+            <dt>{s.label}</dt>
+            <dd>{s.value}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+  </div>
+</section>

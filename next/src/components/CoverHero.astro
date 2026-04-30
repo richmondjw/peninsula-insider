@@ -15,7 +15,8 @@ export interface Props {
   headlineEmPrefix?: string;
   dek?: string;
   ctaPrimary?: { label: string; href: string };
-  ctaSecondary?: { label: string; href: string };
+  /** Pass null to hide the secondary CTA entirely (homepage uses one CTA + journal text link). */
+  ctaSecondary?: { label: string; href: string } | null;
   journalLink?: { label: string; href: string } | null;
   showScrollHint?: boolean;
   bgImage?: string;
@@ -164,7 +165,7 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
     <p class="hero-v2__dek">{dekResolved}</p>
     <div class="hero-v2__ctas">
       <a href={ctaPrimary.href} class="hero-v2__cta-primary">{ctaPrimary.label}</a>
-      <a href={ctaSecondary.href} class="hero-v2__cta-secondary">{ctaSecondary.label}</a>
+      {ctaSecondary && <a href={ctaSecondary.href} class="hero-v2__cta-secondary">{ctaSecondary.label}</a>}
     </div>
     {journalLink && <p class="hero-v2__journal-link"><a href={journalLink.href}>{journalLink.label}</a></p>}
   </div>
