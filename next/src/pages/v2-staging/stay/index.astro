@@ -75,6 +75,58 @@ const stayStats = {
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/';
+
+const stayZones = [
+  {
+    slug: 'red-hill-base',
+    title: 'Red Hill / Merricks',
+    x: '56%',
+    y: '34%',
+    label: `${stayStats.ridge} stays mapped`,
+    suited: 'Long lunches, fireplaces, two-night couples weekends.',
+    unlocks: 'Jackalope, Laura, Pt. Leo, Montalto, Main Ridge bakery runs.',
+    pace: 'Best when the meal is the hero stop and the rest of the day stays slow.',
+    href: `${base}stay/red-hill/`,
+    action: 'Choose this base',
+  },
+  {
+    slug: 'sorrento-base',
+    title: 'Sorrento / Blairgowrie',
+    x: '18%',
+    y: '48%',
+    label: `${stayStats.coast} coastal stays`,
+    suited: 'Village weekends, beach access, easy people-watching, one-night resets.',
+    unlocks: 'Hotel Sorrento, back beach walks, ferry edge, late bay light, tip dinners.',
+    pace: 'Best when you want to park the car and let the southern end carry the mood.',
+    href: `${base}stay/sorrento/`,
+    action: 'Start on the tip',
+  },
+  {
+    slug: 'flinders-base',
+    title: 'Flinders / Cape Schanck',
+    x: '71%',
+    y: '60%',
+    label: 'Southern reset',
+    suited: 'Ocean weather, slower village energy, smarter one-night decompressions.',
+    unlocks: 'Flinders Hotel, pier walks, Cape Schanck, southern wineries without the crowd.',
+    pace: 'Best when you want the Peninsula to feel quieter and slightly wilder.',
+    href: `${base}stay/flinders/`,
+    action: 'Map this base',
+  },
+  {
+    slug: 'mornington-base',
+    title: 'Mornington / Mount Martha',
+    x: '83%',
+    y: '15%',
+    label: `${stayStats.bay} bay-side bases`,
+    suited: 'Shorter drives from Melbourne, practical family stays, easy first-timer access.',
+    unlocks: 'Cliff walks, cafés, practical entry point, north-end flexibility.',
+    pace: 'Best when the trip needs to feel easy from the first hour, not heroic.',
+    href: `${base}stay/mornington/`,
+    action: 'Keep it easy',
+  },
+];
+
 ---
 <BaseLayout
   title="Where to Stay on the Mornington Peninsula · Peninsula Insider"
@@ -134,6 +186,83 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         <img class="letter__image" src={`${base}images/sourced/place-red-hill-01.webp`} alt="Red Hill plateau">
         <figcaption class="letter__image-cap">The ridge <em>— autumn, the quiet version.</em></figcaption>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="planning planning--base" aria-labelledby="base-planning-title">
+  <div class="container">
+    <div class="planning__frame">
+      <div class="planning__intro">
+        <span class="eyebrow eyebrow--ochre">Sandpit · Choose your base</span>
+        <h2 class="planning__title" id="base-planning-title">Work out where to <em>wake up</em>, and the rest gets easier.</h2>
+        <p class="planning__dek">This is the first stay-planning test. Instead of asking people to browse beds blindly, start with the pocket of the Peninsula that makes the whole weekend feel coherent.</p>
+        <div class="planning__logic-list">
+          <div class="planning__logic-item">
+            <strong>What people need:</strong>
+            <span>A fast answer to whether the weekend is a Red Hill lunch trip, a Sorrento village trip, a Flinders reset, or a simple north-end base.</span>
+          </div>
+          <div class="planning__logic-item">
+            <strong>What the map does:</strong>
+            <span>It turns abstract suburb names into a visual choice. You can immediately see whether the trip clusters around the ridge, the tip, or the northern bay side.</span>
+          </div>
+          <div class="planning__logic-item">
+            <strong>What follows:</strong>
+            <span>Once the base is obvious, the room choice becomes much less noisy.</span>
+          </div>
+        </div>
+        <div class="planning__cta-row">
+          <a class="planning__button planning__button--primary" href="#base-cards">Screenshot these stay zones</a>
+          <a class="planning__button" href={`${base}stay/where-to-stay-mornington-peninsula/`}>Read the full base guide</a>
+        </div>
+      </div>
+
+      <div class="planning__visual">
+        <div class="planning-map planning-map--peninsula" aria-hidden="true">
+          <div class="planning-map__canvas planning-map__canvas--zones">
+            <div class="planning-map__cluster planning-map__cluster--north">
+              <span>Easy from Melbourne</span>
+              <small>Mornington side</small>
+            </div>
+            <div class="planning-map__cluster planning-map__cluster--ridgewide">
+              <span>Food-and-wine corridor</span>
+              <small>Red Hill to Merricks</small>
+            </div>
+            {stayZones.map((zone, index) => (
+              <a
+                class="planning-map__pin planning-map__pin--zone"
+                href={`#${zone.slug}`}
+                style={`--x:${zone.x};--y:${zone.y};`}
+              >
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="planning__visual-note">The useful question here is not <strong>which hotel is nicest?</strong> It is <strong>which part of the Peninsula makes the trip easiest to love?</strong></div>
+      </div>
+    </div>
+
+    <div class="planning-cards planning-cards--zones" id="base-cards">
+      {stayZones.map((zone, index) => (
+        <article class="planning-card planning-card--zone" id={zone.slug}>
+          <div class="planning-card__number">{String(index + 1).padStart(2, '0')}</div>
+          <div class="planning-card__body">
+            <div class="planning-card__meta">
+              <span>{zone.label}</span>
+              <span class="planning-card__sep"></span>
+              <span>{zone.title}</span>
+            </div>
+            <h3 class="planning-card__title planning-card__title--static">{zone.title}</h3>
+            <p class="planning-card__text"><strong>Best for:</strong> {zone.suited}</p>
+            <p class="planning-card__text"><strong>Unlocks:</strong> {zone.unlocks}</p>
+            <p class="planning-card__text"><strong>Pace:</strong> {zone.pace}</p>
+          </div>
+          <div class="planning-card__actions">
+            <a class="planning-card__link" href={zone.href}>{zone.action}</a>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>

@@ -602,6 +602,49 @@ const tourPackages = defineCollection({
   }),
 });
 
+// Quick Note — daily-cadence editorial briefs.
+// Three time horizons rendered on /quick-note/:
+//   "now"   - last 6h
+//   "today" - last 24h
+//   "week"  - last 7d (then archived from the live page)
+// One Markdown file per brief, src/content/quick-notes/<slug>.md.
+const quickNotes = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/quick-notes' }),
+  schema: z.object({
+    headline: z.string().max(140),
+    dek: z.string().max(320).optional(),
+    section: z.enum([
+      'eat', 'stay', 'wine', 'explore', 'spa', 'golf',
+      'whats-on', 'weather', 'note',
+    ]),
+    tag: z.enum([
+      'opening-window',  // booking opens / window available
+      'menu-change',     // restaurant menu / cellar door release
+      'closure',         // venue / track / beach closure
+      'event',           // dated event in the next ~2 weeks
+      'weather',         // tide / sunset / fire / rainfall window
+      'editor-note',     // editorial musing, no external trigger
+      'pricing',         // price change worth flagging
+      'safety',          // urgent: fire, beach, swim warning
+    ]),
+    publishedAt: z.coerce.date(),
+    expiresAt: z.coerce.date(),
+    verifiedAt: z.coerce.date().optional(),
+    verifiedBy: z.string().optional(),
+    verdict: z.string().max(140).optional(),  // pull-quote-style verdict
+    sources: z.array(z.object({
+      kind: z.enum(['venue-site', 'phone', 'email', 'visit', 'press', 'social', 'gov', 'partner']),
+      url: z.string().url().optional(),
+      note: z.string().optional(),
+      checkedAt: z.coerce.date().optional(),
+    })).default([]),
+    relatedVenue: z.string().optional(),
+    relatedArticle: z.string().optional(),
+    image: imageRef.optional(),
+    status: z.enum(['draft', 'published', 'archived']).default('draft'),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -613,4 +656,5 @@ export const collections = {
   tourOperators,
   tours,
   tourPackages,
+  quickNotes,
 };
