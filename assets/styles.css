@@ -3080,25 +3080,41 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    skip-this callout, event detail layout.
    ========================================================= */
 
-/* Weekend Picker dispatch block  -  homepage + whats-on hero */
+/* Weekend Picker dispatch block  -  homepage + whats-on hero.
+   Light feature-card variant: cream surface with gold gradient stripe at
+   top, matching the .venue-card visual system so the homepage rhythm
+   stays unbroken between hero and editorial picks. */
 .weekend-picker {
-  background: var(--dark);
-  color: #F2EDE4;
-  padding: clamp(3rem, 6vw, 5rem) 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: var(--bg);
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  border-bottom: 1px solid var(--border);
 }
 .weekend-picker__inner {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
+  border: 1px solid rgba(121, 92, 58, 0.14);
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
+  padding: clamp(2rem, 4vw, 3rem);
   display: grid;
   grid-template-columns: 1fr 2.2fr;
   gap: clamp(2rem, 4vw, 4rem);
   align-items: start;
+  overflow: hidden;
 }
-.weekend-picker__label-block .label--accent { color: #DDB68C; }
+.weekend-picker__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: linear-gradient(90deg, rgba(167,118,55,0.95), rgba(223,197,158,0.65), rgba(167,118,55,0.14));
+}
+.weekend-picker__label-block .label--accent { color: var(--accent); }
 .weekend-picker__cadence {
   margin-top: 0.9rem;
   font-size: 0.78rem;
   letter-spacing: 0.02em;
-  color: rgba(242, 237, 228, 0.55);
+  color: var(--soft);
   line-height: 1.5;
   max-width: 28ch;
 }
@@ -3107,7 +3123,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(242, 237, 228, 0.55);
+  color: var(--soft);
   margin-bottom: 0.85rem;
 }
 .weekend-picker__title {
@@ -3117,13 +3133,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.1;
   letter-spacing: -0.012em;
   margin-bottom: 1rem;
+  color: var(--dark);
 }
-.weekend-picker__title a { color: #FDFCFA; transition: color .18s var(--ease); }
-.weekend-picker__title a:hover { color: #DDB68C; }
+.weekend-picker__title a { color: var(--dark); transition: color .18s var(--ease); }
+.weekend-picker__title a:hover { color: var(--accent); }
 .weekend-picker__dek {
   font-size: 1.05rem;
   line-height: 1.65;
-  color: rgba(242, 237, 228, 0.85);
+  color: #44372b;
   max-width: 62ch;
 }
 .weekend-picker__ctas {
@@ -3139,20 +3156,25 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #DDB68C;
+  color: var(--accent);
   padding: 0.7rem 1.1rem;
-  border: 1px solid rgba(221, 182, 140, 0.45);
+  border: 1px solid rgba(167, 118, 55, 0.3);
   border-radius: 2px;
   transition: background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease);
 }
 .weekend-picker__cta:hover {
-  background: #DDB68C;
-  color: var(--dark);
-  border-color: #DDB68C;
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
 }
 .weekend-picker__cta--ghost {
-  border-color: rgba(242, 237, 228, 0.25);
-  color: rgba(242, 237, 228, 0.85);
+  border-color: rgba(121, 92, 58, 0.25);
+  color: var(--soft);
+}
+.weekend-picker__cta--ghost:hover {
+  background: rgba(121, 92, 58, 0.08);
+  color: var(--dark);
+  border-color: rgba(121, 92, 58, 0.4);
 }
 
 /* Events lens chips  -  reader-intent filter strip on whats-on index */
@@ -3807,6 +3829,47 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 4rem 0 5rem;
   background: var(--bg-alt);
 }
+
+.about-masthead {
+  padding: 4rem 0 5rem;
+}
+.about-masthead__credits {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.about-masthead__credits dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem 2.5rem;
+  margin: 0;
+}
+.about-masthead__credits dl > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.about-masthead__credits dt {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.about-masthead__credits dd {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+}
+.about-masthead__credits dd a {
+  color: var(--sage);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.about-masthead__credits dd a:hover { color: var(--text); }
 
 @media (max-width: 768px) {
   .about-mission__grid { grid-template-columns: 1fr; gap: 1.5rem; }

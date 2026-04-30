@@ -1,0 +1,75 @@
+---
+/**
+ * GuideHero  -  cinematic full-bleed header for evergreen guide pages.
+ *
+ * Use on long-form guides (explore/*, escape/*, journal feature pieces,
+ * any page where a sensory cover image earns its place). Replaces the
+ * bare `<h1 class="article__title">` pattern with an editorial header
+ * that gives the page a real first beat.
+ *
+ * Image fills the section; a vertical scrim darkens the lower portion
+ * so the title and dek read cleanly regardless of the underlying image.
+ */
+export interface MetaItem {
+  label: string;
+}
+
+export interface Props {
+  /** Small caps eyebrow, e.g. "EXPLORE GUIDE · 13 BEACHES". */
+  eyebrow?: string;
+  /** Main headline. Italic <em> tags inside render in soft sand colour. */
+  title: string;
+  /** Optional standfirst paragraph under the title. */
+  dek?: string;
+  /** Optional meta items rendered as a small uppercase row beneath the dek. */
+  meta?: MetaItem[];
+  /** Path to the hero image (e.g. /images/sourced/explore-gunnamatta-01.webp). */
+  heroImage?: string;
+  /** Alt text describing the image. */
+  imageAlt?: string;
+  /** Optional photographer / source credit displayed bottom-right. */
+  imageCredit?: string;
+  /** Reduce hero height for shorter pages where a full-bleed cover is too much. */
+  compact?: boolean;
+}
+
+const {
+  eyebrow,
+  title,
+  dek,
+  meta,
+  heroImage,
+  imageAlt = '',
+  imageCredit,
+  compact = false,
+} = Astro.props;
+
+const sectionClass = `guide-hero${compact ? ' guide-hero--compact' : ''}`;
+---
+
+<section class={sectionClass} aria-label={title}>
+  {heroImage && (
+    <div
+      class="guide-hero__image"
+      role="img"
+      aria-label={imageAlt}
+      style={`background-image: url(${heroImage})`}
+    ></div>
+  )}
+  <div class="guide-hero__scrim" aria-hidden="true"></div>
+  <div class="guide-hero__inner container">
+    <div class="guide-hero__inner-content">
+      {eyebrow && <p class="guide-hero__eyebrow">{eyebrow}</p>}
+      <h1 class="guide-hero__title" set:html={title} />
+      {dek && <p class="guide-hero__dek">{dek}</p>}
+      {meta && meta.length > 0 && (
+        <div class="guide-hero__meta">
+          {meta.map((item) => (
+            <span class="guide-hero__meta-item">{item.label}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+  {imageCredit && <p class="guide-hero__credit">Photo · {imageCredit}</p>}
+</section>

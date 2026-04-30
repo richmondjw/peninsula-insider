@@ -22,9 +22,10 @@ export interface NavItem {
 }
 
 /**
- * The seven-slot masthead row. Order is editorial: pillars first, then the
- * dispatch lane (What's On) and the Journal. Spa and Golf live in the
- * extended pillar list, not the masthead.
+ * The masthead row. Order is editorial: the five pillars first, then Tours
+ * (the operator-led booking lane), then the dispatch lane (What's On) and
+ * the Journal. Spa and Golf live in the extended pillar list, not the
+ * masthead.
  */
 export const mastheadNav: NavItem[] = [
   { key: 'eat',      label: 'Eat & Drink', href: '/eat'      },
@@ -32,6 +33,7 @@ export const mastheadNav: NavItem[] = [
   { key: 'wine',     label: 'Wine',        href: '/wine'     },
   { key: 'explore',  label: 'Explore',     href: '/explore'  },
   { key: 'escape',   label: 'Escape',      href: '/escape'   },
+  { key: 'tour',     label: 'Tours',       href: '/tour'     },
   { key: 'whats-on', label: "What’s On", href: '/whats-on' },
   { key: 'journal',  label: 'Journal',     href: '/journal'  },
 ];
@@ -113,6 +115,8 @@ export const footerSectionLinks: NavItem[] = [
   { key: 'golf',             label: 'Golf',            href: '/golf/' },
   { key: 'spa',              label: 'Spa & Wellness',  href: '/spa/' },
   { key: 'escape',           label: 'Escape',          href: '/escape/' },
+  { key: 'tour',             label: 'Tours',           href: '/tour/' },
+  { key: 'tour-packages',    label: 'Tour Packages',   href: '/tour-packages/' },
   { key: 'whats-on',         label: "What's On",       href: '/whats-on/' },
   { key: 'journal',          label: 'Journal',         href: '/journal/' },
   { key: 'dog-friendly',     label: 'Dog Friendly',    href: '/dog-friendly/' },
@@ -124,10 +128,11 @@ export const footerSectionLinks: NavItem[] = [
  * Footer "About" column.
  */
 export const footerAboutLinks: NavItem[] = [
-  { key: 'about',      label: 'About',      href: '/about/' },
-  { key: 'contact',    label: 'Contact',    href: '/contact/' },
-  { key: 'newsletter', label: 'Newsletter', href: '/newsletter/' },
-  { key: 'privacy',    label: 'Privacy',    href: '/privacy/' },
+  { key: 'about',      label: 'About',           href: '/about/' },
+  { key: 'partners',   label: 'Partner with us', href: '/partners/' },
+  { key: 'contact',    label: 'Contact',         href: '/contact/' },
+  { key: 'newsletter', label: 'Newsletter',      href: '/newsletter/' },
+  { key: 'privacy',    label: 'Privacy',         href: '/privacy/' },
 ];
 
 /**
