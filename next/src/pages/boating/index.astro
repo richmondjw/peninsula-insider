@@ -1,0 +1,181 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import BfAnalytics from '../../components/BfAnalytics.astro';
+import { buildBfHubSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { BF_EXTERNAL, formatVerifiedStamp } from '../../lib/bf';
+
+// Source: peninsula_insider_boating_fishing_v1/content-bf/hub_boating_index.md
+
+const lastVerifiedISO = '2026-04-30';
+const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+
+const allRamps = await getCollection('boatRamps', ({ data }) => data.status === 'published');
+const allHire = await getCollection('boatHire', ({ data }) => data.status === 'published');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Boating' },
+];
+
+const featuredRamps = allRamps.slice(0, 6);
+const featuredHire = allHire.slice(0, 4);
+
+const hubSchema = buildBfHubSchema({
+  name: 'Boating on the Mornington Peninsula',
+  description:
+    'Boat hire, ramp access, tides, and charter logistics on the Mornington Peninsula. Editorial Peninsula-specific guidance for owners and renters.',
+  path: '/boating/',
+  dateModified: lastVerifiedISO,
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Boating' },
+  ],
+  items: [
+    ...featuredRamps.map((r) => ({
+      name: r.data.name,
+      path: `/boating/ramps/${r.data.slug}/`,
+      description: r.data.intro,
+      itemType: 'Place',
+    })),
+    ...featuredHire.map((h) => ({
+      name: h.data.name,
+      path: `/boating/hire/${h.data.slug}/`,
+      description: h.data.intro,
+      itemType: 'LocalBusiness',
+    })),
+  ],
+});
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Boating', url: 'https://peninsulainsider.com.au/boating/' },
+]);
+---
+
+<BaseLayout
+  title="Boating on the Mornington Peninsula · Peninsula Insider"
+  description="The complete guide to boating on the Mornington Peninsula: boat hire, ramps and access, tides and safety, charter options, and the line between boating and fishing."
+  section="boating"
+  canonical="https://peninsulainsider.com.au/boating/"
+  modifiedTime={lastVerifiedISO}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <BfAnalytics />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Boating"
+    title="Boating the <em>Mornington Peninsula</em>"
+    dek="Two clean choices: own a vessel and need a ramp, or do not own one and need a hire operator or skippered charter. The infrastructure is here. So are the avoidable mistakes."
+    gradient="vineyard"
+    heroImage="/images/sourced/explore-portsea-front-beach-01.webp"
+  />
+
+  <p class="affiliate-disclosure container">
+    This section contains affiliate links. If you book through our links, we
+    may earn a commission at no extra cost to you. This does not influence our
+    editorial assessments.
+  </p>
+
+  <section class="experience-index" data-bf-article>
+    <div class="container prose">
+      <p class="label label--accent">What to read first</p>
+      <h2>Hiring versus bringing your own boat</h2>
+      <p>
+        No-licence self-drive hire is available at several Peninsula locations.
+        It suits visiting anglers, day-trippers, and families who want time on
+        the water without the logistical overhead of trailering a boat from
+        Melbourne. Hire vessels are typically small tinnies or polycraft rated
+        for protected bay waters, not offshore use. Most hire sessions are
+        half-day or full-day. Gear and licence cover are sometimes included —
+        confirm at booking.
+      </p>
+      <p>
+        Trailer-boat owners have multiple ramp options along both Port Phillip
+        Bay and Western Port. The two things that catch people out are
+        <strong>tide dependence</strong> and <strong>weekend parking</strong>.
+        Western Port ramps at Warneet and Tooradin cannot be safely launched
+        at low water — the channel shallows on the ebb. Schnapper Point and
+        Sorrento fill their trailer parking by 8am on fine Saturdays during
+        snapper season. Plan accordingly.
+      </p>
+    </div>
+  </section>
+
+  <section class="experience-index experience-index--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Sub-hubs</p>
+          <h2 class="venues__title">Go deeper</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/boating/ramps/">Boat ramps</a></h3>
+          <p class="venue-card__signature">Schnapper Point, Sorrento, Safety Beach, Rye, Hastings, Warneet, Tooradin. Tide dependence, parking pressure, and the alternative when this one's full.</p>
+          <a href="/boating/ramps/" class="venue-card__cta">Browse ramps &rarr;</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/boating/hire/">Boat hire</a></h3>
+          <p class="venue-card__signature">Self-drive hire by location: Mornington, Sorrento, Rye, Safety Beach. Polycraft and tinnies for the bay, no-licence options, gear-included rates.</p>
+          <a href="/boating/hire/" class="venue-card__cta">Browse hire &rarr;</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/fishing/charters/">Fishing charters</a></h3>
+          <p class="venue-card__signature">Want to fish without managing a vessel? The charter side lives in /fishing/. Skippered, licence-covered, gear-included.</p>
+          <a href="/fishing/charters/" class="venue-card__cta">Compare charters &rarr;</a>
+        </div>
+        <div class="venue-card">
+          <h3 class="venue-card__name"><a href="/fishing/">Fishing</a></h3>
+          <p class="venue-card__signature">Once you've sorted your access, the fishing decisions: which species, which tide, which technique, which target.</p>
+          <a href="/fishing/" class="venue-card__cta">Fishing hub &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience-index">
+    <div class="container prose">
+      <p class="label label--accent">Tides and safety</p>
+      <h2>Pre-trip checks that actually matter</h2>
+      <p>
+        Tides on the Peninsula operate on an approximately 12.4-hour cycle.
+        Tidal range in Port Phillip Bay is modest — typically 0.6 to 1.0m at
+        Port Melbourne. Western Port is significantly more tidal at
+        approximately 2.5 to 2.8m, which directly affects channel depth, ramp
+        access, and fish behaviour.
+      </p>
+      <p>
+        Use <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Willyweather tide tables</a>
+        or the <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Bureau of Meteorology tidal predictions</a>
+        for the reference station relevant to your launch point. Port Phillip
+        Bay southern ramps: use Portsea reference station. Western Port ramps:
+        use Stony Point reference station. Northern Port Phillip Bay: use
+        Port Melbourne reference station.
+      </p>
+      <p>
+        <strong>The Rip at Port Phillip Heads requires particular respect.</strong>
+        South and south-westerly swell entering the Heads creates dangerous
+        standing waves. Do not attempt to cross the Rip in unsuitable
+        conditions regardless of vessel size or experience. Marine forecasts
+        from <a href={BF_EXTERNAL.bom} rel="external">BOM</a> the night before
+        and morning of every trip. Identify your nearest alternative ramp
+        before you launch. This is not hypothetical.
+      </p>
+      <p class="prose__verified">
+        Last fact-verified {lastVerifiedStamp} against
+        <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a>
+        and <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>.
+      </p>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
