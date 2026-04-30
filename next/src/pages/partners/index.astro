@@ -1,0 +1,382 @@
+---
+/**
+ * /partners/  -  Partnership landing page
+ * Public face of the Peninsula Insider partnership program.
+ * Founders' Prospectus is request-only, never linked publicly.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+---
+
+<BaseLayout
+  title="Partner with Peninsula Insider"
+  description="A modern newsroom for the Mornington Peninsula. We work with Peninsula businesses we admire. Local writing. Original photography. Disclosed by default."
+>
+  <main class="partners-page">
+
+    <section class="partners-hero">
+      <div class="partners-hero__inner">
+        <p class="partners-hero__eyebrow">Peninsula Insider</p>
+        <h1 class="partners-hero__heading">Partner with us</h1>
+        <p class="partners-hero__sub">
+          A modern newsroom for the Mornington Peninsula. We work with Peninsula businesses
+          we admire. Local writing. Original photography. Disclosed by default.
+        </p>
+      </div>
+    </section>
+
+    <section class="partners-section partners-intro">
+      <div class="partners-section__inner partners-intro__inner">
+        <p class="partners-intro__lead">
+          We are a modern newsroom for the Peninsula. Local first. Editor-led.
+          Published every Thursday. Every claim verified. Every commercial relationship disclosed.
+        </p>
+        <p>
+          Peninsula Insider takes commercial partnerships, and we are open about that. The
+          publication is funded in part by the businesses who appear on it. What we do not do
+          is let those businesses influence the editorial. Three rules hold the line: we work
+          only with Peninsula businesses, the editor signs off everything that runs, and every
+          paid item is clearly labelled. Once a year we publish a firewall audit naming what
+          we ran, what we declined, and where the line strained.
+        </p>
+        <p>
+          If your venue belongs on Peninsula Insider, we would like to talk.
+        </p>
+      </div>
+    </section>
+
+    <section class="partners-section partners-tiers">
+      <div class="partners-section__inner">
+        <p class="partners-section__eyebrow">Three ways to work with us</p>
+        <h2 class="partners-section__heading">From a single feature to a founding partnership</h2>
+
+        <div class="partners-tiers__grid">
+
+          <article class="partners-tier partners-tier--featured">
+            <p class="partners-tier__eyebrow">By invitation</p>
+            <h3 class="partners-tier__title">Founders' Circle</h3>
+            <p class="partners-tier__body">
+              Six founding partners. Two-year commitment. The most ambitious editorial
+              relationship we offer. Hero feature, photography across two seasons, short
+              film, year-round placement, named seat in the masthead.
+            </p>
+            <p class="partners-tier__meta">Cohort closes 30 June 2026.</p>
+            <a href="#enquire" class="partners-tier__cta">Request the prospectus</a>
+          </article>
+
+          <article class="partners-tier">
+            <p class="partners-tier__eyebrow">Premium editorial</p>
+            <h3 class="partners-tier__title">Charter Story</h3>
+            <p class="partners-tier__body">
+              A 1,200-word feature, written by our desk, photographed, fact-checked,
+              edited, and published to PI standard. Capped at twelve commissions across 2026.
+            </p>
+            <p class="partners-tier__meta">From $4,500 AUD ex GST.</p>
+            <a href="/partners/apply/" class="partners-tier__cta">See pricing and apply</a>
+          </article>
+
+          <article class="partners-tier">
+            <p class="partners-tier__eyebrow">Always-on</p>
+            <h3 class="partners-tier__title">Placement and listings</h3>
+            <p class="partners-tier__body">
+              Hub sponsor, newsletter sponsor, sidebar showcase, sponsored listing. Simple
+              inventory, transparent pricing, monthly or quarterly commitments.
+            </p>
+            <p class="partners-tier__meta">From $250 per quarter.</p>
+            <a href="/partners/apply/" class="partners-tier__cta">See pricing and apply</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="partners-section partners-standards">
+      <div class="partners-section__inner">
+        <p class="partners-section__eyebrow">Standards we hold</p>
+        <h2 class="partners-section__heading">The firewall, in plain language</h2>
+
+        <ul class="partners-standards__list">
+          <li>
+            <strong>Curated commercial.</strong> Only Peninsula businesses appear on PI.
+            No programmatic, no off-region brands.
+          </li>
+          <li>
+            <strong>Editor-led.</strong> James and Emma sign the editorial. They pick the
+            cover. They never appear at advertiser-only events.
+          </li>
+          <li>
+            <strong>Disclosed by default.</strong> Every paid item carries a Partner Content
+            eyebrow. Every Founders' Circle partner is publicly listed.
+          </li>
+          <li>
+            <strong>Annual audit.</strong> Once a year, we publish what we ran, what we
+            declined, and where the line strained.
+          </li>
+          <li>
+            <strong>No fake bylines.</strong> Every PI piece carries a real name or our
+            house byline. We do not invent writers.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="partners-section partners-coming">
+      <div class="partners-section__inner">
+        <p class="partners-section__eyebrow">Coming in 2026</p>
+        <h2 class="partners-section__heading">Two products in development</h2>
+
+        <div class="partners-coming__grid">
+          <article class="partners-coming__item">
+            <h3>The Peninsula 50</h3>
+            <p>
+              An annual ranked authority list, launching November 2026. Fifty venues across
+              food, wine, stay, and experience that define the Peninsula in the year of
+              publication. One Founding Sponsor per category. Express interest from the
+              form below.
+            </p>
+          </article>
+          <article class="partners-coming__item">
+            <h3>The Insider Conversation</h3>
+            <p>
+              A single-evening editor-hosted dinner with eight to ten named guests, written
+              up as a feature with venue credit. Express interest from the form below.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="enquire" class="partners-section partners-cta">
+      <div class="partners-section__inner partners-cta__inner">
+        <p class="partners-section__eyebrow">Get in touch</p>
+        <h2 class="partners-section__heading">Every partnership begins with a conversation</h2>
+        <p class="partners-cta__body">
+          Tell us about your venue and what you would like to do, and we will be in touch
+          within 48 hours. James and Emma read every enquiry personally.
+        </p>
+        <a href="/partners/apply/" class="partners-cta__button">Tell us about your venue</a>
+        <p class="partners-cta__signoff">
+          James and Emma Richmond, Founders &amp; Editors
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  /* ============================================================
+     PARTNERS LANDING PAGE  -  Peninsula Insider
+     Tokens: --bg, --text, --soft, --accent, --sage, --border, --bg-alt, --white
+  ============================================================ */
+
+  .partners-page { min-height: 100vh; background: var(--bg); }
+
+  /* HERO */
+  .partners-hero {
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 1.5rem 3rem;
+    text-align: center;
+    background: var(--bg);
+  }
+  .partners-hero__inner { max-width: 720px; margin: 0 auto; }
+  .partners-hero__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0 0 0.75rem;
+  }
+  .partners-hero__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--text);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .partners-hero__sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--soft);
+    margin: 0 auto;
+    max-width: 560px;
+  }
+
+  /* SECTIONS */
+  .partners-section { padding: 4rem 1.5rem; }
+  .partners-section + .partners-section { border-top: 1px solid var(--border); }
+  .partners-section__inner { max-width: 1040px; margin: 0 auto; }
+  .partners-section__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 0.75rem;
+  }
+  .partners-section__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.85rem, 3.6vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0 0 2rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* INTRO */
+  .partners-intro__inner { max-width: 720px; }
+  .partners-intro p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text);
+    margin: 0 0 1.25rem;
+  }
+  .partners-intro__lead { font-size: 1.15rem; color: var(--text); }
+
+  /* TIERS */
+  .partners-tiers__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .partners-tier {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .partners-tier--featured {
+    border-color: var(--sage);
+    border-width: 2px;
+  }
+  .partners-tier__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0 0 0.5rem;
+  }
+  .partners-tier__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.75rem;
+  }
+  .partners-tier__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text);
+    margin: 0 0 1rem;
+    flex-grow: 1;
+  }
+  .partners-tier__meta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--soft);
+    margin: 0 0 1.25rem;
+    font-style: italic;
+  }
+  .partners-tier__cta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--sage);
+    text-decoration: none;
+    border-bottom: 1px solid var(--sage);
+    padding-bottom: 2px;
+    align-self: flex-start;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .partners-tier__cta:hover {
+    color: var(--text);
+    border-color: var(--text);
+  }
+
+  /* STANDARDS */
+  .partners-standards__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 720px;
+  }
+  .partners-standards__list li {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .partners-standards__list li:last-child { border-bottom: none; }
+  .partners-standards__list strong { color: var(--sage); font-weight: 600; }
+
+  /* COMING */
+  .partners-coming__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .partners-coming__item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.75rem;
+  }
+  .partners-coming__item p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--soft);
+    margin: 0;
+  }
+
+  /* CTA */
+  .partners-cta { background: var(--bg-alt); }
+  .partners-cta__inner { max-width: 720px; text-align: center; }
+  .partners-cta__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0 0 2rem;
+  }
+  .partners-cta__button {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    background: var(--sage);
+    border: none;
+    border-radius: 3px;
+    padding: 0.95rem 2.5rem;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .partners-cta__button:hover { background: var(--text); }
+  .partners-cta__signoff {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--soft);
+    margin: 2rem 0 0;
+  }
+</style>
