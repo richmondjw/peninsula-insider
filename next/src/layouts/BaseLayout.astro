@@ -125,7 +125,7 @@ const isAskPage = rawPathname.startsWith('/ask');
     gtag('config', 'G-0MR9YVZ9NW');
   </script>
 </head>
-<body>
+<body data-page={section} data-path={rawPathname}>
 
   <Masthead section={section} />
 
@@ -162,6 +162,7 @@ const isAskPage = rawPathname.startsWith('/ask');
         nav.classList.remove('is-open');
         burger.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
 
         // Guard against double-binding on repeated calls
@@ -172,6 +173,9 @@ const isAskPage = rawPathname.startsWith('/ask');
           var open = nav.classList.toggle('is-open');
           burger.classList.toggle('is-open', open);
           burger.setAttribute('aria-expanded', String(open));
+          // body.menu-open lets CSS hide the masthead so its wordmark
+          // doesn't sit on top of the mobile-nav overlay's wordmark.
+          document.body.classList.toggle('menu-open', open);
           document.body.style.overflow = open ? 'hidden' : '';
         });
 
@@ -180,6 +184,7 @@ const isAskPage = rawPathname.startsWith('/ask');
             nav.classList.remove('is-open');
             burger.classList.remove('is-open');
             burger.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
           });
         });
