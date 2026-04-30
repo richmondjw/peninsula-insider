@@ -11,7 +11,8 @@ import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles — loaded on every page
 import { ClientRouter } from 'astro:transitions';
 import Masthead from '../components/Masthead.astro';
-import UtilityBar from '../components/UtilityBar.astro';
+// UtilityBar removed — its content is now integrated into Masthead's
+// utility row. Keeping this comment as a breadcrumb for the migration.
 import Footer from '../components/Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
 
@@ -124,7 +125,6 @@ const isAskPage = rawPathname.startsWith('/ask');
 </head>
 <body>
 
-  <UtilityBar />
   <Masthead section={section} />
 
   <main>
