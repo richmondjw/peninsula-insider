@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CoverHero from '../components/CoverHero.astro';
 import PillarNav from '../components/PillarNav.astro';
+import IssueFlag from '../components/IssueFlag.astro';
+import SectionDivider from '../components/SectionDivider.astro';
 import FeatureArticle from '../components/FeatureArticle.astro';
 import VenueCard from '../components/VenueCard.astro';
 import PlaceCard from '../components/PlaceCard.astro';
@@ -179,66 +181,23 @@ const seasonalExperiences = experiences
       },
     ],
   })} />
-  <CoverHero issueDate={issueDate} />
+  <CoverHero issueDate={issueDate} ctaSecondary={null} />
 
   <PillarNav />
 
-  <section class="issue-ribbon" aria-label="This issue">
-    <div class="container">
-      <div class="issue-ribbon__inner">
-        <div class="issue-ribbon__label">
-          <span class="label label--accent">The {issueDate} issue</span>
-        </div>
-        <dl class="issue-ribbon__stats">
-          <div><dt>Pieces</dt><dd>{issueStats.articles}</dd></div>
-          <div><dt>Venues mapped</dt><dd>{issueStats.venues}</dd></div>
-          <div><dt>Places</dt><dd>{issueStats.places}</dd></div>
-          <div><dt>Walks & moves</dt><dd>{issueStats.experiences}</dd></div>
-          <div><dt>Escape plans</dt><dd>{issueStats.itineraries}</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
+  <IssueFlag
+    issueDate={issueDate}
+    context={seasonBlurbData.line}
+    stats={[
+      { label: 'Pieces',         value: issueStats.articles },
+      { label: 'Venues mapped',  value: issueStats.venues },
+      { label: 'Places',         value: issueStats.places },
+      { label: 'Walks & moves',  value: issueStats.experiences },
+      { label: 'Escape plans',   value: issueStats.itineraries },
+    ]}
+  />
 
   {weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />}
-
-  {weekendPicks.length > 0 && (
-    <section class="venues venues--plain" aria-label="Weekend picks">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">This weekend · editor's picks</p>
-            <h2 class="venues__title">{weekendPicks.length === 1 ? 'One event' : weekendPicks.length === 2 ? 'Two events' : 'Three events'} with an opinion attached</h2>
-            <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not  -  because nobody else on the Peninsula event web is brave enough to.</p>
-          </div>
-          <a href="/whats-on/" class="venues__link">All What’s On →</a>
-        </div>
-        <div class="event-grid">
-          {weekendPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  {featured && <FeatureArticle article={featured} />}
-
-  {editorPicks.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Editor's picks</p>
-            <h2 class="venues__title">Three pieces doing the heaviest lifting this week</h2>
-            <p class="venues__sub">Read one, skim the others, and the Peninsula weekend starts writing itself.</p>
-          </div>
-          <a href="/journal/" class="venues__link">All in the journal →</a>
-        </div>
-        <div class="venues__grid">
-          {editorPicks.map((article) => <ArticleCard article={article} />)}
-        </div>
-      </div>
-    </section>
-  )}
 
   {intentResolved.length > 0 && (
     <section class="intent-strip" aria-label="Start from what you need">
@@ -296,6 +255,49 @@ const seasonalExperiences = experiences
     </div>
   </section>
 
+  <SectionDivider />
+
+  {weekendPicks.length > 0 && (
+    <section class="venues venues--plain" aria-label="Weekend picks">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">This weekend · editor's picks</p>
+            <h2 class="venues__title">{weekendPicks.length === 1 ? 'One event' : weekendPicks.length === 2 ? 'Two events' : 'Three events'} with an opinion attached</h2>
+            <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not  -  because nobody else on the Peninsula event web is brave enough to.</p>
+          </div>
+          <a href="/whats-on/" class="venues__link">All What’s On →</a>
+        </div>
+        <div class="event-grid">
+          {weekendPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {featured && <FeatureArticle article={featured} />}
+
+
+  {editorPicks.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Editor's picks</p>
+            <h2 class="venues__title">Three pieces doing the heaviest lifting this week</h2>
+            <p class="venues__sub venues__sub--standfirst">Read one, skim the others, and the Peninsula weekend starts writing itself.</p>
+          </div>
+          <a href="/journal/" class="venues__link">All in the journal →</a>
+        </div>
+        <div class="venues__grid">
+          {editorPicks.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <SectionDivider />
+
   {diningShowcase.length > 0 && (
     <section class="venues">
       <div class="container">
@@ -303,7 +305,7 @@ const seasonalExperiences = experiences
           <div>
             <p class="label label--accent">Editor's Table</p>
             <h2 class="venues__title">The dining rooms still doing the strongest work</h2>
-            <p class="venues__sub">Begin with the meal if lunch is the point of the trip.</p>
+            <p class="venues__sub venues__sub--standfirst">Begin with the meal if lunch is the point of the trip.</p>
           </div>
           <a href="/eat/" class="venues__link">All venues →</a>
         </div>
@@ -384,7 +386,7 @@ const seasonalExperiences = experiences
           <div>
             <p class="label label--accent">Escape plans</p>
             <h2 class="venues__title">When the Peninsula deserves more than a day trip</h2>
-            <p class="venues__sub">A shaped weekend that puts lunch, walk, and bed in the right order  -  so you stop planning and start going.</p>
+            <p class="venues__sub venues__sub--standfirst">A shaped weekend that puts lunch, walk, and bed in the right order  -  so you stop planning and start going.</p>
           </div>
           <a href="/escape/" class="venues__link">All escapes →</a>
         </div>

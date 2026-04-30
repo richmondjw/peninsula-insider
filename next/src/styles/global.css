@@ -3361,6 +3361,178 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin: 0;
 }
 
+/* =========================================================
+   PAPER TEXTURE  -  barely-perceptible noise overlay on the body
+   that warms the cream surfaces. Inline SVG keeps it zero-network.
+   Sits behind everything (z-index: -1) so it never intercepts clicks.
+   ========================================================= */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* No animation — the texture is static. The query is a guard against
+     accidental costly repaints on devices that opt out of motion. */
+}
+
+/* =========================================================
+   SECTION DIVIDER  -  magazine-style break between major sections.
+   Two soft gold rules with a small fleuron centered between them.
+   Used sparingly — never between every section, only at meaningful
+   transitions in narrative.
+   ========================================================= */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.8rem, 2vw, 1.4rem);
+  padding: clamp(1.6rem, 4vw, 2.6rem) 1.5rem;
+  flex-wrap: wrap;
+}
+.section-divider__rule {
+  flex: 0 1 clamp(4rem, 14vw, 11rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(167, 118, 55, 0.45), transparent);
+}
+.section-divider__mark {
+  font-size: 1.05rem;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  font-weight: 400;
+  user-select: none;
+  line-height: 1;
+}
+.section-divider__label {
+  flex: 1 0 100%;
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0.5rem 0 0;
+}
+
+/* =========================================================
+   ISSUE FLAG  -  magazine edition masthead under the hero.
+   Centered "The April 2026 edition" → fleuron rule → optional
+   contextual line → clean horizontal stat row.
+   ========================================================= */
+.issue-flag {
+  background: var(--bg);
+  padding: clamp(2.2rem, 5vw, 3.4rem) 0;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.issue-flag__edition {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 1rem;
+}
+.issue-flag__rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.issue-flag__rule-line {
+  flex: 0 1 clamp(3rem, 12vw, 9rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(167, 118, 55, 0.55), transparent);
+}
+.issue-flag__rule-mark {
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: 0.4em;
+  user-select: none;
+}
+.issue-flag__context {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: var(--soft);
+  max-width: 56ch;
+  margin: 0 auto 1.6rem;
+  line-height: 1.5;
+}
+.issue-flag__stats {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.6rem, 5vw, 3.5rem);
+  list-style: none;
+}
+.issue-flag__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+.issue-flag__stat dt {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--soft);
+  font-weight: 600;
+  margin: 0;
+}
+.issue-flag__stat dd {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0;
+  line-height: 1;
+}
+
+/* =========================================================
+   DROP CAP  -  large gold serif initial on the first paragraph
+   of selected sections. Apply via .has-drop-cap on the wrapper
+   that contains the paragraph. Used only on 2-3 key sections —
+   over-use kills the magazine effect.
+   ========================================================= */
+.has-drop-cap > p:first-of-type::first-letter,
+p.has-drop-cap::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  float: left;
+  font-size: 4.4em;
+  line-height: 0.85;
+  padding: 0.18em 0.12em 0 0;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+/* =========================================================
+   SECTION STANDFIRST  -  italic accented intro paragraph for
+   selected sections. Larger than body, set in serif italic, soft
+   gold. Creates a magazine-spread voice moment.
+   ========================================================= */
+.section-standfirst,
+.venues__sub--standfirst {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.55vw, 1.32rem);
+  line-height: 1.5;
+  color: #6b4f33;
+  max-width: 56ch;
+  margin: 0.4rem 0 1rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
 /* Safety / advisory callout — single panel for editorial alerts
    (rip warning, weather, booking-window, etc.). Reusable wherever
    a serious editorial caution belongs above the main content. */
