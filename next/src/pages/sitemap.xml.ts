@@ -77,6 +77,11 @@ export const GET: APIRoute = async () => {
   for (const subhub of ['fishing/species', 'fishing/locations', 'fishing/charters', 'boating/ramps', 'boating/hire']) {
     entries.push(url(`/${subhub}`, 0.8, 'weekly'));
   }
+  // /fishing/ and /boating/ pillar pages — Article surfaces with their own
+  // FAQPage and BreadcrumbList JSON-LD.
+  for (const pillar of ['fishing/seasons/snapper-run-oct-dec', 'fishing/charters/first-charter-guide', 'boating/tides-safety', 'tour/fishing-tours']) {
+    entries.push(url(`/${pillar}`, 0.7, 'monthly'));
+  }
   // Concierge surfaces — chat front page + vendor intake.
   entries.push(url('/ask', 0.8, 'weekly'));
   entries.push(url('/partners/apply', 0.5, 'monthly'));
