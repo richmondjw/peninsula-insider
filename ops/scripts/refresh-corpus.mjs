@@ -686,10 +686,36 @@ async function fetchExistingRows() {
   return map;
 }
 
+// Defaults and policy enforcement for columns the live schema requires.
+// Sourced from live schema inspection 2026-04-30:
+//   - `editorial_voice_owner` is NOT NULL → default 'Editorial'
+//   - `chunks_tier_a_requires_otto_verified` check constraint → tier A is
+//     only valid when last_otto_verified is set, which is Otto's job, not
+//     this script's. So all freshly-imported chunks land as tier B and Otto
+//     promotes them to A on its next verification pass. The chunkers may
+//     still HINT tier A on the chunk object — we honour that hint only when
+//     the source record carries a recent verification date that we can
+//     attribute (e.g. a venue's `lastVerified` field). Otherwise we demote
+//     to B at write time, so the constraint is always satisfied.
+const REQUIRED_DEFAULTS = {
+  editorial_voice_owner: "Editorial",
+  generation: 0,
+};
+
+function safeTier(chunk) {
+  // If chunker said tier A and the chunk carries a populated last_otto_verified
+  // (typically copied from the source record's `lastVerified` date), keep A.
+  // Otherwise demote to B. Otto will re-verify on the next pass.
+  if (chunk.editorial_tier === "A" && chunk.last_otto_verified) return "A";
+  return "B";
+}
+
 async function upsertChunk(chunk, embedding, textHash, metaHash) {
   const url = `${SUPABASE_URL}/rest/v1/concierge_chunks?on_conflict=chunk_id`;
   const body = stripUnsupportedFields({
+    ...REQUIRED_DEFAULTS,
     ...chunk,
+    editorial_tier: safeTier(chunk),
     embedding: `[${embedding.join(",")}]`,
     embedding_source_hash: textHash,
     metadata_fingerprint: metaHash,
@@ -717,7 +743,9 @@ async function upsertMetadataOnly(chunk, metaHash) {
   const { embedding, ...rest } = chunk;
   void embedding;
   const body = stripUnsupportedFields({
+    ...REQUIRED_DEFAULTS,
     ...rest,
+    editorial_tier: safeTier(rest),
     metadata_fingerprint: metaHash,
     extracted_at: new Date().toISOString(),
   });
