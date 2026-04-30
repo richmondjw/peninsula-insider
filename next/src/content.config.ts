@@ -645,6 +645,29 @@ const quickNotes = defineCollection({
   }),
 });
 
+// Editorial framing blocks — hub intros, best-of framing, homepage cover copy.
+// These are the editorial sentences that historically lived hard-coded inside
+// .astro pages and were therefore invisible to the concierge corpus. Migrating
+// them here makes them queryable. Pages can opt to render them by importing
+// from this collection (see lib/editorial.ts), or keep their hard-coded copy
+// during the migration window — either way the concierge sees them.
+const editorial_blocks = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/editorial_blocks' }),
+  schema: z.object({
+    title: z.string(),
+    kind: z
+      .enum(['hub_intro', 'best_of_intro', 'homepage_cover', 'hub_faq', 'town_intro', 'category_intro'])
+      .default('hub_intro'),
+    section: z.string().optional(), // e.g. "Eat & Drink"
+    region: z.string().optional(),   // e.g. "red-hill"
+    place: z.string().optional(),
+    pageHref: z.string().optional(), // canonical page this framing belongs to
+    publishedAt: z.coerce.date(),
+    lastVerified: z.coerce.date().optional(),
+    status: z.enum(['draft', 'published']).default('published'),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -657,4 +680,5 @@ export const collections = {
   tours,
   tourPackages,
   quickNotes,
+  editorial_blocks,
 };
