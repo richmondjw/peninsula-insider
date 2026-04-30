@@ -3397,21 +3397,28 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .guide-hero__scrim {
   position: absolute;
   inset: 0;
-  /* Two-layer asymmetric scrim:
-     - left-to-right vignette: dark on the left where the title sits,
-       clearing to fully transparent by the right third so the image
-       keeps its presence on the side without text.
-     - bottom-edge wash: subtle darken at the very bottom for the meta
-       row, shallow enough not to muddy the image as a whole. */
+  /* Three-layer scrim, anchored at the bottom-left where the title and
+     meta row sit. The radial vignette gives the text its own dark
+     "spotlight" without crushing the rest of the image — so the photo
+     keeps its colour and form on the right and top while the text really
+     punches in the bottom-left. */
   background:
-    linear-gradient(90deg,
-      rgba(0,0,0,0.62) 0%,
-      rgba(0,0,0,0.42) 28%,
-      rgba(0,0,0,0.18) 55%,
-      rgba(0,0,0,0)    78%),
+    /* 1 — strong radial darkness anchored at bottom-left */
+    radial-gradient(ellipse 65% 75% at 0% 100%,
+      rgba(0,0,0,0.82) 0%,
+      rgba(0,0,0,0.62) 24%,
+      rgba(0,0,0,0.32) 52%,
+      rgba(0,0,0,0)    82%),
+    /* 2 — bottom-edge wash for the meta row */
     linear-gradient(180deg,
       rgba(0,0,0,0)    55%,
-      rgba(0,0,0,0.48) 100%);
+      rgba(0,0,0,0.45) 100%),
+    /* 3 — faint left-to-right horizontal so the title still reads cleanly
+            across multi-line wrap on wider viewports */
+    linear-gradient(90deg,
+      rgba(0,0,0,0.28) 0%,
+      rgba(0,0,0,0.08) 35%,
+      rgba(0,0,0,0)    62%);
 }
 .guide-hero__inner {
   position: relative;
