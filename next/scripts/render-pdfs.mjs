@@ -138,9 +138,19 @@ async function renderTarget(browser, target) {
   await page.evaluate(() => document.fonts.ready);
   await new Promise((r) => setTimeout(r, 500));
 
-  const outPath = path.join(OUT_DIR, target.out);
+  // Render to a temp filename first so we can avoid EBUSY when the
+  // canonical output is locked by an open PDF viewer (common on Windows).
+  // After render, try to atomically replace the canonical file; if that
+  // fails, leave the temp file in place and warn.
+  const finalPath = path.join(OUT_DIR, target.out);
+  const tmpPath   = path.join(OUT_DIR, target.out.replace(/\.pdf$/, '.new.pdf'));
+
+  if (fs.existsSync(tmpPath)) {
+    try { fs.unlinkSync(tmpPath); } catch {}
+  }
+
   await page.pdf({
-    path: outPath,
+    path: tmpPath,
     format: 'A4',
     printBackground: true,
     preferCSSPageSize: true,
@@ -150,9 +160,21 @@ async function renderTarget(browser, target) {
 
   await page.close();
 
+  let outPath = finalPath;
+  try {
+    fs.renameSync(tmpPath, finalPath);
+  } catch (err) {
+    if (err.code === 'EBUSY' || err.code === 'EPERM') {
+      outPath = tmpPath;
+      console.warn(`  ! ${target.label}: canonical PDF is locked, kept new render at ${path.basename(tmpPath)}`);
+    } else {
+      throw err;
+    }
+  }
+
   const bytes = fs.statSync(outPath).size;
   const kb = (bytes / 1024).toFixed(1);
-  console.log(`  ✓ ${target.label} → public/downloads/${target.out}  (${kb} KB)`);
+  console.log(`  ✓ ${target.label} → public/downloads/${path.basename(outPath)}  (${kb} KB)`);
 }
 
 async function main() {
