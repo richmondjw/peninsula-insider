@@ -128,10 +128,11 @@ export const footerSectionLinks: NavItem[] = [
  * Footer "About" column.
  */
 export const footerAboutLinks: NavItem[] = [
-  { key: 'about',      label: 'About',      href: '/about/' },
-  { key: 'contact',    label: 'Contact',    href: '/contact/' },
-  { key: 'newsletter', label: 'Newsletter', href: '/newsletter/' },
-  { key: 'privacy',    label: 'Privacy',    href: '/privacy/' },
+  { key: 'about',      label: 'About',           href: '/about/' },
+  { key: 'partners',   label: 'Partner with us', href: '/partners/' },
+  { key: 'contact',    label: 'Contact',         href: '/contact/' },
+  { key: 'newsletter', label: 'Newsletter',      href: '/newsletter/' },
+  { key: 'privacy',    label: 'Privacy',         href: '/privacy/' },
 ];
 
 /**
