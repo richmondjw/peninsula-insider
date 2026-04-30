@@ -834,7 +834,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .venues__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
+  /* Subtle breathing room between cards. Was 1.5px (cards felt
+     stuck together); now a quiet but real gap that lets each card
+     read as its own object without losing the grid rhythm. */
+  gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .venues__grid--two { grid-template-columns: repeat(2, 1fr); }
 
@@ -2036,7 +2039,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .experience-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .experience-card {
   background: var(--white);
@@ -2129,7 +2132,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .itinerary-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5px;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .itinerary-card {
   background: var(--white);
@@ -3388,11 +3391,28 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0;
   background-size: cover;
   background-position: center;
+  /* Fixed parallax — the image is anchored to the viewport, so as the
+     reader scrolls the page over it, the image stays put. Single-line
+     parallax that works across every page using GuideHero. iOS Safari
+     ignores 'fixed' and falls back to 'scroll' for performance reasons,
+     which is the desired graceful degradation on small screens. */
+  background-attachment: fixed;
   /* Light editorial desaturation — keeps the image's life and form
-     while pulling colour back so the photo never overpowers the title.
-     This is "muted-colour editorial," not B&W. Combined with the
-     asymmetric scrim below for text legibility. */
+     while pulling colour back so the photo never overpowers the title. */
   filter: saturate(0.55) contrast(1.02);
+}
+/* Disable parallax explicitly on small screens to avoid the iOS scaling
+   issue where 'fixed' images inflate to viewport size and crop badly. */
+@media (max-width: 768px) {
+  .guide-hero__image {
+    background-attachment: scroll;
+  }
+}
+/* Honour user motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  .guide-hero__image {
+    background-attachment: scroll;
+  }
 }
 .guide-hero__scrim {
   position: absolute;
