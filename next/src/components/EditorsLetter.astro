@@ -1,0 +1,70 @@
+---
+/**
+ * EditorsLetter — magazine "Editor's Letter" panel.
+ *
+ * Two-column on desktop: the letter body (eyebrow + headline + drop
+ * cap'd prose + pull quote + signature) on the LEFT; an image with
+ * caption on the RIGHT. Stacks on mobile.
+ */
+export interface Props {
+  eyebrow?: string;
+  /** Headline. <em> tags inside render in italic accent. */
+  title: string;
+  /** Body paragraphs (rendered in order). First paragraph gets a drop cap. */
+  paragraphs: string[];
+  /** Optional pull quote rendered between paragraphs (after the first). */
+  pullQuote?: string;
+  signatureName?: string;
+  signatureRole?: string;
+  image?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+}
+
+const {
+  eyebrow = "Editor's Letter",
+  title,
+  paragraphs,
+  pullQuote,
+  signatureName = 'The Editors',
+  signatureRole = 'Peninsula Insider',
+  image,
+  imageAlt = '',
+  imageCaption,
+} = Astro.props;
+---
+
+<section class="letter" aria-labelledby="letter-title">
+  <div class="container">
+    <div class="letter__frame">
+      <div class="letter__body-col">
+        <div class="letter__eyebrow-row">
+          <span class="letter__eyebrow-rule" aria-hidden="true"></span>
+          <span class="letter__eyebrow">{eyebrow}</span>
+        </div>
+        <h2 class="letter__head" id="letter-title" set:html={title} />
+        <div class="letter__prose">
+          {paragraphs.map((p, i) => (
+            <>
+              <p set:html={p} />
+              {i === 0 && pullQuote && <blockquote class="letter__pullquote">{pullQuote}</blockquote>}
+            </>
+          ))}
+        </div>
+        <div class="letter__sig">
+          <span class="letter__sig-mark">—</span>
+          <div>
+            <div class="letter__sig-name">{signatureName}</div>
+            <div class="letter__sig-role">{signatureRole}</div>
+          </div>
+        </div>
+      </div>
+      {image && (
+        <figure class="letter__side">
+          <div class="letter__image" role="img" aria-label={imageAlt} style={`background-image: url(${image})`}></div>
+          {imageCaption && <figcaption class="letter__image-cap" set:html={imageCaption} />}
+        </figure>
+      )}
+    </div>
+  </div>
+</section>

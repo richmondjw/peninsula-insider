@@ -2,9 +2,12 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeCover from '../components/HomeCover.astro';
+import Shortlist from '../components/Shortlist.astro';
+import EditorsLetter from '../components/EditorsLetter.astro';
 import PillarNav from '../components/PillarNav.astro';
 import IssueFlag from '../components/IssueFlag.astro';
 import SectionDivider from '../components/SectionDivider.astro';
+import { formatLabel } from '../lib/editorial';
 import VenueCard from '../components/VenueCard.astro';
 import PlaceCard from '../components/PlaceCard.astro';
 import ExperienceCard from '../components/ExperienceCard.astro';
@@ -62,7 +65,7 @@ const featured = articles.find((a) => a.data.featured && a.data.format !== 'week
 const editorPicks = articles
   .filter((a) => routeSlug(a) !== routeSlug(featured))
   .filter((a) => ['the-chardonnay-case', 'three-italian-dinners', 'the-peninsula-pantry', 'the-long-lunch', 'the-thermal-springs-weekend'].includes(routeSlug(a)))
-  .slice(0, 3);
+  .slice(0, 5);
 
 const showcase = venues
   .filter((venue) => ['ten-minutes-by-tractor', 'montalto', 'laura'].includes(routeSlug(venue)));
@@ -298,22 +301,43 @@ const seasonalExperiences = experiences
 
 
   {editorPicks.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Editor's picks</p>
-            <h2 class="venues__title">Three pieces doing the heaviest lifting this week</h2>
-            <p class="venues__sub venues__sub--standfirst">Read one, skim the others, and the Peninsula weekend starts writing itself.</p>
-          </div>
-          <a href="/journal/" class="venues__link">All in the journal →</a>
-        </div>
-        <div class="venues__grid">
-          {editorPicks.map((article) => <ArticleCard article={article} />)}
-        </div>
-      </div>
-    </section>
+    <Shortlist
+      eyebrow="The Shortlist"
+      title="Five pieces worth the <em>appointment</em>."
+      dek="The handful we'd send a close friend to this issue — picked for the ratio of payoff to effort, not the view from the tasting room."
+      link={{ label: 'Read all in the Journal', href: '/journal/' }}
+      items={editorPicks.map((article, i) => ({
+        rank: String(i + 1).padStart(2, '0'),
+        meta: [
+          formatLabel[article.data.format] ?? String(article.data.format ?? 'Editorial'),
+          article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min read` : 'Editorial',
+          article.data.publishedAt
+            ? new Date(article.data.publishedAt).toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })
+            : '',
+        ].filter(Boolean),
+        name: article.data.title,
+        href: `/journal/${routeSlug(article)}`,
+        why: article.data.dek,
+        tags: (article.data.tags ?? []).slice(0, 2).map((t: string) => ({ label: String(t).replace(/-/g, ' ') })),
+      }))}
+    />
   )}
+
+  <EditorsLetter
+    eyebrow="Editor's Letter"
+    title={`On the <em>quiet authority</em> of a good ${seasonBlurbData.label?.toLowerCase() ?? 'autumn'}.`}
+    paragraphs={[
+      `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year. Most places you want to get into, you can actually get into. The light is good. The rooms are warm. The producers, finally, have time.`,
+      `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking. The newsletter, <em>Peninsula This Weekend</em>, lands in your inbox at 6 pm Wednesday with the current issue's picks tightened into a single page.`,
+      `If this is your first issue with us — welcome. If you're returning — thanks for the patience through the refit.`,
+    ]}
+    pullQuote={`This issue is built for the six weeks where the Peninsula is at its most itself — before winter settles in and the coast goes quiet.`}
+    signatureName="The Editors"
+    signatureRole="Peninsula Insider"
+    image="/images/sourced/place-red-hill-01.webp"
+    imageAlt="Vine rows in late-season colour, Red Hill"
+    imageCaption="The last weekend of vintage, Red Hill <em>— the quietest a working winery ever gets.</em>"
+  />
 
   <SectionDivider />
 
