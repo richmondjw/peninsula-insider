@@ -566,6 +566,7 @@ const breadcrumbItems = [
           <h2 class="golf-stayplay__heading">Planning a golf weekend</h2>
           <p class="golf-stayplay__dek">A Peninsula golf weekend works when the accommodation is close enough that travel between the course and the stay does not eat the day. The RACV Cape Schanck Resort is the most integrated: on-property accommodation, an 18-hole course, and the spa within walking distance. Moonah Links has its own on-property stay. Both allow two rounds in two days without getting in a car between them.</p>
           <p class="golf-stayplay__dek">For those not staying on a golf property, Sorrento and Blairgowrie are the strongest mid-Peninsula bases: within 20 minutes of the Cape Schanck cluster and within 15 minutes of the ferry for a Queenscliff morning. The full stay-and-play guide maps each accommodation option to its closest course and travel time.</p>
+          <p class="golf-stayplay__dek">Building a broader Peninsula trip around golf? The <a href="/journal/mornington-peninsula-itinerary/" class="golf-stayplay__link">3-day Mornington Peninsula itinerary</a> shows how a long weekend can hold golf, wineries, hot springs, and the coast without feeling rushed.</p>
           <a href="/journal/mornington-peninsula-golf-stay-and-play/" class="golf-stayplay__cta">Read the stay-and-play guide →</a>
         </div>
         <div class="golf-stayplay__aside">
@@ -633,6 +634,22 @@ const breadcrumbItems = [
           <div class="golf-faq__a">
             <p>The Cape Schanck / Fingal cluster contains the Peninsula's world-ranked courses: St Andrews Beach, Moonah Links, and The National. All sit in coastal duneland exposed to Bass Strait weather. The terrain is Links-adjacent and the quality of the design architecture is the highest on the Peninsula.</p>
             <p>The bay corridor runs from Mornington to Portsea, with a mix of clifftop (Flinders), parkland (Eagle Ridge), dune-links (The Dunes), and bayside (Mornington, Sorrento, Portsea) layouts. More varied in character, generally more accessible in access and pricing, and better suited to a combined golf-and-winery day without driving to the Peninsula tip.</p>
+          </div>
+        </details>
+
+        <details class="golf-faq__item">
+          <summary class="golf-faq__q">How far is Mornington Peninsula golf from Melbourne?</summary>
+          <div class="golf-faq__a">
+            <p>Most Peninsula golf courses are 75–105 minutes from Melbourne CBD via the Mornington Peninsula Freeway. The Cape Schanck / Fingal cluster — St Andrews Beach, Moonah Links, The National — is approximately 90–100 minutes. The Dunes (Rye) is in the same window. Mornington Golf Club is the closest course to Melbourne at around 60 minutes.</p>
+            <p>Weekend traffic on the Mornington Peninsula Freeway can add 15–30 minutes during summer and school holiday periods. Plan for an early departure on Friday afternoons or Saturday mornings in peak season.</p>
+          </div>
+        </details>
+
+        <details class="golf-faq__item">
+          <summary class="golf-faq__q">What is the best time of year for golf on the Mornington Peninsula?</summary>
+          <div class="golf-faq__a">
+            <p>Autumn (March–May) and spring (September–November) are the strongest seasons — stable weather, firm course conditions, and shoulder-season pricing on green fees and accommodation. The coastal light in autumn is genuinely extraordinary on the Cape Schanck courses.</p>
+            <p>Summer (December–February) is busy and can be windy at coastal courses. Winter is playable on dry days but expect some course closures after heavy rain. Links-style courses like St Andrews Beach and The Dunes drain faster than parkland courses and often stay open when inland layouts close.</p>
           </div>
         </details>
 
@@ -1096,6 +1113,13 @@ const breadcrumbItems = [
     line-height: 1.75;
     margin-bottom: 0.75rem;
   }
+  .golf-stayplay__link {
+    color: var(--gold);
+    text-decoration: underline;
+    text-decoration-color: rgba(182, 154, 107, 0.45);
+    transition: text-decoration-color 0.2s;
+  }
+  .golf-stayplay__link:hover { text-decoration-color: var(--gold); }
   .golf-stayplay__cta {
     display: inline-block;
     margin-top: 1.25rem;

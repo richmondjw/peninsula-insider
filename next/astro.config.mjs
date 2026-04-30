@@ -46,9 +46,10 @@ export default defineConfig({
     // PI-EXP-012 — hot-springs hub (absorbs journal guide)
     '/journal/mornington-peninsula-hot-springs-guide/': '/explore/hot-springs/',
 
-    // PI-EXP-013 — golf hub (absorbs two journal guide URLs)
+    // PI-EXP-013 — golf hub (absorbs two journal guide URLs + old top-level /golf/ stub)
     '/journal/mornington-peninsula-golf-guide/': '/explore/golf/',
     '/journal/best-golf-courses-mornington-peninsula/': '/explore/golf/',
+    '/golf/': '/explore/golf/',
 
     // PI-EXP-014 — spas hub (absorbs /spa top-level and journal URL)
     '/spa/': '/explore/spas-and-wellness/',
