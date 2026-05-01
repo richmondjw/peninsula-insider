@@ -68,6 +68,74 @@ Run the SQL migration at `ops/migrations/2026-04-30-concierge-chunks-fingerprint
 
 ---
 
+## 2026-05-01 — Claude (SEO experiment 2026-05-01-01)
+
+### Removed duplicate broken `<link rel="canonical">` from all place pages
+
+**Summary**
+Every page under `/places/*` was emitting **two `<link rel="canonical">` tags** in `<head>`, the second pointing to a non-existent URL `/places/undefined`. Plus duplicate `<title>`, meta description, og: tags, and JSON-LD. Removed the offending block.
+
+**Files changed**
+- `next/src/components/PlaceDetailTemplate.astro` — deleted the entire `<Fragment slot="head">` block (lines 79-88) and the unused locals that fed it (`canonical`, `placeTitle`, `placeDescription`, `ogImage`, `placeSchema` — lines 62-77). Replaced with a comment explaining why.
+
+**Pages affected**
+All 20 pages under `/places/*`: sorrento, red-hill, flinders, mornington, rye, portsea, main-ridge, dromana, mount-martha, cape-schanck, balnarring, merricks, point-nepean, plus 7 others.
+
+**Why it matters**
+The duplicate template-emitted canonical built `https://peninsulainsider.com.au/places/${place.slug}`, but `place.slug` is undefined in Astro's content-collection API (the correct property is `place.id`). So every place page sent Google a `<link rel="canonical" href=".../places/undefined">` pointing to a 404. Combined with the correct canonical from BaseLayout (which `places/[slug].astro` passes correctly), Google saw conflicting signals and was reluctant to index the pages — three priority place URLs were stuck on "Alternate page with proper canonical tag" status. The parent page (`places/[slug].astro`) already passes correct title/description/canonical/ogImage to BaseLayout and emits its own JSON-LD, so the entire template-side head block was redundant duplication.
+
+**Verification**
+- Ran `npm run build` — 955 pages built in 19.56s, no errors.
+- Spot-checked `dist/places/{red-hill,sorrento,flinders}/index.html`: each now has exactly one `<link rel="canonical">` pointing to the correct trailing-slash URL, exactly one `<title>` tag.
+
+**Hypothesis (logged in `ops/reports/seo/experiments.md` as 2026-05-01-01)**
+By 2026-05-16 (14d post-deploy), priority URL indexed count rises from 2/14 to ≥7/14.
+
+**Follow-up**
+- After auto-deploy completes: James to enable "Enforce HTTPS" in GitHub Pages settings (separate finding from this PR — `http://` URLs are currently served 200 OK, not redirected).
+- After auto-deploy completes: James to submit 20 priority URLs for manual reindexing in GSC URL Inspection (full list in `ops/reports/seo/daily-log.md`).
+- Re-pull GSC daily; measure indexation movement on 2026-05-09 (7d) and 2026-05-16 (14d).
+
+---
+
+## 2026-05-01 — Claude (SEO ownership setup)
+
+### SEO ops infrastructure: GSC API automation + daily review cycle
+
+**Summary**
+Stood up a sustained, daily-cycle SEO operation owned by Claude. Automated Google Search Console API pulls, persistent tracking documents, baseline snapshot, and the first dated experiment queued for shipping tomorrow.
+
+**Files created**
+- `ops/scripts/seo/auth.mjs` — one-time OAuth bootstrap for the GSC API (loopback flow, saves refresh token to `ops/tokens/gsc-token.json`)
+- `ops/scripts/seo/pull.mjs` — daily pull: 28d/7d performance, top 100 queries+pages, daily trend, devices, countries, URL inspection for 14 priority URLs. Saves raw JSON to `ops/data/seo/YYYY-MM-DD.json` and appends a markdown digest to `ops/reports/seo/daily-log.md`
+- `ops/scripts/seo/config.mjs` — paths and `PRIORITY_URLS` list
+- `ops/scripts/seo/package.json` + `package-lock.json` — `googleapis` dep, scoped to this folder
+- `ops/scripts/seo/README.md` — script usage
+- `ops/reports/seo/baseline.md` — frozen 2026-05-01 reference; never edit
+- `ops/reports/seo/daily-log.md` — append-only journal, the doc reviewed every morning
+- `ops/reports/seo/experiments.md` — hypothesis-driven change log
+- `ops/reports/seo/backlog.md` — prioritised next actions
+- `ops/reports/seo/README.md` — operating cycle documentation
+
+**Pages affected**
+None directly. Infrastructure only.
+
+**Why it matters**
+Site is at 11.2% indexation rate (39/349 URLs) on a new domain. Sustained daily diagnose→ship→measure beats sporadic audits. Pulling from the GSC API means we can compare day-on-day movement and attribute changes to specific actions, instead of waiting for manual exports.
+
+**First findings from baseline pull (logged in `baseline.md`)**
+- Trajectory positive: clicks 2→8 WoW, impressions 539→1,009 WoW, but only 2 of 14 priority URLs are indexed
+- Critical bug discovered: every `/places/*` page emits a duplicate broken `<link rel="canonical" href=".../places/undefined">` due to `next/src/components/PlaceDetailTemplate.astro:62` reading `place.slug` (undefined) instead of `place.id`. Logged as experiment `2026-05-02-01` for tomorrow's first PR.
+- Stale GSC crawl data on 3 priority URLs (current HTML is correct; manual reindex requests recommended)
+- Dog-friendly content cluster is the dominant demand signal (5 of top 10 query impressions)
+
+**Follow-up**
+- Tomorrow (2026-05-02): ship experiment 2026-05-02-01 (canonical fix) as the first SEO PR under the new cycle
+- Submit `/stay/best-accommodation/`, `/journal/dog-friendly-mornington-peninsula/`, `/places/red-hill/` for manual reindex via GSC URL Inspection
+- Diagnose `http://` vs `https://` indexation observed in top-pages report
+
+---
+
 ## 2026-04-19 — Remy (subagent)
 
 ### New vertical hubs: Weddings, Corporate Events, Walks
