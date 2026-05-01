@@ -3,7 +3,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-0MR9YVZ9NW');
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.DlLQA6N3.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.BbxO5oKd.css">
 <style>.v2-saved-list{display:grid;gap:1rem}.v2-saved-card{display:grid;grid-template-columns:6rem 1fr;gap:1rem;padding:.8rem;border:1px solid var(--line, #D9D1BE);border-radius:4px;background:#fff;text-decoration:none;color:inherit;transition:border-color .18s ease}.v2-saved-card:hover{border-color:var(--ochre, #A0541F)}.v2-saved-card__img{aspect-ratio:1;background-size:cover;background-position:center;background-color:var(--paper-warm, #F3EDDE);border-radius:2px}.v2-saved-card__eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre, #A0541F);margin:0 0 .3rem}.v2-saved-card__title{font-family:var(--serif, "Newsreader", Georgia, serif);font-size:1.05rem;font-weight:500;line-height:1.2;margin:0 0 .3rem;color:var(--ink, #171413)}.v2-saved-card__dek{font-family:var(--serif, "Newsreader", Georgia, serif);font-size:.88rem;line-height:1.4;color:var(--ink-soft, #3A3531);margin:0}.v2-saved-empty{padding:2rem 0}.v2-saved-empty p{font-family:var(--serif, "Newsreader", Georgia, serif);font-size:1rem;color:var(--ink-soft, #3A3531);margin:0 0 1rem;max-width:36ch}
 </style></head> <body data-page="home" data-path="/account/saved/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The Autumn Issue · April 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Next dispatch</strong> Wed 6 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="#" data-open-auth data-auth-anonymous>Sign in</a> <a href="/account/" data-auth-signed-in hidden>Account</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
@@ -86,6 +86,9 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
       drawer.setAttribute('data-state', s);
       sessionStorage.setItem(STATE_KEY, s);
       document.body.classList.toggle('pi-drawer-open-mobile', s === 'open' && isMobile());
+      // Global "concierge open" flag — used by site CSS to hide the masthead
+      // and other sticky chrome while the drawer occupies the screen.
+      document.body.classList.toggle('concierge-open', s === 'open');
     }
 
     // ── History persistence ──────────────────────────
@@ -383,6 +386,18 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
     });
+
+    // Any link click anywhere on the page closes the drawer immediately.
+    // The user expects: tap a link → navigate → drawer is gone, no overlay.
+    // Anchor matches any <a href> outside the drawer itself; chips inside the
+    // drawer trigger the suggestion handler (delegated below) and are excluded.
+    document.addEventListener('click', (e) => {
+      if (getState() !== 'open') return;
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      if (drawer.contains(link)) return; // chip / link inside drawer — leave alone
+      minimiseDrawer();
+    }, true);
 
     // ── Submit ───────────────────────────────────────
     // Streaming flow:

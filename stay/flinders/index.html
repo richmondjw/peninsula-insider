@@ -3,7 +3,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-0MR9YVZ9NW');
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.DlLQA6N3.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.BbxO5oKd.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="stay" data-path="/stay/flinders/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The Autumn Issue · April 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Next dispatch</strong> Wed 6 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="#" data-open-auth data-auth-anonymous>Sign in</a> <a href="/account/" data-auth-signed-in hidden>Account</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
@@ -148,6 +148,9 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
       drawer.setAttribute('data-state', s);
       sessionStorage.setItem(STATE_KEY, s);
       document.body.classList.toggle('pi-drawer-open-mobile', s === 'open' && isMobile());
+      // Global "concierge open" flag — used by site CSS to hide the masthead
+      // and other sticky chrome while the drawer occupies the screen.
+      document.body.classList.toggle('concierge-open', s === 'open');
     }
 
     // ── History persistence ──────────────────────────
@@ -445,6 +448,18 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
     });
+
+    // Any link click anywhere on the page closes the drawer immediately.
+    // The user expects: tap a link → navigate → drawer is gone, no overlay.
+    // Anchor matches any <a href> outside the drawer itself; chips inside the
+    // drawer trigger the suggestion handler (delegated below) and are excluded.
+    document.addEventListener('click', (e) => {
+      if (getState() !== 'open') return;
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      if (drawer.contains(link)) return; // chip / link inside drawer — leave alone
+      minimiseDrawer();
+    }, true);
 
     // ── Submit ───────────────────────────────────────
     // Streaming flow:
