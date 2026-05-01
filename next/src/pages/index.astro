@@ -195,13 +195,13 @@ const seasonalExperiences = experiences
       readingTime={featured.data.readingTimeMinutes ? `${featured.data.readingTimeMinutes} min` : undefined}
       href={`/journal/${routeSlug(featured)}`}
       images={[
-        { src: '/images/sourced/home-cover.webp', alt: '' },
-        { src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp', alt: '' },
-        { src: '/images/sourced/explore-bushrangers-bay-walk-01.webp', alt: '' },
-        { src: '/images/sourced/article-sunset-01.webp', alt: '' },
-        { src: '/images/sourced/place-red-hill-01.webp', alt: '' },
-        { src: '/images/sourced/explore-mount-martha-beach-01.webp', alt: '' },
-        { src: '/images/sourced/explore-arthurs-seat-lookout-01.webp', alt: '' },
+        /* Three-window daily rotation — picked by visitor's local hour:
+             0:00–07:59  → image 1 (sunset bay, bathing boxes)
+             8:00–15:59  → image 2 (back-beach horse riders)
+            16:00–23:59  → image 3 (bay beach with red umbrella)        */
+        { src: '/images/sourced/home-cover-sunset-bay-01.jpg',          alt: 'Sunset over a Mornington Peninsula bay with bathing boxes in the foreground' },
+        { src: '/images/sourced/home-cover-back-beach-horses-01.jpg',   alt: 'Horse riders on a Peninsula back beach with surf rolling in' },
+        { src: '/images/sourced/home-cover-bay-umbrella-01.webp',       alt: 'A red umbrella on a calm Peninsula bay beach with marram grass' },
       ]}
     />
   )}
