@@ -612,109 +612,146 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    serif labels doing the typographic work. Matches the brand
    voice: a print magazine contents page, not a web nav bar.
    ========================================================= */
+/* =========================================================
+   PILLAR NAV — magazine table-of-contents.
+   Replaces the 3x3 icon-tile grid. Numbered list, each row =
+   section name in Cormorant + a one-line editorial dek. Reads
+   like a real magazine's contents page. Compact, scannable.
+   ========================================================= */
 .pillars {
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
 }
-.pillars__inner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-.pillar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.1rem;
-  padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 2vw, 2rem);
-  min-height: 180px;
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
-  cursor: pointer;
-  position: relative;
-  transition: background-color .35s var(--ease);
-}
-.pillar:hover {
-  background-color: rgba(139, 78, 59, 0.035);
-}
-/* Desktop 4x2 dividers — hairline between cells, no outer borders (panel handles top/bottom). */
-.pillar:not(:nth-child(4n)) {
-  border-right: 1px solid var(--border);
-}
-.pillar:nth-child(-n+4) {
+.pillars__head {
+  max-width: 880px;
+  margin: 0 auto clamp(1.4rem, 2.5vw, 2rem);
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
-.pillar__icon {
+.pillars__eyebrow {
   display: block;
-  width: 32px;
-  height: 32px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--soft);
-  stroke: currentColor;
-  stroke-width: 1.3;
-  flex-shrink: 0;
-  transition: color .35s var(--ease), transform .35s var(--ease);
+  margin-bottom: 0.3rem;
 }
-.pillar:hover .pillar__icon {
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-.pillar__name {
+.pillars__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  font-size: clamp(1.6rem, 2.3vw, 2.05rem);
   font-weight: 500;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   color: var(--dark);
-  line-height: 1.1;
+  line-height: 1;
+}
+.pillars__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 880px;
+}
+.pillar-row {
+  border-bottom: 1px solid var(--border);
+}
+.pillar-row:first-child {
+  border-top: 1px solid var(--border);
+}
+.pillar-row__link {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 11rem) 1fr auto;
+  align-items: baseline;
+  gap: clamp(0.9rem, 2vw, 1.6rem);
+  padding: clamp(0.95rem, 1.6vw, 1.3rem) clamp(0.4rem, 1.2vw, 0.8rem);
+  text-decoration: none;
+  color: var(--text);
   position: relative;
-  padding-bottom: 0.5rem;
-  transition: color .35s var(--ease);
-  text-transform: none;
+  transition: background-color .25s var(--ease), padding-left .25s var(--ease);
 }
-/* Animated underline on hover — slides out from centre. */
-.pillar__name::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transform: translateX(-50%);
-  transition: width .4s var(--ease);
+.pillar-row__link:hover,
+.pillar-row__link:focus-visible {
+  background-color: rgba(139, 78, 59, 0.04);
+  padding-left: clamp(0.8rem, 1.6vw, 1.4rem);
+  outline: none;
 }
-.pillar:hover .pillar__name {
+.pillar-row__num {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  font-feature-settings: 'tnum' 1;
+}
+.pillar-row__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.45rem, 2.1vw, 1.95rem);
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  line-height: 1.05;
+  transition: color .25s var(--ease);
+}
+.pillar-row__link:hover .pillar-row__name,
+.pillar-row__link:focus-visible .pillar-row__name {
   color: var(--accent);
 }
-.pillar:hover .pillar__name::after {
-  width: 44%;
+.pillar-row__dek {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  font-style: italic;
+  color: var(--soft);
+  line-height: 1.35;
 }
-.pillar__sub { display: none; }
+.pillar-row__arrow {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1rem;
+  color: var(--soft);
+  opacity: 0.5;
+  transform: translateX(0);
+  transition: transform .25s var(--ease), opacity .25s var(--ease), color .25s var(--ease);
+}
+.pillar-row__link:hover .pillar-row__arrow,
+.pillar-row__link:focus-visible .pillar-row__arrow {
+  opacity: 1;
+  color: var(--accent);
+  transform: translateX(4px);
+}
 
-/* Tablet: 2x4 grid — keep the chapter-index divider pattern. */
-@media (max-width: 1023px) {
+/* Tablet — collapse name + dek to a single column under the number. */
+@media (max-width: 768px) {
   .pillars {
     padding: clamp(2rem, 4vw, 3rem) 0;
   }
-  .pillars__inner {
-    grid-template-columns: repeat(2, 1fr);
+  .pillars__head { padding-bottom: 0.85rem; margin-bottom: 1rem; }
+  .pillar-row__link {
+    grid-template-columns: 2.6rem 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 0.4rem clamp(0.7rem, 2vw, 1rem);
+    padding: 0.95rem 0.4rem;
   }
-  .pillar {
-    border-right: none;
-    border-bottom: none;
-    min-height: 150px;
-    padding: clamp(1.75rem, 3vw, 2.25rem) 1rem;
+  .pillar-row__num {
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: 0.65rem;
   }
-  .pillar:nth-child(odd) {
-    border-right: 1px solid var(--border);
+  .pillar-row__name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 1.4rem;
   }
-  .pillar:not(:nth-last-child(-n+2)) {
-    border-bottom: 1px solid var(--border);
+  .pillar-row__dek {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+  .pillar-row__arrow {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
   }
 }
 
