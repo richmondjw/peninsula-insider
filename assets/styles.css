@@ -7461,3 +7461,127 @@ body[data-path^="/ask"] .concierge-fab {
     padding: 0.95rem 1.1rem !important;
   }
 }
+
+/* =========================================================
+   HOMEPAGE MOBILE TIGHTENING — Phase 1 + 2
+   Cuts vertical length, reorders priorities, makes the
+   surviving sections punch harder on phones.
+   Desktop is untouched.
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+  /* ---- Phase 1 — Cut the length ---- */
+
+  /* Hide low-payoff secondary lists on mobile */
+  .seasonal-shelf,
+  .venues--hide-mobile {
+    display: none;
+  }
+
+  /* IssueFlag: drop stats row, keep the edition line + fleuron */
+  .issue-flag { padding: clamp(1.4rem, 4vw, 2rem) 0; }
+  .issue-flag__stats { display: none; }
+  .issue-flag__context { margin-bottom: 0.4rem; }
+
+  /* PillarNav: collapse 8 tiles into a single horizontal scroll-snap
+     row so it stops eating ~400px of vertical real estate. Each
+     pillar becomes a 38vw chip; user swipes through. */
+  .pillars__inner {
+    display: flex !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem 1rem !important;
+  }
+  .pillars__inner::-webkit-scrollbar { display: none; }
+  .pillar {
+    flex: 0 0 38vw;
+    min-width: 0 !important;
+    min-height: auto !important;
+    scroll-snap-align: start;
+    padding: 1rem 0.85rem !important;
+    aspect-ratio: auto !important;
+    text-align: left !important;
+    border: 1px solid rgba(121, 92, 58, 0.15);
+    border-radius: 6px;
+    background: var(--bg);
+  }
+  .pillar__icon {
+    width: 22px !important;
+    height: 22px !important;
+    margin: 0 0 0.4rem !important;
+  }
+  .pillar__name {
+    font-size: 0.95rem !important;
+    line-height: 1.15;
+  }
+  .pillar__sub { display: none; }
+
+  /* ---- Phase 2 — Make the surviving sections punch ---- */
+
+  /* HomeCover: image FIRST, text below — sets the tone in 1 swipe */
+  .home-cover__frame {
+    grid-template-columns: 1fr;
+  }
+  .home-cover__above { order: 2; }
+  .home-cover__figure { order: 1; }
+
+  /* Shortlist: drop the 80px num gutter, fold rank into the meta */
+  .sl-item {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    padding: 1.4rem 0;
+  }
+  .sl-item__num {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1;
+    margin: 0 0 0.4rem;
+    color: var(--accent);
+  }
+  .sl-item__name {
+    font-size: 1.45rem;
+    line-height: 1.18;
+  }
+
+  /* Editor's Letter: drop the drop cap on mobile, image becomes a
+     small inline portrait under the eyebrow rather than a column */
+  .letter__prose p:first-of-type::first-letter {
+    font-size: inherit;
+    float: none;
+    color: inherit;
+    padding: 0;
+    line-height: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+  }
+  .letter__frame { grid-template-columns: 1fr; gap: 1.2rem; }
+  .letter__side { order: -1; max-width: 280px; }
+  .letter__image { aspect-ratio: 16 / 10; }
+  .letter__image-cap { font-size: 0.82rem; }
+
+  /* Dining showcase: horizontal scroll-snap rail. One card visible
+     at a time, swipe through. Saves ~1600px of vertical. */
+  .venues--scroll-mobile .venues__grid {
+    display: flex !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding: 0.25rem 1rem 0.5rem;
+    margin: 0 -1rem;
+  }
+  .venues--scroll-mobile .venues__grid::-webkit-scrollbar { display: none; }
+  .venues--scroll-mobile .venues__grid > .venue-card,
+  .venues--scroll-mobile .venues__grid > * {
+    flex: 0 0 82vw;
+    scroll-snap-align: start;
+  }
+}
