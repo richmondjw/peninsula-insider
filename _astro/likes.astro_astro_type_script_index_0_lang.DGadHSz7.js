@@ -1,0 +1,1 @@
+import{o as a}from"./auth.CUVtKC7r.js";async function e(){const n=document.querySelector("[data-likes-list]"),o=document.querySelector("[data-likes-empty]"),t=document.querySelector("[data-likes-anon]");if(!(!n||!o||!t)){t.hidden=!1;return}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e();document.addEventListener("astro:page-load",e);a(e);

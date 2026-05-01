@@ -178,7 +178,10 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
 </section>
 
 <style>
-  .hero-v2 { position: relative; min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; background-color: var(--dark); }
+  /* 85vh leaves ~15% of the viewport for the next section to peek into
+     view — giving the page a clear "hint of what's below" without
+     making the cover feel small. */
+  .hero-v2 { position: relative; min-height: 85vh; display: flex; align-items: flex-end; overflow: hidden; background-color: var(--dark); }
   /* Still-image fallback. Oversized like the video so the JS parallax can
      drift it without revealing empty space. */
   .hero-v2__bg {
@@ -272,7 +275,7 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
     }
   }
   @media (max-width: 768px) {
-    .hero-v2 { min-height: 85vh; }
+    .hero-v2 { min-height: 78vh; }
     .hero-v2__bg { background-position: center 30%; background-attachment: scroll; }
     /* Heavier scrim on mobile — image is bright and text needs to float cleanly */
     .hero-v2__scrim { background: linear-gradient(to bottom,

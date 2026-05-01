@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthModal from '../../components/v2/AuthModal.astro';
+---
+
+<BaseLayout title="Liked articles — Peninsula Insider" description="Articles you've liked." noindex={true}>
+  <main class="v2-account-page">
+    <div class="v2-account-page__container">
+      <p class="v2-account-page__eyebrow">Your account</p>
+      <h1 class="v2-account-page__title">Likes — <em>your trail</em>.</h1>
+      <div class="v2-account-page__nav">
+        <a class="v2-account-page__nav-item" href="/account/">Profile</a>
+        <a class="v2-account-page__nav-item" href="/account/saved/">Saved</a>
+        <a class="v2-account-page__nav-item" href="/account/likes/" aria-current="page">Likes</a>
+      </div>
+      <div data-likes-list class="v2-saved-list" hidden></div>
+      <div data-likes-empty class="v2-saved-empty" hidden>
+        <p>Nothing liked yet. Tap the heart at the bottom of any article you found worth reading.</p>
+        <a class="v2-account-page__cta" href="/journal/">Browse the Journal</a>
+      </div>
+      <div data-likes-anon class="v2-account-page__signed-out" hidden>
+        <p class="v2-account-page__lead">Sign in to view your likes.</p>
+        <button class="v2-account-page__cta" type="button" data-open-auth>Sign in</button>
+      </div>
+    </div>
+  </main>
+  <AuthModal />
+</BaseLayout>
+
+<script>
+  import { getUser, listLikes, onAuthChange, isAuthEnabled } from '../../lib/auth';
+
+  async function render() {
+    const list = document.querySelector('[data-likes-list]') as HTMLElement;
+    const empty = document.querySelector('[data-likes-empty]') as HTMLElement;
+    const anon = document.querySelector('[data-likes-anon]') as HTMLElement;
+    if (!list || !empty || !anon) return;
+    if (!isAuthEnabled()) { anon.hidden = false; return; }
+    const u = await getUser();
+    if (!u) { list.hidden = true; empty.hidden = true; anon.hidden = false; return; }
+    anon.hidden = true;
+    const items = await listLikes(u.id);
+    if (!items.length) { empty.hidden = false; list.hidden = true; return; }
+    empty.hidden = true; list.hidden = false;
+    list.innerHTML = items.map((it: any) => `
+      <a class="v2-saved-card" href="/${it.section}/${it.article_slug}/">
+        <div class="v2-saved-card__img"></div>
+        <div class="v2-saved-card__body">
+          <p class="v2-saved-card__eyebrow">${it.section}</p>
+          <h3 class="v2-saved-card__title">${it.article_slug.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}</h3>
+        </div>
+      </a>
+    `).join('');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+  else render();
+  document.addEventListener('astro:page-load', render);
+  onAuthChange(render);
+</script>

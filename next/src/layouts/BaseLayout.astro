@@ -11,8 +11,12 @@ import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles — loaded on every page
 import { ClientRouter } from 'astro:transitions';
 import Masthead from '../components/Masthead.astro';
+// UtilityBar removed — its content is now integrated into Masthead's
+// utility row. Keeping this comment as a breadcrumb for the migration.
 import Footer from '../components/Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
+import AuthModal from '../components/v2/AuthModal.astro';
+import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 
 export interface Props {
   title: string;
@@ -121,7 +125,7 @@ const isAskPage = rawPathname.startsWith('/ask');
     gtag('config', 'G-0MR9YVZ9NW');
   </script>
 </head>
-<body>
+<body data-page={section} data-path={rawPathname}>
 
   <Masthead section={section} />
 
@@ -130,6 +134,12 @@ const isAskPage = rawPathname.startsWith('/ask');
   </main>
 
   <Footer />
+
+  <!-- V2 auth phase 1 — modal + profile dropdown.
+       Modal hidden until any [data-open-auth] element triggers it.
+       Dropdown auto-mounts into the masthead utility row when signed in. -->
+  <ProfileDropdown />
+  <AuthModal />
 
   <!-- Set API URL BEFORE the drawer renders — its boot script reads
        window.PI_API_URL at parse time, so this must come first. -->
@@ -140,6 +150,49 @@ const isAskPage = rawPathname.startsWith('/ask');
   <!-- PI concierge drawer — slides in from the right edge.
        Suppressed on /ask itself (which is the full-page version). -->
   {!isAskPage && <ConciergeDrawer />}
+
+  <!-- Sticky Subscribe pill — fades in once the reader passes the 50%
+       scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
+       via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
+       opposite the concierge FAB (bottom-right) and they don't collide. -->
+  <a href="/newsletter/" class="subscribe-pill" aria-label="Subscribe to The Insider's Dispatch">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+    <span class="subscribe-pill__label">Subscribe</span>
+  </a>
+
+  <script is:inline>
+    (function () {
+      function initSubscribePill() {
+        var body = document.body;
+        if (body._subPillBound) return;
+        body._subPillBound = true;
+        var threshold = 0.5; // 50% of scrollable page
+        var rafId = null;
+        function check() {
+          var max = document.documentElement.scrollHeight - window.innerHeight;
+          if (max <= 0) {
+            body.classList.remove('show-subscribe-pill');
+            return;
+          }
+          var pct = window.scrollY / max;
+          body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        }
+        window.addEventListener('scroll', function () {
+          if (rafId) return;
+          rafId = requestAnimationFrame(function () { check(); rafId = null; });
+        }, { passive: true });
+        check();
+      }
+      initSubscribePill();
+      document.addEventListener('astro:page-load', function () {
+        document.body._subPillBound = false;
+        initSubscribePill();
+      });
+    })();
+  </script>
 
   <script is:inline>
     (function() {
@@ -152,6 +205,7 @@ const isAskPage = rawPathname.startsWith('/ask');
         nav.classList.remove('is-open');
         burger.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
 
         // Guard against double-binding on repeated calls
@@ -162,6 +216,9 @@ const isAskPage = rawPathname.startsWith('/ask');
           var open = nav.classList.toggle('is-open');
           burger.classList.toggle('is-open', open);
           burger.setAttribute('aria-expanded', String(open));
+          // body.menu-open lets CSS hide the masthead so its wordmark
+          // doesn't sit on top of the mobile-nav overlay's wordmark.
+          document.body.classList.toggle('menu-open', open);
           document.body.style.overflow = open ? 'hidden' : '';
         });
 
@@ -170,6 +227,7 @@ const isAskPage = rawPathname.startsWith('/ask');
             nav.classList.remove('is-open');
             burger.classList.remove('is-open');
             burger.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
           });
         });

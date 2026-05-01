@@ -1,13 +1,11 @@
 ---
-/**
- * Footer  -  Peninsula Insider
- * Three-column footer with editorial nav, section links, and legal.
- *
- * Section + about links come from `lib/nav.ts` so the masthead, pillar grid,
- * and footer stay in sync. The "Places" column is built from the live places
- * collection so editorial picks lead but new published places surface
- * automatically without a manual edit here.
- */
+/* Footer — V2 design (colophon).
+   Strangler-fig migration of the legacy three-column footer.
+   Keeps the dynamic places-collection pattern from the legacy
+   Footer.astro so newly-published places surface automatically.
+   Namespaced .v2-colophon* / .v2-col-sect* for clean coexistence
+   with anything else; CSS inline so the component is self-contained. */
+
 import { getCollection } from 'astro:content';
 import {
   footerSectionLinks as sectionLinks,
@@ -20,28 +18,21 @@ const places = await getCollection('places');
 const placeLinks = buildFooterPlaceLinks(places);
 ---
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <span class="footer__logo">Peninsula <span>Insider</span></span>
-        <p class="footer__tagline">The independent editorial guide to the Mornington Peninsula.</p>
-        <p class="footer__dispatch-note"><em>Peninsula This Weekend</em> dispatches every Sunday for the weekend ahead &middot; <a href="/#newsletter">Subscribe</a></p>
-        <div class="footer__social">
-          <a href="https://www.instagram.com/peninsula.insider/" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.facebook.com/61568754749670" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/115044132" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-        </div>
+<footer class="v2-colophon">
+  <div class="v2-colophon__container">
+    <div class="v2-colophon__head">
+      <div class="v2-colophon__wordmark">Peninsula <em>Insider</em></div>
+      <div class="v2-colophon__motto">— the independent guide to the Mornington Peninsula.</div>
+    </div>
+
+    <div class="v2-colophon__grid">
+      <div class="v2-col-sect v2-col-sect--brand">
+        <p>An editorial product about one small, well-defined place. Every venue visited. Every opinion earned. Dispatched every Wednesday at 6 pm.</p>
+        <span class="v2-col-sect__label">Vol 04 <span class="v2-col-sect__ornament">·</span> Autumn 2026 issue <span class="v2-col-sect__ornament">·</span> Published in Victoria.</span>
       </div>
 
-      <nav class="footer__col" aria-label="Sections">
-        <p class="footer__col-title">Sections</p>
+      <nav class="v2-col-sect" aria-label="Departments">
+        <p class="v2-col-sect__title">Departments</p>
         <ul>
           {sectionLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
@@ -49,8 +40,8 @@ const placeLinks = buildFooterPlaceLinks(places);
         </ul>
       </nav>
 
-      <nav class="footer__col" aria-label="Places">
-        <p class="footer__col-title">Places</p>
+      <nav class="v2-col-sect" aria-label="Places">
+        <p class="v2-col-sect__title">Places</p>
         <ul>
           {placeLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
@@ -58,8 +49,8 @@ const placeLinks = buildFooterPlaceLinks(places);
         </ul>
       </nav>
 
-      <nav class="footer__col" aria-label="About">
-        <p class="footer__col-title">About</p>
+      <nav class="v2-col-sect" aria-label="Colophon">
+        <p class="v2-col-sect__title">Colophon</p>
         <ul>
           {aboutLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
@@ -68,9 +59,134 @@ const placeLinks = buildFooterPlaceLinks(places);
       </nav>
     </div>
 
-    <div class="footer__bottom">
-      <p class="footer__copy">&copy; {year} Peninsula Insider. All rights reserved.</p>
-      <p class="footer__independence">Built on the Peninsula, for the Peninsula.</p>
+    <div class="v2-colophon__foot">
+      <span>© {year} Peninsula Insider <span class="v2-col-sect__ornament">·</span> All rights reserved.</span>
+      <span><em>Built on the Peninsula, for the Peninsula.</em></span>
     </div>
   </div>
 </footer>
+
+<style is:global>
+  .v2-colophon {
+    background: var(--paper-warm, #F3EDDE);
+    padding: clamp(4rem, 7vw, 6rem) 0 2rem;
+    border-top: 4px solid var(--ink, #171413);
+    color: var(--ink-soft, #3A3531);
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+  }
+  .v2-colophon__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .v2-colophon__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line, #D9D1BE);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .v2-colophon__wordmark {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink, #171413);
+    font-variation-settings: 'opsz' 48;
+  }
+  .v2-colophon__wordmark em {
+    color: var(--ochre, #A0541F);
+    font-style: italic;
+    font-weight: 300;
+  }
+  .v2-colophon__motto {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink-muted, #6E655C);
+    font-variation-settings: 'opsz' 18;
+  }
+  .v2-colophon__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 880px) {
+    .v2-colophon__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .v2-colophon__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  .v2-colophon__foot {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-soft, #E8E2D1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-size: 0.78rem;
+    color: var(--ink-muted, #6E655C);
+  }
+  .v2-colophon__foot em {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-style: italic;
+    font-variation-settings: 'opsz' 16;
+  }
+
+  .v2-col-sect ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .v2-col-sect a {
+    font-size: 0.9rem;
+    color: var(--ink-soft, #3A3531);
+    text-decoration: none;
+    transition: color .18s ease;
+  }
+  .v2-col-sect a:hover { color: var(--ochre, #A0541F); }
+  .v2-col-sect__title {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink, #171413);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ink, #171413);
+  }
+  .v2-col-sect__ornament {
+    color: var(--ochre, #A0541F);
+    margin: 0 0.2rem;
+  }
+  .v2-col-sect--brand p {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--ink-soft, #3A3531);
+    margin: 0 0 1rem;
+    font-variation-settings: 'opsz' 18;
+    max-width: 36ch;
+  }
+  .v2-col-sect__label {
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+    font-size: 0.68rem;
+    font-style: italic;
+    color: var(--ink-muted, #6E655C);
+    font-variation-settings: 'opsz' 16;
+    font-weight: 400;
+  }
+</style>

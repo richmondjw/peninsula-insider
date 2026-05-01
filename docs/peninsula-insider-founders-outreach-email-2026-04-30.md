@@ -43,7 +43,7 @@ Hi [Name],
 
 [Optional: opening line referring to the warm intro, e.g. *[Mutual contact] suggested we get in touch.*]
 
-We are James and Emma Richmond, founding editors of Peninsula Insider, a new editorial publication launching for the Mornington Peninsula. Local writing, original photography, a weekly letter from a named editor, the kind of magazine the Peninsula has somehow never had.
+We are James and Emma, founding editors of Peninsula Insider, a new editorial publication launching for the Mornington Peninsula. Local writing, original photography, a weekly letter from a named editor, the kind of magazine the Peninsula has somehow never had.
 
 We are writing because we are putting together a small founding partner cohort. Six Peninsula businesses we admire, told properly by our desk, photographed across two seasons, embedded in the publication for two years. We think [Venue] belongs in that group.
 

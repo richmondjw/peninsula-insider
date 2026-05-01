@@ -28,59 +28,8 @@ export default defineConfig({
   ],
   // Output: pure static. Vercel/Netlify adapters come in the cutover week.
   output: 'static',
-  redirects: {
-    // PI-EXP-044 — merge duplicate bushrangers-bay entity
-    '/explore/bushrangers-bay/': '/explore/bushrangers-bay-walk/',
-
-    // PI-EXP-007 — rename /explore/best-walks to /explore/walks; top-level /walks stub
-    '/explore/best-walks/': '/explore/walks/',
-    '/explore/mornington-peninsula-walk/': '/explore/walks/',
-    '/walks/': '/explore/walks/',
-
-    // PI-EXP-006 — consolidate journal things-to-do article into hub
-    '/journal/things-to-do-mornington-peninsula/': '/explore/things-to-do/',
-
-    // PI-EXP-011 — beaches hub (absorbs journal beach guide)
-    '/journal/mornington-peninsula-beach-guide/': '/explore/beaches/',
-
-    // PI-EXP-012 — hot-springs hub (absorbs journal guide)
-    '/journal/mornington-peninsula-hot-springs-guide/': '/explore/hot-springs/',
-
-    // PI-EXP-013 — golf hub (absorbs two journal guide URLs + old top-level /golf/ stub)
-    '/journal/mornington-peninsula-golf-guide/': '/explore/golf/',
-    '/journal/best-golf-courses-mornington-peninsula/': '/explore/golf/',
-    '/golf/': '/explore/golf/',
-
-    // PI-EXP-014 — spas hub (absorbs /spa top-level and journal URL)
-    '/spa/': '/explore/spas-and-wellness/',
-    '/journal/best-spas-mornington-peninsula/': '/explore/spas-and-wellness/',
-
-    // PI-EXP-009 — consolidate duplicate journal pillar pairs
-    '/journal/the-peninsula-beach-swimming-guide/': '/journal/mornington-peninsula-beach-guide/',
-    '/journal/the-peninsula-with-kids/': '/journal/mornington-peninsula-with-kids/',
-    '/journal/the-dog-friendly-peninsula/': '/journal/dog-friendly-mornington-peninsula/',
-    '/journal/the-rainy-day-peninsula-without-a-booking/': '/journal/rainy-day-peninsula/',
-    '/journal/the-family-day-out/': '/escape/the-family-day-out/',
-
-    // PI-EXP-022 — where-to-base-yourself hub (absorbs journal stay guide)
-    '/journal/where-to-stay-mornington-peninsula/': '/explore/where-to-base-yourself/',
-
-    // PI-BF-001 — boating + fishing pack defensive redirects.
-    // Source: peninsula_insider_boating_fishing_v1/bf_redirect_map.csv +
-    //          bf_taxonomy_spec.md §5.3. Pack is greenfield, so these guard
-    //          shape variants and legacy /journal/ posts that mention species
-    //          or ramps in case they get retired into the new tree.
-    '/fish/': '/fishing/',
-    '/fishing/charter/': '/fishing/charters/',
-    '/boating/ramp/': '/boating/ramps/',
-    '/boating/boat-hire/': '/boating/hire/',
-    '/journal/snapper-mornington-peninsula/': '/fishing/species/snapper/',
-    '/journal/king-george-whiting-port-phillip-bay/': '/fishing/species/king-george-whiting/',
-    '/journal/squid-fishing-mornington-peninsula/': '/fishing/species/squid/',
-    '/journal/mornington-peninsula-fishing-charters/': '/fishing/charters/',
-    '/journal/mornington-peninsula-boat-hire/': '/boating/hire/',
-    '/journal/mornington-peninsula-boat-ramps/': '/boating/ramps/',
-    '/journal/snapper-season-port-phillip-bay/': '/fishing/seasons/snapper-run-oct-dec/',
-    '/journal/best-fishing-spots-mornington-peninsula/': '/fishing/locations/',
-  },
+  // Redirects are handled by custom src/pages/*.astro files using the
+  // Redirect component (src/components/Redirect.astro). This gives flash-free
+  // JS redirects instead of Astro's meta-refresh HTML which flashes body content.
+  // Do not add redirect entries here — create a page file instead.
 });

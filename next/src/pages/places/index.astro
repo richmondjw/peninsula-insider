@@ -2,15 +2,17 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SectionHero from '../../components/SectionHero.astro';
+import GuideHero from '../../components/GuideHero.astro';
+import CompareBlock from '../../components/CompareBlock.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { routeSlug } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
-const places = (await getCollection('places'))
-  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+// ── Data ──────────────────────────────────────────────────────────────────────
+const places = (await getCollection('places')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 const venues = await getCollection('venues');
 const experiences = await getCollection('experiences');
 
@@ -36,51 +38,30 @@ const townReads = townReadSlugs
 
 const groups: { key: string; label: string; title: string; intro: string; variant: 'vineyard' | 'bay' | 'sand'; zones: string[] }[] = [
   {
-    key: 'hinterland',
-    label: 'Hinterland',
-    title: 'Hinterland — Red Hill, Main Ridge, Merricks',
+    key: 'hinterland', label: 'Hinterland', title: 'Hinterland — Red Hill, Main Ridge, Merricks',
     intro: 'The elevated central ridge between the bay and the ocean. Cool mornings, fog-prone winters, and volcanic red soils produce some of the best cool-climate Pinot Noir and Chardonnay in Australia. The area is predominantly rural — farmstands, cellar doors on gravel roads, the occasional serious restaurant tucked into a vineyard. There is no beach within five minutes. That\'s the point.',
-    variant: 'vineyard',
-    zones: ['red-hill-plateau', 'hinterland'],
+    variant: 'vineyard', zones: ['red-hill-plateau', 'hinterland'],
   },
   {
-    key: 'bay',
-    label: 'Bay Coast',
-    title: 'Bay Coast — Mornington to Rosebud',
+    key: 'bay', label: 'Bay Coast', title: 'Bay Coast — Mornington to Rosebud',
     intro: 'Mornington, Mount Martha, Safety Beach, Dromana, and Rosebud face Port Phillip Bay along the peninsula\'s eastern edge. The water is calm, the swimming is safe, the bathing boxes are photogenic, and the summer crowds are real. Mornington anchors the northern end as the most town-like of the lot — gallery, market, decent coffee, a working marina.',
-    variant: 'bay',
-    zones: ['bayside'],
+    variant: 'bay', zones: ['bayside'],
   },
   {
-    key: 'tip',
-    label: 'Tip & ocean',
-    title: 'Sorrento to the Tip',
+    key: 'tip', label: 'Tip & ocean', title: 'Sorrento to the Tip',
     intro: 'Blairgowrie, Sorrento, and Portsea occupy the peninsula\'s narrow western tip, with Point Nepean National Park sealing the end. Limestone cliffs, white-sand ocean beaches facing Bass Strait, a ferry crossing to Queenscliff, and heritage buildings from Victoria\'s earliest settlement attempt. Sorrento is the prettiest town on the Peninsula. Portsea is the richest. Blairgowrie is the best-kept secret.',
-    variant: 'sand',
-    zones: ['back-beaches', 'tip'],
+    variant: 'sand', zones: ['back-beaches', 'tip'],
   },
   {
-    key: 'ocean',
-    label: 'Ocean & Western Port',
-    title: 'Ocean coast & Western Port',
+    key: 'ocean', label: 'Ocean & Western Port', title: 'Ocean coast & Western Port',
     intro: 'Rye, Cape Schanck, Flinders, Shoreham, Balnarring, and Hastings wrap the peninsula\'s southern and eastern flanks. Rye is the most relaxed ocean-side town. Cape Schanck is a lighthouse at the edge of a national park. Flinders is a village that thinks of itself as a destination. Shoreham and Balnarring are quiet to the point of deliberate. Hastings is a working port with a marina and a train station.',
-    variant: 'sand',
-    zones: ['ocean-coast'],
+    variant: 'sand', zones: ['ocean-coast'],
   },
 ];
 
 const grouped = groups
-  .map((group) => ({
-    ...group,
-    places: places.filter((place) => group.zones.includes(place.data.zone)),
-  }))
+  .map((group) => ({ ...group, places: places.filter((p) => group.zones.includes(p.data.zone)) }))
   .filter((group) => group.places.length > 0);
-
-const quickNav = grouped.map((group) => ({
-  href: `#${group.key}`,
-  label: group.label,
-  count: group.places.length,
-}));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -91,30 +72,20 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Towns — Peninsula Insider',
   description: 'From Red Hill\'s cool-climate cellar doors to Portsea\'s clifftop mansions and Flinders\' historic pier — the complete editorial guide to every town on the Mornington Peninsula.',
   path: '/places',
-  dateModified: '2026-04-23',
+  dateModified: '2026-04-30',
 });
 
 const faqSchema = buildFaqSchema([
-  {
-    q: 'Which town should I stay in on the Mornington Peninsula?',
-    a: 'It depends on what you\'re doing. For wineries and restaurants: Red Hill or Merricks. For the most dramatic scenery and beach options: Sorrento or Portsea. For a family-friendly bay beach base: Rosebud, Dromana, or Mount Martha. For something understated and local: Flinders or Balnarring.',
-  },
-  {
-    q: 'How many towns can I cover in a day trip from Melbourne?',
-    a: 'Realistically two, maybe three if they\'re adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don\'t try to cross from the bay coast to the tip in a single day trip — it\'s 90 minutes of driving.',
-  },
-  {
-    q: 'Are all the towns accessible by public transport?',
-    a: 'Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Red Hill, Main Ridge, and Merricks have limited or no public transport — a car is required.',
-  },
-  {
-    q: "What's the difference between the bay beaches and the ocean beaches?",
-    a: 'Bay beaches (Port Phillip side) are calm, shallow, and safe for young children — think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy — better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.',
-  },
-  {
-    q: 'Is the Mornington Peninsula worth visiting in winter?',
-    a: 'Strongly yes. The restaurants are quieter, the cellar doors are unhurried, and the dramatic ocean beaches are at their best in cold weather. Winter is when Peninsula Insider recommends Flinders and Cape Schanck most aggressively.',
-  },
+  { q: 'Which town should I stay in on the Mornington Peninsula?',
+    a: 'It depends on what you\'re doing. For wineries and restaurants: Red Hill or Merricks. For the most dramatic scenery and beach options: Sorrento or Portsea. For a family-friendly bay beach base: Rosebud, Dromana, or Mount Martha. For something understated and local: Flinders or Balnarring.' },
+  { q: 'How many towns can I cover in a day trip from Melbourne?',
+    a: 'Realistically two, maybe three if they\'re adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don\'t try to cross from the bay coast to the tip in a single day trip — it\'s 90 minutes of driving.' },
+  { q: 'Are all the towns accessible by public transport?',
+    a: 'Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Red Hill, Main Ridge, and Merricks have limited or no public transport — a car is required.' },
+  { q: "What's the difference between the bay beaches and the ocean beaches?",
+    a: 'Bay beaches (Port Phillip side) are calm, shallow, and safe for young children — think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy — better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.' },
+  { q: 'Is the Mornington Peninsula worth visiting in winter?',
+    a: 'Strongly yes. The restaurants are quieter, the cellar doors are unhurried, and the dramatic ocean beaches are at their best in cold weather. Winter is when Peninsula Insider recommends Flinders and Cape Schanck most aggressively.' },
 ]);
 
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -128,69 +99,85 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   description="From Red Hill's cool-climate cellar doors to Portsea's clifftop mansions and Flinders' historic pier — the complete editorial guide to every town on the Mornington Peninsula."
   section="places"
   canonical="https://peninsulainsider.com.au/places/"
+  modifiedTime="2026-04-30"
+  ogImage="/images/sourced/places-hub-hero-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
   <Breadcrumbs items={breadcrumbItems} />
-  <SectionHero
-    eyebrow="Places"
-    subEyebrow="Town hubs · local geography · insider terrain"
-    title="The Peninsula, town by <em>town.</em>"
-    dek="The Peninsula has twenty distinct localities — from working harbour towns on Western Port to winery hamlets in the hinterland to white-sand ocean villages at the tip. No two towns are alike. This hub organises all of them by subregion so you know which to pair and which to avoid putting in the same day."
-    gradient="bay"
-    visualLabel="Arthur's Seat · Storm over Port Phillip Bay"
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. CINEMATIC HERO
+       ═══════════════════════════════════════════════════════════════ -->
+  <GuideHero
+    eyebrow={`Places · ${places.length} towns mapped · Last verified 30 Apr 2026`}
+    title="The Peninsula, town by <em>town</em>"
+    dek="The Peninsula has twenty distinct localities — from working harbour towns on Western Port to winery hamlets in the hinterland to white-sand ocean villages at the tip. No two towns are alike. Get the geography right and the rest of the trip arranges itself."
+    meta={[
+      { label: `${places.length} towns mapped` },
+      { label: `${grouped.length} subregions` },
+      { label: '20 distinct localities' },
+      { label: '6 min read' },
+    ]}
     heroImage="/images/sourced/places-hub-hero-01.webp"
+    imageAlt="The Mornington Peninsula coastline — bay on one side, Bass Strait on the other"
+    imageCredit="Peninsula Insider"
   />
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. THE GEOGRAPHIC FRAME — Bay coast vs Ocean & tip
+       ═══════════════════════════════════════════════════════════════ -->
+  <CompareBlock
+    eyebrow="The decision before the booking"
+    heading="Bay coast or the Ocean & tip"
+    dek="The Peninsula's twenty towns split cleanly along which water they face. Knowing which coast your accommodation looks at decides the temperature of the trip."
+    left={{
+      label: 'Bay Coast — Port Phillip',
+      title: 'Calm water. Bathing boxes. Family-tilted, summer-bright.',
+      rows: [
+        { label: 'Towns', value: 'Mornington, Mount Martha, Safety Beach, Dromana, Rosebud — plus the bay-side of Sorrento and Portsea' },
+        { label: 'Water', value: 'Sheltered Port Phillip. Calm, shallow, safe for young children. Warmer in summer than the ocean side.' },
+        { label: 'Atmosphere', value: 'Bathing-box postcards, calm bay swimming, foreshore parks, walking paths, family-friendly cafés and pubs.' },
+        { label: 'Best for', value: 'Family weekends, brunch culture, beginner swimming, casual day trips. Summer at its busiest.' },
+        { label: 'Trade-off', value: 'Less drama, more crowds in peak season. Vineyard country is a 15–20 minute drive inland.' },
+      ],
+    }}
+    right={{
+      label: 'Ocean & tip — Bass Strait',
+      title: 'Wild water. Limestone. Year-round drama.',
+      rows: [
+        { label: 'Towns', value: 'Sorrento (back), Portsea (back), Rye, Cape Schanck, Flinders, Shoreham, Balnarring' },
+        { label: 'Water', value: 'Open Bass Strait. Surf, rips, surge. Cold year-round. Look but don\'t swim unpatrolled.' },
+        { label: 'Atmosphere', value: 'Limestone cliffs, white-sand ocean beaches, lighthouses, exposed dune systems, fewer crowds.' },
+        { label: 'Best for', value: 'Surfers, walkers, photographers, winter visits, anyone who prefers solitude over swimming.' },
+        { label: 'Trade-off', value: 'Less family-safe water. Best in cool weather; summer crowds at Sorrento and Portsea front beaches.' },
+      ],
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. WHY TOWNS MATTER — short editorial frame
+       ═══════════════════════════════════════════════════════════════ -->
   <section class="article">
     <div class="container">
       <div class="prose">
         <h2>Why towns matter here</h2>
-        <p>Most people come to the Mornington Peninsula for a category — beaches, wine, hot springs, golf — and pick accommodation that looks close to that category. That usually works out fine. But the Peninsula is specific in a way that categories flatten: the beach towns on Port Phillip Bay are calm, family-tilted, and good in summer; the ocean-side towns face Bass Strait and suit people who like dramatic coastline and solitude; the hinterland ridge is where serious food and wine happens; the Western Port fringe is quieter, underrated, and where artists and racehorses live.</p>
+        <p class="section-standfirst">Most people come to the Peninsula for a category — beaches, wine, hot springs, golf — and pick accommodation that looks close to that category. That usually works out fine. But the Peninsula is specific in a way that categories flatten.</p>
+        <p>The beach towns on Port Phillip Bay are calm, family-tilted, and good in summer. The ocean-side towns face Bass Strait and suit people who like dramatic coastline and solitude. The hinterland ridge is where serious food and wine happens. The Western Port fringe is quieter, underrated, and where artists and racehorses live.</p>
         <p>Understanding the subregions changes what you book. Staying in Portsea when you want wineries is a 40-minute drive in the wrong direction. Staying in Red Hill when you want beaches puts you 20 minutes from any coast. Read the subregion intros below, use the town cards to shortlist, then go deep in the individual pages.</p>
       </div>
     </div>
   </section>
 
-  <section class="zone-intro">
-    <div class="container">
-      <div class="zone-intro__grid">
-        {grouped.map((group) => (
-          <a href={`#${group.key}`} class="zone-card zone-card--link">
-            <p class="zone-card__label">{group.label}</p>
-            <h3 class="zone-card__title">{group.places.length} towns · {group.title}</h3>
-            <p class="zone-card__body">{group.intro}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+  <SectionDivider />
 
-  {quickNav.length > 0 && (
-    <section class="format-nav">
-      <div class="container">
-        <p class="label label--accent format-nav__label">Jump to a subregion</p>
-        <div class="format-nav__chips">
-          {quickNav.map((item) => (
-            <a href={item.href} class="format-chip">
-              <span class="format-chip__name">{item.label}</span>
-              <span class="format-chip__count">{item.count}</span>
-            </a>
-          ))}
-          <a href="#all" class="format-chip">
-            <span class="format-chip__name">All towns</span>
-            <span class="format-chip__count">{places.length}</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  )}
-
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. SUBREGION GROUPS — town card grids by zone
+       ═══════════════════════════════════════════════════════════════ -->
   {grouped.map((group) => {
-    const ordered = [...group.places].sort(
-      (a, b) => (placeDensity[routeSlug(b)] ?? 0) - (placeDensity[routeSlug(a)] ?? 0),
-    );
+    const ordered = [...group.places].sort((a, b) => (placeDensity[routeSlug(b)] ?? 0) - (placeDensity[routeSlug(a)] ?? 0));
     return (
       <section class="places" id={group.key}>
         <div class="container">
@@ -200,19 +187,40 @@ const breadcrumbSchema = buildBreadcrumbSchema([
             <p class="places__sub">{group.intro}</p>
           </div>
           <div class="places__grid">
-            {ordered.map((place) => (
-              <PlaceCard place={place} variant={group.variant} />
-            ))}
+            {ordered.map((place) => <PlaceCard place={place} variant={group.variant} />)}
           </div>
         </div>
       </section>
     );
   })}
 
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. ALL TOWNS, ALPHABETICAL — full mosaic
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="places" id="all">
+    <div class="container">
+      <div class="places__header">
+        <p class="label label--accent places__label">Every town</p>
+        <h2 class="places__title">All {places.length} places, alphabetical</h2>
+        <p class="places__sub">For when you already know which town you want to read next.</p>
+      </div>
+      <div class="places__grid">
+        {places.map((place, index) => (
+          <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. BROWSE-ALL TABLE — quick reference
+       ═══════════════════════════════════════════════════════════════ -->
   <section class="article">
     <div class="container">
       <div class="prose">
-        <h2>Browse all towns</h2>
+        <h2>Quick reference — every town at a glance</h2>
         <table>
           <thead>
             <tr><th>Town</th><th>Subregion</th><th>Drive from Melbourne</th><th>Known for</th></tr>
@@ -244,24 +252,9 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     </div>
   </section>
 
-  <section class="places" id="all">
-    <div class="container">
-      <div class="places__header">
-        <p class="label label--accent places__label">Every town</p>
-        <h2 class="places__title">All {places.length} places, alphabetical</h2>
-        <p class="places__sub">For when you already know which town you want to read next.</p>
-      </div>
-      <div class="places__grid">
-        {places.map((place, index) => (
-          <PlaceCard
-            place={place}
-            variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
+  <!-- ═══════════════════════════════════════════════════════════════
+       7. EDITORIAL GUIDES
+       ═══════════════════════════════════════════════════════════════ -->
   {townReads.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
@@ -280,27 +273,36 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     </section>
   )}
 
-  <section class="article">
+  <!-- ═══════════════════════════════════════════════════════════════
+       8. FAQ
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
-      <div class="prose">
-        <h2>FAQ</h2>
-
-        <h3>Which town should I stay in on the Mornington Peninsula?</h3>
-        <p>It depends on what you're doing. For wineries and restaurants: Red Hill or Merricks. For the most dramatic scenery and beach options: Sorrento or Portsea. For a family-friendly bay beach base: Rosebud, Dromana, or Mount Martha. For something understated and local: Flinders or Balnarring. Read <a href="/explore/where-to-base-yourself/">where to base yourself</a> for the full breakdown.</p>
-
-        <h3>How many towns can I cover in a day trip from Melbourne?</h3>
-        <p>Realistically two, maybe three if they're adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don't try to cross from the bay coast to the tip in a single day trip — it's 90 minutes of driving.</p>
-
-        <h3>Are all the towns accessible by public transport?</h3>
-        <p>Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Moorooduc, Tuerong, Red Hill, Main Ridge, and Merricks have limited or no public transport — a car is required.</p>
-
-        <h3>What's the difference between the bay beaches and the ocean beaches?</h3>
-        <p>Bay beaches (Port Phillip side) are calm, shallow, and safe for young children — think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy — better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.</p>
-
-        <h3>Is the Mornington Peninsula worth visiting in winter?</h3>
-        <p>Strongly yes. The restaurants are quieter, the cellar doors are unhurried, and the dramatic ocean beaches are at their best in cold weather. Winter is when Peninsula Insider recommends <a href="/places/flinders/">Flinders</a> and <a href="/places/cape-schanck/">Cape Schanck</a> most aggressively. Read <a href="/journal/mornington-peninsula-in-winter/">winter on the Peninsula</a> for the itinerary.</p>
-
-        <p><em>Last fact-verified 23 April 2026</em></p>
+      <div class="hub-faq__intro">
+        <p class="label label--accent">Frequently asked</p>
+        <h2 class="hub-faq__title">Five honest answers about Peninsula geography</h2>
+      </div>
+      <div class="hub-faq__list">
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Which town should I stay in on the Peninsula?</summary>
+          <div class="hub-faq__a"><p>It depends on what you're doing. For wineries and restaurants: Red Hill or Merricks. For the most dramatic scenery and beach options: Sorrento or Portsea. For a family-friendly bay beach base: Rosebud, Dromana, or Mount Martha. For something understated and local: Flinders or Balnarring. Read <a href="/explore/where-to-base-yourself/">where to base yourself</a> for the full breakdown.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">How many towns can I cover in a day trip from Melbourne?</summary>
+          <div class="hub-faq__a"><p>Realistically two, maybe three if they're adjacent. Red Hill and Mornington pair well. Sorrento and Portsea are 10 minutes apart. Cape Schanck and Flinders work together. Don't try to cross from the bay coast to the tip in a single day trip — it's 90 minutes of driving.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Are all the towns accessible by public transport?</summary>
+          <div class="hub-faq__a"><p>Most towns have bus connections from Frankston (which has a train from Melbourne). Sorrento, Portsea, Dromana, Rosebud, and Rye are covered by bus route 788. Flinders, Balnarring, and Shoreham are on route 782. Hastings has its own train station on the Stony Point line. Moorooduc, Tuerong, Red Hill, Main Ridge, and Merricks have limited or no public transport — a car is required.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">What's the difference between the bay beaches and the ocean beaches?</summary>
+          <div class="hub-faq__a"><p>Bay beaches (Port Phillip side) are calm, shallow, and safe for young children — think bathing boxes and paddling. Ocean beaches (Bass Strait side) have surf, rips, and a wild energy — better for surfing and dramatic walks. Sorrento and Portsea uniquely have both: a front beach on the bay, a back beach on the ocean.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Is the Peninsula worth visiting in winter?</summary>
+          <div class="hub-faq__a"><p>Strongly yes. The restaurants are quieter, the cellar doors are unhurried, and the dramatic ocean beaches are at their best in cold weather. Winter is when Peninsula Insider recommends <a href="/places/flinders/">Flinders</a> and <a href="/places/cape-schanck/">Cape Schanck</a> most aggressively. Read <a href="/journal/mornington-peninsula-in-winter/">winter on the Peninsula</a> for the itinerary.</p></div>
+        </details>
       </div>
     </div>
   </section>

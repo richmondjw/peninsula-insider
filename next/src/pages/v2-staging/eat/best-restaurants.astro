@@ -63,6 +63,64 @@ const faqSchema = {
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/';
+
+const planningRestaurantSlugs = ['laura-pt-leo', 'ten-minutes-by-tractor', 'montalto', 'bistro-elba', 'pier-street-flinders'];
+const planningPins = [
+  {
+    slug: 'laura-pt-leo',
+    x: '56%',
+    y: '36%',
+    cluster: 'Red Hill / Merricks',
+    cue: 'Destination lunch',
+    note: 'Build the whole day around one serious table.',
+  },
+  {
+    slug: 'ten-minutes-by-tractor',
+    x: '51%',
+    y: '31%',
+    cluster: 'Main Ridge',
+    cue: 'Long lunch anchor',
+    note: 'Best if you want tastings and one high-authority meal.',
+  },
+  {
+    slug: 'montalto',
+    x: '59%',
+    y: '43%',
+    cluster: 'Red Hill South',
+    cue: 'Art + vineyard day',
+    note: 'Easy to pair with sculpture trail or one extra cellar door.',
+  },
+  {
+    slug: 'bistro-elba',
+    x: '21%',
+    y: '56%',
+    cluster: 'Sorrento side',
+    cue: 'Village table',
+    note: 'Works when you want the tip, the shops, and a shorter lunch loop.',
+  },
+  {
+    slug: 'pier-street-flinders',
+    x: '69%',
+    y: '61%',
+    cluster: 'Flinders coast',
+    cue: 'Southern-end reset',
+    note: 'Pair with ocean weather, a pier stop, and an easier second half.',
+  },
+];
+const planningRestaurants = planningPins
+  .map((pin, index) => {
+    const venue = venues.find((item) => routeSlug(item) === pin.slug);
+    if (!venue) return null;
+    const data = venue.data;
+    return {
+      ...pin,
+      venue,
+      data,
+      index: index + 1,
+      mapLink: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${data.name} ${data.address ?? 'Mornington Peninsula'}`)}`,
+    };
+  })
+  .filter(Boolean);
 ---
 <BaseLayout
   title="Best Restaurants Mornington Peninsula · Peninsula Insider"
@@ -182,6 +240,84 @@ const base = import.meta.env.BASE_URL.endsWith('/')
     </div>
   </div>
 </section>
+
+{planningRestaurants.length > 0 && (
+  <section class="planning" aria-labelledby="planning-title">
+    <div class="container">
+      <div class="planning__frame">
+        <div class="planning__intro">
+          <span class="eyebrow eyebrow--ochre">Sandpit · Map this shortlist</span>
+          <h2 class="planning__title" id="planning-title">See which tables actually <em>fit together</em>.</h2>
+          <p class="planning__dek">This is the first planning-layer test. The point is not a giant map. It is showing, at a glance, which restaurants sit in one tight pocket of the Peninsula and which belong to a different day entirely.</p>
+          <div class="planning__logic-list">
+            <div class="planning__logic-item">
+              <strong>Best cluster:</strong>
+              <span>Red Hill, Merricks, and Main Ridge if the whole day revolves around one serious lunch.</span>
+            </div>
+            <div class="planning__logic-item">
+              <strong>Separate plan:</strong>
+              <span>Sorrento and Flinders sit better as their own coastal days. Don’t force them into a ridge itinerary.</span>
+            </div>
+            <div class="planning__logic-item">
+              <strong>The useful answer:</strong>
+              <span>If you can see the cluster instantly, the shortlist stops feeling theoretical and starts feeling bookable.</span>
+            </div>
+          </div>
+          <div class="planning__cta-row">
+            <a class="planning__button planning__button--primary" href="#planning-cards">Save this shortlist</a>
+            <a class="planning__button" href={`${base}journal/the-long-lunch/`}>Read the long-lunch logic</a>
+          </div>
+        </div>
+
+        <div class="planning__visual">
+          <div class="planning-map planning-map--peninsula" aria-hidden="true">
+            <div class="planning-map__canvas">
+              <div class="planning-map__cluster planning-map__cluster--ridge">
+                <span>Red Hill cluster</span>
+                <small>One full lunch day</small>
+              </div>
+              <div class="planning-map__cluster planning-map__cluster--south">
+                <span>Southern end</span>
+                <small>Separate coastal outing</small>
+              </div>
+              {planningRestaurants.map((item) => (
+                <a
+                  class="planning-map__pin"
+                  href={`#planning-stop-${item.slug}`}
+                  style={`--x:${item.x};--y:${item.y};`}
+                >
+                  <span>{String(item.index).padStart(2, '0')}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="planning__visual-note">What the user is really asking: <strong>is this one easy day or am I driving everywhere?</strong></div>
+        </div>
+      </div>
+
+      <div class="planning-cards" id="planning-cards">
+        {planningRestaurants.map((item) => (
+          <article class="planning-card" id={`planning-stop-${item.slug}`}>
+            <div class="planning-card__number">{String(item.index).padStart(2, '0')}</div>
+            <div class="planning-card__body">
+              <div class="planning-card__meta">
+                <span>{item.cluster}</span>
+                <span class="planning-card__sep"></span>
+                <span>{item.cue}</span>
+              </div>
+              <a class="planning-card__title" href={`${base}eat/${routeSlug(item.venue)}/`}>{item.data.name}</a>
+              <p class="planning-card__text">{item.note}</p>
+            </div>
+            <div class="planning-card__actions">
+              <a class="planning-card__link" href={item.mapLink} target="_blank" rel="noreferrer">Open in Google Maps</a>
+              <a class="planning-card__link" href={`${base}eat/${routeSlug(item.venue)}/`}>View venue</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
 <section class="dept" aria-labelledby="related-title">
   <div class="container">

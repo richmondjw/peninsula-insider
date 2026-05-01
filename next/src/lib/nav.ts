@@ -22,20 +22,19 @@ export interface NavItem {
 }
 
 /**
- * The masthead row. Order is editorial: the five pillars first, then Tours
- * (the operator-led booking lane), then the dispatch lane (What's On) and
- * the Journal. Spa and Golf live in the extended pillar list, not the
- * masthead.
+ * The masthead row. Order is editorial: the five pillars first, then the
+ * dispatch lane (What's On) and the Journal. Spa, Golf, and Tours live
+ * in the extended pillar list, not the masthead.
  */
 export const mastheadNav: NavItem[] = [
-  { key: 'eat',      label: 'Eat & Drink', href: '/eat'      },
-  { key: 'stay',     label: 'Stay',        href: '/stay'     },
-  { key: 'wine',     label: 'Wine',        href: '/wine'     },
-  { key: 'explore',  label: 'Explore',     href: '/explore'  },
-  { key: 'escape',   label: 'Escape',      href: '/escape'   },
-  { key: 'tour',     label: 'Tours',       href: '/tour'     },
-  { key: 'whats-on', label: "What’s On", href: '/whats-on' },
-  { key: 'journal',  label: 'Journal',     href: '/journal'  },
+  { key: 'quick-note', label: 'Quick Note',  href: '/quick-note' },
+  { key: 'eat',        label: 'Eat & Drink', href: '/eat'        },
+  { key: 'stay',       label: 'Stay',        href: '/stay'       },
+  { key: 'wine',       label: 'Wine',        href: '/wine'       },
+  { key: 'explore',    label: 'Explore',     href: '/explore'    },
+  { key: 'escape',     label: 'Escape',      href: '/escape'     },
+  { key: 'whats-on',   label: "What’s On", href: '/whats-on'  },
+  { key: 'journal',    label: 'Journal',     href: '/journal'    },
 ];
 
 /**

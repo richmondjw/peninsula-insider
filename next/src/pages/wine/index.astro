@@ -2,60 +2,47 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SectionHero from '../../components/SectionHero.astro';
+import GuideHero from '../../components/GuideHero.astro';
+import CompareBlock from '../../components/CompareBlock.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, currentSeason, seasonBlurb } from '../../lib/editorial';
 
+// ── Data ──────────────────────────────────────────────────────────────────────
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 const venues = (await getCollection('venues'))
   .filter((venue) => wineTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 
-const season = currentSeason();
-const blurb = seasonBlurb[season];
+const wineries = venues.filter((v) => v.data.type === 'winery');
+const producers = venues.filter((v) => v.data.type === 'producer');
+const breweries = venues.filter((v) => v.data.type === 'brewery');
+const distilleries = venues.filter((v) => v.data.type === 'distillery');
 
-// Split by type so the hub reads as a structured region guide.
-const wineries = venues.filter((venue) => venue.data.type === 'winery');
-const producers = venues.filter((venue) => venue.data.type === 'producer');
-const breweries = venues.filter((venue) => venue.data.type === 'brewery');
-const distilleries = venues.filter((venue) => venue.data.type === 'distillery');
-
-// Benchmark shortlist  -  the cellar doors that anchor the region right now.
 const benchmarkSlugs = [
-  'pt-leo-estate',
-  'montalto',
-  'paringa-estate',
-  'polperro',
-  'dexter-wines',
-  'ocean-eight',
+  'pt-leo-estate', 'montalto', 'paringa-estate', 'polperro', 'dexter-wines', 'ocean-eight',
 ];
 const benchmarks = benchmarkSlugs
   .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
-// Appointment-only  -  the producers worth planning the drive around.
 const appointmentOnly = venues
   .filter((venue) => venue.data.bookingProvider === 'direct' || Number(venue.data.authority?.hallidayScore ?? 0) >= 95)
   .filter((venue) => !benchmarks.some((b) => routeSlug(b) === routeSlug(venue)))
   .slice(0, 6);
 
-// Places most associated with wine country.
 const places = await getCollection('places');
 const wineHubs = places.filter((place) =>
   ['red-hill', 'main-ridge', 'merricks', 'balnarring', 'moorooduc', 'tuerong'].includes(routeSlug(place)),
 );
 
-// Journal companions.
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const companionSlugs = [
-  'the-chardonnay-case',
-  'the-cellar-door-short-list',
-  'how-to-build-a-red-hill-saturday',
-  'the-peninsula-pantry',
+  'the-chardonnay-case', 'the-cellar-door-short-list', 'how-to-build-a-red-hill-saturday', 'the-peninsula-pantry',
 ];
 const companionReads = companionSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
@@ -65,6 +52,18 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Wine Country' },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What wine is the Mornington Peninsula known for?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Pinot Noir and Chardonnay are the benchmark varieties — the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia\'s most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.' } },
+    { '@type': 'Question', name: 'Do I need to book cellar door visits on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive — appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.' } },
+    { '@type': 'Question', name: 'How many wineries are on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Mornington Peninsula has over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact — you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.' } },
+  ],
+};
 ---
 
 <BaseLayout
@@ -72,74 +71,65 @@ const breadcrumbItems = [
   description="The best cellar doors on the Mornington Peninsula — Pinot Noir, Chardonnay, cool-climate producers, breweries, and distilleries. Appointment tastings and walk-in cellar doors. Updated April 2026."
   section="wine"
   canonical="https://peninsulainsider.com.au/wine"
-  modifiedTime="2026-04-13"
+  modifiedTime="2026-04-30"
+  ogImage="/images/sourced/article-cellar-door-01.webp"
 >
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org', '@type': 'FAQPage',
-    mainEntity: [
-      { '@type': 'Question', name: 'What wine is the Mornington Peninsula known for?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Pinot Noir and Chardonnay are the benchmark varieties — the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia\'s most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.' }},
-      { '@type': 'Question', name: 'Do I need to book cellar door visits on the Mornington Peninsula?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive — appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.' }},
-      { '@type': 'Question', name: 'How many wineries are on the Mornington Peninsula?',
-        acceptedAnswer: { '@type': 'Answer', text: 'The Mornington Peninsula has over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact — you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.' }},
-    ],
-  })} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <Breadcrumbs items={breadcrumbItems} />
-  <SectionHero
-    eyebrow="Wine Country"
-    subEyebrow="Cellar doors · pinot noir · cool-climate producers"
-    title="The Peninsula's best bottles start on the <em>ridge.</em>"
-    dek="Pinot noir and chardonnay built on basalt, plus the breweries and distilleries that now round out the region. This hub sorts them by what they're actually for  -  long lunches, appointment tastings, and afternoons that earn the drive."
-    gradient="hinterland"
-    visualLabel="Pinot Noir · Main Ridge Estate"
-    heroImage="/images/sourced/wine-hub-hero-01.webp"
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. CINEMATIC HERO
+       ═══════════════════════════════════════════════════════════════ -->
+  <GuideHero
+    eyebrow={`Wine Country · ${wineries.length} wineries · ${producers.length + breweries.length + distilleries.length} other producers · Last verified 30 Apr 2026`}
+    title="The Peninsula's best bottles start on the <em>ridge</em>"
+    dek="Pinot noir and chardonnay built on basalt, plus the breweries, distilleries, and producers rounding out the region. Sorted by what they're actually for — long lunches, appointment tastings, and afternoons that earn the drive."
+    meta={[
+      { label: `${wineries.length} wineries` },
+      { label: `${breweries.length} breweries` },
+      { label: `${distilleries.length} distilleries` },
+      { label: `${producers.length} producers` },
+    ]}
+    heroImage="/images/sourced/article-cellar-door-01.webp"
+    imageAlt="A Peninsula cellar door — bottles open, glasses poured, the moment before the tasting"
+    imageCredit="Peninsula Insider"
   />
 
-  <section class="format-nav">
-    <div class="container">
-      <p class="label label--accent format-nav__label">Jump to what you're planning</p>
-      <div class="format-nav__chips">
-        {benchmarks.length > 0 && <a href="#benchmarks" class="format-chip"><span class="format-chip__name">Benchmark cellar doors</span><span class="format-chip__count">{benchmarks.length}</span></a>}
-        {appointmentOnly.length > 0 && <a href="#appointment" class="format-chip"><span class="format-chip__name">Appointment producers</span><span class="format-chip__count">{appointmentOnly.length}</span></a>}
-        {wineries.length > 0 && <a href="#wineries" class="format-chip"><span class="format-chip__name">All wineries</span><span class="format-chip__count">{wineries.length}</span></a>}
-        {breweries.length > 0 && <a href="#breweries" class="format-chip"><span class="format-chip__name">Breweries</span><span class="format-chip__count">{breweries.length}</span></a>}
-        {distilleries.length > 0 && <a href="#distilleries" class="format-chip"><span class="format-chip__name">Distilleries</span><span class="format-chip__count">{distilleries.length}</span></a>}
-        {producers.length > 0 && <a href="#producers" class="format-chip"><span class="format-chip__name">Producers & makers</span><span class="format-chip__count">{producers.length}</span></a>}
-        <a href="#hubs" class="format-chip"><span class="format-chip__name">By place</span><span class="format-chip__count">{wineHubs.length}</span></a>
-      </div>
-    </div>
-  </section>
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. ORIENTATION: Walk-in vs Appointment
+       ═══════════════════════════════════════════════════════════════ -->
+  <CompareBlock
+    eyebrow="Two ways into a Peninsula wine afternoon"
+    heading="Walk-in cellar doors or appointment producers"
+    dek="Knowing which kind of tasting you're booking decides the whole shape of the day. Both have their place. They are not interchangeable."
+    left={{
+      label: 'Walk-in · long lunch',
+      title: 'Anchor the day on one cellar door. Stay three hours.',
+      rows: [
+        { label: 'Flagship rooms', value: 'Montalto, Polperro, Pt. Leo Estate, Red Hill Estate, Foxeys Hangout, Paringa Estate' },
+        { label: 'Format', value: 'Walk-in tasting at the bar, optional purchase, then a long lunch in the on-site dining room. The afternoon shapes itself around the table.' },
+        { label: 'Best for', value: 'First-time visitors, mixed-interest groups, groups where one person wants the wine and the rest want the lunch.' },
+        { label: 'Booking', value: 'Cellar doors take walk-ins; the dining rooms book 2–6 weeks ahead for weekends. Hatted rooms (Laura, Tedesca) book further out.' },
+        { label: 'Vibe', value: 'Considered, social, fire-lit in winter. The Peninsula at its most generous.' },
+      ],
+    }}
+    right={{
+      label: 'Appointment · the obsessive afternoon',
+      title: 'Two small tastings, one village meal in between.',
+      rows: [
+        { label: 'Flagship rooms', value: 'Ten Minutes by Tractor, Main Ridge Estate, Dexter Wines, Quealy Winemakers, Eldridge Estate, Garagiste' },
+        { label: 'Format', value: 'Booked tasting with the winemaker or cellar-door manager. Smaller pours, more conversation, often the back-vintages and trial blocks.' },
+        { label: 'Best for', value: 'Wine-literate visitors, second-time-on-the-ridge weekends, the trip where the wine is genuinely the point.' },
+        { label: 'Booking', value: 'Always required. 1–3 weeks ahead is comfortable. Some producers run by-the-bottle pre-paid tastings; others charge per head, redeemable.' },
+        { label: 'Vibe', value: 'Quiet, focused, slightly more like work. Reward exceeds the effort.' },
+      ],
+    }}
+  />
 
-  <section class="zone-intro">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">How to read this</p>
-          <h2 class="split-intro__title">Three ways a Peninsula wine afternoon works</h2>
-        </div>
-        <p class="split-intro__body">Either you anchor the day to one benchmark cellar door with a long lunch and let the rest of the afternoon be slow driving. Or you book two appointment-only tastings, one either side of a small village meal. Or you skip the wineries altogether and use a brewery, distillery, or orchard to make the day feel a little less formal.</p>
-      </div>
-      <div class="zone-intro__grid">
-        <a href="#benchmarks" class="zone-card zone-card--link">
-          <p class="zone-card__label">The long lunch</p>
-          <h3 class="zone-card__title">One decisive cellar door</h3>
-          <p class="zone-card__body">Book a single ambitious vineyard restaurant, commit to the afternoon, and let the pinot shape the drive home.</p>
-        </a>
-        <a href="#appointment" class="zone-card zone-card--link">
-          <p class="zone-card__label">The appointment</p>
-          <h3 class="zone-card__title">Two producers, one small meal</h3>
-          <p class="zone-card__body">For the wine-literate weekend  -  tastings with the winemaker, and a village lunch that doesn't compete for attention.</p>
-        </a>
-        <a href="#breweries" class="zone-card zone-card--link">
-          <p class="zone-card__label">The easier version</p>
-          <h3 class="zone-card__title">Brewery, distillery, or farm stop</h3>
-          <p class="zone-card__body">Not every wine-country afternoon has to be wine. The region's producers, breweries, and distilleries work as a gentler spine.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. BENCHMARK CELLAR DOORS
+       ═══════════════════════════════════════════════════════════════ -->
   {benchmarks.length > 0 && (
     <section class="venues" id="benchmarks">
       <div class="container">
@@ -147,7 +137,7 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">Benchmark cellar doors</p>
             <h2 class="venues__title">The producers anchoring the region right now</h2>
-            <p class="venues__sub">Halliday scores matter less than editorial weight  -  this is the shortlist we'd put in front of a first-time visitor and an obsessive both.</p>
+            <p class="venues__sub venues__sub--standfirst">Halliday scores matter less than editorial weight. This is the shortlist we'd put in front of a first-time visitor and a returning obsessive both — the rooms that consistently justify the drive.</p>
           </div>
           <a href="/journal/the-cellar-door-short-list/" class="venues__link">Read the shortlist →</a>
         </div>
@@ -158,6 +148,9 @@ const breadcrumbItems = [
     </section>
   )}
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. APPOINTMENT PRODUCERS
+       ═══════════════════════════════════════════════════════════════ -->
   {appointmentOnly.length > 0 && (
     <section class="venues venues--plain" id="appointment">
       <div class="container">
@@ -165,7 +158,7 @@ const breadcrumbItems = [
           <div>
             <p class="label label--accent">Appointment producers</p>
             <h2 class="venues__title">Worth planning the drive around</h2>
-            <p class="venues__sub">The producers that reward a booking  -  smaller tastings, closer to the winemaking, often the most interesting conversations of the weekend.</p>
+            <p class="venues__sub venues__sub--standfirst">The producers that reward a booking — smaller tastings, closer to the winemaking, often the most interesting conversations of the weekend.</p>
           </div>
         </div>
         <div class="venues__grid">
@@ -175,31 +168,19 @@ const breadcrumbItems = [
     </section>
   )}
 
-  {wineries.length > 0 && (
-    <section class="venues" id="wineries">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">All wineries</p>
-            <h2 class="venues__title">{wineries.length} cellar doors across the region</h2>
-            <p class="venues__sub">Sorted by authority. Expect a spread from three-hat destinations to back-road pinot rooms.</p>
-          </div>
-        </div>
-        <div class="venues__grid">
-          {wineries.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
-        </div>
-      </div>
-    </section>
-  )}
+  <SectionDivider />
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. THE WIDER PRODUCER NETWORK — breweries, distilleries, producers
+       ═══════════════════════════════════════════════════════════════ -->
   {breweries.length > 0 && (
-    <section class="venues venues--plain" id="breweries">
+    <section class="venues" id="breweries">
       <div class="container">
         <div class="venues__header">
           <div>
             <p class="label label--accent">Breweries</p>
             <h2 class="venues__title">The Peninsula's beer shortlist</h2>
-            <p class="venues__sub">Where the weekend wants a slightly less serious spine.</p>
+            <p class="venues__sub">Where the weekend wants a slightly less serious spine. The breweries doing real work outside the wine story.</p>
           </div>
         </div>
         <div class="venues__grid">
@@ -210,7 +191,7 @@ const breadcrumbItems = [
   )}
 
   {distilleries.length > 0 && (
-    <section class="venues" id="distilleries">
+    <section class="venues venues--plain" id="distilleries">
       <div class="container">
         <div class="venues__header">
           <div>
@@ -227,12 +208,12 @@ const breadcrumbItems = [
   )}
 
   {producers.length > 0 && (
-    <section class="venues venues--plain" id="producers">
+    <section class="venues" id="producers">
       <div class="container">
         <div class="venues__header">
           <div>
             <p class="label label--accent">Producers & makers</p>
-            <h2 class="venues__title">Cheese, truffles, olive oil, chocolate, and the wider Peninsula pantry</h2>
+            <h2 class="venues__title">Cheese, truffles, olive oil, chocolate — the wider Peninsula pantry</h2>
             <p class="venues__sub">The producers that round out a long lunch with everything the cellar door forgot.</p>
           </div>
           <a href="/journal/the-peninsula-pantry/" class="venues__link">Read the pantry piece →</a>
@@ -244,6 +225,31 @@ const breadcrumbItems = [
     </section>
   )}
 
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. ALL WINERIES — full directory
+       ═══════════════════════════════════════════════════════════════ -->
+  {wineries.length > 0 && (
+    <section class="venues venues--plain" id="wineries">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">All wineries</p>
+            <h2 class="venues__title">{wineries.length} cellar doors across the region</h2>
+            <p class="venues__sub">Sorted by authority. Expect a spread from three-hat destinations to back-road pinot rooms.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {wineries.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       7. WINE COUNTRY, BY PLACE
+       ═══════════════════════════════════════════════════════════════ -->
   {wineHubs.length > 0 && (
     <section class="places" id="hubs">
       <div class="container">
@@ -253,22 +259,23 @@ const breadcrumbItems = [
           <p class="places__sub">Each hub pulls the cellar doors, producers, and long lunches into one stretch of landscape.</p>
         </div>
         <div class="places__grid">
-          {wineHubs.map((place) => (
-            <PlaceCard place={place} variant="vineyard" />
-          ))}
+          {wineHubs.map((place) => <PlaceCard place={place} variant="vineyard" />)}
         </div>
       </div>
     </section>
   )}
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       8. EDITORIAL GUIDES
+       ═══════════════════════════════════════════════════════════════ -->
   {companionReads.length > 0 && (
-    <section class="venues venues--plain">
+    <section class="venues" id="reads">
       <div class="container">
         <div class="venues__header">
           <div>
             <p class="label label--accent">From the Journal</p>
             <h2 class="venues__title">The wine arguments worth reading before you buy</h2>
-            <p class="venues__sub">{blurb.line}</p>
+            <p class="venues__sub">Service pieces and dispatches that shape the cellar-door day better than any tasting note.</p>
           </div>
           <a href="/journal/" class="venues__link">All in the Journal →</a>
         </div>
@@ -279,38 +286,32 @@ const breadcrumbItems = [
     </section>
   )}
 
-  <section class="venues venues--plain">
+  <!-- ═══════════════════════════════════════════════════════════════
+       9. FAQ
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Don't drive</p>
-          <h2 class="venues__title">Book a wine tour and let someone else handle the route</h2>
-          <p class="venues__sub">If the day is meant to be tasting, not driving, hand the wheel to an operator. Our wine-tours hub lists the verified options with honest notes on who each one suits.</p>
-        </div>
-        <a href="/tour/wine-tours/" class="venues__link">All wine tours →</a>
+      <div class="hub-faq__intro">
+        <p class="label label--accent">Frequently asked</p>
+        <h2 class="hub-faq__title">Three honest answers before you book</h2>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/tour/wine-tours/">Guided wine tours</a></h3><p class="venue-card__signature">Small-group and private cellar-door tours led by Peninsula operators, with the editorial call on who each one actually suits.</p><a href="/tour/wine-tours/" class="venue-card__cta">Browse wine tours →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/tour-packages/">Tour packages with wine</a></h3><p class="venue-card__signature">Multi-day Peninsula packages anchored on the ridge — cellar doors, lunch, and a bed already arranged.</p><a href="/tour-packages/" class="venue-card__cta">See packages →</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="venues venues--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Go deeper</p>
-          <h2 class="venues__title">Guides for your cellar door day</h2>
-        </div>
-      </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-winery-tour/">Self-Drive Winery Tour</a></h3><p class="venue-card__signature">The route, the order, lunch in the middle, and why four cellar doors is the right number.</p><a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-itinerary/">3-Day Peninsula Itinerary</a></h3><p class="venue-card__signature">Day 2 is the big wine day — this plan sequences it properly.</p><a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">Read the guide →</a></div>
-        <div class="venue-card"><h3 class="venue-card__name"><a href="/journal/mornington-peninsula-in-winter/">Winter on the Peninsula</a></h3><p class="venue-card__signature">Cellar door fires, empty tasting rooms, and why winter wine tasting is better than summer.</p><a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Read the guide →</a></div>
+      <div class="hub-faq__list">
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">What wine is the Peninsula known for?</summary>
+          <div class="hub-faq__a"><p>Pinot Noir and Chardonnay are the benchmark varieties — the cool maritime climate and basalt soils of the Red Hill plateau produce some of Australia's most consistent cool-climate examples. The region also has a growing reputation for Pinot Gris and Shiraz. Over 50 cellar doors are open to visitors, concentrated on the ridge between Red Hill and Main Ridge.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Do I need to book cellar door visits?</summary>
+          <div class="hub-faq__a"><p>Some cellar doors operate by appointment only (Ten Minutes by Tractor, Main Ridge Estate, Paringa Estate). Others welcome walk-ins (Montalto, Polperro, Red Hill Estate). Check before you drive — appointment-only cellar doors are common on the plateau and the experience is better when expected. Weekend afternoons are busiest.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">How many wineries are on the Peninsula?</summary>
+          <div class="hub-faq__a"><p>Over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact — you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.</p></div>
+        </details>
       </div>
     </div>
   </section>
 
   <NewsletterBlock />
 </BaseLayout>
+

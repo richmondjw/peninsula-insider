@@ -6,6 +6,8 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import LikeButton from '../../components/v2/LikeButton.astro';
+import SaveButton from '../../components/v2/SaveButton.astro';
 import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
@@ -120,56 +122,70 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
   <Breadcrumbs items={breadcrumbItems} />
 
   <article class="article">
-    <div class="container">
-      <div class="article__meta">
-        <span class="article__format">{formatLabel[article.data.format] ?? article.data.format}</span>
-        <span class="article__dot" aria-hidden="true"></span>
-        <span class="article__meta-item">{article.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-        {article.data.readingTimeMinutes && (
-          <>
-            <span class="article__dot" aria-hidden="true"></span>
-            <span class="article__meta-item">{article.data.readingTimeMinutes} min read</span>
-          </>
-        )}
-      </div>
-
-      <h1 class="article__title">{article.data.title}</h1>
-      <p class="article__dek">{article.data.dek}</p>
-
-      <div class="article__byline">
-        <span class="article__byline-name">By {authorLabel}</span>
-        {article.data.updatedAt && (
-          <span class="article__byline-updated">
-            Updated {article.data.updatedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
-          </span>
-        )}
-        {article.data.lastVerified && (
-          <span class="article__byline-verified">
-            Facts verified {article.data.lastVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
-          </span>
-        )}
-      </div>
-
-      {article.data.tags.length > 0 && (
-        <div class="article__tags">
-          {article.data.tags.map((tag) => (
-            <span class="article__tag">{titleize(tag)}</span>
-          ))}
+    <!-- Magazine-style split hero: meta + title + dek + byline LEFT,
+         hero image RIGHT, on a generous cream surface. -->
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-hero__frame">
+          <div class="article-hero__head">
+            <div class="article-hero__meta">
+              <span class="article-hero__format">{formatLabel[article.data.format] ?? article.data.format}</span>
+              <span class="article-hero__sep" aria-hidden="true"></span>
+              <span class="article-hero__date">{article.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              {article.data.readingTimeMinutes && (
+                <>
+                  <span class="article-hero__sep" aria-hidden="true"></span>
+                  <span class="article-hero__read">{article.data.readingTimeMinutes} min read</span>
+                </>
+              )}
+            </div>
+            <h1 class="article-hero__title">{article.data.title}</h1>
+            <p class="article-hero__dek">{article.data.dek}</p>
+            <div class="article-hero__byline">
+              <span class="article-hero__byline-name">— By <strong>{authorLabel}</strong></span>
+              {article.data.lastVerified && (
+                <span class="article-hero__byline-verified">
+                  Facts verified {article.data.lastVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long' })}
+                </span>
+              )}
+            </div>
+            {article.data.tags.length > 0 && (
+              <div class="article-hero__tags">
+                {article.data.tags.slice(0, 4).map((tag) => (
+                  <span class="article-hero__tag">{titleize(tag)}</span>
+                ))}
+              </div>
+            )}
+          </div>
+          <figure class="article-hero__figure">
+            <div class="article-hero__image" role="img" aria-label={article.data.heroImage.alt} style={articleHeroStyle}></div>
+            {article.data.heroImage.credit && (
+              <figcaption class="article-hero__credit">Photo · {article.data.heroImage.credit}</figcaption>
+            )}
+          </figure>
         </div>
-      )}
-
-      <div class="article__hero" aria-hidden="true" style={articleHeroStyle}>
-        <div class="article__hero-fog"></div>
-        <span class="article__hero-caption">{article.data.heroImage.alt}</span>
       </div>
+    </header>
 
-      <div class="prose">
+    <div class="container">
+      <div class="prose has-drop-cap">
         <Content />
       </div>
 
       {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
         <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />
       )}
+
+      <div class="v2-article-actions">
+        <LikeButton slug={article.id} section="journal" />
+        <SaveButton
+          slug={article.id}
+          section="journal"
+          title={article.data.title}
+          dek={article.data.dek}
+          imageUrl={article.data.heroImage?.src}
+        />
+      </div>
 
       <div class="article__share">
         <span class="article__share-label">Share this piece</span>

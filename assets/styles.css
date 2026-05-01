@@ -115,57 +115,184 @@ h1, h2, h3, h4, h5 {
 hr.rule { border: none; border-top: 1px solid var(--border); }
 
 /* =========================================================
-   MASTHEAD
+   MASTHEAD V3 — three-row editorial flag.
+   Replaces UtilityBar+Masthead with a single sticky header zone:
+     1. utility — issue stamp · weather · subscribe / about
+     2. brand   — wordmark + italic tagline
+     3. nav     — section pillars (Journal in italic) + Subscribe
+   Followed by a subtle gold-gradient rule that signals "magazine flag"
+   instead of generic "website header."
    ========================================================= */
 .masthead {
-  border-bottom: 1px solid var(--border);
-  background: rgba(245, 241, 235, 0.96);
-  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 9999;
+  background: rgba(245, 241, 235, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: none; /* gold gradient rule replaces this — see ::after below */
 }
-.masthead__inner {
+.masthead::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -2px 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(167, 118, 55, 0)    0%,
+    rgba(167, 118, 55, 0.5)  18%,
+    rgba(223, 197, 158, 0.85) 50%,
+    rgba(167, 118, 55, 0.5)  82%,
+    rgba(167, 118, 55, 0)    100%);
+  pointer-events: none;
+}
+
+/* ── Utility row (top) ── */
+.masthead__utility {
+  background: rgba(232, 224, 209, 0.55);
+  border-bottom: 1px solid rgba(121, 92, 58, 0.10);
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+.masthead__utility-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
-  gap: 1rem;
+  height: 32px;
+  gap: 1.5rem;
+}
+.masthead__edition {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-shrink: 0;
+}
+.masthead__edition-mark {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.18rem 0.5rem;
+  border: 1px solid rgba(167, 118, 55, 0.35);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.masthead__edition-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--dark);
+  white-space: nowrap;
+}
+.masthead__weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+}
+.masthead__weather-item strong {
+  color: var(--dark);
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+.masthead__weather-sep { color: rgba(121, 92, 58, 0.4); }
+.masthead__utility-links {
+  display: flex;
+  gap: 1.1rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.masthead__utility-links a {
+  color: var(--soft);
+  text-decoration: none;
+  transition: color .2s var(--ease);
+}
+.masthead__utility-links a:hover { color: var(--accent); }
+
+/* ── Brand row (middle) ── */
+.masthead__brand-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.85rem 0 0.7rem;
+  gap: 1.5rem;
 }
 .masthead__logo {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.7rem;
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.014em;
   color: var(--dark);
   white-space: nowrap;
   flex-shrink: 0;
+  line-height: 1;
+  text-decoration: none;
 }
-.masthead__logo span { color: var(--accent); }
+.masthead__logo span {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
+.masthead__tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--soft);
+  margin: 0;
+  letter-spacing: 0.005em;
+  text-align: right;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+/* ── Nav row (bottom) ── */
+.masthead__nav-row {
+  border-top: 1px solid rgba(121, 92, 58, 0.10);
+}
+.masthead__nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 46px;
+  gap: 1rem;
+}
 .masthead__nav {
   display: flex;
   align-items: center;
-  gap: clamp(0.65rem, 1.6vw, 1.3rem);
+  gap: clamp(0.85rem, 2vw, 1.6rem);
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
+.masthead__nav li { display: inline-flex; align-items: center; }
 .masthead__nav a {
   position: relative;
   font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--soft);
   transition: color .2s var(--ease);
   white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0;
 }
 .masthead__nav a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   width: 100%;
   height: 1px;
-  background: var(--accent);
+  background: linear-gradient(90deg,
+    rgba(167, 118, 55, 0.95) 0%,
+    rgba(223, 197, 158, 0.9)  50%,
+    rgba(167, 118, 55, 0.6)   100%);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform .38s var(--ease);
@@ -177,19 +304,101 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 @media (prefers-reduced-motion: reduce) {
   .masthead__nav a::after { transition: none; }
 }
+
+/* JOURNAL — editorial italic distinction. Marks the section visually as
+   the editorial heart, not just another nav pillar. */
+.masthead__nav-item--journal a {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+  color: var(--dark);
+  padding: 0;
+}
+.masthead__nav-item--journal a:hover { color: var(--accent); }
+
 .masthead__cta {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid var(--accent);
+  border: 1px solid rgba(167, 118, 55, 0.5);
   padding: 0.45rem 1rem;
-  transition: background .2s var(--ease), color .2s var(--ease);
+  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
   white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
 }
-.masthead__cta:hover { background: var(--accent); color: var(--white); }
+.masthead__cta:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* Mobile-only wordmark — sits in the centre of the merged mobile nav
+   row. Hidden on desktop, where the dedicated brand row carries the
+   full wordmark + tagline. */
+.masthead__logo-mobile {
+  display: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+  justify-self: center;
+}
+.masthead__logo-mobile span {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* ── Mobile-nav brand block (top of full-screen overlay) ── */
+.mobile-nav__brand {
+  padding: 0.5rem 0 1.2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+.mobile-nav__logo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.7rem, 7vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+}
+.mobile-nav__logo span {
+  color: var(--accent);
+  font-style: italic;
+}
+.mobile-nav__tagline-top {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--soft);
+  margin: 0.4rem 0 0.5rem;
+  line-height: 1.4;
+}
+.mobile-nav__edition {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.mobile-nav__link--journal span:first-child {
+  font-style: italic;
+  color: var(--accent);
+}
 
 /* =========================================================
    COVER HERO (homepage)
@@ -645,7 +854,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .venues__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
+  /* Subtle breathing room between cards. Was 1.5px (cards felt
+     stuck together); now a quiet but real gap that lets each card
+     read as its own object without losing the grid rhythm. */
+  gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .venues__grid--two { grid-template-columns: repeat(2, 1fr); }
 
@@ -1080,6 +1292,155 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
     width: 100%;
     height: 100%;
   }
+}
+
+/* =========================================================
+   ARTICLE HERO — split magazine cover for journal articles.
+   Text on cream LEFT (meta · title · dek · byline · tags),
+   image RIGHT. Mirrors HomeCover / GuideHero. Stacks on mobile.
+   ========================================================= */
+.article-hero {
+  background: var(--bg);
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--border);
+}
+.article-hero__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+.article-hero__head { min-width: 0; }
+.article-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.4rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--soft);
+}
+.article-hero__format {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.article-hero__format::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 1rem; height: 1px;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+.article-hero__sep {
+  width: 1px; height: 0.7rem;
+  background: rgba(121, 92, 58, 0.3);
+}
+.article-hero__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 4.8vw, 4rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  color: var(--dark);
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+}
+.article-hero__title em { color: var(--accent); font-style: italic; font-weight: 600; }
+.article-hero__dek {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.6vw, 1.32rem);
+  line-height: 1.55;
+  color: #44372b;
+  max-width: 52ch;
+  margin: 0 0 1.6rem;
+}
+.article-hero__byline {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(121, 92, 58, 0.18);
+  border-bottom: 1px solid rgba(121, 92, 58, 0.18);
+  margin-bottom: 1.2rem;
+}
+.article-hero__byline-name strong { color: var(--dark); font-weight: 500; }
+.article-hero__byline-verified {
+  margin-left: auto;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.article-hero__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.article-hero__tag {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+  padding: 0.3rem 0.65rem;
+  background: var(--bg-alt);
+  border: 1px solid rgba(121, 92, 58, 0.18);
+  border-radius: 999px;
+}
+
+.article-hero__figure { margin: 0; position: relative; }
+.article-hero__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-alt);
+  border-radius: 4px;
+  filter: saturate(0.92) contrast(1.02);
+}
+.article-hero__credit {
+  margin-top: 0.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .article-hero__frame { grid-template-columns: 1fr; gap: 1.6rem; }
+  .article-hero__title { font-size: clamp(1.95rem, 7.5vw, 2.6rem); }
+  .article-hero__dek { font-size: 1.05rem; }
+  .article-hero__image { aspect-ratio: 16 / 10; }
+}
+
+/* Drop-cap on .prose first paragraph when explicitly opted in by
+   adding .has-drop-cap on the prose container (e.g., for journal
+   long-form articles). */
+.prose.has-drop-cap > p:first-of-type::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  float: left;
+  font-size: 4.6em;
+  line-height: 0.85;
+  padding: 0.18em 0.18em 0 0;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 /* =========================================================
@@ -1549,7 +1910,461 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   NEWSLETTER
+   NEWSLETTER PAGE V2 — conversion-first standalone page
+   Form-above-the-fold cinematic hero, sample dispatch preview,
+   four promises, three trust statements, second-chance close.
+   ========================================================= */
+
+/* ── 1. Conversion hero ── */
+.news-hero {
+  position: relative;
+  min-height: clamp(560px, 78vh, 760px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: #FDFCFA;
+}
+.news-hero__image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.55) contrast(1.02);
+}
+.news-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 0% 50%,
+      rgba(0,0,0,0.78) 0%,
+      rgba(0,0,0,0.55) 26%,
+      rgba(0,0,0,0.22) 56%,
+      rgba(0,0,0,0)    85%),
+    linear-gradient(180deg,
+      rgba(0,0,0,0)    50%,
+      rgba(0,0,0,0.5)  100%);
+}
+.news-hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(3rem, 8vw, 5rem);
+  max-width: 720px;
+}
+.news-hero__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 220, 178, 0.9);
+  margin: 0 0 1.1rem;
+}
+.news-hero__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: #FDFCFA;
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+}
+.news-hero__title em {
+  color: rgba(245, 220, 178, 0.95);
+  font-style: italic;
+}
+.news-hero__dek {
+  font-size: clamp(1.05rem, 1.5vw, 1.22rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 56ch;
+  margin: 0 0 1.8rem;
+}
+.news-hero__form {
+  max-width: 560px;
+  margin-bottom: 1.4rem;
+}
+.news-hero__form .newsletter__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.news-hero__form .newsletter__field {
+  display: flex;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.news-hero__form .newsletter__field:focus-within {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(245, 220, 178, 0.5);
+}
+.news-hero__form .newsletter__input {
+  flex: 1;
+  padding: 1.05rem 1.2rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: none;
+  min-width: 0;
+}
+.news-hero__form .newsletter__input::placeholder { color: rgba(253, 252, 250, 0.45); }
+.news-hero__form .newsletter__submit {
+  padding: 1.05rem 1.7rem;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s var(--ease);
+  white-space: nowrap;
+}
+.news-hero__form .newsletter__submit:hover { background: var(--acc-h); }
+.news-hero__form .newsletter__disclaimer {
+  font-size: 0.72rem;
+  color: rgba(253, 252, 250, 0.55);
+  margin: 0;
+}
+.news-hero__form .newsletter__disclaimer a {
+  color: rgba(245, 220, 178, 0.85);
+  text-decoration: underline;
+}
+.news-hero__form .newsletter__status {
+  font-size: 0.85rem;
+  color: rgba(245, 220, 178, 0.95);
+  margin: 0;
+  min-height: 1.2em;
+}
+.news-hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 1.4rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.7);
+}
+.news-hero__proof li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.news-hero__proof strong {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(245, 220, 178, 0.95);
+  letter-spacing: 0;
+}
+
+/* ── 2. Sample dispatch — styled like a real email ── */
+.news-sample {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.news-sample__intro {
+  max-width: 60ch;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+.news-sample__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.95rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin: 0.5rem 0 0.7rem;
+}
+.news-sample__sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #6b4f33;
+  margin: 0;
+}
+.news-sample__email {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid rgba(121, 92, 58, 0.18);
+  border-radius: 0.5rem;
+  box-shadow: 0 24px 60px rgba(34, 24, 16, 0.07);
+  overflow: hidden;
+}
+.news-sample__email-head {
+  padding: 1.2rem 1.6rem 1rem;
+  background: rgba(232, 224, 209, 0.45);
+  border-bottom: 1px solid rgba(121, 92, 58, 0.12);
+}
+.news-sample__email-from,
+.news-sample__email-preview {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.01em;
+}
+.news-sample__email-from strong { color: var(--dark); font-weight: 600; }
+.news-sample__email-subject {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0.3rem 0 0.3rem;
+  letter-spacing: 0;
+}
+.news-sample__email-preview {
+  font-style: italic;
+  color: var(--soft);
+  margin-top: 0.2rem;
+}
+.news-sample__email-body {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #2B2520;
+}
+.news-sample__email-body p { margin: 0 0 1rem; }
+.news-sample__email-body p em { color: var(--soft); }
+.news-sample__email-body h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 1.4rem 0 0.4rem;
+  letter-spacing: -0.005em;
+}
+
+/* ── 3. What you get — numbered four-up ── */
+.news-promise {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+.news-promise__intro {
+  max-width: 60ch;
+  margin: 0 0 clamp(1.8rem, 4vw, 2.8rem);
+}
+.news-promise__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.95rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin: 0.5rem 0 0;
+}
+.news-promise__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.news-promise__item {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(248, 243, 236, 0.98));
+  border: 1px solid rgba(121, 92, 58, 0.14);
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  overflow: hidden;
+}
+.news-promise__item::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    rgba(167, 118, 55, 0.95),
+    rgba(223, 197, 158, 0.65),
+    rgba(167, 118, 55, 0.14));
+}
+.news-promise__num {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.04em;
+}
+.news-promise__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--dark);
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.005em;
+}
+.news-promise__body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #44372b;
+  margin: 0;
+}
+
+/* ── 4. Trust / promises strip ── */
+.news-trust {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.news-trust__intro {
+  max-width: 60ch;
+  margin: 0 0 clamp(1.8rem, 4vw, 2.8rem);
+}
+.news-trust__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.95rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin: 0.5rem 0 0;
+}
+.news-trust__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.4rem);
+}
+.news-trust__item h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.005em;
+  padding-top: 0.7rem;
+  border-top: 2px solid rgba(167, 118, 55, 0.4);
+}
+.news-trust__item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #44372b;
+  margin: 0;
+}
+
+/* ── 5. Second-chance close ── */
+.news-close {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  background: var(--dark);
+  color: #FDFCFA;
+}
+.news-close__inner {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+.news-close__inner .label--accent { color: rgba(245, 220, 178, 0.9); }
+.news-close__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.95rem, 3.6vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: #FDFCFA;
+  margin: 0.6rem 0 0.9rem;
+}
+.news-close__dek {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: rgba(253, 252, 250, 0.75);
+  margin: 0 0 1.8rem;
+}
+.news-close__form .newsletter__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+}
+.news-close__form .newsletter__field {
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.news-close__form .newsletter__field:focus-within {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(245, 220, 178, 0.5);
+}
+.news-close__form .newsletter__input {
+  flex: 1;
+  padding: 0.95rem 1.2rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+}
+.news-close__form .newsletter__input::placeholder { color: rgba(253,252,250,0.4); }
+.news-close__form .newsletter__submit {
+  padding: 0.95rem 1.5rem;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s var(--ease);
+}
+.news-close__form .newsletter__submit:hover { background: var(--acc-h); }
+.news-close__form .newsletter__disclaimer {
+  font-size: 0.72rem;
+  color: rgba(253, 252, 250, 0.5);
+  text-align: center;
+  margin: 0;
+}
+.news-close__form .newsletter__disclaimer a { color: rgba(245, 220, 178, 0.85); text-decoration: underline; }
+
+/* ── Mobile adjustments ── */
+@media (max-width: 720px) {
+  .news-hero { min-height: clamp(500px, 70vh, 640px); }
+  .news-hero__title { font-size: clamp(2rem, 8vw, 2.6rem); }
+  .news-hero__form .newsletter__field { flex-direction: column; gap: 0.5rem; padding: 0.5rem; background: rgba(255,255,255,0.1); }
+  .news-hero__form .newsletter__input { padding: 0.85rem; border-radius: 2px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+  .news-hero__form .newsletter__submit { width: 100%; padding: 0.95rem; border-radius: 2px; }
+  .news-hero__proof { gap: 0.85rem 1.4rem; font-size: 0.7rem; }
+  .news-promise__grid { grid-template-columns: 1fr; }
+  .news-trust__grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .news-close__form .newsletter__field { flex-direction: column; gap: 0.5rem; padding: 0.5rem; background: rgba(255,255,255,0.08); }
+  .news-close__form .newsletter__input { padding: 0.85rem; border-radius: 2px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+  .news-close__form .newsletter__submit { width: 100%; padding: 0.95rem; border-radius: 2px; }
+}
+
+/* =========================================================
+   NEWSLETTER (legacy footer block — kept for NewsletterBlock component)
    ========================================================= */
 .newsletter {
   background: var(--dark);
@@ -1768,7 +2583,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .breadcrumbs {
   border-bottom: 1px solid var(--border);
   background: var(--bg);
-  padding: 0.75rem 0;
+  /* Generous top padding so the breadcrumb never reads as "tucked under"
+     the sticky masthead — visible breathing room is the whole point. */
+  padding: 1.4rem 0 0.85rem;
+  /* When linking to a breadcrumb anchor (rare but possible), make sure
+     the masthead doesn't occlude it on scroll. */
+  scroll-margin-top: 140px;
 }
 .breadcrumbs__list {
   display: flex;
@@ -1847,7 +2667,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .experience-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .experience-card {
   background: var(--white);
@@ -1940,7 +2760,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .itinerary-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5px;
+  gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .itinerary-card {
   background: var(--white);
@@ -3178,84 +3998,756 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* =========================================================
-   GUIDE HERO  -  cinematic full-bleed header for evergreen
-   guide pages (explore/*, escape/*, long-form features).
-   Image fills the section, scrim darkens the lower third for
-   legibility, title and dek sit bottom-left in the container.
+   INSIDER STRIPE  -  slim mid-page newsletter conversion block.
+   Dark surface so it punctuates the rhythm of cream sections.
+   Pitch left, form right. Stacks on mobile.
    ========================================================= */
-.guide-hero {
-  position: relative;
-  min-height: clamp(380px, 62vh, 680px);
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  margin-bottom: clamp(2rem, 5vw, 4rem);
-  background: var(--bg-dark);
+.insider-stripe {
+  background: var(--dark);
   color: #FDFCFA;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  position: relative;
+  overflow: hidden;
 }
-.guide-hero--compact { min-height: clamp(300px, 44vh, 460px); }
-.guide-hero__image {
+.insider-stripe::before {
+  content: '';
   position: absolute;
   inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(167, 118, 55, 0.18), transparent 60%);
+  pointer-events: none;
+}
+.insider-stripe__frame {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (max-width: 820px) {
+  .insider-stripe__frame { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+.insider-stripe__pitch { min-width: 0; }
+.insider-stripe__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 220, 178, 0.88);
+  margin: 0 0 0.85rem;
+}
+.insider-stripe__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: #FDFCFA;
+  margin: 0 0 0.85rem;
+  text-wrap: balance;
+}
+.insider-stripe__title em {
+  color: rgba(245, 220, 178, 0.95);
+  font-style: italic;
+  font-weight: 600;
+}
+.insider-stripe__body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(253, 252, 250, 0.78);
+  max-width: 50ch;
+  margin: 0;
+}
+
+.insider-stripe__form .newsletter__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.insider-stripe__form .newsletter__field {
+  display: flex;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(245, 220, 178, 0.28);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.insider-stripe__form .newsletter__field:focus-within {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(245, 220, 178, 0.6);
+}
+.insider-stripe__form .newsletter__input {
+  flex: 1;
+  padding: 1rem 1.15rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  min-width: 0;
+}
+.insider-stripe__form .newsletter__input::placeholder { color: rgba(253, 252, 250, 0.4); }
+.insider-stripe__form .newsletter__submit {
+  padding: 1rem 1.6rem;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s var(--ease);
+  white-space: nowrap;
+}
+.insider-stripe__form .newsletter__submit:hover { background: var(--acc-h); }
+.insider-stripe__form .newsletter__disclaimer {
+  font-size: 0.7rem;
+  color: rgba(253, 252, 250, 0.5);
+  margin: 0;
+}
+.insider-stripe__form .newsletter__disclaimer a {
+  color: rgba(245, 220, 178, 0.85);
+  text-decoration: underline;
+}
+.insider-stripe__form .newsletter__status {
+  font-size: 0.85rem;
+  color: rgba(245, 220, 178, 0.95);
+  margin: 0;
+  min-height: 1.2em;
+}
+.insider-stripe__trust {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: rgba(253, 252, 250, 0.55);
+  margin: 0.4rem 0 0;
+}
+
+@media (max-width: 720px) {
+  .insider-stripe__form .newsletter__field {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255,255,255,0.08);
+  }
+  .insider-stripe__form .newsletter__input {
+    padding: 0.85rem;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .insider-stripe__form .newsletter__submit { width: 100%; padding: 0.95rem; border-radius: 2px; }
+}
+
+/* =========================================================
+   SHORTLIST  -  signature numbered editorial list. Sticky intro
+   on the left, 5-item numbered list on the right. Replaces
+   "Three pieces doing the heaviest lifting" on the homepage.
+   ========================================================= */
+.shortlist {
+  background: var(--bg);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.shortlist__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .shortlist__frame { grid-template-columns: 1fr; gap: 2rem; }
+}
+.shortlist__intro {
+  position: sticky;
+  top: calc(34px + 70px + 28px); /* utility-row + masthead-room + air */
+}
+@media (max-width: 820px) {
+  .shortlist__intro { position: static; }
+}
+.shortlist__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+.shortlist__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+}
+.shortlist__heading em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
+.shortlist__body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #44372b;
+  max-width: 38ch;
+  margin: 0 0 1.5rem;
+}
+.shortlist__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(167, 118, 55, 0.4);
+  padding-bottom: 0.25rem;
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.shortlist__link:hover { color: var(--acc-h); border-bottom-color: var(--acc-h); }
+.shortlist__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sl-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: 1.8rem 0;
+  border-top: 1px solid rgba(121, 92, 58, 0.18);
+  align-items: start;
+  transition: padding-left .3s var(--ease);
+}
+.sl-item:first-child { border-top: 1px solid var(--dark); }
+.sl-item:last-child  { border-bottom: 1px solid var(--dark); }
+.sl-item:hover { padding-left: 0.25rem; }
+.sl-item__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+.sl-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+.sl-item__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.sl-item__meta-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--soft);
+}
+.sl-item__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--dark);
+  letter-spacing: -0.015em;
+  text-decoration: none;
+  transition: color .2s var(--ease);
+  text-wrap: balance;
+}
+.sl-item__name:hover { color: var(--accent); }
+.sl-item__why {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #44372b;
+  max-width: 60ch;
+  margin: 0.1rem 0 0;
+}
+.sl-item__tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+.sl-item__tag {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--soft);
+  padding: 0.3rem 0.65rem;
+  background: var(--bg-alt);
+  border: 1px solid rgba(121, 92, 58, 0.2);
+  border-radius: 999px;
+}
+.sl-item__tag--hat {
+  color: #B69456;
+  border-color: rgba(182, 148, 86, 0.55);
+  background: transparent;
+}
+@media (max-width: 500px) {
+  .sl-item { grid-template-columns: 52px 1fr; }
+  .sl-item__num { font-size: 2.4rem; }
+}
+
+/* =========================================================
+   EDITOR'S LETTER  -  magazine letter panel. Body left with
+   drop cap on the first paragraph and a pull quote between
+   paragraphs; image right. Stacks on mobile.
+   ========================================================= */
+.letter {
+  background: var(--bg-alt);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  border-bottom: 1px solid var(--border);
+}
+.letter__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+@media (max-width: 840px) {
+  .letter__frame { grid-template-columns: 1fr; gap: 2rem; }
+}
+.letter__body-col {
+  max-width: 42ch;
+}
+.letter__eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.3rem;
+}
+.letter__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.letter__eyebrow-rule {
+  flex: 0 0 40px;
+  height: 1px;
+  background: var(--accent);
+}
+.letter__head {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.95rem, 4.2vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  color: var(--dark);
+  margin: 0 0 1.6rem;
+  text-wrap: balance;
+}
+.letter__head em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
+.letter__prose {
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: #44372b;
+}
+.letter__prose p { margin: 0 0 1rem; }
+.letter__prose p:first-of-type::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  float: left;
+  font-size: 4.4em;
+  line-height: 0.85;
+  padding: 0.18em 0.18em 0 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+.letter__pullquote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--dark);
+  border-left: 2px solid var(--accent);
+  padding: 0.4rem 0 0.4rem 1.2rem;
+  margin: 1.3rem 0 1.3rem;
+  max-width: 36ch;
+}
+.letter__sig {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.letter__sig-mark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.letter__sig-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--dark);
+  line-height: 1.2;
+}
+.letter__sig-role {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--soft);
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+.letter__side { margin: 0; }
+.letter__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
   background-size: cover;
   background-position: center;
+  background-color: var(--bg-alt);
+  border-radius: 4px;
+  filter: saturate(0.92) contrast(1.02);
 }
-.guide-hero__scrim {
+.letter__image-cap {
+  margin-top: 0.75rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--soft);
+  max-width: 40ch;
+}
+
+/* =========================================================
+   HOME COVER  -  magazine-style split cover feature for the
+   homepage. Text on cream LEFT, cross-fading image rotator
+   RIGHT. Replaces both the seasonal CoverHero and the
+   FeatureArticle lead block on the homepage.
+   ========================================================= */
+.home-cover {
+  background: var(--bg);
+  padding: clamp(1.6rem, 3.5vw, 2.6rem) 0 clamp(2rem, 4.5vw, 3.5rem);
+  border-bottom: 1px solid var(--border);
+}
+.home-cover__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+.home-cover__above { min-width: 0; }
+.home-cover__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--soft);
+}
+.home-cover__meta-tag {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--accent);
+}
+.home-cover__meta-tag::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 1rem; height: 1px;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+.home-cover__meta-divider {
+  width: 1px; height: 0.7rem;
+  background: rgba(121, 92, 58, 0.3);
+}
+.home-cover__ornament {
+  display: inline-block;
+  margin: 0 0.45rem;
+  color: rgba(121, 92, 58, 0.4);
+}
+.home-cover__headline-link { text-decoration: none; color: inherit; display: block; }
+.home-cover__headline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  color: var(--dark);
+  margin: 0 0 1.2rem;
+  text-wrap: balance;
+  transition: color 0.2s var(--ease);
+}
+.home-cover__headline-link:hover .home-cover__headline { color: var(--accent); }
+.home-cover__headline em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
+.home-cover__dek {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.55;
+  color: #44372b;
+  max-width: 52ch;
+  margin: 0 0 1.6rem;
+}
+.home-cover__byline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(121, 92, 58, 0.18);
+}
+.home-cover__byline-name strong { color: var(--dark); font-weight: 500; }
+.home-cover__byline-read {
+  margin-left: auto;
+  position: relative;
+  padding-left: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+.home-cover__byline-read::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--soft);
+}
+.home-cover__byline-read:hover { color: var(--acc-h); }
+.home-cover__byline-time { opacity: 0.55; margin-left: 0.35rem; }
+
+.home-cover__figure {
+  position: relative;
+  margin: 0;
+}
+.home-cover__rotator {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border-radius: 4px;
+}
+.home-cover__slide {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 78%, rgba(0,0,0,0.78) 100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s var(--ease);
+  filter: saturate(0.92) contrast(1.02);
+}
+.home-cover__slide.is-active { opacity: 1; }
+.home-cover__cap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.65rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+@media (max-width: 768px) {
+  .home-cover { padding: 1.4rem 0 1.8rem; }
+  .home-cover__frame {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .home-cover__headline {
+    font-size: clamp(2rem, 7.5vw, 2.8rem);
+  }
+  .home-cover__dek {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .home-cover__rotator { aspect-ratio: 16 / 10; }
+  .home-cover__cap {
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.58rem;
+  }
+}
+
+/* =========================================================
+   GUIDE HERO  -  split-layout editorial header for hub pages.
+   Two columns on desktop: text on cream LEFT, image RIGHT.
+   Stacks vertically on mobile (text first, image below). The
+   bulletproof magazine pattern — text always perfectly legible,
+   image always intact, no scrim-vs-image fight.
+   ========================================================= */
+.guide-hero {
+  background: var(--bg);
+  padding: clamp(2.2rem, 5vw, 4rem) 0 clamp(2.2rem, 5vw, 3.5rem);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
 }
 .guide-hero__inner {
-  position: relative;
-  z-index: 1;
-  padding-block: clamp(2.2rem, 6vw, 4.5rem);
-  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
 }
-.guide-hero__inner-content { max-width: 880px; }
+.guide-hero__content {
+  min-width: 0;
+}
 .guide-hero__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: rgba(245, 220, 178, 0.85);
-  margin-bottom: 1rem;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
 }
 .guide-hero__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 600;
   line-height: 1.04;
   letter-spacing: -0.02em;
-  color: #FDFCFA;
-  margin-bottom: 1.1rem;
+  color: var(--dark);
+  margin: 0 0 1.1rem;
   text-wrap: balance;
 }
-.guide-hero__title em { color: rgba(245, 220, 178, 0.95); font-style: italic; }
+.guide-hero__title em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
 .guide-hero__dek {
-  font-size: clamp(1.04rem, 1.4vw, 1.2rem);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.88);
-  max-width: 56ch;
-  margin-bottom: 1.5rem;
+  color: #44372b;
+  max-width: 52ch;
+  margin: 0 0 1.6rem;
 }
 .guide-hero__meta {
   display: flex;
-  gap: 1.4rem;
+  gap: 0.5rem 1.4rem;
   flex-wrap: wrap;
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(121, 92, 58, 0.18);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--soft);
 }
-.guide-hero__meta-item { display: inline-flex; align-items: center; gap: 0.4rem; }
+.guide-hero__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.guide-hero__meta-item:not(:last-child)::after {
+  content: '·';
+  margin-left: 1.4rem;
+  margin-right: -1rem;
+  color: rgba(121, 92, 58, 0.4);
+}
+
+.guide-hero__figure {
+  margin: 0;
+  position: relative;
+}
+.guide-hero__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  overflow: hidden;
+  /* Light editorial desaturation — keeps the image vivid but tones
+     the rare over-saturated photo so the page feels editorial. */
+  filter: saturate(0.92) contrast(1.02);
+}
 .guide-hero__credit {
-  position: absolute;
-  bottom: 0.7rem;
-  right: 1.2rem;
-  z-index: 2;
-  font-size: 0.6rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0.55rem 0 0;
+  text-align: right;
+}
+
+/* ── Mobile: stack vertically — text first, image below ── */
+@media (max-width: 768px) {
+  .guide-hero {
+    padding: clamp(1.6rem, 5vw, 2.4rem) 0 clamp(1.6rem, 5vw, 2.4rem);
+  }
+  .guide-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .guide-hero__title {
+    font-size: clamp(1.9rem, 7vw, 2.6rem);
+  }
+  .guide-hero__dek {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .guide-hero__meta {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    gap: 0.45rem 1rem;
+  }
+  .guide-hero__meta-item:not(:last-child)::after {
+    margin-left: 1rem;
+    margin-right: -0.7rem;
+  }
+  .guide-hero__image {
+    aspect-ratio: 16 / 10;
+  }
 }
 
 /* =========================================================
@@ -3532,6 +5024,149 @@ p.has-drop-cap::first-letter {
   font-weight: 500;
   letter-spacing: 0.005em;
 }
+
+/* =========================================================
+   HUB FORMATS  -  compact format-finder grid used at the foot
+   of hub pages (eat, stay, wine, escape) as the "or jump to
+   format" lane. Gold-hairline cell grid with an editorial
+   sub-line per chip.
+   ========================================================= */
+.hub-formats {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.hub-formats__intro {
+  max-width: 60ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.hub-formats__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin-top: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+.hub-formats__dek {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #6b4f33;
+  max-width: 56ch;
+}
+.hub-formats__grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(121, 92, 58, 0.18);
+  border: 1px solid rgba(121, 92, 58, 0.18);
+  border-radius: 0.85rem;
+  overflow: hidden;
+}
+.hub-formats__cell {
+  background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
+  transition: background 0.18s var(--ease);
+}
+.hub-formats__cell:hover { background: rgba(165, 129, 92, 0.06); }
+.hub-formats__link {
+  display: block;
+  padding: 1.15rem 1.35rem;
+  text-decoration: none;
+  color: inherit;
+}
+.hub-formats__label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.005em;
+}
+.hub-formats__sub {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--soft);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.hub-formats__cell:hover .hub-formats__label { color: var(--accent); }
+
+/* =========================================================
+   HUB FAQ  -  native-disclosure accordion used at the foot
+   of hub pages. No JS — uses <details>/<summary>. The +/−
+   indicator is built with ::after.
+   ========================================================= */
+.hub-faq {
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.hub-faq__intro {
+  max-width: 60ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.2rem);
+}
+.hub-faq__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+  color: var(--dark);
+  margin-top: 0.5rem;
+}
+.hub-faq__list {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(121, 92, 58, 0.14);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--white);
+}
+.hub-faq__item {
+  border-bottom: 1px solid rgba(121, 92, 58, 0.1);
+  transition: background 0.18s var(--ease);
+}
+.hub-faq__item:last-child { border-bottom: none; }
+.hub-faq__item[open] { background: rgba(139, 78, 59, 0.03); }
+.hub-faq__q {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.15rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  user-select: none;
+}
+.hub-faq__q::-webkit-details-marker { display: none; }
+.hub-faq__q::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.hub-faq__item[open] .hub-faq__q::after { content: '−'; }
+.hub-faq__a {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.92rem;
+  color: #44372b;
+  line-height: 1.65;
+}
+.hub-faq__a p { margin: 0; }
 
 /* Safety / advisory callout — single panel for editorial alerts
    (rip warning, weather, booking-window, etc.). Reusable wherever
@@ -4988,11 +6623,62 @@ p.has-drop-cap::first-letter {
 
 /* --- 768px: Tablet and below --- */
 @media (max-width: 768px) {
-  /* Show burger + small Subscribe, hide desktop nav + CTA */
+  /* Mobile masthead pattern: single nav row.
+     Wordmark "Peninsula Insider" is PERFECTLY CENTERED in the row via
+     absolute positioning (so center is independent of the burger's
+     width). Burger sits TOP-RIGHT in flex flow. The brand row above
+     and the redundant mobile Subscribe link are hidden — the floating
+     Subscribe pill (bottom-left) and the utility-row Subscribe link
+     already cover that intent. */
   .masthead__burger { display: flex; }
   .masthead__nav { display: none; }
   .masthead__cta { display: none; }
-  .masthead__cta-mobile { display: inline-flex; align-items: center; }
+  .masthead__cta-mobile { display: none; }  /* removed on mobile — floating pill replaces it */
+  .masthead__logo-mobile { display: inline-block; }
+  .masthead__brand { display: none; }
+
+  .masthead__nav-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;   /* burger pinned right */
+    height: 56px;
+    gap: 0.5rem;
+    overflow: hidden;
+  }
+  .masthead__logo-mobile {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: calc(100% - 96px);  /* leave room for burger + page padding */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1;
+    padding: 0 0.25rem;
+  }
+  .masthead__burger {
+    margin-left: 0;
+    margin-right: -10px;  /* flush to right edge */
+  }
+
+  /* Tighten utility row */
+  .masthead__weather { display: none; }
+  .masthead__edition-mark { display: none; }
+  .masthead__edition-label { font-size: 0.8rem; }
+  .masthead__utility-links {
+    font-size: 0.58rem;
+    gap: 0.85rem;
+  }
+  .masthead__utility-inner {
+    height: 28px;
+    gap: 0.8rem;
+  }
+  /* (Brand row is display:none on mobile; its wordmark is rendered
+     inside the nav row via .masthead__logo-mobile, so the .masthead__brand-*
+     mobile compressions previously here are no longer needed.) */
 
   /* Cover hero: tighten headline */
   .cover__headline {
@@ -5092,9 +6778,11 @@ p.has-drop-cap::first-letter {
     padding: 0 1rem;
   }
 
-  /* Masthead: logo sized up 25% for mobile presence */
+  /* Masthead V3: drop utility links on small phones, keep edition visible */
+  .masthead__utility-links { display: none; }
+  .masthead__utility-inner { justify-content: flex-start; }
   .masthead__logo {
-    font-size: 1.72rem;
+    font-size: 1.4rem;
   }
 
   /* Cover: mobile-first headline */
@@ -5687,3 +7375,301 @@ p.has-drop-cap::first-letter {
 .tour-cta-block__title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
 .tour-cta-primary { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 0.75em 1.5em; border-radius: 2px; text-decoration: none; margin-top: 1rem; letter-spacing: 0.04em; }
 .tour-cta-primary:hover { opacity: 0.9; }
+
+/* =========================================================
+   MOBILE FIXES — Phase 1/2/3 (z-index, occlusion, safe-area,
+   article-hero stack, concierge floater redesign).
+   Appended at end so it cascades over earlier rules.
+   ========================================================= */
+
+/* 1) Mobile-nav overlay sits above masthead and utility row so its
+      own wordmark is not double-stacked. */
+.mobile-nav { z-index: 10010 !important; }
+
+/* 2) When the mobile-nav is open, hide the masthead so the wordmark
+      doesn't ghost through the overlay. body.menu-open is toggled
+      by the burger script in BaseLayout. */
+body.menu-open .masthead { visibility: hidden; }
+
+/* When the concierge drawer is full-screen, hide every piece of sticky
+   site chrome so the chat panel owns the viewport top-to-bottom. The
+   drawer itself sits at z-index 10020. Body scroll locked so the page
+   underneath doesn't wander while the drawer is open. */
+body.concierge-open .masthead,
+body.concierge-open .subscribe-pill { visibility: hidden; }
+body.concierge-open { overflow: hidden; }
+
+/* 3) Article hero meta + byline rows: stack cleanly on mobile.
+      Hairline separators stop making sense once wrapped. */
+@media (max-width: 720px) {
+  .article-hero__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .article-hero__sep { display: none; }
+  .article-hero__byline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .article-hero__byline-verified { margin-left: 0; }
+}
+
+/* 4) Mobile concierge floater — compact circular icon-only button.
+      The wide pill is too heavy on phones. The circle gives an
+      iOS-app feel and keeps a 52px tap target. Sits above the iOS
+      home bar via env(safe-area-inset-bottom). */
+@media (max-width: 720px) {
+  .pi-concierge-trigger,
+  .concierge-trigger,
+  .concierge-drawer__trigger,
+  .pi-concierge__trigger,
+  .pi-concierge-fab,
+  .concierge-fab {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 0.85rem) !important;
+    right: 0.85rem !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(34, 24, 16, 0.18) !important;
+  }
+  /* Hide any descendant text labels — keep only the avatar/icon. */
+  .pi-concierge-trigger > *:not(img):not(svg):not(.concierge-trigger__avatar):not(.pi-concierge__avatar),
+  .concierge-trigger > *:not(img):not(svg):not(.concierge-trigger__avatar),
+  .pi-concierge-fab > *:not(img):not(svg),
+  .concierge-fab > *:not(img):not(svg) {
+    display: none !important;
+  }
+}
+
+/* 5) On the /ask/ page itself, suppress the floater entirely — the
+      affordance IS the page. Targets via data-path which BaseLayout
+      sets on the <body> from the current pathname. */
+body[data-path^="/ask"] .pi-concierge-trigger,
+body[data-path^="/ask"] .concierge-trigger,
+body[data-path^="/ask"] .concierge-drawer__trigger,
+body[data-path^="/ask"] .pi-concierge-fab,
+body[data-path^="/ask"] .concierge-fab {
+  display: none !important;
+}
+
+/* 6) /ask/ page on mobile — drop the drop-cap (unusual on a small
+      screen), bigger chip touch targets, prominent input. */
+@media (max-width: 720px) {
+  /* Drop-cap removal — match common selectors used by the ask page. */
+  .ask-msg__prose--greeting::first-letter,
+  .ask-stream-prose::first-letter,
+  .ask-page__intro::first-letter {
+    font-size: inherit !important;
+    float: none !important;
+    color: inherit !important;
+    padding: 0 !important;
+    line-height: inherit !important;
+  }
+  /* Suggested-query chips: bigger tap target and breathing room. */
+  .ask-tile,
+  .ask-msg__chip,
+  .ask-msg__followup-chip {
+    min-height: 48px;
+    padding: 0.85rem 1.1rem !important;
+  }
+  /* Input: full width, larger font, gold focus ring. */
+  .ask-composer__input,
+  .ask-composer__contact {
+    font-size: 1rem !important;
+    padding: 0.95rem 1.1rem !important;
+  }
+}
+
+/* =========================================================
+   HOMEPAGE MOBILE TIGHTENING — Phase 1 + 2
+   Cuts vertical length, reorders priorities, makes the
+   surviving sections punch harder on phones.
+   Desktop is untouched.
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+  /* ---- Phase 1 — Cut the length ---- */
+
+  /* Hide low-payoff secondary lists on mobile */
+  .seasonal-shelf,
+  .venues--hide-mobile {
+    display: none;
+  }
+
+  /* IssueFlag: drop stats row, keep the edition line + fleuron */
+  .issue-flag { padding: clamp(1.4rem, 4vw, 2rem) 0; }
+  .issue-flag__stats { display: none; }
+  .issue-flag__context { margin-bottom: 0.4rem; }
+
+  /* PillarNav: collapse 8 tiles into a single horizontal scroll-snap
+     row so it stops eating ~400px of vertical real estate. Each
+     pillar becomes a 38vw chip; user swipes through. */
+  .pillars__inner {
+    display: flex !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem 1rem !important;
+  }
+  .pillars__inner::-webkit-scrollbar { display: none; }
+  .pillar {
+    flex: 0 0 38vw;
+    min-width: 0 !important;
+    min-height: auto !important;
+    scroll-snap-align: start;
+    padding: 1rem 0.85rem !important;
+    aspect-ratio: auto !important;
+    text-align: left !important;
+    border: 1px solid rgba(121, 92, 58, 0.15);
+    border-radius: 6px;
+    background: var(--bg);
+  }
+  .pillar__icon {
+    width: 22px !important;
+    height: 22px !important;
+    margin: 0 0 0.4rem !important;
+  }
+  .pillar__name {
+    font-size: 0.95rem !important;
+    line-height: 1.15;
+  }
+  .pillar__sub { display: none; }
+
+  /* ---- Phase 2 — Make the surviving sections punch ---- */
+
+  /* HomeCover: image FIRST, text below — sets the tone in 1 swipe */
+  .home-cover__frame {
+    grid-template-columns: 1fr;
+  }
+  .home-cover__above { order: 2; }
+  .home-cover__figure { order: 1; }
+
+  /* Shortlist: drop the 80px num gutter, fold rank into the meta */
+  .sl-item {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    padding: 1.4rem 0;
+  }
+  .sl-item__num {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1;
+    margin: 0 0 0.4rem;
+    color: var(--accent);
+  }
+  .sl-item__name {
+    font-size: 1.45rem;
+    line-height: 1.18;
+  }
+
+  /* Editor's Letter: drop the drop cap on mobile, image becomes a
+     small inline portrait under the eyebrow rather than a column */
+  .letter__prose p:first-of-type::first-letter {
+    font-size: inherit;
+    float: none;
+    color: inherit;
+    padding: 0;
+    line-height: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+  }
+  .letter__frame { grid-template-columns: 1fr; gap: 1.2rem; }
+  .letter__side { order: -1; max-width: 280px; }
+  .letter__image { aspect-ratio: 16 / 10; }
+  .letter__image-cap { font-size: 0.82rem; }
+
+  /* Dining showcase: horizontal scroll-snap rail. One card visible
+     at a time, swipe through. Saves ~1600px of vertical. */
+  .venues--scroll-mobile .venues__grid {
+    display: flex !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding: 0.25rem 1rem 0.5rem;
+    margin: 0 -1rem;
+  }
+  .venues--scroll-mobile .venues__grid::-webkit-scrollbar { display: none; }
+  .venues--scroll-mobile .venues__grid > .venue-card,
+  .venues--scroll-mobile .venues__grid > * {
+    flex: 0 0 82vw;
+    scroll-snap-align: start;
+  }
+}
+
+/* =========================================================
+   STICKY SUBSCRIBE PILL — Phase 3
+   Fades in once the reader passes the 50% scroll mark.
+   Mobile-only. Bottom-LEFT (opposite concierge FAB at
+   bottom-right). Hidden on routes where it'd be redundant
+   or unwanted (/newsletter, /ask, /account).
+   ========================================================= */
+.subscribe-pill {
+  /* Hidden by default — only shown on mobile via the media query
+     below, and only when body.show-subscribe-pill is set. */
+  display: none;
+  position: fixed;
+  left: 0.85rem;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.85rem);
+  z-index: 90; /* below mobile-nav (10010) and masthead (9999) */
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.05rem 0.7rem 0.95rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(34, 24, 16, 0.22);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease),
+              transform 0.28s var(--ease),
+              background 0.18s var(--ease);
+}
+.subscribe-pill:hover { background: var(--acc-h); }
+.subscribe-pill svg { flex-shrink: 0; opacity: 0.95; }
+
+@media (max-width: 720px) {
+  .subscribe-pill { display: inline-flex; }
+}
+
+/* Visible state — driven by body.show-subscribe-pill which the
+   scroll script in BaseLayout toggles past the 50% mark. */
+body.show-subscribe-pill .subscribe-pill {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Hidden on routes where the pill would be redundant or off-tone. */
+body[data-path^="/newsletter"] .subscribe-pill,
+body[data-path^="/ask"] .subscribe-pill,
+body[data-path^="/account"] .subscribe-pill {
+  display: none !important;
+}
+
+/* When the mobile menu is open, hide the pill so it doesn't show
+   through the overlay. body.menu-open is toggled by the burger. */
+body.menu-open .subscribe-pill {
+  opacity: 0;
+  pointer-events: none;
+}
