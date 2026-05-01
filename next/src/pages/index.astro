@@ -31,7 +31,7 @@ const itineraries = await getCollection('itineraries');
 // without a click into /whats-on.
 const eventsAll = (await getCollection('events'))
   .filter((event) => {
-    // 'seasonal' events have explicit end dates — they must not bypass the upcoming check.
+    // 'seasonal' events have explicit end dates, they must not bypass the upcoming check.
     // Only truly open-ended recurrences (weekly, monthly, ongoing) stay permanently visible.
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     const end = event.data.endDate ?? event.data.startDate;
@@ -136,8 +136,8 @@ const seasonalExperiences = experiences
 ---
 
 <BaseLayout
-  title="Peninsula Insider — The Mornington Peninsula Guide"
-  description="The independent guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated April 2026."
+  title="Peninsula Insider, The Mornington Peninsula Guide"
+  description="The independent guide to the Mornington Peninsula, best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated April 2026."
   section="home"
   canonical="https://peninsulainsider.com.au"
 >
@@ -146,7 +146,7 @@ const seasonalExperiences = experiences
     '@type': 'WebSite',
     name: 'Peninsula Insider',
     url: 'https://peninsulainsider.com.au',
-    description: 'The independent editorial guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay.',
+    description: 'The independent editorial guide to the Mornington Peninsula, best restaurants, cellar doors, beaches, walks, and places to stay.',
     inLanguage: 'en-AU',
     potentialAction: {
       '@type': 'SearchAction',
@@ -163,7 +163,7 @@ const seasonalExperiences = experiences
         name: 'What is the Mornington Peninsula known for?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'The Mornington Peninsula is known for cool-climate Pinot Noir and Chardonnay, vineyard restaurants, natural hot springs, dramatic ocean coastline, and calm bay beaches — all within 90 minutes of Melbourne. The region has over 50 cellar doors, some of Australia\'s best regional restaurants, and a coastline that runs from sheltered Port Phillip Bay to the wild Southern Ocean.',
+          text: 'The Mornington Peninsula is known for cool-climate Pinot Noir and Chardonnay, vineyard restaurants, natural hot springs, dramatic ocean coastline, and calm bay beaches, all within 90 minutes of Melbourne. The region has over 50 cellar doors, some of Australia\'s best regional restaurants, and a coastline that runs from sheltered Port Phillip Bay to the wild Southern Ocean.',
         },
       },
       {
@@ -179,7 +179,7 @@ const seasonalExperiences = experiences
         name: 'What is the best time to visit the Mornington Peninsula?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Autumn (March to May) is the best season — vintage is underway on the ridge, the crowds thin after Easter, and the light over the vineyards is at its best. Summer is busiest and most expensive but offers swimming and long evenings. Winter is quiet, with cellar door fires and hot springs at their most appealing. Spring brings wildflowers and uncrowded weekends.',
+          text: 'Autumn (March to May) is the best season, vintage is underway on the ridge, the crowds thin after Easter, and the light over the vineyards is at its best. Summer is busiest and most expensive but offers swimming and long evenings. Winter is quiet, with cellar door fires and hot springs at their most appealing. Spring brings wildflowers and uncrowded weekends.',
         },
       },
     ],
@@ -195,7 +195,7 @@ const seasonalExperiences = experiences
       readingTime={featured.data.readingTimeMinutes ? `${featured.data.readingTimeMinutes} min` : undefined}
       href={`/journal/${routeSlug(featured)}`}
       images={[
-        /* Three-window daily rotation — picked by visitor's local hour:
+        /* Three-window daily rotation, picked by visitor's local hour:
              0:00–07:59  → image 1 (sunset bay, bathing boxes)
              8:00–15:59  → image 2 (back-beach horse riders)
             16:00–23:59  → image 3 (bay beach with red umbrella)        */
@@ -298,14 +298,14 @@ const seasonalExperiences = experiences
     </section>
   )}
 
-  {/* FeatureArticle removed — the HomeCover at the top is the lead story now. */}
+  {/* FeatureArticle removed, the HomeCover at the top is the lead story now. */}
 
 
   {editorPicks.length > 0 && (
     <Shortlist
       eyebrow="The Shortlist"
       title="Five pieces worth the <em>appointment</em>."
-      dek="The handful we'd send a close friend to this issue — picked for the ratio of payoff to effort, not the view from the tasting room."
+      dek="The handful we'd send a close friend to this issue, picked for the ratio of payoff to effort, not the view from the tasting room."
       link={{ label: 'Read all in the Journal', href: '/journal/' }}
       items={editorPicks.map((article, i) => ({
         rank: String(i + 1).padStart(2, '0'),
@@ -330,14 +330,14 @@ const seasonalExperiences = experiences
     paragraphs={[
       `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year. Most places you want to get into, you can actually get into. The light is good. The rooms are warm. The producers, finally, have time.`,
       `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking. The newsletter, <em>Peninsula This Weekend</em>, lands in your inbox at 6 pm Wednesday with the current issue's picks tightened into a single page.`,
-      `If this is your first issue with us — welcome. If you're returning — thanks for the patience through the refit.`,
+      `If this is your first issue with us, welcome. If you're returning, thanks for the patience through the refit.`,
     ]}
-    pullQuote={`This issue is built for the six weeks where the Peninsula is at its most itself — before winter settles in and the coast goes quiet.`}
+    pullQuote={`This issue is built for the six weeks where the Peninsula is at its most itself, before winter settles in and the coast goes quiet.`}
     signatureName="The Editors"
     signatureRole="Peninsula Insider"
     image="/images/sourced/place-red-hill-01.webp"
     imageAlt="Vine rows in late-season colour, Red Hill"
-    imageCaption="The last weekend of vintage, Red Hill <em>— the quietest a working winery ever gets.</em>"
+    imageCaption="The last weekend of vintage, Red Hill, <em>the quietest a working winery ever gets.</em>"
   />
 
   <InsiderStripe />

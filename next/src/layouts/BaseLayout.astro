@@ -8,10 +8,10 @@
  */
 
 import '../styles/global.css';
-import '../styles/concierge.css';   // chat & drawer styles — loaded on every page
+import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
 import { ClientRouter } from 'astro:transitions';
 import Masthead from '../components/Masthead.astro';
-// UtilityBar removed — its content is now integrated into Masthead's
+// UtilityBar removed, its content is now integrated into Masthead's
 // utility row. Keeping this comment as a breadcrumb for the migration.
 import Footer from '../components/Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
@@ -35,7 +35,7 @@ const SITE_URL = 'https://peninsulainsider.com.au';
 
 const {
   title,
-  description = 'The independent editorial guide to the Mornington Peninsula — honest, opinionated coverage of eating, drinking, staying, and exploring.',
+  description = 'The independent editorial guide to the Mornington Peninsula, honest, opinionated coverage of eating, drinking, staying, and exploring.',
   section = 'home',
   preview = false,
   canonical,
@@ -48,7 +48,7 @@ const {
 
 // Canonical: use explicit prop if provided, otherwise derive from current URL pathname.
 // Strip any /V2/ base prefix so canonicals always point at the production root.
-// GitHub Pages serves all pages with trailing slashes — canonicals must match.
+// GitHub Pages serves all pages with trailing slashes, canonicals must match.
 const rawPathname = Astro.url.pathname.replace(/^\/V2/, '') || '/';
 const normalizedPath = rawPathname === '/' ? '/' : rawPathname.replace(/\/?$/, '/');
 const rawCanonical = canonical ?? `${SITE_URL}${normalizedPath}`;
@@ -59,7 +59,7 @@ const ogImageAbsolute = ogImage.startsWith('http')
   ? ogImage
   : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
 
-// Don't render the floating drawer when the visitor is on /ask itself —
+// Don't render the floating drawer when the visitor is on /ask itself.
 // /ask IS the full-screen chat, the drawer would be a duplicate.
 const isAskPage = rawPathname.startsWith('/ask');
 ---
@@ -135,23 +135,23 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <Footer />
 
-  <!-- V2 auth phase 1 — modal + profile dropdown.
+  <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
        Dropdown auto-mounts into the masthead utility row when signed in. -->
   <ProfileDropdown />
   <AuthModal />
 
-  <!-- Set API URL BEFORE the drawer renders — its boot script reads
+  <!-- Set API URL BEFORE the drawer renders, its boot script reads
        window.PI_API_URL at parse time, so this must come first. -->
   <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
     window.PI_API_URL = API_URL;
   </script>
 
-  <!-- PI concierge drawer — slides in from the right edge.
+  <!-- PI concierge drawer, slides in from the right edge.
        Suppressed on /ask itself (which is the full-page version). -->
   {!isAskPage && <ConciergeDrawer />}
 
-  <!-- Sticky Subscribe pill — fades in once the reader passes the 50%
+  <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. -->
@@ -275,7 +275,7 @@ const isAskPage = rawPathname.startsWith('/ask');
   <script is:inline src="/assets/subscribe-form.js"></script>
   <script is:inline src="/assets/scroll-animations.js"></script>
 
-  <!-- Lenis smooth scroll — buttery weighted physics on every page -->
+  <!-- Lenis smooth scroll, buttery weighted physics on every page -->
   <script>
     import Lenis from 'lenis';
 

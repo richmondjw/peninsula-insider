@@ -1,5 +1,5 @@
 ---
-/* /quick-note/ — daily-cadence editorial briefs.
+/* /quick-note/, daily-cadence editorial briefs.
    Three time horizons: NOW (last 6h), TODAY (last 24h), THIS WEEK (last 7d).
    Briefs auto-archive after expiresAt. Section bands group by department.
    Inspired by The Guardian's left-rail department layout. */
@@ -79,7 +79,7 @@ function noteHref(n: any): string {
 ---
 
 <BaseLayout
-  title={`Quick Note — ${dateline} | Peninsula Insider`}
+  title={`Quick Note, ${dateline} | Peninsula Insider`}
   description="Daily Peninsula briefs: openings, menu changes, booking windows, weather, and one editor's note. Refreshed every weekday."
   section="home"
   ogType="website"
@@ -87,7 +87,7 @@ function noteHref(n: any): string {
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Quick Note' }]} />
 
   <main class="qn">
-    <!-- Dateline header — Guardian-inspired -->
+    <!-- Dateline header, Guardian-inspired -->
     <header class="qn__head">
       <div class="container">
         <p class="qn__eyebrow">Quick Note</p>
@@ -102,7 +102,7 @@ function noteHref(n: any): string {
       </div>
     </header>
 
-    <!-- NOW band — anything in the last 6h, marquee treatment -->
+    <!-- NOW band, anything in the last 6h, marquee treatment -->
     {tierNow.length > 0 && (
       <section class="qn__now" aria-labelledby="qn-now-title">
         <div class="container">
@@ -126,7 +126,7 @@ function noteHref(n: any): string {
                   {n.data.dek && <p class="qn__brief-dek">{n.data.dek}</p>}
                   {n.data.verdict && <p class="qn__brief-verdict">{n.data.verdict}</p>}
                   {n.data.verifiedBy && (
-                    <p class="qn__brief-byline">— Verified {relTime(n.data.verifiedAt ?? n.data.publishedAt)} by {n.data.verifiedBy}</p>
+                    <p class="qn__brief-byline">Verified {relTime(n.data.verifiedAt ?? n.data.publishedAt)} by {n.data.verifiedBy}</p>
                   )}
                 </div>
               </a>
@@ -146,7 +146,7 @@ function noteHref(n: any): string {
       </section>
     )}
 
-    <!-- TODAY band — grouped by section -->
+    <!-- TODAY band, grouped by section -->
     <section class="qn__today" aria-labelledby="qn-today-title">
       <div class="container">
         <div class="qn__band-head">
@@ -174,7 +174,7 @@ function noteHref(n: any): string {
       </div>
     </section>
 
-    <!-- THIS WEEK band — older items still in window -->
+    <!-- THIS WEEK band, older items still in window -->
     {tierWeek.length > 0 && (
       <section class="qn__week" aria-labelledby="qn-week-title">
         <div class="container">
@@ -214,11 +214,11 @@ function noteHref(n: any): string {
 
 <style is:global>
   .qn { background: var(--bg); padding-bottom: clamp(3rem, 6vw, 5rem); }
-  /* .qn .container override removed — Quick Note now inherits the
+  /* .qn .container override removed, Quick Note now inherits the
      global .container width (1100px) so it lines up with the masthead
      and every other page. */
 
-  /* Dateline — big serif date, Guardian-style */
+  /* Dateline, big serif date, Guardian-style */
   .qn__head { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem); border-bottom: 4px solid var(--dark); }
   .qn__eyebrow {
     display: inline-block;
@@ -250,7 +250,7 @@ function noteHref(n: any): string {
   }
   .qn__sep { color: var(--accent); }
 
-  /* Band heads — left-rail label, then content */
+  /* Band heads, left-rail label, then content */
   .qn__band-head { padding: 2.4rem 0 1.6rem; border-top: 1px solid var(--border); margin-top: 2rem; }
   .qn__band-head:first-child { border-top: 0; margin-top: 0; }
   .qn__band-title {
@@ -283,7 +283,7 @@ function noteHref(n: any): string {
     margin: 0;
   }
 
-  /* "Now" tier — lead + secondary grid */
+  /* "Now" tier, lead + secondary grid */
   .qn__now { background: var(--bg); }
   .qn__now-grid {
     display: grid;
@@ -320,7 +320,7 @@ function noteHref(n: any): string {
     filter: saturate(0.92) contrast(1.02);
   }
 
-  /* Today tier — grouped by section, left-rail label */
+  /* Today tier, grouped by section, left-rail label */
   .qn__today .qn__sect {
     display: grid;
     grid-template-columns: 9rem 1fr;
@@ -345,7 +345,7 @@ function noteHref(n: any): string {
     gap: 1.4rem;
   }
 
-  /* Brief — base */
+  /* Brief, base */
   .qn__brief {
     display: block;
     text-decoration: none;
@@ -420,7 +420,7 @@ function noteHref(n: any): string {
     font-style: italic;
   }
 
-  /* This week — small card grid */
+  /* This week, small card grid */
   .qn__week-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));

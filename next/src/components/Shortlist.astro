@@ -1,6 +1,6 @@
 ---
 /**
- * Shortlist — magazine-style numbered list. The signature editorial
+ * Shortlist, magazine-style numbered list. The signature editorial
  * device from v2: a sticky intro on the left, a numbered list of 5
  * picks on the right with location · time · type meta, big serif
  * names, "why we'd send a friend" body, and pill tags.
@@ -8,7 +8,7 @@
  * Uses production typography (Cormorant + Outfit) and tokens.
  */
 export interface ShortlistItem {
-  /** Display rank — usually "01"–"05" or "I"–"V". */
+  /** Display rank, usually "01"–"05" or "I"–"V". */
   rank: string;
   /** Up to 3 meta items, joined by hairline dots. */
   meta: string[];
@@ -16,7 +16,7 @@ export interface ShortlistItem {
   name: string;
   /** Link target. */
   href: string;
-  /** The "why" body — usually 2-3 sentences. */
+  /** The "why" body, usually 2-3 sentences. */
   why: string;
   /** Optional tags rendered as pill chips. Set isHat: true for gold border. */
   tags?: { label: string; isHat?: boolean }[];

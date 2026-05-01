@@ -1,6 +1,6 @@
 ---
 /**
- * HomeCover — magazine-style cover feature for the homepage.
+ * HomeCover, magazine-style cover feature for the homepage.
  *
  * Inspired by the v2 staging design. Two-column split on desktop:
  *   LEFT: small caps eyebrow ("THE COVER FEATURE · VOL 04 · AUTUMN 2026"),
@@ -10,7 +10,7 @@
  *          with a small uppercase image caption beneath.
  *
  * Replaces CoverHero (seasonal headline + 2 CTAs) AND the FeatureArticle
- * "Lead story" block — the cover feature plays both roles. One front
+ * "Lead story" block, the cover feature plays both roles. One front
  * door to the issue, like a real magazine.
  */
 
@@ -20,11 +20,11 @@ export interface RotatorImage {
 }
 
 export interface Props {
-  /** Small uppercase tag — e.g. "The Cover Feature". */
+  /** Small uppercase tag, e.g. "The Cover Feature". */
   tag?: string;
-  /** Issue / date — e.g. "Vol 04 · Autumn 2026". */
+  /** Issue / date, e.g. "Vol 04 · Autumn 2026". */
   issue: string;
-  /** Optional sub-label after the issue — e.g. "The Long Read". */
+  /** Optional sub-label after the issue, e.g. "The Long Read". */
   subLabel?: string;
   /** Headline. <em> tags inside render in italic accent. */
   title: string;
@@ -32,7 +32,7 @@ export interface Props {
   dek: string;
   /** Byline name. */
   byline?: string;
-  /** Read time string — e.g. "8 min". */
+  /** Read time string, e.g. "8 min". */
   readingTime?: string;
   /** Link to the underlying article. */
   href: string;
@@ -67,7 +67,7 @@ const {
           <span class="home-cover__meta-divider" aria-hidden="true"></span>
           <span class="home-cover__meta-date">
             {issue}
-            {subLabel && (<><span class="home-cover__ornament">—</span>{subLabel}</>)}
+            {subLabel && (<><span class="home-cover__ornament">·</span>{subLabel}</>)}
           </span>
         </div>
         <a href={href} class="home-cover__headline-link">
@@ -75,7 +75,7 @@ const {
         </a>
         <p class="home-cover__dek">{dek}</p>
         <div class="home-cover__byline">
-          <span class="home-cover__byline-name">— By <strong>{byline}</strong></span>
+          <span class="home-cover__byline-name">By <strong>{byline}</strong></span>
           <a href={href} class="home-cover__byline-read">
             Read{readingTime && <span class="home-cover__byline-time"> {readingTime}</span>}
           </a>
@@ -105,7 +105,7 @@ const {
 
 <script is:inline>
 (function () {
-  // Cover image rotates 3x per day — image is picked by the visitor's
+  // Cover image rotates 3x per day, image is picked by the visitor's
   // local time of day, not a JS interval. Each image holds for one
   // 24/N-hour window (morning / afternoon / evening for a 3-image set).
   // Determined at page load and on every view-transition swap.
