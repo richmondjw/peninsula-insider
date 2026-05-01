@@ -7585,3 +7585,67 @@ body[data-path^="/ask"] .concierge-fab {
     scroll-snap-align: start;
   }
 }
+
+/* =========================================================
+   STICKY SUBSCRIBE PILL — Phase 3
+   Fades in once the reader passes the 50% scroll mark.
+   Mobile-only. Bottom-LEFT (opposite concierge FAB at
+   bottom-right). Hidden on routes where it'd be redundant
+   or unwanted (/newsletter, /ask, /account).
+   ========================================================= */
+.subscribe-pill {
+  /* Hidden by default — only shown on mobile via the media query
+     below, and only when body.show-subscribe-pill is set. */
+  display: none;
+  position: fixed;
+  left: 0.85rem;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.85rem);
+  z-index: 90; /* below mobile-nav (10010) and masthead (9999) */
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.05rem 0.7rem 0.95rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(34, 24, 16, 0.22);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease),
+              transform 0.28s var(--ease),
+              background 0.18s var(--ease);
+}
+.subscribe-pill:hover { background: var(--acc-h); }
+.subscribe-pill svg { flex-shrink: 0; opacity: 0.95; }
+
+@media (max-width: 720px) {
+  .subscribe-pill { display: inline-flex; }
+}
+
+/* Visible state — driven by body.show-subscribe-pill which the
+   scroll script in BaseLayout toggles past the 50% mark. */
+body.show-subscribe-pill .subscribe-pill {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Hidden on routes where the pill would be redundant or off-tone. */
+body[data-path^="/newsletter"] .subscribe-pill,
+body[data-path^="/ask"] .subscribe-pill,
+body[data-path^="/account"] .subscribe-pill {
+  display: none !important;
+}
+
+/* When the mobile menu is open, hide the pill so it doesn't show
+   through the overlay. body.menu-open is toggled by the burger. */
+body.menu-open .subscribe-pill {
+  opacity: 0;
+  pointer-events: none;
+}
