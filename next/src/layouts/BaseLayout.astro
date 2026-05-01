@@ -151,6 +151,49 @@ const isAskPage = rawPathname.startsWith('/ask');
        Suppressed on /ask itself (which is the full-page version). -->
   {!isAskPage && <ConciergeDrawer />}
 
+  <!-- Sticky Subscribe pill — fades in once the reader passes the 50%
+       scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
+       via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
+       opposite the concierge FAB (bottom-right) and they don't collide. -->
+  <a href="/newsletter/" class="subscribe-pill" aria-label="Subscribe to The Insider's Dispatch">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+    <span class="subscribe-pill__label">Subscribe</span>
+  </a>
+
+  <script is:inline>
+    (function () {
+      function initSubscribePill() {
+        var body = document.body;
+        if (body._subPillBound) return;
+        body._subPillBound = true;
+        var threshold = 0.5; // 50% of scrollable page
+        var rafId = null;
+        function check() {
+          var max = document.documentElement.scrollHeight - window.innerHeight;
+          if (max <= 0) {
+            body.classList.remove('show-subscribe-pill');
+            return;
+          }
+          var pct = window.scrollY / max;
+          body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        }
+        window.addEventListener('scroll', function () {
+          if (rafId) return;
+          rafId = requestAnimationFrame(function () { check(); rafId = null; });
+        }, { passive: true });
+        check();
+      }
+      initSubscribePill();
+      document.addEventListener('astro:page-load', function () {
+        document.body._subPillBound = false;
+        initSubscribePill();
+      });
+    })();
+  </script>
+
   <script is:inline>
     (function() {
       function initNav() {
