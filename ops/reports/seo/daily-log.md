@@ -162,29 +162,37 @@ Window (last 7d): 2026-04-23 → 2026-04-29
 
 2. **Submit URLs for manual reindexing in GSC** (≤10/day quota)
    - Go to: Search Console → URL Inspection
-   - Paste each URL one at a time, click **Request Indexing** after Google confirms the page is reachable.
-   - Day 1 batch (priority — paste in this order):
-     1. https://peninsulainsider.com.au/places/red-hill/
-     2. https://peninsulainsider.com.au/places/sorrento/
-     3. https://peninsulainsider.com.au/places/mornington/
-     4. https://peninsulainsider.com.au/places/rye/
-     5. https://peninsulainsider.com.au/stay/best-accommodation/
-     6. https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula/
-     7. https://peninsulainsider.com.au/eat/best-restaurants/
-     8. https://peninsulainsider.com.au/wine/best-cellar-doors/
-     9. https://peninsulainsider.com.au/explore/best-walks/
-     10. https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/
-   - Day 2 batch (when quota resets):
-     1. https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/
-     2. https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/
-     3. https://peninsulainsider.com.au/places/portsea/
-     4. https://peninsulainsider.com.au/places/main-ridge/
-     5. https://peninsulainsider.com.au/places/dromana/
-     6. https://peninsulainsider.com.au/places/mount-martha/
-     7. https://peninsulainsider.com.au/places/cape-schanck/
-     8. https://peninsulainsider.com.au/places/balnarring/
-     9. https://peninsulainsider.com.au/places/merricks/
-     10. https://peninsulainsider.com.au/places/point-nepean/
+   - For each URL: triple-click the line in the code block to select it, copy, paste into the URL Inspection bar at the top of GSC, hit Enter, wait for Google to fetch, then click **Request Indexing**.
+
+   **Day 1 batch** (paste these one at a time):
+
+   ```
+   https://peninsulainsider.com.au/places/red-hill/
+   https://peninsulainsider.com.au/places/sorrento/
+   https://peninsulainsider.com.au/places/mornington/
+   https://peninsulainsider.com.au/places/rye/
+   https://peninsulainsider.com.au/stay/best-accommodation/
+   https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula/
+   https://peninsulainsider.com.au/eat/best-restaurants/
+   https://peninsulainsider.com.au/wine/best-cellar-doors/
+   https://peninsulainsider.com.au/explore/best-walks/
+   https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/
+   ```
+
+   **Day 2 batch** (when the 10/day quota resets, ~24h later):
+
+   ```
+   https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/
+   https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/
+   https://peninsulainsider.com.au/places/portsea/
+   https://peninsulainsider.com.au/places/main-ridge/
+   https://peninsulainsider.com.au/places/dromana/
+   https://peninsulainsider.com.au/places/mount-martha/
+   https://peninsulainsider.com.au/places/cape-schanck/
+   https://peninsulainsider.com.au/places/balnarring/
+   https://peninsulainsider.com.au/places/merricks/
+   https://peninsulainsider.com.au/places/point-nepean/
+   ```
 
 ### Tomorrow's queue
 
