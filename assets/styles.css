@@ -27,6 +27,20 @@
   --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Mobile: white base for legibility.
+   On small screens the warm cream washes out against ambient light and
+   thumb-shadow, so we re-point --bg / --bg-alt to white + a very subtle
+   warm tint. Every component reads from these tokens, so the change
+   cascades site-wide without touching any individual rule. Borders are
+   nudged slightly cooler so hairlines still register on white. */
+@media (max-width: 768px) {
+  :root {
+    --bg:      #FFFFFF;
+    --bg-alt:  #F6F2EA;   /* hint of paper warmth so alternating sections still read */
+    --border:  #E5E0D6;
+  }
+}
+
 /* =========================================================
    RESET
    ========================================================= */
