@@ -190,7 +190,9 @@
     --pi-drawer-margin: 24px;
     position: fixed;
     inset: 0;
-    z-index: 9998;
+    /* Sit above masthead (9999), mobile-nav (10010), utility row.
+       When open the drawer must occlude the entire header chrome. */
+    z-index: 10020;
     pointer-events: none;
     /* Local design tokens (mirror /ask) */
     --pi-paper:       #FAF6EE;
@@ -208,11 +210,13 @@
     --ease-soft:      cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  /* Mobile: full-bleed bottom sheet, edge-to-edge with rounded top */
+  /* Mobile: full-screen — covers the whole viewport including the masthead.
+     The drawer becomes the primary surface; nothing else is visible. */
   @media (max-width: 640px) {
     .pi-drawer {
       --pi-drawer-w: 100vw;
-      --pi-drawer-h: 90vh;
+      --pi-drawer-h: 100vh;
+      --pi-drawer-h: 100dvh; /* prefer dynamic viewport height where supported */
       --pi-drawer-margin: 0px;
     }
   }
@@ -280,21 +284,27 @@
     z-index: 5;
   }
 
-  /* Mobile: bottom sheet, edge-to-edge, rounded only on top */
+  /* Mobile: full-screen panel — covers viewport top to bottom.
+     No rounded corners, no slide-from-bottom (that hid the top under the
+     sticky masthead). Slides up from below into a flush full-screen surface. */
   @media (max-width: 640px) {
     .pi-drawer__panel {
+      top: 0;
       bottom: 0;
       right: 0;
       left: 0;
-      width: 100%;
-      height: var(--pi-drawer-h);
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
       max-width: 100vw;
-      border-radius: 18px 18px 0 0;
-      border-bottom: none;
+      max-height: 100vh;
+      max-height: 100dvh;
+      border: none;
+      border-radius: 0;
       transform: translateY(100%);
     }
     .pi-drawer__panel::before {
-      border-radius: 18px 18px 0 0;
+      border-radius: 0;
     }
   }
 
@@ -750,6 +760,9 @@
       drawer.setAttribute('data-state', s);
       sessionStorage.setItem(STATE_KEY, s);
       document.body.classList.toggle('pi-drawer-open-mobile', s === 'open' && isMobile());
+      // Global "concierge open" flag — used by site CSS to hide the masthead
+      // and other sticky chrome while the drawer occupies the screen.
+      document.body.classList.toggle('concierge-open', s === 'open');
     }
 
     // ── History persistence ──────────────────────────
@@ -1047,6 +1060,18 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
     });
+
+    // Any link click anywhere on the page closes the drawer immediately.
+    // The user expects: tap a link → navigate → drawer is gone, no overlay.
+    // Anchor matches any <a href> outside the drawer itself; chips inside the
+    // drawer trigger the suggestion handler (delegated below) and are excluded.
+    document.addEventListener('click', (e) => {
+      if (getState() !== 'open') return;
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      if (drawer.contains(link)) return; // chip / link inside drawer — leave alone
+      minimiseDrawer();
+    }, true);
 
     // ── Submit ───────────────────────────────────────
     // Streaming flow:

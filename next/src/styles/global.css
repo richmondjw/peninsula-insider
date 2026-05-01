@@ -6619,11 +6619,10 @@ p.has-drop-cap::first-letter {
 /* --- 768px: Tablet and below --- */
 @media (max-width: 768px) {
   /* Mobile masthead pattern: single merged nav-row with
-     burger LEFT  ·  wordmark CENTERED  ·  Subscribe RIGHT.
-     Grid changed from 1fr/auto/1fr to auto/minmax(0,1fr)/auto so
-     the wordmark cell grows naturally but is constrained — no
-     overflow into the page below. The wordmark itself truncates
-     with ellipsis if the viewport is too narrow to fit. */
+     wordmark HARD-LEFT  ·  Subscribe RIGHT  ·  burger TOP-RIGHT.
+     Grid is minmax(0,1fr) | auto | auto so the wordmark anchors left
+     and the two right-side controls hug the right edge. The wordmark
+     truncates with ellipsis if the viewport is too narrow to fit. */
   .masthead__burger { display: flex; }
   .masthead__nav { display: none; }
   .masthead__cta { display: none; }
@@ -6633,19 +6632,32 @@ p.has-drop-cap::first-letter {
 
   .masthead__nav-inner {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     align-items: center;
     height: 56px;
-    gap: 0.5rem;
+    gap: 0.6rem;
     overflow: hidden;
   }
-  .masthead__burger { justify-self: start; margin-left: -10px; }
+  /* Source order is burger / logo / cta — re-pin to columns so the visual
+     layout becomes: wordmark hard-LEFT  ·  Subscribe  ·  burger TOP-RIGHT. */
   .masthead__logo-mobile {
-    justify-self: center;
+    grid-column: 1;
+    justify-self: start;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-left: -2px;
+  }
+  .masthead__cta-mobile {
+    grid-column: 2;
+    justify-self: end;
+  }
+  .masthead__burger {
+    grid-column: 3;
+    justify-self: end;
+    margin-left: 0;
+    margin-right: -10px;
   }
 
   /* Tighten utility row */
@@ -7374,6 +7386,14 @@ p.has-drop-cap::first-letter {
       doesn't ghost through the overlay. body.menu-open is toggled
       by the burger script in BaseLayout. */
 body.menu-open .masthead { visibility: hidden; }
+
+/* When the concierge drawer is full-screen, hide every piece of sticky
+   site chrome so the chat panel owns the viewport top-to-bottom. The
+   drawer itself sits at z-index 10020. Body scroll locked so the page
+   underneath doesn't wander while the drawer is open. */
+body.concierge-open .masthead,
+body.concierge-open .subscribe-pill { visibility: hidden; }
+body.concierge-open { overflow: hidden; }
 
 /* 3) Article hero meta + byline rows: stack cleanly on mobile.
       Hairline separators stop making sense once wrapped. */
