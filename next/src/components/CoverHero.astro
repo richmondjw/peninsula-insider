@@ -1,6 +1,6 @@
 ---
 /**
- * CoverHero — full-bleed immersive cover module.
+ * CoverHero, full-bleed immersive cover module.
  * Homepage passes issueDate to get seasonal copy; other pages pass props to override.
  */
 import { currentSeason } from '../lib/editorial';
@@ -179,7 +179,7 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
 
 <style>
   /* 85vh leaves ~15% of the viewport for the next section to peek into
-     view — giving the page a clear "hint of what's below" without
+     view, giving the page a clear "hint of what's below" without
      making the cover feel small. */
   .hero-v2 { position: relative; min-height: 85vh; display: flex; align-items: flex-end; overflow: hidden; background-color: var(--dark); }
   /* Still-image fallback. Oversized like the video so the JS parallax can
@@ -213,7 +213,7 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
     will-change: transform;
     transform: translate3d(0, 0, 0);
   }
-  /* Respect reduced-motion preference — show the still image instead of the video,
+  /* Respect reduced-motion preference, show the still image instead of the video,
      and skip the parallax transform. */
   @media (prefers-reduced-motion: reduce) {
     .hero-v2__video { display: none; }
@@ -277,7 +277,7 @@ const eyebrowIssueResolved = eyebrowIssue ?? (issueDate ? `${issueDate} Issue` :
   @media (max-width: 768px) {
     .hero-v2 { min-height: 78vh; }
     .hero-v2__bg { background-position: center 30%; background-attachment: scroll; }
-    /* Heavier scrim on mobile — image is bright and text needs to float cleanly */
+    /* Heavier scrim on mobile, image is bright and text needs to float cleanly */
     .hero-v2__scrim { background: linear-gradient(to bottom,
       rgba(30,27,24,0.45) 0%,
       rgba(30,27,24,0.45) 20%,

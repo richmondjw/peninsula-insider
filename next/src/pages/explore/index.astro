@@ -79,14 +79,14 @@ const breadcrumbItems = [
 ];
 
 const collectionSchema = buildCollectionPageSchema({
-  name: 'Explore the Mornington Peninsula — Peninsula Insider',
-  description: 'The editorial guide to things to do on the Mornington Peninsula, Victoria. Ranked lists, experience hubs, use-case guides, and itineraries — all fact-verified.',
+  name: 'Explore the Mornington Peninsula, Peninsula Insider',
+  description: 'The editorial guide to things to do on the Mornington Peninsula, Victoria. Ranked lists, experience hubs, use-case guides, and itineraries, all fact-verified.',
   path: '/explore',
   dateModified: '2026-04-30',
 });
 const faqSchema = buildFaqSchema([
   { q: 'What is the Mornington Peninsula?',
-    a: 'The Mornington Peninsula is a peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne\'s CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland — Red Hill, Main Ridge, Merricks — is wine and food country.' },
+    a: 'The Mornington Peninsula is a peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne\'s CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland, Red Hill, Main Ridge, Merricks, is wine and food country.' },
   { q: 'How far is the Mornington Peninsula from Melbourne?',
     a: 'The peninsula begins around 40–50 km from central Melbourne. Mornington town is about 60 km by road (50–60 min). Sorrento is 110 km by road (1 hr 20 min without traffic) or reachable via the Searoad Ferry from Queenscliff.' },
   { q: 'What is there to do on the Mornington Peninsula?',
@@ -104,7 +104,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 <BaseLayout
   title="Things to Do on the Mornington Peninsula · Peninsula Insider"
-  description="The editorial guide to things to do on the Mornington Peninsula — coastal walks, beaches, hot springs, golf, markets, and the experiences worth the drive. Ranked, fact-verified, updated April 2026."
+  description="The editorial guide to things to do on the Mornington Peninsula, coastal walks, beaches, hot springs, golf, markets, and the experiences worth the drive. Ranked, fact-verified, updated April 2026."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/"
   modifiedTime="2026-04-30"
@@ -130,7 +130,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       { label: `${markets.length + wellness.length + galleriesAttractions.length} cultural & wellness` },
     ]}
     heroImage="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
-    imageAlt="Cape Schanck Lighthouse and the Bass Strait coast — the Peninsula at its most explorable"
+    imageAlt="Cape Schanck Lighthouse and the Bass Strait coast, the Peninsula at its most explorable"
     imageCredit="Peninsula Insider"
   />
 
@@ -140,7 +140,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <CompareBlock
     eyebrow="Two layers, one Peninsula"
     heading="The walk-and-look layer or the booked layer"
-    dek="Every Peninsula day mixes both. Knowing which layer you're leading with — outside and free, or booked and paid — decides the day's tempo."
+    dek="Every Peninsula day mixes both. Knowing which layer you're leading with, outside and free, or booked and paid, decides the day's tempo."
     left={{
       label: 'Outside · walk and look',
       title: 'Free, weather-led, the spine of any Peninsula weekend.',
@@ -166,10 +166,10 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       3. SEASONAL — what's best right now
+       3. SEASONAL, what's best right now
        ═══════════════════════════════════════════════════════════════ -->
   {seasonal.length > 0 && (
-    <section class="experience-index" aria-label={`What's in season — ${blurb.label}`}>
+    <section class="experience-index" aria-label={`What's in season, ${blurb.label}`}>
       <div class="container">
         <div class="venues__header">
           <div>
@@ -186,7 +186,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. COASTAL WALKS — the proper ones
+       4. COASTAL WALKS, the proper ones
        ═══════════════════════════════════════════════════════════════ -->
   {longWalks.length > 0 && (
     <section class="experience-index experience-index--plain" id="long-walks">
@@ -238,7 +238,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
           <div>
             <p class="label label--accent">Beaches</p>
             <h2 class="venues__title">Which beach, and why</h2>
-            <p class="venues__sub">The bay calm versus the back beaches — pick the one that matches the weather, not the one closest to the car.</p>
+            <p class="venues__sub">The bay calm versus the back beaches, pick the one that matches the weather, not the one closest to the car.</p>
           </div>
           <a href="/explore/beaches/" class="venues__link">Beach guide →</a>
         </div>
@@ -256,7 +256,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
           <div>
             <p class="label label--accent">Lookouts</p>
             <h2 class="venues__title">Where the Peninsula lays itself out for you</h2>
-            <p class="venues__sub">Short stops, long views — the moments that make the drive home feel considered.</p>
+            <p class="venues__sub">Short stops, long views, the moments that make the drive home feel considered.</p>
           </div>
         </div>
         <div class="experience-grid">
@@ -308,7 +308,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
           <div>
             <p class="label label--accent">Galleries & attractions</p>
             <h2 class="venues__title">Non-beach, non-cellar-door afternoons</h2>
-            <p class="venues__sub">The culture layer — useful when the weather turns or the weekend needs a quieter pace.</p>
+            <p class="venues__sub">The culture layer, useful when the weather turns or the weekend needs a quieter pace.</p>
           </div>
         </div>
         <div class="experience-grid">
@@ -321,7 +321,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       7. HUB NAVIGATION — every Explore lane
+       7. HUB NAVIGATION, every Explore lane
        ═══════════════════════════════════════════════════════════════ -->
   <section class="hub-formats" aria-label="Explore categories">
     <div class="container">
@@ -344,7 +344,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. ALL EXPERIENCES — alphabetical mosaic
+       8. ALL EXPERIENCES, alphabetical mosaic
        ═══════════════════════════════════════════════════════════════ -->
   <section class="experience-index" id="all">
     <div class="container">
@@ -362,7 +362,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       9. PLACES — explore by terrain
+       9. PLACES, explore by terrain
        ═══════════════════════════════════════════════════════════════ -->
   {featuredPlaces.length > 0 && (
     <section class="places">
@@ -436,7 +436,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <div class="hub-faq__list">
         <details class="hub-faq__item">
           <summary class="hub-faq__q">What is the Mornington Peninsula?</summary>
-          <div class="hub-faq__a"><p>A peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne's CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland — Red Hill, Main Ridge, Merricks — is wine and food country.</p></div>
+          <div class="hub-faq__a"><p>A peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne's CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland, Red Hill, Main Ridge, Merricks, is wine and food country.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">How far is the Peninsula from Melbourne?</summary>

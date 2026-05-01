@@ -1,6 +1,6 @@
 ---
 /**
- * PillarNav — magazine table-of-contents on the homepage.
+ * PillarNav, magazine table-of-contents on the homepage.
  *
  * Replaces the 3x3 icon-tile grid (which read as oversized, empty,
  * and visually monotonous on a wide screen). Now: a single column,
@@ -23,7 +23,7 @@ import { pillarNav } from '../lib/nav';
     <ol class="pillars__list">
       {pillarNav.map((p, i) => (
         <li class="pillar-row">
-          <a href={p.href} class="pillar-row__link" aria-label={`${p.label} — ${p.dek ?? ''}`}>
+          <a href={p.href} class="pillar-row__link" aria-label={`${p.label}, ${p.dek ?? ''}`}>
             <span class="pillar-row__num">{String(i + 1).padStart(2, '0')}</span>
             <span class="pillar-row__name" set:html={p.label.replace('&', '&amp;')} />
             {p.dek && <span class="pillar-row__dek">{p.dek}</span>}

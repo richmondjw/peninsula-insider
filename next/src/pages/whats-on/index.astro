@@ -49,10 +49,10 @@ const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.include
 const skipEvents = events.filter((event) => event.data.skipThis);
 
 const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
-  { key: 'racing-sport',     title: 'Racing & Sport',           blurb: "The Peninsula's racing days and endurance weekends — the single category Melbourne visitors under-plan." },
+  { key: 'racing-sport',     title: 'Racing & Sport',           blurb: "The Peninsula's racing days and endurance weekends, the single category Melbourne visitors under-plan." },
   { key: 'writers-ideas',    title: 'Writers & Ideas',          blurb: 'Festivals, panels and literary weekends with a programme worth planning a stay around.' },
   { key: 'market',           title: 'Markets, Ranked',          blurb: "The Peninsula runs eight recurring markets. Here they are in the order we'd actually attend them." },
-  { key: 'cellar-door',      title: 'Cellar Door Events',       blurb: "Release weekends, winemaker dinners and tastings — the region's strongest category, rarely treated as events." },
+  { key: 'cellar-door',      title: 'Cellar Door Events',       blurb: "Release weekends, winemaker dinners and tastings, the region's strongest category, rarely treated as events." },
   { key: 'live-music',       title: 'Live Music',               blurb: 'Sunday sessions, ridge vineyard sets, and the recurring gigs no other Peninsula site tracks.' },
   { key: 'wellness',         title: 'Wellness & Retreats',      blurb: 'Thermal circuits, sound baths, and the ongoing programming at Alba and the Hot Springs.' },
   { key: 'family-programs',  title: 'Kids & Family',            blurb: "School-holiday programmes graded A/B/C. We've been to most of them. We'll tell you which ones." },
@@ -101,7 +101,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'Why are some events marked as "Skip this"?',
       acceptedAnswer: { '@type': 'Answer', text: 'Because the rest of the Peninsula press won\'t name them. We pick one or two events a month that are over-marketed, badly run, or not what their copy claims. One short paragraph explaining why. The word "Insider" doing actual work.' } },
     { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'No. Mornington Peninsula only — defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don\'t cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don\'t cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.' } },
   ],
 };
 ---
@@ -124,7 +124,7 @@ const faqSchema = {
   <GuideHero
     eyebrow={`What's On · ${totalEvents} curated events · Reviewed weekly`}
     title="Peninsula events, with an <em>opinion</em> for a change"
-    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody says what's worth it. This is the page that does — weekend picks on Sunday, kids-grade A/B/C on every family event, and honest skips on the things the tourism feed won't name."
+    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody says what's worth it. This is the page that does, weekend picks on Sunday, kids-grade A/B/C on every family event, and honest skips on the things the tourism feed won't name."
     meta={[
       { label: `${totalEvents} curated events` },
       { label: `${totalGroups} categories` },
@@ -132,26 +132,26 @@ const faqSchema = {
       { label: 'Reviewed weekly' },
     ]}
     heroImage="/images/sourced/category-market-02.webp"
-    imageAlt="Saturday morning at a Peninsula farmers market — the recurring event spine of the calendar"
+    imageAlt="Saturday morning at a Peninsula farmers market, the recurring event spine of the calendar"
     imageCredit="Peninsula Insider"
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. THE EDITORIAL FRAME — what we'd actually book vs what to skip
+       2. THE EDITORIAL FRAME, what we'd actually book vs what to skip
        ═══════════════════════════════════════════════════════════════ -->
   <CompareBlock
     eyebrow="The editorial promise"
-    heading="What we'd actually book — and what we wouldn't"
+    heading="What we'd actually book, and what we wouldn't"
     dek="Every other Peninsula calendar lists everything. Ours has a position on each entry. Two camps below shape every recommendation on this page."
     left={{
       label: "Worth booking",
       title: "Three lenses, one editorial standard.",
       rows: [
-        { label: 'Weekend Pick',     value: "What the editor would book this weekend if she could only book one. Under three picks per week — usually one." },
+        { label: 'Weekend Pick',     value: "What the editor would book this weekend if she could only book one. Under three picks per week, usually one." },
         { label: 'Worth The Drive',  value: 'The events worth the 90-minute return from Melbourne without any other reason. Genuine destination programming.' },
-        { label: 'Family Saturday',  value: 'A-graded kids days — no pre-show queues, no parking gymnastics, no padded lunch break. We\'ve been to all of them.' },
+        { label: 'Family Saturday',  value: 'A-graded kids days, no pre-show queues, no parking gymnastics, no padded lunch break. We\'ve been to all of them.' },
         { label: 'Locals Know',      value: 'Under-published picks. The recurring sessions, market stalls, and producer days the visitor feeds miss every time.' },
-        { label: 'Free',             value: 'Council-run walks, ranger programmes, and free public events that are genuinely worth the time — not filler.' },
+        { label: 'Free',             value: 'Council-run walks, ranger programmes, and free public events that are genuinely worth the time, not filler.' },
       ],
     }}
     right={{
@@ -184,7 +184,7 @@ const faqSchema = {
           <div>
             <p class="label label--accent">This weekend's anchors</p>
             <h2 class="venues__title">If you only do two things this weekend</h2>
-            <p class="venues__sub venues__sub--standfirst">The clearest event anchors shaping the Peninsula from {dispatchWindow.label} — the picks the editor would put her own weekend around.</p>
+            <p class="venues__sub venues__sub--standfirst">The clearest event anchors shaping the Peninsula from {dispatchWindow.label}, the picks the editor would put her own weekend around.</p>
           </div>
           <span class="venues__count">{editorsPicks.length} picks</span>
         </div>
@@ -196,7 +196,7 @@ const faqSchema = {
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       5. BROWSE BY MOOD — hub-formats lane
+       5. BROWSE BY MOOD, hub-formats lane
        ═══════════════════════════════════════════════════════════════ -->
   <section class="hub-formats" aria-label="Browse events by mood">
     <div class="container">
@@ -333,7 +333,7 @@ const faqSchema = {
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Do you cover events outside the Peninsula?</summary>
-          <div class="hub-faq__a"><p>No. Mornington Peninsula only — defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don't cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.</p></div>
+          <div class="hub-faq__a"><p>No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don't cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.</p></div>
         </details>
       </div>
     </div>

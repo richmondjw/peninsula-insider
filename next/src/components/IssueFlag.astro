@@ -1,6 +1,6 @@
 ---
 /**
- * IssueFlag — magazine-style edition masthead.
+ * IssueFlag, magazine-style edition masthead.
  *
  * Replaces the previous hidden .issue-ribbon block with a proper editorial
  * flag: the edition month at top, a centered fleuron rule, and the live
@@ -13,9 +13,9 @@ export interface IssueStat {
 }
 
 export interface Props {
-  /** "April 2026" — month-and-year string, falls back to current month. */
+  /** "April 2026", month-and-year string, falls back to current month. */
   issueDate: string;
-  /** Optional contextual line shown under the flag (e.g. "Autumn — vintage on the ridge"). */
+  /** Optional contextual line shown under the flag (e.g. "Autumn, vintage on the ridge"). */
   context?: string;
   /** Statistics rendered as a horizontal data row at the bottom. */
   stats: IssueStat[];
