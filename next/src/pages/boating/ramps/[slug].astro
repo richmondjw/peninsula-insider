@@ -1,0 +1,131 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SubpageHero from '../../../components/SubpageHero.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import BfAnalytics from '../../../components/BfAnalytics.astro';
+import { buildBoatRampSchema } from '../../../lib/schema';
+import { BF_EXTERNAL, REGION_LABEL, formatVerifiedStamp } from '../../../lib/bf';
+
+export async function getStaticPaths() {
+  const ramps = await getCollection('boatRamps', ({ data }) => data.status === 'published');
+  return ramps.map((ramp) => ({
+    params: { slug: ramp.data.slug },
+    props: { ramp },
+  }));
+}
+
+const { ramp } = Astro.props;
+const data = ramp.data;
+const { Content } = await render(ramp);
+
+const lastVerifiedStamp = formatVerifiedStamp(data.lastVerified);
+const rampSchema = buildBoatRampSchema(data);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Boating', href: '/boating/' },
+  { label: 'Boat ramps', href: '/boating/ramps/' },
+  { label: data.name },
+];
+
+const tideLabel = {
+  'all-tide': 'All-tide',
+  'mid-to-high': 'Mid–high tide',
+  'high-tide-only': 'High-tide only',
+  'tidal-extreme': 'Tidal extreme — Western Port low water unsafe',
+}[data.tideDependence];
+
+const isTideDependent = data.tideDependence !== 'all-tide';
+---
+
+<BaseLayout
+  title={`${data.name} · Peninsula Insider`}
+  description={data.metaDescription}
+  section="boating"
+  canonical={`https://peninsulainsider.com.au/boating/ramps/${data.slug}/`}
+  modifiedTime={data.lastVerified.toISOString().split('T')[0]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(rampSchema)} />
+  <BfAnalytics />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow={`Boating · Ramps · ${REGION_LABEL[data.region]}`}
+    title={data.name}
+    dek={data.intro}
+  />
+
+  <article class="venue-detail" data-bf-article>
+    <div class="container">
+      <div class="prose">
+        <p class="prose__verified">
+          Last fact-verified {lastVerifiedStamp}
+          {data.managingAuthority ? <> · Managing authority: {data.managingAuthority}</> : null}
+        </p>
+
+        <h2>Key facts</h2>
+        <table>
+          <tbody>
+            {data.laneCount != null ? <tr><td>Launch lanes</td><td>{data.laneCount}</td></tr> : null}
+            {data.surface ? <tr><td>Surface</td><td>{data.surface}</td></tr> : null}
+            <tr><td>Tide dependence</td><td><strong>{tideLabel}</strong></td></tr>
+            {data.tideStation ? <tr><td>Tide reference station</td><td>{data.tideStation}</td></tr> : null}
+            {data.fee ? <tr><td>Fee</td><td>{data.fee}</td></tr> : null}
+            {data.parkingCapacity ? <tr><td>Parking</td><td>{data.parkingCapacity}{data.parkingPressure ? ` · Peak pressure: ${data.parkingPressure}` : ''}</td></tr> : null}
+            {data.maxVesselLength ? <tr><td>Max vessel length</td><td>{data.maxVesselLength}</td></tr> : null}
+            {data.address ? <tr><td>Address</td><td>{data.address}</td></tr> : null}
+          </tbody>
+        </table>
+
+        {isTideDependent ? (
+          <aside class="alert-block">
+            <strong>Tide-dependent ramp.</strong> Check the tide before driving here with a boat on the trailer.
+            Use <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source={`ramp-${data.slug}`}>Willyweather</a>
+            or <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source={`ramp-${data.slug}`}>BOM tidal predictions</a>
+            for the {data.tideStation || 'relevant'} reference station.
+            {data.safetyNotes ? <> {data.safetyNotes}</> : null}
+          </aside>
+        ) : null}
+
+        <Content />
+
+        {data.faq.length > 0 ? (
+          <>
+            <h2>Frequently asked questions</h2>
+            {data.faq.map((f) => (
+              <>
+                <h3>{f.question}</h3>
+                <p>{f.answer}</p>
+              </>
+            ))}
+          </>
+        ) : null}
+
+        <h2>Related</h2>
+        <ul>
+          <li><a href="/boating/">Boating hub</a></li>
+          <li><a href="/boating/ramps/">All Peninsula boat ramps</a></li>
+          {data.nearestHireSlug ? <li><a href={`/boating/hire/${data.nearestHireSlug}/`}>Nearest boat hire</a></li> : null}
+          {data.nearbyRampAlternatives.map((alt) => (
+            <li><a href={`/boating/ramps/${alt}/`}>Alternative ramp: {alt.replace(/-/g, ' ')}</a></li>
+          ))}
+        </ul>
+
+        <p class="prose__verified">
+          Ramp conditions, parking fees, lane availability, and managing authority information are
+          subject to change. Confirm current conditions with
+          {data.managingAuthority?.includes('Mornington') ? (
+            <> <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a></>
+          ) : (
+            <> the <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a> conditions app</>
+          )} before your trip.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SectionHero from '../../../components/SectionHero.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import BfAnalytics from '../../../components/BfAnalytics.astro';
+import { buildBfHubSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { REGION_LABEL, formatVerifiedStamp } from '../../../lib/bf';
+
+const lastVerifiedISO = '2026-04-30';
+const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+
+const allLocations = await getCollection('fishingLocations', ({ data }) => data.status === 'published');
+
+const grouped = {
+  'port-phillip-bay': allLocations.filter((l) => l.data.region === 'port-phillip-bay'),
+  'western-port': allLocations.filter((l) => l.data.region === 'western-port'),
+  'bass-strait-fringe': allLocations.filter((l) => l.data.region === 'bass-strait-fringe'),
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Fishing', href: '/fishing/' },
+  { label: 'Locations' },
+];
+
+const hubSchema = buildBfHubSchema({
+  name: 'Mornington Peninsula fishing locations',
+  description:
+    'Pier, jetty, beach and headland fishing locations on the Mornington Peninsula. Access details, parking pressure, primary species, and tide windows.',
+  path: '/fishing/locations/',
+  dateModified: lastVerifiedISO,
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Fishing', path: '/fishing/' },
+    { name: 'Locations' },
+  ],
+  items: allLocations.map((l) => ({
+    name: l.data.name,
+    path: `/fishing/locations/${l.data.slug}/`,
+    description: l.data.intro,
+    itemType: 'Place',
+  })),
+});
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Fishing', url: 'https://peninsulainsider.com.au/fishing/' },
+  { name: 'Locations', url: 'https://peninsulainsider.com.au/fishing/locations/' },
+]);
+---
+
+<BaseLayout
+  title="Mornington Peninsula fishing locations · Peninsula Insider"
+  description="Piers, jetties, beaches, and headlands for Peninsula fishing. Access, parking, primary species, and tide notes for every spot."
+  section="fishing"
+  canonical="https://peninsulainsider.com.au/fishing/locations/"
+  modifiedTime={lastVerifiedISO}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <BfAnalytics />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Fishing · Locations"
+    title="Where to <em>actually</em> fish on the Peninsula"
+    dek="Twelve locations grouped by water body. Access, parking pressure, primary species, tide windows, and what each spot is and isn't suited to."
+    gradient="vineyard"
+  />
+
+  {Object.entries(grouped).every(([, items]) => items.length === 0) ? (
+    <section class="experience-index">
+      <div class="container prose">
+        <p>Location pages are being prepared. Browse <a href="/fishing/">the fishing hub</a> for an overview of the Peninsula's three fisheries in the meantime.</p>
+      </div>
+    </section>
+  ) : (
+    Object.entries(grouped).map(([region, items]) => items.length > 0 ? (
+      <section class="experience-index">
+        <div class="container">
+          <div class="venues__header">
+            <div>
+              <p class="label label--accent">{REGION_LABEL[region as keyof typeof REGION_LABEL]}</p>
+              <h2 class="venues__title">{items.length} {items.length === 1 ? 'location' : 'locations'}</h2>
+            </div>
+          </div>
+          <div class="venues__grid venues__grid--links">
+            {items.map((loc) => (
+              <article class="venue-card">
+                <h3 class="venue-card__name">
+                  <a href={`/fishing/locations/${loc.data.slug}/`}>{loc.data.name}</a>
+                </h3>
+                <p class="venue-card__meta">{loc.data.locationType}{loc.data.bestSeason ? ` · ${loc.data.bestSeason}` : ''}</p>
+                <p class="venue-card__signature">{loc.data.intro}</p>
+                <a href={`/fishing/locations/${loc.data.slug}/`} class="venue-card__cta">Location guide &rarr;</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    ) : null)
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>

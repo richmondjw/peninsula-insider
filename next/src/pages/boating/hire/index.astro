@@ -1,0 +1,102 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SectionHero from '../../../components/SectionHero.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import BfAnalytics from '../../../components/BfAnalytics.astro';
+import { buildBfHubSchema, buildBreadcrumbSchema } from '../../../lib/schema';
+import { formatVerifiedStamp } from '../../../lib/bf';
+
+const lastVerifiedISO = '2026-04-30';
+const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+
+const allHire = await getCollection('boatHire', ({ data }) => data.status === 'published');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Boating', href: '/boating/' },
+  { label: 'Boat hire' },
+];
+
+const hubSchema = buildBfHubSchema({
+  name: 'Mornington Peninsula boat hire',
+  description:
+    'Self-drive and skippered boat hire on the Mornington Peninsula. Operator profiles, vessel types, no-licence options, and gear-included pricing.',
+  path: '/boating/hire/',
+  dateModified: lastVerifiedISO,
+  breadcrumbs: [
+    { name: 'Home', path: '/' },
+    { name: 'Boating', path: '/boating/' },
+    { name: 'Boat hire' },
+  ],
+  items: allHire.map((h) => ({
+    name: h.data.name,
+    path: `/boating/hire/${h.data.slug}/`,
+    description: h.data.intro,
+    itemType: 'LocalBusiness',
+  })),
+});
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Boating', url: 'https://peninsulainsider.com.au/boating/' },
+  { name: 'Boat hire', url: 'https://peninsulainsider.com.au/boating/hire/' },
+]);
+---
+
+<BaseLayout
+  title="Mornington Peninsula boat hire · Peninsula Insider"
+  description="Self-drive boat hire on the Mornington Peninsula. Operator profiles, vessel types, no-licence options, and gear-included pricing — by location."
+  section="boating"
+  canonical="https://peninsulainsider.com.au/boating/hire/"
+  modifiedTime={lastVerifiedISO}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <BfAnalytics />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Boating · Hire"
+    title="Self-drive boat hire on the <em>Peninsula</em>"
+    dek="Tinnies and polycraft from Mornington, Sorrento, Rye, and Safety Beach. No-licence options for visitors. Half-day and full-day rates with the gear sometimes included — confirm with the operator."
+    gradient="vineyard"
+  />
+
+  <p class="affiliate-disclosure container">
+    This page contains affiliate links. If you book through our links, we may
+    earn a commission at no extra cost to you. This does not influence our
+    editorial assessments.
+  </p>
+
+  <section class="experience-index">
+    <div class="container">
+      {allHire.length === 0 ? (
+        <div class="prose">
+          <p>Boat hire profiles are being prepared. Mornington Boat Hire ships first; Sorrento, Rye, and Peninsula Boat Hire follow once verification completes.</p>
+        </div>
+      ) : (
+        <div class="venues__grid venues__grid--links">
+          {allHire.map((h) => (
+            <article class="venue-card">
+              <h2 class="venue-card__name">
+                <a href={`/boating/hire/${h.data.slug}/`}>{h.data.name}</a>
+              </h2>
+              <p class="venue-card__meta">
+                {h.data.departurePoint}
+                {h.data.priceLow != null ? ` · From $${h.data.priceLow}/${h.data.priceUnit.replace('per-', '')}` : ''}
+                {h.data.licenceRequired === false ? ' · No licence required' : ' · Licence required'}
+              </p>
+              <p class="venue-card__signature">{h.data.intro}</p>
+              <a href={`/boating/hire/${h.data.slug}/`} class="venue-card__cta">Operator profile &rarr;</a>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>

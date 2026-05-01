@@ -1,0 +1,191 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import SectionHero from '../../../../components/SectionHero.astro';
+import NewsletterBlock from '../../../../components/NewsletterBlock.astro';
+import BfAnalytics from '../../../../components/BfAnalytics.astro';
+import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema, PUBLISHER_LOGO_URL } from '../../../../lib/schema';
+import { BF_EXTERNAL, formatVerifiedStamp } from '../../../../lib/bf';
+
+const lastVerifiedISO = '2026-04-30';
+const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
+const path = '/fishing/charters/first-charter-guide/';
+
+const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Fishing', href: '/fishing/' },
+  { label: 'Charters', href: '/fishing/charters/' },
+  { label: 'First-charter guide' },
+];
+
+const articleSchema = buildArticleSchema({
+  headline: 'Your first Peninsula fishing charter, what to expect',
+  description:
+    'A practical guide to your first fishing charter on the Mornington Peninsula. Choose your operator by species and group size, what to bring, what is covered, what to expect on the day.',
+  path,
+  datePublished: lastVerifiedISO,
+  dateModified: lastVerifiedISO,
+  imageUrl: PUBLISHER_LOGO_URL,
+  publisherLogoUrl: PUBLISHER_LOGO_URL,
+  articleSection: 'Fishing',
+});
+
+const faq = [
+  { q: 'Do I need a fishing licence on a charter?', a: 'Most licensed Peninsula charters cover guests under the operator\'s licence for the day. Confirm in writing at the time of booking; do not assume. The Victorian Recreational Fishing Licence is required for anglers aged 18 and over fishing in Victorian waters from any other platform (pier, beach, hire boat, own boat).' },
+  { q: 'What should I bring on a fishing charter?', a: 'Layered warm clothing (autumn snapper sessions are cold), a waterproof outer layer, closed-toe non-slip footwear, a hat, sunscreen, sunglasses, and any personal medications. Most charters include rods, reels, bait, and tackle; food and drinks are typically not included on standard sessions. Bring an esky if you expect to take fish home.' },
+  { q: 'What if I get seasick?', a: 'Take a seasickness preventative the night before and the morning of your trip. The catamaran platforms (I\'m Hooked\'s Devil Cat) are more stable than mono-hulls in chop. Larger purpose-built vessels (Proline\'s 60-foot Due South, Western Port FC\'s 50-foot Westcoaster) are more stable still. Position yourself on deck rather than below in cabin if you start to feel unwell; fresh air and the horizon help.' },
+  { q: 'What if the weather is bad?', a: 'Most operators issue a full refund or a session transfer when conditions prevent departure. Confirm the specific cancellation policy at booking; offshore operators (Bass Strait shark and tuna trips) typically have stricter weather thresholds than bay-side operators. Marginal forecasts can produce session adjustments rather than full cancellations; the skipper has discretion.' },
+  { q: 'How much should I tip?', a: 'A tip of $10 to $20 per person for a productive session is customary across the Peninsula charter fleet but never expected. Tipping is a judgment call based on the day, the crew\'s effort, and your experience.' },
+  { q: 'Can children come on a charter?', a: 'Yes, and most operators welcome them. Confirm minimum age with the operator at booking; some shark and offshore trips have minimum age requirements. The Devil Cat catamaran (I\'m Hooked) is family-friendly with the catamaran stability advantage. Children should wear closed-toe footwear and a sun hat; life jackets for under-12s are recommended even where not formally required.' },
+];
+const faqSchema = buildFaqSchema(faq);
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: 'https://peninsulainsider.com.au/' },
+  { name: 'Fishing', url: 'https://peninsulainsider.com.au/fishing/' },
+  { name: 'Charters', url: 'https://peninsulainsider.com.au/fishing/charters/' },
+  { name: 'First-charter guide', url: `https://peninsulainsider.com.au${path}` },
+]);
+---
+
+<BaseLayout
+  title="Your first Peninsula fishing charter · Peninsula Insider"
+  description="A practical guide to your first fishing charter on the Mornington Peninsula. Choose by species and group, what to bring, what is covered, what to expect on the day."
+  section="fishing"
+  canonical={`https://peninsulainsider.com.au${path}`}
+  modifiedTime={lastVerifiedISO}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <BfAnalytics />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Fishing · Charters"
+    title="Your first <em>Peninsula fishing charter</em>"
+    dek="Choosing a charter, knowing what is covered, packing the right kit, and not embarrassing yourself on the deck. The complete first-time guide."
+    gradient="vineyard"
+  />
+
+  <article class="venue-detail" data-bf-article>
+    <div class="container">
+      <div class="prose">
+        <p class="prose__verified">Last fact-verified {lastVerifiedStamp}.</p>
+
+        <h2>Step 1: Choose by species and group</h2>
+        <p>
+          The first decision is what you want to catch and how big your group is. The Peninsula charter fleet
+          covers four operating profiles, each suited to a different brief:
+        </p>
+        <ul>
+          <li>
+            <strong>Snapper specialist (Oct to Dec).</strong> If your trip falls in October to December and you
+            want to chase the southern bay snapper run, book <a href="/fishing/charters/im-hooked-fishing-charters/">I'm Hooked Fishing Charters</a>.
+            The 2024 Devil Cat catamaran, multi-ramp model, and Mal's 40-plus years of bay-snapper knowledge are
+            the reasons. Capacity 8.
+          </li>
+          <li>
+            <strong>Large group or Bass Strait offshore.</strong> Groups of 10 to 20, corporate functions, or shark
+            and tuna trips into Bass Strait: <a href="/fishing/charters/proline-charters/">Proline Charters</a>'
+            60-foot Due South or 41-foot Strait Shooter from Sorrento Pier. Family operation since 1991.
+          </li>
+          <li>
+            <strong>Mid-size group at the lower price band.</strong> 11 to 18 passengers across two trailer boats
+            running simultaneously, $110 to $150 per person:
+            <a href="/fishing/charters/reel-time-fishing-charters/">Reel Time Fishing Charters</a>.
+          </li>
+          <li>
+            <strong>Western Port specialist.</strong> Whiting in the channel systems, leatherjacket on the bay
+            margins, the Western Port-resident pink-snapper population:
+            <a href="/fishing/charters/western-port-fishing-charters/">Western Port Fishing Charters</a> from
+            Hastings, Captain Robin Gray's 50-foot Westcoaster.
+          </li>
+        </ul>
+        <p>
+          For the editorial side-by-side, see the
+          <a href="/fishing/charters/">charters hub</a>.
+        </p>
+
+        <h2>Step 2: Confirm what's covered</h2>
+        <p>
+          Charter inclusions vary by operator and by session type. The standard Peninsula charter package includes
+          rods, reels, bait, and tackle. Most operators cover the Victorian Recreational Fishing Licence under
+          the vessel's commercial licence; this means you do not need to buy a separate licence for the day.
+          <strong>Confirm the licence cover in writing at the time of booking</strong> rather than assuming.
+        </p>
+        <p>
+          Food and drinks are not typically included on standard half-day or full-day sessions. Bring water and
+          a substantial breakfast or lunch. The vessel will have ice on board for kept fish, but bring an esky
+          for the drive home.
+        </p>
+
+        <h2>Step 3: Pack the right kit</h2>
+        <ul>
+          <li>Layered warm clothing. A snapper-season morning departure can be 5°C colder than the forecast peak.</li>
+          <li>A waterproof outer layer. Spray and intermittent showers are common.</li>
+          <li>Closed-toe non-slip footwear. Bait residue and water make charter decks slippery.</li>
+          <li>A hat, sunscreen, and sunglasses. The bay is more reflective than land; sunburn is rapid.</li>
+          <li>Any personal medications. Seasickness preventatives the night before and morning of the trip.</li>
+          <li>An esky for the drive home if you plan to keep fish.</li>
+        </ul>
+
+        <h2>Step 4: Know the tide</h2>
+        <p>
+          The skipper plans the day around the tide; you do not need to. But understanding why the departure is
+          at 6am rather than 9am makes the day make sense. Peninsula fishing is overwhelmingly tide-driven:
+          snapper feed on the running tide, King George whiting only feed when the tide is moving (the
+          "no run no fun" rule), squid concentrate near light at dusk. Use
+          <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="pillar-first-charter">Willyweather</a>
+          for the Portsea station (Port Phillip Bay) or Stony Point (Western Port).
+        </p>
+
+        <h2>Step 5: What to expect on the day</h2>
+        <p>
+          Arrive at the nominated ramp at least 15 minutes before departure. The skipper will run a safety
+          briefing covering life jackets, on-deck movement, where to be when the boat is moving, and what to do
+          if you get sick or hurt. Listen carefully; the briefing covers the entire session and is not repeated.
+        </p>
+        <p>
+          The crew will rig the rods and bait the hooks. Your job is to fish. If you have not fished before,
+          say so; the crew will brief you on rod handling, hook-setting, and how to fight a fish off the bottom.
+          Don't strike too hard on a snapper bite; the circle hooks self-set on a steady wind-in.
+        </p>
+
+        <h2>What to do if a charter doesn't work for you</h2>
+        <p>
+          The Peninsula has 14-plus public piers, jetties, and beaches that produce fish without booking a
+          charter. <a href="/fishing/locations/">Browse Peninsula fishing locations</a> for the land-based
+          alternatives. <a href="/boating/hire/">Self-drive boat hire</a> is also available at Mornington
+          (no licence required). The charter is the right call when you want a skipper, gear, and the local
+          knowledge that compresses 20 sessions of trial-and-error into a productive day.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faq.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+
+        <h2>Compare all Peninsula fishing charters</h2>
+        <ul>
+          {allCharters.map((c) => (
+            <li>
+              <a href={`/fishing/charters/${c.data.slug}/`} data-bf-event="bf_comparison_click" data-bf-pillar="first-charter-guide" data-bf-operator={c.data.slug}>{c.data.name}</a>
+              {c.data.priceLow != null ? ` · From $${c.data.priceLow} per person` : ''}
+              {c.data.licenceCovered === 'covered' ? ' · Licence covered' : c.data.licenceCovered === 'byo' ? ' · BYO licence' : ''}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

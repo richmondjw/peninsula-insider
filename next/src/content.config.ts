@@ -602,6 +602,203 @@ const tourPackages = defineCollection({
   }),
 });
 
+// ─── Boating + Fishing vertical collections ──────────────────────────────────
+//
+// Source: peninsula_insider_boating_fishing_v1 pack (30 Apr 2026).
+// Five entity collections — species, fishing-locations, fishing-charters,
+// boat-ramps, boat-hire — mirror the /tour/ JSON-first pattern so prose
+// authoring stays editable but invariants are enforced. Hub and pillar pages
+// are MDX in src/pages/fishing/ and src/pages/boating/ rather than
+// collections, since they are prose-heavy and one-of-a-kind.
+//
+// Slugs match the pack's bf_taxonomy_spec.md §5. The [VERIFY] flag is modelled
+// as `verified: false` plus `status: 'draft'` — pre-publish gate enforces
+// `status === 'published'` before sitemap inclusion.
+
+const fishingRegion = z.enum(['port-phillip-bay', 'western-port', 'bass-strait-fringe']);
+
+const speciesAvailability = z.enum(['peak', 'good', 'fair', 'rare', 'closed']);
+
+const tideDependence = z.enum(['all-tide', 'mid-to-high', 'high-tide-only', 'tidal-extreme']);
+
+const bfFaq = z.array(z.object({ question: z.string(), answer: z.string() }));
+
+const bfStatus = z.enum(['draft', 'verify', 'published']);
+
+// Entity collections are stored as Markdown with rich frontmatter — same
+// pattern as `articles`. Frontmatter holds the structured fields needed by
+// the schema builders and internal-link wiring; the MD body holds the
+// editorial prose (rendered via <Content />). This keeps prose-heavy entity
+// types easy to author and review while still enforcing invariants.
+
+const species = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/species' }),
+  schema: z.object({
+    slug: z.string(),
+    commonName: z.string(),
+    scientificName: z.string(),
+    aliases: z.array(z.string()).default([]),
+    primaryRegion: fishingRegion,
+    secondaryRegions: z.array(fishingRegion).default([]),
+    bagLimit: z.string(), // VFA-cited prose, e.g. "10 per person per day"
+    sizeLimit: z.string(), // e.g. "28cm total length"
+    closedSeason: z.string().optional(),
+    licenceRequired: z.boolean().default(true),
+    peakSeason: z.string(), // editorial, e.g. "Oct–Dec"
+    seasonality: z
+      .array(
+        z.object({
+          month: z.enum(['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']),
+          portPhillipBay: speciesAvailability,
+          westernPort: speciesAvailability,
+          bassStraitFringe: speciesAvailability,
+        }),
+      )
+      .default([]),
+    locationSlugs: z.array(z.string()).default([]),
+    charterSlugs: z.array(z.string()).default([]),
+    eatLinks: z.array(z.object({ label: z.string(), href: z.string() })).default([]),
+    intro: z.string(),
+    metaDescription: z.string(),
+    faq: bfFaq.default([]),
+    vfaCitationUrl: z.string().url(),
+    heroImage: imageRef.optional(),
+    status: bfStatus.default('draft'),
+    verified: z.boolean().default(false),
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
+const fishingLocations = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/fishing-locations' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    locationType: z.enum(['pier', 'jetty', 'beach', 'rock-platform', 'inlet', 'foreshore']),
+    region: fishingRegion,
+    coordinates: coordinates.optional(),
+    parking: z.string().optional(),
+    accessibility: z.string().optional(),
+    publicToilets: z.boolean().optional(),
+    bestSeason: z.string().optional(),
+    primarySpecies: z.array(z.string()).default([]), // species slugs
+    nearestRampSlug: z.string().optional(),
+    tideStation: z.string().optional(),
+    tideNotes: z.string().optional(),
+    safetyNotes: z.string().optional(),
+    intro: z.string(),
+    metaDescription: z.string(),
+    faq: bfFaq.default([]),
+    heroImage: imageRef.optional(),
+    status: bfStatus.default('draft'),
+    verified: z.boolean().default(false),
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
+const fishingCharters = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/fishing-charters' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    operatorWebsite: z.string().url().optional(),
+    affiliateUrl: z.string().url().optional(),
+    bookingProvider: z.enum(['direct', 'fishingbooker', 'getyourguide', 'viator', 'none']).default('none'),
+    departurePoints: z.array(z.string()).default([]), // ramp slugs or display names
+    vesselName: z.string().optional(),
+    vesselType: z.string().optional(),
+    capacityMin: z.number().int().nonnegative().optional(),
+    capacityMax: z.number().int().nonnegative().optional(),
+    priceLow: z.number().nonnegative().optional(),
+    priceHigh: z.number().nonnegative().optional(),
+    priceUnit: z.enum(['per-person', 'per-group', 'per-charter']).default('per-person'),
+    targetSpecies: z.array(z.string()).default([]), // species slugs
+    seasonalityNote: z.string().optional(),
+    licenceCovered: z.enum(['covered', 'byo', 'unconfirmed']).default('unconfirmed'),
+    cancellationPolicy: z.string().optional(),
+    intro: z.string(),
+    metaDescription: z.string(),
+    whoSuits: z.string(),
+    whoDoesnt: z.string(),
+    faq: bfFaq.default([]),
+    heroImage: imageRef.optional(),
+    status: bfStatus.default('draft'),
+    verified: z.boolean().default(false),
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
+const boatRamps = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/boat-ramps' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    region: fishingRegion,
+    coordinates: coordinates.optional(),
+    address: z.string().optional(),
+    managingAuthority: z.string().optional(),
+    laneCount: z.number().int().positive().optional(),
+    surface: z.enum(['concrete', 'gravel', 'sealed', 'mixed']).optional(),
+    fee: z.string().optional(),
+    parkingCapacity: z.string().optional(),
+    parkingPressure: z.enum(['low', 'medium', 'high']).optional(),
+    tideDependence: tideDependence,
+    tideStation: z.string().optional(),
+    maxVesselLength: z.string().optional(),
+    nearbyRampAlternatives: z.array(z.string()).default([]),
+    accessibleSpecies: z.array(z.string()).default([]), // species slugs
+    accessibleLocations: z.array(z.string()).default([]), // location slugs
+    nearestHireSlug: z.string().optional(),
+    safetyNotes: z.string().optional(),
+    intro: z.string(),
+    metaDescription: z.string(),
+    faq: bfFaq.default([]),
+    heroImage: imageRef.optional(),
+    status: bfStatus.default('draft'),
+    verified: z.boolean().default(false),
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
+const boatHire = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/boat-hire' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    operatorWebsite: z.string().url().optional(),
+    affiliateUrl: z.string().url().optional(),
+    bookingProvider: z.enum(['direct', 'getyourguide', 'viator', 'none']).default('direct'),
+    departurePoint: z.string(),
+    vesselTypes: z.array(z.string()).default([]),
+    licenceRequired: z.boolean().default(false),
+    priceLow: z.number().nonnegative().optional(),
+    priceHigh: z.number().nonnegative().optional(),
+    priceUnit: z.enum(['per-hour', 'per-half-day', 'per-day', 'per-session']).default('per-hour'),
+    seasonalityNote: z.string().optional(),
+    nearestRampSlug: z.string().optional(),
+    coordinates: coordinates.optional(),
+    intro: z.string(),
+    metaDescription: z.string(),
+    whoSuits: z.string(),
+    whoDoesnt: z.string(),
+    faq: bfFaq.default([]),
+    heroImage: imageRef.optional(),
+    status: bfStatus.default('draft'),
+    verified: z.boolean().default(false),
+    lastVerified: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
 // Quick Note — daily-cadence editorial briefs.
 // Three time horizons rendered on /quick-note/:
 //   "now"   - last 6h
@@ -679,6 +876,11 @@ export const collections = {
   tourOperators,
   tours,
   tourPackages,
+  species,
+  fishingLocations,
+  fishingCharters,
+  boatRamps,
+  boatHire,
   quickNotes,
   editorial_blocks,
 };

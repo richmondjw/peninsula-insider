@@ -12,6 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "bf:lint": "node ../scripts/bf-import/verify-lint.mjs",
+    "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",
     "pdfs:rebuild": "npm run build && node scripts/render-pdfs.mjs"
   },

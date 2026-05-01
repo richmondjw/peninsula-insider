@@ -1,0 +1,131 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SubpageHero from '../../../components/SubpageHero.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import BfAnalytics from '../../../components/BfAnalytics.astro';
+import { buildBoatHireOperatorSchema } from '../../../lib/schema';
+import { buildBfUtm, formatVerifiedStamp } from '../../../lib/bf';
+
+export async function getStaticPaths() {
+  const all = await getCollection('boatHire', ({ data }) => data.status === 'published');
+  return all.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+const { Content } = await render(entry);
+
+const lastVerifiedStamp = formatVerifiedStamp(data.lastVerified);
+const hireSchema = buildBoatHireOperatorSchema(data);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Boating', href: '/boating/' },
+  { label: 'Boat hire', href: '/boating/hire/' },
+  { label: data.name },
+];
+
+// Build the primary booking URL with UTM. If we have a direct affiliate link
+// (preferred), use that; otherwise fall back to the operator website.
+const bookingDestination = data.affiliateUrl ?? data.operatorWebsite;
+const primaryBookingUrl = bookingDestination
+  ? buildBfUtm({
+      destination: bookingDestination,
+      campaign: `${data.slug}-boat-hire`,
+      medium: 'hire-page',
+      content: 'hero-primary',
+    })
+  : null;
+---
+
+<BaseLayout
+  title={`${data.name} · Peninsula Insider`}
+  description={data.metaDescription}
+  section="boating"
+  canonical={`https://peninsulainsider.com.au/boating/hire/${data.slug}/`}
+  modifiedTime={data.lastVerified.toISOString().split('T')[0]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(hireSchema)} />
+  <BfAnalytics />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow="Boating · Hire"
+    title={data.name}
+    dek={data.intro}
+  />
+
+  <article class="venue-detail" data-bf-article>
+    <div class="container">
+      <div class="prose">
+        <p class="prose__verified">
+          Last fact-verified {lastVerifiedStamp}
+          {data.operatorWebsite ? <> · <a href={data.operatorWebsite} rel="external">Operator website</a></> : null}
+        </p>
+
+        {primaryBookingUrl ? (
+          <p>
+            <a
+              href={primaryBookingUrl}
+              class="venue-card__cta"
+              rel="external sponsored"
+              data-bf-event="bf_hire_click"
+              data-bf-operator={data.slug}
+              data-bf-position="hero"
+            >Book {data.name} &rarr;</a>
+          </p>
+        ) : null}
+
+        <h2>Key facts</h2>
+        <table>
+          <tbody>
+            <tr><td>Departure point</td><td>{data.departurePoint}</td></tr>
+            {data.vesselTypes.length > 0 ? <tr><td>Vessels</td><td>{data.vesselTypes.join(', ')}</td></tr> : null}
+            {data.priceLow != null ? <tr><td>Price</td><td>From ${data.priceLow}{data.priceHigh != null && data.priceHigh !== data.priceLow ? `–${data.priceHigh}` : ''} per {data.priceUnit.replace('per-', '')}</td></tr> : null}
+            <tr><td>Licence required</td><td>{data.licenceRequired ? 'Yes — confirm with operator' : 'No — no licence required for hire vessels under operator threshold'}</td></tr>
+            {data.seasonalityNote ? <tr><td>Seasonality</td><td>{data.seasonalityNote}</td></tr> : null}
+            {data.nearestRampSlug ? <tr><td>Nearest ramp</td><td><a href={`/boating/ramps/${data.nearestRampSlug}/`}>{data.nearestRampSlug.replace(/-/g, ' ')}</a></td></tr> : null}
+          </tbody>
+        </table>
+
+        <h2>Who this suits</h2>
+        <p>{data.whoSuits}</p>
+
+        <h2>Who it doesn't suit</h2>
+        <p>{data.whoDoesnt}</p>
+
+        <Content />
+
+        {data.faq.length > 0 ? (
+          <>
+            <h2>Frequently asked questions</h2>
+            {data.faq.map((f) => (
+              <>
+                <h3>{f.question}</h3>
+                <p>{f.answer}</p>
+              </>
+            ))}
+          </>
+        ) : null}
+
+        {primaryBookingUrl ? (
+          <p>
+            <a
+              href={primaryBookingUrl}
+              class="venue-card__cta"
+              rel="external sponsored"
+              data-bf-event="bf_hire_click"
+              data-bf-operator={data.slug}
+              data-bf-position="footer"
+            >Book {data.name} &rarr;</a>
+          </p>
+        ) : null}
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>
