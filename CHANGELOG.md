@@ -68,6 +68,36 @@ Run the SQL migration at `ops/migrations/2026-04-30-concierge-chunks-fingerprint
 
 ---
 
+## 2026-05-01 — Claude (SEO experiment 2026-05-01-01)
+
+### Removed duplicate broken `<link rel="canonical">` from all place pages
+
+**Summary**
+Every page under `/places/*` was emitting **two `<link rel="canonical">` tags** in `<head>`, the second pointing to a non-existent URL `/places/undefined`. Plus duplicate `<title>`, meta description, og: tags, and JSON-LD. Removed the offending block.
+
+**Files changed**
+- `next/src/components/PlaceDetailTemplate.astro` — deleted the entire `<Fragment slot="head">` block (lines 79-88) and the unused locals that fed it (`canonical`, `placeTitle`, `placeDescription`, `ogImage`, `placeSchema` — lines 62-77). Replaced with a comment explaining why.
+
+**Pages affected**
+All 20 pages under `/places/*`: sorrento, red-hill, flinders, mornington, rye, portsea, main-ridge, dromana, mount-martha, cape-schanck, balnarring, merricks, point-nepean, plus 7 others.
+
+**Why it matters**
+The duplicate template-emitted canonical built `https://peninsulainsider.com.au/places/${place.slug}`, but `place.slug` is undefined in Astro's content-collection API (the correct property is `place.id`). So every place page sent Google a `<link rel="canonical" href=".../places/undefined">` pointing to a 404. Combined with the correct canonical from BaseLayout (which `places/[slug].astro` passes correctly), Google saw conflicting signals and was reluctant to index the pages — three priority place URLs were stuck on "Alternate page with proper canonical tag" status. The parent page (`places/[slug].astro`) already passes correct title/description/canonical/ogImage to BaseLayout and emits its own JSON-LD, so the entire template-side head block was redundant duplication.
+
+**Verification**
+- Ran `npm run build` — 955 pages built in 19.56s, no errors.
+- Spot-checked `dist/places/{red-hill,sorrento,flinders}/index.html`: each now has exactly one `<link rel="canonical">` pointing to the correct trailing-slash URL, exactly one `<title>` tag.
+
+**Hypothesis (logged in `ops/reports/seo/experiments.md` as 2026-05-01-01)**
+By 2026-05-16 (14d post-deploy), priority URL indexed count rises from 2/14 to ≥7/14.
+
+**Follow-up**
+- After auto-deploy completes: James to enable "Enforce HTTPS" in GitHub Pages settings (separate finding from this PR — `http://` URLs are currently served 200 OK, not redirected).
+- After auto-deploy completes: James to submit 20 priority URLs for manual reindexing in GSC URL Inspection (full list in `ops/reports/seo/daily-log.md`).
+- Re-pull GSC daily; measure indexation movement on 2026-05-09 (7d) and 2026-05-16 (14d).
+
+---
+
 ## 2026-05-01 — Claude (SEO ownership setup)
 
 ### SEO ops infrastructure: GSC API automation + daily review cycle

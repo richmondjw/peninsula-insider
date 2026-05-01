@@ -148,11 +148,46 @@ Window (last 7d): 2026-04-23 → 2026-04-29
 - Authorised GSC API access. Token at `ops/tokens/gsc-token.json`.
 - Pulled first daily snapshot. Raw data at `ops/data/seo/2026-05-01.json`.
 - Wrote `baseline.md` (frozen reference).
-- Logged the canonical bug as the first experiment.
+- **Shipped experiment 2026-05-01-01**: removed the duplicate `<Fragment slot="head">` block from `next/src/components/PlaceDetailTemplate.astro` that was emitting a broken `<link rel="canonical" href=".../places/undefined">` on all 20 place pages, plus duplicate `<title>`, `<meta description>`, og: tags, and JSON-LD. Verified in local build: 955 pages built clean, each place page now has exactly one canonical pointing to the correct URL. **Awaiting deploy to live site.**
+- **Diagnosed http:// vs https://**: GitHub Pages is serving identical 200 OK responses on both protocols (no 301 redirect from http→https). The served HTML on the http:// version does include a canonical pointing to https://, so Google should consolidate eventually, but this is being handled the slow way. **Action for James: enable "Enforce HTTPS" in GitHub repo Settings → Pages.** This forces a 301 at the server level and is the proper fix.
+
+### Action items for James (manual UI work I cannot do via API)
+
+**After this PR is merged and the auto-deploy completes**, do the following in order:
+
+1. **Enable "Enforce HTTPS" in GitHub Pages**
+   - Go to: GitHub repo → Settings → Pages
+   - Tick **Enforce HTTPS**
+   - Saves immediately. Within 24 hours, all `http://peninsulainsider.com.au/*` URLs will 301-redirect to `https://`. Google will consolidate the duplicates over the following weeks.
+
+2. **Submit URLs for manual reindexing in GSC** (≤10/day quota)
+   - Go to: Search Console → URL Inspection
+   - Paste each URL one at a time, click **Request Indexing** after Google confirms the page is reachable.
+   - Day 1 batch (priority — paste in this order):
+     1. https://peninsulainsider.com.au/places/red-hill/
+     2. https://peninsulainsider.com.au/places/sorrento/
+     3. https://peninsulainsider.com.au/places/mornington/
+     4. https://peninsulainsider.com.au/places/rye/
+     5. https://peninsulainsider.com.au/stay/best-accommodation/
+     6. https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula/
+     7. https://peninsulainsider.com.au/eat/best-restaurants/
+     8. https://peninsulainsider.com.au/wine/best-cellar-doors/
+     9. https://peninsulainsider.com.au/explore/best-walks/
+     10. https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/
+   - Day 2 batch (when quota resets):
+     1. https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/
+     2. https://peninsulainsider.com.au/journal/mornington-peninsula-with-kids/
+     3. https://peninsulainsider.com.au/places/portsea/
+     4. https://peninsulainsider.com.au/places/main-ridge/
+     5. https://peninsulainsider.com.au/places/dromana/
+     6. https://peninsulainsider.com.au/places/mount-martha/
+     7. https://peninsulainsider.com.au/places/cape-schanck/
+     8. https://peninsulainsider.com.au/places/balnarring/
+     9. https://peninsulainsider.com.au/places/merricks/
+     10. https://peninsulainsider.com.au/places/point-nepean/
 
 ### Tomorrow's queue
 
-1. Ship the `PlaceDetailTemplate.astro` canonical fix (experiment 2026-05-02-01).
-2. Submit `/stay/best-accommodation/`, `/journal/dog-friendly-mornington-peninsula/`, `/places/red-hill/` for reindexing in GSC.
-3. Diagnose the http:// vs https:// indexation (curl the http variant, confirm 301).
-4. Pull again, log changes.
+1. Confirm deploy went through, re-run `npm run pull`, check whether GSC shows movement on the priority URLs.
+2. Pick the next P0 from `backlog.md`. Strong candidate: **CTR rewrite on `/whats-on/mornington-cup-2026`** (228 impr at pos 7.6 with 0.44% CTR — snippet rewrite alone could 5-10× clicks).
+3. Begin auditing the 283 "Discovered – not indexed" URLs (need GSC export).
