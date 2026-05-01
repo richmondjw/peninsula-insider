@@ -6,10 +6,11 @@ Sorted by impact/effort ratio.
 
 ## P0 — this week
 
-- [x] **Ship the place page canonical fix** (experiment 2026-05-01-01). *Done 2026-05-01.* Awaiting deploy + manual reindex.
-- [x] **Diagnose http:// vs https:// indexation.** *Done 2026-05-01.* GitHub Pages serves both protocols 200 OK without redirecting. Action item escalated to James (enable Enforce HTTPS in repo Settings).
-- [ ] **(James, after deploy)** Enable "Enforce HTTPS" in GitHub Pages settings. *Impact 4, Effort 0.* 30-second click. Forces server-side 301 from http→https.
-- [ ] **(James, after deploy)** Submit 20 priority URLs to GSC URL Inspection across two days (full list in `daily-log.md` 2026-05-01 entry). *Impact 4, Effort 1.*
+- [x] **Ship the place page canonical fix** (experiment 2026-05-01-01). *Done + deployed + verified live 2026-05-01.* PR #16 merged.
+- [x] **Diagnose http:// vs https:// indexation.** *Done 2026-05-01.* GitHub Pages was serving both protocols 200 OK without redirecting.
+- [x] **Enable "Enforce HTTPS" in GitHub Pages settings.** *Done by Claude via gh API 2026-05-01.* Verified: http→https 301 redirect is live.
+- [ ] **(James)** Resubmit `sitemap.xml` in GSC → Sitemaps. *Impact 2, Effort 0.*
+- [ ] **(James)** Submit 20 priority URLs to GSC URL Inspection across two days (full list in `daily-log.md` 2026-05-01 entry). *Impact 4, Effort 1.*
 - [ ] **CTR rewrite on `/whats-on/mornington-cup-2026`.** *Impact 4, Effort 1.* 228 impr at pos 7.6 with 0.44% CTR. New title + meta description targeted at "mornington cup 2026" and related queries. Hypothesis: CTR to ≥2.5% within 14 days. **Recommended next experiment.**
 - [ ] **Audit & prune the 283 "Discovered – currently not indexed" URLs.** *Impact 5, Effort 3.* Pruning thin/templated pages should ~double indexation rate within 2-3 weeks per Google's behaviour with new sites. Need GSC export of the 283 URL list to begin.
 - [ ] **Investigate Apr 24-25 indexation jump (16 → 39).** *Impact 4, Effort 1.* Find what worked and reproduce. Likely candidate: a content push or manual indexing batch.

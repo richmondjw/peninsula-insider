@@ -148,17 +148,18 @@ Window (last 7d): 2026-04-23 → 2026-04-29
 - Authorised GSC API access. Token at `ops/tokens/gsc-token.json`.
 - Pulled first daily snapshot. Raw data at `ops/data/seo/2026-05-01.json`.
 - Wrote `baseline.md` (frozen reference).
-- **Shipped experiment 2026-05-01-01**: removed the duplicate `<Fragment slot="head">` block from `next/src/components/PlaceDetailTemplate.astro` that was emitting a broken `<link rel="canonical" href=".../places/undefined">` on all 20 place pages, plus duplicate `<title>`, `<meta description>`, og: tags, and JSON-LD. Verified in local build: 955 pages built clean, each place page now has exactly one canonical pointing to the correct URL. **Awaiting deploy to live site.**
-- **Diagnosed http:// vs https://**: GitHub Pages is serving identical 200 OK responses on both protocols (no 301 redirect from http→https). The served HTML on the http:// version does include a canonical pointing to https://, so Google should consolidate eventually, but this is being handled the slow way. **Action for James: enable "Enforce HTTPS" in GitHub repo Settings → Pages.** This forces a 301 at the server level and is the proper fix.
+- **Shipped experiment 2026-05-01-01**: removed the duplicate `<Fragment slot="head">` block from `next/src/components/PlaceDetailTemplate.astro` that was emitting a broken `<link rel="canonical" href=".../places/undefined">` on all 20 place pages, plus duplicate `<title>`, `<meta description>`, og: tags, and JSON-LD. Merged via [PR #16](https://github.com/richmondjw/peninsula-insider/pull/16); auto-deploy completed 06:35 UTC. **Verified live**: spot-checked 7 place pages (red-hill, sorrento, flinders, mornington, rye, portsea, main-ridge) — each now has exactly one canonical, one `<title>`, zero references to `/places/undefined`.
+- **Diagnosed http:// vs https://**: GitHub Pages was serving identical 200 OK responses on both protocols (no 301 redirect from http→https). Enabled `https_enforced=true` via `gh api -X PUT repos/richmondjw/peninsula-insider/pages -F https_enforced=true`. **Verified live**: `curl -I http://peninsulainsider.com.au/places/red-hill/` now returns 301 → https://. Google will consolidate the duplicate http://+https:// indexed URLs over the following weeks.
+- **Investigated reindex programmatic options**: there is no public API for the "Request Indexing" button in GSC. The Google Indexing API exists (POST `https://indexing.googleapis.com/v3/urlNotifications:publish`) but is officially restricted to JobPosting and BroadcastEvent schema types. In practice it works on general URLs, but Google could revoke for abuse, and it requires GCP service-account setup + verifying that service account as a site owner in GSC. For 20 one-off URLs, manual clicks are faster than the setup. Defer Indexing API setup unless we expect repeated batch indexing pushes (e.g. weekly). Decision: manual clicks today, revisit if it becomes a recurring chore.
 
 ### Action items for James (manual UI work I cannot do via API)
 
-**After this PR is merged and the auto-deploy completes**, do the following in order:
+~~1. **Enable "Enforce HTTPS" in GitHub Pages**~~ — **Done by Claude** via gh API. Verified: http→https 301 redirect is live.
 
-1. **Enable "Enforce HTTPS" in GitHub Pages**
-   - Go to: GitHub repo → Settings → Pages
-   - Tick **Enforce HTTPS**
-   - Saves immediately. Within 24 hours, all `http://peninsulainsider.com.au/*` URLs will 301-redirect to `https://`. Google will consolidate the duplicates over the following weeks.
+1. **Resubmit the sitemap in GSC**
+   - Go to: Search Console → Sitemaps
+   - Either click the three-dot menu next to `sitemap.xml` → Resubmit, or paste `sitemap.xml` again into the "Add a new sitemap" box.
+   - Cost: one click. Benefit: Google re-processes the sitemap and may re-evaluate the "Alternate canonical" verdicts faster on its own.
 
 2. **Submit URLs for manual reindexing in GSC** (≤10/day quota)
    - Go to: Search Console → URL Inspection
