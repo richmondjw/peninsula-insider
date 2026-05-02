@@ -168,12 +168,41 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </header>
 
     <div class="container">
+      {article.data.aiSummary && article.data.aiSummary.length > 0 && (
+        <section class="article-summary" aria-label="Quick summary">
+          <div class="article-summary__eyebrow">Start here</div>
+          <h2 class="article-summary__title">The short version</h2>
+          <ul class="article-summary__list">
+            {article.data.aiSummary.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+      )}
+
       <div class="prose has-drop-cap">
         <Content />
       </div>
 
       {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
         <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />
+      )}
+
+      {article.data.faq && article.data.faq.length > 0 && (
+        <section class="article-faq" aria-labelledby="article-faq-title">
+          <div class="article-faq__header">
+            <p class="article-faq__eyebrow">Questions readers actually ask</p>
+            <h2 id="article-faq-title" class="article-faq__title">FAQ</h2>
+          </div>
+          <div class="article-faq__items">
+            {article.data.faq.map((item) => (
+              <details class="article-faq__item">
+                <summary class="article-faq__question">{item.question}</summary>
+                <div class="article-faq__answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
       )}
 
       <div class="v2-article-actions">
@@ -319,3 +348,65 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .article-summary {
+    margin: 2.5rem 0 2rem;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid rgba(33, 30, 28, 0.12);
+    background: rgba(246, 241, 232, 0.7);
+  }
+  .article-summary__eyebrow,
+  .article-faq__eyebrow {
+    margin: 0 0 0.45rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent, #7a5c3e);
+  }
+  .article-summary__title,
+  .article-faq__title {
+    margin: 0 0 0.9rem;
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+    font-weight: 500;
+    color: var(--ink, #211e1c);
+  }
+  .article-summary__list {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.55rem;
+  }
+  .article-summary__list li {
+    color: var(--ink-soft, #433d39);
+    line-height: 1.65;
+  }
+  .article-faq {
+    margin-top: 2.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(0,0,0,.08);
+  }
+  .article-faq__items {
+    display: grid;
+    gap: 0.8rem;
+  }
+  .article-faq__item {
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    padding-bottom: 0.8rem;
+  }
+  .article-faq__question {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    color: var(--ink, #211e1c);
+  }
+  .article-faq__question::-webkit-details-marker {
+    display: none;
+  }
+  .article-faq__answer p {
+    margin: 0.7rem 0 0;
+    color: var(--ink-soft, #433d39);
+    line-height: 1.7;
+  }
+</style>

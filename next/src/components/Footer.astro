@@ -27,8 +27,11 @@ const placeLinks = buildFooterPlaceLinks(places);
 
     <div class="v2-colophon__grid">
       <div class="v2-col-sect v2-col-sect--brand">
-        <p>An editorial product about one small, well-defined place. Every venue visited. Every opinion earned. Dispatched every Wednesday at 6 pm.</p>
+        <p>An editorial product about one small, well-defined place. Every venue visited. Every opinion earned. Dispatched weekly.</p>
         <span class="v2-col-sect__label">Vol 04 <span class="v2-col-sect__ornament">·</span> Autumn 2026 issue <span class="v2-col-sect__ornament">·</span> Published in Victoria.</span>
+        <p class="v2-col-sect__disclaimer">Peninsula Insider is an editorial platform sharing curated recommendations based on our own research and experience.</p>
+        <p class="v2-col-sect__disclaimer">While we aim to keep information accurate, details such as opening hours, pricing, and availability may change. Please confirm directly with venues before visiting.</p>
+        <p class="v2-col-sect__disclaimer">From time to time, we may work with partners or accept invitations. Where this occurs, it will be disclosed within the relevant content. Our recommendations remain independently curated.</p>
       </div>
 
       <nav class="v2-col-sect" aria-label="Departments">
@@ -180,6 +183,14 @@ const placeLinks = buildFooterPlaceLinks(places);
     margin: 0 0 1rem;
     font-variation-settings: 'opsz' 18;
     max-width: 36ch;
+  }
+  .v2-col-sect__disclaimer {
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: var(--ink-muted, #6E655C);
+    margin: 0.75rem 0 0;
+    max-width: 40ch;
   }
   .v2-col-sect__label {
     font-family: var(--sans, 'Inter', system-ui, sans-serif);

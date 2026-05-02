@@ -41,7 +41,7 @@
           .then(function (data) {
             if (data.ok) {
               label.textContent  = 'You\u2019re in';
-              status.textContent = data.message || 'You\u2019re in. Wednesday\u2019s dispatch is on its way.';
+              status.textContent = data.message || 'You\u2019re in. The next edition will land in your inbox soon.';
               status.className   = 'newsletter__status newsletter__status--ok';
               input.value        = '';
               input.disabled     = true;

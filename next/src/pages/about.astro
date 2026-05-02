@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHero from '../components/SectionHero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+const venues = await getCollection('venues');
+const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+const places = await getCollection('places');
+const experiences = await getCollection('experiences');
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -42,8 +48,8 @@ const principles = [
     title="Independent editorial. Honest, <em>opinionated</em> coverage."
     dek="Peninsula Insider is building the editorial guide the Mornington Peninsula doesn't have yet  -  one that treats readers like adults and venues like subjects, not clients."
     gradient="journal"
-    heroImage="/images/sourced/home-cover-back-beach-horses-01.jpg"
-    visualLabel="Peninsula Insider · the back beach"
+    heroImage="/images/sourced/places-hub-hero-01.webp"
+    visualLabel="Peninsula Insider · editorial preview"
   />
 
   <!-- Mission -->
@@ -80,6 +86,35 @@ const principles = [
             <p class="about-principle__body">{principle.body}</p>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage stats -->
+  <section class="about-coverage">
+    <div class="container">
+      <div class="about-coverage__inner">
+        <p class="label label--accent">Current coverage</p>
+        <h2 class="about-coverage__title">What's mapped so far</h2>
+        <p class="about-coverage__dek">The rebuild is live and growing. Every number below represents a real, editorially reviewed page  -  not a scraped listing.</p>
+        <dl class="about-coverage__stats">
+          <div>
+            <dd>{venues.length}</dd>
+            <dt>Venues mapped</dt>
+          </div>
+          <div>
+            <dd>{articles.length}</dd>
+            <dt>Journal pieces</dt>
+          </div>
+          <div>
+            <dd>{places.length}</dd>
+            <dt>Place hubs</dt>
+          </div>
+          <div>
+            <dd>{experiences.length}</dd>
+            <dt>Walks & experiences</dt>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
@@ -141,7 +176,7 @@ const principles = [
           <h2 class="about-mission__title">Founded and edited on the Peninsula</h2>
         </div>
         <div class="about-mission__body prose">
-          <p>Peninsula Insider is founded and edited by <strong>James and Emma</strong>. The editorial direction, the cover sign-off, and the weekly Insider's Letter all sit with them. The publication is published from the Peninsula, by people who live on the Peninsula, for readers who care about the Peninsula.</p>
+          <p>Peninsula Insider is founded and edited on the Peninsula by a local editorial team. The editorial direction, cover sign-off, and weekly Insider's Letter sit with the editors. The publication is built from the Peninsula, by people who live on the Peninsula, for readers who care about the Peninsula.</p>
           <p>The editorial desk handles commissioning, research, drafting, fact-checking, copy, and scheduling as separate functions, with structured handoffs between them. Every factual claim in a feature is logged with a primary source before draft. Every cover passes editor sign-off before publish. Every commercial relationship is disclosed in the article that touches it.</p>
           <p>If you would like to partner with us, see <a href="/partners/">/partners</a>. If you would like to submit a venue for editorial coverage, see <a href="/partners/apply/">/partners/apply</a>. If you spotted an error, write to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a> and we will fix it fast.</p>
         </div>
@@ -150,7 +185,7 @@ const principles = [
         <dl>
           <div>
             <dt>Founders, Editors &amp; Publishers</dt>
-            <dd>James and Emma</dd>
+            <dd>Peninsula Insider</dd>
           </div>
           <div>
             <dt>Editorial desk</dt>
@@ -175,7 +210,7 @@ const principles = [
         </div>
         <div class="about-mission__body prose">
           <p>Peninsula Insider is a one-desk publication. The editorial team lives on the Peninsula, eats on the Peninsula, and walks the same coastline the pieces describe. The coverage is slow, deliberate, and local  -  because the best regional journalism has always worked that way.</p>
-          <p>The <em>Peninsula This Weekend</em> dispatch lands every Sunday for the weekend ahead, Saturday and Sunday. The newsletter is the only way to get it all in your inbox.</p>
+          <p>The <em>Peninsula This Weekend</em> dispatch lands weekly for the weekend ahead. The newsletter is the only way to get it all in your inbox.</p>
           <p>If you’re a venue owner who’d like to be on our radar, see our <a href="/contact/">contact page</a> for how to reach us. If you’re a reader who spotted an error, we fix fast: <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>.</p>
         </div>
       </div>

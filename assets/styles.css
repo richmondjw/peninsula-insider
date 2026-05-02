@@ -6715,17 +6715,10 @@ p.has-drop-cap::first-letter {
     margin-right: -10px;  /* flush to right edge */
   }
 
-  /* Tighten utility row */
-  .masthead__weather { display: none; }
-  .masthead__edition-mark { display: none; }
-  .masthead__edition-label { font-size: 0.8rem; }
-  .masthead__utility-links {
-    font-size: 0.58rem;
-    gap: 0.85rem;
-  }
-  .masthead__utility-inner {
-    height: 28px;
-    gap: 0.8rem;
+  /* Remove the stale utility strip entirely on mobile. */
+  .masthead__utility,
+  .v2-util {
+    display: none;
   }
   /* (Brand row is display:none on mobile; its wordmark is rendered
      inside the nav row via .masthead__logo-mobile, so the .masthead__brand-*
@@ -7445,16 +7438,10 @@ body.menu-open .masthead { visibility: hidden; }
 /* When the concierge drawer is full-screen, hide every piece of sticky
    site chrome so the chat panel owns the viewport top-to-bottom. The
    drawer itself sits at z-index 10020. Body scroll locked so the page
-   underneath doesn't wander while the drawer is open.
-   Mobile only: on desktop the drawer is a side panel, not full-screen,
-   so the masthead and subscribe pill stay visible and the page stays
-   scrollable. The 768px breakpoint matches the .masthead__nav mobile
-   collapse above. */
-@media (max-width: 768px) {
-  body.concierge-open .masthead,
-  body.concierge-open .subscribe-pill { visibility: hidden; }
-  body.concierge-open { overflow: hidden; }
-}
+   underneath doesn't wander while the drawer is open. */
+body.concierge-open .masthead,
+body.concierge-open .subscribe-pill { visibility: hidden; }
+body.concierge-open { overflow: hidden; }
 
 /* 3) Article hero meta + byline rows: stack cleanly on mobile.
       Hairline separators stop making sense once wrapped. */

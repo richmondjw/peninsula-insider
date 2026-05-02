@@ -18,10 +18,10 @@ export interface Props {
 }
 
 const {
-  title = 'The briefing that <em>arrives Wednesday</em> at six.',
+  title = 'The briefing that <em>arrives weekly</em>.',
   body = "One email. The weekend's pick, the tables that have opened up, the cellar doors with windows this week, and the walk worth doing before it's too cold. Read in five minutes, used all weekend.",
   issueNumber = '№ 214',
-  issueDate = 'Wed 23 Apr',
+  issueDate = 'Latest edition',
   previewHeadline = 'A <em>quiet</em> autumn weekend — the post-Easter reset.',
   previewItems = [
     'The cellar-door shortlist lands — five producers, ranked.',
@@ -129,7 +129,7 @@ const {
           setStatus(form, '', '');
           function ok() {
             if (btn) btn.textContent = 'Done';
-            setStatus(form, 'Thanks — Wednesday’s dispatch is on its way.', 'ok');
+            setStatus(form, 'You’re in. The next edition will land in your inbox soon.', 'ok');
             if (input) { input.value = ''; input.disabled = true; }
           }
           function fail(msg) {

@@ -260,6 +260,7 @@ const articles = defineCollection({
     status: z.enum(['draft', 'review', 'scheduled', 'published']).default('draft'),
     lastVerified: z.coerce.date().optional(),
     clusterLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional(),
+    aiSummary: z.array(z.string()).optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     sitemapExclude: z.boolean().default(false),
   }),

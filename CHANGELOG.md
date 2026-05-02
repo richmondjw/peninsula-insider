@@ -303,3 +303,51 @@ This materially improved crawlability, canonical clarity, structured data covera
 - deepen town hubs
 - strengthen internal linking architecture
 - fully standardise Beehiiv-only newsletter handling
+
+---
+
+## 2026-05-01 — Remy (James-approved Peninsula Insider review pack shipped live)
+
+### Summary
+Pushed the approved Peninsula Insider trust, commercial, chatbot, cadence, and AI-discoverability updates from `next/` into the live publish root. This included cadence-neutral newsletter/footer/masthead language, team-led About and partner positioning, enquiry-first commercial copy, the footer trust/disclosure block, the new concierge opening and planning prompts, and the first article template uplift for AI extraction.
+
+### Files changed
+- `next/src/components/Footer.astro`
+- `next/src/components/InsiderStripe.astro`
+- `next/src/components/Masthead.astro`
+- `next/src/components/NewsletterBlock.astro`
+- `next/src/components/UtilityBar.astro`
+- `next/src/components/WeekendPickerBlock.astro`
+- `next/src/components/ConciergeDrawer.astro`
+- `next/src/components/v2/Colophon.astro`
+- `next/src/components/v2/NewsletterBlock.astro`
+- `next/src/components/v2/UtilityBar.astro`
+- `next/src/pages/about.astro`
+- `next/src/pages/index.astro`
+- `next/src/pages/partners/index.astro`
+- `next/src/pages/partners/apply.astro`
+- `next/src/pages/partners/advertising-kit/index.astro`
+- `next/src/pages/partners/founders-prospectus/index.astro`
+- `next/src/content.config.ts`
+- `next/src/pages/journal/[slug].astro`
+- `next/src/content/articles/how-to-build-a-red-hill-saturday.md`
+- `next/src/content/articles/best-wineries-red-hill.md`
+- plus regenerated live root HTML/CSS/search artifacts via `./build-live.sh`
+
+### Pages affected
+- homepage
+- /about/
+- /partners/
+- /partners/apply/
+- /partners/advertising-kit/
+- /partners/founders-prospectus/
+- newsletter/footer/chrome across site
+- /journal/how-to-build-a-red-hill-saturday/
+
+### Why it matters
+This closes the gap between approved source changes and the public site. The live experience now better protects trust, reduces brittle dated promises, positions commercial offers more credibly, makes the concierge start from planning intent, and gives at least one public article the new summary + FAQ structure intended for AI extraction and citation.
+
+### Follow-up
+- Complete the pricing/disclaimer pass across remaining editorial business/tour pages
+- Verify all Instagram/profile references point to `@peninsula_insider`
+- Roll the summary/FAQ/query-title pattern onto 3–5 more priority planning pages

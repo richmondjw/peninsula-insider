@@ -38,8 +38,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
             brief, we will arrange a visit.
           </p>
           <p>
-            Commercial enquiries are read by James and Emma personally. We respond within
-            48 hours.
+            Commercial enquiries are reviewed by our team.
           </p>
           <p>
             Either way, every submission lands with us. Nothing is automated. Nothing is
@@ -64,8 +63,7 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
                 <input type="radio" name="enquiry_type" value="commercial" required />
                 <span class="apply-radio__title">Commercial enquiry</span>
                 <span class="apply-radio__body">
-                  We are interested in a Charter Story, placement, listing, or the
-                  Founders' Circle.
+                  We are interested in a Charter Story, Featured Story, Seasonal Editorial Campaign, Event Feature, or the Founders' Circle.
                 </span>
               </label>
             </div>
@@ -453,8 +451,8 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
       if (res.ok && data.success) {
         result.className = 'apply-result apply-result--success';
         result.innerHTML = `
-          <strong>Thanks — we've got it.</strong><br>
-          ${data.message || "We review every submission. If there's a good fit, you'll hear from us."}
+          <strong>Thanks — we’ve received your enquiry.</strong><br>
+          ${data.message || "Our team reviews every submission carefully. If there’s a fit, we’ll be in touch."}
         `;
         form.reset();
         submitBtn.textContent = 'Submitted';
