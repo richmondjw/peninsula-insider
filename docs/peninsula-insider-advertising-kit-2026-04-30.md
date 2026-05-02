@@ -1,20 +1,31 @@
-# Peninsula Insider — Partnership & Advertising Kit
+# Peninsula Insider — Partnership Kit FY27
+## July 2026 – June 2027
 
-**Status:** Public. Downloadable from peninsulainsider.com.au/partners.
+**Status:** Shared privately during the enquiry process.
 **Audience:** Peninsula businesses interested in partnering with PI.
-**Date:** 30 April 2026
+**Updated:** 2 May 2026
 
 ---
 
 ## 1. About Peninsula Insider
 
-Peninsula Insider is a modern newsroom for the Mornington Peninsula.
+Peninsula Insider is an editorial publication for the Mornington Peninsula — designed to help people decide what's worth their time.
 
-Local first. Editor-led. Published every Thursday. Every claim verified. Every commercial relationship disclosed. Built for digital, not converted to it.
+We partner with a small number of venues each season, selected for quality, relevance, and alignment with our audience.
 
-We cover the Peninsula across five pillars: Eat & Drink, Stay, Do, Plan, and the Insider's Journal. The Journal carries a weekly cover story, longform features, interviews with the chefs and winemakers shaping the region, and seasonal guides that go deeper than the destination-marketing copy currently on the internet for this place.
+We are not a directory or an advertising platform.
 
-Two products carry the brand. The publication itself, at peninsulainsider.com.au. And The Insider's Letter, a weekly five-minute read sent every Thursday morning, written and signed by the editor.
+Every feature is created through our editorial desk — written, photographed, and signed off to publication standard. Our audience comes to us for trusted recommendations, and we protect that trust in every partnership.
+
+**FY27 marks our founding commercial year.** Partnerships at this stage reflect early access to a growing publication, with pricing set ahead of scale. As Peninsula Insider grows in audience and reach, pricing will evolve accordingly.
+
+This document outlines our FY27 partnership structure — from single editorial features to longer-term collaborations. Each option is designed to create lasting presence within the publication, not just short-term visibility.
+
+If it feels like a fit for FY27, we'd welcome a conversation.
+
+We price for permanence, not impressions.
+
+---
 
 The publication is founded and edited by **James and Emma**, with a structured editorial desk handling commissioning, research, drafting, fact-checking, copy, and scheduling.
 
