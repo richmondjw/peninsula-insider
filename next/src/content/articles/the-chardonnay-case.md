@@ -76,7 +76,7 @@ This is a wine that needs to be drunk at the correct temperature (twelve degrees
 
 ### 3. Port Phillip Estate  -  the accessible one
 
-[Port Phillip Estate](/stay/port-phillip-estate) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is quietly some of the best value on the Peninsula, and the estate's main room  -  with its dramatic architecture and the Arthurs Seat view behind the cellar door  -  is also one of the more pleasant places to sit through a tasting.
+[Port Phillip Estate](/wine/port-phillip-estate) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is quietly some of the best value on the Peninsula, and the estate's main room  -  with its dramatic architecture and the Arthurs Seat view behind the cellar door  -  is also one of the more pleasant places to sit through a tasting.
 
 **What to taste:** the Reserve Chardonnay, especially if the 2023 is still pouring. It is the wine we keep recommending to sceptics because it converts them.
 
