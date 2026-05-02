@@ -57,17 +57,5 @@
   "publishedAt": "2026-04-09",
   "bookingUrl": "https://nazaaray.com.au",
   "bookingProvider": "direct",
-  "sitemapExclude": true,
-  "visiting": {
-    "openingHours": [
-      {
-        "days": [
-          "Sunday"
-        ],
-        "opens": "09:00",
-        "closes": "17:00"
-      }
-    ],
-    "bookingRequired": false
-  }
+  "sitemapExclude": true
 }

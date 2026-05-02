@@ -58,5 +58,9 @@
   "bookingUrl": "https://www.onannon.com.au",
   "bookingProvider": "direct",
   "sitemapExclude": true,
-  "phone": "+61 3 5493 6807"
+  "visiting": {
+    "openingHours": [],
+    "bookingRequired": true,
+    "bookingNotes": "By appointment only — contact the venue directly."
+  }
 }
