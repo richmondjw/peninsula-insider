@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
+import AudiencePicker from '../../components/AudiencePicker.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import VenueCard from '../../components/VenueCard.astro';
@@ -134,6 +135,11 @@ const faqSchema = {
     imageAlt="An Italian-leaning Peninsula dining room, table laid, light low"
     imageCredit="Peninsula Insider"
   />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1.5 AUDIENCE PICKER: persona-led entry to the section
+       ═══════════════════════════════════════════════════════════════ -->
+  <AudiencePicker section="eat" />
 
   <!-- ═══════════════════════════════════════════════════════════════
        2. ORIENTATION: Red Hill plateau vs Bay corridor
