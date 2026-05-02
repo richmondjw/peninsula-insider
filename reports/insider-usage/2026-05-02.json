@@ -1,0 +1,180 @@
+{
+  "window_hours": 168,
+  "window_since": "2026-04-25T14:05:21.186Z",
+  "window_until": "2026-05-02T14:05:21.186Z",
+  "generated_at": "2026-05-02T14:05:21.186Z",
+  "summary": {
+    "total_queries": 28,
+    "test_queries_excluded": 1,
+    "distinct_sessions": 19,
+    "queries_per_session": 1.47,
+    "median_latency_ms": 8644.5,
+    "p95_latency_ms": 16583,
+    "median_ttft_ms": null,
+    "slow_queries_over_15s": 4,
+    "gaps_detected": 2,
+    "refusals": 0,
+    "total_cost_aud_estimate": 0.336,
+    "cost_source": "fallback_estimate",
+    "rolling_7d_avg_queries": 0,
+    "volume_delta_vs_7d_avg": 28
+  },
+  "clusters": [
+    {
+      "label": "find / best / cafes",
+      "count": 6,
+      "examples": [
+        "find me the best cafes in mornington",
+        "find me the best cafes in mornington",
+        "find me the best cafes in mornington"
+      ]
+    },
+    {
+      "label": "anniversary / dinner / friday",
+      "count": 4,
+      "examples": [
+        "anniversary dinner Friday night, somewhere with a view",
+        "anniversary dinner Friday night, somewhere with a view",
+        "anniversary dinner Friday night, somewhere with a view"
+      ]
+    },
+    {
+      "label": "date / night / sorrento",
+      "count": 3,
+      "examples": [
+        "date night in Sorrento Saturday",
+        "date night in Sorrento on Saturday",
+        "I'm planning a date night in Sorrento on Saturday. What do you suggest?"
+      ]
+    },
+    {
+      "label": "about / date / mornington",
+      "count": 2,
+      "examples": [
+        "How about a date night in Mornington? What would you suggest?",
+        "Thinking about a date in Mornington, what would be your top list?"
+      ]
+    },
+    {
+      "label": "best / wineries / hill",
+      "count": 2,
+      "examples": [
+        "best wineries near Red Hill for a long lunch",
+        "best wineries near Red Hill for a long lunch"
+      ]
+    },
+    {
+      "label": "want / plan / wedding",
+      "count": 1,
+      "examples": [
+        "I want to plan my wedding down in the peninsula."
+      ]
+    }
+  ],
+  "model_usage": {
+    "claude-sonnet-4-5": 2,
+    "claude-sonnet-4-6": 13,
+    "gpt-4o-mini": 13
+  },
+  "page_origin": {
+    "(unknown)": 16,
+    "/ask/": 12
+  },
+  "gaps": [
+    {
+      "query": "How about a date night in Mornington? What would you suggest?",
+      "reason": "The editorial context provided does not include a dedicated date-night or evening dining guide for Mornington. Recommendations above are drawn from passing mentions in itinerary articles rather than a focused review.",
+      "timestamp": "2026-04-29T01:23:15.114141+00:00"
+    },
+    {
+      "query": "find me the best cafes in mornington",
+      "reason": "Editorial context covers Commonfolk Coffee and Miller's Bread Cantina in Mornington but does not include a broader directory of all Mornington cafes, so this list may not be exhaustive.",
+      "timestamp": "2026-04-28T23:36:17.352466+00:00"
+    }
+  ],
+  "refusals": [],
+  "slow_queries": [
+    {
+      "query": "I want to plan my wedding down in the peninsula.",
+      "latency_ms": 18112,
+      "timestamp": "2026-04-30T09:05:36.16+00:00"
+    },
+    {
+      "query": "Thinking about a date in Mornington, what would be your top list?",
+      "latency_ms": 15228,
+      "timestamp": "2026-04-29T01:22:41.348458+00:00"
+    },
+    {
+      "query": "What are some great walks near the back beach in Sorrento?",
+      "latency_ms": 16422,
+      "timestamp": "2026-04-29T01:22:08.973578+00:00"
+    },
+    {
+      "query": "I'm planning a date night in Sorrento on Saturday. What do you suggest?",
+      "latency_ms": 16583,
+      "timestamp": "2026-04-29T00:55:27.963784+00:00"
+    }
+  ],
+  "samples": [
+    {
+      "timestamp": "2026-04-30T09:05:36.16+00:00",
+      "query": "I want to plan my wedding down in the peninsula.",
+      "latency_ms": 18112,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-30T07:07:04.32+00:00",
+      "query": "Where should I go for a romantic dinner in Mornington?",
+      "latency_ms": 14129,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-29T01:31:39.843582+00:00",
+      "query": "anniversary dinner Friday night, somewhere with a view",
+      "latency_ms": 12947,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-29T01:30:16.696876+00:00",
+      "query": "cellar door open Sunday with kids",
+      "latency_ms": 9417,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-29T01:28:55.912025+00:00",
+      "query": "date night in Sorrento Saturday",
+      "latency_ms": 13078,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-29T01:28:33.496036+00:00",
+      "query": "anniversary dinner Friday night, somewhere with a view",
+      "latency_ms": 11820,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-29T01:25:49.197982+00:00",
+      "query": "What are the best wineries near Flinders?",
+      "latency_ms": 12958,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-29T01:23:15.114141+00:00",
+      "query": "How about a date night in Mornington? What would you suggest?",
+      "latency_ms": 10324,
+      "gap": true
+    },
+    {
+      "timestamp": "2026-04-29T01:22:41.348458+00:00",
+      "query": "Thinking about a date in Mornington, what would be your top list?",
+      "latency_ms": 15228,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-04-29T01:22:08.973578+00:00",
+      "query": "What are some great walks near the back beach in Sorrento?",
+      "latency_ms": 16422,
+      "gap": false
+    }
+  ]
+}
