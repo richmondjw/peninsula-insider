@@ -1,14 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHero from '../components/SectionHero.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-
-const venues = await getCollection('venues');
-const articles = await getCollection('articles', ({ data }) => data.status === 'published');
-const places = await getCollection('places');
-const experiences = await getCollection('experiences');
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -48,8 +42,8 @@ const principles = [
     title="Independent editorial. Honest, <em>opinionated</em> coverage."
     dek="Peninsula Insider is building the editorial guide the Mornington Peninsula doesn't have yet  -  one that treats readers like adults and venues like subjects, not clients."
     gradient="journal"
-    heroImage="/images/sourced/places-hub-hero-01.webp"
-    visualLabel="Peninsula Insider · editorial preview"
+    heroImage="/images/sourced/home-cover-back-beach-horses-01.jpg"
+    visualLabel="Peninsula Insider · the back beach"
   />
 
   <!-- Mission -->
@@ -86,35 +80,6 @@ const principles = [
             <p class="about-principle__body">{principle.body}</p>
           </article>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Coverage stats -->
-  <section class="about-coverage">
-    <div class="container">
-      <div class="about-coverage__inner">
-        <p class="label label--accent">Current coverage</p>
-        <h2 class="about-coverage__title">What's mapped so far</h2>
-        <p class="about-coverage__dek">The rebuild is live and growing. Every number below represents a real, editorially reviewed page  -  not a scraped listing.</p>
-        <dl class="about-coverage__stats">
-          <div>
-            <dd>{venues.length}</dd>
-            <dt>Venues mapped</dt>
-          </div>
-          <div>
-            <dd>{articles.length}</dd>
-            <dt>Journal pieces</dt>
-          </div>
-          <div>
-            <dd>{places.length}</dd>
-            <dt>Place hubs</dt>
-          </div>
-          <div>
-            <dd>{experiences.length}</dd>
-            <dt>Walks & experiences</dt>
-          </div>
-        </dl>
       </div>
     </div>
   </section>
