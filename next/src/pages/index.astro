@@ -17,6 +17,7 @@ import ItineraryCard from '../components/ItineraryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import EventCard from '../components/EventCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
+import InsiderPlans from '../components/InsiderPlans.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason, dispatchWeekend } from '../lib/editorial';
 
@@ -208,6 +209,8 @@ const seasonalExperiences = experiences
   )}
 
   <InsiderAsk />
+
+  <InsiderPlans />
 
   <PillarNav />
 
