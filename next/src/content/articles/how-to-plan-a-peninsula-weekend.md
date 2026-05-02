@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-orientation-drive-01.webp"
-  alt: "A notebook and coffee on a table with a Peninsula map and vineyard views through the window"
+  alt: "A notebook and coffee on a table with a Peninsula map and vineyard views through the window — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

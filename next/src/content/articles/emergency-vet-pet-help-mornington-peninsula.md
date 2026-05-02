@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/dog-lifestyle-hero-01.webp"
-  alt: "Dog resting — Peninsula Insider pet emergency guide"
+  alt: "Dog resting — Peninsula Insider pet emergency guide — representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"

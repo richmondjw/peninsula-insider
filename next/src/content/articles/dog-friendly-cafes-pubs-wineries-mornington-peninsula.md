@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/dog-beach-hero-01.webp"
-  alt: "Dog-friendly outdoor café on the Mornington Peninsula"
+  alt: "Dog-friendly outdoor café on the Mornington Peninsula — representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"

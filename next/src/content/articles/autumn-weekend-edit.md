@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-09
 heroImage:
   src: "/images/sourced/article-red-hill-saturday-01.webp"
-  alt: "An autumn afternoon on the Red Hill plateau, vineyards turning gold before harvest"
+  alt: "An autumn afternoon on the Red Hill plateau, vineyards turning gold before harvest — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "editors-letter"

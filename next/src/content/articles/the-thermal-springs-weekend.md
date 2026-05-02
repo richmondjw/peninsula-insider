@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-09
 heroImage:
   src: "/images/sourced/spa-alba-thermal-springs-01.webp"
-  alt: "A thermal bathing pool at dusk on the Mornington Peninsula, steam rising into cool autumn air"
+  alt: "A thermal bathing pool at dusk on the Mornington Peninsula, steam rising into cool autumn air — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

@@ -200,3 +200,37 @@ Any legal threat, formal complaint, or media dispute escalates immediately to Ja
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-05-02 | Initial standard. Drafted from Emma Richmond governance framework. |
+
+---
+
+## 10. Image representation rule (added 2026-05-02)
+
+> **No venue page may use an image that implies it was taken at the venue unless it was:**
+> - taken by Peninsula Insider, OR
+> - provided by the venue via their official media kit with explicit permission, OR
+> - a free-use (CC/Unsplash) image of that specific location — not a generic substitute
+
+### Placeholder image standard
+Where a venue-specific image is not available, the image must:
+- Use alt text in the format: *"Mornington Peninsula landscape — representative image for [Venue Name]"*
+- Use `license: "other-licensed"` with `credit: "Peninsula Insider"`
+- Never use alt text that implies the image shows the actual venue
+
+### How to replace placeholders
+Priority order for sourcing real venue images:
+1. **PI original photography** — taken on a visit
+2. **Venue media kit** — request directly from the venue; mark as `license: "venue-media-kit"`
+3. **Venue's press/media page** — only if explicitly marked free for editorial use
+4. **Wikimedia Commons** — if a CC-licensed image of the specific venue exists
+
+### What is never acceptable
+- Screenshots or downloads from venue websites or social media
+- Google Street View or Maps imagery
+- Any image where the source and licence are not confirmed and documented in frontmatter
+
+### Media kit outreach (recommended)
+When onboarding any commercial partner, request their media kit as part of the standard process. This gives PI approved, venue-supplied photography for the partnership duration.
+
+### | Version | Date | Note |
+| 1.0 | 2026-05-02 | Initial standard |
+| 1.1 | 2026-05-02 | Image representation rule added. 102 venue alt texts fixed. 20 article alt texts fixed. |

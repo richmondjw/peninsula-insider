@@ -7,7 +7,7 @@ houseByline: true
 publishedAt: 2026-04-14
 heroImage:
   src: "/images/sourced/spa-coastal-pool-01.webp"
-  alt: "Coastal spa pool evocative of the Mornington Peninsula stay-and-soak experience"
+  alt: "Coastal spa pool evocative of the Mornington Peninsula stay-and-soak experience — representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"

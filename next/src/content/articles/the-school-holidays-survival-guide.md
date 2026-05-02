@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-kids-peninsula-01.webp"
-  alt: "Children running along a bay beach on the Peninsula on a bright morning"
+  alt: "Children running along a bay beach on the Peninsula on a bright morning — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

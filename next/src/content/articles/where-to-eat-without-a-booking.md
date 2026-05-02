@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-restaurant-01.webp"
-  alt: "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon"
+  alt: "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
