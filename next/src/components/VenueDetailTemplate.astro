@@ -5,6 +5,7 @@ import NewsletterBlock from './NewsletterBlock.astro';
 import VenueCard from './VenueCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
+import ShareBlock from './ShareBlock.astro';
 
 export interface Props {
   venue: any;
@@ -423,6 +424,7 @@ const isClosed = data.status === 'closed';
   </div>
 </section>
 
+<ShareBlock placement="end" title={data.name} summary={data.editorNote ? data.editorNote.slice(0, 120) + '…' : `${data.name} on the Mornington Peninsula`} />
 <NewsletterBlock />
 
 <style>
