@@ -14,7 +14,7 @@ tags: ["wine", "cellar-door", "mornington"]
 relatedVenues: ["winbirra-vineyard"]
 readingTimeMinutes: 4
 featured: false
-status: "needs-verification"
+status: "draft"
 lastVerified: 2026-05-02
 clusterLinks:
   - label: "The Cellar Door Short List"
