@@ -1,0 +1,208 @@
+---
+/**
+ * AudiencePicker — primary discovery surface, persona-grid style.
+ *
+ * Sits at the top of section hubs (between hero and the first content
+ * block). Eight personas, each tile linking to the section-specific
+ * destination defined in src/lib/audiencePersonas.ts. When rendered on
+ * a section hub the picker resolves per-section routes; when rendered
+ * on the homepage the picker uses each persona's `default` route.
+ *
+ * Visual DNA matches InsiderAsk: editorial eyebrow, Cormorant heading,
+ * pill-shaped tiles in a 4-up desktop / 2-up mobile grid.
+ */
+
+import {
+  audiencePersonas,
+  personaRoute,
+  type SectionKey,
+} from '../lib/audiencePersonas';
+
+export interface Props {
+  /** Section the picker is being rendered on. Drives per-tile URL resolution. */
+  section?: SectionKey;
+  /** Eyebrow above the heading. */
+  eyebrow?: string;
+  /** Headline shown above the grid. */
+  heading?: string;
+  /** Editorial framing line under the heading. */
+  framing?: string;
+}
+
+const {
+  section,
+  eyebrow = 'Find your shape of weekend',
+  heading = 'What kind of visit are you planning?',
+  framing = "Eight ways into the Peninsula. Pick the one that fits and we'll surface the right pages first.",
+} = Astro.props;
+
+const tiles = audiencePersonas.map((p) => ({
+  ...p,
+  href: personaRoute(p, section),
+}));
+---
+
+<section class="audience-picker" aria-label="Pick your visit type">
+  <div class="container">
+    <div class="audience-picker__head">
+      <p class="audience-picker__eyebrow">{eyebrow}</p>
+      <h2 class="audience-picker__heading">{heading}</h2>
+      <p class="audience-picker__framing">{framing}</p>
+    </div>
+
+    <ul class="audience-picker__grid" role="list">
+      {tiles.map((tile) => (
+        <li class="audience-picker__tile-wrap">
+          <a href={tile.href} class="audience-picker__tile" data-persona={tile.slug}>
+            <span class="audience-picker__mark" aria-hidden="true">{tile.mark}</span>
+            <span class="audience-picker__label">{tile.label}</span>
+            <span class="audience-picker__dek">{tile.dek}</span>
+            <span class="audience-picker__arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .audience-picker {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+  }
+
+  .audience-picker__head {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  .audience-picker__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.6rem;
+  }
+
+  .audience-picker__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.015em;
+  }
+
+  .audience-picker__framing {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--soft);
+    margin: 0 auto;
+    max-width: 60ch;
+  }
+
+  .audience-picker__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .audience-picker__tile-wrap { display: flex; }
+
+  .audience-picker__tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.1rem 1.1rem 1.2rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition:
+      border-color 0.15s ease,
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .audience-picker__tile:hover,
+  .audience-picker__tile:focus-visible {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.18);
+    outline: none;
+  }
+
+  .audience-picker__mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+
+  .audience-picker__label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--text);
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .audience-picker__dek {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--soft);
+    margin: 0;
+    flex: 1;
+  }
+
+  .audience-picker__arrow {
+    align-self: flex-end;
+    margin-top: 0.8rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--accent);
+    opacity: 0.7;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .audience-picker__tile:hover .audience-picker__arrow,
+  .audience-picker__tile:focus-visible .audience-picker__arrow {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 960px) {
+    .audience-picker__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .audience-picker__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .audience-picker__head { text-align: left; }
+  }
+
+  @media (max-width: 420px) {
+    .audience-picker__tile { padding: 0.95rem; }
+    .audience-picker__label { font-size: 1.1rem; }
+    .audience-picker__dek { font-size: 0.8rem; }
+  }
+</style>
