@@ -7432,13 +7432,17 @@ p.has-drop-cap::first-letter {
       by the burger script in BaseLayout. */
 body.menu-open .masthead { visibility: hidden; }
 
-/* When the concierge drawer is full-screen, hide every piece of sticky
-   site chrome so the chat panel owns the viewport top-to-bottom. The
-   drawer itself sits at z-index 10020. Body scroll locked so the page
-   underneath doesn't wander while the drawer is open. */
-body.concierge-open .masthead,
-body.concierge-open .subscribe-pill { visibility: hidden; }
-body.concierge-open { overflow: hidden; }
+/* When the concierge drawer is full-screen on MOBILE, hide every piece
+   of sticky site chrome so the chat panel owns the viewport top-to-
+   bottom. On desktop the drawer is a floating panel in the corner —
+   the masthead must stay visible. The 640px breakpoint matches the
+   one in ConciergeDrawer.astro that switches the drawer between
+   floating (desktop) and full-screen (mobile). */
+@media (max-width: 640px) {
+  body.concierge-open .masthead,
+  body.concierge-open .subscribe-pill { visibility: hidden; }
+  body.concierge-open { overflow: hidden; }
+}
 
 /* 3) Article hero meta + byline rows: stack cleanly on mobile.
       Hairline separators stop making sense once wrapped. */
