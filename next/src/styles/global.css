@@ -5901,10 +5901,6 @@ p.has-drop-cap::first-letter {
 .about-masthead {
   padding: 4rem 0 5rem;
 }
-
-.about-colophon {
-  padding: 4rem 0 5rem;
-}
 .about-masthead__credits {
   margin-top: 2.5rem;
   padding-top: 2rem;
@@ -7439,16 +7435,13 @@ p.has-drop-cap::first-letter {
       by the burger script in BaseLayout. */
 body.menu-open .masthead { visibility: hidden; }
 
-/* When the concierge drawer is full-screen on mobile, hide every piece
-   of sticky site chrome so the chat panel owns the viewport top-to-bottom.
-   On desktop the drawer is a side panel, not full-screen, so the masthead
-   and subscribe pill stay visible and the page stays scrollable. The
-   768px breakpoint matches the .masthead__nav mobile collapse. */
-@media (max-width: 768px) {
-  body.concierge-open .masthead,
-  body.concierge-open .subscribe-pill { visibility: hidden; }
-  body.concierge-open { overflow: hidden; }
-}
+/* When the concierge drawer is full-screen, hide every piece of sticky
+   site chrome so the chat panel owns the viewport top-to-bottom. The
+   drawer itself sits at z-index 10020. Body scroll locked so the page
+   underneath doesn't wander while the drawer is open. */
+body.concierge-open .masthead,
+body.concierge-open .subscribe-pill { visibility: hidden; }
+body.concierge-open { overflow: hidden; }
 
 /* 3) Article hero meta + byline rows: stack cleanly on mobile.
       Hairline separators stop making sense once wrapped. */
@@ -7512,6 +7505,17 @@ body[data-path^="/ask"] .concierge-fab {
 /* 6) /ask/ page on mobile — drop the drop-cap (unusual on a small
       screen), bigger chip touch targets, prominent input. */
 @media (max-width: 720px) {
+  .prose.has-drop-cap > p:first-of-type::first-letter,
+  .has-drop-cap > p:first-of-type::first-letter,
+  p.has-drop-cap::first-letter {
+    font-size: inherit !important;
+    float: none !important;
+    color: inherit !important;
+    padding: 0 !important;
+    line-height: inherit !important;
+    font-style: inherit !important;
+  }
+
   /* Drop-cap removal — match common selectors used by the ask page. */
   .ask-msg__prose--greeting::first-letter,
   .ask-stream-prose::first-letter,

@@ -30,7 +30,7 @@ faq:
     answer: "Yes. The first Saturday of May is one of the better Red Hill Market days of the year — the long-weekend crowd has cleared, the produce stalls are still at full autumn strength, and the hinterland air has the first proper edge of winter in it. Go before 10am. Stay south afterwards."
 ---
 
-_Peninsula This Weekend is our Sunday dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
 The first weekend of May is a good one to plan properly.
 
@@ -60,7 +60,7 @@ Sunday is the day for the Peninsula without a plan.
 
 A foreshore walk, one good coffee, and a deliberate absence of booked commitments. Sorrento's back beach in early May is worth the short detour if you are heading back through the southern tip — cold, quiet, and nothing like the summer version. Leave early enough to miss the afternoon traffic.
 
-## What we would skip
+## Worth knowing before you plan
 
 Do not try to add a third thing.
 
