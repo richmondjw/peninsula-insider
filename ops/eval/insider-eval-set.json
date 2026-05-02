@@ -1,0 +1,247 @@
+{
+  "name": "Insider concierge — frozen evaluation set",
+  "version": "2026-05-03",
+  "description": "30 reader-style queries with editor-judged 'good answer' rubrics. Used to regression-test relevance, faithfulness, and latency on every change to chunker, prompt, retrieval, or rerank settings. Each query has expected_topics (the LLM's answer should mention at least one), expected_kinds (recommendation tile types we'd hope to see), and forbidden_phrases (chatbot-tells like 'I'd be happy to').",
+  "queries": [
+    {
+      "id": "long-lunch-red-hill",
+      "query": "Best long lunch on the Red Hill ridge for a Saturday",
+      "intent": "long_lunch_winery",
+      "expected_topics": ["montalto", "ten minutes by tractor", "polperro", "foxeys hangout", "paringa"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy", "Great question", "Of course", "stunning", "amazing", "hidden gem"]
+    },
+    {
+      "id": "cellar-door-walk-in",
+      "query": "Walk-in cellar door tasting on the Peninsula, no booking",
+      "intent": "no_booking_winery",
+      "expected_topics": ["montalto piazza", "foxeys", "rare hare", "willow creek"],
+      "expected_kinds": ["venue", "article"],
+      "forbidden_phrases": ["amazing", "hidden gem"]
+    },
+    {
+      "id": "rainy-day-kids-rye",
+      "query": "Rainy Sunday with two kids, near Rye",
+      "intent": "rainy_day_family",
+      "expected_topics": ["alba", "peninsula hot springs", "rye hotel", "moonlit", "chocolaterie"],
+      "expected_kinds": ["venue", "experience", "event", "article"],
+      "forbidden_phrases": ["I'd be happy", "must-visit"]
+    },
+    {
+      "id": "sorrento-weekend-couple",
+      "query": "Plan a Sorrento weekend for a couple",
+      "intent": "couples_weekend",
+      "expected_topics": ["sorrento", "back beach", "hotel sorrento", "continental", "point nepean"],
+      "expected_kinds": ["itinerary", "article", "venue", "place"],
+      "forbidden_phrases": ["I'd be happy", "perfect for"]
+    },
+    {
+      "id": "anniversary-dinner-view",
+      "query": "Anniversary dinner Friday night, somewhere with a view",
+      "intent": "anniversary_dinner",
+      "expected_topics": ["pt leo", "polperro", "port phillip estate", "laura", "barragunda"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy", "stunning"]
+    },
+    {
+      "id": "dog-friendly-cafe",
+      "query": "Dog friendly cafe on the Peninsula",
+      "intent": "dog_friendly_cafe",
+      "expected_topics": ["commonfolk", "afloat", "many little"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy", "amazing"]
+    },
+    {
+      "id": "best-walk-cape-schanck",
+      "query": "Best coastal walks near Cape Schanck",
+      "intent": "coastal_walk",
+      "expected_topics": ["bushrangers bay", "cape schanck boardwalk", "two bays"],
+      "expected_kinds": ["experience", "article"],
+      "forbidden_phrases": ["breathtaking", "stunning"]
+    },
+    {
+      "id": "hatted-restaurants",
+      "query": "Hatted restaurants worth booking in advance",
+      "intent": "hatted_dining",
+      "expected_topics": ["laura", "barragunda", "tedesca", "ten minutes by tractor"],
+      "expected_kinds": ["venue", "article"],
+      "forbidden_phrases": ["I'd be happy", "hidden gem"]
+    },
+    {
+      "id": "where-to-stay-red-hill",
+      "query": "Where should we stay near Red Hill cellar doors",
+      "intent": "stay_near_wine",
+      "expected_topics": ["jackalope", "polperro", "lindenderry", "lancemore"],
+      "expected_kinds": ["venue", "place"],
+      "forbidden_phrases": ["I'd be happy", "perfect for"]
+    },
+    {
+      "id": "one-night-near-sorrento",
+      "query": "One night away, couple, near Sorrento",
+      "intent": "one_night_couples",
+      "expected_topics": ["hotel sorrento", "continental", "lon retreat"],
+      "expected_kinds": ["venue", "article"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "winery-with-kids",
+      "query": "Cellar door open Sunday with kids",
+      "intent": "family_winery",
+      "expected_topics": ["montalto", "willow creek", "red hill estate"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "winery-tour-day-trip",
+      "query": "Winery tour day trip from Melbourne",
+      "intent": "day_trip_winery",
+      "expected_topics": ["montalto", "ten minutes", "polperro", "main ridge"],
+      "expected_kinds": ["venue", "article", "itinerary"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "best-seafood",
+      "query": "Where do locals go for seafood on the Peninsula",
+      "intent": "seafood",
+      "expected_topics": ["pier street", "fish bar", "morning star"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["amazing", "hidden gem"]
+    },
+    {
+      "id": "best-bakery",
+      "query": "Best bakery for breakfast on the Peninsula",
+      "intent": "bakery",
+      "expected_topics": ["sorrento bakery", "balnarring bakehouse", "salt and rye", "small things"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "thermal-springs-quiet",
+      "query": "Thermal springs without the crowds",
+      "intent": "thermal_quiet",
+      "expected_topics": ["alba"],
+      "expected_kinds": ["venue", "article"],
+      "forbidden_phrases": ["amazing", "hidden gem"]
+    },
+    {
+      "id": "long-weekend-three-days",
+      "query": "Three day Peninsula trip, April long weekend, food and wine",
+      "intent": "long_weekend_food_wine",
+      "expected_topics": ["red hill", "montalto", "long lunch", "cellar door"],
+      "expected_kinds": ["itinerary", "article"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "rye-front-beach",
+      "query": "What is there to do at Rye front beach",
+      "intent": "beach_activity",
+      "expected_topics": ["rye", "front beach", "pier"],
+      "expected_kinds": ["place", "experience", "venue"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "winter-weekend-fireplace",
+      "query": "Winter weekend with a fireplace and a wine list",
+      "intent": "winter_fireplace",
+      "expected_topics": ["jackalope", "polperro", "lindenderry"],
+      "expected_kinds": ["venue", "article"],
+      "forbidden_phrases": ["I'd be happy", "perfect for"]
+    },
+    {
+      "id": "where-to-eat-sorrento",
+      "query": "Where to eat in Sorrento on a Saturday night",
+      "intent": "sorrento_dinner",
+      "expected_topics": ["bistro elba", "the baths", "hotel sorrento"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "flinders-day",
+      "query": "How to spend a day in Flinders",
+      "intent": "flinders_day",
+      "expected_topics": ["flinders", "blowhole", "general store", "hotel"],
+      "expected_kinds": ["place", "experience", "venue", "article"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "no-driving-after-lunch",
+      "query": "Long lunch without too much driving back",
+      "intent": "long_lunch_close",
+      "expected_topics": ["foxeys", "many little", "polperro"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "afternoon-pinot-tasting",
+      "query": "Afternoon pinot tasting with serious producers",
+      "intent": "pinot_tasting",
+      "expected_topics": ["paringa", "kooyong", "ten minutes", "stonier", "yabby lake"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "bushrangers-bay",
+      "query": "How long is the Bushrangers Bay walk",
+      "intent": "bushrangers_walk",
+      "expected_topics": ["bushrangers bay", "90 min", "moderate", "cape schanck"],
+      "expected_kinds": ["experience"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "wedding-venue-winery",
+      "query": "Winery wedding venues on the Peninsula",
+      "intent": "wedding_winery",
+      "expected_topics": ["polperro", "lindenderry", "montalto", "willow creek"],
+      "expected_kinds": ["venue", "article"],
+      "forbidden_phrases": ["I'd be happy", "perfect for"]
+    },
+    {
+      "id": "art-gallery",
+      "query": "Best art gallery on the Peninsula",
+      "intent": "gallery",
+      "expected_topics": ["pt leo", "sculpture", "regional gallery", "montalto"],
+      "expected_kinds": ["experience", "venue"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "weekend-this-weekend",
+      "query": "What is on this weekend on the Peninsula",
+      "intent": "this_weekend",
+      "expected_topics": ["alba", "fire and ice", "wine weekend", "market"],
+      "expected_kinds": ["event", "article"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "kids-thing-to-do",
+      "query": "Something to do with two kids in school holidays",
+      "intent": "school_holidays_kids",
+      "expected_topics": ["moonlit sanctuary", "chocolaterie", "ashcombe maze", "hot springs"],
+      "expected_kinds": ["experience", "venue", "event"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "cellar-door-views",
+      "query": "Cellar door with the best view",
+      "intent": "view_winery",
+      "expected_topics": ["pt leo", "port phillip estate", "montalto", "ten minutes"],
+      "expected_kinds": ["venue"],
+      "forbidden_phrases": ["I'd be happy", "stunning"]
+    },
+    {
+      "id": "balnarring-village",
+      "query": "Is Balnarring worth a visit",
+      "intent": "place_query",
+      "expected_topics": ["balnarring", "village", "back beach", "bakery"],
+      "expected_kinds": ["place", "article"],
+      "forbidden_phrases": ["I'd be happy"]
+    },
+    {
+      "id": "negative-overrated",
+      "query": "Is Peninsula Hot Springs overrated",
+      "intent": "verdict_pho",
+      "expected_topics": ["peninsula hot springs", "alba", "crowd"],
+      "expected_kinds": ["venue", "article"],
+      "forbidden_phrases": ["I'd be happy"]
+    }
+  ]
+}

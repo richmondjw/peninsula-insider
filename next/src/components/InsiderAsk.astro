@@ -1,0 +1,296 @@
+---
+/**
+ * InsiderAsk — primary "Ask The Insider" block.
+ *
+ * Sits between the HomeCover and the PillarNav on the homepage (Option C).
+ * Reusable on section hubs with section-specific prompts.
+ *
+ * Behaviour: input submit and chip clicks call window.openConcierge(prefill),
+ * which opens the ConciergeDrawer pre-populated with the query and auto-sends
+ * if the prefill is longer than 6 chars.
+ */
+
+export interface Props {
+  /** Headline shown on the block. */
+  heading?: string;
+  /** Editorial framing line below the headline. */
+  framing?: string;
+  /** Placeholder for the input. */
+  placeholder?: string;
+  /** Four to six prompt chips. Each becomes a pre-filled query. */
+  prompts?: string[];
+  /** Optional eyebrow label above the heading. */
+  eyebrow?: string;
+}
+
+const {
+  eyebrow = 'Ask The Insider',
+  heading = 'What are you looking for on the Peninsula?',
+  framing = "The Insider answers from our editorial research. Every recommendation has been visited. Every opinion earned.",
+  placeholder = 'Ask The Insider...',
+  prompts = [
+    'Cellar door lunch this weekend',
+    'One night away in Sorrento',
+    'Where to eat with the fire on',
+    "What's open on a wet Sunday",
+  ],
+} = Astro.props;
+---
+
+<section class="insider-ask" aria-label="Ask The Insider">
+  <div class="container">
+    <div class="insider-ask__inner">
+      <div class="insider-ask__head">
+        <span class="insider-ask__avatar" aria-hidden="true">
+          <img src="/images/pi-concierge.svg" alt="" width="56" height="56" onerror="this.remove()" />
+          <span class="insider-ask__avatar-fallback">PI</span>
+        </span>
+        <div class="insider-ask__heading-block">
+          <p class="insider-ask__eyebrow">{eyebrow}</p>
+          <h2 class="insider-ask__heading">{heading}</h2>
+          <p class="insider-ask__framing">{framing}</p>
+        </div>
+      </div>
+
+      <form class="insider-ask__form" id="insider-ask-form" autocomplete="off">
+        <label for="insider-ask-input" class="visually-hidden">Ask The Insider</label>
+        <input
+          id="insider-ask-input"
+          class="insider-ask__input"
+          type="text"
+          placeholder={placeholder}
+          maxlength="200"
+          data-pi-trigger="true"
+        />
+        <button type="submit" class="insider-ask__submit" aria-label="Send to The Insider">
+          <span aria-hidden="true">Ask</span>
+        </button>
+      </form>
+
+      <ul class="insider-ask__chips" aria-label="Try one of these">
+        {prompts.map((p) => (
+          <li>
+            <button
+              type="button"
+              class="insider-ask__chip"
+              data-insider-prompt={p}
+            >{p}</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const form = document.getElementById('insider-ask-form') as HTMLFormElement | null;
+    const input = document.getElementById('insider-ask-input') as HTMLInputElement | null;
+    if (!form || !input) return;
+
+    const open = (q: string) => {
+      const fn = (window as any).openConcierge;
+      if (typeof fn === 'function') {
+        fn(q);
+      } else {
+        // Fallback: navigate to /ask/ with the query as a hash so the full
+        // surface can pick it up. Keeps the block useful even if the drawer
+        // boot script hasn't loaded.
+        const enc = encodeURIComponent(q);
+        window.location.href = `/ask/#q=${enc}`;
+      }
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (!q) return;
+      open(q);
+    });
+
+    // Tapping the input opens the drawer empty (so the user can type with the
+    // Insider's full chrome). Submitting fires the prefilled flow above.
+    input.addEventListener('focus', () => {
+      const fn = (window as any).openConcierge;
+      if (typeof fn === 'function' && !input.value) fn();
+    });
+
+    document.querySelectorAll<HTMLElement>('.insider-ask__chip').forEach((el) => {
+      el.addEventListener('click', () => {
+        const q = el.dataset.insiderPrompt || el.textContent?.trim() || '';
+        if (q) open(q);
+      });
+    });
+  })();
+</script>
+
+<style>
+  .insider-ask {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+  }
+
+  .insider-ask__inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .insider-ask__head {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .insider-ask__avatar {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+  .insider-ask__avatar img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+  .insider-ask__avatar-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--soft);
+    z-index: -1;
+  }
+
+  .insider-ask__heading-block { flex: 1; min-width: 0; }
+
+  .insider-ask__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+
+  .insider-ask__heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--text);
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.015em;
+  }
+
+  .insider-ask__framing {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--soft);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .insider-ask__form {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .insider-ask__input {
+    flex: 1;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.85rem 1.25rem;
+    line-height: 1.4;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .insider-ask__input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(155, 90, 60, 0.12);
+  }
+
+  .insider-ask__submit {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    background: var(--accent);
+    border: none;
+    border-radius: 999px;
+    padding: 0 1.6rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .insider-ask__submit:hover { background: var(--text); }
+
+  .insider-ask__chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .insider-ask__chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.5rem 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .insider-ask__chip:hover {
+    border-color: var(--accent);
+    background: var(--bg-alt);
+  }
+  .insider-ask__chip::before {
+    content: '✦';
+    color: var(--accent);
+    margin-right: 0.4rem;
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+
+  @media (max-width: 600px) {
+    .insider-ask__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .insider-ask__form { flex-direction: column; }
+    .insider-ask__submit { padding: 0.85rem 1.25rem; width: 100%; }
+  }
+</style>

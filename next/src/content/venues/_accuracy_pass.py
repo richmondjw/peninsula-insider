@@ -73,17 +73,15 @@ def normalize_phone(val):
     if not val:
         return None
     digits = re.sub(r'\D', '', val)
-    if digits.startswith('61') and len(digits) == 11 and digits[2] == '3':
+    if digits.startswith('613') and len(digits) == 11:
         return f'+61 3 {digits[3:7]} {digits[7:11]}'
     if digits.startswith('03') and len(digits) == 10:
         return f'+61 3 {digits[2:6]} {digits[6:10]}'
-    if digits.startswith('3') and len(digits) == 9:
-        return f'+61 3 {digits[1:5]} {digits[5:9]}'
     return None
 
 
 def phones_in_text(text):
-    cands = re.findall(r'(?:\+?61\s*3|\(?0?3\)?)[\s\-\)]*\d{4}[\s\-]*\d{4}', text)
+    cands = re.findall(r'(?<!\d)(?:\+61\s*3|0\s*3|\(03\))[\s\-\)]*\d{4}[\s\-]*\d{4}(?!\d)', text)
     out = []
     for c in cands:
         n = normalize_phone(c)
@@ -322,6 +320,34 @@ def choose_official_search_result(results, name):
     return None
 
 
+def same_domain_paths(url):
+    out = []
+    if not url or not url.startswith('http'):
+        return out
+    p = urllib.parse.urlparse(url)
+    root = f'{p.scheme}://{p.netloc}'
+    for path in ['', '/', '/visit', '/contact', '/hours', '/opening-hours', '/bookings', '/booking', '/visit-us', '/cellar-door', '/restaurant', '/dine', '/eat-drink', '/spa']:
+        out.append(root + path)
+    return out
+
+
+def linked_candidate_pages(base_url, raw):
+    d = domain(base_url)
+    found = []
+    for href in re.findall(r'href=["\']([^"\']+)["\']', raw, re.I):
+        href = html.unescape(href)
+        full = urllib.parse.urljoin(base_url, href)
+        if domain(full) != d:
+            continue
+        low = full.lower()
+        if any(k in low for k in ['/visit', '/contact', '/hour', '/book', '/cellar', '/restaurant', '/dine', '/eat', '/spa']):
+            if full not in found:
+                found.append(full)
+        if len(found) >= 8:
+            break
+    return found
+
+
 def enrich_venue(slug):
     path = os.path.join(BASE, slug + '.json')
     data = json.load(open(path))
@@ -331,16 +357,38 @@ def enrich_venue(slug):
     missing_hours = not vis.get('openingHours')
     updates = {}
     evidence = {}
+    local_text = ' '.join(str(data.get(k, '')) for k in ['signature', 'editorNote', 'whyWeGo', 'ifOnlyOneThing']).lower()
+    if missing_hours and re.search(r'appointment\s*[- ]?only|by appointment|appointment essential|appointments essential', local_text):
+        updates['openingHours'] = []
+        updates['bookingRequired'] = True
+        updates['bookingNotes'] = 'By appointment only — contact the venue directly.'
+        evidence['openingHours'] = 'local-editorial-copy'
     candidates = []
+    seed_urls = []
     if data.get('website'):
-        candidates.append(data['website'])
+        seed_urls.append(data['website'])
     if data.get('bookingUrl') and isinstance(data['bookingUrl'], str) and data['bookingUrl'].startswith('http'):
-        candidates.append(data['bookingUrl'])
+        seed_urls.append(data['bookingUrl'])
+    for u in seed_urls:
+        for cu in same_domain_paths(u):
+            if cu not in candidates:
+                candidates.append(cu)
+    results = []
     if missing_website or missing_phone or missing_hours:
         results = search(f'"{data["name"]}" "{data["place"]}"')
         official = choose_official_search_result(results, data['name'])
-        if official and official not in candidates:
-            candidates.append(official)
+        if official:
+            for cu in same_domain_paths(official):
+                if cu not in candidates:
+                    candidates.append(cu)
+        # additional likely official result pages
+        for r in results:
+            d = domain(r['url'])
+            if d and d not in BLOCKED_DOMAINS:
+                if r['url'] not in candidates:
+                    candidates.append(r['url'])
+            if len(candidates) > 18:
+                break
         # directory fallback results
         for r in results:
             d = domain(r['url'])
@@ -366,6 +414,9 @@ def enrich_venue(slug):
                 # likely generic brand/corporate page; distrust phone/hours
                 info['phone'] = None
                 info['openingHours'] = None
+            for extra in linked_candidate_pages(final_url, raw):
+                if extra not in seen and extra not in candidates:
+                    candidates.append(extra)
         else:
             info = extract_fallback_fields(final_url, raw, data)
             if not info:
@@ -387,10 +438,12 @@ def enrich_venue(slug):
         data['phone'] = updates['phone']; changed.append('phone')
     if updates.get('website') and missing_website:
         data['website'] = updates['website']; changed.append('website')
-    if updates.get('openingHours') and missing_hours:
+    if 'openingHours' in updates and missing_hours:
         vis = data.get('visiting') or {}
         vis['openingHours'] = updates['openingHours']
-        vis.setdefault('bookingRequired', False)
+        vis['bookingRequired'] = updates.get('bookingRequired', vis.get('bookingRequired', False))
+        if updates.get('bookingNotes'):
+            vis['bookingNotes'] = updates['bookingNotes']
         data['visiting'] = vis
         changed.append('openingHours')
     if changed:

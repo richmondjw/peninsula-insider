@@ -46,7 +46,7 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-mornington-01.webp",
-    "alt": "Mornington Peninsula landscape \u2014 representative image for Circe Wines",
+    "alt": "Mornington Peninsula landscape — representative image for Circe Wines",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
@@ -56,5 +56,10 @@
   "publishedAt": "2026-04-09",
   "bookingUrl": "https://www.circewines.com.au",
   "bookingProvider": "direct",
-  "sitemapExclude": true
+  "sitemapExclude": true,
+  "visiting": {
+    "openingHours": [],
+    "bookingRequired": true,
+    "bookingNotes": "By appointment only — contact the venue directly."
+  }
 }

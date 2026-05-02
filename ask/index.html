@@ -3,7 +3,11 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-0MR9YVZ9NW');
+<<<<<<< HEAD
   </script><link rel="stylesheet" href="/_astro/BaseLayout.Dj9hQD4w.css"></head> <body data-page="home" data-path="/ask/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The Autumn Issue · April 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
+=======
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.C_Q3FxUR.css"></head> <body data-page="home" data-path="/ask/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The Autumn Issue · April 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
+>>>>>>> origin/main
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
        pattern used by NYT, Atlantic, Monocle, etc.) --> <div class="masthead__nav-row"> <div class="container"> <div class="masthead__nav-inner"> <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"> <span></span><span></span><span></span> </button> <a href="/" class="masthead__logo-mobile" aria-label="Peninsula Insider, home">
@@ -359,6 +363,71 @@ By signing in you agree to our <a href="/terms/">terms</a> and <a href="/privacy
     });
   }
 
+  // ---------- Streaming SSE parser ----------
+  // Parses an SSE response one event at a time. Yields { event, data } pairs.
+  // Tolerates partial chunks across network reads.
+  async function* parseSSE(response) {
+    if (!response.body) throw new Error('No response body');
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = '';
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        let idx;
+        while ((idx = buf.indexOf('\n\n')) !== -1) {
+          const block = buf.slice(0, idx);
+          buf = buf.slice(idx + 2);
+          if (!block.trim()) continue;
+          let evt = 'message';
+          let dataStr = '';
+          for (const line of block.split('\n')) {
+            if (line.startsWith('event: ')) evt = line.slice(7).trim();
+            else if (line.startsWith('data: ')) dataStr += line.slice(6);
+          }
+          if (!dataStr) continue;
+          let payload;
+          try { payload = JSON.parse(dataStr); }
+          catch { continue; }
+          yield { event: evt, data: payload };
+        }
+      }
+    } finally {
+      try { reader.releaseLock(); } catch {}
+    }
+  }
+
+  // Replace the typing indicator with a streaming PI message and return the
+  // <p> we'll append text deltas into. The post-stream meta event will swap
+  // this for the final tile rail + chips.
+  function startStreamingPiMessage() {
+    removeTyping();
+    const el = document.createElement('article');
+    el.className = 'ask-msg ask-msg--pi ask-msg--streaming';
+    el.id = 'ask-streaming-message';
+    el.innerHTML = `
+      <div class="ask-msg__byline">
+        ${avatarMarkup('sm')}
+        <span class="ask-msg__byline-name">The Insider</span>
+        <span class="ask-msg__byline-rule"></span>
+      </div>
+      <div class="ask-msg__prose ask-msg__prose--streaming">
+        <p class="ask-stream-prose"></p>
+      </div>
+    `;
+    thread.appendChild(el);
+    scrollMsgToTop(el);
+    return el.querySelector('.ask-stream-prose');
+  }
+
+  function finaliseStreamingMessage(composite) {
+    const streaming = document.getElementById('ask-streaming-message');
+    if (streaming) streaming.remove();
+    appendPiMessage(composite);
+  }
+
   // ---------- Submit ----------
   async function ask(query) {
     if (!query || query.length < 3 || askInFlight) return;
@@ -373,22 +442,69 @@ By signing in you agree to our <a href="/terms/">terms</a> and <a href="/privacy
     sendBtn.disabled = true;
     appendTyping();
 
+    let accumulatedText = '';
+    let metaPayload = null;
+    let proseEl = null;
+    let streamErrored = false;
+
     try {
-      const res = await fetch(`${API_URL}/concierge/ask`, {
+      const res = await fetch(`${API_URL}/concierge/ask/stream`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Session-Id': sessionId },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'text/event-stream',
+          'X-Session-Id': sessionId,
+        },
         body: JSON.stringify({ query }),
       });
-      const data = await res.json();
-      removeTyping();
 
       if (!res.ok) {
-        appendErrorMessage(data.error || 'Something went wrong. Try again in a moment.');
-      } else {
-        appendPiMessage(data);
+        let msg = 'Something went wrong. Try again in a moment.';
+        try {
+          const ct = res.headers.get('content-type') || '';
+          if (ct.includes('application/json')) {
+            const errJson = await res.json();
+            if (errJson && errJson.error) msg = errJson.error;
+          }
+        } catch {}
+        removeTyping();
+        appendErrorMessage(msg);
+        return;
+      }
+
+      for await (const { event, data } of parseSSE(res)) {
+        if (event === 'text' && data && typeof data.delta === 'string') {
+          if (!proseEl) proseEl = startStreamingPiMessage();
+          accumulatedText += data.delta;
+          proseEl.textContent = accumulatedText;
+        } else if (event === 'meta' && data) {
+          metaPayload = data;
+        } else if (event === 'error') {
+          streamErrored = true;
+          removeTyping();
+          const streaming = document.getElementById('ask-streaming-message');
+          if (streaming) streaming.remove();
+          appendErrorMessage((data && data.message) || 'Something went wrong mid-response.');
+          break;
+        } else if (event === 'done') {
+          break;
+        }
+        // 'ack' is informational; no UI effect.
+      }
+
+      if (!streamErrored) {
+        const composite = {
+          answer: accumulatedText,
+          recommendations: (metaPayload && metaPayload.recommendations) || [],
+          follow_on: (metaPayload && metaPayload.follow_on) || [],
+          provenance_footer: (metaPayload && metaPayload.provenance_footer) || '',
+        };
+        finaliseStreamingMessage(composite);
       }
     } catch (err) {
       removeTyping();
+      const streaming = document.getElementById('ask-streaming-message');
+      if (streaming) streaming.remove();
       appendErrorMessage("I couldn't reach the server. Mind trying that again?");
     } finally {
       askInFlight = false;

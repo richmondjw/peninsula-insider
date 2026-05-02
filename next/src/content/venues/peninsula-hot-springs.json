@@ -53,5 +53,41 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": true,
+  "visiting": {
+    "openingHours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "opens": "07:00",
+        "closes": "23:00"
+      },
+      {
+        "days": [
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "02:00"
+      },
+      {
+        "days": [
+          "Saturday"
+        ],
+        "opens": "05:00",
+        "closes": "02:00"
+      },
+      {
+        "days": [
+          "Sunday"
+        ],
+        "opens": "05:00",
+        "closes": "23:00"
+      }
+    ],
+    "bookingRequired": false
+  }
 }
