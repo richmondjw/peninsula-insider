@@ -5,7 +5,7 @@
  *
  * These are the Peninsula Insider wedge against the DMO:
  * Worth The Drive, Kids Grade, First Timer, Weather flag,
- * and the explicit "Skip this" warning when set.
+ * and an explicit planning note when set.
  */
 import { kidsGradeCopy, weatherCopy } from '../lib/editorial';
 
@@ -33,7 +33,7 @@ const weatherLabel = weather && weather !== 'mixed' ? weatherCopy[weather] : und
 
 <div class={`event-badges event-badges--${size}`}>
   {skipThis && (
-    <span class="event-badge event-badge--skip" title="Editor says skip this">Skip this</span>
+    <span class="event-badge event-badge--skip" title="Planning note from the editor">Worth knowing</span>
   )}
   {worthTheDrive && (
     <span class="event-badge event-badge--drive" title="Worth the 90-minute drive from Melbourne">Worth the drive</span>

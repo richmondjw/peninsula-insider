@@ -13,9 +13,9 @@
     "eyebrow": "Autumn edition",
     "title": "The smarter way to open a Mornington Peninsula weekend.",
     "dek": "Less brochure, more editorial cover. Peninsula Insider should feel like the front page of a publication that already knows where you should book first, where you should linger, and what is actually worth the drive.",
-    "meta": "Edited by Peninsula Insider · Updated 26 April 2026",
+    "meta": "Edited by Peninsula Insider · Updated for autumn",
     "primaryCta": { "label": "Read the cover story", "href": "#featured-story" },
-    "secondaryCta": { "label": "Get the Thursday letter", "href": "#newsletter" },
+    "secondaryCta": { "label": "Get the weekly letter", "href": "#newsletter" },
     "highlights": [
       "A lead story with a clear point of view",
       "Fast paths to eat, stay, do, and plan",
@@ -49,7 +49,7 @@
     "title": "The autumn weekend locals keep to themselves",
     "dek": "A sharper front page starts with a proper lead, one opinionated dispatch that gives the whole site a centre of gravity. This week it is the argument for slower lunches, one coastal walk, and fewer forgettable stops.",
     "byline": "By James Richmond",
-    "date": "Thursday 10 April 2026",
+    "date": "Autumn 2026",
     "cta": { "label": "Open the story", "href": "#journal" },
     "bullets": [
       "Why April is the month when the Peninsula feels most earned",
@@ -143,13 +143,13 @@
   },
   "newsletter": {
     "eyebrow": "Newsletter",
-    "title": "The Insider's Letter, every Thursday.",
-    "dek": "One sharp note before the weekend: what to book, what to skip, what the Peninsula looks like right now.",
+    "title": "The Insider's Letter, every week.",
+    "dek": "One sharp note before the weekend: what to book, what to know, and what the Peninsula looks like right now.",
     "benefits": [
       "Three edited recommendations, not twenty tabs to sort later",
       "Early access to new guides, lists, and itineraries",
       "The weekend's most useful booking and timing notes in five minutes"
     ],
-    "cta": "Get the Thursday letter"
+    "cta": "Get the weekly letter"
   }
 }

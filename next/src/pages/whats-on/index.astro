@@ -95,10 +95,10 @@ const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'When does the Peninsula This Weekend dispatch publish?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Sunday evening, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, one thing to skip. Subscribers receive it by email; the latest is always pinned at the top of this page.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.' } },
     { '@type': 'Question', name: 'Are the kids-grade A/B/C ratings genuine?',
       acceptedAnswer: { '@type': 'Answer', text: 'Yes. We attend or have attended every family programme we grade. A means we\'d return without hesitation. B means it works but has a flaw. C means we wouldn\'t go back. Grades are visible on every event with the family-saturday or school-holidays lens.' } },
-    { '@type': 'Question', name: 'Why are some events marked as "Skip this"?',
+    { '@type': 'Question', name: 'Why do some events carry a planning note?',
       acceptedAnswer: { '@type': 'Answer', text: 'Because the rest of the Peninsula press won\'t name them. We pick one or two events a month that are over-marketed, badly run, or not what their copy claims. One short paragraph explaining why. The word "Insider" doing actual work.' } },
     { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don\'t cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.' } },
@@ -108,7 +108,7 @@ const faqSchema = {
 
 <BaseLayout
   title="What's On Mornington Peninsula · Peninsula Insider"
-  description="The Peninsula's events page that actually has an opinion. Weekend picks, kids-graded school holidays, worth-the-drive badges, and what to skip."
+  description="The Peninsula's events page with an editorial point of view. Weekend picks, kids-graded school holidays, worth-the-drive badges, and useful planning notes."
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
   modifiedTime="2026-04-30"
@@ -124,7 +124,7 @@ const faqSchema = {
   <GuideHero
     eyebrow={`What's On · ${totalEvents} curated events · Reviewed weekly`}
     title="Peninsula events, with an <em>opinion</em> for a change"
-    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody says what's worth it. This is the page that does, weekend picks on Sunday, kids-grade A/B/C on every family event, and honest skips on the things the tourism feed won't name."
+    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody adds much context. This page does: weekend picks, kids-grade A/B/C on every family event, and useful planning notes when the logistics matter."
     meta={[
       { label: `${totalEvents} curated events` },
       { label: `${totalGroups} categories` },
@@ -137,12 +137,12 @@ const faqSchema = {
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. THE EDITORIAL FRAME, what we'd actually book vs what to skip
+       2. THE EDITORIAL FRAME, what we'd actually book and what to know
        ═══════════════════════════════════════════════════════════════ -->
   <CompareBlock
     eyebrow="The editorial promise"
-    heading="What we'd actually book, and what we wouldn't"
-    dek="Every other Peninsula calendar lists everything. Ours has a position on each entry. Two camps below shape every recommendation on this page."
+    heading="What we'd actually book, and what we'd flag early"
+    dek="Every other Peninsula calendar lists everything. Ours adds a point of view and practical context. Two lanes below shape every recommendation on this page."
     left={{
       label: "Worth booking",
       title: "Three lenses, one editorial standard.",
@@ -155,14 +155,14 @@ const faqSchema = {
       ],
     }}
     right={{
-      label: "Skip this",
-      title: "One paragraph a month. The rest of the Peninsula press won't name them.",
+      label: "Worth knowing",
+      title: "Short planning notes for the events that need context.",
       rows: [
-        { label: 'What we name',     value: 'Over-marketed events that don\'t deliver. Bad pacing, padded programmes, parking nightmares, "free" events with $30 of incidentals.' },
-        { label: 'How we decide',    value: 'A named editor attends or attended in person, or has direct reporting from a trusted Peninsula source. We don\'t skip on hearsay.' },
-        { label: 'Why we publish',   value: 'Tourism press won\'t. Without a "skip" lane the entire calendar reads like a press release. The "Insider" name has to mean something.' },
-        { label: 'Frequency',        value: 'One or two per month. Always one paragraph, named, with the specific reason we\'d skip it.' },
-        { label: 'Recourse',         value: 'If you run an event we\'ve skipped and want to make a case, the contact form is open. We\'ve revised before.' },
+        { label: 'What we flag',     value: 'Events that suit a narrow audience, get crowded quickly, or work best when you know the trade-offs before booking.' },
+        { label: 'How we decide',    value: 'A named editor attends or attended in person, or has direct reporting from a trusted Peninsula source. We do not add planning notes on hearsay.' },
+        { label: 'Why we publish',   value: 'Because readers need context, not just listings. Timing, access, and fit are often the difference between a good Peninsula day and a messy one.' },
+        { label: 'Frequency',        value: 'Only when the context materially changes how we would plan the day.' },
+        { label: 'Recourse',         value: 'If you run an event and think the context has changed, the contact form is open. We revise when the facts move.' },
       ],
     }}
   />
@@ -245,16 +245,16 @@ const faqSchema = {
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       7. SKIP THIS
+       7. WORTH KNOWING
        ═══════════════════════════════════════════════════════════════ -->
   {skipEvents.length > 0 && (
     <section class="skip-block" id="lens-skip">
       <div class="container">
         <div class="skip-block__inner">
           <div>
-            <p class="label label--accent">Skip this</p>
-            <h2 class="skip-block__title">What the rest of the Peninsula press won't name</h2>
-            <p class="skip-block__body">One honest paragraph a month. The word "Insider" doing work.</p>
+            <p class="label label--accent">Worth knowing</p>
+            <h2 class="skip-block__title">Extra context for events that need it</h2>
+            <p class="skip-block__body">Short notes on fit, timing, and trade-offs so readers can plan with their eyes open.</p>
           </div>
           <div class="skip-block__list">
             {skipEvents.map((event) => (
@@ -304,7 +304,7 @@ const faqSchema = {
         <div><dt>One-off events</dt><dd>{oneOffCount}</dd></div>
       </dl>
       <p class="events-stats__note">
-        Reviewed weekly by a named editor. We publish what we'd actually attend, with a sentence of judgement on every entry. If you think we've missed something, <a href="/contact/">tell us</a>.
+        Reviewed weekly by a named editor. We publish what we'd actually attend, with context where the timing, fit, or logistics matter. If you think we've missed something, <a href="/contact/">tell us</a>.
       </p>
     </div>
   </section>
@@ -321,15 +321,15 @@ const faqSchema = {
       <div class="hub-faq__list">
         <details class="hub-faq__item">
           <summary class="hub-faq__q">When does the Peninsula This Weekend dispatch publish?</summary>
-          <div class="hub-faq__a"><p>Sunday evening, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, one thing to skip. Subscribers receive it by email; the latest is always pinned at the top of this page.</p></div>
+          <div class="hub-faq__a"><p>Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Are the kids-grade A/B/C ratings genuine?</summary>
           <div class="hub-faq__a"><p>Yes. We attend or have attended every family programme we grade. A means we'd return without hesitation. B means it works but has a flaw. C means we wouldn't go back. Grades are visible on every event with the family-saturday or school-holidays lens.</p></div>
         </details>
         <details class="hub-faq__item">
-          <summary class="hub-faq__q">Why are some events marked as "Skip this"?</summary>
-          <div class="hub-faq__a"><p>Because the rest of the Peninsula press won't name them. We pick one or two events a month that are over-marketed, badly run, or not what their copy claims. One short paragraph explaining why. The word "Insider" doing actual work.</p></div>
+          <summary class="hub-faq__q">Why do some events carry a planning note?</summary>
+          <div class="hub-faq__a"><p>Because the useful part of an events guide is context. When an event is likely to be crowded, logistically awkward, or a better fit for a different kind of visitor, we say so briefly and plainly so readers can plan around it.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Do you cover events outside the Peninsula?</summary>
