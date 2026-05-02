@@ -98,6 +98,35 @@ const isClosed = data.status === 'closed';
           ))}
         </div>
 
+        {(data.whyWeGo || data.bestFor || data.ifOnlyOneThing || data.pairWith) && (
+          <div class="venue-editorial-strip">
+            {data.whyWeGo && (
+              <div class="venue-editorial-strip__item">
+                <p class="venue-editorial-strip__label">Why we&rsquo;d go</p>
+                <p class="venue-editorial-strip__value">{data.whyWeGo}</p>
+              </div>
+            )}
+            {data.bestFor && (
+              <div class="venue-editorial-strip__item">
+                <p class="venue-editorial-strip__label">Best for</p>
+                <p class="venue-editorial-strip__value">{Array.isArray(data.bestFor) ? data.bestFor.join(', ') : data.bestFor}</p>
+              </div>
+            )}
+            {data.ifOnlyOneThing && (
+              <div class="venue-editorial-strip__item">
+                <p class="venue-editorial-strip__label">If you only do one thing</p>
+                <p class="venue-editorial-strip__value">{data.ifOnlyOneThing}</p>
+              </div>
+            )}
+            {data.pairWith && (
+              <div class="venue-editorial-strip__item">
+                <p class="venue-editorial-strip__label">Pair it with</p>
+                <p class="venue-editorial-strip__value">{Array.isArray(data.pairWith) ? data.pairWith.join(' · ') : data.pairWith}</p>
+              </div>
+            )}
+          </div>
+        )}
+
         {allTags.length > 0 && (
           <div class="venue-detail__tags">
             {allTags.map((tag: string) => (
@@ -395,3 +424,35 @@ const isClosed = data.status === 'closed';
 </section>
 
 <NewsletterBlock />
+
+<style>
+  .venue-editorial-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--surface-warm, #FAF7F2);
+    border-top: 2px solid var(--ink, #1A1208);
+    border-bottom: 1px solid var(--line, #D9D1BE);
+  }
+  .venue-editorial-strip__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .venue-editorial-strip__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted, #6E655C);
+    margin: 0;
+  }
+  .venue-editorial-strip__value {
+    font-size: 0.92rem;
+    color: var(--ink, #1A1208);
+    margin: 0;
+    line-height: 1.45;
+  }
+</style>

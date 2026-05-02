@@ -50,7 +50,7 @@ The differentiator is not "we don't sell." Visit Mornington Peninsula sells. Bro
 - Programmatic display advertising
 - Off-region brands
 - Off-tone advertisers, including any business whose offer would embarrass the publication or its readers
-- Sponsored editorial that contradicts our published view of the same venue or category
+- Partner editorial that contradicts our published view of the same venue or category
 - Any commercial item that fails our editor's reader-benefit test
 
 We say no more often than we say yes. That is the point.
@@ -95,13 +95,13 @@ Six ways to partner with Peninsula Insider, plus two announced products coming l
 | Story | **Charter Story** | **$4,500 per story** | Full editorial feature, 1,200 words, photographed, hub priority for one quarter, newsletter mention. Capped at 12 in 2026. |
 | Story | **Featured Venue Story** | **$1,800 per story** | Standard editorial feature, 600 words, photography by partner, newsletter mention. |
 | Placement | **Hub Sponsor** | **$1,500 per month** | Section hub leaderboard, exclusive placement, one advertiser per hub. |
-| Placement | **Newsletter Sponsor** | **$950 per issue** | The Insider's Letter, mid-letter sponsored slot, 80 words plus image and link. |
+| Placement | **Newsletter Sponsor** | **$950 per issue** | The Insider's Letter, mid-letter partner placement, 80 words plus image and link. |
 | Placement | **Sidebar Showcase** | **$600 per week, $2,000 per month** | Sitewide MREC. Maximum four advertisers in rotation. |
-| Listing | **Sponsored Listing** | **$250 per quarter** | Place card on a hub or itinerary, 80 words, image, link. |
+| Listing | **Editorially reviewed listing** | **$250 per quarter** | Place card on a hub or itinerary, 80 words, image, link. |
 
 Plus the closed-cohort program:
 
-- **Founders' Circle** — six seats, $15,000 per year, two-year commitment. Cohort closes 30 June 2026. Available by invitation. Request the Founders' Prospectus from the editor for details.
+- **Founders' Circle** — six seats, $15,000 per year, two-year commitment. Available for FY27 placement (July 2026 – June 2027). Limited to a small number of partners for FY27. Cohort closes 30 June 2026. Available by invitation. Request the Founders' Prospectus from the editor for details.
 
 Plus two announced products coming in 2026:
 
@@ -111,6 +111,8 @@ Plus two announced products coming in 2026:
 ---
 
 ## 6. The Charter Story
+
+Available for FY27 placement (July 2026 – June 2027).
 
 The flagship public product. A full editorial feature, written by our desk, photographed, fact-checked, edited, scheduled, and published to PI standard.
 
@@ -139,6 +141,8 @@ The flagship public product. A full editorial feature, written by our desk, phot
 
 ## 7. The Featured Venue Story
 
+Available for FY27 placement (July 2026 – June 2027).
+
 The shorter, lighter-touch editorial feature. For venues that want to be on the masthead this season but do not need the full Charter treatment.
 
 **What you get:**
@@ -166,13 +170,13 @@ Three placement products, simple and uncluttered.
 
 **Hub Sponsor.** A leaderboard placement at the top of the section hub of your choice (Eat & Drink, Stay, Do, Plan, Journal). Exclusive: one advertiser per hub at a time. The strongest match between your venue and our reader's intent. **$1,500 per month.**
 
-**Newsletter Sponsor.** A mid-letter sponsored slot in The Insider's Letter, 80 words plus image plus link, clearly marked as a partner placement. The Editor's Letter and the editorial picks remain untouched. Maximum one sponsor per issue. **$950 per issue.**
+**Newsletter Sponsor.** A mid-letter partner placement in The Insider's Letter, 80 words plus image plus link, clearly marked as a partner placement. The Editor's Letter and the editorial picks remain untouched. Maximum one partner placement per issue. **$950 per issue.**
 
 **Sidebar Showcase.** A 300x250 MREC placement in our sitewide sidebar, in rotation with up to three other advertisers. **$600 per week, $2,000 per month.**
 
 ---
 
-## 9. Sponsored Listing
+## 9. Editorially reviewed listing
 
 The lowest-barrier way onto the publication. A small, clearly labelled card on the section hub or itinerary that suits your venue. Card includes name, suburb, 80-word description, image, and a link.
 
@@ -184,7 +188,7 @@ Reviewed by the editorial team before placement. Editor reserves the right to de
 
 ## 10. Series discounts
 
-We reward commitment. Discounts apply to all placement products (Hub Sponsor, Newsletter Sponsor, Sidebar Showcase, Sponsored Listing) and to series purchases of Featured Venue Stories or Charter Stories.
+We reward commitment. Discounts apply to all placement products (Hub Sponsor, Newsletter Sponsor, Sidebar Showcase, Editorially reviewed listing) and to series purchases of Featured Venue Stories or Charter Stories.
 
 | Term | Discount |
 |---|---|
@@ -242,10 +246,10 @@ Founders, Peninsula Insider
 hello@peninsulainsider.com.au
 peninsulainsider.com.au
 
-For commercial enquiries, complete the form at peninsulainsider.com.au/partners or email directly. We respond personally, usually within 48 hours.
+For commercial enquiries, complete the form at peninsulainsider.com.au/partners or email directly. Our team will review your enquiry.
 
 For editorial submissions, visit peninsulainsider.com.au/partners/apply.
 
 ---
 
-*Peninsula Insider is a modern newsroom for the Mornington Peninsula. We publish on Thursdays, we mean what we recommend, and we tell you who is paying.*
+*Peninsula Insider is a modern newsroom for the Mornington Peninsula. We publish weekly, we mean what we recommend, and we tell you who is paying.*

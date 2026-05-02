@@ -27,12 +27,17 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Friday", "Saturday"],
+        "days": [
+          "Friday",
+          "Saturday"
+        ],
         "opens": "12:00",
         "closes": "17:00"
       },
       {
-        "days": ["Sunday"],
+        "days": [
+          "Sunday"
+        ],
         "opens": "12:00",
         "closes": "15:00"
       }
@@ -43,10 +48,25 @@
   },
   "wines": {
     "winemaker": "Mike Aylward",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Pinot Gris"
+    ],
     "topLabel": "Verve Chardonnay"
   },
   "editorVerdict": "Ocean Eight is the kind of place the Peninsula used to be full of: a small family estate run by the people who planted the vines, making wine that prioritises food-pairing honesty over points-chasing spectacle. The Verve Chardonnay and Aylward Reserve Pinot Noir are better than most visitors expect. No restaurant, but dogs are welcome and the garden is set up for picnics.",
+  "whyWeGo": "Ocean Eight is the kind of cellar door that wine people send other wine people to and casual tasters sometimes overlook.",
+  "bestFor": [
+    "families",
+    "cellar door",
+    "the view"
+  ],
+  "ifOnlyOneThing": "Book ahead — they keep numbers deliberately small.",
+  "pairWith": [
+    "Allis Wine Bar",
+    "Main Ridge Dairy"
+  ],
   "faq": [
     {
       "q": "Does Ocean Eight take walk-ins or do you need to book?",
@@ -67,9 +87,19 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "slow", "view"],
-    "season": ["all-year"],
-    "audience": ["couples", "solo", "locals"]
+    "mood": [
+      "cellar-door",
+      "slow",
+      "view"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "solo",
+      "locals"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/place-moorooduc-01.webp",

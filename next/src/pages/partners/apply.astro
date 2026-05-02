@@ -451,8 +451,8 @@ const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:87
       if (res.ok && data.success) {
         result.className = 'apply-result apply-result--success';
         result.innerHTML = `
-          <strong>Thanks — we’ve received your enquiry.</strong><br>
-          ${data.message || "Our team reviews every submission carefully. If there’s a fit, we’ll be in touch."}
+          <strong>Thanks — we've received your enquiry.</strong><br>
+          Our team reviews every submission carefully. If there's a fit, we'll be in touch.
         `;
         form.reset();
         submitBtn.textContent = 'Submitted';

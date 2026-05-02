@@ -101,6 +101,8 @@ Peninsula Hot Springs Glamping on Friday. Evening bathhouse session. Saturday mo
 ### 3. "The southern tip resort weekend" — two nights
 RACV Cape Schanck Resort. One spa half-day at One Spa. One round at RACV Cape Schanck Golf Course (if golfing) or the lighthouse walk (if not). Dinner on-property or twenty minutes up the ridge at Jackalope. Sunday morning hot springs drive-over to Peninsula Hot Springs or Alba. Around $1,200–1,800 for two people all-in.
 
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
+
 ## Before you book
 
 - **Book the spa session first, then the stay.** Weekend sessions at Peninsula Hot Springs and Alba fill three to four weeks out in peak season. Accommodation is more flexible. Secure the bathing first, then fit the room around it.

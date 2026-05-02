@@ -51,6 +51,8 @@ The hire vessels are explicitly bay-rated, not offshore-rated. The operator's ge
 
 The base hire includes the vessel, fuel, basic safety gear (PFDs, anchor, paddle, bailer), and the operational briefing. Fishing tackle is available to hire as an add-on. Bait is sometimes stocked on site. A Victorian Recreational Fishing Licence is not covered, since this is a hire (not a charter); buy one through Service Victoria before your session if you plan to fish.
 
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
+
 ## Booking
 
 Bookings are taken directly via the operator's website or by phone. Summer weekends and school holidays book out in advance. Off-peak weekday sessions are usually walk-up. The cancellation policy is operator-discretion: if conditions are unsafe, the operator pulls the booking and offers a credit or refund.

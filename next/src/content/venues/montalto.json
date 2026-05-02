@@ -26,7 +26,15 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -37,7 +45,13 @@
   },
   "wines": {
     "winemaker": "Simon Black",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Pinot Gris", "Riesling", "Tempranillo"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Pinot Gris",
+      "Riesling",
+      "Tempranillo"
+    ],
     "topLabel": "Single Vineyard 'The Eleven' Chardonnay"
   },
   "restaurant": {
@@ -48,6 +62,17 @@
     "description": "Estate-to-plate kitchen using produce from the on-site garden. 1 Hat, Age Good Food Guide 2025. The Piazza offers a casual dining alternative."
   },
   "editorVerdict": "Montalto is one of the Peninsula's most complete estates: the wines are genuinely good, the restaurant earns its hat, and the kitchen garden is not decorative — it supplies the kitchen. Simon Black's winemaking respects site above all, and the single-vineyard releases make an honest case for what Red Hill South terroir can do. If you only have time for one estate that covers all bases — vines, table, grounds — this is the call.",
+  "whyWeGo": "Montalto is the Peninsula at its most painterly.",
+  "bestFor": [
+    "long lunch",
+    "cellar door",
+    "garden afternoons"
+  ],
+  "ifOnlyOneThing": "Arrive early for a cellar door tasting before lunch.",
+  "pairWith": [
+    "Port Phillip Estate",
+    "Red Gum BBQ"
+  ],
   "faq": [
     {
       "q": "Does Montalto take walk-ins or do you need to book?",
@@ -68,9 +93,23 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["long-lunch", "cellar-door", "garden", "sunset"],
-    "season": ["spring", "summer", "autumn", "all-year"],
-    "audience": ["couples", "families", "group"]
+    "mood": [
+      "long-lunch",
+      "cellar-door",
+      "garden",
+      "sunset"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "families",
+      "group"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/venue-montalto-banner-01.webp",

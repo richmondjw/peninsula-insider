@@ -97,6 +97,8 @@ What Peninsula Hot Springs still does better than Alba:
 - **Programming and events** — PHS runs sound baths, breathwork sessions, and wellness events Alba does not currently replicate
 - **Price flexibility** — PHS has entry tiers from ~$40 (Bath House standard) up to premium; Alba is single-tier premium pricing
 
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
+
 **Do this to make Alba work:** book a morning session on any day. Do the full thermal circuit properly rather than hopping. Have lunch on the Red Hill ridge afterwards at <a href="/eat/ten-minutes-by-tractor">Ten Minutes by Tractor</a> or <a href="/eat/port-phillip-estate-restaurant">Port Phillip Estate</a> and you have one of the most complete Peninsula days available.
 
 ## Which one for which day

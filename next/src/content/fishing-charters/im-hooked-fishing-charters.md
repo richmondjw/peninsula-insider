@@ -73,6 +73,8 @@ Skipper Mal has operated Peninsula fishing charters for over 40 years. The opera
 
 Rods, reels, bait, and tackle are all provided. The Victorian Recreational Fishing Licence is covered for the day. Guests do not need to bring their own gear or a licence. Confirm the fish-cleaning policy at booking. A tip of $10 to $20 per person for a productive session is customary but never expected.
 
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
+
 ## Booking logic
 
 For October to December snapper sessions, book 4 to 8 weeks ahead for weekend slots. Off-season sessions typically book 1 to 2 weeks out, though popular long weekends fill faster. An October to December session is genuinely different from a June mixed-bag day; book knowing which experience you want.
