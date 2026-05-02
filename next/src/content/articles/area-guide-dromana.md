@@ -8,8 +8,8 @@ heroImage:
   src: "/images/sourced/place-dromana-01.webp"
   alt: "Dromana foreshore with calm bay water and Arthurs Seat rising behind"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
-format: "area-guide"
+  license: "tmp-wikimedia"
+format: "hub-guide"
 tags: ["dromana", "area-guide", "planning"]
 relatedVenues: []
 readingTimeMinutes: 8

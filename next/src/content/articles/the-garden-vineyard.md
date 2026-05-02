@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-the-garden-vineyard-01.webp"
   alt: "The Garden Vineyard vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["the-garden-vineyard"]

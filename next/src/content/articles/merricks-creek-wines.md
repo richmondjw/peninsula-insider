@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-merricks-creek-wines-01.webp"
   alt: "Merricks Creek Wines vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["merricks-creek-wines"]

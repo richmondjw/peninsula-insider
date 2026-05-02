@@ -8,8 +8,8 @@ heroImage:
   src: "/images/sourced/place-sorrento-01.webp"
   alt: "Limestone cliffs and calm bay water at Sorrento on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
-format: "area-guide"
+  license: "tmp-wikimedia"
+format: "hub-guide"
 tags: ["sorrento", "area-guide", "planning"]
 relatedVenues: []
 readingTimeMinutes: 8

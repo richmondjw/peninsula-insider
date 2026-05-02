@@ -8,8 +8,8 @@ heroImage:
   src: "/images/sourced/place-portsea-01.webp"
   alt: "Calm bay water and foreshore at Portsea with boats near the jetty"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
-format: "area-guide"
+  license: "tmp-wikimedia"
+format: "hub-guide"
 tags: ["portsea", "area-guide", "planning"]
 relatedVenues: []
 readingTimeMinutes: 8

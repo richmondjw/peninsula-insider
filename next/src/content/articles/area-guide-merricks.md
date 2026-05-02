@@ -8,8 +8,8 @@ heroImage:
   src: "/images/sourced/place-merricks-01.webp"
   alt: "Vineyard landscape in Merricks under soft afternoon light"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
-format: "area-guide"
+  license: "tmp-wikimedia"
+format: "hub-guide"
 tags: ["merricks", "area-guide", "planning"]
 relatedVenues: []
 readingTimeMinutes: 8

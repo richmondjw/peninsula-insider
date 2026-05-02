@@ -8,8 +8,8 @@ heroImage:
   src: "/images/sourced/place-main-ridge-01.webp"
   alt: "Vineyard rows and cool green farmland across Main Ridge on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
-format: "area-guide"
+  license: "tmp-wikimedia"
+format: "hub-guide"
 tags: ["main-ridge", "area-guide", "planning"]
 relatedVenues: []
 readingTimeMinutes: 8

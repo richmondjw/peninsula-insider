@@ -8,8 +8,8 @@ heroImage:
   src: "/images/sourced/place-flinders-01.webp"
   alt: "Flinders Pier reaching into blue water under a bright southern sky"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
-format: "area-guide"
+  license: "tmp-wikimedia"
+format: "hub-guide"
 tags: ["flinders", "area-guide", "planning"]
 relatedVenues: []
 readingTimeMinutes: 8

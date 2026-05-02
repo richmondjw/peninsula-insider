@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-boneo-plains-mornington-peninsula-01.webp"
   alt: "Boneo Plains vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["boneo-plains"]

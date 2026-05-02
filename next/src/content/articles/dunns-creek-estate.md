@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-dunns-creek-estate-01.webp"
   alt: "Dunns Creek Estate vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["dunns-creek-estate"]

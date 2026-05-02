@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-silverwood-wines-mornington-01.webp"
   alt: "Silverwood Wines vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington"]
 relatedVenues: ["silverwood-wines"]

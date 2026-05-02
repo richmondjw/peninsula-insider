@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-wildcroft-estate-mornington-01.webp"
   alt: "Wildcroft Estate vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington"]
 relatedVenues: ["wildcroft-estate"]

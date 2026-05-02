@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-turramurra-estate-red-hill-01.webp"
   alt: "Turramurra Estate vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "red-hill"]
 relatedVenues: ["turramurra-estate"]

@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-martha-cove-vineyard-01.webp"
   alt: "Martha Cove Vineyard vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["martha-cove-vineyard"]

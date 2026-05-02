@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-marinda-park-vineyard-01.webp"
   alt: "Marinda Park Vineyard vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["marinda-park-vineyard"]

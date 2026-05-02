@@ -8,8 +8,8 @@ heroImage:
   src: "/images/sourced/place-mornington-01.webp"
   alt: "Mornington foreshore with bathing boxes and calm bay water"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
-format: "area-guide"
+  license: "tmp-wikimedia"
+format: "hub-guide"
 tags: ["mornington", "area-guide", "planning"]
 relatedVenues: []
 readingTimeMinutes: 8

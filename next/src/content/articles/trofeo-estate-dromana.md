@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-trofeo-estate-dromana-01.webp"
   alt: "Trofeo Estate vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "dromana"]
 relatedVenues: ["trofeo-estate"]

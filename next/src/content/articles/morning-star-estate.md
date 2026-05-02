@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-morning-star-estate-01.webp"
   alt: "Morning Star Estate vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["morning-star-estate"]

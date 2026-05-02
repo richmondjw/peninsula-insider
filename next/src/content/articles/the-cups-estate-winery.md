@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-the-cups-estate-winery-01.webp"
   alt: "The Cups Estate vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["the-cups-estate"]

@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-balnarring-vineyard-quealy-wines-01.webp"
   alt: "Balnarring Vineyard / Quealy Wines vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "balnarring"]
 relatedVenues: ["balnarring-vineyard"]

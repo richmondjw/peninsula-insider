@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-hickinbotham-of-dromana-01.webp"
   alt: "Hickinbotham of Dromana vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "dromana"]
 relatedVenues: ["hickinbotham-of-dromana"]

@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-vale-wines-mornington-01.webp"
   alt: "Vale Wines vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington"]
 relatedVenues: ["vale-wines"]

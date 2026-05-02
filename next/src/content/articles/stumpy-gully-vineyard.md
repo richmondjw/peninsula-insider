@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-stumpy-gully-vineyard-01.webp"
   alt: "Stumpy Gully Vineyard vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["stumpy-gully-vineyard"]

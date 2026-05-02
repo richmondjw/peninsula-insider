@@ -8,7 +8,7 @@ heroImage:
   src: "/images/sourced/article-prancing-horse-estate-01.webp"
   alt: "Prancing Horse Estate vineyard and cellar-door setting on the Mornington Peninsula"
   credit: "Peninsula Insider"
-  license: "tmp-placeholder"
+  license: "tmp-wikimedia"
 format: "cellar-door-dispatch"
 tags: ["wine", "cellar-door", "mornington-peninsula"]
 relatedVenues: ["prancing-horse-estate"]
