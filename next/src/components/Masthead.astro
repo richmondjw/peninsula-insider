@@ -22,7 +22,6 @@ export interface Props {
   port?: string;
   portTemp?: string;
   sunset?: string;
-  nextDispatch?: string;
 }
 
 const {
@@ -32,7 +31,6 @@ const {
   port = 'Port Phillip',
   portTemp = '16°C',
   sunset = '5:48 pm',
-  nextDispatch = 'Wed 6 pm',
 } = Astro.props;
 ---
 
@@ -49,8 +47,6 @@ const {
           <span class="masthead__weather-item"><strong>{port}</strong> {portTemp}</span>
           <span class="masthead__weather-sep" aria-hidden="true">·</span>
           <span class="masthead__weather-item"><strong>Sunset</strong> {sunset}</span>
-          <span class="masthead__weather-sep" aria-hidden="true">·</span>
-          <span class="masthead__weather-item"><strong>Next dispatch</strong> {nextDispatch}</span>
         </span>
         <div class="masthead__utility-links v2-util__links">
           <a href="/#newsletter" data-auth-anonymous>Subscribe</a>
@@ -136,7 +132,7 @@ const {
         Ask The Insider for a recommendation
       </a>
       <a href="/newsletter/" class="mobile-nav__cta">Get the weekly dispatch</a>
-      <p class="mobile-nav__tagline">Independent editorial. Every Sunday.</p>
+      <p class="mobile-nav__tagline">Independent editorial. Weekly.</p>
     </div>
   </div>
 </nav>
