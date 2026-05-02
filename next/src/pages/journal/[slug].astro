@@ -142,7 +142,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
             </div>
             <h1 class="article-hero__title">{article.data.title}</h1>
             <p class="article-hero__dek">{article.data.dek}</p>
-            <ShareBlock placement="top" title={article.data.title} summary={article.data.dek} />
+            <ShareBlock placement="top" title={article.data.title} summary={article.data.dek} format={String(article.data.format ?? '')} />
             <div class="article-hero__byline">
               <span class="article-hero__byline-name">— By <strong>{authorLabel}</strong></span>
               {article.data.lastVerified && (
@@ -218,7 +218,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
         />
       </div>
 
-      <ShareBlock placement="end" title={article.data.title} summary={article.data.dek} />
+      <ShareBlock placement="end" title={article.data.title} summary={article.data.dek} format={String(article.data.format ?? '')} />
     </div>
   </article>
 
