@@ -19,7 +19,7 @@
   },
   "signature": "A polished industrial taproom next door to the Dromana drive-in  -  core beers, a rolling list of seasonals, and the easiest bayside brewery stop",
   "editorNote": "Jetty Road is the most polished of the bayside breweries  -  an industrial taproom fitted out with enough attention to feel deliberate, right next door to the Dromana drive-in, with enough space on the deck to absorb a weekend crowd. The core range sits in the accessible craft sweet spot  -  pale ale, lager, a session XPA  -  and the rotating list pulls in seasonal experiments the head brewer is willing to stand behind.\n\nThe kitchen does the brewery standards well: pizzas, burgers, share plates designed to be eaten with pints in hand. The outdoor area catches the sun most of the afternoon. Families are welcome, groups are easy, and the whole place runs at the friendly mid-volume that makes a weeknight visit as enjoyable as a Saturday.\n\nUse it as your bayside brewery default. Closer to the beach than the hinterland breweries and the easiest one to drop into mid-day.",
-  "whyWeGo": "Jetty Road is the most polished of the bayside breweries \u2014 an industrial taproom fitted out with enough attention to feel deliberate, right next door to the Dromana drive-in, with enough space on the deck to absorb a weekend crowd.",
+  "whyWeGo": "Jetty Road is the most polished of the bayside breweries — an industrial taproom fitted out with enough attention to feel deliberate, right next door to the Dromana drive-in, with enough space on the deck to absorb a weekend crowd.",
   "bestFor": [
     "family outing",
     "families",
@@ -47,7 +47,7 @@
   },
   "heroImage": {
     "src": "/images/sourced/explore-arthurs-seat-lookout-01.webp",
-    "alt": "Mornington Peninsula landscape \u2014 representative image for Jetty Road Brewery",
+    "alt": "Mornington Peninsula landscape — representative image for Jetty Road Brewery",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
@@ -57,5 +57,33 @@
   "publishedAt": "2026-04-09",
   "bookingUrl": "https://www.jettyroad.com.au",
   "bookingProvider": "direct",
-  "sitemapExclude": true
+  "sitemapExclude": true,
+  "visiting": {
+    "openingHours": [
+      {
+        "days": [
+          "Wednesday",
+          "Thursday"
+        ],
+        "opens": "12:00",
+        "closes": "21:00"
+      },
+      {
+        "days": [
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "12:00",
+        "closes": "23:00"
+      },
+      {
+        "days": [
+          "Sunday"
+        ],
+        "opens": "12:00",
+        "closes": "20:00"
+      }
+    ],
+    "bookingRequired": false
+  }
 }
