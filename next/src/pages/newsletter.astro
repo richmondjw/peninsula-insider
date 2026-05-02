@@ -10,37 +10,39 @@ const breadcrumbItems = [
 
 <BaseLayout
   title="The Insider's Dispatch · Subscribe, Peninsula Insider"
-  description="The Sunday email that shapes the weekend ahead. One pick, one weather-proof backup, one thing to skip. Free. Written by editors who live on the Mornington Peninsula."
+  description="Sunday, 6pm. The dispatch lands. One pick, one weather-proof backup, one thing to skip. Written by editors who live on the Mornington Peninsula."
   section="home"
   canonical="https://peninsulainsider.com.au/newsletter/"
   ogImage="/images/sourced/article-sorrento-weekend-01.webp"
 >
   <!-- ═══════════════════════════════════════════════════════════════
-       1. CONVERSION HERO, form above the fold, no distractions
+       1. HERO, typographic publication front page.
+          No photo, no scrim, no glass form. Type, voice, white card.
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="news-hero" aria-label="Subscribe to The Insider's Dispatch">
-    <div class="news-hero__image" role="img" aria-label="Sunset on the Mornington Peninsula"
-         style="background-image: url('/images/sourced/article-sorrento-weekend-01.webp')"></div>
-    <div class="news-hero__scrim" aria-hidden="true"></div>
-    <div class="news-hero__inner container">
-      <p class="news-hero__eyebrow">The Insider's Dispatch · Free · Sunday weekly</p>
-      <h1 class="news-hero__title">The Peninsula in your inbox, every <em>Sunday</em>.</h1>
-      <p class="news-hero__dek">One pick, one weather-proof backup, one thing to skip. The dispatch that shapes the weekend ahead, written by editors who live on the Peninsula.</p>
+  <section class="news-hero" id="subscribe" aria-label="Subscribe to The Insider's Dispatch">
+    <div class="container">
+      <div class="news-hero__inner">
+        <p class="news-hero__eyebrow">The Insider's Dispatch <span>·</span> Issue 04 <span>·</span> 3,500 Peninsula readers</p>
+        <h1 class="news-hero__title"><em>Sunday, 6pm.</em><br/>The dispatch lands.</h1>
+        <p class="news-hero__dek">One pick. One weather-proof backup. One thing to skip. Written by editors who live on the Peninsula.</p>
 
-      <div class="news-hero__form">
-        <SubscribeForm variant="light" source="newsletter-page" />
+        <div class="news-hero__form">
+          <SubscribeForm variant="light" source="newsletter-page" />
+        </div>
+
+        <ul class="news-hero__proof">
+          <li><strong>52</strong> dispatches a year</li>
+          <li><strong>One email</strong> a week, Sunday only</li>
+          <li><strong>One-click</strong> unsubscribe</li>
+        </ul>
       </div>
-
-      <ul class="news-hero__proof">
-        <li><strong>3,500+</strong> Peninsula readers</li>
-        <li><strong>52</strong> dispatches a year</li>
-        <li><strong>One-click</strong> unsubscribe</li>
-      </ul>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. SAMPLE DISPATCH, what you'll actually receive
+       2. SAMPLE DISPATCH, what they will actually receive.
+          Specificity sells. This now sits second so the reader sees
+          the product before any abstract bullet promises.
        ═══════════════════════════════════════════════════════════════ -->
   <section class="news-sample" aria-label="Sample dispatch">
     <div class="container">
@@ -76,7 +78,7 @@ const breadcrumbItems = [
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       3. WHAT YOU GET, three quiet promises
+       3. WHAT YOU GET, four numbered promises
        ═══════════════════════════════════════════════════════════════ -->
   <section class="news-promise" aria-label="What you get">
     <div class="container">
@@ -136,17 +138,17 @@ const breadcrumbItems = [
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       5. SECOND-CHANCE CTA, the close
+       5. CLOSE, single button back to the form.
+          One form, one decision. The close earns the conversion with
+          a precise editorial line and bounces the reader to #subscribe.
        ═══════════════════════════════════════════════════════════════ -->
   <section class="news-close" aria-label="Subscribe">
     <div class="container">
       <div class="news-close__inner">
         <p class="label label--accent">Ready</p>
-        <h2 class="news-close__title">Sunday's dispatch is already drafting.</h2>
+        <h2 class="news-close__title">Sunday's dispatch is already <em>drafting.</em></h2>
         <p class="news-close__dek">Add your email and you'll be on the next one. No confirmation gymnastics, one click to subscribe, one click to leave any time you stop wanting it.</p>
-        <div class="news-close__form">
-          <SubscribeForm variant="dark" source="newsletter-page" />
-        </div>
+        <a href="#subscribe" class="news-close__cta">Subscribe</a>
       </div>
     </div>
   </section>
