@@ -6704,24 +6704,22 @@ p.has-drop-cap::first-letter {
 
 /* --- 768px: Tablet and below --- */
 @media (max-width: 768px) {
-  /* Mobile masthead pattern (flexbox, bulletproof):
-     wordmark hard-LEFT, "Ask" concierge pill, burger TOP-RIGHT. */
-  .masthead__burger { display: flex; }
+  /* Mobile masthead — simplest possible flex strip.
+     Source order in Masthead.astro is now logo / pill / burger so we
+     don't need flex `order` to re-arrange. Display values use `block`
+     for the wordmark to avoid any inline-flex/inline-block edge cases
+     that have been showing up; the wordmark's hard guarantee is
+     `display: block !important` so no later cascade can hide it. */
+  .masthead__burger { display: flex !important; }
   .masthead__nav { display: none; }
   .masthead__cta { display: none; }
-  .masthead__cta-mobile { display: none; }              /* floating Subscribe pill replaces it */
-  .masthead__concierge-mobile { display: inline-flex; } /* shown only on mobile */
-  .masthead__logo-mobile { display: inline-flex; align-items: center; }
+  .masthead__cta-mobile { display: none; }
+  .masthead__concierge-mobile { display: inline-flex !important; }
+  .masthead__logo-mobile { display: block !important; }
   .masthead__brand { display: none; }
 
-  /* Switch the nav-row inner to a simple flex strip. Source order is
-     burger / logo / concierge / (hidden) / (hidden) / (hidden) — the
-     `order` property re-stacks them visually: logo left (1), pill
-     middle (2), burger right (3). Flex with min-width:0 on the logo
-     means the wordmark can shrink with ellipsis if the screen is
-     narrow, but never disappears. */
   .masthead__nav-inner {
-    display: flex;
+    display: flex !important;
     align-items: center;
     height: 56px;
     min-height: 56px;
@@ -6729,7 +6727,6 @@ p.has-drop-cap::first-letter {
     padding: 0;
   }
   .masthead__logo-mobile {
-    order: 1;
     flex: 1 1 auto;
     min-width: 0;
     overflow: hidden;
@@ -6737,22 +6734,20 @@ p.has-drop-cap::first-letter {
     white-space: nowrap;
     line-height: 1;
     margin-left: -2px;
-    /* explicit color in case any token cascade got weird */
     color: var(--dark);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-decoration: none;
   }
   .masthead__concierge-mobile {
-    order: 2;
     flex: 0 0 auto;
   }
   .masthead__burger {
-    order: 3;
     flex: 0 0 auto;
-    margin-left: 0;
-    margin-right: -10px;  /* flush to right edge */
+    margin-right: -10px;
   }
 
-  /* Hide the floating bottom-right concierge bubble on mobile —
-     the masthead "Ask" pill is the trigger now. */
   .pi-drawer__bubble { display: none !important; }
 
   /* Tighten utility row */

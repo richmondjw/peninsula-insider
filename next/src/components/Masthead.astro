@@ -74,17 +74,12 @@ const {
   <div class="masthead__nav-row">
     <div class="container">
       <div class="masthead__nav-inner">
-        <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-          <span></span><span></span><span></span>
-        </button>
+        <!-- Source order matches visual order: wordmark first (left),
+             concierge pill (middle), burger last (right). Avoids any
+             reliance on CSS `order` to re-stack flex items. -->
         <a href="/" class="masthead__logo-mobile" aria-label="Peninsula Insider, home">
           Peninsula <span>Insider</span>
         </a>
-        <!-- Mobile-only concierge trigger pill. Sits between wordmark
-             (left) and burger (right). Click handler calls window.openConcierge
-             which is exposed by ConciergeDrawer's boot script. The matching
-             floating bubble is hidden on mobile via CSS so the chat trigger
-             only appears once. -->
         <button
           type="button"
           class="masthead__concierge-mobile"
@@ -96,6 +91,9 @@ const {
             <path d="M19 4 L19.6 5.6 L21 6 L19.6 6.4 L19 8 L18.4 6.4 L17 6 L18.4 5.6 Z" />
           </svg>
           <span class="masthead__concierge-mobile__label">Ask</span>
+        </button>
+        <button class="masthead__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
         </button>
         <nav aria-label="Primary">
           <ul class="masthead__nav">
