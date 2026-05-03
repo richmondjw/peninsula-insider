@@ -6511,6 +6511,44 @@ p.has-drop-cap::first-letter {
   transition: color .18s var(--ease);
 }
 .masthead__cta-mobile:hover { color: var(--dark); }
+
+/* --- Mobile-only concierge pill in the masthead nav row ---
+   Editorial-brand pill: white surface, accent-coloured border,
+   sparkle icon + "Ask" label. Hidden on desktop where the floating
+   bottom-right bubble does the same job. Calls window.openConcierge
+   via the data-pi-trigger handler in Masthead.astro. */
+.masthead__concierge-mobile {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem 0.42rem 0.7rem;
+  background: var(--bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .18s var(--ease), color .18s var(--ease);
+  line-height: 1;
+  white-space: nowrap;
+}
+.masthead__concierge-mobile:hover,
+.masthead__concierge-mobile:active {
+  background: var(--accent);
+  color: var(--white);
+}
+.masthead__concierge-mobile svg {
+  flex-shrink: 0;
+  display: block;
+}
+.masthead__concierge-mobile__label {
+  display: inline-block;
+}
+
 .masthead__burger {
   display: none;
   background: none;
@@ -6657,46 +6695,52 @@ p.has-drop-cap::first-letter {
 
 /* --- 768px: Tablet and below --- */
 @media (max-width: 768px) {
-  /* Mobile masthead pattern: single nav row.
-     Wordmark "Peninsula Insider" is PERFECTLY CENTERED in the row via
-     absolute positioning (so center is independent of the burger's
-     width). Burger sits TOP-RIGHT in flex flow. The brand row above
-     and the redundant mobile Subscribe link are hidden — the floating
-     Subscribe pill (bottom-left) and the utility-row Subscribe link
-     already cover that intent. */
+  /* Mobile masthead pattern: wordmark hard-LEFT, "Ask" concierge pill,
+     burger TOP-RIGHT. Mirrors the Destination Vancouver pattern of
+     in-header AI-concierge access. The floating bottom-right concierge
+     bubble is hidden on mobile so the trigger only appears once. */
   .masthead__burger { display: flex; }
   .masthead__nav { display: none; }
   .masthead__cta { display: none; }
-  .masthead__cta-mobile { display: none; }  /* removed on mobile — floating pill replaces it */
+  .masthead__cta-mobile { display: none; }       /* floating Subscribe pill replaces it */
+  .masthead__concierge-mobile { display: inline-flex; } /* shown only on mobile */
   .masthead__logo-mobile { display: inline-block; }
   .masthead__brand { display: none; }
 
   .masthead__nav-inner {
-    position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     align-items: center;
-    justify-content: flex-end;   /* burger pinned right */
     height: 56px;
-    gap: 0.5rem;
+    gap: 0.55rem;
     overflow: hidden;
   }
+  /* Source order is burger / logo / concierge — pin to columns:
+     wordmark hard-LEFT, concierge pill middle-right, burger TOP-RIGHT. */
   .masthead__logo-mobile {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: calc(100% - 96px);  /* leave room for burger + page padding */
+    grid-column: 1;
+    justify-self: start;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    text-align: center;
-    line-height: 1;
-    padding: 0 0.25rem;
+    margin-left: -2px;
+  }
+  .masthead__concierge-mobile {
+    grid-column: 2;
+    justify-self: end;
   }
   .masthead__burger {
+    grid-column: 3;
+    justify-self: end;
     margin-left: 0;
     margin-right: -10px;  /* flush to right edge */
   }
+
+  /* Hide the floating bottom-right concierge bubble on mobile —
+     the masthead "Ask" pill is the trigger now. The drawer panel
+     itself (open state) still works exactly as before. */
+  .pi-drawer__bubble { display: none !important; }
 
   /* Tighten utility row */
   .masthead__weather { display: none; }
