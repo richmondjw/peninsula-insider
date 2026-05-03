@@ -213,9 +213,27 @@ const orderedPlans = allPlanSpecs
   .insider-plans__scroll-wrapper {
     padding: 0.25rem 0 1.5rem;
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     cursor: grab;
+    /* Soft scroll-snap so cards settle gracefully when the rail
+       coasts to a stop. `proximity` (not mandatory) means the snap
+       only kicks in when we're already close — it doesn't fight
+       in-flight drag motion. */
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--container-pad, 1.25rem);
+    /* Hint to the browser that scroll-left will be animated by JS;
+       lets the rendering pipeline allocate a compositor layer so
+       inertial frames stay smooth. */
+    will-change: scroll-position;
+    /* Disable native overscroll bounce so our inertia controls feel. */
+    overscroll-behavior-x: contain;
+    touch-action: pan-y;
+  }
+  .insider-plans__scroll-wrapper.is-dragging {
+    cursor: grabbing;
+    user-select: none;
   }
 
   .insider-plans__scroll-wrapper::-webkit-scrollbar {
@@ -241,7 +259,9 @@ const orderedPlans = allPlanSpecs
     text-decoration: none;
     color: #fff;
     border-radius: 2px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    scroll-snap-align: start;
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
   @media (min-width: 768px) {
@@ -252,8 +272,8 @@ const orderedPlans = allPlanSpecs
   }
 
   .plan-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.22);
   }
 
   .plan-card__image {
@@ -261,11 +281,12 @@ const orderedPlans = allPlanSpecs
     inset: 0;
     background-size: cover;
     background-position: center;
-    transition: transform 0.4s ease;
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
   }
 
   .plan-card:hover .plan-card__image {
-    transform: scale(1.03);
+    transform: scale(1.04);
   }
 
   .plan-card__overlay {
@@ -328,30 +349,132 @@ const orderedPlans = allPlanSpecs
 </style>
 
 <script>
-  document.querySelectorAll('.insider-plans__scroll-wrapper').forEach((track) => {
-    const el = track as HTMLElement;
-    if (el.dataset.dragBound === 'true') return;
-    el.dataset.dragBound = 'true';
+  /* Soft, flowy horizontal scroll for the Insider Plans rail.
+     Three behaviours layered on top of the native overflow:
+       1. Pointer-based click-and-drag with velocity tracking and
+          inertial decay after release — stops gradually instead of
+          dead, the way a flicked card on iOS feels.
+       2. Mouse-wheel-to-horizontal: a vertical scroll on the rail
+          translates to horizontal motion while the rail is hovered.
+          Lets desktop readers trackpad / wheel through naturally.
+       3. Drag-vs-click discrimination: a small movement threshold
+          before we suppress the link click, so a deliberate tap on
+          a card still navigates.
+  */
+  function bindInsiderPlansRail() {
+    document.querySelectorAll('.insider-plans__scroll-wrapper').forEach((track) => {
+      const el = track as HTMLElement;
+      if (el.dataset.dragBound === 'true') return;
+      el.dataset.dragBound = 'true';
 
-    let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
+      const DRAG_THRESHOLD = 6;        // pixels before we count as a drag
+      const INERTIA_DECAY  = 0.94;     // velocity multiplier per frame (0..1)
+      const INERTIA_MIN    = 0.04;     // px/ms below which we stop the loop
 
-    el.addEventListener('mousedown', (e) => {
-      isDown = true;
-      el.style.cursor = 'grabbing';
-      startX = e.pageX - el.offsetLeft;
-      scrollLeft = el.scrollLeft;
+      let pointerId: number | null = null;
+      let isDown        = false;
+      let isDragging    = false;        // moved past threshold
+      let startX        = 0;
+      let startScrollLeft = 0;
+      let lastX         = 0;
+      let lastTime      = 0;
+      let velocity      = 0;            // px per ms, positive = pointer moved right
+      let inertiaRaf: number | null = null;
+
+      function cancelInertia() {
+        if (inertiaRaf !== null) {
+          cancelAnimationFrame(inertiaRaf);
+          inertiaRaf = null;
+        }
+      }
+
+      function startInertia() {
+        cancelInertia();
+        let last = performance.now();
+        function step(now: number) {
+          const dt = now - last;
+          last = now;
+          velocity *= Math.pow(INERTIA_DECAY, dt / 16);
+          if (Math.abs(velocity) < INERTIA_MIN) {
+            inertiaRaf = null;
+            return;
+          }
+          el.scrollLeft -= velocity * dt;
+          inertiaRaf = requestAnimationFrame(step);
+        }
+        inertiaRaf = requestAnimationFrame(step);
+      }
+
+      el.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0) return;     // left mouse / primary touch only
+        cancelInertia();
+        isDown      = true;
+        isDragging  = false;
+        pointerId   = e.pointerId;
+        startX      = e.clientX;
+        lastX       = e.clientX;
+        lastTime    = performance.now();
+        startScrollLeft = el.scrollLeft;
+        velocity    = 0;
+      });
+
+      el.addEventListener('pointermove', (e) => {
+        if (!isDown || pointerId !== e.pointerId) return;
+        const dx = e.clientX - startX;
+        if (!isDragging && Math.abs(dx) > DRAG_THRESHOLD) {
+          isDragging = true;
+          el.classList.add('is-dragging');
+          try { el.setPointerCapture(e.pointerId); } catch (_e) {}
+        }
+        if (!isDragging) return;
+        e.preventDefault();
+        el.scrollLeft = startScrollLeft - dx;
+        const now = performance.now();
+        const dt  = Math.max(1, now - lastTime);
+        velocity  = (e.clientX - lastX) / dt;
+        lastX     = e.clientX;
+        lastTime  = now;
+      });
+
+      function endPointer(e: PointerEvent) {
+        if (pointerId !== e.pointerId) return;
+        const wasDragging = isDragging;
+        isDown = false;
+        isDragging = false;
+        pointerId = null;
+        el.classList.remove('is-dragging');
+        try { el.releasePointerCapture(e.pointerId); } catch (_e) {}
+        if (wasDragging) {
+          // Don't fire the click that follows — user was scrolling.
+          const swallowClick = (ev: MouseEvent) => {
+            ev.stopPropagation();
+            ev.preventDefault();
+            el.removeEventListener('click', swallowClick, true);
+          };
+          el.addEventListener('click', swallowClick, true);
+          startInertia();
+        }
+      }
+
+      el.addEventListener('pointerup',     endPointer);
+      el.addEventListener('pointercancel', endPointer);
+
+      // Translate vertical wheel deltas into horizontal scroll on the
+      // rail. If the user is producing a primarily-horizontal gesture
+      // (trackpad two-finger), let it through unchanged.
+      el.addEventListener('wheel', (e) => {
+        const absX = Math.abs(e.deltaX);
+        const absY = Math.abs(e.deltaY);
+        if (absX > absY) return;        // already horizontal — let it run
+        if (absY < 1) return;
+        e.preventDefault();
+        cancelInertia();
+        // Scale wheel delta a little so a single notch feels generous.
+        el.scrollLeft += e.deltaY * 1.15;
+      }, { passive: false });
     });
+  }
 
-    el.addEventListener('mouseleave', () => { isDown = false; el.style.cursor = 'grab'; });
-    el.addEventListener('mouseup', () => { isDown = false; el.style.cursor = 'grab'; });
-    el.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - el.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      el.scrollLeft = scrollLeft - walk;
-    });
-  });
+  bindInsiderPlansRail();
+  document.addEventListener('astro:page-load', bindInsiderPlansRail);
 </script>
