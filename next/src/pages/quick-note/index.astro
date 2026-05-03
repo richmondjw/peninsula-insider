@@ -10,6 +10,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const all = await getCollection('quickNotes', ({ data }) => data.status === 'published');
 const now = new Date();
+const TZ = 'Australia/Melbourne';
 const live = all.filter((n) => n.data.expiresAt > now);
 
 // Sort by published date, newest first
@@ -56,13 +57,17 @@ function relTime(d: Date): string {
 }
 
 const dateline = now.toLocaleDateString('en-AU', {
-  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: TZ,
+});
+const lastUpdated = now.toLocaleTimeString('en-AU', {
+  hour: 'numeric', minute: '2-digit', hour12: true, timeZone: TZ,
 });
 
 // Volume + issue numbering. Vol 04 (Autumn 2026); issue increments daily.
 // Use 2026-04-01 as the start of Vol 04 to derive a sensible number.
 const issueStart = new Date('2026-04-01T00:00:00+10:00');
 const issueNumber = Math.floor((now.getTime() - issueStart.getTime()) / 86400000) + 1;
+const hasToday = [...tierNow, ...tierToday].length > 0;
 
 // Group "today" by section for the section-band view
 const sections = ['note', 'weather', 'eat', 'wine', 'stay', 'explore', 'spa', 'whats-on'];
@@ -80,7 +85,7 @@ function noteHref(n: any): string {
 
 <BaseLayout
   title={`Quick Note, ${dateline} | Peninsula Insider`}
-  description="Daily Peninsula briefs: openings, menu changes, booking windows, weather, and one editor's note. Refreshed every weekday."
+  description="Daily Peninsula briefs: openings, menu changes, booking windows, weather, and one editor's note. Refreshed every morning."
   section="home"
   ogType="website"
 >
@@ -97,7 +102,9 @@ function noteHref(n: any): string {
           <span class="qn__sep" aria-hidden="true">·</span>
           <span class="qn__count">{live.length} live briefs</span>
           <span class="qn__sep" aria-hidden="true">·</span>
-          <span class="qn__cadence">Refreshed every weekday morning</span>
+          <span class="qn__cadence">Refreshed every morning</span>
+          <span class="qn__sep" aria-hidden="true">·</span>
+          <span class="qn__updated">Updated {lastUpdated}</span>
         </p>
       </div>
     </header>
@@ -153,7 +160,7 @@ function noteHref(n: any): string {
           <h2 class="qn__band-title" id="qn-today-title">Today</h2>
           <p class="qn__band-sub">Posted in the last twenty-four hours, grouped by section.</p>
         </div>
-        {sections.filter((s) => todayBySection[s]?.length).map((s) => (
+        {hasToday ? sections.filter((s) => todayBySection[s]?.length).map((s) => (
           <div class="qn__sect">
             <p class="qn__sect-label">{SECTION_LABEL[s]}</p>
             <div class="qn__sect-grid">
@@ -170,7 +177,12 @@ function noteHref(n: any): string {
               ))}
             </div>
           </div>
-        ))}
+        )) : (
+          <div class="qn__empty">
+            <p class="qn__empty-title">Fresh notes are being assembled for this morning.</p>
+            <p class="qn__empty-copy">If the desk is quiet, we still publish weather, one editor's note, and the strongest service update before breakfast.</p>
+          </div>
+        )}
       </div>
     </section>
 
@@ -203,7 +215,7 @@ function noteHref(n: any): string {
         <p>
           <em>Quick Note</em> is Peninsula Insider's daily layer.
           Editorial briefs about openings, menu changes, booking windows,
-          weather, and one editor's note. Refreshed every weekday morning;
+          weather, and one editor's note. Refreshed every morning;
           older briefs auto-archive after seven days.
         </p>
         <p>The full <a href="/journal/">Journal</a> remains the long-form record.</p>
@@ -343,6 +355,26 @@ function noteHref(n: any): string {
   .qn__sect-grid {
     display: grid;
     gap: 1.4rem;
+  }
+  .qn__empty {
+    padding: 1.2rem 0 0.4rem;
+    border-top: 1px solid rgba(121, 92, 58, 0.10);
+    max-width: 48rem;
+  }
+  .qn__empty-title,
+  .qn__empty-copy {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    margin: 0;
+  }
+  .qn__empty-title {
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 0.35rem;
+  }
+  .qn__empty-copy {
+    font-size: 0.96rem;
+    color: var(--soft);
+    line-height: 1.55;
   }
 
   /* Brief, base */

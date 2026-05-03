@@ -136,6 +136,63 @@
       ]
     },
     {
+      "name": "pi-daily-quick-note-research",
+      "cadence": "daily 19:45 UTC",
+      "type": "research",
+      "owner": "PI-quick-note-desk",
+      "inputs": [
+        "weather snapshot",
+        "priority venue homepages",
+        "booking windows",
+        "same-day service changes",
+        "editorial diary"
+      ],
+      "outputs": [
+        "reports/quick-note-research-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "next/src/content/quick-notes",
+        "quick-note/index.html"
+      ]
+    },
+    {
+      "name": "pi-daily-quick-note-draft",
+      "cadence": "daily 20:05 UTC",
+      "type": "editorial-draft",
+      "owner": "PI-quick-note-desk",
+      "inputs": [
+        "reports/quick-note-research-YYYY-MM-DD.md"
+      ],
+      "outputs": [
+        "next/src/content/quick-notes/YYYY-MM-DD-*.md"
+      ],
+      "surfaces": [
+        "next/src/content/quick-notes",
+        "quick-note/index.html"
+      ]
+    },
+    {
+      "name": "pi-daily-quick-note-qa-publish",
+      "cadence": "daily 20:20 UTC",
+      "type": "publish",
+      "owner": "PI-editor-qa + PI-publisher",
+      "inputs": [
+        "draft quick notes",
+        "expiry windows",
+        "repo diff",
+        "preview build"
+      ],
+      "outputs": [
+        "reports/quick-note-publish-YYYY-MM-DD.md"
+      ],
+      "surfaces": [
+        "next/src/content/quick-notes",
+        "quick-note/index.html",
+        "live repo",
+        "GitHub Pages deploy"
+      ]
+    },
+    {
       "name": "pi-daily-build-draft",
       "cadence": "daily 06:40 UTC",
       "type": "editorial-draft",
