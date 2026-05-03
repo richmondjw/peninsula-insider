@@ -264,9 +264,19 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 46px;
   gap: 1rem;
+}
+/* Push the search icon (and everything after it: Subscribe) to the
+   far right edge in one move. Keeps a tight visual cluster of
+   search + Subscribe instead of the previous space-between layout
+   that wedged a big gap between them. */
+.masthead__nav-inner .masthead__search-icon {
+  margin-left: auto;
+}
+.masthead__nav-inner .masthead__cta {
+  margin-left: 0.6rem;  /* tight gap between search icon and Subscribe pill */
 }
 .masthead__nav {
   display: flex;
@@ -6736,19 +6746,30 @@ p.has-drop-cap::first-letter {
     margin-left: -2px;
     color: var(--dark);
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.35rem;
+    font-size: 1.55rem;          /* +15% from prior 1.35rem */
     font-weight: 600;
     text-decoration: none;
   }
-  .masthead__concierge-mobile {
+  /* Visual order on mobile: wordmark | Ask | search | burger.
+     Source order is wordmark / Ask / burger / nav / search, so we
+     re-stack burger and search via flex `order`. The wordmark stays
+     at default order:0 so its `flex: 1 1 auto` fills the remaining
+     space on the left. The desktop rule that gives the search icon
+     `margin-left: auto` is reset to 0 here so it sits flush next to
+     the Ask pill instead of being pushed to the right edge. */
+  .masthead__concierge-mobile { order: 1; flex: 0 0 auto; }
+  .masthead__nav-inner .masthead__search-icon {
+    order: 2;
     flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0;
   }
-  .masthead__burger {
-    flex: 0 0 auto;
-    margin-right: -10px;
-  }
+  .masthead__burger          { order: 3; flex: 0 0 auto; margin-right: -10px; }
 
-  .pi-drawer__bubble { display: none !important; }
+  /* Floating bottom-right "Ask The Insider" bubble stays visible on
+     mobile alongside the in-header pill — both surfaces lead to the
+     same drawer, the floater is the persistent reminder. */
 
   /* Tighten utility row */
   .masthead__weather { display: none; }
