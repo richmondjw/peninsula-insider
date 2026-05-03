@@ -1,0 +1,364 @@
+---
+/**
+ * CookieBanner — first-visit consent surface.
+ *
+ * Two-tier consent (Accept all / Manage preferences). Strictly necessary
+ * cookies (concierge session) are always on; analytics (Google Analytics)
+ * is opt-in.
+ *
+ * Persistence: localStorage key `pi-consent-v1`. Shape:
+ *   { necessary: true, analytics: boolean, ts: ISO date string, version: 1 }
+ *
+ * On consent change the component dispatches a `pi:consent-changed` window
+ * event with the new state. BaseLayout listens for that to load gtag.js
+ * lazily when analytics is opted into.
+ *
+ * Re-opening: any element with `data-pi-consent="open"` will re-show the
+ * banner. The footer "Cookie settings" link uses this hook.
+ */
+---
+
+<aside
+  class="cookie-banner"
+  id="cookie-banner"
+  role="dialog"
+  aria-label="Cookie preferences"
+  aria-live="polite"
+  data-state="hidden"
+>
+  <div class="cookie-banner__inner">
+    <div class="cookie-banner__copy">
+      <p class="cookie-banner__title">A note on cookies</p>
+      <p class="cookie-banner__body">
+        Strictly necessary cookies keep your concierge chat in session. Analytics cookies tell us which pages people read, anonymously, so we can write more of what works. Nothing personal is sold or shared.
+        <a href="/privacy/">Read the full privacy policy.</a>
+      </p>
+    </div>
+
+    <div class="cookie-banner__actions" id="cookie-banner-actions">
+      <button type="button" class="cookie-banner__btn cookie-banner__btn--primary" id="cookie-accept-all">
+        Accept all
+      </button>
+      <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" id="cookie-manage">
+        Manage preferences
+      </button>
+    </div>
+
+    <div class="cookie-banner__manage" id="cookie-banner-manage" hidden>
+      <ul class="cookie-banner__list">
+        <li class="cookie-banner__row">
+          <div class="cookie-banner__row-text">
+            <p class="cookie-banner__row-title">Strictly necessary</p>
+            <p class="cookie-banner__row-dek">Required for the concierge chat to remember your session. Always on.</p>
+          </div>
+          <span class="cookie-banner__toggle cookie-banner__toggle--locked" aria-hidden="true">
+            <span class="cookie-banner__toggle-knob"></span>
+          </span>
+          <span class="visually-hidden">Strictly necessary cookies are always on</span>
+        </li>
+        <li class="cookie-banner__row">
+          <div class="cookie-banner__row-text">
+            <p class="cookie-banner__row-title">Analytics</p>
+            <p class="cookie-banner__row-dek">Anonymous page-view counts via Google Analytics, used for editorial decisions.</p>
+          </div>
+          <label class="cookie-banner__toggle">
+            <input type="checkbox" id="cookie-toggle-analytics" checked />
+            <span class="cookie-banner__toggle-knob" aria-hidden="true"></span>
+            <span class="visually-hidden">Allow analytics cookies</span>
+          </label>
+        </li>
+      </ul>
+      <div class="cookie-banner__manage-actions">
+        <button type="button" class="cookie-banner__btn cookie-banner__btn--primary" id="cookie-save">
+          Save preferences
+        </button>
+        <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" id="cookie-reject-all">
+          Reject non-essential
+        </button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script is:inline>
+  (function () {
+    var KEY = 'pi-consent-v1';
+    var VERSION = 1;
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    function read() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (!parsed || parsed.version !== VERSION) return null;
+        return parsed;
+      } catch (_e) {
+        return null;
+      }
+    }
+
+    function write(state) {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(state));
+      } catch (_e) {}
+      window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: state }));
+    }
+
+    function show() {
+      banner.setAttribute('data-state', 'visible');
+      var manage = document.getElementById('cookie-banner-manage');
+      var actions = document.getElementById('cookie-banner-actions');
+      if (manage) manage.hidden = true;
+      if (actions) actions.hidden = false;
+    }
+
+    function hide() {
+      banner.setAttribute('data-state', 'hidden');
+    }
+
+    function expandManage() {
+      var manage = document.getElementById('cookie-banner-manage');
+      var actions = document.getElementById('cookie-banner-actions');
+      if (manage) manage.hidden = false;
+      if (actions) actions.hidden = true;
+      var toggle = document.getElementById('cookie-toggle-analytics');
+      var existing = read();
+      if (toggle && existing) toggle.checked = !!existing.analytics;
+    }
+
+    function save(analyticsOn) {
+      var state = {
+        version: VERSION,
+        necessary: true,
+        analytics: !!analyticsOn,
+        ts: new Date().toISOString(),
+      };
+      write(state);
+      hide();
+    }
+
+    document.getElementById('cookie-accept-all').addEventListener('click', function () { save(true); });
+    document.getElementById('cookie-manage').addEventListener('click', expandManage);
+    document.getElementById('cookie-save').addEventListener('click', function () {
+      var toggle = document.getElementById('cookie-toggle-analytics');
+      save(toggle && toggle.checked);
+    });
+    document.getElementById('cookie-reject-all').addEventListener('click', function () { save(false); });
+
+    // Re-open from anywhere via [data-pi-consent="open"]
+    function bindReopenTriggers() {
+      document.querySelectorAll('[data-pi-consent="open"]').forEach(function (el) {
+        if (el._piConsentBound) return;
+        el._piConsentBound = true;
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          show();
+        });
+      });
+    }
+    bindReopenTriggers();
+    document.addEventListener('astro:page-load', bindReopenTriggers);
+
+    // Expose programmatic re-open
+    window.openConsent = show;
+
+    // Initial: show only if the user has not made a choice yet.
+    if (!read()) {
+      // Defer slightly to avoid layout jank on first paint.
+      setTimeout(show, 350);
+    } else {
+      // Re-broadcast so any late-bound listeners (e.g. GA loader) see state.
+      window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: read() }));
+    }
+  })();
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -8px 28px -16px rgba(0, 0, 0, 0.18);
+    transform: translateY(110%);
+    transition: transform 0.3s ease;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+  }
+  .cookie-banner[data-state='visible'] {
+    transform: translateY(0);
+  }
+
+  .cookie-banner__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.1rem clamp(1rem, 4vw, 2rem);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .cookie-banner__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cookie-banner__body {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--soft);
+    margin: 0;
+    max-width: 70ch;
+  }
+  .cookie-banner__body a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .cookie-banner__body a:hover { color: var(--text); }
+
+  .cookie-banner__actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .cookie-banner__btn {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .cookie-banner__btn:hover { border-color: var(--accent); }
+  .cookie-banner__btn--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+  }
+  .cookie-banner__btn--primary:hover { background: var(--text); border-color: var(--text); }
+  .cookie-banner__btn--ghost {
+    background: transparent;
+  }
+
+  .cookie-banner__manage {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .cookie-banner__list {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .cookie-banner__row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .cookie-banner__row-text { flex: 1; min-width: 0; }
+  .cookie-banner__row-title {
+    font-size: 0.92rem;
+    font-weight: 500;
+    margin: 0 0 0.15rem;
+    color: var(--text);
+  }
+  .cookie-banner__row-dek {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--soft);
+    margin: 0;
+  }
+
+  .cookie-banner__toggle {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 22px;
+    flex-shrink: 0;
+    background: var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .cookie-banner__toggle input {
+    position: absolute;
+    opacity: 0;
+    inset: 0;
+    cursor: pointer;
+  }
+  .cookie-banner__toggle-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: var(--white);
+    border-radius: 50%;
+    transition: transform 0.15s ease;
+  }
+  .cookie-banner__toggle input:checked ~ .cookie-banner__toggle-knob {
+    transform: translateX(16px);
+  }
+  .cookie-banner__toggle:has(input:checked) {
+    background: var(--accent);
+  }
+  .cookie-banner__toggle--locked {
+    background: var(--accent);
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  .cookie-banner__toggle--locked .cookie-banner__toggle-knob {
+    transform: translateX(16px);
+  }
+
+  .cookie-banner__manage-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+
+  @media (max-width: 720px) {
+    .cookie-banner__inner {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+    .cookie-banner__actions {
+      justify-content: stretch;
+    }
+    .cookie-banner__actions .cookie-banner__btn {
+      flex: 1;
+    }
+  }
+</style>
