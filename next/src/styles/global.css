@@ -6746,17 +6746,26 @@ p.has-drop-cap::first-letter {
     margin-left: -2px;
     color: var(--dark);
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.35rem;
+    font-size: 1.55rem;          /* +15% from prior 1.35rem */
     font-weight: 600;
     text-decoration: none;
   }
-  .masthead__concierge-mobile {
+  /* Visual order on mobile: wordmark | Ask | search | burger.
+     Source order is wordmark / Ask / burger / nav / search, so we
+     re-stack burger and search via flex `order`. The wordmark stays
+     at default order:0 so its `flex: 1 1 auto` fills the remaining
+     space on the left. The desktop rule that gives the search icon
+     `margin-left: auto` is reset to 0 here so it sits flush next to
+     the Ask pill instead of being pushed to the right edge. */
+  .masthead__concierge-mobile { order: 1; flex: 0 0 auto; }
+  .masthead__nav-inner .masthead__search-icon {
+    order: 2;
     flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0;
   }
-  .masthead__burger {
-    flex: 0 0 auto;
-    margin-right: -10px;
-  }
+  .masthead__burger          { order: 3; flex: 0 0 auto; margin-right: -10px; }
 
   /* Floating bottom-right "Ask The Insider" bubble stays visible on
      mobile alongside the in-header pill — both surfaces lead to the
