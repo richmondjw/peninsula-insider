@@ -152,3 +152,6 @@ That is the whole weekend. Two nights, one great meal, two or three experiences,
 The Peninsula is not a place that rewards over-planning. It rewards showing up with one or two decisions made and the rest left open. The best weekends we have seen are the ones where the plan was loose enough to allow for the thing nobody expected  -  the cellar door that a local recommended, the beach that was empty, the restaurant that had a cancellation, the afternoon that turned into nothing and was perfect.
 
 Make the five decisions. Then stop planning and go.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

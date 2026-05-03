@@ -121,3 +121,6 @@ If you wanted to do a pub day  -  and there are worse ideas  -  the route that m
 Total drive: about forty minutes across three legs. Total cost: less than a degustation at any of the hatted restaurants. Total satisfaction: high.
 
 The Peninsula is a wine region with a pub backbone. Both versions of the place are real. The pubs are just the version that doesn't need a booking.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

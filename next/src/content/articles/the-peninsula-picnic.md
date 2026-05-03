@@ -139,3 +139,6 @@ For a family of four, swap the wine for sparkling water and juice, add a larger 
 The Peninsula picnic is not a compromise. It is a format that the region is specifically built for  -  a food-producer region with public parkland, vineyard grounds, and coastal reserves that are all available, all free, and all better-suited to a blanket and a loaf than to a dining room with a booking system.
 
 The people who eat best on the Peninsula are not always the ones with the best reservations. Sometimes they are the ones with the best bread.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

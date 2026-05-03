@@ -133,3 +133,6 @@ The Peninsula's seafood calendar runs roughly like this:
 | The cheapest great meal | Two kilos of mussels, a lemon, and a bottle of vermentino |
 
 The Peninsula's seafood is not competing with its wine story. It is completing it. The pinot gets the attention. The mussels get the locals. Both of them are the region.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*
