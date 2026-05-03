@@ -5767,9 +5767,28 @@ p.has-drop-cap::first-letter {
 
 /* =========================================================
    ABOUT PAGE
+   All sections share the same vertical rhythm so the page reads
+   as a single editorial column with even breathing room. Sections
+   alternate bg / bg-alt for visual cadence. Section-specific
+   padding tweaks were causing 'tucked together' inconsistency,
+   replaced with one uniform clamp value site-wide.
    ========================================================= */
+.about-mission,
+.about-principles,
+.about-difference,
+.about-build,
+.about-masthead,
+.about-colophon {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+}
+.about-principles,
+.about-build,
+.about-colophon {
+  background: var(--bg-alt);
+}
 .about-mission {
-  padding: 5rem 0 3rem;
+  /* override left in place but uniform now — kept as a hook for any
+     hero-adjacent tweaks we want without breaking rhythm. */
 }
 .about-mission__grid {
   display: grid;
@@ -5802,10 +5821,6 @@ p.has-drop-cap::first-letter {
   color: var(--acc-h);
 }
 
-.about-principles {
-  padding: 4rem 0;
-  background: var(--bg-alt);
-}
 .about-principles__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -5876,14 +5891,8 @@ p.has-drop-cap::first-letter {
   margin-top: 0.4rem;
 }
 
-.about-build {
-  padding: 4rem 0 5rem;
-  background: var(--bg-alt);
-}
-
-.about-masthead {
-  padding: 4rem 0 5rem;
-}
+/* (.about-build and .about-masthead padding/background handled by the
+   unified rule above so the page reads with even rhythm.) */
 .about-masthead__credits {
   margin-top: 2.5rem;
   padding-top: 2rem;
@@ -6695,51 +6704,55 @@ p.has-drop-cap::first-letter {
 
 /* --- 768px: Tablet and below --- */
 @media (max-width: 768px) {
-  /* Mobile masthead pattern: wordmark hard-LEFT, "Ask" concierge pill,
-     burger TOP-RIGHT. Mirrors the Destination Vancouver pattern of
-     in-header AI-concierge access. The floating bottom-right concierge
-     bubble is hidden on mobile so the trigger only appears once. */
+  /* Mobile masthead pattern (flexbox, bulletproof):
+     wordmark hard-LEFT, "Ask" concierge pill, burger TOP-RIGHT. */
   .masthead__burger { display: flex; }
   .masthead__nav { display: none; }
   .masthead__cta { display: none; }
-  .masthead__cta-mobile { display: none; }       /* floating Subscribe pill replaces it */
+  .masthead__cta-mobile { display: none; }              /* floating Subscribe pill replaces it */
   .masthead__concierge-mobile { display: inline-flex; } /* shown only on mobile */
-  .masthead__logo-mobile { display: inline-block; }
+  .masthead__logo-mobile { display: inline-flex; align-items: center; }
   .masthead__brand { display: none; }
 
+  /* Switch the nav-row inner to a simple flex strip. Source order is
+     burger / logo / concierge / (hidden) / (hidden) / (hidden) — the
+     `order` property re-stacks them visually: logo left (1), pill
+     middle (2), burger right (3). Flex with min-width:0 on the logo
+     means the wordmark can shrink with ellipsis if the screen is
+     narrow, but never disappears. */
   .masthead__nav-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    display: flex;
     align-items: center;
     height: 56px;
-    gap: 0.55rem;
-    overflow: hidden;
+    min-height: 56px;
+    gap: 0.6rem;
+    padding: 0;
   }
-  /* Source order is burger / logo / concierge — pin to columns:
-     wordmark hard-LEFT, concierge pill middle-right, burger TOP-RIGHT. */
   .masthead__logo-mobile {
-    grid-column: 1;
-    justify-self: start;
-    max-width: 100%;
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 1;
     margin-left: -2px;
+    /* explicit color in case any token cascade got weird */
+    color: var(--dark);
   }
   .masthead__concierge-mobile {
-    grid-column: 2;
-    justify-self: end;
+    order: 2;
+    flex: 0 0 auto;
   }
   .masthead__burger {
-    grid-column: 3;
-    justify-self: end;
+    order: 3;
+    flex: 0 0 auto;
     margin-left: 0;
     margin-right: -10px;  /* flush to right edge */
   }
 
   /* Hide the floating bottom-right concierge bubble on mobile —
-     the masthead "Ask" pill is the trigger now. The drawer panel
-     itself (open state) still works exactly as before. */
+     the masthead "Ask" pill is the trigger now. */
   .pi-drawer__bubble { display: none !important; }
 
   /* Tighten utility row */
