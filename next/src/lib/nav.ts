@@ -161,6 +161,7 @@ export const footerAboutLinks: NavItem[] = [
   { key: 'contact',    label: 'Contact',         href: '/contact/' },
   { key: 'newsletter', label: 'Newsletter',      href: '/newsletter/' },
   { key: 'privacy',    label: 'Privacy',         href: '/privacy/' },
+  { key: 'cookies',    label: 'Cookie settings', href: '#cookie-settings' },
 ];
 
 /**

@@ -19,6 +19,7 @@ import ConciergeDrawer from '../components/ConciergeDrawer.astro';
 import SearchOverlay from '../components/SearchOverlay.astro';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 
 export interface Props {
   title: string;
@@ -139,13 +140,45 @@ const isAskPage = rawPathname.startsWith('/ask');
   <link rel="stylesheet" href="/assets/mobile-fixes.css" />
   <link rel="stylesheet" href="/assets/scroll-animations.css" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0MR9YVZ9NW"></script>
+  <!-- Google tag (gtag.js) — gated on user consent.
+       The loader checks localStorage 'pi-consent-v1' and only injects
+       gtag if analytics consent is true. CookieBanner dispatches
+       'pi:consent-changed' when the user opts in/out, and we wire that
+       up here so the script can be added later in the same pageview. -->
   <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-0MR9YVZ9NW');
+    (function () {
+      var GA_ID = 'G-0MR9YVZ9NW';
+      var KEY = 'pi-consent-v1';
+
+      function loadGtag() {
+        if (window._piGtagLoaded) return;
+        window._piGtagLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+      }
+
+      function readConsent() {
+        try {
+          var raw = localStorage.getItem(KEY);
+          return raw ? JSON.parse(raw) : null;
+        } catch (_e) { return null; }
+      }
+
+      var consent = readConsent();
+      if (consent && consent.analytics) loadGtag();
+
+      window.addEventListener('pi:consent-changed', function (e) {
+        var s = (e && e.detail) || readConsent();
+        if (s && s.analytics) loadGtag();
+      });
+    })();
   </script>
 </head>
 <body data-page={section} data-path={rawPathname}>
@@ -188,6 +221,10 @@ const isAskPage = rawPathname.startsWith('/ask');
   <!-- Site search overlay — instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
+
+  <!-- Cookie consent banner. Shows on first visit only; gates the
+       gtag.js loader above via the 'pi:consent-changed' event. -->
+  <CookieBanner />
 
   <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
