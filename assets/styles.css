@@ -6748,7 +6748,9 @@ p.has-drop-cap::first-letter {
     margin-right: -10px;
   }
 
-  .pi-drawer__bubble { display: none !important; }
+  /* Floating bottom-right "Ask The Insider" bubble stays visible on
+     mobile alongside the in-header pill — both surfaces lead to the
+     same drawer, the floater is the persistent reminder. */
 
   /* Tighten utility row */
   .masthead__weather { display: none; }
