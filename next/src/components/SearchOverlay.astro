@@ -1,0 +1,280 @@
+---
+/**
+ * SearchOverlay — instant search modal
+ *
+ * Triggered by any element with [data-open-search] (the masthead pill,
+ * mobile-nav search row, etc). Opens a centered modal with a Pagefind-
+ * powered live search. Hitting Enter or clicking "See all results" navigates
+ * to /search?q=<query> for the full results page experience.
+ *
+ * Pagefind is dynamically imported on first open so the overlay carries no
+ * JS cost on pages where it's never shown. Index file lives at
+ * `/pagefind/pagefind.js` (built by `npm run build:search`).
+ *
+ * Mirrors ConciergeDrawer's lifecycle pattern: lazy-init, ESC to close,
+ * focus-trap on the input, body scroll-lock while open.
+ */
+---
+
+<div
+  id="siteSearchOverlay"
+  class="site-search-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="siteSearchOverlayTitle"
+  aria-hidden="true"
+  hidden
+>
+  <div class="site-search-overlay__backdrop" data-close-search aria-hidden="true"></div>
+
+  <div class="site-search-overlay__panel" role="document">
+    <header class="site-search-overlay__header">
+      <span id="siteSearchOverlayTitle" class="site-search-overlay__eyebrow">Search Peninsula Insider</span>
+      <button
+        type="button"
+        class="site-search-overlay__close"
+        data-close-search
+        aria-label="Close search"
+      >
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 5l10 10M15 5L5 15" />
+        </svg>
+      </button>
+    </header>
+
+    <form class="site-search-overlay__form" id="siteSearchOverlayForm" autocomplete="off">
+      <span class="site-search-overlay__icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="9" r="6" />
+          <path d="M14 14l4 4" />
+        </svg>
+      </span>
+      <input
+        type="search"
+        id="siteSearchOverlayInput"
+        class="site-search-overlay__input"
+        placeholder="Try Red Hill, long lunch, family beach, Sorrento stay…"
+        aria-label="Search query"
+      />
+      <kbd class="site-search-overlay__kbd" aria-hidden="true">esc</kbd>
+    </form>
+
+    <div class="site-search-overlay__hint">
+      <p>Press <kbd>Enter</kbd> to see all results, or pick a suggestion.</p>
+    </div>
+
+    <div class="site-search-overlay__body" id="siteSearchOverlayBody">
+      <div class="site-search-overlay__suggestions" data-default-suggestions>
+        <p class="site-search-overlay__suggestions-label">Try one of these</p>
+        <div class="site-search-overlay__chips">
+          <a href="/search/?q=long+lunch" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Long lunch</span></a>
+          <a href="/search/?q=cellar+door" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Cellar doors</span></a>
+          <a href="/search/?q=rainy+day" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Rainy day</span></a>
+          <a href="/search/?q=Sorrento" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Sorrento</span></a>
+          <a href="/search/?q=Red+Hill" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Red Hill</span></a>
+          <a href="/search/?q=family+beach" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Family beach</span></a>
+        </div>
+      </div>
+
+      <ul class="site-search-overlay__results" id="siteSearchOverlayResults" role="listbox" aria-label="Search suggestions" hidden></ul>
+
+      <a class="site-search-overlay__cta" id="siteSearchOverlayCTA" href="/search/" hidden>
+        <span>See all results</span>
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 10h10M11 5l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const overlay = document.getElementById('siteSearchOverlay');
+    if (!overlay) return;
+
+    const form = document.getElementById('siteSearchOverlayForm');
+    const input = document.getElementById('siteSearchOverlayInput');
+    const list = document.getElementById('siteSearchOverlayResults');
+    const cta = document.getElementById('siteSearchOverlayCTA');
+    const suggestions = overlay.querySelector('[data-default-suggestions]');
+
+    let pagefindModule = null;
+    let searchToken = 0;
+    let lastQuery = '';
+    let initialised = false;
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    async function loadPagefind() {
+      if (pagefindModule) return pagefindModule;
+      // Pagefind is built into /pagefind/ on the production site by
+      // `npm run build:search`. The static path means no bundler can know
+      // about it, so we ignore the dev-server module-resolution warning.
+      pagefindModule = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
+      // Initialise — set the index path explicitly so client-side routing
+      // doesn't break the relative resolution.
+      try { await pagefindModule.options({ basePath: '/pagefind/' }); } catch (_e) {}
+      return pagefindModule;
+    }
+
+    function open() {
+      if (overlay.dataset.open === 'true') return;
+      overlay.dataset.open = 'true';
+      overlay.hidden = false;
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('search-open');
+      // Defer focus so the open animation has room to land.
+      setTimeout(() => input && input.focus(), 50);
+
+      // Lazy init on first open — Pagefind WASM is ~80kb so we don't
+      // want it loading on every page just in case.
+      if (!initialised) {
+        initialised = true;
+        loadPagefind().catch((err) => console.warn('[search] Pagefind failed to init:', err));
+      }
+    }
+
+    function close() {
+      if (overlay.dataset.open !== 'true') return;
+      overlay.dataset.open = 'false';
+      overlay.hidden = true;
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('search-open');
+    }
+
+    function showSuggestions() {
+      if (suggestions) suggestions.hidden = false;
+      if (list) list.hidden = true;
+      if (cta) cta.hidden = true;
+    }
+
+    function showResults(results, query) {
+      if (suggestions) suggestions.hidden = true;
+      if (list) {
+        list.hidden = false;
+        if (results.length === 0) {
+          list.innerHTML = `
+            <li class="site-search-overlay__result site-search-overlay__result--empty">
+              <p class="site-search-overlay__result-empty-title">Nothing matched "${escapeHtml(query)}".</p>
+              <p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page, or ask The Insider directly.</p>
+            </li>
+          `;
+        } else {
+          list.innerHTML = results
+            .slice(0, 6)
+            .map((item) => {
+              const kind = item.meta?.kind || item.filters?.kind?.[0] || 'Guide';
+              const title = item.meta?.title || 'Untitled';
+              const excerpt = item.excerpt || '';
+              return `
+                <li class="site-search-overlay__result">
+                  <a href="${escapeHtml(item.url)}" class="site-search-overlay__result-link">
+                    <span class="site-search-overlay__result-kind">${escapeHtml(kind)}</span>
+                    <span class="site-search-overlay__result-title">${escapeHtml(title)}</span>
+                    <span class="site-search-overlay__result-excerpt">${excerpt}</span>
+                  </a>
+                </li>
+              `;
+            })
+            .join('');
+        }
+      }
+      if (cta) {
+        cta.hidden = false;
+        cta.href = `/search/?q=${encodeURIComponent(query)}`;
+        cta.querySelector('span').textContent = results.length === 0
+          ? 'Try the full results page'
+          : `See all ${results.length === 1 ? '1 result' : results.length + ' results'}`;
+      }
+    }
+
+    async function runSearch(query) {
+      const q = (query || '').trim();
+      if (!q) {
+        lastQuery = '';
+        showSuggestions();
+        return;
+      }
+      lastQuery = q;
+      const myToken = ++searchToken;
+      try {
+        const pf = await loadPagefind();
+        if (myToken !== searchToken) return; // newer query came in
+        const result = await pf.search(q, { limit: 6 });
+        if (myToken !== searchToken) return;
+        const data = await Promise.all(result.results.map((r) => r.data()));
+        if (myToken !== searchToken) return;
+        showResults(data, q);
+      } catch (err) {
+        console.warn('[search] error', err);
+        if (myToken === searchToken && cta) {
+          cta.hidden = false;
+          cta.href = `/search/?q=${encodeURIComponent(q)}`;
+        }
+      }
+    }
+
+    let inputDebounce = null;
+    input?.addEventListener('input', () => {
+      clearTimeout(inputDebounce);
+      const q = input.value;
+      inputDebounce = setTimeout(() => runSearch(q), 80);
+    });
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input?.value || '').trim();
+      if (!q) return;
+      window.location.href = `/search/?q=${encodeURIComponent(q)}`;
+    });
+
+    // Wire up triggers
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-open-search]');
+      if (trigger) {
+        e.preventDefault();
+        open();
+        return;
+      }
+      const closer = e.target.closest('[data-close-search]');
+      if (closer) {
+        e.preventDefault();
+        close();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      // ESC closes the overlay
+      if (e.key === 'Escape' && overlay.dataset.open === 'true') {
+        close();
+        return;
+      }
+      // Slash key focuses search (industry standard, e.g. GitHub, GitLab,
+      // Stripe). Ignore when the user is typing in another input.
+      if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        const tag = (e.target?.tagName || '').toLowerCase();
+        const editable = tag === 'input' || tag === 'textarea' || e.target?.isContentEditable;
+        if (!editable) {
+          e.preventDefault();
+          open();
+        }
+      }
+    });
+
+    // Reset on view-transition page swaps
+    document.addEventListener('astro:page-load', () => {
+      close();
+      if (input) input.value = '';
+      lastQuery = '';
+      showSuggestions();
+    });
+  })();
+</script>
