@@ -214,26 +214,31 @@ const orderedPlans = allPlanSpecs
     padding: 0.25rem 0 1.5rem;
     overflow-x: auto;
     overflow-y: hidden;
+    /* iOS native inertia. Combined with no touch-action override the
+       browser handles axis-locking, momentum, and edge bounce — which
+       is faster and smoother than any JS we could write. */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    cursor: grab;
-    /* Soft scroll-snap so cards settle gracefully when the rail
-       coasts to a stop. `proximity` (not mandatory) means the snap
-       only kicks in when we're already close — it doesn't fight
-       in-flight drag motion. */
-    scroll-snap-type: x proximity;
+    /* Mandatory snap with `scroll-snap-stop: normal` lets a fast flick
+       still cross multiple cards, but every release settles a card to
+       the leading edge. iOS/Android both implement this with their
+       native deceleration so it lands soft. */
+    scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--container-pad, 1.25rem);
-    /* Hint to the browser that scroll-left will be animated by JS;
-       lets the rendering pipeline allocate a compositor layer so
-       inertial frames stay smooth. */
-    will-change: scroll-position;
-    /* Disable native overscroll bounce so our inertia controls feel. */
     overscroll-behavior-x: contain;
-    touch-action: pan-y;
+    /* Performance: this is a long rail with photo backgrounds. Tell
+       the browser the wrapper paints/lays-out independently so off-
+       screen card paints don't invalidate the rest of the page. */
+    contain: layout paint;
   }
-  .insider-plans__scroll-wrapper.is-dragging {
-    cursor: grabbing;
-    user-select: none;
+  /* Desktop only: opt into the JS click-drag affordance. On touch
+     devices we rely entirely on native scroll. */
+  @media (hover: hover) and (pointer: fine) {
+    .insider-plans__scroll-wrapper { cursor: grab; }
+    .insider-plans__scroll-wrapper.is-dragging {
+      cursor: grabbing;
+      user-select: none;
+    }
   }
 
   .insider-plans__scroll-wrapper::-webkit-scrollbar {
@@ -252,27 +257,34 @@ const orderedPlans = allPlanSpecs
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    width: 260px;
-    height: 360px;
+    width: 78vw;
+    max-width: 320px;
+    height: clamp(360px, 70vw, 420px);
     flex-shrink: 0;
     overflow: hidden;
     text-decoration: none;
     color: #fff;
     border-radius: 2px;
     scroll-snap-align: start;
+    /* GPU-friendly: every card promotes to its own compositor layer
+       so the scroll-paint stays at 60fps even with 11 cards in the
+       rail. transform avoids triggering layout. */
+    transform: translateZ(0);
     transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
                 box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
-
   @media (min-width: 768px) {
     .plan-card {
       width: 300px;
+      max-width: none;
       height: 420px;
     }
   }
 
   .plan-card:hover {
-    transform: translateY(-4px);
+    /* `translate3d` keeps the card on the same compositor layer as
+       the scroll-time transform — no relayout, no jank. */
+    transform: translate3d(0, -4px, 0);
     box-shadow: 0 18px 40px rgba(0,0,0,0.22);
   }
 
@@ -349,19 +361,24 @@ const orderedPlans = allPlanSpecs
 </style>
 
 <script>
-  /* Soft, flowy horizontal scroll for the Insider Plans rail.
-     Three behaviours layered on top of the native overflow:
-       1. Pointer-based click-and-drag with velocity tracking and
-          inertial decay after release — stops gradually instead of
-          dead, the way a flicked card on iOS feels.
-       2. Mouse-wheel-to-horizontal: a vertical scroll on the rail
-          translates to horizontal motion while the rail is hovered.
-          Lets desktop readers trackpad / wheel through naturally.
-       3. Drag-vs-click discrimination: a small movement threshold
-          before we suppress the link click, so a deliberate tap on
-          a card still navigates.
+  /* Desktop-only enhancements for the Insider Plans rail:
+       1. Pointer click-and-drag with velocity tracking and inertial
+          decay after release.
+       2. Mouse-wheel-to-horizontal: vertical wheel translates to
+          horizontal motion while hovering the rail.
+       3. Drag-vs-click discrimination so a deliberate tap on a card
+          still navigates.
+     On TOUCH devices we skip this entirely — the browser's native
+     -webkit-overflow-scrolling momentum is faster, lower-latency,
+     and indistinguishable from a native app carousel. Any JS we
+     add on touch can only make it worse. The hover + fine-pointer
+     media query is the canonical way to detect a real cursor.
   */
   function bindInsiderPlansRail() {
+    // Hard gate: skip JS interactions on touch devices entirely.
+    if (typeof window === 'undefined') return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
     document.querySelectorAll('.insider-plans__scroll-wrapper').forEach((track) => {
       const el = track as HTMLElement;
       if (el.dataset.dragBound === 'true') return;
