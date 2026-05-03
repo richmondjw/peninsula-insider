@@ -693,20 +693,36 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
 })();
 </script> <!-- Site search overlay — instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. --> <div id="siteSearchOverlay" class="site-search-overlay" role="dialog" aria-modal="true" aria-labelledby="siteSearchOverlayTitle" aria-hidden="true" data-open="false"> <div class="site-search-overlay__backdrop" data-close-search aria-hidden="true"></div> <div class="site-search-overlay__panel" role="document"> <header class="site-search-overlay__header"> <span id="siteSearchOverlayTitle" class="site-search-overlay__eyebrow">Search Peninsula Insider</span> <button type="button" class="site-search-overlay__close" data-close-search aria-label="Close search"> <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 5l10 10M15 5L5 15"></path> </svg> </button> </header> <form class="site-search-overlay__form" id="siteSearchOverlayForm" autocomplete="off"> <span class="site-search-overlay__icon" aria-hidden="true"> <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"> <circle cx="9" cy="9" r="6"></circle> <path d="M14 14l4 4"></path> </svg> </span> <input type="search" id="siteSearchOverlayInput" class="site-search-overlay__input" placeholder="Search the Peninsula Insider…" aria-label="Search query"> <kbd class="site-search-overlay__kbd" aria-hidden="true">esc</kbd> </form> <div class="site-search-overlay__hint"> <p>Press <kbd>Enter</kbd> to see all results, or pick a suggestion.</p> </div> <div class="site-search-overlay__body" id="siteSearchOverlayBody"> <div class="site-search-overlay__suggestions" data-default-suggestions> <p class="site-search-overlay__suggestions-label">Try one of these</p> <div class="site-search-overlay__chips"> <a href="/search/?q=long+lunch" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Long lunch</span></a> <a href="/search/?q=cellar+door" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Cellar doors</span></a> <a href="/search/?q=rainy+day" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Rainy day</span></a> <a href="/search/?q=Sorrento" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Sorrento</span></a> <a href="/search/?q=Red+Hill" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Red Hill</span></a> <a href="/search/?q=family+beach" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Family beach</span></a> </div> </div> <ul class="site-search-overlay__results" id="siteSearchOverlayResults" role="listbox" aria-label="Search suggestions" hidden></ul> <a class="site-search-overlay__cta" id="siteSearchOverlayCTA" href="/search/" hidden> <span>See all results</span> <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M5 10h10M11 5l5 5-5 5"></path> </svg> </a> </div> </div> </div> <script>
+  /*
+   * SearchOverlay boot script.
+   *
+   * Note: Astro's ClientRouter swaps the body on every navigation. Inline
+   * scripts (this one) execute exactly once on the initial parse — they do
+   * NOT re-run on subsequent view transitions. That means caching DOM
+   * references in a closure breaks on the second navigation: the cached
+   * `overlay` variable points to a detached element from the previous page.
+   *
+   * Two-part fix:
+   *   - Document-level click/keydown listeners are bound ONCE (guarded by
+   *     window.__piSearchBound). They re-query the DOM on every event so
+   *     they always operate on the current page's overlay.
+   *   - Per-overlay-instance handlers (input, form submit, page-load reset)
+   *     are bound by initOverlayInstance(), which runs on initial parse AND
+   *     on every astro:page-load to catch the freshly rendered overlay.
+   */
   (function () {
-    const overlay = document.getElementById('siteSearchOverlay');
-    if (!overlay) return;
+    if (typeof window === 'undefined') return;
 
-    const form = document.getElementById('siteSearchOverlayForm');
-    const input = document.getElementById('siteSearchOverlayInput');
-    const list = document.getElementById('siteSearchOverlayResults');
-    const cta = document.getElementById('siteSearchOverlayCTA');
-    const suggestions = overlay.querySelector('[data-default-suggestions]');
-
-    let pagefindModule = null;
-    let searchToken = 0;
-    let lastQuery = '';
-    let initialised = false;
+    // Module-scope state survives view transitions because inline scripts
+    // share the same realm — the closure persists, only the DOM is replaced.
+    if (!window.__piSearchState) {
+      window.__piSearchState = {
+        pagefindModule: null,
+        searchToken: 0,
+        loadedPagefind: false,
+      };
+    }
+    const state = window.__piSearchState;
 
     function escapeHtml(value) {
       return String(value || '')
@@ -718,174 +734,207 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
     }
 
     async function loadPagefind() {
-      if (pagefindModule) return pagefindModule;
+      if (state.pagefindModule) return state.pagefindModule;
       // Pagefind is built into /pagefind/ on the production site by
-      // `npm run build:search`. The static path means no bundler can know
-      // about it, so we ignore the dev-server module-resolution warning.
-      pagefindModule = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
-      // Initialise — set the index path explicitly so client-side routing
-      // doesn't break the relative resolution.
-      try { await pagefindModule.options({ basePath: '/pagefind/' }); } catch (_e) {}
-      return pagefindModule;
+      // `npm run build:search`. The static path means no bundler can resolve
+      // it; the @vite-ignore comment suppresses dev-server warnings.
+      state.pagefindModule = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
+      try { await state.pagefindModule.options({ basePath: '/pagefind/' }); } catch (_e) {}
+      return state.pagefindModule;
     }
 
-    function open() {
+    // Always re-query the DOM at call time so we hit the live (post-swap)
+    // overlay element rather than a stale closed-over reference.
+    function getEls() {
+      const overlay = document.getElementById('siteSearchOverlay');
+      if (!overlay) return null;
+      return {
+        overlay,
+        form: document.getElementById('siteSearchOverlayForm'),
+        input: document.getElementById('siteSearchOverlayInput'),
+        list: document.getElementById('siteSearchOverlayResults'),
+        cta: document.getElementById('siteSearchOverlayCTA'),
+        suggestions: overlay.querySelector('[data-default-suggestions]'),
+      };
+    }
+
+    function openOverlay() {
+      const els = getEls();
+      if (!els) return;
+      const { overlay, input } = els;
       if (overlay.dataset.open === 'true') return;
-      // Visibility is driven by the data-open attribute alone. The CSS
-      // transitions opacity, transform, and visibility together so close
-      // animates as smoothly as open. No native [hidden], no display:none —
-      // those would skip the transition.
       overlay.dataset.open = 'true';
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
-      // Defer focus to the next frame so the transition can start cleanly.
+      // Two RAFs so the transition has the first frame to paint before focus
+      // moves the caret in (avoids a tiny visual jolt on some browsers).
       requestAnimationFrame(() => {
         requestAnimationFrame(() => input && input.focus());
       });
-
-      // Lazy init on first open — Pagefind WASM is ~80kb so we don't
-      // want it loading on every page just in case.
-      if (!initialised) {
-        initialised = true;
+      // Lazy load Pagefind on first open. ~80kb of WASM, deferred until
+      // someone actually intends to search.
+      if (!state.loadedPagefind) {
+        state.loadedPagefind = true;
         loadPagefind().catch((err) => console.warn('[search] Pagefind failed to init:', err));
       }
     }
 
-    function close() {
+    function closeOverlay() {
+      const els = getEls();
+      if (!els) return;
+      const { overlay, input } = els;
       if (overlay.dataset.open !== 'true') return;
       overlay.dataset.open = 'false';
       overlay.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('search-open');
-      // Drop focus so the now-invisible input doesn't keep the caret.
       if (document.activeElement === input) input.blur();
     }
 
-    function showSuggestions() {
-      if (suggestions) suggestions.hidden = false;
-      if (list) list.hidden = true;
-      if (cta) cta.hidden = true;
+    function showSuggestions(els) {
+      if (els.suggestions) els.suggestions.hidden = false;
+      if (els.list) els.list.hidden = true;
+      if (els.cta) els.cta.hidden = true;
     }
 
-    function showResults(results, query) {
-      if (suggestions) suggestions.hidden = true;
-      if (list) {
-        list.hidden = false;
+    function showResults(els, results, query) {
+      if (els.suggestions) els.suggestions.hidden = true;
+      if (els.list) {
+        els.list.hidden = false;
         if (results.length === 0) {
-          list.innerHTML = `
-            <li class="site-search-overlay__result site-search-overlay__result--empty">
-              <p class="site-search-overlay__result-empty-title">Nothing matched "${escapeHtml(query)}".</p>
-              <p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page, or ask The Insider directly.</p>
-            </li>
-          `;
+          els.list.innerHTML =
+            '<li class="site-search-overlay__result site-search-overlay__result--empty">' +
+              '<p class="site-search-overlay__result-empty-title">Nothing matched "' + escapeHtml(query) + '".</p>' +
+              '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page, or ask The Insider directly.</p>' +
+            '</li>';
         } else {
-          list.innerHTML = results
-            .slice(0, 6)
-            .map((item) => {
-              const kind = item.meta?.kind || item.filters?.kind?.[0] || 'Guide';
-              const title = item.meta?.title || 'Untitled';
-              const excerpt = item.excerpt || '';
-              return `
-                <li class="site-search-overlay__result">
-                  <a href="${escapeHtml(item.url)}" class="site-search-overlay__result-link">
-                    <span class="site-search-overlay__result-kind">${escapeHtml(kind)}</span>
-                    <span class="site-search-overlay__result-title">${escapeHtml(title)}</span>
-                    <span class="site-search-overlay__result-excerpt">${excerpt}</span>
-                  </a>
-                </li>
-              `;
-            })
-            .join('');
+          els.list.innerHTML = results.slice(0, 6).map((item) => {
+            const kind = (item.meta && item.meta.kind) || (item.filters && item.filters.kind && item.filters.kind[0]) || 'Guide';
+            const title = (item.meta && item.meta.title) || 'Untitled';
+            const excerpt = item.excerpt || '';
+            return (
+              '<li class="site-search-overlay__result">' +
+                '<a href="' + escapeHtml(item.url) + '" class="site-search-overlay__result-link">' +
+                  '<span class="site-search-overlay__result-kind">' + escapeHtml(kind) + '</span>' +
+                  '<span class="site-search-overlay__result-title">' + escapeHtml(title) + '</span>' +
+                  '<span class="site-search-overlay__result-excerpt">' + excerpt + '</span>' +
+                '</a>' +
+              '</li>'
+            );
+          }).join('');
         }
       }
-      if (cta) {
-        cta.hidden = false;
-        cta.href = `/search/?q=${encodeURIComponent(query)}`;
-        cta.querySelector('span').textContent = results.length === 0
-          ? 'Try the full results page'
-          : `See all ${results.length === 1 ? '1 result' : results.length + ' results'}`;
+      if (els.cta) {
+        els.cta.hidden = false;
+        els.cta.href = '/search/?q=' + encodeURIComponent(query);
+        const span = els.cta.querySelector('span');
+        if (span) {
+          span.textContent = results.length === 0
+            ? 'Try the full results page'
+            : 'See all ' + (results.length === 1 ? '1 result' : results.length + ' results');
+        }
       }
     }
 
-    async function runSearch(query) {
+    async function runSearch(els, query) {
       const q = (query || '').trim();
-      if (!q) {
-        lastQuery = '';
-        showSuggestions();
-        return;
-      }
-      lastQuery = q;
-      const myToken = ++searchToken;
+      if (!q) { showSuggestions(els); return; }
+      const myToken = ++state.searchToken;
       try {
         const pf = await loadPagefind();
-        if (myToken !== searchToken) return; // newer query came in
+        if (myToken !== state.searchToken) return;
         const result = await pf.search(q, { limit: 6 });
-        if (myToken !== searchToken) return;
+        if (myToken !== state.searchToken) return;
         const data = await Promise.all(result.results.map((r) => r.data()));
-        if (myToken !== searchToken) return;
-        showResults(data, q);
+        if (myToken !== state.searchToken) return;
+        showResults(els, data, q);
       } catch (err) {
         console.warn('[search] error', err);
-        if (myToken === searchToken && cta) {
-          cta.hidden = false;
-          cta.href = `/search/?q=${encodeURIComponent(q)}`;
+        if (myToken === state.searchToken && els.cta) {
+          els.cta.hidden = false;
+          els.cta.href = '/search/?q=' + encodeURIComponent(q);
         }
       }
     }
 
-    let inputDebounce = null;
-    input?.addEventListener('input', () => {
-      clearTimeout(inputDebounce);
-      const q = input.value;
-      inputDebounce = setTimeout(() => runSearch(q), 80);
-    });
+    // Per-instance handlers (input, form submit). Idempotent — guarded by
+    // a flag on the element so reattaching after view transitions doesn't
+    // double-bind.
+    function initOverlayInstance() {
+      const els = getEls();
+      if (!els) return;
+      const { overlay, form, input } = els;
 
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const q = (input?.value || '').trim();
-      if (!q) return;
-      window.location.href = `/search/?q=${encodeURIComponent(q)}`;
-    });
+      // Reset visible state on every page-load — close any leftover open
+      // state, clear the input, restore suggestion view.
+      if (overlay.dataset.open !== 'true' && input) input.value = '';
+      showSuggestions(els);
 
-    // Wire up triggers
-    document.addEventListener('click', (e) => {
-      const trigger = e.target.closest('[data-open-search]');
-      if (trigger) {
-        e.preventDefault();
-        open();
-        return;
+      if (input && !input.dataset.searchBound) {
+        input.dataset.searchBound = 'true';
+        let inputDebounce = null;
+        input.addEventListener('input', () => {
+          clearTimeout(inputDebounce);
+          const els2 = getEls();
+          if (!els2) return;
+          inputDebounce = setTimeout(() => runSearch(els2, input.value), 80);
+        });
       }
-      const closer = e.target.closest('[data-close-search]');
-      if (closer) {
-        e.preventDefault();
-        close();
-      }
-    });
 
-    document.addEventListener('keydown', (e) => {
-      // ESC closes the overlay
-      if (e.key === 'Escape' && overlay.dataset.open === 'true') {
-        close();
-        return;
-      }
-      // Slash key focuses search (industry standard, e.g. GitHub, GitLab,
-      // Stripe). Ignore when the user is typing in another input.
-      if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
-        const tag = (e.target?.tagName || '').toLowerCase();
-        const editable = tag === 'input' || tag === 'textarea' || e.target?.isContentEditable;
-        if (!editable) {
+      if (form && !form.dataset.searchBound) {
+        form.dataset.searchBound = 'true';
+        form.addEventListener('submit', (e) => {
           e.preventDefault();
-          open();
-        }
+          const els2 = getEls();
+          const q = (els2 && els2.input && els2.input.value || '').trim();
+          if (!q) return;
+          window.location.href = '/search/?q=' + encodeURIComponent(q);
+        });
       }
-    });
+    }
 
-    // Reset on view-transition page swaps
-    document.addEventListener('astro:page-load', () => {
-      close();
-      if (input) input.value = '';
-      lastQuery = '';
-      showSuggestions();
-    });
+    // Document-level listeners — bind ONCE per realm. Guarded by a flag on
+    // window so they survive HMR / dev reloads cleanly. Handlers re-query
+    // the DOM each time, so the overlay reference is always fresh.
+    if (!window.__piSearchBound) {
+      window.__piSearchBound = true;
+
+      document.addEventListener('click', (e) => {
+        const trigger = e.target && e.target.closest && e.target.closest('[data-open-search]');
+        if (trigger) {
+          e.preventDefault();
+          openOverlay();
+          return;
+        }
+        const closer = e.target && e.target.closest && e.target.closest('[data-close-search]');
+        if (closer) {
+          e.preventDefault();
+          closeOverlay();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        // ESC closes the overlay if open
+        const overlay = document.getElementById('siteSearchOverlay');
+        if (e.key === 'Escape' && overlay && overlay.dataset.open === 'true') {
+          closeOverlay();
+          return;
+        }
+        // "/" focuses search (GitHub / GitLab / Stripe convention).
+        // Skip when typing in another field or contenteditable.
+        if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+          const tag = (e.target && e.target.tagName ? e.target.tagName : '').toLowerCase();
+          const editable = tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable);
+          if (!editable) {
+            e.preventDefault();
+            openOverlay();
+          }
+        }
+      });
+    }
+
+    // Initial bind + every view-transition page-load.
+    initOverlayInstance();
+    document.addEventListener('astro:page-load', initOverlayInstance);
   })();
 </script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
