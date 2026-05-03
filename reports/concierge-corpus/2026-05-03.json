@@ -1,14 +1,14 @@
 {
-  "run_id": "2026-05-03T12:19:45.743Z",
-  "trigger": "push",
+  "run_id": "2026-05-03T11:33:20.390Z",
+  "trigger": "schedule",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 13.3,
-  "git_sha": "26b80ee",
+  "duration_seconds": 9.7,
+  "git_sha": "cf6a004",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
-    "venue": 134,
+    "venue": 135,
     "article": 87,
     "place": 20,
     "itinerary": 6,
@@ -22,23 +22,18 @@
   },
   "delta": {
     "added": 0,
-    "updated": 8,
+    "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1179,
+    "unchanged": 1189,
     "pruned": 0,
     "errors": 0,
-    "stale_remaining": 901
+    "stale_remaining": 896
   },
   "added_chunk_ids": [],
   "updated_chunk_ids": [
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
-    "red-hill-market::tags::0",
-    "best-spas-mornington-peninsula::body::1",
-    "best-spas-mornington-peninsula::body::2",
-    "mornington-peninsula-stay-and-soak::body::2",
-    "mornington-peninsula-stay-and-soak::body::3",
-    "rainy-day-intro::block::0"
+    "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
   "pruned_chunk_ids": [],
@@ -71,8 +66,6 @@
     "endota-spa-mornington::editorial::0",
     "endota-spa-sorrento::editorial::0",
     "epicurean-red-hill::editorial::0",
-    "endota-spa-sorrento::practical::0",
-    "endota-spa-sorrento::tags::0",
     "flinders-general-store::editorial::0",
     "flinders-hotel::editorial::0",
     "flinders-pier-takeaway::editorial::0",
@@ -940,10 +933,7 @@
     "where-to-walk-the-dog-mornington-peninsula::foreshore-paths-bay-side::2",
     "where-to-walk-the-dog-mornington-peninsula::hinterland-and-reserve-walks::3",
     "where-to-walk-the-dog-mornington-peninsula::combination-walk-structures::4",
-    "where-to-walk-the-dog-mornington-peninsula::what-to-bring::5",
-    "endota-spa-sorrento::summary::0",
-    "endota-spa-sorrento::editor_note::0",
-    "best-spas-mornington-peninsula::body::3"
+    "where-to-walk-the-dog-mornington-peninsula::what-to-bring::5"
   ],
   "expired_event_entity_ids": [],
   "embedding_cost_usd_estimate": 0,
