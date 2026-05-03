@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
 heroImage:
-  src: "/images/sourced/article-orientation-drive-01.webp"
-  alt: "A panoramic view from Arthurs Seat across the Peninsula vineyards and bay in a late morning light — representative image"
+  src: "/images/sourced/home-cover-back-beach-horses-01.jpg"
+  alt: "Horses on the back beach at low light, the wide ocean coast that frames a four-hour Peninsula visit"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
