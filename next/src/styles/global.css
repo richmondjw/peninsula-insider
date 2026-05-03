@@ -264,9 +264,19 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 46px;
   gap: 1rem;
+}
+/* Push the search icon (and everything after it: Subscribe) to the
+   far right edge in one move. Keeps a tight visual cluster of
+   search + Subscribe instead of the previous space-between layout
+   that wedged a big gap between them. */
+.masthead__nav-inner .masthead__search-icon {
+  margin-left: auto;
+}
+.masthead__nav-inner .masthead__cta {
+  margin-left: 0.6rem;  /* tight gap between search icon and Subscribe pill */
 }
 .masthead__nav {
   display: flex;
