@@ -23,7 +23,7 @@
   aria-modal="true"
   aria-labelledby="siteSearchOverlayTitle"
   aria-hidden="true"
-  hidden
+  data-open="false"
 >
   <div class="site-search-overlay__backdrop" data-close-search aria-hidden="true"></div>
 
@@ -53,7 +53,7 @@
         type="search"
         id="siteSearchOverlayInput"
         class="site-search-overlay__input"
-        placeholder="Try Red Hill, long lunch, family beach, Sorrento stay…"
+        placeholder="Search the Peninsula Insider…"
         aria-label="Search query"
       />
       <kbd class="site-search-overlay__kbd" aria-hidden="true">esc</kbd>
@@ -127,12 +127,17 @@
 
     function open() {
       if (overlay.dataset.open === 'true') return;
+      // Visibility is driven by the data-open attribute alone. The CSS
+      // transitions opacity, transform, and visibility together so close
+      // animates as smoothly as open. No native [hidden], no display:none —
+      // those would skip the transition.
       overlay.dataset.open = 'true';
-      overlay.hidden = false;
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
-      // Defer focus so the open animation has room to land.
-      setTimeout(() => input && input.focus(), 50);
+      // Defer focus to the next frame so the transition can start cleanly.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => input && input.focus());
+      });
 
       // Lazy init on first open — Pagefind WASM is ~80kb so we don't
       // want it loading on every page just in case.
@@ -145,9 +150,10 @@
     function close() {
       if (overlay.dataset.open !== 'true') return;
       overlay.dataset.open = 'false';
-      overlay.hidden = true;
       overlay.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('search-open');
+      // Drop focus so the now-invisible input doesn't keep the caret.
+      if (document.activeElement === input) input.blur();
     }
 
     function showSuggestions() {

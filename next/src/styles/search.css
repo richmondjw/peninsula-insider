@@ -43,47 +43,72 @@
 }
 
 /* ─── Search overlay (instant Pagefind dropdown) ────────────────── */
+/* z-index sits above the masthead (9999) but below the mobile-nav
+   overlay (10010), so the search overlay covers the sticky header
+   when open while staying respectful of the burger-menu's primacy. */
 .site-search-overlay {
   position: fixed;
   inset: 0;
-  z-index: 1100;
+  z-index: 10005;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(1.5rem, 6vh, 5rem) 1rem 1rem;
+  padding: clamp(2.5rem, 10vh, 7rem) 1rem 1rem;
+
+  /* Bidirectional open/close transition. The overlay uses `data-open`
+     as its single source of truth for visibility — no `hidden` attribute,
+     no display:none, so close animates as smoothly as open. */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity .22s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility .22s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.site-search-overlay[hidden] { display: none; }
+.site-search-overlay[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+/* Suppress the native [hidden] effect — the JS keeps the attribute for
+   accessibility (aria-hidden) but visibility is controlled by data-open. */
+.site-search-overlay[hidden] { display: flex; }
+@media (prefers-reduced-motion: reduce) {
+  .site-search-overlay,
+  .site-search-overlay__panel { transition: none !important; }
+}
 
 .site-search-overlay__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(20, 18, 16, 0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  animation: searchOverlayFade .18s var(--ease, ease-out);
-}
-@keyframes searchOverlayFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  background: rgba(20, 18, 16, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .site-search-overlay__panel {
   position: relative;
   width: 100%;
-  max-width: 720px;
+  max-width: 680px;
   background: var(--bg, #FBF7F2);
-  border-radius: 12px;
-  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - clamp(2rem, 8vh, 6rem));
+  max-height: calc(100vh - clamp(3rem, 12vh, 9rem));
   overflow: hidden;
-  animation: searchOverlaySlide .22s var(--ease, ease-out);
+  /* Panel slide is driven by the parent's data-open state, in concert
+     with opacity. No keyframes — easier to reverse cleanly on close. */
+  transform: translateY(-8px) scale(0.985);
+  transition:
+    transform .26s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity .22s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
 }
-@keyframes searchOverlaySlide {
-  from { transform: translateY(-12px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.site-search-overlay[data-open="true"] .site-search-overlay__panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .site-search-overlay__header {
