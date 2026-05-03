@@ -1,4 +1,19 @@
 ---
+/**
+ * /search — Peninsula Insider site search
+ *
+ * Pagefind-powered search results page. Supports:
+ *   - ?q=<query> deep-link (auto-focus + auto-run on load)
+ *   - "kind" facet chips (All / Eat / Stay / Wine / Explore / Escape /
+ *     What's On / Journal / Places) wired to Pagefind filters
+ *   - Card results with hero image, kind eyebrow, title, excerpt
+ *   - Pagination (12 cards per page)
+ *   - Empty / no-result states with PI-voiced "ask The Insider" fallback
+ *   - noindex (the search results page itself shouldn't be Google-indexed)
+ *
+ * Pagefind's index is built by `npm run build:search` and lives at
+ * `/pagefind/`. The page is fully static; all search runs in the browser.
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 
@@ -6,95 +21,401 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Search' },
 ];
+
+// All possible filter chips. "All" is the default; the rest mirror the
+// labels emitted by BaseLayout via data-pagefind-filter="kind:<Label>".
+const KIND_CHIPS = [
+  { value: 'all',        label: 'All' },
+  { value: 'Eat',        label: 'Eat & Drink' },
+  { value: 'Stay',       label: 'Stay' },
+  { value: 'Wine',       label: 'Wine' },
+  { value: 'Explore',    label: 'Explore' },
+  { value: 'Escape',     label: 'Escape' },
+  { value: "What's On",  label: "What's On" },
+  { value: 'Journal',    label: 'Journal' },
+  { value: 'Places',     label: 'Places' },
+];
 ---
 
 <BaseLayout
-  title="Search | Peninsula Insider"
+  title="Search · Peninsula Insider"
   description="Search Peninsula Insider for places, stays, long lunches, beaches, itineraries, events, and local intelligence across the Mornington Peninsula."
   section="home"
+  noindex={true}
+  searchExclude={true}
 >
   <Breadcrumbs items={breadcrumbItems} />
 
-  <section class="search-page">
-    <div class="container search-page__inner">
-      <div class="search-page__header">
-        <p class="label label--accent">Search</p>
-        <h1 class="search-page__title">Search the Peninsula</h1>
-        <p class="search-page__intro">Find places, long lunches, stays, beaches, itineraries, events, and journal pieces across Peninsula Insider.</p>
-      </div>
+  <main class="search-page-v2">
 
-      <div class="search-page__box">
-        <label class="search-page__label" for="site-search">Search the guide</label>
-        <input id="site-search" class="search-page__input" type="search" placeholder="Try Red Hill, long lunch, family beach, Sorrento stay..." autocomplete="off" />
-        <p class="search-page__hint">Search works across articles, venue pages, place guides, itineraries, experiences, and events.</p>
-      </div>
+    <section class="search-page-v2__hero">
+      <div class="container">
+        <p class="search-page-v2__eyebrow">Peninsula Insider · Search</p>
+        <h1 class="search-page-v2__title">Search the Peninsula</h1>
 
-      <div id="search-results" class="search-page__results" aria-live="polite"></div>
-    </div>
-  </section>
+        <form class="search-page-v2__bar" id="searchPageForm" autocomplete="off" role="search" aria-label="Search Peninsula Insider">
+          <span class="search-page-v2__bar-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="9" r="6" />
+              <path d="M14 14l4 4" />
+            </svg>
+          </span>
+          <input
+            type="search"
+            id="searchPageInput"
+            class="search-page-v2__input"
+            placeholder="Search Peninsula Insider…"
+            aria-label="Search query"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button type="submit" class="search-page-v2__submit" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="9" r="6" />
+              <path d="M14 14l4 4" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="search-page-v2__filters" aria-label="Result filters">
+      <div class="container">
+        <div class="search-page-v2__chips" role="tablist">
+          {KIND_CHIPS.map((chip, i) => (
+            <button
+              type="button"
+              class="search-page-v2__chip"
+              data-kind={chip.value}
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+            >
+              {chip.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="search-page-v2__results-section">
+      <div class="container">
+        <div class="search-page-v2__results-header">
+          <p class="search-page-v2__results-meta" id="searchResultsMeta" aria-live="polite">Start typing to search.</p>
+        </div>
+
+        <div class="search-page-v2__results" id="searchResultsList" aria-live="polite"></div>
+
+        <nav class="search-page-v2__pagination" id="searchPagination" aria-label="Result pages" hidden></nav>
+      </div>
+    </section>
+
+    <section class="search-page-v2__fallback" id="searchFallback" hidden>
+      <div class="container">
+        <div class="search-page-v2__fallback-card">
+          <p class="search-page-v2__fallback-eyebrow">Didn't find it?</p>
+          <h2 class="search-page-v2__fallback-title">The Insider can take a guess.</h2>
+          <p class="search-page-v2__fallback-body">Search is keyword-strict. The Insider is opinionated, semantic, and happy to interpret. Try the same question over there.</p>
+          <button type="button" class="search-page-v2__fallback-cta" id="searchFallbackCTA" data-pi-trigger="true">
+            <span>Ask The Insider</span>
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 10h10M11 5l5 5-5 5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <script is:inline>
-    let pagefindInstance;
-    const input = document.getElementById('site-search');
-    const results = document.getElementById('search-results');
+    (function () {
+      const form = document.getElementById('searchPageForm');
+      const input = document.getElementById('searchPageInput');
+      const list = document.getElementById('searchResultsList');
+      const meta = document.getElementById('searchResultsMeta');
+      const pagination = document.getElementById('searchPagination');
+      const fallback = document.getElementById('searchFallback');
+      const fallbackCTA = document.getElementById('searchFallbackCTA');
+      const chips = Array.from(document.querySelectorAll('.search-page-v2__chip'));
 
-    function escapeHtml(value) {
-      return value
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
+      const PER_PAGE = 12;
+      let pagefindModule = null;
+      let currentResults = [];   // raw Pagefind result handles (lazy .data())
+      let currentDataPage = new Map(); // pageNum -> array of resolved data
+      let currentQuery = '';
+      let currentKind = 'all';
+      let currentPage = 1;
+      let searchToken = 0;
 
-    async function loadPagefind() {
-      if (pagefindInstance) return pagefindInstance;
-      pagefindInstance = await import('/pagefind/pagefind.js');
-      return pagefindInstance;
-    }
-
-    function renderEmpty(state) {
-      if (state === 'idle') {
-        results.innerHTML = '<div class="search-state"><p>Start typing to search the guide.</p></div>';
-        return;
-      }
-      if (state === 'none') {
-        results.innerHTML = '<div class="search-state"><p>No results yet. Try a town, mood, or trip type.</p></div>';
-      }
-    }
-
-    async function runSearch(query) {
-      const q = query.trim();
-      if (!q) {
-        renderEmpty('idle');
-        return;
+      function escapeHtml(value) {
+        return String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
       }
 
-      results.innerHTML = '<div class="search-state"><p>Searching…</p></div>';
-      const { search } = await loadPagefind();
-      const searchResult = await search(q, { limit: 12 });
-
-      if (!searchResult.results.length) {
-        renderEmpty('none');
-        return;
+      async function loadPagefind() {
+        if (pagefindModule) return pagefindModule;
+        pagefindModule = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
+        try { await pagefindModule.options({ basePath: '/pagefind/' }); } catch (_e) {}
+        return pagefindModule;
       }
 
-      const data = await Promise.all(searchResult.results.map((item) => item.data()));
-      results.innerHTML = `
-        <div class="search-results-meta">${searchResult.results.length} result${searchResult.results.length === 1 ? '' : 's'}</div>
-        <div class="search-results-grid">
-          ${data.map((item) => `
-            <article class="search-card">
-              <p class="search-card__url">${escapeHtml(item.url)}</p>
-              <h2 class="search-card__title"><a href="${item.url}">${escapeHtml(item.meta.title || 'Untitled')}</a></h2>
-              <p class="search-card__excerpt">${item.excerpt || ''}</p>
-            </article>
-          `).join('')}
-        </div>
-      `;
-    }
+      function setMeta(text) {
+        if (meta) meta.textContent = text;
+      }
 
-    renderEmpty('idle');
-    input?.addEventListener('input', (event) => runSearch(event.target.value));
+      function renderEmpty(query) {
+        if (list) list.innerHTML = '';
+        if (pagination) pagination.hidden = true;
+        if (fallback) {
+          fallback.hidden = false;
+          if (fallbackCTA) fallbackCTA.dataset.query = query || '';
+        }
+        setMeta(query
+          ? `No matches for "${query}". Try a broader phrase or a place name.`
+          : 'No matches yet.');
+      }
+
+      function renderIdle() {
+        if (list) {
+          list.innerHTML = `
+            <div class="search-page-v2__idle">
+              <p>Try a place ("Sorrento", "Red Hill"), an intent ("long lunch", "rainy day"), or a category ("cellar door", "family beach").</p>
+            </div>
+          `;
+        }
+        if (pagination) pagination.hidden = true;
+        if (fallback) fallback.hidden = true;
+        setMeta('Start typing to search.');
+      }
+
+      function renderLoading() {
+        if (list) {
+          list.innerHTML = `
+            <div class="search-page-v2__loading">
+              <p>Searching…</p>
+            </div>
+          `;
+        }
+        if (fallback) fallback.hidden = true;
+      }
+
+      function renderResults(data, total, page) {
+        if (!list) return;
+        if (data.length === 0) {
+          renderEmpty(currentQuery);
+          return;
+        }
+        const cards = data.map((item) => {
+          const kind = item.meta?.kind || item.filters?.kind?.[0] || 'Guide';
+          const title = item.meta?.title || 'Untitled';
+          const url = item.url || '#';
+          const excerpt = item.excerpt || '';
+          const image = item.meta?.image || '';
+          const heroStyle = image ? `background-image: url('${image.replace(/'/g, "%27")}')` : '';
+          const heroClass = image
+            ? 'search-card__hero'
+            : 'search-card__hero search-card__hero--placeholder';
+          return `
+            <a href="${escapeHtml(url)}" class="search-card">
+              <span class="${heroClass}" style="${heroStyle}" aria-hidden="true"></span>
+              <span class="search-card__body">
+                <span class="search-card__kind">${escapeHtml(kind)}</span>
+                <span class="search-card__title">${escapeHtml(title)}</span>
+                <span class="search-card__excerpt">${excerpt}</span>
+              </span>
+            </a>
+          `;
+        }).join('');
+        list.innerHTML = `<div class="search-page-v2__grid">${cards}</div>`;
+        if (fallback) fallback.hidden = false;
+        if (fallbackCTA) fallbackCTA.dataset.query = currentQuery;
+        setMeta(`Showing ${(page - 1) * PER_PAGE + 1}–${Math.min(page * PER_PAGE, total)} of ${total} result${total === 1 ? '' : 's'}.`);
+      }
+
+      function renderPagination(total) {
+        if (!pagination) return;
+        const totalPages = Math.ceil(total / PER_PAGE);
+        if (totalPages <= 1) {
+          pagination.hidden = true;
+          pagination.innerHTML = '';
+          return;
+        }
+        // Compact pager: prev · 1 2 3 … N · next
+        const buttons = [];
+        const win = (p) =>
+          p === 1 || p === totalPages || Math.abs(p - currentPage) <= 1;
+        let lastShown = 0;
+        for (let p = 1; p <= totalPages; p++) {
+          if (!win(p)) continue;
+          if (p - lastShown > 1) {
+            buttons.push('<span class="search-page-v2__pager-gap">…</span>');
+          }
+          buttons.push(`
+            <button
+              type="button"
+              class="search-page-v2__pager-btn ${p === currentPage ? 'is-active' : ''}"
+              data-page="${p}"
+              aria-current="${p === currentPage ? 'page' : 'false'}"
+              aria-label="Go to page ${p}"
+            >${p}</button>
+          `);
+          lastShown = p;
+        }
+        const prevDisabled = currentPage <= 1;
+        const nextDisabled = currentPage >= totalPages;
+        pagination.innerHTML = `
+          <button type="button" class="search-page-v2__pager-step" data-page-delta="-1" ${prevDisabled ? 'disabled' : ''} aria-label="Previous page">‹ Prev</button>
+          ${buttons.join('')}
+          <button type="button" class="search-page-v2__pager-step" data-page-delta="1" ${nextDisabled ? 'disabled' : ''} aria-label="Next page">Next ›</button>
+        `;
+        pagination.hidden = false;
+      }
+
+      async function showPage(page) {
+        if (page < 1) page = 1;
+        currentPage = page;
+        const start = (page - 1) * PER_PAGE;
+        const end = start + PER_PAGE;
+        const slice = currentResults.slice(start, end);
+        const cached = currentDataPage.get(page);
+        const data = cached || await Promise.all(slice.map((r) => r.data()));
+        if (!cached) currentDataPage.set(page, data);
+        renderResults(data, currentResults.length, page);
+        renderPagination(currentResults.length);
+        // Scroll to top of results when paging
+        if (page !== 1 && list) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      async function runSearch() {
+        const q = (input?.value || '').trim();
+        currentQuery = q;
+        currentDataPage = new Map();
+
+        if (!q) {
+          currentResults = [];
+          renderIdle();
+          updateUrl(q);
+          return;
+        }
+
+        renderLoading();
+        const myToken = ++searchToken;
+
+        try {
+          const pf = await loadPagefind();
+          const filters = currentKind === 'all' ? undefined : { kind: currentKind };
+          const result = await pf.search(q, filters ? { filters } : undefined);
+          if (myToken !== searchToken) return;
+          currentResults = result.results;
+          if (currentResults.length === 0) {
+            renderEmpty(q);
+          } else {
+            await showPage(1);
+          }
+        } catch (err) {
+          console.warn('[search] error', err);
+          if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment, or ask The Insider.</p></div>';
+          if (fallback) fallback.hidden = false;
+        }
+        updateUrl(q);
+      }
+
+      function updateUrl(q) {
+        const url = new URL(window.location.href);
+        if (q) url.searchParams.set('q', q);
+        else url.searchParams.delete('q');
+        if (currentKind !== 'all') url.searchParams.set('kind', currentKind);
+        else url.searchParams.delete('kind');
+        window.history.replaceState({}, '', url);
+      }
+
+      // Wire form
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        runSearch();
+      });
+
+      // Debounced live search as the user types — Pagefind is fast enough
+      // that this feels instant.
+      let inputDebounce = null;
+      input?.addEventListener('input', () => {
+        clearTimeout(inputDebounce);
+        inputDebounce = setTimeout(runSearch, 100);
+      });
+
+      // Filter chip selection
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          chips.forEach((c) => {
+            c.classList.remove('is-active');
+            c.setAttribute('aria-selected', 'false');
+          });
+          chip.classList.add('is-active');
+          chip.setAttribute('aria-selected', 'true');
+          currentKind = chip.dataset.kind || 'all';
+          if (currentQuery) runSearch();
+          else updateUrl(currentQuery);
+        });
+      });
+      // Activate the "All" chip by default
+      if (chips[0]) chips[0].classList.add('is-active');
+
+      // Pagination clicks
+      pagination?.addEventListener('click', (e) => {
+        const stepBtn = e.target.closest('[data-page-delta]');
+        if (stepBtn) {
+          e.preventDefault();
+          const delta = parseInt(stepBtn.dataset.pageDelta, 10) || 0;
+          showPage(currentPage + delta);
+          return;
+        }
+        const pageBtn = e.target.closest('[data-page]');
+        if (pageBtn) {
+          e.preventDefault();
+          const p = parseInt(pageBtn.dataset.page, 10) || 1;
+          showPage(p);
+        }
+      });
+
+      // "Ask The Insider" fallback button — pre-fill the concierge with the
+      // failed query and open the masthead drawer.
+      fallbackCTA?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const q = fallbackCTA.dataset.query || currentQuery || '';
+        if (q && typeof window.openConcierge === 'function') {
+          window.openConcierge({ prefillQuery: q });
+        } else if (q) {
+          window.location.href = `/ask/?q=${encodeURIComponent(q)}`;
+        } else if (typeof window.openConcierge === 'function') {
+          window.openConcierge();
+        }
+      });
+
+      // Initialise from URL params (?q=… &kind=…)
+      const params = new URLSearchParams(window.location.search);
+      const initialQ = params.get('q') || '';
+      const initialKind = params.get('kind');
+      if (initialKind) {
+        const kindChip = chips.find((c) => c.dataset.kind === initialKind);
+        if (kindChip) {
+          chips.forEach((c) => { c.classList.remove('is-active'); c.setAttribute('aria-selected', 'false'); });
+          kindChip.classList.add('is-active');
+          kindChip.setAttribute('aria-selected', 'true');
+          currentKind = initialKind;
+        }
+      }
+      if (initialQ && input) {
+        input.value = initialQ;
+        runSearch();
+      } else {
+        renderIdle();
+      }
+
+      input?.focus();
+    })();
   </script>
 </BaseLayout>
