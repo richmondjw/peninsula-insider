@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-05
 heroImage:
   src: "/images/sourced/article-peninsula-pantry-01.webp"
-  alt: "Mornington main street with morning shoppers and cafes"
+  alt: "Mornington main street with morning shoppers and cafes — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

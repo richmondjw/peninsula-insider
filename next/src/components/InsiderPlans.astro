@@ -1,0 +1,357 @@
+---
+/**
+ * InsiderPlans — homepage conversion block
+ * "Start with an Insider Plan"
+ *
+ * Keep the strongest five first, then continue the rest
+ * in the same horizontal rail.
+ */
+import { getCollection } from 'astro:content';
+import { routeSlug } from '../lib/editorial';
+
+interface PlanCard {
+  duration: string;
+  title: string;
+  dek: string;
+  href: string;
+  image: string;
+  imageAlt: string;
+  accent: string;
+}
+
+interface PlanSpec {
+  slug: string;
+  duration: string;
+  title: string;
+  dek?: string;
+  accent: string;
+}
+
+const featuredSpecs: PlanSpec[] = [
+  {
+    slug: 'how-to-build-a-red-hill-saturday',
+    duration: '1 day',
+    title: 'Red Hill Day',
+    dek: 'Market, long lunch, then stay south.',
+    accent: '#5C3D1A',
+  },
+  {
+    slug: 'the-four-hour-peninsula',
+    duration: '1 day',
+    title: 'Coastal Day',
+    dek: 'Coffee, walk, lunch, ocean.',
+    accent: '#1A3850',
+  },
+  {
+    slug: 'the-one-night-escape',
+    duration: '2 days',
+    title: 'Peninsula Escape',
+    dek: 'Stay, explore, unwind.',
+    accent: '#2C4A2C',
+  },
+  {
+    slug: 'the-vineyard-villa-weekend',
+    duration: '2 days',
+    title: 'Food & Wine Weekend',
+    dek: 'The best of the hinterland.',
+    accent: '#4A2C1A',
+  },
+  {
+    slug: 'how-to-plan-a-peninsula-weekend',
+    duration: '3 days',
+    title: 'Slow Peninsula',
+    dek: 'Take your time and do it properly.',
+    accent: '#2C3A2C',
+  },
+];
+
+const allPlanSpecs: PlanSpec[] = [
+  ...featuredSpecs,
+  {
+    slug: 'the-sorrento-weekend',
+    duration: '2 days',
+    title: 'Sorrento Weekend',
+    dek: 'Do the tip properly, not like a summer strip.',
+    accent: '#24425A',
+  },
+  {
+    slug: 'a-flinders-weekend',
+    duration: '2 days',
+    title: 'Flinders Weekend',
+    dek: 'Bass Strait air, bakery mornings, slower pace.',
+    accent: '#32463A',
+  },
+  {
+    slug: 'the-birthday-weekend',
+    duration: '2 days',
+    title: 'Birthday Weekend',
+    dek: 'One anchor dinner, everything else around it.',
+    accent: '#5B2E34',
+  },
+  {
+    slug: 'the-thermal-springs-weekend',
+    duration: '2 days',
+    title: 'Thermal Springs',
+    dek: 'Soak, soften, and keep the schedule light.',
+    accent: '#4B4032',
+  },
+  {
+    slug: 'a-winter-peninsula-weekend',
+    duration: '2 days',
+    title: 'Winter Reset',
+    dek: 'Fires, hot pools, low-season calm.',
+    accent: '#3A4554',
+  },
+  {
+    slug: 'the-peninsula-with-kids',
+    duration: '1 day',
+    title: 'With Kids',
+    dek: 'A family day that punishes no one.',
+    accent: '#6A5332',
+  },
+];
+
+const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+const articleBySlug = new Map(articles.map((article) => [routeSlug(article), article]));
+
+function buildPlan(spec: PlanSpec): PlanCard | null {
+  const article = articleBySlug.get(spec.slug);
+  if (!article) return null;
+  const heroImage = article.data.heroImage;
+
+  return {
+    duration: spec.duration,
+    title: spec.title,
+    dek: spec.dek || article.data.dek,
+    href: `/journal/${spec.slug}/`,
+    image: heroImage?.src || '/images/sourced/article-sunset-01.webp',
+    imageAlt: heroImage?.alt || article.data.title,
+    accent: spec.accent,
+  };
+}
+
+const orderedPlans = allPlanSpecs
+  .map(buildPlan)
+  .filter((plan): plan is PlanCard => Boolean(plan))
+  .filter((plan, index, plans) => plans.findIndex((candidate) => candidate.href === plan.href) === index);
+---
+
+<section class="insider-plans" aria-labelledby="insider-plans-title">
+  <div class="insider-plans__header container">
+    <div class="insider-plans__heading-group">
+      <p class="insider-plans__eyebrow">Insider Plans</p>
+      <h2 class="insider-plans__title" id="insider-plans-title">Start with an Insider Plan</h2>
+      <p class="insider-plans__subhead">Start with the strongest five, then keep scrolling through the rest.</p>
+    </div>
+  </div>
+
+  {orderedPlans.length > 0 && (
+    <div class="insider-plans__scroll-wrapper" role="list" aria-label="Insider Plans">
+      <div class="insider-plans__track">
+        {orderedPlans.map((plan) => (
+          <a
+            href={plan.href}
+            class="plan-card"
+            role="listitem"
+            style={`--plan-accent: ${plan.accent};`}
+            aria-label={`${plan.title} — ${plan.duration}. ${plan.dek}`}
+          >
+            <div class="plan-card__image" style={`background-image: url('${plan.image}');`} role="img" aria-label={plan.imageAlt}></div>
+            <div class="plan-card__overlay"></div>
+            <div class="plan-card__body">
+              <span class="plan-card__duration">{plan.duration}</span>
+              <h3 class="plan-card__title">{plan.title}</h3>
+              <p class="plan-card__dek">{plan.dek}</p>
+              <span class="plan-card__cta" aria-hidden="true">See plan →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
+</section>
+
+<style>
+  .insider-plans {
+    padding: 4rem 0 3rem;
+    background: var(--paper, #F5F0E8);
+    overflow: hidden;
+  }
+
+  .insider-plans__header {
+    margin-bottom: 2rem;
+  }
+
+  .insider-plans__heading-group {
+    max-width: 520px;
+  }
+
+  .insider-plans__eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted, #6E655C);
+    margin: 0 0 0.5rem;
+  }
+
+  .insider-plans__title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--ink, #1A1208);
+    margin: 0 0 0.5rem;
+    line-height: 1.15;
+  }
+
+  .insider-plans__subhead {
+    font-size: 1rem;
+    color: var(--ink-muted, #6E655C);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .insider-plans__scroll-wrapper {
+    padding: 0.25rem 0 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+
+  .insider-plans__scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .insider-plans__track {
+    display: flex;
+    gap: 1rem;
+    padding: 0 var(--container-pad, 1.25rem);
+    width: max-content;
+  }
+
+  .plan-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 260px;
+    height: 360px;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 2px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  @media (min-width: 768px) {
+    .plan-card {
+      width: 300px;
+      height: 420px;
+    }
+  }
+
+  .plan-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .plan-card__image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  .plan-card:hover .plan-card__image {
+    transform: scale(1.03);
+  }
+
+  .plan-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 30%,
+      rgba(0,0,0,0.25) 60%,
+      rgba(0,0,0,0.72) 100%
+    );
+  }
+
+  .plan-card__body {
+    position: relative;
+    padding: 1.5rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .plan-card__duration {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 0.1rem;
+  }
+
+  .plan-card__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin: 0;
+  }
+
+  .plan-card__dek {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0.2rem 0 0.75rem;
+    line-height: 1.4;
+  }
+
+  .plan-card__cta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.9);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 1px;
+    width: fit-content;
+    transition: border-color 0.15s ease;
+  }
+
+  .plan-card:hover .plan-card__cta {
+    border-color: rgba(255,255,255,0.9);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.insider-plans__scroll-wrapper').forEach((track) => {
+    const el = track as HTMLElement;
+    if (el.dataset.dragBound === 'true') return;
+    el.dataset.dragBound = 'true';
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    el.addEventListener('mousedown', (e) => {
+      isDown = true;
+      el.style.cursor = 'grabbing';
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+    });
+
+    el.addEventListener('mouseleave', () => { isDown = false; el.style.cursor = 'grab'; });
+    el.addEventListener('mouseup', () => { isDown = false; el.style.cursor = 'grab'; });
+    el.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      el.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>

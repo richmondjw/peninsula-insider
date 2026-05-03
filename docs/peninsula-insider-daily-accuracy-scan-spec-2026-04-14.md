@@ -331,3 +331,49 @@ The publication does not just need more content.
 It needs a **daily truth-maintenance loop**.
 
 This accuracy scan is that loop.
+
+---
+
+## 13. Governance gates (added 2026-05-02)
+
+As of 2 May 2026, the accuracy scan also checks editorial governance compliance per the **Peninsula Insider Editorial Governance Standard**.
+
+See: `docs/peninsula-insider-editorial-governance-standard-2026-05-02.md`
+
+### Governance checks added to the daily scan
+
+**Image licence gate**
+- flag any published article with `license: "tmp-placeholder"` on any image
+- classify as Bucket 2 (needs approval) — hold from publish until resolved
+
+**lastVerified staleness gate**
+- flag any article with `status: published` but no `lastVerified` date
+- flag any article with `lastVerified` older than 90 days
+- classify as Bucket 2 — surface for editorial refresh queue
+
+**Disclosure gate**
+- flag any article mentioning a known commercial partner (from partners list) that does not carry `partnerContent: true`
+- classify as Bucket 2 — hold for editorial review
+
+**Pricing disclaimer gate**
+- flag any article with inline pricing figures (e.g. `$`) that does not contain the standard pricing disclaimer
+- classify as Bucket 1 (safe auto-fix) — append the standard disclaimer line
+
+### Standard pricing disclaimer (auto-append)
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
+
+### Governance summary line in daily Telegram report
+Add to the daily scan summary:
+
+```
+Governance:
+- [N] articles with stale/missing lastVerified
+- [N] articles with unresolved tmp-placeholder images
+- [N] articles with pricing but no disclaimer
+```
+
+### Friday QA (weekly governance roll-up)
+The Friday Performance Council cron should additionally surface:
+- all articles published in the past 7 days that did not pass governance gates at time of publish
+- any outstanding correction or removal requests logged in `docs/site-changelog.md`
+- count of `needs-verification` articles still unpublished (from the 84-winery batch and others)

@@ -49,6 +49,8 @@ Reel Time has operated since 2004 and is structured around a two-vessel trailer 
 
 The price point ($110 to $150 per person) is among the lower end of the Peninsula charter market for the session type. Both vessels have plumbed toilets, and Reel Time #2 has a BBQ available, which makes the product more comfortable than a basic charter boat for a full-day session. The skippers have lifelong local knowledge of the grounds they fish, which is meaningful on Port Phillip Bay where understanding the seasonal shift of snapper grounds and the movement of whiting over sand flats makes a significant difference to catch rates.
 
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
+
 ## Why we chose this charter
 
 Two reasons. The price-to-experience ratio: $110 to $150 per person is honest for a five-to-six-hour session with gear included. And the operational flexibility of the two-boat model: the multi-ramp departure structure means the skippers are not locked into a single location on a day when the fish are somewhere else.

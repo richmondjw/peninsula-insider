@@ -5767,9 +5767,28 @@ p.has-drop-cap::first-letter {
 
 /* =========================================================
    ABOUT PAGE
+   All sections share the same vertical rhythm so the page reads
+   as a single editorial column with even breathing room. Sections
+   alternate bg / bg-alt for visual cadence. Section-specific
+   padding tweaks were causing 'tucked together' inconsistency,
+   replaced with one uniform clamp value site-wide.
    ========================================================= */
+.about-mission,
+.about-principles,
+.about-difference,
+.about-build,
+.about-masthead,
+.about-colophon {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+}
+.about-principles,
+.about-build,
+.about-colophon {
+  background: var(--bg-alt);
+}
 .about-mission {
-  padding: 5rem 0 3rem;
+  /* override left in place but uniform now — kept as a hook for any
+     hero-adjacent tweaks we want without breaking rhythm. */
 }
 .about-mission__grid {
   display: grid;
@@ -5802,10 +5821,6 @@ p.has-drop-cap::first-letter {
   color: var(--acc-h);
 }
 
-.about-principles {
-  padding: 4rem 0;
-  background: var(--bg-alt);
-}
 .about-principles__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -5876,14 +5891,8 @@ p.has-drop-cap::first-letter {
   margin-top: 0.4rem;
 }
 
-.about-build {
-  padding: 4rem 0 5rem;
-  background: var(--bg-alt);
-}
-
-.about-masthead {
-  padding: 4rem 0 5rem;
-}
+/* (.about-build and .about-masthead padding/background handled by the
+   unified rule above so the page reads with even rhythm.) */
 .about-masthead__credits {
   margin-top: 2.5rem;
   padding-top: 2rem;
@@ -6511,6 +6520,44 @@ p.has-drop-cap::first-letter {
   transition: color .18s var(--ease);
 }
 .masthead__cta-mobile:hover { color: var(--dark); }
+
+/* --- Mobile-only concierge pill in the masthead nav row ---
+   Editorial-brand pill: white surface, accent-coloured border,
+   sparkle icon + "Ask" label. Hidden on desktop where the floating
+   bottom-right bubble does the same job. Calls window.openConcierge
+   via the data-pi-trigger handler in Masthead.astro. */
+.masthead__concierge-mobile {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem 0.42rem 0.7rem;
+  background: var(--bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .18s var(--ease), color .18s var(--ease);
+  line-height: 1;
+  white-space: nowrap;
+}
+.masthead__concierge-mobile:hover,
+.masthead__concierge-mobile:active {
+  background: var(--accent);
+  color: var(--white);
+}
+.masthead__concierge-mobile svg {
+  flex-shrink: 0;
+  display: block;
+}
+.masthead__concierge-mobile__label {
+  display: inline-block;
+}
+
 .masthead__burger {
   display: none;
   background: none;
@@ -6657,46 +6704,51 @@ p.has-drop-cap::first-letter {
 
 /* --- 768px: Tablet and below --- */
 @media (max-width: 768px) {
-  /* Mobile masthead pattern: single nav row.
-     Wordmark "Peninsula Insider" is PERFECTLY CENTERED in the row via
-     absolute positioning (so center is independent of the burger's
-     width). Burger sits TOP-RIGHT in flex flow. The brand row above
-     and the redundant mobile Subscribe link are hidden — the floating
-     Subscribe pill (bottom-left) and the utility-row Subscribe link
-     already cover that intent. */
-  .masthead__burger { display: flex; }
+  /* Mobile masthead — simplest possible flex strip.
+     Source order in Masthead.astro is now logo / pill / burger so we
+     don't need flex `order` to re-arrange. Display values use `block`
+     for the wordmark to avoid any inline-flex/inline-block edge cases
+     that have been showing up; the wordmark's hard guarantee is
+     `display: block !important` so no later cascade can hide it. */
+  .masthead__burger { display: flex !important; }
   .masthead__nav { display: none; }
   .masthead__cta { display: none; }
-  .masthead__cta-mobile { display: none; }  /* removed on mobile — floating pill replaces it */
-  .masthead__logo-mobile { display: inline-block; }
+  .masthead__cta-mobile { display: none; }
+  .masthead__concierge-mobile { display: inline-flex !important; }
+  .masthead__logo-mobile { display: block !important; }
   .masthead__brand { display: none; }
 
   .masthead__nav-inner {
-    position: relative;
-    display: flex;
+    display: flex !important;
     align-items: center;
-    justify-content: flex-end;   /* burger pinned right */
     height: 56px;
-    gap: 0.5rem;
-    overflow: hidden;
+    min-height: 56px;
+    gap: 0.6rem;
+    padding: 0;
   }
   .masthead__logo-mobile {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: calc(100% - 96px);  /* leave room for burger + page padding */
+    flex: 1 1 auto;
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    text-align: center;
     line-height: 1;
-    padding: 0 0.25rem;
+    margin-left: -2px;
+    color: var(--dark);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .masthead__concierge-mobile {
+    flex: 0 0 auto;
   }
   .masthead__burger {
-    margin-left: 0;
-    margin-right: -10px;  /* flush to right edge */
+    flex: 0 0 auto;
+    margin-right: -10px;
   }
+
+  .pi-drawer__bubble { display: none !important; }
 
   /* Tighten utility row */
   .masthead__weather { display: none; }

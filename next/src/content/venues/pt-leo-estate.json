@@ -27,12 +27,21 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       },
       {
-        "days": ["Saturday", "Sunday"],
+        "days": [
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "21:00"
       }
@@ -43,7 +52,12 @@
   },
   "wines": {
     "winemaker": "Tod Dexter",
-    "keyVarieties": ["Chardonnay", "Pinot Noir", "Pinot Gris", "Shiraz"],
+    "keyVarieties": [
+      "Chardonnay",
+      "Pinot Noir",
+      "Pinot Gris",
+      "Shiraz"
+    ],
     "topLabel": "Reserve Pinot Noir"
   },
   "restaurant": {
@@ -54,6 +68,17 @@
     "description": "Laura holds 2 Hats from the Good Food Guide. The main Pt. Leo Restaurant offers Modern Australian casual dining; the Wine Terrace handles walk-in visits."
   },
   "editorVerdict": "Pt. Leo Estate operates at a scale that few Peninsula producers can match: the Gandel family's investment has produced a world-class outdoor sculpture park, a fine-dining restaurant in Laura (2 hats), and a cellar door running four tasting tiers. The Rosé took Best Rosé at the Mornington Peninsula Wine Show in both 2024 and 2025. It's a destination property, and it knows it.",
+  "whyWeGo": "Pt.",
+  "bestFor": [
+    "long lunch",
+    "anniversary weekends",
+    "the view"
+  ],
+  "ifOnlyOneThing": "Arrive for the sculpture walk before noon.",
+  "pairWith": [
+    "Point Leo Wine Terrace",
+    "Paradigm Hill"
+  ],
   "faq": [
     {
       "q": "Does Pt. Leo Estate take walk-ins or do you need to book?",
@@ -74,9 +99,23 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["long-lunch", "anniversary", "view", "waterfront"],
-    "season": ["spring", "summer", "autumn", "all-year"],
-    "audience": ["couples", "group", "first-timers"]
+    "mood": [
+      "long-lunch",
+      "anniversary",
+      "view",
+      "waterfront"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "group",
+      "first-timers"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",

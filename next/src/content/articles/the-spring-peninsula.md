@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-16
 heroImage:
   src: "/images/sourced/article-vineyard-villa-01.webp"
-  alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines"
+  alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "editors-letter"

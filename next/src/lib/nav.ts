@@ -34,7 +34,7 @@ export const mastheadNav: NavItem[] = [
   { key: 'stay',       label: 'Stay',        href: '/stay'       },
   { key: 'wine',       label: 'Wine',        href: '/wine'       },
   { key: 'explore',    label: 'Explore',     href: '/explore'    },
-  { key: 'escape',     label: 'Escape',      href: '/escape'     },
+  { key: 'escape',     label: 'Plans',       href: '/escape'     },
   { key: 'whats-on',   label: "What’s On", href: '/whats-on'  },
   { key: 'journal',    label: 'Journal',     href: '/journal'    },
 ];
@@ -81,9 +81,9 @@ export const pillarNav: NavItem[] = [
   {
     key: 'escape',
     href: '/escape',
-    label: 'Escape',
+    label: 'Plans',
     sub: 'Itineraries · Slow Travel',
-    dek: 'Two-night and three-night itineraries.',
+    dek: 'Ready-made Peninsula days and weekends.',
     icon: `<path d="M2 20 L8 10 L12 15 L16 7 L22 20 Z M8 10 L10 13 M16 7 L14 11" stroke-linecap="round" stroke-linejoin="round"/>`,
   },
   {
@@ -142,7 +142,7 @@ export const footerSectionLinks: NavItem[] = [
   { key: 'spa',              label: 'Spa & Wellness',  href: '/spa/' },
   { key: 'fishing',          label: 'Fishing',         href: '/fishing/' },
   { key: 'boating',          label: 'Boating',         href: '/boating/' },
-  { key: 'escape',           label: 'Escape',          href: '/escape/' },
+  { key: 'escape',           label: 'Plans',           href: '/escape/' },
   { key: 'tour',             label: 'Tours',           href: '/tour/' },
   { key: 'tour-packages',    label: 'Tour Packages',   href: '/tour-packages/' },
   { key: 'whats-on',         label: "What's On",       href: '/whats-on/' },

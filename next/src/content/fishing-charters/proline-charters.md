@@ -55,6 +55,8 @@ One specific reason: Proline is the only operator on the Peninsula that can put 
 
 The caveat is cost structure. The group-booking model means solo anglers or couples are paying a premium unless the session fills. The per-person rate at capacity is competitive ($100 to $290 per person depending on session); at half-capacity it is not. For groups who can fill the boat or split the cost between an even number, the value proposition is clear.
 
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
+
 ## The trip format
 
 The standard bay session is five hours from Sorrento Pier, typically morning or afternoon. The target on bay sessions is snapper during October to December, shifting to KGW, calamari, salmon, and flathead in the off-season. The snapper method is anchor and burley over known structure in Port Phillip Bay south and southwest of Sorrento. The vessel's size means it can hold position in conditions that push smaller trailer boats off their marks.

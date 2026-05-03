@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-13
 heroImage:
   src: "/images/sourced/article-rainy-day-01.webp"
-  alt: "A misty Red Hill vineyard in mid-winter with a dining-room fire glowing through the windows of a cellar door behind it"
+  alt: "A misty Red Hill vineyard in mid-winter with a dining-room fire glowing through the windows of a cellar door behind it — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "editors-letter"

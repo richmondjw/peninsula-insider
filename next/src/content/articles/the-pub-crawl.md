@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-pub-01.webp"
-  alt: "A busy Peninsula pub beer garden on a Saturday afternoon with local craft beer on the table"
+  alt: "A busy Peninsula pub beer garden on a Saturday afternoon with local craft beer on the table — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

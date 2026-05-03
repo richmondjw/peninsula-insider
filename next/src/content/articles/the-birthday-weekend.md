@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-16
 heroImage:
   src: "/images/sourced/article-couples-weekend-01.webp"
-  alt: "A candlelit dinner terrace at a Peninsula restaurant at dusk with vineyard rows beyond"
+  alt: "A candlelit dinner terrace at a Peninsula restaurant at dusk with vineyard rows beyond — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"

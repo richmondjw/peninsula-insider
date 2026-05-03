@@ -1,0 +1,824 @@
+{
+  "label": "baseline",
+  "date": "2026-05-02",
+  "timestamp": "2026-05-02T14:41:17.918Z",
+  "api": "https://peninsula-insider-platform-api.vercel.app",
+  "summary": {
+    "total": 30,
+    "errors": 0,
+    "median_latency_ms": 17085.5,
+    "p95_latency_ms": 22845,
+    "median_server_latency_ms": 16925,
+    "mean_quality_score": 4.766666666666667,
+    "median_quality_score": 5,
+    "max_quality_score": 5,
+    "quality_distribution": {
+      "4": 7,
+      "5": 23
+    },
+    "total_cost_aud_estimate": 0.7186869999999999
+  },
+  "results": [
+    {
+      "id": "long-lunch-red-hill",
+      "query": "Best long lunch on the Red Hill ridge for a Saturday",
+      "ok": true,
+      "latency_ms": 22946,
+      "server_latency_ms": 20740,
+      "timings": null,
+      "cost_aud": 0.036134,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 4,
+        "max": 5,
+        "reasons": [
+          "no expected topic matched (looked for: montalto, ten minutes by tractor, polperro)"
+        ]
+      }
+    },
+    {
+      "id": "cellar-door-walk-in",
+      "query": "Walk-in cellar door tasting on the Peninsula, no booking",
+      "ok": true,
+      "latency_ms": 19104,
+      "server_latency_ms": 16966,
+      "timings": null,
+      "cost_aud": 0.02726,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 2,
+      "topic_hits": [],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 4,
+        "max": 5,
+        "reasons": [
+          "no expected topic matched (looked for: montalto piazza, foxeys, rare hare)"
+        ]
+      }
+    },
+    {
+      "id": "rainy-day-kids-rye",
+      "query": "Rainy Sunday with two kids, near Rye",
+      "ok": true,
+      "latency_ms": 18353,
+      "server_latency_ms": 16142,
+      "timings": null,
+      "cost_aud": 0.024907,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 2,
+      "topic_hits": [
+        "rye hotel"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "sorrento-weekend-couple",
+      "query": "Plan a Sorrento weekend for a couple",
+      "ok": true,
+      "latency_ms": 16188,
+      "server_latency_ms": 16140,
+      "timings": null,
+      "cost_aud": 0.022712,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "article"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "sorrento",
+        "back beach",
+        "continental"
+      ],
+      "kind_hits": [
+        "article"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "anniversary-dinner-view",
+      "query": "Anniversary dinner Friday night, somewhere with a view",
+      "ok": true,
+      "latency_ms": 18833,
+      "server_latency_ms": 18786,
+      "timings": null,
+      "cost_aud": 0.027117,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "port phillip estate"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "dog-friendly-cafe",
+      "query": "Dog friendly cafe on the Peninsula",
+      "ok": true,
+      "latency_ms": 17057,
+      "server_latency_ms": 17006,
+      "timings": null,
+      "cost_aud": 0.023328,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "commonfolk"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "best-walk-cape-schanck",
+      "query": "Best coastal walks near Cape Schanck",
+      "ok": true,
+      "latency_ms": 13409,
+      "server_latency_ms": 13351,
+      "timings": null,
+      "cost_aud": 0.017222,
+      "recommendations_count": 1,
+      "recommendation_kinds": [
+        "article"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "bushrangers bay"
+      ],
+      "kind_hits": [
+        "article"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "hatted-restaurants",
+      "query": "Hatted restaurants worth booking in advance",
+      "ok": true,
+      "latency_ms": 18743,
+      "server_latency_ms": 18689,
+      "timings": null,
+      "cost_aud": 0.026127,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "barragunda"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "where-to-stay-red-hill",
+      "query": "Where should we stay near Red Hill cellar doors",
+      "ok": true,
+      "latency_ms": 15381,
+      "server_latency_ms": 15315,
+      "timings": null,
+      "cost_aud": 0.023508,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 3,
+      "topic_hits": [
+        "jackalope",
+        "polperro",
+        "lindenderry",
+        "lancemore"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "one-night-near-sorrento",
+      "query": "One night away, couple, near Sorrento",
+      "ok": true,
+      "latency_ms": 17114,
+      "server_latency_ms": 17060,
+      "timings": null,
+      "cost_aud": 0.022406,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 3,
+      "topic_hits": [
+        "hotel sorrento",
+        "continental"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "winery-with-kids",
+      "query": "Cellar door open Sunday with kids",
+      "ok": true,
+      "latency_ms": 19586,
+      "server_latency_ms": 19536,
+      "timings": null,
+      "cost_aud": 0.027554,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "montalto"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "winery-tour-day-trip",
+      "query": "Winery tour day trip from Melbourne",
+      "ok": true,
+      "latency_ms": 18819,
+      "server_latency_ms": 18779,
+      "timings": null,
+      "cost_aud": 0.020651,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 2,
+      "topic_hits": [
+        "montalto",
+        "ten minutes"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "best-seafood",
+      "query": "Where do locals go for seafood on the Peninsula",
+      "ok": true,
+      "latency_ms": 15774,
+      "server_latency_ms": 15727,
+      "timings": null,
+      "cost_aud": 0.024453,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "pier street"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "best-bakery",
+      "query": "Best bakery for breakfast on the Peninsula",
+      "ok": true,
+      "latency_ms": 16000,
+      "server_latency_ms": 15951,
+      "timings": null,
+      "cost_aud": 0.025133,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "sorrento bakery",
+        "balnarring bakehouse"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "thermal-springs-quiet",
+      "query": "Thermal springs without the crowds",
+      "ok": true,
+      "latency_ms": 18321,
+      "server_latency_ms": 18282,
+      "timings": null,
+      "cost_aud": 0.023423,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "alba"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "long-weekend-three-days",
+      "query": "Three day Peninsula trip, April long weekend, food and wine",
+      "ok": true,
+      "latency_ms": 21596,
+      "server_latency_ms": 21553,
+      "timings": null,
+      "cost_aud": 0.026883,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "red hill",
+        "long lunch"
+      ],
+      "kind_hits": [],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 4,
+        "max": 5,
+        "reasons": [
+          "no expected kind matched (got: venue)"
+        ]
+      }
+    },
+    {
+      "id": "rye-front-beach",
+      "query": "What is there to do at Rye front beach",
+      "ok": true,
+      "latency_ms": 13342,
+      "server_latency_ms": 13285,
+      "timings": null,
+      "cost_aud": 0.016524,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 2,
+      "topic_hits": [
+        "rye",
+        "front beach"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "winter-weekend-fireplace",
+      "query": "Winter weekend with a fireplace and a wine list",
+      "ok": true,
+      "latency_ms": 16920,
+      "server_latency_ms": 16881,
+      "timings": null,
+      "cost_aud": 0.024323,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "polperro",
+        "lindenderry"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "where-to-eat-sorrento",
+      "query": "Where to eat in Sorrento on a Saturday night",
+      "ok": true,
+      "latency_ms": 14052,
+      "server_latency_ms": 14005,
+      "timings": null,
+      "cost_aud": 0.0185,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 2,
+      "topic_hits": [
+        "bistro elba",
+        "the baths"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "flinders-day",
+      "query": "How to spend a day in Flinders",
+      "ok": true,
+      "latency_ms": 20997,
+      "server_latency_ms": 20719,
+      "timings": null,
+      "cost_aud": 0.022559,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "article",
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "flinders",
+        "hotel"
+      ],
+      "kind_hits": [
+        "venue",
+        "article"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "no-driving-after-lunch",
+      "query": "Long lunch without too much driving back",
+      "ok": true,
+      "latency_ms": 22845,
+      "server_latency_ms": 22808,
+      "timings": null,
+      "cost_aud": 0.024507,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 4,
+        "max": 5,
+        "reasons": [
+          "no expected topic matched (looked for: foxeys, many little, polperro)"
+        ]
+      }
+    },
+    {
+      "id": "afternoon-pinot-tasting",
+      "query": "Afternoon pinot tasting with serious producers",
+      "ok": true,
+      "latency_ms": 18757,
+      "server_latency_ms": 18710,
+      "timings": null,
+      "cost_aud": 0.026978,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "paringa"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "bushrangers-bay",
+      "query": "How long is the Bushrangers Bay walk",
+      "ok": true,
+      "latency_ms": 16326,
+      "server_latency_ms": 16274,
+      "timings": null,
+      "cost_aud": 0.023922,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "article"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "bushrangers bay",
+        "cape schanck"
+      ],
+      "kind_hits": [],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 4,
+        "max": 5,
+        "reasons": [
+          "no expected kind matched (got: article)"
+        ]
+      }
+    },
+    {
+      "id": "wedding-venue-winery",
+      "query": "Winery wedding venues on the Peninsula",
+      "ok": true,
+      "latency_ms": 17773,
+      "server_latency_ms": 17738,
+      "timings": null,
+      "cost_aud": 0.024435,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 4,
+        "max": 5,
+        "reasons": [
+          "no expected topic matched (looked for: polperro, lindenderry, montalto)"
+        ]
+      }
+    },
+    {
+      "id": "art-gallery",
+      "query": "Best art gallery on the Peninsula",
+      "ok": true,
+      "latency_ms": 15754,
+      "server_latency_ms": 15705,
+      "timings": null,
+      "cost_aud": 0.020147,
+      "recommendations_count": 0,
+      "recommendation_kinds": [],
+      "sources_count": 5,
+      "topic_hits": [
+        "sculpture",
+        "regional gallery"
+      ],
+      "kind_hits": [],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 4,
+        "max": 5,
+        "reasons": [
+          "no expected kind matched (got: none)"
+        ]
+      }
+    },
+    {
+      "id": "weekend-this-weekend",
+      "query": "What is on this weekend on the Peninsula",
+      "ok": true,
+      "latency_ms": 16595,
+      "server_latency_ms": 16550,
+      "timings": null,
+      "cost_aud": 0.025605,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "article"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "market"
+      ],
+      "kind_hits": [
+        "article"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "kids-thing-to-do",
+      "query": "Something to do with two kids in school holidays",
+      "ok": true,
+      "latency_ms": 15313,
+      "server_latency_ms": 15270,
+      "timings": null,
+      "cost_aud": 0.018014,
+      "recommendations_count": 2,
+      "recommendation_kinds": [
+        "article",
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "ashcombe maze"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "cellar-door-views",
+      "query": "Cellar door with the best view",
+      "ok": true,
+      "latency_ms": 16885,
+      "server_latency_ms": 16826,
+      "timings": null,
+      "cost_aud": 0.026861,
+      "recommendations_count": 4,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "port phillip estate"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "balnarring-village",
+      "query": "Is Balnarring worth a visit",
+      "ok": true,
+      "latency_ms": 16936,
+      "server_latency_ms": 16884,
+      "timings": null,
+      "cost_aud": 0.022253,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue",
+        "article"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "balnarring",
+        "village",
+        "bakery"
+      ],
+      "kind_hits": [
+        "article"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    },
+    {
+      "id": "negative-overrated",
+      "query": "Is Peninsula Hot Springs overrated",
+      "ok": true,
+      "latency_ms": 18603,
+      "server_latency_ms": 18552,
+      "timings": null,
+      "cost_aud": 0.025241,
+      "recommendations_count": 3,
+      "recommendation_kinds": [
+        "venue"
+      ],
+      "sources_count": 5,
+      "topic_hits": [
+        "peninsula hot springs",
+        "alba",
+        "crowd"
+      ],
+      "kind_hits": [
+        "venue"
+      ],
+      "forbidden_hits": [],
+      "quality": {
+        "score": 5,
+        "max": 5,
+        "reasons": []
+      }
+    }
+  ]
+}

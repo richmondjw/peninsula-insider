@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-pub-02.webp"
-  alt: "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables"
+  alt: "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables — representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "insider-edit"

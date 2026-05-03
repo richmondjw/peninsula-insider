@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/dog-walk-hero-01.webp"
-  alt: "Dog-friendly Peninsula — practical support guide"
+  alt: "Dog-friendly Peninsula — practical support guide — representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"

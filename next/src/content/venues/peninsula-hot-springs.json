@@ -16,6 +16,17 @@
   "priceBand": "$$$",
   "signature": "The original Peninsula thermal springs  -  still the biggest, still the best for people who want the full ritual",
   "editorNote": "Peninsula Hot Springs has been open since 2005 and in that time it has grown from a few pools in a paddock into the most ambitious wellness complex in the country. It has also been a victim of its own success: weekends can feel more crowded than relaxing, and the newer Amphitheatre pool is as much about the view as the temperature. None of this changes the fundamental fact that on the right day, in the right session, this is still the cleanest wellness-to-relaxation pipeline the Peninsula offers.\n\nBook the Bath House premium session midweek if you can, or a Twilight session in the cooler months. The Hilltop Pool, the Reflexology Walk, and the private baths reward people who actually move through the circuit properly rather than photographing it.\n\nAlba is tighter and more modern. Peninsula Hot Springs is larger, older, and has the deeper program. Both are worth doing  -  just not on the same day.",
+  "whyWeGo": "Peninsula Hot Springs has been open since 2005 and in that time it has grown from a few pools in a paddock into the most ambitious wellness complex in the country.",
+  "bestFor": [
+    "wellness day",
+    "wet-weather plan",
+    "couples"
+  ],
+  "ifOnlyOneThing": "Book the earliest session you can manage and do the full circuit without rushing it.",
+  "pairWith": [
+    "Barragunda Dining",
+    "Flinders Hotel"
+  ],
   "tags": {
     "mood": [
       "wellness",
@@ -42,5 +53,41 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": true,
+  "visiting": {
+    "openingHours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "opens": "07:00",
+        "closes": "23:00"
+      },
+      {
+        "days": [
+          "Friday"
+        ],
+        "opens": "07:00",
+        "closes": "02:00"
+      },
+      {
+        "days": [
+          "Saturday"
+        ],
+        "opens": "05:00",
+        "closes": "02:00"
+      },
+      {
+        "days": [
+          "Sunday"
+        ],
+        "opens": "05:00",
+        "closes": "23:00"
+      }
+    ],
+    "bookingRequired": false
+  }
 }

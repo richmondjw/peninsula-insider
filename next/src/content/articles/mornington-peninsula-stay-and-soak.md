@@ -7,7 +7,7 @@ houseByline: true
 publishedAt: 2026-04-14
 heroImage:
   src: "/images/sourced/spa-coastal-pool-01.webp"
-  alt: "Coastal spa pool evocative of the Mornington Peninsula stay-and-soak experience"
+  alt: "Coastal spa pool evocative of the Mornington Peninsula stay-and-soak experience — representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"
@@ -100,6 +100,8 @@ Peninsula Hot Springs Glamping on Friday. Evening bathhouse session. Saturday mo
 
 ### 3. "The southern tip resort weekend" — two nights
 RACV Cape Schanck Resort. One spa half-day at One Spa. One round at RACV Cape Schanck Golf Course (if golfing) or the lighthouse walk (if not). Dinner on-property or twenty minutes up the ridge at Jackalope. Sunday morning hot springs drive-over to Peninsula Hot Springs or Alba. Around $1,200–1,800 for two people all-in.
+
+> Prices may change. Confirm current rates directly with the venue or operator before booking.
 
 ## Before you book
 

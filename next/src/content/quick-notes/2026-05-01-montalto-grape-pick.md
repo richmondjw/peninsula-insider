@@ -17,3 +17,5 @@ status: published
 ---
 
 Montalto's open pick is the rare wine event that genuinely earns the family-friendly label. Kids in gumboots, parents with secateurs, lunch on the lawn at one. The community wine that gets bottled from the haul is sold for charity in spring.
+
+> Prices may change. Confirm current rates directly with the venue or operator before booking.

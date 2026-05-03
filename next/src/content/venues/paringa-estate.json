@@ -27,7 +27,15 @@
   "visiting": {
     "openingHours": [
       {
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
         "opens": "11:00",
         "closes": "17:00"
       }
@@ -38,7 +46,12 @@
   },
   "wines": {
     "winemaker": "Jamie McCall",
-    "keyVarieties": ["Pinot Noir", "Chardonnay", "Shiraz", "Pinot Gris"],
+    "keyVarieties": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Shiraz",
+      "Pinot Gris"
+    ],
     "topLabel": "'LJM' Pinot Noir"
   },
   "restaurant": {
@@ -49,6 +62,17 @@
     "description": "1 Chef's Hat, Age Good Food Guide (consistently including 2023). Fine dining. A Peninsula institution for Saturday lunch."
   },
   "editorVerdict": "Paringa Estate does not need to justify itself. Lindsay McCall planted his first vines in 1985 and has been producing some of Red Hill South's most reliable Pinot Noir and Shiraz ever since. The one-hat restaurant is a Peninsula institution. This is old-guard Peninsula — estate-grown, single-vineyard, no fuss — and it still outperforms newer arrivals more often than not.",
+  "whyWeGo": "Paringa Estate has the kind of confidence that comes from having done the work for decades.",
+  "bestFor": [
+    "cellar door",
+    "long lunch",
+    "sunset drinks"
+  ],
+  "ifOnlyOneThing": "Book lunch and taste the 'LJM' Pinot Noir before you leave.",
+  "pairWith": [
+    "Montalto Vineyard & Olive Grove",
+    "Max's at Red Hill Estate"
+  ],
   "faq": [
     {
       "q": "Does Paringa Estate take walk-ins or do you need to book?",
@@ -70,9 +94,22 @@
   },
   "lastFactVerified": "2026-04-01",
   "tags": {
-    "mood": ["cellar-door", "long-lunch", "sunset"],
-    "season": ["spring", "summer", "autumn", "all-year"],
-    "audience": ["couples", "locals", "first-timers"]
+    "mood": [
+      "cellar-door",
+      "long-lunch",
+      "sunset"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "all-year"
+    ],
+    "audience": [
+      "couples",
+      "locals",
+      "first-timers"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/venue-paringa-estate-01.webp",

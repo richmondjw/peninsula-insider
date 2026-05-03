@@ -64,6 +64,15 @@ const placeLinks = buildFooterPlaceLinks(places);
       </nav>
     </div>
 
+    <div class="v2-colophon__disclaimer">
+      <p>Peninsula Insider is an editorial platform sharing curated recommendations based on our own research and experience. While we aim to keep information accurate, details such as opening hours, pricing, and availability may change. Please confirm directly with venues before visiting.</p>
+      <p>From time to time, we may work with partners or accept invitations. Where this occurs, it will be disclosed within the relevant content. Our recommendations remain independently curated.</p>
+    </div>
+
+    <div class="v2-colophon__social">
+      <a href="https://www.instagram.com/peninsula_insider/" target="_blank" rel="noopener noreferrer" class="v2-colophon__social-link">Instagram</a>
+    </div>
+
     <div class="v2-colophon__foot">
       <span>© {year} Peninsula Insider <span class="v2-col-sect__ornament">·</span> All rights reserved.</span>
       <span><em>Built on the Peninsula, for the Peninsula.</em></span>
@@ -131,6 +140,32 @@ const placeLinks = buildFooterPlaceLinks(places);
       gap: 2rem;
     }
   }
+  .v2-colophon__disclaimer {
+    border-top: 1px solid var(--line, #D9D1BE);
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .v2-colophon__disclaimer p {
+    font-size: 0.78rem;
+    color: var(--ink-muted, #6E655C);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    max-width: 72ch;
+  }
+  .v2-colophon__social {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .v2-colophon__social-link {
+    font-size: 0.82rem;
+    color: var(--ink-soft, #3A3531);
+    text-decoration: none;
+    transition: color .18s ease;
+  }
+  .v2-colophon__social-link:hover { color: var(--ochre, #A0541F); }
   .v2-colophon__foot {
     padding-top: 1.5rem;
     border-top: 1px solid var(--line-soft, #E8E2D1);

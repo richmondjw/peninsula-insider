@@ -9,12 +9,14 @@
 
 import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
+import '../styles/search.css';      // site-search overlay + /search page styles
 import { ClientRouter } from 'astro:transitions';
 import Masthead from '../components/Masthead.astro';
 // UtilityBar removed, its content is now integrated into Masthead's
 // utility row. Keeping this comment as a breadcrumb for the migration.
 import Footer from '../components/Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
+import SearchOverlay from '../components/SearchOverlay.astro';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 import CookieBanner from '../components/CookieBanner.astro';
@@ -30,6 +32,10 @@ export interface Props {
   noindex?: boolean;
   publishedTime?: string;
   modifiedTime?: string;
+  /** Override the search-result chip label. Defaults to a label derived from section. */
+  searchKind?: string;
+  /** Exclude this page from the Pagefind index entirely (e.g. /search itself). */
+  searchExclude?: boolean;
 }
 
 const SITE_URL = 'https://peninsulainsider.com.au';
@@ -45,7 +51,24 @@ const {
   noindex = false,
   publishedTime,
   modifiedTime,
+  searchKind,
+  searchExclude = false,
 } = Astro.props;
+
+// Map the editorial section to a search-chip label. Reader-facing strings —
+// these populate the "kind" filter chips on /search.
+const SECTION_TO_SEARCH_KIND: Record<string, string> = {
+  home: 'Home',
+  eat: 'Eat',
+  stay: 'Stay',
+  wine: 'Wine',
+  explore: 'Explore',
+  journal: 'Journal',
+  places: 'Places',
+  escape: 'Escape',
+  'whats-on': "What's On",
+};
+const resolvedSearchKind = searchKind ?? SECTION_TO_SEARCH_KIND[section] ?? 'Guide';
 
 // Canonical: use explicit prop if provided, otherwise derive from current URL pathname.
 // Strip any /V2/ base prefix so canonicals always point at the production root.
@@ -162,7 +185,18 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <Masthead section={section} />
 
-  <main>
+  {/* data-pagefind-body scopes the index to <main>, so the masthead, footer,
+      concierge drawer, and search overlay aren't indexed.
+      data-pagefind-filter populates the "kind" facet on /search.
+      data-pagefind-meta makes the same value available on each result card
+      so the UI can render the type eyebrow without a second lookup.
+      data-pagefind-ignore opts the page out of the search index entirely. */}
+  <main
+    data-pagefind-body={searchExclude ? undefined : ''}
+    data-pagefind-filter={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
+    data-pagefind-meta={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
+    data-pagefind-ignore={searchExclude ? '' : undefined}
+  >
     <slot />
   </main>
 
@@ -183,6 +217,10 @@ const isAskPage = rawPathname.startsWith('/ask');
   <!-- PI concierge drawer, slides in from the right edge.
        Suppressed on /ask itself (which is the full-page version). -->
   {!isAskPage && <ConciergeDrawer />}
+
+  <!-- Site search overlay — instant Pagefind dropdown, opened by any
+       [data-open-search] trigger or the `/` keyboard shortcut. -->
+  <SearchOverlay />
 
   <!-- Cookie consent banner. Shows on first visit only; gates the
        gtag.js loader above via the 'pi:consent-changed' event. -->
