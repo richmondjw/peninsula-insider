@@ -15,7 +15,7 @@ Hot springs first. Rain makes hot springs more atmospheric, not less. The contra
 
 The Peninsula's cellar doors, particularly those with restaurant or casual dining attached, are the best rainy-day activity outside the hot springs. Most have covered dining. The experience is, arguably, better on a rainy day. Tables are easier to get, the wines taste different, and the experience has an unhurried quality that summer lunch services don't allow. Recommended cellar door lunches in rain: Montalto, Ten Minutes by Tractor, Polperro, and Foxeys Hangout.
 
-Spa treatments are the natural booking window for rainy days. All Peninsula spas operate year-round indoors. Spa by Jackalope is premium and indoor. Endota Spa Sorrento and Endota Spa Mornington are mid-range and reliable.
+Spa treatments are the natural booking window for rainy days. All Peninsula spas operate year-round indoors. Spa by Jackalope is premium and indoor. Endota Spa Mornington is mid-range and reliable.
 
 Galleries: the Peninsula's gallery scene is modest compared with its food and wine offering. Mornington Peninsula Regional Gallery in Langwarrin is the most accessible option, a genuine regional gallery with permanent and travelling exhibitions.
 

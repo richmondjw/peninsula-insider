@@ -12,7 +12,7 @@ heroImage:
   license: "venue-media-kit"
 format: "insider-edit"
 tags: ["spa", "wellness", "hot-springs", "mornington-peninsula", "guide", "rankings"]
-relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope", "endota-spa-sorrento", "endota-spa-mornington"]
+relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope", "endota-spa-mornington"]
 readingTimeMinutes: 10
 lastVerified: 2026-04-22
 clusterLinks:
@@ -27,7 +27,7 @@ faq:
   - question: "What is the best spa on the Mornington Peninsula?"
     answer: "For geothermal bathing: Alba Thermal Springs for design, adults-only pacing, and a first-visit couple's experience; Peninsula Hot Springs for scale, the full ritual circuit, treatment rooms, and group visits. For resort spa treatments: One Spa at RACV Cape Schanck for the cliff-edge ocean setting and full-day packages; Spa by Jackalope for design-hotel luxury on the Red Hill ridge."
   - question: "What is the difference between hot springs and resort spas on the Mornington Peninsula?"
-    answer: "Hot springs (Alba and Peninsula Hot Springs) are primarily outdoor geothermal bathing — multiple pools at different temperatures, no treatments required. Resort spas (One Spa, Spa by Jackalope, Endota) are primarily massage, facial, and treatment programs, often with one or two indoor pools. For a bathing-focused day, book the hot springs. For a treatment-focused day, book a resort spa. Some weekends combine both — bath in the morning, treatment in the afternoon."
+    answer: "Hot springs (Alba and Peninsula Hot Springs) are primarily outdoor geothermal bathing — multiple pools at different temperatures, no treatments required. Resort spas (One Spa, Spa by Jackalope, Endota Mornington) are primarily massage, facial, and treatment programs, often with one or two indoor pools. For a bathing-focused day, book the hot springs. For a treatment-focused day, book a resort spa. Some weekends combine both — bath in the morning, treatment in the afternoon."
   - question: "How far in advance should I book a Mornington Peninsula spa?"
     answer: "Hot springs: 3–4 weeks for weekend sessions in peak season (December–February, school holidays, long weekends). Alba is often harder to get than Peninsula Hot Springs because of lower capacity caps. Midweek sessions are available on much shorter notice. Resort spa treatments: 1–2 weeks for weekends; same-week midweek availability is usually possible. Book the hot springs before booking accommodation — sessions fill faster than beds."
 ---
@@ -64,13 +64,9 @@ The most design-led boutique spa on the Peninsula. <a href="/stay/spa-by-jackalo
 
 These are the practical, sensibly-priced day-spa options that make a Peninsula weekend feel more complete without eating a full day. Useful, not transcendent.
 
-### Endota Spa Sorrento
-
-<a href="/stay/endota-spa-sorrento">Endota Sorrento</a> is the main-street day spa that fits into an actual afternoon. Consistent therapists, a sensible sixty-to-ninety-minute treatment menu, and a Sorrento main-street location that pairs with a village lunch. National chain branding, which some readers dismiss on principle — for the middle-tier day-spa category, it is the most reliable option on the tip.
-
 ### Endota Spa Mornington
 
-<a href="/stay/endota-spa-mornington">Endota Mornington</a> is the bayside sibling. Same menu, same quality, a different weekend. For visitors staying in Mornington town, this is the simplest wellness add-on — no drive, no parking issue, a massage before a long lunch on Main Street.
+<a href="/stay/endota-spa-mornington">Endota Mornington</a> is the bayside day spa for visitors who want a treatment without the drive to a resort. Consistent therapists, a sensible sixty-to-ninety-minute treatment menu, and a Mornington town location that pairs with a long lunch on Main Street. National chain branding, which some readers dismiss on principle, but for the middle-tier day-spa category it is the most reliable option in northern Peninsula.
 
 ## Honourable mentions
 
@@ -82,7 +78,7 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 
 - **Anniversary, serious relaxation, first Peninsula visit** → Tier 1 (Alba Thermal Springs, ideally, or Peninsula Hot Springs midweek)
 - **Weekend with golf, a long lunch, or a stay at a resort** → Tier 2 (One Spa at RACV or Spa by Jackalope)
-- **A village weekend where the spa is a supporting act** → Tier 3 (Endota Sorrento or Mornington)
+- **A village weekend where the spa is a supporting act** → Tier 3 (Endota Mornington)
 - **Something unusual, memorable, Instagram-worthy but worth it** → Afloat Mornington
 
 ## Before you book

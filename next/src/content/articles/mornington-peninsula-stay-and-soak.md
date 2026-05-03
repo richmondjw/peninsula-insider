@@ -78,13 +78,9 @@ For couples who want the RACV spa but not the RACV stay, <a href="/stay/jackalop
 
 Stay at Jackalope, book a treatment, have dinner at Doot Doot Doot. This is the weekend. The spa pricing for hotel guests is typically more favourable than day visitors, the treatment slots are easier to secure, and the drive-to-spa time drops to zero. For a two-night stay, pair one Jackalope spa morning with one Alba Thermal Springs afternoon session and you have the complete Peninsula wellness sequence.
 
-## The village end: Endota Sorrento and Endota Mornington
+## The village end: Endota Mornington
 
-Endota locations are main-street day spas — short treatments, reliable therapists, bookable around a lunch rather than as a full weekend anchor. The stay logic is different: base yourself in the village, add a massage.
-
-### Sorrento village stays paired with Endota Sorrento
-
-<a href="/stay/hotel-sorrento">Hotel Sorrento</a> is five minutes from <a href="/stay/endota-spa-sorrento">Endota Sorrento</a>. This is the Sorrento village weekend: ocean walks, Main Street dinners, a sixty-minute massage mid-afternoon. Self-contained villas in Sorrento also work well for groups of four.
+Endota Mornington is a main-street day spa — short treatments, reliable therapists, bookable around a lunch rather than as a full weekend anchor. The stay logic is different: base yourself in the village, add a massage.
 
 ### Mornington stays paired with Endota Mornington
 
