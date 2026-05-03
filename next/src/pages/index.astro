@@ -7,7 +7,6 @@ import Shortlist from '../components/Shortlist.astro';
 import EditorsLetter from '../components/EditorsLetter.astro';
 import InsiderStripe from '../components/InsiderStripe.astro';
 import PillarNav from '../components/PillarNav.astro';
-import IssueFlag from '../components/IssueFlag.astro';
 import SectionDivider from '../components/SectionDivider.astro';
 import { formatLabel } from '../lib/editorial';
 import VenueCard from '../components/VenueCard.astro';
@@ -213,18 +212,6 @@ const seasonalExperiences = experiences
   <InsiderPlans />
 
   <PillarNav />
-
-  <IssueFlag
-    issueDate={issueDate}
-    context={seasonBlurbData.line}
-    stats={[
-      { label: 'Pieces',         value: issueStats.articles },
-      { label: 'Venues mapped',  value: issueStats.venues },
-      { label: 'Places',         value: issueStats.places },
-      { label: 'Walks & moves',  value: issueStats.experiences },
-      { label: 'Escape plans',   value: issueStats.itineraries },
-    ]}
-  />
 
   {weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />}
 
