@@ -10,11 +10,23 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, currentSeason, seasonBlurb, experienceInSeason } from '../../lib/editorial';
+import EventStrip from '../../components/EventStrip.astro';
+import { routeSlug, currentSeason, seasonBlurb, experienceInSeason, isUpcoming } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const experiences = (await getCollection('experiences')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+// Family + arts + nature events surfacing from /whats-on/.
+const exploreEventCategories = ['nature', 'family-programs', 'arts', 'exhibition', 'community', 'wellness'];
+const exploreEvents = (await getCollection('events'))
+  .filter((event) => exploreEventCategories.includes(event.data.category))
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+    return isUpcoming(event.data.endDate ?? event.data.startDate);
+  })
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 3);
 const places = await getCollection('places');
 const itinerariesAll = await getCollection('itineraries');
 const itinerarySlugs = ['flinders-and-cape-reset', 'ridge-to-sea-two-night-escape', 'sorrento-off-season-weekend'];
@@ -163,6 +175,16 @@ const breadcrumbSchema = buildBreadcrumbSchema([
         { label: 'Strongest moves', value: 'Peninsula Hot Springs, Alba Thermal Springs, Spa by Jackalope, Pt Leo Estate sculpture park, Red Hill Market, Mornington Peninsula Regional Gallery.' },
       ],
     }}
+  />
+
+  <EventStrip
+    events={exploreEvents}
+    eyebrow="Things on this weekend"
+    heading="Markets, exhibitions, family programs, walks"
+    intro="Pulled from the events registry across nature, family, arts, and community categories."
+    moreHref="/whats-on/"
+    moreLabel="All events"
+    variant="alt"
   />
 
   <!-- ═══════════════════════════════════════════════════════════════

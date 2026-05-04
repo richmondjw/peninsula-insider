@@ -16,6 +16,8 @@ import ItineraryCard from '../components/ItineraryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import EventCard from '../components/EventCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
+import EventStrip from '../components/EventStrip.astro';
+import { chips, eventsForChip, getChip } from '../lib/events';
 import InsiderPlans from '../components/InsiderPlans.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason, dispatchWeekend } from '../lib/editorial';
@@ -214,6 +216,22 @@ const seasonalExperiences = experiences
   <PillarNav />
 
   {weekendDispatch && <WeekendPickerBlock dispatch={weekendDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />}
+
+  {(() => {
+    const chip = getChip('this-weekend');
+    const weekendEvents = chip ? eventsForChip(chip, eventsAll).slice(0, 3) : [];
+    return weekendEvents.length > 0 && (
+      <EventStrip
+        events={weekendEvents}
+        eyebrow="On the calendar this weekend"
+        heading="Three events worth a Saturday or Sunday"
+        intro="Pulled from the events registry, ranked by what they are actually like to attend. Tap through for the full list, or pick a mood (when it rains, worth the drive, after dark) on the events hub."
+        moreHref="/whats-on/"
+        moreLabel="See the full registry"
+        variant="alt"
+      />
+    );
+  })()}
 
   {intentResolved.length > 0 && (
     <section class="intent-strip" aria-label="Start from what you need">

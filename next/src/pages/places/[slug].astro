@@ -2,7 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
-import { routeSlug, stayTypes, wineTypes } from '../../lib/editorial';
+import EventStrip from '../../components/EventStrip.astro';
+import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../lib/editorial';
 
 export async function getStaticPaths() {
   const places = await getCollection('places');
@@ -18,12 +19,28 @@ const places = await getCollection('places');
 const allExperiences = await getCollection('experiences');
 const allItineraries = await getCollection('itineraries');
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const allEvents = await getCollection('events');
 
 const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();
 
 const venuesForPlace = allVenues
   .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug);
+
+// Events at this place: match place ref, OR suburb name (machine-imported
+// events without a clean place ref still surface if the suburb matches).
+const eventsForPlace = allEvents
+  .filter((event) => {
+    const eventPlace = String(event.data.place?.id ?? event.data.place ?? '');
+    if (eventPlace === placeSlug) return true;
+    return event.data.suburb?.toLowerCase() === placeNameLower;
+  })
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+    return isUpcoming(event.data.endDate ?? event.data.startDate);
+  })
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 3);
 const venueSlugs = venuesForPlace.map((venue) => routeSlug(venue));
 const experiences = allExperiences
   .filter((experience) => String(experience.data.place?.id ?? experience.data.place) === placeSlug);
@@ -307,5 +324,15 @@ const placeSchema = {
     articles={articles}
     relatedPlaces={relatedPlaces}
     snapshotCards={snapshotCards}
+  />
+
+  <EventStrip
+    events={eventsForPlace}
+    eyebrow="On the calendar in this place"
+    heading={`Events in ${place.data.name}`}
+    intro={`Coming up in ${place.data.name}, pulled from the events registry.`}
+    moreHref="/whats-on/"
+    moreLabel="All events"
+    variant="alt"
   />
 </BaseLayout>
