@@ -1,0 +1,59 @@
+name: Events rederive lenses
+
+# Daily safety-net cron from the events registry design.
+#
+# Walks every event JSON file and recomputes the auto-derived `lens`
+# array from the data in the file (visitorAppealScore, weatherShape,
+# kidsGradeAuto, priceTier, bookingRequired, ticketingUrl).
+#
+# Lens tags drive what surfaces in the editorial sections of /whats-on/.
+# If an editor adjusts visitorAppealScore on an event, the lens tags
+# should refresh accordingly. This daily run keeps things consistent
+# without requiring a full spreadsheet re-import.
+#
+# Editor-curated events (those with editorVerdict / editorNote /
+# whyWeCare set) are skipped so editor work is never clobbered.
+#
+# Schedule: 16:30 UTC daily = 02:30 Melbourne AEST / 03:30 AEDT.
+# Sits between archive-expired (03:30 AEST) and recompute-occurrence
+# (03:00 AEST), so the daily content cron runs as a tight stack.
+
+on:
+  schedule:
+    - cron: '30 16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: events-rederive-lenses
+  cancel-in-progress: false
+
+jobs:
+  rederive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run rederive script
+        run: python next/scripts/rederive-lenses.py
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain next/src/content/events/)" ]]; then
+            git add next/src/content/events/
+            git commit -m "ops(events): rederive lens tags from event data [skip ci]"
+            git push origin main
+          else
+            echo "No lens changes."
+          fi

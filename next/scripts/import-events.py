@@ -244,6 +244,36 @@ def derive_audience_tags(suitable_for: str | None,
     return sorted(tags)
 
 
+def derive_lens_auto(visitor_appeal: int | None,
+                     weather_shape: str,
+                     kids_grade_auto: str | None,
+                     price_tier: str,
+                     booking_required: str | None,
+                     ticketing_url: str | None,
+                     visitor_appeal_threshold_pick: int = 4) -> list[str]:
+    """Auto-derived lens tags. Editor's `lens` array still wins on re-import.
+    These tags fill the editorial browse rows on the hub for the bulk of
+    machine-imported events that the editor hasn't touched yet."""
+    tags: list[str] = []
+    appeal = visitor_appeal or 0
+    if appeal >= visitor_appeal_threshold_pick:
+        tags.append('weekend-pick')
+    if appeal >= 5:
+        tags.append('worth-the-drive')
+    if weather_shape == 'all-weather':
+        tags.append('rainy-day')
+    if kids_grade_auto in ('A', 'B'):
+        tags.append('family-saturday')
+    if price_tier == 'free':
+        tags.append('free')
+    booking_lower = (booking_required or '').lower()
+    if 'no' in booking_lower or 'walk' in booking_lower:
+        tags.append('walk-in')
+    elif 'yes' in booking_lower and ticketing_url:
+        tags.append('ticketed')
+    return tags
+
+
 def derive_kids_grade_auto(family_friendly: str | None,
                            accessibility: str | None,
                            weather_shape: str) -> str | None:
@@ -415,6 +445,27 @@ def row_to_event(row: dict, existing: dict | None) -> dict | None:
         'status': 'published',
         'publishedAt': start_date,  # initial publish, editor can override
     }
+
+    # Auto-derive worthTheDrive when the data clearly says so — keeps the
+    # editor field as the override (editorial-owned), but populates a
+    # sensible default from visitor appeal score 5 + verified status.
+    visitor_appeal_int = parse_int(row.get('Visitor Appeal Score')) or 0
+    verification = (clean(row.get('Verification Status')) or '').lower()
+    is_verified = 'verified' in verification or 'recurring, next date confirmed' in verification
+    if visitor_appeal_int >= 5 and is_verified:
+        event['worthTheDrive'] = True
+
+    # Auto-derive lens tags so the hub's editorial browse rows fill out
+    # for machine-imported events. Editor's lens array (preserved as
+    # editorial overlay) still wins on re-import.
+    event['lens'] = derive_lens_auto(
+        visitor_appeal_int,
+        event.get('weatherShape', 'unknown'),
+        event.get('kidsGradeAuto'),
+        event.get('priceTier', 'unknown'),
+        event.get('bookingRequired'),
+        event.get('ticketingUrl'),
+    )
 
     # Place ref: only set if the suburb maps cleanly. Otherwise leave unset
     # so the editor can map it manually (showing in needs-review queue).
