@@ -1,0 +1,298 @@
+---
+/**
+ * /saved/ — the user's saved-list view (Phase 2 WS2E).
+ *
+ * Renders the contents of localStorage on the client. Supports two modes:
+ *   1. Personal mode (default): reads pi:saved:v1 from localStorage and
+ *      shows the user's currently-saved venues and events.
+ *   2. Shared mode: when the URL carries ?v=slug,slug&e=slug,slug, hydrates
+ *      that list from build-time data and offers a "Save these to my list"
+ *      action that merges into localStorage.
+ *
+ * Build-time work: pre-render lookup tables for every venue and event so
+ * the client can render a saved item by slug alone, without a network call.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHero from '../components/SectionHero.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+
+const venues = await getCollection('venues');
+const events = await getCollection('events');
+
+/**
+ * Compact lookup tables for the client. Keep the payload tight: name + href
+ * + image + a one-line summary. Hero src and price are nice-to-have for
+ * the saved-list rendering and don't bloat the page meaningfully.
+ */
+const venueLookup = Object.fromEntries(
+  venues.map((v) => [
+    routeSlug(v),
+    {
+      slug: routeSlug(v),
+      title: v.data.name,
+      href: `${venueHrefPrefix(v.data.type)}/${routeSlug(v)}/`,
+      hero: v.data.heroImage?.src ?? '',
+      placeId: typeof v.data.place === 'string' ? v.data.place : v.data.place?.id ?? '',
+      type: v.data.type,
+      price: v.data.priceBand ?? '',
+      signature: v.data.signature ?? '',
+    },
+  ]),
+);
+const eventLookup = Object.fromEntries(
+  events.map((e) => [
+    routeSlug(e),
+    {
+      slug: routeSlug(e),
+      title: e.data.title,
+      href: `/whats-on/${routeSlug(e)}/`,
+      hero: e.data.heroImage?.src ?? '',
+      summary: e.data.summary ?? '',
+    },
+  ]),
+);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'My shortlist' },
+];
+---
+
+<BaseLayout
+  title="My shortlist · Peninsula Insider"
+  description="Your saved Peninsula venues and events. Saved on this device, sharable as a single link."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="My shortlist"
+    subEyebrow="Saved on this device"
+    title="Your <em>Peninsula</em> shortlist"
+    dek="Venues and events you've saved across the site, ready to share or come back to. Saved locally, no account needed. Share the link to send the whole list to a co-traveller."
+    gradient="journal"
+    visualLabel="Peninsula Insider · saved"
+  />
+
+  <section class="saved-page">
+    <div class="container">
+      <!-- Mode banner — appears in shared mode only. Set by inline JS. -->
+      <aside class="saved-banner" data-saved-banner hidden>
+        <div class="saved-banner__inner">
+          <p class="saved-banner__label">Shared shortlist</p>
+          <p class="saved-banner__body">Someone shared this Peninsula shortlist with you. You can browse it as is, or merge it into your own saved list on this device.</p>
+          <button type="button" class="saved-banner__action" data-saved-merge>Save these to my list</button>
+        </div>
+      </aside>
+
+      <div class="saved-toolbar">
+        <p class="saved-toolbar__count" data-saved-toolbar-count></p>
+        <div class="saved-toolbar__actions">
+          <button type="button" class="saved-toolbar__action" data-saved-share>Copy share link</button>
+          <button type="button" class="saved-toolbar__action saved-toolbar__action--ghost" data-saved-clear>Clear shortlist</button>
+        </div>
+      </div>
+
+      <h2 class="saved-section-heading">Saved venues <span class="saved-section-heading__count" data-saved-venues-count>0</span></h2>
+      <ul class="saved-list" data-saved-venues-list></ul>
+      <p class="saved-empty" data-saved-venues-empty hidden>
+        No venues saved yet. Hit the bookmark on any venue card across the site, then come back here.
+      </p>
+
+      <h2 class="saved-section-heading">Saved events <span class="saved-section-heading__count" data-saved-events-count>0</span></h2>
+      <ul class="saved-list" data-saved-events-list></ul>
+      <p class="saved-empty" data-saved-events-empty hidden>
+        No events saved yet. Save anything from <a href="/whats-on/">What's On</a> to build a weekend.
+      </p>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<script
+  is:inline
+  define:vars={{ venueLookup, eventLookup }}
+>
+  /* /saved/ controller. Renders from window.PISave (set by
+     SaveSiteController) plus the build-time lookup tables above. */
+  (function () {
+    function escapeHtml(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function parseShared() {
+      var p = new URLSearchParams(window.location.search);
+      var v = (p.get('v') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      var e = (p.get('e') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (!v.length && !e.length) return null;
+      return { venues: v, events: e };
+    }
+
+    function hydrate(slug, kind) {
+      if (kind === 'event') return eventLookup[slug] || { slug: slug, title: slug, href: '#', summary: '' };
+      return venueLookup[slug] || { slug: slug, title: slug, href: '#', signature: '' };
+    }
+
+    function renderItem(kind, hydrated, savedAt) {
+      var when = savedAt ? new Date(savedAt).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }) : '';
+      var hero = hydrated.hero
+        ? '<div class="saved-list__item-hero" style="background-image:url(' + escapeHtml(hydrated.hero) + ')"></div>'
+        : '<div class="saved-list__item-hero saved-list__item-hero--empty"></div>';
+      var sub = kind === 'event' ? (hydrated.summary || '') : (hydrated.signature || '');
+      var meta = '';
+      if (kind === 'venue') {
+        var place = hydrated.placeId
+          ? String(hydrated.placeId).replace(/-/g, ' ').replace(/\b\w/g, function (l) { return l.toUpperCase(); })
+          : '';
+        meta = [hydrated.type, hydrated.price, place].filter(Boolean).map(escapeHtml).join(' · ');
+      }
+      return ''
+        + '<li class="saved-list__item">'
+        +   '<a class="saved-list__item-link" href="' + escapeHtml(hydrated.href) + '">'
+        +     hero
+        +     '<div class="saved-list__item-body">'
+        +       (meta ? '<p class="saved-list__item-meta">' + meta + '</p>' : '')
+        +       '<h3 class="saved-list__item-title">' + escapeHtml(hydrated.title) + '</h3>'
+        +       (sub ? '<p class="saved-list__item-sub">' + escapeHtml(sub) + '</p>' : '')
+        +     '</div>'
+        +   '</a>'
+        +   '<button type="button" class="saved-list__item-remove" data-saved-remove data-kind="' + kind + '" data-slug="' + escapeHtml(hydrated.slug) + '" aria-label="Remove ' + escapeHtml(hydrated.title) + ' from your shortlist">Remove</button>'
+        + '</li>';
+    }
+
+    var venuesList = document.querySelector('[data-saved-venues-list]');
+    var eventsList = document.querySelector('[data-saved-events-list]');
+    var venuesEmpty = document.querySelector('[data-saved-venues-empty]');
+    var eventsEmpty = document.querySelector('[data-saved-events-empty]');
+    var venuesCount = document.querySelector('[data-saved-venues-count]');
+    var eventsCount = document.querySelector('[data-saved-events-count]');
+    var toolbarCount = document.querySelector('[data-saved-toolbar-count]');
+    var banner = document.querySelector('[data-saved-banner]');
+    var mergeBtn = document.querySelector('[data-saved-merge]');
+
+    function render(source) {
+      // source: { venues: [{ slug, title, href, savedAt }], events: [...] }
+      var vh = (source.venues || []).map(function (it) { return renderItem('venue', hydrate(it.slug, 'venue'), it.savedAt); }).join('');
+      var eh = (source.events || []).map(function (it) { return renderItem('event', hydrate(it.slug, 'event'), it.savedAt); }).join('');
+      if (venuesList) venuesList.innerHTML = vh;
+      if (eventsList) eventsList.innerHTML = eh;
+      if (venuesCount) venuesCount.textContent = '(' + (source.venues || []).length + ')';
+      if (eventsCount) eventsCount.textContent = '(' + (source.events || []).length + ')';
+      if (venuesEmpty) (source.venues || []).length ? venuesEmpty.setAttribute('hidden', '') : venuesEmpty.removeAttribute('hidden');
+      if (eventsEmpty) (source.events || []).length ? eventsEmpty.setAttribute('hidden', '') : eventsEmpty.removeAttribute('hidden');
+      var total = (source.venues || []).length + (source.events || []).length;
+      if (toolbarCount) {
+        toolbarCount.textContent = total === 0
+          ? 'Your shortlist is empty.'
+          : total + ' item' + (total === 1 ? '' : 's') + ' saved on this device.';
+      }
+      // Bind remove buttons
+      document.querySelectorAll('[data-saved-remove]').forEach(function (btn) {
+        if (btn._piRemoveBound) return;
+        btn._piRemoveBound = true;
+        btn.addEventListener('click', function () {
+          if (!window.PISave) return;
+          window.PISave.toggle(btn.getAttribute('data-kind'), btn.getAttribute('data-slug'), '', '');
+        });
+      });
+    }
+
+    function buildShareUrl(source) {
+      var p = new URLSearchParams();
+      var vSlugs = (source.venues || []).map(function (it) { return it.slug; }).filter(Boolean);
+      var eSlugs = (source.events || []).map(function (it) { return it.slug; }).filter(Boolean);
+      if (vSlugs.length) p.set('v', vSlugs.join(','));
+      if (eSlugs.length) p.set('e', eSlugs.join(','));
+      var qs = p.toString();
+      return window.location.origin + window.location.pathname + (qs ? '?' + qs : '');
+    }
+
+    function refresh() {
+      var shared = parseShared();
+      if (shared) {
+        // Shared mode: render from URL params (no localStorage interaction)
+        if (banner) banner.removeAttribute('hidden');
+        var hydratedShared = {
+          venues: shared.venues.map(function (slug) { return { slug: slug, title: '', href: '', savedAt: 0 }; }),
+          events: shared.events.map(function (slug) { return { slug: slug, title: '', href: '', savedAt: 0 }; }),
+        };
+        render(hydratedShared);
+      } else {
+        if (banner) banner.setAttribute('hidden', '');
+        var store = window.PISave ? window.PISave.list() : { venues: [], events: [] };
+        render(store);
+      }
+    }
+
+    // Toolbar actions
+    var shareBtn = document.querySelector('[data-saved-share]');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', function () {
+        var store = parseShared() || (window.PISave ? window.PISave.list() : { venues: [], events: [] });
+        // For shared mode, re-encode the URL so it stays canonical.
+        var sourceForLink = parseShared()
+          ? {
+              venues: (parseShared().venues || []).map(function (s) { return { slug: s }; }),
+              events: (parseShared().events || []).map(function (s) { return { slug: s }; }),
+            }
+          : store;
+        var url = buildShareUrl(sourceForLink);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            shareBtn.textContent = 'Copied!';
+            setTimeout(function () { shareBtn.textContent = 'Copy share link'; }, 2000);
+          }, function () {
+            window.prompt('Copy this share link:', url);
+          });
+        } else {
+          window.prompt('Copy this share link:', url);
+        }
+      });
+    }
+
+    var clearBtn = document.querySelector('[data-saved-clear]');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        if (!window.PISave) return;
+        if (window.confirm('Clear your entire saved shortlist?')) window.PISave.clear();
+      });
+    }
+
+    if (mergeBtn) {
+      mergeBtn.addEventListener('click', function () {
+        if (!window.PISave) return;
+        var shared = parseShared();
+        if (!shared) return;
+        var incoming = {
+          venues: shared.venues.map(function (slug) {
+            var h = hydrate(slug, 'venue');
+            return { slug: slug, title: h.title, href: h.href };
+          }),
+          events: shared.events.map(function (slug) {
+            var h = hydrate(slug, 'event');
+            return { slug: slug, title: h.title, href: h.href };
+          }),
+        };
+        window.PISave.merge(incoming);
+        // Drop the shared params and refresh the local view.
+        window.history.replaceState(null, '', window.location.pathname);
+        refresh();
+      });
+    }
+
+    refresh();
+    window.addEventListener('pi:save-changed', refresh);
+    document.addEventListener('astro:page-load', refresh);
+  })();
+</script>

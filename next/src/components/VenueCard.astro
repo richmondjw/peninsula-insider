@@ -8,6 +8,7 @@
 
 import { resolveHeroSrc } from '../lib/editorial';
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
+import SaveButton from './SaveButton.astro';
 
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
@@ -83,6 +84,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     {data.bookingUrl && data.bookingProvider !== 'none' && (
       <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>Book</a>
     )}
+    <SaveButton kind="venue" slug={slug} title={data.name} href={href} />
   </div>
   {verifiedLabel && (
     <p class={`venue-card__verified venue-card__verified--${verifiedTier}`} aria-label={`Editorial freshness: ${verifiedLabel}`}>
