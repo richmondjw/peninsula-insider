@@ -1,0 +1,57 @@
+name: Events archive expired
+
+# Daily cron job 2 from the events registry design.
+#
+# Walks the events content collection, finds events whose endDate (or
+# startDate if no endDate) is more than 14 days past today, and sets
+# their status to "archived". Editor can flag `keepLive: true` on a
+# JSON file to opt out.
+#
+# Auto-archive only runs against one-off, annual, and seasonal events.
+# Weekly / monthly / ongoing events are never auto-archived; they're
+# managed by the recompute-occurrence cron.
+#
+# If the script changes any files, this workflow commits them directly
+# to main with a [skip ci] tag so the deploy doesn't double-fire.
+#
+# Schedule: 17:30 UTC daily = 03:30 Melbourne AEST / 04:30 AEDT.
+
+on:
+  schedule:
+    - cron: '30 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: events-archive-expired
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run archive script
+        run: python next/scripts/archive-expired-events.py
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain next/src/content/events/)" ]]; then
+            git add next/src/content/events/
+            git commit -m "ops(events): auto-archive expired events [skip ci]"
+            git push origin main
+          else
+            echo "No expired events to archive."
+          fi

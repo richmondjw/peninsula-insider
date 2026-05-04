@@ -1,0 +1,42 @@
+name: Events weekly rebuild
+
+# Cron job 3 from the events registry design (this-weekend refresh).
+#
+# Triggers a fresh deploy every Wednesday so time-sensitive event lists
+# (homepage "this weekend" strip, /whats-on/by-mood/this-weekend/, the
+# section hub event strips) reflect the upcoming weekend even if no
+# content commits have landed since the previous build.
+#
+# Doesn't change any files; just dispatches the existing build-and-deploy
+# workflow with an empty commit so the regenerated pages capture the
+# new "upcoming weekend" window.
+#
+# Schedule: 20:00 UTC Tuesday = 06:00 Melbourne AEST Wednesday / 07:00 AEDT.
+
+on:
+  schedule:
+    - cron: '0 20 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: events-weekly-rebuild
+  cancel-in-progress: false
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Empty commit to trigger deploy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "ops(events): weekly rebuild for this-weekend refresh"
+          git push origin main

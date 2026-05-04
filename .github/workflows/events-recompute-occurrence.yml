@@ -1,0 +1,49 @@
+name: Events recompute occurrence
+
+# Daily cron job 1 from the events registry design.
+#
+# For each recurring event (weekly, monthly, annual), recomputes the
+# `nextOccurrence` field. Idempotent: rerunning produces the same
+# result, so the workflow only commits when something actually changed.
+#
+# Schedule: 17:00 UTC daily = 03:00 Melbourne AEST / 04:00 AEDT.
+
+on:
+  schedule:
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: events-recompute-occurrence
+  cancel-in-progress: false
+
+jobs:
+  recompute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run recompute script
+        run: python next/scripts/recompute-occurrence.py
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain next/src/content/events/)" ]]; then
+            git add next/src/content/events/
+            git commit -m "ops(events): refresh nextOccurrence for recurring events [skip ci]"
+            git push origin main
+          else
+            echo "No nextOccurrence changes."
+          fi
