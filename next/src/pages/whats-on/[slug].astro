@@ -130,6 +130,52 @@ const breadcrumbItems = [
         </div>
 
         <aside class="event-detail__side">
+          {(venue || event.data.venueName) && (
+            <div class="event-detail__box event-detail__hosted">
+              <p class="event-detail__box-label">
+                Hosted at
+                {venue && <span class="event-detail__hosted-badge"> · ✦ Editor reviewed</span>}
+              </p>
+              <p class="event-detail__hosted-name">
+                {venue ? venue.data.name : event.data.venueName}
+              </p>
+              {(event.data.streetAddress || event.data.suburb) && (
+                <p class="event-detail__hosted-address">
+                  {event.data.streetAddress && <span>{event.data.streetAddress}</span>}
+                  {event.data.streetAddress && event.data.suburb && <span>, </span>}
+                  {event.data.suburb && <span>{event.data.suburb} VIC</span>}
+                </p>
+              )}
+              <ul class="event-detail__hosted-actions" role="list">
+                {venue && (
+                  <li>
+                    <a href={`${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}`}>
+                      Read the Insider's review &rarr;
+                    </a>
+                  </li>
+                )}
+                {event.data.organiser?.website && (
+                  <li>
+                    <a href={event.data.organiser.website} rel="nofollow noreferrer" target="_blank">
+                      Visit venue website &rarr;
+                    </a>
+                  </li>
+                )}
+                {event.data.coordinates && (
+                  <li>
+                    <a
+                      href={`https://www.google.com/maps?q=${event.data.coordinates.lat},${event.data.coordinates.lng}`}
+                      rel="nofollow noreferrer"
+                      target="_blank"
+                    >
+                      Get directions &rarr;
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          )}
+
           <div class="event-detail__box">
             <p class="event-detail__box-label">At a glance</p>
             <dl class="event-detail__box-list">
@@ -141,12 +187,6 @@ const breadcrumbItems = [
                 <div>
                   <dt>Where</dt>
                   <dd><a href={`/places/${routeSlug(place)}`}>{place.data.name}</a></dd>
-                </div>
-              )}
-              {venue && (
-                <div>
-                  <dt>Venue</dt>
-                  <dd><a href={`${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}`}>{venue.data.name}</a></dd>
                 </div>
               )}
               <div>

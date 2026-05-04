@@ -2,7 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
-import { routeSlug, typeLabel, titleize } from '../../lib/editorial';
+import EventStrip from '../../components/EventStrip.astro';
+import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
 import {
   buildWinerySchema,
   buildRestaurantSchema,
@@ -46,6 +47,16 @@ const itineraries = (await getCollection('itineraries'))
   )
   .slice(0, 2);
 
+// Events at this venue, gated on a clean venue ref.
+const venueEvents = (await getCollection('events'))
+  .filter((event) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+    return isUpcoming(event.data.endDate ?? event.data.startDate);
+  })
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 3);
+
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
 const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
 const sigDesc = (venue.data.signature ?? '').trim();
@@ -86,4 +97,14 @@ schemas.push(
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
   <VenueDetailTemplate venue={venue} section="wine" related={related} articles={articles} itineraries={itineraries} />
+
+  <EventStrip
+    events={venueEvents}
+    eyebrow="On the calendar here"
+    heading={`${venue.data.name} is also a real event venue`}
+    intro={`Upcoming events at ${venue.data.name}, with editorial notes when we have them.`}
+    moreHref="/whats-on/"
+    moreLabel="All events"
+    variant="alt"
+  />
 </BaseLayout>
