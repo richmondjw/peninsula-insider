@@ -5744,6 +5744,49 @@ p.has-drop-cap::first-letter {
   line-height: 1.45;
 }
 .event-detail__box-list dd a { color: var(--accent); border-bottom: 1px solid rgba(139, 78, 59, 0.4); }
+
+/* Hosted-at block: shows on every event detail page where venue info exists.
+   Differentiates PI-reviewed venues (✦ badge + review link) from event-host
+   venues (just the address + directions). The trust signal does the work. */
+.event-detail__hosted-badge {
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+.event-detail__hosted-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.01em;
+}
+.event-detail__hosted-address {
+  font-size: 0.85rem;
+  color: var(--soft);
+  line-height: 1.5;
+  margin: 0 0 0.85rem;
+}
+.event-detail__hosted-actions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.event-detail__hosted-actions a {
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 78, 59, 0.4);
+  display: inline-block;
+}
+.event-detail__hosted-actions a:hover {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
 .event-detail__lenses {
   display: flex;
   flex-wrap: wrap;
