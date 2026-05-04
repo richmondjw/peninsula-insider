@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.DoyUd3dF.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.D111aP2O.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="explore" data-path="/explore/the-dunes-golf-links/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
@@ -65,10 +65,14 @@ Ask The Insider for a recommendation
   document.addEventListener('astro:page-load', bindTriggers);
 })();
 </script> <!-- Masthead "More" mega-menu controller.
-     Hover opens softly (closes on mouseleave with a 250ms grace period to
-     bridge the cursor traversal between trigger and panel). Click locks the
-     panel open until Escape, outside-click, or another click on the trigger.
-     Touch input takes the click path because mouseenter is unreliable.
+     Click-only. Predictable. The dual hover/click mode in the previous
+     version fought itself: a click after a hover toggled state in a way
+     that could close the panel unexpectedly, and the 250ms mouseleave
+     close timer made the issue feel like a flash. This version is
+     simpler and bulletproof:
+       • Click trigger → open. Click trigger again → close.
+       • Outside click → close. Esc → close + return focus.
+       • Hover does nothing.
      Idempotent across astro:page-load. --> <script>
 (function () {
   function bindMore() {
@@ -79,14 +83,9 @@ Ask The Insider for a recommendation
       const panel = root.querySelector('[data-more-panel]');
       if (!trigger || !panel) return;
 
-      // mode: 'closed' | 'hover' | 'click'
-      // 'hover' closes on mouseleave (with grace period). 'click' is sticky
-      // and only closes on Escape, outside-click, or click on the trigger.
-      let mode = 'closed';
-      let leaveTimer = null;
+      let isOpen = false;
 
       const apply = () => {
-        var isOpen = mode !== 'closed';
         trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         if (isOpen) {
           panel.removeAttribute('hidden');
@@ -96,79 +95,55 @@ Ask The Insider for a recommendation
           root.classList.remove('is-open');
         }
       };
-      const setMode = (next) => {
-        if (mode === next) return;
-        mode = next;
-        apply();
-      };
-      const cancelLeave = () => {
-        if (leaveTimer) {
-          clearTimeout(leaveTimer);
-          leaveTimer = null;
-        }
-      };
+      const open  = () => { if (!isOpen) { isOpen = true;  apply(); } };
+      const close = () => { if ( isOpen) { isOpen = false; apply(); } };
+      const toggle = () => { isOpen = !isOpen; apply(); };
 
-      // Click toggles between sticky-open and closed. Cancels any in-flight
-      // hover-close so a tap that follows a hover doesn't immediately drop.
+      // Trigger click toggles. stopPropagation prevents the document
+      // click listener below from immediately closing what we just opened.
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        cancelLeave();
-        setMode(mode === 'click' ? 'closed' : 'click');
+        toggle();
       });
 
-      // Hover only opens if nothing's already happening. If the panel was
-      // click-locked, hover does nothing — leave the user's explicit choice
-      // alone.
-      root.addEventListener('mouseenter', () => {
-        cancelLeave();
-        if (mode === 'closed') setMode('hover');
+      // Outside click closes. Listen on document at the bubble phase;
+      // the trigger handler stops propagation for its own clicks, and
+      // any click inside the panel is recognised via root.contains.
+      document.addEventListener('click', (e) => {
+        if (!isOpen) return;
+        if (root.contains(e.target)) return;
+        close();
       });
 
-      // Hover-leave closes after a grace period; click-locked stays open.
-      // The grace period prevents the panel disappearing while the cursor
-      // travels from trigger to panel content.
-      root.addEventListener('mouseleave', () => {
-        if (mode !== 'hover') return;
-        cancelLeave();
-        leaveTimer = setTimeout(() => {
-          if (mode === 'hover') setMode('closed');
-          leaveTimer = null;
-        }, 250);
-      });
-
-      // Keyboard: focus moves out of the menu structure → close.
-      root.addEventListener('focusout', (e) => {
-        if (!root.contains(e.relatedTarget)) {
-          cancelLeave();
-          setMode('closed');
-        }
-      });
-
-      // Escape closes regardless of mode and returns focus to the trigger.
+      // Esc closes and returns focus to the trigger so keyboard users
+      // pick up where they were.
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mode !== 'closed') {
-          cancelLeave();
-          setMode('closed');
+        if (e.key === 'Escape' && isOpen) {
+          close();
           trigger.focus();
         }
       });
 
-      // Outside click only kills 'click' mode. 'hover' mode handles itself
-      // via mouseleave — using the document click listener for hover would
-      // cause it to close on the panel's own clicks (link navigation).
-      document.addEventListener('click', (e) => {
-        if (mode === 'click' && !root.contains(e.target)) {
-          cancelLeave();
-          setMode('closed');
-        }
+      // Clicking a link inside the panel should navigate AND close.
+      // The default <a> navigation runs first; close the panel after.
+      panel.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (link && root.contains(link)) close();
+      });
+
+      // Keyboard: focus leaving the entire menu structure also closes.
+      root.addEventListener('focusout', (e) => {
+        if (!isOpen) return;
+        if (e.relatedTarget && root.contains(e.relatedTarget)) return;
+        close();
       });
     });
   }
   bindMore();
   document.addEventListener('astro:page-load', bindMore);
 })();
-</script>  <main data-pagefind-body data-pagefind-filter="kind:Explore" data-pagefind-meta="kind:Explore">  <script type="application/ld+json">{"@context":"https://schema.org","@type":["GolfCourse","SportsActivityLocation","TouristAttraction"],"name":"The Dunes Golf Links","description":"The Dunes is the Peninsula's other world-class public-access course — Tony Cashmore's links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee. Both belong on any serious shortlist. Public bookings are straightforward through the course website. Weekends fill 3-4 weeks ahead in peak season. The course drains well and plays through most conditions the Peninsula offers, which makes it one of the better winter rounds in Australia. The Cups Course is the main 18; the Cottage Course is a 9-hole par-3 layout that works surprisingly well as a warm-up or a mixed-group option. Pair The Dunes with St Andrews Beach for a 36-hole weekend that shows off the full range of Peninsula public golf. Accommodation in Rye is 5 minutes away; Sorrento is 10 minutes for better dining options. Pro shop is well-stocked. Practice facilities are solid.","address":{"@type":"PostalAddress","streetAddress":"Browns Rd, Rye VIC 3941","addressLocality":"Rye","addressRegion":"VIC","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-38.4047,"longitude":144.8208},"url":"https://peninsulainsider.com.au/explore/the-dunes-golf-links/","sameAs":["https://www.thedunes.com.au/"],"numberOfHoles":27,"publicAccess":true}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Explore","item":"https://peninsulainsider.com.au/explore"},{"@type":"ListItem","position":3,"name":"The Dunes Golf Links","item":"https://peninsulainsider.com.au/explore/the-dunes-golf-links"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/explore">Explore</a> </li><li class="breadcrumbs__item"> <span aria-current="page">The Dunes Golf Links</span> </li> </ol> </div> </nav> <section class="experience-detail"> <div class="container"> <div class="experience-detail__meta"> <a href="/explore/" class="experience-detail__type">Golf Course</a> <span class="experience-detail__dot" aria-hidden="true"></span> <a href="/places/rye" class="experience-detail__place">Rye</a>  <span class="experience-detail__dot" aria-hidden="true"></span> <span class="experience-detail__place">270 min</span>  </div> <h1 class="experience-detail__title">The Dunes Golf Links</h1> <div class="experience-detail__hero feature__image-block feature__image-block--hinterland" aria-hidden="true" style="background-image: url(/images/sourced/place-rye-01.webp); background-size: cover; background-position: center;"> <div class="experience-detail__hero-fog"></div> <span class="experience-detail__hero-label">Rye coastal landscape near The Dunes Golf Links, Mornington Peninsula</span> </div> <div class="experience-detail__grid"> <div> <div class="prose"> <p>The Dunes is the Peninsula&#39;s other world-class public-access course — Tony Cashmore&#39;s links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee. Both belong on any serious shortlist. Public bookings are straightforward through the course website. Weekends fill 3-4 weeks ahead in peak season. The course drains well and plays through most conditions the Peninsula offers, which makes it one of the better winter rounds in Australia. The Cups Course is the main 18; the Cottage Course is a 9-hole par-3 layout that works surprisingly well as a warm-up or a mixed-group option. Pair The Dunes with St Andrews Beach for a 36-hole weekend that shows off the full range of Peninsula public golf. Accommodation in Rye is 5 minutes away; Sorrento is 10 minutes for better dining options. Pro shop is well-stocked. Practice facilities are solid.</p> </div> </div> <aside class="facts"> <p class="facts__title">At a glance</p> <dl> <dt>Place</dt> <dd><a href="/places/rye">Rye</a></dd> <dt>Type</dt> <dd>Golf Course</dd>  <dt>Timing</dt> <dd>270 min</dd>    <dt>Best in</dt> <dd>Autumn · Spring · Winter</dd>   <dt>Access</dt> <dd>Browns Rd, Rye VIC 3941</dd>   <dt>Website</dt> <dd><a href="https://www.thedunes.com.au/">www.thedunes.com.au/</a></dd>  </dl> <a class="facts__cta" href="/places/rye">Open place hub</a> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Pair it with a booking</p> <h2 class="venues__title">Where to eat, drink, or stay nearby</h2> <p class="venues__sub">The best explore pages should lead somewhere next.</p> </div> <a href="/places/rye" class="venues__link">See Rye →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/rye-hotel" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-rye-ocean-beach-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Pub </span> <a href="/places/rye" class="venue-card__place-link">Rye</a> </div> <h3 class="venue-card__name"> <a href="/eat/rye-hotel">Rye Hotel</a> </h3> <p class="venue-card__place">2415 Point Nepean Rd, Rye VIC 3941 · $$</p>  <p class="venue-card__signature">An enormous foreshore pub a short walk from Rye&#39;s front beach  -  family-friendly, deck-oriented, and the right answer on a warm afternoon</p> <div class="venue-card__tags"> <span class="venue-card__tag">family</span><span class="venue-card__tag">big group</span> </div> <div class="venue-card__actions"> <a href="/eat/rye-hotel" class="venue-card__cta">Read notes</a> <a href="https://ryehotel.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/wine/st-andrews-beach-brewery" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-cape-schanck-boardwalk-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Brewery </span> <a href="/places/rye" class="venue-card__place-link">Rye</a> </div> <h3 class="venue-card__name"> <a href="/wine/st-andrews-beach-brewery">St Andrews Beach Brewery</a> </h3> <p class="venue-card__place">160 Sandy Rd, Fingal VIC 3939 · $$</p>  <p class="venue-card__signature">Former horse-training stables turned sprawling brewery  -  wood-fired pizzas, Sunday roasts, acres of lawn, and the Peninsula&#39;s best brewery-day-out address</p> <div class="venue-card__tags"> <span class="venue-card__tag">big group</span><span class="venue-card__tag">family</span> </div> <div class="venue-card__actions"> <a href="/wine/st-andrews-beach-brewery" class="venue-card__cta">Read notes</a> <a href="https://www.standrewsbeachbrewery.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Keep going</p> <h2 class="venues__title">More ways to use this side of the Peninsula</h2> </div> <a href="/explore/" class="venues__link">Explore more →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--walk" aria-hidden="true" style="background-image: url(/images/sourced/explore-two-bays-walk-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Walk</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/sorrento" class="experience-card__place-link">Sorrento</a> <span>150 min · Moderate</span> </div> <h3 class="experience-card__title"> <a href="/explore/coppins-track">Coppins Track</a> </h3> <p class="experience-card__summary">Coppins Track runs four kilometres from Sorrento Ocean Beach through clifftop coastal heathland to Diamond Bay, following a route threaded with a century of local history. Interpretive signage along the way reads the landscape for you: the Peninsula&#39;s quarantine era, the military history of the area, the natural history of the heath. Diamond Bay is a small, almost-always-empty beach at the far end and an excellent turnaround point for a round trip.
+</script>  <main data-pagefind-body data-pagefind-filter="kind:Explore" data-pagefind-meta="kind:Explore">  <script type="application/ld+json">{"@context":"https://schema.org","@type":["GolfCourse","SportsActivityLocation","TouristAttraction"],"name":"The Dunes Golf Links","description":"The Dunes is the Peninsula's other world-class public-access course — Tony Cashmore's links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee. Both belong on any serious shortlist. Public bookings are straightforward through the course website. Weekends fill 3-4 weeks ahead in peak season. The course drains well and plays through most conditions the Peninsula offers, which makes it one of the better winter rounds in Australia. The Cups Course is the main 18; the Cottage Course is a 9-hole par-3 layout that works surprisingly well as a warm-up or a mixed-group option. Pair The Dunes with St Andrews Beach for a 36-hole weekend that shows off the full range of Peninsula public golf. Accommodation in Rye is 5 minutes away; Sorrento is 10 minutes for better dining options. Pro shop is well-stocked. Practice facilities are solid.","address":{"@type":"PostalAddress","streetAddress":"Browns Rd, Rye VIC 3941","addressLocality":"Rye","addressRegion":"VIC","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-38.4047,"longitude":144.8208},"url":"https://peninsulainsider.com.au/explore/the-dunes-golf-links/","sameAs":["https://www.thedunes.com.au/"],"numberOfHoles":27,"publicAccess":true}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Explore","item":"https://peninsulainsider.com.au/explore"},{"@type":"ListItem","position":3,"name":"The Dunes Golf Links","item":"https://peninsulainsider.com.au/explore/the-dunes-golf-links"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/explore">Explore</a> </li><li class="breadcrumbs__item"> <span aria-current="page">The Dunes Golf Links</span> </li> </ol> </div> </nav> <section class="experience-detail"> <div class="container"> <div class="experience-detail__meta"> <a href="/explore/" class="experience-detail__type">Golf Course</a> <span class="experience-detail__dot" aria-hidden="true"></span> <a href="/places/rye" class="experience-detail__place">Rye</a>  <span class="experience-detail__dot" aria-hidden="true"></span> <span class="experience-detail__place">270 min</span>  </div> <h1 class="experience-detail__title">The Dunes Golf Links</h1> <div class="experience-detail__hero feature__image-block feature__image-block--hinterland" aria-hidden="true" style="background-image: url(/images/sourced/place-rye-01.webp); background-size: cover; background-position: center;"> <div class="experience-detail__hero-fog"></div> <span class="experience-detail__hero-label">Rye coastal landscape near The Dunes Golf Links, Mornington Peninsula</span> </div> <div class="experience-detail__grid"> <div> <div class="prose"> <p>The Dunes is the Peninsula&#39;s other world-class public-access course — Tony Cashmore&#39;s links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee. Both belong on any serious shortlist. Public bookings are straightforward through the course website. Weekends fill 3-4 weeks ahead in peak season. The course drains well and plays through most conditions the Peninsula offers, which makes it one of the better winter rounds in Australia. The Cups Course is the main 18; the Cottage Course is a 9-hole par-3 layout that works surprisingly well as a warm-up or a mixed-group option. Pair The Dunes with St Andrews Beach for a 36-hole weekend that shows off the full range of Peninsula public golf. Accommodation in Rye is 5 minutes away; Sorrento is 10 minutes for better dining options. Pro shop is well-stocked. Practice facilities are solid.</p> </div> </div> <aside class="facts"> <p class="facts__title">At a glance</p> <dl> <dt>Place</dt> <dd><a href="/places/rye">Rye</a></dd> <dt>Type</dt> <dd>Golf Course</dd>  <dt>Timing</dt> <dd>270 min</dd>    <dt>Best in</dt> <dd>Autumn · Spring · Winter</dd>   <dt>Access</dt> <dd>Browns Rd, Rye VIC 3941</dd>   <dt>Website</dt> <dd><a href="https://www.thedunes.com.au/">www.thedunes.com.au/</a></dd>  </dl> <a class="facts__cta" href="/places/rye">Open place hub</a> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Pair it with a booking</p> <h2 class="venues__title">Where to eat, drink, or stay nearby</h2> <p class="venues__sub">The best explore pages should lead somewhere next.</p> </div> <a href="/places/rye" class="venues__link">See Rye →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/rye-hotel" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-rye-ocean-beach-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Pub </span> <a href="/places/rye" class="venue-card__place-link">Rye</a> </div> <h3 class="venue-card__name"> <a href="/eat/rye-hotel">Rye Hotel</a> </h3> <p class="venue-card__place">2415 Point Nepean Rd, Rye VIC 3941 · $$</p>  <p class="venue-card__signature">An enormous foreshore pub a short walk from Rye&#39;s front beach  -  family-friendly, deck-oriented, and the right answer on a warm afternoon</p> <div class="venue-card__tags"> <span class="venue-card__tag">family</span><span class="venue-card__tag">big group</span> </div> <div class="venue-card__actions"> <a href="/eat/rye-hotel" class="venue-card__cta">Read notes</a> <a href="https://ryehotel.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/wine/st-andrews-beach-brewery" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-cape-schanck-boardwalk-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Brewery </span> <a href="/places/rye" class="venue-card__place-link">Rye</a> </div> <h3 class="venue-card__name"> <a href="/wine/st-andrews-beach-brewery">St Andrews Beach Brewery</a> </h3> <p class="venue-card__place">160 Sandy Rd, Fingal VIC 3939 · $$</p>  <p class="venue-card__signature">Former horse-training stables turned sprawling brewery  -  wood-fired pizzas, Sunday roasts, acres of lawn, and the Peninsula&#39;s best brewery-day-out address</p> <div class="venue-card__tags"> <span class="venue-card__tag">big group</span><span class="venue-card__tag">family</span> </div> <div class="venue-card__actions"> <a href="/wine/st-andrews-beach-brewery" class="venue-card__cta">Read notes</a> <a href="https://www.standrewsbeachbrewery.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Keep going</p> <h2 class="venues__title">More ways to use this side of the Peninsula</h2> </div> <a href="/explore/" class="venues__link">Explore more →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--walk" aria-hidden="true" style="background-image: url(/images/sourced/explore-two-bays-walk-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Walk</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/sorrento" class="experience-card__place-link">Sorrento</a> <span>150 min · Moderate</span> </div> <h3 class="experience-card__title"> <a href="/explore/coppins-track">Coppins Track</a> </h3> <p class="experience-card__summary">Coppins Track runs four kilometres from Sorrento Ocean Beach through clifftop coastal heathland to Diamond Bay, following a route threaded with a century of local history. Interpretive signage along the way reads the landscape for you: the Peninsula&#39;s quarantine era, the military history of the area, the natural history of the heath. Diamond Bay is a small, almost-always-empty beach at the far end and an excellent turnaround point for a round trip.
 
 The track is more than a walk; it is one of the best ways to understand how this stretch of the Peninsula actually came to look the way it does. Coastal erosion, endemic flora, and the old paths between bays are all visible as you move through.
 

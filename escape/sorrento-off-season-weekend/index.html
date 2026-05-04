@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.DoyUd3dF.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.D111aP2O.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="escape" data-path="/escape/sorrento-off-season-weekend/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
@@ -65,10 +65,14 @@ Ask The Insider for a recommendation
   document.addEventListener('astro:page-load', bindTriggers);
 })();
 </script> <!-- Masthead "More" mega-menu controller.
-     Hover opens softly (closes on mouseleave with a 250ms grace period to
-     bridge the cursor traversal between trigger and panel). Click locks the
-     panel open until Escape, outside-click, or another click on the trigger.
-     Touch input takes the click path because mouseenter is unreliable.
+     Click-only. Predictable. The dual hover/click mode in the previous
+     version fought itself: a click after a hover toggled state in a way
+     that could close the panel unexpectedly, and the 250ms mouseleave
+     close timer made the issue feel like a flash. This version is
+     simpler and bulletproof:
+       • Click trigger → open. Click trigger again → close.
+       • Outside click → close. Esc → close + return focus.
+       • Hover does nothing.
      Idempotent across astro:page-load. --> <script>
 (function () {
   function bindMore() {
@@ -79,14 +83,9 @@ Ask The Insider for a recommendation
       const panel = root.querySelector('[data-more-panel]');
       if (!trigger || !panel) return;
 
-      // mode: 'closed' | 'hover' | 'click'
-      // 'hover' closes on mouseleave (with grace period). 'click' is sticky
-      // and only closes on Escape, outside-click, or click on the trigger.
-      let mode = 'closed';
-      let leaveTimer = null;
+      let isOpen = false;
 
       const apply = () => {
-        var isOpen = mode !== 'closed';
         trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         if (isOpen) {
           panel.removeAttribute('hidden');
@@ -96,72 +95,48 @@ Ask The Insider for a recommendation
           root.classList.remove('is-open');
         }
       };
-      const setMode = (next) => {
-        if (mode === next) return;
-        mode = next;
-        apply();
-      };
-      const cancelLeave = () => {
-        if (leaveTimer) {
-          clearTimeout(leaveTimer);
-          leaveTimer = null;
-        }
-      };
+      const open  = () => { if (!isOpen) { isOpen = true;  apply(); } };
+      const close = () => { if ( isOpen) { isOpen = false; apply(); } };
+      const toggle = () => { isOpen = !isOpen; apply(); };
 
-      // Click toggles between sticky-open and closed. Cancels any in-flight
-      // hover-close so a tap that follows a hover doesn't immediately drop.
+      // Trigger click toggles. stopPropagation prevents the document
+      // click listener below from immediately closing what we just opened.
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        cancelLeave();
-        setMode(mode === 'click' ? 'closed' : 'click');
+        toggle();
       });
 
-      // Hover only opens if nothing's already happening. If the panel was
-      // click-locked, hover does nothing — leave the user's explicit choice
-      // alone.
-      root.addEventListener('mouseenter', () => {
-        cancelLeave();
-        if (mode === 'closed') setMode('hover');
+      // Outside click closes. Listen on document at the bubble phase;
+      // the trigger handler stops propagation for its own clicks, and
+      // any click inside the panel is recognised via root.contains.
+      document.addEventListener('click', (e) => {
+        if (!isOpen) return;
+        if (root.contains(e.target)) return;
+        close();
       });
 
-      // Hover-leave closes after a grace period; click-locked stays open.
-      // The grace period prevents the panel disappearing while the cursor
-      // travels from trigger to panel content.
-      root.addEventListener('mouseleave', () => {
-        if (mode !== 'hover') return;
-        cancelLeave();
-        leaveTimer = setTimeout(() => {
-          if (mode === 'hover') setMode('closed');
-          leaveTimer = null;
-        }, 250);
-      });
-
-      // Keyboard: focus moves out of the menu structure → close.
-      root.addEventListener('focusout', (e) => {
-        if (!root.contains(e.relatedTarget)) {
-          cancelLeave();
-          setMode('closed');
-        }
-      });
-
-      // Escape closes regardless of mode and returns focus to the trigger.
+      // Esc closes and returns focus to the trigger so keyboard users
+      // pick up where they were.
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mode !== 'closed') {
-          cancelLeave();
-          setMode('closed');
+        if (e.key === 'Escape' && isOpen) {
+          close();
           trigger.focus();
         }
       });
 
-      // Outside click only kills 'click' mode. 'hover' mode handles itself
-      // via mouseleave — using the document click listener for hover would
-      // cause it to close on the panel's own clicks (link navigation).
-      document.addEventListener('click', (e) => {
-        if (mode === 'click' && !root.contains(e.target)) {
-          cancelLeave();
-          setMode('closed');
-        }
+      // Clicking a link inside the panel should navigate AND close.
+      // The default <a> navigation runs first; close the panel after.
+      panel.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (link && root.contains(link)) close();
+      });
+
+      // Keyboard: focus leaving the entire menu structure also closes.
+      root.addEventListener('focusout', (e) => {
+        if (!isOpen) return;
+        if (e.relatedTarget && root.contains(e.relatedTarget)) return;
+        close();
       });
     });
   }
@@ -176,7 +151,7 @@ See The Continental →
 See The Continental →
 </a> </aside> </section><section class="stop-day"> <h2 class="stop-day__heading">Day 3</h2> <ol class="stop-day__stops"> <li class="stop-item"> <div class="stop-item__time"> Morning </div> <div> <h3 class="stop-item__name"> <a href="/explore/coppins-track">Coppins Track</a> </h3> <p class="stop-item__note">A final morning heath walk through the narrow corridor between the front beach and the back coast. One hour, easy pace.</p>   </div> </li><li class="stop-item"> <div class="stop-item__time"> Midday </div> <div> <h3 class="stop-item__name"> <a href="/eat/sorrento-gelato">Sorrento Gelato</a> </h3> <p class="stop-item__note">One last village move before the drive home. Gelato counts as breakfast at the end of a weekend.</p>   </div> </li> </ol>   </section> </div>           </div>  <aside class="facts"> <p class="facts__title">At a glance</p> <dl> <dt>Duration</dt> <dd>Weekend (2 nights)</dd> <dt>Best for</dt> <dd>Couples</dd>   <dt>Best season</dt> <dd>Year-round</dd>    <dt>Driving</dt> <dd>55 min total</dd>   <dt>Anchor stay</dt> <dd><a href="/stay/the-continental-sorrento">The Continental</a></dd>    <dt>Budget</dt> <dd>Flexible budget</dd>  <dt>Stops</dt> <dd>9 sequenced stops</dd> </dl> <a class="facts__cta" href="/stay/the-continental-sorrento?utm_source=peninsula-insider&#38;utm_medium=escape&#38;utm_campaign=sorrento-off-season-weekend&#38;utm_content=facts" data-event="escape_facts_anchor_stay_click" data-itinerary="sorrento-off-season-weekend">
 Stay here →
-</a> <p class="facts__verified">Last fact-verified 12 April 2026</p> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Sleep here</p> <h2 class="venues__title">Stays that anchor this escape properly</h2> </div> <a href="/stay/" class="venues__link">All stays →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/the-continental-sorrento" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/venue-continental-sorrento-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Hotel </span> <a href="/places/sorrento" class="venue-card__place-link">Sorrento</a> </div> <h3 class="venue-card__name"> <a href="/stay/the-continental-sorrento">The Continental</a> </h3> <p class="venue-card__place">1-19 Ocean Beach Rd, Sorrento VIC 3943 · $$$$</p>  <p class="venue-card__signature">The Peninsula&#39;s headline restoration  -  a 150-year-old limestone hotel rebuilt as a rooms, bathhouse, restaurant and rooftop complex</p> <div class="venue-card__tags"> <span class="venue-card__tag">weekend escape</span><span class="venue-card__tag">anniversary</span> </div> <div class="venue-card__actions"> <a href="/stay/the-continental-sorrento" class="venue-card__cta">Read notes</a> <a href="https://continentalsorrento.com.au/stay" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/hotel-sorrento" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/venue-sorrento-hotel-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Hotel </span> <a href="/places/sorrento" class="venue-card__place-link">Sorrento</a> </div> <h3 class="venue-card__name"> <a href="/stay/hotel-sorrento">Hotel Sorrento</a> </h3> <p class="venue-card__place">5-15 Hotham Rd, Sorrento VIC 3943 · $$$</p>  <p class="venue-card__signature">A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school</p> <div class="venue-card__tags"> <span class="venue-card__tag">weekend escape</span><span class="venue-card__tag">waterfront</span> </div> <div class="venue-card__actions"> <a href="/stay/hotel-sorrento" class="venue-card__cta">Read notes</a> <a href="https://hotelsorrento.com.au/stay" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Move the trip outside</p> <h2 class="venues__title">Explore stops inside this plan</h2> </div> <a href="/explore/" class="venues__link">Explore →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--beach" aria-hidden="true" style="background-image: url(/images/sourced/explore-sorrento-ocean-baths-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Beach</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/sorrento" class="experience-card__place-link">Sorrento</a> <span>45 min · Easy</span> </div> <h3 class="experience-card__title"> <a href="/explore/sorrento-ocean-baths">Sorrento Ocean Baths</a> </h3> <p class="experience-card__summary">The Sorrento Ocean Baths are the kind of coastal detail that makes the Peninsula feel older and stranger than its current reputation suggests  -  a set of rock pools carved from the limestone at the bottom of the back beach stairs, filling and draining with the tide. On the right swell they are dangerous and on the wrong day they are empty, but on the right afternoon in early autumn they are one of the best swimming experiences in coastal Victoria.
+</a> <p class="facts__verified">Last fact-verified 12 April 2026</p> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Sleep here</p> <h2 class="venues__title">Stays that anchor this escape properly</h2> </div> <a href="/stay/" class="venues__link">All stays →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/the-continental-sorrento" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/venue-continental-sorrento-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Hotel </span> <a href="/places/sorrento" class="venue-card__place-link">Sorrento</a> </div> <h3 class="venue-card__name"> <a href="/stay/the-continental-sorrento">The Continental</a> </h3> <p class="venue-card__place">1-19 Ocean Beach Rd, Sorrento VIC 3943 · $$$$</p>  <p class="venue-card__signature">The Peninsula&#39;s headline restoration  -  a 150-year-old limestone hotel rebuilt as a rooms, bathhouse, restaurant and rooftop complex</p> <div class="venue-card__tags"> <span class="venue-card__tag">weekend escape</span><span class="venue-card__tag">anniversary</span> </div> <div class="venue-card__actions"> <a href="/stay/the-continental-sorrento" class="venue-card__cta">Read notes</a> <a href="https://continentalsorrento.com.au/stay" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/hotel-sorrento" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/venue-sorrento-hotel-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Hotel </span> <a href="/places/sorrento" class="venue-card__place-link">Sorrento</a> </div> <h3 class="venue-card__name"> <a href="/stay/hotel-sorrento">Hotel Sorrento</a> </h3> <p class="venue-card__place">5-15 Hotham Rd, Sorrento VIC 3943 · $$$</p>  <p class="venue-card__signature">A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school</p> <div class="venue-card__tags"> <span class="venue-card__tag">weekend escape</span><span class="venue-card__tag">waterfront</span> </div> <div class="venue-card__actions"> <a href="/stay/hotel-sorrento" class="venue-card__cta">Read notes</a> <a href="https://hotelsorrento.com.au/stay" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Move the trip outside</p> <h2 class="venues__title">Explore stops inside this plan</h2> </div> <a href="/explore/" class="venues__link">Explore →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--beach" aria-hidden="true" style="background-image: url(/images/sourced/explore-sorrento-ocean-baths-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Beach</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/sorrento" class="experience-card__place-link">Sorrento</a> <span>45 min · Easy</span> </div> <h3 class="experience-card__title"> <a href="/explore/sorrento-ocean-baths">Sorrento Ocean Baths</a> </h3> <p class="experience-card__summary">The Sorrento Ocean Baths are the kind of coastal detail that makes the Peninsula feel older and stranger than its current reputation suggests  -  a set of rock pools carved from the limestone at the bottom of the back beach stairs, filling and draining with the tide. On the right swell they are dangerous and on the wrong day they are empty, but on the right afternoon in early autumn they are one of the best swimming experiences in coastal Victoria.
 
 Check the tides before you go. Low tide is the window. Don&#39;t try this in rough conditions  -  the surf side of the Peninsula deserves respect.
 

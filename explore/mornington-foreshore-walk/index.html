@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.DoyUd3dF.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.D111aP2O.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="explore" data-path="/explore/mornington-foreshore-walk/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
@@ -65,10 +65,14 @@ Ask The Insider for a recommendation
   document.addEventListener('astro:page-load', bindTriggers);
 })();
 </script> <!-- Masthead "More" mega-menu controller.
-     Hover opens softly (closes on mouseleave with a 250ms grace period to
-     bridge the cursor traversal between trigger and panel). Click locks the
-     panel open until Escape, outside-click, or another click on the trigger.
-     Touch input takes the click path because mouseenter is unreliable.
+     Click-only. Predictable. The dual hover/click mode in the previous
+     version fought itself: a click after a hover toggled state in a way
+     that could close the panel unexpectedly, and the 250ms mouseleave
+     close timer made the issue feel like a flash. This version is
+     simpler and bulletproof:
+       • Click trigger → open. Click trigger again → close.
+       • Outside click → close. Esc → close + return focus.
+       • Hover does nothing.
      Idempotent across astro:page-load. --> <script>
 (function () {
   function bindMore() {
@@ -79,14 +83,9 @@ Ask The Insider for a recommendation
       const panel = root.querySelector('[data-more-panel]');
       if (!trigger || !panel) return;
 
-      // mode: 'closed' | 'hover' | 'click'
-      // 'hover' closes on mouseleave (with grace period). 'click' is sticky
-      // and only closes on Escape, outside-click, or click on the trigger.
-      let mode = 'closed';
-      let leaveTimer = null;
+      let isOpen = false;
 
       const apply = () => {
-        var isOpen = mode !== 'closed';
         trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         if (isOpen) {
           panel.removeAttribute('hidden');
@@ -96,79 +95,55 @@ Ask The Insider for a recommendation
           root.classList.remove('is-open');
         }
       };
-      const setMode = (next) => {
-        if (mode === next) return;
-        mode = next;
-        apply();
-      };
-      const cancelLeave = () => {
-        if (leaveTimer) {
-          clearTimeout(leaveTimer);
-          leaveTimer = null;
-        }
-      };
+      const open  = () => { if (!isOpen) { isOpen = true;  apply(); } };
+      const close = () => { if ( isOpen) { isOpen = false; apply(); } };
+      const toggle = () => { isOpen = !isOpen; apply(); };
 
-      // Click toggles between sticky-open and closed. Cancels any in-flight
-      // hover-close so a tap that follows a hover doesn't immediately drop.
+      // Trigger click toggles. stopPropagation prevents the document
+      // click listener below from immediately closing what we just opened.
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        cancelLeave();
-        setMode(mode === 'click' ? 'closed' : 'click');
+        toggle();
       });
 
-      // Hover only opens if nothing's already happening. If the panel was
-      // click-locked, hover does nothing — leave the user's explicit choice
-      // alone.
-      root.addEventListener('mouseenter', () => {
-        cancelLeave();
-        if (mode === 'closed') setMode('hover');
+      // Outside click closes. Listen on document at the bubble phase;
+      // the trigger handler stops propagation for its own clicks, and
+      // any click inside the panel is recognised via root.contains.
+      document.addEventListener('click', (e) => {
+        if (!isOpen) return;
+        if (root.contains(e.target)) return;
+        close();
       });
 
-      // Hover-leave closes after a grace period; click-locked stays open.
-      // The grace period prevents the panel disappearing while the cursor
-      // travels from trigger to panel content.
-      root.addEventListener('mouseleave', () => {
-        if (mode !== 'hover') return;
-        cancelLeave();
-        leaveTimer = setTimeout(() => {
-          if (mode === 'hover') setMode('closed');
-          leaveTimer = null;
-        }, 250);
-      });
-
-      // Keyboard: focus moves out of the menu structure → close.
-      root.addEventListener('focusout', (e) => {
-        if (!root.contains(e.relatedTarget)) {
-          cancelLeave();
-          setMode('closed');
-        }
-      });
-
-      // Escape closes regardless of mode and returns focus to the trigger.
+      // Esc closes and returns focus to the trigger so keyboard users
+      // pick up where they were.
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mode !== 'closed') {
-          cancelLeave();
-          setMode('closed');
+        if (e.key === 'Escape' && isOpen) {
+          close();
           trigger.focus();
         }
       });
 
-      // Outside click only kills 'click' mode. 'hover' mode handles itself
-      // via mouseleave — using the document click listener for hover would
-      // cause it to close on the panel's own clicks (link navigation).
-      document.addEventListener('click', (e) => {
-        if (mode === 'click' && !root.contains(e.target)) {
-          cancelLeave();
-          setMode('closed');
-        }
+      // Clicking a link inside the panel should navigate AND close.
+      // The default <a> navigation runs first; close the panel after.
+      panel.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (link && root.contains(link)) close();
+      });
+
+      // Keyboard: focus leaving the entire menu structure also closes.
+      root.addEventListener('focusout', (e) => {
+        if (!isOpen) return;
+        if (e.relatedTarget && root.contains(e.relatedTarget)) return;
+        close();
       });
     });
   }
   bindMore();
   document.addEventListener('astro:page-load', bindMore);
 })();
-</script>  <main data-pagefind-body data-pagefind-filter="kind:Explore" data-pagefind-meta="kind:Explore">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Mornington Peninsula Foreshore Walk","description":"The foreshore walk between Mornington and Mount Martha is the Peninsula's most dog-friendly significant walk and one of its most reliably beautiful  -  seven kilometres one way along the coast, with sweeping Port Phillip Bay views, heritage bathing boxes, clifftop lookouts, and several quiet little beaches you can detour into along the way.\n\nStart at Mornington Pier and walk south toward Mount Martha, or reverse the direction for a later-afternoon light run. The track is well-formed throughout, accessible to most fitness levels, and supports everything from a fast morning run to a leisurely family stroll. It is the best long morning walk on the bayside, followed by coffee at either end.\n\nFor the full seven kilometres, allow 90 minutes walking at a brisk pace or two hours with stops. For a shorter segment, the stretch between Mills Beach and Fossil Beach is particularly good.","address":{"@type":"PostalAddress","addressLocality":"Mornington","addressRegion":"VIC","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-38.2173,"longitude":145.0378},"url":"https://peninsulainsider.com.au/explore/mornington-foreshore-walk/"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Explore","item":"https://peninsulainsider.com.au/explore"},{"@type":"ListItem","position":3,"name":"Mornington Peninsula Foreshore Walk","item":"https://peninsulainsider.com.au/explore/mornington-foreshore-walk"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/explore">Explore</a> </li><li class="breadcrumbs__item"> <span aria-current="page">Mornington Peninsula Foreshore Walk</span> </li> </ol> </div> </nav> <section class="experience-detail"> <div class="container"> <div class="experience-detail__meta"> <a href="/explore/" class="experience-detail__type">Walk</a> <span class="experience-detail__dot" aria-hidden="true"></span> <a href="/places/mornington" class="experience-detail__place">Mornington</a>  <span class="experience-detail__dot" aria-hidden="true"></span> <span class="experience-detail__place">120 min</span>  </div> <h1 class="experience-detail__title">Mornington Peninsula Foreshore Walk</h1> <div class="experience-detail__hero feature__image-block feature__image-block--hinterland" aria-hidden="true" style="background-image: url(/images/sourced/explore-mornington-foreshore-01.webp); background-size: cover; background-position: center;"> <div class="experience-detail__hero-fog"></div> <span class="experience-detail__hero-label">Mornington Peninsula Foreshore Walk  -  Peninsula Insider</span> </div> <div class="experience-detail__grid"> <div> <div class="prose"> <p>The foreshore walk between Mornington and Mount Martha is the Peninsula&#39;s most dog-friendly significant walk and one of its most reliably beautiful  -  seven kilometres one way along the coast, with sweeping Port Phillip Bay views, heritage bathing boxes, clifftop lookouts, and several quiet little beaches you can detour into along the way.</p><p>Start at Mornington Pier and walk south toward Mount Martha, or reverse the direction for a later-afternoon light run. The track is well-formed throughout, accessible to most fitness levels, and supports everything from a fast morning run to a leisurely family stroll. It is the best long morning walk on the bayside, followed by coffee at either end.</p><p>For the full seven kilometres, allow 90 minutes walking at a brisk pace or two hours with stops. For a shorter segment, the stretch between Mills Beach and Fossil Beach is particularly good.</p> </div> </div> <aside class="facts"> <p class="facts__title">At a glance</p> <dl> <dt>Place</dt> <dd><a href="/places/mornington">Mornington</a></dd> <dt>Type</dt> <dd>Walk</dd>  <dt>Timing</dt> <dd>120 min</dd>   <dt>Difficulty</dt> <dd>Easy</dd>   <dt>Best in</dt> <dd>All Year</dd>    </dl> <a class="facts__cta" href="/places/mornington">Open place hub</a> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Pair it with a booking</p> <h2 class="venues__title">Where to eat, drink, or stay nearby</h2> <p class="venues__sub">The best explore pages should lead somewhere next.</p> </div> <a href="/places/mornington" class="venues__link">See Mornington →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/afloat-mornington" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-mornington-foreshore-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Café </span> <a href="/places/mornington" class="venue-card__place-link">Mornington</a> </div> <h3 class="venue-card__name"> <a href="/eat/afloat-mornington">Afloat Mornington</a> </h3> <p class="venue-card__place">1 Schnapper Point Dr, Mornington VIC 3931 · $$</p>  <p class="venue-card__signature">A floating café and bar moored to Mornington Pier  -  all-day menu, fish sandwiches, and the novelty of eggs on toast that bob gently on the tide</p> <div class="venue-card__tags"> <span class="venue-card__tag">waterfront</span><span class="venue-card__tag">slow</span> </div> <div class="venue-card__actions"> <a href="/eat/afloat-mornington" class="venue-card__cta">Read notes</a> <a href="https://afloatmornington.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/azuma-japanese" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/place-red-hill-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Restaurant </span> <a href="/places/mornington" class="venue-card__place-link">Mornington</a> </div> <h3 class="venue-card__name"> <a href="/eat/azuma-japanese">Azuma Japanese</a> </h3> <p class="venue-card__place">89 Main St, Mornington VIC 3931 · $$</p>  <p class="venue-card__signature">A neighbourhood Japanese on Mornington&#39;s main street  -  reliable sushi, sashimi and donburi, and a useful break from the Peninsula&#39;s cheese-and-red-wine default</p> <div class="venue-card__tags"> <span class="venue-card__tag">quick bite</span><span class="venue-card__tag">family</span> </div> <div class="venue-card__actions"> <a href="/eat/azuma-japanese" class="venue-card__cta">Read notes</a>  </div> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/wine/bass-and-flinders" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/article-cellar-door-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Distillery </span> <a href="/places/mornington" class="venue-card__place-link">Mornington</a> </div> <h3 class="venue-card__name"> <a href="/wine/bass-and-flinders">Bass &amp; Flinders Distillery</a> </h3> <p class="venue-card__place">232 Balnarring Rd, Tuerong VIC 3915 · $$</p>  <p class="venue-card__signature">A Peninsula gin distillery with a gin-school tasting experience that has quietly become one of the region&#39;s best wet weather plans</p> <div class="venue-card__tags"> <span class="venue-card__tag">rainy day</span><span class="venue-card__tag">cellar door</span> </div> <div class="venue-card__actions"> <a href="/wine/bass-and-flinders" class="venue-card__cta">Read notes</a> <a href="https://bassandflindersdistillery.com/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Keep going</p> <h2 class="venues__title">More ways to use this side of the Peninsula</h2> </div> <a href="/explore/" class="venues__link">Explore more →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--beach" aria-hidden="true" style="background-image: url(/images/sourced/explore-dromana-beach-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Beach</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/dromana" class="experience-card__place-link">Dromana</a> <span>120 min</span> </div> <h3 class="experience-card__title"> <a href="/explore/dromana-beach">Dromana Beach</a> </h3> <p class="experience-card__summary">Dromana Beach is a long, gentle arc of sand near the midpoint of the Peninsula  -  a forgiving bay beach with shallow, calm water and enough stretch to absorb a weekend crowd without losing its charm. The foreshore is backed by lawn and shade trees; the pier runs out into the bay and is a quiet spot for fishing at dawn or dusk.
+</script>  <main data-pagefind-body data-pagefind-filter="kind:Explore" data-pagefind-meta="kind:Explore">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristAttraction","name":"Mornington Peninsula Foreshore Walk","description":"The foreshore walk between Mornington and Mount Martha is the Peninsula's most dog-friendly significant walk and one of its most reliably beautiful  -  seven kilometres one way along the coast, with sweeping Port Phillip Bay views, heritage bathing boxes, clifftop lookouts, and several quiet little beaches you can detour into along the way.\n\nStart at Mornington Pier and walk south toward Mount Martha, or reverse the direction for a later-afternoon light run. The track is well-formed throughout, accessible to most fitness levels, and supports everything from a fast morning run to a leisurely family stroll. It is the best long morning walk on the bayside, followed by coffee at either end.\n\nFor the full seven kilometres, allow 90 minutes walking at a brisk pace or two hours with stops. For a shorter segment, the stretch between Mills Beach and Fossil Beach is particularly good.","address":{"@type":"PostalAddress","addressLocality":"Mornington","addressRegion":"VIC","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-38.2173,"longitude":145.0378},"url":"https://peninsulainsider.com.au/explore/mornington-foreshore-walk/"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Explore","item":"https://peninsulainsider.com.au/explore"},{"@type":"ListItem","position":3,"name":"Mornington Peninsula Foreshore Walk","item":"https://peninsulainsider.com.au/explore/mornington-foreshore-walk"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/explore">Explore</a> </li><li class="breadcrumbs__item"> <span aria-current="page">Mornington Peninsula Foreshore Walk</span> </li> </ol> </div> </nav> <section class="experience-detail"> <div class="container"> <div class="experience-detail__meta"> <a href="/explore/" class="experience-detail__type">Walk</a> <span class="experience-detail__dot" aria-hidden="true"></span> <a href="/places/mornington" class="experience-detail__place">Mornington</a>  <span class="experience-detail__dot" aria-hidden="true"></span> <span class="experience-detail__place">120 min</span>  </div> <h1 class="experience-detail__title">Mornington Peninsula Foreshore Walk</h1> <div class="experience-detail__hero feature__image-block feature__image-block--hinterland" aria-hidden="true" style="background-image: url(/images/sourced/explore-mornington-foreshore-01.webp); background-size: cover; background-position: center;"> <div class="experience-detail__hero-fog"></div> <span class="experience-detail__hero-label">Mornington Peninsula Foreshore Walk  -  Peninsula Insider</span> </div> <div class="experience-detail__grid"> <div> <div class="prose"> <p>The foreshore walk between Mornington and Mount Martha is the Peninsula&#39;s most dog-friendly significant walk and one of its most reliably beautiful  -  seven kilometres one way along the coast, with sweeping Port Phillip Bay views, heritage bathing boxes, clifftop lookouts, and several quiet little beaches you can detour into along the way.</p><p>Start at Mornington Pier and walk south toward Mount Martha, or reverse the direction for a later-afternoon light run. The track is well-formed throughout, accessible to most fitness levels, and supports everything from a fast morning run to a leisurely family stroll. It is the best long morning walk on the bayside, followed by coffee at either end.</p><p>For the full seven kilometres, allow 90 minutes walking at a brisk pace or two hours with stops. For a shorter segment, the stretch between Mills Beach and Fossil Beach is particularly good.</p> </div> </div> <aside class="facts"> <p class="facts__title">At a glance</p> <dl> <dt>Place</dt> <dd><a href="/places/mornington">Mornington</a></dd> <dt>Type</dt> <dd>Walk</dd>  <dt>Timing</dt> <dd>120 min</dd>   <dt>Difficulty</dt> <dd>Easy</dd>   <dt>Best in</dt> <dd>All Year</dd>    </dl> <a class="facts__cta" href="/places/mornington">Open place hub</a> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Pair it with a booking</p> <h2 class="venues__title">Where to eat, drink, or stay nearby</h2> <p class="venues__sub">The best explore pages should lead somewhere next.</p> </div> <a href="/places/mornington" class="venues__link">See Mornington →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/afloat-mornington" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-mornington-foreshore-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Café </span> <a href="/places/mornington" class="venue-card__place-link">Mornington</a> </div> <h3 class="venue-card__name"> <a href="/eat/afloat-mornington">Afloat Mornington</a> </h3> <p class="venue-card__place">1 Schnapper Point Dr, Mornington VIC 3931 · $$</p>  <p class="venue-card__signature">A floating café and bar moored to Mornington Pier  -  all-day menu, fish sandwiches, and the novelty of eggs on toast that bob gently on the tide</p> <div class="venue-card__tags"> <span class="venue-card__tag">waterfront</span><span class="venue-card__tag">slow</span> </div> <div class="venue-card__actions"> <a href="/eat/afloat-mornington" class="venue-card__cta">Read notes</a> <a href="https://afloatmornington.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/azuma-japanese" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/place-red-hill-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Restaurant </span> <a href="/places/mornington" class="venue-card__place-link">Mornington</a> </div> <h3 class="venue-card__name"> <a href="/eat/azuma-japanese">Azuma Japanese</a> </h3> <p class="venue-card__place">89 Main St, Mornington VIC 3931 · $$</p>  <p class="venue-card__signature">A neighbourhood Japanese on Mornington&#39;s main street  -  reliable sushi, sashimi and donburi, and a useful break from the Peninsula&#39;s cheese-and-red-wine default</p> <div class="venue-card__tags"> <span class="venue-card__tag">quick bite</span><span class="venue-card__tag">family</span> </div> <div class="venue-card__actions"> <a href="/eat/azuma-japanese" class="venue-card__cta">Read notes</a>  </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/wine/bass-and-flinders" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/article-cellar-door-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Distillery </span> <a href="/places/mornington" class="venue-card__place-link">Mornington</a> </div> <h3 class="venue-card__name"> <a href="/wine/bass-and-flinders">Bass &amp; Flinders Distillery</a> </h3> <p class="venue-card__place">232 Balnarring Rd, Tuerong VIC 3915 · $$</p>  <p class="venue-card__signature">A Peninsula gin distillery with a gin-school tasting experience that has quietly become one of the region&#39;s best wet weather plans</p> <div class="venue-card__tags"> <span class="venue-card__tag">rainy day</span><span class="venue-card__tag">cellar door</span> </div> <div class="venue-card__actions"> <a href="/wine/bass-and-flinders" class="venue-card__cta">Read notes</a> <a href="https://bassandflindersdistillery.com/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Keep going</p> <h2 class="venues__title">More ways to use this side of the Peninsula</h2> </div> <a href="/explore/" class="venues__link">Explore more →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--beach" aria-hidden="true" style="background-image: url(/images/sourced/explore-dromana-beach-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Beach</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/dromana" class="experience-card__place-link">Dromana</a> <span>120 min</span> </div> <h3 class="experience-card__title"> <a href="/explore/dromana-beach">Dromana Beach</a> </h3> <p class="experience-card__summary">Dromana Beach is a long, gentle arc of sand near the midpoint of the Peninsula  -  a forgiving bay beach with shallow, calm water and enough stretch to absorb a weekend crowd without losing its charm. The foreshore is backed by lawn and shade trees; the pier runs out into the bay and is a quiet spot for fishing at dawn or dusk.
 
 This is the bayside beach to use when you want a straightforward family day without the parking battles of Sorrento or Rye. The town strip behind the beach has enough for an impromptu lunch or a coffee run, and the position puts you in the right place to drive up to the hinterland for an afternoon cellar-door session.
 

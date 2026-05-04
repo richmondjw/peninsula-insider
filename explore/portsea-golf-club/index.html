@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.DoyUd3dF.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.D111aP2O.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="explore" data-path="/explore/portsea-golf-club/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
@@ -65,10 +65,14 @@ Ask The Insider for a recommendation
   document.addEventListener('astro:page-load', bindTriggers);
 })();
 </script> <!-- Masthead "More" mega-menu controller.
-     Hover opens softly (closes on mouseleave with a 250ms grace period to
-     bridge the cursor traversal between trigger and panel). Click locks the
-     panel open until Escape, outside-click, or another click on the trigger.
-     Touch input takes the click path because mouseenter is unreliable.
+     Click-only. Predictable. The dual hover/click mode in the previous
+     version fought itself: a click after a hover toggled state in a way
+     that could close the panel unexpectedly, and the 250ms mouseleave
+     close timer made the issue feel like a flash. This version is
+     simpler and bulletproof:
+       • Click trigger → open. Click trigger again → close.
+       • Outside click → close. Esc → close + return focus.
+       • Hover does nothing.
      Idempotent across astro:page-load. --> <script>
 (function () {
   function bindMore() {
@@ -79,14 +83,9 @@ Ask The Insider for a recommendation
       const panel = root.querySelector('[data-more-panel]');
       if (!trigger || !panel) return;
 
-      // mode: 'closed' | 'hover' | 'click'
-      // 'hover' closes on mouseleave (with grace period). 'click' is sticky
-      // and only closes on Escape, outside-click, or click on the trigger.
-      let mode = 'closed';
-      let leaveTimer = null;
+      let isOpen = false;
 
       const apply = () => {
-        var isOpen = mode !== 'closed';
         trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         if (isOpen) {
           panel.removeAttribute('hidden');
@@ -96,79 +95,55 @@ Ask The Insider for a recommendation
           root.classList.remove('is-open');
         }
       };
-      const setMode = (next) => {
-        if (mode === next) return;
-        mode = next;
-        apply();
-      };
-      const cancelLeave = () => {
-        if (leaveTimer) {
-          clearTimeout(leaveTimer);
-          leaveTimer = null;
-        }
-      };
+      const open  = () => { if (!isOpen) { isOpen = true;  apply(); } };
+      const close = () => { if ( isOpen) { isOpen = false; apply(); } };
+      const toggle = () => { isOpen = !isOpen; apply(); };
 
-      // Click toggles between sticky-open and closed. Cancels any in-flight
-      // hover-close so a tap that follows a hover doesn't immediately drop.
+      // Trigger click toggles. stopPropagation prevents the document
+      // click listener below from immediately closing what we just opened.
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        cancelLeave();
-        setMode(mode === 'click' ? 'closed' : 'click');
+        toggle();
       });
 
-      // Hover only opens if nothing's already happening. If the panel was
-      // click-locked, hover does nothing — leave the user's explicit choice
-      // alone.
-      root.addEventListener('mouseenter', () => {
-        cancelLeave();
-        if (mode === 'closed') setMode('hover');
+      // Outside click closes. Listen on document at the bubble phase;
+      // the trigger handler stops propagation for its own clicks, and
+      // any click inside the panel is recognised via root.contains.
+      document.addEventListener('click', (e) => {
+        if (!isOpen) return;
+        if (root.contains(e.target)) return;
+        close();
       });
 
-      // Hover-leave closes after a grace period; click-locked stays open.
-      // The grace period prevents the panel disappearing while the cursor
-      // travels from trigger to panel content.
-      root.addEventListener('mouseleave', () => {
-        if (mode !== 'hover') return;
-        cancelLeave();
-        leaveTimer = setTimeout(() => {
-          if (mode === 'hover') setMode('closed');
-          leaveTimer = null;
-        }, 250);
-      });
-
-      // Keyboard: focus moves out of the menu structure → close.
-      root.addEventListener('focusout', (e) => {
-        if (!root.contains(e.relatedTarget)) {
-          cancelLeave();
-          setMode('closed');
-        }
-      });
-
-      // Escape closes regardless of mode and returns focus to the trigger.
+      // Esc closes and returns focus to the trigger so keyboard users
+      // pick up where they were.
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mode !== 'closed') {
-          cancelLeave();
-          setMode('closed');
+        if (e.key === 'Escape' && isOpen) {
+          close();
           trigger.focus();
         }
       });
 
-      // Outside click only kills 'click' mode. 'hover' mode handles itself
-      // via mouseleave — using the document click listener for hover would
-      // cause it to close on the panel's own clicks (link navigation).
-      document.addEventListener('click', (e) => {
-        if (mode === 'click' && !root.contains(e.target)) {
-          cancelLeave();
-          setMode('closed');
-        }
+      // Clicking a link inside the panel should navigate AND close.
+      // The default <a> navigation runs first; close the panel after.
+      panel.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (link && root.contains(link)) close();
+      });
+
+      // Keyboard: focus leaving the entire menu structure also closes.
+      root.addEventListener('focusout', (e) => {
+        if (!isOpen) return;
+        if (e.relatedTarget && root.contains(e.relatedTarget)) return;
+        close();
       });
     });
   }
   bindMore();
   document.addEventListener('astro:page-load', bindMore);
 })();
-</script>  <main data-pagefind-body data-pagefind-filter="kind:Explore" data-pagefind-meta="kind:Explore">  <script type="application/ld+json">{"@context":"https://schema.org","@type":["GolfCourse","SportsActivityLocation","TouristAttraction"],"name":"Portsea Golf Club","description":"Portsea Golf Club is the classic Peninsula member's club at the tip. Founded in 1924, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane. The par-3 holes along the Bass Strait edge are the signature — visually, they are hard to beat. Access is the issue. Portsea is a members' club, and non-member play depends on reciprocal rights, member invitations, or specific corporate days. Unlike Sorrento Golf Club (which accepts more casual visitor play), Portsea maintains a tighter door policy. For the right golfer with the right connection, it is one of the most satisfying rounds on the Peninsula. For everyone else, the course matters more as part of the Peninsula golf landscape than as a bookable option. Complementary courses to consider for public-access play in the same area: The Dunes (20 minutes) or St Andrews Beach (20 minutes).","address":{"@type":"PostalAddress","streetAddress":"Relph Ave, Portsea VIC 3944","addressLocality":"Portsea","addressRegion":"VIC","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-38.3389,"longitude":144.7089},"url":"https://peninsulainsider.com.au/explore/portsea-golf-club/","sameAs":["https://www.portseagolf.com.au/"],"numberOfHoles":18,"publicAccess":false}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Explore","item":"https://peninsulainsider.com.au/explore"},{"@type":"ListItem","position":3,"name":"Portsea Golf Club","item":"https://peninsulainsider.com.au/explore/portsea-golf-club"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/explore">Explore</a> </li><li class="breadcrumbs__item"> <span aria-current="page">Portsea Golf Club</span> </li> </ol> </div> </nav> <section class="experience-detail"> <div class="container"> <div class="experience-detail__meta"> <a href="/explore/" class="experience-detail__type">Golf Course</a> <span class="experience-detail__dot" aria-hidden="true"></span> <a href="/places/portsea" class="experience-detail__place">Portsea</a>  <span class="experience-detail__dot" aria-hidden="true"></span> <span class="experience-detail__place">270 min</span>  </div> <h1 class="experience-detail__title">Portsea Golf Club</h1> <div class="experience-detail__hero feature__image-block feature__image-block--hinterland" aria-hidden="true" style="background-image: url(/images/sourced/place-portsea-01.webp); background-size: cover; background-position: center;"> <div class="experience-detail__hero-fog"></div> <span class="experience-detail__hero-label">Clifftop coastal landscape at Portsea, Mornington Peninsula</span> </div> <div class="experience-detail__grid"> <div> <div class="prose"> <p>Portsea Golf Club is the classic Peninsula member&#39;s club at the tip. Founded in 1924, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane. The par-3 holes along the Bass Strait edge are the signature — visually, they are hard to beat. Access is the issue. Portsea is a members&#39; club, and non-member play depends on reciprocal rights, member invitations, or specific corporate days. Unlike Sorrento Golf Club (which accepts more casual visitor play), Portsea maintains a tighter door policy. For the right golfer with the right connection, it is one of the most satisfying rounds on the Peninsula. For everyone else, the course matters more as part of the Peninsula golf landscape than as a bookable option. Complementary courses to consider for public-access play in the same area: The Dunes (20 minutes) or St Andrews Beach (20 minutes).</p> </div> </div> <aside class="facts"> <p class="facts__title">At a glance</p> <dl> <dt>Place</dt> <dd><a href="/places/portsea">Portsea</a></dd> <dt>Type</dt> <dd>Golf Course</dd>  <dt>Timing</dt> <dd>270 min</dd>    <dt>Best in</dt> <dd>Autumn · Spring · Summer</dd>   <dt>Access</dt> <dd>Relph Ave, Portsea VIC 3944</dd>   <dt>Website</dt> <dd><a href="https://www.portseagolf.com.au/">www.portseagolf.com.au/</a></dd>  </dl> <a class="facts__cta" href="/places/portsea">Open place hub</a> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Pair it with a booking</p> <h2 class="venues__title">Where to eat, drink, or stay nearby</h2> <p class="venues__sub">The best explore pages should lead somewhere next.</p> </div> <a href="/places/portsea" class="venues__link">See Portsea →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/portsea-hotel" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/venue-portsea-hotel-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Pub </span> <a href="/places/portsea" class="venue-card__place-link">Portsea</a> </div> <h3 class="venue-card__name"> <a href="/eat/portsea-hotel">Portsea Hotel</a> </h3> <p class="venue-card__place">3746 Point Nepean Rd, Portsea VIC 3944 · $$</p>  <p class="venue-card__signature">The front-row pub on Port Phillip  -  still the cleanest long lunch at the tip of the Peninsula</p> <div class="venue-card__tags"> <span class="venue-card__tag">long lunch</span><span class="venue-card__tag">waterfront</span> </div> <div class="venue-card__actions"> <a href="/eat/portsea-hotel" class="venue-card__cta">Read notes</a> <a href="https://www.portseahotel.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Keep going</p> <h2 class="venues__title">More ways to use this side of the Peninsula</h2> </div> <a href="/explore/" class="venues__link">Explore more →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--walk" aria-hidden="true" style="background-image: url(/images/sourced/explore-farnsworth-track-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Walk</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/point-nepean" class="experience-card__place-link">Point Nepean</a> <span>45 min · Easy</span> </div> <h3 class="experience-card__title"> <a href="/explore/farnsworth-track">Farnsworth Track</a> </h3> <p class="experience-card__summary">The Farnsworth Track is the Peninsula&#39;s most efficient clifftop-view-to-effort ratio: 1.5 kilometres one way between Portsea Ocean Beach and London Bridge, with dramatic Bass Strait cliff views at almost every point along the walk. Walk one way and return along the beach (tide permitting) for a satisfying short circuit, or push on west to Coppins Track for a longer day.
+</script>  <main data-pagefind-body data-pagefind-filter="kind:Explore" data-pagefind-meta="kind:Explore">  <script type="application/ld+json">{"@context":"https://schema.org","@type":["GolfCourse","SportsActivityLocation","TouristAttraction"],"name":"Portsea Golf Club","description":"Portsea Golf Club is the classic Peninsula member's club at the tip. Founded in 1924, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane. The par-3 holes along the Bass Strait edge are the signature — visually, they are hard to beat. Access is the issue. Portsea is a members' club, and non-member play depends on reciprocal rights, member invitations, or specific corporate days. Unlike Sorrento Golf Club (which accepts more casual visitor play), Portsea maintains a tighter door policy. For the right golfer with the right connection, it is one of the most satisfying rounds on the Peninsula. For everyone else, the course matters more as part of the Peninsula golf landscape than as a bookable option. Complementary courses to consider for public-access play in the same area: The Dunes (20 minutes) or St Andrews Beach (20 minutes).","address":{"@type":"PostalAddress","streetAddress":"Relph Ave, Portsea VIC 3944","addressLocality":"Portsea","addressRegion":"VIC","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-38.3389,"longitude":144.7089},"url":"https://peninsulainsider.com.au/explore/portsea-golf-club/","sameAs":["https://www.portseagolf.com.au/"],"numberOfHoles":18,"publicAccess":false}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Explore","item":"https://peninsulainsider.com.au/explore"},{"@type":"ListItem","position":3,"name":"Portsea Golf Club","item":"https://peninsulainsider.com.au/explore/portsea-golf-club"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/explore">Explore</a> </li><li class="breadcrumbs__item"> <span aria-current="page">Portsea Golf Club</span> </li> </ol> </div> </nav> <section class="experience-detail"> <div class="container"> <div class="experience-detail__meta"> <a href="/explore/" class="experience-detail__type">Golf Course</a> <span class="experience-detail__dot" aria-hidden="true"></span> <a href="/places/portsea" class="experience-detail__place">Portsea</a>  <span class="experience-detail__dot" aria-hidden="true"></span> <span class="experience-detail__place">270 min</span>  </div> <h1 class="experience-detail__title">Portsea Golf Club</h1> <div class="experience-detail__hero feature__image-block feature__image-block--hinterland" aria-hidden="true" style="background-image: url(/images/sourced/place-portsea-01.webp); background-size: cover; background-position: center;"> <div class="experience-detail__hero-fog"></div> <span class="experience-detail__hero-label">Clifftop coastal landscape at Portsea, Mornington Peninsula</span> </div> <div class="experience-detail__grid"> <div> <div class="prose"> <p>Portsea Golf Club is the classic Peninsula member&#39;s club at the tip. Founded in 1924, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane. The par-3 holes along the Bass Strait edge are the signature — visually, they are hard to beat. Access is the issue. Portsea is a members&#39; club, and non-member play depends on reciprocal rights, member invitations, or specific corporate days. Unlike Sorrento Golf Club (which accepts more casual visitor play), Portsea maintains a tighter door policy. For the right golfer with the right connection, it is one of the most satisfying rounds on the Peninsula. For everyone else, the course matters more as part of the Peninsula golf landscape than as a bookable option. Complementary courses to consider for public-access play in the same area: The Dunes (20 minutes) or St Andrews Beach (20 minutes).</p> </div> </div> <aside class="facts"> <p class="facts__title">At a glance</p> <dl> <dt>Place</dt> <dd><a href="/places/portsea">Portsea</a></dd> <dt>Type</dt> <dd>Golf Course</dd>  <dt>Timing</dt> <dd>270 min</dd>    <dt>Best in</dt> <dd>Autumn · Spring · Summer</dd>   <dt>Access</dt> <dd>Relph Ave, Portsea VIC 3944</dd>   <dt>Website</dt> <dd><a href="https://www.portseagolf.com.au/">www.portseagolf.com.au/</a></dd>  </dl> <a class="facts__cta" href="/places/portsea">Open place hub</a> </aside> </div> </div> </section> <section class="venues"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Pair it with a booking</p> <h2 class="venues__title">Where to eat, drink, or stay nearby</h2> <p class="venues__sub">The best explore pages should lead somewhere next.</p> </div> <a href="/places/portsea" class="venues__link">See Portsea →</a> </div> <div class="venues__grid"> <article class="venue-card"> <div class="venue-card__wash"></div> <a href="/eat/portsea-hotel" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/venue-portsea-hotel-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Pub </span> <a href="/places/portsea" class="venue-card__place-link">Portsea</a> </div> <h3 class="venue-card__name"> <a href="/eat/portsea-hotel">Portsea Hotel</a> </h3> <p class="venue-card__place">3746 Point Nepean Rd, Portsea VIC 3944 · $$</p>  <p class="venue-card__signature">The front-row pub on Port Phillip  -  still the cleanest long lunch at the tip of the Peninsula</p> <div class="venue-card__tags"> <span class="venue-card__tag">long lunch</span><span class="venue-card__tag">waterfront</span> </div> <div class="venue-card__actions"> <a href="/eat/portsea-hotel" class="venue-card__cta">Read notes</a> <a href="https://www.portseahotel.com.au" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article> </div> </div> </section><section class="experience-index"> <div class="container"> <div class="venues__header"> <div> <p class="label label--accent">Keep going</p> <h2 class="venues__title">More ways to use this side of the Peninsula</h2> </div> <a href="/explore/" class="venues__link">Explore more →</a> </div> <div class="experience-grid"> <article class="experience-card"> <div class="experience-card__visual experience-card__visual--walk" aria-hidden="true" style="background-image: url(/images/sourced/explore-farnsworth-track-01.webp); background-size: cover; background-position: center;"> <div class="experience-card__fog"></div> <span class="experience-card__tag">Walk</span> </div> <div class="experience-card__body"> <div class="experience-card__meta"> <a href="/places/point-nepean" class="experience-card__place-link">Point Nepean</a> <span>45 min · Easy</span> </div> <h3 class="experience-card__title"> <a href="/explore/farnsworth-track">Farnsworth Track</a> </h3> <p class="experience-card__summary">The Farnsworth Track is the Peninsula&#39;s most efficient clifftop-view-to-effort ratio: 1.5 kilometres one way between Portsea Ocean Beach and London Bridge, with dramatic Bass Strait cliff views at almost every point along the walk. Walk one way and return along the beach (tide permitting) for a satisfying short circuit, or push on west to Coppins Track for a longer day.
 
 This is the walk you do when you have an hour to fill and want the ocean properly in front of you. The track is well-formed, the gradient is forgiving, and the payoff comes quickly. London Bridge itself  -  a weathered limestone arch in the rock  -  is the natural turnaround point and worth the short detour off the main track.
 

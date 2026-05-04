@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.DoyUd3dF.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.D111aP2O.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="stay" data-path="/stay/dog-friendly/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
@@ -65,10 +65,14 @@ Ask The Insider for a recommendation
   document.addEventListener('astro:page-load', bindTriggers);
 })();
 </script> <!-- Masthead "More" mega-menu controller.
-     Hover opens softly (closes on mouseleave with a 250ms grace period to
-     bridge the cursor traversal between trigger and panel). Click locks the
-     panel open until Escape, outside-click, or another click on the trigger.
-     Touch input takes the click path because mouseenter is unreliable.
+     Click-only. Predictable. The dual hover/click mode in the previous
+     version fought itself: a click after a hover toggled state in a way
+     that could close the panel unexpectedly, and the 250ms mouseleave
+     close timer made the issue feel like a flash. This version is
+     simpler and bulletproof:
+       • Click trigger → open. Click trigger again → close.
+       • Outside click → close. Esc → close + return focus.
+       • Hover does nothing.
      Idempotent across astro:page-load. --> <script>
 (function () {
   function bindMore() {
@@ -79,14 +83,9 @@ Ask The Insider for a recommendation
       const panel = root.querySelector('[data-more-panel]');
       if (!trigger || !panel) return;
 
-      // mode: 'closed' | 'hover' | 'click'
-      // 'hover' closes on mouseleave (with grace period). 'click' is sticky
-      // and only closes on Escape, outside-click, or click on the trigger.
-      let mode = 'closed';
-      let leaveTimer = null;
+      let isOpen = false;
 
       const apply = () => {
-        var isOpen = mode !== 'closed';
         trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         if (isOpen) {
           panel.removeAttribute('hidden');
@@ -96,79 +95,55 @@ Ask The Insider for a recommendation
           root.classList.remove('is-open');
         }
       };
-      const setMode = (next) => {
-        if (mode === next) return;
-        mode = next;
-        apply();
-      };
-      const cancelLeave = () => {
-        if (leaveTimer) {
-          clearTimeout(leaveTimer);
-          leaveTimer = null;
-        }
-      };
+      const open  = () => { if (!isOpen) { isOpen = true;  apply(); } };
+      const close = () => { if ( isOpen) { isOpen = false; apply(); } };
+      const toggle = () => { isOpen = !isOpen; apply(); };
 
-      // Click toggles between sticky-open and closed. Cancels any in-flight
-      // hover-close so a tap that follows a hover doesn't immediately drop.
+      // Trigger click toggles. stopPropagation prevents the document
+      // click listener below from immediately closing what we just opened.
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        cancelLeave();
-        setMode(mode === 'click' ? 'closed' : 'click');
+        toggle();
       });
 
-      // Hover only opens if nothing's already happening. If the panel was
-      // click-locked, hover does nothing — leave the user's explicit choice
-      // alone.
-      root.addEventListener('mouseenter', () => {
-        cancelLeave();
-        if (mode === 'closed') setMode('hover');
+      // Outside click closes. Listen on document at the bubble phase;
+      // the trigger handler stops propagation for its own clicks, and
+      // any click inside the panel is recognised via root.contains.
+      document.addEventListener('click', (e) => {
+        if (!isOpen) return;
+        if (root.contains(e.target)) return;
+        close();
       });
 
-      // Hover-leave closes after a grace period; click-locked stays open.
-      // The grace period prevents the panel disappearing while the cursor
-      // travels from trigger to panel content.
-      root.addEventListener('mouseleave', () => {
-        if (mode !== 'hover') return;
-        cancelLeave();
-        leaveTimer = setTimeout(() => {
-          if (mode === 'hover') setMode('closed');
-          leaveTimer = null;
-        }, 250);
-      });
-
-      // Keyboard: focus moves out of the menu structure → close.
-      root.addEventListener('focusout', (e) => {
-        if (!root.contains(e.relatedTarget)) {
-          cancelLeave();
-          setMode('closed');
-        }
-      });
-
-      // Escape closes regardless of mode and returns focus to the trigger.
+      // Esc closes and returns focus to the trigger so keyboard users
+      // pick up where they were.
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mode !== 'closed') {
-          cancelLeave();
-          setMode('closed');
+        if (e.key === 'Escape' && isOpen) {
+          close();
           trigger.focus();
         }
       });
 
-      // Outside click only kills 'click' mode. 'hover' mode handles itself
-      // via mouseleave — using the document click listener for hover would
-      // cause it to close on the panel's own clicks (link navigation).
-      document.addEventListener('click', (e) => {
-        if (mode === 'click' && !root.contains(e.target)) {
-          cancelLeave();
-          setMode('closed');
-        }
+      // Clicking a link inside the panel should navigate AND close.
+      // The default <a> navigation runs first; close the panel after.
+      panel.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (link && root.contains(link)) close();
+      });
+
+      // Keyboard: focus leaving the entire menu structure also closes.
+      root.addEventListener('focusout', (e) => {
+        if (!isOpen) return;
+        if (e.relatedTarget && root.contains(e.relatedTarget)) return;
+        close();
       });
     });
   }
   bindMore();
   document.addEventListener('astro:page-load', bindMore);
 })();
-</script>  <main data-pagefind-body data-pagefind-filter="kind:Stay" data-pagefind-meta="kind:Stay">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Stay","item":"https://peninsulainsider.com.au/stay/"},{"@type":"ListItem","position":3,"name":"Dog-Friendly","item":"https://peninsulainsider.com.au/stay/dog-friendly"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/stay/">Stay</a> </li><li class="breadcrumbs__item"> <span aria-current="page">Dog-Friendly</span> </li> </ol> </div> </nav> <article class="article"> <div class="container"> <h1 class="article__title">Dog-Friendly Accommodation on the Mornington Peninsula</h1> <div class="prose"> <p>Dog-friendly stays on the Peninsula matter because the region's dog logic is uneven. Some beaches are friendly, some are not. Some wineries welcome dogs outdoors, many do not. The right accommodation therefore does more than permit a pet. It reduces friction across the whole weekend.</p> <p>The strongest dog-friendly stay choices tend to be self-contained properties or slower rural bases, where outdoor access, privacy, and easier arrival matter more than hotel formalities. <a href="/stay/sorrento-coastal-retreat/">Sorrento Coastal Retreat</a> works for a tip-of-Peninsula stay with beach-town access. <a href="/stay/hillview-cottages/">Hillview Farm Cottages</a> fits a quieter hinterland rhythm. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are useful when the weekend leans food-and-wine but still needs a workable dog policy.</p> <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p> </div> </div> </article> <section class="venues" id="rankings"> <div class="container"> <div class="venues__header"><div><p class="label label--accent">Dog-friendly stays</p><h2 class="venues__title">4 stays that work best when the dog is coming too</h2><p class="venues__sub">The practical answer is rarely the fanciest answer. It is the stay that makes the whole Peninsula plan easier.</p></div><a href="/journal/dog-friendly-mornington-peninsula/" class="venues__link">Dog guide →</a></div> <div class="venues__grid"><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/sorrento-coastal-retreat" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-sorrento-ocean-baths-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Villa </span> <a href="/places/sorrento" class="venue-card__place-link">Sorrento</a> </div> <h3 class="venue-card__name"> <a href="/stay/sorrento-coastal-retreat">Sorrento Coastal Retreat</a> </h3> <p class="venue-card__place">Kerford Ave, Sorrento VIC 3943 · $$$</p>  <p class="venue-card__signature">A clifftop holiday house between the front and back beaches  -  the quietly perfect Sorrento weekend for couples who want space and a car nearby</p> <div class="venue-card__tags"> <span class="venue-card__tag">romance</span><span class="venue-card__tag">slow</span> </div> <div class="venue-card__actions"> <a href="/stay/sorrento-coastal-retreat" class="venue-card__cta">Read notes</a> <a href="https://sorrentocoastalretreat.com.au/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/polperro-villas" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/article-couples-weekend-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Villa </span> <a href="/places/red-hill" class="venue-card__place-link">Red Hill</a> </div> <h3 class="venue-card__name"> <a href="/stay/polperro-villas">Polperro Villas</a> </h3> <p class="venue-card__place">150 Red Hill Rd, Red Hill South VIC 3937 · $$$$</p>  <p class="venue-card__signature">Two private vineyard villas sleeping four, with the Polperro cellar door at the end of the drive</p> <div class="venue-card__tags"> <span class="venue-card__tag">anniversary</span><span class="venue-card__tag">slow</span> </div> <div class="venue-card__actions"> <a href="/stay/polperro-villas" class="venue-card__cta">Read notes</a> <a href="https://www.polperrowines.com.au/villa-bookings" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/hillview-cottages" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/journal-late-afternoon-walks-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Cottage </span> <a href="/places/main-ridge" class="venue-card__place-link">Main Ridge</a> </div> <h3 class="venue-card__name"> <a href="/stay/hillview-cottages">Hillview Farm Cottages</a> </h3> <p class="venue-card__place">45 Hillview Rd, Main Ridge VIC 3928 · $$$</p>  <p class="venue-card__signature">Small, quiet cottages on a working Main Ridge farm  -  no hotel, no restaurant, just the plateau and a wood fire</p> <div class="venue-card__tags"> <span class="venue-card__tag">slow</span><span class="venue-card__tag">fireplace</span> </div> <div class="venue-card__actions"> <a href="/stay/hillview-cottages" class="venue-card__cta">Read notes</a> <a href="https://hillviewfarmcottages.com.au/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/crittenden-villas" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/article-vineyard-villa-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Villa </span> <a href="/places/dromana" class="venue-card__place-link">Dromana</a> </div> <h3 class="venue-card__name"> <a href="/stay/crittenden-villas">Crittenden Estate Villas</a> </h3> <p class="venue-card__place">25 Harrisons Rd, Dromana VIC 3936 · $$$</p>  <p class="venue-card__signature">Self-contained vineyard villas on the Crittenden lake  -  wake up, walk to the cellar door, and eat dinner at the adjoining Stillwater restaurant</p> <div class="venue-card__tags"> <span class="venue-card__tag">anniversary</span><span class="venue-card__tag">waterfront</span> </div> <div class="venue-card__actions"> <a href="/stay/crittenden-villas" class="venue-card__cta">Read notes</a> <a href="https://www.lakesidevillas.com.au/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> </article></div> </div> </section> <section class="v2-newsletter" id="newsletter" aria-labelledby="newsletter-title"> <div class="v2-newsletter__container"> <div class="v2-newsletter__frame"> <div class="v2-newsletter__copy"> <div class="v2-newsletter__eyebrow">Peninsula This Weekend</div> <h2 class="v2-newsletter__title" id="newsletter-title">The briefing that <em>arrives weekly.</em></h2> <p class="v2-newsletter__body">One email. The weekend&#39;s pick, the tables that have opened up, the cellar doors with windows this week, and the walk worth doing before it&#39;s too cold. Read in five minutes, used all weekend.</p> <form class="v2-newsletter__form" novalidate data-source="footer" data-endpoint="https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe"> <input class="v2-newsletter__input" type="email" name="email" placeholder="your@email.com" aria-label="Email address" autocomplete="email" required> <button class="v2-newsletter__submit" type="submit">Subscribe</button> </form> <div class="v2-newsletter__meta"> <span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"></path></svg>
+</script>  <main data-pagefind-body data-pagefind-filter="kind:Stay" data-pagefind-meta="kind:Stay">  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"Stay","item":"https://peninsulainsider.com.au/stay/"},{"@type":"ListItem","position":3,"name":"Dog-Friendly","item":"https://peninsulainsider.com.au/stay/dog-friendly"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <a href="/stay/">Stay</a> </li><li class="breadcrumbs__item"> <span aria-current="page">Dog-Friendly</span> </li> </ol> </div> </nav> <article class="article"> <div class="container"> <h1 class="article__title">Dog-Friendly Accommodation on the Mornington Peninsula</h1> <div class="prose"> <p>Dog-friendly stays on the Peninsula matter because the region's dog logic is uneven. Some beaches are friendly, some are not. Some wineries welcome dogs outdoors, many do not. The right accommodation therefore does more than permit a pet. It reduces friction across the whole weekend.</p> <p>The strongest dog-friendly stay choices tend to be self-contained properties or slower rural bases, where outdoor access, privacy, and easier arrival matter more than hotel formalities. <a href="/stay/sorrento-coastal-retreat/">Sorrento Coastal Retreat</a> works for a tip-of-Peninsula stay with beach-town access. <a href="/stay/hillview-cottages/">Hillview Farm Cottages</a> fits a quieter hinterland rhythm. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are useful when the weekend leans food-and-wine but still needs a workable dog policy.</p> <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p> </div> </div> </article> <section class="venues" id="rankings"> <div class="container"> <div class="venues__header"><div><p class="label label--accent">Dog-friendly stays</p><h2 class="venues__title">4 stays that work best when the dog is coming too</h2><p class="venues__sub">The practical answer is rarely the fanciest answer. It is the stay that makes the whole Peninsula plan easier.</p></div><a href="/journal/dog-friendly-mornington-peninsula/" class="venues__link">Dog guide →</a></div> <div class="venues__grid"><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/sorrento-coastal-retreat" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/explore-sorrento-ocean-baths-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Villa </span> <a href="/places/sorrento" class="venue-card__place-link">Sorrento</a> </div> <h3 class="venue-card__name"> <a href="/stay/sorrento-coastal-retreat">Sorrento Coastal Retreat</a> </h3> <p class="venue-card__place">Kerford Ave, Sorrento VIC 3943 · $$$</p>  <p class="venue-card__signature">A clifftop holiday house between the front and back beaches  -  the quietly perfect Sorrento weekend for couples who want space and a car nearby</p> <div class="venue-card__tags"> <span class="venue-card__tag">romance</span><span class="venue-card__tag">slow</span> </div> <div class="venue-card__actions"> <a href="/stay/sorrento-coastal-retreat" class="venue-card__cta">Read notes</a> <a href="https://sorrentocoastalretreat.com.au/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/polperro-villas" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/article-couples-weekend-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Villa </span> <a href="/places/red-hill" class="venue-card__place-link">Red Hill</a> </div> <h3 class="venue-card__name"> <a href="/stay/polperro-villas">Polperro Villas</a> </h3> <p class="venue-card__place">150 Red Hill Rd, Red Hill South VIC 3937 · $$$$</p>  <p class="venue-card__signature">Two private vineyard villas sleeping four, with the Polperro cellar door at the end of the drive</p> <div class="venue-card__tags"> <span class="venue-card__tag">anniversary</span><span class="venue-card__tag">slow</span> </div> <div class="venue-card__actions"> <a href="/stay/polperro-villas" class="venue-card__cta">Read notes</a> <a href="https://www.polperrowines.com.au/villa-bookings" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/hillview-cottages" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/journal-late-afternoon-walks-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Cottage </span> <a href="/places/main-ridge" class="venue-card__place-link">Main Ridge</a> </div> <h3 class="venue-card__name"> <a href="/stay/hillview-cottages">Hillview Farm Cottages</a> </h3> <p class="venue-card__place">45 Hillview Rd, Main Ridge VIC 3928 · $$$</p>  <p class="venue-card__signature">Small, quiet cottages on a working Main Ridge farm  -  no hotel, no restaurant, just the plateau and a wood fire</p> <div class="venue-card__tags"> <span class="venue-card__tag">slow</span><span class="venue-card__tag">fireplace</span> </div> <div class="venue-card__actions"> <a href="/stay/hillview-cottages" class="venue-card__cta">Read notes</a> <a href="https://hillviewfarmcottages.com.au/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article><article class="venue-card"> <div class="venue-card__wash"></div> <a href="/stay/crittenden-villas" class="venue-card__hero" aria-hidden="true" tabindex="-1" style="background-image: url(/images/sourced/article-vineyard-villa-01.webp)"></a> <div class="venue-card__top"> <span class="venue-card__type"> Villa </span> <a href="/places/dromana" class="venue-card__place-link">Dromana</a> </div> <h3 class="venue-card__name"> <a href="/stay/crittenden-villas">Crittenden Estate Villas</a> </h3> <p class="venue-card__place">25 Harrisons Rd, Dromana VIC 3936 · $$$</p>  <p class="venue-card__signature">Self-contained vineyard villas on the Crittenden lake  -  wake up, walk to the cellar door, and eat dinner at the adjoining Stillwater restaurant</p> <div class="venue-card__tags"> <span class="venue-card__tag">anniversary</span><span class="venue-card__tag">waterfront</span> </div> <div class="venue-card__actions"> <a href="/stay/crittenden-villas" class="venue-card__cta">Read notes</a> <a href="https://www.lakesidevillas.com.au/book" target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick="(e) => e.stopPropagation()">Book</a> </div> <p class="venue-card__verified venue-card__verified--fresh" aria-label="Editorial freshness: Verified this month"> <span class="venue-card__verified-dot" aria-hidden="true"></span> Verified this month </p> </article></div> </div> </section> <section class="v2-newsletter" id="newsletter" aria-labelledby="newsletter-title"> <div class="v2-newsletter__container"> <div class="v2-newsletter__frame"> <div class="v2-newsletter__copy"> <div class="v2-newsletter__eyebrow">Peninsula This Weekend</div> <h2 class="v2-newsletter__title" id="newsletter-title">The briefing that <em>arrives weekly.</em></h2> <p class="v2-newsletter__body">One email. The weekend&#39;s pick, the tables that have opened up, the cellar doors with windows this week, and the walk worth doing before it&#39;s too cold. Read in five minutes, used all weekend.</p> <form class="v2-newsletter__form" novalidate data-source="footer" data-endpoint="https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe"> <input class="v2-newsletter__input" type="email" name="email" placeholder="your@email.com" aria-label="Email address" autocomplete="email" required> <button class="v2-newsletter__submit" type="submit">Subscribe</button> </form> <div class="v2-newsletter__meta"> <span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"></path></svg>
 4,812 Peninsula readers
 </span> <span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"></path></svg>
 Curated by editors who live here
