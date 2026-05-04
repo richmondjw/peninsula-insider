@@ -1,9 +1,9 @@
 {
   "slug": "polperro-cellar-table-private-dining-experience",
   "eventId": "MP-EVT-0009",
-  "title": "Polperro Cellar Table — Private Dining Experience",
-  "summary": "The most exclusive Polperro dining experience. The Cellar Table seats 6–8 guests in the private dining room below the winery. Five-course Chef's Menu rooted in provenance and seasonality paired with the latest Polperro and Even Keel cuvée releases. Sculptural lighting and intimate tablescape designe",
-  "description": "The most exclusive Polperro dining experience. The Cellar Table seats 6–8 guests in the private dining room below the winery. Five-course Chef's Menu rooted in provenance and seasonality paired with the latest Polperro and Even Keel cuvée releases. Sculptural lighting and intimate tablescape designed for lingering conversation. Available Saturday evenings.",
+  "title": "Polperro Cellar Table \u2014 Private Dining Experience",
+  "summary": "The most exclusive Polperro dining experience. The Cellar Table seats 6\u20138 guests in the private dining room below the winery. Five-course Chef's Menu rooted in provenance and seasonality paired with the latest Polperro and Even Keel cuv\u00e9e releases. Sculptural lighting and intimate tablescape designe",
+  "description": "The most exclusive Polperro dining experience. The Cellar Table seats 6\u20138 guests in the private dining room below the winery. Five-course Chef's Menu rooted in provenance and seasonality paired with the latest Polperro and Even Keel cuv\u00e9e releases. Sculptural lighting and intimate tablescape designed for lingering conversation. Available Saturday evenings.",
   "startDate": "2026-05-01",
   "endDate": "2027-04-30",
   "startTime": "18:30",
@@ -19,7 +19,7 @@
   },
   "indoorOutdoor": "Indoor",
   "officialEventUrl": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
-  "bookingRequired": "Yes — contact Polperro",
+  "bookingRequired": "Yes \u2014 contact Polperro",
   "freePaid": "Paid",
   "priceRange": "AUD 295 per person (Chef's Menu with matched wines)",
   "priceTier": "over-150",
@@ -35,9 +35,9 @@
   ],
   "familyFriendly": false,
   "petFriendly": false,
-  "accessibilityNotes": "Private room accessible — check with venue for specific needs",
+  "accessibilityNotes": "Private room accessible \u2014 check with venue for specific needs",
   "weather": "mixed",
-  "weatherDependency": "Indoor — not weather-dependent",
+  "weatherDependency": "Indoor \u2014 not weather-dependent",
   "weatherShape": "all-weather",
   "organiser": {
     "name": "Polperro Winery",
@@ -57,5 +57,11 @@
   "lens": [
     "rainy-day"
   ],
-  "place": "red-hill"
+  "place": "red-hill",
+  "heroImage": {
+    "src": "/images/sourced/category-restaurant-01.webp",
+    "alt": "Elegant cellar door dining on the Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

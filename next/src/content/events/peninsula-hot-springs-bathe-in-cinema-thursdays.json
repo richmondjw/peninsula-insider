@@ -1,9 +1,9 @@
 {
   "slug": "peninsula-hot-springs-bathe-in-cinema-thursdays",
   "eventId": "MP-EVT-0021",
-  "title": "Peninsula Hot Springs – Bathe-in Cinema (Thursdays)",
-  "summary": "Thursday evening outdoor cinema sessions at Peninsula Hot Springs amphitheatre pool. Watch films from the thermal pools. Regular program runs May–July 2026. Film lineup TBC – check PHS events page.",
-  "description": "Thursday evening outdoor cinema sessions at Peninsula Hot Springs amphitheatre pool. Watch films from the thermal pools. Regular program runs May–July 2026. Film lineup TBC – check PHS events page.",
+  "title": "Peninsula Hot Springs \u2013 Bathe-in Cinema (Thursdays)",
+  "summary": "Thursday evening outdoor cinema sessions at Peninsula Hot Springs amphitheatre pool. Watch films from the thermal pools. Regular program runs May\u2013July 2026. Film lineup TBC \u2013 check PHS events page.",
+  "description": "Thursday evening outdoor cinema sessions at Peninsula Hot Springs amphitheatre pool. Watch films from the thermal pools. Regular program runs May\u2013July 2026. Film lineup TBC \u2013 check PHS events page.",
   "startDate": "2026-05-07",
   "endDate": "2026-07-31",
   "season": "autumn",
@@ -27,7 +27,7 @@
   "category": "nature",
   "subcategory": "Outdoor Cinema",
   "recurrence": "weekly",
-  "recurrenceNote": "Weekly – Thursdays",
+  "recurrenceNote": "Weekly \u2013 Thursdays",
   "suitableFor": "Adults; Couples; Groups",
   "audienceTags": [
     "adults-only",
@@ -38,7 +38,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Accessible thermal pools available; check specific needs with venue",
   "weather": "mixed",
-  "weatherDependency": "Outdoor amphitheatre – wet weather may affect screenings",
+  "weatherDependency": "Outdoor amphitheatre \u2013 wet weather may affect screenings",
   "weatherShape": "fair-weather-only",
   "organiser": {
     "name": "Peninsula Hot Springs",
@@ -52,7 +52,7 @@
   "editorialPriority": 4,
   "nearbyAttractions": "Arthurs Seat Eagle; Rye foreshore; local restaurants",
   "suggestedItineraryPairing": "Evening hot springs session followed by dinner in Rye or Dromana",
-  "internalNotes": "Film lineup not yet published; check PHS events page for specific titles and dates. Amphitheatre pool fills fast – book early.",
+  "internalNotes": "Film lineup not yet published; check PHS events page for specific titles and dates. Amphitheatre pool fills fast \u2013 book early.",
   "manualFollowUpRequired": false,
   "kidsGradeAuto": "not-for-kids",
   "status": "published",
@@ -61,5 +61,11 @@
     "ticketed"
   ],
   "place": "rye",
-  "nextOccurrence": "2026-05-07"
+  "nextOccurrence": "2026-05-07",
+  "heroImage": {
+    "src": "/images/sourced/spa-coastal-pool-01.webp",
+    "alt": "Outdoor thermal pool at Peninsula Hot Springs",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

@@ -1,7 +1,7 @@
 {
   "slug": "mornington-racecourse-market-may-2026",
   "eventId": "MP-EVT-0028",
-  "title": "Mornington Racecourse Market — May 2026",
+  "title": "Mornington Racecourse Market \u2014 May 2026",
   "summary": "Monthly market at Mornington Racecourse. Second Sunday of month year-round. Handmade crafts, fashion, fresh produce, art, and artisan goods.",
   "description": "Monthly market at Mornington Racecourse. Second Sunday of month year-round. Handmade crafts, fashion, fresh produce, art, and artisan goods.",
   "startDate": "2026-05-10",
@@ -37,7 +37,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Flat racecourse areas; mainly accessible",
   "weather": "mixed",
-  "weatherDependency": "Moderate — outdoor",
+  "weatherDependency": "Moderate \u2014 outdoor",
   "weatherShape": "fair-weather-only",
   "organiser": {
     "name": "Melbourne Racing Club / Mornington Racecourse",
@@ -51,7 +51,7 @@
   "editorialPriority": 3,
   "nearbyAttractions": "Mornington Main Street; Port Phillip Bay; Mornington Pier",
   "suggestedItineraryPairing": "Pair with Main Street breakfast and foreshore walk, then market",
-  "internalNotes": "Market confirmed as 2nd Sunday monthly. May 2026 date = 10 May. Note: some months swap to Twilight Market format (3 pm–8 pm) — May typically runs as morning market.",
+  "internalNotes": "Market confirmed as 2nd Sunday monthly. May 2026 date = 10 May. Note: some months swap to Twilight Market format (3 pm\u20138 pm) \u2014 May typically runs as morning market.",
   "manualFollowUpRequired": true,
   "kidsGradeAuto": "C",
   "status": "published",
@@ -61,5 +61,11 @@
     "walk-in"
   ],
   "place": "mornington",
-  "nextOccurrence": "2026-05-10"
+  "nextOccurrence": "2026-05-10",
+  "heroImage": {
+    "src": "/images/sourced/category-market-01.webp",
+    "alt": "Market stalls and visitors at Mornington Racecourse",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

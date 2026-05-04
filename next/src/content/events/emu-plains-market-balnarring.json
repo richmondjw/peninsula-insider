@@ -1,7 +1,7 @@
 {
   "slug": "emu-plains-market-balnarring",
   "eventId": "MP-EVT-0030",
-  "title": "Emu Plains Market — Balnarring",
+  "title": "Emu Plains Market \u2014 Balnarring",
   "summary": "Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums.",
   "description": "Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums.",
   "startDate": "2026-05-16",
@@ -37,7 +37,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Flat reserve ground; mostly accessible",
   "weather": "mixed",
-  "weatherDependency": "Moderate — outdoor",
+  "weatherDependency": "Moderate \u2014 outdoor",
   "weatherShape": "fair-weather-only",
   "organiser": {
     "name": "Emu Plains Market committee",
@@ -50,7 +50,7 @@
   "editorialPriority": 3,
   "nearbyAttractions": "Coolart Wetlands and Homestead (adjacent); Balnarring Beach; Womin Djeka Ngargee site",
   "suggestedItineraryPairing": "Combine with Coolart Homestead and Balnarring Beach visit",
-  "internalNotes": "Shire events page lists scheduled dates including 17 Jan 2026 (twilight) and 21 Feb 2026 — monthly pattern confirmed. May 2026 date (16 May) derived from 3rd Saturday pattern. January edition sometimes runs as twilight (3 pm–8 pm).",
+  "internalNotes": "Shire events page lists scheduled dates including 17 Jan 2026 (twilight) and 21 Feb 2026 \u2014 monthly pattern confirmed. May 2026 date (16 May) derived from 3rd Saturday pattern. January edition sometimes runs as twilight (3 pm\u20138 pm).",
   "manualFollowUpRequired": true,
   "kidsGradeAuto": "C",
   "status": "published",
@@ -60,5 +60,11 @@
     "walk-in"
   ],
   "place": "balnarring",
-  "nextOccurrence": "2026-05-16"
+  "nextOccurrence": "2026-05-16",
+  "heroImage": {
+    "src": "/images/sourced/category-market-01.webp",
+    "alt": "Emu Plains community market at Balnarring",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

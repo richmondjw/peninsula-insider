@@ -20,7 +20,7 @@
   },
   "indoorOutdoor": "Outdoor",
   "officialEventUrl": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17566/wild-mushroom-forage-lunch-with-the-kitchen",
-  "bookingRequired": "Yes — strictly limited to 15 per session",
+  "bookingRequired": "Yes \u2014 strictly limited to 15 per session",
   "freePaid": "Paid",
   "priceRange": "AUD 85 per person",
   "priceTier": "50-150",
@@ -37,7 +37,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Walking on forest terrain; not wheelchair accessible",
   "weather": "mixed",
-  "weatherDependency": "Outdoor — unsuitable in heavy rain; all-weather clothing advised",
+  "weatherDependency": "Outdoor \u2014 unsuitable in heavy rain; all-weather clothing advised",
   "weatherShape": "fair-weather-only",
   "organiser": {
     "name": "The Kitchen"
@@ -53,5 +53,11 @@
   "kidsGradeAuto": "not-for-kids",
   "status": "published",
   "publishedAt": "2026-05-04",
-  "nextOccurrence": "2026-05-09"
+  "nextOccurrence": "2026-05-09",
+  "heroImage": {
+    "src": "/images/sourced/category-producer-01.webp",
+    "alt": "Farm produce and local harvest on the Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

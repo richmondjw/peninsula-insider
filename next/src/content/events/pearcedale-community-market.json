@@ -27,7 +27,7 @@
   "category": "market",
   "subcategory": "Community Market",
   "recurrence": "monthly",
-  "recurrenceNote": "Monthly – 3rd Saturday of every month (year-round)",
+  "recurrenceNote": "Monthly \u2013 3rd Saturday of every month (year-round)",
   "suitableFor": "Families; locals; produce lovers",
   "audienceTags": [
     "families",
@@ -37,7 +37,7 @@
   "petFriendly": true,
   "accessibilityNotes": "Grassed reserve; picnic area; generally accessible",
   "weather": "mixed",
-  "weatherDependency": "Outdoor – held year-round",
+  "weatherDependency": "Outdoor \u2013 held year-round",
   "weatherShape": "fair-weather-only",
   "organiser": {
     "name": "Pearcedale Market Committee",
@@ -60,5 +60,11 @@
     "free",
     "walk-in"
   ],
-  "nextOccurrence": "2026-05-16"
+  "nextOccurrence": "2026-05-16",
+  "heroImage": {
+    "src": "/images/sourced/category-market-02.webp",
+    "alt": "Community market stalls at Pearcedale",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

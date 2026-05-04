@@ -1,9 +1,9 @@
 {
   "slug": "red-hill-truffles-winter-truffle-hunt-season",
   "eventId": "MP-EVT-0038",
-  "title": "Red Hill Truffles — Winter Truffle Hunt Season",
+  "title": "Red Hill Truffles \u2014 Winter Truffle Hunt Season",
   "summary": "Red Hill Truffles (Mornington Peninsula's first truffle producer) offers guided public truffle hunts throughout winter. Options: Truffle Hunt & Pizza ($189pp; 3hrs); Truffle Hunt x Max's Restaurant at Red Hill Estate ($217pp; includes 2-course lunch); Truffle Hunt & Gourmet Lunch at The Epicurean Re",
-  "description": "Red Hill Truffles (Mornington Peninsula's first truffle producer) offers guided public truffle hunts throughout winter. Options: Truffle Hunt & Pizza ($189pp; 3hrs); Truffle Hunt x Max's Restaurant at Red Hill Estate ($217pp; includes 2-course lunch); Truffle Hunt & Gourmet Lunch at The Epicurean Red Hill ($195pp); Private Hunts (from $120pp; min $1,200). Périgord black truffle season late May–August. Family packages available.",
+  "description": "Red Hill Truffles (Mornington Peninsula's first truffle producer) offers guided public truffle hunts throughout winter. Options: Truffle Hunt & Pizza ($189pp; 3hrs); Truffle Hunt x Max's Restaurant at Red Hill Estate ($217pp; includes 2-course lunch); Truffle Hunt & Gourmet Lunch at The Epicurean Red Hill ($195pp); Private Hunts (from $120pp; min $1,200). P\u00e9rigord black truffle season late May\u2013August. Family packages available.",
   "startDate": "2026-05-30",
   "endDate": "2026-09-30",
   "season": "autumn",
@@ -22,7 +22,7 @@
   "officialEventUrl": "https://redhilltruffles.com",
   "bookingRequired": "Yes",
   "freePaid": "Paid",
-  "priceRange": "AUD 120–217+pp (options vary; pizza hunt from $189; private from $120pp min $1,200)",
+  "priceRange": "AUD 120\u2013217+pp (options vary; pizza hunt from $189; private from $120pp min $1,200)",
   "priceTier": "over-150",
   "category": "nature",
   "subcategory": "Truffle Hunting",
@@ -37,7 +37,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Farm terrain; not wheelchair accessible",
   "weather": "mixed",
-  "weatherDependency": "Outdoor hunt — wear warm waterproof clothes and closed shoes",
+  "weatherDependency": "Outdoor hunt \u2014 wear warm waterproof clothes and closed shoes",
   "weatherShape": "fair-weather-only",
   "organiser": {
     "name": "Red Hill Truffles",
@@ -50,7 +50,7 @@
   "editorialPriority": 4,
   "nearbyAttractions": "Polperro Winery; Red Hill Estate (Max's Restaurant); The Epicurean Red Hill",
   "suggestedItineraryPairing": "Pair truffle hunt with Max's Restaurant lunch at Red Hill Estate; follow with cellar door visit at Polperro",
-  "internalNotes": "Périgord (winter) season late May–August; Bianchetto August–September. Summer truffle season also available Nov–Feb. Book well in advance as hunts sell out.",
+  "internalNotes": "P\u00e9rigord (winter) season late May\u2013August; Bianchetto August\u2013September. Summer truffle season also available Nov\u2013Feb. Book well in advance as hunts sell out.",
   "manualFollowUpRequired": true,
   "kidsGradeAuto": "C",
   "status": "published",
@@ -58,5 +58,11 @@
   "lens": [
     "ticketed"
   ],
-  "place": "main-ridge"
+  "place": "main-ridge",
+  "heroImage": {
+    "src": "/images/sourced/category-producer-02.webp",
+    "alt": "Seasonal produce from a Mornington Peninsula farm",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

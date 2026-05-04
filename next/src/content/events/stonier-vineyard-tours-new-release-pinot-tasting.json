@@ -18,8 +18,8 @@
   },
   "indoorOutdoor": "Outdoor",
   "officialEventUrl": "https://www.stonier.com.au/visit",
-  "bookingRequired": "Yes — phone Cellar Door",
-  "freePaid": "Free (KBS Club) / Paid (non-members — TBC)",
+  "bookingRequired": "Yes \u2014 phone Cellar Door",
+  "freePaid": "Free (KBS Club) / Paid (non-members \u2014 TBC)",
   "priceRange": "Free for KBS Wine Club members",
   "priceTier": "unknown",
   "category": "food-wine",
@@ -29,7 +29,7 @@
   "suitableFor": "Wine enthusiasts; Pinot lovers",
   "familyFriendly": false,
   "petFriendly": false,
-  "accessibilityNotes": "Vineyard terrain — not wheelchair accessible",
+  "accessibilityNotes": "Vineyard terrain \u2014 not wheelchair accessible",
   "weather": "mixed",
   "weatherDependency": "Outdoor walk through vineyard; dress warmly for June",
   "weatherShape": "fair-weather-only",
@@ -48,5 +48,11 @@
   "kidsGradeAuto": "not-for-kids",
   "status": "published",
   "publishedAt": "2026-05-04",
-  "place": "merricks"
+  "place": "merricks",
+  "heroImage": {
+    "src": "/images/sourced/category-winery-08.webp",
+    "alt": "Vineyard tour at Stonier Wines on the Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

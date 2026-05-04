@@ -18,9 +18,9 @@
   },
   "indoorOutdoor": "Indoor / Outdoor",
   "officialEventUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
-  "bookingRequired": "Yes — contact Polperro or Hut Yoga",
+  "bookingRequired": "Yes \u2014 contact Polperro or Hut Yoga",
   "freePaid": "Paid",
-  "priceRange": "From approx AUD 1,500–2,000+pp (accommodation + programme; additional services extra)",
+  "priceRange": "From approx AUD 1,500\u20132,000+pp (accommodation + programme; additional services extra)",
   "priceTier": "over-150",
   "category": "wellness",
   "subcategory": "Multi-Day Wellness Retreat",
@@ -34,9 +34,9 @@
   ],
   "familyFriendly": false,
   "petFriendly": false,
-  "accessibilityNotes": "Farmhouse accommodation accessible — check with venue",
+  "accessibilityNotes": "Farmhouse accommodation accessible \u2014 check with venue",
   "weather": "mixed",
-  "weatherDependency": "Mostly indoor/sheltered — minimal weather dependency",
+  "weatherDependency": "Mostly indoor/sheltered \u2014 minimal weather dependency",
   "weatherShape": "wet-friendly",
   "organiser": {
     "name": "Polperro Winery / Hut Yoga",
@@ -48,11 +48,17 @@
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 4,
   "nearbyAttractions": "Peninsula Hot Springs; Many Little restaurant (same estate); Flinders Truffles",
-  "suggestedItineraryPairing": "Full Peninsula wellness immersion: arrive Fri; retreat Sat–Sun; depart Mon with farewell cellar door tasting",
-  "internalNotes": "Contact Lauren at Polperro: (03) 5989 2871 Wed–Sun or email info@hutyoga.com.au. No fixed public dates — book direct. Pricing estimate based on available inclusions; confirm full pricing with Polperro.",
+  "suggestedItineraryPairing": "Full Peninsula wellness immersion: arrive Fri; retreat Sat\u2013Sun; depart Mon with farewell cellar door tasting",
+  "internalNotes": "Contact Lauren at Polperro: (03) 5989 2871 Wed\u2013Sun or email info@hutyoga.com.au. No fixed public dates \u2014 book direct. Pricing estimate based on available inclusions; confirm full pricing with Polperro.",
   "manualFollowUpRequired": true,
   "kidsGradeAuto": "not-for-kids",
   "status": "published",
   "publishedAt": "2026-05-04",
-  "place": "red-hill"
+  "place": "red-hill",
+  "heroImage": {
+    "src": "/images/sourced/category-cottage-01.webp",
+    "alt": "Rustic farmhouse accommodation on the Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

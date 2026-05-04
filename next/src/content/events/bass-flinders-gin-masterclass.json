@@ -36,9 +36,9 @@
   ],
   "familyFriendly": false,
   "petFriendly": true,
-  "accessibilityNotes": "Distillery door wheelchair accessible; rooftop access — check with venue",
+  "accessibilityNotes": "Distillery door wheelchair accessible; rooftop access \u2014 check with venue",
   "weather": "mixed",
-  "weatherDependency": "Indoor masterclass — not weather-dependent; rooftop bar weather-dependent",
+  "weatherDependency": "Indoor masterclass \u2014 not weather-dependent; rooftop bar weather-dependent",
   "weatherShape": "all-weather",
   "organiser": {
     "name": "Bass & Flinders Distillery",
@@ -52,7 +52,7 @@
   "editorialPriority": 4,
   "nearbyAttractions": "Crittenden Wines (adjacent suburb); Red Hill Brewery; Mornington Peninsula Chocolaterie",
   "suggestedItineraryPairing": "Pair with Dromana wineries: Crittenden; Tuerong; add Peninsula Hot Springs for a full wellness day",
-  "internalNotes": "Also offers: Graduate Gin Masterclass; Gin High Tea; Cocktail Masterclasses. Hours: Fri–Sun 11am–5pm (Sat to 6pm). Dogs welcome.",
+  "internalNotes": "Also offers: Graduate Gin Masterclass; Gin High Tea; Cocktail Masterclasses. Hours: Fri\u2013Sun 11am\u20135pm (Sat to 6pm). Dogs welcome.",
   "manualFollowUpRequired": true,
   "kidsGradeAuto": "not-for-kids",
   "status": "published",
@@ -62,5 +62,11 @@
     "ticketed"
   ],
   "place": "dromana",
-  "nextOccurrence": "2026-05-08"
+  "nextOccurrence": "2026-05-08",
+  "heroImage": {
+    "src": "/images/sourced/category-brewery-01.webp",
+    "alt": "Craft spirits and distillery experience on the Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

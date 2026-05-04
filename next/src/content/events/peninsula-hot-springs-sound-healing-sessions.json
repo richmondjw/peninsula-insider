@@ -1,7 +1,7 @@
 {
   "slug": "peninsula-hot-springs-sound-healing-sessions",
   "eventId": "MP-EVT-0012",
-  "title": "Peninsula Hot Springs – Sound Healing Sessions",
+  "title": "Peninsula Hot Springs \u2013 Sound Healing Sessions",
   "summary": "Monthly sound healing events at Peninsula Hot Springs throughout autumn and winter 2026. Immersive sound and thermal bathing experience. Check PHS events page for specific dates.",
   "description": "Monthly sound healing events at Peninsula Hot Springs throughout autumn and winter 2026. Immersive sound and thermal bathing experience. Check PHS events page for specific dates.",
   "startDate": "2026-05-01",
@@ -37,7 +37,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Accessible thermal pools; check specific needs with venue",
   "weather": "mixed",
-  "weatherDependency": "Weather independent – indoor pools",
+  "weatherDependency": "Weather independent \u2013 indoor pools",
   "weatherShape": "all-weather",
   "organiser": {
     "name": "Peninsula Hot Springs",
@@ -61,5 +61,11 @@
     "ticketed"
   ],
   "place": "rye",
-  "nextOccurrence": "2026-06-01"
+  "nextOccurrence": "2026-06-01",
+  "heroImage": {
+    "src": "/images/sourced/spa-wellness-stones-01.webp",
+    "alt": "Wellness stones and warm lighting at a Peninsula spa",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }

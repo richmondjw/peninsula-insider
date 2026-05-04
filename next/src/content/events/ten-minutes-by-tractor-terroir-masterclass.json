@@ -1,7 +1,7 @@
 {
   "slug": "ten-minutes-by-tractor-terroir-masterclass",
   "eventId": "MP-EVT-0011",
-  "title": "Ten Minutes by Tractor — Terroir Masterclass",
+  "title": "Ten Minutes by Tractor \u2014 Terroir Masterclass",
   "summary": "Intimate one-hour masterclass in the private tasting room exploring the unique terroir of the sub-regional Mornington Peninsula. Covers vineyard sites; individual characteristics; history of TMBT; and the region's cool-climate conditions for Pinot Noir and Chardonnay. Includes eight wines: two limit",
   "description": "Intimate one-hour masterclass in the private tasting room exploring the unique terroir of the sub-regional Mornington Peninsula. Covers vineyard sites; individual characteristics; history of TMBT; and the region's cool-climate conditions for Pinot Noir and Chardonnay. Includes eight wines: two limited-release and six current-release. Snacks included. Minimum two guests. Private group only.",
   "startDate": "2026-05-01",
@@ -38,7 +38,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Cellar door fully accessible (wheelchair; stroller; transport accessible)",
   "weather": "mixed",
-  "weatherDependency": "Indoor — not weather-dependent",
+  "weatherDependency": "Indoor \u2014 not weather-dependent",
   "weatherShape": "all-weather",
   "organiser": {
     "name": "Ten Minutes by Tractor",
@@ -60,5 +60,11 @@
     "rainy-day",
     "ticketed"
   ],
-  "place": "main-ridge"
+  "place": "main-ridge",
+  "heroImage": {
+    "src": "/images/sourced/category-restaurant-03.webp",
+    "alt": "Fine dining table setting at a Peninsula estate restaurant",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  }
 }
