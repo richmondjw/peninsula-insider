@@ -36,9 +36,10 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.pRS4Blt7.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.CnGIJBIl.css">
 <style>.v2-saved-list{display:grid;gap:1rem}.v2-saved-card{display:grid;grid-template-columns:6rem 1fr;gap:1rem;padding:.8rem;border:1px solid var(--line, #D9D1BE);border-radius:4px;background:#fff;text-decoration:none;color:inherit;transition:border-color .18s ease}.v2-saved-card:hover{border-color:var(--ochre, #A0541F)}.v2-saved-card__img{aspect-ratio:1;background-size:cover;background-position:center;background-color:var(--paper-warm, #F3EDDE);border-radius:2px}.v2-saved-card__eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ochre, #A0541F);margin:0 0 .3rem}.v2-saved-card__title{font-family:var(--serif, "Newsreader", Georgia, serif);font-size:1.05rem;font-weight:500;line-height:1.2;margin:0 0 .3rem;color:var(--ink, #171413)}.v2-saved-card__dek{font-family:var(--serif, "Newsreader", Georgia, serif);font-size:.88rem;line-height:1.4;color:var(--ink-soft, #3A3531);margin:0}.v2-saved-empty{padding:2rem 0}.v2-saved-empty p{font-family:var(--serif, "Newsreader", Georgia, serif);font-size:1rem;color:var(--ink-soft, #3A3531);margin:0 0 1rem;max-width:36ch}
-</style></head> <body data-page="home" data-path="/account/saved/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
+</style></head> <body data-page="home" data-path="/account/saved/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/saved/" class="masthead__saved-link" data-saved-link hidden>
+Saved <span class="masthead__saved-count" data-saved-count hidden>0</span> </a> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
        pattern used by NYT, Atlantic, Monocle, etc.) --> <div class="masthead__nav-row"> <div class="container"> <div class="masthead__nav-inner"> <!-- Source order matches visual order: wordmark first (left),
@@ -1085,6 +1086,158 @@ Reject non-essential
       // Re-broadcast so any late-bound listeners (e.g. GA loader) see state.
       window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: read() }));
     }
+  })();
+</script> <!-- Save / share-list controller (Phase 2 WS2E). Site-wide; binds save
+       buttons on every page, owns localStorage, exposes window.PISave. --> <script>
+  (function () {
+    if (window.PISave) return; // singleton guard
+    var KEY = 'pi:saved:v1';
+
+    function readStore() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) return { version: 1, venues: [], events: [] };
+        var parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object') return { version: 1, venues: [], events: [] };
+        return {
+          version: 1,
+          venues: Array.isArray(parsed.venues) ? parsed.venues : [],
+          events: Array.isArray(parsed.events) ? parsed.events : [],
+        };
+      } catch (_e) {
+        return { version: 1, venues: [], events: [] };
+      }
+    }
+
+    function writeStore(store) {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(store));
+      } catch (_e) {
+        /* localStorage may be unavailable (private mode, quota, blocked).
+           We fail silently — the UI just won't persist. The current page
+           still reflects the in-memory state for the session. */
+      }
+    }
+
+    var memoryStore = readStore();
+
+    function isSaved(kind, slug) {
+      var arr = kind === 'event' ? memoryStore.events : memoryStore.venues;
+      return arr.some(function (item) { return item.slug === slug; });
+    }
+
+    function toggle(kind, slug, title, href) {
+      var arr = kind === 'event' ? memoryStore.events : memoryStore.venues;
+      var idx = arr.findIndex(function (item) { return item.slug === slug; });
+      if (idx >= 0) {
+        arr.splice(idx, 1);
+      } else {
+        arr.push({ slug: slug, title: title, href: href, savedAt: Date.now() });
+      }
+      writeStore(memoryStore);
+      syncAll();
+      window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { kind: kind, slug: slug } }));
+      return !idx === false ? false : true; // returns new "is saved" state
+    }
+
+    function syncAll() {
+      // Toggle pressed state on every save button on the page.
+      document.querySelectorAll('[data-save-toggle]').forEach(function (btn) {
+        var kind = btn.getAttribute('data-save-kind');
+        var slug = btn.getAttribute('data-save-slug');
+        var on = isSaved(kind, slug);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        var label = btn.querySelector('.save-button__label');
+        if (label) label.textContent = on ? 'Saved' : 'Save';
+      });
+      // Update count badge in masthead/footer if present.
+      var total = memoryStore.venues.length + memoryStore.events.length;
+      document.querySelectorAll('[data-saved-count]').forEach(function (el) {
+        el.textContent = String(total);
+        if (total > 0) el.removeAttribute('hidden');
+        else el.setAttribute('hidden', '');
+      });
+      document.querySelectorAll('[data-saved-link]').forEach(function (el) {
+        if (total > 0) el.removeAttribute('hidden');
+        else el.setAttribute('hidden', '');
+      });
+    }
+
+    function bindButtons() {
+      document.querySelectorAll('[data-save-toggle]').forEach(function (btn) {
+        if (btn._piSaveBound) return;
+        btn._piSaveBound = true;
+        btn.addEventListener('click', function (e) {
+          // Cards typically wrap the entire surface in a link; the save
+          // button must not also navigate when clicked.
+          e.preventDefault();
+          e.stopPropagation();
+          toggle(
+            btn.getAttribute('data-save-kind'),
+            btn.getAttribute('data-save-slug'),
+            btn.getAttribute('data-save-title'),
+            btn.getAttribute('data-save-href'),
+          );
+        });
+      });
+    }
+
+    function init() {
+      memoryStore = readStore();
+      bindButtons();
+      syncAll();
+    }
+
+    // Public API for the /saved/ page and any other consumers.
+    window.PISave = {
+      list: function () { return readStore(); },
+      isSaved: isSaved,
+      toggle: toggle,
+      clear: function (kind) {
+        if (!kind) memoryStore = { version: 1, venues: [], events: [] };
+        else if (kind === 'event') memoryStore.events = [];
+        else memoryStore.venues = [];
+        writeStore(memoryStore);
+        syncAll();
+        window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { cleared: kind || 'all' } }));
+      },
+      /**
+       * Merge an externally-supplied list into the user's saved store.
+       * Used by /saved/?v=... to ingest a shared list — items already in
+       * the store are not duplicated.
+       */
+      merge: function (incoming) {
+        if (!incoming) return;
+        function mergeArr(target, src) {
+          if (!Array.isArray(src)) return;
+          src.forEach(function (item) {
+            if (!item || !item.slug) return;
+            if (!target.some(function (e) { return e.slug === item.slug; })) {
+              target.push({
+                slug: item.slug,
+                title: item.title || item.slug,
+                href: item.href || '',
+                savedAt: item.savedAt || Date.now(),
+              });
+            }
+          });
+        }
+        mergeArr(memoryStore.venues, incoming.venues);
+        mergeArr(memoryStore.events, incoming.events);
+        writeStore(memoryStore);
+        syncAll();
+      },
+    };
+
+    init();
+    document.addEventListener('astro:page-load', init);
+    window.addEventListener('storage', function (e) {
+      // Cross-tab sync — when another tab updates the same key, refresh.
+      if (e.key === KEY) {
+        memoryStore = readStore();
+        syncAll();
+      }
+    });
   })();
 </script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
