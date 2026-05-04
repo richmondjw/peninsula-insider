@@ -11,7 +11,11 @@ Sorted by impact/effort ratio.
 - [x] **Enable "Enforce HTTPS" in GitHub Pages settings.** *Done by Claude via gh API 2026-05-01.* Verified: http→https 301 redirect is live.
 - [ ] **(James)** Resubmit `sitemap.xml` in GSC → Sitemaps. *Impact 2, Effort 0.*
 - [ ] **(James)** Submit 20 priority URLs to GSC URL Inspection across two days (full list in `daily-log.md` 2026-05-01 entry). *Impact 4, Effort 1.*
-- [ ] **CTR rewrite on `/whats-on/mornington-cup-2026`.** *Impact 4, Effort 1.* 228 impr at pos 7.6 with 0.44% CTR. New title + meta description targeted at "mornington cup 2026" and related queries. Hypothesis: CTR to ≥2.5% within 14 days. **Recommended next experiment.**
+- [x] **CTR rewrite (target shifted)**: original `/whats-on/mornington-cup-2026` had zero impressions in last 28d (race past). Pivoted to `/journal/dog-friendly-mornington-peninsula/`. *Done 2026-05-04 as experiment 2026-05-04-01.* Awaiting deploy.
+- [ ] **(James)** After dog-friendly snippet rewrite deploys: submit `/journal/dog-friendly-mornington-peninsula/` (and no-slash variant) for reindex in GSC. *Impact 3, Effort 0.*
+- [ ] **CTR rewrite on `/journal/the-chardonnay-case/`.** *Impact 4, Effort 1.* 71+55 combined impr (slash variants), 0% CTR, pos 5.6 (top of page 1). Snippet failure. **Recommended next experiment.**
+- [ ] **CTR rewrite on `/journal/the-pub-guide/`.** *Impact 3, Effort 1.* 65 impr, 0% CTR, pos 8.8.
+- [ ] **Fix duplicate sitemap entry for `/journal/free-things-to-do-mornington-peninsula/`.** *Impact 2, Effort 2.* Page appears twice in `sitemap.xml` (likely a `next/src/pages/sitemap.xml.ts` bug).
 - [ ] **Audit & prune the 283 "Discovered – currently not indexed" URLs.** *Impact 5, Effort 3.* Pruning thin/templated pages should ~double indexation rate within 2-3 weeks per Google's behaviour with new sites. Need GSC export of the 283 URL list to begin.
 - [ ] **Investigate Apr 24-25 indexation jump (16 → 39).** *Impact 4, Effort 1.* Find what worked and reproduce. Likely candidate: a content push or manual indexing batch.
 - [ ] **Investigate the 4 address-string queries showing in top impressions.** *Impact 3, Effort 1.* Likely legacy directory pages still indexed. Should they be noindexed (address searches want a map, not a listing)?
