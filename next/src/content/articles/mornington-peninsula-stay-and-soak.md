@@ -6,10 +6,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/spa-coastal-pool-01.webp"
-  alt: "Coastal spa pool evocative of the Mornington Peninsula stay-and-soak experience — representative image"
-  credit: "Unsplash"
-  license: "tmp-unsplash"
+  src: "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp"
+  alt: "Aerial view of the Peninsula Hot Springs hilltop pool at dusk, steam rising into autumn air"
+  credit: "Peninsula Insider"
+  license: "tmp-wikimedia"
 format: "service"
 tags: ["spa", "hot-springs", "stay", "wellness", "mornington-peninsula", "packages", "weekend-escape"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope"]
