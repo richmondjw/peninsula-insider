@@ -9,7 +9,8 @@ import SectionDivider from '../../components/SectionDivider.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug } from '../../lib/editorial';
+import EventStrip from '../../components/EventStrip.astro';
+import { isUpcoming, routeSlug } from '../../lib/editorial';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
@@ -32,6 +33,17 @@ const longLunches = longLunchSlugs
   .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
 const casualStops = venues.filter((venue) => ['cafe', 'bakery'].includes(venue.data.type)).slice(0, 6);
+
+// Food + wine events coming up — surfaces from /whats-on/ on the section hub.
+const eatEventCategories = ['food-wine', 'cellar-door', 'market'];
+const eatEvents = (await getCollection('events'))
+  .filter((event) => eatEventCategories.includes(event.data.category))
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+    return isUpcoming(event.data.endDate ?? event.data.startDate);
+  })
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 3);
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -140,6 +152,16 @@ const faqSchema = {
        1.5 AUDIENCE PICKER: persona-led entry to the section
        ═══════════════════════════════════════════════════════════════ -->
   <AudiencePicker section="eat" />
+
+  <EventStrip
+    events={eatEvents}
+    eyebrow="Food and wine events coming up"
+    heading="Cellar door weekends and food events worth pencilling in"
+    intro="Pulled from the events registry. Tap an event for editorial notes, or see the full calendar for everything coming up."
+    moreHref="/whats-on/"
+    moreLabel="All events"
+    variant="alt"
+  />
 
   <!-- ═══════════════════════════════════════════════════════════════
        2. ORIENTATION: Red Hill plateau vs Bay corridor

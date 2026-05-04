@@ -9,10 +9,22 @@ import VenueCard from '../../components/VenueCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, currentSeason, seasonBlurb } from '../../lib/editorial';
+import EventStrip from '../../components/EventStrip.astro';
+import { routeSlug, currentSeason, seasonBlurb, isUpcoming } from '../../lib/editorial';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
+
+// Cellar door + wine events surfacing from /whats-on/ on the wine hub.
+const wineEventCategories = ['cellar-door', 'food-wine'];
+const wineEvents = (await getCollection('events'))
+  .filter((event) => wineEventCategories.includes(event.data.category))
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+    return isUpcoming(event.data.endDate ?? event.data.startDate);
+  })
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 3);
 const venues = (await getCollection('venues'))
   .filter((venue) => wineTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
@@ -125,6 +137,15 @@ const faqSchema = {
         { label: 'Vibe', value: 'Quiet, focused, slightly more like work. Reward exceeds the effort.' },
       ],
     }}
+  />
+
+  <EventStrip
+    events={wineEvents}
+    eyebrow="Cellar door events"
+    heading="Release weekends and winemaker dinners worth a booking"
+    intro="The Peninsula's strongest event category, rarely treated as events. Tap an event for editorial notes."
+    moreHref="/whats-on/"
+    moreLabel="All events"
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
