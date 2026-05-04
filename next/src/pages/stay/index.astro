@@ -6,6 +6,7 @@ import GuideHero from '../../components/GuideHero.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import VenueCard from '../../components/VenueCard.astro';
+import VenueDirectory from '../../components/VenueDirectory.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
@@ -266,22 +267,35 @@ const faqSchema = {
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. ALL STAYS, full directory
+       8. FULL STAY DIRECTORY (filterable, Phase 2 WS2C)
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="venues" id="all">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">All stays</p>
-          <h2 class="venues__title">Every bed currently mapped, hotel to cottage</h2>
-          <p class="venues__sub">{blurb.line}</p>
-        </div>
-      </div>
-      <div class="venues__grid">
-        {venues.slice(0, 24).map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
-      </div>
-    </div>
-  </section>
+  <VenueDirectory
+    id="stay-directory"
+    venues={venues}
+    hrefPrefix="/stay"
+    eyebrow="All stays"
+    heading={`Every bed currently mapped, hotel to cottage (${venues.length})`}
+    sub={blurb.line}
+    typeOptions={[
+      { value: 'hotel',     label: 'Hotels' },
+      { value: 'villa',     label: 'Villas' },
+      { value: 'cottage',   label: 'Cottages' },
+      { value: 'glamping',  label: 'Glamping' },
+      { value: 'farm-stay', label: 'Farm stays' },
+      { value: 'spa',       label: 'Spa retreats' },
+    ]}
+    moodOptions={[
+      { value: 'cellar-door', label: 'Cellar-door country' },
+      { value: 'beach',       label: 'Beach-side' },
+      { value: 'waterfront',  label: 'Waterfront' },
+      { value: 'wellness',    label: 'Wellness' },
+      { value: 'fireplace',   label: 'Fireplace' },
+      { value: 'view',        label: 'A view' },
+      { value: 'romance',     label: 'Romance' },
+      { value: 'big-group',   label: 'Big group' },
+    ]}
+    toggles={{ dogFriendly: true, hatted: false }}
+  />
 
   <SectionDivider />
 

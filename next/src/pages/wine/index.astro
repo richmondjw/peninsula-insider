@@ -6,6 +6,7 @@ import GuideHero from '../../components/GuideHero.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import VenueCard from '../../components/VenueCard.astro';
+import VenueDirectory from '../../components/VenueDirectory.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
@@ -249,23 +250,32 @@ const faqSchema = {
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       6. ALL WINERIES, full directory
+       6. FULL WINE-COUNTRY DIRECTORY (filterable, Phase 2 WS2C)
        ═══════════════════════════════════════════════════════════════ -->
-  {wineries.length > 0 && (
-    <section class="venues venues--plain" id="wineries">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">All wineries</p>
-            <h2 class="venues__title">{wineries.length} cellar doors across the region</h2>
-            <p class="venues__sub">Sorted by authority. Expect a spread from three-hat destinations to back-road pinot rooms.</p>
-          </div>
-        </div>
-        <div class="venues__grid">
-          {wineries.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
-        </div>
-      </div>
-    </section>
+  {venues.length > 0 && (
+    <VenueDirectory
+      id="wine-directory"
+      venues={venues}
+      hrefPrefix="/wine"
+      eyebrow="Complete wine-country directory"
+      heading={`All ${venues.length} cellar doors, breweries, and producers`}
+      sub="Sorted by Halliday authority. Filter by town, format, price, or mood — pinot rooms, brewery yards, distillery cellars, ridge benchmarks, and producers all live in the same list."
+      typeOptions={[
+        { value: 'winery',     label: 'Wineries' },
+        { value: 'brewery',    label: 'Breweries' },
+        { value: 'distillery', label: 'Distilleries' },
+        { value: 'producer',   label: 'Producers' },
+      ]}
+      moodOptions={[
+        { value: 'long-lunch',  label: 'Long lunch' },
+        { value: 'view',        label: 'A view' },
+        { value: 'fireplace',   label: 'Fireplace' },
+        { value: 'garden',      label: 'Garden' },
+        { value: 'romance',     label: 'Romance' },
+        { value: 'cellar-door', label: 'Cellar door' },
+      ]}
+      toggles={{ dogFriendly: true, hatted: false }}
+    />
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
