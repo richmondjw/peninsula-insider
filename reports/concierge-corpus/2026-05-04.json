@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-04T07:33:02.087Z",
+  "run_id": "2026-05-04T11:51:31.748Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 7.1,
-  "git_sha": "05d6f25",
+  "duration_seconds": 10.5,
+  "git_sha": "4a90c42",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -18,22 +18,26 @@
   },
   "database": {
     "chunks_before": 2408,
-    "chunks_after": 2408
+    "chunks_after": 2410
   },
   "delta": {
-    "added": 0,
-    "updated": 3,
+    "added": 2,
+    "updated": 4,
     "metadata_only": 0,
-    "unchanged": 1507,
+    "unchanged": 1506,
     "pruned": 0,
     "errors": 0,
     "stale_remaining": 901
   },
-  "added_chunk_ids": [],
+  "added_chunk_ids": [
+    "tall-poppy-melbourne-design-week-exhibition::editor_note::0",
+    "tall-poppy-melbourne-design-week-exhibition::verdict::0"
+  ],
   "updated_chunk_ids": [
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
-    "red-hill-market::tags::0"
+    "red-hill-market::tags::0",
+    "tall-poppy-melbourne-design-week-exhibition::summary::0"
   ],
   "metadata_only_chunk_ids": [],
   "pruned_chunk_ids": [],
