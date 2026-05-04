@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "anzac-day", "whats-on", "service"]
 relatedVenues: []
 readingTimeMinutes: 6
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
