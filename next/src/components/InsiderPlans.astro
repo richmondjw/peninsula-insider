@@ -25,6 +25,12 @@ interface PlanSpec {
   title: string;
   dek?: string;
   accent: string;
+  /** Optional image override. When set, the plan card uses this src
+      instead of the linked article's heroImage. Use when the article
+      hero has been chosen for the article-detail context but doesn't
+      sell the plan card visually. */
+  image?: string;
+  imageAlt?: string;
 }
 
 const featuredSpecs: PlanSpec[] = [
@@ -55,6 +61,8 @@ const featuredSpecs: PlanSpec[] = [
     title: 'Food & Wine Weekend',
     dek: 'The best of the hinterland.',
     accent: '#4A2C1A',
+    image: '/images/sourced/place-red-hill-01.webp',
+    imageAlt: 'Red Hill vineyards in late spring on the Mornington Peninsula',
   },
   {
     slug: 'how-to-plan-a-peninsula-weekend',
@@ -62,6 +70,8 @@ const featuredSpecs: PlanSpec[] = [
     title: 'Slow Peninsula',
     dek: 'Take your time and do it properly.',
     accent: '#2C3A2C',
+    image: '/images/sourced/journal-late-afternoon-walks-01.webp',
+    imageAlt: 'A late-afternoon coastal walk on the Mornington Peninsula',
   },
 ];
 
@@ -73,6 +83,8 @@ const allPlanSpecs: PlanSpec[] = [
     title: 'Hot Springs Day',
     dek: 'Thermal pools, then lunch.',
     accent: '#6A5545',
+    image: '/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp',
+    imageAlt: 'Aerial view of the Peninsula Hot Springs hilltop pool at dusk',
   },
   {
     slug: 'the-cellar-door-short-list',
@@ -215,8 +227,8 @@ function buildPlan(spec: PlanSpec): PlanCard | null {
     title: spec.title,
     dek: spec.dek || article.data.dek,
     href: `/journal/${spec.slug}/`,
-    image: heroImage?.src || '/images/sourced/article-sunset-01.webp',
-    imageAlt: heroImage?.alt || article.data.title,
+    image: spec.image || heroImage?.src || '/images/sourced/article-sunset-01.webp',
+    imageAlt: spec.imageAlt || heroImage?.alt || article.data.title,
     accent: spec.accent,
   };
 }
