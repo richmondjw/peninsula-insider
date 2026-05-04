@@ -18,6 +18,65 @@ const venues = (await getCollection('venues'))
   .filter((venue) => eatTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
+// Filter dimensions for the directory grid (Phase 2, WS2A). Built from the
+// venue corpus so the filter row only ever shows values that actually have
+// matches. Place lookup uses the live places collection so the dropdown
+// shows pretty names rather than slugs.
+const placesAll = await getCollection('places');
+const placeNameBySlug = new Map<string, string>(
+  placesAll.map((p) => [p.id ?? p.data.slug, p.data.name]),
+);
+const venuePlaceSlugs = Array.from(
+  new Set(
+    venues
+      .map((v) => (typeof v.data.place === 'string' ? v.data.place : v.data.place?.id))
+      .filter((slug): slug is string => Boolean(slug)),
+  ),
+);
+const filterPlaceOptions = venuePlaceSlugs
+  .map((slug) => ({ slug, name: placeNameBySlug.get(slug) ?? slug }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const venueTypeOptions: Array<{ value: string; label: string }> = [
+  { value: 'restaurant', label: 'Restaurants' },
+  { value: 'cafe',       label: 'Cafés' },
+  { value: 'bakery',     label: 'Bakeries' },
+  { value: 'pub',        label: 'Pubs' },
+  { value: 'market',     label: 'Markets' },
+  { value: 'winery',     label: 'Wineries' },
+];
+
+const moodFilterOptions: Array<{ value: string; label: string }> = [
+  { value: 'long-lunch',   label: 'Long lunch' },
+  { value: 'family',       label: 'Family' },
+  { value: 'romance',      label: 'Romance' },
+  { value: 'view',         label: 'A view' },
+  { value: 'fireplace',    label: 'Fireplace' },
+  { value: 'rainy-day',    label: 'Rainy day' },
+  { value: 'waterfront',   label: 'Waterfront' },
+  { value: 'garden',       label: 'Garden' },
+];
+
+/**
+ * Build the data-* attribute payload for one venue's wrapper. Encodes the
+ * filterable dimensions in a form the inline JS can match against without
+ * any per-venue lookup.
+ */
+function venueFilterAttrs(venue: typeof venues[number]): Record<string, string> {
+  const placeSlug = typeof venue.data.place === 'string' ? venue.data.place : venue.data.place?.id ?? '';
+  const moods: string[] = Array.isArray(venue.data.tags?.mood) ? venue.data.tags.mood : [];
+  const hats = Number(venue.data.authority?.hats ?? 0);
+  return {
+    'data-venue': '',
+    'data-place': placeSlug,
+    'data-type': venue.data.type,
+    'data-price': venue.data.priceBand ?? '',
+    'data-mood': moods.join(' '),
+    'data-dog-friendly': venue.data.dogFriendly ? '1' : '0',
+    'data-hatted': hats > 0 ? '1' : '0',
+  };
+}
+
 const hattedCount = venues.filter((v) => Number(v.data.authority?.hats ?? 0) > 0).length;
 const twoHatCount = venues.filter((v) => Number(v.data.authority?.hats ?? 0) >= 2).length;
 const totalHats = venues.reduce((acc, v) => acc + Number(v.data.authority?.hats ?? 0), 0);
@@ -306,23 +365,260 @@ const faqSchema = {
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. FULL DIRECTORY
+       8. FULL DIRECTORY (filterable, Phase 2 WS2A)
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="venues" id="all">
+  <section class="venues venues--filterable" id="all">
     <div class="container">
       <div class="venues__header">
         <div>
           <p class="label label--accent">Complete dining directory</p>
-          <h2 class="venues__title">All {venues.length} eat-and-drink venues, by authority</h2>
-          <p class="venues__sub">Ordered by editorial weight, hatted rooms first, then the places doing quiet, serious work below them.</p>
+          <h2 class="venues__title">All {venues.length} eat-and-drink venues</h2>
+          <p class="venues__sub">Ordered by editorial weight. Filter by town, format, price, mood, or suitability — the list re-shapes itself as you go.</p>
         </div>
         <a href="/eat/best-restaurants/" class="venues__link">Ranked top 15 →</a>
       </div>
-      <div class="venues__grid">
-        {venues.slice(0, 24).map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+
+      <form class="venue-filters" data-filter-form aria-label="Filter the dining directory">
+        <details class="venue-filters__panel" open>
+          <summary class="venue-filters__summary">
+            <span class="venue-filters__summary-label">Filter</span>
+            <span class="venue-filters__summary-count" data-filter-count>Showing all {venues.length}</span>
+          </summary>
+
+          <div class="venue-filters__row">
+            <div class="venue-filters__group">
+              <label class="venue-filters__group-label" for="venue-filter-place">Town</label>
+              <select id="venue-filter-place" class="venue-filters__select" data-filter-key="place">
+                <option value="">All towns</option>
+                {filterPlaceOptions.map((p) => (
+                  <option value={p.slug}>{p.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <fieldset class="venue-filters__group">
+              <legend class="venue-filters__group-label">Format</legend>
+              <div class="venue-filters__chips">
+                {venueTypeOptions.map((opt) => (
+                  <button
+                    type="button"
+                    class="venue-filters__chip"
+                    data-filter-key="type"
+                    data-filter-value={opt.value}
+                    aria-pressed="false"
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset class="venue-filters__group">
+              <legend class="venue-filters__group-label">Price</legend>
+              <div class="venue-filters__chips venue-filters__chips--tight">
+                {(['$', '$$', '$$$', '$$$$'] as const).map((band) => (
+                  <button
+                    type="button"
+                    class="venue-filters__chip venue-filters__chip--price"
+                    data-filter-key="price"
+                    data-filter-value={band}
+                    aria-pressed="false"
+                  >
+                    {band}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset class="venue-filters__group">
+              <legend class="venue-filters__group-label">Mood</legend>
+              <div class="venue-filters__chips">
+                {moodFilterOptions.map((opt) => (
+                  <button
+                    type="button"
+                    class="venue-filters__chip"
+                    data-filter-key="mood"
+                    data-filter-value={opt.value}
+                    aria-pressed="false"
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <div class="venue-filters__toggles">
+              <label class="venue-filters__toggle">
+                <input type="checkbox" data-filter-key="dog" />
+                <span>Dog-friendly</span>
+              </label>
+              <label class="venue-filters__toggle">
+                <input type="checkbox" data-filter-key="hatted" />
+                <span>Hatted only</span>
+              </label>
+            </div>
+
+            <button type="button" class="venue-filters__clear" data-filter-clear>Clear filters</button>
+          </div>
+        </details>
+      </form>
+
+      <div class="venues__grid" data-filter-grid>
+        {venues.map((venue) => (
+          <div {...venueFilterAttrs(venue)}>
+            <VenueCard venue={venue} hrefPrefix="/eat" />
+          </div>
+        ))}
       </div>
+
+      <p class="venues__empty" data-filter-empty hidden>
+        No venues match those filters. Try removing one of them, or
+        <a href="/ask/" data-pi-trigger="true">ask the Insider</a> for a recommendation.
+      </p>
     </div>
   </section>
+
+  <script is:inline>
+    /* Eat directory filter controller. Static-first: filtering is purely a
+       DOM hide/show pass over pre-rendered cards. URL state means a filtered
+       view is shareable.
+       Idempotent across astro:page-load. */
+    (function () {
+      function bindFilters() {
+        var form = document.querySelector('[data-filter-form]');
+        if (!form || form._piFilterBound) return;
+        form._piFilterBound = true;
+
+        var grid = document.querySelector('[data-filter-grid]');
+        var emptyEl = document.querySelector('[data-filter-empty]');
+        var countEl = form.querySelector('[data-filter-count]');
+        var cards = grid ? grid.querySelectorAll('[data-venue]') : [];
+        var totalCount = cards.length;
+
+        // State shape — single value per key for v1, except 'mood' which is
+        // also single (multi-mood would require a different match approach).
+        var state = { place: '', type: '', price: '', mood: '', dog: false, hatted: false };
+
+        function readUrl() {
+          var p = new URLSearchParams(window.location.search);
+          state.place = p.get('place') || '';
+          state.type = p.get('type') || '';
+          state.price = p.get('price') || '';
+          state.mood = p.get('mood') || '';
+          state.dog = p.get('dog') === '1';
+          state.hatted = p.get('hatted') === '1';
+        }
+
+        function writeUrl() {
+          var p = new URLSearchParams();
+          if (state.place) p.set('place', state.place);
+          if (state.type) p.set('type', state.type);
+          if (state.price) p.set('price', state.price);
+          if (state.mood) p.set('mood', state.mood);
+          if (state.dog) p.set('dog', '1');
+          if (state.hatted) p.set('hatted', '1');
+          var qs = p.toString();
+          var url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+          window.history.replaceState(null, '', url);
+        }
+
+        function syncControls() {
+          // Place select
+          var placeSel = form.querySelector('[data-filter-key="place"]');
+          if (placeSel) placeSel.value = state.place;
+          // Chips: aria-pressed reflects whether this value is the active one
+          form.querySelectorAll('[data-filter-value]').forEach(function (btn) {
+            var key = btn.getAttribute('data-filter-key');
+            var val = btn.getAttribute('data-filter-value');
+            btn.setAttribute('aria-pressed', state[key] === val ? 'true' : 'false');
+          });
+          // Toggles
+          var dog = form.querySelector('input[data-filter-key="dog"]');
+          if (dog) dog.checked = state.dog;
+          var hat = form.querySelector('input[data-filter-key="hatted"]');
+          if (hat) hat.checked = state.hatted;
+        }
+
+        function apply() {
+          var visible = 0;
+          cards.forEach(function (card) {
+            var ok = true;
+            if (state.place && card.getAttribute('data-place') !== state.place) ok = false;
+            if (ok && state.type && card.getAttribute('data-type') !== state.type) ok = false;
+            if (ok && state.price && card.getAttribute('data-price') !== state.price) ok = false;
+            if (ok && state.mood) {
+              var moods = (card.getAttribute('data-mood') || '').split(/\s+/);
+              if (moods.indexOf(state.mood) === -1) ok = false;
+            }
+            if (ok && state.dog && card.getAttribute('data-dog-friendly') !== '1') ok = false;
+            if (ok && state.hatted && card.getAttribute('data-hatted') !== '1') ok = false;
+            card.classList.toggle('is-filtered-out', !ok);
+            if (ok) visible++;
+          });
+          if (countEl) {
+            var anyActive = state.place || state.type || state.price || state.mood || state.dog || state.hatted;
+            countEl.textContent = anyActive
+              ? 'Showing ' + visible + ' of ' + totalCount
+              : 'Showing all ' + totalCount;
+          }
+          if (emptyEl) {
+            if (visible === 0) emptyEl.removeAttribute('hidden');
+            else emptyEl.setAttribute('hidden', '');
+          }
+        }
+
+        function commit() {
+          syncControls();
+          apply();
+          writeUrl();
+        }
+
+        // Bind chip buttons (toggle: clicking the active chip clears it)
+        form.querySelectorAll('[data-filter-value]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var key = btn.getAttribute('data-filter-key');
+            var val = btn.getAttribute('data-filter-value');
+            state[key] = state[key] === val ? '' : val;
+            commit();
+          });
+        });
+
+        // Bind place select
+        var placeSel = form.querySelector('[data-filter-key="place"]');
+        if (placeSel) {
+          placeSel.addEventListener('change', function () {
+            state.place = placeSel.value;
+            commit();
+          });
+        }
+
+        // Bind toggles
+        form.querySelectorAll('input[type="checkbox"][data-filter-key]').forEach(function (input) {
+          input.addEventListener('change', function () {
+            state[input.getAttribute('data-filter-key')] = input.checked;
+            commit();
+          });
+        });
+
+        // Clear all
+        var clear = form.querySelector('[data-filter-clear]');
+        if (clear) {
+          clear.addEventListener('click', function () {
+            state = { place: '', type: '', price: '', mood: '', dog: false, hatted: false };
+            commit();
+          });
+        }
+
+        // Initial: read URL → apply
+        readUrl();
+        syncControls();
+        apply();
+      }
+
+      bindFilters();
+      document.addEventListener('astro:page-load', bindFilters);
+    })();
+  </script>
 
   <!-- ═══════════════════════════════════════════════════════════════
        9. FAQ

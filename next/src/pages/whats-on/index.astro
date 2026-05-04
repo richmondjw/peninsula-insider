@@ -16,6 +16,7 @@ import {
   isUpcoming,
   routeSlug,
 } from '../../lib/editorial';
+import { eventInWindow, upcomingWeekend } from '../../lib/events';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const now = new Date();
@@ -87,6 +88,53 @@ const totalEvents = events.length;
 const totalGroups = groups.length;
 const recurringCount = events.filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)).length;
 const oneOffCount = totalEvents - recurringCount;
+
+// ── Temporal tabs (Phase 2 WS2B) ─────────────────────────────────────────
+// Pre-render four time-window slices so the tab bar swaps panels on the
+// client without re-fetching. Each slice caps at 9 events to keep the
+// page weight reasonable; deeper browsing falls back to the existing
+// category sections lower down.
+const dayMs = 24 * 60 * 60 * 1000;
+const todayStart = new Date(now);
+todayStart.setHours(0, 0, 0, 0);
+const todayEnd = new Date(todayStart.getTime() + dayMs - 1);
+
+const weekend = upcomingWeekend(now);
+
+const weekStart = todayStart;
+const weekEnd = new Date(todayStart.getTime() + 7 * dayMs - 1);
+
+const monthStart = todayStart;
+const monthEnd = new Date(todayStart.getTime() + 30 * dayMs - 1);
+
+const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) => {
+  const ap = a.data.visitorAppealScore ?? 0;
+  const bp = b.data.visitorAppealScore ?? 0;
+  if (ap !== bp) return bp - ap;
+  return a.data.startDate.getTime() - b.data.startDate.getTime();
+};
+
+const todayEvents = events.filter((e) => eventInWindow(e, todayStart, todayEnd))
+  .sort(sortAppealThenDate)
+  .slice(0, 9);
+const weekendEvents = events.filter((e) => eventInWindow(e, weekend.start, weekend.end))
+  .sort(sortAppealThenDate)
+  .slice(0, 9);
+const weekEvents = events.filter((e) => eventInWindow(e, weekStart, weekEnd))
+  .sort(sortAppealThenDate)
+  .slice(0, 9);
+const monthEvents = events.filter((e) => eventInWindow(e, monthStart, monthEnd))
+  .sort(sortAppealThenDate)
+  .slice(0, 9);
+
+const temporalTabs = [
+  { key: 'today',    label: 'Today',         items: todayEvents,   blurb: "What's on the Peninsula in the next 24 hours." },
+  { key: 'weekend',  label: 'This weekend',  items: weekendEvents, blurb: `The weekend ahead, ${weekend.label}. Recurring programmes always count.` },
+  { key: 'week',     label: 'This week',     items: weekEvents,    blurb: 'The next seven days, dispatched in editorial order.' },
+  { key: 'month',    label: 'This month',    items: monthEvents,   blurb: 'The next thirty days, sorted by appeal then date.' },
+];
+
+const initialTabKey = weekendEvents.length > 0 ? 'weekend' : (todayEvents.length > 0 ? 'today' : 'week');
 
 // ── Standouts of the season ──────────────────────────────────────────────
 // Top events ranked purely by visitor appeal score, irrespective of when
@@ -184,6 +232,104 @@ const faqSchema = {
       <EventChipBar active="hub" />
     </div>
   </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1.7 TEMPORAL TABS  -  Today / Weekend / Week / Month (Phase 2 WS2B)
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="whatson-temporal" aria-label="Events by time window">
+    <div class="container">
+      <div class="whatson-temporal__header">
+        <p class="label label--accent">By time</p>
+        <h2 class="whatson-temporal__title">Events by when, not by what</h2>
+        <p class="whatson-temporal__sub">The first question for any local night out is "when" — not category. Tabs below answer the four versions of "what's on" most readers actually ask.</p>
+      </div>
+
+      <div class="whatson-temporal__tabs" role="tablist" aria-label="Filter events by time window">
+        {temporalTabs.map((tab) => (
+          <button
+            type="button"
+            class="whatson-temporal__tab"
+            role="tab"
+            id={`whatson-temporal-tab-${tab.key}`}
+            aria-controls={`whatson-temporal-panel-${tab.key}`}
+            aria-selected={tab.key === initialTabKey ? 'true' : 'false'}
+            tabindex={tab.key === initialTabKey ? 0 : -1}
+            data-temporal-tab={tab.key}
+          >
+            <span class="whatson-temporal__tab-label">{tab.label}</span>
+            <span class="whatson-temporal__tab-count">{tab.items.length}</span>
+          </button>
+        ))}
+      </div>
+
+      {temporalTabs.map((tab) => (
+        <div
+          class="whatson-temporal__panel"
+          role="tabpanel"
+          id={`whatson-temporal-panel-${tab.key}`}
+          aria-labelledby={`whatson-temporal-tab-${tab.key}`}
+          data-temporal-panel={tab.key}
+          hidden={tab.key !== initialTabKey}
+        >
+          <p class="whatson-temporal__blurb">{tab.blurb}</p>
+          {tab.items.length > 0 ? (
+            <div class="event-grid">
+              {tab.items.map((event) => <EventCard event={event} />)}
+            </div>
+          ) : (
+            <p class="whatson-temporal__empty">
+              Nothing programmed in this window yet. Try a wider one, or check the editorial frame and category sections below for recurring programmes.
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <script is:inline>
+    /* What's On temporal-tab controller. Tabs swap which panel is visible.
+       Idempotent across astro:page-load. */
+    (function () {
+      function bindTemporal() {
+        var tabs = document.querySelectorAll('[data-temporal-tab]');
+        var panels = document.querySelectorAll('[data-temporal-panel]');
+        if (!tabs.length || !panels.length) return;
+        var first = tabs[0];
+        if (first._piTemporalBound) return;
+
+        function activate(key) {
+          tabs.forEach(function (t) {
+            var on = t.getAttribute('data-temporal-tab') === key;
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.setAttribute('tabindex', on ? '0' : '-1');
+          });
+          panels.forEach(function (p) {
+            var on = p.getAttribute('data-temporal-panel') === key;
+            if (on) p.removeAttribute('hidden');
+            else p.setAttribute('hidden', '');
+          });
+        }
+
+        tabs.forEach(function (tab, idx) {
+          tab._piTemporalBound = true;
+          tab.addEventListener('click', function () {
+            activate(tab.getAttribute('data-temporal-tab'));
+          });
+          tab.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+              e.preventDefault();
+              var dir = e.key === 'ArrowRight' ? 1 : -1;
+              var next = (idx + dir + tabs.length) % tabs.length;
+              tabs[next].focus();
+              activate(tabs[next].getAttribute('data-temporal-tab'));
+            }
+          });
+        });
+      }
+      bindTemporal();
+      document.addEventListener('astro:page-load', bindTemporal);
+    })();
+  </script>
 
   <!-- ═══════════════════════════════════════════════════════════════
        2. THE EDITORIAL FRAME, what we'd actually book and what to know
