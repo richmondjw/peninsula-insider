@@ -433,17 +433,64 @@ const itineraries = defineCollection({
   }),
 });
 
+// ─── Events ────────────────────────────────────────────────────────────────
+//
+// Schema is split into three concerns by ownership:
+//   1. Identity + machine-imported facts (overwritten by import script)
+//   2. Derived fields (recomputed by cron from machine fields)
+//   3. Editorial overlay (hand-written, preserved across re-imports)
+//
+// The import-events config (scripts/import-events.config.ts) names each
+// field's owner so the import script never overwrites editorial work.
+//
+// All new fields are optional so the existing 16 hand-curated events keep
+// validating without modification.
+//
 const events = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/events' }),
   schema: z.object({
+    // ─── Identity ──────────────────────────────────────────────────────────
     slug: z.string(),
     title: z.string(),
     summary: z.string(),
+    description: z.string().optional(),
+    eventId: z.string().optional(), // e.g. MP-EVT-0001, for spreadsheet sync
+
+    // ─── When ──────────────────────────────────────────────────────────────
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
+    startTime: z.string().optional(), // "11:00"
+    endTime: z.string().optional(),
+    season: z.enum(['spring', 'summer', 'autumn', 'winter']).optional(),
+    month: z.string().optional(), // "May", "June" etc.
+
+    // ─── Where ─────────────────────────────────────────────────────────────
     venue: reference('venues').optional(),
-    place: reference('places'),
+    venueName: z.string().optional(),
+    place: reference('places').optional(),
+    venueRegion: z.string().optional(),
+    suburb: z.string().optional(),
+    streetAddress: z.string().optional(),
+    coordinates: z
+      .object({
+        lat: z.number().min(-90).max(90),
+        lng: z.number().min(-180).max(180),
+      })
+      .optional(),
+    indoorOutdoor: z.string().optional(),
+
+    // ─── Money ─────────────────────────────────────────────────────────────
     bookingUrl: z.string().url().optional(),
+    ticketingUrl: z.string().url().optional(),
+    officialEventUrl: z.string().optional(), // may have multi-URL "|" separators
+    bookingRequired: z.string().optional(),
+    freePaid: z.string().optional(),
+    priceRange: z.string().optional(),
+    priceTier: z
+      .enum(['free', 'under-50', '50-150', 'over-150', 'unknown'])
+      .optional(),
+
+    // ─── Categorisation ────────────────────────────────────────────────────
     category: z.enum([
       'food-wine',
       'market',
@@ -460,19 +507,93 @@ const events = defineCollection({
       'nature',
       'writers-ideas',
     ]),
+    subcategory: z.string().optional(),
     recurrence: z
       .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
       .default('one-off'),
-    kidsGrade: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
-    kidsGradeNote: z.string().optional(),
-    worthTheDrive: z.boolean().default(false),
-    firstTimer: z.boolean().default(false),
+    recurrenceNote: z.string().optional(),
+
+    // ─── Audience ──────────────────────────────────────────────────────────
+    suitableFor: z.string().optional(),
+    audienceTags: z
+      .array(
+        z.enum([
+          'couples',
+          'families',
+          'solo',
+          'groups',
+          'first-timers',
+          'locals',
+          'cultural-visitors',
+          'foodies',
+          'all-ages',
+          'adults-only',
+          'art-lovers',
+          'music-fans',
+        ])
+      )
+      .default([]),
+    familyFriendly: z.boolean().optional(),
+    petFriendly: z.boolean().optional(),
+    accessibilityNotes: z.string().optional(),
+
+    // ─── Weather ───────────────────────────────────────────────────────────
     weather: z
       .enum(['all-weather', 'sunny-only', 'rainy-day-rescue', 'weather-proof', 'mixed'])
       .default('mixed'),
+    weatherDependency: z.string().optional(),
+    weatherShape: z
+      .enum(['all-weather', 'wet-friendly', 'fair-weather-only', 'unknown'])
+      .optional(),
+
+    // ─── Organiser ─────────────────────────────────────────────────────────
+    organiser: z
+      .object({
+        name: z.string().optional(),
+        website: z.string().optional(),
+        contact: z.string().optional(),
+        instagram: z.string().optional(),
+        facebook: z.string().optional(),
+      })
+      .optional(),
+
+    // ─── Sources & verification ────────────────────────────────────────────
+    primarySourceUrl: z.string().optional(),
+    secondarySourceUrl: z.string().optional(),
+    verificationStatus: z.string().optional(),
+    lastCheckedDate: z.coerce.date().optional(),
+    visitorAppealScore: z.number().min(0).max(5).optional(),
+    editorialPriority: z.number().min(0).max(5).optional(),
+
+    // ─── Cross-link source data (raw text, drives derived fields) ─────────
+    nearbyAttractions: z.string().optional(),
+    suggestedItineraryPairing: z.string().optional(),
+    nearestVenues: z.array(reference('venues')).default([]),
+
+    // ─── Derived occurrence fields (cron-recomputed for recurring) ────────
+    nextOccurrence: z.coerce.date().optional(),
+
+    // ─── Editorial overlay (human-written, never overwritten) ─────────────
+    kidsGrade: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
+    kidsGradeNote: z.string().optional(),
+    kidsGradeAuto: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
+    worthTheDrive: z.boolean().default(false),
+    firstTimer: z.boolean().default(false),
     skipThis: z.boolean().default(false),
     skipReason: z.string().optional(),
+    skipInstead: z.string().optional(),
     editorVerdict: z.string().optional(),
+    whyWeCare: z.string().optional(),
+    standoutOfMonth: z.boolean().default(false),
+    pairingProse: z.string().optional(),
+    editorVisited: z.boolean().default(false),
+    featuredInDispatch: z
+      .object({
+        issue: z.string(),
+        note: z.string().optional(),
+      })
+      .optional(),
+    relatedArticles: z.array(reference('articles')).default([]),
     lens: z
       .array(
         z.enum([
@@ -491,6 +612,15 @@ const events = defineCollection({
       .default([]),
     editorNote: z.string().optional(),
     heroImage: imageRef.optional(),
+
+    // ─── Internal (never rendered to the public surface) ──────────────────
+    internalNotes: z.string().optional(),
+    manualFollowUpRequired: z.boolean().default(false),
+
+    // ─── Lifecycle ─────────────────────────────────────────────────────────
+    status: z
+      .enum(['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'])
+      .default('published'),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
