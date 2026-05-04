@@ -180,12 +180,13 @@ export const footerSectionLinks: NavItem[] = [
  * Footer "About" column.
  */
 export const footerAboutLinks: NavItem[] = [
-  { key: 'about',      label: 'About',           href: '/about/' },
-  { key: 'partners',   label: 'Partner with us', href: '/partners/' },
-  { key: 'contact',    label: 'Contact',         href: '/contact/' },
-  { key: 'newsletter', label: 'Newsletter',      href: '/newsletter/' },
-  { key: 'privacy',    label: 'Privacy',         href: '/privacy/' },
-  { key: 'cookies',    label: 'Cookie settings', href: '#cookie-settings' },
+  { key: 'about',       label: 'About',           href: '/about/' },
+  { key: 'methodology', label: 'Methodology',     href: '/methodology/' },
+  { key: 'partners',    label: 'Partner with us', href: '/partners/' },
+  { key: 'contact',     label: 'Contact',         href: '/contact/' },
+  { key: 'newsletter',  label: 'Newsletter',      href: '/newsletter/' },
+  { key: 'privacy',     label: 'Privacy',         href: '/privacy/' },
+  { key: 'cookies',     label: 'Cookie settings', href: '#cookie-settings' },
 ];
 
 /**
