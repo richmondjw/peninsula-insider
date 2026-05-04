@@ -14,6 +14,7 @@
  * All CSS lives in global.css under "MASTHEAD V3".
  */
 import { mastheadNav as navItems, mastheadMoreNav as moreItems } from '../lib/nav';
+import Typeahead from './Typeahead.astro';
 
 export interface Props {
   section?: string;
@@ -152,21 +153,12 @@ const {
             </li>
           </ul>
         </nav>
-        <!-- Visual order: search icon, then Subscribe, far-right.
-             Search sits to the immediate left of the Subscribe pill. -->
-        <button
-          type="button"
-          class="masthead__search-icon"
-          data-open-search
-          aria-label="Search Peninsula Insider"
-          aria-haspopup="dialog"
-          aria-controls="siteSearchOverlay"
-        >
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="9" cy="9" r="6" />
-            <path d="M14 14l4 4" />
-          </svg>
-        </button>
+        <!-- Visual order: typeahead (instant search), then Subscribe.
+             Phase 3 WS3A — replaces the prior search-icon button which
+             opened the SearchOverlay. The overlay component is still
+             mounted by BaseLayout as a fallback path; the typeahead's
+             "View all results" footer link routes there if needed. -->
+        <Typeahead />
         <a href="/newsletter/" class="masthead__cta">Subscribe</a>
         <a href="/newsletter/" class="masthead__cta-mobile" aria-label="Subscribe to the newsletter">Subscribe</a>
       </div>

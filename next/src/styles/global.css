@@ -8945,3 +8945,287 @@ body.menu-open .subscribe-pill {
 .map-popup__cta:hover {
   border-bottom-color: var(--accent);
 }
+
+/* ============================================================================
+   TYPEAHEAD (Phase 3 WS3A)
+   Masthead-mounted instant search. Trigger sits where the old search-icon
+   used to live; click or "/" expands the dropdown panel; results appear
+   grouped by kind. Mobile: dropdown becomes a full-screen sheet.
+   ============================================================================ */
+
+.typeahead {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.typeahead__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.75rem 0.45rem 0.7rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.typeahead__trigger:hover,
+.typeahead__trigger:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+  outline: none;
+}
+.typeahead__trigger-label { margin-right: 0.1rem; }
+.typeahead__trigger-kbd {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.05rem 0.32rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--paper, #fbf7f0);
+  color: var(--soft);
+}
+@media (max-width: 720px) {
+  /* Mobile: keep just the icon to save space; the panel grows full-screen
+     when opened so the absent label doesn't matter. */
+  .typeahead__trigger-label,
+  .typeahead__trigger-kbd { display: none; }
+  .typeahead__trigger { padding: 0.45rem; }
+}
+
+.typeahead__panel {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  z-index: 60;
+  min-width: 26rem;
+  max-width: min(34rem, calc(100vw - 2rem));
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  box-shadow: 0 22px 50px -22px rgba(40, 28, 14, 0.4);
+  /* Same translate-bridge pattern as the More mega-menu so cursor traversal
+     stays inside the hit area. */
+  transform: translateY(0);
+}
+.typeahead__panel[hidden] { display: none; }
+.typeahead__panel-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.typeahead__form {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+.typeahead__form-icon {
+  display: inline-flex;
+  color: var(--soft);
+  flex-shrink: 0;
+}
+.typeahead__input {
+  flex: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  outline: none;
+  min-width: 0;
+}
+.typeahead__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  background: transparent;
+  border: 0;
+  color: var(--soft);
+  cursor: pointer;
+  border-radius: 999px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.typeahead__close:hover { color: var(--accent); background: rgba(167, 118, 55, 0.08); }
+
+.typeahead__suggestions {
+  padding: 0.85rem 1rem 1rem;
+}
+.typeahead__suggestions-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 0.55rem;
+}
+.typeahead__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.typeahead__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  background: var(--paper, #fbf7f0);
+  border: 1px solid var(--border);
+  color: var(--dark);
+  cursor: pointer;
+  border-radius: 999px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.typeahead__chip:hover { border-color: var(--accent); color: var(--accent); }
+.typeahead__chip-bullet {
+  color: var(--accent);
+  font-size: 0.7em;
+}
+
+.typeahead__results {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  max-height: min(60vh, 28rem);
+  overflow-y: auto;
+}
+.typeahead__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.typeahead__group + .typeahead__group {
+  border-top: 1px solid var(--border);
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+}
+.typeahead__group-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0;
+  padding: 0.4rem 1rem 0.25rem;
+}
+.typeahead__group-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.typeahead__result { margin: 0; padding: 0; }
+.typeahead__result-link {
+  display: block;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  color: var(--dark);
+  border-left: 2px solid transparent;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.typeahead__result-link:hover,
+.typeahead__result-link:focus-visible,
+.typeahead__result-link.is-active {
+  background: rgba(167, 118, 55, 0.08);
+  border-left-color: var(--accent);
+  outline: none;
+}
+.typeahead__result-title {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.typeahead__result-excerpt {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: var(--soft);
+  margin-top: 0.18rem;
+  /* Pagefind excerpts contain <mark> wrappers around matched terms — let
+     them render with brand colour. */
+}
+.typeahead__result-excerpt mark {
+  background: rgba(167, 118, 55, 0.18);
+  color: var(--text);
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+.typeahead__empty {
+  padding: 1rem 1.1rem 1.2rem;
+  list-style: none;
+}
+.typeahead__empty-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0 0 0.35rem;
+}
+.typeahead__empty-hint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  color: var(--soft);
+  margin: 0;
+}
+
+.typeahead__footer {
+  border-top: 1px solid var(--border);
+  padding: 0.6rem 1rem 0.7rem;
+}
+.typeahead__footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+}
+.typeahead__footer-link:hover { color: var(--text); }
+
+/* Mobile: panel becomes a full-screen sheet, anchored to the top. */
+@media (max-width: 720px) {
+  body.typeahead-open { overflow: hidden; }
+  .typeahead__panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+  }
+  .typeahead__panel-inner {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .typeahead__form {
+    padding: 1.1rem 1rem 0.85rem;
+  }
+  .typeahead__results { max-height: none; }
+}
