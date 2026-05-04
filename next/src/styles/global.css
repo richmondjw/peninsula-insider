@@ -9229,3 +9229,76 @@ body.menu-open .subscribe-pill {
   }
   .typeahead__results { max-height: none; }
 }
+
+/* ============================================================================
+   PLACE MAP (Phase 3 WS3B)
+   Scoped Leaflet map embedded on /places/<slug>/. Reuses the global
+   .map-pin and .map-popup styles from /map/. The block below is just the
+   page chrome around the canvas.
+   ============================================================================ */
+
+.place-map {
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0;
+  border-top: 1px solid var(--border);
+}
+.place-map__header {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  max-width: 720px;
+}
+.place-map__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0.45rem 0 0.65rem;
+  line-height: 1.15;
+}
+.place-map__sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--soft);
+  margin: 0;
+}
+
+.place-map__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 clamp(0.85rem, 1.5vw, 1.15rem);
+}
+
+.place-map__canvas {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  z-index: 0;
+}
+@media (max-width: 720px) {
+  .place-map__canvas {
+    /* 4:3 aspect on mobile per locked decision; capped to a sensible
+       maximum on tall phones. */
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 70vh;
+  }
+}
+
+.place-map__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper, #fbf7f0);
+}
+.place-map__placeholder-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  margin: 0;
+}

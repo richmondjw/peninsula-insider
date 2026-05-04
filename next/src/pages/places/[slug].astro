@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
+import PlaceMap from '../../components/PlaceMap.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../lib/editorial';
 
@@ -29,7 +30,10 @@ const venuesForPlace = allVenues
 
 // Events at this place: match place ref, OR suburb name (machine-imported
 // events without a clean place ref still surface if the suburb matches).
-const eventsForPlace = allEvents
+// `eventsForMap` keeps the full upcoming list (PlaceMap applies its own
+// 30-day window per locked decision Q2). `eventsForPlace` is the curated
+// top-3 used by the EventStrip below.
+const eventsForMap = allEvents
   .filter((event) => {
     const eventPlace = String(event.data.place?.id ?? event.data.place ?? '');
     if (eventPlace === placeSlug) return true;
@@ -38,7 +42,8 @@ const eventsForPlace = allEvents
   .filter((event) => {
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     return isUpcoming(event.data.endDate ?? event.data.startDate);
-  })
+  });
+const eventsForPlace = [...eventsForMap]
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 3);
 const venueSlugs = venuesForPlace.map((venue) => routeSlug(venue));
@@ -324,6 +329,16 @@ const placeSchema = {
     articles={articles}
     relatedPlaces={relatedPlaces}
     snapshotCards={snapshotCards}
+  />
+
+  <!-- Phase 3 WS3B — scoped Leaflet map of every editorial pin in this
+       place. Lazy-loaded via IntersectionObserver so the library only
+       downloads when the section is scrolled to. -->
+  <PlaceMap
+    place={place}
+    venues={venuesForPlace}
+    experiences={experiences}
+    events={eventsForMap}
   />
 
   <EventStrip
