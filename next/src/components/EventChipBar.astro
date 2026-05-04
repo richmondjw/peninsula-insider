@@ -1,0 +1,103 @@
+---
+/**
+ * EventChipBar — the editorial entry points for the events registry.
+ *
+ * Five chips, each a curated answer to a question a real visitor asks.
+ * Faceted filtering is the fallback (one click further down). Chips
+ * are the front door because they encode the question for the user
+ * instead of asking the user to encode it.
+ *
+ * Renders horizontally, scrollable on mobile, wraps on wider screens.
+ * The active chip is highlighted; the rest are outlined.
+ */
+import { chips } from '../lib/events';
+
+export interface Props {
+  /** Currently active chip slug (e.g. 'this-weekend'); 'hub' for the main hub. */
+  active?: string;
+  /** Optional override of the chip set. */
+  items?: typeof chips;
+}
+
+const { active = 'hub', items = chips } = Astro.props;
+---
+
+<nav class="event-chips" aria-label="Events by mood">
+  <a
+    href="/whats-on/"
+    class={`event-chips__chip ${active === 'hub' ? 'event-chips__chip--active' : ''}`}
+    aria-current={active === 'hub' ? 'page' : undefined}
+  >
+    All events
+  </a>
+  {items.map((chip) => (
+    <a
+      href={`/whats-on/by-mood/${chip.slug}/`}
+      class={`event-chips__chip ${active === chip.slug ? 'event-chips__chip--active' : ''}`}
+      aria-current={active === chip.slug ? 'page' : undefined}
+    >
+      {chip.hubLabel}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .event-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.25rem 0 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .event-chips__chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .event-chips__chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .event-chips__chip--active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+  }
+
+  .event-chips__chip--active:hover {
+    color: var(--white);
+    background: var(--text);
+    border-color: var(--text);
+  }
+
+  @media (max-width: 600px) {
+    .event-chips {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 0.75rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .event-chips::-webkit-scrollbar {
+      display: none;
+    }
+    .event-chips__chip {
+      font-size: 0.82rem;
+      padding: 0.45rem 0.9rem;
+    }
+  }
+</style>

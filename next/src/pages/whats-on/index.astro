@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
+import EventChipBar from '../../components/EventChipBar.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import EventCard from '../../components/EventCard.astro';
@@ -135,6 +136,16 @@ const faqSchema = {
     imageAlt="Saturday morning at a Peninsula farmers market, the recurring event spine of the calendar"
     imageCredit="Peninsula Insider"
   />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1.5 CHIP BAR  -  editorial entry points to mood collections
+       ═══════════════════════════════════════════════════════════════ -->
+  <section style="padding: clamp(1.5rem, 3vw, 2.5rem) 0 0;">
+    <div class="container">
+      <p class="label label--accent" style="margin-bottom: 0.6rem;">Find your weekend shape</p>
+      <EventChipBar active="hub" />
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
        2. THE EDITORIAL FRAME, what we'd actually book and what to know
