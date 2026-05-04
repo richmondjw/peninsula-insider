@@ -156,6 +156,19 @@ const venues = defineCollection({
     affiliateNote: z.string().optional(),
     featuredPartner: z.boolean().default(false),
     lastVerified: z.coerce.date(),
+    /**
+     * Free-text hours summary surfaced on the venue page (e.g.
+     * "Sat–Sun 11am–5pm" or "Closed Tue–Wed"). Optional. When absent,
+     * the page falls back to the "Check live status" link only.
+     */
+    hoursNote: z.string().optional(),
+    /**
+     * Optional override for the live-status link URL. When omitted the
+     * page builds a Google Maps search query from the venue name and
+     * address, which is generally good enough to land on the operator's
+     * Google profile with current open/closed state and live hours.
+     */
+    liveStatusUrl: z.string().url().optional(),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),

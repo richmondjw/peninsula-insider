@@ -7,6 +7,7 @@
  */
 
 import { resolveHeroSrc } from '../lib/editorial';
+import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
 
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
@@ -47,6 +48,8 @@ const moodTags = Array.isArray(data.tags?.mood) ? data.tags.mood.slice(0, 2) : [
 const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 const heroSrc = resolveHeroSrc(data);
 const heroAlt = data.heroImage?.alt ?? data.name ?? '';
+const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
+const verifiedTier = verificationFreshness(data.lastVerified);
 ---
 
 <article class="venue-card">
@@ -81,4 +84,10 @@ const heroAlt = data.heroImage?.alt ?? data.name ?? '';
       <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>Book</a>
     )}
   </div>
+  {verifiedLabel && (
+    <p class={`venue-card__verified venue-card__verified--${verifiedTier}`} aria-label={`Editorial freshness: ${verifiedLabel}`}>
+      <span class="venue-card__verified-dot" aria-hidden="true"></span>
+      {verifiedLabel}
+    </p>
+  )}
 </article>
