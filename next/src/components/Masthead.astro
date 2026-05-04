@@ -13,7 +13,7 @@
  *
  * All CSS lives in global.css under "MASTHEAD V3".
  */
-import { mastheadNav as navItems } from '../lib/nav';
+import { mastheadNav as navItems, mastheadMoreNav as moreItems } from '../lib/nav';
 
 export interface Props {
   section?: string;
@@ -107,6 +107,46 @@ const {
                 </a>
               </li>
             ))}
+            <li class="masthead__nav-item--more" data-more-root>
+              <button
+                type="button"
+                class="masthead__nav-more-trigger"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls="mastheadMorePanel"
+                aria-current={moreItems.some((m) => m.key === section) ? 'page' : undefined}
+                data-more-trigger
+              >
+                More
+                <svg viewBox="0 0 12 8" width="10" height="6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="masthead__nav-more-chev">
+                  <path d="M1 1.5 L6 6.5 L11 1.5" />
+                </svg>
+              </button>
+              <div
+                class="masthead__more-panel"
+                id="mastheadMorePanel"
+                role="menu"
+                aria-label="More sections"
+                hidden
+                data-more-panel
+              >
+                <ul class="masthead__more-list">
+                  {moreItems.map((item) => (
+                    <li role="none">
+                      <a
+                        href={item.href}
+                        role="menuitem"
+                        class="masthead__more-link"
+                        aria-current={section === item.key ? 'page' : undefined}
+                      >
+                        <span class="masthead__more-link-label">{item.label}</span>
+                        {item.dek && <span class="masthead__more-link-dek">{item.dek}</span>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
           </ul>
         </nav>
         <!-- Visual order: search icon, then Subscribe, far-right.
@@ -149,6 +189,17 @@ const {
         <span class="mobile-nav__arrow" aria-hidden="true">→</span>
       </a>
     ))}
+    <p class="mobile-nav__group-label">More from the Peninsula</p>
+    {moreItems.map((item) => (
+      <a
+        href={item.href}
+        class="mobile-nav__link mobile-nav__link--more"
+        aria-current={section === item.key ? 'page' : undefined}
+      >
+        <span>{item.label}</span>
+        <span class="mobile-nav__arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
     <a
       href="/contact/"
       class="mobile-nav__link"
@@ -183,5 +234,56 @@ const {
   }
   bindTriggers();
   document.addEventListener('astro:page-load', bindTriggers);
+})();
+</script>
+
+<!-- Masthead "More" mega-menu controller. Hover/focus opens; click toggles;
+     Escape and outside click close. Idempotent across astro:page-load. -->
+<script is:inline>
+(function () {
+  function bindMore() {
+    document.querySelectorAll('[data-more-root]').forEach((root) => {
+      if (root._piMoreBound) return;
+      root._piMoreBound = true;
+      const trigger = root.querySelector('[data-more-trigger]');
+      const panel = root.querySelector('[data-more-panel]');
+      if (!trigger || !panel) return;
+
+      let open = false;
+      const setOpen = (next) => {
+        if (open === next) return;
+        open = next;
+        trigger.setAttribute('aria-expanded', next ? 'true' : 'false');
+        if (next) {
+          panel.removeAttribute('hidden');
+          root.classList.add('is-open');
+        } else {
+          panel.setAttribute('hidden', '');
+          root.classList.remove('is-open');
+        }
+      };
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        setOpen(!open);
+      });
+      root.addEventListener('mouseenter', () => setOpen(true));
+      root.addEventListener('mouseleave', () => setOpen(false));
+      root.addEventListener('focusout', (e) => {
+        if (!root.contains(e.relatedTarget)) setOpen(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && open) {
+          setOpen(false);
+          trigger.focus();
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if (open && !root.contains(e.target)) setOpen(false);
+      });
+    });
+  }
+  bindMore();
+  document.addEventListener('astro:page-load', bindMore);
 })();
 </script>

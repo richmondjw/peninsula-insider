@@ -66,7 +66,7 @@ const moodResolved = moodGuides
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Escape' },
+  { label: 'Plans' },
 ];
 
 const faqSchema = {
@@ -100,7 +100,7 @@ const faqSchema = {
        1. CINEMATIC HERO
        ═══════════════════════════════════════════════════════════════ -->
   <GuideHero
-    eyebrow={`Escape · ${itineraries.length} weekend plans · Last verified 30 Apr 2026`}
+    eyebrow={`Plans · ${itineraries.length} weekend itineraries · Last verified 30 Apr 2026`}
     title="Good Peninsula weekends are built in the <em>sequence</em>"
     dek="The region is small enough to overdo and varied enough to get wrong. These escape plans are our answer, fewer bookings, better pacing, and just enough structure that the whole thing feels inevitable rather than overplanned."
     meta={[
@@ -211,7 +211,7 @@ const faqSchema = {
        6. ESCAPE BY MOOD, hub-formats lane
        ═══════════════════════════════════════════════════════════════ -->
   {moodResolved.length > 0 && (
-    <section class="hub-formats" aria-label="Escape by mood">
+    <section class="hub-formats" aria-label="Plans by mood">
       <div class="container">
         <div class="hub-formats__intro">
           <p class="label label--accent">Or jump in by mood</p>

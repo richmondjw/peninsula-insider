@@ -336,6 +336,138 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__nav-item--journal a:hover { color: var(--accent); }
 
+/* MORE — mega-menu trigger and panel.
+   The trigger is a button styled to match the surrounding nav links exactly,
+   with a small chevron that rotates when the panel is open. The panel is
+   absolutely positioned beneath the row, anchored to the trigger's right edge
+   so it doesn't push past the page on narrower viewports. */
+.masthead__nav-item--more {
+  position: relative;
+}
+.masthead__nav-more-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  background: none;
+  border: 0;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  transition: color .2s var(--ease);
+}
+.masthead__nav-more-trigger::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(167, 118, 55, 0.95) 0%,
+    rgba(223, 197, 158, 0.9)  50%,
+    rgba(167, 118, 55, 0.6)   100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .38s var(--ease);
+}
+.masthead__nav-more-trigger:hover,
+.masthead__nav-more-trigger:focus-visible,
+.masthead__nav-item--more.is-open .masthead__nav-more-trigger {
+  color: var(--accent);
+  outline: none;
+}
+.masthead__nav-more-trigger:hover::after,
+.masthead__nav-more-trigger:focus-visible::after,
+.masthead__nav-item--more.is-open .masthead__nav-more-trigger::after {
+  transform: scaleX(1);
+}
+.masthead__nav-more-trigger[aria-current="page"] {
+  color: var(--accent);
+}
+.masthead__nav-more-trigger[aria-current="page"]::after {
+  transform: scaleX(1);
+  transition: none;
+}
+.masthead__nav-more-chev {
+  transition: transform .25s var(--ease);
+}
+.masthead__nav-item--more.is-open .masthead__nav-more-chev {
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .masthead__nav-more-trigger::after,
+  .masthead__nav-more-chev { transition: none; }
+}
+.masthead__more-panel {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  right: 0;
+  z-index: 60;
+  min-width: 18rem;
+  max-width: min(28rem, 90vw);
+  padding: 1rem 0.65rem;
+  background: var(--paper, #fbf7f0);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 40px -20px rgba(40, 28, 14, 0.35);
+}
+.masthead__more-panel[hidden] {
+  display: none;
+}
+.masthead__more-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 1.25rem;
+}
+.masthead__more-link {
+  display: block;
+  padding: 0.55rem 0.6rem;
+  text-decoration: none;
+  color: var(--dark);
+  border-radius: 2px;
+  transition: background .15s var(--ease), color .15s var(--ease);
+}
+.masthead__more-link:hover,
+.masthead__more-link:focus-visible {
+  background: rgba(167, 118, 55, 0.08);
+  color: var(--accent);
+  outline: none;
+}
+.masthead__more-link[aria-current="page"] {
+  color: var(--accent);
+}
+.masthead__more-link-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.masthead__more-link-dek {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--soft);
+  margin-top: 0.15rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+@media (max-width: 720px) {
+  /* Mega-menu lives in the mobile-nav overlay on phones, not in the header
+     row. Hide the trigger when the masthead nav is hidden anyway. */
+  .masthead__nav-item--more { display: none; }
+}
+
 .masthead__cta {
   font-size: 0.7rem;
   font-weight: 600;
@@ -6720,6 +6852,21 @@ p.has-drop-cap::first-letter {
 }
 .mobile-nav__link[aria-current="page"] .mobile-nav__arrow {
   color: var(--accent);
+}
+.mobile-nav__group-label {
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: clamp(1rem, 3vh, 1.6rem) 0 clamp(0.4rem, 1.2vh, 0.7rem);
+  padding-top: clamp(0.8rem, 2.4vh, 1.2rem);
+  border-top: 1px solid var(--border);
+}
+.mobile-nav__link--more {
+  font-size: clamp(1.15rem, 4.4vw, 1.4rem);
+  font-weight: 500;
 }
 .mobile-nav__footer {
   margin-top: auto;
