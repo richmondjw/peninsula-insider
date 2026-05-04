@@ -1,5 +1,6 @@
 ---
 import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../lib/editorial';
+import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import VenueCard from './VenueCard.astro';
@@ -17,6 +18,8 @@ export interface Props {
 
 const { venue, section, related = [], articles = [], itineraries = [] } = Astro.props;
 const data = venue.data;
+const liveStatusUrl = resolveLiveStatusUrl(data);
+const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
 const sectionHref = `/${section}`;
 const hats = data.authority?.hats ?? 0;
@@ -203,10 +206,26 @@ const isClosed = data.status === 'closed';
             </>
           )}
 
-          {data.lastVerified && (
+          {data.hoursNote && (
+            <>
+              <dt>Hours</dt>
+              <dd>{data.hoursNote}</dd>
+            </>
+          )}
+
+          <>
+            <dt>Live status</dt>
+            <dd>
+              <a href={liveStatusUrl} target="_blank" rel="noopener noreferrer">
+                Check current hours →
+              </a>
+            </dd>
+          </>
+
+          {verifiedLabel && (
             <>
               <dt>Verified</dt>
-              <dd>{data.lastVerified.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })}</dd>
+              <dd>{verifiedLabel}</dd>
             </>
           )}
 
