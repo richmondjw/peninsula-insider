@@ -7,6 +7,7 @@
  * every event carries at least one sentence of opinion.
  */
 import EventBadges from './EventBadges.astro';
+import SaveButton from './SaveButton.astro';
 import { eventCategoryLabel, eventDateLabel, routeSlug, heroBackgroundStyle } from '../lib/editorial';
 
 export interface Props {
@@ -68,5 +69,8 @@ const placeHref = placeId ? `/places/${placeId}/` : null;
     weather={event.data.weather}
     skipThis={event.data.skipThis}
   />
-  <a href={`/whats-on/${slug}`} class="event-card__cta">Read the full guide -></a>
+  <div class="event-card__actions">
+    <a href={`/whats-on/${slug}`} class="event-card__cta">Read the full guide -></a>
+    <SaveButton kind="event" slug={slug} title={event.data.title} href={`/whats-on/${slug}/`} />
+  </div>
 </article>

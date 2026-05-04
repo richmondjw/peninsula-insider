@@ -8362,3 +8362,281 @@ body.menu-open .subscribe-pill {
   font-size: 0.95rem;
   color: var(--soft);
 }
+
+/* ============================================================================
+   SAVE / SHORTLIST (Phase 2 WS2E)
+   Save button on cards, masthead Saved link, and /saved/ page.
+   ============================================================================ */
+
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.7rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.save-button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.save-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.save-button[aria-pressed="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(167, 118, 55, 0.08);
+}
+.save-button[aria-pressed="true"] .save-button__icon path {
+  fill: currentColor;
+}
+.save-button__icon {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Masthead "Saved (N)" link — hidden until at least one item saved. */
+.masthead__saved-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--accent);
+}
+.masthead__saved-count {
+  display: inline-block;
+  min-width: 1.4em;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.05rem 0.35rem;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border-radius: 999px;
+}
+
+/* /saved/ page */
+.saved-page {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+.saved-banner {
+  border: 1px solid var(--accent);
+  background: rgba(167, 118, 55, 0.06);
+  padding: clamp(1rem, 2vw, 1.4rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+.saved-banner__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.55rem;
+}
+.saved-banner__body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--dark);
+  margin: 0 0 0.85rem;
+}
+.saved-banner__action {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+.saved-banner__action:hover {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}
+
+.saved-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 1rem 0 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.saved-toolbar__count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: var(--soft);
+  margin: 0;
+}
+.saved-toolbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.saved-toolbar__action {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+.saved-toolbar__action--ghost {
+  background: transparent;
+  color: var(--soft);
+  border-color: var(--border);
+}
+.saved-toolbar__action:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); color: var(--bg, #fff); }
+.saved-toolbar__action--ghost:hover { color: var(--accent); border-color: var(--accent); background: transparent; }
+
+.saved-section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: clamp(1.5rem, 3vw, 2rem) 0 clamp(0.75rem, 1.5vw, 1rem);
+}
+.saved-section-heading__count {
+  color: var(--soft);
+  font-size: 0.75em;
+  margin-left: 0.4em;
+}
+
+.saved-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(0.85rem, 1.5vw, 1.1rem);
+}
+@media (min-width: 720px) {
+  .saved-list { grid-template-columns: 1fr 1fr; }
+}
+.saved-list__item {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  position: relative;
+}
+.saved-list__item-link {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  text-decoration: none;
+  color: inherit;
+}
+.saved-list__item-hero {
+  flex-shrink: 0;
+  width: 96px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg, #fff);
+}
+.saved-list__item-hero--empty {
+  background: linear-gradient(135deg, rgba(167, 118, 55, 0.12), rgba(223, 197, 158, 0.08));
+}
+.saved-list__item-body {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.saved-list__item-meta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0;
+}
+.saved-list__item-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+.saved-list__item-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--soft);
+  margin: 0.1rem 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.saved-list__item-remove {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin: 0.6rem 0.6rem 0 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+.saved-list__item-remove:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.saved-empty {
+  margin: 1rem 0 0;
+  padding: 1.5rem;
+  border: 1px dashed var(--border);
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: var(--soft);
+}
+.saved-empty a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Adjust EventCard so the new actions row sits flush at the bottom. */
+.event-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+.event-card__actions .event-card__cta {
+  margin-top: 0;
+}
