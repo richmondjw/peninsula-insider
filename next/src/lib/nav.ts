@@ -26,7 +26,10 @@ export interface NavItem {
 /**
  * The masthead row. Order is editorial: the five pillars first, then the
  * dispatch lane (What's On) and the Journal. Spa, Golf, and Tours live
- * in the extended pillar list, not the masthead.
+ * in the mega-menu (`mastheadMoreNav`) under the trailing "More" trigger.
+ *
+ * The `more` item is rendered as a button with a dropdown panel rather than
+ * a plain anchor; see `Masthead.astro` for the markup.
  */
 export const mastheadNav: NavItem[] = [
   { key: 'quick-note', label: 'Quick Note',  href: '/quick-note' },
@@ -37,6 +40,27 @@ export const mastheadNav: NavItem[] = [
   { key: 'escape',     label: 'Plans',       href: '/escape'     },
   { key: 'whats-on',   label: "What’s On", href: '/whats-on'  },
   { key: 'journal',    label: 'Journal',     href: '/journal'    },
+];
+
+/**
+ * Mega-menu items for the "More" trigger in the masthead. These lanes are real
+ * top-level sections that don't fit the seven-slot magazine row but are too
+ * commercially important to live only in the footer. Order is editorial,
+ * grouped loosely: experience-led first (Tours, Boating, Golf, Spa & Wellness,
+ * Fishing), then audience/occasion (Dog Friendly, Weddings, Corporate).
+ *
+ * Keeping this list short (eight items) so the panel reads as a curated
+ * set rather than a sitemap dump.
+ */
+export const mastheadMoreNav: NavItem[] = [
+  { key: 'tour',             label: 'Tours',          href: '/tour/',             dek: 'Operator-led day trips and packages.' },
+  { key: 'boating',          label: 'Boating',        href: '/boating/',          dek: 'Charters, hire, ramps, and tides.' },
+  { key: 'golf',             label: 'Golf',           href: '/golf/',             dek: 'Courses on the cape.' },
+  { key: 'spa',              label: 'Spa & Wellness', href: '/spa/',              dek: 'Hot springs, saunas, retreats.' },
+  { key: 'fishing',          label: 'Fishing',        href: '/fishing/',          dek: 'Species, spots, charters.' },
+  { key: 'dog-friendly',     label: 'Dog Friendly',   href: '/dog-friendly/',     dek: 'Where the whole family is welcome.' },
+  { key: 'weddings',         label: 'Weddings',       href: '/weddings/',         dek: 'Venues for the day.' },
+  { key: 'corporate-events', label: 'Corporate',      href: '/corporate-events/', dek: 'Offsites, retreats, end-of-year.' },
 ];
 
 /**
@@ -156,12 +180,13 @@ export const footerSectionLinks: NavItem[] = [
  * Footer "About" column.
  */
 export const footerAboutLinks: NavItem[] = [
-  { key: 'about',      label: 'About',           href: '/about/' },
-  { key: 'partners',   label: 'Partner with us', href: '/partners/' },
-  { key: 'contact',    label: 'Contact',         href: '/contact/' },
-  { key: 'newsletter', label: 'Newsletter',      href: '/newsletter/' },
-  { key: 'privacy',    label: 'Privacy',         href: '/privacy/' },
-  { key: 'cookies',    label: 'Cookie settings', href: '#cookie-settings' },
+  { key: 'about',       label: 'About',           href: '/about/' },
+  { key: 'methodology', label: 'Methodology',     href: '/methodology/' },
+  { key: 'partners',    label: 'Partner with us', href: '/partners/' },
+  { key: 'contact',     label: 'Contact',         href: '/contact/' },
+  { key: 'newsletter',  label: 'Newsletter',      href: '/newsletter/' },
+  { key: 'privacy',     label: 'Privacy',         href: '/privacy/' },
+  { key: 'cookies',     label: 'Cookie settings', href: '#cookie-settings' },
 ];
 
 /**

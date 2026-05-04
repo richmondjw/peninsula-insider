@@ -219,7 +219,7 @@ const lastVerifiedLabel = lastVerified
 // ─── Misc ─────────────────────────────────────────────────────────────────
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'Escape', href: '/escape' },
+  { label: 'Plans', href: '/escape' },
   { label: data.title },
 ];
 const canonical = `https://peninsulainsider.com.au/escape/${slug}/`;
@@ -246,7 +246,7 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
   <section class="itinerary-detail">
     <div class="container">
       <div class="itinerary-detail__meta">
-        <a href="/escape/" class="itinerary-detail__back">Escape</a>
+        <a href="/escape/" class="itinerary-detail__back">Plans</a>
         <span class="itinerary-detail__dot" aria-hidden="true"></span>
         <span class="itinerary-detail__nights">{durationText}</span>
         {anchorTown && (

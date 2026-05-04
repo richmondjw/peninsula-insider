@@ -1,0 +1,283 @@
+---
+/**
+ * /methodology/ — How Peninsula Insider works.
+ *
+ * Distinct from /about/ (who we are) and /partners/ (commercial offer).
+ * This page exists for readers who want to understand the operating rules
+ * behind the editorial: how we choose what to cover, how we verify, how
+ * we disclose commercial relationships, and what we don't do.
+ *
+ * Voice is collective ("we") rather than named-by-editor — that is a
+ * deliberate editorial choice, not an oversight.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHero from '../components/SectionHero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Methodology' },
+];
+
+const coverageRules = [
+  {
+    title: 'Editorial fit before commercial fit',
+    body: "A venue is on Peninsula Insider because we think readers should know about it, not because the venue paid to appear. Coverage decisions sit with the editorial desk; commercial decisions sit with the publisher; the two functions don't overrule each other.",
+  },
+  {
+    title: 'Visited before written',
+    body: 'Every venue review reflects a real visit by someone on the desk. We do not publish editor notes for places we have not been to. If a venue is added from photos and a press release alone, it is labelled as a listing, not a review.',
+  },
+  {
+    title: 'Local before national',
+    body: 'We cover what is on the Peninsula, made by Peninsula operators, or otherwise rooted here. We are not a Melbourne publication doing a regional round-up; we are a regional publication that takes its region seriously.',
+  },
+  {
+    title: 'Useful before complete',
+    body: 'A guide that names every cellar door is a directory. A guide that names the eight cellar doors that are worth a Saturday is editorial. We choose the latter, knowing it leaves things out, and we explain the reasoning where it matters.',
+  },
+];
+
+const verificationSteps = [
+  {
+    label: 'Before publish',
+    body: 'Hours, contact details, booking links, and price bands are checked against the operator website on the day a venue page is published. Any factual claim in a feature is logged with a primary source before the draft is approved.',
+  },
+  {
+    label: 'On a rolling cycle',
+    body: 'Tier-1 venues (high-traffic, frequently changing) are re-verified roughly weekly. The full venue corpus rolls through verification on a slower cadence so no listing goes stale for more than a season. Each page carries a "Last verified" date so readers can see how fresh the data is.',
+  },
+  {
+    label: 'When something changes',
+    body: 'When an operator confirms a closure, opening-hour change, menu pivot, or price update, we update the listing the same week. Where a venue is mentioned in feature articles or itineraries, those pieces carry an editor note about the change rather than being silently rewritten.',
+  },
+  {
+    label: 'When readers flag a problem',
+    body: 'Corrections are taken seriously and acted on fast. The correction is applied, dated, and where the change is material, surfaced on the page so future readers see it without having to dig.',
+  },
+];
+
+const disclosureRules = [
+  {
+    title: 'Paid placements are labelled',
+    body: 'Where a venue, event, or feature appears as part of a commercial relationship, the article carries a clear in-partnership label, the operator is named, and the editorial desk has signed off on the copy. Disclosed once, prominently, beats hidden disclosures buried at the foot of a page.',
+  },
+  {
+    title: 'Commercial relationships do not control coverage',
+    body: "A partner cannot buy a higher placement on the Best Restaurants list, a more flattering editor note, or a guarantee against a critical mention. Partners can buy editorial features, listing surfaces, newsletter inventory, and sponsored guides; they cannot buy the editor's opinion.",
+  },
+  {
+    title: 'Affiliate and referral fees are disclosed',
+    body: 'Where Peninsula Insider earns a commission for sending a reader to a booking platform, accommodation marketplace, or experience operator, the relationship is disclosed at the point of the link and on the page-level commercial-disclosure block.',
+  },
+  {
+    title: 'We do not take undisclosed comps',
+    body: 'Editorial visits are paid for. If a venue insists on shouting a meal that is being reviewed, the meal is paid for in cash on the way out, or the review does not run.',
+  },
+];
+
+const refusedPractices = [
+  'We do not publish reviews based on a press release without a visit.',
+  'We do not run AI-generated venue copy as editorial.',
+  'We do not run star ratings, pretending readers want consensus from strangers.',
+  'We do not sell an editor note as part of a commercial package.',
+  'We do not republish reader reviews as if they were editorial.',
+  'We do not link to an operator we cannot stand behind, even if the affiliate would pay.',
+];
+---
+
+<BaseLayout
+  title="Methodology · Peninsula Insider"
+  description="How Peninsula Insider works: how we choose what to cover, how we verify, how we disclose commercial relationships, and what we deliberately refuse to do."
+  section="home"
+  canonical="https://peninsulainsider.com.au/methodology/"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Methodology"
+    subEyebrow="How we work"
+    title="The operating rules behind the <em>editorial</em>."
+    dek="The reasons readers can trust a Peninsula Insider recommendation are not magic. They are a small set of operating rules: visit before review, verify on a cycle, disclose every commercial relationship, refuse a few specific practices. This page is the rules, written down."
+    gradient="journal"
+    visualLabel="Peninsula Insider · methodology"
+  />
+
+  <!-- Coverage decisions -->
+  <section class="about-principles">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">What we cover</p>
+          <h2 class="split-intro__title">How we decide what gets a page</h2>
+        </div>
+        <p class="split-intro__body">There is more on the Peninsula than any one publication can cover well. These are the four rules that decide what makes the cut.</p>
+      </div>
+      <div class="about-principles__grid">
+        {coverageRules.map((rule) => (
+          <article class="about-principle">
+            <h3 class="about-principle__title">{rule.title}</h3>
+            <p class="about-principle__body">{rule.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Verification -->
+  <section class="about-build">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">Verification</p>
+          <h2 class="about-mission__title">Why "Last verified" appears on every venue page</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>The biggest gap between a guide and a directory is freshness. A directory tells you a place exists. A guide tells you whether it is currently worth your Saturday. Peninsula Insider runs four verification rhythms so the difference holds up over time.</p>
+        </div>
+      </div>
+      <div class="methodology-steps">
+        {verificationSteps.map((step) => (
+          <article class="methodology-step">
+            <p class="methodology-step__label">{step.label}</p>
+            <p class="methodology-step__body">{step.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclosure -->
+  <section class="about-difference">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Commercial disclosure</p>
+          <h2 class="split-intro__title">The line between editorial and partnership</h2>
+        </div>
+        <p class="split-intro__body">Peninsula Insider takes commercial partnerships, and we are open about that. The editorial discipline is in keeping the line between paid and unpaid coverage visible at all times.</p>
+      </div>
+      <div class="about-principles__grid">
+        {disclosureRules.map((rule) => (
+          <article class="about-principle">
+            <h3 class="about-principle__title">{rule.title}</h3>
+            <p class="about-principle__body">{rule.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What we don't do -->
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">Refused practices</p>
+          <h2 class="about-mission__title">What Peninsula Insider deliberately doesn't do</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>Editorial integrity is mostly a list of things you decline. The list below is short, specific, and not negotiable. If we ever break one of these rules, the entire publication is worth less, and there is no commercial deal large enough to make that maths work.</p>
+          <ul class="methodology-refusals">
+            {refusedPractices.map((line) => (
+              <li>{line}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice -->
+  <section class="about-colophon">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">A note on voice</p>
+          <h2 class="about-mission__title">Why we publish under one masthead, not under bylines</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>Peninsula Insider runs without named bylines on most pieces. That is a deliberate editorial choice. The publication is the voice. Coverage is signed off by the editor regardless of who drafted it, and the operating rules on this page apply to every piece in the same way. A reader does not need to know which editor wrote a given paragraph to trust that it cleared the same desk.</p>
+          <p>If you want to know how a specific piece was researched, who fact-checked it, or what was consulted to write it, write to <a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a>. We are happy to walk you through it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corrections -->
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission__grid">
+        <div class="about-mission__lead">
+          <p class="label label--accent">Corrections</p>
+          <h2 class="about-mission__title">If something is wrong, tell us</h2>
+        </div>
+        <div class="about-mission__body prose">
+          <p>Errors happen, especially in a guide that updates frequently. When you spot one (a closed venue still listed as open, an outdated price band, a fact in an article that doesn't add up), write to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>. We act on corrections the same week, date the change, and surface it on the page where the correction is material.</p>
+          <p>For commercial questions or partner enquiries, see <a href="/partners/">/partners</a>. For everything else, <a href="/contact/">/contact</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock
+    title="The dispatch · weekly · Mornington Peninsula."
+    body="The weekend ahead, written by editors who live here. New openings, cellar-door updates, and the places we are recommending this season. Unsubscribe any time."
+  />
+</BaseLayout>
+
+<style>
+  .methodology-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 2.4vw, 1.5rem);
+    margin-top: clamp(1.4rem, 3vw, 2rem);
+  }
+  @media (min-width: 720px) {
+    .methodology-steps { grid-template-columns: 1fr 1fr; }
+  }
+  .methodology-step {
+    border-top: 1px solid var(--border);
+    padding-top: clamp(0.85rem, 1.6vw, 1.1rem);
+  }
+  .methodology-step__label {
+    font-family: Outfit, system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.45rem;
+  }
+  .methodology-step__body {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--dark);
+    margin: 0;
+  }
+  .methodology-refusals {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    gap: 0.55rem;
+  }
+  .methodology-refusals li {
+    position: relative;
+    padding-left: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .methodology-refusals li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    top: -0.05em;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.4em;
+    line-height: 1;
+  }
+</style>

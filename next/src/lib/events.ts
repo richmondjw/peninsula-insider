@@ -269,3 +269,166 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
 
   return ld;
 }
+
+// ─── Display helpers ─────────────────────────────────────────────────────────
+
+/**
+ * Human-readable price label for the event sidebar. Falls back through the
+ * priceTier enum when priceRange isn't filled in, then to a "Check organiser"
+ * fallback so every event surfaces something rather than omitting the row.
+ *
+ * The project rule (Discovery Phase 1, workstream 4) is that every event page
+ * shows a price line: even "Free" or "Check organiser" beats omission.
+ */
+export function eventPriceLabel(data: Event['data']): string {
+  if (data.priceTier === 'free' || data.freePaid?.toLowerCase().includes('free')) {
+    return 'Free';
+  }
+  if (data.priceRange && data.priceRange.trim()) {
+    return data.priceRange.trim();
+  }
+  switch (data.priceTier) {
+    case 'under-50':
+      return 'Under $50';
+    case '50-150':
+      return '$50 to $150';
+    case 'over-150':
+      return '$150 and up';
+  }
+  if (data.freePaid && data.freePaid.trim()) {
+    return data.freePaid.trim();
+  }
+  return 'Check organiser';
+}
+
+/**
+ * Returns true when we have enough confidence in the price field to label it
+ * as a known price (rather than a "Check organiser" placeholder).
+ */
+export function eventHasKnownPrice(data: Event['data']): boolean {
+  if (data.priceTier && data.priceTier !== 'unknown') return true;
+  if (data.priceRange && data.priceRange.trim()) return true;
+  if (data.freePaid && data.freePaid.trim()) return true;
+  return false;
+}
+
+/**
+ * "11:00 to 14:00" / "11:00" / null. Uses startTime/endTime as written; we
+ * don't try to format because the schema is free-text.
+ */
+export function eventTimeLabel(data: Event['data']): string | null {
+  if (data.startTime && data.endTime) return `${data.startTime} to ${data.endTime}`;
+  if (data.startTime) return data.startTime;
+  return null;
+}
+
+/**
+ * Build a Google Calendar "Add to calendar" URL from an event. Uses the
+ * pre-filled action URL (most-supported flow; works on desktop, iOS, and
+ * Android via the calendar app picker).
+ *
+ * If only a date is known (no times), creates a single-day all-day event.
+ * If startTime is given without endTime, defaults to a 2-hour block. If
+ * neither end-date nor end-time is given, the event is treated as same-day.
+ *
+ * The dates string format Google expects is YYYYMMDDTHHMMSSZ for timed
+ * events and YYYYMMDD/YYYYMMDD for all-day events.
+ */
+export function eventCalendarUrl(data: Event['data'], canonical: string): string {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  const fmtDate = (d: Date) => `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}`;
+  const fmtDateTime = (d: Date) =>
+    `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
+
+  const start = new Date(data.startDate);
+  const end = data.endDate ? new Date(data.endDate) : new Date(start);
+
+  let dates: string;
+  if (data.startTime) {
+    const [sh, sm] = data.startTime.split(':').map((n) => parseInt(n, 10) || 0);
+    // Treat user-entered times as Melbourne local (AEST/AEDT). We render the
+    // GCal URL in UTC. AEST is +10, AEDT is +11; we use +10 as a stable
+    // baseline since the user can edit on import. Better to be slightly off
+    // than to misrender DST.
+    const startLocal = new Date(Date.UTC(start.getFullYear(), start.getMonth(), start.getDate(), sh - 10, sm));
+    let endLocal: Date;
+    if (data.endTime) {
+      const [eh, em] = data.endTime.split(':').map((n) => parseInt(n, 10) || 0);
+      const endDate = data.endDate ? new Date(data.endDate) : start;
+      endLocal = new Date(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), eh - 10, em));
+    } else {
+      // Default to 2-hour event when no end-time given.
+      endLocal = new Date(startLocal.getTime() + 2 * 60 * 60 * 1000);
+    }
+    dates = `${fmtDateTime(startLocal)}/${fmtDateTime(endLocal)}`;
+  } else {
+    // All-day. Google's date format is exclusive of the end day, so add a day.
+    const endPlusOne = new Date(end);
+    endPlusOne.setDate(endPlusOne.getDate() + 1);
+    dates = `${fmtDate(start)}/${fmtDate(endPlusOne)}`;
+  }
+
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: data.title,
+    dates,
+    details: `${data.summary}\n\nDetails: ${canonical}`,
+    location: [data.streetAddress, data.suburb, 'Mornington Peninsula, VIC, Australia']
+      .filter(Boolean)
+      .join(', '),
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+/**
+ * Pick the most specific ticket/booking URL available, with a flag indicating
+ * whether the link points at a true ticket platform (vs. a generic booking
+ * page). Used by the event sidebar to label the CTA correctly.
+ */
+export function eventBookingTarget(data: Event['data']): { href: string; label: string } | null {
+  if (data.ticketingUrl) return { href: data.ticketingUrl, label: 'Get tickets' };
+  if (data.bookingUrl) return { href: data.bookingUrl, label: 'Book or check details' };
+  if (data.organiser?.website) return { href: data.organiser.website, label: 'Visit organiser' };
+  return null;
+}
+
+/**
+ * Plain-English recurrence label for the at-a-glance row.
+ */
+export function eventRecurrenceLabel(data: Event['data']): string {
+  switch (data.recurrence) {
+    case 'one-off':
+      return 'One-off date';
+    case 'weekly':
+      return 'Recurs weekly';
+    case 'monthly':
+      return 'Recurs monthly';
+    case 'annual':
+      return 'Annual';
+    case 'seasonal':
+      return 'Seasonal run';
+    case 'ongoing':
+      return 'Ongoing programme';
+    default:
+      return data.recurrence;
+  }
+}
+
+/**
+ * Compact family-grade summary for the at-a-glance row. The longer narrative
+ * note still renders as its own callout where present.
+ */
+export function eventFamilyGradeShort(data: Event['data']): string | null {
+  switch (data.kidsGrade) {
+    case 'A':
+      return 'A — Fully kid-friendly';
+    case 'B':
+      return 'B — Family-suitable with care';
+    case 'C':
+      return 'C — Older kids only';
+    case 'not-for-kids':
+      return 'Adults only';
+    default:
+      return null;
+  }
+}
