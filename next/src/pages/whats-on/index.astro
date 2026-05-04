@@ -8,6 +8,7 @@ import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import EventCard from '../../components/EventCard.astro';
 import WeekendPickerBlock from '../../components/WeekendPickerBlock.astro';
+import EventStrip from '../../components/EventStrip.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
   dispatchWeekend,
@@ -86,6 +87,43 @@ const totalEvents = events.length;
 const totalGroups = groups.length;
 const recurringCount = events.filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)).length;
 const oneOffCount = totalEvents - recurringCount;
+
+// ── Standouts of the season ──────────────────────────────────────────────
+// Top events ranked purely by visitor appeal score, irrespective of when
+// they happen. Doesn't depend on lens tags, so always populated.
+const standouts = [...events]
+  .filter((e) => (e.data.visitorAppealScore ?? 0) >= 4)
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 6);
+
+// ── On this week (Mon-Fri before the weekend) ───────────────────────────
+// Events that fall in the weekday window leading up to the upcoming
+// weekend. Recurring (weekly, monthly, ongoing) events count if they
+// have a startDate weekday between Monday and Friday.
+const day = 24 * 60 * 60 * 1000;
+const weekdayWindowStart = new Date(upcomingWeekendStart.getTime() - 5 * day);
+const weekdayWindowEnd = new Date(upcomingWeekendStart.getTime() - 1);
+const thisWeekEvents = events.filter((event) => {
+  const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
+  const start = event.data.startDate;
+  const end = event.data.endDate ?? start;
+  if (isRecurring) {
+    const wd = start.getDay();
+    return wd >= 1 && wd <= 5;
+  }
+  return end >= weekdayWindowStart && start <= weekdayWindowEnd;
+})
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 6);
+
+// ── Recurring on the calendar ─────────────────────────────────────────────
+// Weekly + monthly events with their cadence shown explicitly. These are
+// the predictable Peninsula institutions: Red Hill Market, Mornington
+// Farmers Market, Sunday Sessions at the Hot Springs, etc.
+const recurringEvents = events
+  .filter((e) => ['weekly', 'monthly'].includes(e.data.recurrence))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 9);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -182,7 +220,23 @@ const faqSchema = {
        3. WEEKEND PICKER DISPATCH
        ═══════════════════════════════════════════════════════════════ -->
   {currentDispatch && (
-    <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
+    <>
+      <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
+      {/* Dispatch surface always carries event richness, even when the editor
+          hasn't curated specific picks into the article yet. Top 3 by visitor
+          appeal score, filtered to events in the upcoming weekend window. */}
+      {nextWeekendEvents.length > 0 && (
+        <EventStrip
+          events={[...nextWeekendEvents].sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)).slice(0, 3)}
+          eyebrow="Also worth knowing"
+          heading={`Three events on the ground this weekend, ${dispatchWindow.label}`}
+          intro="Pulled live from the events registry. Editor's anchor picks below; these are the data-ranked supporting cast."
+          moreHref="/whats-on/by-mood/this-weekend/"
+          moreLabel="See the full weekend"
+          variant="alt"
+        />
+      )}
+    </>
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -201,6 +255,75 @@ const faqSchema = {
         </div>
         <div class="event-grid">
           {editorsPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4.5 STANDOUTS OF THE SEASON, top by visitor appeal
+       Ranked purely by visitor appeal score, doesn't depend on lens
+       tags so always populated. The "best things on right now" view.
+       ═══════════════════════════════════════════════════════════════ -->
+  {standouts.length > 0 && (
+    <section class="venues" id="standouts">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Standouts on the calendar</p>
+            <h2 class="venues__title">The six events worth shaping a weekend around</h2>
+            <p class="venues__sub venues__sub--standfirst">Ranked by what they are actually like to attend. Coastrek, the Sorrento Writers Festival, the Red Hill Show. Across the season, not just this weekend.</p>
+          </div>
+          <span class="venues__count">{standouts.length} standouts</span>
+        </div>
+        <div class="event-grid">
+          {standouts.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4.6 ON THIS WEEK, midweek events
+       For the Wednesday traveller booking Friday, or the local
+       wondering what's happening before the weekend hits.
+       ═══════════════════════════════════════════════════════════════ -->
+  {thisWeekEvents.length > 0 && (
+    <section class="venues venues--plain" id="this-week">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">On this week</p>
+            <h2 class="venues__title">Mid-week events worth a Tuesday or a Wednesday</h2>
+            <p class="venues__sub venues__sub--standfirst">The Peninsula doesn't shut down between weekends. Markets, exhibitions, weekday programmes, and the recurring sessions that anchor the locals' calendar.</p>
+          </div>
+          <span class="venues__count">{thisWeekEvents.length} this week</span>
+        </div>
+        <div class="event-grid">
+          {thisWeekEvents.map((event) => <EventCard event={event} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4.7 RECURRING ON THE CALENDAR, the predictable spine
+       Weekly and monthly events with their cadence shown. These are
+       the Peninsula institutions, predictable and always available.
+       ═══════════════════════════════════════════════════════════════ -->
+  {recurringEvents.length > 0 && (
+    <section class="venues venues--alt" id="recurring">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Recurring on the calendar</p>
+            <h2 class="venues__title">The Peninsula's predictable spine</h2>
+            <p class="venues__sub venues__sub--standfirst">Markets, sessions, and programmes that run on a known cadence. Plan ahead, no surprises, the regional rhythm a local takes for granted.</p>
+          </div>
+          <span class="venues__count">{recurringEvents.length} recurring</span>
+        </div>
+        <div class="event-grid">
+          {recurringEvents.map((event) => <EventCard event={event} />)}
         </div>
       </div>
     </section>
