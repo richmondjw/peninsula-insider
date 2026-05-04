@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.Dxv5MVGx.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.DoyUd3dF.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="fishing" data-path="/fishing/species/snapper/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
        left, wordmark centred, subscribe right — single-row magazine
@@ -64,8 +64,12 @@ Ask The Insider for a recommendation
   bindTriggers();
   document.addEventListener('astro:page-load', bindTriggers);
 })();
-</script> <!-- Masthead "More" mega-menu controller. Hover/focus opens; click toggles;
-     Escape and outside click close. Idempotent across astro:page-load. --> <script>
+</script> <!-- Masthead "More" mega-menu controller.
+     Hover opens softly (closes on mouseleave with a 250ms grace period to
+     bridge the cursor traversal between trigger and panel). Click locks the
+     panel open until Escape, outside-click, or another click on the trigger.
+     Touch input takes the click path because mouseenter is unreliable.
+     Idempotent across astro:page-load. --> <script>
 (function () {
   function bindMore() {
     document.querySelectorAll('[data-more-root]').forEach((root) => {
@@ -75,12 +79,16 @@ Ask The Insider for a recommendation
       const panel = root.querySelector('[data-more-panel]');
       if (!trigger || !panel) return;
 
-      let open = false;
-      const setOpen = (next) => {
-        if (open === next) return;
-        open = next;
-        trigger.setAttribute('aria-expanded', next ? 'true' : 'false');
-        if (next) {
+      // mode: 'closed' | 'hover' | 'click'
+      // 'hover' closes on mouseleave (with grace period). 'click' is sticky
+      // and only closes on Escape, outside-click, or click on the trigger.
+      let mode = 'closed';
+      let leaveTimer = null;
+
+      const apply = () => {
+        var isOpen = mode !== 'closed';
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (isOpen) {
           panel.removeAttribute('hidden');
           root.classList.add('is-open');
         } else {
@@ -88,24 +96,72 @@ Ask The Insider for a recommendation
           root.classList.remove('is-open');
         }
       };
+      const setMode = (next) => {
+        if (mode === next) return;
+        mode = next;
+        apply();
+      };
+      const cancelLeave = () => {
+        if (leaveTimer) {
+          clearTimeout(leaveTimer);
+          leaveTimer = null;
+        }
+      };
 
+      // Click toggles between sticky-open and closed. Cancels any in-flight
+      // hover-close so a tap that follows a hover doesn't immediately drop.
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
-        setOpen(!open);
+        e.stopPropagation();
+        cancelLeave();
+        setMode(mode === 'click' ? 'closed' : 'click');
       });
-      root.addEventListener('mouseenter', () => setOpen(true));
-      root.addEventListener('mouseleave', () => setOpen(false));
+
+      // Hover only opens if nothing's already happening. If the panel was
+      // click-locked, hover does nothing — leave the user's explicit choice
+      // alone.
+      root.addEventListener('mouseenter', () => {
+        cancelLeave();
+        if (mode === 'closed') setMode('hover');
+      });
+
+      // Hover-leave closes after a grace period; click-locked stays open.
+      // The grace period prevents the panel disappearing while the cursor
+      // travels from trigger to panel content.
+      root.addEventListener('mouseleave', () => {
+        if (mode !== 'hover') return;
+        cancelLeave();
+        leaveTimer = setTimeout(() => {
+          if (mode === 'hover') setMode('closed');
+          leaveTimer = null;
+        }, 250);
+      });
+
+      // Keyboard: focus moves out of the menu structure → close.
       root.addEventListener('focusout', (e) => {
-        if (!root.contains(e.relatedTarget)) setOpen(false);
+        if (!root.contains(e.relatedTarget)) {
+          cancelLeave();
+          setMode('closed');
+        }
       });
+
+      // Escape closes regardless of mode and returns focus to the trigger.
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && open) {
-          setOpen(false);
+        if (e.key === 'Escape' && mode !== 'closed') {
+          cancelLeave();
+          setMode('closed');
           trigger.focus();
         }
       });
+
+      // Outside click only kills 'click' mode. 'hover' mode handles itself
+      // via mouseleave — using the document click listener for hover would
+      // cause it to close on the panel's own clicks (link navigation).
       document.addEventListener('click', (e) => {
-        if (open && !root.contains(e.target)) setOpen(false);
+        if (mode === 'click' && !root.contains(e.target)) {
+          cancelLeave();
+          setMode('closed');
+        }
       });
     });
   }

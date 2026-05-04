@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.Dxv5MVGx.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.DoyUd3dF.css">
 <style>.audience-picker[data-astro-cid-htumgpzy]{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:clamp(2.5rem,5vw,4rem) 0}.audience-picker__head[data-astro-cid-htumgpzy]{max-width:720px;margin:0 auto 2rem;text-align:center}.audience-picker__eyebrow[data-astro-cid-htumgpzy]{font-family:Outfit,sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}.audience-picker__heading[data-astro-cid-htumgpzy]{font-family:Cormorant Garamond,serif;font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:500;line-height:1.15;color:var(--text);margin:0 0 .6rem;letter-spacing:-.015em}.audience-picker__framing[data-astro-cid-htumgpzy]{font-family:Outfit,sans-serif;font-size:.95rem;line-height:1.6;color:var(--soft);margin:0 auto;max-width:60ch}.audience-picker__grid[data-astro-cid-htumgpzy]{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}.audience-picker__tile-wrap[data-astro-cid-htumgpzy]{display:flex}.audience-picker__tile[data-astro-cid-htumgpzy]{position:relative;display:flex;flex-direction:column;width:100%;padding:1.1rem 1.1rem 1.2rem;background:var(--white);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}.audience-picker__tile[data-astro-cid-htumgpzy]:hover,.audience-picker__tile[data-astro-cid-htumgpzy]:focus-visible{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px -16px #0000002e;outline:none}.audience-picker__mark[data-astro-cid-htumgpzy]{font-family:Cormorant Garamond,serif;font-size:1.4rem;color:var(--accent);line-height:1;margin-bottom:.6rem}.audience-picker__label[data-astro-cid-htumgpzy]{font-family:Cormorant Garamond,serif;font-size:1.2rem;font-weight:500;line-height:1.2;color:var(--text);margin:0 0 .35rem;letter-spacing:-.01em}.audience-picker__dek[data-astro-cid-htumgpzy]{font-family:Outfit,sans-serif;font-size:.84rem;line-height:1.45;color:var(--soft);margin:0;flex:1}.audience-picker__arrow[data-astro-cid-htumgpzy]{align-self:flex-end;margin-top:.8rem;font-family:Outfit,sans-serif;font-size:.85rem;color:var(--accent);opacity:.7;transition:opacity .15s ease,transform .15s ease}.audience-picker__tile[data-astro-cid-htumgpzy]:hover .audience-picker__arrow[data-astro-cid-htumgpzy],.audience-picker__tile[data-astro-cid-htumgpzy]:focus-visible .audience-picker__arrow[data-astro-cid-htumgpzy]{opacity:1;transform:translate(2px)}@media(max-width:960px){.audience-picker__grid[data-astro-cid-htumgpzy]{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:720px){.audience-picker__grid[data-astro-cid-htumgpzy]{grid-template-columns:repeat(2,minmax(0,1fr))}.audience-picker__head[data-astro-cid-htumgpzy]{text-align:left}}@media(max-width:420px){.audience-picker__tile[data-astro-cid-htumgpzy]{padding:.95rem}.audience-picker__label[data-astro-cid-htumgpzy]{font-size:1.1rem}.audience-picker__dek[data-astro-cid-htumgpzy]{font-size:.8rem}}
 </style>
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css">
@@ -68,8 +68,12 @@ Ask The Insider for a recommendation
   bindTriggers();
   document.addEventListener('astro:page-load', bindTriggers);
 })();
-</script> <!-- Masthead "More" mega-menu controller. Hover/focus opens; click toggles;
-     Escape and outside click close. Idempotent across astro:page-load. --> <script>
+</script> <!-- Masthead "More" mega-menu controller.
+     Hover opens softly (closes on mouseleave with a 250ms grace period to
+     bridge the cursor traversal between trigger and panel). Click locks the
+     panel open until Escape, outside-click, or another click on the trigger.
+     Touch input takes the click path because mouseenter is unreliable.
+     Idempotent across astro:page-load. --> <script>
 (function () {
   function bindMore() {
     document.querySelectorAll('[data-more-root]').forEach((root) => {
@@ -79,12 +83,16 @@ Ask The Insider for a recommendation
       const panel = root.querySelector('[data-more-panel]');
       if (!trigger || !panel) return;
 
-      let open = false;
-      const setOpen = (next) => {
-        if (open === next) return;
-        open = next;
-        trigger.setAttribute('aria-expanded', next ? 'true' : 'false');
-        if (next) {
+      // mode: 'closed' | 'hover' | 'click'
+      // 'hover' closes on mouseleave (with grace period). 'click' is sticky
+      // and only closes on Escape, outside-click, or click on the trigger.
+      let mode = 'closed';
+      let leaveTimer = null;
+
+      const apply = () => {
+        var isOpen = mode !== 'closed';
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (isOpen) {
           panel.removeAttribute('hidden');
           root.classList.add('is-open');
         } else {
@@ -92,24 +100,72 @@ Ask The Insider for a recommendation
           root.classList.remove('is-open');
         }
       };
+      const setMode = (next) => {
+        if (mode === next) return;
+        mode = next;
+        apply();
+      };
+      const cancelLeave = () => {
+        if (leaveTimer) {
+          clearTimeout(leaveTimer);
+          leaveTimer = null;
+        }
+      };
 
+      // Click toggles between sticky-open and closed. Cancels any in-flight
+      // hover-close so a tap that follows a hover doesn't immediately drop.
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
-        setOpen(!open);
+        e.stopPropagation();
+        cancelLeave();
+        setMode(mode === 'click' ? 'closed' : 'click');
       });
-      root.addEventListener('mouseenter', () => setOpen(true));
-      root.addEventListener('mouseleave', () => setOpen(false));
+
+      // Hover only opens if nothing's already happening. If the panel was
+      // click-locked, hover does nothing — leave the user's explicit choice
+      // alone.
+      root.addEventListener('mouseenter', () => {
+        cancelLeave();
+        if (mode === 'closed') setMode('hover');
+      });
+
+      // Hover-leave closes after a grace period; click-locked stays open.
+      // The grace period prevents the panel disappearing while the cursor
+      // travels from trigger to panel content.
+      root.addEventListener('mouseleave', () => {
+        if (mode !== 'hover') return;
+        cancelLeave();
+        leaveTimer = setTimeout(() => {
+          if (mode === 'hover') setMode('closed');
+          leaveTimer = null;
+        }, 250);
+      });
+
+      // Keyboard: focus moves out of the menu structure → close.
       root.addEventListener('focusout', (e) => {
-        if (!root.contains(e.relatedTarget)) setOpen(false);
+        if (!root.contains(e.relatedTarget)) {
+          cancelLeave();
+          setMode('closed');
+        }
       });
+
+      // Escape closes regardless of mode and returns focus to the trigger.
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && open) {
-          setOpen(false);
+        if (e.key === 'Escape' && mode !== 'closed') {
+          cancelLeave();
+          setMode('closed');
           trigger.focus();
         }
       });
+
+      // Outside click only kills 'click' mode. 'hover' mode handles itself
+      // via mouseleave — using the document click listener for hover would
+      // cause it to close on the panel's own clicks (link navigation).
       document.addEventListener('click', (e) => {
-        if (open && !root.contains(e.target)) setOpen(false);
+        if (mode === 'click' && !root.contains(e.target)) {
+          cancelLeave();
+          setMode('closed');
+        }
       });
     });
   }
