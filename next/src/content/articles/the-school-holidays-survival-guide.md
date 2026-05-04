@@ -127,3 +127,6 @@ The best school-holiday evening on the Peninsula is not dinner at a restaurant. 
 The parents sit on the deck in the quiet. They can hear the ocean, or the frogs, or nothing at all. Nobody is driving anywhere. Nobody is paying $35 for a children's menu item that arrives as three chicken nuggets and a handful of chips.
 
 This is the version of the school holidays that nobody photographs and everybody remembers. The Peninsula's best evening, with or without children, is often the one you spend at home.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

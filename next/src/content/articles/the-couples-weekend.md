@@ -150,3 +150,6 @@ Be back in Melbourne by early afternoon. Do not rush the drive. The Mornington P
 The couples' weekend template works because it has exactly one anchor event  -  the Saturday lunch  -  and everything else is permission to do less. The best Peninsula weekends are not the ones where you saw the most. They are the ones where you remember how the light looked from the deck at four o'clock, and the bread at breakfast, and the walk back from the pub, and the feeling of not being in a hurry.
 
 Two nights. One lunch. One cellar door, maybe. The Peninsula at its best is not a destination you conquer. It is a pace you submit to.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

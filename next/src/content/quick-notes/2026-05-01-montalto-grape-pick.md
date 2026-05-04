@@ -13,7 +13,7 @@ sources:
     url: https://www.montalto.com.au
     checkedAt: 2026-05-01T08:50:00+10:00
 relatedVenue: montalto
-status: published
+status: archived
 ---
 
 Montalto's open pick is the rare wine event that genuinely earns the family-friendly label. Kids in gumboots, parents with secateurs, lunch on the lawn at one. The community wine that gets bottled from the haul is sold for charity in spring.

@@ -14,6 +14,93 @@ For each meaningful change, include:
 
 ---
 
+## 2026-05-04 — Claude (SEO experiment 2026-05-04-01)
+
+### CTR snippet rewrite on dog-friendly journal page
+
+**Summary**
+Rewrote title and meta description for the dog-friendly Mornington Peninsula journal page, which has 455 combined impressions across slash variants in the last 28 days but earns 0 clicks despite ranking position 1-10 across 13 dog-related queries. Removed em-dash punctuation (project rule violation), added 2026 freshness signal, front-loaded specific value props.
+
+**Files changed**
+- `next/src/pages/journal/dog-friendly-mornington-peninsula.astro` — `BaseLayout` `title` and `description` props, plus matching `articleSchema.description`.
+
+**Pages affected**
+`/journal/dog-friendly-mornington-peninsula/` (single page).
+
+**Before**
+- Title: "Dog-Friendly Guide to the Mornington Peninsula · Peninsula Insider"
+- Meta: "The complete dog-friendly guide to the Mornington Peninsula — off-leash beaches at Rye and Blairgowrie, cafés that actually welcome dogs, where to stay, and what to avoid." (em-dash)
+
+**After**
+- Title: "Dog-Friendly Mornington Peninsula 2026: Beaches, Cafés & Stays" (62 chars)
+- Meta: "Off-leash beaches at Rye and Blairgowrie, cafés that welcome dogs, dog-friendly stays, and seasonal beach rules. The Peninsula's honest 2026 dog guide." (151 chars)
+
+**Why it matters**
+0% CTR across 455 impressions at page-1 positions is structurally low — strong signal the snippet is failing to win clicks. The dog-friendly cluster is the dominant demand signal for this site (5 of top 10 queries by impressions are dog-related). Even modest CTR uplift (0% → 1.5%) on this page = 7+ clicks/month and would validate the snippet-rewrite playbook for the next batch of high-impression / zero-click pages (chardonnay-case, pub-guide, ashcombe-maze, etc.).
+
+**Verification**
+Local build: 1027 pages built in 16.46s, no errors. New title and meta confirmed in `dist/journal/dog-friendly-mornington-peninsula/index.html`.
+
+**Hypothesis (logged in `ops/reports/seo/experiments.md` as 2026-05-04-01)**
+By 2026-05-18 (14d post-deploy), this page earns ≥3 clicks per 7-day window with similar impression volume.
+
+**Side note: experiment 2026-05-01-01 outcome**
+Place page canonical fix shipped 2026-05-01 (PR #16) had the following result: priority URL indexed count went 2/14 → 14/14 by 2026-05-04 (full sweep). Hypothesis was 7/14 by 2026-05-16; achieved 14/14 12 days early. Moved to "Completed" with full writeup in `experiments.md`.
+
+**Follow-up**
+- After auto-deploy: James to submit `/journal/dog-friendly-mornington-peninsula/` (and no-slash variant) for reindex in GSC.
+- Re-pull GSC daily; measure on 2026-05-11 (7d) and 2026-05-18 (14d).
+
+---
+
+## 2026-05-01 — Remy (James-approved Peninsula Insider review pack shipped live)
+
+### Summary
+Pushed the approved Peninsula Insider trust, commercial, chatbot, cadence, and AI-discoverability updates from `next/` into the live publish root. This included cadence-neutral newsletter/footer/masthead language, team-led About and partner positioning, enquiry-first commercial copy, the footer trust/disclosure block, the new concierge opening and planning prompts, and the first article template uplift for AI extraction.
+
+### Files changed
+- `next/src/components/Footer.astro`
+- `next/src/components/InsiderStripe.astro`
+- `next/src/components/Masthead.astro`
+- `next/src/components/NewsletterBlock.astro`
+- `next/src/components/UtilityBar.astro`
+- `next/src/components/WeekendPickerBlock.astro`
+- `next/src/components/ConciergeDrawer.astro`
+- `next/src/components/v2/Colophon.astro`
+- `next/src/components/v2/NewsletterBlock.astro`
+- `next/src/components/v2/UtilityBar.astro`
+- `next/src/pages/about.astro`
+- `next/src/pages/index.astro`
+- `next/src/pages/partners/index.astro`
+- `next/src/pages/partners/apply.astro`
+- `next/src/pages/partners/advertising-kit/index.astro`
+- `next/src/pages/partners/founders-prospectus/index.astro`
+- `next/src/content.config.ts`
+- `next/src/pages/journal/[slug].astro`
+- `next/src/content/articles/how-to-build-a-red-hill-saturday.md`
+- `next/src/content/articles/best-wineries-red-hill.md`
+- plus regenerated live root HTML/CSS/search artifacts via `./build-live.sh`
+
+### Pages affected
+- homepage
+- /about/
+- /partners/
+- /partners/apply/
+- /partners/advertising-kit/
+- /partners/founders-prospectus/
+- newsletter/footer/chrome across site
+- /journal/how-to-build-a-red-hill-saturday/
+
+### Why it matters
+This closes the gap between approved source changes and the public site. The live experience now better protects trust, reduces brittle dated promises, positions commercial offers more credibly, makes the concierge start from planning intent, and gives at least one public article the new summary + FAQ structure intended for AI extraction and citation.
+
+### Follow-up
+- Complete the pricing/disclaimer pass across remaining editorial business/tour pages
+- Verify all Instagram/profile references point to `@peninsula_insider`
+- Roll the summary/FAQ/query-title pattern onto 3–5 more priority planning pages
+
+---
+
 ## 2026-05-01 — Remy (Claude local agent)
 
 ### Concierge corpus expansion + cron operationalisation
@@ -303,51 +390,3 @@ This materially improved crawlability, canonical clarity, structured data covera
 - deepen town hubs
 - strengthen internal linking architecture
 - fully standardise Beehiiv-only newsletter handling
-
----
-
-## 2026-05-01 — Remy (James-approved Peninsula Insider review pack shipped live)
-
-### Summary
-Pushed the approved Peninsula Insider trust, commercial, chatbot, cadence, and AI-discoverability updates from `next/` into the live publish root. This included cadence-neutral newsletter/footer/masthead language, team-led About and partner positioning, enquiry-first commercial copy, the footer trust/disclosure block, the new concierge opening and planning prompts, and the first article template uplift for AI extraction.
-
-### Files changed
-- `next/src/components/Footer.astro`
-- `next/src/components/InsiderStripe.astro`
-- `next/src/components/Masthead.astro`
-- `next/src/components/NewsletterBlock.astro`
-- `next/src/components/UtilityBar.astro`
-- `next/src/components/WeekendPickerBlock.astro`
-- `next/src/components/ConciergeDrawer.astro`
-- `next/src/components/v2/Colophon.astro`
-- `next/src/components/v2/NewsletterBlock.astro`
-- `next/src/components/v2/UtilityBar.astro`
-- `next/src/pages/about.astro`
-- `next/src/pages/index.astro`
-- `next/src/pages/partners/index.astro`
-- `next/src/pages/partners/apply.astro`
-- `next/src/pages/partners/advertising-kit/index.astro`
-- `next/src/pages/partners/founders-prospectus/index.astro`
-- `next/src/content.config.ts`
-- `next/src/pages/journal/[slug].astro`
-- `next/src/content/articles/how-to-build-a-red-hill-saturday.md`
-- `next/src/content/articles/best-wineries-red-hill.md`
-- plus regenerated live root HTML/CSS/search artifacts via `./build-live.sh`
-
-### Pages affected
-- homepage
-- /about/
-- /partners/
-- /partners/apply/
-- /partners/advertising-kit/
-- /partners/founders-prospectus/
-- newsletter/footer/chrome across site
-- /journal/how-to-build-a-red-hill-saturday/
-
-### Why it matters
-This closes the gap between approved source changes and the public site. The live experience now better protects trust, reduces brittle dated promises, positions commercial offers more credibly, makes the concierge start from planning intent, and gives at least one public article the new summary + FAQ structure intended for AI extraction and citation.
-
-### Follow-up
-- Complete the pricing/disclaimer pass across remaining editorial business/tour pages
-- Verify all Instagram/profile references point to `@peninsula_insider`
-- Roll the summary/FAQ/query-title pattern onto 3–5 more priority planning pages

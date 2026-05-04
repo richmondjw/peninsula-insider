@@ -12,6 +12,6 @@ sources:
   - kind: gov
     note: wttr.in / World Weather Online feed for Merricks North conditions and Sunday hourly outlook
     checkedAt: 2026-05-03T10:43:00+10:00
-status: published
+status: archived
 ---
 The useful shape today is simple: treat the morning as the soft window, expect the wettest patch around midday and early afternoon, then look again at the coast after 6pm when the forecast clears back out. If you're choosing one clean outdoor move, make it a late beach walk rather than a noon gamble.

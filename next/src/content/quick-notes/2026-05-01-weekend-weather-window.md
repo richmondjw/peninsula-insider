@@ -12,7 +12,7 @@ sources:
   - kind: gov
     url: http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml
     checkedAt: 2026-05-01T06:20:00+10:00
-status: published
+status: archived
 ---
 
 Quiet weekend after a wet April. Cool but bright — the kind of light Peninsula photographers wait all year for. The fog clearing on Sunday morning is the cinematic window for Two Bays or Cape Schanck.

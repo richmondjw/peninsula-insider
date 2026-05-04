@@ -132,3 +132,6 @@ Restaurants are the reason most people come to the Peninsula. But the thing the 
 One weekend a year, skip the long lunch. Shop instead. The cooking does not have to be ambitious. A whole chicken, the good bread, a tomato salad, a bottle of pinot you bought four hours earlier from the person who made it. It is the meal that gets the Peninsula right.
 
 Next time, by all means, go back to [the long lunch](/journal/the-long-lunch). But you will taste it differently once you have shopped the same larder it is built on.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

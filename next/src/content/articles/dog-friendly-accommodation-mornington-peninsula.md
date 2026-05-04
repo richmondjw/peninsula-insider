@@ -101,3 +101,6 @@ Match your accommodation base to the zone that suits your itinerary rather than 
 → [Emergency vet and pet help on the Mornington Peninsula](/journal/emergency-vet-pet-help-mornington-peninsula/)
 
 *Last fact-verified: 22 April 2026.*
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

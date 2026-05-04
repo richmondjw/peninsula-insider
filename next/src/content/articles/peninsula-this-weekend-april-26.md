@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "autumn", "whats-on", "may-planning", "red-hill-market"]
 relatedVenues: []
 readingTimeMinutes: 5
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-04-26
 clusterLinks:

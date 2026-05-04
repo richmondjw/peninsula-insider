@@ -14,6 +14,6 @@ sources:
     checkedAt: 2026-05-03T10:42:00+10:00
 relatedVenue: peninsula-hot-springs
 relatedArticle: peninsula-hot-springs-vs-alba
-status: published
+status: archived
 ---
 The venue homepage is currently surfacing live Fingal conditions at 14.6°C with good air quality, which is exactly the kind of signal we want on a mixed Sunday. If your beach plan looks shaky by late morning, this is the easiest same-day swap because the weather stops mattering the second you commit to the soak.

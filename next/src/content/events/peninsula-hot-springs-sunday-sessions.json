@@ -2,8 +2,8 @@
   "slug": "peninsula-hot-springs-sunday-sessions",
   "eventId": "MP-EVT-0019",
   "title": "Peninsula Hot Springs Sunday Sessions",
-  "summary": "Live music every Sunday afternoon from the amphitheatre pool stage at Peninsula Hot Springs. Weekly lineup of named artists. Not a standalone ticketed concert – included with afternoon bathing session. Runs May–June 2026.",
-  "description": "Live music every Sunday afternoon from the amphitheatre pool stage at Peninsula Hot Springs. Weekly lineup of named artists. Not a standalone ticketed concert – included with afternoon bathing session. Runs May–June 2026.",
+  "summary": "Live music every Sunday afternoon from the amphitheatre pool stage at Peninsula Hot Springs. Weekly lineup of named artists. Not a standalone ticketed concert, included with afternoon bathing session. Runs May to June 2026.",
+  "description": "Live music every Sunday afternoon from the amphitheatre pool stage at Peninsula Hot Springs. Weekly lineup of named artists. Not a standalone ticketed concert, included with afternoon bathing session. Runs May to June 2026.",
   "startDate": "2026-05-04",
   "endDate": "2026-06-28",
   "startTime": "14:00",
@@ -29,7 +29,9 @@
   "category": "live-music",
   "subcategory": "Outdoor Concert",
   "recurrence": "weekly",
-  "recurrenceNote": "Weekly – Sundays",
+  "recurrenceNote": "Weekly, Sundays",
+  "venue": "peninsula-hot-springs",
+  "place": "rye",
   "suitableFor": "Adults; Couples; Groups",
   "audienceTags": [
     "adults-only",
@@ -55,13 +57,10 @@
   "editorialPriority": 4,
   "nearbyAttractions": "Arthurs Seat Eagle; Dromana Drive-In",
   "suggestedItineraryPairing": "Pair with an afternoon at the hot springs followed by sunset dinner in Rye or Sorrento",
-  "internalNotes": "Artist lineup changes weekly – check PHS events page before booking; amphitheatre pool fills fast",
+  "internalNotes": "Artist lineup changes weekly, check PHS events page before booking; amphitheatre pool fills fast",
   "manualFollowUpRequired": false,
   "kidsGradeAuto": "not-for-kids",
-  "status": "published",
-  "publishedAt": "2026-04-09",
-  "place": "rye",
-  "editorNote": "Peninsula Hot Springs has shifted from a generic recurring sessions format to naming specific artists each week, which is the right call — it turns a vague amenity into an actual reason to book. The amphitheatre pool setting is still exceptional: thermal water, a stone stage, and the kind of acoustic atmosphere you can't manufacture. Check the PHS events page in the week you're planning to visit — the artist and time slot are listed there. Book the afternoon bathing session to catch the set; the amphitheatre pool fills fast, so arrive early to secure the stone steps. Not to be confused with the standalone ticketed music events they run a few times a year, which require a separate ticket.",
+  "kidsGrade": "B",
   "kidsGradeNote": "Kids love the bathing, but the Sunday Sessions crowd is older and the music programming is for adults. Good for families with confident swimmers aged 8+.",
   "firstTimer": true,
   "worthTheDrive": true,
@@ -72,12 +71,14 @@
     "walk-in",
     "locals-know"
   ],
-  "editorVerdict": "Worth checking each week — PHS now names the artist in advance, which makes the booking decision much easier. If the lineup appeals, it's one of the better soft-Sunday plays on the Peninsula.",
+  "editorVerdict": "Worth checking each week, PHS now names the artist in advance, which makes the booking decision much easier. If the lineup appeals, it's one of the better soft-Sunday plays on the Peninsula.",
+  "editorNote": "Peninsula Hot Springs has shifted from a generic recurring sessions format to naming specific artists each week, which is the right call, it turns a vague amenity into an actual reason to book. The amphitheatre pool setting is still exceptional: thermal water, a stone stage, and the kind of acoustic atmosphere you can't manufacture. Check the PHS events page in the week you're planning to visit, the artist and time slot are listed there. Book the afternoon bathing session to catch the set; the amphitheatre pool fills fast, so arrive early to secure the stone steps. Not to be confused with the standalone ticketed music events they run a few times a year, which require a separate ticket.",
   "heroImage": {
     "src": "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp",
     "alt": "Peninsula Hot Springs hilltop thermal pool",
     "credit": "Peninsula Hot Springs",
     "license": "other-licensed"
   },
-  "kidsGrade": "B"
+  "status": "published",
+  "publishedAt": "2026-04-09"
 }
