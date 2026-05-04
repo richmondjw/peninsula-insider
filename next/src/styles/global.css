@@ -406,11 +406,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__more-panel {
   position: absolute;
-  /* Sit flush with the bottom of the trigger so cursor traversal stays
-     inside the li's hit area. The visual breathing room comes from the
-     panel's own padding plus a transparent ::before bridge that extends
-     the hit area upward by a few pixels in case rounding creates a gap. */
-  top: 100%;
+  /* Panel docks flush against the bottom of the trigger — no visible
+     gap, no hover-dead-zone bridge needed. Visual breathing room is
+     created entirely by the panel's own top padding. The previous
+     translateY + ::before bridge approach was sound geometrically but
+     fragile in edge cases; flush docking removes that whole class of
+     bug. */
+  top: calc(100% + 0.4rem);
   right: 0;
   z-index: 60;
   min-width: 18rem;
@@ -418,21 +420,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 1rem 0.65rem;
   background: var(--paper, #fbf7f0);
   border: 1px solid var(--border);
+  border-radius: 4px;
   box-shadow: 0 18px 40px -20px rgba(40, 28, 14, 0.35);
-  /* Visual breathing room kept by translating the panel down without
-     creating a hover dead zone — the ::before bridge below covers it. */
-  transform: translateY(0.65rem);
-}
-.masthead__more-panel::before {
-  content: '';
-  position: absolute;
-  /* Cover the 0.65rem gap created by translateY plus a few px slack. */
-  top: -0.85rem;
-  left: 0;
-  right: 0;
-  height: 0.85rem;
-  background: transparent;
-  pointer-events: auto;
 }
 .masthead__more-panel[hidden] {
   display: none;
