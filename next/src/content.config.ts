@@ -1009,6 +1009,36 @@ const editorial_blocks = defineCollection({
   }),
 });
 
+/**
+ * Reader-submitted local secrets (Phase 4 WS4D). Approved submissions
+ * are exported from the Supabase `pi.submissions` table to markdown
+ * files in src/content/local-secrets/ by next/scripts/export-local-secrets.mjs.
+ * Each file ships at build time as a static page under
+ * /journal/local-secrets/<slug>/.
+ */
+const localSecrets = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/local-secrets' }),
+  schema: z.object({
+    title: z.string(),
+    contributor: z.object({
+      name: z.string(),
+      handle: z.string().optional(),
+    }),
+    placeName: z.string().optional(),
+    category: z.enum([
+      'food', 'drink', 'wine', 'beach', 'walk', 'view',
+      'experience', 'event', 'shop', 'service', 'wildlife', 'other',
+    ]),
+    submittedAt: z.coerce.date(),
+    publishedAt: z.coerce.date(),
+    editorNote: z.string().optional(),
+    heroImage: imageRef.optional(),
+    relatedVenues: z.array(reference('venues')).default([]),
+    relatedPlaces: z.array(reference('places')).default([]),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -1027,4 +1057,5 @@ export const collections = {
   boatHire,
   quickNotes,
   editorial_blocks,
+  localSecrets,
 };
