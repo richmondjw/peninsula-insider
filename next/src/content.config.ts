@@ -1010,6 +1010,47 @@ const editorial_blocks = defineCollection({
 });
 
 /**
+ * The Insider's 30 (Phase 6 WS6C). Annual editor-selected ranked list
+ * of 30 venues across the Peninsula. One JSON file per year — the
+ * file's `year` field is canonical, the slug (`2026`, `2027`, etc.)
+ * is purely the route key. Each entry holds an ordered array of
+ * exactly 30 ranked picks; renderer enforces the cap.
+ */
+const insidersThirty = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/insiders-thirty' }),
+  schema: z.object({
+    year: z.number().int().min(2026).max(2100),
+    /** When the list was published. Used for archive sorting. */
+    publishedAt: z.coerce.date(),
+    /** Editor's framing for the year — drives the landing dek. */
+    editorialFraming: z.string(),
+    /** Optional editor's letter (markdown allowed). */
+    editorsLetter: z.string().optional(),
+    /** Hero image for the year's microsite cover. */
+    heroImage: imageRef.optional(),
+    /**
+     * Ranked picks. Order = ranking. Each pick references either a
+     * venue, an experience, or a place; exactly one should be set.
+     * Unknown references are dropped silently at render time.
+     */
+    picks: z.array(z.object({
+      rank: z.number().int().min(1).max(30),
+      venue: reference('venues').optional(),
+      experience: reference('experiences').optional(),
+      place: reference('places').optional(),
+      /** Editor's blurb for this rank — single sentence per the design. */
+      blurb: z.string().min(20).max(400),
+      /** Optional category tag for filtering on the microsite. */
+      category: z.enum([
+        'eat', 'wine', 'stay', 'walk', 'beach',
+        'experience', 'wellness', 'place', 'event', 'producer',
+      ]).optional(),
+    })).max(30),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
+/**
  * Reader-submitted local secrets (Phase 4 WS4D). Approved submissions
  * are exported from the Supabase `pi.submissions` table to markdown
  * files in src/content/local-secrets/ by next/scripts/export-local-secrets.mjs.
@@ -1058,4 +1099,5 @@ export const collections = {
   quickNotes,
   editorial_blocks,
   localSecrets,
+  insidersThirty,
 };
