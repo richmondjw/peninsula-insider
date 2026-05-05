@@ -12,6 +12,15 @@ heroImage:
 format: "cellar-door-dispatch"
 tags: ["wine", "red-hill", "main-ridge", "cellar-door", "pinot-noir"]
 relatedVenues: ["kooyong", "dexter-wines", "ocean-eight", "polperro", "quealy-winemakers", "main-ridge-estate", "eldridge-estate", "hurley-vineyard", "paradigm-hill", "moorooduc-estate", "scorpo-wines", "stonier-wines", "avani-wines"]
+# relatedArticles added 2026-05-05 (experiment 2026-05-05-02) to surface
+# unindexed sibling wine articles via the rendered Related rail.
+relatedArticles:
+  - "mornington-peninsula-winery-guide"
+  - "mornington-peninsula-winery-tour"
+  - "the-producer-trail"
+  - "dog-friendly-wineries-mornington-peninsula"
+  - "the-chardonnay-case"
+  - "the-long-lunch"
 readingTimeMinutes: 6
 featured: false
 status: "published"
