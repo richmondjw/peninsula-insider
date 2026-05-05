@@ -1,0 +1,194 @@
+---
+/**
+ * /guides/ — seasonal guide downloads (Phase 4 WS4C).
+ *
+ * Lists every available seasonal PDF guide. Each download gates on a
+ * newsletter signup via the existing Beehiiv endpoint
+ * (/components/SubscribeForm.astro pattern). Once the user submits an
+ * email, the static URL to the PDF is revealed and the email is added
+ * to the Peninsula This Weekend dispatch with a `seasonal-guide-<slug>`
+ * tag.
+ *
+ * v1 ships: Winter and Autumn guides. Adding more is a matter of adding
+ * an entry to GUIDES below, dropping a printable Astro page under
+ * /guides/<slug>/, and registering it in scripts/render-pdfs.mjs.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+interface Guide {
+  slug: string;
+  season: string;
+  title: string;
+  dek: string;
+  pages: number;
+  /** Editorial-readiness flag. Set to false until the PDF has been generated. */
+  ready: boolean;
+  /** The downloadable PDF path under /downloads/. */
+  pdf: string;
+  /** A printable preview page route (where the PDF is rendered from). */
+  previewRoute: string;
+  heroImage: string;
+}
+
+const GUIDES: Guide[] = [
+  {
+    slug: 'winter',
+    season: 'Winter',
+    title: 'A Mornington Peninsula Winter',
+    dek: "Cellar doors with fires lit, hot springs steaming, and the back-bay walks that win when the bay is grey. Eight pages, six venues, one sample weekend.",
+    pages: 8,
+    ready: true,
+    pdf: '/downloads/peninsula-insider-winter-guide.pdf',
+    previewRoute: '/guides/winter/',
+    heroImage: '/images/sourced/category-fireplace-01.webp',
+  },
+  {
+    slug: 'autumn',
+    season: 'Autumn',
+    title: 'A Mornington Peninsula Autumn',
+    dek: "Vintage running on the ridge, warm Saturdays at the markets, the season the Peninsula is at its most editorial. Eight pages, six venues, one sample weekend.",
+    pages: 8,
+    ready: true,
+    pdf: '/downloads/peninsula-insider-autumn-guide.pdf',
+    previewRoute: '/guides/autumn/',
+    heroImage: '/images/sourced/category-vineyard-01.webp',
+  },
+];
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Guides' },
+];
+---
+
+<BaseLayout
+  title="Seasonal Guides · Peninsula Insider"
+  description="Downloadable seasonal guides for the Mornington Peninsula. Winter, autumn, and the rest of the year as the Peninsula plays it."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/guides/"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Seasonal guides"
+    subEyebrow="Editorial PDFs"
+    title="The Peninsula, <em>by season</em>."
+    dek="Eight-page editorial guides — venues, walks, and a sample weekend, shaped for the time of year. Print one for the glove box, keep one in the kitchen drawer, forward one to the friend who is asking what to do."
+    gradient="journal"
+    visualLabel="Peninsula Insider · seasonal guides"
+  />
+
+  <section class="guides-page">
+    <div class="container">
+      <div class="guides-grid">
+        {GUIDES.map((g) => (
+          <article class={`guide-card guide-card--${g.slug}`}>
+            <div class="guide-card__hero" style={`background-image:url(${g.heroImage})`} aria-hidden="true"></div>
+            <div class="guide-card__body">
+              <p class="guide-card__season">{g.season}</p>
+              <h2 class="guide-card__title">{g.title}</h2>
+              <p class="guide-card__dek">{g.dek}</p>
+              <p class="guide-card__meta">{g.pages}-page PDF · No charge · No tracking</p>
+
+              {g.ready ? (
+                <form class="guide-card__form" data-guide-form data-guide-slug={g.slug} data-guide-pdf={g.pdf}>
+                  <label class="guide-card__form-label" for={`guide-email-${g.slug}`}>Where should we send it?</label>
+                  <div class="guide-card__form-row">
+                    <input
+                      id={`guide-email-${g.slug}`}
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="you@example.com"
+                      class="guide-card__form-input"
+                    />
+                    <button type="submit" class="guide-card__form-button">Get the {g.season} guide</button>
+                  </div>
+                  <p class="guide-card__form-fineprint">You'll join the Peninsula This Weekend dispatch. Unsubscribe any time.</p>
+                  <p class="guide-card__form-status" data-guide-status hidden></p>
+                </form>
+              ) : (
+                <p class="guide-card__form-fineprint">Coming soon.</p>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p class="guides-coming">
+        Spring and Summer guides land before the season they're named after. The Easter long-weekend special drops a fortnight ahead.
+      </p>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<script is:inline>
+  /* Newsletter-gate controller for seasonal-guide downloads.
+     POSTs to the existing Beehiiv subscribe edge function with a tag
+     'seasonal-guide-<slug>'; on success, swaps the form for a
+     download link to the static PDF. */
+  (function () {
+    var ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
+
+    function init() {
+      document.querySelectorAll('[data-guide-form]').forEach(function (form) {
+        if (form._piGuideBound) return;
+        form._piGuideBound = true;
+        var slug = form.getAttribute('data-guide-slug') || '';
+        var pdf = form.getAttribute('data-guide-pdf') || '';
+        var status = form.querySelector('[data-guide-status]');
+
+        function setStatus(kind, msg) {
+          if (!status) return;
+          status.textContent = msg;
+          status.setAttribute('data-status-kind', kind);
+          status.removeAttribute('hidden');
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var emailInput = form.querySelector('input[name="email"]');
+          var email = emailInput && emailInput.value && emailInput.value.trim();
+          if (!email) return;
+          var btn = form.querySelector('.guide-card__form-button');
+          if (btn) btn.setAttribute('disabled', '');
+          setStatus('info', 'Sending the link…');
+
+          fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              tags: ['seasonal-guide-' + slug],
+              source: 'guides-page',
+            }),
+          })
+            .then(function (r) {
+              if (!r.ok) throw new Error('subscribe failed: ' + r.status);
+              return r.json().catch(function () { return {}; });
+            })
+            .then(function () {
+              // Swap the form contents for a thank-you + download link.
+              form.innerHTML = ''
+                + '<p class="guide-card__success-label">Thanks. Your guide is ready.</p>'
+                + '<a class="guide-card__success-link" href="' + pdf + '" download>Download the ' + slug.charAt(0).toUpperCase() + slug.slice(1) + ' guide (PDF)</a>'
+                + '<p class="guide-card__form-fineprint">We just added you to the Peninsula This Weekend dispatch.</p>';
+            })
+            .catch(function (err) {
+              console.warn('[guides] subscribe failed:', err);
+              setStatus('error', "Couldn't send the guide. Try again or email hello@peninsulainsider.com.au.");
+              if (btn) btn.removeAttribute('disabled');
+            });
+        });
+      });
+    }
+
+    init();
+    document.addEventListener('astro:page-load', init);
+  })();
+</script>

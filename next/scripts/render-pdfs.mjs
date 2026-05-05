@@ -44,6 +44,18 @@ const TARGETS = [
     route: '/partners/advertising-kit/',
     out:   'peninsula-insider-advertising-kit.pdf',
   },
+  // Phase 4 WS4C — seasonal guides. Add an entry here when launching a
+  // new season (Spring, Summer, Easter long-weekend, etc).
+  {
+    label: 'Winter Guide',
+    route: '/guides/winter/',
+    out:   'peninsula-insider-winter-guide.pdf',
+  },
+  {
+    label: 'Autumn Guide',
+    route: '/guides/autumn/',
+    out:   'peninsula-insider-autumn-guide.pdf',
+  },
 ];
 
 const MIME = {
