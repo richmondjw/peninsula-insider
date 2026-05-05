@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.CQqq_nI_.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.C2q1b_5U.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="home" data-path="/itinerary/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/saved/" class="masthead__saved-link" data-saved-link hidden>
 Saved <span class="masthead__saved-count" data-saved-count hidden>0</span> </a> <a href="/itinerary/" class="masthead__saved-link" data-saved-link hidden>Itinerary</a> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
@@ -446,7 +446,7 @@ Ask The Insider for a recommendation
 })();
 </script>  <main data-pagefind-ignore>  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://peninsulainsider.com.au"},{"@type":"ListItem","position":2,"name":"My itinerary","item":"https://peninsulainsider.com.au/itinerary"}]}</script> <nav class="breadcrumbs" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumbs__list"> <li class="breadcrumbs__item"> <a href="/">Home</a> </li><li class="breadcrumbs__item"> <span aria-current="page">My itinerary</span> </li> </ol> </div> </nav> <section class="section-hero"> <div class="container"> <div class="section-hero__inner"> <div> <div class="section-hero__eyebrow"> <span class="label label--accent">My itinerary</span> <span class="section-hero__rule" aria-hidden="true"></span> <span class="label">Drag, sequence, plan</span> </div> <h1 class="section-hero__title">Build your <em>Peninsula</em> day.</h1> <p class="section-hero__dek">Drop saved venues and events into the order you&#39;d actually do them. We estimate the drive between stops so you can tell a 15-minute hop from a 50-minute trek. Print it for the glove box, share the link with a co-traveller, or open the whole route in Google Maps.</p> </div> <div class="section-hero__visual hero-grad--journal" aria-hidden="true"> <div class="section-hero__visual-fog"></div> <span class="section-hero__visual-label">Peninsula Insider · itinerary</span> </div> </div> </div> </section> <section class="itinerary-page" data-astro-cid-m3y7qxdy> <div class="container" data-astro-cid-m3y7qxdy> <!-- Empty state — visible until the user has at least one item. --> <div class="itinerary-empty" data-itinerary-empty data-astro-cid-m3y7qxdy> <p class="itinerary-empty__title" data-astro-cid-m3y7qxdy>Your itinerary is empty.</p> <p class="itinerary-empty__body" data-astro-cid-m3y7qxdy>Save venues and events from anywhere on the site, then come back here to sequence them.</p> <p class="itinerary-empty__cta-row" data-astro-cid-m3y7qxdy> <a href="/saved/" class="itinerary-empty__cta" data-astro-cid-m3y7qxdy>Open my shortlist</a> <button type="button" class="itinerary-empty__cta itinerary-empty__cta--ghost" data-itinerary-pull data-astro-cid-m3y7qxdy>
 Pull every saved item into the itinerary
-</button> </p> </div> <!-- Mode banner — appears in shared mode only.
+</button> </p> </div> <p class="cloud-sync-indicator" data-cloud-sync-status="anonymous" hidden data-astro-cid-m3y7qxdy> <span class="cloud-sync-indicator__dot" aria-hidden="true" data-astro-cid-m3y7qxdy></span> <span class="cloud-sync-indicator__text" data-astro-cid-m3y7qxdy></span> </p> <!-- Mode banner — appears in shared mode only.
            Two flavours:
              - Shared from another user: generic "import" copy.
              - Suggested by Ask The Insider: title + framing from the
@@ -515,6 +515,45 @@ Unsubscribe any time
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
     else init();
     document.addEventListener('astro:page-load', init);
+  })();
+</script> <script>
+  (function () {
+    var COPY = {
+      anonymous: 'Saved on this device',
+      pulling:   'Loading from your account…',
+      synced:    'Synced to your account',
+      pushing:   'Saving to your account…',
+      error:     'Saved locally · cloud sync unavailable',
+    };
+
+    function bind() {
+      var nodes = document.querySelectorAll('[data-cloud-sync-status]');
+      if (!nodes.length) return;
+
+      function apply(state) {
+        nodes.forEach(function (node) {
+          node.setAttribute('data-cloud-sync-status', state);
+          var text = node.querySelector('.cloud-sync-indicator__text');
+          if (text) text.textContent = COPY[state] || COPY.anonymous;
+          // Hide the badge entirely when the user is anonymous and the
+          // page already says "Saved on this device" elsewhere — keeps
+          // the surface uncluttered for the default case.
+          if (state === 'anonymous') node.setAttribute('hidden', '');
+          else node.removeAttribute('hidden');
+        });
+      }
+
+      // Initial state derives from the body data attribute set by CloudSync.
+      apply(document.body.getAttribute('data-cloud-sync') || 'anonymous');
+
+      window.addEventListener('pi:cloud-sync', function (e) {
+        var s = e && e.detail && e.detail.state;
+        if (s) apply(s);
+      });
+    }
+
+    bind();
+    document.addEventListener('astro:page-load', bind);
   })();
 </script>  </main> <footer class="v2-colophon"> <div class="v2-colophon__container"> <div class="v2-colophon__head"> <div class="v2-colophon__wordmark">Peninsula <em>Insider</em></div> <div class="v2-colophon__motto">— the independent guide to the Mornington Peninsula.</div> </div> <div class="v2-colophon__grid"> <div class="v2-col-sect v2-col-sect--brand"> <p>An editorial product about one small, well-defined place. Every venue visited. Every opinion earned. Dispatched weekly.</p> <span class="v2-col-sect__label">Vol 04 <span class="v2-col-sect__ornament">·</span> Autumn 2026 issue <span class="v2-col-sect__ornament">·</span> Published in Victoria.</span> </div> <nav class="v2-col-sect" aria-label="Departments"> <p class="v2-col-sect__title">Departments</p> <ul> <li><a href="/eat/">Eat &amp; Drink</a></li><li><a href="/stay/">Stay</a></li><li><a href="/wine/">Wine Country</a></li><li><a href="/explore/">Explore</a></li><li><a href="/golf/">Golf</a></li><li><a href="/spa/">Spa &amp; Wellness</a></li><li><a href="/fishing/">Fishing</a></li><li><a href="/boating/">Boating</a></li><li><a href="/escape/">Plans</a></li><li><a href="/tour/">Tours</a></li><li><a href="/tour-packages/">Tour Packages</a></li><li><a href="/whats-on/">What&#39;s On</a></li><li><a href="/journal/">Journal</a></li><li><a href="/dog-friendly/">Dog Friendly</a></li><li><a href="/weddings/">Weddings</a></li><li><a href="/corporate-events/">Corporate</a></li> </ul> </nav> <nav class="v2-col-sect" aria-label="Places"> <p class="v2-col-sect__title">Places</p> <ul> <li><a href="/places/red-hill/">Red Hill</a></li><li><a href="/places/sorrento/">Sorrento</a></li><li><a href="/places/flinders/">Flinders</a></li><li><a href="/places/mornington/">Mornington</a></li><li><a href="/places/portsea/">Portsea</a></li><li><a href="/places/main-ridge/">Main Ridge</a></li><li><a href="/places/mount-martha/">Mount Martha</a></li><li><a href="/places/rye/">Rye</a></li><li><a href="/places/merricks/">Merricks</a></li><li><a href="/places/balnarring/">Balnarring</a></li><li><a href="/places/dromana/">Dromana</a></li><li><a href="/places/point-nepean/">Point Nepean</a></li><li><a href="/places/">All places</a></li> </ul> </nav> <nav class="v2-col-sect" aria-label="Colophon"> <p class="v2-col-sect__title">Colophon</p> <ul> <li> <a href="/about/">About</a> </li><li> <a href="/methodology/">Methodology</a> </li><li> <a href="/partners/">Partner with us</a> </li><li> <a href="/contact/">Contact</a> </li><li> <a href="/newsletter/">Newsletter</a> </li><li> <a href="/privacy/">Privacy</a> </li><li> <a href="#cookie-settings" data-pi-consent="open">Cookie settings</a> </li> </ul> </nav> </div> <div class="v2-colophon__disclaimer"> <p>Peninsula Insider is an editorial platform sharing curated recommendations based on our own research and experience. While we aim to keep information accurate, details such as opening hours, pricing, and availability may change. Please confirm directly with venues before visiting.</p> <p>From time to time, we may work with partners or accept invitations. Where this occurs, it will be disclosed within the relevant content. Our recommendations remain independently curated.</p> </div> <div class="v2-colophon__social"> <a href="https://www.instagram.com/peninsula_insider/" target="_blank" rel="noopener noreferrer" class="v2-colophon__social-link">Instagram</a> </div> <div class="v2-colophon__foot"> <span>© 2026 Peninsula Insider <span class="v2-col-sect__ornament">·</span> All rights reserved.</span> <span><em>Built on the Peninsula, for the Peninsula.</em></span> </div> </div> </footer> <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
@@ -1694,7 +1733,8 @@ Reject non-essential
       }
     });
   })();
-</script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
+</script> <!-- Cross-device sync (Phase 3 WS3E). Bridges localStorage to Supabase
+       when the user is signed in. No-ops when auth isn't configured. --> <script type="module">function c(t){document.body.setAttribute("data-cloud-sync",t),document.querySelectorAll("[data-cloud-sync-status]").forEach(u=>{u.setAttribute("data-cloud-sync-status",t)}),window.dispatchEvent(new CustomEvent("pi:cloud-sync",{detail:{state:t}}))}c("anonymous");</script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. --> <a href="/newsletter/" class="subscribe-pill" aria-label="Subscribe to The Insider's Dispatch"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path> <polyline points="22,6 12,13 2,6"></polyline> </svg> <span class="subscribe-pill__label">Subscribe</span> </a> <script>
@@ -2123,7 +2163,13 @@ const experienceLookup = {"arthurs-seat-lookout":{"slug":"arthurs-seat-lookout",
       bindSortables();
     }
 
-    function persist() { write(state); }
+    function persist() {
+      write(state);
+      // Notify CloudSync (Phase 3 WS3E) so it can push to Supabase when
+      // the user is signed in. CloudSync swallows this event when auth
+      // isn't configured.
+      window.dispatchEvent(new CustomEvent('pi:itinerary-changed', { detail: { source: 'local' } }));
+    }
 
     /* ─── URL ingest (shared mode) ─────────────────────────────────────── */
     function normaliseKind(k) {
@@ -2343,6 +2389,14 @@ const experienceLookup = {"arthurs-seat-lookout":{"slug":"arthurs-seat-lookout",
           state = read();
           render();
         }
+      });
+      // CloudSync may overwrite the localStorage on sign-in. Re-render
+      // when it tells us the local store changed because of a cloud pull.
+      window.addEventListener('pi:itinerary-changed', function (e) {
+        var detail = (e && e.detail) || {};
+        if (detail.source !== 'cloud-pull') return;
+        state = read();
+        render();
       });
     }
 

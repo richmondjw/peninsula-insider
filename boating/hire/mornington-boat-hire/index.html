@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.CQqq_nI_.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.C2q1b_5U.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css"></head> <body data-page="boating" data-path="/boating/hire/mornington-boat-hire/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/saved/" class="masthead__saved-link" data-saved-link hidden>
 Saved <span class="masthead__saved-count" data-saved-count hidden>0</span> </a> <a href="/itinerary/" class="masthead__saved-link" data-saved-link hidden>Itinerary</a> <a href="/#newsletter" data-auth-anonymous>Subscribe</a> <a href="/about/">About</a> </div> </div> </div> </div> <!-- Row 2 — Brand --> <div class="masthead__brand"> <div class="container"> <div class="masthead__brand-inner"> <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
 Peninsula <span>Insider</span> </a> <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p> </div> </div> </div> <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
@@ -1707,7 +1707,8 @@ Reject non-essential
       }
     });
   })();
-</script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
+</script> <!-- Cross-device sync (Phase 3 WS3E). Bridges localStorage to Supabase
+       when the user is signed in. No-ops when auth isn't configured. --> <script type="module">function c(t){document.body.setAttribute("data-cloud-sync",t),document.querySelectorAll("[data-cloud-sync-status]").forEach(u=>{u.setAttribute("data-cloud-sync-status",t)}),window.dispatchEvent(new CustomEvent("pi:cloud-sync",{detail:{state:t}}))}c("anonymous");</script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. --> <a href="/newsletter/" class="subscribe-pill" aria-label="Subscribe to The Insider's Dispatch"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path> <polyline points="22,6 12,13 2,6"></polyline> </svg> <span class="subscribe-pill__label">Subscribe</span> </a> <script>
