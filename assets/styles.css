@@ -9709,3 +9709,594 @@ body.menu-open .subscribe-pill {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0.35; }
 }
+
+
+/* ============================================================================
+   COMMUNITY SUBMISSIONS (Phase 4 WS4D)
+   /submit/ form for reader-contributed local secrets.
+   ============================================================================ */
+
+.submit-page {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+.submit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+@media (min-width: 920px) {
+  .submit-grid { grid-template-columns: 320px 1fr; }
+}
+
+.submit-process {
+  list-style: none;
+  margin: 0.85rem 0 1.5rem;
+  padding: 0;
+  counter-reset: submit-step;
+}
+.submit-process li {
+  position: relative;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--dark);
+  padding: 0.55rem 0 0.55rem 2.2rem;
+  border-bottom: 1px dashed var(--border);
+  counter-increment: submit-step;
+}
+.submit-process li::before {
+  content: counter(submit-step);
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.submit-process li:last-child { border-bottom: 0; }
+
+.submit-rules-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 1.25rem 0 0.55rem;
+}
+.submit-rules {
+  list-style: disc inside;
+  padding: 0;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--soft);
+}
+.submit-rules li { margin-bottom: 0.4rem; }
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.submit-form__group {
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+.submit-form__legend {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0 0.4rem;
+  margin: 0;
+}
+.submit-form__field {
+  margin-top: 1rem;
+}
+.submit-form__label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.35rem;
+}
+.submit-form__input,
+.submit-form__textarea,
+.submit-form__select {
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--dark);
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+}
+.submit-form__textarea { resize: vertical; min-height: 9rem; }
+.submit-form__input:focus,
+.submit-form__textarea:focus,
+.submit-form__select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.submit-form__hint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0.35rem 0 0;
+}
+.submit-form__file {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+}
+.submit-form__submit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: flex-start;
+  margin-top: 0.5rem;
+}
+.submit-form__button {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg, #fff);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.85rem 1.4rem;
+  cursor: pointer;
+}
+.submit-form__button:disabled { opacity: 0.6; cursor: progress; }
+.submit-form__button:hover:not(:disabled) {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}
+.submit-form__caveat {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0;
+  max-width: 30rem;
+}
+.submit-form__status {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--border);
+}
+.submit-form__status[data-status-kind="success"] {
+  color: #2f6e3a;
+  border-color: rgba(47, 110, 58, 0.5);
+  background: rgba(47, 110, 58, 0.07);
+}
+.submit-form__status[data-status-kind="error"] {
+  color: #b14b3a;
+  border-color: rgba(177, 75, 58, 0.5);
+  background: rgba(177, 75, 58, 0.07);
+}
+.submit-form__status[data-status-kind="info"] {
+  color: var(--soft);
+}
+
+
+/* ============================================================================
+   PLACE SUBMIT CTA (Phase 4 WS4D)
+   "Got a Sorrento secret?" block at the foot of every /places/<slug>/ hub.
+   ============================================================================ */
+
+.place-submit-cta {
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+  border-top: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+}
+.place-submit-cta__inner {
+  max-width: 720px;
+}
+.place-submit-cta__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.55rem;
+}
+.place-submit-cta__body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark);
+  margin: 0 0 1rem;
+}
+.place-submit-cta__link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(167, 118, 55, 0.5);
+  padding-bottom: 0.1rem;
+}
+.place-submit-cta__link:hover {
+  border-bottom-color: var(--accent);
+  color: var(--text);
+}
+
+
+/* ============================================================================
+   GUIDES INDEX (Phase 4 WS4C)
+   /guides/ index page — newsletter-gated PDF download cards.
+   ============================================================================ */
+
+.guides-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+.guides-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+@media (min-width: 880px) { .guides-grid { grid-template-columns: 1fr 1fr; } }
+
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  overflow: hidden;
+}
+.guide-card__hero {
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg, #fff);
+}
+.guide-card__body {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.guide-card__season {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.guide-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+.guide-card__dek {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--soft);
+  margin: 0;
+}
+.guide-card__meta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+  margin: 0 0 0.6rem;
+}
+
+.guide-card__form {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.guide-card__form-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+}
+.guide-card__form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.guide-card__form-input {
+  flex: 1;
+  min-width: 12rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  color: var(--dark);
+}
+.guide-card__form-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.guide-card__form-button {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+.guide-card__form-button:disabled { opacity: 0.6; cursor: progress; }
+.guide-card__form-button:hover:not(:disabled) {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}
+.guide-card__form-fineprint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0;
+}
+.guide-card__form-status {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+.guide-card__form-status[data-status-kind="error"] { color: #b14b3a; }
+.guide-card__form-status[data-status-kind="info"] { color: var(--accent); }
+.guide-card__success-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+.guide-card__success-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-bottom: 0.45rem;
+}
+.guide-card__success-link:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
+
+.guides-coming {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--soft);
+  text-align: center;
+}
+
+
+/* ============================================================================
+   ALERTS PAGE (Phase 4 WS4B)
+   /alerts/ form to configure event alert subscriptions.
+   ============================================================================ */
+
+.alerts-page {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+.alerts-empty {
+  border: 1px dashed var(--border);
+  padding: clamp(1.25rem, 2.5vw, 2rem) 1.5rem;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.alerts-empty[hidden] { display: none; }
+.alerts-empty__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+.alerts-empty__body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--soft);
+  margin: 0;
+}
+
+.alerts-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 0.95rem 0 1.1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.alerts-toolbar[hidden] { display: none; }
+.alerts-toolbar__count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--soft);
+  margin: 0;
+}
+.alerts-toolbar__action {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  cursor: pointer;
+}
+.alerts-toolbar__action:disabled {
+  color: var(--soft);
+  border-color: var(--border);
+  cursor: default;
+}
+
+.alerts-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  padding: 0.9rem 1rem;
+}
+.alert-item__body { flex: 1; min-width: 0; }
+.alert-item__criteria {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+}
+.alert-item__delivery {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0.25rem 0 0;
+}
+.alert-item__remove {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--soft);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+.alert-item__remove:hover { color: var(--accent); border-color: var(--accent); }
+
+.alert-form {
+  border: 1px solid var(--border);
+  background: var(--bg, #fff);
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+.alert-form__heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 1rem;
+}
+.alert-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin-bottom: 0.95rem;
+}
+@media (min-width: 720px) {
+  .alert-form__grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+.alert-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.alert-form__field span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+}
+.alert-form__field select {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.alert-form__delivery {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.alert-form__delivery legend {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+  margin-bottom: 0.5rem;
+}
+.alert-form__delivery label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--dark);
+  cursor: pointer;
+}
+.alert-form__delivery input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--accent);
+}
+.alert-form__submit {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+}
+.alert-form__submit:hover {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}
