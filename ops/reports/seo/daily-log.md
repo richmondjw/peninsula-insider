@@ -661,10 +661,12 @@ Reverse-engineered the GSC Page Indexing report by inspecting all 418 known URLs
    https://peninsulainsider.com.au/whats-on/
    https://peninsulainsider.com.au/corporate-events/
    https://peninsulainsider.com.au/ask/
-   https://peninsulainsider.com.au/golf/
+   https://peninsulainsider.com.au/explore/golf/
    ```
 
    Five URLs, well within the 10/day quota.
+
+   **Note (correction 2026-05-05 evening)**: original list had `/golf/` which is a noindex redirect-stub pointing to `/explore/golf/`. GSC live test correctly returned "Excluded by noindex tag". Submit `/explore/golf/` instead — that's the canonical golf hub. Sitemap also corrected (PR #78) to remove `/golf/` and add `/explore/golf/`.
 
 ### Tomorrow's queue
 
