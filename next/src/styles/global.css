@@ -9941,3 +9941,163 @@ body.menu-open .subscribe-pill {
   border-bottom-color: var(--accent);
   color: var(--text);
 }
+
+
+/* ============================================================================
+   GUIDES INDEX (Phase 4 WS4C)
+   /guides/ index page — newsletter-gated PDF download cards.
+   ============================================================================ */
+
+.guides-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+.guides-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+@media (min-width: 880px) { .guides-grid { grid-template-columns: 1fr 1fr; } }
+
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  overflow: hidden;
+}
+.guide-card__hero {
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg, #fff);
+}
+.guide-card__body {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.guide-card__season {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.guide-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+.guide-card__dek {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--soft);
+  margin: 0;
+}
+.guide-card__meta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+  margin: 0 0 0.6rem;
+}
+
+.guide-card__form {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.guide-card__form-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+}
+.guide-card__form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.guide-card__form-input {
+  flex: 1;
+  min-width: 12rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  color: var(--dark);
+}
+.guide-card__form-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.guide-card__form-button {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+.guide-card__form-button:disabled { opacity: 0.6; cursor: progress; }
+.guide-card__form-button:hover:not(:disabled) {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}
+.guide-card__form-fineprint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0;
+}
+.guide-card__form-status {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+.guide-card__form-status[data-status-kind="error"] { color: #b14b3a; }
+.guide-card__form-status[data-status-kind="info"] { color: var(--accent); }
+.guide-card__success-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+.guide-card__success-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-bottom: 0.45rem;
+}
+.guide-card__success-link:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
+
+.guides-coming {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--soft);
+  text-align: center;
+}
