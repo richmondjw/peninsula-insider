@@ -217,9 +217,30 @@ const changeTypes = [
     }
   }
 
+  /**
+   * Pre-fill the venue field from a ?venue=<slug> query param. The
+   * operator dashboard sends users here with this hint when they click
+   * "Submit a change" on a claimed venue card. Falls back to manual
+   * entry if the slug doesn't resolve.
+   */
+  function applyVenueQueryParam() {
+    try {
+      const p = new URLSearchParams(window.location.search);
+      const slug = p.get('venue');
+      if (!slug) return;
+      const venueOptions = (typeof venueOptionsJson !== 'undefined') ? venueOptionsJson : null;
+      if (!venueOptions) return;
+      const match = venueOptions.find((v) => v.slug === slug);
+      if (!match) return;
+      const input = document.querySelector('#pu-venue');
+      if (input && !input.value) input.value = match.name;
+    } catch {}
+  }
+
   function init() {
     const form = document.querySelector('[data-partner-update-form]');
     if (!form) return;
+    applyVenueQueryParam();
     const status = document.querySelector('[data-partner-update-status]');
     const button = form.querySelector('.partner-update-form__button');
     const venueOptions = venueOptionsJson;

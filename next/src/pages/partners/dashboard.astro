@@ -1,0 +1,539 @@
+---
+/**
+ * /partners/dashboard/ — operator dashboard (Phase 6 WS6B).
+ *
+ * Auth-gated. When signed in, shows:
+ *   - Each claimed venue as a card with the live listing summary,
+ *     a "Submit a change" CTA pre-filled to that venue, and recent
+ *     change-request history.
+ *   - When no claims, a CTA leading to /partners/claim/.
+ *   - When claims pending, an "in verification" status panel.
+ *
+ * v1: editor approves claims manually in Supabase Studio. v1.x:
+ * automated email-domain match against the venue's website.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+
+const venuesAll = await getCollection('venues');
+// Build a slug → summary lookup that the client controller uses to
+// hydrate claimed venues without an extra round trip.
+const venueIndex = Object.fromEntries(
+  venuesAll.map((v) => {
+    const slug = routeSlug(v);
+    const placeId = typeof v.data.place === 'string' ? v.data.place : v.data.place?.id ?? '';
+    return [
+      slug,
+      {
+        slug,
+        name: v.data.name,
+        href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
+        type: v.data.type,
+        priceBand: v.data.priceBand ?? '',
+        placeName: String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+        signature: v.data.signature ?? '',
+        hero: v.data.heroImage?.src ?? '',
+      },
+    ];
+  }),
+);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Partner with us', href: '/partners/' },
+  { label: 'Operator dashboard' },
+];
+---
+
+<BaseLayout
+  title="Operator Dashboard · Peninsula Insider"
+  description="Manage your Peninsula Insider venue listing — submit hours / photo / event changes, see recent change-request history, claim a new venue."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Operator dashboard"
+    subEyebrow="Verified-operator surface"
+    title="Manage your <em>Peninsula Insider</em> listing."
+    dek="Submit hours updates, swap a hero photo, propose an event, or flag a closure. The editor reviews every request, applies the ones that hold up to verification, writes back if it doesn't. Claims approved manually in v1; automated email-domain verification follows."
+    gradient="journal"
+    visualLabel="Peninsula Insider · operator dashboard"
+  />
+
+  <section class="dashboard-page">
+    <div class="container">
+
+      <!-- Auth state — anonymous user prompt -->
+      <div class="dashboard-anonymous" data-dashboard-anonymous>
+        <p class="dashboard-anonymous__title">Sign in to your operator account.</p>
+        <p class="dashboard-anonymous__body">The dashboard is auth-gated. Sign in (or create an account, free) to claim your venue and start managing your listing.</p>
+        <button type="button" class="dashboard-anonymous__cta" data-open-auth>Sign in</button>
+        <p class="dashboard-anonymous__alt">
+          Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> — that path stays open.
+        </p>
+      </div>
+
+      <!-- Loading state -->
+      <div class="dashboard-loading" data-dashboard-loading hidden>
+        <p>Loading your dashboard…</p>
+      </div>
+
+      <!-- Empty state — signed in, no claims -->
+      <div class="dashboard-empty" data-dashboard-empty hidden>
+        <p class="dashboard-empty__title">No venues claimed yet.</p>
+        <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually — usually within a working day.</p>
+        <a href="/partners/claim/" class="dashboard-empty__cta">Claim your venue →</a>
+      </div>
+
+      <!-- Claims grid -->
+      <div class="dashboard-claims" data-dashboard-claims hidden>
+        <div class="dashboard-claims__head">
+          <p class="dashboard-claims__count" data-dashboard-claims-count></p>
+          <a href="/partners/claim/" class="dashboard-claims__add">+ Claim another venue</a>
+        </div>
+        <ul class="dashboard-claims__list" data-dashboard-claims-list></ul>
+      </div>
+
+      <!-- Recent change requests -->
+      <div class="dashboard-history" data-dashboard-history hidden>
+        <h2 class="dashboard-history__title">Recent change requests</h2>
+        <ul class="dashboard-history__list" data-dashboard-history-list></ul>
+        <p class="dashboard-history__empty" data-dashboard-history-empty hidden>No change requests yet. <a href="/partners/update/">Submit one →</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<script define:vars={{ venueIndex }}>
+  import { getSupabase, isAuthEnabled, onAuthChange, listOwnVenueClaims, listChangeRequestsForUser } from '../../lib/auth';
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function setVisible(selector, visible) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    if (visible) el.removeAttribute('hidden');
+    else el.setAttribute('hidden', '');
+  }
+
+  function renderClaim(claim) {
+    const v = venueIndex[claim.venue_slug];
+    const fallbackName = claim.venue_name || claim.venue_slug;
+    const heroBlock = v && v.hero
+      ? '<div class="dashboard-claim__hero" style="background-image:url(' + escapeHtml(v.hero) + ')"></div>'
+      : '<div class="dashboard-claim__hero dashboard-claim__hero--empty"></div>';
+    const meta = v
+      ? [v.priceBand, v.placeName, v.type].filter(Boolean).map(escapeHtml).join(' · ')
+      : escapeHtml(claim.venue_slug);
+    const statusLabel = ({
+      pending: 'Verification pending',
+      approved: 'Active',
+      revoked: 'Revoked',
+    })[claim.status] || claim.status;
+    const updateLink = v
+      ? '<a class="dashboard-claim__action" href="/partners/update/?venue=' + encodeURIComponent(claim.venue_slug) + '">Submit a change →</a>'
+      : '<a class="dashboard-claim__action" href="/partners/update/">Submit a change →</a>';
+    const viewLink = v
+      ? '<a class="dashboard-claim__action dashboard-claim__action--ghost" href="' + escapeHtml(v.href) + '" target="_blank" rel="noreferrer">View live listing →</a>'
+      : '';
+    return ''
+      + '<li class="dashboard-claim dashboard-claim--' + escapeHtml(claim.status) + '">'
+      +   heroBlock
+      +   '<div class="dashboard-claim__body">'
+      +     '<p class="dashboard-claim__status">' + escapeHtml(statusLabel) + '</p>'
+      +     '<h3 class="dashboard-claim__name">' + escapeHtml((v && v.name) || fallbackName) + '</h3>'
+      +     '<p class="dashboard-claim__meta">' + meta + '</p>'
+      +     (v && v.signature ? '<p class="dashboard-claim__signature">' + escapeHtml(v.signature) + '</p>' : '')
+      +     '<div class="dashboard-claim__actions">'
+      +       (claim.status === 'approved' ? updateLink : '')
+      +       viewLink
+      +     '</div>'
+      +   '</div>'
+      + '</li>';
+  }
+
+  function renderHistoryItem(req) {
+    const venueLabel = req.venue_name || req.venue_slug;
+    const date = req.created_at ? new Date(req.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+    const statusLabel = ({
+      pending: 'Pending',
+      'in-review': 'In review',
+      applied: 'Applied',
+      declined: 'Declined',
+    })[req.status] || req.status;
+    return ''
+      + '<li class="dashboard-history-item dashboard-history-item--' + escapeHtml(req.status) + '">'
+      +   '<div class="dashboard-history-item__head">'
+      +     '<p class="dashboard-history-item__type">' + escapeHtml(req.change_type) + '</p>'
+      +     '<p class="dashboard-history-item__status">' + escapeHtml(statusLabel) + '</p>'
+      +   '</div>'
+      +   '<p class="dashboard-history-item__venue"><strong>' + escapeHtml(venueLabel) + '</strong> · ' + escapeHtml(date) + '</p>'
+      +   '<p class="dashboard-history-item__body">' + escapeHtml(req.proposed_change || '').slice(0, 280) + (req.proposed_change && req.proposed_change.length > 280 ? '…' : '') + '</p>'
+      + '</li>';
+  }
+
+  async function load(user) {
+    if (!user) {
+      setVisible('[data-dashboard-anonymous]', true);
+      setVisible('[data-dashboard-loading]', false);
+      setVisible('[data-dashboard-empty]', false);
+      setVisible('[data-dashboard-claims]', false);
+      setVisible('[data-dashboard-history]', false);
+      return;
+    }
+
+    setVisible('[data-dashboard-anonymous]', false);
+    setVisible('[data-dashboard-loading]', true);
+
+    const [claims, history] = await Promise.all([
+      listOwnVenueClaims(user.id),
+      listChangeRequestsForUser(user.id),
+    ]);
+
+    setVisible('[data-dashboard-loading]', false);
+
+    if (claims.length === 0) {
+      setVisible('[data-dashboard-empty]', true);
+      setVisible('[data-dashboard-claims]', false);
+    } else {
+      setVisible('[data-dashboard-empty]', false);
+      setVisible('[data-dashboard-claims]', true);
+      const list = document.querySelector('[data-dashboard-claims-list]');
+      const count = document.querySelector('[data-dashboard-claims-count]');
+      if (list) list.innerHTML = claims.map(renderClaim).join('');
+      if (count) {
+        const approved = claims.filter((c) => c.status === 'approved').length;
+        const pending = claims.filter((c) => c.status === 'pending').length;
+        const bits = [];
+        if (approved > 0) bits.push(approved + ' active');
+        if (pending > 0) bits.push(pending + ' pending');
+        count.textContent = (bits.length ? bits.join(' · ') : claims.length + ' total');
+      }
+    }
+
+    // History panel — show always when signed in (lets the operator
+    // confirm that anonymous-then-claimed change requests still attach).
+    setVisible('[data-dashboard-history]', true);
+    const histList = document.querySelector('[data-dashboard-history-list]');
+    const histEmpty = document.querySelector('[data-dashboard-history-empty]');
+    if (history.length === 0) {
+      if (histList) histList.innerHTML = '';
+      if (histEmpty) histEmpty.removeAttribute('hidden');
+    } else {
+      if (histEmpty) histEmpty.setAttribute('hidden', '');
+      if (histList) histList.innerHTML = history.slice(0, 12).map(renderHistoryItem).join('');
+    }
+  }
+
+  async function init() {
+    if (!isAuthEnabled()) {
+      // Auth not configured — show the anonymous prompt with a note.
+      setVisible('[data-dashboard-anonymous]', true);
+      const anon = document.querySelector('[data-dashboard-anonymous] .dashboard-anonymous__body');
+      if (anon) anon.textContent = "Operator accounts aren't currently configured. The anonymous /partners/update/ form still works for ad-hoc updates.";
+      return;
+    }
+
+    const c = getSupabase();
+    if (!c) { load(null); return; }
+
+    const session = (await c.auth.getSession()).data.session;
+    load(session?.user ?? null);
+
+    // React to sign-in / sign-out without a page reload.
+    onAuthChange((user) => load(user));
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+  .dashboard-page {
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+  }
+
+  .dashboard-anonymous,
+  .dashboard-empty,
+  .dashboard-loading {
+    border: 1px dashed var(--border);
+    padding: clamp(1.5rem, 3vw, 2.5rem) 1.5rem;
+    text-align: center;
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  .dashboard-loading p,
+  .dashboard-anonymous__title,
+  .dashboard-empty__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+  }
+  .dashboard-anonymous__body,
+  .dashboard-empty__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--soft);
+    margin: 0 auto 1.25rem;
+    max-width: 38rem;
+  }
+  .dashboard-anonymous__cta,
+  .dashboard-empty__cta {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg, #fff);
+    border: 1px solid var(--accent);
+    padding: 0.7rem 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .dashboard-anonymous__cta:hover,
+  .dashboard-empty__cta:hover {
+    background: var(--text, #1a1a1a);
+    border-color: var(--text, #1a1a1a);
+  }
+  .dashboard-anonymous__alt {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--soft);
+    margin: 1rem 0 0;
+  }
+  .dashboard-anonymous__alt a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .dashboard-claims__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+  .dashboard-claims__count {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0;
+  }
+  .dashboard-claims__add {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(167, 118, 55, 0.5);
+  }
+  .dashboard-claims__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(0.85rem, 1.5vw, 1.25rem);
+  }
+  @media (min-width: 880px) {
+    .dashboard-claims__list { grid-template-columns: 1fr 1fr; }
+  }
+
+  .dashboard-claim {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    background: var(--bg, #fff);
+    overflow: hidden;
+  }
+  .dashboard-claim--pending { border-color: rgba(167, 118, 55, 0.5); }
+  .dashboard-claim--approved { border-color: var(--border); }
+  .dashboard-claim--revoked { opacity: 0.55; }
+
+  .dashboard-claim__hero {
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--paper, #fbf7f0);
+  }
+  .dashboard-claim__hero--empty {
+    background: linear-gradient(135deg, rgba(167, 118, 55, 0.12), rgba(223, 197, 158, 0.08));
+  }
+  .dashboard-claim__body {
+    padding: clamp(0.85rem, 1.5vw, 1.2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .dashboard-claim__status {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  .dashboard-claim--pending .dashboard-claim__status { color: #b3592a; }
+  .dashboard-claim--approved .dashboard-claim__status { color: #2f6e3a; }
+  .dashboard-claim--revoked .dashboard-claim__status { color: var(--soft); }
+
+  .dashboard-claim__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--text);
+    margin: 0;
+  }
+  .dashboard-claim__meta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--soft);
+    margin: 0;
+  }
+  .dashboard-claim__signature {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--dark);
+    margin: 0.2rem 0 0;
+  }
+  .dashboard-claim__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+  .dashboard-claim__action {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+  }
+  .dashboard-claim__action:hover {
+    background: var(--accent);
+    color: var(--bg, #fff);
+  }
+  .dashboard-claim__action--ghost {
+    color: var(--soft);
+    border-color: var(--border);
+  }
+  .dashboard-claim__action--ghost:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: transparent;
+  }
+
+  .dashboard-history {
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .dashboard-history__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 1rem;
+  }
+  .dashboard-history__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .dashboard-history-item {
+    border: 1px solid var(--border);
+    background: var(--paper, #fbf7f0);
+    padding: 0.85rem 1rem;
+  }
+  .dashboard-history-item__head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.85rem;
+  }
+  .dashboard-history-item__type {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  .dashboard-history-item__status {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0;
+  }
+  .dashboard-history-item--applied .dashboard-history-item__status { color: #2f6e3a; }
+  .dashboard-history-item--declined .dashboard-history-item__status { color: #b14b3a; }
+  .dashboard-history-item__venue {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--soft);
+    margin: 0.35rem 0 0.2rem;
+  }
+  .dashboard-history-item__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dark);
+    margin: 0;
+  }
+  .dashboard-history__empty {
+    margin: 1rem 0 0;
+    padding: 1rem;
+    border: 1px dashed var(--border);
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    color: var(--soft);
+  }
+  .dashboard-history__empty a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
