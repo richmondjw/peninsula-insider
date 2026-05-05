@@ -1,11 +1,11 @@
 -- ============================================================================
--- CONSOLIDATED MIGRATION: Phase 3 WS3E + all Phase 4 workstreams
--- Date: 2026-05-05
+-- CONSOLIDATED MIGRATION: pi schema bootstrap + Phase 3 WS3E + all Phase 4
+-- Date: 2026-05-05  (revised after first run failed: pi schema didn't exist)
 -- Project: PI auth Supabase (tjjhpvslpysfklwpqmgz)
 -- Schema: pi
 --
--- Single-paste deploy of every operational SQL change shipped between
--- Phase 3 WS3E and Phase 4 close. Combines:
+-- Single-paste deploy. Combines:
+--   0. pi schema bootstrap + grants + pi.profiles + auth trigger
 --   1. user_saves + user_itineraries     (Phase 3 WS3E)
 --   2. submissions                       (Phase 4 WS4D)
 --   3. event_alerts                      (Phase 4 WS4B)
@@ -23,10 +23,93 @@
 --   2. Paste this entire file
 --   3. Run. Expect 1-3 seconds total.
 --   4. Verify by opening any of the new tables in the Table Editor.
+--   5. Project Settings → API → Exposed schemas → add `pi` to the
+--      comma-separated list. Without this PostgREST won't expose the
+--      tables to the JS client.
 --
 -- The individual phase migrations remain in this folder for reference;
 -- this file is the deploy artifact.
 -- ============================================================================
+
+-- ─── 0. PI SCHEMA BOOTSTRAP ─────────────────────────────────────────────────
+-- Fresh deploy: the `pi` schema doesn't exist yet on this project. Create
+-- it with the standard Supabase role grants so PostgREST can expose
+-- tables in it once `pi` is added to the API settings' Exposed schemas
+-- list (manual UI step, see header).
+
+create schema if not exists pi;
+
+grant usage on schema pi to anon, authenticated, service_role;
+
+-- Default privileges so subsequent CREATE TABLE statements pick up the
+-- right access without per-table grants. authenticated gets full DML
+-- (gated by RLS); anon gets read+insert only (also RLS-gated; e.g. the
+-- submissions form needs anonymous insert).
+alter default privileges in schema pi grant all on tables to postgres, service_role;
+alter default privileges in schema pi grant select, insert, update, delete on tables to authenticated;
+alter default privileges in schema pi grant select, insert on tables to anon;
+alter default privileges in schema pi grant all on functions to postgres, service_role;
+alter default privileges in schema pi grant execute on functions to authenticated, anon;
+alter default privileges in schema pi grant all on sequences to postgres, service_role;
+alter default privileges in schema pi grant select, usage on sequences to authenticated, anon;
+
+-- ─── 0a. pi.profiles ────────────────────────────────────────────────────────
+-- Referenced by every editor-only RLS policy below. Mirrors the shape
+-- expected by next/src/lib/auth.ts (Profile type).
+create table if not exists pi.profiles (
+  id                uuid primary key references auth.users(id) on delete cascade,
+  display_name      text,
+  avatar_url        text,
+  bio               text,
+  is_editor         boolean not null default false,
+  newsletter_optin  boolean not null default false,
+  created_at        timestamptz not null default now()
+);
+comment on table pi.profiles is 'One row per auth.users entry. Auto-created on signup via trigger below.';
+
+-- Apply table-level grants explicitly (default-privileges only apply to
+-- *future* tables, so we need this for the ones declared in this file).
+grant select, insert, update, delete on pi.profiles to authenticated;
+grant select on pi.profiles to anon;
+
+alter table pi.profiles enable row level security;
+
+drop policy if exists "profiles_public_read" on pi.profiles;
+create policy "profiles_public_read" on pi.profiles for select using (true);
+
+drop policy if exists "profiles_self_insert" on pi.profiles;
+create policy "profiles_self_insert" on pi.profiles for insert with check (id = auth.uid());
+
+drop policy if exists "profiles_self_update" on pi.profiles;
+create policy "profiles_self_update" on pi.profiles for update
+  using (id = auth.uid()) with check (id = auth.uid());
+
+-- Auto-create a profile row whenever a new auth.users row is inserted.
+-- Standard Supabase pattern. The function runs as the table owner, so
+-- it bypasses RLS during the auto-insert.
+create or replace function pi.handle_new_user()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into pi.profiles (id) values (new.id) on conflict (id) do nothing;
+  return new;
+end;
+$$;
+
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute function pi.handle_new_user();
+
+-- Backfill: create a profile for every existing auth.users row that
+-- doesn't have one yet. Safe no-op if there are no users yet.
+insert into pi.profiles (id)
+select u.id from auth.users u
+left join pi.profiles p on p.id = u.id
+where p.id is null;
 
 -- ─── 1. PHASE 3 WS3E — user-saves + user-itineraries ────────────────────────
 
@@ -238,6 +321,27 @@ select v.category_slug, v.nominee_id, count(*)::integer as vote_count
 from pi.award_votes v
 group by v.category_slug, v.nominee_id;
 
+-- ─── 4b. EXPLICIT TABLE GRANTS ──────────────────────────────────────────────
+-- Default-privileges only cover *future* tables, so the tables created in
+-- this file need explicit grants. Roles still go through RLS, so this just
+-- opens the door — RLS does the gating.
+
+grant select, insert, update, delete on pi.user_saves         to authenticated;
+grant select, insert, update, delete on pi.user_itineraries   to authenticated;
+grant select, insert, update, delete on pi.event_alerts       to authenticated;
+grant select, insert, update, delete on pi.award_votes        to authenticated;
+
+grant select, insert on pi.submissions                        to anon, authenticated;
+grant select on pi.submissions                                to authenticated;
+grant update, delete on pi.submissions                        to authenticated;  -- editors via RLS
+
+grant select on pi.award_categories                           to anon, authenticated;
+grant select on pi.award_nominees                             to anon, authenticated;
+grant insert on pi.award_nominations                          to anon, authenticated;
+grant select on pi.award_nominations                          to authenticated;  -- editors via RLS
+
+grant select on pi.award_vote_counts                          to anon, authenticated;
+
 -- ─── 5. PHASE 4 WS4D — submissions storage bucket ──────────────────────────
 
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
@@ -272,9 +376,18 @@ create policy "submissions_bucket_editor_read"
 
 -- ============================================================================
 -- DONE. Verify by:
+--   select count(*) from pi.profiles;          -- 0 unless you've signed up
 --   select count(*) from pi.user_saves;        -- expect 0
 --   select count(*) from pi.submissions;       -- expect 0
 --   select count(*) from pi.event_alerts;      -- expect 0
 --   select count(*) from pi.award_categories;  -- expect 0 (editorial fills)
 --   select * from storage.buckets where id = 'submissions';  -- expect 1 row
+--
+-- After verification, do these two manual UI steps in Supabase Studio:
+--   A. Project Settings → API → Exposed schemas: add `pi` to the
+--      comma-separated list. Without this PostgREST won't expose the
+--      tables to the JS client even though they exist.
+--   B. Sign in once on the live site (or any auth flow that creates an
+--      auth.users row), then run the OPTIONAL editor-role flag block
+--      above with your email so you can manage Awards / Submissions.
 -- ============================================================================
