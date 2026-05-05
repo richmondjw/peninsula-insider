@@ -132,10 +132,99 @@ const breadcrumbItems = [
   <NewsletterBlock />
 </BaseLayout>
 
+<!-- Pass tier purchase controller (Phase 6 WS6A).
+     When Stripe is configured (PUBLIC_STRIPE_PUBLISHABLE_KEY + at least
+     one price id), the Insider/Founders forms swap to "Become an
+     Insider" / "Join the Founders' Circle" buttons that open Stripe
+     Checkout. When not configured, falls back to the waitlist email-
+     capture flow that posts to Beehiiv with a pass-interest-<tier>
+     tag. Same graceful-degradation pattern as the Phase 3 Supabase
+     wiring. -->
+<script>
+  import { isStripeEnabled, startPassCheckout } from '../lib/stripe';
+  import { getSupabase } from '../lib/auth';
+
+  async function activateStripeMode() {
+    if (!isStripeEnabled()) return false;
+
+    document.querySelectorAll('[data-pass-form]').forEach((form) => {
+      const tier = form.getAttribute('data-pass-tier') || 'insider';
+      // Replace the form contents with a Buy button + small interval
+      // toggle (insider only — founders is annual-only).
+      const isInsider = tier === 'insider';
+      form.innerHTML = ''
+        + '<p class="pass-tier__waitlist-label">Open the door</p>'
+        + (isInsider
+          ? '<div class="pass-tier__interval-row" role="radiogroup" aria-label="Billing interval">'
+          +   '<label><input type="radio" name="interval-' + tier + '" value="month" checked /> Monthly</label>'
+          +   '<label><input type="radio" name="interval-' + tier + '" value="year" /> Annual (save ~16%)</label>'
+          + '</div>'
+          : '')
+        + '<button type="submit" class="pass-tier__buy-button">'
+        +   (isInsider ? 'Become an Insider' : "Join the Founders' Circle")
+        + '</button>'
+        + '<p class="pass-tier__waitlist-note" data-pass-status hidden></p>';
+
+      const status = form.querySelector('[data-pass-status]');
+      const button = form.querySelector('.pass-tier__buy-button');
+
+      function setStatus(kind, msg) {
+        if (!status) return;
+        status.textContent = msg;
+        status.setAttribute('data-status-kind', kind);
+        status.removeAttribute('hidden');
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (button) button.setAttribute('disabled', '');
+        setStatus('info', 'Opening Stripe…');
+
+        const intervalInput = form.querySelector('input[name="interval-' + tier + '"]:checked');
+        const interval = intervalInput ? intervalInput.value : 'year';
+
+        // Lift the user's email from their session if signed in, so
+        // Checkout pre-fills it.
+        let userEmail;
+        const c = getSupabase();
+        if (c) {
+          const session = (await c.auth.getSession()).data.session;
+          userEmail = session?.user?.email;
+        }
+
+        const result = await startPassCheckout({ tier, interval, userEmail });
+        if (!result.ok) {
+          const errMsg = ({
+            'stripe-not-configured': "The Pass isn't quite open yet — try the waitlist below.",
+            'price-not-configured':  "Pricing for this tier isn't loaded yet — refresh and try again.",
+            'function-not-deployed': "The checkout endpoint isn't responding. Email hello@peninsulainsider.com.au and we'll set up your tier manually.",
+          })[result.error] || "Couldn't open checkout. Try once more, or email hello@peninsulainsider.com.au.";
+          setStatus('error', errMsg);
+          if (button) button.removeAttribute('disabled');
+          return;
+        }
+        window.location.href = result.url;
+      });
+    });
+
+    return true;
+  }
+
+  // Try Stripe mode first; if it returns false, the inline waitlist
+  // controller below stays bound and handles submission.
+  (async () => {
+    const activated = await activateStripeMode();
+    if (!activated) return;
+    document.body.setAttribute('data-pass-mode', 'stripe');
+  })();
+  document.addEventListener('astro:page-load', activateStripeMode);
+</script>
+
 <script is:inline>
-  /* Waitlist controller. POSTs to the existing pi-newsletter-subscribe
-     edge function with a pass-interest-<tier> tag so we capture leads
-     into the same Beehiiv list ahead of Stripe wiring. */
+  /* Waitlist controller (fallback). POSTs to the existing
+     pi-newsletter-subscribe edge function with a pass-interest-<tier>
+     tag so we capture leads into the same Beehiiv list ahead of Stripe
+     wiring. */
   (function () {
     var ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
 
