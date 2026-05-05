@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/BaseLayout.CNc2GRTC.css">
+  </script><link rel="stylesheet" href="/_astro/BaseLayout.CQqq_nI_.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.Ct5puxQ3.css">
 <style>.pi-cta{--pi-cta-paper: #FFFCF6;--pi-cta-terra: #8B4E3B;--pi-cta-ink: #2B2520;--pi-cta-rule: rgba(139, 78, 59, .2);margin:3rem auto;max-width:680px;display:flex;align-items:center;gap:1.25rem}.pi-cta--inline{margin:1.5rem 0}.pi-cta__rule{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--pi-cta-rule),transparent)}.pi-cta--inline .pi-cta__rule:first-child,.pi-cta--inline .pi-cta__rule:last-child{display:none}.pi-cta__btn{display:inline-flex;align-items:center;gap:.85rem;padding:.85rem 1.35rem .85rem .95rem;background:var(--pi-cta-paper);border:1px solid rgba(139,78,59,.22);border-radius:100px;cursor:pointer;font-family:inherit;color:inherit;text-align:left;box-shadow:0 1px #fffcf7cc inset,0 1px 2px #2218100a,0 8px 22px #2218100f;transition:transform .22s cubic-bezier(.22,.61,.36,1),box-shadow .22s cubic-bezier(.22,.61,.36,1),border-color .22s cubic-bezier(.22,.61,.36,1)}.pi-cta__btn:hover{transform:translateY(-2px);border-color:#8b4e3b73;box-shadow:0 1px #fffcf7cc inset,0 4px 12px #22181012,0 16px 36px #2218101a}.pi-cta__btn:hover .pi-cta__arrow{transform:translate(4px);color:var(--pi-cta-terra)}.pi-cta__avatar{position:relative;width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;background:radial-gradient(circle at 30% 30%,#fbf1de,#f0e2c7 70%,#e5d2af);border:1px solid rgba(139,78,59,.22);display:grid;place-items:center;box-shadow:0 1px 4px #22181014}.pi-cta__avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.pi-cta__fallback{font-family:Cormorant Garamond,Georgia,serif;font-style:italic;font-weight:600;color:var(--pi-cta-terra);font-size:1rem;line-height:1}.pi-cta__text{display:flex;flex-direction:column;gap:.18rem;min-width:0}.pi-cta__eyebrow{font-family:Outfit,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--pi-cta-terra)}.pi-cta__label{font-family:Cormorant Garamond,Georgia,serif;font-size:1.18rem;font-style:italic;font-weight:600;color:var(--pi-cta-ink);line-height:1.18;letter-spacing:-.005em}.pi-cta__hint{font-family:Outfit,sans-serif;font-size:.78rem;color:#2b252099;line-height:1.4}.pi-cta__arrow{font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;font-weight:600;color:#2b25208c;flex-shrink:0;transition:transform .22s ease,color .22s ease;margin-left:.5rem}@media(max-width:640px){.pi-cta{gap:.85rem;margin:2.25rem auto}.pi-cta__btn{gap:.7rem;padding:.7rem 1rem .7rem .7rem}.pi-cta__hint{display:none}.pi-cta__label{font-size:1.05rem}}.not-found__pi{display:flex;justify-content:center;margin-bottom:1.75rem}.not-found__avatar{position:relative;width:88px;height:88px;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 30% 30%,#fbf1de,#f0e2c7 70%,#e5d2af);border:1px solid rgba(139,78,59,.22);display:grid;place-items:center;box-shadow:0 4px 24px #2218101a}.not-found__avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.not-found__avatar-fallback{font-family:Cormorant Garamond,Georgia,serif;font-style:italic;font-weight:600;color:#8b4e3b;font-size:1.4rem;line-height:1}.not-found__code-mark{color:#8b4e3b;font-size:.6em;margin-left:.4em;letter-spacing:.4em}.not-found__nav-label{display:flex;align-items:center;gap:.85rem;margin:2rem 0 1.1rem;font-family:Outfit,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#8b4e3b}.not-found__nav-label:before,.not-found__nav-label:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(139,78,59,.32),transparent)}.not-found__nav-label>span{white-space:nowrap}
 </style></head> <body data-page="home" data-path="/404/"> <header class="masthead"> <!-- Row 1 — Utility --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__edition"> <span class="masthead__edition-mark">Vol 04</span> <span class="masthead__edition-label">The May Issue · May 2026</span> </span> <span class="masthead__weather"> <span class="masthead__weather-item"><strong>Port Phillip</strong> 16°C</span> <span class="masthead__weather-sep" aria-hidden="true">·</span> <span class="masthead__weather-item"><strong>Sunset</strong> 5:48 pm</span> </span> <div class="masthead__utility-links v2-util__links"> <a href="/saved/" class="masthead__saved-link" data-saved-link hidden>
@@ -742,6 +742,67 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
       }
     }
 
+    /**
+     * Phase 3 WS3D — concierge itinerary helpers.
+     *
+     * The backend can optionally include an `itinerary` field in the
+     * meta payload of a response. When present, the drawer renders a
+     * CTA card linking to the /itinerary/ builder with a base64url-
+     * encoded payload. See lib/concierge-itinerary.ts for the contract.
+     *
+     * Permissive parser: accepts and coerces variations since the
+     * producer is an LLM. Invalid payloads return null silently.
+     */
+    function parseConciergeItineraryFromPayload(input) {
+      if (!input || typeof input !== 'object') return null;
+      const itemsRaw = input.items;
+      if (!Array.isArray(itemsRaw) || itemsRaw.length === 0) return null;
+      const items = [];
+      for (const it of itemsRaw) {
+        if (!it || typeof it !== 'object') continue;
+        const kind = String(it.kind || '').toLowerCase();
+        if (kind !== 'venue' && kind !== 'event' && kind !== 'experience') continue;
+        const slug = String(it.slug || '').trim();
+        if (!slug) continue;
+        items.push({
+          kind: kind,
+          slug: slug,
+          dayId: typeof it.dayId === 'string' ? it.dayId : '',
+          note: typeof it.note === 'string' ? it.note : '',
+        });
+      }
+      if (items.length === 0) return null;
+      const days = [];
+      if (Array.isArray(input.days)) {
+        for (const d of input.days) {
+          if (!d || typeof d !== 'object') continue;
+          const id = String(d.id || '').trim();
+          const label = String(d.label || '').trim();
+          if (!id) continue;
+          days.push({ id: id, label: label || id });
+        }
+      }
+      return {
+        title: typeof input.title === 'string' ? input.title : '',
+        framing: typeof input.framing === 'string' ? input.framing : '',
+        items: items,
+        days: days,
+      };
+    }
+
+    function encodeAiPayload(it) {
+      try {
+        const json = JSON.stringify(it);
+        const bytes = new TextEncoder().encode(json);
+        let binary = '';
+        for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+        const b64 = btoa(binary);
+        return b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      } catch (_e) {
+        return '';
+      }
+    }
+
     function renderTile(rec, rank, idx) {
       const heroSrc = rec.hero_image ? escapeHtml(rec.hero_image) : null;
       const heroStyle = heroSrc ? "background-image: url('" + heroSrc + "')" : '';
@@ -985,6 +1046,32 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
           rail.innerHTML = recs.map((rec, i) => renderTile(rec, i + 1, i)).join('');
           // Place the rail OUTSIDE the prose card, like appendPiMessage does.
           proseContainer.insertAdjacentElement('afterend', rail);
+        }
+
+        // Phase 3 WS3D — recognise structured itinerary payloads from the
+        // concierge backend and render a "Sequence in builder" CTA. The
+        // backend doesn't speak this format yet; until it does, the
+        // condition below is silently false and nothing renders.
+        const itineraryPayload = parseConciergeItineraryFromPayload(payload && payload.itinerary);
+        if (itineraryPayload) {
+          const cta = document.createElement('div');
+          cta.className = 'ask-itinerary-cta';
+          const titleHtml = itineraryPayload.title
+            ? '<p class="ask-itinerary-cta__title">' + escapeHtml(itineraryPayload.title) + '</p>'
+            : '';
+          const framingHtml = itineraryPayload.framing
+            ? '<p class="ask-itinerary-cta__framing">' + escapeHtml(itineraryPayload.framing) + '</p>'
+            : '';
+          const aiHref = '/itinerary/?ai=' + encodeAiPayload(itineraryPayload);
+          cta.innerHTML = ''
+            + '<div class="ask-itinerary-cta__inner">'
+            +   '<p class="ask-itinerary-cta__label">Sequenced for you</p>'
+            +   titleHtml
+            +   framingHtml
+            +   '<p class="ask-itinerary-cta__count">' + itineraryPayload.items.length + ' stops</p>'
+            +   '<a class="ask-itinerary-cta__link" href="' + escapeHtml(aiHref) + '">Open in the itinerary builder →</a>'
+            + '</div>';
+          proseContainer.insertAdjacentElement('afterend', cta);
         }
 
         const followOn = Array.isArray(payload.follow_on) ? payload.follow_on : [];
