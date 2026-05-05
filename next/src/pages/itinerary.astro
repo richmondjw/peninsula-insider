@@ -25,6 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
 import { routeSlug, venueHrefPrefix } from '../lib/editorial';
 
 const venues = await getCollection('venues');
@@ -129,6 +130,11 @@ const breadcrumbItems = [
         </p>
       </div>
 
+      <p class="cloud-sync-indicator" data-cloud-sync-status="anonymous" hidden>
+        <span class="cloud-sync-indicator__dot" aria-hidden="true"></span>
+        <span class="cloud-sync-indicator__text"></span>
+      </p>
+
       <!-- Mode banner — appears in shared mode only.
            Two flavours:
              - Shared from another user: generic "import" copy.
@@ -166,6 +172,7 @@ const breadcrumbItems = [
   </section>
 
   <NewsletterBlock />
+  <CloudSyncIndicatorScript />
 </BaseLayout>
 
 <!-- SortableJS from CDN; lazy-loaded when the user has at least one item. -->
@@ -494,7 +501,13 @@ const breadcrumbItems = [
       bindSortables();
     }
 
-    function persist() { write(state); }
+    function persist() {
+      write(state);
+      // Notify CloudSync (Phase 3 WS3E) so it can push to Supabase when
+      // the user is signed in. CloudSync swallows this event when auth
+      // isn't configured.
+      window.dispatchEvent(new CustomEvent('pi:itinerary-changed', { detail: { source: 'local' } }));
+    }
 
     /* ─── URL ingest (shared mode) ─────────────────────────────────────── */
     function normaliseKind(k) {
@@ -714,6 +727,14 @@ const breadcrumbItems = [
           state = read();
           render();
         }
+      });
+      // CloudSync may overwrite the localStorage on sign-in. Re-render
+      // when it tells us the local store changed because of a cloud pull.
+      window.addEventListener('pi:itinerary-changed', function (e) {
+        var detail = (e && e.detail) || {};
+        if (detail.source !== 'cloud-pull') return;
+        state = read();
+        render();
       });
     }
 
