@@ -5,11 +5,23 @@ name: Build & deploy site to GitHub Pages
 #
 # Setup required (one-time):
 #   1. GitHub → repo Settings → Secrets and variables → Actions
-#   2. Add a *Variable* (or Secret if you prefer) named:
-#        PUBLIC_CONCIERGE_API_URL = https://peninsula-insider-platform-api.vercel.app
+#   2. Add the following Variables (or Secrets — Variables are fine for
+#      these since none of them are secret in the cryptographic sense;
+#      the publishable Supabase key is RLS-gated and ships in the static
+#      bundle anyway):
+#        PUBLIC_CONCIERGE_API_URL  = https://peninsula-insider-platform-api.vercel.app
+#        PUBLIC_SUPABASE_URL       = https://tjjhpvslpysfklwpqmgz.supabase.co
+#        PUBLIC_SUPABASE_ANON_KEY  = sb_publishable_... (or legacy eyJ... anon key)
 #
 # After that, every push to main rebuilds + commits the dist back to main.
 # GitHub Pages serves from main/root so the deploy is "automatic".
+#
+# If PUBLIC_SUPABASE_ANON_KEY is unset, next/src/lib/auth.ts gracefully
+# degrades to localStorage-only — saves and itineraries still work on
+# the device, but cross-device sync, signed-in award voting, and the
+# /submit/ form's database insert all silently no-op. So this isn't
+# strictly required for the site to *build*, but it is required for the
+# Phase 3+4 cloud features to actually work in production.
 
 on:
   push:
@@ -52,8 +64,16 @@ jobs:
         working-directory: next
         env:
           PUBLIC_CONCIERGE_API_URL: ${{ vars.PUBLIC_CONCIERGE_API_URL || secrets.PUBLIC_CONCIERGE_API_URL }}
+          # Phase 3+ — Supabase auth + cross-device sync. Anon (publishable)
+          # key is RLS-gated; safe to embed in the static bundle. URL is
+          # also non-sensitive (it's the project's public hostname). When
+          # either is unset, lib/auth.ts gracefully no-ops to localStorage.
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY || secrets.PUBLIC_SUPABASE_ANON_KEY }}
         run: |
           echo "Building with API URL: ${PUBLIC_CONCIERGE_API_URL:-(unset)}"
+          echo "Supabase URL configured:    $([ -n "$PUBLIC_SUPABASE_URL" ] && echo yes || echo no)"
+          echo "Supabase anon key configured: $([ -n "$PUBLIC_SUPABASE_ANON_KEY" ] && echo yes || echo no)"
           npm run build:search
 
       - name: Sync dist to repo root (mirrors build-live.sh)
