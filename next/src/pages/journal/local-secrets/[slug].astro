@@ -1,0 +1,175 @@
+---
+/**
+ * /journal/local-secrets/<slug>/ — single reader-submitted secret.
+ *
+ * Renders the markdown body plus contributor credit, optional editor
+ * note (we may add context the reader didn't include), and related
+ * venues / places where applicable.
+ */
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import VenueCard from '../../../components/VenueCard.astro';
+import PlaceCard from '../../../components/PlaceCard.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+
+export async function getStaticPaths() {
+  const secrets = await getCollection('localSecrets');
+  return secrets.map((entry) => ({
+    params: { slug: entry.id ?? entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const data = entry.data;
+
+const relatedVenues = await Promise.all(
+  (data.relatedVenues ?? []).map((ref) => getEntry(ref).catch(() => null)),
+).then((arr) => arr.filter((v): v is NonNullable<typeof v> => Boolean(v)));
+
+const relatedPlaces = await Promise.all(
+  (data.relatedPlaces ?? []).map((ref) => getEntry(ref).catch(() => null)),
+).then((arr) => arr.filter((p): p is NonNullable<typeof p> => Boolean(p)));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Journal', href: '/journal/' },
+  { label: 'Local Secrets', href: '/journal/local-secrets/' },
+  { label: data.title },
+];
+---
+
+<BaseLayout
+  title={`${data.title} · A Peninsula Insider Local Secret`}
+  description={`Reader-contributed Peninsula spot, submitted by ${data.contributor.name}.`}
+  section="journal"
+  noindex={data.sitemapExclude === true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="local-secret-detail">
+    <div class="container">
+      <p class="label label--accent">Local secret · contributed by {data.contributor.name}{data.contributor.handle ? ` · ${data.contributor.handle}` : ''}</p>
+      <h1 class="local-secret-detail__title">{data.title}</h1>
+      {data.placeName && <p class="local-secret-detail__place">{data.placeName}</p>}
+
+      {data.heroImage?.src && (
+        <figure class="local-secret-detail__hero">
+          <img src={data.heroImage.src} alt={data.heroImage.alt} loading="lazy" />
+          {data.heroImage.credit && <figcaption>{data.heroImage.credit}</figcaption>}
+        </figure>
+      )}
+
+      <div class="prose local-secret-detail__body">
+        <Content />
+      </div>
+
+      {data.editorNote && (
+        <aside class="local-secret-detail__editor">
+          <p class="local-secret-detail__editor-label">Editor's note</p>
+          <p class="local-secret-detail__editor-body">{data.editorNote}</p>
+        </aside>
+      )}
+
+      {(relatedVenues.length > 0 || relatedPlaces.length > 0) && (
+        <section class="local-secret-detail__related">
+          <p class="label label--accent">From the editorial corpus</p>
+          {relatedVenues.length > 0 && (
+            <div class="venues__grid">
+              {relatedVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+            </div>
+          )}
+          {relatedPlaces.length > 0 && (
+            <div class="venues__grid">
+              {relatedPlaces.map((place) => <PlaceCard place={place} />)}
+            </div>
+          )}
+        </section>
+      )}
+
+      <p class="local-secret-detail__contribute">
+        Got a Peninsula spot the rest of us should know about?
+        <a href="/submit/">Tell us your secret →</a>
+      </p>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .local-secret-detail { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+  .local-secret-detail__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0.45rem 0 0.5rem;
+  }
+  .local-secret-detail__place {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--soft);
+    margin: 0 0 1.5rem;
+  }
+  .local-secret-detail__hero {
+    margin: 1.5rem 0 1.75rem;
+  }
+  .local-secret-detail__hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .local-secret-detail__hero figcaption {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    color: var(--soft);
+    margin-top: 0.4rem;
+  }
+  .local-secret-detail__body { max-width: 38rem; }
+  .local-secret-detail__editor {
+    margin: 1.75rem 0;
+    padding: 1.1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: var(--paper, #fbf7f0);
+    max-width: 38rem;
+  }
+  .local-secret-detail__editor-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.45rem;
+  }
+  .local-secret-detail__editor-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--text);
+    margin: 0;
+  }
+  .local-secret-detail__related {
+    margin: 2.5rem 0;
+  }
+  .local-secret-detail__contribute {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--soft);
+  }
+  .local-secret-detail__contribute a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-left: 0.4rem;
+  }
+</style>
