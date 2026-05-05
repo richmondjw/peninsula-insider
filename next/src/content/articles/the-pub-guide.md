@@ -28,6 +28,15 @@ relatedVenues:
 relatedExperiences:
   - "mornington-foreshore-walk"
   - "balnarring-beach"
+# relatedArticles added 2026-05-05 (experiment 2026-05-05-02) to surface
+# unindexed sibling food/pub articles via the rendered Related rail.
+relatedArticles:
+  - "the-pub-crawl"
+  - "where-to-eat-without-a-booking"
+  - "best-brunch-mornington-peninsula"
+  - "waterfront-restaurants-mornington-peninsula"
+  - "the-seafood-list"
+  - "where-to-eat-mornington-peninsula"
 readingTimeMinutes: 7
 featured: false
 status: "published"

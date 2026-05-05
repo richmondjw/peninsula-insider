@@ -69,8 +69,15 @@ export const GET: APIRoute = async () => {
   // and /explore/walks/); listing redirect URLs in the sitemap creates noise
   // for crawlers. /whats-on/, /golf/, and /dog-friendly/ are real lanes and
   // were missing from this list previously.
+  // Promoted to priority 1.0 (alongside the homepage) on 2026-05-05 because
+  // GSC inspection showed dog-friendly, whats-on, corporate-events, and golf
+  // had never been crawled despite being internally linked from 500+ pages.
+  // The site-wide nav links were not winning crawl priority. Bumping these to
+  // 1.0 alongside the canonical-home homepage signals "treat as top-tier hubs".
+  // See ops/reports/seo/experiments.md experiment 2026-05-05-01.
+  const TOP_HUBS = new Set(['dog-friendly', 'whats-on', 'corporate-events', 'fishing', 'golf', 'ask']);
   for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'journal', 'places', 'whats-on', 'golf', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
-    entries.push(url(`/${section}`, 0.9, 'weekly'));
+    entries.push(url(`/${section}`, TOP_HUBS.has(section) ? 1.0 : 0.9, 'weekly'));
   }
   // /fishing/ and /boating/ sub-hubs — emit unconditionally so crawlers find
   // them once Phase 1 ships, even before all leaf entities are populated.
@@ -82,8 +89,9 @@ export const GET: APIRoute = async () => {
   for (const pillar of ['fishing/seasons/snapper-run-oct-dec', 'fishing/charters/first-charter-guide', 'boating/tides-safety', 'tour/fishing-tours']) {
     entries.push(url(`/${pillar}`, 0.7, 'monthly'));
   }
-  // Concierge surfaces — chat front page + vendor intake.
-  entries.push(url('/ask', 0.8, 'weekly'));
+  // Concierge surfaces — chat front page + vendor intake. /ask bumped to 1.0
+  // alongside other top hubs (see TOP_HUBS comment above).
+  entries.push(url('/ask', 1.0, 'weekly'));
   entries.push(url('/partners/apply', 0.5, 'monthly'));
 
   // Best-of pages
