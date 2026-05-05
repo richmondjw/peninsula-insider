@@ -21,6 +21,7 @@ import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
+import CloudSync from '../components/CloudSync.astro';
 
 export interface Props {
   title: string;
@@ -230,6 +231,10 @@ const isAskPage = rawPathname.startsWith('/ask');
   <!-- Save / share-list controller (Phase 2 WS2E). Site-wide; binds save
        buttons on every page, owns localStorage, exposes window.PISave. -->
   <SaveSiteController />
+
+  <!-- Cross-device sync (Phase 3 WS3E). Bridges localStorage to Supabase
+       when the user is signed in. No-ops when auth isn't configured. -->
+  <CloudSync />
 
   <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account

@@ -17,6 +17,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
 import { routeSlug, venueHrefPrefix } from '../lib/editorial';
 
 const venues = await getCollection('venues');
@@ -90,6 +91,11 @@ const breadcrumbItems = [
         </div>
       </aside>
 
+      <p class="cloud-sync-indicator" data-cloud-sync-status="anonymous" hidden>
+        <span class="cloud-sync-indicator__dot" aria-hidden="true"></span>
+        <span class="cloud-sync-indicator__text"></span>
+      </p>
+
       <div class="saved-toolbar">
         <p class="saved-toolbar__count" data-saved-toolbar-count></p>
         <div class="saved-toolbar__actions">
@@ -114,6 +120,7 @@ const breadcrumbItems = [
   </section>
 
   <NewsletterBlock />
+  <CloudSyncIndicatorScript />
 </BaseLayout>
 
 <script

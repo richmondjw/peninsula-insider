@@ -1,0 +1,215 @@
+---
+/**
+ * CloudSync — Phase 3 WS3E.
+ *
+ * Mounted once by BaseLayout AFTER SaveSiteController. Bridges the
+ * localStorage stores (`pi:saved:v1`, `pi:itinerary:v1`) and the user's
+ * Supabase rows (`pi.user_saves`, `pi.user_itineraries`).
+ *
+ * Sync model — local is the optimistic cache, cloud is the source of
+ * truth when authenticated:
+ *
+ *   1. On auth state change (sign-in or page load with existing session):
+ *      pull cloud → overwrite local. The user's most recent device-of-
+ *      record wins on first sync.
+ *   2. On `pi:save-changed` or `pi:itinerary-changed`: push local → cloud
+ *      (debounced 600ms so rapid edits collapse into one round trip).
+ *   3. On sign-out: stop syncing. The local store stays as the
+ *      anonymous shortlist; the cloud row is preserved for the next
+ *      sign-in.
+ *
+ * If Supabase auth isn't configured (e.g. no PUBLIC_SUPABASE_ANON_KEY),
+ * this component does nothing — `pi:saved:v1` and `pi:itinerary:v1`
+ * keep working locally without any change.
+ */
+---
+
+<script>
+  import { getSupabase, isAuthEnabled, onAuthChange, listUserSaves, syncUserSaves, getUserItinerary, syncUserItinerary } from '../lib/auth';
+
+  type LocalSaveItem = { slug: string; title?: string; href?: string; savedAt?: number };
+  type LocalSaveStore = { version: 1; venues: LocalSaveItem[]; events: LocalSaveItem[] };
+
+  type ItineraryItem = { kind: 'venue' | 'event' | 'experience'; slug: string; dayId?: string; note?: string };
+  type ItineraryDay = { id: string; label: string };
+  type ItineraryStore = { version: 1; items: ItineraryItem[]; days: ItineraryDay[] };
+
+  const SAVE_KEY = 'pi:saved:v1';
+  const ITIN_KEY = 'pi:itinerary:v1';
+
+  function readSave(): LocalSaveStore {
+    try {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) return { version: 1, venues: [], events: [] };
+      const p = JSON.parse(raw);
+      return {
+        version: 1,
+        venues: Array.isArray(p?.venues) ? p.venues : [],
+        events: Array.isArray(p?.events) ? p.events : [],
+      };
+    } catch {
+      return { version: 1, venues: [], events: [] };
+    }
+  }
+  function writeSave(s: LocalSaveStore) {
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify(s)); } catch {}
+  }
+  function readItinerary(): ItineraryStore {
+    try {
+      const raw = localStorage.getItem(ITIN_KEY);
+      if (!raw) return { version: 1, items: [], days: [] };
+      const p = JSON.parse(raw);
+      return {
+        version: 1,
+        items: Array.isArray(p?.items) ? p.items : [],
+        days: Array.isArray(p?.days) ? p.days : [],
+      };
+    } catch {
+      return { version: 1, items: [], days: [] };
+    }
+  }
+  function writeItinerary(s: ItineraryStore) {
+    try { localStorage.setItem(ITIN_KEY, JSON.stringify(s)); } catch {}
+  }
+
+  /** Update the body data attribute + every [data-cloud-sync-status] node. */
+  function setStatus(state: 'anonymous' | 'pulling' | 'synced' | 'pushing' | 'error') {
+    document.body.setAttribute('data-cloud-sync', state);
+    document.querySelectorAll('[data-cloud-sync-status]').forEach((el) => {
+      el.setAttribute('data-cloud-sync-status', state);
+    });
+    // Lightweight event consumers in /saved/ and /itinerary/ can listen to
+    // re-render their "synced to your account" indicator.
+    window.dispatchEvent(new CustomEvent('pi:cloud-sync', { detail: { state } }));
+  }
+
+  if (!isAuthEnabled()) {
+    setStatus('anonymous');
+  } else {
+    let currentUserId: string | null = null;
+    let saveDebounce: ReturnType<typeof setTimeout> | null = null;
+    let itinDebounce: ReturnType<typeof setTimeout> | null = null;
+
+    /**
+     * Pull on sign-in:
+     *  - Cloud saves overwrite local saves.
+     *  - Cloud itinerary overwrites local itinerary IFF cloud has items;
+     *    otherwise local stays (so a first-time sign-in carries the
+     *    anonymous itinerary up to the cloud as soon as a change fires).
+     */
+    async function pullFromCloud(userId: string) {
+      setStatus('pulling');
+      try {
+        const cloudSaves = await listUserSaves(userId);
+        const venues: LocalSaveItem[] = [];
+        const events: LocalSaveItem[] = [];
+        cloudSaves.forEach((row) => {
+          const item: LocalSaveItem = {
+            slug: row.slug,
+            title: row.title ?? undefined,
+            href: row.href ?? undefined,
+            savedAt: new Date(row.saved_at).getTime(),
+          };
+          // 'experience' kind isn't first-class in the Phase 2 SaveSiteController
+          // yet (only venue + event). Carry it on the 'venues' bucket for now;
+          // a follow-up can split into a third bucket when SaveSiteController
+          // grows native experience support.
+          if (row.kind === 'event') events.push(item);
+          else venues.push(item);
+        });
+        writeSave({ version: 1, venues, events });
+        // Tell SaveSiteController to refresh from disk.
+        window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { source: 'cloud-pull' } }));
+
+        const cloudItin = await getUserItinerary(userId);
+        if (cloudItin && cloudItin.items.length > 0) {
+          writeItinerary({
+            version: 1,
+            items: cloudItin.items.map((it) => ({
+              kind: it.kind,
+              slug: it.slug,
+              dayId: it.dayId ?? '',
+              note: it.note ?? '',
+            })),
+            days: cloudItin.days ?? [],
+          });
+          window.dispatchEvent(new CustomEvent('pi:itinerary-changed', { detail: { source: 'cloud-pull' } }));
+        }
+        setStatus('synced');
+      } catch (err) {
+        console.warn('[cloud-sync] pull failed:', err);
+        setStatus('error');
+      }
+    }
+
+    async function pushSaves() {
+      if (!currentUserId) return;
+      setStatus('pushing');
+      const local = readSave();
+      const flat: Array<{ kind: 'venue' | 'event' | 'experience'; slug: string; title?: string; href?: string; savedAt?: number }> = [];
+      local.venues.forEach((v) => flat.push({ kind: 'venue', slug: v.slug, title: v.title, href: v.href, savedAt: v.savedAt }));
+      local.events.forEach((e) => flat.push({ kind: 'event', slug: e.slug, title: e.title, href: e.href, savedAt: e.savedAt }));
+      const result = await syncUserSaves(currentUserId, flat);
+      setStatus(result.ok ? 'synced' : 'error');
+    }
+
+    async function pushItinerary() {
+      if (!currentUserId) return;
+      setStatus('pushing');
+      const local = readItinerary();
+      const result = await syncUserItinerary(currentUserId, local.items, local.days);
+      setStatus(result.ok ? 'synced' : 'error');
+    }
+
+    function scheduleSaveSync() {
+      if (!currentUserId) return;
+      if (saveDebounce) clearTimeout(saveDebounce);
+      saveDebounce = setTimeout(() => { pushSaves(); saveDebounce = null; }, 600);
+    }
+
+    function scheduleItinerarySync() {
+      if (!currentUserId) return;
+      if (itinDebounce) clearTimeout(itinDebounce);
+      itinDebounce = setTimeout(() => { pushItinerary(); itinDebounce = null; }, 600);
+    }
+
+    // Listen for local-store events. Skip when the change came from a
+    // cloud pull (we don't want to push back what we just pulled).
+    window.addEventListener('pi:save-changed', (e: Event) => {
+      const detail = (e as CustomEvent).detail || {};
+      if (detail.source === 'cloud-pull') return;
+      scheduleSaveSync();
+    });
+    window.addEventListener('pi:itinerary-changed', (e: Event) => {
+      const detail = (e as CustomEvent).detail || {};
+      if (detail.source === 'cloud-pull') return;
+      scheduleItinerarySync();
+    });
+
+    // Initial state + auth subscription.
+    onAuthChange((user) => {
+      if (user) {
+        currentUserId = user.id;
+        pullFromCloud(user.id);
+      } else {
+        currentUserId = null;
+        if (saveDebounce) { clearTimeout(saveDebounce); saveDebounce = null; }
+        if (itinDebounce) { clearTimeout(itinDebounce); itinDebounce = null; }
+        setStatus('anonymous');
+      }
+    });
+
+    // Boot: if there's already a session, kick a pull.
+    (async () => {
+      const c = getSupabase();
+      if (!c) { setStatus('anonymous'); return; }
+      const { data } = await c.auth.getSession();
+      if (data.session?.user) {
+        currentUserId = data.session.user.id;
+        await pullFromCloud(currentUserId);
+      } else {
+        setStatus('anonymous');
+      }
+    })();
+  }
+</script>

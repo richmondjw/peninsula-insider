@@ -9653,3 +9653,59 @@ body.menu-open .subscribe-pill {
   .itinerary-gap__line { background: #000; }
   .itinerary-gap__label { color: #000; }
 }
+
+
+/* ============================================================================
+   CLOUD SYNC INDICATOR (Phase 3 WS3E)
+   "Synced to your account" badge on /saved/ and /itinerary/. Hidden when
+   the user is anonymous (since the page already says "Saved on this device"
+   elsewhere).
+   ============================================================================ */
+
+.cloud-sync-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  padding: 0.4rem 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  background: var(--paper, #fbf7f0);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.cloud-sync-indicator[hidden] { display: none; }
+.cloud-sync-indicator__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--soft);
+  flex-shrink: 0;
+}
+[data-cloud-sync-status="synced"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+[data-cloud-sync-status="synced"] .cloud-sync-indicator__dot {
+  background: var(--accent);
+}
+[data-cloud-sync-status="pulling"] .cloud-sync-indicator__dot,
+[data-cloud-sync-status="pushing"] .cloud-sync-indicator__dot {
+  background: var(--accent);
+  animation: cloud-sync-pulse 1s ease-in-out infinite;
+}
+[data-cloud-sync-status="error"] {
+  color: #b14b3a;
+  border-color: rgba(177, 75, 58, 0.5);
+}
+[data-cloud-sync-status="error"] .cloud-sync-indicator__dot {
+  background: #b14b3a;
+}
+@keyframes cloud-sync-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
