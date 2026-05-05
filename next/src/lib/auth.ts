@@ -377,3 +377,76 @@ export async function syncUserAlerts(
     return { ok: false, error: (err as Error).message };
   }
 }
+
+// ---- Venue claims (Phase 6 WS6B) ------------------------------------------
+
+export type VenueClaim = {
+  id: string;
+  user_id: string;
+  venue_slug: string;
+  venue_name: string | null;
+  operator_role: string | null;
+  proof: string | null;
+  status: 'pending' | 'approved' | 'revoked';
+  editor_notes: string | null;
+  decision_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export async function listOwnVenueClaims(userId: string): Promise<VenueClaim[]> {
+  const c = getSupabase();
+  if (!c) return [];
+  try {
+    const { data, error } = await c
+      .from('venue_claims')
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false });
+    if (error) return [];
+    return (data ?? []) as VenueClaim[];
+  } catch {
+    return [];
+  }
+}
+
+export async function submitVenueClaim(
+  userId: string,
+  payload: { venue_slug: string; venue_name: string; operator_role?: string; proof?: string },
+): Promise<{ ok: boolean; error?: string; claim?: VenueClaim }> {
+  const c = getSupabase();
+  if (!c) return { ok: false, error: 'Auth not configured' };
+  try {
+    const { data, error } = await c
+      .from('venue_claims')
+      .insert({
+        user_id: userId,
+        venue_slug: payload.venue_slug,
+        venue_name: payload.venue_name,
+        operator_role: payload.operator_role ?? null,
+        proof: payload.proof ?? null,
+      })
+      .select()
+      .single();
+    if (error) return { ok: false, error: error.message };
+    return { ok: true, claim: data as VenueClaim };
+  } catch (err) {
+    return { ok: false, error: (err as Error).message };
+  }
+}
+
+export async function listChangeRequestsForUser(userId: string): Promise<Array<Record<string, any>>> {
+  const c = getSupabase();
+  if (!c) return [];
+  try {
+    const { data, error } = await c
+      .from('venue_change_requests')
+      .select('id, venue_slug, venue_name, change_type, proposed_change, status, created_at, decision_at')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false });
+    if (error) return [];
+    return data ?? [];
+  } catch {
+    return [];
+  }
+}
