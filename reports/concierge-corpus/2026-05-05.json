@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-05T08:13:38.184Z",
-  "trigger": "push",
+  "run_id": "2026-05-05T11:54:33.207Z",
+  "trigger": "schedule",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 6.2,
-  "git_sha": "e8ab1b3",
+  "duration_seconds": 6.8,
+  "git_sha": "2d0e5d7",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
