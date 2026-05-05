@@ -117,6 +117,15 @@ jobs:
           echo "Built $page_count pages"
 
       - name: Commit and push deploy
+        env:
+          # Pass the trigger commit message via env var rather than
+          # ${{ github.event.head_commit.message }} inline. The template
+          # substitution dumps the raw message into the generated shell
+          # script, so any backtick / quote / parens in the message
+          # produces a shell parse error and the deploy fails before push.
+          # See: failed runs #159, #160, #163 (commit messages that
+          # referenced `pi.submissions` etc. in backticks).
+          HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
         run: |
           git config user.name  "peninsula-insider-deploy[bot]"
           git config user.email "deploy@peninsulainsider.com.au"
@@ -128,9 +137,11 @@ jobs:
             exit 0
           fi
 
-          # Use a heredoc + first-line-only of the trigger commit message to
-          # avoid shell-injection from quotes/special chars in commit text.
-          TRIGGER_MSG=$(echo "${{ github.event.head_commit.message }}" | head -1 | tr -d '"' | tr -d '`')
+          # First line of the trigger message, stripped of quotes + backticks.
+          # Reads HEAD_COMMIT_MSG from the env block above; the value never
+          # touches the shell parser as source so any character in the
+          # message is safe.
+          TRIGGER_MSG=$(printf '%s\n' "$HEAD_COMMIT_MSG" | head -1 | tr -d '"' | tr -d '`' | tr -d '$')
           git commit -F - <<EOF
           build: deploy site (auto) [skip ci]
 
