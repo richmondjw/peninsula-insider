@@ -56,6 +56,21 @@ const TARGETS = [
     route: '/guides/autumn/',
     out:   'peninsula-insider-autumn-guide.pdf',
   },
+  {
+    label: 'Spring Guide',
+    route: '/guides/spring/',
+    out:   'peninsula-insider-spring-guide.pdf',
+  },
+  {
+    label: 'Summer Guide',
+    route: '/guides/summer/',
+    out:   'peninsula-insider-summer-guide.pdf',
+  },
+  {
+    label: 'Easter Long-Weekend Guide',
+    route: '/guides/easter-long-weekend/',
+    out:   'peninsula-insider-easter-long-weekend-guide.pdf',
+  },
 ];
 
 const MIME = {
