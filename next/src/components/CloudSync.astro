@@ -25,7 +25,7 @@
 ---
 
 <script>
-  import { getSupabase, isAuthEnabled, onAuthChange, listUserSaves, syncUserSaves, getUserItinerary, syncUserItinerary } from '../lib/auth';
+  import { getSupabase, isAuthEnabled, onAuthChange, listUserSaves, syncUserSaves, getUserItinerary, syncUserItinerary, listUserAlerts, syncUserAlerts } from '../lib/auth';
 
   type LocalSaveItem = { slug: string; title?: string; href?: string; savedAt?: number };
   type LocalSaveStore = { version: 1; venues: LocalSaveItem[]; events: LocalSaveItem[] };
@@ -36,6 +36,7 @@
 
   const SAVE_KEY = 'pi:saved:v1';
   const ITIN_KEY = 'pi:itinerary:v1';
+  const ALERT_KEY = 'pi:alerts:v1';
 
   function readSave(): LocalSaveStore {
     try {
@@ -72,6 +73,20 @@
     try { localStorage.setItem(ITIN_KEY, JSON.stringify(s)); } catch {}
   }
 
+  type AlertItem = { id: string; category?: string; place_slug?: string; lens?: string; email?: boolean; browser?: boolean; created_at?: number };
+  type AlertStore = { version: 1; items: AlertItem[] };
+  function readAlerts(): AlertStore {
+    try {
+      const raw = localStorage.getItem(ALERT_KEY);
+      if (!raw) return { version: 1, items: [] };
+      const p = JSON.parse(raw);
+      return { version: 1, items: Array.isArray(p?.items) ? p.items : [] };
+    } catch { return { version: 1, items: [] }; }
+  }
+  function writeAlerts(s: AlertStore) {
+    try { localStorage.setItem(ALERT_KEY, JSON.stringify(s)); } catch {}
+  }
+
   /** Update the body data attribute + every [data-cloud-sync-status] node. */
   function setStatus(state: 'anonymous' | 'pulling' | 'synced' | 'pushing' | 'error') {
     document.body.setAttribute('data-cloud-sync', state);
@@ -89,6 +104,7 @@
     let currentUserId: string | null = null;
     let saveDebounce: ReturnType<typeof setTimeout> | null = null;
     let itinDebounce: ReturnType<typeof setTimeout> | null = null;
+    let alertDebounce: ReturnType<typeof setTimeout> | null = null;
 
     /**
      * Pull on sign-in:
@@ -135,6 +151,31 @@
           });
           window.dispatchEvent(new CustomEvent('pi:itinerary-changed', { detail: { source: 'cloud-pull' } }));
         }
+
+        const cloudAlerts = await listUserAlerts(userId);
+        // Replace local alerts with cloud — for alerts the cloud is the
+        // canonical record (anonymous alerts pre-sign-in carry up via
+        // the next push if local has more than cloud).
+        const existingLocalAlerts = readAlerts();
+        if (cloudAlerts.length > 0) {
+          writeAlerts({
+            version: 1,
+            items: cloudAlerts.map((a) => ({
+              id: a.id,
+              category: a.category ?? '',
+              place_slug: a.place_slug ?? '',
+              lens: a.lens ?? '',
+              email: a.email,
+              browser: a.browser,
+              created_at: new Date(a.created_at).getTime(),
+            })),
+          });
+          window.dispatchEvent(new CustomEvent('pi:alerts-changed', { detail: { source: 'cloud-pull' } }));
+        } else if (existingLocalAlerts.items.length > 0) {
+          // First sign-in with local alerts but empty cloud — push them up.
+          schedulealertsSync();
+        }
+
         setStatus('synced');
       } catch (err) {
         console.warn('[cloud-sync] pull failed:', err);
@@ -161,6 +202,29 @@
       setStatus(result.ok ? 'synced' : 'error');
     }
 
+    async function pushAlerts() {
+      if (!currentUserId) return;
+      setStatus('pushing');
+      const local = readAlerts();
+      const result = await syncUserAlerts(
+        currentUserId,
+        local.items.map((a) => ({
+          category: a.category || '',
+          place_slug: a.place_slug || '',
+          lens: a.lens || '',
+          email: !!a.email,
+          browser: !!a.browser,
+        })),
+      );
+      setStatus(result.ok ? 'synced' : 'error');
+    }
+
+    function schedulealertsSync() {
+      if (!currentUserId) return;
+      if (alertDebounce) clearTimeout(alertDebounce);
+      alertDebounce = setTimeout(() => { pushAlerts(); alertDebounce = null; }, 600);
+    }
+
     function scheduleSaveSync() {
       if (!currentUserId) return;
       if (saveDebounce) clearTimeout(saveDebounce);
@@ -185,6 +249,11 @@
       if (detail.source === 'cloud-pull') return;
       scheduleItinerarySync();
     });
+    window.addEventListener('pi:alerts-changed', (e: Event) => {
+      const detail = (e as CustomEvent).detail || {};
+      if (detail.source === 'cloud-pull') return;
+      schedulealertsSync();
+    });
 
     // Initial state + auth subscription.
     onAuthChange((user) => {
@@ -195,6 +264,7 @@
         currentUserId = null;
         if (saveDebounce) { clearTimeout(saveDebounce); saveDebounce = null; }
         if (itinDebounce) { clearTimeout(itinDebounce); itinDebounce = null; }
+        if (alertDebounce) { clearTimeout(alertDebounce); alertDebounce = null; }
         setStatus('anonymous');
       }
     });

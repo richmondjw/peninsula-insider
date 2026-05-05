@@ -324,3 +324,56 @@ export async function syncUserItinerary(
     return { ok: false, error: (err as Error).message };
   }
 }
+
+// ---- Event alerts (Phase 4 WS4B) ------------------------------------------
+
+export type CloudAlert = {
+  id: string;
+  category: string | null;
+  place_slug: string | null;
+  lens: string | null;
+  email: boolean;
+  browser: boolean;
+  created_at: string;
+};
+
+export async function listUserAlerts(userId: string): Promise<CloudAlert[]> {
+  const c = getSupabase();
+  if (!c) return [];
+  try {
+    const { data, error } = await c
+      .from('event_alerts')
+      .select('id, category, place_slug, lens, email, browser, created_at')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: true });
+    if (error) return [];
+    return (data ?? []) as CloudAlert[];
+  } catch {
+    return [];
+  }
+}
+
+export async function syncUserAlerts(
+  userId: string,
+  alerts: Array<{ id?: string; category: string; place_slug: string; lens: string; email: boolean; browser: boolean }>,
+): Promise<{ ok: boolean; error?: string }> {
+  const c = getSupabase();
+  if (!c) return { ok: false, error: 'Auth not configured' };
+  try {
+    await c.from('event_alerts').delete().eq('user_id', userId);
+    if (alerts.length === 0) return { ok: true };
+    const rows = alerts.map((a) => ({
+      user_id: userId,
+      category: a.category || null,
+      place_slug: a.place_slug || null,
+      lens: a.lens || null,
+      email: a.email,
+      browser: a.browser,
+    }));
+    const { error } = await c.from('event_alerts').insert(rows);
+    if (error) return { ok: false, error: error.message };
+    return { ok: true };
+  } catch (err) {
+    return { ok: false, error: (err as Error).message };
+  }
+}
