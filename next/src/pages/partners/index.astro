@@ -47,6 +47,13 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
       </div>
     </section>
 
+    <aside class="partners-update-banner">
+      <div class="partners-section__inner">
+        <p class="partners-update-banner__eyebrow">Already a Peninsula venue we cover?</p>
+        <p class="partners-update-banner__body">Hours moved? Hero photo dated? An event we should know about? <a href="/partners/dashboard/">Open the operator dashboard</a> to manage your listing, or send a one-off via the <a href="/partners/update/">anonymous update form</a> — editor reads every request, applies in hours.</p>
+      </div>
+    </aside>
+
     <section class="partners-section partners-audience">
       <div class="partners-section__inner">
         <p class="partners-section__eyebrow">Audience and reach</p>
@@ -807,6 +814,35 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
     color: var(--soft);
   }
   .partners-standards__methodology a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* OPERATOR UPDATE BANNER (Phase 5 WS5C). */
+  .partners-update-banner {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper, #fbf7f0);
+    padding: clamp(1rem, 2vw, 1.4rem) 0;
+  }
+  .partners-update-banner__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.45rem;
+  }
+  .partners-update-banner__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--dark);
+    margin: 0;
+    max-width: 760px;
+  }
+  .partners-update-banner__body a {
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;

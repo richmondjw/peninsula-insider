@@ -53,6 +53,8 @@ export const mastheadNav: NavItem[] = [
  * set rather than a sitemap dump.
  */
 export const mastheadMoreNav: NavItem[] = [
+  { key: 'map',              label: 'The Map',        href: '/map/',              dek: 'Every editorial pin, on one screen.' },
+  { key: 'insiders-30',      label: "The Insider's 30", href: '/insiders-30/',    dek: 'The annual ranked list — thirty places that defined the year.' },
   { key: 'tour',             label: 'Tours',          href: '/tour/',             dek: 'Operator-led day trips and packages.' },
   { key: 'boating',          label: 'Boating',        href: '/boating/',          dek: 'Charters, hire, ramps, and tides.' },
   { key: 'golf',             label: 'Golf',           href: '/golf/',             dek: 'Courses on the cape.' },

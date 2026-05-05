@@ -1,0 +1,271 @@
+---
+/**
+ * /insiders-30/map/ — map view of the most-recent Insider's 30
+ * (Phase 6 WS6C).
+ *
+ * Reuses the Leaflet infrastructure from /map/ but scopes pins to the
+ * 30 ranked picks of the current list. Each pin's popup shows the rank
+ * + editor blurb + link to the canonical detail page.
+ */
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+
+const lists = (await getCollection('insidersThirty'))
+  .filter((entry) => !entry.data.sitemapExclude)
+  .sort((a, b) => b.data.year - a.data.year);
+const current = lists[0];
+if (!current) {
+  throw new Error('No Insider\'s 30 list found.');
+}
+
+type MapPin = {
+  rank: number;
+  name: string;
+  href: string;
+  lat: number;
+  lng: number;
+  hero: string;
+  blurb: string;
+  category: string;
+};
+
+const pins: MapPin[] = [];
+for (const pick of [...current.data.picks].sort((a, b) => a.rank - b.rank)) {
+  let entry: any = null;
+  let kind: 'venue' | 'experience' | 'place' = 'venue';
+
+  if (pick.venue) {
+    entry = await getEntry(pick.venue).catch(() => null);
+    kind = 'venue';
+  } else if (pick.experience) {
+    entry = await getEntry(pick.experience).catch(() => null);
+    kind = 'experience';
+  } else if (pick.place) {
+    entry = await getEntry(pick.place).catch(() => null);
+    kind = 'place';
+  }
+  if (!entry || !entry.data.coordinates) continue;
+  if (!Number.isFinite(entry.data.coordinates.lat)) continue;
+
+  const slug = routeSlug(entry);
+  let href = '#';
+  if (kind === 'venue')      href = `${venueHrefPrefix(entry.data.type)}/${slug}/`;
+  else if (kind === 'experience') href = `/explore/${slug}/`;
+  else                              href = `/places/${slug}/`;
+
+  pins.push({
+    rank: pick.rank,
+    name: entry.data.name,
+    href,
+    lat: entry.data.coordinates.lat,
+    lng: entry.data.coordinates.lng,
+    hero: entry.data.heroImage?.src ?? '',
+    blurb: pick.blurb,
+    category: pick.category ?? kind,
+  });
+}
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: "The Insider's 30", href: '/insiders-30/' },
+  { label: 'Map' },
+];
+---
+
+<BaseLayout
+  title={`The Insider's 30 ${current.data.year} · Map · Peninsula Insider`}
+  description={`The ${current.data.year} Insider's 30 plotted across the Mornington Peninsula.`}
+  section="explore"
+  canonical="https://peninsulainsider.com.au/insiders-30/map/"
+>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="insiders-30-map">
+    <div class="container">
+      <p class="label label--accent">The Insider's 30 · {current.data.year}</p>
+      <h1 class="insiders-30-map__title">The list, on one screen.</h1>
+      <p class="insiders-30-map__sub">{pins.length} ranked picks pinned across the Peninsula. Click any pin for the editor's note + link to the full venue page.</p>
+
+      <div
+        class="insiders-30-map__canvas"
+        id="insiders30Map"
+        data-pin-payload={JSON.stringify(pins)}
+        aria-label="Map of the Peninsula's Insider's 30 venues"
+      >
+        <div class="insiders-30-map__placeholder">
+          <p>Loading map…</p>
+        </div>
+      </div>
+
+      <p class="insiders-30-map__back">
+        <a href="/insiders-30/">← Back to the ranked list</a>
+      </p>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" is:inline></script>
+
+  <script is:inline>
+    (function () {
+      function init() {
+        var canvas = document.getElementById('insiders30Map');
+        if (!canvas || canvas._piBound) return;
+        canvas._piBound = true;
+
+        if (typeof L === 'undefined') { setTimeout(init, 100); return; }
+
+        var pins;
+        try { pins = JSON.parse(canvas.getAttribute('data-pin-payload') || '[]'); }
+        catch { pins = []; }
+        if (!pins.length) return;
+
+        var placeholder = canvas.querySelector('.insiders-30-map__placeholder');
+        if (placeholder) placeholder.remove();
+
+        var sumLat = 0, sumLng = 0;
+        pins.forEach(function (p) { sumLat += p.lat; sumLng += p.lng; });
+        var center = [sumLat / pins.length, sumLng / pins.length];
+
+        var map = L.map(canvas, { scrollWheelZoom: false }).setView(center, 11);
+        canvas.addEventListener('focus', function () { map.scrollWheelZoom.enable(); });
+        canvas.addEventListener('blur',  function () { map.scrollWheelZoom.disable(); });
+        map.on('click', function () { map.scrollWheelZoom.enable(); });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '© OpenStreetMap contributors',
+        }).addTo(map);
+
+        function escapeHtml(s) {
+          return String(s == null ? '' : s)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        function rankIcon(rank, category) {
+          return L.divIcon({
+            className: 'insiders-30-map__pin insiders-30-map__pin--' + category,
+            html: '<span class="insiders-30-map__pin-rank">' + rank + '</span>',
+            iconSize: [34, 34],
+            iconAnchor: [17, 17],
+            popupAnchor: [0, -16],
+          });
+        }
+
+        var markers = [];
+        pins.forEach(function (p) {
+          var marker = L.marker([p.lat, p.lng], { icon: rankIcon(p.rank, p.category) });
+          var hero = p.hero
+            ? '<div class="map-popup__hero" style="background-image:url(' + escapeHtml(p.hero) + ')"></div>'
+            : '';
+          marker.bindPopup(''
+            + '<div class="map-popup">'
+            +   hero
+            +   '<div class="map-popup__body">'
+            +     '<p class="map-popup__meta">Rank ' + p.rank + ' · ' + escapeHtml(p.category) + '</p>'
+            +     '<h3 class="map-popup__title">' + escapeHtml(p.name) + '</h3>'
+            +     '<p class="map-popup__blurb">' + escapeHtml(p.blurb) + '</p>'
+            +     '<a class="map-popup__cta" href="' + escapeHtml(p.href) + '">Read the full notes →</a>'
+            +   '</div>'
+            + '</div>',
+            { maxWidth: 280, autoPanPadding: [40, 40] }
+          );
+          marker.addTo(map);
+          markers.push(marker);
+        });
+
+        if (markers.length > 1) {
+          var group = L.featureGroup(markers);
+          map.fitBounds(group.getBounds(), { padding: [30, 30], maxZoom: 13 });
+        }
+      }
+
+      init();
+      document.addEventListener('astro:page-load', init);
+    })();
+  </script>
+</BaseLayout>
+
+<style>
+  .insiders-30-map { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+  .insiders-30-map__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    font-weight: 500;
+    color: var(--text);
+    margin: 0.45rem 0 0.65rem;
+    letter-spacing: -0.01em;
+  }
+  .insiders-30-map__sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--soft);
+    margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+    max-width: 720px;
+  }
+  .insiders-30-map__canvas {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 460px;
+    max-height: 800px;
+    border: 1px solid var(--border);
+    background: var(--paper, #fbf7f0);
+    z-index: 0;
+  }
+  .insiders-30-map__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--paper, #fbf7f0);
+    font-family: 'Outfit', sans-serif;
+    color: var(--soft);
+  }
+  .insiders-30-map__back {
+    margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+    text-align: center;
+  }
+  .insiders-30-map__back a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+  }
+
+  /* Numeric pin: ranked badge in brand colour, white ring, drop-shadow.
+     Category drives the colour so the map reads as a regional spread. */
+  :global(.insiders-30-map__pin) {
+    background: transparent;
+    border: 0;
+  }
+  :global(.insiders-30-map__pin .insiders-30-map__pin-rank) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.6);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #fff;
+    background: #a77637;
+  }
+  :global(.insiders-30-map__pin--eat .insiders-30-map__pin-rank)        { background: #b3592a; }
+  :global(.insiders-30-map__pin--wine .insiders-30-map__pin-rank)       { background: #7b1e3c; }
+  :global(.insiders-30-map__pin--stay .insiders-30-map__pin-rank)       { background: #4a6a4f; }
+  :global(.insiders-30-map__pin--experience .insiders-30-map__pin-rank) { background: #2f6e8a; }
+  :global(.insiders-30-map__pin--wellness .insiders-30-map__pin-rank)   { background: #6c4e7d; }
+  :global(.insiders-30-map__pin--producer .insiders-30-map__pin-rank)   { background: #b3592a; }
+  :global(.insiders-30-map__pin--place .insiders-30-map__pin-rank)      { background: #6b4d2c; }
+</style>

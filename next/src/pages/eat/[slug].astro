@@ -60,7 +60,16 @@ const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
 const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
-const canonical = `https://peninsulainsider.com.au/eat/${slug}/`;
+// Wineries get a /wine/{slug}/ page as their canonical home (see
+// next/src/lib/editorial.ts venueHrefPrefix). They also get a /eat/{slug}/
+// page emitted from this template because wineries serve food too. To stop
+// Google from indexing both URLs as competing duplicates, we set the
+// canonical on /eat/{winery-slug}/ to the /wine/{winery-slug}/ URL.
+// Pre-fix data showed kerri-greens, polperro, and others indexed at both
+// URLs. See ops/reports/seo/experiments.md experiment 2026-05-05-03.
+const canonical = venue.data.type === 'winery'
+  ? `https://peninsulainsider.com.au/wine/${slug}/`
+  : `https://peninsulainsider.com.au/eat/${slug}/`;
 const ogImage = venue.data.heroImage?.src && !venue.data.heroImage.src.includes('placeholder')
   ? venue.data.heroImage.src
   : '/images/sourced/home-cover.webp';

@@ -1,0 +1,411 @@
+---
+/**
+ * Typeahead — masthead-mounted instant search (Phase 3 WS3A).
+ *
+ * Replaces the search-icon button as the primary search affordance. The
+ * existing SearchOverlay component is kept on disk and mounted in
+ * BaseLayout so we have a one-line rollback if typeahead misbehaves —
+ * see Phase 3 progress log for the rationale.
+ *
+ * Behaviour:
+ *  - Click / focus / "/" key opens the input.
+ *  - Type-as-you-go debounced 150ms; results group by kind.
+ *  - Up/Down arrows move the focus ring; Enter opens; Esc closes.
+ *  - Mobile: input expands into a full-screen panel for thumb reach.
+ *  - "View all results" footer link goes to /search/?q=…
+ *
+ * Pagefind module loaded lazily on first focus (~80kb WASM); the
+ * markup is static.
+ */
+---
+
+<div class="typeahead" data-typeahead-root>
+  <button
+    type="button"
+    class="typeahead__trigger"
+    data-typeahead-trigger
+    aria-expanded="false"
+    aria-controls="typeaheadPanel"
+    aria-label="Search Peninsula Insider"
+  >
+    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="9" cy="9" r="6" />
+      <path d="M14 14l4 4" />
+    </svg>
+    <span class="typeahead__trigger-label">Search</span>
+    <kbd class="typeahead__trigger-kbd" aria-hidden="true">/</kbd>
+  </button>
+
+  <div
+    class="typeahead__panel"
+    id="typeaheadPanel"
+    data-typeahead-panel
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-owns="typeaheadResults"
+    hidden
+  >
+    <div class="typeahead__panel-inner">
+      <form class="typeahead__form" data-typeahead-form autocomplete="off" role="search">
+        <span class="typeahead__form-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="9" r="6" />
+            <path d="M14 14l4 4" />
+          </svg>
+        </span>
+        <input
+          type="search"
+          class="typeahead__input"
+          data-typeahead-input
+          placeholder="Search venues, events, places, articles…"
+          aria-label="Search Peninsula Insider"
+          aria-controls="typeaheadResults"
+          aria-autocomplete="list"
+        />
+        <button
+          type="button"
+          class="typeahead__close"
+          data-typeahead-close
+          aria-label="Close search"
+        >
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 5l10 10M15 5L5 15" />
+          </svg>
+        </button>
+      </form>
+
+      <div class="typeahead__suggestions" data-typeahead-suggestions>
+        <p class="typeahead__suggestions-label">Try one of these</p>
+        <div class="typeahead__chips">
+          {[
+            { q: 'long lunch',     label: 'Long lunch' },
+            { q: 'cellar door',    label: 'Cellar doors' },
+            { q: 'rainy day',      label: 'Rainy day' },
+            { q: 'Sorrento',       label: 'Sorrento' },
+            { q: 'Red Hill',       label: 'Red Hill' },
+            { q: 'family beach',   label: 'Family beach' },
+          ].map((c) => (
+            <button type="button" class="typeahead__chip" data-typeahead-chip={c.q}>
+              <span class="typeahead__chip-bullet" aria-hidden="true">♦</span>
+              <span>{c.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <ul
+        class="typeahead__results"
+        id="typeaheadResults"
+        data-typeahead-results
+        role="listbox"
+        aria-label="Search results"
+        hidden
+      ></ul>
+
+      <div class="typeahead__footer" data-typeahead-footer hidden>
+        <a class="typeahead__footer-link" data-typeahead-all-link href="/search/">
+          View all results
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  /* Typeahead controller — lazy-loads Pagefind on first focus, debounces
+     search, groups results by kind, supports keyboard navigation, and
+     falls back to /search/?q=… for the full results page.
+     Idempotent across astro:page-load. */
+  (function () {
+    var state = {
+      pagefind: null,
+      loading: null,
+      bound: false,
+    };
+
+    function init() {
+      if (state.bound) return;
+      var root = document.querySelector('[data-typeahead-root]');
+      if (!root) return;
+      state.bound = true;
+
+      var trigger = root.querySelector('[data-typeahead-trigger]');
+      var panel = root.querySelector('[data-typeahead-panel]');
+      var form = root.querySelector('[data-typeahead-form]');
+      var input = root.querySelector('[data-typeahead-input]');
+      var closeBtn = root.querySelector('[data-typeahead-close]');
+      var suggestions = root.querySelector('[data-typeahead-suggestions]');
+      var resultsEl = root.querySelector('[data-typeahead-results]');
+      var footerEl = root.querySelector('[data-typeahead-footer]');
+      var allLink = root.querySelector('[data-typeahead-all-link]');
+      var chips = root.querySelectorAll('[data-typeahead-chip]');
+
+      var open = false;
+      var query = '';
+      var debounceTimer = null;
+      var activeIndex = -1;
+      var resultLinks = [];
+
+      function setOpen(next) {
+        if (open === next) return;
+        open = next;
+        trigger.setAttribute('aria-expanded', next ? 'true' : 'false');
+        panel.setAttribute('aria-expanded', next ? 'true' : 'false');
+        if (next) {
+          panel.removeAttribute('hidden');
+          root.classList.add('is-open');
+          document.body.classList.add('typeahead-open');
+          // Lazy-load Pagefind on first open.
+          ensurePagefind();
+          // Focus AFTER render so the panel transition completes first.
+          requestAnimationFrame(function () { input.focus(); });
+        } else {
+          panel.setAttribute('hidden', '');
+          root.classList.remove('is-open');
+          document.body.classList.remove('typeahead-open');
+          input.value = '';
+          query = '';
+          activeIndex = -1;
+          showSuggestions();
+        }
+      }
+
+      function showSuggestions() {
+        if (suggestions) suggestions.removeAttribute('hidden');
+        if (resultsEl) resultsEl.setAttribute('hidden', '');
+        if (footerEl) footerEl.setAttribute('hidden', '');
+        resultLinks = [];
+      }
+
+      function showResultsHint(html) {
+        if (suggestions) suggestions.setAttribute('hidden', '');
+        if (resultsEl) {
+          resultsEl.removeAttribute('hidden');
+          resultsEl.innerHTML = html;
+        }
+        resultLinks = [];
+      }
+
+      function ensurePagefind() {
+        if (state.pagefind || state.loading) return state.loading;
+        state.loading = (async function () {
+          try {
+            state.pagefind = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
+            try { await state.pagefind.options({ basePath: '/pagefind/' }); } catch (_e) {}
+          } catch (err) {
+            console.warn('[typeahead] Pagefind failed to load:', err);
+          }
+        })();
+        return state.loading;
+      }
+
+      function escapeHtml(s) {
+        return String(s == null ? '' : s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function kindOf(item) {
+        if (item.meta && item.meta.kind) return item.meta.kind;
+        if (item.filters && item.filters.kind && item.filters.kind[0]) return item.filters.kind[0];
+        return 'Guide';
+      }
+
+      var KIND_ORDER = ['Plans', 'Eat', 'Wine', 'Stay', 'Explore', 'Places', "What's On", 'Journal', 'Guide', 'Home'];
+
+      function groupResults(results) {
+        var groups = {};
+        results.forEach(function (item) {
+          var kind = kindOf(item);
+          if (!groups[kind]) groups[kind] = [];
+          groups[kind].push(item);
+        });
+        return Object.keys(groups)
+          .sort(function (a, b) {
+            var ai = KIND_ORDER.indexOf(a);
+            var bi = KIND_ORDER.indexOf(b);
+            if (ai === -1) ai = 99;
+            if (bi === -1) bi = 99;
+            return ai - bi;
+          })
+          .map(function (k) { return { kind: k, items: groups[k] }; });
+      }
+
+      function renderResults(grouped, q) {
+        if (!grouped.length) {
+          showResultsHint(
+            '<li class="typeahead__empty">' +
+              '<p class="typeahead__empty-title">No instant matches for "' + escapeHtml(q) + '".</p>' +
+              '<p class="typeahead__empty-hint">Hit Enter for the full results page, or ask The Insider directly.</p>' +
+            '</li>'
+          );
+          if (footerEl) footerEl.removeAttribute('hidden');
+          if (allLink) allLink.href = '/search/?q=' + encodeURIComponent(q);
+          return;
+        }
+
+        // Cap at 8 total results across groups.
+        var perGroupCap = 4;
+        var totalCap = 8;
+        var rendered = 0;
+        var html = '';
+        grouped.forEach(function (group) {
+          if (rendered >= totalCap) return;
+          var slice = group.items.slice(0, perGroupCap);
+          html += '<li class="typeahead__group" role="presentation">';
+          html += '<p class="typeahead__group-label">' + escapeHtml(group.kind) + '</p>';
+          html += '<ul class="typeahead__group-items">';
+          for (var i = 0; i < slice.length && rendered < totalCap; i++) {
+            var item = slice[i];
+            var title = (item.meta && item.meta.title) || 'Untitled';
+            var excerpt = item.excerpt || '';
+            var url = item.url || '#';
+            html += ''
+              + '<li class="typeahead__result">'
+              +   '<a href="' + escapeHtml(url) + '" class="typeahead__result-link" role="option" tabindex="-1">'
+              +     '<span class="typeahead__result-title">' + escapeHtml(title) + '</span>'
+              +     (excerpt ? '<span class="typeahead__result-excerpt">' + excerpt + '</span>' : '')
+              +   '</a>'
+              + '</li>';
+            rendered++;
+          }
+          html += '</ul></li>';
+        });
+        if (suggestions) suggestions.setAttribute('hidden', '');
+        if (resultsEl) {
+          resultsEl.removeAttribute('hidden');
+          resultsEl.innerHTML = html;
+        }
+        if (footerEl) footerEl.removeAttribute('hidden');
+        if (allLink) allLink.href = '/search/?q=' + encodeURIComponent(q);
+
+        resultLinks = Array.prototype.slice.call(resultsEl.querySelectorAll('.typeahead__result-link'));
+        activeIndex = -1;
+      }
+
+      async function runQuery(q) {
+        if (!q || q.length < 2) {
+          showSuggestions();
+          if (footerEl) footerEl.setAttribute('hidden', '');
+          return;
+        }
+        await ensurePagefind();
+        if (!state.pagefind) {
+          showResultsHint('<li class="typeahead__empty"><p>Search isn\'t available right now.</p></li>');
+          return;
+        }
+        try {
+          var search = await state.pagefind.search(q);
+          var top = await Promise.all(search.results.slice(0, 12).map(function (r) { return r.data(); }));
+          if (q !== query) return; // user kept typing; this query is stale
+          renderResults(groupResults(top), q);
+        } catch (err) {
+          console.warn('[typeahead] search error:', err);
+          showResultsHint('<li class="typeahead__empty"><p>Search hiccup. Try again.</p></li>');
+        }
+      }
+
+      function setActive(idx) {
+        if (!resultLinks.length) return;
+        if (idx < 0) idx = resultLinks.length - 1;
+        if (idx >= resultLinks.length) idx = 0;
+        if (activeIndex >= 0 && resultLinks[activeIndex]) {
+          resultLinks[activeIndex].classList.remove('is-active');
+        }
+        activeIndex = idx;
+        resultLinks[activeIndex].classList.add('is-active');
+        // Scroll into view if needed.
+        var el = resultLinks[activeIndex];
+        if (el && typeof el.scrollIntoView === 'function') {
+          el.scrollIntoView({ block: 'nearest' });
+        }
+      }
+
+      // Trigger / open
+      trigger.addEventListener('click', function () { setOpen(!open); });
+      if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+
+      // Click outside closes
+      document.addEventListener('click', function (e) {
+        if (!open) return;
+        if (root.contains(e.target)) return;
+        setOpen(false);
+      });
+
+      // Slash key opens search from anywhere (unless typing in another input)
+      document.addEventListener('keydown', function (e) {
+        if (e.key === '/' && !open) {
+          var t = e.target;
+          var tag = t && t.tagName ? t.tagName.toLowerCase() : '';
+          if (tag === 'input' || tag === 'textarea' || (t && t.isContentEditable)) return;
+          e.preventDefault();
+          setOpen(true);
+          return;
+        }
+        if (e.key === 'Escape' && open) {
+          setOpen(false);
+          trigger.focus();
+        }
+      });
+
+      // Input handling — debounced query
+      input.addEventListener('input', function () {
+        query = input.value.trim();
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () { runQuery(query); }, 150);
+      });
+
+      // Form submit → open /search/?q=…
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (query) window.location.href = '/search/?q=' + encodeURIComponent(query);
+      });
+
+      // Keyboard nav within results (input-level)
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown') {
+          if (resultLinks.length) {
+            e.preventDefault();
+            setActive(activeIndex + 1);
+          }
+        } else if (e.key === 'ArrowUp') {
+          if (resultLinks.length) {
+            e.preventDefault();
+            setActive(activeIndex - 1);
+          }
+        } else if (e.key === 'Enter') {
+          if (activeIndex >= 0 && resultLinks[activeIndex]) {
+            e.preventDefault();
+            window.location.href = resultLinks[activeIndex].getAttribute('href');
+          }
+        }
+      });
+
+      // Suggestion chips → run query
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var q = chip.getAttribute('data-typeahead-chip') || '';
+          input.value = q;
+          query = q;
+          runQuery(q);
+        });
+      });
+
+      // Restore on page-swap (Astro view transitions): reset state.
+      showSuggestions();
+    }
+
+    init();
+    document.addEventListener('astro:page-load', function () {
+      // Re-bind on each page load. We allow re-binding because the
+      // typeahead lives in the masthead which is part of every layout.
+      state.bound = false;
+      init();
+    });
+  })();
+</script>

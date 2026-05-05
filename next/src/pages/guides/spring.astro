@@ -1,0 +1,115 @@
+---
+/**
+ * /guides/spring/ — printable Spring guide (Phase 5 WS5A).
+ *
+ * Renders to /downloads/peninsula-insider-spring-guide.pdf via the
+ * existing render-pdfs.mjs pipeline.
+ */
+import { getCollection } from 'astro:content';
+import PrintLayout from '../../layouts/PrintLayout.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const venues = await getCollection('venues');
+
+// Spring shortlist: market season, ridge views with the new vintage
+// going in the ground, the soft-walking weather before tourism wakes up.
+const SHORTLIST_SLUGS = [
+  'red-hill-estate',
+  'montalto',
+  'paringa-estate',
+  'foxeys-hangout',
+  'hotel-sorrento',
+  'pt-leo-estate',
+];
+const shortlist = SHORTLIST_SLUGS
+  .map((slug) => venues.find((v) => routeSlug(v) === slug))
+  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+---
+
+<PrintLayout title="A Mornington Peninsula Spring · Peninsula Insider">
+
+  <article class="guide">
+    <header class="guide__cover">
+      <p class="guide__edition">Peninsula Insider · Issue Vol 04 · Seasonal Guide</p>
+      <h1 class="guide__cover-title">A Mornington Peninsula <em>Spring</em></h1>
+      <p class="guide__cover-dek">Ridge afternoons soft with new growth, market season opening on the bay, and the weeks before the summer crowds arrive — this is the underrated Peninsula.</p>
+      <p class="guide__cover-meta">Eight pages · Six venues · One sample weekend · Updated May 2026</p>
+    </header>
+
+    <section class="guide__intro">
+      <h2>Spring is the locals' season.</h2>
+      <p>The Peninsula's two best-kept secrets are autumn and spring. Autumn gets the photographs; spring gets the weather. The vintage has just gone in the ground on the ridge, the markets are pulling out of winter, the back-bay walks are warm enough to enjoy without being so warm that the bay swimming is mandatory. Tourism is still asleep through October.</p>
+      <p>This guide is six venues we'd commit to in spring, framed by a sample two-night plan that leans light on the schedule. Spring rewards loafing.</p>
+    </section>
+
+    <section class="guide__shortlist">
+      <h2>The six</h2>
+      <ol class="guide__list">
+        {shortlist.map((v) => (
+          <li class="guide__list-item">
+            <h3>{v.data.name}</h3>
+            <p class="guide__list-meta">{v.data.priceBand} · {String(v.data.place?.id ?? v.data.place ?? '').replace(/-/g, ' ')}</p>
+            <p class="guide__list-signature">{v.data.signature}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="guide__plan">
+      <h2>A sample spring weekend</h2>
+      <ol class="guide__plan-list">
+        <li>
+          <h3>Friday evening</h3>
+          <p>Drive down. Light dinner near the hotel; the days are getting longer, so dinner can be late and the next morning isn't a rush. Walk the bay before bed.</p>
+        </li>
+        <li>
+          <h3>Saturday morning</h3>
+          <p>Red Hill Market or a Mornington Saturday — check the calendar. Spring is when the market season finds its rhythm again. Coffee at one of the village locals; stay slow.</p>
+        </li>
+        <li>
+          <h3>Saturday afternoon</h3>
+          <p>The cellar doors. The vintage just went in the ground; staff have time to talk you through what's coming. Pick two; lunch at one. A coast walk at 5 if the light is on.</p>
+        </li>
+        <li>
+          <h3>Sunday morning</h3>
+          <p>Slow breakfast. A back-bay walk. Lunch is a counter meal at a Sorrento or Flinders pub. Drive home before traffic builds — by 3 pm the road is yours.</p>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="guide__footer">
+      <p>Peninsula Insider is independent. Every venue here was visited by the editorial desk. No paid placements. Read the Methodology at <strong>peninsulainsider.com.au/methodology</strong>.</p>
+      <p>This guide was produced May 2026. The live site supersedes; check before you book.</p>
+    </footer>
+  </article>
+
+</PrintLayout>
+
+<style>
+  @page { size: A4; margin: 18mm; }
+  body { background: #fbf7f0; color: #2a1f12; font-family: 'Outfit', sans-serif; font-size: 11pt; line-height: 1.55; }
+  .guide { max-width: 170mm; margin: 0 auto; }
+  .guide__cover { border-bottom: 2px solid #a77637; padding-bottom: 18mm; margin-bottom: 14mm; page-break-after: always; }
+  .guide__edition { font-size: 9pt; letter-spacing: 0.18em; text-transform: uppercase; color: #a77637; margin: 0 0 14mm; }
+  .guide__cover-title { font-family: 'Cormorant Garamond', serif; font-size: 42pt; font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 8mm; }
+  .guide__cover-title em { font-style: italic; color: #a77637; }
+  .guide__cover-dek { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16pt; line-height: 1.45; color: #5b4f3f; margin: 0 0 18mm; }
+  .guide__cover-meta { font-size: 9pt; letter-spacing: 0.06em; color: #5b4f3f; margin: 0; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 22pt; font-weight: 500; margin: 0 0 8mm; }
+  .guide__intro p { margin: 0 0 5mm; }
+  .guide__intro { page-break-after: always; margin-bottom: 14mm; }
+  .guide__shortlist { page-break-after: always; }
+  .guide__list { list-style: none; padding: 0; margin: 0; counter-reset: shortlist-step; }
+  .guide__list-item { counter-increment: shortlist-step; padding: 4mm 0; border-bottom: 1px solid #d3c8b3; page-break-inside: avoid; }
+  .guide__list-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; margin: 0 0 1mm; }
+  .guide__list-item h3::before { content: counter(shortlist-step) '. '; color: #a77637; }
+  .guide__list-meta { font-size: 9pt; letter-spacing: 0.06em; text-transform: uppercase; color: #a77637; margin: 0 0 2mm; }
+  .guide__list-signature { font-size: 10.5pt; line-height: 1.5; color: #5b4f3f; margin: 0; }
+  .guide__plan { page-break-after: always; }
+  .guide__plan-list { list-style: none; padding: 0; margin: 0; }
+  .guide__plan-list li { margin-bottom: 6mm; page-break-inside: avoid; }
+  .guide__plan-list h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; margin: 0 0 1mm; color: #a77637; }
+  .guide__plan-list p { font-size: 10.5pt; line-height: 1.55; margin: 0; }
+  .guide__footer { border-top: 1px solid #d3c8b3; padding-top: 6mm; font-size: 9pt; line-height: 1.5; color: #5b4f3f; }
+  .guide__footer p { margin: 0 0 3mm; }
+</style>

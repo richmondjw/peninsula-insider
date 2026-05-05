@@ -509,3 +509,167 @@ Hypothesis was 2/14 → ≥7/14 by 2026-05-16. Hit 14/14 by 2026-05-04. Moved to
    - `/journal/the-pub-guide/` (65 impr, 0% CTR, pos 8.8)
    - `/wine/` (269 impr, 0.37% CTR, pos 19.7) — needs both snippet AND content/internal-linking to push from page 2
 4. Fix the duplicate sitemap entry for `free-things-to-do-mornington-peninsula` (likely a `sitemap.xml.ts` bug).
+
+---
+
+## 2026-05-04 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-04-26 → 2026-05-02
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 9 | 7 | 9  (+2 ↑) | 29 |
+| Impressions | 1,675 | 646 | 1,675  (+1,029 ↑) | 2,873 |
+| CTR | 0.54% | 1.08% | 0.54%  (-0.55% ↓) | 1.01% |
+| Avg position | 17.2 | 18.5 | 17.2  (-1.3 ↑) | 16.8 |
+
+### Indexation (priority URLs): 14 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | PASS | Submitted and indexed |
+| `/journal/dog-friendly-mornington-peninsula/` | PASS | Submitted and indexed |
+| `/places/sorrento/` | PASS | Submitted and indexed |
+| `/places/red-hill/` | PASS | Submitted and indexed |
+| `/places/flinders/` | PASS | Submitted and indexed |
+| `/places/mornington/` | PASS | Submitted and indexed |
+| `/places/rye/` | PASS | Submitted and indexed |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | gummy shark size limit | 1 | 2 | 50.00% | 8.5 |
+| 2 | laura at pt leo estate | 1 | 1 | 100.00% | 1.0 |
+| 3 | pt leo estate | 1 | 1 | 100.00% | 6.0 |
+| 4 | "endota" | 0 | 2 | 0.00% | 44.5 |
+| 5 | 111 ocean beach road sorrento vic 3943 | 0 | 1 | 0.00% | 9.0 |
+| 6 | 20 junction road merricks north vic 3926 | 0 | 21 | 0.00% | 33.8 |
+| 7 | 23 victoria crescent safety beach vic 3936 | 0 | 2 | 0.00% | 27.0 |
+| 8 | 34 western parade point leo vic 3916 | 0 | 46 | 0.00% | 27.8 |
+| 9 | 3929 frankston-flinders road shoreham vic 3916 | 0 | 3 | 0.00% | 37.3 |
+| 10 | 42 brasser avenue dromana vic 3936 | 0 | 6 | 0.00% | 28.0 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | dog friendly guide mornington peninsula | 49 | 0 | 0.00% | 8.3 |
+| 2 | 34 western parade point leo vic 3916 | 46 | 0 | 0.00% | 27.8 |
+| 3 | a dog-friendly guide mornington peninsula | 30 | 0 | 0.00% | 7.1 |
+| 4 | 20 junction road merricks north vic 3926 | 21 | 0 | 0.00% | 33.8 |
+| 5 | accommodation near peninsula hot springs | 19 | 0 | 0.00% | 67.8 |
+| 6 | best restaurants in mornington peninsula | 14 | 0 | 0.00% | 46.4 |
+| 7 | dog friendly beaches mornington peninsula | 11 | 0 | 0.00% | 17.6 |
+| 8 | best places to stay mornington peninsula | 9 | 0 | 0.00% | 49.2 |
+| 9 | dog beaches mornington peninsula | 8 | 0 | 0.00% | 21.4 |
+| 10 | best restaurants mornington peninsula | 7 | 0 | 0.00% | 47.7 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | dog friendly guide mornington peninsula | 49 | 0.00% | 8.3 |
+| 2 | 34 western parade point leo vic 3916 | 46 | 0.00% | 27.8 |
+| 3 | a dog-friendly guide mornington peninsula | 30 | 0.00% | 7.1 |
+| 4 | 20 junction road merricks north vic 3926 | 21 | 0.00% | 33.8 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `http://peninsulainsider.com.au/` | 9 | 20 | 45.00% | 1.8 |
+| 2 | `/` | 7 | 70 | 10.00% | 1.9 |
+| 3 | `/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/` | 3 | 47 | 6.38% | 5.9 |
+| 4 | `/eat/` | 2 | 183 | 1.09% | 36.3 |
+| 5 | `/fishing/locations/point-leo-beach/` | 2 | 8 | 25.00% | 6.6 |
+| 6 | `/fishing/locations/gunnamatta-beach/` | 1 | 14 | 7.14% | 6.6 |
+| 7 | `/fishing/species/gummy-shark/` | 1 | 26 | 3.85% | 8.5 |
+| 8 | `/journal/the-pub-guide` | 1 | 9 | 11.11% | 5.3 |
+| 9 | `/journal/three-italian-dinners/` | 1 | 21 | 4.76% | 7.4 |
+| 10 | `/journal/where-to-eat-mornington-peninsula/` | 1 | 46 | 2.17% | 31.8 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/journal/dog-friendly-mornington-peninsula` | 318 | 0.00% | 12.8 |
+| 2 | `/wine/` | 289 | 0.35% | 21.3 |
+| 3 | `/whats-on/mornington-cup-2026` | 231 | 0.43% | 7.5 |
+| 4 | `/eat/` | 183 | 1.09% | 36.3 |
+| 5 | `/journal/dog-friendly-mornington-peninsula/` | 138 | 0.00% | 8.9 |
+| 6 | `http://peninsulainsider.com.au/stay/hotel-sorrento` | 109 | 0.00% | 53.7 |
+| 7 | `/journal/the-chardonnay-case/` | 71 | 0.00% | 5.6 |
+| 8 | `/eat/pho-rosebud/` | 57 | 0.00% | 7.6 |
+| 9 | `http://peninsulainsider.com.au/journal/the-chardonnay-case` | 56 | 0.00% | 6.2 |
+| 10 | `/journal/ashcombe-maze-visitor-guide` | 56 | 0.00% | 8.5 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| DESKTOP | 15 | 1,857 | 0.81% | 19.3 |
+| MOBILE | 14 | 1,000 | 1.40% | 12.2 |
+| TABLET | 0 | 16 | 0.00% | 8.5 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 29 | 1,828 | 1.59% | 20.7 |
+| alb | 0 | 1 | 0.00% | 11.0 |
+| are | 0 | 1 | 0.00% | 10.0 |
+| arg | 0 | 3 | 0.00% | 20.3 |
+| aut | 0 | 2 | 0.00% | 9.5 |
+| bfa | 0 | 1 | 0.00% | 6.0 |
+| bgd | 0 | 4 | 0.00% | 20.0 |
+| bgr | 0 | 1 | 0.00% | 7.0 |
+
+---
+
+
+### Notes (Day 5 — three experiments shipped)
+
+Reverse-engineered the GSC Page Indexing report by inspecting all 418 known URLs (sitemap ∪ GSC performance, last 90d) via `urlInspection`. Real picture: **233 PASS (56%), 140 Discovered, 17 alternate canonical, 16 unknown to Google, 8 redirects, 4 noindex.** Full inventory at `ops/reports/seo/url-inventory.md`.
+
+**Top finding**: 4 of 6 unindexed top-level hubs (`/dog-friendly/`, `/whats-on/`, `/corporate-events/`, `/ask/`, `/golf/`) have `lastCrawlTime: never` despite being internally linked from 500+ pages each. Nav/footer links don't carry crawl weight.
+
+**Three experiments shipped today:**
+
+1. **2026-05-05-01 - Hub indexation push.** Bumped sitemap priority for the 5 unindexed hubs to 1.0. Added contextual body link from the dog-friendly journal article (138+ impressions) to the `/dog-friendly/` hub. Manual reindex submission required from James after deploy.
+
+2. **2026-05-05-02 - Journal internal linking.** Bumped the auto-related-articles limit on `[slug].astro` from 3 to 6. Explicitly populated `relatedArticles` arrays on 3 high-impression journal articles (the-pub-guide, the-cellar-door-short-list, where-to-eat-mornington-peninsula) pointing to 15 unindexed sibling articles.
+
+3. **2026-05-05-03 - Stop /eat/ vs /wine/ winery duplicates.** Found that `/eat/[slug].astro` was generating pages for ALL venue types including wineries, creating 25+ pairs of duplicate pages with self-referential canonicals. Fixed by making `/eat/{winery-slug}/` emit a canonical pointing to `/wine/{winery-slug}/`. Verified live for kerri-greens, polperro, elan-vineyard.
+
+### Action items for James (post-deploy)
+
+1. **Submit hub URLs for manual reindexing** in GSC URL Inspection:
+
+   ```
+   https://peninsulainsider.com.au/dog-friendly/
+   https://peninsulainsider.com.au/whats-on/
+   https://peninsulainsider.com.au/corporate-events/
+   https://peninsulainsider.com.au/ask/
+   https://peninsulainsider.com.au/explore/golf/
+   ```
+
+   Five URLs, well within the 10/day quota.
+
+   **Note (correction 2026-05-05 evening)**: original list had `/golf/` which is a noindex redirect-stub pointing to `/explore/golf/`. GSC live test correctly returned "Excluded by noindex tag". Submit `/explore/golf/` instead — that's the canonical golf hub. Sitemap also corrected (PR #78) to remove `/golf/` and add `/explore/golf/`.
+
+### Tomorrow's queue
+
+1. Pull GSC data and check whether the indexation chart ticks up further past 76.
+2. Re-run `discover-unindexed.mjs` mid-week (2026-05-08) to see early movement on the three experiments.
+3. Pick next experiment from the remaining 140 Discovered. Strong candidates: the 32 unindexed `/explore/` walks (similar pattern to journal, link equity), or the 4 noindex pages (verify intentional).

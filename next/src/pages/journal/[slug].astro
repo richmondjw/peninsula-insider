@@ -35,10 +35,12 @@ const nextArticle = currentIndex > 0 ? allArticles[currentIndex - 1] : null;
 
 // Related articles: explicit relatedArticles refs lead, then format/tag
 // similarity, then a recency fallback. Single helper keeps all three layers
-// in one place so no surface ever shows an empty rail.
+// in one place so no surface ever shows an empty rail. Limit bumped from
+// 3 to 6 on 2026-05-05 (experiment 2026-05-05-02) to expose more siblings,
+// concentrating crawl signal on the 58 unindexed journal articles.
 const relatedArticles = pickRelatedArticles(article, allArticles, {
   explicit: article.data.relatedArticles,
-  limit: 3,
+  limit: 6,
 });
 
 const allVenues = await getCollection('venues');

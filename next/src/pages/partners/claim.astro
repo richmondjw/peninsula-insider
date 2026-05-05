@@ -1,0 +1,384 @@
+---
+/**
+ * /partners/claim/ — operator claim form (Phase 6 WS6B).
+ *
+ * Auth-gated. Lets a signed-in operator submit a "this is my venue"
+ * claim against a slug from the venues collection. Editor approves
+ * manually in Studio (v1); automated email-domain match follows later.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const venues = await getCollection('venues');
+const venueOptions = venues
+  .filter((v) => !v.data.sitemapExclude)
+  .map((v) => ({ slug: routeSlug(v), name: v.data.name }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Partner with us', href: '/partners/' },
+  { label: 'Claim your venue' },
+];
+---
+
+<BaseLayout
+  title="Claim your venue · Peninsula Insider"
+  description="Operators sign in and claim their venue listing on Peninsula Insider. Editor verifies; once approved, the operator dashboard unlocks."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="Claim your venue"
+    subEyebrow="Verified-operator surface"
+    title="Tell us this is <em>your</em> venue."
+    dek="Sign in, point us at the listing, and tell us how to verify you. Editorial approves claims manually in v1 — typically within a working day. Once approved, you can manage hours, photos, and event proposals from the operator dashboard."
+    gradient="journal"
+    visualLabel="Peninsula Insider · operator claim"
+  />
+
+  <section class="claim-page">
+    <div class="container">
+
+      <div class="claim-anonymous" data-claim-anonymous>
+        <p class="claim-anonymous__title">Sign in to submit a claim.</p>
+        <p class="claim-anonymous__body">Claims are linked to your account so the editor can write back about verification status. Sign in (or create an account, free) to continue.</p>
+        <button type="button" class="claim-anonymous__cta" data-open-auth>Sign in</button>
+      </div>
+
+      <form class="claim-form" data-claim-form aria-label="Operator claim form" hidden>
+        <fieldset class="claim-form__group">
+          <legend class="claim-form__legend">Your venue</legend>
+
+          <div class="claim-form__field">
+            <label class="claim-form__label" for="cl-venue">Venue</label>
+            <input
+              id="cl-venue"
+              name="venue"
+              type="text"
+              list="cl-venue-list"
+              required
+              maxlength="200"
+              class="claim-form__input"
+              placeholder="Start typing your venue name…"
+              autocomplete="off"
+            />
+            <datalist id="cl-venue-list">
+              {venueOptions.map((v) => <option value={v.name} data-slug={v.slug}>{v.name}</option>)}
+            </datalist>
+            <p class="claim-form__hint">Pick from the list. If your venue isn't on PI yet, see <a href="/partners/">/partners</a> first.</p>
+          </div>
+
+          <div class="claim-form__field">
+            <label class="claim-form__label" for="cl-role">Your role at the venue</label>
+            <input
+              id="cl-role"
+              name="role"
+              type="text"
+              required
+              maxlength="120"
+              class="claim-form__input"
+              placeholder="Owner / Manager / GM / Marketing"
+            />
+          </div>
+
+          <div class="claim-form__field">
+            <label class="claim-form__label" for="cl-proof">Proof of association</label>
+            <textarea
+              id="cl-proof"
+              name="proof"
+              required
+              minlength="20"
+              maxlength="1500"
+              rows="5"
+              class="claim-form__textarea"
+              placeholder="A line or two on how to verify you. Best: an email address on the venue's domain we can write to. Also fine: a phone number on the venue's website. The editor verifies before approving."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <div class="claim-form__submit">
+          <button type="submit" class="claim-form__button">Submit claim</button>
+          <p class="claim-form__caveat">Claims are reviewed manually. You'll hear back via your account email — usually within a working day.</p>
+        </div>
+
+        <p class="claim-form__status" data-claim-status hidden></p>
+      </form>
+
+      <p class="claim-existing" data-claim-existing hidden>
+        You already have a claim on file for this account. <a href="/partners/dashboard/">Open the dashboard →</a>
+      </p>
+
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<script define:vars={{ venueOptionsJson: JSON.stringify(venueOptions) }}>
+  import { getSupabase, isAuthEnabled, onAuthChange, listOwnVenueClaims, submitVenueClaim } from '../../lib/auth';
+
+  function setVisible(selector, visible) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    if (visible) el.removeAttribute('hidden');
+    else el.setAttribute('hidden', '');
+  }
+
+  async function init() {
+    if (!isAuthEnabled()) {
+      setVisible('[data-claim-anonymous]', true);
+      const note = document.querySelector('[data-claim-anonymous] .claim-anonymous__body');
+      if (note) note.textContent = "Operator accounts aren't currently configured. Use the anonymous /partners/update/ form for ad-hoc updates.";
+      return;
+    }
+
+    const c = getSupabase();
+    if (!c) return;
+
+    const session = (await c.auth.getSession()).data.session;
+    const user = session?.user ?? null;
+
+    if (!user) {
+      setVisible('[data-claim-anonymous]', true);
+      setVisible('[data-claim-form]', false);
+      setVisible('[data-claim-existing]', false);
+      onAuthChange(() => init());
+      return;
+    }
+
+    setVisible('[data-claim-anonymous]', false);
+
+    const claims = await listOwnVenueClaims(user.id);
+    if (claims.some((c) => c.status === 'pending' || c.status === 'approved')) {
+      setVisible('[data-claim-existing]', true);
+      setVisible('[data-claim-form]', false);
+    } else {
+      setVisible('[data-claim-existing]', false);
+      setVisible('[data-claim-form]', true);
+    }
+
+    bindForm(user);
+  }
+
+  function bindForm(user) {
+    const form = document.querySelector('[data-claim-form]');
+    if (!form || form._piBound) return;
+    form._piBound = true;
+    const status = document.querySelector('[data-claim-status]');
+    const button = form.querySelector('.claim-form__button');
+    const venueOptions = venueOptionsJson;
+
+    function setStatus(kind, message) {
+      if (!status) return;
+      status.textContent = message;
+      status.setAttribute('data-status-kind', kind);
+      status.removeAttribute('hidden');
+    }
+
+    function resolveSlug(name) {
+      if (!name) return '';
+      const exact = venueOptions.find((v) => v.name.toLowerCase() === name.toLowerCase());
+      return exact ? exact.slug : '';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const venueName = String(fd.get('venue') || '').trim();
+      const venueSlug = resolveSlug(venueName);
+      if (!venueSlug) {
+        setStatus('error', "We couldn't match that venue to one we cover. Pick from the dropdown, or email hello@peninsulainsider.com.au if your venue isn't listed yet.");
+        return;
+      }
+
+      if (button) button.disabled = true;
+      setStatus('info', 'Submitting…');
+
+      const result = await submitVenueClaim(user.id, {
+        venue_slug: venueSlug,
+        venue_name: venueName,
+        operator_role: String(fd.get('role') || ''),
+        proof: String(fd.get('proof') || ''),
+      });
+
+      if (!result.ok) {
+        // Most likely cause: unique constraint (already claimed).
+        const msg = result.error && result.error.includes('duplicate')
+          ? "You've already submitted a claim for this venue. Open the dashboard to see its status."
+          : "Couldn't send. Try once more, or email hello@peninsulainsider.com.au.";
+        setStatus('error', msg);
+        if (button) button.disabled = false;
+        return;
+      }
+
+      form.reset();
+      setStatus('success', "Claim received. The editor will verify and write back via your account email — usually within a working day.");
+      if (button) button.disabled = false;
+      // Re-load the page state so the existing-claims path takes over.
+      setTimeout(init, 500);
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+  .claim-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); max-width: 720px; }
+  .claim-anonymous,
+  .claim-existing {
+    border: 1px dashed var(--border);
+    padding: clamp(1.5rem, 3vw, 2.5rem) 1.5rem;
+    text-align: center;
+  }
+  .claim-anonymous__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+  }
+  .claim-anonymous__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--soft);
+    margin: 0 auto 1.25rem;
+    max-width: 32rem;
+  }
+  .claim-anonymous__cta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg, #fff);
+    border: 1px solid var(--accent);
+    padding: 0.7rem 1.1rem;
+    cursor: pointer;
+  }
+  .claim-anonymous__cta:hover {
+    background: var(--text, #1a1a1a);
+    border-color: var(--text, #1a1a1a);
+  }
+  .claim-existing {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+  }
+  .claim-existing a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .claim-form {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  .claim-form__group {
+    border: 1px solid var(--border);
+    background: var(--paper, #fbf7f0);
+    padding: clamp(1rem, 2vw, 1.4rem);
+  }
+  .claim-form__legend {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0 0.4rem;
+    margin: 0;
+  }
+  .claim-form__field { margin-top: 1rem; }
+  .claim-form__label {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.35rem;
+  }
+  .claim-form__input,
+  .claim-form__textarea {
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--dark);
+    background: var(--bg, #fff);
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.75rem;
+  }
+  .claim-form__textarea { resize: vertical; min-height: 7rem; }
+  .claim-form__input:focus,
+  .claim-form__textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .claim-form__hint {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    color: var(--soft);
+    margin: 0.35rem 0 0;
+  }
+  .claim-form__hint a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .claim-form__submit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    align-items: flex-start;
+  }
+  .claim-form__button {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bg, #fff);
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.85rem 1.4rem;
+    cursor: pointer;
+  }
+  .claim-form__button:disabled { opacity: 0.6; cursor: progress; }
+  .claim-form__button:hover:not(:disabled) {
+    background: var(--text, #1a1a1a);
+    border-color: var(--text, #1a1a1a);
+  }
+  .claim-form__caveat {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    color: var(--soft);
+    margin: 0;
+    max-width: 28rem;
+  }
+  .claim-form__status {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    padding: 0.7rem 0.95rem;
+    border: 1px solid var(--border);
+  }
+  .claim-form__status[data-status-kind="success"] {
+    color: #2f6e3a;
+    border-color: rgba(47, 110, 58, 0.5);
+    background: rgba(47, 110, 58, 0.07);
+  }
+  .claim-form__status[data-status-kind="error"] {
+    color: #b14b3a;
+    border-color: rgba(177, 75, 58, 0.5);
+    background: rgba(177, 75, 58, 0.07);
+  }
+  .claim-form__status[data-status-kind="info"] {
+    color: var(--soft);
+  }
+</style>

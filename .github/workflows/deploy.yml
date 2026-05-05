@@ -5,11 +5,23 @@ name: Build & deploy site to GitHub Pages
 #
 # Setup required (one-time):
 #   1. GitHub → repo Settings → Secrets and variables → Actions
-#   2. Add a *Variable* (or Secret if you prefer) named:
-#        PUBLIC_CONCIERGE_API_URL = https://peninsula-insider-platform-api.vercel.app
+#   2. Add the following Variables (or Secrets — Variables are fine for
+#      these since none of them are secret in the cryptographic sense;
+#      the publishable Supabase key is RLS-gated and ships in the static
+#      bundle anyway):
+#        PUBLIC_CONCIERGE_API_URL  = https://peninsula-insider-platform-api.vercel.app
+#        PUBLIC_SUPABASE_URL       = https://tjjhpvslpysfklwpqmgz.supabase.co
+#        PUBLIC_SUPABASE_ANON_KEY  = sb_publishable_... (or legacy eyJ... anon key)
 #
 # After that, every push to main rebuilds + commits the dist back to main.
 # GitHub Pages serves from main/root so the deploy is "automatic".
+#
+# If PUBLIC_SUPABASE_ANON_KEY is unset, next/src/lib/auth.ts gracefully
+# degrades to localStorage-only — saves and itineraries still work on
+# the device, but cross-device sync, signed-in award voting, and the
+# /submit/ form's database insert all silently no-op. So this isn't
+# strictly required for the site to *build*, but it is required for the
+# Phase 3+4 cloud features to actually work in production.
 
 on:
   push:
@@ -52,8 +64,28 @@ jobs:
         working-directory: next
         env:
           PUBLIC_CONCIERGE_API_URL: ${{ vars.PUBLIC_CONCIERGE_API_URL || secrets.PUBLIC_CONCIERGE_API_URL }}
+          # Phase 3+ — Supabase auth + cross-device sync. Anon (publishable)
+          # key is RLS-gated; safe to embed in the static bundle. URL is
+          # also non-sensitive (it's the project's public hostname). When
+          # either is unset, lib/auth.ts gracefully no-ops to localStorage.
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY || secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          # Phase 6 WS6A — Stripe Checkout for Pass tiers. Publishable
+          # key + price ids are non-sensitive (RLS-equivalent — Stripe
+          # validates everything server-side). Until set, /pass/ falls
+          # back to the waitlist email-capture flow.
+          PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ vars.PUBLIC_STRIPE_PUBLISHABLE_KEY || secrets.PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+          PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY: ${{ vars.PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY || secrets.PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY }}
+          PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL:  ${{ vars.PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL  || secrets.PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL }}
+          PUBLIC_STRIPE_PRICE_FOUNDERS:        ${{ vars.PUBLIC_STRIPE_PRICE_FOUNDERS        || secrets.PUBLIC_STRIPE_PRICE_FOUNDERS }}
         run: |
           echo "Building with API URL: ${PUBLIC_CONCIERGE_API_URL:-(unset)}"
+          echo "Supabase URL configured:    $([ -n "$PUBLIC_SUPABASE_URL" ] && echo yes || echo no)"
+          echo "Supabase anon key configured: $([ -n "$PUBLIC_SUPABASE_ANON_KEY" ] && echo yes || echo no)"
+          echo "Stripe publishable key:     $([ -n "$PUBLIC_STRIPE_PUBLISHABLE_KEY" ] && echo yes || echo no)"
+          echo "Stripe Insider monthly:     $([ -n "$PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY" ] && echo yes || echo no)"
+          echo "Stripe Insider annual:      $([ -n "$PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL" ] && echo yes || echo no)"
+          echo "Stripe Founders:            $([ -n "$PUBLIC_STRIPE_PRICE_FOUNDERS" ] && echo yes || echo no)"
           npm run build:search
 
       - name: Sync dist to repo root (mirrors build-live.sh)
@@ -97,6 +129,15 @@ jobs:
           echo "Built $page_count pages"
 
       - name: Commit and push deploy
+        env:
+          # Pass the trigger commit message via env var rather than
+          # ${{ github.event.head_commit.message }} inline. The template
+          # substitution dumps the raw message into the generated shell
+          # script, so any backtick / quote / parens in the message
+          # produces a shell parse error and the deploy fails before push.
+          # See: failed runs #159, #160, #163 (commit messages that
+          # referenced `pi.submissions` etc. in backticks).
+          HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
         run: |
           git config user.name  "peninsula-insider-deploy[bot]"
           git config user.email "deploy@peninsulainsider.com.au"
@@ -108,9 +149,11 @@ jobs:
             exit 0
           fi
 
-          # Use a heredoc + first-line-only of the trigger commit message to
-          # avoid shell-injection from quotes/special chars in commit text.
-          TRIGGER_MSG=$(echo "${{ github.event.head_commit.message }}" | head -1 | tr -d '"' | tr -d '`')
+          # First line of the trigger message, stripped of quotes + backticks.
+          # Reads HEAD_COMMIT_MSG from the env block above; the value never
+          # touches the shell parser as source so any character in the
+          # message is safe.
+          TRIGGER_MSG=$(printf '%s\n' "$HEAD_COMMIT_MSG" | head -1 | tr -d '"' | tr -d '`' | tr -d '$')
           git commit -F - <<EOF
           build: deploy site (auto) [skip ci]
 

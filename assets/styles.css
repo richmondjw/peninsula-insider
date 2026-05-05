@@ -8640,3 +8640,1663 @@ body.menu-open .subscribe-pill {
 .event-card__actions .event-card__cta {
   margin-top: 0;
 }
+
+/* ============================================================================
+   THE INSIDER MAP (Phase 2 WS2D)
+   Map-led discovery on /map/. Leaflet + markercluster from CDN; everything
+   below is the page chrome around the map canvas.
+   ============================================================================ */
+
+.map-page {
+  padding: 0 0 clamp(2rem, 4vw, 3rem);
+}
+.map-page__intro {
+  padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--border);
+}
+.map-page__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0.4rem 0 0.7rem;
+}
+.map-page__sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--soft);
+  max-width: 760px;
+  margin: 0;
+}
+
+.map-page__chrome {
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+.map-page__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0 clamp(1rem, 2vw, 1.5rem) clamp(0.85rem, 1.5vw, 1.1rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.map-pin-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+.map-pin-toggle[aria-pressed="false"] {
+  opacity: 0.45;
+  background: var(--paper, #fbf7f0);
+}
+.map-pin-toggle:hover { border-color: var(--accent); }
+.map-pin-toggle__dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid var(--bg, #fff);
+  box-shadow: 0 0 0 1px rgba(40, 28, 14, 0.25);
+}
+.map-pin-toggle--place .map-pin-toggle__dot      { background: #6b4d2c; }
+.map-pin-toggle--eat .map-pin-toggle__dot        { background: #b3592a; }
+.map-pin-toggle--wine .map-pin-toggle__dot       { background: #7b1e3c; }
+.map-pin-toggle--stay .map-pin-toggle__dot       { background: #4a6a4f; }
+.map-pin-toggle--experience .map-pin-toggle__dot { background: #2f6e8a; }
+.map-pin-toggle__count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  padding-left: 0.2rem;
+}
+
+.map-page__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 70vh;
+}
+@media (min-width: 880px) {
+  .map-page__layout {
+    grid-template-columns: 320px 1fr;
+    min-height: 75vh;
+  }
+}
+
+.map-page__list {
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper, #fbf7f0);
+}
+@media (min-width: 880px) {
+  .map-page__list {
+    border-right: 1px solid var(--border);
+    border-bottom: 0;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+}
+.map-page__list-header {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.map-page__search {
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  background: var(--bg, #fff);
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+.map-page__search:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.map-page__list-count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0;
+}
+
+.map-page__entries {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+}
+.map-page__entry-button {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.map-page__entry-button:hover,
+.map-page__entry-button:focus-visible {
+  background: rgba(167, 118, 55, 0.08);
+  outline: none;
+}
+.map-page__entry-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+  border: 2px solid var(--bg, #fff);
+  box-shadow: 0 0 0 1px rgba(40, 28, 14, 0.25);
+}
+.map-page__entry-dot--place      { background: #6b4d2c; }
+.map-page__entry-dot--eat        { background: #b3592a; }
+.map-page__entry-dot--wine       { background: #7b1e3c; }
+.map-page__entry-dot--stay       { background: #4a6a4f; }
+.map-page__entry-dot--experience { background: #2f6e8a; }
+.map-page__entry-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1;
+}
+.map-page__entry-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.map-page__entry-meta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.map-page__list-empty {
+  margin: 0.85rem 1rem;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  color: var(--soft);
+}
+
+.map-page__canvas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.map-page__map {
+  flex: 1;
+  min-height: 65vh;
+  /* Leaflet resets some box-sizing locally; ensure a sane base. */
+  z-index: 0;
+}
+.map-page__attribution-note {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+  text-align: right;
+  padding: 0.45rem 1rem 0.7rem;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* Custom Leaflet pins. DivIcon-based — no external image assets. */
+.map-pin {
+  background: transparent;
+  border: 0;
+}
+.map-pin__inner {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid var(--bg, #fff);
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.6);
+}
+.map-pin--place .map-pin__inner      { background: #6b4d2c; }
+.map-pin--eat .map-pin__inner        { background: #b3592a; }
+.map-pin--wine .map-pin__inner       { background: #7b1e3c; }
+.map-pin--stay .map-pin__inner       { background: #4a6a4f; }
+.map-pin--experience .map-pin__inner { background: #2f6e8a; }
+
+/* Popup body styled to match the rest of the brand. Leaflet's default
+   popup chrome is left in place; we just style the inner content. */
+.map-popup {
+  width: 240px;
+  font-family: 'Outfit', sans-serif;
+}
+.map-popup__hero {
+  height: 110px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--paper, #fbf7f0);
+  margin: -8px -12px 8px;
+}
+.map-popup__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.map-popup__meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0;
+}
+.map-popup__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.2;
+}
+.map-popup__blurb {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--dark);
+  margin: 0;
+}
+.map-popup__cta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(167, 118, 55, 0.45);
+  align-self: flex-start;
+}
+.map-popup__cta:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ============================================================================
+   TYPEAHEAD (Phase 3 WS3A)
+   Masthead-mounted instant search. Trigger sits where the old search-icon
+   used to live; click or "/" expands the dropdown panel; results appear
+   grouped by kind. Mobile: dropdown becomes a full-screen sheet.
+   ============================================================================ */
+
+.typeahead {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.typeahead__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.75rem 0.45rem 0.7rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.typeahead__trigger:hover,
+.typeahead__trigger:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+  outline: none;
+}
+.typeahead__trigger-label { margin-right: 0.1rem; }
+.typeahead__trigger-kbd {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.05rem 0.32rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--paper, #fbf7f0);
+  color: var(--soft);
+}
+@media (max-width: 720px) {
+  /* Mobile: keep just the icon to save space; the panel grows full-screen
+     when opened so the absent label doesn't matter. */
+  .typeahead__trigger-label,
+  .typeahead__trigger-kbd { display: none; }
+  .typeahead__trigger { padding: 0.45rem; }
+}
+
+.typeahead__panel {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  z-index: 60;
+  min-width: 26rem;
+  max-width: min(34rem, calc(100vw - 2rem));
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  box-shadow: 0 22px 50px -22px rgba(40, 28, 14, 0.4);
+  /* Same translate-bridge pattern as the More mega-menu so cursor traversal
+     stays inside the hit area. */
+  transform: translateY(0);
+}
+.typeahead__panel[hidden] { display: none; }
+.typeahead__panel-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.typeahead__form {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+.typeahead__form-icon {
+  display: inline-flex;
+  color: var(--soft);
+  flex-shrink: 0;
+}
+.typeahead__input {
+  flex: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  outline: none;
+  min-width: 0;
+}
+.typeahead__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  background: transparent;
+  border: 0;
+  color: var(--soft);
+  cursor: pointer;
+  border-radius: 999px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.typeahead__close:hover { color: var(--accent); background: rgba(167, 118, 55, 0.08); }
+
+.typeahead__suggestions {
+  padding: 0.85rem 1rem 1rem;
+}
+.typeahead__suggestions-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 0.55rem;
+}
+.typeahead__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.typeahead__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  background: var(--paper, #fbf7f0);
+  border: 1px solid var(--border);
+  color: var(--dark);
+  cursor: pointer;
+  border-radius: 999px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.typeahead__chip:hover { border-color: var(--accent); color: var(--accent); }
+.typeahead__chip-bullet {
+  color: var(--accent);
+  font-size: 0.7em;
+}
+
+.typeahead__results {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  max-height: min(60vh, 28rem);
+  overflow-y: auto;
+}
+.typeahead__group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.typeahead__group + .typeahead__group {
+  border-top: 1px solid var(--border);
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+}
+.typeahead__group-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0;
+  padding: 0.4rem 1rem 0.25rem;
+}
+.typeahead__group-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.typeahead__result { margin: 0; padding: 0; }
+.typeahead__result-link {
+  display: block;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  color: var(--dark);
+  border-left: 2px solid transparent;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.typeahead__result-link:hover,
+.typeahead__result-link:focus-visible,
+.typeahead__result-link.is-active {
+  background: rgba(167, 118, 55, 0.08);
+  border-left-color: var(--accent);
+  outline: none;
+}
+.typeahead__result-title {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.typeahead__result-excerpt {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.83rem;
+  line-height: 1.45;
+  color: var(--soft);
+  margin-top: 0.18rem;
+  /* Pagefind excerpts contain <mark> wrappers around matched terms — let
+     them render with brand colour. */
+}
+.typeahead__result-excerpt mark {
+  background: rgba(167, 118, 55, 0.18);
+  color: var(--text);
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+.typeahead__empty {
+  padding: 1rem 1.1rem 1.2rem;
+  list-style: none;
+}
+.typeahead__empty-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0 0 0.35rem;
+}
+.typeahead__empty-hint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  color: var(--soft);
+  margin: 0;
+}
+
+.typeahead__footer {
+  border-top: 1px solid var(--border);
+  padding: 0.6rem 1rem 0.7rem;
+}
+.typeahead__footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+}
+.typeahead__footer-link:hover { color: var(--text); }
+
+/* Mobile: panel becomes a full-screen sheet, anchored to the top. */
+@media (max-width: 720px) {
+  body.typeahead-open { overflow: hidden; }
+  .typeahead__panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+  }
+  .typeahead__panel-inner {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .typeahead__form {
+    padding: 1.1rem 1rem 0.85rem;
+  }
+  .typeahead__results { max-height: none; }
+}
+
+/* ============================================================================
+   PLACE MAP (Phase 3 WS3B)
+   Scoped Leaflet map embedded on /places/<slug>/. Reuses the global
+   .map-pin and .map-popup styles from /map/. The block below is just the
+   page chrome around the canvas.
+   ============================================================================ */
+
+.place-map {
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0;
+  border-top: 1px solid var(--border);
+}
+.place-map__header {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  max-width: 720px;
+}
+.place-map__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0.45rem 0 0.65rem;
+  line-height: 1.15;
+}
+.place-map__sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--soft);
+  margin: 0;
+}
+
+.place-map__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 clamp(0.85rem, 1.5vw, 1.15rem);
+}
+
+.place-map__canvas {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  z-index: 0;
+}
+@media (max-width: 720px) {
+  .place-map__canvas {
+    /* 4:3 aspect on mobile per locked decision; capped to a sensible
+       maximum on tall phones. */
+    height: auto;
+    aspect-ratio: 4 / 3;
+    max-height: 70vh;
+  }
+}
+
+.place-map__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper, #fbf7f0);
+}
+.place-map__placeholder-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+  margin: 0;
+}
+
+/* ============================================================================
+   ITINERARY BUILDER (Phase 3 WS3C)
+   /itinerary/ page. Drag-and-drop sequencer with travel-time gaps, optional
+   day groupings, share URL, native print, and Google Maps multi-stop link.
+   ============================================================================ */
+
+.itinerary-page {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+
+.itinerary-empty {
+  border: 1px dashed var(--border);
+  padding: clamp(1.5rem, 3vw, 2.5rem) 1.5rem;
+  text-align: center;
+}
+.itinerary-empty__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+.itinerary-empty__body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: var(--soft);
+  margin: 0 0 1.25rem;
+}
+.itinerary-empty__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+.itinerary-empty__cta {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.itinerary-empty__cta--ghost {
+  background: transparent;
+  color: var(--accent);
+}
+.itinerary-empty__cta:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); color: var(--bg, #fff); }
+.itinerary-empty__cta--ghost:hover { color: var(--bg, #fff); }
+[data-itinerary-empty][hidden] { display: none; }
+
+.itinerary-banner {
+  border: 1px solid var(--accent);
+  background: rgba(167, 118, 55, 0.06);
+  padding: clamp(1rem, 2vw, 1.4rem);
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.itinerary-banner__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.55rem;
+}
+.itinerary-banner__body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--dark);
+  margin: 0 0 0.85rem;
+}
+.itinerary-banner__action {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+.itinerary-banner__action:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
+
+.itinerary-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 0.95rem 0 1.1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.itinerary-toolbar__count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--soft);
+}
+.itinerary-toolbar__sep { margin: 0 0.5rem; }
+.itinerary-toolbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.itinerary-toolbar__action {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.itinerary-toolbar__action:hover { color: var(--accent); border-color: var(--accent); }
+.itinerary-toolbar__action--ghost { color: var(--soft); }
+.itinerary-toolbar__action--gmaps {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+[data-itinerary-toolbar][hidden] { display: none; }
+
+.itinerary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.itinerary-day {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+.itinerary-day__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--paper, #fbf7f0);
+}
+.itinerary-day-head {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 0 0.55rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+.itinerary-day-head:first-child {
+  border-top: 0;
+  margin-top: 0;
+}
+.itinerary-day-head__label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+.itinerary-day-head__rename,
+.itinerary-day-head__remove {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 0;
+  color: var(--soft);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+.itinerary-day-head__rename:hover,
+.itinerary-day-head__remove:hover { color: var(--accent); }
+
+.itinerary-item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  margin: 0.4rem 0.5rem;
+  list-style: none;
+  transition: box-shadow 0.15s ease;
+}
+.itinerary-item.is-ghost {
+  opacity: 0.4;
+  background: var(--paper, #fbf7f0);
+}
+.itinerary-item.is-dragging {
+  box-shadow: 0 12px 24px -12px rgba(40, 28, 14, 0.4);
+}
+.itinerary-item__handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  font-size: 1.1rem;
+  color: var(--soft);
+  cursor: grab;
+  user-select: none;
+  border-right: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+}
+.itinerary-item__handle:active { cursor: grabbing; }
+.itinerary-item__link {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+}
+.itinerary-item__hero {
+  flex-shrink: 0;
+  width: 80px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--paper, #fbf7f0);
+}
+.itinerary-item__hero--empty {
+  background: linear-gradient(135deg, rgba(167, 118, 55, 0.12), rgba(223, 197, 158, 0.08));
+}
+.itinerary-item__body {
+  flex: 1;
+  padding: 0.75rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.itinerary-item__meta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.itinerary-item__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text);
+}
+.itinerary-item__remove {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin: 0.65rem 0.65rem 0 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.55rem;
+  cursor: pointer;
+}
+.itinerary-item__remove:hover { color: var(--accent); border-color: var(--accent); }
+
+.itinerary-gap {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0 1rem;
+  margin: 0.15rem 0;
+}
+.itinerary-gap__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.itinerary-gap__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  white-space: nowrap;
+}
+
+/* Print rules — strip chrome for a clean glove-box copy. */
+@media print {
+  header.masthead,
+  footer,
+  .breadcrumbs,
+  .section-hero,
+  .newsletter-block,
+  [data-pi-trigger],
+  .typeahead,
+  .save-button,
+  #siteSearchOverlay,
+  .cookie-banner,
+  body > nav.mobile-nav,
+  .itinerary-toolbar,
+  .itinerary-empty,
+  .itinerary-banner,
+  .itinerary-item__handle,
+  .itinerary-item__remove,
+  .itinerary-day-head__rename,
+  .itinerary-day-head__remove {
+    display: none !important;
+  }
+  body, .itinerary-page, main {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .itinerary-day__list {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .itinerary-item {
+    page-break-inside: avoid;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .itinerary-item__hero { display: none; }
+  .itinerary-gap__line { background: #000; }
+  .itinerary-gap__label { color: #000; }
+}
+
+
+/* ============================================================================
+   CLOUD SYNC INDICATOR (Phase 3 WS3E)
+   "Synced to your account" badge on /saved/ and /itinerary/. Hidden when
+   the user is anonymous (since the page already says "Saved on this device"
+   elsewhere).
+   ============================================================================ */
+
+.cloud-sync-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  padding: 0.4rem 0.75rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  background: var(--paper, #fbf7f0);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.cloud-sync-indicator[hidden] { display: none; }
+.cloud-sync-indicator__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--soft);
+  flex-shrink: 0;
+}
+[data-cloud-sync-status="synced"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+[data-cloud-sync-status="synced"] .cloud-sync-indicator__dot {
+  background: var(--accent);
+}
+[data-cloud-sync-status="pulling"] .cloud-sync-indicator__dot,
+[data-cloud-sync-status="pushing"] .cloud-sync-indicator__dot {
+  background: var(--accent);
+  animation: cloud-sync-pulse 1s ease-in-out infinite;
+}
+[data-cloud-sync-status="error"] {
+  color: #b14b3a;
+  border-color: rgba(177, 75, 58, 0.5);
+}
+[data-cloud-sync-status="error"] .cloud-sync-indicator__dot {
+  background: #b14b3a;
+}
+@keyframes cloud-sync-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+
+/* ============================================================================
+   COMMUNITY SUBMISSIONS (Phase 4 WS4D)
+   /submit/ form for reader-contributed local secrets.
+   ============================================================================ */
+
+.submit-page {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+.submit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+@media (min-width: 920px) {
+  .submit-grid { grid-template-columns: 320px 1fr; }
+}
+
+.submit-process {
+  list-style: none;
+  margin: 0.85rem 0 1.5rem;
+  padding: 0;
+  counter-reset: submit-step;
+}
+.submit-process li {
+  position: relative;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--dark);
+  padding: 0.55rem 0 0.55rem 2.2rem;
+  border-bottom: 1px dashed var(--border);
+  counter-increment: submit-step;
+}
+.submit-process li::before {
+  content: counter(submit-step);
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.submit-process li:last-child { border-bottom: 0; }
+
+.submit-rules-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 1.25rem 0 0.55rem;
+}
+.submit-rules {
+  list-style: disc inside;
+  padding: 0;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--soft);
+}
+.submit-rules li { margin-bottom: 0.4rem; }
+
+.submit-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.submit-form__group {
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+.submit-form__legend {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0 0.4rem;
+  margin: 0;
+}
+.submit-form__field {
+  margin-top: 1rem;
+}
+.submit-form__label {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.35rem;
+}
+.submit-form__input,
+.submit-form__textarea,
+.submit-form__select {
+  width: 100%;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--dark);
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+}
+.submit-form__textarea { resize: vertical; min-height: 9rem; }
+.submit-form__input:focus,
+.submit-form__textarea:focus,
+.submit-form__select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.submit-form__hint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0.35rem 0 0;
+}
+.submit-form__file {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+}
+.submit-form__submit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: flex-start;
+  margin-top: 0.5rem;
+}
+.submit-form__button {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg, #fff);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.85rem 1.4rem;
+  cursor: pointer;
+}
+.submit-form__button:disabled { opacity: 0.6; cursor: progress; }
+.submit-form__button:hover:not(:disabled) {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}
+.submit-form__caveat {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0;
+  max-width: 30rem;
+}
+.submit-form__status {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--border);
+}
+.submit-form__status[data-status-kind="success"] {
+  color: #2f6e3a;
+  border-color: rgba(47, 110, 58, 0.5);
+  background: rgba(47, 110, 58, 0.07);
+}
+.submit-form__status[data-status-kind="error"] {
+  color: #b14b3a;
+  border-color: rgba(177, 75, 58, 0.5);
+  background: rgba(177, 75, 58, 0.07);
+}
+.submit-form__status[data-status-kind="info"] {
+  color: var(--soft);
+}
+
+
+/* ============================================================================
+   PLACE SUBMIT CTA (Phase 4 WS4D)
+   "Got a Sorrento secret?" block at the foot of every /places/<slug>/ hub.
+   ============================================================================ */
+
+.place-submit-cta {
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+  border-top: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+}
+.place-submit-cta__inner {
+  max-width: 720px;
+}
+.place-submit-cta__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.55rem;
+}
+.place-submit-cta__body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark);
+  margin: 0 0 1rem;
+}
+.place-submit-cta__link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(167, 118, 55, 0.5);
+  padding-bottom: 0.1rem;
+}
+.place-submit-cta__link:hover {
+  border-bottom-color: var(--accent);
+  color: var(--text);
+}
+
+
+/* ============================================================================
+   GUIDES INDEX (Phase 4 WS4C)
+   /guides/ index page — newsletter-gated PDF download cards.
+   ============================================================================ */
+
+.guides-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+.guides-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+@media (min-width: 880px) { .guides-grid { grid-template-columns: 1fr 1fr; } }
+
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  overflow: hidden;
+}
+.guide-card__hero {
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg, #fff);
+}
+.guide-card__body {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.guide-card__season {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.guide-card__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0;
+}
+.guide-card__dek {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--soft);
+  margin: 0;
+}
+.guide-card__meta {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+  margin: 0 0 0.6rem;
+}
+
+.guide-card__form {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.guide-card__form-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+}
+.guide-card__form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.guide-card__form-input {
+  flex: 1;
+  min-width: 12rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  color: var(--dark);
+}
+.guide-card__form-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.guide-card__form-button {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+.guide-card__form-button:disabled { opacity: 0.6; cursor: progress; }
+.guide-card__form-button:hover:not(:disabled) {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}
+.guide-card__form-fineprint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  margin: 0;
+}
+.guide-card__form-status {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+.guide-card__form-status[data-status-kind="error"] { color: #b14b3a; }
+.guide-card__form-status[data-status-kind="info"] { color: var(--accent); }
+.guide-card__success-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+.guide-card__success-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-bottom: 0.45rem;
+}
+.guide-card__success-link:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
+
+.guides-coming {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--soft);
+  text-align: center;
+}
+
+
+/* ============================================================================
+   ALERTS PAGE (Phase 4 WS4B)
+   /alerts/ form to configure event alert subscriptions.
+   ============================================================================ */
+
+.alerts-page {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+.alerts-empty {
+  border: 1px dashed var(--border);
+  padding: clamp(1.25rem, 2.5vw, 2rem) 1.5rem;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.alerts-empty[hidden] { display: none; }
+.alerts-empty__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 0.5rem;
+}
+.alerts-empty__body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--soft);
+  margin: 0;
+}
+
+.alerts-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 0.95rem 0 1.1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.alerts-toolbar[hidden] { display: none; }
+.alerts-toolbar__count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--soft);
+  margin: 0;
+}
+.alerts-toolbar__action {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 0.55rem 0.95rem;
+  cursor: pointer;
+}
+.alerts-toolbar__action:disabled {
+  color: var(--soft);
+  border-color: var(--border);
+  cursor: default;
+}
+
+.alerts-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--paper, #fbf7f0);
+  padding: 0.9rem 1rem;
+}
+.alert-item__body { flex: 1; min-width: 0; }
+.alert-item__criteria {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+}
+.alert-item__delivery {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0.25rem 0 0;
+}
+.alert-item__remove {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--soft);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+.alert-item__remove:hover { color: var(--accent); border-color: var(--accent); }
+
+.alert-form {
+  border: 1px solid var(--border);
+  background: var(--bg, #fff);
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+.alert-form__heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 1rem;
+}
+.alert-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin-bottom: 0.95rem;
+}
+@media (min-width: 720px) {
+  .alert-form__grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+.alert-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.alert-form__field span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+}
+.alert-form__field select {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.7rem;
+  background: var(--bg, #fff);
+  border: 1px solid var(--border);
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.alert-form__delivery {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.alert-form__delivery legend {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+  margin-bottom: 0.5rem;
+}
+.alert-form__delivery label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  color: var(--dark);
+  cursor: pointer;
+}
+.alert-form__delivery input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--accent);
+}
+.alert-form__submit {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg, #fff);
+  border: 1px solid var(--accent);
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+}
+.alert-form__submit:hover {
+  background: var(--text, #1a1a1a);
+  border-color: var(--text, #1a1a1a);
+}

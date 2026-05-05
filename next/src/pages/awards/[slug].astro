@@ -1,0 +1,425 @@
+---
+/**
+ * /awards/<slug>/ — single category page (Phase 4 WS4E).
+ *
+ * Renders the nominees for a category and lets signed-in users cast a
+ * vote. Empty state when categories aren't loaded yet (pre-migration).
+ *
+ * Static-paths-via-fallback: we don't know the slug list at build time,
+ * so we use the well-known DEFAULT_CATEGORY_SLUGS to pre-render the
+ * scaffold. Live data hydrates from Supabase. Custom slugs (e.g. a
+ * year-specific category like 'wine-list-of-2026') will 404 until added
+ * to DEFAULT_CATEGORY_SLUGS or a redirect is set up.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const DEFAULT_CATEGORY_SLUGS = [
+  'restaurant-of-the-year',
+  'cellar-door-of-the-year',
+  'stay-of-the-year',
+  'walk-of-the-year',
+  'best-new-opening',
+  'best-family-day',
+  'locals-choice',
+  'worth-the-drive',
+  'editorial-discovery',
+];
+
+export async function getStaticPaths() {
+  return [
+    'restaurant-of-the-year',
+    'cellar-door-of-the-year',
+    'stay-of-the-year',
+    'walk-of-the-year',
+    'best-new-opening',
+    'best-family-day',
+    'locals-choice',
+    'worth-the-drive',
+    'editorial-discovery',
+  ].map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'The Awards', href: '/awards/' },
+  { label: slug ?? '' },
+];
+
+const titleFromSlug = String(slug ?? '')
+  .replace(/-/g, ' ')
+  .replace(/\b\w/g, (c) => c.toUpperCase());
+---
+
+<BaseLayout
+  title={`${titleFromSlug} · The Peninsula Insider Awards`}
+  description={`Vote in the ${titleFromSlug} category of the Peninsula Insider Awards.`}
+  section="explore"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="award-detail">
+    <div class="container">
+      <p class="label label--accent">Peninsula Insider Award</p>
+      <h1 class="award-detail__title" data-award-title>{titleFromSlug}</h1>
+      <p class="award-detail__description" data-award-description>Loading the category…</p>
+
+      <p class="award-detail__state" data-award-state></p>
+
+      <ol class="award-nominees" data-award-nominees>
+        <li class="award-nominees__loading">Loading nominees…</li>
+      </ol>
+
+      <div class="award-detail__results" data-award-results hidden>
+        <p class="label label--accent">Results</p>
+        <p class="award-detail__results-note" data-award-results-note></p>
+      </div>
+
+      <p class="award-detail__signin" data-award-signin hidden>
+        Sign in to cast a vote.
+        <button type="button" class="award-detail__signin-button" data-open-auth>Sign in</button>
+      </p>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<script define:vars={{ slug }}>
+  /* Per-category controller. Loads category + nominees + the user's
+     existing vote (if any), and lets signed-in users vote with a single
+     click. Aggregate counts shown after voting closes (published=true). */
+  import { getSupabase, getUser, onAuthChange } from '../../lib/auth';
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function nomineeLabel(n) {
+    return n.custom_label
+      || (n.venue_slug ? n.venue_slug : '')
+      || (n.event_slug ? n.event_slug : '')
+      || (n.experience_slug ? n.experience_slug : '')
+      || (n.place_slug ? n.place_slug : '')
+      || 'Untitled';
+  }
+
+  function nomineeHref(n) {
+    if (n.venue_slug) return `/eat/${n.venue_slug}/`;
+    if (n.event_slug) return `/whats-on/${n.event_slug}/`;
+    if (n.experience_slug) return `/explore/${n.experience_slug}/`;
+    if (n.place_slug) return `/places/${n.place_slug}/`;
+    return null;
+  }
+
+  async function init() {
+    const c = getSupabase();
+    const titleEl = document.querySelector('[data-award-title]');
+    const descEl = document.querySelector('[data-award-description]');
+    const stateEl = document.querySelector('[data-award-state]');
+    const listEl = document.querySelector('[data-award-nominees]');
+    const resultsEl = document.querySelector('[data-award-results]');
+    const resultsNoteEl = document.querySelector('[data-award-results-note]');
+    const signinEl = document.querySelector('[data-award-signin]');
+
+    if (!c) {
+      if (descEl) descEl.textContent = "The Awards aren't currently configured. The 2026 cycle will appear here when nominations open.";
+      if (listEl) listEl.innerHTML = '';
+      return;
+    }
+
+    let cat = null;
+    try {
+      const { data, error } = await c
+        .from('award_categories')
+        .select('slug, year, title, description, voting_opens_at, voting_closes_at, published')
+        .eq('slug', slug)
+        .maybeSingle();
+      if (error) throw error;
+      cat = data;
+    } catch (err) {
+      console.warn('[award] category load failed:', err);
+    }
+
+    if (!cat) {
+      if (descEl) descEl.textContent = "This category hasn't been published yet. Check the awards index for the open categories.";
+      if (listEl) listEl.innerHTML = '';
+      return;
+    }
+
+    if (titleEl) titleEl.textContent = cat.title;
+    if (descEl) descEl.textContent = cat.description ?? '';
+
+    const now = Date.now();
+    const opens = cat.voting_opens_at ? new Date(cat.voting_opens_at).getTime() : null;
+    const closes = cat.voting_closes_at ? new Date(cat.voting_closes_at).getTime() : null;
+    const state = cat.published
+      ? 'published'
+      : (opens && now < opens ? 'before'
+        : (closes && now >= closes ? 'closed' : 'open'));
+    const stateCopy = {
+      before:    'Voting opens September. Nominate via the Awards index until then.',
+      open:      'Voting is open. Sign in and pick one. Change your mind any time before the close.',
+      closed:    'Voting has closed for this category. Results land the first weekend of October.',
+      published: 'Results published.',
+    };
+    if (stateEl) stateEl.textContent = stateCopy[state];
+
+    let nominees = [];
+    try {
+      const { data, error } = await c
+        .from('award_nominees')
+        .select('id, category_slug, venue_slug, event_slug, experience_slug, place_slug, custom_label, blurb, sort_order')
+        .eq('category_slug', slug)
+        .order('sort_order', { ascending: true });
+      if (error) throw error;
+      nominees = data || [];
+    } catch (err) {
+      console.warn('[award] nominees load failed:', err);
+    }
+
+    if (nominees.length === 0) {
+      if (listEl) {
+        listEl.innerHTML = '<li class="award-nominees__empty">The shortlist hasn\'t been published yet. Submit a nomination via the <a href="/awards/nominate/">nominate page</a>.</li>';
+      }
+      return;
+    }
+
+    let userVote = null;
+    let user = null;
+    try {
+      user = await getUser();
+      if (user) {
+        const { data } = await c
+          .from('award_votes')
+          .select('nominee_id')
+          .eq('category_slug', slug)
+          .eq('user_id', user.id)
+          .maybeSingle();
+        userVote = data?.nominee_id ?? null;
+      }
+    } catch {}
+
+    let counts = {};
+    if (state === 'published') {
+      try {
+        const { data } = await c
+          .from('award_vote_counts')
+          .select('nominee_id, vote_count')
+          .eq('category_slug', slug);
+        (data || []).forEach((row) => { counts[row.nominee_id] = row.vote_count; });
+      } catch {}
+    }
+
+    const totalVotes = Object.values(counts).reduce((a, b) => a + (b || 0), 0);
+    if (state === 'published' && resultsEl && resultsNoteEl) {
+      resultsEl.removeAttribute('hidden');
+      resultsNoteEl.textContent = totalVotes > 0
+        ? `${totalVotes} reader vote${totalVotes === 1 ? '' : 's'} counted.`
+        : 'Editor selection — reader voting did not run for this category.';
+    }
+
+    if (listEl) {
+      listEl.innerHTML = nominees.map((n) => {
+        const label = escapeHtml(nomineeLabel(n));
+        const href = nomineeHref(n);
+        const linkOpen = href ? `<a href="${escapeHtml(href)}">` : '';
+        const linkClose = href ? '</a>' : '';
+        const blurb = n.blurb ? `<p class="award-nominee__blurb">${escapeHtml(n.blurb)}</p>` : '';
+        const isVote = userVote === n.id;
+        const voteCountHtml = state === 'published'
+          ? `<p class="award-nominee__count">${counts[n.id] || 0} vote${counts[n.id] === 1 ? '' : 's'}</p>`
+          : '';
+        const voteButton = state === 'open' && user
+          ? `<button type="button" class="award-nominee__vote ${isVote ? 'is-voted' : ''}" data-vote-nominee="${escapeHtml(n.id)}">${isVote ? 'Your vote' : 'Cast vote'}</button>`
+          : '';
+        return ''
+          + '<li class="award-nominee">'
+          +   '<div class="award-nominee__body">'
+          +     `<h3 class="award-nominee__name">${linkOpen}${label}${linkClose}</h3>`
+          +     blurb
+          +     voteCountHtml
+          +   '</div>'
+          +   voteButton
+          + '</li>';
+      }).join('');
+
+      // Wire vote buttons
+      listEl.querySelectorAll('[data-vote-nominee]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          if (!user) return;
+          const nomineeId = btn.getAttribute('data-vote-nominee');
+          btn.setAttribute('disabled', '');
+          btn.textContent = 'Voting…';
+          try {
+            // Upsert keyed on (user_id, category_slug)
+            const { error } = await c
+              .from('award_votes')
+              .upsert(
+                { user_id: user.id, category_slug: slug, nominee_id: nomineeId },
+                { onConflict: 'user_id,category_slug' },
+              );
+            if (error) throw error;
+            // Re-render to reflect the new vote
+            init();
+          } catch (err) {
+            console.warn('[award] vote failed:', err);
+            btn.removeAttribute('disabled');
+            btn.textContent = 'Try again';
+          }
+        });
+      });
+    }
+
+    if (state === 'open' && !user && signinEl) {
+      signinEl.removeAttribute('hidden');
+    }
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+  // Re-render when auth state changes so the vote buttons appear after sign-in.
+  onAuthChange(() => init());
+</script>
+
+<style>
+  .award-detail { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+  .award-detail__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0.5rem 0 0.85rem;
+  }
+  .award-detail__description {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--soft);
+    max-width: 38rem;
+    margin: 0 0 1.25rem;
+  }
+  .award-detail__state {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin: 0 0 2rem;
+  }
+  .award-nominees {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .award-nominees__loading,
+  .award-nominees__empty {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--soft);
+    border: 1px dashed var(--border);
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .award-nominees__empty a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .award-nominee {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    background: var(--paper, #fbf7f0);
+  }
+  .award-nominee__body { flex: 1; min-width: 0; }
+  .award-nominee__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 0.3rem;
+  }
+  .award-nominee__name a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(167, 118, 55, 0.3);
+  }
+  .award-nominee__name a:hover { color: var(--accent); }
+  .award-nominee__blurb {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--dark);
+    margin: 0;
+  }
+  .award-nominee__count {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin: 0.4rem 0 0;
+  }
+  .award-nominee__vote {
+    flex-shrink: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+  }
+  .award-nominee__vote:hover { background: var(--accent); color: var(--bg, #fff); }
+  .award-nominee__vote.is-voted {
+    background: var(--accent);
+    color: var(--bg, #fff);
+  }
+  .award-nominee__vote:disabled { opacity: 0.6; cursor: progress; }
+
+  .award-detail__results {
+    margin-top: clamp(1.5rem, 3vw, 2rem);
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border);
+  }
+  .award-detail__results-note {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin: 0.5rem 0 0;
+  }
+
+  .award-detail__signin {
+    margin-top: 1.5rem;
+    padding: 1rem 1.1rem;
+    border: 1px dashed var(--accent);
+    background: rgba(167, 118, 55, 0.06);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .award-detail__signin-button {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg, #fff);
+    border: 1px solid var(--accent);
+    padding: 0.55rem 0.95rem;
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,489 @@
+---
+/**
+ * /pass/ — Peninsula Insider Pass landing (Phase 4 WS4A).
+ *
+ * v1: positioning, three-tier pricing scaffold, waitlist email-capture.
+ * Stripe Checkout integration is deferred to a 4.x PR — when the Stripe
+ * account is ready, the "Become an Insider" / "Join the Founders" CTAs
+ * point at Stripe Checkout sessions; until then they post to the
+ * existing Beehiiv subscribe endpoint with a `pass-interest-<tier>` tag
+ * so we capture leads now without losing them.
+ *
+ * Locked decisions:
+ *   Q1 — Ship landing + waitlist now; Stripe wires up in 4.x.
+ *   Q6 — Tier names: Reader (free), Insider (paid), Founders (limited).
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHero from '../components/SectionHero.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'The Pass' },
+];
+---
+
+<BaseLayout
+  title="The Peninsula Insider Pass"
+  description="The membership that funds the editorial. Free, paid, or founders — pick the tier that fits."
+  section="explore"
+  canonical="https://peninsulainsider.com.au/pass/"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="The Peninsula Insider Pass"
+    subEyebrow="Membership"
+    title="The membership that <em>funds</em> the editorial."
+    dek="Peninsula Insider is independent. The advertising firewall stays via clear labelling, not absence; the Pass is the second lever — reader-funded membership that keeps us honest, sharp, and able to publish weekly without leaning on the platforms that flatten editorial elsewhere."
+    gradient="journal"
+    visualLabel="Peninsula Insider · The Pass"
+  />
+
+  <section class="pass-page">
+    <div class="container">
+
+      <div class="pass-pitch">
+        <p class="label label--accent">Why a Pass</p>
+        <h2 class="pass-pitch__title">The maths is honest.</h2>
+        <p class="pass-pitch__body">A regional editorial publication needs about three things to last: a desk that visits everything, a verification rhythm that holds up, and an income model that doesn't compromise the desk. Advertising covers some of it — visible, disclosed, every commercial relationship labelled. The Pass covers the rest, and lets us hold the line on what we'll never run.</p>
+        <p class="pass-pitch__body">If you read every weekly dispatch, save four venues a month, and would notice if we stopped publishing — the Pass is for you. If you don't, that's also fine; the editorial is open by default and stays that way.</p>
+      </div>
+
+      <div class="pass-tiers">
+        <article class="pass-tier pass-tier--reader">
+          <p class="pass-tier__eyebrow">Reader</p>
+          <h3 class="pass-tier__title">Free</h3>
+          <p class="pass-tier__price">$0</p>
+          <p class="pass-tier__price-meta">No card needed</p>
+
+          <ul class="pass-tier__list">
+            <li>Every editorial article, venue page, and place hub.</li>
+            <li>The Insider Map, filterable directories, and the itinerary builder.</li>
+            <li>Save lists and event alerts that sync across devices when signed in.</li>
+            <li>The weekly Peninsula This Weekend dispatch.</li>
+          </ul>
+
+          <a href="/newsletter/" class="pass-tier__cta pass-tier__cta--ghost">Sign up free</a>
+          <p class="pass-tier__line">This is the default Peninsula Insider experience. If you've been reading, you're already a Reader.</p>
+        </article>
+
+        <article class="pass-tier pass-tier--insider pass-tier--featured">
+          <p class="pass-tier__eyebrow">Insider</p>
+          <h3 class="pass-tier__title">Paid</h3>
+          <p class="pass-tier__price">$<span data-pass-price-insider>—</span></p>
+          <p class="pass-tier__price-meta" data-pass-price-meta-insider>Pricing announced ahead of launch</p>
+
+          <ul class="pass-tier__list">
+            <li>Everything in Reader.</li>
+            <li>Member-only itineraries: longer plans, niche shapes, the ones we can't put in front of every visitor.</li>
+            <li>Early access to Awards voting and nomination shortlists.</li>
+            <li>Member-priced reader events: dinners, tastings, walks.</li>
+            <li>The Pass-only quarterly dispatch — slower, longer, deeper.</li>
+            <li>Comments closed; no discourse layer. Editorial is the product.</li>
+          </ul>
+
+          <form class="pass-tier__waitlist" data-pass-form data-pass-tier="insider">
+            <label class="pass-tier__waitlist-label" for="pass-email-insider">Join the waitlist</label>
+            <div class="pass-tier__waitlist-row">
+              <input id="pass-email-insider" type="email" name="email" required placeholder="you@example.com" />
+              <button type="submit">Notify me</button>
+            </div>
+            <p class="pass-tier__waitlist-note" data-pass-status hidden></p>
+          </form>
+          <p class="pass-tier__line">No card today. We'll write when the door opens — you can decide then.</p>
+        </article>
+
+        <article class="pass-tier pass-tier--founders">
+          <p class="pass-tier__eyebrow">Founders</p>
+          <h3 class="pass-tier__title">By invitation</h3>
+          <p class="pass-tier__price">Limited</p>
+          <p class="pass-tier__price-meta">Capped at the first 100</p>
+
+          <ul class="pass-tier__list">
+            <li>Everything in Insider.</li>
+            <li>Founders' name plate on the masthead colophon (anonymous opt-out always available).</li>
+            <li>An annual editor-hosted Peninsula dinner — eight to ten Founders, one venue, one evening.</li>
+            <li>Direct line to the editor for venue suggestions, corrections, and editorial feedback.</li>
+            <li>Lifetime price-lock at the founding tier rate.</li>
+          </ul>
+
+          <form class="pass-tier__waitlist" data-pass-form data-pass-tier="founders">
+            <label class="pass-tier__waitlist-label" for="pass-email-founders">Express interest</label>
+            <div class="pass-tier__waitlist-row">
+              <input id="pass-email-founders" type="email" name="email" required placeholder="you@example.com" />
+              <button type="submit">Tell me more</button>
+            </div>
+            <p class="pass-tier__waitlist-note" data-pass-status hidden></p>
+          </form>
+          <p class="pass-tier__line">Founders is genuinely capped. Once full, the door closes; subsequent paid members join on the Insider tier.</p>
+        </article>
+      </div>
+
+      <aside class="pass-firewall">
+        <p class="label label--accent">The firewall, in plain language</p>
+        <p>The Pass does not change what we publish. The methodology stays the same; the editorial firewall stays the same. The Pass funds the desk; the desk holds the line. If we ever break the rule on either side, the whole thing is worth less, and there is no Pass tier large enough to make that maths work. <a href="/methodology/">Read the methodology</a>.</p>
+      </aside>
+
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<!-- Pass tier purchase controller (Phase 6 WS6A).
+     When Stripe is configured (PUBLIC_STRIPE_PUBLISHABLE_KEY + at least
+     one price id), the Insider/Founders forms swap to "Become an
+     Insider" / "Join the Founders' Circle" buttons that open Stripe
+     Checkout. When not configured, falls back to the waitlist email-
+     capture flow that posts to Beehiiv with a pass-interest-<tier>
+     tag. Same graceful-degradation pattern as the Phase 3 Supabase
+     wiring. -->
+<script>
+  import { isStripeEnabled, startPassCheckout } from '../lib/stripe';
+  import { getSupabase } from '../lib/auth';
+
+  async function activateStripeMode() {
+    if (!isStripeEnabled()) return false;
+
+    document.querySelectorAll('[data-pass-form]').forEach((form) => {
+      const tier = form.getAttribute('data-pass-tier') || 'insider';
+      // Replace the form contents with a Buy button + small interval
+      // toggle (insider only — founders is annual-only).
+      const isInsider = tier === 'insider';
+      form.innerHTML = ''
+        + '<p class="pass-tier__waitlist-label">Open the door</p>'
+        + (isInsider
+          ? '<div class="pass-tier__interval-row" role="radiogroup" aria-label="Billing interval">'
+          +   '<label><input type="radio" name="interval-' + tier + '" value="month" checked /> Monthly</label>'
+          +   '<label><input type="radio" name="interval-' + tier + '" value="year" /> Annual (save ~16%)</label>'
+          + '</div>'
+          : '')
+        + '<button type="submit" class="pass-tier__buy-button">'
+        +   (isInsider ? 'Become an Insider' : "Join the Founders' Circle")
+        + '</button>'
+        + '<p class="pass-tier__waitlist-note" data-pass-status hidden></p>';
+
+      const status = form.querySelector('[data-pass-status]');
+      const button = form.querySelector('.pass-tier__buy-button');
+
+      function setStatus(kind, msg) {
+        if (!status) return;
+        status.textContent = msg;
+        status.setAttribute('data-status-kind', kind);
+        status.removeAttribute('hidden');
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (button) button.setAttribute('disabled', '');
+        setStatus('info', 'Opening Stripe…');
+
+        const intervalInput = form.querySelector('input[name="interval-' + tier + '"]:checked');
+        const interval = intervalInput ? intervalInput.value : 'year';
+
+        // Lift the user's email from their session if signed in, so
+        // Checkout pre-fills it.
+        let userEmail;
+        const c = getSupabase();
+        if (c) {
+          const session = (await c.auth.getSession()).data.session;
+          userEmail = session?.user?.email;
+        }
+
+        const result = await startPassCheckout({ tier, interval, userEmail });
+        if (!result.ok) {
+          const errMsg = ({
+            'stripe-not-configured': "The Pass isn't quite open yet — try the waitlist below.",
+            'price-not-configured':  "Pricing for this tier isn't loaded yet — refresh and try again.",
+            'function-not-deployed': "The checkout endpoint isn't responding. Email hello@peninsulainsider.com.au and we'll set up your tier manually.",
+          })[result.error] || "Couldn't open checkout. Try once more, or email hello@peninsulainsider.com.au.";
+          setStatus('error', errMsg);
+          if (button) button.removeAttribute('disabled');
+          return;
+        }
+        window.location.href = result.url;
+      });
+    });
+
+    return true;
+  }
+
+  // Try Stripe mode first; if it returns false, the inline waitlist
+  // controller below stays bound and handles submission.
+  (async () => {
+    const activated = await activateStripeMode();
+    if (!activated) return;
+    document.body.setAttribute('data-pass-mode', 'stripe');
+  })();
+  document.addEventListener('astro:page-load', activateStripeMode);
+</script>
+
+<script is:inline>
+  /* Waitlist controller (fallback). POSTs to the existing
+     pi-newsletter-subscribe edge function with a pass-interest-<tier>
+     tag so we capture leads into the same Beehiiv list ahead of Stripe
+     wiring. */
+  (function () {
+    var ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
+
+    function init() {
+      document.querySelectorAll('[data-pass-form]').forEach(function (form) {
+        if (form._piPassBound) return;
+        form._piPassBound = true;
+        var tier = form.getAttribute('data-pass-tier') || 'insider';
+        var status = form.querySelector('[data-pass-status]');
+        var btn = form.querySelector('button[type="submit"]');
+
+        function setStatus(kind, msg) {
+          if (!status) return;
+          status.textContent = msg;
+          status.setAttribute('data-status-kind', kind);
+          status.removeAttribute('hidden');
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var emailInput = form.querySelector('input[type="email"]');
+          var email = emailInput && emailInput.value && emailInput.value.trim();
+          if (!email) return;
+          if (btn) btn.setAttribute('disabled', '');
+          setStatus('info', 'Sending…');
+
+          fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              tags: ['pass-interest-' + tier],
+              source: 'pass-page',
+            }),
+          })
+            .then(function (r) {
+              if (!r.ok) throw new Error('subscribe failed: ' + r.status);
+              return r.json().catch(function () { return {}; });
+            })
+            .then(function () {
+              setStatus('success', "Got it. We'll write when the " + tier + " tier opens.");
+              if (emailInput) emailInput.value = '';
+              if (btn) btn.removeAttribute('disabled');
+            })
+            .catch(function (err) {
+              console.warn('[pass] subscribe failed:', err);
+              setStatus('error', "Couldn't send. Try again or email hello@peninsulainsider.com.au.");
+              if (btn) btn.removeAttribute('disabled');
+            });
+        });
+      });
+    }
+
+    init();
+    document.addEventListener('astro:page-load', init);
+  })();
+</script>
+
+<style>
+  .pass-page { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+
+  .pass-pitch {
+    max-width: 720px;
+    margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+  }
+  .pass-pitch__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 500;
+    color: var(--text);
+    margin: 0.55rem 0 0.85rem;
+    letter-spacing: -0.01em;
+  }
+  .pass-pitch__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--dark);
+    margin: 0 0 1rem;
+  }
+
+  .pass-tiers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  @media (min-width: 880px) {
+    .pass-tiers { grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
+  }
+
+  .pass-tier {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    background: var(--bg, #fff);
+    padding: clamp(1.1rem, 2.2vw, 1.6rem);
+  }
+  .pass-tier--featured {
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px -16px rgba(167, 118, 55, 0.4);
+  }
+  .pass-tier__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.55rem;
+  }
+  .pass-tier__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+  }
+  .pass-tier__price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.85rem);
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+    line-height: 1;
+  }
+  .pass-tier__price-meta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--soft);
+    margin: 0.35rem 0 1rem;
+  }
+  .pass-tier__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .pass-tier__list li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--dark);
+  }
+  .pass-tier__list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    top: -0.05em;
+    font-size: 1.5em;
+    line-height: 1;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .pass-tier__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg, #fff);
+    border: 1px solid var(--accent);
+    padding: 0.85rem 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: auto;
+  }
+  .pass-tier__cta--ghost {
+    background: transparent;
+    color: var(--accent);
+  }
+  .pass-tier__cta:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); color: var(--bg, #fff); }
+  .pass-tier__cta--ghost:hover { color: var(--bg, #fff); }
+
+  .pass-tier__waitlist {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .pass-tier__waitlist-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+  }
+  .pass-tier__waitlist-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .pass-tier__waitlist-row input {
+    flex: 1;
+    min-width: 10rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    padding: 0.55rem 0.7rem;
+    background: var(--bg, #fff);
+    border: 1px solid var(--border);
+    color: var(--dark);
+  }
+  .pass-tier__waitlist-row input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .pass-tier__waitlist-row button {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg, #fff);
+    border: 1px solid var(--accent);
+    padding: 0.55rem 0.95rem;
+    cursor: pointer;
+  }
+  .pass-tier__waitlist-row button:hover { background: var(--text, #1a1a1a); border-color: var(--text, #1a1a1a); }
+  .pass-tier__waitlist-row button:disabled { opacity: 0.6; cursor: progress; }
+  .pass-tier__waitlist-note {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    margin: 0;
+    color: var(--soft);
+  }
+  .pass-tier__waitlist-note[data-status-kind="success"] { color: #2f6e3a; }
+  .pass-tier__waitlist-note[data-status-kind="error"] { color: #b14b3a; }
+  .pass-tier__line {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--soft);
+    margin: 0.85rem 0 0;
+  }
+
+  .pass-firewall {
+    border-top: 1px solid var(--border);
+    padding-top: clamp(1.5rem, 3vw, 2rem);
+    max-width: 720px;
+  }
+  .pass-firewall p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--dark);
+    margin: 0.55rem 0 0;
+  }
+  .pass-firewall a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

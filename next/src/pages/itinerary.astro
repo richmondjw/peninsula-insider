@@ -1,0 +1,749 @@
+---
+/**
+ * /itinerary/ — itinerary builder (Phase 3 WS3C).
+ *
+ * Pulls saved items from window.PISave, lets the user drag-and-drop to
+ * sequence them, optionally group into days, and see haversine-based
+ * driving estimates between consecutive stops. Print-friendly via the
+ * native browser print dialog. Sharable as a URL containing the sequence
+ * (notes stay private to the local store).
+ *
+ * Storage: pi:itinerary:v1 in localStorage. Independent of pi:saved:v1
+ * (the simple shortlist) so the two surfaces don't tangle. The builder
+ * has a "Pull from saved" action that ingests every saved item into the
+ * current itinerary in one click.
+ *
+ * Locked decisions for v1:
+ *   Q3: haversine + Peninsula multiplier; no external API.
+ *   Q4: SortableJS for drag-and-drop.
+ *   Q5: Day groupings optional (flat sequence with optional dividers).
+ *   Q6: New /itinerary/ route, /saved/ stays as the simple shortlist.
+ *   Q8: Native browser print v1.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHero from '../components/SectionHero.astro';
+import NewsletterBlock from '../components/NewsletterBlock.astro';
+import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
+import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+
+const venues = await getCollection('venues');
+const events = await getCollection('events');
+const experiences = await getCollection('experiences');
+
+/**
+ * Build-time lookup tables. Carry coordinates so the client can compute
+ * haversine estimates without a network call.
+ */
+const venueLookup = Object.fromEntries(
+  venues.map((v) => [
+    routeSlug(v),
+    {
+      slug: routeSlug(v),
+      kind: 'venue' as const,
+      title: v.data.name,
+      href: `${venueHrefPrefix(v.data.type)}/${routeSlug(v)}/`,
+      hero: v.data.heroImage?.src ?? '',
+      lat: v.data.coordinates?.lat ?? null,
+      lng: v.data.coordinates?.lng ?? null,
+      placeId: typeof v.data.place === 'string' ? v.data.place : v.data.place?.id ?? '',
+      type: v.data.type,
+      price: v.data.priceBand ?? '',
+      signature: v.data.signature ?? '',
+    },
+  ]),
+);
+const eventLookup = Object.fromEntries(
+  events.map((e) => [
+    routeSlug(e),
+    {
+      slug: routeSlug(e),
+      kind: 'event' as const,
+      title: e.data.title,
+      href: `/whats-on/${routeSlug(e)}/`,
+      hero: e.data.heroImage?.src ?? '',
+      lat: e.data.coordinates?.lat ?? null,
+      lng: e.data.coordinates?.lng ?? null,
+      placeId: typeof e.data.place === 'string' ? e.data.place : e.data.place?.id ?? '',
+      type: e.data.category,
+      price: '',
+      signature: e.data.summary ?? '',
+    },
+  ]),
+);
+const experienceLookup = Object.fromEntries(
+  experiences.map((x) => [
+    routeSlug(x),
+    {
+      slug: routeSlug(x),
+      kind: 'experience' as const,
+      title: x.data.name,
+      href: `/explore/${routeSlug(x)}/`,
+      hero: x.data.heroImage?.src ?? '',
+      lat: x.data.coordinates?.lat ?? null,
+      lng: x.data.coordinates?.lng ?? null,
+      placeId: typeof x.data.place === 'string' ? x.data.place : x.data.place?.id ?? '',
+      type: x.data.type,
+      price: '',
+      signature: (x.data.editorNote ?? '').slice(0, 160),
+    },
+  ]),
+);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'My itinerary' },
+];
+---
+
+<BaseLayout
+  title="My itinerary · Peninsula Insider"
+  description="Sequence your saved Peninsula venues and events into a working day plan, with driving-time estimates between stops."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="My itinerary"
+    subEyebrow="Drag, sequence, plan"
+    title="Build your <em>Peninsula</em> day."
+    dek="Drop saved venues and events into the order you'd actually do them. We estimate the drive between stops so you can tell a 15-minute hop from a 50-minute trek. Print it for the glove box, share the link with a co-traveller, or open the whole route in Google Maps."
+    gradient="journal"
+    visualLabel="Peninsula Insider · itinerary"
+  />
+
+  <section class="itinerary-page">
+    <div class="container">
+
+      <!-- Empty state — visible until the user has at least one item. -->
+      <div class="itinerary-empty" data-itinerary-empty>
+        <p class="itinerary-empty__title">Your itinerary is empty.</p>
+        <p class="itinerary-empty__body">Save venues and events from anywhere on the site, then come back here to sequence them.</p>
+        <p class="itinerary-empty__cta-row">
+          <a href="/saved/" class="itinerary-empty__cta">Open my shortlist</a>
+          <button type="button" class="itinerary-empty__cta itinerary-empty__cta--ghost" data-itinerary-pull>
+            Pull every saved item into the itinerary
+          </button>
+        </p>
+      </div>
+
+      <p class="cloud-sync-indicator" data-cloud-sync-status="anonymous" hidden>
+        <span class="cloud-sync-indicator__dot" aria-hidden="true"></span>
+        <span class="cloud-sync-indicator__text"></span>
+      </p>
+
+      <!-- Mode banner — appears in shared mode only.
+           Two flavours:
+             - Shared from another user: generic "import" copy.
+             - Suggested by Ask The Insider: title + framing from the
+               concierge payload, "Save as my itinerary" CTA. -->
+      <aside class="itinerary-banner" data-itinerary-banner hidden>
+        <div class="itinerary-banner__inner">
+          <p class="itinerary-banner__label" data-itinerary-banner-label>Shared itinerary</p>
+          <p class="itinerary-banner__title" data-itinerary-banner-title hidden></p>
+          <p class="itinerary-banner__body" data-itinerary-banner-body>Someone shared this Peninsula itinerary with you. You can browse it as is, or import it into your own builder on this device.</p>
+          <button type="button" class="itinerary-banner__action" data-itinerary-import>Import this itinerary</button>
+        </div>
+      </aside>
+
+      <!-- Toolbar -->
+      <div class="itinerary-toolbar" data-itinerary-toolbar hidden>
+        <div class="itinerary-toolbar__count">
+          <span data-itinerary-stop-count>0 stops</span>
+          <span class="itinerary-toolbar__sep" aria-hidden="true">·</span>
+          <span data-itinerary-distance-summary>est. 0 min driving</span>
+        </div>
+        <div class="itinerary-toolbar__actions">
+          <button type="button" class="itinerary-toolbar__action" data-itinerary-add-day>+ Add day</button>
+          <button type="button" class="itinerary-toolbar__action" data-itinerary-pull>+ Pull from saved</button>
+          <button type="button" class="itinerary-toolbar__action" data-itinerary-share>Copy share link</button>
+          <a class="itinerary-toolbar__action itinerary-toolbar__action--gmaps" data-itinerary-gmaps target="_blank" rel="noreferrer">Open in Google Maps</a>
+          <button type="button" class="itinerary-toolbar__action" data-itinerary-print>Print</button>
+          <button type="button" class="itinerary-toolbar__action itinerary-toolbar__action--ghost" data-itinerary-clear>Clear</button>
+        </div>
+      </div>
+
+      <!-- The actual builder — populated by the controller below. -->
+      <ol class="itinerary-list" data-itinerary-list></ol>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+  <CloudSyncIndicatorScript />
+</BaseLayout>
+
+<!-- SortableJS from CDN; lazy-loaded when the user has at least one item. -->
+<script
+  is:inline
+  define:vars={{ venueLookup, eventLookup, experienceLookup }}
+>
+  /* /itinerary/ controller. Owns localStorage (pi:itinerary:v1), wires
+     SortableJS for drag-and-drop, computes haversine estimates between
+     consecutive stops, and supports share/import via URL params. */
+  (function () {
+    var KEY = 'pi:itinerary:v1';
+    var SORTABLE_SRC = 'https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js';
+
+    function escapeHtml(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function read() {
+      try {
+        var raw = localStorage.getItem(KEY);
+        if (!raw) return { version: 1, items: [], days: [] };
+        var parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object') return { version: 1, items: [], days: [] };
+        return {
+          version: 1,
+          items: Array.isArray(parsed.items) ? parsed.items : [],
+          days: Array.isArray(parsed.days) ? parsed.days : [],
+        };
+      } catch (_e) {
+        return { version: 1, items: [], days: [] };
+      }
+    }
+
+    function write(store) {
+      try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (_e) {}
+    }
+
+    function hydrate(item) {
+      var lookup;
+      if (item.kind === 'event') lookup = eventLookup;
+      else if (item.kind === 'experience') lookup = experienceLookup;
+      else lookup = venueLookup;
+      return lookup[item.slug] || { slug: item.slug, kind: item.kind, title: item.slug, href: '#', hero: '', lat: null, lng: null };
+    }
+
+    /* ─── Travel-time helpers (mirror lib/itinerary.ts) ─────────────────── */
+    function haversineKm(a, b) {
+      if (a == null || b == null || a.lat == null || b.lat == null) return null;
+      var R = 6371;
+      var toRad = function (d) { return (d * Math.PI) / 180; };
+      var dLat = toRad(b.lat - a.lat);
+      var dLng = toRad(b.lng - a.lng);
+      var lat1 = toRad(a.lat);
+      var lat2 = toRad(b.lat);
+      var h = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+            + Math.sin(dLng / 2) * Math.sin(dLng / 2) * Math.cos(lat1) * Math.cos(lat2);
+      return 2 * R * Math.asin(Math.sqrt(h));
+    }
+    function drivingMinutes(km) {
+      var ROAD_MULTIPLIER = 1.3;
+      var AVG_SPEED_KMH = 45;
+      return (km * ROAD_MULTIPLIER) / AVG_SPEED_KMH * 60;
+    }
+    function formatMinutes(minutes) {
+      var snapped = Math.max(1, Math.round(minutes / 5) * 5);
+      if (snapped < 60) return snapped + ' min';
+      var h = Math.floor(snapped / 60);
+      var m = snapped % 60;
+      if (m === 0) return h + ' h';
+      return h + ' h ' + m;
+    }
+
+    /* ─── State ────────────────────────────────────────────────────────── */
+    var state = read();
+
+    function newDayId() {
+      return 'day-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6);
+    }
+    function dayLabel(idx) { return 'Day ' + (idx + 1); }
+
+    /* ─── Rendering ───────────────────────────────────────────────────── */
+    var listEl = document.querySelector('[data-itinerary-list]');
+    var emptyEl = document.querySelector('[data-itinerary-empty]');
+    var toolbarEl = document.querySelector('[data-itinerary-toolbar]');
+    var bannerEl = document.querySelector('[data-itinerary-banner]');
+    var stopCountEl = document.querySelector('[data-itinerary-stop-count]');
+    var distanceSummaryEl = document.querySelector('[data-itinerary-distance-summary]');
+    var gmapsLink = document.querySelector('[data-itinerary-gmaps]');
+
+    function groupByDay() {
+      // Returns ordered array of { day, items } where day === null for the
+      // ungrouped sequence, then each named day in declared order.
+      var ungrouped = [];
+      var dayBuckets = {};
+      state.days.forEach(function (d) { dayBuckets[d.id] = []; });
+      state.items.forEach(function (it) {
+        if (it.dayId && dayBuckets[it.dayId]) dayBuckets[it.dayId].push(it);
+        else ungrouped.push(it);
+      });
+      var out = [];
+      if (ungrouped.length > 0 || state.days.length === 0) {
+        out.push({ day: null, items: ungrouped });
+      }
+      state.days.forEach(function (d) {
+        out.push({ day: d, items: dayBuckets[d.id] });
+      });
+      return out;
+    }
+
+    function renderItem(item) {
+      var data = hydrate(item);
+      var hero = data.hero
+        ? '<div class="itinerary-item__hero" style="background-image:url(' + escapeHtml(data.hero) + ')"></div>'
+        : '<div class="itinerary-item__hero itinerary-item__hero--empty"></div>';
+      var meta = [data.type, data.price].filter(Boolean).map(escapeHtml).join(' · ');
+      return ''
+        + '<li class="itinerary-item" data-itinerary-id="' + escapeHtml(item.kind + ':' + item.slug) + '">'
+        +   '<span class="itinerary-item__handle" aria-hidden="true">≡</span>'
+        +   '<a class="itinerary-item__link" href="' + escapeHtml(data.href) + '">'
+        +     hero
+        +     '<span class="itinerary-item__body">'
+        +       (meta ? '<span class="itinerary-item__meta">' + meta + '</span>' : '')
+        +       '<span class="itinerary-item__title">' + escapeHtml(data.title) + '</span>'
+        +     '</span>'
+        +   '</a>'
+        +   '<button type="button" class="itinerary-item__remove" data-itinerary-remove aria-label="Remove ' + escapeHtml(data.title) + '">Remove</button>'
+        + '</li>';
+    }
+
+    function renderTravelGap(prev, next) {
+      if (!prev || !next) return '';
+      var prevC = hydrate(prev), nextC = hydrate(next);
+      if (prevC.lat == null || nextC.lat == null) return '';
+      var km = haversineKm(prevC, nextC);
+      if (km == null) return '';
+      var label = formatMinutes(drivingMinutes(km));
+      return ''
+        + '<li class="itinerary-gap" aria-hidden="true">'
+        +   '<span class="itinerary-gap__line"></span>'
+        +   '<span class="itinerary-gap__label">~ ' + escapeHtml(label) + ' drive</span>'
+        + '</li>';
+    }
+
+    function renderDay(day, items, dayIndex) {
+      var head = day
+        ? ''
+          + '<li class="itinerary-day-head" data-itinerary-day-head="' + escapeHtml(day.id) + '">'
+          +   '<span class="itinerary-day-head__label">' + escapeHtml(day.label || dayLabel(dayIndex)) + '</span>'
+          +   '<button type="button" class="itinerary-day-head__rename" data-itinerary-day-rename="' + escapeHtml(day.id) + '">Rename</button>'
+          +   '<button type="button" class="itinerary-day-head__remove" data-itinerary-day-remove="' + escapeHtml(day.id) + '">Remove day</button>'
+          + '</li>'
+        : '';
+      var rows = '';
+      items.forEach(function (item, idx) {
+        if (idx > 0) rows += renderTravelGap(items[idx - 1], item);
+        rows += renderItem(item);
+      });
+      var bucket = ''
+        + head
+        + '<li class="itinerary-day" data-itinerary-day="' + escapeHtml(day ? day.id : '') + '">'
+        +   '<ol class="itinerary-day__list" data-itinerary-day-list="' + escapeHtml(day ? day.id : '') + '">'
+        +     rows
+        +   '</ol>'
+        + '</li>';
+      return bucket;
+    }
+
+    var sortableInstances = [];
+
+    function destroySortables() {
+      sortableInstances.forEach(function (s) { try { s.destroy(); } catch (_e) {} });
+      sortableInstances = [];
+    }
+
+    function ensureSortableLoaded(cb) {
+      if (window.Sortable) return cb();
+      var existing = document.querySelector('script[data-sortable-loader]');
+      if (existing) {
+        existing.addEventListener('load', cb);
+        return;
+      }
+      var s = document.createElement('script');
+      s.setAttribute('data-sortable-loader', '');
+      s.src = SORTABLE_SRC;
+      s.onload = cb;
+      s.onerror = function () { console.warn('[itinerary] Sortable failed to load'); };
+      document.head.appendChild(s);
+    }
+
+    function bindSortables() {
+      destroySortables();
+      if (!window.Sortable) return;
+      var lists = document.querySelectorAll('[data-itinerary-day-list]');
+      lists.forEach(function (listNode) {
+        var s = new window.Sortable(listNode, {
+          group: 'itinerary',
+          animation: 160,
+          handle: '.itinerary-item__handle',
+          ghostClass: 'is-ghost',
+          dragClass: 'is-dragging',
+          onEnd: function () {
+            // Walk the DOM, rebuild state.items so the order matches what
+            // the user just dropped.
+            var newItems = [];
+            document.querySelectorAll('[data-itinerary-day-list]').forEach(function (dayListEl) {
+              var dayId = dayListEl.getAttribute('data-itinerary-day-list') || '';
+              dayListEl.querySelectorAll('[data-itinerary-id]').forEach(function (li) {
+                var key = li.getAttribute('data-itinerary-id') || '';
+                var parts = key.split(':');
+                var kind = parts[0]; var slug = parts.slice(1).join(':');
+                if (!kind || !slug) return;
+                var existing = state.items.find(function (it) { return it.kind === kind && it.slug === slug; });
+                newItems.push({
+                  kind: kind,
+                  slug: slug,
+                  dayId: dayId,
+                  note: existing ? existing.note : '',
+                });
+              });
+            });
+            state.items = newItems;
+            persist();
+            render(); // re-render to refresh the travel gaps
+          },
+        });
+        sortableInstances.push(s);
+      });
+    }
+
+    function render() {
+      var totalCount = state.items.length;
+      if (totalCount === 0) {
+        if (listEl) listEl.innerHTML = '';
+        if (emptyEl) emptyEl.removeAttribute('hidden');
+        if (toolbarEl) toolbarEl.setAttribute('hidden', '');
+        return;
+      }
+      if (emptyEl) emptyEl.setAttribute('hidden', '');
+      if (toolbarEl) toolbarEl.removeAttribute('hidden');
+
+      var grouped = groupByDay();
+      var html = '';
+      grouped.forEach(function (g, idx) {
+        html += renderDay(g.day, g.items, idx);
+      });
+      if (listEl) listEl.innerHTML = html;
+
+      // Stats
+      if (stopCountEl) {
+        stopCountEl.textContent = totalCount + ' stop' + (totalCount === 1 ? '' : 's');
+      }
+      if (distanceSummaryEl) {
+        var totalMinutes = 0;
+        for (var i = 1; i < state.items.length; i++) {
+          var prev = hydrate(state.items[i - 1]);
+          var next = hydrate(state.items[i]);
+          if (prev.lat != null && next.lat != null) {
+            totalMinutes += drivingMinutes(haversineKm(prev, next));
+          }
+        }
+        distanceSummaryEl.textContent = totalMinutes > 0
+          ? '~ ' + formatMinutes(totalMinutes) + ' driving'
+          : 'driving estimate unavailable';
+      }
+      if (gmapsLink) {
+        var stops = state.items
+          .map(hydrate)
+          .filter(function (h) { return h.lat != null && h.lng != null; })
+          .map(function (h) { return { lat: h.lat, lng: h.lng, name: h.title }; });
+        if (stops.length === 0) {
+          gmapsLink.setAttribute('href', 'https://www.google.com/maps');
+        } else if (stops.length === 1) {
+          gmapsLink.setAttribute('href', 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(stops[0].lat + ',' + stops[0].lng + ' (' + stops[0].name + ')'));
+        } else {
+          var origin = stops[0];
+          var dest = stops[stops.length - 1];
+          var waypoints = stops.slice(1, -1).map(function (s) { return s.lat + ',' + s.lng; }).join('|');
+          var p = new URLSearchParams({ api: '1', origin: origin.lat + ',' + origin.lng, destination: dest.lat + ',' + dest.lng, travelmode: 'driving' });
+          if (waypoints) p.set('waypoints', waypoints);
+          gmapsLink.setAttribute('href', 'https://www.google.com/maps/dir/?' + p.toString());
+        }
+      }
+
+      // Bind dynamic actions
+      document.querySelectorAll('[data-itinerary-remove]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var li = btn.closest('[data-itinerary-id]');
+          if (!li) return;
+          var key = li.getAttribute('data-itinerary-id') || '';
+          var parts = key.split(':'); var kind = parts[0]; var slug = parts.slice(1).join(':');
+          state.items = state.items.filter(function (it) { return !(it.kind === kind && it.slug === slug); });
+          persist();
+          render();
+        });
+      });
+      document.querySelectorAll('[data-itinerary-day-rename]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-itinerary-day-rename') || '';
+          var d = state.days.find(function (x) { return x.id === id; });
+          if (!d) return;
+          var next = window.prompt('Rename day:', d.label);
+          if (next === null) return;
+          d.label = next.trim() || d.label;
+          persist();
+          render();
+        });
+      });
+      document.querySelectorAll('[data-itinerary-day-remove]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-itinerary-day-remove') || '';
+          state.days = state.days.filter(function (d) { return d.id !== id; });
+          state.items.forEach(function (it) {
+            if (it.dayId === id) it.dayId = '';
+          });
+          persist();
+          render();
+        });
+      });
+
+      bindSortables();
+    }
+
+    function persist() {
+      write(state);
+      // Notify CloudSync (Phase 3 WS3E) so it can push to Supabase when
+      // the user is signed in. CloudSync swallows this event when auth
+      // isn't configured.
+      window.dispatchEvent(new CustomEvent('pi:itinerary-changed', { detail: { source: 'local' } }));
+    }
+
+    /* ─── URL ingest (shared mode) ─────────────────────────────────────── */
+    function normaliseKind(k) {
+      if (k === 'event') return 'event';
+      if (k === 'experience') return 'experience';
+      return 'venue';
+    }
+
+    function readSharedFromUrl() {
+      var p = new URLSearchParams(window.location.search);
+
+      // AI-itinerary ingest path: /itinerary/?ai=<base64url-json>.
+      // Lets the concierge (or any external producer) link directly into
+      // the builder with a pre-sequenced list. See lib/concierge-itinerary.ts
+      // for the contract.
+      var aiRaw = p.get('ai');
+      if (aiRaw) {
+        var decoded = decodeAiPayload(aiRaw);
+        if (decoded && decoded.items && decoded.items.length > 0) {
+          var aiItems = decoded.items.map(function (it) {
+            return {
+              kind: normaliseKind(it.kind),
+              slug: String(it.slug || ''),
+              dayId: String(it.dayId || ''),
+              note: String(it.note || ''),
+            };
+          }).filter(function (it) { return it.slug; });
+          var aiDays = Array.isArray(decoded.days) ? decoded.days.map(function (d) {
+            return { id: String(d.id || ''), label: String(d.label || d.id || '') };
+          }).filter(function (d) { return d.id; }) : [];
+          return {
+            version: 1,
+            items: aiItems,
+            days: aiDays,
+            // Carry editorial framing so the banner can show it.
+            _meta: { title: decoded.title || '', framing: decoded.framing || '', source: 'ai' },
+          };
+        }
+      }
+
+      // Personal share-link path: ?i=kind:slug:dayId|... &d=id:label|...
+      var raw = p.get('i');
+      if (!raw) return null;
+      var items = raw.split('|').filter(Boolean).map(function (triple) {
+        var parts = triple.split(':');
+        return { kind: normaliseKind(parts[0]), slug: parts[1] || '', dayId: parts[2] || '', note: '' };
+      }).filter(function (it) { return it.slug; });
+      var days = [];
+      var dr = p.get('d');
+      if (dr) {
+        dr.split('|').filter(Boolean).forEach(function (pair) {
+          var parts = pair.split(':');
+          var id = parts[0] || '';
+          var label;
+          try { label = decodeURIComponent(parts[1] || id); } catch (_e) { label = parts[1] || id; }
+          if (id) days.push({ id: id, label: label });
+        });
+      }
+      return { version: 1, items: items, days: days };
+    }
+
+    function decodeAiPayload(encoded) {
+      try {
+        var b64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
+        var padded = b64 + '='.repeat((4 - (b64.length % 4)) % 4);
+        var binary = atob(padded);
+        var bytes = new Uint8Array(binary.length);
+        for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        var json = new TextDecoder().decode(bytes);
+        var parsed = JSON.parse(json);
+        if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.items)) return null;
+        return parsed;
+      } catch (_e) {
+        return null;
+      }
+    }
+
+    function buildShareUrl() {
+      var p = new URLSearchParams();
+      if (state.items.length > 0) {
+        p.set('i', state.items.map(function (it) { return it.kind + ':' + it.slug + ':' + (it.dayId || ''); }).join('|'));
+      }
+      if (state.days.length > 0) {
+        p.set('d', state.days.map(function (d) { return d.id + ':' + encodeURIComponent(d.label); }).join('|'));
+      }
+      var qs = p.toString();
+      return window.location.origin + window.location.pathname + (qs ? '?' + qs : '');
+    }
+
+    /* ─── Toolbar bindings ─────────────────────────────────────────────── */
+    var addDayBtn = document.querySelector('[data-itinerary-add-day]');
+    if (addDayBtn) addDayBtn.addEventListener('click', function () {
+      var idx = state.days.length;
+      var label = window.prompt('Name this day:', 'Day ' + (idx + 1));
+      if (label === null) return;
+      state.days.push({ id: newDayId(), label: label.trim() || ('Day ' + (idx + 1)) });
+      persist();
+      render();
+    });
+
+    document.querySelectorAll('[data-itinerary-pull]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var saved = window.PISave ? window.PISave.list() : { venues: [], events: [] };
+        var added = 0;
+        (saved.venues || []).forEach(function (v) {
+          if (state.items.some(function (it) { return it.kind === 'venue' && it.slug === v.slug; })) return;
+          state.items.push({ kind: 'venue', slug: v.slug, dayId: '', note: '' });
+          added++;
+        });
+        (saved.events || []).forEach(function (e) {
+          if (state.items.some(function (it) { return it.kind === 'event' && it.slug === e.slug; })) return;
+          state.items.push({ kind: 'event', slug: e.slug, dayId: '', note: '' });
+          added++;
+        });
+        if (added === 0) {
+          window.alert('Nothing new to pull — your shortlist items are already in this itinerary.');
+        }
+        persist();
+        render();
+      });
+    });
+
+    var shareBtn = document.querySelector('[data-itinerary-share]');
+    if (shareBtn) shareBtn.addEventListener('click', function () {
+      var url = buildShareUrl();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          shareBtn.textContent = 'Copied!';
+          setTimeout(function () { shareBtn.textContent = 'Copy share link'; }, 2000);
+        }, function () {
+          window.prompt('Copy this share link:', url);
+        });
+      } else {
+        window.prompt('Copy this share link:', url);
+      }
+    });
+
+    var printBtn = document.querySelector('[data-itinerary-print]');
+    if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+
+    var clearBtn = document.querySelector('[data-itinerary-clear]');
+    if (clearBtn) clearBtn.addEventListener('click', function () {
+      if (state.items.length === 0 && state.days.length === 0) return;
+      if (window.confirm('Clear the entire itinerary?')) {
+        state = { version: 1, items: [], days: [] };
+        persist();
+        render();
+      }
+    });
+
+    var importBtn = document.querySelector('[data-itinerary-import]');
+    if (importBtn) importBtn.addEventListener('click', function () {
+      var shared = readSharedFromUrl();
+      if (!shared) return;
+      // Merge incoming days first so existing day ids continue to work.
+      shared.days.forEach(function (d) {
+        if (!state.days.some(function (x) { return x.id === d.id; })) state.days.push(d);
+      });
+      shared.items.forEach(function (it) {
+        if (state.items.some(function (x) { return x.kind === it.kind && x.slug === it.slug; })) return;
+        state.items.push(it);
+      });
+      persist();
+      window.history.replaceState(null, '', window.location.pathname);
+      if (bannerEl) bannerEl.setAttribute('hidden', '');
+      render();
+    });
+
+    /* ─── Boot ─────────────────────────────────────────────────────────── */
+    function applyBannerCopy(meta) {
+      var bannerLabel = document.querySelector('[data-itinerary-banner-label]');
+      var bannerTitle = document.querySelector('[data-itinerary-banner-title]');
+      var bannerBody = document.querySelector('[data-itinerary-banner-body]');
+      var importBtn = document.querySelector('[data-itinerary-import]');
+      if (meta && meta.source === 'ai') {
+        if (bannerLabel) bannerLabel.textContent = 'Ask The Insider · suggested itinerary';
+        if (bannerTitle) {
+          if (meta.title) {
+            bannerTitle.textContent = meta.title;
+            bannerTitle.removeAttribute('hidden');
+          } else {
+            bannerTitle.setAttribute('hidden', '');
+          }
+        }
+        if (bannerBody) {
+          bannerBody.textContent = meta.framing
+            || 'The Insider built this sequence in response to your prompt. Browse it, or save it to your own builder where you can rearrange, add notes, and share.';
+        }
+        if (importBtn) importBtn.textContent = 'Save as my itinerary';
+      } else {
+        if (bannerLabel) bannerLabel.textContent = 'Shared itinerary';
+        if (bannerTitle) bannerTitle.setAttribute('hidden', '');
+        if (bannerBody) bannerBody.textContent = 'Someone shared this Peninsula itinerary with you. You can browse it as is, or import it into your own builder on this device.';
+        if (importBtn) importBtn.textContent = 'Import this itinerary';
+      }
+    }
+
+    function boot() {
+      var shared = readSharedFromUrl();
+      if (shared && shared.items.length > 0) {
+        // Show shared mode banner; keep local state separate until import.
+        if (bannerEl) bannerEl.removeAttribute('hidden');
+        applyBannerCopy(shared._meta);
+        state = shared; // render the shared list, but persist on first change
+      }
+      ensureSortableLoaded(function () {
+        render();
+      });
+      // Render once before SortableJS arrives so the page isn't blank.
+      render();
+
+      // Listen for save-changed events from the rest of the site so the
+      // toolbar count etc. stay live if the user saves something while
+      // /itinerary/ is open in another tab.
+      window.addEventListener('storage', function (e) {
+        if (e.key === KEY) {
+          state = read();
+          render();
+        }
+      });
+      // CloudSync may overwrite the localStorage on sign-in. Re-render
+      // when it tells us the local store changed because of a cloud pull.
+      window.addEventListener('pi:itinerary-changed', function (e) {
+        var detail = (e && e.detail) || {};
+        if (detail.source !== 'cloud-pull') return;
+        state = read();
+        render();
+      });
+    }
+
+    boot();
+  })();
+</script>
+
+<style>
+  /* Fallback styles — anything that's purely scoped to the itinerary page
+     and shouldn't leak into the global stylesheet. The bulk lives in
+     global.css so the print rules can also style it. */
+</style>

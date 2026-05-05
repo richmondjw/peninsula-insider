@@ -1,0 +1,383 @@
+---
+/**
+ * PlaceMap — scoped Leaflet map for /places/<slug>/ (Phase 3 WS3B).
+ *
+ * Reuses the /map/ infrastructure: same DivIcon palette, same popup
+ * pattern, same OSM tiles. The two differences from /map/:
+ *   1. Pins are scoped to a single place (≈5–25 pins typical).
+ *   2. Leaflet is lazy-loaded via IntersectionObserver — the page renders
+ *      a placeholder until the user scrolls the map into view, so place
+ *      hubs without scroll-into-view stay light.
+ *
+ * Locked decisions (see Phase 3 plan):
+ *   Q2 — Events on place maps: yes, next-30-day window.
+ *   Map height — fixed 380px desktop, 4:3 aspect on mobile.
+ */
+import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+
+export interface Props {
+  place: any;
+  venues: any[];
+  experiences: any[];
+  events: any[];
+}
+
+const { place, venues, experiences, events } = Astro.props as Props;
+
+type MapPin = {
+  id: string;
+  category: 'place' | 'eat' | 'wine' | 'stay' | 'experience' | 'event';
+  type: string;
+  name: string;
+  href: string;
+  lat: number;
+  lng: number;
+  hero: string;
+  blurb: string;
+};
+
+function venueCategory(t: string): MapPin['category'] {
+  if (['winery', 'brewery', 'distillery', 'producer'].includes(t)) return 'wine';
+  if (['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'].includes(t)) return 'stay';
+  return 'eat';
+}
+
+const pins: MapPin[] = [];
+
+// Anchor pin: the place itself.
+if (place.data.coordinates && Number.isFinite(place.data.coordinates.lat)) {
+  pins.push({
+    id: `place:${place.id ?? place.data.slug}`,
+    category: 'place',
+    type: place.data.kind,
+    name: place.data.name,
+    href: `/places/${place.id ?? place.data.slug}/`,
+    lat: place.data.coordinates.lat,
+    lng: place.data.coordinates.lng,
+    hero: place.data.heroImage?.src ?? '',
+    blurb: (place.data.intro ?? '').slice(0, 140),
+  });
+}
+
+// Venues anchored to this place.
+venues.forEach((v) => {
+  if (!v.data.coordinates || !Number.isFinite(v.data.coordinates.lat)) return;
+  const slug = routeSlug(v);
+  pins.push({
+    id: `venue:${slug}`,
+    category: venueCategory(v.data.type),
+    type: v.data.type,
+    name: v.data.name,
+    href: `${venueHrefPrefix(v.data.type)}/${slug}/`,
+    lat: v.data.coordinates.lat,
+    lng: v.data.coordinates.lng,
+    hero: v.data.heroImage?.src ?? '',
+    blurb: (v.data.signature ?? '').slice(0, 140),
+  });
+});
+
+// Experiences anchored to this place.
+experiences.forEach((e) => {
+  if (!e.data.coordinates || !Number.isFinite(e.data.coordinates.lat)) return;
+  if (e.data.sitemapExclude) return;
+  const slug = routeSlug(e);
+  pins.push({
+    id: `experience:${slug}`,
+    category: 'experience',
+    type: e.data.type,
+    name: e.data.name,
+    href: `/explore/${slug}/`,
+    lat: e.data.coordinates.lat,
+    lng: e.data.coordinates.lng,
+    hero: e.data.heroImage?.src ?? '',
+    blurb: (e.data.editorNote ?? '').slice(0, 140),
+  });
+});
+
+// Events in the next 30-day window (locked decision Q2).
+const now = Date.now();
+const horizon = now + 30 * 24 * 60 * 60 * 1000;
+events.forEach((ev) => {
+  if (!ev.data.coordinates || !Number.isFinite(ev.data.coordinates.lat)) return;
+  const startMs = ev.data.startDate ? new Date(ev.data.startDate).getTime() : 0;
+  const endMs = ev.data.endDate ? new Date(ev.data.endDate).getTime() : startMs;
+  const recurring = ['weekly', 'monthly', 'ongoing'].includes(ev.data.recurrence);
+  // Pass through if recurring; otherwise require overlap with the next 30 days.
+  const inWindow = recurring || (endMs >= now && startMs <= horizon);
+  if (!inWindow) return;
+  const slug = routeSlug(ev);
+  pins.push({
+    id: `event:${slug}`,
+    category: 'event',
+    type: ev.data.category,
+    name: ev.data.title,
+    href: `/whats-on/${slug}/`,
+    lat: ev.data.coordinates.lat,
+    lng: ev.data.coordinates.lng,
+    hero: ev.data.heroImage?.src ?? '',
+    blurb: (ev.data.summary ?? '').slice(0, 140),
+  });
+});
+
+// Counts for the legend / category toggles.
+const counts = pins.reduce<Record<MapPin['category'], number>>((acc, p) => {
+  acc[p.category] = (acc[p.category] ?? 0) + 1;
+  return acc;
+}, { place: 0, eat: 0, wine: 0, stay: 0, experience: 0, event: 0 });
+
+const showEvent = counts.event > 0;
+const legend: Array<{ key: MapPin['category']; label: string; show: boolean }> = [
+  { key: 'place',      label: 'This place', show: counts.place > 0 },
+  { key: 'eat',        label: 'Eat',        show: counts.eat > 0 },
+  { key: 'wine',       label: 'Wine',       show: counts.wine > 0 },
+  { key: 'stay',       label: 'Stay',       show: counts.stay > 0 },
+  { key: 'experience', label: 'Explore',    show: counts.experience > 0 },
+  { key: 'event',      label: 'Events',     show: showEvent },
+];
+
+// Stable id for the map container so multiple PlaceMaps on one page (rare,
+// but possible later) don't collide.
+const placeSlug = place.id ?? place.data.slug ?? 'place';
+const mapId = `placeMap-${placeSlug}`;
+---
+
+{pins.length > 0 && (
+  <section class="place-map" data-place-map-root>
+    <div class="container">
+      <div class="place-map__header">
+        <p class="label label--accent">On the map</p>
+        <h2 class="place-map__title">{place.data.name}, by location</h2>
+        <p class="place-map__sub">Every editorially verified pin in {place.data.name} on one screen — toggle a category, click any marker for the editor's note.</p>
+      </div>
+
+      <div class="place-map__filters">
+        {legend.filter((l) => l.show).map((l) => (
+          <button
+            type="button"
+            class={`map-pin-toggle map-pin-toggle--${l.key}`}
+            data-place-map-toggle={l.key}
+            aria-pressed="true"
+          >
+            <span class="map-pin-toggle__dot" aria-hidden="true"></span>
+            <span class="map-pin-toggle__label">{l.label}</span>
+            <span class="map-pin-toggle__count">{counts[l.key]}</span>
+          </button>
+        ))}
+      </div>
+
+      <div
+        class="place-map__canvas"
+        id={mapId}
+        data-place-map={placeSlug}
+        data-place-map-pins={JSON.stringify(pins)}
+        aria-label={`Map of ${place.data.name}`}
+      >
+        <div class="place-map__placeholder" data-place-map-placeholder>
+          <p class="place-map__placeholder-text">Loading map…</p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<script is:inline define:vars={{ mapId }}>
+  /* PlaceMap controller. Lazy-loads Leaflet from CDN via an
+     IntersectionObserver so place hubs that aren't scrolled to don't pay
+     for the library. Once initialised, behaves like a scoped /map/ —
+     category toggles, click-to-popup, list-marker sync via the same
+     DivIcon palette.
+     Multiple instances on a page would share the Leaflet load (the
+     first to enter the viewport triggers it). */
+  (function () {
+    function init() {
+      var canvas = document.getElementById(mapId);
+      if (!canvas || canvas._piPlaceMapBound) return;
+      canvas._piPlaceMapBound = true;
+
+      // Read the build-time pin payload; bail if empty.
+      var raw = canvas.getAttribute('data-place-map-pins');
+      if (!raw) return;
+      var pins;
+      try { pins = JSON.parse(raw); } catch (_e) { pins = []; }
+      if (!pins.length) return;
+
+      var root = canvas.closest('[data-place-map-root]');
+      if (!root) return;
+
+      var initialised = false;
+
+      function loadLeafletAssets() {
+        var head = document.head;
+        function ensure(tag, attrs) {
+          var sel = tag === 'link'
+            ? 'link[href="' + attrs.href + '"]'
+            : 'script[src="' + attrs.src + '"]';
+          if (head.querySelector(sel)) return Promise.resolve();
+          return new Promise(function (resolve, reject) {
+            var el = document.createElement(tag);
+            Object.keys(attrs).forEach(function (k) { el.setAttribute(k, attrs[k]); });
+            el.onload = function () { resolve(); };
+            el.onerror = function () { reject(new Error('Failed to load ' + (attrs.href || attrs.src))); };
+            head.appendChild(el);
+          });
+        }
+
+        return Promise.all([
+          ensure('link', { rel: 'stylesheet', href: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', crossorigin: '' }),
+          ensure('link', { rel: 'stylesheet', href: 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css' }),
+          ensure('link', { rel: 'stylesheet', href: 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css' }),
+        ]).then(function () {
+          return ensure('script', { src: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', crossorigin: '' });
+        }).then(function () {
+          return ensure('script', { src: 'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js' });
+        });
+      }
+
+      function escapeHtml(s) {
+        return String(s == null ? '' : s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function popupHtml(p) {
+        var hero = p.hero
+          ? '<div class="map-popup__hero" style="background-image:url(' + escapeHtml(p.hero) + ')"></div>'
+          : '';
+        var meta = escapeHtml(p.type || '');
+        return ''
+          + '<div class="map-popup">'
+          +   hero
+          +   '<div class="map-popup__body">'
+          +     (meta ? '<p class="map-popup__meta">' + meta + '</p>' : '')
+          +     '<h3 class="map-popup__title">' + escapeHtml(p.name) + '</h3>'
+          +     (p.blurb ? '<p class="map-popup__blurb">' + escapeHtml(p.blurb) + '</p>' : '')
+          +     '<a class="map-popup__cta" href="' + escapeHtml(p.href) + '">Read the full notes →</a>'
+          +   '</div>'
+          + '</div>';
+      }
+
+      function startMap() {
+        if (initialised) return;
+        if (typeof L === 'undefined') {
+          // Library hasn't finished loading yet; retry shortly.
+          setTimeout(startMap, 80);
+          return;
+        }
+        initialised = true;
+        var placeholder = canvas.querySelector('[data-place-map-placeholder]');
+        if (placeholder) placeholder.remove();
+
+        // Centre on the place pin if present, otherwise the centroid of all pins.
+        var center;
+        var anchor = pins.find(function (p) { return p.category === 'place'; });
+        if (anchor) {
+          center = [anchor.lat, anchor.lng];
+        } else {
+          var sumLat = 0, sumLng = 0;
+          pins.forEach(function (p) { sumLat += p.lat; sumLng += p.lng; });
+          center = [sumLat / pins.length, sumLng / pins.length];
+        }
+
+        var map = L.map(canvas, {
+          attributionControl: true,
+          scrollWheelZoom: false,
+        }).setView(center, 13);
+        canvas.addEventListener('focus', function () { map.scrollWheelZoom.enable(); });
+        canvas.addEventListener('blur', function () { map.scrollWheelZoom.disable(); });
+        map.on('click', function () { map.scrollWheelZoom.enable(); });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '© OpenStreetMap contributors',
+        }).addTo(map);
+
+        var iconFor = function (cat) {
+          return L.divIcon({
+            className: 'map-pin map-pin--' + cat,
+            html: '<span class="map-pin__inner" aria-hidden="true"></span>',
+            iconSize: [22, 22],
+            iconAnchor: [11, 11],
+            popupAnchor: [0, -10],
+          });
+        };
+
+        var clusterGroup = L.markerClusterGroup({
+          showCoverageOnHover: false,
+          maxClusterRadius: 35,
+        });
+
+        var markersById = {};
+        pins.forEach(function (p) {
+          if (!Number.isFinite(p.lat) || !Number.isFinite(p.lng)) return;
+          var marker = L.marker([p.lat, p.lng], { icon: iconFor(p.category) });
+          marker.bindPopup(popupHtml(p), { maxWidth: 260, autoPanPadding: [30, 30] });
+          marker._piData = p;
+          clusterGroup.addLayer(marker);
+          markersById[p.id] = marker;
+        });
+        map.addLayer(clusterGroup);
+
+        if (Object.keys(markersById).length > 1) {
+          var group = L.featureGroup(Object.values(markersById));
+          map.fitBounds(group.getBounds(), { padding: [25, 25], maxZoom: 14 });
+        }
+
+        // Category toggles
+        var enabled = { place: true, eat: true, wine: true, stay: true, experience: true, event: true };
+        function applyVisibility() {
+          clusterGroup.clearLayers();
+          pins.forEach(function (p) {
+            if (!enabled[p.category]) return;
+            var m = markersById[p.id];
+            if (m) clusterGroup.addLayer(m);
+          });
+        }
+        root.querySelectorAll('[data-place-map-toggle]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var cat = btn.getAttribute('data-place-map-toggle');
+            enabled[cat] = !enabled[cat];
+            btn.setAttribute('aria-pressed', enabled[cat] ? 'true' : 'false');
+            applyVisibility();
+          });
+        });
+      }
+
+      // Lazy boot via IntersectionObserver: initialise as soon as the map
+      // canvas enters the viewport (with a small rootMargin so we start
+      // loading before the user actually sees it).
+      var booted = false;
+      function boot() {
+        if (booted) return;
+        booted = true;
+        loadLeafletAssets()
+          .then(startMap)
+          .catch(function (err) {
+            console.warn('[place-map] Leaflet load failed:', err);
+            var placeholder = canvas.querySelector('[data-place-map-placeholder]');
+            if (placeholder) placeholder.querySelector('.place-map__placeholder-text').textContent = 'Map unavailable.';
+          });
+      }
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              boot();
+              io.disconnect();
+            }
+          });
+        }, { rootMargin: '120px 0px' });
+        io.observe(canvas);
+      } else {
+        // Fallback: just init immediately.
+        boot();
+      }
+    }
+
+    init();
+    document.addEventListener('astro:page-load', init);
+  })();
+</script>
