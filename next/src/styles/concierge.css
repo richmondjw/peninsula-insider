@@ -963,3 +963,85 @@
     outline: 2px solid #8B4E3B;
     outline-offset: 2px;
   }
+
+
+/* ============================================================================
+   AI ITINERARY CTA (Phase 3 WS3D)
+   Rendered inside the Ask The Insider drawer when the response payload
+   carries an itinerary field. Visually echoes the recommendation tiles
+   but reads as a single decision: "open this in the builder".
+   ============================================================================ */
+
+.ask-itinerary-cta {
+  margin: 0.85rem 0 0.5rem;
+}
+.ask-itinerary-cta__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.95rem 1rem 1rem;
+  background: rgba(167, 118, 55, 0.08);
+  border: 1px solid rgba(167, 118, 55, 0.4);
+  border-left-width: 3px;
+}
+.ask-itinerary-cta__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8B4E3B;
+  margin: 0;
+}
+.ask-itinerary-cta__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin: 0;
+}
+.ask-itinerary-cta__framing {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5b4f3f;
+  margin: 0;
+}
+.ask-itinerary-cta__count {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8B4E3B;
+  margin: 0;
+}
+.ask-itinerary-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #8B4E3B;
+  align-self: flex-start;
+  border-bottom: 1px solid rgba(139, 78, 59, 0.5);
+  padding-bottom: 0.1rem;
+}
+.ask-itinerary-cta__link:hover {
+  border-bottom-color: #8B4E3B;
+}
+.ask-banner__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 0.4rem;
+}
+[data-itinerary-banner-title][hidden] { display: none; }

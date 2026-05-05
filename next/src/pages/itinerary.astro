@@ -29,6 +29,7 @@ import { routeSlug, venueHrefPrefix } from '../lib/editorial';
 
 const venues = await getCollection('venues');
 const events = await getCollection('events');
+const experiences = await getCollection('experiences');
 
 /**
  * Build-time lookup tables. Carry coordinates so the client can compute
@@ -67,6 +68,24 @@ const eventLookup = Object.fromEntries(
       type: e.data.category,
       price: '',
       signature: e.data.summary ?? '',
+    },
+  ]),
+);
+const experienceLookup = Object.fromEntries(
+  experiences.map((x) => [
+    routeSlug(x),
+    {
+      slug: routeSlug(x),
+      kind: 'experience' as const,
+      title: x.data.name,
+      href: `/explore/${routeSlug(x)}/`,
+      hero: x.data.heroImage?.src ?? '',
+      lat: x.data.coordinates?.lat ?? null,
+      lng: x.data.coordinates?.lng ?? null,
+      placeId: typeof x.data.place === 'string' ? x.data.place : x.data.place?.id ?? '',
+      type: x.data.type,
+      price: '',
+      signature: (x.data.editorNote ?? '').slice(0, 160),
     },
   ]),
 );
@@ -110,11 +129,16 @@ const breadcrumbItems = [
         </p>
       </div>
 
-      <!-- Mode banner — appears in shared mode only. -->
+      <!-- Mode banner — appears in shared mode only.
+           Two flavours:
+             - Shared from another user: generic "import" copy.
+             - Suggested by Ask The Insider: title + framing from the
+               concierge payload, "Save as my itinerary" CTA. -->
       <aside class="itinerary-banner" data-itinerary-banner hidden>
         <div class="itinerary-banner__inner">
-          <p class="itinerary-banner__label">Shared itinerary</p>
-          <p class="itinerary-banner__body">Someone shared this Peninsula itinerary with you. You can browse it as is, or import it into your own builder on this device.</p>
+          <p class="itinerary-banner__label" data-itinerary-banner-label>Shared itinerary</p>
+          <p class="itinerary-banner__title" data-itinerary-banner-title hidden></p>
+          <p class="itinerary-banner__body" data-itinerary-banner-body>Someone shared this Peninsula itinerary with you. You can browse it as is, or import it into your own builder on this device.</p>
           <button type="button" class="itinerary-banner__action" data-itinerary-import>Import this itinerary</button>
         </div>
       </aside>
@@ -147,7 +171,7 @@ const breadcrumbItems = [
 <!-- SortableJS from CDN; lazy-loaded when the user has at least one item. -->
 <script
   is:inline
-  define:vars={{ venueLookup, eventLookup }}
+  define:vars={{ venueLookup, eventLookup, experienceLookup }}
 >
   /* /itinerary/ controller. Owns localStorage (pi:itinerary:v1), wires
      SortableJS for drag-and-drop, computes haversine estimates between
@@ -186,7 +210,10 @@ const breadcrumbItems = [
     }
 
     function hydrate(item) {
-      var lookup = item.kind === 'event' ? eventLookup : venueLookup;
+      var lookup;
+      if (item.kind === 'event') lookup = eventLookup;
+      else if (item.kind === 'experience') lookup = experienceLookup;
+      else lookup = venueLookup;
       return lookup[item.slug] || { slug: item.slug, kind: item.kind, title: item.slug, href: '#', hero: '', lat: null, lng: null };
     }
 
@@ -470,13 +497,50 @@ const breadcrumbItems = [
     function persist() { write(state); }
 
     /* ─── URL ingest (shared mode) ─────────────────────────────────────── */
+    function normaliseKind(k) {
+      if (k === 'event') return 'event';
+      if (k === 'experience') return 'experience';
+      return 'venue';
+    }
+
     function readSharedFromUrl() {
       var p = new URLSearchParams(window.location.search);
+
+      // AI-itinerary ingest path: /itinerary/?ai=<base64url-json>.
+      // Lets the concierge (or any external producer) link directly into
+      // the builder with a pre-sequenced list. See lib/concierge-itinerary.ts
+      // for the contract.
+      var aiRaw = p.get('ai');
+      if (aiRaw) {
+        var decoded = decodeAiPayload(aiRaw);
+        if (decoded && decoded.items && decoded.items.length > 0) {
+          var aiItems = decoded.items.map(function (it) {
+            return {
+              kind: normaliseKind(it.kind),
+              slug: String(it.slug || ''),
+              dayId: String(it.dayId || ''),
+              note: String(it.note || ''),
+            };
+          }).filter(function (it) { return it.slug; });
+          var aiDays = Array.isArray(decoded.days) ? decoded.days.map(function (d) {
+            return { id: String(d.id || ''), label: String(d.label || d.id || '') };
+          }).filter(function (d) { return d.id; }) : [];
+          return {
+            version: 1,
+            items: aiItems,
+            days: aiDays,
+            // Carry editorial framing so the banner can show it.
+            _meta: { title: decoded.title || '', framing: decoded.framing || '', source: 'ai' },
+          };
+        }
+      }
+
+      // Personal share-link path: ?i=kind:slug:dayId|... &d=id:label|...
       var raw = p.get('i');
       if (!raw) return null;
       var items = raw.split('|').filter(Boolean).map(function (triple) {
         var parts = triple.split(':');
-        return { kind: parts[0] === 'event' ? 'event' : 'venue', slug: parts[1] || '', dayId: parts[2] || '', note: '' };
+        return { kind: normaliseKind(parts[0]), slug: parts[1] || '', dayId: parts[2] || '', note: '' };
       }).filter(function (it) { return it.slug; });
       var days = [];
       var dr = p.get('d');
@@ -490,6 +554,22 @@ const breadcrumbItems = [
         });
       }
       return { version: 1, items: items, days: days };
+    }
+
+    function decodeAiPayload(encoded) {
+      try {
+        var b64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
+        var padded = b64 + '='.repeat((4 - (b64.length % 4)) % 4);
+        var binary = atob(padded);
+        var bytes = new Uint8Array(binary.length);
+        for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        var json = new TextDecoder().decode(bytes);
+        var parsed = JSON.parse(json);
+        if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.items)) return null;
+        return parsed;
+      } catch (_e) {
+        return null;
+      }
     }
 
     function buildShareUrl() {
@@ -584,11 +664,40 @@ const breadcrumbItems = [
     });
 
     /* ─── Boot ─────────────────────────────────────────────────────────── */
+    function applyBannerCopy(meta) {
+      var bannerLabel = document.querySelector('[data-itinerary-banner-label]');
+      var bannerTitle = document.querySelector('[data-itinerary-banner-title]');
+      var bannerBody = document.querySelector('[data-itinerary-banner-body]');
+      var importBtn = document.querySelector('[data-itinerary-import]');
+      if (meta && meta.source === 'ai') {
+        if (bannerLabel) bannerLabel.textContent = 'Ask The Insider · suggested itinerary';
+        if (bannerTitle) {
+          if (meta.title) {
+            bannerTitle.textContent = meta.title;
+            bannerTitle.removeAttribute('hidden');
+          } else {
+            bannerTitle.setAttribute('hidden', '');
+          }
+        }
+        if (bannerBody) {
+          bannerBody.textContent = meta.framing
+            || 'The Insider built this sequence in response to your prompt. Browse it, or save it to your own builder where you can rearrange, add notes, and share.';
+        }
+        if (importBtn) importBtn.textContent = 'Save as my itinerary';
+      } else {
+        if (bannerLabel) bannerLabel.textContent = 'Shared itinerary';
+        if (bannerTitle) bannerTitle.setAttribute('hidden', '');
+        if (bannerBody) bannerBody.textContent = 'Someone shared this Peninsula itinerary with you. You can browse it as is, or import it into your own builder on this device.';
+        if (importBtn) importBtn.textContent = 'Import this itinerary';
+      }
+    }
+
     function boot() {
       var shared = readSharedFromUrl();
       if (shared && shared.items.length > 0) {
         // Show shared mode banner; keep local state separate until import.
         if (bannerEl) bannerEl.removeAttribute('hidden');
+        applyBannerCopy(shared._meta);
         state = shared; // render the shared list, but persist on first change
       }
       ensureSortableLoaded(function () {
