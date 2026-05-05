@@ -1,0 +1,114 @@
+---
+/**
+ * V3 HomeCover — cinematic full-bleed cover.
+ *
+ * Renders a poster image immediately, with an optional silent looped video
+ * layered on top. Video is muted, plays inline, autoplays on capable
+ * connections, honours `prefers-reduced-motion` (poster-only fallback).
+ *
+ * Eyebrow → title (with italic em emphasis) → meta → two CTAs.
+ *
+ * The two CTAs are intentional: read the cover (editorial route), or ask PI
+ * (concierge route). This is the V3 strategy in one component.
+ */
+export interface Props {
+  eyebrow?: string;            // e.g. "The Cover Feature · Vol 04"
+  vineTag?: string;            // e.g. "AUTUMN 2026"
+  title: string;               // <em> tags render italic
+  meta?: string;               // e.g. "The Long Read · 9 min · The Editors"
+  poster: string;
+  posterAlt: string;
+  video?: string;              // path to silent loop, optional
+  primaryHref: string;
+  primaryLabel: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+
+const {
+  eyebrow = 'The Cover Feature',
+  vineTag,
+  title,
+  meta,
+  poster,
+  posterAlt,
+  video,
+  primaryHref,
+  primaryLabel,
+  secondaryHref,
+  secondaryLabel,
+} = Astro.props;
+---
+
+<section class="v3-cover" aria-label="Cover feature">
+  <div class="v3-cover__media" aria-hidden="true">
+    <img src={poster} alt={posterAlt} loading="eager" fetchpriority="high" />
+    {video && (
+      <video
+        src={video}
+        poster={poster}
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        data-v3-cover-video
+        aria-hidden="true"
+      ></video>
+    )}
+  </div>
+
+  <div class="v3-container v3-cover__inner">
+    <p class="v3-cover__eyebrow">
+      {vineTag && <strong>{vineTag}</strong>}
+      {eyebrow}
+    </p>
+    <h1 class="v3-cover__title" set:html={title} />
+    {meta && <p class="v3-cover__meta">{meta}</p>}
+    <div class="v3-cover__cta-row">
+      <a href={primaryHref} class="v3-btn v3-btn--solid">
+        {primaryLabel}
+        <span aria-hidden="true">→</span>
+      </a>
+      {secondaryHref && secondaryLabel && (
+        <a href={secondaryHref} class="v3-btn v3-btn--ghost">
+          {secondaryLabel}
+          <span aria-hidden="true">→</span>
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    function initCoverVideo() {
+      var v = document.querySelector('[data-v3-cover-video]');
+      if (!v || v._v3VideoBound) return;
+      v._v3VideoBound = true;
+      // Honour reduced motion: keep poster, drop the video element entirely.
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        v.pause(); v.removeAttribute('autoplay'); v.style.display = 'none';
+        return;
+      }
+      // Throttle on slow connections — poster only.
+      var conn = navigator.connection;
+      if (conn && (conn.saveData || (conn.effectiveType && /(^|-)2g$|3g/.test(conn.effectiveType)))) {
+        v.pause(); v.removeAttribute('autoplay'); v.style.display = 'none';
+        return;
+      }
+      // Pause when scrolled out of view.
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) v.play().catch(function(){});
+            else v.pause();
+          });
+        }, { threshold: 0.25 });
+        io.observe(v);
+      }
+    }
+    initCoverVideo();
+    document.addEventListener('astro:page-load', initCoverVideo);
+  })();
+</script>

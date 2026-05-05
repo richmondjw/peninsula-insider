@@ -1,0 +1,145 @@
+---
+/**
+ * V3 Masthead.
+ *
+ * Three rows: utility (issue stamp + sign-in), brand (wordmark, fades to compact
+ * on scroll), nav (5 pillars + Ask PI pill + What's On + Subscribe). Mega-panel
+ * opens on hover/focus and reveals three-column editorial menu.
+ *
+ * Mobile: utility + brand + bottom row (burger / wordmark / Ask).
+ */
+import { v3Pillars, v3Utility } from '../../lib/v3-nav';
+
+export interface Props {
+  section?: string;
+  issueMark?: string;
+  issueLabel?: string;
+}
+
+const {
+  section = 'home',
+  issueMark = 'Vol 04',
+  issueLabel = 'Autumn 2026 · Updated weekly',
+} = Astro.props;
+---
+
+<header class="v3-masthead">
+
+  <!-- Row 1: Utility -->
+  <div class="v3-utility">
+    <div class="v3-container">
+      <div class="v3-utility__inner">
+        <span class="v3-utility__edition">
+          <strong>{issueMark}</strong>
+          <span>{issueLabel}</span>
+        </span>
+        <div class="v3-utility__links">
+          <a href={v3Utility.pass.href}>The Pass</a>
+          <a href={v3Utility.account.href}>Sign in / Save trip</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Brand -->
+  <div class="v3-masthead__brand">
+    <div class="v3-container">
+      <a href="/v3/" class="v3-masthead__logo" aria-label="Peninsula Insider, home">
+        Peninsula <span>Insider</span>
+      </a>
+      <span class="v3-masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</span>
+    </div>
+  </div>
+
+  <!-- Row 3: Pillars + utility actions (desktop) -->
+  <div class="v3-masthead__nav-row">
+    <div class="v3-container">
+      <div class="v3-masthead__nav-inner">
+
+        <nav aria-label="Primary">
+          <ul class="v3-nav">
+            {v3Pillars.map((p) => (
+              <li
+                class={`v3-nav__item${section === p.key ? ' is-current' : ''}`}
+                aria-current={section === p.key ? 'true' : undefined}
+                data-mega
+              >
+                <a
+                  href={p.href}
+                  class={`v3-nav__link${p.key === 'journal' ? ' v3-nav__link--journal' : ''}`}
+                  aria-haspopup="true"
+                >
+                  {p.label}
+                  {p.key !== 'journal' && (
+                    <svg class="v3-nav__chev" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="2,2 6,6 10,2"/>
+                    </svg>
+                  )}
+                </a>
+
+                <!-- Mega panel -->
+                <div class="v3-mega" role="menu" aria-label={`${p.label} sub-navigation`}>
+                  <div class="v3-container">
+                    <div class="v3-mega__grid">
+                      {p.panelImage && (
+                        <a href={p.href} class="v3-mega__rail" aria-label={`${p.label} hub`}>
+                          <img src={p.panelImage.src} alt={p.panelImage.alt} loading="lazy" />
+                          <span class="v3-mega__rail-caption">{p.dek}</span>
+                        </a>
+                      )}
+                      {p.columns.map((col) => (
+                        <div class="v3-mega__col">
+                          <h3>{col.eyebrow}</h3>
+                          <ul>
+                            {col.items.map((item) => (
+                              <li><a href={item.href}>{item.label}</a></li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div class="v3-masthead__utility-actions">
+          <a href={v3Utility.search.href} class="v3-iconbtn" aria-label="Search Peninsula Insider">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="21" y1="21" x2="16.5" y2="16.5"/>
+            </svg>
+          </a>
+          <a href={v3Utility.whatsOn.href} class="v3-iconbtn" aria-label={`What's on this weekend`} title="What's on this weekend">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="1.5"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <line x1="8" y1="3" x2="8" y2="7"/>
+              <line x1="16" y1="3" x2="16" y2="7"/>
+            </svg>
+          </a>
+          <a href={v3Utility.ask.href} class="v3-ask-pill" aria-label="Ask PI">
+            <span class="v3-ask-pill__dot">PI</span>
+            Ask PI
+          </a>
+          <a href={v3Utility.subscribe.href} class="v3-subscribe-cta">Get the dispatch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile-only secondary row -->
+  <div class="v3-container">
+    <div class="v3-masthead__mobile">
+      <button class="v3-burger" aria-label="Open menu" aria-expanded="false" aria-controls="v3MobileNav">
+        <span></span><span></span><span></span>
+      </button>
+      <a href={v3Utility.ask.href} class="v3-ask-pill">
+        <span class="v3-ask-pill__dot">PI</span>
+        Ask PI
+      </a>
+    </div>
+  </div>
+</header>

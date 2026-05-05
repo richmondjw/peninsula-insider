@@ -1,0 +1,89 @@
+---
+/**
+ * V3 PillarGrid — "Shape the weekend".
+ *
+ * Four cards: Stay / Explore / Plans / Tours. Editorial copy is the same
+ * lineage as the existing zone-intro block, restaged as four icon-led
+ * cards with hover lift, in PI voice, no tourism-board adjectives.
+ */
+export interface PillarItem {
+  href: string;
+  label: string;        // small label e.g. "Stay"
+  title: string;        // headline question
+  body: string;         // one-line body
+  cta: string;          // CTA line
+  icon: string;         // SVG path body
+}
+
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  items?: PillarItem[];
+}
+
+const defaultItems: PillarItem[] = [
+  {
+    href: '/stay/',
+    label: 'Stay',
+    title: 'Choose the bed before the booking list',
+    body: 'Red Hill stays, Sorrento hotels, the rooms that change the whole weekend.',
+    cta: 'Open the rooms',
+    icon: '<path d="M3 11 L12 3 L21 11 M5 10 L5 20 L19 20 L19 10 M10 20 L10 14 L14 14 L14 20" stroke-linecap="round" stroke-linejoin="round"/>',
+  },
+  {
+    href: '/explore/',
+    label: 'Explore',
+    title: 'Use coast, weather, and timing properly',
+    body: 'Late-afternoon walks, market starts, the non-restaurant moves.',
+    cta: 'Open the moves',
+    icon: '<circle cx="12" cy="12" r="9"/><path d="M14 10 L10 14 M10 10 L14 14" stroke-linecap="round"/>',
+  },
+  {
+    href: '/escape/',
+    label: 'Plans',
+    title: 'Follow a complete weekend, not a list',
+    body: 'Shaped escapes that sequence lunch, landscape, and bed in the right order.',
+    cta: 'Open the plans',
+    icon: '<path d="M2 20 L8 10 L12 15 L16 7 L22 20 Z" stroke-linecap="round" stroke-linejoin="round"/>',
+  },
+  {
+    href: '/tour/',
+    label: 'Tours',
+    title: 'Hand the day to a guide who knows the back roads',
+    body: 'Operator-led wine tours, hot-springs days, dolphin swims, with editorial notes on who each suits.',
+    cta: 'Open the operators',
+    icon: '<path d="M4 18 L20 18 L20 12 L16 12 L14 8 L10 8 L8 12 L4 12 Z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="18" r="1.4"/><circle cx="16" cy="18" r="1.4"/>',
+  },
+];
+
+const {
+  eyebrow = 'Build the weekend',
+  title = 'Four ways into the Peninsula, depending on what the trip <em>needs</em>',
+  body = 'Start with the bed if you want the trip to soften, the walk if you want the afternoon to open up, the itinerary if you want the whole weekend pre-shaped, or hand the wheel to a guide if the day should run itself.',
+  items = defaultItems,
+} = Astro.props;
+---
+
+<section class="v3-pillargrid v3-reveal" aria-labelledby="v3-pillar-title">
+  <div class="v3-container">
+    <div class="v3-pillargrid__intro">
+      <div>
+        <p class="v3-eyebrow">{eyebrow}</p>
+        <h2 id="v3-pillar-title" set:html={title} />
+      </div>
+      <p>{body}</p>
+    </div>
+    <div class="v3-pillargrid__grid">
+      {items.map((item) => (
+        <a href={item.href} class="v3-pillarcard">
+          <svg class="v3-pillarcard__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" set:html={item.icon} />
+          <span class="v3-pillarcard__label">{item.label}</span>
+          <h3 class="v3-pillarcard__title">{item.title}</h3>
+          <p class="v3-pillarcard__body">{item.body}</p>
+          <span class="v3-pillarcard__cta">{item.cta} →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
