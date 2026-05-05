@@ -14,6 +14,30 @@ For each meaningful change, include:
 
 ---
 
+## 2026-05-05 — Remy (mobile app — Sprint 0 paperwork pack)
+
+### Summary
+Kicked off the Peninsula Insider iOS app project. Locked the stack (Expo SDK 53 + Supabase + EAS Build + Sign in with Apple + Apple Wallet for Pass), reframed the April pocket-concierge thesis from "PWA-first / Capacitor-later" to "Expo native first" based on 2026 vibe-coding research, and produced the Sprint 0 Apple paperwork checklist. Sprint 1 handover doc is queued to execute as soon as Apple Developer enrolment lands.
+
+### Files changed
+- `docs/mobile-app/README.md` (new) — workspace overview and strategic shift note
+- `docs/mobile-app/decisions-2026-05-05.md` (new) — locked decisions + 2 awaiting James (enrolment type, repo layout)
+- `docs/mobile-app/sprint-0-apple-paperwork-2026-05-05.md` (new) — step-by-step Apple Developer Program / App Store Connect / APNs / API Key checklist
+- `docs/mobile-app/sprint-1-handover-2026-05-05.md` (new) — day-by-day TestFlight plan + IAP decision tree for Insider Pass
+
+### Pages affected
+None — docs-only. Site build is unaffected.
+
+### Why it matters
+The April thesis treated the app as a future R&D bet. Conditions in 2026 (Claude Code's Expo proficiency, EAS auto-credentials, Apple's stable native review path, the existing Supabase + `/ask` + saves backend) make the iOS app a near-term ship rather than an experiment. Sprint 0 is the gating paperwork; Sprint 1 reaches TestFlight in 5 working days once Apple enrolment is approved.
+
+### Follow-up
+- James: confirm enrolment type (Individual recommended for speed) and repo layout (monorepo recommended) — both flagged in `decisions-2026-05-05.md`
+- James: run the Sprint 0 checklist; populate `~/.apple-keys/peninsula-insider.env`
+- Remy (next session): execute Sprint 1 day-by-day plan once preconditions are met
+
+---
+
 ## 2026-05-04 — Claude (SEO experiment 2026-05-04-01)
 
 ### CTR snippet rewrite on dog-friendly journal page
