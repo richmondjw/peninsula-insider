@@ -1,0 +1,404 @@
+---
+/**
+ * /account/pass/ — Pass member dashboard (Phase 6 WS6A).
+ *
+ * Auth-gated. Shows the signed-in user's Pass tier, renewal date,
+ * and a link to the Stripe Customer Portal for billing management.
+ *
+ * v1: read-only summary. v1.x: cancel-here-without-Stripe-redirect,
+ * pause/resume actions, member-only inventory teasers (Pass-only
+ * itineraries, early Awards access, Pass dispatch archive).
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/SectionHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'My account', href: '/account/' },
+  { label: 'The Pass' },
+];
+---
+
+<BaseLayout
+  title="My Pass · Peninsula Insider"
+  description="Your Peninsula Insider Pass — tier, renewal date, billing."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SectionHero
+    eyebrow="My Pass"
+    subEyebrow="Membership account"
+    title="Your <em>Peninsula Insider</em> Pass."
+    dek="The membership that funds the editorial. Manage your tier, renewal, and billing here. Member-only itineraries and early Awards voting unlock once your tier is active."
+    gradient="journal"
+    visualLabel="Peninsula Insider · my Pass"
+  />
+
+  <section class="pass-account">
+    <div class="container">
+
+      <!-- Welcome banner: shown after Stripe Checkout success redirect -->
+      <aside class="pass-account-welcome" data-pass-account-welcome hidden>
+        <p class="pass-account-welcome__title">Welcome to the Pass.</p>
+        <p class="pass-account-welcome__body">Your subscription is active. Membership benefits unlock as we ship them; the next is the Pass-only quarterly dispatch in early winter.</p>
+      </aside>
+
+      <!-- Anonymous prompt -->
+      <div class="pass-account-anon" data-pass-account-anon>
+        <p class="pass-account-anon__title">Sign in to manage your Pass.</p>
+        <p class="pass-account-anon__body">If you've already taken out an Insider or Founders' tier, sign in with the email you used at checkout. Otherwise, see the <a href="/pass/">Pass page</a>.</p>
+        <button type="button" class="pass-account-anon__cta" data-open-auth>Sign in</button>
+      </div>
+
+      <!-- Loading state -->
+      <div class="pass-account-loading" data-pass-account-loading hidden>
+        <p>Loading your subscription…</p>
+      </div>
+
+      <!-- No active membership -->
+      <div class="pass-account-empty" data-pass-account-empty hidden>
+        <p class="pass-account-empty__title">You're signed in, but you don't have an active Pass.</p>
+        <p class="pass-account-empty__body">Pick a tier on the Pass page — Insider unlocks the member benefits, Founders' Circle is a capped longer-term partnership.</p>
+        <a href="/pass/" class="pass-account-empty__cta">Open the Pass page →</a>
+      </div>
+
+      <!-- Active membership summary -->
+      <div class="pass-account-active" data-pass-account-active hidden>
+        <div class="pass-account-active__head">
+          <p class="pass-account-active__tier-eyebrow">Your tier</p>
+          <h2 class="pass-account-active__tier" data-pass-tier-name>—</h2>
+          <p class="pass-account-active__status" data-pass-status-text>—</p>
+        </div>
+
+        <dl class="pass-account-active__detail">
+          <div>
+            <dt>Billing</dt>
+            <dd data-pass-billing-interval>—</dd>
+          </div>
+          <div>
+            <dt>Active until</dt>
+            <dd data-pass-active-until>—</dd>
+          </div>
+          <div>
+            <dt>Auto-renew</dt>
+            <dd data-pass-autorenew>—</dd>
+          </div>
+        </dl>
+
+        <div class="pass-account-active__actions">
+          <button type="button" class="pass-account-active__portal" data-pass-portal>Manage billing in Stripe →</button>
+          <p class="pass-account-active__portal-note" data-pass-portal-note hidden></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<script>
+  import { getSupabase, isAuthEnabled, onAuthChange } from '../../lib/auth';
+  import { getBillingPortalUrl } from '../../lib/stripe';
+
+  function setVisible(selector, visible) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    if (visible) el.removeAttribute('hidden');
+    else el.setAttribute('hidden', '');
+  }
+
+  function showWelcome() {
+    try {
+      const p = new URLSearchParams(window.location.search);
+      if (p.get('welcome') === '1') {
+        setVisible('[data-pass-account-welcome]', true);
+        // Drop the param so refresh doesn't re-show.
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    } catch {}
+  }
+
+  type SubscriptionRow = {
+    tier: string;
+    billing_interval: string | null;
+    status: string;
+    current_period_end: string | null;
+    cancel_at_period_end: boolean;
+  };
+
+  async function load(user: any) {
+    if (!user) {
+      setVisible('[data-pass-account-anon]', true);
+      setVisible('[data-pass-account-loading]', false);
+      setVisible('[data-pass-account-empty]', false);
+      setVisible('[data-pass-account-active]', false);
+      return;
+    }
+
+    setVisible('[data-pass-account-anon]', false);
+    setVisible('[data-pass-account-loading]', true);
+
+    const c = getSupabase();
+    if (!c) { setVisible('[data-pass-account-loading]', false); return; }
+
+    const { data: profile } = await c
+      .from('profiles')
+      .select('is_member, pass_tier, pass_active_until')
+      .eq('id', user.id)
+      .maybeSingle();
+
+    const isMember = profile?.is_member === true
+      && (!profile?.pass_active_until || new Date(profile.pass_active_until).getTime() > Date.now());
+
+    if (!isMember) {
+      setVisible('[data-pass-account-loading]', false);
+      setVisible('[data-pass-account-empty]', true);
+      setVisible('[data-pass-account-active]', false);
+      return;
+    }
+
+    const { data: subRows } = await c
+      .from('pass_subscriptions')
+      .select('tier, billing_interval, status, current_period_end, cancel_at_period_end')
+      .eq('user_id', user.id)
+      .order('current_period_end', { ascending: false })
+      .limit(1);
+
+    const sub: SubscriptionRow | null = (subRows && subRows[0]) ? (subRows[0] as SubscriptionRow) : null;
+
+    setVisible('[data-pass-account-loading]', false);
+    setVisible('[data-pass-account-empty]', false);
+    setVisible('[data-pass-account-active]', true);
+
+    const tierEl = document.querySelector('[data-pass-tier-name]');
+    const statusEl = document.querySelector('[data-pass-status-text]');
+    const intervalEl = document.querySelector('[data-pass-billing-interval]');
+    const untilEl = document.querySelector('[data-pass-active-until]');
+    const autorenewEl = document.querySelector('[data-pass-autorenew]');
+
+    if (tierEl) tierEl.textContent =
+      profile?.pass_tier === 'founders' ? "Founders' Circle"
+      : profile?.pass_tier === 'insider' ? 'Insider'
+      : 'Member';
+    if (statusEl) statusEl.textContent = sub?.status === 'active' ? 'Active'
+      : sub?.status === 'trialing' ? 'On trial'
+      : sub?.status === 'past_due' ? 'Payment past due — please update card'
+      : sub?.status === 'canceled' ? 'Cancelled, ends at period end'
+      : sub?.status ?? 'Active';
+    if (intervalEl) intervalEl.textContent =
+      sub?.billing_interval === 'month' ? 'Monthly'
+      : sub?.billing_interval === 'year' ? 'Annual'
+      : '—';
+    if (untilEl) {
+      const until = profile?.pass_active_until || sub?.current_period_end;
+      untilEl.textContent = until
+        ? new Date(until).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
+        : 'Lifetime';
+    }
+    if (autorenewEl) autorenewEl.textContent = sub
+      ? (sub.cancel_at_period_end ? 'Off — ends at period end' : 'On')
+      : '—';
+
+    bindPortalButton();
+  }
+
+  function bindPortalButton() {
+    const btn = document.querySelector('[data-pass-portal]');
+    if (!btn || (btn as any)._piBound) return;
+    (btn as any)._piBound = true;
+    const note = document.querySelector('[data-pass-portal-note]');
+    btn.addEventListener('click', async () => {
+      btn.setAttribute('disabled', '');
+      if (note) { note.textContent = 'Opening Stripe…'; note.removeAttribute('hidden'); }
+      const result = await getBillingPortalUrl();
+      if (!result.ok) {
+        if (note) {
+          note.textContent = result.error === 'function-not-deployed'
+            ? "The billing portal endpoint isn't deployed yet. Email hello@peninsulainsider.com.au and we'll handle it manually."
+            : "Couldn't open the billing portal. Try once more.";
+        }
+        btn.removeAttribute('disabled');
+        return;
+      }
+      window.location.href = result.url;
+    });
+  }
+
+  async function init() {
+    showWelcome();
+    if (!isAuthEnabled()) {
+      setVisible('[data-pass-account-anon]', true);
+      const note = document.querySelector('[data-pass-account-anon] .pass-account-anon__body');
+      if (note) note.textContent = "Pass accounts aren't currently configured. See /pass/ for the waitlist.";
+      return;
+    }
+    const c = getSupabase();
+    if (!c) { load(null); return; }
+    const session = (await c.auth.getSession()).data.session;
+    load(session?.user ?? null);
+    onAuthChange((user) => load(user));
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+  .pass-account { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+  .pass-account-welcome {
+    border: 1px solid var(--accent);
+    background: rgba(167, 118, 55, 0.08);
+    padding: clamp(1rem, 2vw, 1.4rem);
+    margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  .pass-account-welcome__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0 0 0.45rem;
+  }
+  .pass-account-welcome__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--dark);
+    margin: 0;
+  }
+
+  .pass-account-anon, .pass-account-empty, .pass-account-loading {
+    border: 1px dashed var(--border);
+    padding: clamp(1.5rem, 3vw, 2.5rem) 1.5rem;
+    text-align: center;
+  }
+  .pass-account-anon__title, .pass-account-empty__title, .pass-account-loading p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+  }
+  .pass-account-anon__body, .pass-account-empty__body {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--soft);
+    margin: 0 auto 1.25rem;
+    max-width: 38rem;
+  }
+  .pass-account-anon__body a, .pass-account-empty__cta {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .pass-account-anon__cta, .pass-account-empty__cta {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg, #fff);
+    border: 1px solid var(--accent);
+    padding: 0.7rem 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .pass-account-anon__cta:hover, .pass-account-empty__cta:hover {
+    background: var(--text, #1a1a1a);
+    border-color: var(--text, #1a1a1a);
+    color: var(--bg, #fff);
+  }
+
+  .pass-account-active {
+    border: 1px solid var(--border);
+    background: var(--paper, #fbf7f0);
+    padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+  .pass-account-active__head {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  .pass-account-active__tier-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.45rem;
+  }
+  .pass-account-active__tier {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .pass-account-active__status {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    color: var(--soft);
+    margin: 0;
+  }
+  .pass-account-active__detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin: 0 0 1.25rem;
+  }
+  @media (min-width: 720px) { .pass-account-active__detail { grid-template-columns: 1fr 1fr 1fr; } }
+  .pass-account-active__detail > div {
+    border-top: 1px solid var(--border);
+    padding-top: 0.55rem;
+  }
+  .pass-account-active__detail dt {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 0.25rem;
+  }
+  .pass-account-active__detail dd {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0;
+  }
+  .pass-account-active__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    align-items: flex-start;
+  }
+  .pass-account-active__portal {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--bg, #fff);
+    border: 1px solid var(--accent);
+    padding: 0.7rem 1.1rem;
+    cursor: pointer;
+  }
+  .pass-account-active__portal:disabled { opacity: 0.6; cursor: progress; }
+  .pass-account-active__portal-note {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--soft);
+    margin: 0;
+  }
+</style>
