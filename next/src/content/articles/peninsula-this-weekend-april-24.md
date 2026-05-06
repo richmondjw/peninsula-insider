@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-24
 heroImage:
-  src: "/images/sourced/place-sorrento-01.webp"
-  alt: "Sorrento and the southern Mornington Peninsula in soft autumn light"
+  src: "/images/sourced/explore-gunnamatta-01.webp"
+  alt: "Gunnamatta beach on the Mornington Peninsula, 24 to 26 April 2026"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "weekend-picker"

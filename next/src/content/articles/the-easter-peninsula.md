@@ -5,10 +5,10 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/sourced/article-cellar-door-01.webp"
-  alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs — representative image"
+  src: "/images/sourced/place-main-ridge-01.webp"
+  alt: "Autumn hinterland in Main Ridge on the Mornington Peninsula at Easter"
   credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  license: "other-licensed"
 format: "service"
 tags: ["easter", "long-weekend", "seasonal", "family", "weekend", "autumn"]
 relatedVenues: ["red-hill-bakery", "sorrento-bakery", "balnarring-bakehouse", "flinders-sourdough", "johnny-ripe", "mornington-peninsula-chocolates", "sunny-ridge-strawberry-farm", "ashcombe-maze", "merricks-general-wine-store", "balnarring-pub", "flinders-hotel", "red-hill-brewery", "lindenderry", "polperro-villas", "crittenden-villas", "alba-thermal-springs", "peninsula-hot-springs"]

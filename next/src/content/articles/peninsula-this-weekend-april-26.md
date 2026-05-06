@@ -5,8 +5,8 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-26
 heroImage:
-  src: "/images/sourced/place-red-hill-01.webp"
-  alt: "Red Hill hinterland in late autumn"
+  src: "/images/sourced/explore-balnarring-beach-01.webp"
+  alt: "Balnarring Beach on the Mornington Peninsula, 26 to 28 April 2026"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "weekend-picker"
