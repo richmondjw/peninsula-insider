@@ -73,6 +73,22 @@ export const mastheadMoreNav: NavItem[] = [
  */
 export const pillarNav: NavItem[] = [
   {
+    key: 'escape',
+    href: '/escape',
+    label: 'Plans',
+    sub: 'Itineraries · Slow Travel',
+    dek: 'Ready-made Peninsula days and weekends.',
+    icon: `<path d="M2 20 L8 10 L12 15 L16 7 L22 20 Z M8 10 L10 13 M16 7 L14 11" stroke-linecap="round" stroke-linejoin="round"/>`,
+  },
+  {
+    key: 'whats-on',
+    href: '/whats-on',
+    label: "What’s On",
+    sub: 'Weekend Picks · Events',
+    dek: "This week's markets, openings, and festivals.",
+    icon: `<rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9 L21 9 M8 3 L8 7 M16 3 L16 7 M7 13 L9 13 M12 13 L14 13 M17 13 L19 13 M7 17 L9 17 M12 17 L14 17" stroke-linecap="round"/>`,
+  },
+  {
     key: 'eat',
     href: '/eat',
     label: 'Eat & Drink',
@@ -89,14 +105,6 @@ export const pillarNav: NavItem[] = [
     icon: `<path d="M3 11 L12 3 L21 11 M5 10 L5 20 L19 20 L19 10 M10 20 L10 14 L14 14 L14 20" stroke-linecap="round" stroke-linejoin="round"/>`,
   },
   {
-    key: 'wine',
-    href: '/wine',
-    label: 'Wine Country',
-    sub: 'Wineries · Producers',
-    dek: 'Walk-in cellar doors and appointment-only finds.',
-    icon: `<path d="M7 3 L17 3 L16 10 C16 13 14 15 12 15 C10 15 8 13 8 10 Z M12 15 L12 20 M8 20 L16 20" stroke-linecap="round" stroke-linejoin="round"/>`,
-  },
-  {
     key: 'explore',
     href: '/explore',
     label: 'Explore',
@@ -105,12 +113,12 @@ export const pillarNav: NavItem[] = [
     icon: `<circle cx="12" cy="12" r="9"/><path d="M12 3 L12 5 M12 19 L12 21 M3 12 L5 12 M19 12 L21 12 M14 10 L10 14 M10 10 L14 14" stroke-linecap="round"/>`,
   },
   {
-    key: 'escape',
-    href: '/escape',
-    label: 'Plans',
-    sub: 'Itineraries · Slow Travel',
-    dek: 'Ready-made Peninsula days and weekends.',
-    icon: `<path d="M2 20 L8 10 L12 15 L16 7 L22 20 Z M8 10 L10 13 M16 7 L14 11" stroke-linecap="round" stroke-linejoin="round"/>`,
+    key: 'wine',
+    href: '/wine',
+    label: 'Wine Country',
+    sub: 'Wineries · Producers',
+    dek: 'Walk-in cellar doors and appointment-only finds.',
+    icon: `<path d="M7 3 L17 3 L16 10 C16 13 14 15 12 15 C10 15 8 13 8 10 Z M12 15 L12 20 M8 20 L16 20" stroke-linecap="round" stroke-linejoin="round"/>`,
   },
   {
     key: 'tour',
@@ -127,14 +135,6 @@ export const pillarNav: NavItem[] = [
     sub: 'Charters · Hire · Ramps',
     dek: 'Charters, hire, ramps, and the calendar of tides.',
     icon: `<path d="M3 17 L21 17 L19 21 L5 21 Z M5 17 L5 11 L19 11 L19 17 M12 11 L12 4 L17 11" stroke-linecap="round" stroke-linejoin="round"/>`,
-  },
-  {
-    key: 'whats-on',
-    href: '/whats-on',
-    label: "What’s On",
-    sub: 'Weekend Picks · Events',
-    dek: "This week's markets, openings, and festivals.",
-    icon: `<rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9 L21 9 M8 3 L8 7 M16 3 L16 7 M7 13 L9 13 M12 13 L14 13 M17 13 L19 13 M7 17 L9 17 M12 17 L14 17" stroke-linecap="round"/>`,
   },
   {
     key: 'golf',
