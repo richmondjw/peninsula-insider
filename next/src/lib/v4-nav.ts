@@ -50,6 +50,8 @@ export interface V4MegaTopBanner {
   ctaLabel?: string;
   /** Optional CTA href. */
   ctaHref?: string;
+  /** Optional icon rendered before the CTA label. 'peninsula-map' = Peninsula silhouette. */
+  icon?: 'peninsula-map';
 }
 
 export interface V4Pillar extends V4NavItem {
@@ -337,9 +339,10 @@ export const v4Pillars: V4Pillar[] = [
     href: '/explore/',
     intro: "Every move on the Peninsula that isn't a meal or a bed.",
     topBanner: {
-      text: "How the Peninsula's geography actually works",
-      ctaLabel: 'Open the map →',
+      text: "The whole Peninsula, on one screen.",
+      ctaLabel: 'Explore The Insider Map',
       ctaHref: '/map/',
+      icon: 'peninsula-map',
     },
     rail: {
       eyebrow: "Editor's pick · Autumn '26",
