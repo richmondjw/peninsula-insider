@@ -8,10 +8,10 @@
 
 import { getCollection } from 'astro:content';
 import {
-  footerSectionLinks as sectionLinks,
   footerAboutLinks as aboutLinks,
   buildFooterPlaceLinks,
 } from '../lib/nav';
+import { v4FooterDepartments as sectionLinks } from '../lib/v4-nav';
 
 const year = new Date().getFullYear();
 const places = await getCollection('places');
