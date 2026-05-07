@@ -1278,7 +1278,22 @@ Reject non-essential
     });
   })();
 </script> <!-- Cross-device sync (Phase 3 WS3E). Bridges localStorage to Supabase
-       when the user is signed in. No-ops when auth isn't configured. --> <script type="module" src="/_astro/CloudSync.astro_astro_type_script_index_0_lang.D8HhWj-f.js"></script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
+       when the user is signed in. No-ops when auth isn't configured. --> <script type="module" src="/_astro/CloudSync.astro_astro_type_script_index_0_lang.D8HhWj-f.js"></script> <script>
+    (function () {
+      function killMobileHeaderAskPill() {
+        if (!window.matchMedia('(max-width: 1024px)').matches) return;
+        document.querySelectorAll('.v4-mobile-actions .v4-ask-pill, .v4-actions .v4-ask-pill').forEach(function (el) {
+          el.remove();
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', killMobileHeaderAskPill, { once: true });
+      } else {
+        killMobileHeaderAskPill();
+      }
+      document.addEventListener('astro:page-load', killMobileHeaderAskPill);
+    })();
+  </script> <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. --> <a href="/newsletter/" class="subscribe-pill" aria-label="Subscribe to The Insider's Dispatch"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"> <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path> <polyline points="22,6 12,13 2,6"></polyline> </svg> <span class="subscribe-pill__label">Subscribe</span> </a> <script>
