@@ -140,8 +140,8 @@ export const v4Pillars: V4Pillar[] = [
       eyebrow: "Editor's pick · Autumn '26",
       title: 'The Thermal Springs Weekend',
       verdict: "Hot springs without wasting the rest of the weekend. Two nights at a wine-country room, one long lunch, one steam.",
-      image: '/images/sourced/article-couples-weekend-01.webp',
-      imageAlt: 'A wellness weekend on the Peninsula',
+      image: '/images/sourced/spa-alba-thermal-springs-01.webp',
+      imageAlt: 'Thermal springs pools on the Mornington Peninsula',
       href: '/journal/the-thermal-springs-weekend/',
     },
     columns: [
