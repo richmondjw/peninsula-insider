@@ -200,6 +200,67 @@ body[data-v4="true"] .masthead {
 }
 
 /* =========================================================
+   V4 MOBILE MASTHEAD
+   ---------------------------------------------------------
+   V2's global.css hides .masthead__utility AND .masthead__brand
+   on mobile to make room for V2's third nav row. V4 doesn't use
+   that nav row, so we re-show the brand row in a compacted form
+   (logo left, burger right) and keep utility hidden.
+
+   Scoped to body[data-v4="true"] so V2 staging pages or the
+   /v3/ surface aren't affected.
+   ========================================================= */
+@media (max-width: 760px) {
+  body[data-v4="true"] .masthead__utility { display: none; }
+
+  /* Re-show the brand row (V2 hides it on mobile to make room for V2's nav row,
+     which V4 doesn't use). Make it a flex bar with the container as the flex
+     wrapper. */
+  body[data-v4="true"] .masthead__brand {
+    display: block !important;
+    padding: 0;
+  }
+  body[data-v4="true"] .masthead__brand .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    min-height: 56px;
+  }
+  body[data-v4="true"] .masthead__brand-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    min-width: 0;
+  }
+  body[data-v4="true"] .masthead__brand .masthead__logo {
+    font-size: 22px;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+  /* Hide the desktop tagline on mobile — too long for the bar. */
+  body[data-v4="true"] .masthead__brand .masthead__tagline { display: none; }
+
+  /* Burger sits at the right of the container. Visibility is already
+     handled by V2 global.css `.masthead__burger { display: flex !important }`
+     at this breakpoint — we only need it not to shrink. */
+  body[data-v4="true"] .v4-burger { flex-shrink: 0; }
+}
+
+/* Extra-small screens: tighten the bar height. */
+@media (max-width: 380px) {
+  body[data-v4="true"] .masthead__brand .container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-height: 52px;
+  }
+  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: 20px; }
+}
+
+/* =========================================================
    MEGA PANEL
    ========================================================= */
 .v4-mega {

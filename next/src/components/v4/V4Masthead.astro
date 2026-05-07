@@ -43,7 +43,11 @@ const {
     </div>
   </div>
 
-  <!-- Row 2 — Brand (V2 carry-over) -->
+  <!-- Row 2 — Brand (V2 carry-over).
+       On desktop, .masthead__brand is centred and the burger is hidden by V2
+       global.css. On mobile, V4's mobile CSS re-shows the brand row as a
+       flex bar with logo left, burger right (.container becomes the flex
+       parent for both children). -->
   <div class="masthead__brand">
     <div class="container">
       <div class="masthead__brand-inner">
@@ -52,18 +56,19 @@ const {
         </a>
         <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p>
       </div>
-    </div>
 
-    <!-- Mobile burger lives here in the brand row, on mobile only.
-         V4 chrome rebinds it to open V4MobileDrawer (see V4BaseLayout script). -->
-    <button
-      class="masthead__burger v4-burger"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="v4Drawer"
-    >
-      <span></span><span></span><span></span>
-    </button>
+      <!-- Mobile burger lives inside the container so it respects page padding.
+           V4 chrome rebinds it to open V4MobileDrawer (see BaseLayout script).
+           Hidden on desktop by V2's global.css `.masthead__burger { display: none }`. -->
+      <button
+        class="masthead__burger v4-burger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="v4Drawer"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 
   <!-- Row 3 — V4 nav row -->
