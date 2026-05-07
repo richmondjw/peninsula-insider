@@ -249,6 +249,23 @@ const isAskPage = rawPathname.startsWith('/ask');
        when the user is signed in. No-ops when auth isn't configured. -->
   <CloudSync />
 
+  <script is:inline>
+    (function () {
+      function killMobileHeaderAskPill() {
+        if (!window.matchMedia('(max-width: 1024px)').matches) return;
+        document.querySelectorAll('.v4-mobile-actions .v4-ask-pill, .v4-actions .v4-ask-pill').forEach(function (el) {
+          el.remove();
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', killMobileHeaderAskPill, { once: true });
+      } else {
+        killMobileHeaderAskPill();
+      }
+      document.addEventListener('astro:page-load', killMobileHeaderAskPill);
+    })();
+  </script>
+
   <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
        scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits

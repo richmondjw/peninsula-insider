@@ -10308,3 +10308,9 @@ body.menu-open .subscribe-pill {
   background: var(--text, #1a1a1a);
   border-color: var(--text, #1a1a1a);
 }
+
+@media(max-width: 1024px){
+  .v4-mobile-actions .v4-ask-pill{display:none!important}
+  .v4-actions .v4-ask-pill{display:none!important}
+}
+
