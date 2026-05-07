@@ -6796,8 +6796,8 @@ p.has-drop-cap::first-letter {
 .masthead__concierge-mobile {
   display: none;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.42rem 0.85rem 0.42rem 0.7rem;
+  gap: 0;
+  padding: 0.42rem 0.85rem;
   background: var(--bg);
   color: var(--accent);
   border: 1px solid var(--accent);
@@ -10299,4 +10299,11 @@ body.menu-open .subscribe-pill {
 .alert-form__submit:hover {
   background: var(--text, #1a1a1a);
   border-color: var(--text, #1a1a1a);
+}
+
+@media(max-width: 900px){
+  .v4-mobile-actions .v4-ask-pill{display:none!important}
+  .v4-actions{display:none!important}
+  .v4-actions .v4-ask-pill{display:none!important}
+  .v4-actions .v4-subscribe-cta{display:none!important}
 }

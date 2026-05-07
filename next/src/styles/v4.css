@@ -261,6 +261,9 @@ body[data-v4="true"] .masthead {
     gap: 8px;
     flex-shrink: 0;
   }
+  body[data-v4="true"] .v4-mobile-actions .v4-ask-pill {
+    display: none !important;
+  }
   /* Keep burger flush — it's now a flex child inside v4-mobile-actions. */
   body[data-v4="true"] .v4-burger { flex-shrink: 0; }
 }
