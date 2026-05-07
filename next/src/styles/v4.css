@@ -557,7 +557,22 @@ body[data-v4="true"] .masthead {
   text-decoration: none;
   color: var(--text);
 }
+.v4-drawer__brand--marked {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.v4-drawer__brand-mark {
+  display: block;
+  width: 36px;
+  height: 33px;
+  object-fit: contain;
+  opacity: 0.88;
+  flex-shrink: 0;
+}
 .v4-drawer__brand span { font-style: italic; color: var(--accent); }
+/* inner span wrapping the wordmark text */
+.v4-drawer__brand--marked > span { display: block; }
 
 .v4-drawer__pillars { list-style: none; margin: 0; padding: 0; }
 .v4-drawer__pillar { border-bottom: 1px solid var(--border); }
