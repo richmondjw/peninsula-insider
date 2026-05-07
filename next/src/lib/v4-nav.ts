@@ -339,7 +339,7 @@ export const v4Pillars: V4Pillar[] = [
     topBanner: {
       text: "How the Peninsula's geography actually works",
       ctaLabel: 'Open the map →',
-      ctaHref: '/explore/map/',
+      ctaHref: '/map/',
     },
     rail: {
       eyebrow: "Editor's pick · Autumn '26",
