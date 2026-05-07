@@ -1029,6 +1029,31 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
         .replace(/'/g, '&#039;');
     }
 
+    // Fire-and-forget: log the search query to Supabase for analytics.
+    function logSearch(query, resultCount) {
+      try {
+        var sb = window.__PI_SB;
+        if (!sb || !sb.url || !sb.key) return;
+        var payload = {
+          query: query,
+          result_count: resultCount,
+          surface: 'overlay',
+          page_path: window.location.pathname,
+        };
+        fetch(sb.url + '/rest/v1/site_search_queries', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': sb.key,
+            'Authorization': 'Bearer ' + sb.key,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+          keepalive: true,
+        }).catch(function () {});
+      } catch (_e) {}
+    }
+
     async function loadPagefind() {
       if (state.pagefindModule) return state.pagefindModule;
       // Pagefind is built into /pagefind/ on the production site by
@@ -1143,6 +1168,7 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
         const data = await Promise.all(result.results.map((r) => r.data()));
         if (myToken !== state.searchToken) return;
         showResults(els, data, q);
+        logSearch(q, result.results.length);
       } catch (err) {
         console.warn('[search] error', err);
         if (myToken === state.searchToken && els.cta) {
