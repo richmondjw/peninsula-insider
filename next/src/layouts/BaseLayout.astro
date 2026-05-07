@@ -223,6 +223,12 @@ const isAskPage = rawPathname.startsWith('/ask');
     window.PI_API_URL = API_URL;
   </script>
 
+  <!-- Supabase config for browser-side analytics (search query logging etc).
+       Anon key is safe to expose — RLS ensures anon can only INSERT, not read. -->
+  <script is:inline define:vars={{ SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', SB_ANON_KEY: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+    window.__PI_SB = { url: SB_URL, key: SB_ANON_KEY };
+  </script>
+
   <!-- PI concierge drawer, slides in from the right edge.
        Suppressed on /ask itself (which is the full-page version). -->
   {!isAskPage && <ConciergeDrawer />}

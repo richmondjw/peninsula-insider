@@ -156,6 +156,33 @@ const KIND_CHIPS = [
           .replace(/'/g, '&#039;');
       }
 
+      // Fire-and-forget: log the search query to Supabase for analytics.
+      // Uses keepalive so the beacon survives page navigations.
+      function logSearch(query, resultCount, kindFilter) {
+        try {
+          const sb = window.__PI_SB;
+          if (!sb || !sb.url || !sb.key) return;
+          const payload = {
+            query: query,
+            result_count: resultCount,
+            kind_filter: kindFilter === 'all' ? null : (kindFilter || null),
+            surface: 'search_page',
+            page_path: window.location.pathname,
+          };
+          fetch(sb.url + '/rest/v1/site_search_queries', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': sb.key,
+              'Authorization': 'Bearer ' + sb.key,
+              'Prefer': 'return=minimal',
+            },
+            body: JSON.stringify(payload),
+            keepalive: true,
+          }).catch(function () {});
+        } catch (_e) {}
+      }
+
       async function loadPagefind() {
         if (pagefindModule) return pagefindModule;
         pagefindModule = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
@@ -316,6 +343,7 @@ const KIND_CHIPS = [
           } else {
             await showPage(1);
           }
+          logSearch(q, currentResults.length, currentKind);
         } catch (err) {
           console.warn('[search] error', err);
           if (list) list.innerHTML = '<div class="search-page-v2__loading"><p>Search isn\'t available right now. Try again in a moment, or ask The Insider.</p></div>';
