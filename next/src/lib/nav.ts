@@ -184,7 +184,7 @@ export const footerSectionLinks: NavItem[] = [
 export const footerAboutLinks: NavItem[] = [
   { key: 'about',       label: 'About',                href: '/about/' },
   { key: 'methodology', label: 'Methodology',          href: '/methodology/' },
-  { key: 'map',         label: 'Map of the Peninsula', href: '/explore/map/' },
+  { key: 'map',         label: 'Map of the Peninsula', href: '/map/' },
   { key: 'partners',    label: 'Partner with us',      href: '/partners/' },
   { key: 'contact',     label: 'Contact',              href: '/contact/' },
   { key: 'newsletter',  label: 'Newsletter',           href: '/newsletter/' },

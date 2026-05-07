@@ -465,7 +465,7 @@ export const v4FooterNiche: V4NavItem[] = [
 export const v4FooterAbout: V4NavItem[] = [
   { key: 'about',       label: 'About',                  href: '/about/' },
   { key: 'methodology', label: 'Methodology',            href: '/methodology/' },
-  { key: 'map',         label: 'Map of the Peninsula',   href: '/explore/map/' },
+  { key: 'map',         label: 'Map of the Peninsula',   href: '/map/' },
   { key: 'partners',    label: 'Partner with us',        href: '/partners/' },
   { key: 'pass',        label: 'The Pass',               href: '/preview-insider-plans/' },
   { key: 'newsletter',  label: 'The Dispatch',           href: '/newsletter/' },

@@ -296,7 +296,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             <article class="place">
               <h3 class="place__name">{p.data.name}</h3>
               <p class="place__sig">{p.data.signature ?? p.data.description}</p>
-              <a href={`${base}places/${p.slug}/`} class="place__link">Read →</a>
+              <a href={`${base}places/${p.id ?? p.data.slug}/`} class="place__link">Read →</a>
             </article>
           ))}
         </div>
