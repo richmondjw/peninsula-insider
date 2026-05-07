@@ -187,6 +187,48 @@ const {
   @media (max-width: 880px) {
     .v2-newsletter__frame { grid-template-columns: 1fr; }
   }
+  @media (max-width: 640px) {
+    .v2-newsletter {
+      padding: 3.25rem 0;
+    }
+    .v2-newsletter__container {
+      padding: 0 1rem;
+    }
+    .v2-newsletter__copy,
+    .v2-newsletter__body {
+      max-width: none;
+    }
+    .v2-newsletter__title {
+      font-size: clamp(2rem, 10vw, 3rem);
+      line-height: 0.98;
+    }
+    .v2-newsletter__body {
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+    .v2-newsletter__form {
+      max-width: none;
+      width: 100%;
+      flex-direction: column;
+      border-radius: 1.25rem;
+    }
+    .v2-newsletter__input {
+      width: 100%;
+      padding: 1rem 1.1rem;
+    }
+    .v2-newsletter__submit {
+      width: 100%;
+      padding: 1rem 1.1rem;
+      text-align: center;
+    }
+    .v2-newsletter__meta {
+      gap: 0.75rem 1rem;
+    }
+    .v2-newsletter__preview {
+      padding: 1.35rem 1.15rem 1.2rem;
+      margin-top: 1.35rem;
+    }
+  }
   .v2-newsletter__copy { max-width: 56ch; }
   .v2-newsletter__eyebrow {
     font-size: 0.7rem;
