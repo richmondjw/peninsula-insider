@@ -21,7 +21,12 @@
   "recurrence": "annual",
   "recurrenceNote": "Annual Mother's Day event",
   "suitableFor": "Families; locals; active couples; charity participants",
-  "audienceTags": ["families", "locals", "couples", "all-ages"],
+  "audienceTags": [
+    "families",
+    "locals",
+    "couples",
+    "all-ages"
+  ],
   "familyFriendly": true,
   "petFriendly": false,
   "weather": "mixed",
@@ -36,7 +41,11 @@
   "kidsGradeNote": "A good family morning if the kids can handle a walk start. Better for school-age children than toddlers.",
   "worthTheDrive": true,
   "firstTimer": false,
-  "lens": ["weekend-pick", "worth-the-drive", "ticketed"],
+  "lens": [
+    "weekend-pick",
+    "worth-the-drive",
+    "ticketed"
+  ],
   "editorVerdict": "The cleanest active Mother's Day morning on the Peninsula. Do this if your family likes a day with an actual shape before lunch.",
   "editorNote": "Mother's Day often collapses into a single long meal. The Moonah Links Classic gives the day a better rhythm: move first, eat second, and let the rest of the afternoon soften naturally. The charity angle matters, but the real planning value is structural — it stops the day from becoming all booking and no momentum. If you are already heading south, this is the strongest way to begin Sunday.",
   "publishedAt": "2026-05-07",
@@ -46,5 +55,6 @@
     "alt": "Southern Mornington Peninsula landscape near Fingal and Cape Schanck",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
-  }
+  },
+  "nextOccurrence": "2026-05-10"
 }
