@@ -205,9 +205,11 @@ body[data-v3="true"] {
   padding: 0;
   gap: clamp(18px, 3vw, 36px);
 }
-.v3-nav__item {
-  position: relative;
-}
+/* Intentionally NOT position:relative — the mega panel anchors to
+   .v3-masthead__nav-row (full width) instead of the tiny nav item.
+   Keeping items in static flow so .v3-mega { left:0; right:0; } spans
+   the whole nav row. */
+.v3-nav__item { position: static; }
 .v3-nav__link {
   font-family: var(--v3-sans);
   font-size: 14px;
@@ -431,19 +433,26 @@ body[data-v3="true"] {
 }
 .v3-cover__media img,
 .v3-cover__media video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
+.v3-cover__media img { z-index: 1; }    /* poster underneath */
+.v3-cover__media video { z-index: 2; background: #000; }  /* video on top once it loads */
 .v3-cover__media::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 3;
+  pointer-events: none;
   background: linear-gradient(180deg,
-    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.30) 0%,
     rgba(0,0,0,0.05) 30%,
-    rgba(0,0,0,0.25) 65%,
-    rgba(0,0,0,0.7) 100%);
+    rgba(0,0,0,0.20) 60%,
+    rgba(0,0,0,0.78) 100%);
 }
 .v3-cover__inner {
   position: relative;
@@ -456,8 +465,9 @@ body[data-v3="true"] {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.92) !important;
   margin-bottom: 18px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
 }
 .v3-cover__eyebrow strong {
   font-weight: 500;
@@ -475,15 +485,19 @@ body[data-v3="true"] {
   letter-spacing: -0.01em;
   max-width: 18ch;
   margin: 0 0 18px 0;
-  text-shadow: 0 2px 18px rgba(0,0,0,0.35);
+  /* Force white over the image — global.css sets h1 { color: var(--text) }
+     which is dark and would otherwise win over inherited color. */
+  color: #fff !important;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.45);
 }
-.v3-cover__title em { font-style: italic; color: #fff; }
+.v3-cover__title em { font-style: italic; color: #fff !important; }
 .v3-cover__meta {
   font-family: var(--v3-sans);
   font-size: 13px;
   letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.92) !important;
   margin-bottom: 28px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
 .v3-cover__cta-row {
   display: inline-flex;
@@ -1143,8 +1157,9 @@ body[data-v3="true"] {
   line-height: 1.1;
   margin: 0 auto 14px;
   max-width: 22ch;
+  color: #fff !important;  /* override global h2 { color: var(--dark) } */
 }
-.v3-stripe__title em { font-style: italic; }
+.v3-stripe__title em { font-style: italic; color: #fff !important; }
 .v3-stripe__body {
   font-family: var(--v3-serif);
   font-size: 18px;

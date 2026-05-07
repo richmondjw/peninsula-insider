@@ -1,0 +1,113 @@
+---
+/**
+ * V4 Masthead.
+ *
+ * Reuses V2's first two masthead rows (utility + brand) for visual continuity.
+ * Replaces only the third row with the 7-pillar mega-menu nav + utility actions.
+ *
+ * Mobile: nav row hides; the existing V2 burger fires the V4 mobile drawer
+ * (V4MobileDrawer mounted in V4BaseLayout).
+ */
+import { v4Pillars, v4Utility } from '../../lib/v4-nav';
+import V4PillarLink from './V4PillarLink.astro';
+import V4MegaPanel from './V4MegaPanel.astro';
+
+export interface Props {
+  section?: string;
+  issueMark?: string;
+  issueLabel?: string;
+}
+
+const {
+  section = 'home',
+  issueMark = 'Vol 04',
+  issueLabel = "The May Issue · May 2026",
+} = Astro.props;
+---
+
+<header class="masthead" data-v4-masthead>
+
+  <!-- Row 1 — Utility (V2 carry-over) -->
+  <div class="masthead__utility">
+    <div class="container">
+      <div class="masthead__utility-inner">
+        <span class="masthead__edition">
+          <span class="masthead__edition-mark">{issueMark}</span>
+          <span class="masthead__edition-label">{issueLabel}</span>
+        </span>
+        <div class="masthead__utility-links v2-util__links">
+          <a href={v4Utility.pass.href}>The Pass</a>
+          <a href={v4Utility.account.href}>{v4Utility.account.label}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2 — Brand (V2 carry-over) -->
+  <div class="masthead__brand">
+    <div class="container">
+      <div class="masthead__brand-inner">
+        <a href="/v4/" class="masthead__logo" aria-label="Peninsula Insider, home">
+          Peninsula <span>Insider</span>
+        </a>
+        <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p>
+      </div>
+    </div>
+
+    <!-- Mobile burger lives here in the brand row, on mobile only.
+         V4 chrome rebinds it to open V4MobileDrawer (see V4BaseLayout script). -->
+    <button
+      class="masthead__burger v4-burger"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="v4Drawer"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Row 3 — V4 nav row -->
+  <div class="v4-masthead-nav">
+    <div class="container">
+      <div class="v4-masthead-nav__inner">
+
+        <nav aria-label="Primary">
+          <ul class="v4-pillars">
+            {v4Pillars.map((pillar) => {
+              const triggerId = `v4-pillar-${pillar.key}`;
+              const isCurrent = section === pillar.key;
+              return (
+                <li
+                  class={`v4-pillars__item${isCurrent ? ' is-current' : ''}`}
+                  data-v4-pillar
+                  data-pillar-key={pillar.key}
+                >
+                  <V4PillarLink pillar={pillar} current={isCurrent} triggerId={triggerId} />
+                  <V4MegaPanel pillar={pillar} triggerId={triggerId} />
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <div class="v4-actions">
+          <a href={v4Utility.search.href} class="v4-iconbtn" aria-label="Search Peninsula Insider" data-open-search>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.5" y2="16.5" />
+            </svg>
+          </a>
+          <a href={v4Utility.ask.href} class="v4-ask-pill" aria-label="Ask PI">
+            <span class="v4-ask-pill__dot">PI</span>
+            Ask PI
+          </a>
+          <a href={v4Utility.subscribe.href} class="v4-subscribe-cta">
+            {v4Utility.subscribe.label}
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</header>

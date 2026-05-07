@@ -1,0 +1,26 @@
+---
+/**
+ * V4 MegaRail — image rail on the left of every mega panel.
+ *
+ * The "editor's pin" — the *one thing* PI is sending you to right now in
+ * this pillar. Anatomy: image, eyebrow, name, italic verdict line, CTA.
+ *
+ * Verdict line carries BRAND-PI.md voice rules to the letter.
+ */
+import type { V4MegaRail } from '../../lib/v4-nav';
+
+export interface Props { rail: V4MegaRail }
+const { rail } = Astro.props;
+---
+
+<a class="v4-mega__rail" href={rail.href}>
+  <div class="v4-mega__rail-image">
+    <img src={rail.image} alt={rail.imageAlt} loading="lazy" />
+  </div>
+  <div class="v4-mega__rail-body">
+    <p class="v4-mega__rail-eyebrow">{rail.eyebrow}</p>
+    <h3 class="v4-mega__rail-title">{rail.title}</h3>
+    <p class="v4-mega__rail-verdict">{rail.verdict}</p>
+    <span class="v4-mega__rail-cta">{rail.cta ?? 'Open the verdict →'}</span>
+  </div>
+</a>

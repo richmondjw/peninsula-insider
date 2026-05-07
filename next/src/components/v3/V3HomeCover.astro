@@ -86,25 +86,28 @@ const {
       var v = document.querySelector('[data-v3-cover-video]');
       if (!v || v._v3VideoBound) return;
       v._v3VideoBound = true;
-      // Honour reduced motion: keep poster, drop the video element entirely.
+      // Honour reduced motion: keep poster, hide the video element.
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         v.pause(); v.removeAttribute('autoplay'); v.style.display = 'none';
         return;
       }
-      // Throttle on slow connections — poster only.
+      // Honour explicit Save-Data only (don't second-guess connection type —
+      // Chrome reports lots of wifi as '3g' which was killing the video).
       var conn = navigator.connection;
-      if (conn && (conn.saveData || (conn.effectiveType && /(^|-)2g$|3g/.test(conn.effectiveType)))) {
+      if (conn && conn.saveData === true) {
         v.pause(); v.removeAttribute('autoplay'); v.style.display = 'none';
         return;
       }
-      // Pause when scrolled out of view.
+      // Try to play (some browsers need a kick even with autoplay).
+      v.play().catch(function () { /* autoplay blocked — poster carries it */ });
+      // Pause when scrolled out of view to save battery.
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
           entries.forEach(function (e) {
             if (e.isIntersecting) v.play().catch(function(){});
             else v.pause();
           });
-        }, { threshold: 0.25 });
+        }, { threshold: 0.1 });
         io.observe(v);
       }
     }

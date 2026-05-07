@@ -1,0 +1,476 @@
+---
+import { getCollection } from 'astro:content';
+import V4BaseLayout from '../../../layouts/v4/V4BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import GuideHero from '../../../components/GuideHero.astro';
+import EventChipBar from '../../../components/EventChipBar.astro';
+import CompareBlock from '../../../components/CompareBlock.astro';
+import SectionDivider from '../../../components/SectionDivider.astro';
+import EventCard from '../../../components/EventCard.astro';
+import WeekendPickerBlock from '../../../components/WeekendPickerBlock.astro';
+import EventStrip from '../../../components/EventStrip.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import {
+  dispatchWeekend,
+  eventCategoryLabel,
+  isUpcoming,
+  routeSlug,
+} from '../../../lib/editorial';
+
+// ── Data ──────────────────────────────────────────────────────────────────────
+const now = new Date();
+const events = (await getCollection('events'))
+  .filter((event) => {
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+    const end = event.data.endDate ?? event.data.startDate;
+    return isUpcoming(end, now);
+  })
+  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+
+const dispatches = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format === 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const currentDispatch = dispatches[0];
+
+const dispatchWindow = currentDispatch
+  ? dispatchWeekend(currentDispatch.data.publishedAt)
+  : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
+const upcomingWeekendStart = dispatchWindow.start;
+const upcomingWeekendEnd = dispatchWindow.end;
+
+const nextWeekendEvents = events.filter((event) => {
+  const start = event.data.startDate;
+  if (start > upcomingWeekendEnd) return false;
+  const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
+  if (isRecurring) return true;
+  const end = event.data.endDate ?? event.data.startDate;
+  return end >= upcomingWeekendStart;
+});
+
+const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
+const skipEvents = events.filter((event) => event.data.skipThis);
+
+const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
+  { key: 'racing-sport',     title: 'Racing & Sport',           blurb: "The Peninsula's racing days and endurance weekends, the single category Melbourne visitors under-plan." },
+  { key: 'writers-ideas',    title: 'Writers & Ideas',          blurb: 'Festivals, panels and literary weekends with a programme worth planning a stay around.' },
+  { key: 'market',           title: 'Markets, Ranked',          blurb: "The Peninsula runs eight recurring markets. Here they are in the order we'd actually attend them." },
+  { key: 'cellar-door',      title: 'Cellar Door Events',       blurb: "Release weekends, winemaker dinners and tastings, the region's strongest category, rarely treated as events." },
+  { key: 'live-music',       title: 'Live Music',               blurb: 'Sunday sessions, ridge vineyard sets, and the recurring gigs no other Peninsula site tracks.' },
+  { key: 'wellness',         title: 'Wellness & Retreats',      blurb: 'Thermal circuits, sound baths, and the ongoing programming at Alba and the Hot Springs.' },
+  { key: 'family-programs',  title: 'Kids & Family',            blurb: "School-holiday programmes graded A/B/C. We've been to most of them. We'll tell you which ones." },
+  { key: 'nature',           title: 'Nature & Council Gems',    blurb: 'Free council-run walks, ranger programmes, and the best-hidden family assets on the Peninsula.' },
+  { key: 'exhibition',       title: 'Exhibitions & Galleries',  blurb: "The region's serious public art, a strong rainy-day category nobody leans into." },
+  { key: 'civic',            title: 'Civic & Annual',           blurb: 'ANZAC dawn services, council events, and the moments the Peninsula steps out of its tourist costume.' },
+  { key: 'festival',         title: 'Festivals',                blurb: 'Multi-day programming that defines the Peninsula calendar.' },
+];
+
+const groups = categoryOrder
+  .map((group) => ({ ...group, items: events.filter((e) => e.data.category === group.key) }))
+  .filter((group) => group.items.length > 0);
+
+const lensOrder: Array<{ key: string; label: string; note: string }> = [
+  { key: 'weekend-pick',    label: 'Weekend Pick',     note: "What we'd actually book" },
+  { key: 'family-saturday', label: 'Family Saturday',  note: 'A-grade kids days' },
+  { key: 'rainy-day',       label: 'Rainy Day',        note: 'Weather-proof options' },
+  { key: 'worth-the-drive', label: 'Worth The Drive',  note: 'From Melbourne, unprompted' },
+  { key: 'date-idea',       label: 'Date Idea',        note: 'Adult-first weekends' },
+  { key: 'school-holidays', label: 'School Holidays',  note: 'Kid-graded, A/B/C' },
+  { key: 'free',            label: 'Free',             note: 'No ticket required' },
+  { key: 'locals-know',     label: 'Locals Know',      note: 'Under-published picks' },
+];
+
+const lensCounts = Object.fromEntries(
+  lensOrder.map((lens) => [lens.key, nextWeekendEvents.filter((e) => e.data.lens.includes(lens.key as any)).length])
+) as Record<string, number>;
+
+const totalEvents = events.length;
+const totalGroups = groups.length;
+const recurringCount = events.filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)).length;
+const oneOffCount = totalEvents - recurringCount;
+
+// ── Standouts of the season ──────────────────────────────────────────────
+// Top events ranked purely by visitor appeal score, irrespective of when
+// they happen. Doesn't depend on lens tags, so always populated.
+const standouts = [...events]
+  .filter((e) => (e.data.visitorAppealScore ?? 0) >= 4)
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 6);
+
+// ── On this week (Mon-Fri before the weekend) ───────────────────────────
+// Events that fall in the weekday window leading up to the upcoming
+// weekend. Recurring (weekly, monthly, ongoing) events count if they
+// have a startDate weekday between Monday and Friday.
+const day = 24 * 60 * 60 * 1000;
+const weekdayWindowStart = new Date(upcomingWeekendStart.getTime() - 5 * day);
+const weekdayWindowEnd = new Date(upcomingWeekendStart.getTime() - 1);
+const thisWeekEvents = events.filter((event) => {
+  const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
+  const start = event.data.startDate;
+  const end = event.data.endDate ?? start;
+  if (isRecurring) {
+    const wd = start.getDay();
+    return wd >= 1 && wd <= 5;
+  }
+  return end >= weekdayWindowStart && start <= weekdayWindowEnd;
+})
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 6);
+
+// ── Recurring on the calendar ─────────────────────────────────────────────
+// Weekly + monthly events with their cadence shown explicitly. These are
+// the predictable Peninsula institutions: Red Hill Market, Mornington
+// Farmers Market, Sunday Sessions at the Hot Springs, etc.
+const recurringEvents = events
+  .filter((e) => ['weekly', 'monthly'].includes(e.data.recurrence))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 9);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: "What's On" },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'When does the Peninsula This Weekend dispatch publish?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.' } },
+    { '@type': 'Question', name: 'Are the kids-grade A/B/C ratings genuine?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We attend or have attended every family programme we grade. A means we\'d return without hesitation. B means it works but has a flaw. C means we wouldn\'t go back. Grades are visible on every event with the family-saturday or school-holidays lens.' } },
+    { '@type': 'Question', name: 'Why do some events carry a planning note?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Because the rest of the Peninsula press won\'t name them. We pick one or two events a month that are over-marketed, badly run, or not what their copy claims. One short paragraph explaining why. The word "Insider" doing actual work.' } },
+    { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don\'t cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.' } },
+  ],
+};
+---
+
+<V4BaseLayout
+  title="What's On Mornington Peninsula · Peninsula Insider"
+  description="The Peninsula's events page with an editorial point of view. Weekend picks, kids-graded school holidays, worth-the-drive badges, and useful planning notes."
+  section="whats-on"
+  modifiedTime="2026-04-30"
+  ogImage="/images/sourced/category-market-02.webp"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1. CINEMATIC HERO
+       ═══════════════════════════════════════════════════════════════ -->
+  <GuideHero
+    eyebrow={`What's On · ${totalEvents} curated events · Reviewed weekly`}
+    title="Peninsula events, with an <em>opinion</em> for a change"
+    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody adds much context. This page does: weekend picks, kids-grade A/B/C on every family event, and useful planning notes when the logistics matter."
+    meta={[
+      { label: `${totalEvents} curated events` },
+      { label: `${totalGroups} categories` },
+      { label: `${recurringCount} recurring programmes` },
+      { label: 'Reviewed weekly' },
+    ]}
+    heroImage="/images/sourced/category-market-02.webp"
+    imageAlt="Saturday morning at a Peninsula farmers market, the recurring event spine of the calendar"
+    imageCredit="Peninsula Insider"
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1.5 CHIP BAR  -  editorial entry points to mood collections
+       ═══════════════════════════════════════════════════════════════ -->
+  <section style="padding: clamp(1.5rem, 3vw, 2.5rem) 0 0;">
+    <div class="container">
+      <p class="label label--accent" style="margin-bottom: 0.6rem;">Find your weekend shape</p>
+      <EventChipBar active="hub" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. THE EDITORIAL FRAME, what we'd actually book and what to know
+       ═══════════════════════════════════════════════════════════════ -->
+  <CompareBlock
+    eyebrow="The editorial promise"
+    heading="What we'd actually book, and what we'd flag early"
+    dek="Every other Peninsula calendar lists everything. Ours adds a point of view and practical context. Two lanes below shape every recommendation on this page."
+    left={{
+      label: "Worth booking",
+      title: "Three lenses, one editorial standard.",
+      rows: [
+        { label: 'Weekend Pick',     value: "What the editor would book this weekend if she could only book one. Under three picks per week, usually one." },
+        { label: 'Worth The Drive',  value: 'The events worth the 90-minute return from Melbourne without any other reason. Genuine destination programming.' },
+        { label: 'Family Saturday',  value: 'A-graded kids days, no pre-show queues, no parking gymnastics, no padded lunch break. We\'ve been to all of them.' },
+        { label: 'Locals Know',      value: 'Under-published picks. The recurring sessions, market stalls, and producer days the visitor feeds miss every time.' },
+        { label: 'Free',             value: 'Council-run walks, ranger programmes, and free public events that are genuinely worth the time, not filler.' },
+      ],
+    }}
+    right={{
+      label: "Worth knowing",
+      title: "Short planning notes for the events that need context.",
+      rows: [
+        { label: 'What we flag',     value: 'Events that suit a narrow audience, get crowded quickly, or work best when you know the trade-offs before booking.' },
+        { label: 'How we decide',    value: 'A named editor attends or attended in person, or has direct reporting from a trusted Peninsula source. We do not add planning notes on hearsay.' },
+        { label: 'Why we publish',   value: 'Because readers need context, not just listings. Timing, access, and fit are often the difference between a good Peninsula day and a messy one.' },
+        { label: 'Frequency',        value: 'Only when the context materially changes how we would plan the day.' },
+        { label: 'Recourse',         value: 'If you run an event and think the context has changed, the contact form is open. We revise when the facts move.' },
+      ],
+    }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. WEEKEND PICKER DISPATCH
+       ═══════════════════════════════════════════════════════════════ -->
+  {currentDispatch && (
+    <>
+      <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
+      {/* Dispatch surface always carries event richness, even when the editor
+          hasn't curated specific picks into the article yet. Top 3 by visitor
+          appeal score, filtered to events in the upcoming weekend window. */}
+      {nextWeekendEvents.length > 0 && (
+        <EventStrip
+          events={[...nextWeekendEvents].sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)).slice(0, 3)}
+          eyebrow="Also worth knowing"
+          heading={`Three events on the ground this weekend, ${dispatchWindow.label}`}
+          intro="Pulled live from the events registry. Editor's anchor picks below; these are the data-ranked supporting cast."
+          moreHref="/whats-on/by-mood/this-weekend/"
+          moreLabel="See the full weekend"
+          variant="alt"
+        />
+      )}
+    </>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. THIS WEEKEND'S ANCHORS
+       ═══════════════════════════════════════════════════════════════ -->
+  {editorsPicks.length > 0 && (
+    <section class="venues venues--plain" id="lens-weekend-pick">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">This weekend's anchors</p>
+            <h2 class="venues__title">If you only do two things this weekend</h2>
+            <p class="venues__sub venues__sub--standfirst">The clearest event anchors shaping the Peninsula from {dispatchWindow.label}, the picks the editor would put her own weekend around.</p>
+          </div>
+          <span class="venues__count">{editorsPicks.length} picks</span>
+        </div>
+        <div class="event-grid">
+          {editorsPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4.5 STANDOUTS OF THE SEASON, top by visitor appeal
+       Ranked purely by visitor appeal score, doesn't depend on lens
+       tags so always populated. The "best things on right now" view.
+       ═══════════════════════════════════════════════════════════════ -->
+  {standouts.length > 0 && (
+    <section class="venues" id="standouts">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Standouts on the calendar</p>
+            <h2 class="venues__title">The six events worth shaping a weekend around</h2>
+            <p class="venues__sub venues__sub--standfirst">Ranked by what they are actually like to attend. Coastrek, the Sorrento Writers Festival, the Red Hill Show. Across the season, not just this weekend.</p>
+          </div>
+          <span class="venues__count">{standouts.length} standouts</span>
+        </div>
+        <div class="event-grid">
+          {standouts.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4.6 ON THIS WEEK, midweek events
+       For the Wednesday traveller booking Friday, or the local
+       wondering what's happening before the weekend hits.
+       ═══════════════════════════════════════════════════════════════ -->
+  {thisWeekEvents.length > 0 && (
+    <section class="venues venues--plain" id="this-week">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">On this week</p>
+            <h2 class="venues__title">Mid-week events worth a Tuesday or a Wednesday</h2>
+            <p class="venues__sub venues__sub--standfirst">The Peninsula doesn't shut down between weekends. Markets, exhibitions, weekday programmes, and the recurring sessions that anchor the locals' calendar.</p>
+          </div>
+          <span class="venues__count">{thisWeekEvents.length} this week</span>
+        </div>
+        <div class="event-grid">
+          {thisWeekEvents.map((event) => <EventCard event={event} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4.7 RECURRING ON THE CALENDAR, the predictable spine
+       Weekly and monthly events with their cadence shown. These are
+       the Peninsula institutions, predictable and always available.
+       ═══════════════════════════════════════════════════════════════ -->
+  {recurringEvents.length > 0 && (
+    <section class="venues venues--alt" id="recurring">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Recurring on the calendar</p>
+            <h2 class="venues__title">The Peninsula's predictable spine</h2>
+            <p class="venues__sub venues__sub--standfirst">Markets, sessions, and programmes that run on a known cadence. Plan ahead, no surprises, the regional rhythm a local takes for granted.</p>
+          </div>
+          <span class="venues__count">{recurringEvents.length} recurring</span>
+        </div>
+        <div class="event-grid">
+          {recurringEvents.map((event) => <EventCard event={event} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       5. BROWSE BY MOOD, hub-formats lane
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hub-formats" aria-label="Browse events by mood">
+    <div class="container">
+      <div class="hub-formats__intro">
+        <p class="label label--accent">Or browse by mood</p>
+        <h2 class="hub-formats__title">Pick the feeling first, let the events follow</h2>
+        <p class="hub-formats__dek">Eight reader-intent lenses cut across the calendar. Each opens the events on this weekend that match the mood.</p>
+      </div>
+      <ul class="hub-formats__grid">
+        {lensOrder.map((lens) => (
+          <li class={`hub-formats__cell${lensCounts[lens.key] === 0 ? ' is-empty' : ''}`}>
+            <a href={`#lens-${lens.key}`} class="hub-formats__link">
+              <span class="hub-formats__label">{lens.label} · {lensCounts[lens.key]}</span>
+              <span class="hub-formats__sub">{lens.note}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. PER-LENS GRIDS
+       ═══════════════════════════════════════════════════════════════ -->
+  {lensOrder.filter((lens) => lens.key !== 'weekend-pick' && lensCounts[lens.key] > 0).map((lens) => {
+    const lensEvents = nextWeekendEvents.filter((event) => event.data.lens.includes(lens.key as any));
+    return (
+      <section class="venues venues--plain" id={`lens-${lens.key}`}>
+        <div class="container">
+          <div class="venues__header">
+            <div>
+              <p class="label label--accent">{lens.label}</p>
+              <h2 class="venues__title">{lens.note}</h2>
+              <p class="venues__sub">{lensEvents.length} event{lensEvents.length === 1 ? '' : 's'} matching this mood for {dispatchWindow.label}.</p>
+            </div>
+            <span class="venues__count">{lensEvents.length}</span>
+          </div>
+          <div class="event-grid">
+            {lensEvents.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       7. WORTH KNOWING
+       ═══════════════════════════════════════════════════════════════ -->
+  {skipEvents.length > 0 && (
+    <section class="skip-block" id="lens-skip">
+      <div class="container">
+        <div class="skip-block__inner">
+          <div>
+            <p class="label label--accent">Worth knowing</p>
+            <h2 class="skip-block__title">Extra context for events that need it</h2>
+            <p class="skip-block__body">Short notes on fit, timing, and trade-offs so readers can plan with their eyes open.</p>
+          </div>
+          <div class="skip-block__list">
+            {skipEvents.map((event) => (
+              <article class="skip-entry">
+                <h3 class="skip-entry__title">
+                  <a href={`/whats-on/${routeSlug(event)}`}>{event.data.title}</a>
+                </h3>
+                <p class="skip-entry__reason">{event.data.skipReason ?? event.data.editorVerdict ?? event.data.summary}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       8. CATEGORY GROUPS
+       ═══════════════════════════════════════════════════════════════ -->
+  {groups.map((group) => (
+    <section class="venues venues--alt" id={`cat-${group.key}`}>
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">{eventCategoryLabel[group.key] ?? group.title}</p>
+            <h2 class="venues__title">{group.title}</h2>
+            <p class="venues__sub">{group.blurb}</p>
+          </div>
+          <span class="venues__count">{group.items.length} events</span>
+        </div>
+        <div class="event-grid">
+          {group.items.map((event) => <EventCard event={event} />)}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       9. EDITORIAL STATS
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="events-stats">
+    <div class="container">
+      <dl class="events-stats__list">
+        <div><dt>Curated events</dt><dd>{totalEvents}</dd></div>
+        <div><dt>Categories</dt><dd>{totalGroups}</dd></div>
+        <div><dt>Recurring programmes</dt><dd>{recurringCount}</dd></div>
+        <div><dt>One-off events</dt><dd>{oneOffCount}</dd></div>
+      </dl>
+      <p class="events-stats__note">
+        Reviewed weekly by a named editor. We publish what we'd actually attend, with context where the timing, fit, or logistics matter. If you think we've missed something, <a href="/contact/">tell us</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       10. FAQ
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hub-faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="hub-faq__intro">
+        <p class="label label--accent">Frequently asked</p>
+        <h2 class="hub-faq__title">Four answers about how this calendar works</h2>
+      </div>
+      <div class="hub-faq__list">
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">When does the Peninsula This Weekend dispatch publish?</summary>
+          <div class="hub-faq__a"><p>Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Are the kids-grade A/B/C ratings genuine?</summary>
+          <div class="hub-faq__a"><p>Yes. We attend or have attended every family programme we grade. A means we'd return without hesitation. B means it works but has a flaw. C means we wouldn't go back. Grades are visible on every event with the family-saturday or school-holidays lens.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Why do some events carry a planning note?</summary>
+          <div class="hub-faq__a"><p>Because the useful part of an events guide is context. When an event is likely to be crowded, logistically awkward, or a better fit for a different kind of visitor, we say so briefly and plainly so readers can plan around it.</p></div>
+        </details>
+        <details class="hub-faq__item">
+          <summary class="hub-faq__q">Do you cover events outside the Peninsula?</summary>
+          <div class="hub-faq__a"><p>No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don't cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</V4BaseLayout>

@@ -1,0 +1,19 @@
+---
+/**
+ * V4 PillarTopBanner — temporal banner inside a mega panel.
+ *
+ * Used by What's On to surface the current date range. Sage indicator dot
+ * + Cormorant text + ochre CTA. Sits between intro line and grid.
+ */
+import type { V4MegaTopBanner } from '../../lib/v4-nav';
+
+export interface Props { banner: V4MegaTopBanner }
+const { banner } = Astro.props;
+---
+
+<div class="v4-mega__top-banner" role="status">
+  <span class="v4-mega__top-banner-text">{banner.text}</span>
+  {banner.ctaLabel && banner.ctaHref && (
+    <a class="v4-mega__top-banner-cta" href={banner.ctaHref}>{banner.ctaLabel}</a>
+  )}
+</div>
