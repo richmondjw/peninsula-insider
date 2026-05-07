@@ -195,6 +195,11 @@ By signing in you agree to our <a href="/terms/">terms</a> and <a href="/privacy
        window.PI_API_URL at parse time, so this must come first. --> <script>(function(){const API_URL = "https://peninsula-insider-platform-api.vercel.app";
 
     window.PI_API_URL = API_URL;
+  })();</script> <!-- Supabase config for browser-side analytics (search query logging etc).
+       Anon key is safe to expose — RLS ensures anon can only INSERT, not read. --> <script>(function(){const SB_URL = "https://tjjhpvslpysfklwpqmgz.supabase.co";
+const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
+
+    window.__PI_SB = { url: SB_URL, key: SB_ANON_KEY };
   })();</script> <!-- PI concierge drawer, slides in from the right edge.
        Suppressed on /ask itself (which is the full-page version). --> <aside class="pi-drawer" id="pi-drawer" data-state="closed" aria-label="Ask The Insider — Peninsula Insider concierge"> <!-- Backdrop (mobile only) --> <div class="pi-drawer__backdrop" id="pi-drawer-backdrop" aria-hidden="true"></div> <!-- Floating "Ask The Insider" button — always visible on mobile, only when
        minimised on desktop. Bottom-right corner. --> <button class="pi-drawer__bubble" id="pi-drawer-tab" type="button" aria-label="Ask PI, your local Peninsula concierge"> <span class="pi-drawer__bubble-avatar" aria-hidden="true"> <span class="pi-drawer__bubble-fallback">PI</span> <img src="/images/pi-concierge.svg" alt="" width="40" height="40" onerror="this.remove()"> </span> <span class="pi-drawer__bubble-label">Ask <em>The Insider</em></span> <span class="pi-drawer__bubble-pulse" aria-hidden="true"></span> </button> <!-- Main panel --> <div class="pi-drawer__panel" id="pi-drawer-panel" role="dialog" aria-label="Ask The Insider"> <!-- Mobile drag handle (tap to minimise) --> <button class="pi-drawer__handle" id="pi-drawer-handle" type="button" aria-label="Minimise chat"></button> <!-- Drawer header --> <div class="pi-drawer__header"> <div class="pi-drawer__id"> <span class="pi-avatar pi-avatar--md" aria-hidden="true"> <span class="pi-avatar__fallback">PI</span> <img src="/images/pi-concierge.svg" alt="" width="42" height="42" onerror="this.remove()"> </span> <div> <p class="pi-drawer__name">The Insider <span class="pi-drawer__name-mark" aria-hidden="true">✦</span></p> <p class="pi-drawer__status"> <span class="pi-drawer__pulse" aria-hidden="true"></span>
@@ -905,6 +910,31 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
         .replace(/'/g, '&#039;');
     }
 
+    // Fire-and-forget: log the search query to Supabase for analytics.
+    function logSearch(query, resultCount) {
+      try {
+        var sb = window.__PI_SB;
+        if (!sb || !sb.url || !sb.key) return;
+        var payload = {
+          query: query,
+          result_count: resultCount,
+          surface: 'overlay',
+          page_path: window.location.pathname,
+        };
+        fetch(sb.url + '/rest/v1/site_search_queries', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': sb.key,
+            'Authorization': 'Bearer ' + sb.key,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+          keepalive: true,
+        }).catch(function () {});
+      } catch (_e) {}
+    }
+
     async function loadPagefind() {
       if (state.pagefindModule) return state.pagefindModule;
       // Pagefind is built into /pagefind/ on the production site by
@@ -1019,6 +1049,7 @@ The Insider works from Peninsula Insider editorial research. Verify hours and bo
         const data = await Promise.all(result.results.map((r) => r.data()));
         if (myToken !== state.searchToken) return;
         showResults(els, data, q);
+        logSearch(q, result.results.length);
       } catch (err) {
         console.warn('[search] error', err);
         if (myToken === state.searchToken && els.cta) {
