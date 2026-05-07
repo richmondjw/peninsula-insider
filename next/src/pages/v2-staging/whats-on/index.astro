@@ -11,8 +11,10 @@ import {
 } from '../../../lib/editorial';
 
 const now = new Date();
-const events = (await getCollection('events'))
+const events = (await getCollection('events', ({ data }) => data.status === 'published'))
   .filter((event) => {
+    const cancelled = /cancelled/i.test(event.data.verificationStatus ?? '') || /^cancelled:/i.test(event.data.summary ?? '');
+    if (cancelled) return false;
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end, now);
