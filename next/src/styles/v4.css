@@ -107,10 +107,17 @@ body[data-v4="true"] .masthead {
   border-radius: 2px;
 }
 
+/* Desktop nav action cluster (search + Ask PI + subscribe). */
 .v4-actions {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+/* Mobile brand-row action cluster (search + Ask PI + burger).
+   Hidden on desktop; shown inside the mobile breakpoint block below. */
+.v4-mobile-actions {
+  display: none;
 }
 .v4-iconbtn {
   display: inline-flex;
@@ -237,16 +244,24 @@ body[data-v4="true"] .masthead {
     min-width: 0;
   }
   body[data-v4="true"] .masthead__brand .masthead__logo {
-    font-size: 22px;
+    font-size: 33px;     /* 22px base × 1.5 = 33px */
     line-height: 1.1;
     text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   /* Hide the desktop tagline on mobile — too long for the bar. */
   body[data-v4="true"] .masthead__brand .masthead__tagline { display: none; }
 
-  /* Burger sits at the right of the container. Visibility is already
-     handled by V2 global.css `.masthead__burger { display: flex !important }`
-     at this breakpoint — we only need it not to shrink. */
+  /* Mobile action cluster: show as flex row to the right of the logo. */
+  body[data-v4="true"] .v4-mobile-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  /* Keep burger flush — it's now a flex child inside v4-mobile-actions. */
   body[data-v4="true"] .v4-burger { flex-shrink: 0; }
 }
 
@@ -257,7 +272,7 @@ body[data-v4="true"] .masthead {
     padding-bottom: 12px;
     min-height: 52px;
   }
-  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: 20px; }
+  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: 30px; }  /* 20px base × 1.5 = 30px */
 }
 
 /* =========================================================

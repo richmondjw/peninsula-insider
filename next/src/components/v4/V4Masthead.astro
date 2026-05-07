@@ -53,17 +53,29 @@ const {
         <p class="masthead__tagline">An editorial guide, not a directory · Mornington Peninsula</p>
       </div>
 
-      <!-- Mobile burger lives inside the container so it respects page padding.
-           V4 chrome rebinds it to open V4MobileDrawer (see BaseLayout script).
-           Hidden on desktop by V2's global.css `.masthead__burger { display: none }`. -->
-      <button
-        class="masthead__burger v4-burger"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="v4Drawer"
-      >
-        <span></span><span></span><span></span>
-      </button>
+      <!-- Mobile action cluster: search + Ask PI + burger.
+           Hidden on desktop (display: none in v4.css). V4 chrome rebinds the
+           burger to open V4MobileDrawer (see BaseLayout script). -->
+      <div class="v4-mobile-actions">
+        <a href={v4Utility.search.href} class="v4-iconbtn" aria-label="Search Peninsula Insider" data-open-search>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.5" y2="16.5" />
+          </svg>
+        </a>
+        <a href={v4Utility.ask.href} class="v4-ask-pill" aria-label="Ask PI" data-pi-trigger="true">
+          <span class="v4-ask-pill__dot">PI</span>
+          Ask PI
+        </a>
+        <button
+          class="masthead__burger v4-burger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="v4Drawer"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </div>
 
