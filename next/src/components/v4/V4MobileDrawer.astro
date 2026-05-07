@@ -1,0 +1,73 @@
+---
+/**
+ * V4 MobileDrawer.
+ *
+ * Accordion mobile menu. Each pillar is a row; tap to expand inline and
+ * reveal the same three columns (stacked) plus the editor's pick rail
+ * collapsed to a single "Editor's pick →" line plus the Ask-PI line.
+ *
+ * One pillar expanded at a time. Footer carries search input, sign-in,
+ * subscribe pill. Bound by V4BaseLayout's inline script.
+ */
+import { v4Pillars, v4Utility } from '../../lib/v4-nav';
+---
+
+<div class="v4-drawer" id="v4Drawer" role="dialog" aria-modal="true" aria-label="Peninsula Insider menu">
+
+  <div class="v4-drawer__head">
+    <a href="/" class="v4-drawer__brand">Peninsula <span>Insider</span></a>
+    <button type="button" class="v4-drawer__close" aria-label="Close menu" data-v4-drawer-close>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <ul class="v4-drawer__pillars">
+    {v4Pillars.map((pillar) => (
+      <li class="v4-drawer__pillar" data-pillar-key={pillar.key}>
+        <button
+          type="button"
+          class="v4-drawer__pillar-trigger"
+          aria-expanded="false"
+          aria-controls={`v4-drawer-${pillar.key}`}
+          data-v4-drawer-pillar
+        >
+          <span>{pillar.label}</span>
+          <svg class="v4-drawer__pillar-trigger-arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="4,2 8,6 4,10"/>
+          </svg>
+        </button>
+
+        <div class="v4-drawer__pillar-body" id={`v4-drawer-${pillar.key}`}>
+          <a class="v4-drawer__pillar-rail" href={pillar.rail.href}>
+            Editor's pick: {pillar.rail.title} →
+          </a>
+
+          {pillar.columns.map((col) => (
+            <div class="v4-drawer__pillar-col">
+              <p class="v4-drawer__pillar-col-eyebrow">{col.eyebrow}</p>
+              <ul class="v4-drawer__pillar-col-list">
+                {col.items.map((item) => (
+                  <li><a href={item.href}>{item.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <p class="v4-drawer__pillar-ask">
+            <a href="/ask/" data-pi-trigger="true">{pillar.askLine}</a>
+          </p>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <div class="v4-drawer__foot">
+    <a href={v4Utility.search.href}>Search Peninsula Insider</a>
+    <a href={v4Utility.account.href}>{v4Utility.account.label}</a>
+    <a href={v4Utility.ask.href}>Ask PI</a>
+    <a href={v4Utility.subscribe.href}>{v4Utility.subscribe.label}</a>
+  </div>
+</div>

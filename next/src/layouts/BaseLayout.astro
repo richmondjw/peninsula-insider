@@ -10,10 +10,13 @@
 import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
 import '../styles/search.css';      // site-search overlay + /search page styles
+import '../styles/v4.css';          // V4 mega-menu chrome, additive tokens scoped --v4-*
 import { ClientRouter } from 'astro:transitions';
-import Masthead from '../components/Masthead.astro';
-// UtilityBar removed, its content is now integrated into Masthead's
-// utility row. Keeping this comment as a breadcrumb for the migration.
+// V4 menu promotion (2026-05-06): the V2 Masthead is replaced by V4Masthead.
+// V2 Masthead.astro stays in the codebase as reference but is no longer
+// imported here. The V4MobileDrawer replaces V2's #mobileNav overlay.
+import V4Masthead from '../components/v4/V4Masthead.astro';
+import V4MobileDrawer from '../components/v4/V4MobileDrawer.astro';
 import Footer from '../components/Footer.astro';
 import ConciergeDrawer from '../components/ConciergeDrawer.astro';
 import SearchOverlay from '../components/SearchOverlay.astro';
@@ -183,9 +186,9 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 </head>
-<body data-page={section} data-path={rawPathname}>
+<body data-page={section} data-path={rawPathname} data-v4="true">
 
-  <Masthead section={section} />
+  <V4Masthead section={section} />
 
   {/* data-pagefind-body scopes the index to <main>, so the masthead, footer,
       concierge drawer, and search overlay aren't indexed.
@@ -203,6 +206,10 @@ const isAskPage = rawPathname.startsWith('/ask');
   </main>
 
   <Footer />
+
+  <!-- V4 mobile drawer — replaces the V2 #mobileNav overlay.
+       Bound by the V4 mega+drawer script below. -->
+  <V4MobileDrawer />
 
   <!-- V2 auth phase 1, modal + profile dropdown.
        Modal hidden until any [data-open-auth] element triggers it.
@@ -279,48 +286,159 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 
+  <!-- V4 mega-menu + mobile drawer behaviour.
+       Replaces V2's #mobileNav burger script. Three responsibilities:
+       1. Hover/focus open + leave/escape/click-outside close on desktop pillars.
+       2. Burger opens the V4 drawer; accordion pillars expand inline.
+       3. data-pi-trigger="true" intercepts clicks and opens the concierge
+          drawer via window.openConcierge() (was previously inside V2 Masthead). -->
   <script is:inline>
-    (function() {
-      function initNav() {
-        var burger = document.querySelector('.masthead__burger');
-        var nav = document.getElementById('mobileNav');
-        if (!burger || !nav) return;
+    (function () {
+      function initV4Mega() {
+        var items = document.querySelectorAll('[data-v4-pillar]');
+        if (!items.length) return;
 
-        // Always reset state cleanly on each page load / transition
-        nav.classList.remove('is-open');
-        burger.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('menu-open');
-        document.body.style.overflow = '';
+        function closeAll(except) {
+          items.forEach(function (n) {
+            if (n === except) return;
+            n.classList.remove('is-open');
+            var trig = n.querySelector('[data-v4-pillar-link]');
+            if (trig) trig.setAttribute('aria-expanded', 'false');
+          });
+        }
 
-        // Guard against double-binding on repeated calls
-        if (burger._navBound) return;
-        burger._navBound = true;
+        items.forEach(function (item) {
+          if (item._v4Bound) return;
+          item._v4Bound = true;
+          var link = item.querySelector('[data-v4-pillar-link]');
+          var openTimer = null, closeTimer = null;
 
-        burger.addEventListener('click', function() {
-          var open = nav.classList.toggle('is-open');
-          burger.classList.toggle('is-open', open);
-          burger.setAttribute('aria-expanded', String(open));
-          // body.menu-open lets CSS hide the masthead so its wordmark
-          // doesn't sit on top of the mobile-nav overlay's wordmark.
-          document.body.classList.toggle('menu-open', open);
-          document.body.style.overflow = open ? 'hidden' : '';
+          function open() {
+            clearTimeout(closeTimer);
+            openTimer = setTimeout(function () {
+              closeAll(item);
+              item.classList.add('is-open');
+              if (link) link.setAttribute('aria-expanded', 'true');
+            }, 70);
+          }
+          function close() {
+            clearTimeout(openTimer);
+            closeTimer = setTimeout(function () {
+              item.classList.remove('is-open');
+              if (link) link.setAttribute('aria-expanded', 'false');
+            }, 220);
+          }
+
+          item.addEventListener('mouseenter', open);
+          item.addEventListener('mouseleave', close);
+          if (link) {
+            link.addEventListener('focus', open);
+            link.addEventListener('keydown', function (e) {
+              if (e.key === 'Escape') {
+                item.classList.remove('is-open');
+                link.setAttribute('aria-expanded', 'false');
+                link.focus();
+              }
+            });
+          }
+          var panel = item.querySelector('[data-v4-mega]');
+          if (panel) {
+            panel.addEventListener('keydown', function (e) {
+              if (e.key === 'Escape') {
+                item.classList.remove('is-open');
+                if (link) {
+                  link.setAttribute('aria-expanded', 'false');
+                  link.focus();
+                }
+              }
+            });
+          }
         });
 
-        nav.querySelectorAll('a').forEach(function(link) {
-          link.addEventListener('click', function() {
-            nav.classList.remove('is-open');
-            burger.classList.remove('is-open');
-            burger.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('menu-open');
-            document.body.style.overflow = '';
+        document.addEventListener('click', function (e) {
+          var target = e.target;
+          var inside = target.closest && target.closest('[data-v4-pillar]');
+          if (!inside) closeAll(null);
+        });
+      }
+
+      function initV4Drawer() {
+        var burger = document.querySelector('.v4-burger');
+        var drawer = document.getElementById('v4Drawer');
+        if (!burger || !drawer) return;
+        if (burger._v4DrawerBound) return;
+        burger._v4DrawerBound = true;
+
+        var closeBtn = drawer.querySelector('[data-v4-drawer-close]');
+        var pillarTriggers = drawer.querySelectorAll('[data-v4-drawer-pillar]');
+
+        function openDrawer() {
+          drawer.classList.add('is-open');
+          burger.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeDrawer() {
+          drawer.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+          drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
+            p.classList.remove('is-expanded');
+            var t = p.querySelector('[data-v4-drawer-pillar]');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          });
+        }
+
+        burger.addEventListener('click', function () {
+          var isOpen = drawer.classList.contains('is-open');
+          if (isOpen) closeDrawer(); else openDrawer();
+        });
+        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+        });
+
+        pillarTriggers.forEach(function (trig) {
+          trig.addEventListener('click', function () {
+            var pillar = trig.closest('.v4-drawer__pillar');
+            if (!pillar) return;
+            var isExpanded = pillar.classList.contains('is-expanded');
+            drawer.querySelectorAll('.v4-drawer__pillar.is-expanded').forEach(function (p) {
+              if (p !== pillar) {
+                p.classList.remove('is-expanded');
+                var t = p.querySelector('[data-v4-drawer-pillar]');
+                if (t) t.setAttribute('aria-expanded', 'false');
+              }
+            });
+            pillar.classList.toggle('is-expanded', !isExpanded);
+            trig.setAttribute('aria-expanded', String(!isExpanded));
+          });
+        });
+
+        drawer.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', closeDrawer);
+        });
+      }
+
+      function initPiTriggers() {
+        document.querySelectorAll('[data-pi-trigger="true"]').forEach(function (el) {
+          if (el._piTrigBound) return;
+          el._piTrigBound = true;
+          el.addEventListener('click', function (e) {
+            if (typeof window.openConcierge !== 'function') return;
+            e.preventDefault();
+            window.openConcierge();
           });
         });
       }
 
-      // Run on first load and after every view-transition swap
-      initNav();
-      document.addEventListener('astro:page-load', initNav);
+      function bootAll() {
+        initV4Mega();
+        initV4Drawer();
+        initPiTriggers();
+      }
+
+      bootAll();
+      document.addEventListener('astro:page-load', bootAll);
     })();
   </script>
 
