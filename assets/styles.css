@@ -2787,6 +2787,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .newsletter__stack .newsletter__proofs { grid-template-columns: 1fr; }
   .masthead__nav { display: none; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
+
+  /* V4 emergency mobile header kill-switch:
+     hide Ask PI / subscribe header actions on small screens.
+     The floating concierge bubble remains separate. */
+  .v4-mobile-actions .v4-ask-pill { display: none !important; }
+  .v4-actions { display: none !important; }
+  .v4-actions .v4-ask-pill { display: none !important; }
+  .v4-actions .v4-subscribe-cta { display: none !important; }
 }
 
 /* =========================================================
@@ -10299,11 +10307,4 @@ body.menu-open .subscribe-pill {
 .alert-form__submit:hover {
   background: var(--text, #1a1a1a);
   border-color: var(--text, #1a1a1a);
-}
-
-@media(max-width: 900px){
-  .v4-mobile-actions .v4-ask-pill{display:none!important}
-  .v4-actions{display:none!important}
-  .v4-actions .v4-ask-pill{display:none!important}
-  .v4-actions .v4-subscribe-cta{display:none!important}
 }
