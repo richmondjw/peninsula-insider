@@ -63,7 +63,7 @@ Three rows. Sticky on scroll. Matches V2 layout exactly — only the third row's
 │              Peninsula Insider · An editorial guide                     │  Row 2: Brand (V2 paper)
 │                                                                         │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  Eat & Drink  Wine  Stay  Explore  Plans  What's On  Journal   🔍 Ask PI  Subscribe  │  Row 3: V4 nav
+│  What's On  Plans  Eat & Drink  Wine  Stay  Explore  Journal   🔍 Ask PI  Subscribe  │  Row 3: V4 nav
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 

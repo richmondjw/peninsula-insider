@@ -67,11 +67,121 @@ export interface V4Pillar extends V4NavItem {
 
 /** ----------------------------------------------------------------------
  *  PILLARS
+ *
+ *  Order: What's On → Plans → Eat & Drink → Wine → Stay → Explore → Journal.
+ *  What's On leads because the highest-intent question on a Peninsula
+ *  weekend is "what's happening this Saturday?" — the live calendar wins
+ *  the first slot. Plans follows because pre-shaped weekends are the
+ *  next step. Editorial pillars come after intent.
  * ---------------------------------------------------------------------- */
 
 export const v4Pillars: V4Pillar[] = [
 
-  // 1. EAT & DRINK ----------------------------------------------------------
+  // 1. WHAT'S ON ------------------------------------------------------------
+  {
+    key: 'whats-on',
+    label: "What's On",
+    href: '/whats-on/',
+    intro: 'The events calendar with an opinion attached, kids-graded, weather-flagged, worth-the-drive labelled.',
+    topBanner: {
+      text: "This weekend's calendar",
+      ctaLabel: 'Read the dispatch →',
+      ctaHref: '/whats-on/',
+    },
+    rail: {
+      eyebrow: "Editor's pick this weekend",
+      title: "Mt Eliza Farmers' Market",
+      verdict: "Sunday morning, Mt Eliza. Get there before 9 if you want a brunch table. Park at the village.",
+      image: '/images/sourced/article-picnic-01.webp',
+      imageAlt: "Mt Eliza Farmers' Market",
+      href: '/whats-on/mt-eliza-farmers-market/',
+      cta: 'See this week →',
+    },
+    columns: [
+      {
+        eyebrow: 'This weekend',
+        items: [
+          { key: 'all-weekend',     label: 'All this weekend',  href: '/whats-on/' },
+          { key: 'racecourse',      label: 'Racecourse Market', href: '/whats-on/mornington-racecourse-market/' },
+          { key: 'mt-eliza-market', label: "Mt Eliza Farmers'", href: '/whats-on/mt-eliza-farmers-market/' },
+          { key: 'main-street',     label: 'Main Street fest',  href: '/whats-on/main-street-mornington-festival-2026/' },
+        ],
+      },
+      {
+        eyebrow: 'Coming up',
+        items: [
+          { key: 'community',  label: 'Community markets', href: '/whats-on/' },
+          { key: 'festivals',  label: 'Festivals',         href: '/whats-on/' },
+          { key: 'seasonal',   label: 'Seasonal events',   href: '/whats-on/' },
+          { key: 'all-coming', label: 'All upcoming →',    href: '/whats-on/' },
+        ],
+      },
+      {
+        eyebrow: 'By the mood',
+        items: [
+          { key: 'weekend-edit', label: 'Autumn weekend edit', href: '/journal/autumn-weekend-edit/' },
+          { key: 'long-lunch',   label: 'Long-lunch Sunday',   href: '/journal/the-long-lunch/' },
+          { key: 'rainy',        label: 'When it rains',       href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
+          { key: 'kids',         label: 'With kids',           href: '/journal/the-peninsula-with-kids/' },
+          { key: 'all-events',   label: 'Every event →',       href: '/whats-on/' },
+        ],
+      },
+    ],
+    askLine: 'Need a Saturday plan that punishes nobody? Ask PI →',
+  },
+
+  // 2. PLANS ----------------------------------------------------------------
+  {
+    key: 'escape',
+    label: 'Plans',
+    href: '/escape/',
+    intro: 'Pre-shaped Peninsula days, by length, by guide, or by occasion.',
+    rail: {
+      eyebrow: "Editor's pick · Autumn '26",
+      title: 'The Thermal Springs Weekend',
+      verdict: "Hot springs without wasting the rest of the weekend. Two nights at a wine-country room, one long lunch, one steam.",
+      image: '/images/sourced/article-couples-weekend-01.webp',
+      imageAlt: 'A wellness weekend on the Peninsula',
+      href: '/journal/the-thermal-springs-weekend/',
+    },
+    columns: [
+      {
+        eyebrow: 'By the shape',
+        items: [
+          { key: 'one-night', label: 'One night',         href: '/journal/the-one-night-escape/' },
+          { key: 'weekend',   label: 'Two-day weekend',   href: '/escape/' },
+          { key: 'long',      label: 'Long weekend',      href: '/escape/' },
+          { key: 'kids',      label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
+          { key: 'wellness',  label: 'Wellness weekend',  href: '/journal/the-thermal-springs-weekend/' },
+          { key: 'romantic',  label: 'Romantic two',      href: '/journal/the-couples-weekend/' },
+        ],
+      },
+      {
+        eyebrow: 'Hand it to a guide',
+        items: [
+          { key: 'tours',     label: 'Operator tours',     href: '/tour/' },
+          { key: 'packages',  label: 'Multi-day packages', href: '/tour-packages/' },
+          { key: 'wine-day',  label: 'Wine-tour day',      href: '/tour/' },
+          { key: 'springs',   label: 'Hot-springs day',    href: '/tour/' },
+          { key: 'golf-day',  label: 'Golf day',           href: '/golf/' },
+          { key: 'dolphin',   label: 'Dolphin swim day',   href: '/tour/' },
+        ],
+      },
+      {
+        eyebrow: 'By the occasion',
+        items: [
+          { key: 'weddings',     label: 'Weddings',                  href: '/weddings/' },
+          { key: 'corporate',    label: 'Corporate offsites',        href: '/corporate-events/' },
+          { key: 'corp-guide',   label: 'How to plan a retreat',     href: '/journal/corporate-events-how-to-plan-peninsula-retreat/' },
+          { key: 'group',        label: 'Group of six+',             href: '/escape/' },
+          { key: 'eoy',          label: 'End-of-year offsite',       href: '/corporate-events/' },
+        ],
+      },
+    ],
+    askLine: 'Need the plan shaped around six adults on a Saturday? Ask PI →',
+  },
+
+  // 3. EAT & DRINK ----------------------------------------------------------
   {
     key: 'eat',
     label: 'Eat & Drink',
@@ -83,7 +193,7 @@ export const v4Pillars: V4Pillar[] = [
       verdict: 'Sit at the bar, not the dining room. Better view, faster service. The kingfish is the order.',
       image: '/images/sourced/article-hatted-restaurants-01.webp',
       imageAlt: 'Laura at Pt Leo Estate, the bar with the bay view',
-      href: '/eat/laura/',
+      href: '/eat/laura-pt-leo/',
     },
     columns: [
       {
@@ -93,7 +203,7 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'hatted',       label: 'Hatted dinner',    href: '/journal/three-italian-dinners/' },
           { key: 'breakfast',    label: 'Breakfast',        href: '/journal/breakfast-before-the-crowds/' },
           { key: 'cellar-door',  label: 'Cellar door',      href: '/journal/the-cellar-door-short-list/' },
-          { key: 'cafe',         label: 'Cafe & bakery',    href: '/eat/?type=cafe' },
+          { key: 'cafe',         label: 'Cafes',            href: '/eat/cafes/' },
           { key: 'pantry',       label: 'Pantry & produce', href: '/journal/the-peninsula-pantry/' },
         ],
       },
@@ -111,8 +221,8 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'In voice',
         items: [
-          { key: 'editors-table', label: "Editor's Table",      href: '/journal/?format=editors-table' },
-          { key: 'shortlist',     label: 'The Shortlist',       href: '/journal/?format=shortlist' },
+          { key: 'editors-table', label: "Editor's Table",      href: '/journal/' },
+          { key: 'shortlist',     label: 'The Shortlist',       href: '/journal/the-cellar-door-short-list/' },
           { key: 'pantry-piece',  label: 'Pantry & produce',    href: '/journal/the-peninsula-pantry/' },
           { key: 'all-eat',       label: 'Every venue we cover', href: '/eat/' },
         ],
@@ -121,7 +231,7 @@ export const v4Pillars: V4Pillar[] = [
     askLine: 'Looking for the back-roads version? Ask PI →',
   },
 
-  // 2. WINE -----------------------------------------------------------------
+  // 4. WINE -----------------------------------------------------------------
   {
     key: 'wine',
     label: 'Wine',
@@ -139,32 +249,32 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the venue',
         items: [
-          { key: 'cellar-door',     label: 'Cellar door',       href: '/wine/?type=winery' },
-          { key: 'producer',        label: 'Producer (no door)', href: '/wine/?type=producer' },
-          { key: 'brewery',         label: 'Brewery',           href: '/wine/?type=brewery' },
-          { key: 'distillery',      label: 'Distillery',        href: '/wine/?type=distillery' },
-          { key: 'cidery',          label: 'Cidery',            href: '/wine/?type=cidery' },
-          { key: 'pop-up',          label: 'Pop-up tasting',    href: '/wine/?type=pop-up' },
+          { key: 'cellar-door',  label: 'Cellar door',         href: '/wine/cellar-doors/' },
+          { key: 'producer',     label: 'Appointment producers', href: '/wine/appointment-producers/' },
+          { key: 'best-cellar',  label: 'Best cellar doors',   href: '/wine/best-cellar-doors/' },
+          { key: 'brewery',      label: 'Breweries',           href: '/wine/' },
+          { key: 'distillery',   label: 'Distilleries',        href: '/wine/' },
+          { key: 'cider',        label: 'Cider',               href: '/wine/mornington-peninsula-cider/' },
         ],
       },
       {
         eyebrow: 'By the place',
         items: [
           { key: 'red-hill',   label: 'Red Hill',   href: '/wine/red-hill/' },
-          { key: 'main-ridge', label: 'Main Ridge', href: '/places/main-ridge/' },
-          { key: 'merricks',   label: 'Merricks',   href: '/places/merricks/' },
+          { key: 'main-ridge', label: 'Main Ridge', href: '/wine/main-ridge/' },
+          { key: 'merricks',   label: 'Merricks',   href: '/wine/merricks/' },
           { key: 'mornington', label: 'Mornington', href: '/places/mornington/' },
-          { key: 'balnarring', label: 'Balnarring', href: '/places/balnarring/' },
-          { key: 'flinders',   label: 'Flinders',   href: '/places/flinders/' },
+          { key: 'balnarring', label: 'Balnarring', href: '/wine/balnarring/' },
+          { key: 'flinders',   label: 'Flinders',   href: '/wine/flinders/' },
         ],
       },
       {
         eyebrow: 'In voice',
         items: [
           { key: 'cellar-shortlist', label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
-          { key: 'chardonnay',       label: 'The Chardonnay case',       href: '/journal/the-chardonnay-case/' },
+          { key: 'chardonnay',       label: 'The Chardonnay case',       href: '/wine/chardonnay/' },
           { key: 'pinot-noir',       label: 'The Pinot benchmark',       href: '/wine/pinot-noir/' },
-          { key: 'producer-trail',   label: 'The producer trail',        href: '/journal/?slug=the-producer-trail' },
+          { key: 'producer-trail',   label: 'The producer trail',        href: '/journal/the-producer-trail/' },
           { key: 'all-wine',         label: 'Every winery we cover',     href: '/wine/' },
         ],
       },
@@ -172,7 +282,7 @@ export const v4Pillars: V4Pillar[] = [
     askLine: 'After the ones not on the booking apps? Ask PI →',
   },
 
-  // 3. STAY -----------------------------------------------------------------
+  // 5. STAY -----------------------------------------------------------------
   {
     key: 'stay',
     label: 'Stay',
@@ -201,17 +311,18 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the room',
         items: [
-          { key: 'hotels',   label: 'Hotels',          href: '/stay/?type=hotel' },
-          { key: 'villas',   label: 'Villas & houses', href: '/stay/?type=villa' },
-          { key: 'bnb',      label: 'B&Bs & cottages', href: '/stay/?type=bnb' },
-          { key: 'glamping', label: 'Glamping',        href: '/stay/?type=glamping' },
+          { key: 'hotels',   label: 'Hotels',          href: '/stay/' },
+          { key: 'villas',   label: 'Villas & houses', href: '/stay/villas/' },
+          { key: 'bnb',      label: 'B&Bs & cottages', href: '/stay/cottages/' },
+          { key: 'glamping', label: 'Glamping',        href: '/stay/glamping/' },
           { key: 'spa',      label: 'Spa retreats',    href: '/spa/' },
         ],
       },
       {
         eyebrow: 'In voice',
         items: [
-          { key: 'editors-stays', label: "Editor's stays",      href: '/stay/?featured=true' },
+          { key: 'best-spas',     label: 'Best spas',           href: '/journal/best-spas-mornington-peninsula/' },
+          { key: 'dog-stays',     label: 'Dog-friendly stays',  href: '/journal/dog-friendly-accommodation-mornington-peninsula/' },
           { key: 'all-stay',      label: 'Every room we cover', href: '/stay/' },
         ],
       },
@@ -219,12 +330,17 @@ export const v4Pillars: V4Pillar[] = [
     askLine: 'Want the room that opens up on the cancellation list? Ask PI →',
   },
 
-  // 4. EXPLORE --------------------------------------------------------------
+  // 6. EXPLORE --------------------------------------------------------------
   {
     key: 'explore',
     label: 'Explore',
     href: '/explore/',
     intro: "Every move on the Peninsula that isn't a meal or a bed.",
+    topBanner: {
+      text: "How the Peninsula's geography actually works",
+      ctaLabel: 'Open the map →',
+      ctaHref: '/explore/map/',
+    },
     rail: {
       eyebrow: "Editor's pick · Autumn '26",
       title: 'Bushrangers Bay walk',
@@ -237,12 +353,12 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the move',
         items: [
-          { key: 'walks',     label: 'Walks',             href: '/walks/' },
-          { key: 'beaches',   label: 'Beaches',           href: '/explore/?type=beach' },
-          { key: 'lookouts',  label: 'Lookouts & drives', href: '/explore/?type=lookout' },
-          { key: 'markets',   label: 'Markets',           href: '/explore/?type=market' },
-          { key: 'galleries', label: 'Galleries',         href: '/explore/?type=gallery' },
-          { key: 'on-water',  label: 'On the water',      href: '/boating/' },
+          { key: 'walks',     label: 'Walks',         href: '/explore/walks/' },
+          { key: 'beaches',   label: 'Beaches',       href: '/explore/beaches/' },
+          { key: 'markets',   label: 'Markets',       href: '/explore/markets/' },
+          { key: 'on-water',  label: 'On the water',  href: '/boating/' },
+          { key: 'fishing',   label: 'Fishing spots', href: '/fishing/' },
+          { key: 'all-moves', label: 'All experiences →', href: '/explore/' },
         ],
       },
       {
@@ -259,122 +375,16 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'In voice',
         items: [
-          { key: 'orientation', label: 'First-visit drive', href: '/journal/the-peninsula-orientation-drive/' },
-          { key: 'rainy',       label: 'Rainy-day plans',   href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
-          { key: 'sunset',      label: 'Sunset moves',      href: '/journal/?slug=sunset-shortlist' },
-          { key: 'water-guide', label: 'On the water guide', href: '/boating/' },
+          { key: 'orientation', label: 'First-visit drive',  href: '/journal/the-peninsula-orientation-drive/' },
+          { key: 'rainy',       label: 'Rainy-day plans',    href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
+          { key: 'sunset',      label: 'Sunset moves',       href: '/journal/the-sunset-drink/' },
+          { key: 'cape-schanck', label: 'Cape Schanck guide', href: '/journal/cape-schanck-guide/' },
         ],
       },
     ],
     askLine: 'Want the walk only locals know? Ask PI →',
   },
 
-  // 5. PLANS ----------------------------------------------------------------
-  {
-    key: 'escape',
-    label: 'Plans',
-    href: '/escape/',
-    intro: 'Pre-shaped Peninsula days, by length, by guide, or by occasion.',
-    rail: {
-      eyebrow: "Editor's pick · Autumn '26",
-      title: 'The Thermal Springs Weekend',
-      verdict: "Hot springs without wasting the rest of the weekend. Two nights at a wine-country room, one long lunch, one steam.",
-      image: '/images/sourced/article-couples-weekend-01.webp',
-      imageAlt: 'A wellness weekend on the Peninsula',
-      href: '/journal/the-thermal-springs-weekend/',
-    },
-    columns: [
-      {
-        eyebrow: 'By the shape',
-        items: [
-          { key: 'one-night', label: 'One night',         href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',   label: 'Two-day weekend',   href: '/escape/?length=weekend' },
-          { key: 'long',      label: 'Long weekend',      href: '/escape/?length=long' },
-          { key: 'kids',      label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
-          { key: 'wellness',  label: 'Wellness weekend',  href: '/journal/the-thermal-springs-weekend/' },
-          { key: 'romantic',  label: 'Romantic two',      href: '/journal/the-couples-weekend/' },
-        ],
-      },
-      {
-        eyebrow: 'Hand it to a guide',
-        items: [
-          { key: 'tours',     label: 'Operator tours',     href: '/tour/' },
-          { key: 'packages',  label: 'Multi-day packages', href: '/tour-packages/' },
-          { key: 'wine-day',  label: 'Wine-tour day',      href: '/tour/?type=wine' },
-          { key: 'springs',   label: 'Hot-springs day',    href: '/tour/?type=wellness' },
-          { key: 'golf-day',  label: 'Golf day',           href: '/golf/' },
-          { key: 'dolphin',   label: 'Dolphin swim day',   href: '/tour/?type=dolphin' },
-        ],
-      },
-      {
-        eyebrow: 'By the occasion',
-        items: [
-          { key: 'weddings',     label: 'Weddings',                  href: '/weddings/' },
-          { key: 'corporate',    label: 'Corporate offsites',        href: '/corporate-events/' },
-          { key: 'milestones',   label: 'Anniversaries & birthdays', href: '/escape/?occasion=milestone' },
-          { key: 'group',        label: 'Group of six+',             href: '/escape/?group=six-plus' },
-          { key: 'eoy',          label: 'End-of-year offsite',       href: '/corporate-events/?season=summer' },
-        ],
-      },
-    ],
-    askLine: 'Need the plan shaped around six adults on a Saturday? Ask PI →',
-  },
-
-  // 6. WHAT'S ON ------------------------------------------------------------
-  {
-    key: 'whats-on',
-    label: "What's On",
-    href: '/whats-on/',
-    intro: 'The events calendar with an opinion attached, kids-graded, weather-flagged, worth-the-drive labelled.',
-    topBanner: {
-      text: "This weekend's calendar",
-      ctaLabel: 'Read the dispatch →',
-      ctaHref: '/whats-on/',
-    },
-    rail: {
-      eyebrow: "Editor's pick this weekend",
-      title: "Mornington Farmers' Market",
-      verdict: "Saturday morning, Main Street. Get there before 9 or the Pinot vinegar from Quealy is gone. Park at the Pier.",
-      image: '/images/sourced/article-picnic-01.webp',
-      imageAlt: "Mornington Farmers' Market, Main Street",
-      href: '/whats-on/mornington-farmers-market/',
-      cta: 'See this week →',
-    },
-    columns: [
-      {
-        eyebrow: 'This weekend',
-        items: [
-          { key: 'pick-1', label: "Pick 1 (live)", href: '/whats-on/?lens=weekend-pick', live: true },
-          { key: 'pick-2', label: "Pick 2 (live)", href: '/whats-on/?lens=weekend-pick', live: true },
-          { key: 'pick-3', label: "Pick 3 (live)", href: '/whats-on/?lens=weekend-pick', live: true },
-          { key: 'all-weekend', label: 'All this weekend →', href: '/whats-on/?when=this-weekend' },
-        ],
-      },
-      {
-        eyebrow: 'Coming up',
-        items: [
-          { key: 'next-weekend', label: 'Next weekend',  href: '/whats-on/?when=next-weekend' },
-          { key: 'markets',      label: 'Markets',       href: '/whats-on/?category=market' },
-          { key: 'festivals',    label: 'Festivals',     href: '/whats-on/?category=festival' },
-          { key: 'long-weekend', label: 'Long weekends', href: '/whats-on/?when=long-weekend' },
-          { key: 'seasonal',     label: 'Seasonal events', href: '/whats-on/?recurrence=seasonal' },
-          { key: 'all-coming',   label: 'All upcoming →',  href: '/whats-on/' },
-        ],
-      },
-      {
-        eyebrow: 'By the mood',
-        items: [
-          { key: 'worth-drive',  label: 'Worth the drive',  href: '/whats-on/?lens=worth-the-drive' },
-          { key: 'weather',      label: 'Weather-proof',    href: '/whats-on/?weather=proof' },
-          { key: 'kids',         label: 'Kids welcome',     href: '/whats-on/?kids=easy' },
-          { key: 'after-dark',   label: 'After dark',       href: '/whats-on/?lens=after-dark' },
-          { key: 'long-lunch',   label: 'Long-lunch events', href: '/whats-on/?category=long-lunch' },
-          { key: 'all-mood',     label: 'All moods →',      href: '/whats-on/' },
-        ],
-      },
-    ],
-    askLine: 'Need a Saturday plan that punishes nobody? Ask PI →',
-  },
 
   // 7. JOURNAL --------------------------------------------------------------
   {
@@ -393,14 +403,14 @@ export const v4Pillars: V4Pillar[] = [
     },
     columns: [
       {
-        eyebrow: 'By the format',
+        eyebrow: 'Cornerstones',
         items: [
-          { key: 'cover',       label: 'The Cover',           href: '/journal/?format=cover' },
-          { key: 'long-read',   label: 'Long reads',          href: '/journal/?format=long-read' },
-          { key: 'shortlist',   label: 'The Shortlist',       href: '/journal/?format=shortlist' },
-          { key: 'dispatch',    label: 'Weekend dispatch',    href: '/journal/?format=weekend-picker' },
-          { key: 'editors-table', label: "Editor's Table",    href: '/journal/?format=editors-table' },
-          { key: 'cellar-disp', label: 'Cellar-door dispatch', href: '/journal/?format=cellar-door-dispatch' },
+          { key: 'cellar',      label: 'The cellar-door shortlist', href: '/journal/the-cellar-door-short-list/' },
+          { key: 'long-lunch',  label: 'The long lunch',            href: '/journal/the-long-lunch/' },
+          { key: 'one-night',   label: 'The one-night escape',      href: '/journal/the-one-night-escape/' },
+          { key: 'rainy',       label: 'Rainy-day plans',           href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
+          { key: 'orientation', label: 'First-visit drive',         href: '/journal/the-peninsula-orientation-drive/' },
+          { key: 'kids',        label: 'With kids',                 href: '/journal/the-peninsula-with-kids/' },
         ],
       },
       {
@@ -450,11 +460,12 @@ export const v4FooterNiche: V4NavItem[] = [
 ];
 
 export const v4FooterAbout: V4NavItem[] = [
-  { key: 'about',       label: 'About',           href: '/about/' },
-  { key: 'methodology', label: 'Methodology',     href: '/methodology/' },
-  { key: 'partners',    label: 'Partner with us', href: '/partners/' },
-  { key: 'pass',        label: 'The Pass',        href: '/preview-insider-plans/' },
-  { key: 'newsletter',  label: 'The Dispatch',    href: '/newsletter/' },
-  { key: 'contact',     label: 'Contact',         href: '/contact/' },
-  { key: 'privacy',     label: 'Privacy',         href: '/privacy/' },
+  { key: 'about',       label: 'About',                  href: '/about/' },
+  { key: 'methodology', label: 'Methodology',            href: '/methodology/' },
+  { key: 'map',         label: 'Map of the Peninsula',   href: '/explore/map/' },
+  { key: 'partners',    label: 'Partner with us',        href: '/partners/' },
+  { key: 'pass',        label: 'The Pass',               href: '/preview-insider-plans/' },
+  { key: 'newsletter',  label: 'The Dispatch',           href: '/newsletter/' },
+  { key: 'contact',     label: 'Contact',                href: '/contact/' },
+  { key: 'privacy',     label: 'Privacy',                href: '/privacy/' },
 ];

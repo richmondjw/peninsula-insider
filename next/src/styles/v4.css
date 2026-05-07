@@ -47,7 +47,7 @@ body[data-v4="true"] .masthead {
 }
 .v4-masthead-nav__inner {
   display: flex;
-  align-items: stretch;
+  align-items: center;          /* Vertical centerline shared by pillars and actions */
   justify-content: space-between;
   gap: 24px;
   height: var(--v4-mega-row-h);
@@ -55,13 +55,15 @@ body[data-v4="true"] .masthead {
 
 .v4-pillars {
   display: flex;
+  align-items: stretch;
   list-style: none;
   margin: 0;
   padding: 0;
   gap: clamp(14px, 2.4vw, 30px);
+  height: 100%;                 /* fill the nav row so the underline sits at the bottom */
 }
 .v4-pillars__item {
-  position: static;        /* mega panel anchors to .v4-masthead-nav */
+  position: static;             /* mega panel anchors to .v4-masthead-nav */
   display: flex;
   align-items: stretch;
 }
@@ -73,9 +75,10 @@ body[data-v4="true"] .masthead {
   color: var(--text);
   text-decoration: none;
   display: inline-flex;
-  align-items: center;
+  align-items: center;          /* text centered vertically inside the full-height link */
   gap: 4px;
   padding: 0 2px;
+  height: 100%;
   border-bottom: 2px solid transparent;
   transition: color var(--v4-mega-open-delay) var(--v4-ease),
               border-color var(--v4-mega-open-delay) var(--v4-ease);
@@ -134,7 +137,8 @@ body[data-v4="true"] .masthead {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 14px 7px 8px;
+  padding: 0 14px 0 8px;
+  height: 36px;                /* match v4-iconbtn for shared centerline */
   border-radius: 999px;
   background: var(--dark);
   color: var(--white);
@@ -171,7 +175,8 @@ body[data-v4="true"] .masthead {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
+  padding: 0 16px;
+  height: 36px;                /* match v4-iconbtn + v4-ask-pill */
   border-radius: 999px;
   background: var(--accent);
   color: var(--white);

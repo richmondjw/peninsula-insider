@@ -8,13 +8,15 @@ The seven-pillar collapse, with every current top-level URL accounted for.
 
 ## Top row (7 pillars, in order)
 
-1. **Eat & Drink**
-2. **Wine**
-3. **Stay**
-4. **Explore**
-5. **Plans**
-6. **What's On**
+1. **What's On**
+2. **Plans**
+3. **Eat & Drink**
+4. **Wine**
+5. **Stay**
+6. **Explore**
 7. **Journal** *(italic in masthead, magazine signature)*
+
+Order rationale: the highest-intent question on a Peninsula weekend is "what's happening this Saturday?" — the live calendar wins the first slot. Plans follows because pre-shaped weekends are the next step. Editorial pillars come after intent.
 
 Plus utility actions on the right of the row: search icon, Ask PI pill, Subscribe pill.
 
