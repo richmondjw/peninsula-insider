@@ -26,10 +26,11 @@ const venues = wellnessSlugs
 // Also show the accommodation that pairs well with wellness (not spa-only)
 const wellnessStaySlugs = [
   'peninsula-hot-springs-glamping',
+  'peninsula-hot-springs-eco-lodges',
+  'sanctuary-at-alba',
   'jackalope',
   'lindenderry',
   'hillview-cottages',
-  'flinders-hotel',
 ];
 const wellnessStays = wellnessStaySlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
@@ -77,7 +78,7 @@ const faqSchema = {
       name: 'What is Peninsula Hot Springs and can you stay there?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Peninsula Hot Springs is a large geothermal bathing complex near Rye with more than 50 pools. The Springs itself is a day-visit experience — you cannot stay inside the facility — but Peninsula Hot Springs Glamping operates directly adjacent and gives overnight guests priority entry and a quieter experience of the pools in the evening and early morning.',
+        text: 'Peninsula Hot Springs is a large geothermal bathing complex near Rye with more than 50 pools. The Springs itself is a day-visit experience — you cannot stay inside the facility without booking the glamping — but Peninsula Hot Springs Glamping operates inside the hot springs precinct and gives overnight guests priority entry and a quieter experience of the pools in the evening and early morning.',
       },
     },
     {
@@ -113,7 +114,7 @@ const faqSchema = {
   description="Spa stays and wellness retreats on the Mornington Peninsula — Peninsula Hot Springs glamping, Spa by Jackalope, Alba Thermal Springs, and day spas worth staying for."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/wellness-retreats/"
-  modifiedTime="2026-04-24"
+  modifiedTime="2026-05-08"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -166,7 +167,7 @@ const faqSchema = {
       <div class="prose">
         <h2>Frequently asked questions</h2>
         <h3>Can you stay at Peninsula Hot Springs?</h3>
-        <p>The Springs itself is a day-visit facility — you cannot stay inside the complex. Peninsula Hot Springs Glamping operates adjacent to the property and gives overnight guests priority entry. It's the closest overnight option to the pools.</p>
+        <p>The Springs itself is a day-visit facility for most guests. Peninsula Hot Springs Glamping sits inside the hot springs precinct and gives overnight guests priority entry and access to the Spa Dreaming Centre in quieter windows. It is not adjacent — it is inside.</p>
         <h3>Peninsula Hot Springs vs Alba Thermal Springs?</h3>
         <p>Peninsula Hot Springs (Rye): larger, more varied, family-friendly, geothermal water. Alba Thermal Springs (Red Hill): smaller, design-conscious, adult-focused, cave pools and cold plunge. Alba suits couples better. Peninsula Hot Springs is better for a first visit or a group.</p>
         <h3>Where's the best full resort spa?</h3>

@@ -7,8 +7,18 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const allVenues = await getCollection('venues');
-const slugs = ['polperro-villas','point-leo-estate-villas','crittenden-villas','jackalope','lindenderry'];
-const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const slugs = [
+  'polperro-villas',
+  'crittenden-villas',
+  'port-phillip-estate',
+  'mantons-creek-estate',
+  'cassis',
+  'jackalope',
+  'lindenderry',
+];
+const venues = slugs
+  .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
+  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -48,7 +58,7 @@ const schema = {
   description="The best winery accommodation on the Mornington Peninsula, from vineyard villas to design-led wine-country hotels in Red Hill and beyond."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/winery-accommodation/"
-  modifiedTime="2026-04-24"
+  modifiedTime="2026-05-08"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <Breadcrumbs items={breadcrumbItems} />
@@ -57,9 +67,10 @@ const schema = {
     <div class="container">
       <h1 class="article__title">Winery Accommodation on the Mornington Peninsula</h1>
       <div class="prose">
-        <p>The best Peninsula wine weekends improve dramatically when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens, instead of spending the whole weekend running transfers between Sorrento beds and Red Hill lunches.</p>
-        <p>Winery accommodation on the Mornington Peninsula is not a giant category. That is what makes it useful. The good options are limited, distinct, and easy to choose between once you know what sort of weekend you are building. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a> are for couples who want to stay close to the vineyard experience itself. <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are stronger for a quieter bay-side wine-country crossover. <a href="/stay/jackalope/">Jackalope</a> and <a href="/stay/lindenderry/">Lindenderry</a> sit slightly adjacent to the strict winery-villa category, but they belong in any serious wine-stay conversation because of how well they shape a Peninsula food-and-wine weekend.</p>
-        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+        <p>The best Peninsula wine weekends improve when you stop treating accommodation as an afterthought. The right base means you drink once, eat properly, and wake up where the trip actually happens, instead of spending the whole weekend running transfers between Sorrento beds and Red Hill lunches.</p>
+        <p>The good options are limited, distinct, and easy to choose between once you know what sort of weekend you are building. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> are for couples who want to stay embedded in the vineyard experience. <a href="/stay/port-phillip-estate/">Port Phillip Estate</a> is the Peninsula's most architecturally serious winery stay: Wood Marsh-designed, one-hat restaurant, six suites. <a href="/stay/mantons-creek-estate/">Mantons Creek Estate</a> is the under-indexed option near Shoreham, two minutes from Ten Minutes by Tractor with on-estate Italian dining. <a href="/stay/cassis/">Cassis Red Hill</a> is not on a working winery but sits adjacent to one, and every villa has a private heated plunge pool. <a href="/stay/jackalope/">Jackalope</a> and <a href="/stay/lindenderry/">Lindenderry</a> are the hotel-format alternatives for those who want service infrastructure alongside the wine-country position.</p>
+        <p>Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.</p>
+        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 8 May 2026</p>
       </div>
     </div>
   </article>
@@ -70,7 +81,7 @@ const schema = {
         <div>
           <p class="label label--accent">Wine-country stays</p>
           <h2 class="venues__title">{venues.length} stays that work best for a Peninsula wine weekend</h2>
-          <p class="venues__sub">The strongest bases for long lunches, cellar doors, and slower mornings in Red Hill, Merricks, and the surrounding ridge country.</p>
+          <p class="venues__sub">On-estate villas, architectural winery hotels, and the wine-country positions that collapse the gap between your bed and the next glass.</p>
         </div>
         <a href="/wine/" class="venues__link">Wine country →</a>
       </div>
@@ -87,7 +98,9 @@ const schema = {
         <h3>Best for a one-night wine weekend?</h3>
         <p><a href="/stay/jackalope/">Jackalope</a> if you want drama and a stronger hotel experience. <a href="/stay/polperro-villas/">Polperro Villas</a> if you want something quieter, more intimate, and directly embedded in the wine-country mood.</p>
         <h3>Best for a slower two-night stay?</h3>
-        <p><a href="/stay/lindenderry/">Lindenderry</a>, <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a>, and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> all work well when the weekend is less about ticking off cellar doors and more about pace, meals, and place.</p>
+        <p><a href="/stay/port-phillip-estate/">Port Phillip Estate</a> (architecture, one-hat restaurant, six suites on the estate), <a href="/stay/lindenderry/">Lindenderry</a>, and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> all work well when the weekend is less about ticking off cellar doors and more about pace, meals, and place.</p>
+        <h3>Best for the southern Red Hill circuit?</h3>
+        <p><a href="/stay/mantons-creek-estate/">Mantons Creek Estate</a> — two minutes from Ten Minutes by Tractor, Quattro Restaurant on-site. The most under-indexed winery stay on the Peninsula.</p>
         <h3>Why this matters</h3>
         <p>The Peninsula's wine-country roads are beautiful but narrow and badly lit at night. The more you can collapse dining, tasting, and sleeping into the same zone, the better the weekend becomes.</p>
       </div>

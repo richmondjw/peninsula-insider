@@ -7,7 +7,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const allVenues = await getCollection('venues');
-const slugs = ['jackalope','lindenderry','the-continental-sorrento','point-leo-estate-villas','polperro-villas','crittenden-villas','peninsula-hot-springs-glamping','hotel-sorrento'];
+const slugs = ['jackalope','lindenderry','port-phillip-estate','polperro-villas','crittenden-villas','sanctuary-at-alba','cassis','the-continental-sorrento','hotel-sorrento'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
 const breadcrumbItems = [
@@ -52,7 +52,7 @@ const faqSchema = {
       name: 'What is the best luxury stay on the Mornington Peninsula?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Jackalope is the Peninsula\'s most distinct luxury hotel if you want design, drama, and a wine-country base. Lindenderry is the quieter classic for a slower Red Hill weekend. The Continental and Hotel Sorrento are the strongest options if you want refined coastal access at the tip.',
+        text: 'Jackalope is the Peninsula\'s most distinct luxury hotel if you want design, drama, and a wine-country base. Port Phillip Estate is the most architecturally serious winery stay — Wood Marsh-designed, six suites, one-hat restaurant. Lindenderry is the quieter classic for a slower Red Hill weekend. The Continental and Hotel Sorrento are the strongest options if you want refined coastal access at the tip.',
       },
     },
     {
@@ -68,7 +68,7 @@ const faqSchema = {
       name: 'Are the Peninsula\'s best luxury stays hotels or villas?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Both. Hotels like Jackalope, Lindenderry, Hotel Sorrento, and The Continental work best when service, dining, and easy flow matter. Villas like Point Leo Estate Villas, Polperro Villas, and Crittenden Estate Villas work better when privacy, vineyard setting, and a slower self-contained rhythm matter more.',
+        text: 'Both. Hotels like Jackalope, Lindenderry, Hotel Sorrento, and The Continental work best when service, dining, and easy flow matter. Villas like Polperro Villas, Crittenden Estate Villas, Port Phillip Estate, Cassis, and Sanctuary at Alba work better when privacy, vineyard setting, or a thermal-anchored self-contained rhythm matters more.',
       },
     },
   ],
@@ -76,10 +76,10 @@ const faqSchema = {
 ---
 <BaseLayout
   title="Luxury Accommodation Mornington Peninsula · Peninsula Insider"
-  description="The best luxury accommodation on the Mornington Peninsula, from Jackalope and Lindenderry to vineyard villas and refined coastal stays in Sorrento."
+  description="The best luxury accommodation on the Mornington Peninsula, from Jackalope and Port Phillip Estate to Cassis, Sanctuary at Alba, and refined coastal stays in Sorrento."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/luxury/"
-  modifiedTime="2026-04-24"
+  modifiedTime="2026-05-08"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -89,10 +89,10 @@ const faqSchema = {
     <div class="container">
       <h1 class="article__title">Luxury Accommodation on the Mornington Peninsula</h1>
       <div class="prose">
-        <p>The Peninsula does luxury best when it stops trying to impersonate an international resort strip. The strongest stays here are either rooted in the landscape, vineyard, ridge, ocean edge, village main street, or they are not especially interesting. A good Peninsula luxury stay should shape the whole weekend, not just provide a handsome room key.</p>
-        <p>That usually means one of two modes. The first is hinterland luxury, where the trip leans into wine, long lunches, fireplaces, and slower mornings, with <a href="/stay/jackalope/">Jackalope</a>, <a href="/stay/lindenderry/">Lindenderry</a>, <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a>, and <a href="/stay/polperro-villas/">Polperro Villas</a> doing the heavy lifting. The second is coastal luxury, where the base matters because it decides the rhythm of the trip, and <a href="/stay/the-continental-sorrento/">The Continental</a> and <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> become the right answer.</p>
-        <p>The question is not simply what is most expensive. It is what gives the Peninsula weekend the right shape.</p>
-        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 24 April 2026</p>
+        <p>The Peninsula does luxury best when it stops trying to impersonate an international resort strip. The strongest stays here are either rooted in the landscape — vineyard, ridge, ocean edge, village main street — or they are not especially interesting. A good Peninsula luxury stay should shape the whole weekend, not just provide a handsome room key.</p>
+        <p>That usually means one of three modes. Hinterland luxury, where the trip leans into wine, long lunches, and fireplaces: <a href="/stay/jackalope/">Jackalope</a> and <a href="/stay/lindenderry/">Lindenderry</a> for hotel infrastructure on the wine ridge; <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/crittenden-villas/">Crittenden Estate Villas</a> for on-estate vineyard immersion; <a href="/stay/port-phillip-estate/">Port Phillip Estate</a> for the Peninsula's most architecturally serious winery stay — Wood Marsh-designed, six suites, one-hat restaurant. Thermal-anchored luxury: <a href="/stay/sanctuary-at-alba/">Sanctuary at Alba</a>, opened June 2025, combines five private-pool villas with full access to Alba Thermal Springs, the first Peninsula property to do it properly. Villa luxury with a pools focus: <a href="/stay/cassis/">Cassis Red Hill</a>, five adults-only villas each with a private heated mineral pool, in the heart of the Red Hill corridor. Coastal luxury: <a href="/stay/the-continental-sorrento/">The Continental</a> and <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> for village atmosphere, bay and ocean access, and the walkable Sorrento base.</p>
+        <p>Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package pairs with Lon Retreat in Sorrento. For on-estate stays near Laura and the sculpture park, Mantons Creek Estate is the nearest vineyard-stay alternative.</p>
+        <p style="font-size:0.8rem;color:var(--soft)">Last fact-verified: 8 May 2026</p>
       </div>
     </div>
   </article>
@@ -103,7 +103,7 @@ const faqSchema = {
         <div>
           <p class="label label--accent">Luxury stays</p>
           <h2 class="venues__title">{venues.length} luxury stays worth prioritising</h2>
-          <p class="venues__sub">Design hotels, vineyard villas, and the coastal properties that genuinely shape a Peninsula weekend well.</p>
+          <p class="venues__sub">Design hotels, vineyard villas, thermal-anchored suites, and the coastal properties that genuinely shape a Peninsula weekend well.</p>
         </div>
         <a href="/stay/" class="venues__link">All stays →</a>
       </div>
@@ -120,9 +120,9 @@ const faqSchema = {
         <h3>Red Hill or Sorrento?</h3>
         <p><strong>Red Hill</strong> is the right base when the weekend is about wine, long lunches, and a slower food-led Peninsula. <strong>Sorrento</strong> is the right base when the weekend is about village atmosphere, walking, bay and ocean access, and a stronger sense of arrival.</p>
         <h3>Hotel or villa?</h3>
-        <p>Choose a hotel if you want service, restaurant access, and easier flow. Choose a villa if privacy, vineyard setting, and a more self-contained long-weekend rhythm matter more than formal hotel infrastructure.</p>
+        <p>Choose a hotel if you want service, restaurant access, and easier flow. Choose a villa if privacy, vineyard setting, thermal access, and a more self-contained long-weekend rhythm matter more than formal hotel infrastructure.</p>
         <h3>The publication's view</h3>
-        <p><a href="/stay/jackalope/">Jackalope</a> is still the Peninsula's most singular luxury hotel expression. <a href="/stay/lindenderry/">Lindenderry</a> is the calmer, more classic counterpoint. <a href="/stay/point-leo-estate-villas/">Point Leo Estate Villas</a> and <a href="/stay/polperro-villas/">Polperro Villas</a> make the strongest case for luxury through place rather than spectacle.</p>
+        <p><a href="/stay/jackalope/">Jackalope</a> is still the Peninsula's most singular luxury hotel expression. <a href="/stay/port-phillip-estate/">Port Phillip Estate</a> is the most architecturally considered winery stay. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/stay/sanctuary-at-alba/">Sanctuary at Alba</a> make the strongest case for luxury through place rather than spectacle.</p>
       </div>
     </div>
   </section>
