@@ -74,6 +74,10 @@ const coordinates = z.object({
 const imageRef = z.object({
   src: z.string(),
   alt: z.string(),
+  // Free-form attribution string. Set to the literal "jem" for any photo
+  // taken by James and Emma; templates (lib/editorial.formatHeroCredit)
+  // render that sentinel as "Photograph by jem". Anything else renders
+  // as "Photo · {credit}".
   credit: z.string(),
   license: imageLicense.default('venue-media-kit'),
   caption: z.string().optional(),

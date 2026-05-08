@@ -12,6 +12,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import VenueCard from '../../../components/VenueCard.astro';
 import PlaceCard from '../../../components/PlaceCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import { formatHeroCredit } from '../../../lib/editorial';
 
 export async function getStaticPaths() {
   const secrets = await getCollection('localSecrets');
@@ -59,7 +60,7 @@ const breadcrumbItems = [
       {data.heroImage?.src && (
         <figure class="local-secret-detail__hero">
           <img src={data.heroImage.src} alt={data.heroImage.alt} loading="lazy" />
-          {data.heroImage.credit && <figcaption>{data.heroImage.credit}</figcaption>}
+          {data.heroImage.credit && <figcaption>{formatHeroCredit(data.heroImage.credit)}</figcaption>}
         </figure>
       )}
 

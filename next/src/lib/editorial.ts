@@ -366,6 +366,23 @@ export function heroBackgroundStyle(data: any): string {
 }
 
 /**
+ * Format a hero-image credit string for display under the hero.
+ *
+ * Convention: when the photo is taken by James and Emma, set the
+ * heroImage `credit` field to the literal string "jem". This template
+ * then renders the byline as "Photograph by jem" instead of the default
+ * "Photo · {credit}" prefix used for everyone else.
+ *
+ * Opt in by setting `credit: "jem"` on a venue, place, or article
+ * heroImage. Anything else passes through unchanged.
+ */
+export function formatHeroCredit(credit: string | undefined | null): string {
+  if (!credit) return '';
+  if (credit.trim().toLowerCase() === 'jem') return 'Photograph by jem';
+  return `Photo · ${credit}`;
+}
+
+/**
  * Return the current Southern-Hemisphere season from a Date.
  * Used for seasonal hooks on index pages.
  */
