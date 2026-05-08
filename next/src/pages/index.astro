@@ -1,7 +1,26 @@
 ---
+/**
+ * Homepage — Cinematic cover for the issue's spotlight article.
+ *
+ * Full-bleed editorial cover, magazine-style. One image, one cover line,
+ * one PI dispatch tied to the current spotlight. Scrim + grain + Ken Burns
+ * drift carry the cinematic feel; rules in BRAND-PI.md govern voice.
+ *
+ * Below the fold the existing editorial layout resumes:
+ * Weekend Picker → Places rail → Three picks → Shortlist → Editor's Letter
+ * → Newsletter.
+ *
+ * Spotlight is set in the `scenes` array near the top of the script block.
+ * The array + grid-stack scaffold is preserved so a rotator (time-of-day,
+ * monthly cover swap, three editor's picks) can be reintroduced cleanly —
+ * see the "No client-side picker" comment further down for the entry point.
+ *
+ * Honours prefers-reduced-motion (no Ken Burns drift).
+ * Promoted from /preview-cinematic/ on 2026-05-08, replacing the
+ * HomeCover-based magazine layout that lives in git history at HEAD~1.
+ */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HomeCover from '../components/HomeCover.astro';
 import Shortlist from '../components/Shortlist.astro';
 import EditorsLetter from '../components/EditorsLetter.astro';
 import PlaceCard from '../components/PlaceCard.astro';
@@ -15,12 +34,11 @@ const articles    = (await getCollection('articles', ({ data }) => data.status =
 const places      = await getCollection('places');
 const experiences = await getCollection('experiences');
 
-// ── Cover story ──────────────────────────────────────────────────────────────
+// ── Below-fold data (mirrors index.astro so the integration is visible) ─────
 const featured = articles.find((a) => a.data.featured && a.data.format !== 'weekend-picker')
   ?? articles.find((a) => a.data.format !== 'weekend-picker')
   ?? articles[0];
 
-// ── Weekend dispatch ──────────────────────────────────────────────────────────
 const weekendDispatch = articles
   .filter((a) => a.data.format === 'weekend-picker')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
@@ -28,7 +46,6 @@ const dispatchWindow = weekendDispatch
   ? dispatchWeekend(weekendDispatch.data.publishedAt)
   : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
 
-// ── Five reads ────────────────────────────────────────────────────────────────
 const editorPicks = articles
   .filter((a) => routeSlug(a) !== routeSlug(featured))
   .filter((a) =>
@@ -37,7 +54,6 @@ const editorPicks = articles
   )
   .slice(0, 5);
 
-// ── Three editorial picks (eat / stay / explore) ──────────────────────────────
 const eatPick = venues.find((v) => routeSlug(v) === 'laura')
   ?? venues.find((v) => routeSlug(v) === 'ten-minutes-by-tractor')
   ?? venues.filter((v) => v.data.type === 'restaurant')[0];
@@ -48,22 +64,61 @@ const stayPick = venues.find((v) => routeSlug(v) === 'jackalope')
 const explorePick = experiences.find((e) => routeSlug(e) === 'bushrangers-bay-walk')
   ?? experiences[0];
 
-// ── Places rail ───────────────────────────────────────────────────────────────
 const featuredPlaces = places.filter((p) =>
   ['red-hill', 'sorrento', 'flinders', 'mornington', 'portsea', 'main-ridge'].includes(routeSlug(p))
 );
 
-// ── Editor's letter ───────────────────────────────────────────────────────────
 const season         = currentSeason();
 const seasonBlurbData = seasonBlurb[season];
 
 const now       = new Date();
 const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+
+// ── Cinematic hero data ────────────────────────────────────────────────────
+// Production cover: the May issue's spotlight is the Hatted Restaurants
+// article. Single-image, single-story cover (a magazine cover features one
+// piece, not five). The time-of-day rotator structure has been collapsed
+// to a single scene — the array+grid scaffold is preserved so we can bring
+// rotation back later if we ever do a "five covers" issue.
+//
+// Image: Pt. Leo Estate sculpture park, above Western Port. Laura (one of
+// the four two-hat restaurants the article leads with) lives at Pt. Leo.
+// CC-BY-SA-4.0, documented in /images/sourced/LICENSES.md.
+
+interface Scene {
+  id: string;             // stable key
+  label: string;          // eyebrow chip, e.g. "THE COVER STORY"
+  hours: string;          // small-print sub, e.g. "9 MIN READ"
+  image: string;
+  imageAlt: string;
+  caption: string;        // bottom-right location credit
+  headline: string;       // <em> tags render italic gold accent
+  dispatch: string;       // PI voice — see BRAND-PI.md voice rules
+  primaryHref: string;
+  primaryLabel: string;
+}
+
+const scenes: Scene[] = [
+  {
+    id: 'cover',
+    label: 'THE COVER STORY',
+    hours: '9 MIN READ',
+    image: '/images/sourced/venue-pt-leo-sculpture-01.webp',
+    imageAlt: "Pt. Leo Estate sculpture park, with Barry Flanagan's Drummer hare on the lawn above Western Port — home of Laura, one of the Peninsula's two-hat restaurants",
+    caption: 'Pt. Leo Estate, Merricks',
+    headline: 'The Hatted Restaurants of the <em>Peninsula.</em>',
+    dispatch: 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
+    primaryHref: '/journal/hatted-restaurants-mornington-peninsula-2025/',
+    primaryLabel: 'Read the cover story',
+  },
+];
+
+const ssrScene = scenes[0];
 ---
 
 <BaseLayout
   title="Peninsula Insider, The Mornington Peninsula Guide"
-  description="The independent guide to the Mornington Peninsula, best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated April 2026."
+  description="The independent guide to the Mornington Peninsula, best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated May 2026."
   section="home"
   canonical="https://peninsulainsider.com.au"
 >
@@ -111,28 +166,77 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     ],
   })} />
 
-  {/* ── 1. Cover ───────────────────────────────────────────────────────────── */}
-  {featured && (
-    <HomeCover
-      tag="The Cover Feature"
-      issue={`Vol 04 · ${issueDate}`}
-      subLabel="The Long Read"
-      title={featured.data.title}
-      dek={featured.data.dek}
-      byline={featured.data.houseByline
-        ? 'The Peninsula Insider Editors'
-        : (featured.data.author?.id ? String(featured.data.author.id) : 'The Peninsula Insider Editors')}
-      readingTime={featured.data.readingTimeMinutes ? `${featured.data.readingTimeMinutes} min` : undefined}
-      href={`/journal/${routeSlug(featured)}`}
-      images={[
-        { src: '/images/sourced/explore-bushrangers-bay-walk-01.webp',  alt: 'Bushrangers Bay on the Mornington Peninsula' },
-        { src: '/images/sourced/place-cape-schanck-01.webp',            alt: 'Cape Schanck coastline at dawn' },
-        { src: '/images/sourced/explore-cape-schanck-boardwalk-01.webp', alt: 'Cape Schanck boardwalk and coastal trail' },
-      ]}
-    />
-  )}
+  {/* ── Cinematic hero ─────────────────────────────────────────────────────── */}
+  <section class="cinema" aria-label="Cover">
+    {/* Image layer (array kept so rotation can be reintroduced cleanly later) */}
+    <div class="cinema__bg" aria-hidden="true">
+      {scenes.map((s) => (
+        <div class={`cinema-scene${s.id === ssrScene.id ? ' is-active' : ''}`} data-scene={s.id}>
+          <img
+            src={s.image}
+            alt={s.imageAlt}
+            loading="eager"
+            fetchpriority={s.id === ssrScene.id ? 'high' : undefined}
+          />
+        </div>
+      ))}
+    </div>
 
-  {/* ── 2. This weekend ────────────────────────────────────────────────────── */}
+    {/* Vertical scrim for legibility of bottom-anchored copy */}
+    <div class="cinema__scrim" aria-hidden="true"></div>
+
+    {/* Local grain (separate from global so we can tune intensity) */}
+    <div class="cinema__grain" aria-hidden="true"></div>
+
+    {/* Top chrome — masthead identity + issue */}
+    <header class="cinema__top">
+      <div class="cinema__brand">Peninsula Insider</div>
+      <div class="cinema__issue">
+        <span>Vol 04</span>
+        <span class="cinema__dot" aria-hidden="true">·</span>
+        <span>{issueDate}</span>
+      </div>
+    </header>
+
+    {/* Bottom-left copy block. Grid-stack scaffold preserved so rotation
+         can be reintroduced cleanly — currently a single scene. */}
+    <div class="cinema__copy">
+      <div class="cinema-copy-wrap">
+        {scenes.map((s) => (
+          <div class={`cinema-copy${s.id === ssrScene.id ? ' is-active' : ''}`} data-copy={s.id}>
+            <p class="cinema-copy__time">
+              <span class="cinema-copy__chip">{s.label}</span>
+              <span class="cinema-copy__hours">{s.hours}</span>
+            </p>
+            <h1 class="cinema-copy__headline" set:html={s.headline} />
+            <p class="cinema-copy__dispatch">{s.dispatch}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="cinema__ctas">
+        <a class="cinema__cta cinema__cta--primary" href={ssrScene.primaryHref}>
+          {ssrScene.primaryLabel} <span aria-hidden="true">→</span>
+        </a>
+        <a class="cinema__cta cinema__cta--ghost" href="/ask/" data-pi-trigger="true">
+          Ask PI <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <p class="cinema__signature">PI's notebook</p>
+    </div>
+
+    {/* Bottom-right caption */}
+    <p class="cinema__caption">{ssrScene.caption}</p>
+
+    {/* Scroll hint */}
+    <div class="cinema__scroll" aria-hidden="true">
+      <span class="cinema__scroll-label">Inside the issue</span>
+      <span class="cinema__scroll-line"></span>
+    </div>
+  </section>
+
+  {/* ── Below the fold — existing magazine layout, unchanged ───────────────── */}
   {weekendDispatch && (
     <WeekendPickerBlock
       dispatch={weekendDispatch}
@@ -140,7 +244,6 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     />
   )}
 
-  {/* ── 3. The Peninsula, place by place ───────────────────────────────────── */}
   {featuredPlaces.length > 0 && (
     <section class="places places--compact">
       <div class="container">
@@ -164,7 +267,6 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     </section>
   )}
 
-  {/* ── 4. Three picks: eat, stay, explore ─────────────────────────────────── */}
   {(eatPick || stayPick || explorePick) && (
     <section class="hp-picks">
       <div class="container">
@@ -179,53 +281,32 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
           {eatPick && (
             <a href={`/eat/${routeSlug(eatPick)}`} class="hp-pick">
               <div class="hp-pick__img">
-                <img
-                  src={resolveHeroSrc(eatPick.data)}
-                  alt={eatPick.data.heroImage?.alt ?? eatPick.data.name ?? 'Restaurant pick'}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={resolveHeroSrc(eatPick.data)} alt={eatPick.data.heroImage?.alt ?? eatPick.data.name ?? 'Restaurant pick'} loading="lazy" decoding="async" />
               </div>
               <p class="hp-pick__tag">Eat &amp; Drink</p>
               <h3 class="hp-pick__name">{eatPick.data.name}</h3>
-              {eatPick.data.signature && (
-                <p class="hp-pick__note">{eatPick.data.signature}</p>
-              )}
+              {eatPick.data.signature && (<p class="hp-pick__note">{eatPick.data.signature}</p>)}
             </a>
           )}
           {stayPick && (
             <a href={`/stay/${routeSlug(stayPick)}`} class="hp-pick">
               <div class="hp-pick__img">
-                <img
-                  src={resolveHeroSrc(stayPick.data)}
-                  alt={stayPick.data.heroImage?.alt ?? stayPick.data.name ?? 'Stay pick'}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={resolveHeroSrc(stayPick.data)} alt={stayPick.data.heroImage?.alt ?? stayPick.data.name ?? 'Stay pick'} loading="lazy" decoding="async" />
               </div>
               <p class="hp-pick__tag">Stay</p>
               <h3 class="hp-pick__name">{stayPick.data.name}</h3>
-              {stayPick.data.signature && (
-                <p class="hp-pick__note">{stayPick.data.signature}</p>
-              )}
+              {stayPick.data.signature && (<p class="hp-pick__note">{stayPick.data.signature}</p>)}
             </a>
           )}
           {explorePick && (
             <a href={`/explore/${routeSlug(explorePick)}`} class="hp-pick">
               <div class="hp-pick__img">
-                <img
-                  src={resolveHeroSrc(explorePick.data)}
-                  alt={explorePick.data.heroImage?.alt ?? explorePick.data.name ?? 'Explore pick'}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={resolveHeroSrc(explorePick.data)} alt={explorePick.data.heroImage?.alt ?? explorePick.data.name ?? 'Explore pick'} loading="lazy" decoding="async" />
               </div>
               <p class="hp-pick__tag">Explore</p>
               <h3 class="hp-pick__name">{explorePick.data.name}</h3>
               {explorePick.data.editorNote && (
-                <p class="hp-pick__note">
-                  {String(explorePick.data.editorNote).split('.')[0].trim()}.
-                </p>
+                <p class="hp-pick__note">{String(explorePick.data.editorNote).split('.')[0].trim()}.</p>
               )}
             </a>
           )}
@@ -234,7 +315,6 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     </section>
   )}
 
-  {/* ── 5. Five reads ──────────────────────────────────────────────────────── */}
   {editorPicks.length > 0 && (
     <Shortlist
       eyebrow="The Shortlist"
@@ -258,13 +338,12 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     />
   )}
 
-  {/* ── 6. Editor's letter ─────────────────────────────────────────────────── */}
   <EditorsLetter
     eyebrow="Editor's Letter"
     title={`On the <em>quiet authority</em> of a good ${seasonBlurbData.label?.toLowerCase() ?? 'autumn'}.`}
     paragraphs={[
-      `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year. Most places you want to get into, you can actually get into. The light is good. The rooms are warm. The producers, finally, have time.`,
-      `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking. The newsletter, <em>Peninsula This Weekend</em>, lands weekly with the current issue's picks tightened into a single page.`,
+      `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year.`,
+      `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking.`,
       `If this is your first issue with us, welcome. If you're returning, thanks for the patience through the refit.`,
     ]}
     pullQuote="This issue is built for the six weeks where the Peninsula is at its most itself, before winter settles in and the coast goes quiet."
@@ -275,23 +354,367 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     imageCaption="The last weekend of vintage, Red Hill, <em>the quietest a working winery ever gets.</em>"
   />
 
-  {/* ── 7. Newsletter ──────────────────────────────────────────────────────── */}
   <NewsletterBlock />
-
 </BaseLayout>
 
+{/* ─────────────────────────────────────────────────────────────────────────
+   Cinematic hero styles. Self-contained, scoped to .cinema*.
+   Below-fold sections inherit existing global styles.
+   ───────────────────────────────────────────────────────────────────────── */}
 <style is:global>
-  /* ── Places compact: suppress intro text so each tile reads as image + name ── */
-  .places--compact .place-card__intro {
-    display: none;
+  .cinema {
+    position: relative;
+    min-height: 75vh;            /* three-quarter screen — next section peeks below */
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    background: #1E1B18;
+    color: #FDFCFA;
   }
+
+  /* ── Image layer ─────────────────────────────────────────────────────────── */
+  .cinema__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .cinema-scene {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity;
+  }
+  .cinema-scene.is-active {
+    opacity: 1;
+  }
+  .cinema-scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 45%;
+    display: block;
+    transform: scale(1.04);
+    /* Ken Burns is applied only to the active scene to save battery. */
+  }
+  .cinema-scene.is-active img {
+    animation: cinema-kenburns 28s ease-in-out infinite alternate;
+  }
+  @keyframes cinema-kenburns {
+    0%   { transform: scale(1.04) translate3d(0, 0, 0); }
+    100% { transform: scale(1.10) translate3d(-1.5%, -1%, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cinema-scene.is-active img { animation: none; transform: scale(1.04); }
+    .cinema-scene { transition: opacity 0.2s linear; }
+  }
+
+  /* ── Scrim — two layers stacked.
+     1. Vertical gradient: top kept light, dark phase pulled UP to 35% so the
+        copy block (~50–80% down) sits on real shade, not photo.
+     2. Bottom-left radial vignette: localised dark wash anchored under the
+        copy column. Reads as natural light fall-off, keeps the rest of the
+        photo bright, and bites legibility back without flattening the image.
+     ──────────────────────────────────────────────────────────────────────── */
+  .cinema__scrim {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      /* localised vignette behind the copy */
+      radial-gradient(
+        ellipse 70% 75% at 22% 88%,
+        rgba(0, 0, 0, 0.62) 0%,
+        rgba(0, 0, 0, 0.32) 45%,
+        transparent 75%
+      ),
+      /* vertical scrim — dark phase starts higher */
+      linear-gradient(
+        to bottom,
+        rgba(20, 18, 16, 0.32) 0%,
+        rgba(20, 18, 16, 0.05) 18%,
+        rgba(20, 18, 16, 0.18) 35%,
+        rgba(20, 18, 16, 0.58) 65%,
+        rgba(20, 18, 16, 0.88) 100%
+      );
+  }
+
+  /* ── Local grain layer — slightly heavier than the global one ────────────── */
+  .cinema__grain {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px;
+    mix-blend-mode: overlay;
+  }
+
+  /* ── Top chrome ──────────────────────────────────────────────────────────── */
+  .cinema__top {
+    position: absolute;
+    z-index: 3;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1.25rem, 4vw, 3rem);
+    pointer-events: none;
+  }
+  .cinema__brand {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    letter-spacing: 0.01em;
+    color: #FDFCFA;
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.55),
+      0 1px 14px rgba(0, 0, 0, 0.4);
+  }
+  .cinema__issue {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.92);
+    display: flex;
+    gap: 0.55rem;
+    align-items: center;
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.55),
+      0 1px 14px rgba(0, 0, 0, 0.4);
+  }
+  .cinema__dot { color: rgba(253, 252, 250, 0.4); }
+
+  /* ── Bottom copy block ───────────────────────────────────────────────────── */
+  /* The copy column is a flex stack anchored to the bottom of the hero.
+     Inside it, .cinema-copy-wrap grid-stacks the 5 zone variants so the wrap
+     auto-sizes to the tallest one, and the CTAs flow normally beneath with
+     real margin spacing — not a calculated offset. */
+  .cinema__copy {
+    position: relative;
+    z-index: 3;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .cinema-copy-wrap {
+    display: grid;               /* all variants share grid cell 1/1 */
+    grid-template-areas: "stack";
+  }
+
+  .cinema-copy {
+    grid-area: stack;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), transform 1.0s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    will-change: opacity, transform;
+  }
+  .cinema-copy.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cinema-copy { transition: opacity 0.2s linear; transform: none; }
+  }
+
+  .cinema-copy__time {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 1rem;            /* was 1.5rem — tightened gap to headline */
+    padding-bottom: 0.85rem;     /* was 1rem — rule sits a touch closer */
+    border-bottom: 1px solid rgba(253, 252, 250, 0.16);
+    max-width: 24rem;
+  }
+  .cinema-copy__chip {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #C9A971;              /* gold, brightened slightly for contrast */
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.7),
+      0 1px 18px rgba(0, 0, 0, 0.5);
+  }
+  .cinema-copy__hours {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.75); /* was 0.55 — too faint over photo */
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.6),
+      0 1px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .cinema-copy__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.6rem, 7vw, 5.6rem);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    color: #FDFCFA;
+    margin: 0 0 1.25rem;
+    max-width: 14ch;
+    /* Multi-stop shadow — tight ink under the type, soft halo behind it.
+       Reads as printed type on paper, not as glow. */
+    text-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.55),
+      0 2px 8px rgba(0, 0, 0, 0.45),
+      0 6px 32px rgba(0, 0, 0, 0.4);
+  }
+  .cinema-copy__headline em {
+    font-style: italic;
+    font-weight: 500;
+    color: #C9A971;              /* gold, brightened to match chip */
+    text-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.55),
+      0 2px 12px rgba(0, 0, 0, 0.45),
+      0 4px 28px rgba(120, 90, 40, 0.35);
+  }
+
+  .cinema-copy__dispatch {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;            /* was default 400 — italic at body size needs the bump */
+    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    line-height: 1.55;
+    color: #FDFCFA;              /* was rgba(...0.82) — full opacity for legibility */
+    margin: 0;
+    max-width: 48ch;
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.6),
+      0 2px 16px rgba(0, 0, 0, 0.45);
+  }
+
+  /* ── CTAs (constant, sit just below the copy block in normal flow) ───────── */
+  .cinema__ctas {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 1.25rem;         /* tight enough to read as one editorial block */
+  }
+  .cinema__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.6rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    min-height: 44px;
+  }
+  .cinema__cta--primary {
+    background: #8B4E3B;
+    color: #FDFCFA;
+  }
+  .cinema__cta--primary:hover { background: #6D3A2B; }
+  .cinema__cta--ghost {
+    background: transparent;
+    color: rgba(253, 252, 250, 0.78);
+    border: 1px solid rgba(253, 252, 250, 0.28);
+  }
+  .cinema__cta--ghost:hover {
+    color: #FDFCFA;
+    border-color: rgba(253, 252, 250, 0.6);
+  }
+
+  .cinema__signature {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(253, 252, 250, 0.7);   /* was 0.4 — too ghostly to read */
+    margin: 1.25rem 0 0;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ── Bottom-right caption ────────────────────────────────────────────────── */
+  .cinema__caption {
+    position: absolute;
+    z-index: 3;
+    right: clamp(1.25rem, 4vw, 3rem);
+    bottom: clamp(2.5rem, 6vw, 4.5rem);
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.78);
+    margin: 0;
+    text-align: right;
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.55),
+      0 1px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ── Scroll hint ─────────────────────────────────────────────────────────── */
+  .cinema__scroll {
+    position: absolute;
+    z-index: 3;
+    right: clamp(1.25rem, 4vw, 3rem);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    pointer-events: none;
+  }
+  .cinema__scroll-label {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.4);
+    writing-mode: vertical-rl;
+  }
+  .cinema__scroll-line {
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(to bottom, rgba(253, 252, 250, 0.4), rgba(253, 252, 250, 0));
+  }
+
+  /* ── Mobile ──────────────────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .cinema { min-height: 70vh; }              /* was 88vh — match desktop ratio */
+    .cinema-copy__headline { font-size: clamp(2.4rem, 9vw, 3.4rem); max-width: 100%; }
+    .cinema-copy__dispatch { font-size: 1rem; }
+    .cinema__top { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+    .cinema__scroll { display: none; }
+    .cinema__caption { display: none; }
+    .cinema__ctas { width: 100%; margin-top: 1.5rem; }
+    .cinema__cta { flex: 1 1 auto; justify-content: center; text-align: center; }
+  }
+
+  /* =========================================================================
+     Below-fold styles — ported verbatim from index.astro so the integration
+     reads identically to the live homepage. These are scoped to .places--compact
+     and .hp-picks / .hp-pick* and don't collide with anything else.
+     ─────────────────────────────────────────────────────────────────────── */
+
+  /* ── Places compact: suppress intro text so each tile reads as image + name ── */
+  .places--compact .place-card__intro { display: none; }
 
   /* ── Three picks ─────────────────────────────────────────────────────────── */
   .hp-picks {
     padding: clamp(4rem, 7vw, 6rem) 0;
     background: var(--paper, #FAF6EE);
   }
-
   .hp-picks__head {
     display: flex;
     align-items: baseline;
@@ -300,7 +723,6 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     gap: 1rem;
     margin-bottom: clamp(2rem, 4vw, 3rem);
   }
-
   .hp-picks__title {
     font-family: var(--serif, 'Newsreader', Georgia, serif);
     font-size: clamp(1.5rem, 2.5vw, 2rem);
@@ -310,33 +732,25 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     margin: 0.25rem 0 0;
     font-variation-settings: 'opsz' 32;
   }
-
   .hp-picks__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(1.5rem, 3vw, 2.5rem);
   }
-
   @media (max-width: 800px) {
-    .hp-picks__grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
+    .hp-picks__grid { grid-template-columns: 1fr; gap: 2.5rem; }
   }
-
   .hp-pick {
     display: block;
     text-decoration: none;
     color: var(--ink, #171413);
   }
-
   .hp-pick__img {
     aspect-ratio: 4 / 3;
     overflow: hidden;
     margin-bottom: 1rem;
     background: var(--sand, #E8E2D1);
   }
-
   .hp-pick__img img {
     width: 100%;
     height: 100%;
@@ -344,11 +758,7 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     display: block;
     transition: transform 0.45s ease;
   }
-
-  .hp-pick:hover .hp-pick__img img {
-    transform: scale(1.04);
-  }
-
+  .hp-pick:hover .hp-pick__img img { transform: scale(1.04); }
   .hp-pick__tag {
     font-size: 0.62rem;
     font-weight: 700;
@@ -358,7 +768,6 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     margin: 0 0 0.45rem;
     font-family: var(--sans, 'Inter', system-ui, sans-serif);
   }
-
   .hp-pick__name {
     font-family: var(--serif, 'Newsreader', Georgia, serif);
     font-size: clamp(1.15rem, 1.8vw, 1.4rem);
@@ -369,16 +778,20 @@ const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeri
     line-height: 1.25;
     font-variation-settings: 'opsz' 24;
   }
-
   .hp-pick__note {
     font-size: 0.9rem;
     line-height: 1.55;
     color: var(--ink-soft, #3A3531);
     margin: 0;
   }
-
   .hp-pick:hover .hp-pick__name {
     color: var(--ochre, #A0541F);
     transition: color 0.18s ease;
   }
 </style>
+
+{/* No client-side picker for the production cover — single scene, baked
+   server-side. The grid-stack scaffold and [data-scene]/[data-copy] attrs
+   are preserved on the markup so a rotator (time-of-day, issue rotation,
+   editor's three picks, etc.) can be reintroduced by restoring an
+   activate() function similar to the one removed in commit-prod-cover. */}
