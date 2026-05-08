@@ -236,6 +236,22 @@ const ssrScene = scenes[0];
     </div>
   </section>
 
+  <section class="cinema-mobile-copy" aria-label="Cover story summary">
+    <div class="cinema-mobile-copy__inner">
+      <p class="cinema-mobile-copy__time">
+        <span class="cinema-mobile-copy__chip">{ssrScene.label}</span>
+        <span class="cinema-mobile-copy__hours">{ssrScene.hours}</span>
+      </p>
+      <h1 class="cinema-mobile-copy__headline" set:html={ssrScene.headline} />
+      <p class="cinema-mobile-copy__dispatch">{ssrScene.dispatch}</p>
+      <div class="cinema-mobile-copy__ctas">
+        <a class="cinema-mobile-copy__cta cinema-mobile-copy__cta--primary" href={ssrScene.primaryHref}>
+          {ssrScene.primaryLabel} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   {/* ── Below the fold — existing magazine layout, unchanged ───────────────── */}
   {weekendDispatch && (
     <WeekendPickerBlock
@@ -690,15 +706,116 @@ const ssrScene = scenes[0];
   }
 
   /* ── Mobile ──────────────────────────────────────────────────────────────── */
+  .cinema-mobile-copy {
+    display: none;
+    background: #F6F1E8;
+    color: #171413;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
+  }
+  .cinema-mobile-copy__inner {
+    width: min(100%, 40rem);
+    margin: 0 auto;
+    padding: 1.4rem 1.25rem 1.75rem;
+  }
+  .cinema-mobile-copy__time {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.12);
+  }
+  .cinema-mobile-copy__chip,
+  .cinema-mobile-copy__hours {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .cinema-mobile-copy__chip {
+    font-weight: 700;
+    color: #8B4E3B;
+  }
+  .cinema-mobile-copy__hours {
+    font-weight: 500;
+    color: rgba(23, 20, 19, 0.62);
+  }
+  .cinema-mobile-copy__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.4rem, 9vw, 3.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: #171413;
+    margin: 0 0 1rem;
+  }
+  .cinema-mobile-copy__headline em {
+    font-style: italic;
+    color: #8B4E3B;
+  }
+  .cinema-mobile-copy__dispatch {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: #433b36;
+    margin: 0;
+  }
+  .cinema-mobile-copy__ctas {
+    display: flex;
+    margin-top: 1.25rem;
+  }
+  .cinema-mobile-copy__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.95rem 1.25rem;
+    text-decoration: none;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .cinema-mobile-copy__cta--primary {
+    background: #8B4E3B;
+    color: #FDFCFA;
+  }
+
   @media (max-width: 768px) {
-    .cinema { min-height: 70vh; }              /* was 88vh — match desktop ratio */
-    .cinema-copy__headline { font-size: clamp(2.4rem, 9vw, 3.4rem); max-width: 100%; }
-    .cinema-copy__dispatch { font-size: 1rem; }
-    .cinema__top { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+    .cinema {
+      min-height: auto;
+      height: 50svh;
+    }
+    .cinema__bg,
+    .cinema__scrim,
+    .cinema__grain,
+    .cinema__top,
+    .cinema__caption {
+      inset: 0;
+    }
+    .cinema__copy {
+      display: none;
+    }
+    .cinema__top {
+      padding-bottom: 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+    }
+    .cinema__issue {
+      gap: 0.4rem;
+      letter-spacing: 0.18em;
+    }
     .cinema__scroll { display: none; }
     .cinema__caption { display: none; }
-    .cinema__ctas { width: 100%; margin-top: 1.5rem; }
-    .cinema__cta { flex: 1 1 auto; justify-content: center; text-align: center; }
+    .cinema-mobile-copy { display: block; }
+    body[data-page="home"] .pi-drawer__bubble {
+      display: none;
+    }
   }
 
   /* =========================================================================
