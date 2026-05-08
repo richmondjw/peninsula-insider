@@ -32,6 +32,18 @@
   --max-w:      1100px;
   --prose-w:    680px;
   --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --tile-image-radius: 10px;
+}
+
+/* Shared image treatment for editorial tiles/cards */
+.feature__image-block,
+.feature__image-bg,
+.place-card,
+.place-card__image,
+.tour-card,
+.tour-card__image,
+.tour-card__image img {
+  border-radius: var(--tile-image-radius);
 }
 
 /* =========================================================
@@ -913,7 +925,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .feature__image-block {
   position: relative;
   aspect-ratio: 3 / 2;
-  border-radius: 2px;
+  border-radius: var(--tile-image-radius);
   overflow: hidden;
 }
 .feature__image-bg {
@@ -1366,7 +1378,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .place-card {
   position: relative;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: var(--tile-image-radius);
 }
 .place-card__image {
   aspect-ratio: 16 / 9;
@@ -7740,7 +7752,7 @@ p.has-drop-cap::first-letter {
 }
 
 /* ─── Tour vertical ─────────────────────────────────────────────────────── */
-.tour-card { background: var(--bg); border: 1px solid var(--border); border-radius: 2px; display: flex; flex-direction: column; overflow: hidden; transition: box-shadow 0.2s; }
+.tour-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--tile-image-radius); display: flex; flex-direction: column; overflow: hidden; transition: box-shadow 0.2s; }
 .tour-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); }
 .tour-card__image { aspect-ratio: 16/9; overflow: hidden; }
 .tour-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
