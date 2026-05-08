@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-05-03
 heroImage:
   src: "/images/sourced/explore-mount-martha-beach-01.webp"
-  alt: "Mount Martha beach on a Mornington Peninsula weekend, 3 to 4 May 2026"
+  alt: "Mount Martha beach on a Mornington Peninsula weekend, 9 to 10 May 2026"
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "weekend-picker"
