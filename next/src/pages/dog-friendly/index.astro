@@ -89,7 +89,10 @@ const utilityCards = [
           <p class="venues__sub">The four pages that should become the core of the hub.</p>
         </div>
       </div>
-      <div class="venues__grid">
+      {/* 4 cards lay out cleanest as 2×2 — the default 3-column grid leaves
+          the fourth card stranded on its own row. The --two modifier is the
+          existing system-wide pattern for even-card-count sections. */}
+      <div class="venues__grid venues__grid--two">
         {hubCards.map((card) => (
           <article class="venue-card">
             <h3 class="venue-card__name"><a href={card.href}>{card.title}</a></h3>
