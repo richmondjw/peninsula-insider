@@ -14,6 +14,34 @@ For each meaningful change, include:
 
 ---
 
+## 2026-05-08 — Claude (places hub hero swap)
+
+### Replaced /places/ hero image
+
+**Summary**
+Swapped the `/places/` hub hero from `places-hub-hero-01.webp` (a moody black-and-white sky with a thin sliver of land) to `home-cover.webp` (the framed clifftop coastline at golden hour). The previous image had no sense of place and could have been any coastline anywhere; the new image reads as Peninsula geography immediately, matching the page's "get the geography right and the rest of the trip arranges itself" frame.
+
+**Files changed**
+- `next/src/pages/places/index.astro` — `BaseLayout` `ogImage` and `GuideHero` `heroImage` + `imageAlt`.
+
+**Pages affected**
+`/places/` (single page).
+
+**Why it matters**
+The places hub is the editorial gateway to all 20 town pages. A hero that fails to communicate "Mornington Peninsula" undermines the rest of the page's geographic argument. Side benefit: the new alt text describes what's actually visible.
+
+**Trade-off (logged)**
+`home-cover.webp` is also used as the homepage hero (`CoverHero.astro`) and as the universal OG fallback (`BaseLayout`, `schema.ts`). Visual overlap between `/` and `/places/` is the cost of this swap; user accepted that trade-off when picking from four candidates.
+
+**Verification**
+Local build not run — `next/node_modules` is empty in this sandbox. Edits are pure string replacements pointing at an image that already exists at `next/public/images/sourced/home-cover.webp`, so no broken-asset risk. Recommend confirming on next CI/deploy build.
+
+**Follow-up**
+- If the homepage/places visual repetition becomes a problem, commission or source a dedicated places-hub image (aerial of the whole peninsula, or a curated grid of 4–6 town vignettes) and swap back.
+- The orphaned `places-hub-hero-01.webp` file can stay in `next/public/images/sourced/` as a fallback or be removed in a later sweep.
+
+---
+
 ## 2026-05-04 — Claude (SEO experiment 2026-05-04-01)
 
 ### CTR snippet rewrite on dog-friendly journal page
