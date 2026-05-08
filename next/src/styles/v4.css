@@ -571,11 +571,19 @@ body[data-v4="true"] .masthead {
 }
 .v4-drawer__brand {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
+  font-size: 33px;
+  line-height: 1.1;
+  letter-spacing: -0.014em;
+  font-weight: 600;
   text-decoration: none;
   color: var(--text);
+  white-space: nowrap;
 }
 .v4-drawer__brand span { font-style: italic; color: var(--accent); }
+
+@media (max-width: 380px) {
+  .v4-drawer__brand { font-size: 30px; }
+}
 
 .v4-drawer__pillars { list-style: none; margin: 0; padding: 0; }
 .v4-drawer__pillar { border-bottom: 1px solid var(--border); }
