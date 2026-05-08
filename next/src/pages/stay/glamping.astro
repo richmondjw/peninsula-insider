@@ -59,5 +59,20 @@ const breadcrumbItems = [
       <div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
     </div>
   </section>
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Related guides</p>
+          <h2 class="venues__title">Plan the overnight thermal stay</h2>
+        </div>
+      </div>
+      <div class="venues__grid venues__grid--links">
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/hot-springs-accommodation/">Hot Springs Accommodation</a></h3><p class="venue-card__signature">Every overnight option in and around the Peninsula's thermal springs precincts — PHS glamping, eco lodges, and Sanctuary at Alba.</p><a href="/stay/hot-springs-accommodation/" class="venue-card__cta">See the guide →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/stay/wellness-retreats/">Wellness Retreats</a></h3><p class="venue-card__signature">Spa stays, thermal springs, and the restorative layer of the Peninsula.</p><a href="/stay/wellness-retreats/" class="venue-card__cta">Explore →</a></div>
+        <div class="venue-card"><h3 class="venue-card__name"><a href="/explore/peninsula-hot-springs/">Peninsula Hot Springs Guide</a></h3><p class="venue-card__signature">The day-visit guide to the PHS precinct, pools, and Spa Dreaming Centre.</p><a href="/explore/peninsula-hot-springs/" class="venue-card__cta">Read the guide →</a></div>
+      </div>
+    </div>
+  </section>
   <NewsletterBlock />
 </BaseLayout>
