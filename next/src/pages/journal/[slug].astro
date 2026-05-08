@@ -12,7 +12,7 @@ import SaveButton from '../../components/v2/SaveButton.astro';
 import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle, formatHeroCredit } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 
 export async function getStaticPaths() {
@@ -164,7 +164,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
           <figure class="article-hero__figure">
             <div class="article-hero__image" role="img" aria-label={article.data.heroImage.alt} style={articleHeroStyle}></div>
             {article.data.heroImage.credit && (
-              <figcaption class="article-hero__credit">Photo · {article.data.heroImage.credit}</figcaption>
+              <figcaption class="article-hero__credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>
             )}
           </figure>
         </div>

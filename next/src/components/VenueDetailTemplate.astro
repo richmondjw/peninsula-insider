@@ -1,5 +1,5 @@
 ---
-import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../lib/editorial';
+import { placeLabel, typeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle, formatHeroCredit } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
@@ -93,6 +93,9 @@ const isClosed = data.status === 'closed';
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
     </div>
+    {data.heroImage?.credit && (
+      <p class="venue-detail__hero-credit">{formatHeroCredit(data.heroImage.credit)}</p>
+    )}
 
     <div class="venue-detail__grid">
       <div>
