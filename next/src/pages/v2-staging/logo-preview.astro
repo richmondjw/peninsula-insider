@@ -1,0 +1,703 @@
+---
+/**
+ * Logo Preview — staged environment for the new PI brand mark
+ *
+ * Shows the new logo at every surface it appears on:
+ *   1. Floating Ask PI pill (ConciergeDrawer trigger)
+ *   2. Concierge drawer header (md avatar)
+ *   3. Message byline avatar (sm avatar)
+ *   4. AskPICTA editorial CTA
+ *   5. InsiderAsk block
+ *   6. 404 / ask page hero (xl avatar)
+ *
+ * Route: /v2-staging/logo-preview/
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Logo Preview — New PI Brand Mark · Peninsula Insider"
+  description="Staged preview of the new PI logo applied to every surface."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/v2-staging/logo-preview/"
+  noindex={true}
+>
+
+<style>
+  /* ── Page chrome ── */
+  .lp {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+    font-family: 'Outfit', sans-serif;
+  }
+  .lp__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 0.4rem;
+  }
+  .lp__sub {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin: 0 0 3.5rem;
+  }
+  .lp__section {
+    margin-bottom: 4rem;
+  }
+  .lp__section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  .lp__section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 1.5rem;
+  }
+  .lp__compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 560px) { .lp__compare { grid-template-columns: 1fr; } }
+  .lp__col-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0 0 1rem;
+  }
+  .lp__card {
+    background: var(--paper);
+    border: 1px solid rgba(139,78,59,0.12);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .lp__card--dark {
+    background: #1F1B16;
+  }
+  .lp__note {
+    font-size: 0.8rem;
+    color: var(--soft);
+    background: rgba(139,78,59,0.06);
+    border-left: 3px solid rgba(139,78,59,0.3);
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    line-height: 1.55;
+  }
+  .lp__divider {
+    border: none;
+    border-top: 1px solid rgba(139,78,59,0.12);
+    margin: 4rem 0;
+  }
+
+  /* ── Avatar component — new logo variant ── */
+  /*
+    The new mark is dark (#191919) on transparent bg.
+    We keep the warm cream radial background so it reads
+    on both light and dark surfaces. object-fit: contain
+    + padding so the organic edges breathe.
+  */
+  .pi-avatar-v2 {
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
+    border: 1px solid rgba(139, 78, 59, 0.25);
+  }
+  .pi-avatar-v2 img {
+    position: absolute;
+    inset: 8%;           /* breathing room so organic edges don't clip */
+    width: 84%;
+    height: 84%;
+    object-fit: contain;
+    z-index: 1;
+  }
+  .pi-avatar-v2--xl { width: 96px; height: 96px; box-shadow: 0 2px 24px rgba(34,24,16,0.14), inset 0 0 0 1px rgba(255,252,247,0.5); }
+  .pi-avatar-v2--md { width: 42px; height: 42px; }
+  .pi-avatar-v2--sm { width: 22px; height: 22px; border-width: 0.5px; }
+
+  /* For sm size, reduce inset since the mark gets tiny */
+  .pi-avatar-v2--sm img { inset: 4%; width: 92%; height: 92%; }
+
+  /* ── 1. Floating pill ── */
+  .demo-bubble {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    background: var(--paper-warm, #FFFCF6);
+    border: 1px solid rgba(139, 78, 59, 0.35);
+    border-radius: 100px;
+    color: var(--accent, #8B4E3B);
+    box-shadow: 0 4px 14px rgba(34,24,16,0.10), 0 14px 36px rgba(34,24,16,0.14);
+    font-family: inherit;
+    text-align: left;
+    cursor: default;
+  }
+  .demo-bubble__avatar {
+    position: relative;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
+    border: 1px solid rgba(139, 78, 59, 0.25);
+    display: grid;
+    place-items: center;
+  }
+  .demo-bubble__avatar img {
+    position: absolute;
+    inset: 6%;
+    width: 88%; height: 88%;
+    object-fit: contain;
+    z-index: 1;
+  }
+  .demo-bubble__label {
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent, #8B4E3B);
+    white-space: nowrap;
+  }
+  .demo-bubble__label em {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.82rem;
+  }
+
+  /* Current logo bubble (for comparison) */
+  .demo-bubble__avatar--current img {
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── 2. Drawer header ── */
+  .demo-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    background: #1F1B16;
+    border-radius: 10px;
+    gap: 1rem;
+  }
+  .demo-drawer-id {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .demo-drawer-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #FBF7F2;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .demo-drawer-status {
+    font-size: 0.72rem;
+    color: rgba(251,247,242,0.55);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .demo-drawer-pulse {
+    width: 6px; height: 6px;
+    background: #5E9E6E;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  .demo-drawer-actions { display: flex; gap: 0.5rem; }
+  .demo-drawer-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba(251,247,242,0.15);
+    background: transparent;
+    display: grid;
+    place-items: center;
+    color: rgba(251,247,242,0.55);
+  }
+
+  /* ── 3. AskPICTA ── */
+  .demo-pi-cta {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .demo-pi-cta__rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139,78,59,0.2), transparent);
+  }
+  .demo-pi-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.35rem 0.85rem 0.95rem;
+    background: #FFFCF6;
+    border: 1px solid rgba(139,78,59,0.22);
+    border-radius: 100px;
+    cursor: default;
+    font-family: inherit;
+    color: inherit;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(34,24,16,0.04), 0 8px 22px rgba(34,24,16,0.06);
+  }
+  .demo-pi-cta__avatar {
+    position: relative;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: radial-gradient(circle at 30% 30%, #FBF1DE 0%, #F0E2C7 70%, #E5D2AF 100%);
+    border: 1px solid rgba(139,78,59,0.22);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 1px 4px rgba(34,24,16,0.08);
+  }
+  .demo-pi-cta__avatar img {
+    position: absolute;
+    inset: 6%;
+    width: 88%; height: 88%;
+    object-fit: contain;
+    z-index: 1;
+  }
+  .demo-pi-cta__avatar--current img { inset:0; width:100%; height:100%; object-fit:cover; }
+  .demo-pi-cta__text { display: flex; flex-direction: column; gap: 0.18rem; }
+  .demo-pi-cta__eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #8B4E3B;
+  }
+  .demo-pi-cta__label {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.18rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #2B2520;
+    line-height: 1.18;
+  }
+  .demo-pi-cta__hint {
+    font-size: 0.78rem;
+    color: rgba(43,37,32,0.6);
+  }
+  .demo-pi-cta__arrow {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(43,37,32,0.55);
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+  }
+
+  /* ── 4. Scale strip ── */
+  .demo-scale {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .demo-scale__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .demo-scale__label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 700;
+  }
+
+  /* ── 5. Mark standalone (no circle, on page) ── */
+  .demo-mark-standalone {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .demo-mark-bare {
+    background: transparent;
+    display: grid;
+    place-items: center;
+  }
+  .demo-mark-bare img { width: 100%; height: 100%; object-fit: contain; }
+  .demo-mark-bare--cream { background: #FBF7F2; border-radius: 8px; padding: 0.5rem; }
+  .demo-mark-bare--dark  { background: #1F1B16; border-radius: 8px; padding: 0.5rem; filter: invert(1); }
+
+  /* ── Masthead mock ── */
+  .demo-masthead {
+    background: var(--paper, #FBF7F2);
+    border: 1px solid rgba(139,78,59,0.12);
+    border-radius: 10px;
+    padding: 0 1.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .demo-masthead__logo {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .demo-masthead__logo span { font-style: italic; color: var(--accent); }
+  .demo-masthead__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .demo-masthead__cta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.9rem;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+</style>
+
+<main class="lp">
+  <h1 class="lp__title">New PI Brand Mark — Staged Preview</h1>
+  <p class="lp__sub">All surfaces where the current lady-with-hat avatar appears, showing the new logo applied. Current (left) vs proposed (right).</p>
+
+  <!-- ─────────────────────────────────────
+       Surface 1: Floating Ask PI pill
+  ───────────────────────────────────── -->
+  <section class="lp__section">
+    <p class="lp__section-label">Surface 1</p>
+    <h2 class="lp__section-title">Floating Ask PI pill (bottom-right trigger)</h2>
+    <div class="lp__compare">
+      <div>
+        <p class="lp__col-label">Current</p>
+        <div class="lp__card">
+          <button class="demo-bubble" style="cursor:default">
+            <span class="demo-bubble__avatar demo-bubble__avatar--current" aria-hidden="true">
+              <img src="/images/pi-concierge.svg" alt="" width="36" height="36" />
+            </span>
+            <span class="demo-bubble__label">Ask <em>The Insider</em></span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <p class="lp__col-label">New logo</p>
+        <div class="lp__card">
+          <button class="demo-bubble" style="cursor:default">
+            <span class="demo-bubble__avatar" aria-hidden="true">
+              <img src="/images/pi-logo-new.svg" alt="" width="36" height="36" />
+            </span>
+            <span class="demo-bubble__label">Ask <em>The Insider</em></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="lp__divider" />
+
+  <!-- ─────────────────────────────────────
+       Surface 2: Concierge drawer header
+  ───────────────────────────────────── -->
+  <section class="lp__section">
+    <p class="lp__section-label">Surface 2</p>
+    <h2 class="lp__section-title">Concierge drawer header</h2>
+    <div class="lp__compare">
+      <div>
+        <p class="lp__col-label">Current</p>
+        <div class="lp__card">
+          <div class="demo-drawer-header">
+            <div class="demo-drawer-id">
+              <span class="pi-avatar pi-avatar--md" aria-hidden="true" style="position:relative;display:grid;place-items:center;flex-shrink:0;overflow:hidden;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FBF1DE 0%,#F0E2C7 70%,#E5D2AF 100%);border:1px solid rgba(139,78,59,.25);width:42px;height:42px;">
+                <img src="/images/pi-concierge.svg" alt="" width="42" height="42" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;" />
+              </span>
+              <div>
+                <p class="demo-drawer-name">The Insider <span aria-hidden="true">✦</span></p>
+                <p class="demo-drawer-status"><span class="demo-drawer-pulse"></span>Local · usually responds in seconds</p>
+              </div>
+            </div>
+            <div class="demo-drawer-actions">
+              <span class="demo-drawer-icon">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 11h10"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="lp__col-label">New logo</p>
+        <div class="lp__card">
+          <div class="demo-drawer-header">
+            <div class="demo-drawer-id">
+              <span class="pi-avatar-v2 pi-avatar-v2--md" aria-hidden="true">
+                <img src="/images/pi-logo-new.svg" alt="" width="42" height="42" />
+              </span>
+              <div>
+                <p class="demo-drawer-name">The Insider <span aria-hidden="true">✦</span></p>
+                <p class="demo-drawer-status"><span class="demo-drawer-pulse"></span>Local · usually responds in seconds</p>
+              </div>
+            </div>
+            <div class="demo-drawer-actions">
+              <span class="demo-drawer-icon">
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 11h10"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="lp__divider" />
+
+  <!-- ─────────────────────────────────────
+       Surface 3: AskPICTA editorial CTA
+  ───────────────────────────────────── -->
+  <section class="lp__section">
+    <p class="lp__section-label">Surface 3</p>
+    <h2 class="lp__section-title">Editorial AskPICTA pull-tag</h2>
+    <div class="lp__compare">
+      <div>
+        <p class="lp__col-label">Current</p>
+        <div class="lp__card">
+          <div class="demo-pi-cta">
+            <span class="demo-pi-cta__rule"></span>
+            <button class="demo-pi-cta__btn" style="cursor:default">
+              <span class="demo-pi-cta__avatar demo-pi-cta__avatar--current" aria-hidden="true">
+                <img src="/images/pi-concierge.svg" alt="" width="44" height="44" />
+              </span>
+              <span class="demo-pi-cta__text">
+                <span class="demo-pi-cta__eyebrow">Ask The Insider <span aria-hidden="true">✦</span></span>
+                <span class="demo-pi-cta__label">Ask The Insider about this</span>
+                <span class="demo-pi-cta__hint">She knows the staff, the table, and what to actually order.</span>
+              </span>
+              <span class="demo-pi-cta__arrow">→</span>
+            </button>
+            <span class="demo-pi-cta__rule"></span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="lp__col-label">New logo</p>
+        <div class="lp__card">
+          <div class="demo-pi-cta">
+            <span class="demo-pi-cta__rule"></span>
+            <button class="demo-pi-cta__btn" style="cursor:default">
+              <span class="demo-pi-cta__avatar" aria-hidden="true">
+                <img src="/images/pi-logo-new.svg" alt="" width="44" height="44" />
+              </span>
+              <span class="demo-pi-cta__text">
+                <span class="demo-pi-cta__eyebrow">Ask The Insider <span aria-hidden="true">✦</span></span>
+                <span class="demo-pi-cta__label">Ask The Insider about this</span>
+                <span class="demo-pi-cta__hint">She knows the staff, the table, and what to actually order.</span>
+              </span>
+              <span class="demo-pi-cta__arrow">→</span>
+            </button>
+            <span class="demo-pi-cta__rule"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="lp__divider" />
+
+  <!-- ─────────────────────────────────────
+       Surface 4: Scale strip (all sizes)
+  ───────────────────────────────────── -->
+  <section class="lp__section">
+    <p class="lp__section-label">Surface 4</p>
+    <h2 class="lp__section-title">Size scale — xl / md / sm</h2>
+    <p style="font-size:0.85rem;color:var(--soft);margin:0 0 1.5rem">The sm avatar (22px) is the message byline. At that scale the mark is very dense — "PI" text fallback may serve better at ≤24px.</p>
+    <div class="lp__compare">
+      <div>
+        <p class="lp__col-label">Current</p>
+        <div class="lp__card" style="align-items:flex-start">
+          <div class="demo-scale">
+            <div class="demo-scale__item">
+              <span style="position:relative;display:grid;place-items:center;flex-shrink:0;overflow:hidden;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FBF1DE 0%,#F0E2C7 70%,#E5D2AF 100%);border:1px solid rgba(139,78,59,.25);width:96px;height:96px;box-shadow:0 2px 24px rgba(34,24,16,.14),inset 0 0 0 1px rgba(255,252,247,.5);">
+                <img src="/images/pi-concierge.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;" />
+              </span>
+              <span class="demo-scale__label">xl · 96px</span>
+            </div>
+            <div class="demo-scale__item">
+              <span style="position:relative;display:grid;place-items:center;flex-shrink:0;overflow:hidden;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FBF1DE 0%,#F0E2C7 70%,#E5D2AF 100%);border:1px solid rgba(139,78,59,.25);width:42px;height:42px;">
+                <img src="/images/pi-concierge.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;" />
+              </span>
+              <span class="demo-scale__label">md · 42px</span>
+            </div>
+            <div class="demo-scale__item">
+              <span style="position:relative;display:grid;place-items:center;flex-shrink:0;overflow:hidden;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FBF1DE 0%,#F0E2C7 70%,#E5D2AF 100%);border:0.5px solid rgba(139,78,59,.25);width:22px;height:22px;">
+                <img src="/images/pi-concierge.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;" />
+              </span>
+              <span class="demo-scale__label">sm · 22px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="lp__col-label">New logo</p>
+        <div class="lp__card" style="align-items:flex-start">
+          <div class="demo-scale">
+            <div class="demo-scale__item">
+              <span class="pi-avatar-v2 pi-avatar-v2--xl">
+                <img src="/images/pi-logo-new.svg" alt="" />
+              </span>
+              <span class="demo-scale__label">xl · 96px</span>
+            </div>
+            <div class="demo-scale__item">
+              <span class="pi-avatar-v2 pi-avatar-v2--md">
+                <img src="/images/pi-logo-new.svg" alt="" />
+              </span>
+              <span class="demo-scale__label">md · 42px</span>
+            </div>
+            <div class="demo-scale__item">
+              <span class="pi-avatar-v2 pi-avatar-v2--sm">
+                <img src="/images/pi-logo-new.svg" alt="" />
+              </span>
+              <span class="demo-scale__label">sm · 22px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="lp__divider" />
+
+  <!-- ─────────────────────────────────────
+       Surface 5: Mark standalone
+  ───────────────────────────────────── -->
+  <section class="lp__section">
+    <p class="lp__section-label">Surface 5</p>
+    <h2 class="lp__section-title">Mark standalone — no circle frame</h2>
+    <p style="font-size:0.85rem;color:var(--soft);margin:0 0 1.5rem">Shown unframed at three sizes. Alternative treatment — remove the circular avatar entirely and let the mark float as-is.</p>
+    <div class="lp__card">
+      <div class="demo-mark-standalone">
+        <div class="demo-scale__item">
+          <div class="demo-mark-bare" style="width:120px;height:110px;">
+            <img src="/images/pi-logo-new.svg" alt="" />
+          </div>
+          <span class="demo-scale__label">120px on paper</span>
+        </div>
+        <div class="demo-scale__item">
+          <div class="demo-mark-bare demo-mark-bare--cream" style="width:80px;height:73px;">
+            <img src="/images/pi-logo-new.svg" alt="" />
+          </div>
+          <span class="demo-scale__label">80px cream bg</span>
+        </div>
+        <div class="demo-scale__item">
+          <div class="demo-mark-bare demo-mark-bare--dark" style="width:80px;height:73px;">
+            <img src="/images/pi-logo-new.svg" alt="" />
+          </div>
+          <span class="demo-scale__label">80px dark bg (inverted)</span>
+        </div>
+        <div class="demo-scale__item">
+          <div class="demo-mark-bare" style="width:48px;height:44px;">
+            <img src="/images/pi-logo-new.svg" alt="" />
+          </div>
+          <span class="demo-scale__label">48px on paper</span>
+        </div>
+        <div class="demo-scale__item">
+          <div class="demo-mark-bare" style="width:32px;height:29px;">
+            <img src="/images/pi-logo-new.svg" alt="" />
+          </div>
+          <span class="demo-scale__label">32px on paper</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="lp__divider" />
+
+  <!-- ─────────────────────────────────────
+       Surface 6: Masthead mock (in-context)
+  ───────────────────────────────────── -->
+  <section class="lp__section">
+    <p class="lp__section-label">Surface 6</p>
+    <h2 class="lp__section-title">Masthead in-context mock</h2>
+    <p style="font-size:0.85rem;color:var(--soft);margin:0 0 1.5rem">How the Ask PI pill reads alongside the rest of the nav bar.</p>
+    <div class="lp__compare">
+      <div>
+        <p class="lp__col-label">Current</p>
+        <div class="demo-masthead">
+          <span class="demo-masthead__logo">Peninsula <span>Insider</span></span>
+          <div class="demo-masthead__right">
+            <button class="demo-bubble" style="cursor:default;padding:0.38rem 0.75rem 0.38rem 0.38rem;box-shadow:none;">
+              <span class="demo-bubble__avatar demo-bubble__avatar--current" style="width:28px;height:28px;" aria-hidden="true">
+                <img src="/images/pi-concierge.svg" alt="" width="28" height="28" />
+              </span>
+              <span class="demo-bubble__label" style="font-size:0.6rem;">Ask <em>PI</em></span>
+            </button>
+            <a href="#" class="demo-masthead__cta" style="pointer-events:none">Get the dispatch</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="lp__col-label">New logo</p>
+        <div class="demo-masthead">
+          <span class="demo-masthead__logo">Peninsula <span>Insider</span></span>
+          <div class="demo-masthead__right">
+            <button class="demo-bubble" style="cursor:default;padding:0.38rem 0.75rem 0.38rem 0.38rem;box-shadow:none;">
+              <span class="demo-bubble__avatar" style="width:28px;height:28px;" aria-hidden="true">
+                <img src="/images/pi-logo-new.svg" alt="" width="28" height="28" />
+              </span>
+              <span class="demo-bubble__label" style="font-size:0.6rem;">Ask <em>PI</em></span>
+            </button>
+            <a href="#" class="demo-masthead__cta" style="pointer-events:none">Get the dispatch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lp__note">
+    <strong>Notes for decision:</strong><br/>
+    • The new mark is dark (#191919) organic paths on transparent — it needs the warm cream radial background to read clearly.<br/>
+    • The "PI" text in the logo uses Gautreaux-Light (Adobe font, not loaded on site) — it will render in the system fallback serif at current sizes, though it's largely invisible below 80px anyway.<br/>
+    • At sm (22px) the mark detail is lost — consider keeping the italic "PI" text fallback at ≤24px rather than swapping to the full mark.<br/>
+    • The standalone (no-circle) treatment in Surface 5 may be the right move for larger contexts (drawer header, AskPICTA) while the circle avatar is kept for message bylines where size is fixed.
+  </div>
+</main>
+
+</BaseLayout>
