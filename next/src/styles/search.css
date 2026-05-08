@@ -577,6 +577,7 @@ body.search-open { overflow: hidden; }
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 500;
+  color: #FBF7F2;
   margin: 0 0 0.9rem;
   letter-spacing: -0.01em;
 }
