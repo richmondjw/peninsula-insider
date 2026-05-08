@@ -103,9 +103,9 @@ const scenes: Scene[] = [
     id: 'cover',
     label: 'THE COVER STORY',
     hours: '9 MIN READ',
-    image: '/images/sourced/venue-pt-leo-sculpture-01.webp',
-    imageAlt: "Pt. Leo Estate sculpture park, with Barry Flanagan's Drummer hare on the lawn above Western Port — home of Laura, one of the Peninsula's two-hat restaurants",
-    caption: 'Pt. Leo Estate, Merricks',
+    image: '/images/sourced/home-cover-bay-umbrella-01.webp',
+    imageAlt: 'A wide sandy bay beach with dune grass in the foreground, a bright red umbrella and chair to the right, and calm water under a blue sky.',
+    caption: 'Bay beach, Mornington Peninsula',
     headline: 'The Hatted Restaurants of the <em>Peninsula.</em>',
     dispatch: 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
     primaryHref: '/journal/hatted-restaurants-mornington-peninsula-2025/',
@@ -789,6 +789,27 @@ const ssrScene = scenes[0];
     .cinema {
       min-height: auto;
       height: 50svh;
+    }
+    .cinema-scene img {
+      object-position: 68% 42%;
+      transform: scale(1.02);
+    }
+    .cinema__scrim {
+      background:
+        radial-gradient(
+          ellipse 72% 70% at 24% 88%,
+          rgba(0, 0, 0, 0.46) 0%,
+          rgba(0, 0, 0, 0.2) 44%,
+          transparent 74%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(20, 18, 16, 0.18) 0%,
+          rgba(20, 18, 16, 0.03) 18%,
+          rgba(20, 18, 16, 0.12) 36%,
+          rgba(20, 18, 16, 0.42) 68%,
+          rgba(20, 18, 16, 0.72) 100%
+        );
     }
     .cinema__bg,
     .cinema__scrim,
