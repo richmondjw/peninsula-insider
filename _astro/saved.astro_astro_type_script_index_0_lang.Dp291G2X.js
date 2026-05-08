@@ -1,1 +1,0 @@
-import{o as d}from"./auth.BxnHYCW-.js";async function e(){const n=document.querySelector("[data-saved-list]"),a=document.querySelector("[data-saved-empty]"),t=document.querySelector("[data-saved-anon]");if(!(!n||!a||!t)){t.hidden=!1;return}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e();document.addEventListener("astro:page-load",e);d(e);
