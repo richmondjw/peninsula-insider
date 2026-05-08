@@ -1960,6 +1960,15 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-transform: uppercase;
   font-weight: 500;
 }
+.venue-detail__hero-credit {
+  margin: -2.4rem 0 1.6rem 0;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  text-align: right;
+}
 
 .venue-detail__grid {
   display: grid;
