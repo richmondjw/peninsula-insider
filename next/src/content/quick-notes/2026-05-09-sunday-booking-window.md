@@ -4,7 +4,7 @@ dek: "Sunday 10 May is the first clear afternoon in five days: 0% rain from noon
 section: wine
 tag: opening-window
 publishedAt: 2026-05-09T06:51:00+10:00
-expiresAt: 2026-05-10T12:00:00+10:00
+expiresAt: 2026-05-10T06:48:00+10:00
 verifiedAt: 2026-05-09T06:51:00+10:00
 verifiedBy: quick-note-desk
 verdict: "Book Sunday now. The window is real and it will fill once the sun comes out."
