@@ -73,11 +73,33 @@ const breadcrumbItems = [
   { label: article.data.title },
 ];
 
+// Map internal format tag → human-readable articleSection for JSON-LD.
+// Per Operational Definitions v1.2 (Journal section): format must be exposed
+// in structured data so AI/search systems can distinguish editorial perspective
+// from service or planning content. Visible CSS labels are not enough.
+const formatToArticleSection: Record<string, string> = {
+  'editors-letter': "Editor's Letter",
+  'long-lunch-list': 'Long Lunch List',
+  'cellar-door-dispatch': 'Cellar Door Dispatch',
+  'stay-notes': 'Stay Notes',
+  'slow-peninsula': 'Slow Peninsula',
+  'insider-edit': 'Insider Edit',
+  'interview': 'Interview',
+  'investigation': 'Investigation',
+  'service': 'Service',
+  'weekend-picker': 'Weekend Picker',
+  'hub-guide': 'Hub Guide',
+  'trail-guide': 'Trail Guide',
+  'venue-guide': 'Venue Guide',
+};
+const articleSection = formatToArticleSection[String(article.data.format ?? '')] ?? 'Editorial';
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: article.data.title,
   description: article.data.dek,
+  articleSection,
   datePublished: article.data.publishedAt.toISOString(),
   ...(article.data.updatedAt ? { dateModified: article.data.updatedAt.toISOString() } : {}),
   author: {
@@ -97,6 +119,10 @@ const articleSchema = {
   ...(ogImage !== '/images/sourced/home-cover.webp' ? { image: `https://peninsulainsider.com.au${ogImage}` } : {}),
   mainEntityOfPage: canonical,
   url: canonical,
+  about: {
+    '@type': 'Place',
+    name: 'Mornington Peninsula, Victoria, Australia',
+  },
 };
 
 const evergreenFormats = new Set(['service', 'hub-guide', 'trail-guide', 'venue-guide', 'long-lunch-list', 'cellar-door-dispatch', 'stay-notes']);
@@ -306,7 +332,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
             <p class="label label--accent">Make this a weekend</p>
             <h2 class="venues__title">Itineraries that pick up where this piece leaves off</h2>
           </div>
-          <a href="/escape/" class="venues__link">All itineraries →</a>
+          <a href="/plans/" class="venues__link">All itineraries →</a>
         </div>
         <div class="venues__grid">
           {relatedItineraries.map((it) => <ItineraryCard itinerary={it} />)}

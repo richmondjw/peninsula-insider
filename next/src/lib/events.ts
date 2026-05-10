@@ -267,6 +267,41 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     };
   }
 
+  // Schedule for recurring events — lets AI assistants and Google answer
+  // "what happens every Thursday on the Mornington Peninsula?" reliably.
+  // Per Operational Definitions v1.2 (What's On layer): recurring programmes
+  // need stable Event schema with recurrence rules so they're discoverable
+  // independently of any specific date.
+  if (['weekly', 'monthly', 'ongoing'].includes(String((data as any).recurrence ?? ''))) {
+    const schedule: Record<string, unknown> = {
+      '@type': 'Schedule',
+      startDate: startISO,
+    };
+    // Best-effort: extract day-of-week from title so byDay can be set when
+    // the recurrence is a clear weekday cadence (e.g. "Hastings Thursday
+    // Street Market"). Falls back to repeatFrequency only if no day matches.
+    const dayMap: Record<string, string> = {
+      monday: 'https://schema.org/Monday',
+      tuesday: 'https://schema.org/Tuesday',
+      wednesday: 'https://schema.org/Wednesday',
+      thursday: 'https://schema.org/Thursday',
+      friday: 'https://schema.org/Friday',
+      saturday: 'https://schema.org/Saturday',
+      sunday: 'https://schema.org/Sunday',
+    };
+    const haystack = `${data.title}`.toLowerCase();
+    const matchedDay = Object.entries(dayMap).find(([day]) => haystack.includes(day));
+    if (matchedDay) {
+      schedule.byDay = matchedDay[1];
+    }
+    if ((data as any).recurrence === 'weekly') {
+      schedule.repeatFrequency = 'P1W';
+    } else if ((data as any).recurrence === 'monthly') {
+      schedule.repeatFrequency = 'P1M';
+    }
+    ld.eventSchedule = schedule;
+  }
+
   return ld;
 }
 
