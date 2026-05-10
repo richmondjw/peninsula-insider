@@ -1,0 +1,28 @@
+---
+import { toEditableAttr, type AdminCollection } from '../../lib/admin';
+
+export interface Props {
+  collection: AdminCollection;
+  slug: string;
+  field?: string;
+  label?: string;
+  as?: keyof HTMLElementTagNameMap;
+  enabled?: boolean;
+}
+
+const {
+  collection,
+  slug,
+  field,
+  label,
+  as = 'div',
+  enabled = false,
+} = Astro.props;
+
+const Tag = as;
+const editable = enabled ? toEditableAttr({ collection, slug, field, label }) : null;
+---
+
+<Tag class:list={[enabled && 'pi-editable']} data-pi-editable={editable ?? undefined}>
+  <slot />
+</Tag>
