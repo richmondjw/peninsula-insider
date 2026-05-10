@@ -7,6 +7,73 @@ Scope: research, writing, refresh, QA, and publish support for Peninsula Insider
 ## Objective
 Turn Peninsula Insider from a static tourism site into a living media platform with repeatable editorial inputs.
 
+## Approval and publishing model
+
+Peninsula Insider now operates on a **tiered approval model** based on editorial and operational risk.
+
+### Tier 1 — Low-risk operational changes
+These may be **auto-approved, bulk-approved, or system-approved** when they do not materially affect editorial positioning, recommendations, trust, or factual interpretation.
+
+Typical examples:
+- expired event removals
+- date/time corrections
+- broken link fixes
+- metadata and taxonomy corrections
+- low-risk factual maintenance
+- routine structured refreshes already governed by existing rules
+
+**Default publish mode:** autonomous publish  
+**Human role:** notified after publish  
+**Record requirement:** mandatory publish ledger entry + verification log
+
+### Tier 2 — Medium-risk updates
+These require **light editorial review** before publish.
+
+Typical examples:
+- homepage or module reshuffles that materially change emphasis
+- new inclusions or exclusions on utility surfaces
+- recommendation-adjacent copy changes
+- meaningful reframing of evergreen/service surfaces without becoming full opinion or Journal work
+
+**Default publish mode:** hold for light editorial review  
+**Human role:** approve/reject/tighten  
+**Record requirement:** mandatory proposed-change record + publish ledger entry + verification log
+
+### Tier 3 — High-risk editorial and strategic content
+These always require **founder-led editorial approval**.
+
+Typical examples:
+- Journal pieces
+- Peninsula This Weekend final editorial recommendation product
+- opinion and perspective-led writing
+- major recommendation changes
+- new editorial products
+- strategic positioning changes
+
+**Default publish mode:** approval-required  
+**Human role:** founder/editorial sign-off before publish  
+**Record requirement:** mandatory approval record + publish ledger entry + verification log
+
+## Publication ledger requirement
+
+All publish-capable workflows, whether autonomous or approval-gated, must write to one **canonical publication ledger** at `ops/publication-ledger/`.
+
+Minimum fields:
+- timestamp
+- job name
+- agent/owner
+- content type
+- canonical URL or file path
+- change summary
+- risk tier
+- approval mode
+- approved by (if applicable)
+- publish result
+- post-publish verification result
+- rollback reference (if applicable)
+
+This ledger is the single source of truth for what changed, when it changed, why it changed, and under which approval rule it moved.
+
 ## Operating loops
 
 ### 1. Daily events desk
@@ -110,6 +177,15 @@ Every meaningful recurring run should:
 - log meaningful activity events
 - file produced reports as documents
 - surface blockers clearly
+- write or update the canonical publication ledger when a publish-capable workflow changes live state
+
+## Operational enforcement rules
+- No publish-capable job should invent its own approval standard; it must inherit one of the three approval tiers.
+- Autonomous publishing is allowed only for Tier 1 changes.
+- Tier 2 changes must stop at light editorial review.
+- Tier 3 changes must stop at founder-led editorial approval.
+- Notification is not a substitute for logging; every live mutation must leave a durable record.
+- Verification is mandatory for every live publish, regardless of approval tier.
 
 ## Minimum viable operating rhythm
 ### Daily
@@ -133,4 +209,6 @@ This system is working when:
 - broken venue links are caught quickly
 - Journal gains new pieces every week
 - seasonality advice changes with reality
+- every live publish is traceable in one ledger
+- approval effort is concentrated on medium- and high-risk work
 - Peninsula Insider feels alive, not frozen

@@ -48,17 +48,46 @@ Every run should produce one of:
 - blocker note
 
 ### 4. Add approval gates
-Publishing jobs should only auto-publish low-risk updates:
+Use a tiered approval model rather than a single blanket rule.
+
+**Tier 1 — low-risk operational**
+Can auto-publish, bulk-publish, or system-publish when changes do not materially affect editorial positioning, recommendations, trust, or factual interpretation.
+
+Examples:
 - event rollovers
 - expired event removals
 - date corrections
-- minor copy refreshes
+- broken link fixes
+- metadata/taxonomy corrections
+- minor governed refreshes
 
-Require explicit review for:
+**Tier 2 — medium-risk**
+Require light editorial review.
+
+Examples:
+- homepage/module reshuffles with meaningful emphasis change
+- recommendation-adjacent utility updates
+- notable inclusions/exclusions on service surfaces
+- meaningful evergreen copy reframing
+
+**Tier 3 — high-risk editorial/strategic**
+Require founder-led editorial approval.
+
+Examples:
 - new lead story
+- Journal pieces
+- Peninsula This Weekend final editorial recommendation product
 - homepage structural change
 - major section rewrite
 - commercial / affiliate framing changes
+- strategic positioning changes
+
+Every publish job must declare its default tier, approver path, notification path, and ledger-write behaviour.
+
+Initial repo implementation:
+- JSONL log: `ops/publication-ledger/entries/YYYY-MM.jsonl`
+- readable index: `ops/publication-ledger/index.csv`
+- append/validate script: `ops/scripts/publication-ledger.py`
 
 ### 5. Connect the preview workflow
 Publishing logic should support:
@@ -76,5 +105,7 @@ Peninsula Insider cron support is truly operational when:
 - the daily loop runs without manual prompting
 - reports are generated consistently
 - Mission Control shows the workflow state
-- low-risk freshness updates can move through QA and publish
+- low-risk freshness updates can move through QA and publish autonomously
+- medium- and high-risk work stops at the correct review gate
+- every live change is captured in one publication ledger
 - weekly writing output compounds the authority layer
