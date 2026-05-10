@@ -1,4 +1,4 @@
-import{o as c,h as i,r as o}from"./auth.Cki1utsC.js";async function s(){const a=document.querySelector("[data-saved-list]"),d=document.querySelector("[data-saved-empty]"),t=document.querySelector("[data-saved-anon]");if(!a||!d||!t)return;const n=await i();if(!n){a.hidden=!0,d.hidden=!0,t.hidden=!1;return}t.hidden=!0;const r=await o(n.id);if(!r.length){a.hidden=!0,d.hidden=!1;return}d.hidden=!0,a.hidden=!1,a.innerHTML=r.map(e=>`
+import{o as c,h as i,r as o}from"./auth.DE0kyD5o.js";async function s(){const a=document.querySelector("[data-saved-list]"),d=document.querySelector("[data-saved-empty]"),t=document.querySelector("[data-saved-anon]");if(!a||!d||!t)return;const n=await i();if(!n){a.hidden=!0,d.hidden=!0,t.hidden=!1;return}t.hidden=!0;const r=await o(n.id);if(!r.length){a.hidden=!0,d.hidden=!1;return}d.hidden=!0,a.hidden=!1,a.innerHTML=r.map(e=>`
       <a class="v2-saved-card" href="/${e.section}/${e.article_slug}/">
         ${e.image_url?`<div class="v2-saved-card__img" style="background-image:url(${e.image_url})"></div>`:""}
         <div class="v2-saved-card__body">
