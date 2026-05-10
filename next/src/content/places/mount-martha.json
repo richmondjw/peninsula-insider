@@ -3,15 +3,22 @@
   "name": "Mount Martha",
   "kind": "village",
   "zone": "bayside",
-  "coordinates": { "lat": -38.2631, "lng": 145.0114 },
+  "coordinates": {
+    "lat": -38.2631,
+    "lng": 145.0114
+  },
   "intro": "Mount Martha is the Peninsula's best-kept secret for people who only want to do one thing: stop. This is swimming-beach country  -  a long, gentle curve of pale sand with bathing boxes at the northern end, south-facing enough to catch afternoon sun, and sheltered enough from the wind to be usable almost nine months of the year. The village proper sits up on the hill, compact and quiet, with a bakery, a few cafes, and enough infrastructure to get through a weekend without ever needing to drive further than the beach. South of the village, the coastal track winds toward the Briars wetlands and eventually down to Mornington; north, it runs into the foreshore reserve and the bathing boxes. It is the simplest, cleanest Peninsula day on Port Phillip: swim, walk, coffee, repeat.",
+  "factualLede": "Mount Martha is a bayside town on the Mornington Peninsula's eastern Port Phillip shore, 70 km from Melbourne, between Mornington and Dromana, with the most photographed bathing boxes on the bay.",
   "heroImage": {
     "src": "/images/sourced/place-mount-martha-01.webp",
     "alt": "Mount Martha beach and bathing boxes at the northern end of the bay curve",
     "credit": "Wikimedia Commons",
     "license": "tmp-wikimedia"
   },
-  "relatedPlaces": ["mornington", "red-hill"],
+  "relatedPlaces": [
+    "mornington",
+    "red-hill"
+  ],
   "publishedAt": "2026-04-09",
   "driveTime": "approximately 1 hour 20 minutes",
   "tldr": [
@@ -19,10 +26,16 @@
     "Best for: families who want a clean, uncrowded bay beach; walkers on the coastal track to the Briars; anyone who wants to stop and stay stopped.",
     "Signature experience: morning swim at the bathing boxes end, then the coastal track south toward the Briars wetlands.",
     "Half a day is enough; a full day if you add the Briars walk."
-  ]
-,
-  "bestFor": ["families", "bayside walks", "the Martha Cove end"],
-  "notFor": ["nightlife", "people who want the busiest Peninsula action"],
+  ],
+  "bestFor": [
+    "families",
+    "bayside walks",
+    "the Martha Cove end"
+  ],
+  "notFor": [
+    "nightlife",
+    "people who want the busiest Peninsula action"
+  ],
   "bestSeason": "late summer",
   "worstTime": "very windy southerly days",
   "stayDuration": "one to two nights",

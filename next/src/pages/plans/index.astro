@@ -47,22 +47,22 @@ const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
 const twoNight = itineraries.filter((it) => it.data.lengthNights === 2);
 const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
 
+// Mood lanes: route to existing /plans/ children where they exist (the canonical
+// planning destination). 4 of 8 lanes still route to /journal/ because no /plans/
+// child exists yet — those are scheduled for Wave 3 of the editorial roadmap
+// (Red Hill Day, Birthday Weekend, Winter Reset, One-Night Escape).
+// See work/peninsula-insider/mood-lane-audit.md for the full audit.
 const moodGuides = [
-  { label: 'Food & wine',           slug: 'how-to-build-a-red-hill-saturday', sub: 'Lunch, cellar doors, slow drive back' },
-  { label: 'Wellness',              slug: 'the-thermal-springs-weekend',      sub: 'Springs, sauna, one soft dinner' },
-  { label: 'Slow coast',            slug: 'a-flinders-weekend',               sub: 'Flinders, the pier, Bass Strait air' },
-  { label: 'Tip of the peninsula',  slug: 'the-sorrento-weekend',             sub: 'Village base, fort walk, back beach' },
-  { label: 'Celebration',           slug: 'the-birthday-weekend',             sub: 'One anchor dinner, the rest softer' },
-  { label: 'Winter reset',          slug: 'a-winter-peninsula-weekend',       sub: 'Fireplace, hot springs, low-season calm' },
-  { label: 'Quick reset',           slug: 'the-one-night-escape',             sub: '26 hours that feels like three days' },
-  { label: 'With kids',             slug: 'the-peninsula-with-kids',          sub: 'A day that punishes no one' },
+  { label: 'Food & wine',           target: '/journal/how-to-build-a-red-hill-saturday/', sub: 'Lunch, cellar doors, slow drive back' },
+  { label: 'Wellness',              target: '/plans/wellness-weekend/',                   sub: 'Springs, sauna, one soft dinner' },
+  { label: 'Slow coast',            target: '/plans/flinders-and-cape-reset/',            sub: 'Flinders, the pier, Bass Strait air' },
+  { label: 'Tip of the peninsula',  target: '/plans/sorrento-off-season-weekend/',        sub: 'Village base, fort walk, back beach' },
+  { label: 'Celebration',           target: '/journal/the-birthday-weekend/',             sub: 'One anchor dinner, the rest softer' },
+  { label: 'Winter reset',          target: '/journal/a-winter-peninsula-weekend/',       sub: 'Fireplace, hot springs, low-season calm' },
+  { label: 'Quick reset',           target: '/journal/the-one-night-escape/',             sub: '26 hours that feels like three days' },
+  { label: 'With kids',             target: '/plans/the-family-day-out/',                 sub: 'A day that punishes no one' },
 ];
-const moodResolved = moodGuides
-  .map((mood) => {
-    const article = articlesAll.find((a) => routeSlug(a) === mood.slug);
-    return article ? { ...mood, article } : null;
-  })
-  .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+const moodResolved = moodGuides;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -221,7 +221,7 @@ const faqSchema = {
         <ul class="hub-formats__grid">
           {moodResolved.map((mood) => (
             <li class="hub-formats__cell">
-              <a href={`/journal/${mood.slug}`} class="hub-formats__link">
+              <a href={mood.target} class="hub-formats__link">
                 <span class="hub-formats__label">{mood.label}</span>
                 <span class="hub-formats__sub">{mood.sub}</span>
               </a>

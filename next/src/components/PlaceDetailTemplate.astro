@@ -75,6 +75,9 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
   <div class="container">
     <p class="place-detail__eyebrow">{zoneLabel} · {place.data.kind}</p>
     <h1 class="place-detail__title">{place.data.name}</h1>
+    {place.data.factualLede && (
+      <p class="place-detail__factual-lede">{place.data.factualLede}</p>
+    )}
     <p class="place-detail__intro">{place.data.intro}</p>
 
     <div
