@@ -31,9 +31,17 @@ the `tjjhpvslpysfklwpqmgz` project:
      `status = 'published'` rows from `cms_text_fields` / `cms_image_slots`
    - Adds the matching `storage.objects` SELECT policy so published image
      assets are publicly fetchable through Storage
+3. `2026-05-10-pi-cms-seed-founding-editor.sql`
+   - Idempotent founding-editor seed for `james.richmondau@gmail.com`
+   - Flips `pi.profiles.is_editor = true` and writes a `pi.admin_user_allowlist`
+     row with `role = 'admin'`, `can_publish = true`
+   - Requires James to have signed in to `/admin/login` at least once so an
+     `auth.users` row exists. Otherwise the script raises a NOTICE and exits
+     cleanly — re-run after first sign-in.
 
-Order matters because the second migration references tables, columns, and
-the `cms-assets` bucket created by the first.
+Order matters because (2) references tables, columns, and the `cms-assets`
+bucket created by (1), and (3) references both `pi.profiles` and
+`pi.admin_user_allowlist` from (1).
 
 ### How to apply
 
@@ -56,6 +64,10 @@ psql "$DATABASE_URL" -v ON_ERROR_STOP=1 \
 
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 \
   -f ops/migrations/2026-05-10-pi-cms-public-read.sql
+
+# Run AFTER James has signed in to /admin/login at least once.
+psql "$DATABASE_URL" -v ON_ERROR_STOP=1 \
+  -f ops/migrations/2026-05-10-pi-cms-seed-founding-editor.sql
 ```
 
 #### Option C — Supabase CLI
@@ -64,6 +76,8 @@ psql "$DATABASE_URL" -v ON_ERROR_STOP=1 \
 supabase link --project-ref tjjhpvslpysfklwpqmgz
 supabase db execute --file ops/migrations/2026-05-09-pi-cms-admin.sql
 supabase db execute --file ops/migrations/2026-05-10-pi-cms-public-read.sql
+# Run AFTER James has signed in to /admin/login at least once.
+supabase db execute --file ops/migrations/2026-05-10-pi-cms-seed-founding-editor.sql
 ```
 
 ### Verify
