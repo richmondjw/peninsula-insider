@@ -218,6 +218,17 @@ No dispatch should publish if any of the following are unresolved:
 - homepage / article mismatch
 - live route not externally verified
 
+## 7.1 Approval tier
+
+**Peninsula This Weekend** is a **Tier 3 / high-risk editorial product**.
+
+That means:
+- draft generation can be automated
+- research and shortlist work can be automated
+- review support can be automated
+- final publish must not proceed without founder-led editorial approval
+- the publish run must write a full publication-ledger entry including approver, timestamp, URL, and verification result
+
 ---
 
 ## 8. Recommended Cron Jobs
@@ -243,6 +254,7 @@ These should be added to the Peninsula ops system.
 ### pi-weekly-dispatch-publish
 **Cadence:** Monday 07:00 UTC  
 **Purpose:** Build, publish, verify, and update current-week surfaces
+**Approval rule:** founder-led editorial approval required before publish
 
 ### pi-weekly-dispatch-social-production
 **Cadence:** Immediately after successful `pi-weekly-dispatch-publish` (fallback window: Monday 07:10 UTC)  

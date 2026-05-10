@@ -32,6 +32,12 @@ jobs:
   archive:
     runs-on: ubuntu-latest
     steps:
+      - name: Capture run start time (run-log)
+        id: runlog-start
+        run: |
+          STARTED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "started_at=${STARTED_AT}" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -44,14 +50,117 @@ jobs:
       - name: Run archive script
         run: python next/scripts/archive-expired-events.py
 
+      - name: Append publication ledger entry if any
+        run: |
+          if [[ -z "$(git status --porcelain next/src/content/events/)" ]]; then
+            echo "No expired events to archive."
+            exit 0
+          fi
+
+          CHANGED_COUNT=$(git diff --name-only -- next/src/content/events/ | wc -l | tr -d ' ')
+          echo "CHANGED_COUNT=${CHANGED_COUNT}" >> "$GITHUB_ENV"
+          export LEDGER_TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          export LEDGER_RUN_ID="${GITHUB_RUN_ID}"
+          export LEDGER_SUMMARY="Auto-archived expired events in ${CHANGED_COUNT} event file(s)."
+          export LEDGER_NOTES="Workflow-level source mutation only; live site publish occurs in deploy workflow."
+
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          entry = {
+              "timestamp": os.environ["LEDGER_TIMESTAMP"],
+              "job_name": "events-archive-expired",
+              "agent_or_owner": "github-actions[bot]",
+              "content_type": "event-registry-maintenance",
+              "canonical_url_or_path": "next/src/content/events/",
+              "change_summary": os.environ["LEDGER_SUMMARY"],
+              "risk_tier": "low",
+              "approval_mode": "system-approved",
+              "approved_by": None,
+              "publish_result": "published",
+              "verification_result": "not-required",
+              "rollback_reference": None,
+              "run_id": os.environ["LEDGER_RUN_ID"],
+              "notes": os.environ["LEDGER_NOTES"],
+          }
+          path = Path('/tmp/pi-ledger-entry.json')
+          path.write_text(json.dumps(entry, indent=2) + '\n', encoding='utf-8')
+          print(path)
+          PY
+
+          python3 ops/scripts/publication-ledger.py append --entry-file /tmp/pi-ledger-entry.json
+          LEDGER_ID=$(python3 -c "import json; e = json.load(open('/tmp/pi-ledger-entry.json')); print(e.get('ledger_id') or '')")
+          echo "LEDGER_ID=${LEDGER_ID}" >> "$GITHUB_ENV"
+
       - name: Commit changes if any
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain next/src/content/events/)" ]]; then
-            git add next/src/content/events/
+          if [[ -n "$(git status --porcelain next/src/content/events/ ops/publication-ledger/)" ]]; then
+            git add next/src/content/events/ ops/publication-ledger/
             git commit -m "ops(events): auto-archive expired events [skip ci]"
             git push origin main
           else
             echo "No expired events to archive."
+          fi
+      - name: Append run-log entry (Stage B item 5)
+        # Records every execution of this job (mutating-content; system-approved Tier 1).
+        # Runs even on partial/skipped runs so the absence of a run-log entry signals an upstream-job crash.
+        if: always()
+        env:
+          STARTED_AT: ${{ steps.runlog-start.outputs.started_at }}
+        run: |
+          set -e
+          ENDED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          # Distinguish between "ran but no changes" (skipped) and "ran with changes" (success/partial)
+          if [[ -z "${LEDGER_ID:-}" ]]; then
+            STATUS="skipped"
+            MUTATION="scan-only"
+            CHANGED_COUNT="0"
+            LEDGER_FLAGS=()
+            NOTES="No source changes detected; nothing committed."
+          else
+            STATUS="success"
+            MUTATION="mutating-content"
+            CHANGED_COUNT="${CHANGED_COUNT:-0}"
+            LEDGER_FLAGS=( --ledger-entries "${LEDGER_ID}" )
+            NOTES="Mutated ${CHANGED_COUNT} event file(s); ledger id ${LEDGER_ID}"
+          fi
+
+          if [[ "${{ job.status }}" != "success" ]]; then
+            STATUS="failure"
+            ALERT_FLAGS=( --alert-sent --alert-channel github-issue --error-summary "job status: ${{ job.status }}" )
+          else
+            ALERT_FLAGS=()
+          fi
+
+          node ops/scripts/run-log.mjs new \
+            --job-name events-archive-expired \
+            --job-source github-actions \
+            --run-id "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            --started-at "${STARTED_AT}" \
+            --ended-at "${ENDED_AT}" \
+            --status "${STATUS}" \
+            --mutation "${MUTATION}" \
+            --surfaces "next/src/content/events/" \
+            --counts-changed "${CHANGED_COUNT}" \
+            "${LEDGER_FLAGS[@]}" \
+            "${ALERT_FLAGS[@]}" \
+            --notes "${NOTES}" \
+            --append
+
+          # Stage and push run-log update so observability lands in main
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ops/run-log/ || true
+          if ! git diff --staged --quiet -- ops/run-log/; then
+            git commit -m "ops(run-log): record events-archive-expired ${GITHUB_RUN_ID} [skip ci]" || true
+            for attempt in 1 2 3; do
+              if git push origin main; then
+                break
+              fi
+              git fetch origin main
+              git rebase origin/main || { git rebase --abort; break; }
+            done
           fi

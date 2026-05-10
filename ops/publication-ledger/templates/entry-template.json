@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-05-10T04:45:00Z",
+  "job_name": "pi-daily-qa-and-publish",
+  "agent_or_owner": "PI-editor-qa + PI-publisher",
+  "content_type": "homepage-module-update",
+  "content_id": null,
+  "canonical_url_or_path": "/",
+  "change_summary": "Updated homepage event rail after expired event rollover.",
+  "risk_tier": "low",
+  "approval_mode": "system-approved",
+  "approved_by": null,
+  "publish_result": "published",
+  "verification_result": "passed",
+  "rollback_reference": null,
+  "run_id": null,
+  "notes": "Template example only. Replace before use."
+}

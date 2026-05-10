@@ -33,7 +33,14 @@
         "journal/peninsula-this-weekend-*/index.html",
         "next/src/content/events",
         "next/src/content/articles"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-daily-accuracy-autofix",
@@ -51,7 +58,14 @@
         "whats-on/index.html",
         "live repo",
         "GitHub Pages deploy"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "autonomous",
+        "notificationMode": "notify-after-publish",
+        "ledgerWrite": "required-on-live-mutation"
+      }
     },
     {
       "name": "pi-daily-link-audit",
@@ -72,7 +86,14 @@
         "whats-on/index.html",
         "journal/index.html",
         "all built internal links"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-daily-events-scan",
@@ -92,7 +113,14 @@
         "whats-on.html",
         "index.html",
         "itinerary.html"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-daily-venue-healthcheck",
@@ -112,7 +140,14 @@
         "stay.html",
         "wine.html",
         "next/src/content/venues"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-daily-seasonality-refresh",
@@ -133,7 +168,14 @@
         "explore.html",
         "itinerary.html",
         "next/src/content"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-daily-quick-note-research",
@@ -153,7 +195,14 @@
       "surfaces": [
         "next/src/content/quick-notes",
         "quick-note/index.html"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-daily-quick-note-draft",
@@ -169,7 +218,14 @@
       "surfaces": [
         "next/src/content/quick-notes",
         "quick-note/index.html"
-      ]
+      ],
+      "approval": {
+        "tier": "medium",
+        "approvalMode": "light-editorial-review",
+        "publishMode": "draft-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-daily-quick-note-qa-publish",
@@ -190,7 +246,14 @@
         "quick-note/index.html",
         "live repo",
         "GitHub Pages deploy"
-      ]
+      ],
+      "approval": {
+        "tier": "medium",
+        "approvalMode": "light-editorial-review",
+        "publishMode": "review-required",
+        "notificationMode": "notify-after-publish",
+        "ledgerWrite": "required-on-live-mutation"
+      }
     },
     {
       "name": "pi-daily-build-draft",
@@ -208,7 +271,14 @@
       "surfaces": [
         "tier-1 live pages",
         "Astro preview"
-      ]
+      ],
+      "approval": {
+        "tier": "medium",
+        "approvalMode": "light-editorial-review",
+        "publishMode": "draft-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-daily-qa-and-publish",
@@ -227,7 +297,14 @@
         "live repo",
         "preview routes",
         "GitHub Pages deploy"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "autonomous",
+        "notificationMode": "notify-after-publish",
+        "ledgerWrite": "required-on-live-mutation"
+      }
     },
     {
       "name": "pi-weekly-editorial-commissioning",
@@ -250,7 +327,14 @@
         "Explore",
         "Wine",
         "Escape"
-      ]
+      ],
+      "approval": {
+        "tier": "high",
+        "approvalMode": "founder-led-editorial-approval",
+        "publishMode": "proposal-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-evergreen-expansion",
@@ -271,7 +355,14 @@
         "venue pages",
         "service lists",
         "guide pages"
-      ]
+      ],
+      "approval": {
+        "tier": "medium",
+        "approvalMode": "light-editorial-review",
+        "publishMode": "proposal-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-seo-authority-audit",
@@ -297,8 +388,15 @@
         "Dog-Friendly",
         "Places",
         "Journal",
-        "What\u2019s On"
-      ]
+        "What’s On"
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-weekly-seo-opportunity-scan",
@@ -325,7 +423,14 @@
         "dog-friendly",
         "spa",
         "golf"
-      ]
+      ],
+      "approval": {
+        "tier": "medium",
+        "approvalMode": "light-editorial-review",
+        "publishMode": "proposal-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-metadata-schema-audit",
@@ -349,7 +454,14 @@
         "journal articles",
         "event pages",
         "entity pages"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-weekly-internal-linking-audit",
@@ -375,7 +487,14 @@
         "Dog-Friendly",
         "Journal",
         "Escape"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "no-publish",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "report-only"
+      }
     },
     {
       "name": "pi-monthly-seo-refresh-priority-run",
@@ -397,7 +516,14 @@
         "place hubs",
         "top service pages",
         "priority journal pages"
-      ]
+      ],
+      "approval": {
+        "tier": "medium",
+        "approvalMode": "light-editorial-review",
+        "publishMode": "proposal-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-dispatch-research-scan",
@@ -423,7 +549,14 @@
         "Stay",
         "Eat",
         "Places"
-      ]
+      ],
+      "approval": {
+        "tier": "high",
+        "approvalMode": "founder-led-editorial-approval",
+        "publishMode": "research-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-dispatch-shape-and-shortlist",
@@ -443,7 +576,14 @@
         "Journal",
         "What's On",
         "current weekend product"
-      ]
+      ],
+      "approval": {
+        "tier": "high",
+        "approvalMode": "founder-led-editorial-approval",
+        "publishMode": "proposal-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-dispatch-draft",
@@ -464,7 +604,14 @@
       "surfaces": [
         "Journal",
         "homepage hooks"
-      ]
+      ],
+      "approval": {
+        "tier": "high",
+        "approvalMode": "founder-led-editorial-approval",
+        "publishMode": "draft-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-dispatch-review-and-tighten",
@@ -485,7 +632,14 @@
         "Journal",
         "homepage",
         "What's On"
-      ]
+      ],
+      "approval": {
+        "tier": "high",
+        "approvalMode": "founder-led-editorial-approval",
+        "publishMode": "review-required",
+        "notificationMode": "notify-after-publish",
+        "ledgerWrite": "required-if-promoted-live"
+      }
     },
     {
       "name": "pi-weekly-dispatch-publish",
@@ -508,7 +662,14 @@
         "homepage",
         "What's On",
         "archive/current week surfaces"
-      ]
+      ],
+      "approval": {
+        "tier": "high",
+        "approvalMode": "founder-led-editorial-approval",
+        "publishMode": "approval-required",
+        "notificationMode": "notify-after-publish",
+        "ledgerWrite": "required-on-live-mutation"
+      }
     },
     {
       "name": "pi-weekly-dispatch-social-production",
@@ -538,6 +699,13 @@
       "trigger": {
         "after": "pi-weekly-dispatch-publish",
         "condition": "run only after successful live publish and final URL confirmation"
+      },
+      "approval": {
+        "tier": "medium",
+        "approvalMode": "light-editorial-review",
+        "publishMode": "handoff-only",
+        "notificationMode": "no-live-notification-required",
+        "ledgerWrite": "required-if-assets-are-published-live"
       }
     },
     {
@@ -557,7 +725,63 @@
       "surfaces": [
         "Journal archive",
         "current weekend surface"
-      ]
+      ],
+      "approval": {
+        "tier": "low",
+        "approvalMode": "system-approved",
+        "publishMode": "autonomous",
+        "notificationMode": "notify-after-publish",
+        "ledgerWrite": "required-on-live-mutation"
+      }
     }
-  ]
+  ],
+  "approvalModel": {
+    "version": "2026-05-10",
+    "policy": "tiered-risk-based",
+    "tiers": {
+      "low": {
+        "label": "Low-risk operational",
+        "approvalMode": "system-approved",
+        "defaultPublishMode": "autonomous",
+        "description": "For governed operational changes that do not materially affect editorial positioning, recommendations, trust, or factual interpretation."
+      },
+      "medium": {
+        "label": "Medium-risk update",
+        "approvalMode": "light-editorial-review",
+        "defaultPublishMode": "review-required",
+        "description": "For changes that materially alter emphasis, inclusion/exclusion, or framing without becoming full strategic editorial judgments."
+      },
+      "high": {
+        "label": "High-risk editorial/strategic",
+        "approvalMode": "founder-led-editorial-approval",
+        "defaultPublishMode": "approval-required",
+        "description": "For Journal, flagship recommendation products, opinion, strategic positioning, and any change that materially affects trust, taste, or interpretation."
+      }
+    }
+  },
+  "publicationLedger": {
+    "required": true,
+    "systemOfRecord": "canonical-publication-ledger",
+    "minimumFields": [
+      "timestamp",
+      "job_name",
+      "agent_or_owner",
+      "content_type",
+      "canonical_url_or_path",
+      "change_summary",
+      "risk_tier",
+      "approval_mode",
+      "approved_by",
+      "publish_result",
+      "verification_result",
+      "rollback_reference"
+    ],
+    "directory": "ops/publication-ledger",
+    "jsonlPattern": "ops/publication-ledger/entries/YYYY-MM.jsonl",
+    "csvIndex": "ops/publication-ledger/index.csv",
+    "schema": "ops/publication-ledger/publication-ledger.schema.json",
+    "appendScript": "ops/scripts/publication-ledger.py",
+    "appendCommandTemplate": "python3 ops/scripts/publication-ledger.py append --entry-file <entry.json>",
+    "validationCommandTemplate": "python3 ops/scripts/publication-ledger.py validate --entry-file <entry.json>"
+  }
 }
