@@ -15,6 +15,7 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle, formatHeroCredit } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
+import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -25,7 +26,16 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
-const { Content } = await render(article);
+
+// Peninsula This Weekend dispatches were migrated to a stable rolling URL
+// (/whats-on/this-weekend/) with per-week archive (Wave 2 Brief 2,
+// 2026-05-10). The journal URL pattern still emits a static page so
+// inbound search traffic, social shares, and external backlinks resolve
+// cleanly — but the body is a flash-free redirect to the dated archive
+// URL rather than the article content. See lib/peninsula-this-weekend.ts.
+const ptwRedirectTo = isPeninsulaThisWeekend(article) ? ptwArchivePath(article) : null;
+
+const { Content } = ptwRedirectTo ? { Content: null as any } : await render(article);
 
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -140,6 +150,20 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
 
 ---
 
+{ptwRedirectTo ? (
+  <html lang="en-AU">
+    <head>
+      <meta charset="utf-8" />
+      <title>Redirecting…</title>
+      <style is:global set:html={'html,body{display:none;visibility:hidden}'} />
+      <script type="text/javascript" set:html={`window.location.replace(${JSON.stringify(ptwRedirectTo)});`} />
+      <meta http-equiv="refresh" content={`0;url=${ptwRedirectTo}`} />
+      <meta name="robots" content="noindex" />
+      <link rel="canonical" href={`https://peninsulainsider.com.au${ptwRedirectTo}`} />
+    </head>
+    <body></body>
+  </html>
+) : (
 <BaseLayout
   title={`${article.data.title} | Peninsula Insider`}
   description={article.data.dek}
@@ -364,6 +388,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
 
   <NewsletterBlock />
 </BaseLayout>
+)}
 
 <style>
   .article-summary {

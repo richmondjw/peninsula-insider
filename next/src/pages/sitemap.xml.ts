@@ -153,9 +153,32 @@ export const GET: APIRoute = async () => {
     entries.push(url(`/places/${routeSlug(place)}`, 0.8, 'weekly', dateStr(place.data.publishedAt)));
   }
 
-  // Journal articles
-  for (const article of articles.filter((a) => !a.data.sitemapExclude)) {
+  // Peninsula This Weekend rolling URL (Wave 2 Brief 2, 2026-05-10).
+  // The dispatch lives at a stable URL so AI assistants and external
+  // sources can link to "this weekend on the Peninsula" reliably. Each
+  // past dispatch is preserved at /whats-on/this-weekend/archive/{date}/.
+  // Priority 1.0 + changefreq=weekly because PTW is the highest-frequency
+  // editorial dispatch and the canonical "what's happening now" surface.
+  entries.push(url('/whats-on/this-weekend', 1.0, 'weekly'));
+
+  // Journal articles. PTW dispatches (format=weekend-picker, slug starts
+  // with peninsula-this-weekend) are excluded — the journal URL is now a
+  // 301-equivalent redirect to /whats-on/this-weekend/archive/{date}/.
+  // Listing the redirect URL would split crawl signal between the legacy
+  // path and the canonical archive.
+  const isPtwSlug = (a: any) =>
+    a.data.format === 'weekend-picker' && routeSlug(a).startsWith('peninsula-this-weekend');
+  for (const article of articles.filter((a) => !a.data.sitemapExclude && !isPtwSlug(a))) {
     entries.push(url(`/journal/${routeSlug(article)}`, 0.7, 'weekly', dateStr(article.data.publishedAt)));
+  }
+  // PTW archive entries — sitemap-list each dated archive URL so the
+  // weekend dispatch corpus stays crawlable forever, with the rolling
+  // /whats-on/this-weekend/ as the canonical "current" surface.
+  for (const article of articles.filter(isPtwSlug)) {
+    const archiveSlug = article.data.publishedAt.toISOString().split('T')[0];
+    entries.push(
+      url(`/whats-on/this-weekend/archive/${archiveSlug}`, 0.6, 'monthly', dateStr(article.data.publishedAt)),
+    );
   }
 
   // Itineraries
