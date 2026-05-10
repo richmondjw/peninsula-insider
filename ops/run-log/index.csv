@@ -1,0 +1,2 @@
+runId,parentRunId,jobName,jobSource,startedAt,endedAt,durationMs,status,mutation,surfaceCount,changed,errors,warnings,alertSent,alertChannel,artifactCount,ledgerEntryCount
+25627521373-1,,deploy-site-to-github-pages,github-actions,2026-05-10T11:28:24Z,2026-05-10T11:30:23Z,119000,success,mutating-live,1,0,0,0,false,,0,0
