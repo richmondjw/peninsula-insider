@@ -91,20 +91,19 @@ export const v4Pillars: V4Pillar[] = [
       ctaHref: '/whats-on/',
     },
     rail: {
-      eyebrow: "Editor's pick this weekend",
+      eyebrow: "Editor's pick · Autumn '26",
       title: "Mt Eliza Farmers' Market",
-      verdict: "Sunday morning, Mt Eliza. Get there before 9 if you want a brunch table. Park at the village.",
+      verdict: "Sunday morning, Mt Eliza. Get there before 9 if you want a brunch table. Park at the village. Next occurrence: 4th Sunday of the month.",
       image: '/images/sourced/article-picnic-01.webp',
       imageAlt: "Mt Eliza Farmers' Market",
       href: '/whats-on/mt-eliza-farmers-market/',
-      cta: 'See this week →',
+      cta: 'Plan your visit →',
     },
     columns: [
       {
         eyebrow: 'This weekend',
         items: [
           { key: 'all-weekend',     label: 'All this weekend',  href: '/whats-on/' },
-          { key: 'racecourse',      label: 'Racecourse Market', href: '/whats-on/mornington-racecourse-market/' },
           { key: 'mt-eliza-market', label: "Mt Eliza Farmers'", href: '/whats-on/mt-eliza-farmers-market/' },
           { key: 'main-street',     label: 'Main Street fest',  href: '/whats-on/main-street-mornington-festival-2026/' },
         ],
