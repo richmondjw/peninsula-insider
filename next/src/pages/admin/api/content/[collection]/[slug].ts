@@ -41,7 +41,15 @@ import {
  * RLS evaluates as the editor — never the service-role key.
  */
 
-export const prerender = false;
+// Hybrid-only route. When PI_ADMIN_HYBRID is unset, prerender = true and
+// getStaticPaths returns [], so the static build excludes this endpoint
+// entirely. When PI_ADMIN_HYBRID=1, the @astrojs/vercel adapter is loaded and
+// the endpoint runs at request time.
+const PI_ADMIN_HYBRID = (import.meta.env.PI_ADMIN_HYBRID as string | undefined) === '1';
+export const prerender = !PI_ADMIN_HYBRID;
+export async function getStaticPaths() {
+  return [];
+}
 
 interface ParsedParams {
   collection: CmsEditableEntityType;

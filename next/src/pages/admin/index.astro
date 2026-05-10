@@ -68,7 +68,7 @@ const breadcrumbItems = [
         <aside class="admin-shell__aside">
           <h2 class="admin-shell__panel-title">Quick links</h2>
           <ul class="admin-shell__quick-links">
-            <li><a href="/admin/entry/page/home/">Edit homepage</a></li>
+            <li><a href="/admin/entry/?type=page&amp;slug=home">Edit homepage</a></li>
             <li><a href="/admin/login/">Login screen</a></li>
             <li><a href="/" target="_blank" rel="noopener">View live site</a></li>
           </ul>
@@ -180,7 +180,7 @@ const breadcrumbItems = [
     host.innerHTML = filtered
       .map((row) => {
         const updated = row.lastUpdatedAt ? new Date(row.lastUpdatedAt).toLocaleString() : '—';
-        const href = `/admin/entry/${encodeURIComponent(row.entityType)}/${encodeURIComponent(row.entitySlug)}/`;
+        const href = `/admin/entry/?type=${encodeURIComponent(row.entityType)}&slug=${encodeURIComponent(row.entitySlug)}`;
         return `
           <a class="admin-shell__entry" href="${href}">
             <span class="admin-shell__entry-type">${row.entityType}</span>

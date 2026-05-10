@@ -1,0 +1,746 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Admin', href: '/admin/' },
+  { label: 'Edit entry' },
+];
+---
+
+<BaseLayout
+  title="Edit entry · Peninsula Insider"
+  description="Edit a CMS entry."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="entry-editor" data-entry-root>
+    <div class="container entry-editor__container">
+      <header class="entry-editor__head">
+        <p class="entry-editor__eyebrow" data-entry-type>—</p>
+        <h1 class="entry-editor__title" data-entry-slug>Loading…</h1>
+        <p class="entry-editor__status" data-entry-status>Loading…</p>
+      </header>
+
+      <div class="entry-editor__layout">
+        <main class="entry-editor__main">
+          <section class="entry-editor__group" data-section="text">
+            <header class="entry-editor__group-head">
+              <h2>Text fields</h2>
+              <button type="button" class="entry-editor__btn" data-action="add-text">+ Add field</button>
+            </header>
+            <div class="entry-editor__rows" data-text-rows>
+              <p class="entry-editor__hint">Loading…</p>
+            </div>
+          </section>
+
+          <section class="entry-editor__group" data-section="image">
+            <header class="entry-editor__group-head">
+              <h2>Image slots</h2>
+              <button type="button" class="entry-editor__btn" data-action="add-image">+ Add slot</button>
+            </header>
+            <div class="entry-editor__rows" data-image-rows>
+              <p class="entry-editor__hint">Loading…</p>
+            </div>
+          </section>
+        </main>
+
+        <aside class="entry-editor__aside">
+          <h2>Recent revisions</h2>
+          <ol class="entry-editor__revisions" data-revisions>
+            <li class="entry-editor__hint">Loading…</li>
+          </ol>
+          <h3>Quick links</h3>
+          <ul class="entry-editor__quick" data-quick-links></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { getSupabase, isAuthEnabled } from '../../lib/auth';
+
+  const COOKIE_ACCESS = 'pi-sb-access-token';
+  const COOKIE_REFRESH = 'pi-sb-refresh-token';
+  const LOGIN_PATH = '/admin/login/';
+
+  type TextRow = {
+    id: string;
+    entity_type: string;
+    entity_slug: string;
+    field_path: string;
+    label: string;
+    field_kind: 'text' | 'markdown' | 'richtext';
+    locale: string | null;
+    value: string | null;
+    status: 'draft' | 'published';
+    updated_at: string;
+  };
+  type ImageRow = {
+    id: string;
+    entity_type: string;
+    entity_slug: string;
+    field_path: string;
+    label: string;
+    purpose: 'hero' | 'card' | 'gallery' | 'inline' | 'seo';
+    storage_path: string | null;
+    public_url: string | null;
+    alt_text: string | null;
+    caption: string | null;
+    credit: string | null;
+    status: 'draft' | 'published';
+    updated_at: string;
+  };
+  type RevisionRow = {
+    id: string;
+    action: string;
+    status: string;
+    summary: string | null;
+    created_at: string;
+  };
+
+  const ALLOWED_TYPES = ['article', 'page', 'event', 'place', 'venue', 'experience', 'itinerary'];
+
+  function setCookie(name: string, value: string, maxAgeSeconds: number) {
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${Math.max(60, Math.floor(maxAgeSeconds))}; SameSite=Lax${secure}`;
+  }
+  function clearCookie(name: string) {
+    document.cookie = `${name}=; Path=/; Max-Age=0; SameSite=Lax`;
+  }
+
+  async function syncCookies() {
+    const c = getSupabase();
+    if (!c) return null;
+    const { data } = await c.auth.getSession();
+    const session = data.session;
+    if (!session) {
+      clearCookie(COOKIE_ACCESS);
+      clearCookie(COOKIE_REFRESH);
+      return null;
+    }
+    const expiresIn = (session.expires_in as number | undefined) ?? 3600;
+    setCookie(COOKIE_ACCESS, session.access_token, expiresIn);
+    if (session.refresh_token) setCookie(COOKIE_REFRESH, session.refresh_token, 60 * 60 * 24 * 30);
+    return session;
+  }
+
+  function setStatus(text: string, tone: 'idle' | 'ok' | 'err' = 'idle') {
+    const el = document.querySelector<HTMLElement>('[data-entry-status]');
+    if (!el) return;
+    el.textContent = text;
+    el.dataset.tone = tone;
+  }
+
+  function escapeHtml(s: string) {
+    return s.replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c] as string));
+  }
+
+  function getParams(): { entityType: string; entitySlug: string } | null {
+    const sp = new URLSearchParams(location.search);
+    const t = (sp.get('type') || '').trim();
+    const s = (sp.get('slug') || '').trim();
+    if (!t || !s) return null;
+    if (!ALLOWED_TYPES.includes(t)) return null;
+    return { entityType: t, entitySlug: s };
+  }
+
+  function renderHead(entityType: string, entitySlug: string) {
+    const t = document.querySelector<HTMLElement>('[data-entry-type]');
+    const s = document.querySelector<HTMLElement>('[data-entry-slug]');
+    if (t) t.textContent = entityType;
+    if (s) s.textContent = entitySlug;
+    const links = document.querySelector<HTMLElement>('[data-quick-links]');
+    if (links) {
+      const livePath = entityType === 'page' && entitySlug === 'home' ? '/' : `/${entitySlug}/`;
+      links.innerHTML = `
+        <li><a href="/admin/">Back to admin home</a></li>
+        <li><a href="${livePath}" target="_blank" rel="noopener">View live</a></li>
+      `;
+    }
+  }
+
+  function renderTextRows(rows: TextRow[]) {
+    const host = document.querySelector<HTMLElement>('[data-text-rows]');
+    if (!host) return;
+    if (rows.length === 0) {
+      host.innerHTML = '<p class="entry-editor__hint">No text fields yet. Use “Add field” to register one.</p>';
+      return;
+    }
+    host.innerHTML = rows
+      .map((row) => {
+        const value = row.value ?? '';
+        return `
+          <div class="entry-editor__row" data-text-row data-row-id="${row.id}">
+            <div class="entry-editor__row-meta">
+              <span class="entry-editor__row-label">${escapeHtml(row.label || row.field_path)}</span>
+              <span class="entry-editor__row-tag">${escapeHtml(row.field_path)}</span>
+              <span class="entry-editor__row-tag">${row.field_kind}</span>
+              <span class="entry-editor__row-tag entry-editor__row-tag--${row.status}">${row.status}</span>
+            </div>
+            <textarea class="entry-editor__input" data-field="value">${escapeHtml(value)}</textarea>
+            <div class="entry-editor__row-actions">
+              <button type="button" class="entry-editor__btn entry-editor__btn--save" data-action="save-text" data-row-id="${row.id}">Save draft</button>
+              <button type="button" class="entry-editor__btn entry-editor__btn--publish" data-action="publish-text" data-row-id="${row.id}">Publish</button>
+              <button type="button" class="entry-editor__btn entry-editor__btn--ghost" data-action="delete-text" data-row-id="${row.id}">Delete</button>
+            </div>
+          </div>
+        `;
+      })
+      .join('');
+  }
+
+  function renderImageRows(rows: ImageRow[]) {
+    const host = document.querySelector<HTMLElement>('[data-image-rows]');
+    if (!host) return;
+    if (rows.length === 0) {
+      host.innerHTML = '<p class="entry-editor__hint">No image slots yet. Use “Add slot” to register a hero or card image.</p>';
+      return;
+    }
+    host.innerHTML = rows
+      .map((row) => {
+        return `
+          <div class="entry-editor__row" data-image-row data-row-id="${row.id}">
+            <div class="entry-editor__row-meta">
+              <span class="entry-editor__row-label">${escapeHtml(row.label || row.field_path)}</span>
+              <span class="entry-editor__row-tag">${escapeHtml(row.field_path)}</span>
+              <span class="entry-editor__row-tag">${row.purpose}</span>
+              <span class="entry-editor__row-tag entry-editor__row-tag--${row.status}">${row.status}</span>
+            </div>
+            <div class="entry-editor__image-grid">
+              <label>Public URL or storage path
+                <input class="entry-editor__input" data-field="public_url" value="${escapeHtml(row.public_url ?? '')}" />
+              </label>
+              <label>Alt text
+                <input class="entry-editor__input" data-field="alt_text" value="${escapeHtml(row.alt_text ?? '')}" />
+              </label>
+              <label>Caption
+                <input class="entry-editor__input" data-field="caption" value="${escapeHtml(row.caption ?? '')}" />
+              </label>
+              <label>Credit
+                <input class="entry-editor__input" data-field="credit" value="${escapeHtml(row.credit ?? '')}" />
+              </label>
+            </div>
+            <div class="entry-editor__row-actions">
+              <button type="button" class="entry-editor__btn entry-editor__btn--save" data-action="save-image" data-row-id="${row.id}">Save draft</button>
+              <button type="button" class="entry-editor__btn entry-editor__btn--publish" data-action="publish-image" data-row-id="${row.id}">Publish</button>
+              <button type="button" class="entry-editor__btn entry-editor__btn--ghost" data-action="delete-image" data-row-id="${row.id}">Delete</button>
+            </div>
+          </div>
+        `;
+      })
+      .join('');
+  }
+
+  function renderRevisions(rows: RevisionRow[]) {
+    const host = document.querySelector<HTMLElement>('[data-revisions]');
+    if (!host) return;
+    if (rows.length === 0) {
+      host.innerHTML = '<li class="entry-editor__hint">No revisions yet.</li>';
+      return;
+    }
+    host.innerHTML = rows
+      .map((row) => {
+        const ts = new Date(row.created_at).toLocaleString();
+        const summary = row.summary ?? `${row.action} (${row.status})`;
+        return `
+          <li>
+            <span class="entry-editor__rev-action">${row.action}</span>
+            <span class="entry-editor__rev-summary">${escapeHtml(summary)}</span>
+            <span class="entry-editor__rev-time">${ts}</span>
+          </li>
+        `;
+      })
+      .join('');
+  }
+
+  async function loadAll(entityType: string, entitySlug: string) {
+    const c = getSupabase();
+    if (!c) return;
+    const [textRes, imageRes, revRes] = await Promise.all([
+      c.from('cms_text_fields')
+        .select('*')
+        .eq('entity_type', entityType)
+        .eq('entity_slug', entitySlug)
+        .order('field_path', { ascending: true }),
+      c.from('cms_image_slots')
+        .select('*')
+        .eq('entity_type', entityType)
+        .eq('entity_slug', entitySlug)
+        .order('field_path', { ascending: true }),
+      c.from('cms_revisions')
+        .select('*')
+        .eq('entity_type', entityType)
+        .eq('entity_slug', entitySlug)
+        .order('created_at', { ascending: false })
+        .limit(25),
+    ]);
+    if (textRes.error || imageRes.error) {
+      setStatus('Could not read CMS rows. Check your editor permissions.', 'err');
+      return;
+    }
+    const textRows = (textRes.data ?? []) as TextRow[];
+    const imageRows = (imageRes.data ?? []) as ImageRow[];
+    const revRows = (revRes.data ?? []) as RevisionRow[];
+    renderTextRows(textRows);
+    renderImageRows(imageRows);
+    renderRevisions(revRows);
+    setStatus(`${textRows.length} text · ${imageRows.length} image · ${revRows.length} revisions`, 'ok');
+  }
+
+  async function getActorId(): Promise<string | null> {
+    const c = getSupabase();
+    if (!c) return null;
+    const { data } = await c.auth.getUser();
+    return data.user?.id ?? null;
+  }
+
+  async function recordRevision(
+    entityType: string,
+    entitySlug: string,
+    action: 'create' | 'update' | 'publish' | 'unpublish' | 'restore',
+    status: 'draft' | 'published',
+    summary: string,
+    patch: { op: 'set' | 'unset'; target: string; value?: string | null }[],
+  ) {
+    const c = getSupabase();
+    if (!c) return;
+    const actorId = await getActorId();
+    await c.from('cms_revisions').insert({
+      entity_type: entityType,
+      entity_slug: entitySlug,
+      action,
+      status,
+      summary,
+      patch,
+      created_by: actorId,
+    });
+  }
+
+  /**
+   * RLS-gated CRUD against the pi schema. Returns { ok } regardless of whether
+   * the row was returned — Postgres errors are surfaced to the editor via
+   * setStatus rather than thrown.
+   */
+  async function callApi(
+    entityType: string,
+    entitySlug: string,
+    method: 'POST' | 'PATCH' | 'DELETE',
+    payload: Record<string, unknown>,
+  ) {
+    const c = getSupabase();
+    if (!c) {
+      setStatus('Supabase client is not available.', 'err');
+      return null;
+    }
+    const actorId = await getActorId();
+    const kind = payload.kind as 'text' | 'image';
+    const status = (payload.status as 'draft' | 'published' | undefined) ?? 'draft';
+
+    try {
+      if (method === 'POST') {
+        if (kind === 'text') {
+          const fieldPath = String(payload.fieldPath || '').trim();
+          if (!fieldPath) { setStatus('Field path is required.', 'err'); return null; }
+          const insert = {
+            entity_type: entityType,
+            entity_slug: entitySlug,
+            field_path: fieldPath,
+            label: String(payload.label || fieldPath),
+            field_kind: String(payload.textKind || 'text'),
+            value: typeof payload.value === 'string' ? payload.value : null,
+            status,
+            updated_by: actorId,
+            locale: null,
+          };
+          const { error } = await c.from('cms_text_fields').insert(insert);
+          if (error) { setStatus(`Insert failed: ${error.message}`, 'err'); return null; }
+          await recordRevision(entityType, entitySlug, 'create', status, `create text ${fieldPath}`, [
+            { op: 'set', target: fieldPath, value: insert.value ?? null },
+          ]);
+          return { ok: true };
+        }
+        if (kind === 'image') {
+          const fieldPath = String(payload.fieldPath || '').trim();
+          if (!fieldPath) { setStatus('Field path is required.', 'err'); return null; }
+          const insert = {
+            entity_type: entityType,
+            entity_slug: entitySlug,
+            field_path: fieldPath,
+            label: String(payload.label || fieldPath),
+            purpose: String(payload.purpose || 'hero'),
+            storage_bucket: 'cms-assets',
+            storage_path: null,
+            public_url: typeof payload.publicUrl === 'string' && payload.publicUrl.length > 0 ? String(payload.publicUrl) : null,
+            alt_text: null, caption: null, credit: null, mime_type: null,
+            status,
+            updated_by: actorId,
+          };
+          const { error } = await c.from('cms_image_slots').insert(insert);
+          if (error) { setStatus(`Insert failed: ${error.message}`, 'err'); return null; }
+          await recordRevision(entityType, entitySlug, 'create', status, `create image ${fieldPath}`, [
+            { op: 'set', target: `${fieldPath}.public_url`, value: insert.public_url ?? null },
+          ]);
+          return { ok: true };
+        }
+      }
+
+      if (method === 'PATCH') {
+        const id = String(payload.id || '');
+        if (!id) { setStatus('Missing id.', 'err'); return null; }
+        if (kind === 'text') {
+          const update: Record<string, unknown> = {
+            value: typeof payload.value === 'string' ? payload.value : null,
+            status,
+            updated_by: actorId,
+          };
+          const { error } = await c.from('cms_text_fields').update(update).eq('id', id);
+          if (error) { setStatus(`Update failed: ${error.message}`, 'err'); return null; }
+          const action = status === 'published' ? 'publish' : 'update';
+          await recordRevision(entityType, entitySlug, action, status, `${action} text ${id}`, [
+            { op: 'set', target: 'value', value: typeof payload.value === 'string' ? payload.value : null },
+          ]);
+          return { ok: true };
+        }
+        if (kind === 'image') {
+          const update: Record<string, unknown> = {
+            public_url: typeof payload.publicUrl === 'string' && payload.publicUrl.length > 0 ? payload.publicUrl : null,
+            alt_text: typeof payload.altText === 'string' && payload.altText.length > 0 ? payload.altText : null,
+            caption: typeof payload.caption === 'string' && payload.caption.length > 0 ? payload.caption : null,
+            credit: typeof payload.credit === 'string' && payload.credit.length > 0 ? payload.credit : null,
+            status,
+            updated_by: actorId,
+          };
+          const { error } = await c.from('cms_image_slots').update(update).eq('id', id);
+          if (error) { setStatus(`Update failed: ${error.message}`, 'err'); return null; }
+          const action = status === 'published' ? 'publish' : 'update';
+          await recordRevision(entityType, entitySlug, action, status, `${action} image ${id}`, [
+            { op: 'set', target: 'public_url', value: typeof payload.publicUrl === 'string' ? payload.publicUrl : null },
+          ]);
+          return { ok: true };
+        }
+      }
+
+      if (method === 'DELETE') {
+        const id = String(payload.id || '');
+        if (!id) { setStatus('Missing id.', 'err'); return null; }
+        const table = kind === 'text' ? 'cms_text_fields' : 'cms_image_slots';
+        const { error } = await c.from(table).delete().eq('id', id);
+        if (error) { setStatus(`Delete failed: ${error.message}`, 'err'); return null; }
+        await recordRevision(entityType, entitySlug, 'update', 'draft', `delete ${kind} ${id}`, [
+          { op: 'unset', target: id },
+        ]);
+        return { ok: true };
+      }
+
+      setStatus('Unsupported operation.', 'err');
+      return null;
+    } catch (err) {
+      setStatus(`Request failed: ${(err as Error).message}`, 'err');
+      return null;
+    }
+  }
+
+  function rowFromButton(btn: HTMLElement, kind: 'text' | 'image') {
+    const row = btn.closest<HTMLElement>(kind === 'text' ? '[data-text-row]' : '[data-image-row]');
+    if (!row) return null;
+    const id = row.dataset.rowId!;
+    const inputs = row.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[data-field]');
+    const fields: Record<string, string | null> = {};
+    inputs.forEach((el) => { fields[el.dataset.field!] = el.value; });
+    return { id, fields };
+  }
+
+  function bindEvents(entityType: string, entitySlug: string) {
+    const root = document.querySelector<HTMLElement>('[data-entry-root]');
+    if (!root) return;
+
+    root.addEventListener('click', async (event) => {
+      const target = event.target as HTMLElement;
+      if (!target?.dataset?.action) return;
+
+      if (target.dataset.action === 'add-text') {
+        const fieldPath = window.prompt('Field path (e.g. cover.headline)?');
+        if (!fieldPath) return;
+        const label = window.prompt('Editor label?', fieldPath) ?? fieldPath;
+        const kind = (window.prompt('Kind: text | markdown | richtext', 'text') ?? 'text').toLowerCase();
+        const safeKind = ['text', 'markdown', 'richtext'].includes(kind) ? kind : 'text';
+        const value = window.prompt('Initial value (leave blank to set later)') ?? '';
+        setStatus('Saving new field…');
+        const res = await callApi(entityType, entitySlug, 'POST', {
+          kind: 'text',
+          fieldPath, label, textKind: safeKind, value, status: 'draft',
+        });
+        if (res?.ok) { setStatus('Field added.', 'ok'); await loadAll(entityType, entitySlug); }
+        return;
+      }
+
+      if (target.dataset.action === 'add-image') {
+        const fieldPath = window.prompt('Field path (e.g. cover.image)?');
+        if (!fieldPath) return;
+        const label = window.prompt('Editor label?', fieldPath) ?? fieldPath;
+        const purpose = (window.prompt('Purpose: hero | card | gallery | inline | seo', 'hero') ?? 'hero').toLowerCase();
+        const safe = ['hero', 'card', 'gallery', 'inline', 'seo'].includes(purpose) ? purpose : 'hero';
+        const publicUrl = window.prompt('Public URL (or leave blank)') ?? '';
+        setStatus('Saving new slot…');
+        const res = await callApi(entityType, entitySlug, 'POST', {
+          kind: 'image',
+          fieldPath, label, purpose: safe, publicUrl, status: 'draft',
+        });
+        if (res?.ok) { setStatus('Slot added.', 'ok'); await loadAll(entityType, entitySlug); }
+        return;
+      }
+
+      if (target.dataset.action === 'save-text' || target.dataset.action === 'publish-text') {
+        const data = rowFromButton(target, 'text');
+        if (!data) return;
+        const status = target.dataset.action === 'publish-text' ? 'published' : 'draft';
+        setStatus(status === 'published' ? 'Publishing…' : 'Saving…');
+        const res = await callApi(entityType, entitySlug, 'PATCH', {
+          kind: 'text', id: data.id, value: data.fields.value ?? null, status,
+        });
+        if (res?.ok) { setStatus(status === 'published' ? 'Published.' : 'Saved draft.', 'ok'); await loadAll(entityType, entitySlug); }
+        return;
+      }
+
+      if (target.dataset.action === 'save-image' || target.dataset.action === 'publish-image') {
+        const data = rowFromButton(target, 'image');
+        if (!data) return;
+        const status = target.dataset.action === 'publish-image' ? 'published' : 'draft';
+        setStatus(status === 'published' ? 'Publishing…' : 'Saving…');
+        const res = await callApi(entityType, entitySlug, 'PATCH', {
+          kind: 'image',
+          id: data.id,
+          publicUrl: data.fields.public_url ?? null,
+          altText: data.fields.alt_text ?? null,
+          caption: data.fields.caption ?? null,
+          credit: data.fields.credit ?? null,
+          status,
+        });
+        if (res?.ok) { setStatus(status === 'published' ? 'Published.' : 'Saved draft.', 'ok'); await loadAll(entityType, entitySlug); }
+        return;
+      }
+
+      if (target.dataset.action === 'delete-text' || target.dataset.action === 'delete-image') {
+        const id = target.dataset.rowId;
+        if (!id) return;
+        if (!window.confirm('Delete this entry? This cannot be undone.')) return;
+        const kind = target.dataset.action === 'delete-text' ? 'text' : 'image';
+        setStatus('Deleting…');
+        const res = await callApi(entityType, entitySlug, 'DELETE', { kind, id });
+        if (res?.ok) { setStatus('Deleted.', 'ok'); await loadAll(entityType, entitySlug); }
+        return;
+      }
+    });
+  }
+
+  async function init() {
+    if (!isAuthEnabled()) {
+      setStatus('Auth is not configured in this environment.', 'err');
+      return;
+    }
+    const params = getParams();
+    if (!params) {
+      setStatus('Missing or invalid ?type and ?slug — go back to /admin/.', 'err');
+      return;
+    }
+    renderHead(params.entityType, params.entitySlug);
+
+    const session = await syncCookies();
+    if (!session) {
+      const next = `${location.pathname}${location.search}`;
+      location.replace(`${LOGIN_PATH}?next=${encodeURIComponent(next)}`);
+      return;
+    }
+    const c = getSupabase();
+    if (!c) return;
+    const { data: profile } = await c
+      .from('profiles')
+      .select('is_editor')
+      .eq('id', session.user.id)
+      .maybeSingle();
+    if (!profile?.is_editor) {
+      setStatus('Your account does not have editor rights.', 'err');
+      return;
+    }
+
+    bindEvents(params.entityType, params.entitySlug);
+    await loadAll(params.entityType, params.entitySlug);
+
+    c.auth.onAuthStateChange(async (event) => {
+      if (event === 'SIGNED_OUT') {
+        clearCookie(COOKIE_ACCESS);
+        clearCookie(COOKIE_REFRESH);
+        location.replace(LOGIN_PATH);
+      }
+      if (event === 'TOKEN_REFRESHED') {
+        await syncCookies();
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    void init();
+  });
+</script>
+
+<style is:global>
+  .entry-editor {
+    padding: clamp(2rem, 5vw, 4rem) 0 clamp(4rem, 8vw, 6rem);
+  }
+  .entry-editor__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .entry-editor__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .entry-editor__eyebrow {
+    margin: 0;
+    font: 700 0.7rem/1 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ochre, #A0541F);
+  }
+  .entry-editor__title {
+    margin: 0;
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    word-break: break-all;
+  }
+  .entry-editor__status {
+    margin: 0.5rem 0 0;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.4rem;
+    background: rgba(23, 20, 19, 0.05);
+    font: 500 0.86rem/1.4 var(--sans, 'Inter', system-ui, sans-serif);
+  }
+  .entry-editor__status[data-tone='ok'] { background: rgba(46, 125, 50, 0.08); color: #2e7d32; }
+  .entry-editor__status[data-tone='err'] { background: rgba(176, 0, 32, 0.08); color: #b00020; }
+  .entry-editor__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  @media (min-width: 60rem) {
+    .entry-editor__layout { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  }
+  .entry-editor__group {
+    background: var(--paper, #FAF7F0);
+    border: 1px solid rgba(23, 20, 19, 0.08);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .entry-editor__group-head {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;
+  }
+  .entry-editor__group-head h2 {
+    margin: 0;
+    font: 700 0.85rem/1.2 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .entry-editor__rows { display: flex; flex-direction: column; gap: 0.85rem; }
+  .entry-editor__row {
+    border: 1px solid rgba(23, 20, 19, 0.08);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.85rem; border-radius: 0.4rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .entry-editor__row-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+  .entry-editor__row-label { font: 700 0.85rem/1.2 var(--sans, 'Inter', system-ui, sans-serif); }
+  .entry-editor__row-tag {
+    padding: 0.1rem 0.5rem; border-radius: 999px;
+    font: 700 0.66rem/1.4 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: rgba(23, 20, 19, 0.06); color: var(--ink-soft, #3A3531);
+  }
+  .entry-editor__row-tag--draft { background: rgba(176, 0, 32, 0.08); color: #b00020; }
+  .entry-editor__row-tag--published { background: rgba(46, 125, 50, 0.1); color: #2e7d32; }
+  .entry-editor__input {
+    width: 100%; box-sizing: border-box;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid rgba(23, 20, 19, 0.18);
+    border-radius: 0.35rem;
+    font: 500 0.95rem/1.4 var(--sans, 'Inter', system-ui, sans-serif);
+    color: var(--ink, #171413);
+    background: var(--paper, #FAF7F0);
+    resize: vertical; min-height: 2.4rem;
+  }
+  textarea.entry-editor__input {
+    min-height: 6rem;
+    font-family: var(--mono, ui-monospace, SFMono-Regular, monospace);
+    font-size: 0.9rem;
+  }
+  .entry-editor__image-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0.6rem;
+  }
+  .entry-editor__image-grid label {
+    display: flex; flex-direction: column; gap: 0.25rem;
+    font: 600 0.74rem/1 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink-soft, #3A3531);
+  }
+  .entry-editor__row-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .entry-editor__btn {
+    border: 0; border-radius: 999px;
+    padding: 0.5rem 0.9rem;
+    font: 700 0.7rem/1 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: pointer;
+  }
+  .entry-editor__btn--save { background: rgba(23, 20, 19, 0.06); color: var(--ink, #171413); }
+  .entry-editor__btn--publish { background: var(--ink, #171413); color: var(--paper, #FAF7F0); }
+  .entry-editor__btn--ghost {
+    background: transparent;
+    border: 1px solid rgba(176, 0, 32, 0.32);
+    color: #b00020;
+  }
+  .entry-editor__hint { margin: 0; color: var(--ink-soft, #3A3531); }
+  .entry-editor__aside {
+    background: var(--paper, #FAF7F0);
+    border: 1px solid rgba(23, 20, 19, 0.08);
+    padding: 1.25rem; border-radius: 0.5rem;
+    align-self: start; position: sticky; top: 1rem;
+  }
+  .entry-editor__aside h2 {
+    margin: 0 0 0.6rem;
+    font: 700 0.78rem/1.2 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .entry-editor__aside h3 {
+    margin: 1rem 0 0.5rem;
+    font: 700 0.74rem/1.2 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-soft, #3A3531);
+  }
+  .entry-editor__revisions {
+    margin: 0; padding-left: 1rem; line-height: 1.6;
+    font: 500 0.86rem/1.5 var(--sans, 'Inter', system-ui, sans-serif);
+  }
+  .entry-editor__revisions li {
+    margin-bottom: 0.6rem;
+    display: flex; flex-direction: column;
+  }
+  .entry-editor__rev-action {
+    font-weight: 700; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.08em;
+    color: var(--ochre, #A0541F);
+  }
+  .entry-editor__rev-summary { color: var(--ink, #171413); }
+  .entry-editor__rev-time { color: var(--ink-soft, #3A3531); font-size: 0.78rem; }
+  .entry-editor__quick { margin: 0; padding-left: 1rem; line-height: 1.7; }
+</style>

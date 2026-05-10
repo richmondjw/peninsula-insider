@@ -1,5 +1,7 @@
 import homepageData from '../../data/homepage.json';
 import type { CmsEditableImageSlot, CmsEditableTextField } from '../cms/schema';
+import { createCmsAnonClient } from '../cms/server';
+import { getPublishedPageOverrides } from '../cms/api';
 
 export interface HomepageCoverContent {
   label: string;
@@ -134,6 +136,28 @@ function mergeHomepageAdminContent(base: HomepageAdminContent, patch?: Partial<H
 
 export function getHomepageAdminContent(): HomepageAdminContent {
   return mergeHomepageAdminContent(DEFAULT_HOMEPAGE_ADMIN_CONTENT, HOMEPAGE_DATA.admin);
+}
+
+/**
+ * Build-time hook: fetch any published CMS overrides for entity_slug='home'
+ * and return a fully merged HomepageAdminContent. Falls back to the
+ * JSON-backed defaults when Supabase is not configured or returns no rows.
+ *
+ * Safe to call from `astro build` — uses the public anon key, gated by the
+ * `cms_*_public_read_published` RLS policies in
+ * ops/migrations/2026-05-10-pi-cms-public-read.sql.
+ */
+export async function loadHomepageContentWithCmsOverrides(): Promise<HomepageAdminContent> {
+  const base = getHomepageAdminContent();
+  const client = createCmsAnonClient();
+  if (!client) return base;
+  try {
+    const { textFields, imageSlots } = await getPublishedPageOverrides(client, 'home');
+    if (textFields.length === 0 && imageSlots.length === 0) return base;
+    return applyHomepageCmsOverrides(base, textFields, imageSlots);
+  } catch {
+    return base;
+  }
 }
 
 export function applyHomepageCmsOverrides(
