@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-10T11:39:15.555Z",
-  "trigger": "schedule",
+  "run_id": "2026-05-10T13:26:18.499Z",
+  "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 10.2,
-  "git_sha": "fd77641",
+  "duration_seconds": 6.6,
+  "git_sha": "7f4601c",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -17,7 +17,7 @@
     "editorial_block": 10
   },
   "database": {
-    "chunks_before": 1605,
+    "chunks_before": 1593,
     "chunks_after": 1593
   },
   "delta": {
@@ -25,7 +25,7 @@
     "updated": 3,
     "metadata_only": 0,
     "unchanged": 1593,
-    "pruned": 12,
+    "pruned": 0,
     "errors": 0,
     "stale_remaining": 0
   },
@@ -36,20 +36,7 @@
     "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [
-    "flinders-hotel-mothers-day-2026::summary::0",
-    "flinders-hotel-mothers-day-2026::editor_note::0",
-    "flinders-hotel-mothers-day-2026::verdict::0",
-    "jetty-road-brewery-mothers-day-2026::summary::0",
-    "jetty-road-brewery-mothers-day-2026::editor_note::0",
-    "jetty-road-brewery-mothers-day-2026::verdict::0",
-    "mothers-day-classic-moonah-links-2026::summary::0",
-    "mothers-day-classic-moonah-links-2026::editor_note::0",
-    "mothers-day-classic-moonah-links-2026::verdict::0",
-    "pier-10-mothers-day-lunch-2026::summary::0",
-    "pier-10-mothers-day-lunch-2026::editor_note::0",
-    "pier-10-mothers-day-lunch-2026::verdict::0"
-  ],
+  "pruned_chunk_ids": [],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
   "embedding_cost_usd_estimate": 0,
