@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "runId": "00000000-0000-0000-0000-000000000000",
+  "parentRunId": null,
+  "jobName": "pi-example-job",
+  "jobSource": "openclaw-cron",
+  "startedAt": "2026-05-10T20:20:00Z",
+  "endedAt": "2026-05-10T20:20:42Z",
+  "durationMs": 42000,
+  "status": "success",
+  "mutation": "scan-only",
+  "surfaces": [],
+  "counts": {
+    "scanned": 0,
+    "changed": 0,
+    "errors": 0,
+    "warnings": 0
+  },
+  "alertSent": false,
+  "alertChannel": null,
+  "artifacts": [],
+  "ledgerEntries": [],
+  "errorSummary": null,
+  "notes": null
+}
