@@ -24,6 +24,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Shortlist from '../components/Shortlist.astro';
 import EditorsLetter from '../components/EditorsLetter.astro';
 import PlaceCard from '../components/PlaceCard.astro';
+import ItineraryCard from '../components/ItineraryCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc } from '../lib/editorial';
@@ -42,6 +43,25 @@ const articles    = (await getCollection('articles', ({ data }) => data.status =
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const places      = await getCollection('places');
 const experiences = await getCollection('experiences');
+const itineraries = await getCollection('itineraries');
+
+// Homepage Plans card grid (Wave 3 prep, 2026-05-10) — rebalances the
+// homepage hierarchy so Plans gets visible weight per Strategic Review §6.
+// Picks three itineraries that span the editorial range: a two-night
+// sweet-spot weekend, a longer reset, and a short-form quick escape.
+// Falls through to publish order if any of the named slugs are missing.
+const featuredPlanSlugs = [
+  'ridge-to-sea-two-night-escape',
+  'wellness-weekend',
+  'sorrento-off-season-weekend',
+];
+const featuredPlans = featuredPlanSlugs
+  .map((s) => itineraries.find((it) => routeSlug(it) === s))
+  .filter(Boolean);
+const fallbackPlans = itineraries
+  .filter((it) => !featuredPlanSlugs.includes(routeSlug(it)))
+  .slice(0, 3 - featuredPlans.length);
+const planCards = [...featuredPlans, ...fallbackPlans].slice(0, 3);
 
 // ── Below-fold data (mirrors index.astro so the integration is visible) ─────
 const featured = articles.find((a) => a.data.featured && a.data.format !== 'weekend-picker')
@@ -339,6 +359,24 @@ const ssrScene = scenes[0];
               )}
             </a>
           )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {planCards.length > 0 && (
+    <section class="hp-plans">
+      <div class="container">
+        <div class="hp-plans__head">
+          <p class="label label--accent">The Plans</p>
+          <h2 class="hp-plans__title">Or take the whole weekend.</h2>
+          <p class="hp-plans__sub">Three editorial itineraries — built around a single anchor stay, paced for the way the Peninsula actually works.</p>
+        </div>
+        <div class="hp-plans__grid">
+          {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+        </div>
+        <div class="hp-plans__footer">
+          <a href="/plans/" class="venues__link">All {itineraries.length} plans →</a>
         </div>
       </div>
     </section>
@@ -953,6 +991,59 @@ const ssrScene = scenes[0];
   .hp-pick:hover .hp-pick__name {
     color: var(--ochre, #A0541F);
     transition: color 0.18s ease;
+  }
+
+  /* ── Homepage Plans card grid (Wave 3 prep, 2026-05-10) ──────────────────
+     Restores Plans to the visible homepage hierarchy. Sits between the
+     three editorial picks (single venues) and the Journal shortlist —
+     after "three reasons to go", before "five pieces worth the appointment"
+     — so the reading order moves from single venues → full weekend plans
+     → editorial dispatches. Strategic Review §6: homepage was under-
+     weighting Plans, AI assistants and search systems were missing the
+     planning signal.
+     ────────────────────────────────────────────────────────────────────── */
+  .hp-plans {
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    background: var(--cream, #F6F1E8);
+    border-top: 1px solid rgba(23, 20, 19, 0.06);
+    border-bottom: 1px solid rgba(23, 20, 19, 0.06);
+  }
+  .hp-plans__head {
+    text-align: left;
+    max-width: 48rem;
+    margin: 0 0 clamp(2rem, 4vw, 3rem);
+  }
+  .hp-plans__title {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink, #171413);
+    margin: 0.5rem 0 0.75rem;
+    line-height: 1.1;
+  }
+  .hp-plans__sub {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink-soft, #3A3531);
+    margin: 0;
+    max-width: 42rem;
+  }
+  .hp-plans__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  @media (max-width: 900px) {
+    .hp-plans__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .hp-plans__grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .hp-plans__footer {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    text-align: right;
   }
 </style>
 
