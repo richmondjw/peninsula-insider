@@ -57,11 +57,16 @@ jobs:
       - name: Determine lint scope
         id: scope
         run: |
-          # On a PR: limit to files changed against main (--changed=main).
+          # On a PR: limit to files changed against the PR base ref.
+          # In GitHub Actions checkout, only the PR branch is fetched by default;
+          # explicitly fetch the base ref so `git diff base...HEAD` resolves.
           # On manual dispatch: lint the whole corpus.
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "scope=--changed=main" >> "$GITHUB_OUTPUT"
-            echo "Linting changed files vs main"
+            BASE_REF="${{ github.base_ref }}"
+            git fetch --no-tags --depth=1 origin "${BASE_REF}" || true
+            # Use the remote-tracking ref so `git diff` can resolve it locally
+            echo "scope=--changed=origin/${BASE_REF}" >> "$GITHUB_OUTPUT"
+            echo "Linting changed files vs origin/${BASE_REF}"
           else
             echo "scope=" >> "$GITHUB_OUTPUT"
             echo "Linting full corpus"
