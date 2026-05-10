@@ -49,6 +49,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Capture run start time (run-log)
+        id: runlog-start
+        run: |
+          STARTED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "started_at=${STARTED_AT}" >> "$GITHUB_OUTPUT"
+          echo "Run started at ${STARTED_AT}"
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -59,6 +66,14 @@ jobs:
       - name: Install dependencies
         working-directory: next
         run: npm ci --no-audit --no-fund
+
+      - name: Deploy preflight (Stage B item 2)
+        # Stage B item 2 — deploy-path dependency + preflight checks.
+        # Currently runs in --skip-env mode (env presence checks happen in
+        # the actual build step); fails closed only if a build/source/leak
+        # check actually fails. Warnings are surfaced but non-blocking.
+        run: |
+          node ops/scripts/deploy-preflight.mjs --skip-env
 
       - name: Build Astro site
         working-directory: next
@@ -181,6 +196,10 @@ jobs:
           PY
 
           python3 ops/scripts/publication-ledger.py append --entry-file /tmp/pi-ledger-entry.json
+          # Capture the ledger id of the entry we just appended for
+          # cross-reference in the run-log entry written after deploy.
+          LEDGER_ID=$(python3 -c "import json; e = json.load(open('/tmp/pi-ledger-entry.json')); print(e.get('ledger_id') or '')")
+          echo "LEDGER_ID=${LEDGER_ID}" >> "$GITHUB_ENV"
           git add ops/publication-ledger/
 
           git commit -F - <<EOF
@@ -202,3 +221,95 @@ jobs:
 
           echo "::error::Failed to push after 3 attempts"
           exit 1
+
+      - name: Post-publish verification (Stage B item 1)
+        # Stage B item 1 — verify the deploy externally before the run-log
+        # records success. This is the gate that prevents "deploy succeeded"
+        # being mistaken for "page rendered". Allow a brief warm-up for the
+        # GitHub Pages CDN to pick up the new commit before probing.
+        id: post-publish-verify
+        if: success()
+        env:
+          PI_LIVE_URL: ${{ vars.PI_LIVE_URL || 'https://peninsulainsider.com.au/' }}
+        run: |
+          echo "Sleeping 60s to let GitHub Pages propagate…"
+          sleep 60
+          if node ops/scripts/post-publish-verify.mjs "${PI_LIVE_URL}"; then
+            echo "verification=passed" >> "$GITHUB_OUTPUT"
+          else
+            echo "verification=failed" >> "$GITHUB_OUTPUT"
+            # Don't fail the workflow on first roll-out; surface as warning.
+            # Flip to `exit 1` once the gate has been observed across a few
+            # successful deploys (tracked in EXC-2026-05-10-007).
+            echo "::warning::post-publish verification reported issues for ${PI_LIVE_URL}"
+          fi
+
+      - name: Append run-log entry (Stage B item 5)
+        # Stage B item 5 — write a run-log entry that records this deploy's
+        # observability shape (start/end, duration, status, mutation,
+        # surfaces, ledger id, verification result, alert path). Runs even
+        # on partial failure so the absence of a run-log entry itself
+        # signals an upstream-job crash.
+        if: always()
+        env:
+          STARTED_AT: ${{ steps.runlog-start.outputs.started_at }}
+          VERIFICATION: ${{ steps.post-publish-verify.outputs.verification }}
+        run: |
+          set -e
+          ENDED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          if [[ "${VERIFICATION}" == "failed" ]]; then
+            STATUS="partial"
+            ERROR_SUMMARY="post-publish verification flagged issues — see workflow logs"
+            ALERT_FLAGS=( --alert-sent --alert-channel github-issue )
+          elif [[ "${{ job.status }}" == "success" ]]; then
+            STATUS="success"
+            ERROR_SUMMARY=""
+            ALERT_FLAGS=()
+          else
+            STATUS="failure"
+            ERROR_SUMMARY="job status: ${{ job.status }}"
+            ALERT_FLAGS=( --alert-sent --alert-channel github-issue )
+          fi
+
+          LEDGER_FLAGS=()
+          if [[ -n "${LEDGER_ID:-}" ]]; then
+            LEDGER_FLAGS=( --ledger-entries "${LEDGER_ID}" )
+          fi
+
+          ERROR_FLAGS=()
+          if [[ -n "${ERROR_SUMMARY}" ]]; then
+            ERROR_FLAGS=( --error-summary "${ERROR_SUMMARY}" )
+          fi
+
+          node ops/scripts/run-log.mjs new \
+            --job-name deploy-site-to-github-pages \
+            --job-source github-actions \
+            --run-id "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            --started-at "${STARTED_AT}" \
+            --ended-at "${ENDED_AT}" \
+            --status "${STATUS}" \
+            --mutation mutating-live \
+            --surfaces "/" \
+            "${LEDGER_FLAGS[@]}" \
+            "${ALERT_FLAGS[@]}" \
+            "${ERROR_FLAGS[@]}" \
+            --notes "automated GitHub Actions deploy; verification=${VERIFICATION:-not-run}" \
+            --append
+
+          # Stage and push the new run-log entry + index.csv update so a
+          # subsequent run picks them up. Tolerates concurrent pushes via
+          # the same retry loop as the deploy commit step.
+          git config user.name  "peninsula-insider-deploy[bot]"
+          git config user.email "deploy@peninsulainsider.com.au"
+          git add ops/run-log/ || true
+          if ! git diff --staged --quiet -- ops/run-log/; then
+            git commit -m "ops(run-log): record deploy ${GITHUB_RUN_ID} [skip ci]" || true
+            for attempt in 1 2 3; do
+              if git push origin main; then
+                break
+              fi
+              git fetch origin main
+              git rebase origin/main || { git rebase --abort; break; }
+            done
+          fi
