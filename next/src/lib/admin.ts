@@ -3,6 +3,7 @@ export const ADMIN_QUERY_PARAM = 'admin';
 export const ADMIN_LOGIN_PATH = '/admin/login';
 export const ADMIN_HOME_PATH = '/admin';
 export const ADMIN_HYBRID_ENV = 'PI_ADMIN_HYBRID';
+export const ADMIN_LEGACY_GATE_ENV = 'PI_ADMIN_LEGACY_GATE';
 
 export type AdminCollection =
   | 'articles'
@@ -56,6 +57,16 @@ export function buildAdminLoginHref(nextPath?: string): string {
 
 export function isAdminHybridEnabled(env: Record<string, string | undefined> = process.env): boolean {
   return env[ADMIN_HYBRID_ENV] === '1';
+}
+
+/**
+ * When `PI_ADMIN_LEGACY_GATE=1` the middleware additionally honours the
+ * transitional `?admin=1` query / `pi_admin=1` cookie seam from Phase 1, so
+ * local QA without a Supabase session can keep working. Production deploys
+ * leave this unset, and the only path in is a real Supabase session.
+ */
+export function isAdminLegacyGateEnabled(env: Record<string, string | undefined> = process.env): boolean {
+  return env[ADMIN_LEGACY_GATE_ENV] === '1';
 }
 
 export function toEditableAttr(payload: EditablePayload): string {
