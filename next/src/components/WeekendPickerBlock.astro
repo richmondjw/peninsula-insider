@@ -6,8 +6,13 @@
  * Pulls the newest published article with format=weekend-picker and
  * showcases its dek + CTA, plus a simple cadence line to telegraph the
  * weekly editorial rhythm for the weekend ahead.
+ *
+ * Links target the rolling stable URL /whats-on/this-weekend/ — Brief 2
+ * (Wave 2, 2026-05-10). The previous /journal/{slug} link pattern still
+ * resolves via redirect, but the canonical surface is the rolling URL
+ * so AI assistants and external sources can link to "this weekend on
+ * the Peninsula" reliably.
  */
-import { routeSlug } from '../lib/editorial';
 
 export interface Props {
   dispatch: any;
@@ -15,7 +20,7 @@ export interface Props {
 }
 
 const { dispatch, weekend } = Astro.props;
-const slug = routeSlug(dispatch);
+const target = '/whats-on/this-weekend/';
 ---
 
 <section class="weekend-picker" aria-label="Peninsula This Weekend">
@@ -30,11 +35,11 @@ const slug = routeSlug(dispatch);
           {weekend ?? 'This weekend'}
         </p>
         <h2 class="weekend-picker__title">
-          <a href={`/journal/${slug}`}>{dispatch.data.title}</a>
+          <a href={target}>{dispatch.data.title}</a>
         </h2>
         <p class="weekend-picker__dek">{dispatch.data.dek}</p>
         <div class="weekend-picker__ctas">
-          <a href={`/journal/${slug}`} class="weekend-picker__cta">Read this week's dispatch →</a>
+          <a href={target} class="weekend-picker__cta">Read this week's dispatch →</a>
           <a href="/whats-on/" class="weekend-picker__cta weekend-picker__cta--ghost">All events →</a>
         </div>
       </div>

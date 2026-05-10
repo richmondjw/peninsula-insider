@@ -2060,6 +2060,19 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   margin-bottom: 1.75rem;
 }
+.place-detail__factual-lede {
+  max-width: 62ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--soft);
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 1rem;
+  letter-spacing: 0.005em;
+  /* Subtle visual separator from the editorial intro that follows. */
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--soft) 12%, transparent);
+}
 .place-detail__intro {
   max-width: 62ch;
   font-size: 1.1rem;

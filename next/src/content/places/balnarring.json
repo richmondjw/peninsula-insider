@@ -3,15 +3,23 @@
   "name": "Balnarring",
   "kind": "village",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3723, "lng": 145.1244 },
+  "coordinates": {
+    "lat": -38.3723,
+    "lng": 145.1244
+  },
   "intro": "Balnarring is the village that locals still treat as their own  -  a cluster of shops, a Thursday morning farmers' market, a bookshop that has outlasted all reasonable expectations, and a road network that somehow always seems to lead back to a cellar door. It sits on the eastern edge of the Peninsula's wine country, closer to Western Port than Port Phillip, and that changes the character: the light is softer, the crowds are thinner, and the vineyards here tend to be smaller family operations rather than destination estates. Balnarring is where you go when you want a Peninsula weekend that feels like the way things used to work before the region became a brand. The beach is genuine and quiet, the coffee is unpretentious, and the drive in from Tedesca or Montalto takes fifteen minutes of roads you've mostly never seen.",
+  "factualLede": "Balnarring is a hinterland village on the Mornington Peninsula's eastern wine country, 80 km from Melbourne, near the Coolart wetlands and the monthly Emu Plains Market.",
   "heroImage": {
     "src": "/images/sourced/place-balnarring-01.webp",
     "alt": "Balnarring village street, general store, and the surrounding farmland of the eastern Peninsula",
     "credit": "Wikimedia Commons",
     "license": "tmp-wikimedia"
   },
-  "relatedPlaces": ["merricks", "red-hill", "flinders"],
+  "relatedPlaces": [
+    "merricks",
+    "red-hill",
+    "flinders"
+  ],
   "publishedAt": "2026-04-09",
   "driveTime": "approximately 1 hour 15 minutes",
   "tldr": [
@@ -19,10 +27,16 @@
     "Best for: visitors who want the eastern hinterland; anyone who's had enough of Red Hill crowds; families who want a calm Western Port beach.",
     "Signature experience: Thursday market, then one of the small family-run cellar doors on the eastern ridge.",
     "Half a day; pairs naturally with Merricks or the Red Hill plateau."
-  ]
-,
-  "bestFor": ["locals", "the market", "quiet Peninsula days"],
-  "notFor": ["nightlife", "people who need a polished resort scene"],
+  ],
+  "bestFor": [
+    "locals",
+    "the market",
+    "quiet Peninsula days"
+  ],
+  "notFor": [
+    "nightlife",
+    "people who need a polished resort scene"
+  ],
   "bestSeason": "late summer into autumn",
   "worstTime": "public holiday weekends",
   "stayDuration": "half a day to one night",

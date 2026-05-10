@@ -1,0 +1,249 @@
+---
+/**
+ * /whats-on/this-weekend/ — rolling URL for Peninsula This Weekend.
+ *
+ * Per Wave 2 Brief 2 (work/peninsula-insider/wave-2-build-briefs.md):
+ * the dispatch lives at a stable URL so AI assistants and external
+ * sources can reliably link to "this weekend on the Peninsula". The
+ * page selects the latest PTW article at build time and renders it
+ * with full Event schema.
+ *
+ * Past dispatches are preserved at /whats-on/this-weekend/archive/{date}/.
+ * The legacy /journal/peninsula-this-weekend-{slug}/ URLs redirect into
+ * the dated archive (see src/pages/journal/[slug].astro).
+ */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import ShareBlock from '../../../components/ShareBlock.astro';
+import ClusterLinks from '../../../components/ClusterLinks.astro';
+import {
+  selectLatestPtw,
+  ptwArchivePath,
+  ptwArchiveSlug,
+  ptwWeekendLabel,
+  buildPtwEventSchema,
+  sortPtwLatestFirst,
+} from '../../../lib/peninsula-this-weekend';
+import { isPeninsulaThisWeekend } from '../../../lib/peninsula-this-weekend';
+import { heroBackgroundStyle, formatHeroCredit } from '../../../lib/editorial';
+
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const ptwArticles = sortPtwLatestFirst(allArticles.filter(isPeninsulaThisWeekend));
+const latest = selectLatestPtw(allArticles);
+
+if (!latest) {
+  // Defensive: should not happen in production — there are always at
+  // least one PTW article in the collection. Build fails loudly if so.
+  throw new Error('Peninsula This Weekend: no weekend-picker articles found in collection.');
+}
+
+const { Content } = await render(latest);
+
+const canonical = 'https://peninsulainsider.com.au/whats-on/this-weekend/';
+const weekendLabel = ptwWeekendLabel(latest);
+const eventSchema = buildPtwEventSchema(latest, canonical);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: "What's On", href: '/whats-on' },
+  { label: 'This Weekend' },
+];
+
+const heroStyle = heroBackgroundStyle(latest.data);
+const ogImage = latest.data.heroImage?.src && !latest.data.heroImage.src.includes('placeholder')
+  ? latest.data.heroImage.src
+  : '/images/sourced/home-cover.webp';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: `https://peninsulainsider.com.au${item.href}` } : {}),
+  })),
+};
+
+const archiveItems = ptwArticles
+  .slice(1, 7)
+  .map((a) => ({
+    href: ptwArchivePath(a),
+    label: a.data.title,
+    date: a.data.publishedAt,
+  }));
+---
+
+<BaseLayout
+  title={`Peninsula This Weekend — ${weekendLabel} | Peninsula Insider`}
+  description={latest.data.dek}
+  section="whats-on"
+  canonical={canonical}
+  ogImage={ogImage}
+  ogType="article"
+  publishedTime={latest.data.publishedAt.toISOString()}
+  modifiedTime={(latest.data.updatedAt ?? latest.data.publishedAt).toISOString()}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <article class="article ptw">
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-hero__frame">
+          <div class="article-hero__head">
+            <div class="article-hero__meta">
+              <span class="article-hero__format">Peninsula This Weekend</span>
+              <span class="article-hero__sep" aria-hidden="true"></span>
+              <span class="article-hero__date">{weekendLabel}</span>
+              {latest.data.readingTimeMinutes && (
+                <>
+                  <span class="article-hero__sep" aria-hidden="true"></span>
+                  <span class="article-hero__read">{latest.data.readingTimeMinutes} min read</span>
+                </>
+              )}
+            </div>
+            <h1 class="article-hero__title">{latest.data.title}</h1>
+            <p class="article-hero__dek">{latest.data.dek}</p>
+            <ShareBlock placement="top" title={latest.data.title} summary={latest.data.dek} format="weekend-picker" />
+            <p class="ptw__cadence">
+              The weekend dispatch refreshes every Wednesday for the weekend ahead.
+              <a href="#archive" class="ptw__archive-link">Past weekends ↓</a>
+            </p>
+          </div>
+          <figure class="article-hero__figure">
+            <div class="article-hero__image" role="img" aria-label={latest.data.heroImage.alt} style={heroStyle}></div>
+            {latest.data.heroImage.credit && (
+              <figcaption class="article-hero__credit">{formatHeroCredit(latest.data.heroImage.credit)}</figcaption>
+            )}
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="prose has-drop-cap">
+        <Content />
+      </div>
+
+      {latest.data.clusterLinks && latest.data.clusterLinks.length > 0 && (
+        <ClusterLinks links={latest.data.clusterLinks} heading="Explore this hub" />
+      )}
+
+      {latest.data.faq && latest.data.faq.length > 0 && (
+        <section class="article-faq" aria-labelledby="ptw-faq-title">
+          <div class="article-faq__header">
+            <p class="article-faq__eyebrow">Questions readers actually ask</p>
+            <h2 id="ptw-faq-title" class="article-faq__title">FAQ</h2>
+          </div>
+          <div class="article-faq__items">
+            {latest.data.faq.map((item) => (
+              <details class="article-faq__item">
+                <summary class="article-faq__question">{item.question}</summary>
+                <div class="article-faq__answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {archiveItems.length > 0 && (
+        <section id="archive" class="ptw-archive" aria-labelledby="ptw-archive-title">
+          <h2 id="ptw-archive-title" class="ptw-archive__title">Past weekends</h2>
+          <p class="ptw-archive__sub">Each week's dispatch stays online at a stable archive URL.</p>
+          <ul class="ptw-archive__list">
+            {archiveItems.map((entry) => (
+              <li class="ptw-archive__item">
+                <a class="ptw-archive__link" href={entry.href}>
+                  <span class="ptw-archive__date">
+                    {entry.date.toLocaleDateString('en-AU', { day: 'numeric', month: 'short' })}
+                  </span>
+                  <span class="ptw-archive__label">{entry.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <ShareBlock placement="end" title={latest.data.title} summary={latest.data.dek} format="weekend-picker" />
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .ptw__cadence {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft, #6b6b6b);
+    line-height: 1.5;
+  }
+  .ptw__archive-link {
+    margin-left: 0.5rem;
+    text-decoration: underline;
+    color: inherit;
+  }
+  .ptw-archive {
+    margin: 3rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .ptw-archive__title {
+    font-family: var(--font-display, 'PP Editorial New', serif);
+    font-size: 1.6rem;
+    margin: 0 0 0.5rem;
+  }
+  .ptw-archive__sub {
+    color: var(--ink-soft, #6b6b6b);
+    margin: 0 0 1.25rem;
+  }
+  .ptw-archive__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  @media (min-width: 720px) {
+    .ptw-archive__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .ptw-archive__item {
+    margin: 0;
+  }
+  .ptw-archive__link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: padding-left 0.15s ease;
+  }
+  .ptw-archive__link:hover {
+    padding-left: 0.25rem;
+    border-bottom-color: rgba(0, 0, 0, 0.18);
+  }
+  .ptw-archive__date {
+    flex: 0 0 auto;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.9rem;
+    color: var(--ink-soft, #6b6b6b);
+    min-width: 4.5rem;
+  }
+  .ptw-archive__label {
+    flex: 1 1 auto;
+    font-weight: 500;
+  }
+</style>

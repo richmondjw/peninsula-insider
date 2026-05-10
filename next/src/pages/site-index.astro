@@ -44,7 +44,7 @@ const breadcrumbItems = [
           <li><a href="/stay/">Stay</a></li>
           <li><a href="/wine/">Wine</a></li>
           <li><a href="/explore/">Explore</a></li>
-          <li><a href="/escape/">Plans</a></li>
+          <li><a href="/plans/">Plans</a></li>
           <li><a href="/whats-on/">What's On</a></li>
           <li><a href="/journal/">Journal</a></li>
           <li><a href="/places/">Places</a></li>
@@ -97,10 +97,10 @@ const breadcrumbItems = [
           ))}
         </ul>
 
-        <h2>Escape plans</h2>
+        <h2>Plans</h2>
         <ul>
           {itineraries.map((entry) => (
-            <li><a href={`/escape/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+            <li><a href={`/plans/${routeSlug(entry)}`}>{entry.data.title}</a></li>
           ))}
         </ul>
 
