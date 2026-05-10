@@ -7,6 +7,7 @@ import VenueCard from './VenueCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ShareBlock from './ShareBlock.astro';
+import CorrectionNote from './CorrectionNote.astro';
 
 export interface Props {
   venue: any;
@@ -153,6 +154,8 @@ const isClosed = data.status === 'closed';
             ))}
           </div>
         )}
+
+        <CorrectionNote compact={true} />
       </div>
 
       <aside class="facts">

@@ -6,6 +6,7 @@ import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
+import CorrectionNote from './CorrectionNote.astro';
 import { titleize, heroBackgroundStyle } from '../lib/editorial';
 
 export interface Props {
@@ -101,6 +102,8 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
       <div><dt>Venues mapped</dt><dd>{totalVenues}</dd></div>
       <div><dt>Experiences</dt><dd>{experiences.length}</dd></div>
     </dl>
+
+    <CorrectionNote compact={true} />
 
     {anchors.length > 0 && (
       <nav class="place-detail__nav" aria-label={`${place.data.name} sections`}>

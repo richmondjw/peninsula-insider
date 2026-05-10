@@ -1,0 +1,34 @@
+---
+export interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<p class:list={["correction-note", compact && "correction-note--compact"]}>
+  Business update or correction? Let us know:
+  <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>
+</p>
+
+<style>
+  .correction-note {
+    margin: 2rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--ink-soft, #433d39);
+  }
+
+  .correction-note--compact {
+    margin-top: 1.5rem;
+    font-size: 0.88rem;
+  }
+
+  .correction-note a {
+    color: var(--accent, #7a5c3e);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
