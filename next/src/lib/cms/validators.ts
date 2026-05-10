@@ -5,9 +5,13 @@ import {
   CMS_IMAGE_SLOT_PURPOSES,
   CMS_REVISION_ACTIONS,
   type CmsAdminAccess,
+  type CmsEditableEntityType,
   type CmsEditableImageSlot,
   type CmsEditableTextField,
   type CmsEditorIdentity,
+  type CmsEntryStatus,
+  type CmsFieldKind,
+  type CmsImageSlotPurpose,
   type CmsRevisionRecord,
 } from './schema.ts';
 
@@ -92,6 +96,68 @@ export function isCmsEditableImageSlot(value: unknown): value is CmsEditableImag
     isIsoDateString(value.updatedAt) &&
     isNullableString(value.updatedBy)
   );
+}
+
+// ---- input validators (write-path payloads) -------------------------------
+//
+// These differ from the record validators above: incoming payloads do not
+// carry server-assigned fields like `id`, `updatedAt`, `updatedBy`, so we
+// validate just the editor-supplied subset.
+
+export interface UpsertTextFieldPayload {
+  fieldPath: string;
+  label: string;
+  kind: Exclude<CmsFieldKind, 'image'>;
+  value: string | null;
+  status: CmsEntryStatus;
+  locale?: string | null;
+}
+
+export interface UpsertImageSlotPayload {
+  fieldPath: string;
+  label: string;
+  purpose: CmsImageSlotPurpose;
+  storageBucket?: string;
+  storagePath: string | null;
+  publicUrl: string | null;
+  altText?: string | null;
+  caption?: string | null;
+  credit?: string | null;
+  mimeType?: string | null;
+  status: CmsEntryStatus;
+}
+
+export function isCmsCollection(value: unknown): value is CmsEditableEntityType {
+  return isEnumValue(value, CMS_EDITABLE_ENTITY_TYPES);
+}
+
+export function isUpsertTextFieldPayload(value: unknown): value is UpsertTextFieldPayload {
+  if (!isRecord(value)) return false;
+  if (!isString(value.fieldPath) || value.fieldPath.length === 0) return false;
+  if (!isString(value.label) || value.label.length === 0) return false;
+  if (!isEnumValue(value.kind, CMS_FIELD_KINDS) || value.kind === 'image') return false;
+  if (!isNullableString(value.value)) return false;
+  if (!isEnumValue(value.status, CMS_ENTRY_STATUSES)) return false;
+  if (hasOwn(value, 'locale') && !(value.locale === undefined || isNullableString(value.locale))) {
+    return false;
+  }
+  return true;
+}
+
+export function isUpsertImageSlotPayload(value: unknown): value is UpsertImageSlotPayload {
+  if (!isRecord(value)) return false;
+  if (!isString(value.fieldPath) || value.fieldPath.length === 0) return false;
+  if (!isString(value.label) || value.label.length === 0) return false;
+  if (!isEnumValue(value.purpose, CMS_IMAGE_SLOT_PURPOSES)) return false;
+  if (!isNullableString(value.storagePath)) return false;
+  if (!isNullableString(value.publicUrl)) return false;
+  if (!isEnumValue(value.status, CMS_ENTRY_STATUSES)) return false;
+  for (const key of ['storageBucket', 'altText', 'caption', 'credit', 'mimeType'] as const) {
+    if (hasOwn(value, key) && !(value[key] === undefined || isNullableString(value[key]))) {
+      return false;
+    }
+  }
+  return true;
 }
 
 export function isCmsRevisionRecord(value: unknown): value is CmsRevisionRecord {
