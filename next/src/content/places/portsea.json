@@ -8,6 +8,7 @@
     "lng": 144.7121
   },
   "intro": "Portsea is the Peninsula's quiet trophy. Where Sorrento turns on the theatre, Portsea keeps its back to the bay and its gates closed  -  this is old-money country, where the holiday houses were built before anyone called them beach houses and the golf club is older than most Australian cities. The village itself is barely a village: a pub, a general store, a scattering of shops around the foreshore, and a short walk down to a jetty that still looks essentially as it did a century ago. But push past the surface and Portsea is the entry point for the whole south-western tip of the Peninsula: Point Nepean is next door, the back-beach surf is five minutes away, and the front beach is one of the most protected swims on Port Phillip. Come for a long lunch at the pub, a quiet morning walk before the day-trippers find Sorrento, or a summer weekend that stays deliberately low-key.",
+  "factualLede": "Portsea is a coastal village at the western tip of the Mornington Peninsula, 100 km from Melbourne, with a heritage front beach, a back beach on Bass Strait and the gateway to Point Nepean National Park.",
   "heroImage": {
     "src": "/images/sourced/place-portsea-01.webp",
     "alt": "Point King Beach in Portsea, Victoria  -  calm bay water and wharf",
@@ -25,10 +26,16 @@
     "Best for: visitors who want Point Nepean; surfers heading to the back beach; anyone curious what old Peninsula money looks like.",
     "Signature experience: long lunch at the pub, then walk or cycle into Point Nepean for the afternoon.",
     "Half a day; usually paired with Point Nepean and Sorrento."
-  ]
-,
-  "bestFor": ["experienced Peninsula visitors", "diving", "serious beach days"],
-  "notFor": ["budget travel", "coming without reservations"],
+  ],
+  "bestFor": [
+    "experienced Peninsula visitors",
+    "diving",
+    "serious beach days"
+  ],
+  "notFor": [
+    "budget travel",
+    "coming without reservations"
+  ],
   "bestSeason": "autumn",
   "worstTime": "peak summer without a booking",
   "stayDuration": "two nights",

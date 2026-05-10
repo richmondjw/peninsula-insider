@@ -172,8 +172,11 @@ const descOverrides: Record<string, string> = {
 };
 const pageTitle = titleOverrides[placeSlug] ?? `${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`;
 
-// Truncate intro to ~155 chars for description (unless we have a handcrafted override)
-const description = descOverrides[placeSlug] ?? (
+// Description preference order (most extractable / accurate first):
+// 1. Per-slug handcrafted override (existing pattern)
+// 2. Factual lede (one-sentence, schema-friendly, AI-extractable) — added 2026-05-10 per Operational Definitions v1.2 Evergreen rule
+// 3. Truncated intro (legacy fallback for places without a factual lede yet)
+const description = descOverrides[placeSlug] ?? place.data.factualLede ?? (
   place.data.intro.length > 155
     ? place.data.intro.slice(0, 152) + '...'
     : place.data.intro
@@ -298,7 +301,9 @@ const placeSchema = {
   '@context': 'https://schema.org',
   '@type': 'TouristDestination',
   name: place.data.name,
-  description: place.data.intro,
+  // Prefer the factual lede for JSON-LD description (schema-friendly, AI-extractable);
+  // fall back to the editorial intro for places that haven't been given a lede yet.
+  description: place.data.factualLede ?? place.data.intro,
   geo: {
     '@type': 'GeoCoordinates',
     latitude: place.data.coordinates?.lat,

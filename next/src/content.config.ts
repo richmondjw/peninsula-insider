@@ -231,6 +231,14 @@ const places = defineCollection({
     kind: z.enum(['town', 'village', 'zone', 'ridge', 'beach', 'cape']),
     zone,
     coordinates,
+    /**
+     * One-sentence factual lede — schema-friendly, sits above the editorial intro
+     * paragraph in the rendered page. Used as the SEO meta description and the
+     * Place JSON-LD `description` when present, falling back to `intro`. Format:
+     * "[Place] is a [type] on the Mornington Peninsula's [geographic descriptor],
+     * [distance] from Melbourne[, optional feature]."
+     */
+    factualLede: z.string().optional(),
     intro: z.string(),
     heroImage: imageRef,
     relatedPlaces: z.array(reference('places')).default([]),

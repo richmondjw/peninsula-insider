@@ -3,15 +3,22 @@
   "name": "Merricks",
   "kind": "village",
   "zone": "red-hill-plateau",
-  "coordinates": { "lat": -38.3886, "lng": 145.0862 },
+  "coordinates": {
+    "lat": -38.3886,
+    "lng": 145.0862
+  },
   "intro": "Merricks is where the Peninsula's wine country starts to feel private. There is almost no main street to speak of, just a low-slung hall, winding vineyard roads, and a cluster of estates and restaurants that reward people who know where to turn off. The light is softer here than in Red Hill proper and the bay feels unexpectedly close. It is one of the Peninsula's best places to stay if your idea of a weekend away means vines outside the window, lunch that goes too long, and very little noise.",
+  "factualLede": "Merricks is a hinterland village on the Mornington Peninsula's southern wine country, 90 km from Melbourne, anchored by the Merricks General Wine Store crossroads.",
   "heroImage": {
     "src": "/images/sourced/place-merricks-01.webp",
     "alt": "Working vineyard in early spring at Merricks, Mornington Peninsula",
     "credit": "BrooksieG / Wikimedia Commons (CC-BY-4.0)",
     "license": "wikimedia-cc-by"
   },
-  "relatedPlaces": ["red-hill", "sorrento"],
+  "relatedPlaces": [
+    "red-hill",
+    "sorrento"
+  ],
   "publishedAt": "2026-04-01",
   "driveTime": "approximately 1 hour",
   "tldr": [
@@ -19,10 +26,16 @@
     "Best for: serious wine and art visitors; walkers on the Red Hill Rail Trail; people who value understatement.",
     "Signature experience: lunch at Pt Leo Estate with the sculpture park, then a walk to Merricks Beach.",
     "Half a day to a full day. No accommodation within the village itself."
-  ]
-,
-  "bestFor": ["locals", "wine buyers", "the stop that holds a day together"],
-  "notFor": ["people who need lots of shops", "visitors wanting a stand-alone town"],
+  ],
+  "bestFor": [
+    "locals",
+    "wine buyers",
+    "the stop that holds a day together"
+  ],
+  "notFor": [
+    "people who need lots of shops",
+    "visitors wanting a stand-alone town"
+  ],
   "bestSeason": "autumn",
   "worstTime": "school-holiday lunch rush",
   "stayDuration": "half a day",

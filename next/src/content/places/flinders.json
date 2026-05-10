@@ -3,15 +3,22 @@
   "name": "Flinders",
   "kind": "town",
   "zone": "ocean-coast",
-  "coordinates": { "lat": -38.4716, "lng": 145.0194 },
+  "coordinates": {
+    "lat": -38.4716,
+    "lng": 145.0194
+  },
   "intro": "Flinders sits on the wild southern edge of the Peninsula and carries itself with a kind of salt-air confidence. The village is compact but smart  -  a bakery, a handful of good shops, an old pub, and a coastline that feels a world away from the bay-facing polish further north. Base yourself here if you want your mornings to begin with wind off Bass Strait, your afternoons with a drive back inland for lunch, and your evenings under a harder, cleaner sky.",
+  "factualLede": "Flinders is a coastal village on the Mornington Peninsula's southern Bass Strait edge, 105 km from Melbourne, with a working pier, marine sanctuary and a ranked golf course.",
   "heroImage": {
     "src": "/images/sourced/place-flinders-01.webp",
     "alt": "Flinders Pier extending into Western Port Bay on a quiet winter day",
     "credit": "Daniel Kabel / Wikimedia Commons (CC-BY-SA-4.0)",
     "license": "wikimedia-cc-by-sa"
   },
-  "relatedPlaces": ["red-hill", "sorrento"],
+  "relatedPlaces": [
+    "red-hill",
+    "sorrento"
+  ],
   "publishedAt": "2026-04-01",
   "driveTime": "approximately 1 hour 25 minutes",
   "tldr": [
@@ -19,10 +26,16 @@
     "Best for: serious golfers; divers after the Flinders Blowhole; anyone who wants a southern-edge village base without driving to the tip.",
     "Signature experience: walk the coastal reserve past the blowhole at high tide, then a long lunch in the village.",
     "Full day; Flinders rewards staying rather than passing through."
-  ]
-,
-  "bestFor": ["quiet weekends", "golf", "people who already know the Peninsula"],
-  "notFor": ["cheap accommodation", "anyone expecting nightlife"],
+  ],
+  "bestFor": [
+    "quiet weekends",
+    "golf",
+    "people who already know the Peninsula"
+  ],
+  "notFor": [
+    "cheap accommodation",
+    "anyone expecting nightlife"
+  ],
   "bestSeason": "late spring",
   "worstTime": "cold windy winter fronts",
   "stayDuration": "two nights",
