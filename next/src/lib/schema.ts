@@ -353,7 +353,7 @@ export const buildTouristAttractionSchema = ({
     : {}),
 });
 
-// ─── TouristTrip (for /escape/[package]/ and itinerary articles) ──────────────
+// ─── TouristTrip (for /plans/[package]/ and itinerary articles) ───────────────
 
 interface TripStop {
   name: string;

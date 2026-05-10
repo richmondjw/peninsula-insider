@@ -38,7 +38,7 @@ const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 
     <span class="itinerary-card__meta">{nightsLabel}</span>
   </div>
   <h3 class="itinerary-card__title">
-    <a href={`/escape/${slug}`}>{data.title}</a>
+    <a href={`/plans/${slug}`}>{data.title}</a>
   </h3>
   <p class="itinerary-card__dek">{data.dek}</p>
   <div class="itinerary-card__chips">
@@ -46,5 +46,5 @@ const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 
     <span>{moodLabel[data.mood] ?? data.mood}</span>
     {data.totalDriveMinutes && <span>{data.totalDriveMinutes} min driving</span>}
   </div>
-  <a href={`/escape/${slug}`} class="itinerary-card__cta">See the full plan →</a>
+  <a href={`/plans/${slug}`} class="itinerary-card__cta">See the full plan →</a>
 </article>

@@ -92,7 +92,7 @@ export const v3Pillars: V3Pillar[] = [
         eyebrow: 'By the trip',
         items: [
           { key: 'one-night',   label: 'One night',           href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',     label: 'A weekend',           href: '/escape/' },
+          { key: 'weekend',     label: 'A weekend',           href: '/plans/' },
           { key: 'family',      label: 'With kids',           href: '/journal/the-peninsula-with-kids/' },
           { key: 'romantic',    label: 'Two of you',          href: '/journal/the-couples-weekend/' },
           { key: 'wellness',    label: 'Wellness weekend',    href: '/journal/the-thermal-springs-weekend/' },
@@ -162,7 +162,7 @@ export const v3Pillars: V3Pillar[] = [
   {
     key: 'plans',
     label: 'Plans',
-    href: '/escape/',
+    href: '/plans/',
     dek: 'Pre-shaped weekends, itineraries, and guide-led days.',
     panelImage: {
       src: '/images/sourced/article-flinders-weekend-01.webp',
@@ -173,8 +173,8 @@ export const v3Pillars: V3Pillar[] = [
         eyebrow: 'By the shape',
         items: [
           { key: 'one-night', label: 'One night',         href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',   label: 'Two-day weekend',   href: '/escape/?length=weekend' },
-          { key: 'long',      label: 'Long weekend',      href: '/escape/?length=long' },
+          { key: 'weekend',   label: 'Two-day weekend',   href: '/plans/?length=weekend' },
+          { key: 'long',      label: 'Long weekend',      href: '/plans/?length=long' },
           { key: 'kids',      label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
           { key: 'wellness',  label: 'Wellness weekend',  href: '/journal/the-thermal-springs-weekend/' },
         ],
@@ -191,7 +191,7 @@ export const v3Pillars: V3Pillar[] = [
       {
         eyebrow: 'In voice',
         items: [
-          { key: 'all-plans', label: 'Every plan we publish', href: '/escape/' },
+          { key: 'all-plans', label: 'Every plan we publish', href: '/plans/' },
           { key: 'all-tours', label: 'Every operator we trust', href: '/tour/' },
         ],
       },
@@ -244,7 +244,7 @@ export const v3FooterDepartments: V3NavItem[] = [
   { key: 'eat',      label: 'Eat & Drink',  href: '/eat/' },
   { key: 'stay',     label: 'Stay',         href: '/stay/' },
   { key: 'explore',  label: 'Explore',      href: '/explore/' },
-  { key: 'plans',    label: 'Plans',        href: '/escape/' },
+  { key: 'plans',    label: 'Plans',        href: '/plans/' },
   { key: 'journal',  label: 'Journal',      href: '/journal/' },
   { key: 'whats-on', label: "What's On",    href: '/whats-on/' },
   { key: 'ask',      label: 'Ask PI',       href: '/ask/' },

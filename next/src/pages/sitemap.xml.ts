@@ -81,7 +81,9 @@ export const GET: APIRoute = async () => {
   // 1.0 alongside the canonical-home homepage signals "treat as top-tier hubs".
   // See ops/reports/seo/experiments.md experiment 2026-05-05-01.
   const TOP_HUBS = new Set(['dog-friendly', 'whats-on', 'corporate-events', 'fishing', 'ask']);
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'escape', 'journal', 'places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
+  // Note: /escape/ retired 2026-05-10 — section renamed to /plans/. /escape/* URLs
+  // remain as redirect pages (noindex) so inbound links continue to resolve.
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'plans', 'journal', 'places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
     entries.push(url(`/${section}`, TOP_HUBS.has(section) ? 1.0 : 0.9, 'weekly'));
   }
   // /explore/golf/ — the canonical golf hub. /golf/ is a noindex redirect stub
@@ -158,7 +160,7 @@ export const GET: APIRoute = async () => {
 
   // Itineraries
   for (const itinerary of itineraries.filter((i) => !i.data.sitemapExclude)) {
-    entries.push(url(`/escape/${routeSlug(itinerary)}`, 0.7, 'weekly', dateStr(itinerary.data.publishedAt)));
+    entries.push(url(`/plans/${routeSlug(itinerary)}`, 0.7, 'weekly', dateStr(itinerary.data.publishedAt)));
   }
 
   // /fishing/species/* — only published, non-excluded.

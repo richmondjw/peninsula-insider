@@ -1,5 +1,6 @@
 /**
- * /escape/ — itinerary helpers
+ * /plans/ — itinerary helpers (file kept named escape.ts for git history;
+ * URL section migrated from /escape/ to /plans/ on 2026-05-10).
  *
  * Implements the conversion-vertical specs from peninsula_insider_escape_v1:
  *   - 7-axis taxonomy labels
@@ -132,7 +133,7 @@ interface SchemaItineraryDay {
 }
 
 export interface ItinerarySchemaInput {
-  /** Page slug under /escape/ — drives canonical URL. */
+  /** Page slug under /plans/ — drives canonical URL. */
   slug: string;
   title: string;
   description: string;
@@ -158,7 +159,7 @@ export interface ItinerarySchemaInput {
  * matches the existing convention elsewhere in the codebase.
  */
 export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
-  const path = `/escape/${input.slug}/`;
+  const path = `/plans/${input.slug}/`;
 
   const tripSchema = buildTouristTripSchema({
     name: input.title,
@@ -184,7 +185,7 @@ export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', url: absUrl('/') },
-    { name: 'Escape', url: absUrl('/escape/') },
+    { name: 'Plans', url: absUrl('/plans/') },
     { name: input.title },
   ]);
 
@@ -196,14 +197,14 @@ export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
 }
 
 export interface EscapeHubSchemaInput {
-  /** Hub path under /escape/ — e.g. /escape/the-weekend-peninsula/ */
+  /** Hub path under /plans/ — e.g. /plans/the-weekend-peninsula/ */
   path: string;
   name: string;
   description: string;
   dateModified: string;
   /** Itineraries surfaced on the hub, ordered from best to worst. */
   itineraries: Array<{
-    slug: string;       // /escape/{slug}/
+    slug: string;       // /plans/{slug}/
     title: string;
     description?: string;
   }>;
@@ -224,7 +225,7 @@ export function buildEscapeHubSchema(input: EscapeHubSchemaInput) {
     listPath: input.path,
     items: input.itineraries.map((it) => ({
       name: it.title,
-      path: `/escape/${it.slug}/`,
+      path: `/plans/${it.slug}/`,
       description: it.description,
       itemType: 'TouristTrip',
     })),
