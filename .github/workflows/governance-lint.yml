@@ -1,0 +1,154 @@
+name: Governance lint
+
+# Stage B item 3 — runs ops/scripts/governance-lint.mjs on every pull request.
+#
+# Mode: warn-only by default. The lint script exits 0 when only WARNs are
+# present; it only exits 1 on ERROR. Today the corpus reports 214 WARN /
+# 0 ERROR, so this is observable but non-blocking.
+#
+# Promotion path:
+#   1. Reduce the placeholder-license backlog (EXC-2026-05-10-001..003) so
+#      the WARN count drops sharply.
+#   2. Flip the script invocation to `--warn-as-error` once the count is
+#      stable and acceptable; CI then becomes a real gate.
+#
+# Tracked alongside ops/exception-queue.md.
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'next/src/content/**'
+      - 'ops/scripts/governance-lint.mjs'
+      - 'ops/scripts/governance-audit.mjs'
+      - '.github/workflows/governance-lint.yml'
+  workflow_dispatch:
+    inputs:
+      warn_as_error:
+        description: 'Treat WARNings as errors (gate mode)'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: governance-lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  governance-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Need history to compute --changed=main scope for PRs
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Determine lint scope
+        id: scope
+        run: |
+          # On a PR: limit to files changed against main (--changed=main).
+          # On manual dispatch: lint the whole corpus.
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "scope=--changed=main" >> "$GITHUB_OUTPUT"
+            echo "Linting changed files vs main"
+          else
+            echo "scope=" >> "$GITHUB_OUTPUT"
+            echo "Linting full corpus"
+          fi
+
+      - name: Determine strictness
+        id: strict
+        run: |
+          if [[ "${{ inputs.warn_as_error }}" == "true" ]]; then
+            echo "flag=--warn-as-error" >> "$GITHUB_OUTPUT"
+            echo "Mode: WARN-as-ERROR (gate)"
+          else
+            echo "flag=" >> "$GITHUB_OUTPUT"
+            echo "Mode: warn-only (observable, non-blocking)"
+          fi
+
+      - name: Run governance lint
+        id: lint
+        run: |
+          set +e
+          OUTPUT=$(node ops/scripts/governance-lint.mjs \
+            ${{ steps.scope.outputs.scope }} \
+            ${{ steps.strict.outputs.flag }} 2>&1)
+          STATUS=$?
+          set -e
+          # Always show the output
+          printf '%s\n' "$OUTPUT"
+          # Capture summary stats for the run-log
+          WARN_COUNT=$(printf '%s\n' "$OUTPUT" | grep -c '^\[WARN\]' || true)
+          ERROR_COUNT=$(printf '%s\n' "$OUTPUT" | grep -c '^\[ERROR\]' || true)
+          echo "warn_count=${WARN_COUNT}" >> "$GITHUB_OUTPUT"
+          echo "error_count=${ERROR_COUNT}" >> "$GITHUB_OUTPUT"
+          echo "exit_code=${STATUS}" >> "$GITHUB_OUTPUT"
+          # Surface a step summary for nicer PR UX
+          {
+            echo "## Governance lint"
+            echo ""
+            echo "- ERRORs: ${ERROR_COUNT}"
+            echo "- WARNs:  ${WARN_COUNT}"
+            echo "- Exit:   ${STATUS}"
+            echo ""
+            if [[ "${ERROR_COUNT}" -gt 0 ]]; then
+              echo "❌ ERROR-level findings present. PR cannot land until resolved or explicitly waived."
+            elif [[ "${WARN_COUNT}" -gt 0 ]]; then
+              echo "⚠️ WARN-level findings present. Non-blocking today; tracked via ops/exception-queue.md."
+            else
+              echo "✅ Clean."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit ${STATUS}
+
+      - name: Append run-log entry
+        # Records every CI lint run via the run-log standard (Stage B item 5
+        # primitive). Helps answer "did the PR-time governance gate run?"
+        # without spelunking through GitHub Actions UI.
+        if: always()
+        run: |
+          set -e
+          STARTED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          # Use job started time approximation — for a single-step job this
+          # is close enough; switch to a runlog-start step pattern if more
+          # precision is required later.
+          STATUS_OUT="success"
+          if [[ "${{ steps.lint.outputs.exit_code }}" != "0" ]]; then
+            STATUS_OUT="failure"
+          fi
+
+          ALERT_FLAGS=()
+          ERROR_FLAGS=()
+          if [[ "${STATUS_OUT}" == "failure" ]]; then
+            ALERT_FLAGS=( --alert-sent --alert-channel github-issue )
+            ERROR_FLAGS=( --error-summary "${{ steps.lint.outputs.error_count }} ERROR(s) reported" )
+          fi
+
+          node ops/scripts/run-log.mjs new \
+            --job-name pi-governance-lint-ci \
+            --job-source github-actions \
+            --run-id "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            --started-at "${STARTED_AT}" \
+            --status "${STATUS_OUT}" \
+            --mutation report-only \
+            --counts-warnings "${{ steps.lint.outputs.warn_count }}" \
+            --counts-errors "${{ steps.lint.outputs.error_count }}" \
+            "${ALERT_FLAGS[@]}" \
+            "${ERROR_FLAGS[@]}" \
+            --notes "PR ${{ github.event.pull_request.number || 'manual' }} on ${{ github.head_ref || 'main' }}; scope=${{ steps.scope.outputs.scope || 'full' }}"
+          # NB: this is a read-only PR runner; we do NOT push run-log entries
+          # back to main from PR builds (no write permission on forks; would
+          # also pollute main with one entry per PR push). The push pattern
+          # only runs from the deploy/event workflows on main.
