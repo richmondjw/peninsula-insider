@@ -27,6 +27,15 @@ import PlaceCard from '../components/PlaceCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc } from '../lib/editorial';
+import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
+
+// CMS-driven overrides for editor-controlled fields on the homepage. Empty
+// when Supabase is unconfigured or no rows are published; falls through to
+// the inline defaults below in that case. Per-field use only — dynamic
+// seasonal copy still wins when nothing is published.
+const cmsOverrides = await loadPublishedHomepageOverrides();
+const cmsText = cmsOverrides.textFieldsByPath;
+const cmsImage = cmsOverrides.imageSlotsByPath;
 
 const venues      = await getCollection('venues');
 const articles    = (await getCollection('articles', ({ data }) => data.status === 'published'))
@@ -98,18 +107,22 @@ interface Scene {
   primaryLabel: string;
 }
 
+// Cover scene fields are editor-controlled. CMS overrides (when present)
+// win over the inline defaults; the inline values are the canonical fallback
+// so the homepage renders identically when no CMS rows are published.
+const coverImageOverride = cmsImage['cover.image'];
 const scenes: Scene[] = [
   {
     id: 'cover',
-    label: 'THE COVER STORY',
-    hours: '9 MIN READ',
-    image: '/images/sourced/home-cover-bay-umbrella-01.webp',
-    imageAlt: 'A wide sandy bay beach with dune grass in the foreground, a bright red umbrella and chair to the right, and calm water under a blue sky.',
-    caption: 'Bay beach, Mornington Peninsula',
-    headline: 'The Hatted Restaurants of the <em>Peninsula.</em>',
-    dispatch: 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
-    primaryHref: '/journal/hatted-restaurants-mornington-peninsula-2025/',
-    primaryLabel: 'Read the cover story',
+    label: cmsText['cover.label'] ?? 'THE COVER STORY',
+    hours: cmsText['cover.hours'] ?? '9 MIN READ',
+    image: coverImageOverride?.src ?? '/images/sourced/home-cover-bay-umbrella-01.webp',
+    imageAlt: coverImageOverride?.alt ?? 'A wide sandy bay beach with dune grass in the foreground, a bright red umbrella and chair to the right, and calm water under a blue sky.',
+    caption: coverImageOverride?.caption ?? cmsText['cover.caption'] ?? 'Bay beach, Mornington Peninsula',
+    headline: cmsText['cover.headline'] ?? 'The Hatted Restaurants of the <em>Peninsula.</em>',
+    dispatch: cmsText['cover.dispatch'] ?? 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
+    primaryHref: cmsText['cover.primaryHref'] ?? '/journal/hatted-restaurants-mornington-peninsula-2025/',
+    primaryLabel: cmsText['cover.primaryLabel'] ?? 'Read the cover story',
   },
 ];
 
@@ -354,21 +367,36 @@ const ssrScene = scenes[0];
     />
   )}
 
-  <EditorsLetter
-    eyebrow="Editor's Letter"
-    title={`On the <em>quiet authority</em> of a good ${seasonBlurbData.label?.toLowerCase() ?? 'autumn'}.`}
-    paragraphs={[
-      `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year.`,
-      `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking.`,
-      `If this is your first issue with us, welcome. If you're returning, thanks for the patience through the refit.`,
-    ]}
-    pullQuote="This issue is built for the six weeks where the Peninsula is at its most itself, before winter settles in and the coast goes quiet."
-    signatureName="The Editors"
-    signatureRole="Peninsula Insider"
-    image="/images/sourced/place-red-hill-01.webp"
-    imageAlt="Vine rows in late-season colour, Red Hill"
-    imageCaption="The last weekend of vintage, Red Hill, <em>the quietest a working winery ever gets.</em>"
-  />
+  {/* Editor's Letter — title and paragraphs keep their seasonal interpolation
+      because the JSON-default copy is autumn-specific; CMS overrides apply
+      only when an editor explicitly sets that field. Other fields fall
+      through to the inline defaults when no override is published. */}
+  {(() => {
+    const elImage = cmsImage['editors-letter.image'];
+    const editorsLetterTitle = cmsText['editors-letter.title']
+      ?? `On the <em>quiet authority</em> of a good ${seasonBlurbData.label?.toLowerCase() ?? 'autumn'}.`;
+    const editorsLetterParagraphs = [
+      cmsText['editors-letter.paragraphs.0']
+        ?? `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year.`,
+      cmsText['editors-letter.paragraphs.1']
+        ?? `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking.`,
+      cmsText['editors-letter.paragraphs.2']
+        ?? `If this is your first issue with us, welcome. If you're returning, thanks for the patience through the refit.`,
+    ];
+    return (
+      <EditorsLetter
+        eyebrow={cmsText['editors-letter.eyebrow'] ?? "Editor's Letter"}
+        title={editorsLetterTitle}
+        paragraphs={editorsLetterParagraphs}
+        pullQuote={cmsText['editors-letter.pullQuote'] ?? "This issue is built for the six weeks where the Peninsula is at its most itself, before winter settles in and the coast goes quiet."}
+        signatureName={cmsText['editors-letter.signatureName'] ?? "The Editors"}
+        signatureRole={cmsText['editors-letter.signatureRole'] ?? "Peninsula Insider"}
+        image={elImage?.src ?? "/images/sourced/place-red-hill-01.webp"}
+        imageAlt={elImage?.alt ?? "Vine rows in late-season colour, Red Hill"}
+        imageCaption={elImage?.caption ?? "The last weekend of vintage, Red Hill, <em>the quietest a working winery ever gets.</em>"}
+      />
+    );
+  })()}
 
   <NewsletterBlock />
 </BaseLayout>

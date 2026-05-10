@@ -160,6 +160,44 @@ export async function loadHomepageContentWithCmsOverrides(): Promise<HomepageAdm
   }
 }
 
+export interface HomepageOverrides {
+  textFieldsByPath: Record<string, string>;
+  imageSlotsByPath: Record<string, { src: string | null; alt: string | null; caption: string | null; credit: string | null }>;
+}
+
+/**
+ * Lower-level companion to loadHomepageContentWithCmsOverrides — returns the
+ * raw published CMS rows keyed by fieldPath. Useful when a page wants
+ * per-field "use override only if explicitly set" semantics, so dynamic
+ * seasonal/runtime values aren't overwritten by the JSON defaults.
+ */
+export async function loadPublishedHomepageOverrides(): Promise<HomepageOverrides> {
+  const empty: HomepageOverrides = { textFieldsByPath: {}, imageSlotsByPath: {} };
+  const client = createCmsAnonClient();
+  if (!client) return empty;
+  try {
+    const { textFields, imageSlots } = await getPublishedPageOverrides(client, 'home');
+    const textFieldsByPath: Record<string, string> = {};
+    for (const f of textFields) {
+      if (typeof f.value === 'string' && f.value.length > 0) textFieldsByPath[f.fieldPath] = f.value;
+    }
+    const imageSlotsByPath: HomepageOverrides['imageSlotsByPath'] = {};
+    for (const s of imageSlots) {
+      const src = s.publicUrl ?? s.storagePath;
+      if (!src) continue;
+      imageSlotsByPath[s.fieldPath] = {
+        src,
+        alt: s.altText,
+        caption: s.caption,
+        credit: s.credit,
+      };
+    }
+    return { textFieldsByPath, imageSlotsByPath };
+  } catch {
+    return empty;
+  }
+}
+
 export function applyHomepageCmsOverrides(
   content: HomepageAdminContent,
   textFields: CmsEditableTextField[] = [],
