@@ -185,6 +185,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
 <script>
   import * as Saves from '../lib/saves/store';
   import type { SaveKind } from '../lib/saves/store';
+  import { track } from '../lib/saves/analytics';
 
   function hydrate(el: HTMLElement) {
     if ((el as any)._piInit) return;
@@ -213,7 +214,14 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     saveBtn?.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
+      const wasSaved = Saves.isSaved(kind, slug!);
       Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
+      track(wasSaved ? 'pi_unsave' : 'pi_save', {
+        kind,
+        slug,
+        section,
+        surface: 'card',
+      });
     });
 
     shareBtn?.addEventListener('click', async (e) => {
@@ -228,6 +236,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
       if (typeof (navigator as any).share === 'function') {
         try {
           await (navigator as any).share(shareData);
+          track('pi_share_item', { kind, slug, section, surface: 'card', method: 'native' });
           return;
         } catch {
           // User cancelled or share unsupported for this payload; fall through.
@@ -237,6 +246,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
       try {
         await navigator.clipboard.writeText(url);
         showFeedback(shareBtn!, 'Copied');
+        track('pi_share_item', { kind, slug, section, surface: 'card', method: 'copy' });
       } catch {
         showFeedback(shareBtn!, 'Tap to copy', true);
       }

@@ -4,23 +4,39 @@ import AuthModal from '../../components/v2/AuthModal.astro';
 import '../../styles/account.css';
 ---
 
-<BaseLayout title="Liked articles — Peninsula Insider" description="Articles you've liked." noindex={true}>
+<BaseLayout
+  title="Likes — Peninsula Insider"
+  description="The articles you've liked, kept on the same trail as your saves."
+  noindex={true}
+>
   <main class="v2-account-page">
     <div class="v2-account-page__container">
       <p class="v2-account-page__eyebrow">Your account</p>
-      <h1 class="v2-account-page__title">Likes — <em>your trail</em>.</h1>
+      <h1 class="v2-account-page__title">Likes <em>— your trail</em>.</h1>
+      <p class="v2-account-page__lead" data-likes-lead hidden>
+        Articles you've liked, in the order you tapped the heart.
+      </p>
+
       <div class="v2-account-page__nav">
         <a class="v2-account-page__nav-item" href="/account/">Profile</a>
         <a class="v2-account-page__nav-item" href="/account/saved/">Saved</a>
         <a class="v2-account-page__nav-item" href="/account/likes/" aria-current="page">Likes</a>
       </div>
-      <div data-likes-list class="v2-saved-list" hidden></div>
+
+      <div data-likes-groups class="saved-groups"></div>
+
       <div data-likes-empty class="v2-saved-empty" hidden>
-        <p>Nothing liked yet. Tap the heart at the bottom of any article you found worth reading.</p>
+        <div class="v2-saved-empty__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <p>Nothing liked yet. Tap the heart on any article that earns it.</p>
         <a class="v2-account-page__cta" href="/journal/">Browse the Journal</a>
       </div>
+
       <div data-likes-anon class="v2-account-page__signed-out" hidden>
-        <p class="v2-account-page__lead">Sign in to view your likes.</p>
+        <p class="v2-account-page__lead">Sign in to view the articles you've liked across devices.</p>
         <button class="v2-account-page__cta" type="button" data-open-auth>Sign in</button>
       </div>
     </div>
@@ -31,28 +47,72 @@ import '../../styles/account.css';
 <script>
   import { getUser, listLikes, onAuthChange, isAuthEnabled } from '../../lib/auth';
 
+  function escapeHtml(s: string): string {
+    return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
+  }
+
+  function titleize(slug: string): string {
+    return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+
+  function renderLikes(items: Array<{ section?: string; article_slug?: string; title?: string; dek?: string; image_url?: string }>): string {
+    if (items.length === 0) return '';
+    const cards = items.map((it) => {
+      const section = it.section ?? 'journal';
+      const slug = it.article_slug ?? '';
+      const title = it.title || titleize(slug);
+      return `
+        <a class="saved-card" href="/${section}/${slug}/">
+          ${it.image_url ? `<div class="saved-card__img" style="background-image: url('${escapeHtml(it.image_url)}');"></div>` : '<div class="saved-card__img saved-card__img--blank"></div>'}
+          <div class="saved-card__body">
+            <p class="saved-card__eyebrow">${escapeHtml(section)}</p>
+            <h3 class="saved-card__title">${escapeHtml(title)}</h3>
+            ${it.dek ? `<p class="saved-card__dek">${escapeHtml(it.dek)}</p>` : ''}
+          </div>
+        </a>`;
+    }).join('');
+    return `
+      <section class="saved-group">
+        <header class="saved-group__head">
+          <p class="saved-group__eyebrow">Worth reading</p>
+          <h2 class="saved-group__title">Articles <span class="saved-group__count">${items.length}</span></h2>
+        </header>
+        <div class="saved-group__grid">${cards}</div>
+      </section>`;
+  }
+
   async function render() {
-    const list = document.querySelector('[data-likes-list]') as HTMLElement;
-    const empty = document.querySelector('[data-likes-empty]') as HTMLElement;
-    const anon = document.querySelector('[data-likes-anon]') as HTMLElement;
-    if (!list || !empty || !anon) return;
-    if (!isAuthEnabled()) { anon.hidden = false; return; }
+    const groups = document.querySelector<HTMLElement>('[data-likes-groups]');
+    const empty = document.querySelector<HTMLElement>('[data-likes-empty]');
+    const anon = document.querySelector<HTMLElement>('[data-likes-anon]');
+    const lead = document.querySelector<HTMLElement>('[data-likes-lead]');
+    if (!groups || !empty || !anon || !lead) return;
+
+    if (!isAuthEnabled()) {
+      anon.hidden = false;
+      return;
+    }
     const u = await getUser();
-    if (!u) { list.hidden = true; empty.hidden = true; anon.hidden = false; return; }
+    if (!u) {
+      groups.innerHTML = '';
+      empty.hidden = true;
+      anon.hidden = false;
+      lead.hidden = true;
+      return;
+    }
     anon.hidden = true;
     const items = await listLikes(u.id);
-    if (!items.length) { empty.hidden = false; list.hidden = true; return; }
-    empty.hidden = true; list.hidden = false;
-    list.innerHTML = items.map((it: any) => `
-      <a class="v2-saved-card" href="/${it.section}/${it.article_slug}/">
-        <div class="v2-saved-card__img"></div>
-        <div class="v2-saved-card__body">
-          <p class="v2-saved-card__eyebrow">${it.section}</p>
-          <h3 class="v2-saved-card__title">${it.article_slug.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())}</h3>
-        </div>
-      </a>
-    `).join('');
+    if (!items.length) {
+      groups.innerHTML = '';
+      empty.hidden = false;
+      lead.hidden = true;
+      return;
+    }
+    empty.hidden = true;
+    lead.hidden = false;
+    groups.innerHTML = renderLikes(items);
   }
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
   else render();
   document.addEventListener('astro:page-load', render);
