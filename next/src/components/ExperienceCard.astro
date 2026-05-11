@@ -1,6 +1,7 @@
 ---
 import { placeLabel, titleize, routeSlug, heroBackgroundStyle } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
+import { editableImage } from '../lib/inline-edit/attrs';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -34,7 +35,18 @@ const imgStyle = heroBackgroundStyle(data);
 ---
 
 <article class="experience-card">
-  <div class={`experience-card__visual experience-card__visual--${data.type}`} aria-hidden="true" style={imgStyle}>
+  <div
+    class={`experience-card__visual experience-card__visual--${data.type}`}
+    aria-hidden="true"
+    style={imgStyle}
+    {...editableImage({
+      entityType: 'experience',
+      entitySlug: slug,
+      fieldPath: 'hero',
+      label: `${data.name} hero`,
+      purpose: 'hero',
+    })}
+  >
     <div class="experience-card__fog"></div>
     <span class="experience-card__tag">{typeLabel[data.type] ?? titleize(data.type)}</span>
   </div>

@@ -75,6 +75,24 @@ jobs:
         run: |
           node ops/scripts/deploy-preflight.mjs --skip-env
 
+      - name: Enforce CMS editor conventions (CMS Integrity Plan, Phase 3)
+        # Fails the build if any *Card.astro or PiSaveActions consumer is
+        # missing the entity-scoped editor attrs. Stops the filename-keyed
+        # auto-detect bug from reappearing under a new card type.
+        run: |
+          node scripts/check-editable-coverage.mjs
+
+      - name: Refresh CMS content registry (CMS Integrity Plan, Phase 1)
+        # Populates pi.content_registry with the current set of valid
+        # (entity_type, entity_slug) pairs. The CMS write triggers refuse
+        # writes that don't match a row here, so this must run before any
+        # editor uses the inline editor.
+        env:
+          SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          node scripts/refresh-content-registry.mjs
+
       - name: Build Astro site
         working-directory: next
         env:

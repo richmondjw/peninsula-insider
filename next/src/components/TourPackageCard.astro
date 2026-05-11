@@ -5,6 +5,7 @@
  */
 
 import PiSaveActions from './PiSaveActions.astro';
+import { editableImage } from '../lib/inline-edit/attrs';
 
 export interface Props {
   pkg: any;
@@ -54,7 +55,19 @@ const priceDisplay = data.priceLow
   {data.heroImage?.src && (
     <div class="tour-card__image">
       <a href={href} tabindex="-1" aria-hidden="true">
-        <img src={data.heroImage.src} alt={data.heroImage.alt ?? data.name} loading="lazy" decoding="async" />
+        <img
+          src={data.heroImage.src}
+          alt={data.heroImage.alt ?? data.name}
+          loading="lazy"
+          decoding="async"
+          {...editableImage({
+            entityType: 'tour-package',
+            entitySlug: slug,
+            fieldPath: 'hero',
+            label: `${data.name} hero`,
+            purpose: 'hero',
+          })}
+        />
       </a>
     </div>
   )}

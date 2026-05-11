@@ -56,6 +56,20 @@ the `tjjhpvslpysfklwpqmgz` project:
      The CloudSync layer uses `upsert(..., { onConflict })` which can
      trigger an UPDATE; the previous policy set only allowed
      INSERT/SELECT/DELETE.
+6. `2026-05-11-pi-cms-content-registry-and-referential-integrity.sql`
+   - **Phase 1 of the CMS Integrity Plan.** Eliminates the shared-image-
+     across-venues bug class by making entity overrides referential.
+   - Creates `pi.content_registry` — the canonical list of every
+     `(entity_type, entity_slug)` the live site renders.
+   - Adds a `before insert or update` trigger on
+     `pi.cms_image_slots` / `pi.cms_text_fields` that raises
+     `foreign_key_violation` when the override targets an unknown entity.
+   - Extends both tables' `entity_type` CHECK to include `tour`,
+     `tour-operator`, `tour-package` (previously rejected at write time).
+   - Seeds the static `page` rows. Collection-backed rows
+     (venue/place/event/experience/itinerary/article/tour/tour-operator/
+     tour-package) are populated by
+     `scripts/refresh-content-registry.mjs` at every deploy.
 
 > **Note (2026-05-11):** the original `2026-05-09-pi-cms-admin.sql` declared
 > `unique (entity_type, entity_slug, field_path, coalesce(locale, ''))` as an
