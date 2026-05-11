@@ -69,6 +69,7 @@ import '../../styles/account.css';
 <script>
   import * as Saves from '../../lib/saves/store';
   import { buildShareUrl } from '../../lib/saves/share-link';
+  import { track } from '../../lib/saves/analytics';
 
   const KIND_LABELS: Record<Saves.SaveKind, { plural: string; eyebrow: string }> = {
     article:         { plural: 'Articles',     eyebrow: 'To read' },
@@ -167,15 +168,21 @@ import '../../styles/account.css';
       if (!action) return;
 
       if (action === 'share-plan') {
-        const url = buildShareUrl(Saves.list());
+        const items = Saves.list();
+        const url = buildShareUrl(items);
         const title = 'My Peninsula plan · Peninsula Insider';
         const text = 'The places I want to visit on the Mornington Peninsula.';
         if (typeof (navigator as any).share === 'function') {
-          try { await (navigator as any).share({ title, text, url }); return; } catch {}
+          try {
+            await (navigator as any).share({ title, text, url });
+            track('pi_plan_share', { item_count: items.length, method: 'native' });
+            return;
+          } catch {}
         }
         try {
           await navigator.clipboard.writeText(url);
           showToast('Plan link copied. Send it to anyone.');
+          track('pi_plan_share', { item_count: items.length, method: 'copy' });
         } catch {
           showToast('Could not copy link.');
         }
@@ -183,12 +190,15 @@ import '../../styles/account.css';
 
       if (action === 'clear-plan') {
         if (!confirm('Clear every saved item? This can\'t be undone.')) return;
+        const itemCount = Saves.list().length;
         Saves.clear();
+        track('pi_plan_clear', { item_count: itemCount });
       }
 
       if (action === 'print-plan') {
         // Browser-native print pipeline. The @media print rules below strip
         // chrome and render a one-pager that prints cleanly or saves as PDF.
+        track('pi_plan_print', { item_count: Saves.list().length });
         window.print();
       }
     });

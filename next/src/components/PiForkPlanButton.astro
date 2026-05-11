@@ -102,6 +102,7 @@ const encoded = JSON.stringify(items);
 
 <script>
   import * as Saves from '../lib/saves/store';
+  import { track } from '../lib/saves/analytics';
 
   function bind() {
     document.querySelectorAll<HTMLButtonElement>('[data-pi-fork-plan]').forEach((btn) => {
@@ -115,6 +116,18 @@ const encoded = JSON.stringify(items);
         const now = Date.now();
         const items: Saves.SavedItem[] = parsed.map((it) => ({ ...it, savedAt: now }));
         const added = Saves.merge(items);
+        // The first item in the encoded list is conventionally the itinerary
+        // itself; capture its slug for the analytics payload so we know which
+        // editorial template was forked.
+        const source_slug = parsed[0]?.slug;
+        const source_kind = parsed[0]?.kind;
+        track('pi_plan_fork', {
+          source: 'editorial',
+          source_kind,
+          source_slug,
+          items_added: added,
+          items_total: items.length,
+        });
         btn.setAttribute('data-state', 'forked');
         showToast(
           added > 0

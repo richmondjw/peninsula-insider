@@ -53,6 +53,7 @@ import '../../styles/account.css';
   import * as Saves from '../../lib/saves/store';
   import { decodePlan } from '../../lib/saves/share-link';
   import type { SharedItem } from '../../lib/saves/share-link';
+  import { track } from '../../lib/saves/analytics';
 
   const KIND_LABELS: Record<Saves.SaveKind, { plural: string; eyebrow: string }> = {
     article:         { plural: 'Articles',     eyebrow: 'To read' },
@@ -157,6 +158,7 @@ import '../../styles/account.css';
         savedAt: Date.now(),
       }));
       const added = Saves.merge(items);
+      track('pi_plan_fork', { source: 'shared', items_added: added, items_total: items.length });
       if (added > 0) {
         showToast(`Saved ${added} ${added === 1 ? 'item' : 'items'} to your plan.`);
       } else {
