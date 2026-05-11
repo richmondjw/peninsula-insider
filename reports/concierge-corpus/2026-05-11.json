@@ -1,14 +1,14 @@
 {
-  "run_id": "2026-05-11T13:37:37.975Z",
+  "run_id": "2026-05-11T15:03:50.260Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 7.9,
-  "git_sha": "cc4c805",
+  "duration_seconds": 30.8,
+  "git_sha": "f89b6bf",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
-    "venue": 156,
+    "venue": 154,
     "article": 172,
     "place": 20,
     "itinerary": 6,
@@ -18,31 +18,51 @@
   },
   "database": {
     "chunks_before": 1595,
-    "chunks_after": 1595
+    "chunks_after": 1586
   },
   "delta": {
     "added": 0,
-    "updated": 7,
+    "updated": 17,
     "metadata_only": 0,
-    "unchanged": 1591,
-    "pruned": 0,
+    "unchanged": 1572,
+    "pruned": 9,
     "errors": 0,
     "stale_remaining": 0
   },
   "added_chunk_ids": [],
   "updated_chunk_ids": [
-    "blue-moon-cottages::practical::0",
-    "driftaway-on-dundas::practical::0",
-    "kanasta-retro-caravans::practical::0",
-    "plantation-house-whitecliffs::practical::0",
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
-    "red-hill-market::tags::0"
+    "red-hill-market::tags::0",
+    "the-market-saturday::body::0",
+    "the-peninsula-picnic::body::1",
+    "the-peninsula-picnic::body::2",
+    "the-peninsula-picnic::body::3",
+    "the-peninsula-picnic::body::4",
+    "the-producer-trail::body::0",
+    "the-producer-trail::body::1",
+    "the-producer-trail::body::2",
+    "the-producer-trail::body::3",
+    "the-producer-trail::body::4",
+    "the-producer-trail::body::5",
+    "the-seafood-list::body::0",
+    "the-seafood-list::body::1",
+    "the-seafood-list::body::2"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [],
+  "pruned_chunk_ids": [
+    "advance-mussel-supply::tags::0",
+    "hastings-fishermens-coop::editor_note::0",
+    "hastings-fishermens-coop::practical::0",
+    "hastings-fishermens-coop::tags::0",
+    "advance-mussel-supply::summary::0",
+    "advance-mussel-supply::editor_note::0",
+    "advance-mussel-supply::practical::0",
+    "hastings-fishermens-coop::summary::0",
+    "the-seafood-list::body::3"
+  ],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
-  "embedding_cost_usd_estimate": 0,
+  "embedding_cost_usd_estimate": 0.0001,
   "errors": []
 }
