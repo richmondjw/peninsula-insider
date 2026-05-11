@@ -222,6 +222,39 @@ Start with a **SERP snippet optimisation pass** on the highest-leverage pages:
 
 That is the fastest next SEO win.
 
+## 12. CMS Integrity — non-negotiable rules
+
+The inline CMS (right-click image replace, contenteditable text) is governed
+by a referential-integrity system established 2026-05-11 after a
+shared-image bug let one click overwrite many venues at once. The full
+spec is in [`docs/cms-architecture.md`](docs/cms-architecture.md). The
+non-negotiables for any Claude session touching cards, CMS, or content:
+
+1. **Never key overrides on filenames.** Every editable image must call
+   `editableImage({ entityType, entitySlug, fieldPath, ... })`. The
+   `entityType` must be one of: `article, page, event, place, venue,
+   experience, itinerary, tour, tour-operator, tour-package`. No
+   exceptions; new kinds require a coordinated DB migration.
+2. **Every new card component must pass the enforcer.** Before committing
+   a new `*Card.astro`, run `node scripts/check-editable-coverage.mjs`.
+   The CI also runs it; do not push expecting CI to be the first check.
+3. **Adding a new content collection** means three coordinated changes:
+   (a) the directory under `next/src/content/`, (b) an entry in
+   `COLLECTIONS` in `scripts/refresh-content-registry.mjs`, (c) the
+   matching kind in the database CHECK constraints if it's new.
+4. **The DB trigger is the floor, not the ceiling.** `pi.assert_content_
+   registry_match` refuses writes for unknown entities. If you see
+   `foreign_key_violation` on CMS save, the entity is genuinely not in
+   `pi.content_registry` — fix the slug or wait for a deploy refresh, do
+   not bypass the trigger.
+5. **Open followup as of 2026-05-11:** rotate the `SUPABASE_SERVICE_KEY`
+   repo secret to authenticate against project `tjjhpvslpysfklwpqmgz`
+   (the active CMS database). Then remove `continue-on-error: true` from
+   the registry-refresh step in `.github/workflows/deploy.yml`.
+
+For the editor-facing version of these rules, see
+[`docs/cms-editorial-guide.md`](docs/cms-editorial-guide.md).
+
 ## Social Publishing
 
 Skills and process docs for social media publishing live at `ops/skills/`:
