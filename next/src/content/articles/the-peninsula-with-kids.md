@@ -35,7 +35,7 @@ faq:
 
 The single biggest mistake people make on a Peninsula day with kids is treating it as a compromised version of the grown-up trip.
 
-They bring the children along to the cellar-door lunch and hope everyone copes. They drive to the back beach at Sorrento and discover the car park is half a kilometre from the sand. They squeeze a gallery stop into an afternoon that already has a tasting, a picnic, and a forty-five-minute drive home before the youngest melts down in the back seat. Nobody is having a good time by four-thirty, and the adults start quietly suspecting the problem is the Peninsula itself.
+They bring the children along to the cellar-door lunch and hope everyone copes. They drive to the back beach at Sorrento and discover the car park is half a kilometre from the sand. They squeeze a gallery stop into an afternoon that already has a tasting, a picnic, and a forty-five-minute drive home before the youngest melts down in the back seat. Nobody is having a good time by four-thirty, and the adults start beginning to suspect the problem is the Peninsula itself.
 
 It isn't. The Peninsula is one of the best family day-trip regions in Australia. It is just that the trip has to be built differently  -  on its own logic, not as a diluted version of the long-lunch weekend.
 

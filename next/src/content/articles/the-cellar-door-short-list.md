@@ -53,7 +53,7 @@ The cellar door is calm and contemplative. Book the single-vineyard flight. Go m
 
 ## 2. Dexter Wines  -  the appointment-only secret
 
-Dexter has no signage and no restaurant. The tastings are strictly by appointment. What you get in exchange is the most private, most focused hour in Main Ridge: Tod Dexter or one of his team pouring through a small, deliberately narrow range of pinot noir and chardonnay that has been refined over three decades. The wines are quietly structured and reward cellaring in a way that the bigger trophy estates often don't.
+Dexter has no signage and no restaurant. The tastings are strictly by appointment. What you get in exchange is the most private, most focused hour in Main Ridge: Tod Dexter or one of his team pouring through a small, deliberately narrow range of pinot noir and chardonnay that has been refined over three decades. The wines are carefully structured and reward cellaring in a way that the bigger trophy estates often don't.
 
 This is the cellar door for people who want to understand what a Peninsula pinot looks like with four or five years of age on it. Book at least a week ahead.
 
@@ -71,7 +71,7 @@ The wines themselves are excellent  -  a Halliday 97-point estate with a genuine
 
 ## 5. Quealy Winemakers  -  the one with the most soul
 
-Quealy is different. Kathleen Quealy and Kevin McCarthy were early believers in alternative Italian varieties on the Peninsula  -  pinot grigio, friulano, moscato giallo, and other food-first grapes that made sense in this climate before most locals knew what to do with them  -  and the cellar door is still grounded in that experimental, quietly pioneering spirit. The room itself is unpretentious to the point of stubbornness. The wines are distinctive and food-friendly. The pricing is fair.
+Quealy is different. Kathleen Quealy and Kevin McCarthy were early believers in alternative Italian varieties on the Peninsula  -  pinot grigio, friulano, moscato giallo, and other food-first grapes that made sense in this climate before most locals knew what to do with them  -  and the cellar door is still grounded in that experimental, genuinely pioneering spirit. The room itself is unpretentious to the point of stubbornness. The wines are distinctive and food-friendly. The pricing is fair.
 
 This is where locals send friends who say they want to understand the Peninsula rather than just photograph it. Go before lunch nearby and buy a mixed six on the way out.
 

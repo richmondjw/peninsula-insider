@@ -38,7 +38,7 @@ We eat in each of them regularly. This is the comparative case.
 
 ## Tedesca Osteria: the most honest room
 
-Brigitte Hafner's farmhouse osteria in Red Hill is the most quietly confident of the three. One set menu, one sitting at lunch, one at dinner. Everyone eats the same thing. The wood oven runs all service. The produce comes mostly from the garden you walk past on the way in. And the dining room feels, within about thirty seconds of sitting down, like it has been there for decades rather than opening five years ago.
+Brigitte Hafner's farmhouse osteria in Red Hill is the most composed and confident of the three. One set menu, one sitting at lunch, one at dinner. Everyone eats the same thing. The wood oven runs all service. The produce comes mostly from the garden you walk past on the way in. And the dining room feels, within about thirty seconds of sitting down, like it has been there for decades rather than opening five years ago.
 
 The cooking is Italian in spirit but not in the cliché sense  -  there is real technique, the pasta is rolled in the morning, the braises have the kind of depth you don't get from a scaled operation. The wine list leans into small producers who match Brigitte's insistence that the food taste of a place. No sommelier theatre. No optional flourishes. Just the lunch the kitchen wants you to have.
 

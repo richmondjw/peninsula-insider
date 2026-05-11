@@ -262,6 +262,13 @@ const isClosed = data.status === 'closed';
               <dd><a href={data.sameAs.halliday} target="_blank" rel="noopener noreferrer">Halliday listing</a></dd>
             </>
           )}
+
+          {data.featuredPartner && (
+            <>
+              <dt>Partnership</dt>
+              <dd>Featured partner — <a href="/about/editorial-standards/">editorial standards</a></dd>
+            </>
+          )}
         </dl>
 
         {data.bookingUrl && <a class="facts__cta" href={data.bookingUrl}>Book now</a>}

@@ -72,7 +72,7 @@ This is the recommendation for readers who want the weekend to feel cultivated r
 
 If Saturday belongs to Sorrento, Sunday morning has a clear answer: **Point Nepean**.
 
-The logic is simple. You are already at the southern tip. Point Nepean is ten minutes from Portsea and does something Cape Schanck cannot on an ANZAC weekend: it ties landscape directly to the occasion. Fort Nepean, the Quarantine Station, the shuttle up the headland, the tunnels — all of it carries weight that makes more sense on this weekend than a generic walk-and-springs formula.
+The logic is simple. You are already at the southern tip. Point Nepean is ten minutes from Portsea and does something Cape Schanck cannot on an ANZAC weekend: it ties landscape directly to the occasion. Fort Nepean, the Quarantine Station, the shuttle up the headland, the tunnels   -   all of it carries weight that makes more sense on this weekend than a generic walk-and-springs formula.
 
 The Parks Victoria shuttle runs from the Visitor Centre. The fort and Quarantine Station infrastructure are open daily. Keep it to the morning. Leave the afternoon deliberately open.
 
@@ -82,7 +82,7 @@ The Parks Victoria shuttle runs from the Visitor Centre. The fort and Quarantine
 
 If the weekend needs one quieter indulgence, **Alba Thermal Springs** is the cleaner answer this time around.
 
-Alba is the adults-first, sanctuary-grade option — less chaotic than Peninsula Hot Springs on a long weekend, more architecturally considered, and better suited to the reflective register that an ANZAC long weekend already sets.
+Alba is the adults-first, sanctuary-grade option   -   less chaotic than Peninsula Hot Springs on a long weekend, more architecturally considered, and better suited to the reflective register that an ANZAC long weekend already sets.
 
 Book a late afternoon slot. Arrive unhurried. Treat it as the period at the end of the weekend's sentence, not another item on the activity list.
 
@@ -92,7 +92,7 @@ Book a late afternoon slot. Arrive unhurried. Treat it as the period at the end 
 
 The weekend makes far more sense geographically if you treat Sorrento as home for the two days.
 
-Dawn service, Writers Festival, Point Nepean — all within ten minutes of each other at the southern tip. Adding Cape Schanck, Red Hill, or Mornington into this mix costs 30 to 45 minutes each way and flattens the weekend's coherence. The Peninsula rewards a settled base more than a full lap.
+Dawn service, Writers Festival, Point Nepean   -   all within ten minutes of each other at the southern tip. Adding Cape Schanck, Red Hill, or Mornington into this mix costs 30 to 45 minutes each way and flattens the weekend's coherence. The Peninsula rewards a settled base more than a full lap.
 
 If you are not staying in Sorrento, get there early on Saturday and stay south through Sunday before heading home.
 

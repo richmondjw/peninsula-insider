@@ -33,72 +33,72 @@ status: "published"
 
 A lot of venues say they are dog-friendly when what they really mean is that they will tolerate a dog if you stay outside and do not inconvenience anyone. That is not the same as a venue that genuinely works when the dog is part of the plan.
 
-What follows is the verified short list — venues with confirmed outdoor dog access, sourced from their own websites and booking systems where possible. Policies change; always call ahead before a long trip.
+What follows is the verified short list   -   venues with confirmed outdoor dog access, sourced from their own websites and booking systems where possible. Policies change; always call ahead before a long trip.
 
 ---
 
 ## Cafés
 
-### Commonfolk Coffee — Mornington
+### Commonfolk Coffee   -   Mornington
 Back courtyard. Confirmed dog-friendly. One of the Peninsula's most serious specialty roasters. 16 Progress Street, Mornington. Weekdays 6:30am–5pm; weekends 8am–5pm. Booking required.
 
-### Nordie Café — Red Hill
-Dog-friendly courtyard and grass area. Scandinavian design, rösti benedict, smoked salmon smørrebrød. 1008 Mornington-Flinders Road, Red Hill. Morning hours only — check before visiting.
+### Nordie Café   -   Red Hill
+Dog-friendly courtyard and grass area. Scandinavian design, rösti benedict, smoked salmon smørrebrød. 1008 Mornington-Flinders Road, Red Hill. Morning hours only   -   check before visiting.
 
-### Green Olive at Red Hill — Red Hill South
+### Green Olive at Red Hill   -   Red Hill South
 Outdoor dining areas confirmed dog-friendly. Farm cooking focus, local olive oil and produce. 37 Shoreham Road, Red Hill South. Open daily in peak season (verify off-peak).
 
-### Georgie Bass Café & Cookery — Flinders
-Outdoor seating, dog-friendly. Good coffee and café food in Flinders village. 30 Cook Street, Flinders. Open daily, morning and lunch hours — verify current.
+### Georgie Bass Café & Cookery   -   Flinders
+Outdoor seating, dog-friendly. Good coffee and café food in Flinders village. 30 Cook Street, Flinders. Open daily, morning and lunch hours   -   verify current.
 
-### Somers General — Somers
+### Somers General   -   Somers
 Quieter general store café at the southern end of Somers. Outdoor tables. Good for a reset stop after a morning at Somers Beach.
 
 ---
 
 ## Pubs
 
-### Flinders Hotel — Flinders
+### Flinders Hotel   -   Flinders
 Beer garden welcomes dogs. Lunch and dinner daily 11am–10pm. Food is a cut above most Peninsula pubs. 23 Cook Street, Flinders. Walking distance to Flinders village and coastal foreshore.
 
-### Portsea Hotel — Portsea
+### Portsea Hotel   -   Portsea
 Beer garden dog-friendly. Sweeping Port Phillip Bay views. Walk-in only 23 December to 31 January; bookings accepted rest of year. 3746 Point Nepean Road, Portsea. Good stop before or after Point Nepean National Park (note: dogs not permitted in the park itself).
 
-### Balnarring Pub — Balnarring
+### Balnarring Pub   -   Balnarring
 Outdoor beer garden dog-welcome. Local, low-key atmosphere. Practical mid-Peninsula stop.
 
-### The Rocks — Mornington
+### The Rocks   -   Mornington
 Outdoor deck. Confirmed dog-friendly. Waterfront marina setting with bay views. 1 Schnapper Point Drive, Mornington. Wednesday to Monday (Tuesday lunch only).
 
 ---
 
 ## Cellar doors and wineries
 
-### Stonier Wines — Merricks
+### Stonier Wines   -   Merricks
 Lawn area confirmed dog-friendly on their website. Walk-in friendly. No restaurant, but local charcuterie available. Children's playground on-site. 2 Thompsons Lane, Merricks.
 
-### Main Ridge Estate — Red Hill
-On-lead only. Must pre-book with dogs — tick the dog box in the booking system; if dogs are at capacity they cannot accommodate. Outdoor Larder restaurant (share plates). 80 William Road, Red Hill.
+### Main Ridge Estate   -   Red Hill
+On-lead only. Must pre-book with dogs   -   tick the dog box in the booking system; if dogs are at capacity they cannot accommodate. Outdoor Larder restaurant (share plates). 80 William Road, Red Hill.
 
-### Many Little Bar & Dining — Red Hill South
+### Many Little Bar & Dining   -   Red Hill South
 Outdoor seating, enquire on booking. One-hat GFG 2025. Thursday to Sunday evenings plus weekend lunches. 2–5/159 Shoreham Road, Red Hill South.
 
-### Rare Hare — Merricks North (Jackalope Hotel)
-Outdoor lawn areas dog-friendly. Walk-in only — no reservations. One-hat GFG 2025. Monday to Friday from 5pm; Saturday and Sunday from 2pm. 166 Balnarring Road, Merricks North.
+### Rare Hare   -   Merricks North (Jackalope Hotel)
+Outdoor lawn areas dog-friendly. Walk-in only   -   no reservations. One-hat GFG 2025. Monday to Friday from 5pm; Saturday and Sunday from 2pm. 166 Balnarring Road, Merricks North.
 
-### Red Hill Brewery — Red Hill South
-Large outdoor grass area with tables, wood-fired pizza oven. The most reliably dog-friendly winery-adjacent experience on the Peninsula — dogs are the expected mode, not an exception.
+### Red Hill Brewery   -   Red Hill South
+Large outdoor grass area with tables, wood-fired pizza oven. The most reliably dog-friendly winery-adjacent experience on the Peninsula   -   dogs are the expected mode, not an exception.
 
-### St Andrews Beach Brewery — St Andrews Beach
+### St Andrews Beach Brewery   -   St Andrews Beach
 Converted horse stable with large grassed outdoor area. Good space for active dogs that need room.
 
 ---
 
 ## Confirmed no-dogs venues
 
-**Foxeys Hangout** (Red Hill) — "Please leave your lovely dogs at home." Stated on their website.
+**Foxeys Hangout** (Red Hill)   -   "Please leave your lovely dogs at home." Stated on their website.
 
-**Quealy Winemakers** (Balnarring) — "We kindly ask no dogs." Stated on their cellar door page.
+**Quealy Winemakers** (Balnarring)   -   "We kindly ask no dogs." Stated on their cellar door page.
 
 ---
 

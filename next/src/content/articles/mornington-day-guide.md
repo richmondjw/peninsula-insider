@@ -36,9 +36,8 @@ faq:
 
 Mornington has a problem and the problem is geography. It is the first stop on the Peninsula when you drive down from Melbourne, and for a long time that meant nobody stayed  -  you bought a coffee, stretched your legs, and pressed on to the wineries or the tip. The town became a waypoint by default.
 
-That is now a lazy reading. Over the past decade Mornington has quietly evolved into one of the most complete day-out towns on the Peninsula. It has a genuinely good main street, a monthly farmers' market on the bayfront, a regional gallery that punches well above its weight, and a short drive in either direction to serious food or serious beaches. Built right, a Mornington day is cleaner and less expensive than a Red Hill day and often just as satisfying.
+That is now a lazy reading. Over the past decade Mornington has evolved into one of the most complete day-out towns on the Peninsula. It has a genuinely good main street, a monthly farmers' market on the bayfront, a regional gallery that punches well above its weight, and a short drive in either direction to serious food or serious beaches. Built right, a Mornington day is cleaner and less expensive than a Red Hill day and often just as satisfying.
 
-Here is how to do it.
 
 ## 9:00  -  Start at Commonfolk
 

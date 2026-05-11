@@ -42,7 +42,7 @@ It is also historically important to the Peninsula wine story. Some of the regio
 
 ## How to arrive and when to come
 
-Dromana works in almost every season because it is less dependent on a single kind of weather than other Peninsula destinations. Summer is obvious — beach, bay, families, late light. Spring is arguably better if you plan to split the day between sea level and the hill. Autumn is excellent for combining beach walks with winery lunches. Even winter can work if you are using Dromana as a gateway rather than expecting resort energy.
+Dromana works in almost every season because it is less dependent on a single kind of weather than other Peninsula destinations. Summer is obvious   -   beach, bay, families, late light. Spring is arguably better if you plan to split the day between sea level and the hill. Autumn is excellent for combining beach walks with winery lunches. Even winter can work if you are using Dromana as a gateway rather than expecting resort energy.
 
 Arrive early if Arthurs Seat is part of the plan. The hill attracts traffic, and the best view hours are earlier anyway. If you are staying overnight, use Dromana as the relaxed end of the day rather than the main event from dawn to dusk.
 
@@ -72,7 +72,7 @@ For families, Dromana is especially strong. Space, easier parking, a safer-feeli
 
 ### Take Arthurs Seat seriously
 
-The **Arthurs Seat Eagle** is the obvious family-facing move, but the broader hill is the real story. The views over the bay, the curves of the road, the sense of looking back across the Peninsula's lower country — it gives context to everything else.
+The **Arthurs Seat Eagle** is the obvious family-facing move, but the broader hill is the real story. The views over the bay, the curves of the road, the sense of looking back across the Peninsula's lower country   -   it gives context to everything else.
 
 ### Use Dromana as a wine-country launchpad
 
@@ -98,7 +98,7 @@ Skip writing it off as merely a gateway. Gateway status can be an advantage when
 
 ## The best single day here
 
-Start with an early foreshore walk and a simple breakfast by the water. Head up Arthurs Seat before the middle of the morning, either taking the Eagle or driving to the lookouts if you prefer control over timing. From there, spend the late morning and lunch period in the winery belt behind town — Crittenden is the most coherent editorial inclusion if you want one serious stop.
+Start with an early foreshore walk and a simple breakfast by the water. Head up Arthurs Seat before the middle of the morning, either taking the Eagle or driving to the lookouts if you prefer control over timing. From there, spend the late morning and lunch period in the winery belt behind town   -   Crittenden is the most coherent editorial inclusion if you want one serious stop.
 
 Return to Dromana in the afternoon for beach time, a slower circuit of the foreshore, or a rest if you are staying overnight. Sunset by the bay is the right ending, followed by an uncomplicated local dinner.
 

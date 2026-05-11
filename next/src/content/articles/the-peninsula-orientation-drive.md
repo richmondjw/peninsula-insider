@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["explore", "drive", "first-timers", "red-hill", "sorrento", "day-trip"]
-relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "pier-street-flinders", "dromana-hotel", "balnarring-pub", "crittenden-estate", "yabby-lake", "red-hill-bakery", "somers-general"]
+relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "georgie-bass", "dromana-hotel", "balnarring-pub", "crittenden-estate", "yabby-lake", "red-hill-bakery", "somers-general"]
 relatedExperiences: ["arthurs-seat-lookout", "red-hill-market", "cape-schanck-boardwalk", "sorrento-back-beach", "mount-martha-beach"]
 readingTimeMinutes: 8
 featured: false
@@ -40,7 +40,6 @@ The honest answer is that one day is not enough to see the Peninsula properly, b
 
 There is a better first day. It is a drive  -  six stops, four hours of road and stopping time, one small lunch in the middle  -  and it exists specifically to orient you. Not to show you the best restaurant or the single prettiest beach, but to hand you the map. After this loop you will understand why the Peninsula has four distinct weekends hiding inside it, and you will know which one to come back for.
 
-Here is the drive.
 
 ## Stop 1  -  Commonfolk Coffee, Mornington (9:00)
 
@@ -84,7 +83,7 @@ Allow an hour including parking and the walk down. If you have children or a gro
 
 You now have a choice, and which one you pick tells you what kind of weekend you will come back for.
 
-**If you want the ocean-coast version of the Peninsula**, drive fifteen minutes east to **Flinders**. It is a proper village  -  bakery, pub, pier, cliff walk, one small serious restaurant in **Pier Street Kitchen**. Walk the main street, stop at **Flinders Sourdough** for a loaf to take home, and sit on the pier for ten minutes. This is the quiet side of the Peninsula and the one most Melbourne visitors miss. It is also the version that ages best.
+**If you want the ocean-coast version of the Peninsula**, drive fifteen minutes east to **Flinders**. It is a proper village  -  bakery, pub, pier, cliff walk, one small serious restaurant in **Georgie Bass** at 30 Cook Street. Walk the main street, stop at **Flinders Sourdough** for a loaf to take home, and sit on the pier for ten minutes. This is the quiet side of the Peninsula and the one most Melbourne visitors miss. It is also the version that ages best.
 
 **If you want the bay-side version**, drive north back toward **Mount Martha Beach** and take the last hour of the afternoon on the sand. The bathing boxes at the northern end are the famous photograph; the southern end of the beach is where you actually swim. In autumn the water stays usable well into late April.
 

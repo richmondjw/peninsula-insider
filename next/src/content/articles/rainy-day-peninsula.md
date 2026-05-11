@@ -37,7 +37,7 @@ There is a version of the Peninsula that only reveals itself in bad weather, and
 
 The bay goes grey. The ridge fog closes in on the wineries. The back beaches at Sorrento turn moody in a way that makes photographs impossible but makes walking along them unexpectedly beautiful. The fires get lit at 11am in the dining rooms that have them. And  -  crucially  -  the bookings that were locked out three months ago suddenly become available.
 
-If you are flexible about when you come, the rainy Peninsula weekend is often the better version of the trip. Here is how to plan for it.
+If you are flexible about when you come, the rainy Peninsula weekend is often the better version of the trip. This is the planned version   -   built around advance bookings at the hot springs and one of the region's fireplace dining rooms. If the forecast caught you off guard and you have nothing booked, see [The Rainy-Day Peninsula Without a Booking](/journal/the-rainy-day-peninsula-without-a-booking/).
 
 ## Accept that some things are closed
 

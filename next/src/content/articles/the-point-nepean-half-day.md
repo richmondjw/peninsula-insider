@@ -40,7 +40,7 @@ It is called **Point Nepean National Park**, and it sits directly to the west of
 
 That is a mistake. Point Nepean is the half-day that gives a Sorrento weekend a landscape spine. Here is how to do it properly.
 
-## What the park actually is
+## What the park is
 
 Point Nepean is the very end of the Mornington Peninsula  -  the westernmost land before the Heads open to the sea. For most of its modern history it was military land, and the restrictions kept it out of tourist circulation until the 1990s. The remnants of that military past are still the most visible thing in the park: the Quarantine Station complex near the entrance, the defensive batteries at Fort Nepean on the tip, and the series of emplacements dug into the cliffs along the ridge between them.
 

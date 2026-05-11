@@ -46,7 +46,7 @@ Red Hill rewards appetite and discipline in equal measure. If you only bring the
 
 Arrive with your first booking no earlier than mid-morning unless the market is on. The Red Hill Community Market, held on the first Saturday of the month, is one of the few reasons to start the day at speed. Even then, the right move is to get there early, buy selectively, drink your coffee, and leave before it becomes a circular exercise in crowd management.
 
-Autumn is the cleanest version of Red Hill — vines turning, roads dry, lunch terraces at full usefulness. Spring is close behind, with greener hills and slightly sharper air. Winter works well if your priorities are fireplaces, tasting rooms and heavier lunches. Summer is fine but not essential. This is not a beach town pretending otherwise.
+Autumn is the cleanest version of Red Hill   -   vines turning, roads dry, lunch terraces at full usefulness. Spring is close behind, with greener hills and slightly sharper air. Winter works well if your priorities are fireplaces, tasting rooms and heavier lunches. Summer is fine but not essential. This is not a beach town pretending otherwise.
 
 If you can stay overnight, do. Red Hill improves dramatically when lunch is not followed by a drive back to Melbourne. One night gives you the soft edges the region needs.
 
@@ -72,7 +72,7 @@ The basic rule is brutal and correct: one major lunch, one meaningful cellar doo
 
 ## Stay
 
-**Lindenderry at Red Hill** is the easiest recommendation because it understands the brief — regional, comfortable, low-theatre, and close to the action without trying to outshine it.
+**Lindenderry at Red Hill** is the easiest recommendation because it understands the brief   -   regional, comfortable, low-theatre, and close to the action without trying to outshine it.
 
 Private villas and vineyard cottages around Red Hill South, Merricks North and Main Ridge are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region's actual orbit.
 
@@ -90,7 +90,7 @@ This is not a region for a six-cellar-door crawl. Choose a producer whose wines 
 
 ### Use the roads properly
 
-The drive between Red Hill, Main Ridge and Merricks is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts — these are not dead kilometres between reservations. Leave some daylight for them.
+The drive between Red Hill, Main Ridge and Merricks is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts   -   these are not dead kilometres between reservations. Leave some daylight for them.
 
 ### Shop for produce only if you will use it
 
@@ -108,7 +108,7 @@ Skip chasing hype bookings without understanding the area. The best day here is 
 
 ## The best single day here
 
-If the market is on, start there at opening. Coffee first, one loop only, buy something worth taking home, then leave while everyone else is still circling. Head next to a cellar door with a proper booking — Polperro if you want intimacy, Montalto if you want scale and range.
+If the market is on, start there at opening. Coffee first, one loop only, buy something worth taking home, then leave while everyone else is still circling. Head next to a cellar door with a proper booking   -   Polperro if you want intimacy, Montalto if you want scale and range.
 
 Make lunch the centrepiece. Ten Minutes by Tractor is the strongest editorial recommendation if you care most about the meal. Montalto is the smartest all-in-one choice if you want the full estate version. After lunch, resist the urge to stuff the afternoon. A short drive through Main Ridge, maybe one produce stop, then back to your accommodation or down to the bay if you are based lower on the hill.
 

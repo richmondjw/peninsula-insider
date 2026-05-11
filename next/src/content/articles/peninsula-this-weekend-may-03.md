@@ -36,7 +36,7 @@ The second weekend of May has a clear organising principle.
 
 Mother's Day is not a side note in the calendar. It is the calendar. The useful version of this weekend starts there, then works outward: book the lunch, or book the active morning, and resist the urge to keep adding Peninsula errands just because the weather looks decent.
 
-## The main event — Mother's Day lunch, properly framed
+## The main event   -   Mother's Day lunch, properly framed
 
 If you are booking one thing this weekend, book Sunday first.
 
@@ -48,19 +48,19 @@ Three versions look strongest on paper.
 
 None of these days improve when you bolt a second town onto them. Pick the lunch, get there on time, and let the rest of Sunday follow from that.
 
-## The active version — Mother's Day Classic at Moonah Links
+## The active version   -   Mother's Day Classic at Moonah Links
 
 If your family does better with something to do before the table, the **Mother's Day Classic at Moonah Links** is the cleanest active move on the Peninsula this Sunday.
 
-It gives the day a proper shape — walk or run first, lunch second — and it avoids the flatness that some Mother's Day bookings get by mid-afternoon. The distances are broad enough that different ages and energy levels can make it work. If you are heading south anyway, this is the best version of a Mother's Day morning with a point to it.
+It gives the day a proper shape   -   walk or run first, lunch second   -   and it avoids the flatness that some Mother's Day bookings get by mid-afternoon. The distances are broad enough that different ages and energy levels can make it work. If you are heading south anyway, this is the best version of a Mother's Day morning with a point to it.
 
 Do not then try to add a market. The **Mornington Racecourse Market is cancelled** this Sunday due to a race day, which is useful to know before anyone starts building the wrong loop.
 
-## The Saturday call — keep it light unless you want one real booking
+## The Saturday call   -   keep it light unless you want one real booking
 
 Saturday does not need to compete with Sunday.
 
-If you want one actual Saturday booking, **Kodomo no Hi at Peninsula Hot Springs** is still the sharpest family event on the board: specific, weather-proof, and structured enough to carry the whole day without turning messy. If that is not your brief, keep Saturday unfussy — one walk, one late lunch, one decent night in.
+If you want one actual Saturday booking, **Kodomo no Hi at Peninsula Hot Springs** is still the sharpest family event on the board: specific, weather-proof, and structured enough to carry the whole day without turning messy. If that is not your brief, keep Saturday unfussy   -   one walk, one late lunch, one decent night in.
 
 ## Worth knowing before you plan
 

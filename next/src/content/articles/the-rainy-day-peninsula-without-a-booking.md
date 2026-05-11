@@ -39,9 +39,7 @@ Optimists keep the same itinerary they had for the blue-sky version of the weeke
 
 This matters because the rainy-day Peninsula can be excellent, but only if you stop treating it like a failed summer plan.
 
-There is already one classic wet-weather answer here, which is to book the hot springs and stay in them until lunch. That answer is correct, but it is also the answer everybody else has. When those sessions are booked out, or when you woke up too late to plan properly, you need the other version.
-
-This is that version.
+The planned version  -  hot springs booked, a fireplace dining room reserved  -  is in [The Rainy Day Peninsula](/journal/rainy-day-peninsula/). This is the other version: what to do when you woke up to a grey sky, have nothing locked in, and still want the day to be worth the drive.
 
 ## Rule one: stay on one side of the region
 

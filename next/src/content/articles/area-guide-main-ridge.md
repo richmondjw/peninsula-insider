@@ -42,11 +42,11 @@ Main Ridge is the highest part of the Mornington Peninsula hinterland and one of
 
 There is technically a locality, but not a village in the way most visitors mean it. That is why Main Ridge is often misunderstood. People arrive looking for a centre and miss the fact that the centre is the landscape itself.
 
-If Red Hill is the broader food-and-wine hub, Main Ridge is the purer expression — fewer moving parts, more concentration, stronger rewards for people who came with a purpose.
+If Red Hill is the broader food-and-wine hub, Main Ridge is the purer expression   -   fewer moving parts, more concentration, stronger rewards for people who came with a purpose.
 
 ## How to arrive and when to come
 
-Morning suits Main Ridge better than afternoon. Fog hanging in the low sections, winery roads still quiet, lunch still ahead of you — that is the correct order.
+Morning suits Main Ridge better than afternoon. Fog hanging in the low sections, winery roads still quiet, lunch still ahead of you   -   that is the correct order.
 
 Autumn is the easiest season to recommend because the colour and settled weather make every drive more beautiful. Winter and early spring are nearly as good, especially if you like the place with a little edge on it. Main Ridge does not need sunshine to perform. In fact, slightly moody weather often suits it better.
 
@@ -60,7 +60,7 @@ Do not come here looking for a last-minute wing-it day. The best version of Main
 
 ### The local estate institution
 
-**Main Ridge Estate** remains one of the area's most grounded and rewarding stops. It feels properly of the place — less polished than some neighbours, more convincing for it. If you want a tasting that still feels like wine country rather than a production, start here.
+**Main Ridge Estate** remains one of the area's most grounded and rewarding stops. It feels properly of the place   -   less polished than some neighbours, more convincing for it. If you want a tasting that still feels like wine country rather than a production, start here.
 
 ### Nearby support worth folding in carefully
 
@@ -74,7 +74,7 @@ This is not the area for a café crawl. Simpler meals tend to be side notes to a
 
 Main Ridge is not a hotel district. It is a cottage, villa and rural-stay district.
 
-If you stay here, choose accommodation with a reason to remain in it — a fire, a view, a bath, a deck, a vineyard edge. The evening in Main Ridge is not about going out and around; it is about settling in after lunch and letting the region quieten around you.
+If you stay here, choose accommodation with a reason to remain in it   -   a fire, a view, a bath, a deck, a vineyard edge. The evening in Main Ridge is not about going out and around; it is about settling in after lunch and letting the region quieten around you.
 
 For visitors who want more dinner options, staying in Red Hill or Merricks and day-tripping into Main Ridge often makes more sense. But if what you want is stillness with very good bottles nearby, Main Ridge is one of the Peninsula's best sleep addresses.
 
@@ -108,7 +108,7 @@ Skip bringing people who only want obvious spectacle. Main Ridge's virtues are f
 
 ## The best single day here
 
-Arrive late morning after breakfast elsewhere and start with one focused tasting — Main Ridge Estate if you want the area's grounded version, Ten Minutes by Tractor if the whole day is lunch-forward from the beginning. Keep the road time between stops intentional rather than busy.
+Arrive late morning after breakfast elsewhere and start with one focused tasting   -   Main Ridge Estate if you want the area's grounded version, Ten Minutes by Tractor if the whole day is lunch-forward from the beginning. Keep the road time between stops intentional rather than busy.
 
 Settle into lunch properly and let it become the centre of gravity. Afterward, either drive a gentle loop through the surrounding ridge roads or head for Greens Bush if you want to exchange stemware for bush track before the drive home. End the day with one last bottle purchase, not one last booking.
 

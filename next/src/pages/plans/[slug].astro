@@ -1,18 +1,17 @@
 ---
 /**
- * /plans/[slug] — itinerary detail page
+ * /plans/[slug] — itinerary detail page + section:plans article pages
  *
- * Renders the canonical 11-section anatomy from peninsula_insider_escape_v1
- * (escape_anatomy_spec.md). Each section gates on whether the data exists:
- * legacy itineraries fall back to a shorter layout; itineraries that have
- * graduated to the full anatomy render every section.
+ * Handles two entry types:
+ *   - itineraries collection: renders the full 11-section anatomy
+ *   - articles with section:plans: renders a simpler article layout
  *
  * The conversion architecture (anchor stay 3-placement rule) lives here:
  *   1. Hero CTA above the fold — "Stay at {anchor}"
  *   2. Day-N "where you sleep tonight" block at end of each day except last
  *   3. Footer rail — anchor + alt stays
  */
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
@@ -26,6 +25,7 @@ import {
   titleize,
   venueHrefPrefix,
   heroBackgroundStyle,
+  formatLabel,
 } from '../../lib/editorial';
 import {
   audienceDisplay,
@@ -58,33 +58,81 @@ const moodLabel: Record<string, string> = {
 
 export async function getStaticPaths() {
   const itineraries = await getCollection('itineraries');
-  return itineraries.map((itinerary) => ({
+  const plansArticles = await getCollection('articles', ({ data }) =>
+    data.section === 'plans' && data.status === 'published'
+  );
+  const itineraryPaths = itineraries.map((itinerary) => ({
     params: { slug: routeSlug(itinerary) },
-    props: { itinerary },
+    props: { itinerary, articleData: null as any },
   }));
+  const articlePaths = plansArticles.map((article) => ({
+    params: { slug: routeSlug(article) },
+    props: { itinerary: null as any, articleData: article },
+  }));
+  return [...itineraryPaths, ...articlePaths];
 }
 
-const { itinerary } = Astro.props;
-const data = itinerary.data;
-const slug = routeSlug(itinerary);
+const { itinerary, articleData } = Astro.props;
 
-const allItineraries = await getCollection('itineraries');
-const allVenues = await getCollection('venues');
-const allExperiences = await getCollection('experiences');
-const allPlaces = await getCollection('places');
-const articles = await getCollection('articles', ({ data: a }) => a.status === 'published');
+// ─── Plans-article branch data ─────────────────────────────────────────────
+const isArticle = articleData != null;
+const ArticleContent = isArticle ? (await render(articleData)).Content : (null as any);
 
-const venueMap = new Map(allVenues.map((venue) => [routeSlug(venue), venue]));
-const experienceMap = new Map(allExperiences.map((experience) => [routeSlug(experience), experience]));
-const placeMap = new Map(allPlaces.map((place) => [routeSlug(place), place]));
+const ad = isArticle ? articleData.data : null;
+const articleSlug = isArticle ? routeSlug(articleData) : null;
+
+// Resolve related venues/experiences for article branch
+const allVenuesRaw = await getCollection('venues');
+const allExperiencesRaw = await getCollection('experiences');
+const venueMapBase = new Map(allVenuesRaw.map((v: any) => [routeSlug(v), v]));
+const expMapBase = new Map(allExperiencesRaw.map((e: any) => [routeSlug(e), e]));
+
+const articleRelatedVenues = isArticle
+  ? (ad.relatedVenues ?? [])
+      .map((r: any) => venueMapBase.get(String(r?.id ?? r ?? '')))
+      .filter(Boolean)
+      .slice(0, 3)
+  : [];
+
+const articleFaqSchema = isArticle && ad.faq && ad.faq.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: ad.faq.map(({ question, answer }: any) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+} : null;
+
+const aCanonical = isArticle ? `https://peninsulainsider.com.au/plans/${articleSlug}/` : '';
+const aOgImage = isArticle
+  ? (ad.heroImage?.src && !ad.heroImage.src.includes('placeholder') ? ad.heroImage.src : '/images/sourced/home-cover.webp')
+  : '';
+const aBreadcrumbs = isArticle
+  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans' }, { label: ad.title }]
+  : [];
+
+// ─── Itinerary branch data ─────────────────────────────────────────────────
+const data = isArticle ? null : itinerary.data;
+const slug = isArticle ? '' : routeSlug(itinerary);
+
+const allItineraries = isArticle ? [] : await getCollection('itineraries');
+const allVenues = isArticle ? allVenuesRaw : allVenuesRaw;
+const allExperiences = isArticle ? allExperiencesRaw : allExperiencesRaw;
+const allPlaces = isArticle ? [] : await getCollection('places');
+const articles = isArticle ? [] : await getCollection('articles', ({ data: a }) => a.status === 'published');
+
+const venueMap = new Map(allVenues.map((venue: any) => [routeSlug(venue), venue]));
+const experienceMap = new Map(allExperiences.map((experience: any) => [routeSlug(experience), experience]));
+const placeMap = new Map(allPlaces.map((place: any) => [routeSlug(place), place]));
 
 // ─── Resolve venue/experience references on stops ─────────────────────────
-const venueSlugs = data.stops
-  .map((stop: any) => String(stop.venue?.id ?? stop.venue ?? ''))
-  .filter(Boolean);
-const experienceSlugs = data.stops
-  .map((stop: any) => String(stop.experience?.id ?? stop.experience ?? ''))
-  .filter(Boolean);
+const venueSlugs = data
+  ? data.stops.map((stop: any) => String(stop.venue?.id ?? stop.venue ?? '')).filter(Boolean)
+  : [];
+const experienceSlugs = data
+  ? data.stops.map((stop: any) => String(stop.experience?.id ?? stop.experience ?? '')).filter(Boolean)
+  : [];
 const highlightedVenues = Array.from(new Set(venueSlugs))
   .map((key) => venueMap.get(key))
   .filter(Boolean);
@@ -93,22 +141,18 @@ const highlightedExperiences = Array.from(new Set(experienceSlugs))
   .filter(Boolean);
 
 // ─── Anchor stay (conversion architecture) ────────────────────────────────
-const anchorStaySlug = String((data as any).anchorStay?.id ?? (data as any).anchorStay ?? '');
+const anchorStaySlug = data ? String((data as any).anchorStay?.id ?? (data as any).anchorStay ?? '') : '';
 const anchorStay = anchorStaySlug ? venueMap.get(anchorStaySlug) : undefined;
-// Fallback: pick first stay-typed venue from the stops if no anchor declared.
 const fallbackStay = highlightedVenues.find((v: any) => stayTypes.includes(v.data.type));
 const effectiveStay: any = anchorStay ?? fallbackStay;
 const effectiveStayHref = effectiveStay
   ? `${venueHrefPrefix(effectiveStay.data.type)}/${routeSlug(effectiveStay)}`
   : undefined;
 
-const altStaySlugs: string[] = ((data as any).altStays ?? []).map((entry: any) =>
-  String(entry?.id ?? entry ?? '')
-).filter(Boolean);
-const altStays = altStaySlugs
-  .map((s) => venueMap.get(s))
-  .filter(Boolean) as any[];
-// If no explicit alt stays, suggest other stays from the stops.
+const altStaySlugs: string[] = data
+  ? ((data as any).altStays ?? []).map((entry: any) => String(entry?.id ?? entry ?? '')).filter(Boolean)
+  : [];
+const altStays = altStaySlugs.map((s) => venueMap.get(s)).filter(Boolean) as any[];
 const inferredAltStays = altStays.length === 0
   ? highlightedVenues
       .filter((v: any) => stayTypes.includes(v.data.type) && routeSlug(v) !== routeSlug(effectiveStay ?? { data: {}, id: '' }))
@@ -117,13 +161,15 @@ const inferredAltStays = altStays.length === 0
 const stayRail = [...altStays, ...inferredAltStays].slice(0, 2);
 
 // ─── Anchor town label ─────────────────────────────────────────────────────
-const anchorTownSlug = String((data as any).anchorTown?.id ?? (data as any).anchorTown ?? '');
+const anchorTownSlug = data ? String((data as any).anchorTown?.id ?? (data as any).anchorTown ?? '') : '';
 const anchorTown = anchorTownSlug ? placeMap.get(anchorTownSlug) : undefined;
 
 // ─── Day-by-day grouping ──────────────────────────────────────────────────
-const dayNumbers = Array.from(new Set(data.stops.map((stop: any) => stop.day))).sort((a, b) => a - b);
+const dayNumbers = data
+  ? Array.from(new Set(data.stops.map((stop: any) => stop.day))).sort((a, b) => a - b)
+  : [];
 const groupedStops = dayNumbers.map((day) => {
-  const stops = data.stops
+  const stops = data!.stops
     .filter((stop: any) => stop.day === day)
     .sort((a: any, b: any) => a.order - b.order)
     .map((stop: any) => {
@@ -146,35 +192,34 @@ const groupedStops = dayNumbers.map((day) => {
 // ─── Related content ──────────────────────────────────────────────────────
 const relatedArticles = articles
   .filter(
-    (article) =>
+    (article: any) =>
       article.data.relatedVenues.some((entry: any) => venueSlugs.includes(String(entry.id ?? entry))) ||
       article.data.relatedExperiences.some((entry: any) => experienceSlugs.includes(String(entry.id ?? entry)))
   )
   .slice(0, 2);
 const relatedItineraries = allItineraries
-  .filter((entry) => routeSlug(entry) !== slug)
+  .filter((entry: any) => routeSlug(entry) !== slug)
   .slice(0, 4);
 
 // ─── Display labels ───────────────────────────────────────────────────────
-const duration = deriveDuration(data);
-const audienceText = audienceDisplay[data.audience] ?? titleize(data.audience);
-const themeText = ((data as any).theme ?? [])
-  .map((t: string) => themeLabel[t] ?? t)
-  .filter(Boolean)
-  .join(' · ');
-const occasionText = occasionLabel[(data as any).occasion ?? 'none'] || '';
-const seasonText = seasonLabel[(data as any).season ?? 'year-round'] || '';
-const budgetText = budgetLabel[(data as any).budget ?? 'mixed'] || '';
-const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}`;
+const duration = data ? deriveDuration(data) : null;
+const audienceText = data ? (audienceDisplay[data.audience] ?? titleize(data.audience)) : '';
+const themeText = data
+  ? ((data as any).theme ?? []).map((t: string) => themeLabel[t] ?? t).filter(Boolean).join(' · ')
+  : '';
+const occasionText = data ? (occasionLabel[(data as any).occasion ?? 'none'] || '') : '';
+const seasonText = data ? (seasonLabel[(data as any).season ?? 'year-round'] || '') : '';
+const budgetText = data ? (budgetLabel[(data as any).budget ?? 'mixed'] || '') : '';
+const nightsLabel = data ? `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}` : '';
 const durationText = duration ? durationLabel[duration] ?? duration : nightsLabel;
 
 // ─── Anatomy gates (only render the section if data exists) ───────────────
-const showEditorialFrame = Boolean((data as any).editorialFrame);
-const showVariations = Array.isArray((data as any).variations) && (data as any).variations.length > 0;
-const showSkipThese = Boolean((data as any).skipThese);
-const showCostBreakdown = Boolean((data as any).costBreakdown);
-const showChecklist = Array.isArray((data as any).bookingChecklist) && (data as any).bookingChecklist.length > 0;
-const showFaq = Array.isArray((data as any).faq) && (data as any).faq.length > 0;
+const showEditorialFrame = data ? Boolean((data as any).editorialFrame) : false;
+const showVariations = data ? Array.isArray((data as any).variations) && (data as any).variations.length > 0 : false;
+const showSkipThese = data ? Boolean((data as any).skipThese) : false;
+const showCostBreakdown = data ? Boolean((data as any).costBreakdown) : false;
+const showChecklist = data ? Array.isArray((data as any).bookingChecklist) && (data as any).bookingChecklist.length > 0 : false;
+const showFaq = data ? Array.isArray((data as any).faq) && (data as any).faq.length > 0 : false;
 
 // ─── Schema (TouristTrip + FAQPage + BreadcrumbList) ──────────────────────
 const schemaDays = groupedStops.map((g) => ({
@@ -192,45 +237,140 @@ const schemaDays = groupedStops.map((g) => ({
     })),
 }));
 
-const lastVerified =
-  (data as any).lastVerified instanceof Date
-    ? (data as any).lastVerified.toISOString().slice(0, 10)
-    : data.publishedAt instanceof Date
-    ? data.publishedAt.toISOString().slice(0, 10)
-    : undefined;
+const lastVerified = data
+  ? ((data as any).lastVerified instanceof Date
+      ? (data as any).lastVerified.toISOString().slice(0, 10)
+      : data.publishedAt instanceof Date
+      ? data.publishedAt.toISOString().slice(0, 10)
+      : undefined)
+  : undefined;
 
-const { tripSchema, breadcrumbSchema, faqSchema } = buildEscapeItinerarySchema({
-  slug,
-  title: data.title,
-  description: data.dek,
-  audienceLabels: [audienceText],
-  days: schemaDays,
-  anchorStayPath: effectiveStayHref,
-  datePublished: data.publishedAt instanceof Date ? data.publishedAt.toISOString().slice(0, 10) : undefined,
-  dateModified: lastVerified,
-  faq: showFaq ? (data as any).faq : undefined,
-});
+const { tripSchema, breadcrumbSchema, faqSchema } = data
+  ? buildEscapeItinerarySchema({
+      slug,
+      title: data.title,
+      description: data.dek,
+      audienceLabels: [audienceText],
+      days: schemaDays,
+      anchorStayPath: effectiveStayHref,
+      datePublished: data.publishedAt instanceof Date ? data.publishedAt.toISOString().slice(0, 10) : undefined,
+      dateModified: lastVerified,
+      faq: showFaq ? (data as any).faq : undefined,
+    })
+  : { tripSchema: null, breadcrumbSchema: null, faqSchema: null };
 
-// ─── Last fact-verified label ─────────────────────────────────────────────
 const lastVerifiedLabel = lastVerified
   ? new Date(lastVerified).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
   : null;
 
 // ─── Misc ─────────────────────────────────────────────────────────────────
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Plans', href: '/plans' },
-  { label: data.title },
-];
-const canonical = `https://peninsulainsider.com.au/plans/${slug}/`;
-const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder')
-  ? data.heroImage.src
-  : '/images/sourced/home-cover.webp';
+const breadcrumbItems = data
+  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans' }, { label: data.title }]
+  : [];
+const canonical = data ? `https://peninsulainsider.com.au/plans/${slug}/` : '';
+const ogImage = data
+  ? (data.heroImage?.src && !data.heroImage.src.includes('placeholder') ? data.heroImage.src : '/images/sourced/home-cover.webp')
+  : '';
 ---
 
+{isArticle ? (
 <BaseLayout
-  title={`${data.title} — Mornington Peninsula Weekend Escape | Peninsula Insider`}
-  description={data.dek}
+  title={`${ad.title} | Peninsula Insider`}
+  description={ad.dek}
+  section="escape"
+  canonical={aCanonical}
+  ogImage={aOgImage}
+>
+  {articleFaqSchema && <script type="application/ld+json" set:html={JSON.stringify(articleFaqSchema)} />}
+
+  <Breadcrumbs items={aBreadcrumbs} />
+
+  <article class="article">
+    <header class="article-hero">
+      <div class="container">
+        <div class="article-hero__frame">
+          <div class="article-hero__head">
+            <div class="article-hero__meta">
+              <span class="article-hero__format">{formatLabel[ad.format] ?? ad.format}</span>
+              <span class="article-hero__sep" aria-hidden="true"></span>
+              <span class="article-hero__date">{ad.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              {ad.readingTimeMinutes && (
+                <>
+                  <span class="article-hero__sep" aria-hidden="true"></span>
+                  <span class="article-hero__read">{ad.readingTimeMinutes} min read</span>
+                </>
+              )}
+            </div>
+            <h1 class="article-hero__title">{ad.title}</h1>
+            <p class="article-hero__dek">{ad.dek}</p>
+          </div>
+          <figure class="article-hero__figure">
+            <div class="article-hero__image" role="img" aria-label={ad.heroImage.alt} style={heroBackgroundStyle(ad)}></div>
+          </figure>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      {ad.aiSummary && ad.aiSummary.length > 0 && (
+        <section class="article-summary" aria-label="Quick summary">
+          <div class="article-summary__eyebrow">Start here</div>
+          <h2 class="article-summary__title">The short version</h2>
+          <ul class="article-summary__list">
+            {ad.aiSummary.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </section>
+      )}
+
+      <div class="prose has-drop-cap">
+        <ArticleContent />
+      </div>
+
+      {ad.faq && ad.faq.length > 0 && (
+        <section class="article-faq" aria-labelledby="article-faq-title">
+          <div class="article-faq__header">
+            <p class="article-faq__eyebrow">Questions readers actually ask</p>
+            <h2 id="article-faq-title" class="article-faq__title">FAQ</h2>
+          </div>
+          <div class="article-faq__items">
+            {ad.faq.map((item: any) => (
+              <details class="article-faq__item">
+                <summary class="article-faq__question">{item.question}</summary>
+                <div class="article-faq__answer">
+                  <p>{item.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </article>
+
+  {articleRelatedVenues.length > 0 && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Places in this plan</p>
+            <h2 class="venues__title">Worth knowing before you go</h2>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {articleRelatedVenues.map((venue: any) => (
+            <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>
+) : (
+<BaseLayout
+  title={`${data!.title} — Mornington Peninsula Weekend Escape | Peninsula Insider`}
+  description={data!.dek}
   section="escape"
   canonical={canonical}
   ogImage={ogImage}
@@ -257,16 +397,16 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
         )}
       </div>
 
-      <h1 class="itinerary-detail__title">{data.title}</h1>
-      <p class="itinerary-detail__dek">{data.dek}</p>
+      <h1 class="itinerary-detail__title">{data!.title}</h1>
+      <p class="itinerary-detail__dek">{data!.dek}</p>
 
       <div class="itinerary-detail__chips">
         <span>{audienceText}</span>
         {themeText && <span>{themeText}</span>}
-        {!themeText && <span>{moodLabel[data.mood] ?? data.mood}</span>}
+        {!themeText && <span>{moodLabel[data!.mood] ?? data!.mood}</span>}
         {occasionText && <span>{occasionText}</span>}
         {seasonText && seasonText !== 'Year-round' && <span>{seasonText}</span>}
-        {data.totalDriveMinutes && <span>{data.totalDriveMinutes} min driving</span>}
+        {data!.totalDriveMinutes && <span>{data!.totalDriveMinutes} min driving</span>}
       </div>
 
       {/* Anchor-stay 3-placement rule, slot 1: hero CTA */}
@@ -287,10 +427,10 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
       <div
         class="itinerary-detail__hero feature__image-block feature__image-block--sand"
         aria-hidden="true"
-        style={heroBackgroundStyle(data)}
+        style={heroBackgroundStyle(data!)}
       >
         <div class="itinerary-detail__hero-fog"></div>
-        <span class="itinerary-detail__hero-label">{data.heroImage.alt}</span>
+        <span class="itinerary-detail__hero-label">{data!.heroImage.alt}</span>
       </div>
 
       <div class="itinerary-detail__grid">
@@ -306,7 +446,7 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
 
           {/* Editor's note (legacy field — treat as supporting paragraphs) */}
           <div class="prose itinerary-detail__editor-note">
-            {data.editorNote.split(/\n\n+/).map((paragraph: string) => (
+            {data!.editorNote.split(/\n\n+/).map((paragraph: string) => (
               <p>{paragraph}</p>
             ))}
           </div>
@@ -486,10 +626,10 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
               </>
             )}
 
-            {!(data as any).drivingDistanceKm && data.totalDriveMinutes && (
+            {!(data as any).drivingDistanceKm && data!.totalDriveMinutes && (
               <>
                 <dt>Driving</dt>
-                <dd>{data.totalDriveMinutes} min total</dd>
+                <dd>{data!.totalDriveMinutes} min total</dd>
               </>
             )}
 
@@ -515,7 +655,7 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
             )}
 
             <dt>Stops</dt>
-            <dd>{data.stops.length} sequenced stops</dd>
+            <dd>{data!.stops.length} sequenced stops</dd>
           </dl>
 
           {effectiveStayHref ? (
@@ -588,7 +728,7 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
           <a href="/journal/" class="venues__link">Journal →</a>
         </div>
         <div class="venues__grid venues__grid--two">
-          {relatedArticles.map((article) => <ArticleCard article={article} />)}
+          {relatedArticles.map((article: any) => <ArticleCard article={article} />)}
         </div>
       </div>
     </section>
@@ -606,7 +746,7 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
           <a href="/plans/" class="venues__link">All plans →</a>
         </div>
         <div class="itinerary-grid">
-          {relatedItineraries.map((entry) => <ItineraryCard itinerary={entry} />)}
+          {relatedItineraries.map((entry: any) => <ItineraryCard itinerary={entry} />)}
         </div>
       </div>
     </section>
@@ -614,3 +754,4 @@ const ogImage = data.heroImage?.src && !data.heroImage.src.includes('placeholder
 
   <NewsletterBlock />
 </BaseLayout>
+)}

@@ -15,6 +15,7 @@ export interface Props {
 
 const { article, hideType = false } = Astro.props;
 const slug = routeSlug(article);
+const articleBase = (article.data.section ?? 'journal') === 'plans' ? '/plans' : '/journal';
 
 const namedAuthor = !article.data.houseByline
   ? String(article.data.author?.id ?? article.data.author ?? '').trim()
@@ -32,7 +33,7 @@ const readingTime = article.data.readingTimeMinutes;
     {readingTime && <span class="venue-card__price">{readingTime} min</span>}
   </div>
   <h3 class="venue-card__name">
-    <a href={`/journal/${slug}`}>{article.data.title}</a>
+    <a href={`${articleBase}/${slug}`}>{article.data.title}</a>
   </h3>
   {meta && <p class="venue-card__place">{meta}</p>}
   <p class="venue-card__signature">{article.data.dek}</p>

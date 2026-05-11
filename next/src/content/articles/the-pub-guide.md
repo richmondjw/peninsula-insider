@@ -107,7 +107,7 @@ The **Merricks Hotel** sits on the back road between Balnarring and Red Hill in 
 
 The food is solid. The ambience is the point. On a Sunday afternoon with the beer garden full and the light coming in across the vines, the Merricks Hotel is the most rurally beautiful pub setting on the Peninsula. It is also the pub most likely to host a dog, a mud-spattered farmer, and a wine producer who just finished bottling, all at the same table.
 
-**The call:** Sunday afternoon in any season. Drive the back road from Red Hill. Order a pint and a parma. Look at the paddock. Dogs welcome — the Merricks Hotel is one of the few Peninsula venues where a dog at your feet is unremarkable. See our [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the broader circuit.
+**The call:** Sunday afternoon in any season. Drive the back road from Red Hill. Order a pint and a parma. Look at the paddock. Dogs welcome   -   the Merricks Hotel is one of the few Peninsula venues where a dog at your feet is unremarkable. See our [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the broader circuit.
 
 ## Dromana Hotel  -  the honest one
 

@@ -86,4 +86,17 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     )}
     <SaveButton kind="venue" slug={slug} title={data.name} href={href} />
   </div>
+  {data.featuredPartner && (
+    <p class="venue-card__partner-note">Partner venue</p>
+  )}
 </article>
+
+<style>
+  .venue-card__partner-note {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #9a9a9a);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0.25rem 0 0;
+  }
+</style>

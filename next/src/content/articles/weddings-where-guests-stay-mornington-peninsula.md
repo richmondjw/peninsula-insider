@@ -34,7 +34,7 @@ faq:
 
 One of the easiest ways to make a Peninsula wedding feel effortless is to get the guest-stay logic right early.
 
-That sounds obvious, but it is where a lot of wedding weekends quietly come apart. A venue can be beautiful, the food can be strong, and the photos can look immaculate, but if guests are scattered too far apart, transport is awkward, and nobody understands which town is meant to be the base, the weekend starts to feel more work than celebration.
+That sounds obvious, but it is where a lot of wedding weekends fall apart. A venue can be beautiful, the food can be strong, and the photos can look immaculate, but if guests are scattered too far apart, transport is awkward, and nobody understands which town is meant to be the base, the weekend starts to feel more work than celebration.
 
 The Peninsula is not one uniform wedding zone. Red Hill asks something different of guests than Sorrento. Flinders behaves differently again. The right answer is rarely “just stay anywhere on the Mornington Peninsula”.
 

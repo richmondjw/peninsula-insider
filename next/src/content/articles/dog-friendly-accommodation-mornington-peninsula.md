@@ -37,11 +37,11 @@ The right dog-friendly stay is not just one that allows pets. It is one that sti
 
 ## The filter that matters most
 
-**Fenced outdoor space.** This is the single most useful feature for a dog stay and the one most commonly omitted from property descriptions. Without fencing, the dog is on-leash from the moment you leave the car — which is fine for some dogs, exhausting for others, and means every toilet break requires supervision. A properly fenced yard changes the character of the whole stay.
+**Fenced outdoor space.** This is the single most useful feature for a dog stay and the one most commonly omitted from property descriptions. Without fencing, the dog is on-leash from the moment you leave the car   -   which is fine for some dogs, exhausting for others, and means every toilet break requires supervision. A properly fenced yard changes the character of the whole stay.
 
 **Ground-floor access.** Stairs and lifts in unfamiliar buildings are harder than they sound for dogs. Properties where the dog can go from sleeping to grass in under thirty seconds are significantly better than multi-level stays with a pet-friendly room on the third floor.
 
-**Proximity to a confirmed off-leash beach.** Six beaches on the Peninsula have year-round off-leash access. Building your base within 10–15 minutes of one of them — Tassells Cove (Safety Beach), Hawker Beach (Mt Martha), Fossil Beach (Mornington), Somers Beach, Flinders Beach north end, or Anthony's Nose (Dromana) — shapes a better dog weekend than any property feature.
+**Proximity to a confirmed off-leash beach.** Six beaches on the Peninsula have year-round off-leash access. Building your base within 10–15 minutes of one of them   -   Tassells Cove (Safety Beach), Hawker Beach (Mt Martha), Fossil Beach (Mornington), Somers Beach, Flinders Beach north end, or Anthony's Nose (Dromana)   -   shapes a better dog weekend than any property feature.
 
 ---
 
@@ -55,7 +55,7 @@ The right dog-friendly stay is not just one that allows pets. It is one that sti
 - Kitchen access means you can feed and water the dog on your schedule
 - Most holiday houses state their pet policy clearly and charge a pet fee rather than burying the restriction in fine print
 
-Book through Stayz, Airbnb, or pet-specific platforms like BringFido. Filter for "pet-friendly" and "fenced" as separate criteria. Availability runs out faster than standard accommodation — book four to six weeks ahead for peak season weekends.
+Book through Stayz, Airbnb, or pet-specific platforms like BringFido. Filter for "pet-friendly" and "fenced" as separate criteria. Availability runs out faster than standard accommodation   -   book four to six weeks ahead for peak season weekends.
 
 ---
 
@@ -63,14 +63,14 @@ Book through Stayz, Airbnb, or pet-specific platforms like BringFido. Filter for
 
 Most of the Peninsula's luxury and boutique hotels do not confirm pet-friendly policies:
 
-- **Jackalope Hotel** — no children under 12, pet policy not confirmed
-- **InterContinental Sorrento** — minimum age 18, pet policy not confirmed
-- **Lancemore Lindenderry** — pet policy not confirmed
-- **RACV Cape Schanck Resort** — pet policy not confirmed
-- **Alba Sanctuary** — adults-only (18+), pet policy not confirmed
-- **Flinders Hotel Quarters** — pet policy not confirmed
+- **Jackalope Hotel**   -   no children under 12, pet policy not confirmed
+- **InterContinental Sorrento**   -   minimum age 18, pet policy not confirmed
+- **Lancemore Lindenderry**   -   pet policy not confirmed
+- **RACV Cape Schanck Resort**   -   pet policy not confirmed
+- **Alba Sanctuary**   -   adults-only (18+), pet policy not confirmed
+- **Flinders Hotel Quarters**   -   pet policy not confirmed
 
-The exception category is **boutique pub stays** — Portsea Hotel and the Flinders Hotel itself allow dogs in their beer gardens, and some pub accommodation rooms confirm pets. Call directly and ask specifically about outdoor access from your room.
+The exception category is **boutique pub stays**   -   Portsea Hotel and the Flinders Hotel itself allow dogs in their beer gardens, and some pub accommodation rooms confirm pets. Call directly and ask specifically about outdoor access from your room.
 
 ---
 
@@ -93,8 +93,8 @@ Match your accommodation base to the zone that suits your itinerary rather than 
 
 ## Before you book
 
-- Confirm the pet policy in writing — not just "pet-friendly" but "dogs allowed indoors/outdoors, fenced yard Y/N, pet fee $X"
-- Ask specifically about breed or size restrictions — some properties restrict large breeds
+- Confirm the pet policy in writing   -   not just "pet-friendly" but "dogs allowed indoors/outdoors, fenced yard Y/N, pet fee $X"
+- Ask specifically about breed or size restrictions   -   some properties restrict large breeds
 - Check the cancellation policy; weather-sensitive weekends sometimes need to be moved
 - Have your vet's number saved, and find the nearest Peninsula emergency vet before you need it
 

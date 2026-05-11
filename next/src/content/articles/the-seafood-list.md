@@ -91,7 +91,7 @@ Book for lunch. The afternoon light on the bay makes the room. The oysters are c
 
 ### Rocker  -  Mornington
 
-**Rocker** on Main Street in Mornington is a seafood-focused restaurant that has been quietly building one of the Peninsula's most consistent kitchens. The cooking is modern Australian with a strong bias toward what is local and in season. The fish is the highlight  -  grilled, cured, crudo, handled with the kind of confidence that comes from a kitchen that knows its suppliers personally.
+**Rocker** on Main Street in Mornington is a seafood-focused restaurant that has been building one of the Peninsula's most consistent kitchens. The cooking is modern Australian with a strong bias toward what is local and in season. The fish is the highlight  -  grilled, cured, crudo, handled with the kind of confidence that comes from a kitchen that knows its suppliers personally.
 
 This is the dining-room seafood experience for people who want technique and wine to match. The list is short and local. The room is small. Book ahead.
 

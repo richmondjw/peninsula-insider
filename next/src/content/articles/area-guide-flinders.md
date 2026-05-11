@@ -36,17 +36,17 @@ That makes it less obvious than Sorrento and less immediately useful than Red Hi
 
 ## What Flinders actually is
 
-Flinders sits on the southern edge of the Peninsula, facing the harder weather systems and broader horizon of Bass Strait and Western Port. The village itself is compact — bakery, pub, general store, a few shops, the pier, and roads that quickly give way to cliff and paddock. That compactness is the strength. It lets the place hold together.
+Flinders sits on the southern edge of the Peninsula, facing the harder weather systems and broader horizon of Bass Strait and Western Port. The village itself is compact   -   bakery, pub, general store, a few shops, the pier, and roads that quickly give way to cliff and paddock. That compactness is the strength. It lets the place hold together.
 
 Where Sorrento spreads into two coasts and a bigger social grid, Flinders stays deliberate. It is not trying to entertain every possible version of a weekend. It is offering one good one.
 
-There is also an honesty to the place that matters. The village does not perform exclusivity, even though the surrounding country is full of serious property. It does not perform trendiness either. It simply knows what it is — a small, handsome settlement at the edge of the Peninsula with enough substance to support a full day, and enough restraint not to overstate the case.
+There is also an honesty to the place that matters. The village does not perform exclusivity, even though the surrounding country is full of serious property. It does not perform trendiness either. It simply knows what it is   -   a small, handsome settlement at the edge of the Peninsula with enough substance to support a full day, and enough restraint not to overstate the case.
 
 ## How to arrive and when to come
 
 Come early enough to start on foot. That is the difference between understanding Flinders and merely passing through it. A 7.30am or 8am arrival works beautifully if you are doing it as a day trip; a village stay is better still.
 
-Autumn and spring are especially good because the light stays clear and the wind, while still real, becomes an asset rather than a problem. Winter is underrated here — bright southern days, fewer people, and the pub becoming exactly as useful as it should be. High summer is pleasant but not essential. Flinders does not need heat to work.
+Autumn and spring are especially good because the light stays clear and the wind, while still real, becomes an asset rather than a problem. Winter is underrated here   -   bright southern days, fewer people, and the pub becoming exactly as useful as it should be. High summer is pleasant but not essential. Flinders does not need heat to work.
 
 If you are choosing between making Flinders a base or a detour, choose the base if peace is what you are after. The village is one of the few places on the Peninsula where doing less feels like you understood the assignment.
 
@@ -74,7 +74,7 @@ If you feel the urge to drive inland for a more theatrical dining experience, as
 
 **Flinders Hotel** is the straightforward stay recommendation because it places you in the village and removes the need to choreograph the evening.
 
-Farm cottages and small houses around Flinders often outperform more expensive Peninsula rentals because they suit the mood — paddock outlooks, fireplaces, and enough kitchen to let breakfast or a late-night snack happen without fuss.
+Farm cottages and small houses around Flinders often outperform more expensive Peninsula rentals because they suit the mood   -   paddock outlooks, fireplaces, and enough kitchen to let breakfast or a late-night snack happen without fuss.
 
 Do not overvalue luxury branding here. Flinders is at its best when your accommodation supports quiet rather than tries to become the event.
 
@@ -108,7 +108,7 @@ Skip turning the village into a two-hour stop between larger names. Flinders is 
 
 ## The best single day here
 
-Arrive at Flinders Sourdough as the village is waking up. Coffee, pastry, something for later. Walk down toward the pier and continue onto the coastal track while the air is still sharp. Give yourself the whole morning for this — not because the distance is enormous, but because Flinders improves when you stop hurrying.
+Arrive at Flinders Sourdough as the village is waking up. Coffee, pastry, something for later. Walk down toward the pier and continue onto the coastal track while the air is still sharp. Give yourself the whole morning for this   -   not because the distance is enormous, but because Flinders improves when you stop hurrying.
 
 Back in the village, take a late lunch at Pier Street Kitchen. Keep the afternoon loose: browse the general store, revisit the pier, or if the weather is holding beautifully, drive out for one nearby coastal detour and no more than one. Finish with a drink at Flinders Hotel or an early quiet dinner if you are staying.
 

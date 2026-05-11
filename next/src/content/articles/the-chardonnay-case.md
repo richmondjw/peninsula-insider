@@ -46,7 +46,7 @@ faq:
 
 The Mornington Peninsula sells itself as pinot noir country and always has. Every tourism brochure, every estate map, every long-lunch menu leans on it. Pinot is the hero varietal, the grape that tells the cool-climate story, the thing the collectors came down from Melbourne to buy. None of this is wrong. The region does grow genuinely serious pinot noir  -  the kind that sits credibly alongside the Yarra Valley's best at ten years of age  -  and the argument for pinot has been settled, mostly, for a decade.
 
-But spend a morning tasting across Main Ridge and Red Hill in the last two or three vintages and a different conversation starts to emerge in the glass. The chardonnays have got quietly, almost conspicuously better. Tighter, more mineral, more restrained, more European in a way that the pinots are not quite managing. And the collectors  -  the private buyers who spend actual money on wine, who buy in cases rather than six-packs  -  have started to notice.
+But spend a morning tasting across Main Ridge and Red Hill in the last two or three vintages and a different conversation starts to emerge in the glass. The chardonnays have got measurably, impressively better. Tighter, more mineral, more restrained, more European in a way that the pinots are not quite managing. And the collectors  -  the private buyers who spend actual money on wine, who buy in cases rather than six-packs  -  have started to notice.
 
 We have been tasting Peninsula chardonnay seriously for the last eighteen months. This is the case.
 
@@ -76,13 +76,13 @@ This is a wine that needs to be drunk at the correct temperature (twelve degrees
 
 ### 3. Port Phillip Estate  -  the accessible one
 
-[Port Phillip Estate](/wine/port-phillip-estate) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is quietly some of the best value on the Peninsula, and the estate's main room  -  with its dramatic architecture and the Arthurs Seat view behind the cellar door  -  is also one of the more pleasant places to sit through a tasting.
+[Port Phillip Estate](/wine/port-phillip-estate) sits in the same ownership as Kooyong and shares a cellar and some of the viticultural thinking, which means the chardonnays are made with the same attention as the Kooyong wines but released at a friendlier price. The Serrat-style single-vineyard work is among the best value on the Peninsula, and the estate's main room  -  with its dramatic architecture and the Arthurs Seat view behind the cellar door  -  is also one of the more pleasant places to sit through a tasting.
 
 **What to taste:** the Reserve Chardonnay, especially if the 2023 is still pouring. It is the wine we keep recommending to sceptics because it converts them.
 
 ### 4. Paringa Estate  -  the unfashionable benchmark
 
-[Paringa Estate](/wine/paringa-estate) has been making Peninsula chardonnay for longer than almost anyone else, and the Paringa Estate Reserve Chardonnay is the wine that quietly won the international medals in the early 2000s when the Peninsula was still being dismissed as a boutique curiosity. The house style is richer than the newer producers  -  more oak, more malo, more texture  -  and for that reason it tends to get overlooked by the people chasing the tight, mineral, European-leaning wines. Do not overlook it. A ten-year-old Paringa Reserve Chardonnay is one of the most complete Peninsula whites you will ever taste, and the cellar door is one of the few places in the region where vertical tastings of older vintages are sometimes available on request.
+[Paringa Estate](/wine/paringa-estate) has been making Peninsula chardonnay for longer than almost anyone else, and the Paringa Estate Reserve Chardonnay is the wine that won the international medals in the early 2000s when the Peninsula was still being dismissed as a boutique curiosity. The house style is richer than the newer producers  -  more oak, more malo, more texture  -  and for that reason it tends to get overlooked by the people chasing the tight, mineral, European-leaning wines. Do not overlook it. A ten-year-old Paringa Reserve Chardonnay is one of the most complete Peninsula whites you will ever taste, and the cellar door is one of the few places in the region where vertical tastings of older vintages are sometimes available on request.
 
 ### 5. Ten Minutes by Tractor  -  the restaurant wine
 

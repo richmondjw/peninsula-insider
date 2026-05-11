@@ -33,7 +33,7 @@ faq:
     answer: "Most of the Peninsula's best restaurants operate year-round. Tedesca Osteria, Montalto, Ten Minutes by Tractor, Flinders Hotel, and Merricks General Wine Store all run through winter. Smaller cellar doors sometimes move to weekends-only or appointment-only in July — call ahead."
 ---
 
-There is a version of the Peninsula that most visitors never see, and it is the version that locals quietly prefer.
+There is a version of the Peninsula that most visitors never see, and it is the version that locals prefer.
 
 It is not the long, bright January version with the back beaches humming and the cellar doors booked out three weeks in advance. It is not the April version, which this publication has already argued is the secret month. It is the version that runs from roughly the middle of June to the middle of August, when the nights drop into the threes, the ridge fog settles around the vineyards by four in the afternoon, and the dining rooms that have fireplaces actually light them.
 
