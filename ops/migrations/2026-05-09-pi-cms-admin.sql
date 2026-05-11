@@ -46,11 +46,13 @@ create table if not exists pi.cms_text_fields (
   status          text not null default 'draft' check (status in ('draft', 'published')),
   updated_by      uuid references auth.users(id) on delete set null,
   created_at      timestamptz not null default now(),
-  updated_at      timestamptz not null default now(),
-  unique (entity_type, entity_slug, field_path, coalesce(locale, ''))
+  updated_at      timestamptz not null default now()
 );
 
 comment on table pi.cms_text_fields is 'Canonical editable text primitives for the CMS.';
+
+create unique index if not exists cms_text_fields_entity_field_locale_uidx
+  on pi.cms_text_fields (entity_type, entity_slug, field_path, coalesce(locale, ''));
 
 create table if not exists pi.cms_image_slots (
   id              uuid primary key default gen_random_uuid(),
@@ -183,15 +185,19 @@ create policy "cms_revisions_editor_insert"
   on pi.cms_revisions for insert
   with check (pi.is_cms_admin());
 
+-- cms-assets bucket is public so `getPublicUrl(...)` URLs resolve via
+-- /storage/v1/object/public/<bucket>/<path>. Paths are timestamped and
+-- unguessable; RLS still gates INSERT/UPDATE/DELETE to editors.
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values (
   'cms-assets',
   'cms-assets',
-  false,
+  true,
   10485760,
   array['image/jpeg', 'image/png', 'image/webp', 'image/avif']
 )
-on conflict (id) do nothing;
+on conflict (id) do update
+   set public = excluded.public;
 
 drop policy if exists "cms_assets_editor_insert" on storage.objects;
 create policy "cms_assets_editor_insert"

@@ -5,7 +5,13 @@
  * Two-column on desktop: the letter body (eyebrow + headline + drop
  * cap'd prose + pull quote + signature) on the LEFT; an image with
  * caption on the RIGHT. Stacks on mobile.
+ *
+ * Inline-editable surfaces are tagged against entity_type='page',
+ * entity_slug='home' so edits flow back through the same CMS path the
+ * homepage already reads at build time.
  */
+import { editableText, editableImage } from '../lib/inline-edit/attrs';
+
 export interface Props {
   eyebrow?: string;
   /** Headline. <em> tags inside render in italic accent. */
@@ -40,29 +46,63 @@ const {
       <div class="letter__body-col">
         <div class="letter__eyebrow-row">
           <span class="letter__eyebrow-rule" aria-hidden="true"></span>
-          <span class="letter__eyebrow">{eyebrow}</span>
+          <span
+            class="letter__eyebrow"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.eyebrow', label: 'Editor’s Letter eyebrow' })}
+          >{eyebrow}</span>
         </div>
-        <h2 class="letter__head" id="letter-title" set:html={title} />
+        <h2
+          class="letter__head"
+          id="letter-title"
+          set:html={title}
+          {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.title', label: 'Editor’s Letter title' })}
+        />
         <div class="letter__prose">
           {paragraphs.map((p, i) => (
             <>
-              <p set:html={p} />
-              {i === 0 && pullQuote && <blockquote class="letter__pullquote">{pullQuote}</blockquote>}
+              <p
+                set:html={p}
+                {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: `editors-letter.paragraphs.${i}`, label: `Paragraph ${i + 1}` })}
+              />
+              {i === 0 && pullQuote && (
+                <blockquote
+                  class="letter__pullquote"
+                  {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.pullQuote', label: 'Pull quote' })}
+                >{pullQuote}</blockquote>
+              )}
             </>
           ))}
         </div>
         <div class="letter__sig">
           <span class="letter__sig-mark" aria-hidden="true">·</span>
           <div>
-            <div class="letter__sig-name">{signatureName}</div>
-            <div class="letter__sig-role">{signatureRole}</div>
+            <div
+              class="letter__sig-name"
+              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.signatureName', label: 'Signature name' })}
+            >{signatureName}</div>
+            <div
+              class="letter__sig-role"
+              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.signatureRole', label: 'Signature role' })}
+            >{signatureRole}</div>
           </div>
         </div>
       </div>
       {image && (
         <figure class="letter__side">
-          <div class="letter__image" role="img" aria-label={imageAlt} style={`background-image: url(${image})`}></div>
-          {imageCaption && <figcaption class="letter__image-cap" set:html={imageCaption} />}
+          <div
+            class="letter__image"
+            role="img"
+            aria-label={imageAlt}
+            style={`background-image: url(${image})`}
+            {...editableImage({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.image', label: 'Editor’s Letter image' })}
+          ></div>
+          {imageCaption && (
+            <figcaption
+              class="letter__image-cap"
+              set:html={imageCaption}
+              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.imageCaption', label: 'Image caption', kind: 'richtext' })}
+            />
+          )}
         </figure>
       )}
     </div>

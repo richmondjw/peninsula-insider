@@ -1,7 +1,8 @@
 -- Migration: PI CMS founding-editor seed
--- Date: 2026-05-10
--- Purpose: idempotently grant James (james.richmondau@gmail.com) admin + publish
---          rights on the CMS so the hybrid admin layer is usable end-to-end.
+-- Date: 2026-05-10 (email corrected 2026-05-11)
+-- Purpose: idempotently grant James (james@peninsulainsider.com.au) admin +
+--          publish rights on the CMS so the hybrid admin layer is usable
+--          end-to-end.
 -- Prereq:  2026-05-09-pi-cms-admin.sql has been applied AND James has signed
 --          in to /admin/login at least once so an auth.users row exists.
 --
@@ -11,7 +12,7 @@
 
 do $$
 declare
-  founding_email text := 'james.richmondau@gmail.com';
+  founding_email text := 'james@peninsulainsider.com.au';
   uid           uuid;
 begin
   select u.id into uid

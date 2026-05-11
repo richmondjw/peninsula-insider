@@ -4,7 +4,12 @@
    Every page that imports this component now ships the V2 magazine
    newsletter band: dark, two-column, preview-card, ochre-on-paper.
    CSS is inline in this file so it travels with the component
-   without depending on V1's main stylesheet. */
+   without depending on V1's main stylesheet.
+
+   Inline-editable surfaces are tagged against entity_type='page',
+   entity_slug='home' — matches the existing override schema. */
+
+import { editableText } from '../lib/inline-edit/attrs';
 
 export interface Props {
   title?: string;
@@ -39,9 +44,20 @@ const {
   <div class="v2-newsletter__container">
     <div class="v2-newsletter__frame">
       <div class="v2-newsletter__copy">
-        <div class="v2-newsletter__eyebrow">Peninsula This Weekend</div>
-        <h2 class="v2-newsletter__title" id="newsletter-title" set:html={title} />
-        <p class="v2-newsletter__body">{body}</p>
+        <div
+          class="v2-newsletter__eyebrow"
+          {...editableText({ entityType: 'page', entitySlug: '_global', fieldPath: 'newsletter.eyebrow', label: 'Newsletter eyebrow' })}
+        >Peninsula This Weekend</div>
+        <h2
+          class="v2-newsletter__title"
+          id="newsletter-title"
+          set:html={title}
+          {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.title', label: 'Newsletter title' })}
+        />
+        <p
+          class="v2-newsletter__body"
+          {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.body', label: 'Newsletter body' })}
+        >{body}</p>
 
         <form
           class="v2-newsletter__form"
@@ -80,13 +96,25 @@ const {
       <div class="v2-newsletter__preview" aria-hidden="true">
         <div class="v2-np__head">
           <span class="v2-np__mark">Peninsula This Weekend</span>
-          <span class="v2-np__issue">{issueNumber} · {issueDate}</span>
+          <span
+            class="v2-np__issue"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.issueLabel', label: 'Issue label' })}
+          >{issueNumber} · {issueDate}</span>
         </div>
-        <h3 class="v2-np__title" set:html={previewHeadline} />
+        <h3
+          class="v2-np__title"
+          set:html={previewHeadline}
+          {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.previewHeadline', label: 'Preview headline' })}
+        />
         <ul class="v2-np__items">
-          {previewItems.map((item) => <li>{item}</li>)}
+          {previewItems.map((item, i) => (
+            <li {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: `newsletter.previewItems.${i}`, label: `Preview item ${i + 1}` })}>{item}</li>
+          ))}
         </ul>
-        <div class="v2-np__foot">Read in 4 minutes · Used all weekend</div>
+        <div
+          class="v2-np__foot"
+          {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.footnote', label: 'Newsletter footnote' })}
+        >Read in 4 minutes · Used all weekend</div>
       </div>
     </div>
   </div>

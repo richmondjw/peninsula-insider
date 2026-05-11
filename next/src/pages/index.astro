@@ -29,6 +29,7 @@ import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc } from '../lib/editorial';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
+import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
 // CMS-driven overrides for editor-controlled fields on the homepage. Empty
 // when Supabase is unconfigured or no rows are published; falls through to
@@ -132,6 +133,33 @@ interface Scene {
 // so the homepage renders identically when no CMS rows are published.
 const coverImageOverride = cmsImage['cover.image'];
 const scenes: Scene[] = [
+  // ── Active cover — swap any scene to [0] to make it live ─────────────────
+  {
+    id: 'flinders-weekend',
+    label: 'THE SLOW SIDE',
+    hours: '7 MIN READ',
+    image: '/images/sourced/home-cover-south-coast-rainbow-01.webp',
+    imageAlt: 'Rainbow over Bushrangers Bay and Cape Schanck headland from the south coast, Bass Strait, Mornington Peninsula',
+    caption: 'Bushrangers Bay, south coast',
+    headline: 'The <em>other</em> Peninsula weekend.',
+    dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.',
+    primaryHref: '/journal/a-flinders-weekend/',
+    primaryLabel: 'Read the piece',
+  },
+  // ── Rotation bench ────────────────────────────────────────────────────────
+  {
+    id: 'late-walks',
+    label: 'THE WALK',
+    hours: '7 MIN READ',
+    image: '/images/sourced/home-cover-back-beach-horses-01.jpg',
+    imageAlt: 'Horses on a Peninsula ocean back beach, Bass Strait in the background',
+    caption: 'Back beach, Bass Strait side',
+    headline: 'When the light <em>starts improving.</em>',
+    dispatch: 'Bushrangers Bay for a full reset. Cape Schanck boardwalk when time is short. Sorrento Back Beach for mood rather than route. The four walks that earn the second drink.',
+    primaryHref: '/journal/the-peninsulas-best-late-afternoon-walks/',
+    primaryLabel: 'Read the piece',
+  },
+  // ── Rotation bench — move any scene to [0] to make it live ─────────────
   {
     id: 'cover',
     label: cmsText['cover.label'] ?? 'THE COVER STORY',
@@ -143,6 +171,18 @@ const scenes: Scene[] = [
     dispatch: cmsText['cover.dispatch'] ?? 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
     primaryHref: cmsText['cover.primaryHref'] ?? '/journal/hatted-restaurants-mornington-peninsula-2025/',
     primaryLabel: cmsText['cover.primaryLabel'] ?? 'Read the cover story',
+  },
+  {
+    id: 'cape-schanck',
+    label: 'THE COMPLETE GUIDE',
+    hours: '8 MIN READ',
+    image: '/images/sourced/home-cover-cape-schanck-rainbow-01.webp',
+    imageAlt: 'Rainbow arching over Bass Strait with the Cape Schanck lighthouse headland, Mornington Peninsula',
+    caption: 'Cape Schanck, Mornington Peninsula National Park',
+    headline: 'The lighthouse at the edge of <em>everything.</em>',
+    dispatch: 'The 1859 limestone lighthouse, the boardwalk to Pulpit Rock, and the walk to Bushrangers Bay. The grounds are free from 6am. Here is the full structure of the day.',
+    primaryHref: '/journal/cape-schanck-guide/',
+    primaryLabel: 'Read the guide',
   },
 ];
 
@@ -210,6 +250,13 @@ const ssrScene = scenes[0];
             alt={s.imageAlt}
             loading="eager"
             fetchpriority={s.id === ssrScene.id ? 'high' : undefined}
+            {...(s.id === ssrScene.id ? editableImage({
+              entityType: 'page',
+              entitySlug: 'home',
+              fieldPath: 'cover.image',
+              label: 'Cover image',
+              purpose: 'hero',
+            }) : {})}
           />
         </div>
       ))}
@@ -241,8 +288,25 @@ const ssrScene = scenes[0];
               <span class="cinema-copy__chip">{s.label}</span>
               <span class="cinema-copy__hours">{s.hours}</span>
             </p>
-            <h1 class="cinema-copy__headline" set:html={s.headline} />
-            <p class="cinema-copy__dispatch">{s.dispatch}</p>
+            <h1
+              class="cinema-copy__headline"
+              set:html={s.headline}
+              {...(s.id === ssrScene.id ? editableText({
+                entityType: 'page',
+                entitySlug: 'home',
+                fieldPath: 'cover.headline',
+                label: 'Cover headline',
+              }) : {})}
+            />
+            <p
+              class="cinema-copy__dispatch"
+              {...(s.id === ssrScene.id ? editableText({
+                entityType: 'page',
+                entitySlug: 'home',
+                fieldPath: 'cover.dispatch',
+                label: 'Cover dispatch',
+              }) : {})}
+            >{s.dispatch}</p>
           </div>
         ))}
       </div>
@@ -260,7 +324,15 @@ const ssrScene = scenes[0];
     </div>
 
     {/* Bottom-right caption */}
-    <p class="cinema__caption">{ssrScene.caption}</p>
+    <p
+      class="cinema__caption"
+      {...editableText({
+        entityType: 'page',
+        entitySlug: 'home',
+        fieldPath: 'cover.caption',
+        label: 'Cover caption',
+      })}
+    >{ssrScene.caption}</p>
 
     {/* Scroll hint */}
     <div class="cinema__scroll" aria-hidden="true">
@@ -297,9 +369,18 @@ const ssrScene = scenes[0];
     <section class="places places--compact">
       <div class="container">
         <div class="places__header">
-          <p class="label label--accent places__label">Know the terrain</p>
-          <h2 class="places__title">The Peninsula, place by place</h2>
-          <p class="places__sub">Six towns that organise the region — ridge, coast, and bay.</p>
+          <p
+            class="label label--accent places__label"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.label', label: 'Places eyebrow' })}
+          >{cmsText['places.label'] ?? 'Know the terrain'}</p>
+          <h2
+            class="places__title"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.title', label: 'Places title' })}
+          >{cmsText['places.title'] ?? 'The Peninsula, place by place'}</h2>
+          <p
+            class="places__sub"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.sub', label: 'Places sub' })}
+          >{cmsText['places.sub'] ?? 'Six towns that organise the region — ridge, coast, and bay.'}</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
@@ -321,8 +402,14 @@ const ssrScene = scenes[0];
       <div class="container">
         <div class="hp-picks__head">
           <div>
-            <p class="label label--accent">This week's edit</p>
-            <h2 class="hp-picks__title">Three reasons to go</h2>
+            <p
+              class="label label--accent"
+              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'picks.label', label: 'Picks eyebrow' })}
+            >{cmsText['picks.label'] ?? "This week's edit"}</p>
+            <h2
+              class="hp-picks__title"
+              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'picks.title', label: 'Picks title' })}
+            >{cmsText['picks.title'] ?? 'Three reasons to go'}</h2>
           </div>
           <a href="/journal/" class="venues__link">Read all →</a>
         </div>
@@ -368,9 +455,18 @@ const ssrScene = scenes[0];
     <section class="hp-plans">
       <div class="container">
         <div class="hp-plans__head">
-          <p class="label label--accent">The Plans</p>
-          <h2 class="hp-plans__title">Or take the whole weekend.</h2>
-          <p class="hp-plans__sub">Three editorial itineraries — built around a single anchor stay, paced for the way the Peninsula actually works.</p>
+          <p
+            class="label label--accent"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.label', label: 'Plans eyebrow' })}
+          >{cmsText['plans.label'] ?? 'The Plans'}</p>
+          <h2
+            class="hp-plans__title"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.title', label: 'Plans title' })}
+          >{cmsText['plans.title'] ?? 'Or take the whole weekend.'}</h2>
+          <p
+            class="hp-plans__sub"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.sub', label: 'Plans sub' })}
+          >{cmsText['plans.sub'] ?? 'Three editorial itineraries — built around a single anchor stay, paced for the way the Peninsula actually works.'}</p>
         </div>
         <div class="hp-plans__grid">
           {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
