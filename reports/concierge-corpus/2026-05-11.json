@@ -1,14 +1,14 @@
 {
-  "run_id": "2026-05-11T20:41:22.701Z",
+  "run_id": "2026-05-11T23:34:14.592Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 6.3,
-  "git_sha": "99c1575",
+  "duration_seconds": 8.1,
+  "git_sha": "7f117bc",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
-    "venue": 153,
+    "venue": 152,
     "article": 172,
     "place": 20,
     "itinerary": 6,
@@ -18,14 +18,14 @@
   },
   "database": {
     "chunks_before": 1582,
-    "chunks_after": 1582
+    "chunks_after": 1578
   },
   "delta": {
     "added": 0,
     "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1582,
-    "pruned": 0,
+    "unchanged": 1578,
+    "pruned": 4,
     "errors": 0,
     "stale_remaining": 0
   },
@@ -36,7 +36,12 @@
     "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [],
+  "pruned_chunk_ids": [
+    "cedar-and-pine::tags::0",
+    "cedar-and-pine::summary::0",
+    "cedar-and-pine::practical::0",
+    "cedar-and-pine::editor_note::0"
+  ],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
   "embedding_cost_usd_estimate": 0,
