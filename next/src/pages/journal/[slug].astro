@@ -7,8 +7,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import LikeButton from '../../components/v2/LikeButton.astro';
-import ShareBlock from '../../components/ShareBlock.astro';
-import SaveButton from '../../components/v2/SaveButton.astro';
+import PiArticleActions from '../../components/PiArticleActions.astro';
 import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
@@ -204,7 +203,13 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
             </div>
             <h1 class="article-hero__title">{article.data.title}</h1>
             <p class="article-hero__dek">{article.data.dek}</p>
-            <ShareBlock placement="top" title={article.data.title} summary={article.data.dek} format={String(article.data.format ?? '')} />
+            <PiArticleActions
+              slug={article.id}
+              section={article.data.section ?? 'journal'}
+              title={article.data.title}
+              dek={article.data.dek}
+              imageUrl={article.data.heroImage?.src}
+            />
             <div class="article-hero__byline">
               <span class="article-hero__byline-name">— By <strong>{authorLabel}</strong></span>
               {article.data.lastVerified && (
@@ -273,16 +278,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
 
       <div class="v2-article-actions">
         <LikeButton slug={article.id} section="journal" />
-        <SaveButton
-          slug={article.id}
-          section="journal"
-          title={article.data.title}
-          dek={article.data.dek}
-          imageUrl={article.data.heroImage?.src}
-        />
       </div>
-
-      <ShareBlock placement="end" title={article.data.title} summary={article.data.dek} format={String(article.data.format ?? '')} />
     </div>
   </article>
 
