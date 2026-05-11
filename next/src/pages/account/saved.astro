@@ -4,30 +4,50 @@ import AuthModal from '../../components/v2/AuthModal.astro';
 import '../../styles/account.css';
 ---
 
-<BaseLayout title="Saved articles — Peninsula Insider" description="Articles you've saved to read later." noindex={true}>
+<BaseLayout
+  title="Your Peninsula plan — Peninsula Insider"
+  description="The articles, venues, events, and itineraries you've saved to read or visit."
+  noindex={true}
+>
   <main class="v2-account-page">
     <div class="v2-account-page__container">
-      <p class="v2-account-page__eyebrow">Your account</p>
-      <h1 class="v2-account-page__title">Saved <em>to read later</em>.</h1>
+      <p class="v2-account-page__eyebrow">Your Peninsula plan</p>
+      <h1 class="v2-account-page__title">Saved <em>to read &amp; visit</em>.</h1>
+      <p class="v2-account-page__lead" data-saved-lead hidden>
+        The articles, venues, walks, and weekends you've kept for later.
+        Share this list with whoever you're travelling with.
+      </p>
+
       <div class="v2-account-page__nav" data-account-nav>
         <a class="v2-account-page__nav-item" href="/account/">Profile</a>
         <a class="v2-account-page__nav-item" href="/account/saved/" aria-current="page">Saved</a>
         <a class="v2-account-page__nav-item" href="/account/likes/">Likes</a>
       </div>
 
-      <div data-saved-list class="v2-saved-list" hidden></div>
+      <div class="saved-toolbar" data-saved-toolbar hidden>
+        <button type="button" class="saved-toolbar__btn" data-action="share-plan">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+            <polyline points="16 6 12 2 8 6" />
+            <line x1="12" y1="2" x2="12" y2="15" />
+          </svg>
+          Share this plan
+        </button>
+        <button type="button" class="saved-toolbar__btn saved-toolbar__btn--ghost" data-action="clear-plan">
+          Clear all
+        </button>
+      </div>
+
+      <div data-saved-groups class="saved-groups"></div>
+
       <div data-saved-empty class="v2-saved-empty" hidden>
         <div class="v2-saved-empty__icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
           </svg>
         </div>
-        <p>Nothing saved yet. Open a journal piece you want to come back to and tap the Save button below the article.</p>
+        <p>Nothing saved yet. Tap the bookmark on any card or article to build your plan.</p>
         <a class="v2-account-page__cta" href="/journal/">Browse the Journal</a>
-      </div>
-      <div data-saved-anon class="v2-account-page__signed-out" hidden>
-        <p class="v2-account-page__lead">Sign in to view your saved articles.</p>
-        <button class="v2-account-page__cta" type="button" data-open-auth>Sign in</button>
       </div>
     </div>
   </main>
@@ -35,36 +55,365 @@ import '../../styles/account.css';
 </BaseLayout>
 
 <script>
-  import { getUser, listSaves, onAuthChange, isAuthEnabled } from '../../lib/auth';
+  import * as Saves from '../../lib/saves/store';
+  import { buildShareUrl } from '../../lib/saves/share-link';
 
-  async function render() {
-    const list = document.querySelector('[data-saved-list]') as HTMLElement;
-    const empty = document.querySelector('[data-saved-empty]') as HTMLElement;
-    const anon = document.querySelector('[data-saved-anon]') as HTMLElement;
-    if (!list || !empty || !anon) return;
+  const KIND_LABELS: Record<Saves.SaveKind, { plural: string; eyebrow: string }> = {
+    article:         { plural: 'Articles',     eyebrow: 'To read' },
+    venue:           { plural: 'Venues',       eyebrow: 'To visit' },
+    place:           { plural: 'Places',       eyebrow: 'To explore' },
+    event:           { plural: 'Events',       eyebrow: "What's on" },
+    experience:      { plural: 'Walks & Experiences', eyebrow: 'Outdoors' },
+    itinerary:       { plural: 'Plans',        eyebrow: 'Weekend plans' },
+    tour:            { plural: 'Tours',        eyebrow: 'Guided' },
+    'tour-operator': { plural: 'Tour Operators', eyebrow: 'Operators' },
+    'tour-package':  { plural: 'Tour Packages',  eyebrow: 'Packages' },
+  };
 
-    if (!isAuthEnabled()) { anon.hidden = false; return; }
-
-    const u = await getUser();
-    if (!u) { list.hidden = true; empty.hidden = true; anon.hidden = false; return; }
-    anon.hidden = true;
-    const items = await listSaves(u.id);
-    if (!items.length) { list.hidden = true; empty.hidden = false; return; }
-    empty.hidden = true; list.hidden = false;
-    list.innerHTML = items.map((it: any) => `
-      <a class="v2-saved-card" href="/${it.section}/${it.article_slug}/">
-        ${it.image_url ? `<div class="v2-saved-card__img" style="background-image:url(${it.image_url})"></div>` : ''}
-        <div class="v2-saved-card__body">
-          <p class="v2-saved-card__eyebrow">${it.section}</p>
-          <h3 class="v2-saved-card__title">${it.title || it.article_slug}</h3>
-          ${it.dek ? `<p class="v2-saved-card__dek">${it.dek}</p>` : ''}
-        </div>
-      </a>
-    `).join('');
+  function escapeHtml(s: string): string {
+    return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
-  else render();
-  document.addEventListener('astro:page-load', render);
-  onAuthChange(render);
+
+  function cssUrl(src: string): string {
+    return src.replace(/["\\]/g, (m) => `\\${m}`);
+  }
+
+  function renderItem(item: Saves.SavedItem): string {
+    const labels = KIND_LABELS[item.kind];
+    return `
+      <a class="saved-card" href="${escapeHtml(item.href)}">
+        ${item.image_url ? `<div class="saved-card__img" style="background-image: url('${cssUrl(item.image_url)}');"></div>` : '<div class="saved-card__img saved-card__img--blank"></div>'}
+        <div class="saved-card__body">
+          <p class="saved-card__eyebrow">${escapeHtml(labels.plural)}</p>
+          <h3 class="saved-card__title">${escapeHtml(item.title)}</h3>
+          ${item.dek ? `<p class="saved-card__dek">${escapeHtml(item.dek)}</p>` : ''}
+        </div>
+        <button type="button" class="saved-card__remove" data-pi-saved-remove data-pi-kind="${item.kind}" data-pi-slug="${escapeHtml(item.slug)}" aria-label="Remove ${escapeHtml(item.title)} from your saves">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </a>`;
+  }
+
+  function renderGroups(items: Saves.SavedItem[]): string {
+    if (items.length === 0) return '';
+    const grouped = new Map<Saves.SaveKind, Saves.SavedItem[]>();
+    for (const it of items) {
+      const arr = grouped.get(it.kind) ?? [];
+      arr.push(it);
+      grouped.set(it.kind, arr);
+    }
+    // Preserve a sensible display order across kinds.
+    const order: Saves.SaveKind[] = [
+      'itinerary', 'event', 'venue', 'experience', 'place', 'article',
+      'tour-package', 'tour', 'tour-operator',
+    ];
+    return order
+      .filter((k) => grouped.has(k))
+      .map((k) => {
+        const arr = grouped.get(k)!;
+        const labels = KIND_LABELS[k];
+        return `
+          <section class="saved-group">
+            <header class="saved-group__head">
+              <p class="saved-group__eyebrow">${escapeHtml(labels.eyebrow)}</p>
+              <h2 class="saved-group__title">${escapeHtml(labels.plural)} <span class="saved-group__count">${arr.length}</span></h2>
+            </header>
+            <div class="saved-group__grid">${arr.map(renderItem).join('')}</div>
+          </section>`;
+      })
+      .join('');
+  }
+
+  function render() {
+    const groups = document.querySelector<HTMLElement>('[data-saved-groups]');
+    const empty = document.querySelector<HTMLElement>('[data-saved-empty]');
+    const toolbar = document.querySelector<HTMLElement>('[data-saved-toolbar]');
+    const lead = document.querySelector<HTMLElement>('[data-saved-lead]');
+    if (!groups || !empty || !toolbar || !lead) return;
+
+    const items = Saves.list();
+    if (items.length === 0) {
+      groups.innerHTML = '';
+      empty.hidden = false;
+      toolbar.hidden = true;
+      lead.hidden = true;
+      return;
+    }
+    empty.hidden = true;
+    toolbar.hidden = false;
+    lead.hidden = false;
+    groups.innerHTML = renderGroups(items);
+  }
+
+  function bindToolbar() {
+    document.addEventListener('click', async (e) => {
+      const target = e.target as HTMLElement | null;
+      const action = target?.closest<HTMLElement>('[data-action]')?.dataset.action;
+      if (!action) return;
+
+      if (action === 'share-plan') {
+        const url = buildShareUrl(Saves.list());
+        const title = 'My Peninsula plan · Peninsula Insider';
+        const text = 'The places I want to visit on the Mornington Peninsula.';
+        if (typeof (navigator as any).share === 'function') {
+          try { await (navigator as any).share({ title, text, url }); return; } catch {}
+        }
+        try {
+          await navigator.clipboard.writeText(url);
+          showToast('Plan link copied. Send it to anyone.');
+        } catch {
+          showToast('Could not copy link.');
+        }
+      }
+
+      if (action === 'clear-plan') {
+        if (!confirm('Clear every saved item? This can\'t be undone.')) return;
+        Saves.clear();
+      }
+    });
+
+    // Remove-item buttons live inside the saved cards we render dynamically;
+    // delegated event listener handles all of them.
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement | null;
+      const btn = target?.closest<HTMLElement>('[data-pi-saved-remove]');
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const kind = btn.dataset.piKind as Saves.SaveKind;
+      const slug = btn.dataset.piSlug;
+      if (!kind || !slug) return;
+      Saves.remove(kind, slug);
+    });
+  }
+
+  function showToast(message: string) {
+    let toast = document.querySelector<HTMLElement>('[data-saved-toast]');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'saved-toast';
+      toast.setAttribute('data-saved-toast', '');
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('saved-toast--visible');
+    setTimeout(() => toast?.classList.remove('saved-toast--visible'), 2400);
+  }
+
+  function init() {
+    bindToolbar();
+    render();
+    Saves.onChange(render);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
 </script>
 
+<style is:global>
+  .saved-toolbar {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 0 0 2rem;
+  }
+
+  .saved-toolbar__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.1rem;
+    background: var(--ink, #171413);
+    color: var(--paper, #FAF7F0);
+    border: 1px solid var(--ink, #171413);
+    border-radius: 100px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .saved-toolbar__btn:hover {
+    background: var(--ochre, #A0541F);
+    border-color: var(--ochre, #A0541F);
+  }
+
+  .saved-toolbar__btn--ghost {
+    background: transparent;
+    color: var(--ink-soft, #3A3531);
+    border-color: var(--line, #D9D1BE);
+  }
+
+  .saved-toolbar__btn--ghost:hover {
+    color: var(--ink, #171413);
+    background: rgba(0, 0, 0, 0.03);
+    border-color: var(--ink-soft, #3A3531);
+  }
+
+  .saved-groups {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .saved-group__head { margin: 0 0 1.1rem; }
+
+  .saved-group__eyebrow {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ochre, #A0541F);
+    margin: 0 0 0.35rem;
+  }
+
+  .saved-group__title {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+    margin: 0;
+    color: var(--ink, #171413);
+  }
+
+  .saved-group__count {
+    color: var(--ink-muted, #6E655C);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 0.3rem;
+  }
+
+  .saved-group__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: 1rem;
+  }
+
+  .saved-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 1rem;
+    padding: 0.85rem;
+    background: #fff;
+    border: 1px solid var(--line, #D9D1BE);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .saved-card:hover {
+    border-color: var(--ochre, #A0541F);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px -10px rgba(34, 24, 16, 0.18);
+  }
+
+  .saved-card__img {
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    background-color: var(--paper-warm, #F3EDDE);
+  }
+
+  .saved-card__img--blank {
+    background:
+      linear-gradient(135deg, var(--paper-warm, #F3EDDE), #EDE3CC);
+  }
+
+  .saved-card__body { min-width: 0; }
+
+  .saved-card__eyebrow {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ochre, #A0541F);
+    margin: 0 0 0.35rem;
+  }
+
+  .saved-card__title {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 0.35rem;
+    color: var(--ink, #171413);
+  }
+
+  .saved-card__dek {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--ink-soft, #3A3531);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .saved-card__remove {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: rgba(250, 247, 240, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--ink-muted, #6E655C);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .saved-card:hover .saved-card__remove,
+  .saved-card__remove:focus-visible {
+    opacity: 1;
+  }
+
+  .saved-card__remove:hover {
+    color: #A03434;
+    border-color: rgba(160, 52, 52, 0.4);
+  }
+
+  .saved-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(2rem);
+    padding: 0.7rem 1.3rem;
+    background: var(--ink, #171413);
+    color: var(--paper, #FAF7F0);
+    border-radius: 100px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .saved-toast--visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
