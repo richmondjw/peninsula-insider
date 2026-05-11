@@ -21,11 +21,35 @@
 <script>
   import { onAuthChange, signOut, isAuthEnabled } from '../../lib/auth';
 
+  // Module-level state: outside-click and Escape listeners are installed
+  // exactly once and operate on whatever menu element is in the DOM at the
+  // moment they fire. This survives Astro view transitions cleanly — the
+  // listener doesn't hold a stale reference to a swapped-out element.
+  function closeMenu() {
+    const menu = document.querySelector<HTMLElement>('#v2-profile .v2-profile__menu');
+    const trigger = document.querySelector<HTMLElement>('#v2-profile .v2-profile__trigger');
+    if (menu) menu.hidden = true;
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function installGlobalCloseListeners() {
+    if ((document as any).__piProfileClose) return;
+    (document as any).__piProfileClose = true;
+    document.addEventListener('click', (e) => {
+      const profile = document.getElementById('v2-profile');
+      if (!profile) return;
+      if (profile.contains(e.target as Node)) return; // click was inside — let local handlers act
+      closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
   function init() {
     if (!isAuthEnabled()) return;
     const el = document.getElementById('v2-profile');
-    if (!el || (el as any)._init) return;
-    (el as any)._init = true;
+    if (!el) return;
 
     // Mount into the top utility row so the signed-in profile sits in the
     // same slot as the anonymous "Sign in" text. Falls back to V4 actions
@@ -37,6 +61,11 @@
     if (mountTarget && el.parentElement !== mountTarget) {
       mountTarget.appendChild(el);
     }
+
+    installGlobalCloseListeners();
+
+    if ((el as any)._init) return;
+    (el as any)._init = true;
 
     const trigger = el.querySelector('.v2-profile__trigger') as HTMLButtonElement;
     const menu = el.querySelector('.v2-profile__menu') as HTMLElement;
@@ -53,8 +82,15 @@
       e.stopPropagation();
       setOpen(menu.hidden);
     });
-    document.addEventListener('click', () => setOpen(false));
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+
+    // Clicks on menu items (Profile / Saved / Likes) navigate away;
+    // close the menu immediately so the next page doesn't briefly inherit
+    // an "open" state during the view transition.
+    menu.addEventListener('click', (e) => {
+      const item = (e.target as HTMLElement | null)?.closest<HTMLElement>('.v2-profile__menu-item');
+      if (!item) return;
+      setOpen(false);
+    });
 
     signoutBtn?.addEventListener('click', async () => {
       await signOut();
