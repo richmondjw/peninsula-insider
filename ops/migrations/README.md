@@ -38,6 +38,13 @@ the `tjjhpvslpysfklwpqmgz` project:
    - Requires James to have signed in to `/admin/login` at least once so an
      `auth.users` row exists. Otherwise the script raises a NOTICE and exits
      cleanly — re-run after first sign-in.
+4. `2026-05-11-pi-cms-strict-allowlist-gate.sql`
+   - Replaces `pi.is_cms_admin()` and `pi.can_publish_cms()` to require an
+     explicit `pi.admin_user_allowlist` row. Closes a privilege-escalation
+     path where `profiles_self_update` would let any signed-in user flip
+     their own `is_editor` flag and walk into the admin.
+   - Pins `search_path` on both functions (resolves the
+     `function_search_path_mutable` advisor warning for these two).
 
 > **Note (2026-05-11):** the original `2026-05-09-pi-cms-admin.sql` declared
 > `unique (entity_type, entity_slug, field_path, coalesce(locale, ''))` as an
