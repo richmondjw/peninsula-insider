@@ -10,6 +10,7 @@ export interface Props {
 }
 
 import { heroBackgroundStyle } from '../lib/editorial';
+import PiSaveActions from './PiSaveActions.astro';
 
 const { place, variant = 'vineyard' } = Astro.props;
 const data = place.data;
@@ -26,6 +27,10 @@ const imgClass = variant === 'bay'
   : 'place-card__image';
 
 const imgStyle = heroBackgroundStyle(data);
+
+// Capture the inline background-image URL for the saved-view preview.
+const heroMatch = imgStyle.match(/url\(([^)]+)\)/);
+const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined;
 ---
 
 <article class="place-card">
@@ -37,4 +42,12 @@ const imgStyle = heroBackgroundStyle(data);
     </h3>
     <p class="place-card__intro">{data.intro}</p>
   </div>
+  <PiSaveActions
+    kind="place"
+    slug={slug}
+    title={data.name}
+    href={`/places/${slug}/`}
+    dek={data.intro}
+    imageUrl={heroSrc}
+  />
 </article>

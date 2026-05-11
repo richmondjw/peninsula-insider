@@ -1,5 +1,6 @@
 ---
 import { placeLabel, titleize, routeSlug, heroBackgroundStyle } from '../lib/editorial';
+import PiSaveActions from './PiSaveActions.astro';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -50,4 +51,12 @@ const imgStyle = heroBackgroundStyle(data);
     <p class="experience-card__summary">{data.editorNote}</p>
     <a href={`/explore/${slug}`} class="experience-card__cta">Open the guide →</a>
   </div>
+  <PiSaveActions
+    kind="experience"
+    slug={slug}
+    title={data.name}
+    href={`/explore/${slug}/`}
+    dek={data.editorNote}
+    imageUrl={data.heroImage?.src}
+  />
 </article>

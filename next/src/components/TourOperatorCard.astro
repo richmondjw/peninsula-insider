@@ -4,6 +4,8 @@
  * Expects a full Astro content-collection entry from `tourOperators`.
  */
 
+import PiSaveActions from './PiSaveActions.astro';
+
 export interface Props {
   operator: any;
 }
@@ -52,4 +54,12 @@ const excerpt = data.intro
     <p class="tour-card__excerpt">{excerpt}</p>
     <a href={href} class="tour-card__cta">View operator &rarr;</a>
   </div>
+  <PiSaveActions
+    kind="tour-operator"
+    slug={slug}
+    title={data.name}
+    href={href}
+    dek={excerpt}
+    imageUrl={data.heroImage?.src}
+  />
 </article>

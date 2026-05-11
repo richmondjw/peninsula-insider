@@ -1,5 +1,6 @@
 ---
 import { routeSlug, heroBackgroundStyle } from '../lib/editorial';
+import PiSaveActions from './PiSaveActions.astro';
 
 const audienceLabel: Record<string, string> = {
   couple: 'Couples',
@@ -47,4 +48,12 @@ const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 
     {data.totalDriveMinutes && <span>{data.totalDriveMinutes} min driving</span>}
   </div>
   <a href={`/plans/${slug}`} class="itinerary-card__cta">See the full plan →</a>
+  <PiSaveActions
+    kind="itinerary"
+    slug={slug}
+    title={data.title}
+    href={`/plans/${slug}/`}
+    dek={data.dek}
+    imageUrl={data.heroImage?.src}
+  />
 </article>

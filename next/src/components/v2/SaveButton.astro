@@ -29,56 +29,18 @@ const { slug, section, title, dek, imageUrl } = Astro.props;
 </button>
 
 <script>
-  import { getUser, isSavedByUser, toggleSave, onAuthChange, isAuthEnabled } from '../../lib/auth';
+  import { onAuthChange } from '../../lib/auth';
+  import * as Saves from '../../lib/saves/store';
 
   /**
-   * Local-first save store. When anonymous, articles are saved here; the
-   * UI reflects them as Saved across reloads on this device. When the user
-   * signs in, CloudSync (or a sign-in handler) can merge these into
-   * pi.user_saves so the saves follow them to other devices.
+   * Article SaveButton — thin UI on top of the unified `pi:saves:v2` local
+   * store. The cloud mirror happens transparently via lib/saves/cloud.ts
+   * when the user is signed in (installed from BaseLayout).
    *
-   * Schema is intentionally separate from `pi:saved:v1` (which is for
-   * venues + events) — `articles` belong to a different slug-space.
+   * Wave 3 of the Save & Share rebuild replaces this widget entirely with
+   * `<PiArticleActions />`. Keeping the existing button alive in the
+   * interim so the journal article surface still works.
    */
-  const LOCAL_KEY = 'pi:saved-articles:v1';
-
-  type LocalArticle = { slug: string; section: string; title?: string; dek?: string; image_url?: string; savedAt: number };
-  type LocalStore = { version: 1; articles: LocalArticle[] };
-
-  function readLocal(): LocalStore {
-    try {
-      const raw = localStorage.getItem(LOCAL_KEY);
-      if (!raw) return { version: 1, articles: [] };
-      const parsed = JSON.parse(raw);
-      return { version: 1, articles: Array.isArray(parsed?.articles) ? parsed.articles : [] };
-    } catch {
-      return { version: 1, articles: [] };
-    }
-  }
-
-  function writeLocal(store: LocalStore) {
-    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(store)); }
-    catch { /* private mode / quota / disabled — fail silently */ }
-  }
-
-  function isSavedLocal(slug: string): boolean {
-    return readLocal().articles.some((a) => a.slug === slug);
-  }
-
-  function toggleLocal(slug: string, section: string, snapshot: { title?: string; dek?: string; image_url?: string }): boolean {
-    const store = readLocal();
-    const idx = store.articles.findIndex((a) => a.slug === slug);
-    if (idx >= 0) {
-      store.articles.splice(idx, 1);
-      writeLocal(store);
-      window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { kind: 'article', slug } }));
-      return false;
-    }
-    store.articles.push({ slug, section, ...snapshot, savedAt: Date.now() });
-    writeLocal(store);
-    window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { kind: 'article', slug } }));
-    return true;
-  }
 
   async function hydrateButton(btn: HTMLButtonElement) {
     if ((btn as any)._init) return;
@@ -87,7 +49,7 @@ const { slug, section, title, dek, imageUrl } = Astro.props;
     const slug = btn.dataset.saveSlug as string;
     const section = btn.dataset.saveSection as string;
     const snapshot = {
-      title: btn.dataset.saveTitle,
+      title: btn.dataset.saveTitle || slug,
       dek: btn.dataset.saveDek,
       image_url: btn.dataset.saveImage,
     };
@@ -99,40 +61,27 @@ const { slug, section, title, dek, imageUrl } = Astro.props;
       labelEl.textContent = saved ? 'Saved' : 'Save';
     }
 
-    async function refresh() {
-      const u = await getUser();
-      if (u) {
-        const saved = await isSavedByUser(slug, u.id);
-        paint(saved);
-      } else {
-        paint(isSavedLocal(slug));
-      }
+    function refresh() {
+      paint(Saves.isSaved('article', slug));
     }
 
-    btn.addEventListener('click', async () => {
-      const u = await getUser();
-
-      if (!u) {
-        // Anonymous: save to localStorage so the bookmark sticks on this
-        // device. Doesn't open the auth modal — the masthead Sign in pill
-        // is the dedicated CTA for that path.
-        const nowSaved = toggleLocal(slug, section, snapshot);
-        paint(nowSaved);
-        return;
-      }
-
-      // Signed in: optimistic UI, then Supabase. Roll back on error.
-      const wasSaved = btn.classList.contains('is-saved');
-      paint(!wasSaved);
-      try {
-        const { saved } = await toggleSave(slug, section, u.id, snapshot);
-        paint(saved);
-      } catch {
-        paint(wasSaved);
-      }
+    btn.addEventListener('click', () => {
+      Saves.toggle({
+        kind: 'article',
+        slug,
+        section,
+        title: snapshot.title,
+        dek: snapshot.dek,
+        image_url: snapshot.image_url,
+        href: `/${section}/${slug}/`,
+      });
+      // Repaint via the change listener below; this branch left intentionally
+      // empty for the optimistic write to settle.
+      void 0;
     });
 
     refresh();
+    Saves.onChange(refresh);
     onAuthChange(refresh);
   }
 
