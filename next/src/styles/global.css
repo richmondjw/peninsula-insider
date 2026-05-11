@@ -1429,6 +1429,17 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 0.75rem;
 }
 .place-card__name a:hover { color: var(--accent); }
+/* Stretch the name link to cover the whole card. The save/share buttons
+   sit above it via z-index so they remain independently clickable. */
+.place-card__name a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+.place-card .pi-actions {
+  position: relative;
+  z-index: 1;
+}
 .place-card__intro {
   font-size: 0.9rem;
   line-height: 1.65;
