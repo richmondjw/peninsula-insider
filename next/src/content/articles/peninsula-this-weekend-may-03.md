@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "may-planning", "family-saturday", "rainy-day", "mothers-day"]
 relatedVenues: []
 readingTimeMinutes: 5
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-05-07
 clusterLinks:
