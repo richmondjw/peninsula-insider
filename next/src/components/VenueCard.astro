@@ -86,10 +86,4 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     )}
     <SaveButton kind="venue" slug={slug} title={data.name} href={href} />
   </div>
-  {verifiedLabel && (
-    <p class={`venue-card__verified venue-card__verified--${verifiedTier}`} aria-label={`Editorial freshness: ${verifiedLabel}`}>
-      <span class="venue-card__verified-dot" aria-hidden="true"></span>
-      {verifiedLabel}
-    </p>
-  )}
 </article>
