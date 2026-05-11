@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["family", "kids", "school-holidays", "activities", "outdoor", "rainy-day", "budget"]
-relatedVenues: ["ashcombe-maze", "sunny-ridge-strawberry-farm", "red-hill-brewery", "mornington-peninsula-chocolates", "st-andrews-beach-brewery", "red-gum-bbq", "flinders-pier-takeaway", "commonfolk-coffee", "dromana-hotel", "rye-hotel", "sorrento-gelato", "johnny-ripe", "balnarring-pub", "mornington-peninsula-cider"]
+relatedVenues: ["ashcombe-maze", "sunny-ridge-strawberry-farm", "red-hill-brewery", "mornington-peninsula-chocolates", "st-andrews-beach-brewery", "red-gum-bbq", "commonfolk-coffee", "dromana-hotel", "rye-hotel", "sorrento-gelato", "johnny-ripe", "balnarring-pub", "mornington-peninsula-cider"]
 relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "portsea-front-beach", "mornington-peninsula-gallery", "point-nepean-fort-walk", "bushrangers-bay-walk", "pt-leo-sculpture-park", "dromana-beach", "rye-ocean-beach", "gunnamatta-ocean-beach", "safety-beach-foreshore", "red-hill-market"]
 readingTimeMinutes: 8
 featured: false
@@ -60,7 +60,7 @@ For six-to-twelve: **Portsea Front Beach** (bay side, clear water, rock pools at
 
 For teenagers: **Gunnamatta Ocean Beach** or **Rye Ocean Beach** (surf beaches, patrolled in summer, real waves, real rips  -  supervise properly). **Sorrento Back Beach** (dramatic, walkable, photographable, and the one they will actually post).
 
-**Lunch (12:00–1:00).** The school-holiday lunch needs to be fast, cheap, and tolerant of sandy children. **Rye Hotel** bistro. **Dromana Hotel** pub. **Flinders Pier Takeaway** for fish and chips on the pier. **Red Gum BBQ** if you are near Red Hill and the kids eat meat.
+**Lunch (12:00–1:00).** The school-holiday lunch needs to be fast, cheap, and tolerant of sandy children. **Rye Hotel** bistro. **Dromana Hotel** pub. **Red Gum BBQ** if you are near Red Hill and the kids eat meat.
 
 **Afternoon (2:00–4:00).** After a beach morning, the afternoon should be indoor or low-energy. **Mornington Peninsula Regional Gallery**  -  free, air-conditioned, and forty-five minutes of quiet walking. **Mornington Peninsula Chocolates**  -  a factory visit, tastings, and something to take home. Or, honestly, a nap at the rental house. The afternoon nap is not a failure; it is a strategy.
 

@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["flinders", "stay", "walks", "slow", "weekend"]
-relatedVenues: ["flinders-hotel", "georgie-bass", "flinders-sourdough", "tedesca-osteria", "flinders-general-store", "nazaaray-estate", "mornington-peninsula-chocolates", "flinders-pier-takeaway"]
+relatedVenues: ["flinders-hotel", "georgie-bass", "flinders-sourdough", "tedesca-osteria", "flinders-general-store", "nazaaray-estate", "mornington-peninsula-chocolates"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk"]
 readingTimeMinutes: 7
 featured: false

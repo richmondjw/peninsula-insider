@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["dining", "walk-in", "no-booking", "pubs", "cafes", "casual", "first-timers"]
-relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "flinders-pier-takeaway", "pho-rosebud", "mornington-dumpling-house", "sorrento-gelato", "balnarring-bakehouse", "somers-general", "flinders-general-store"]
+relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "pho-rosebud", "mornington-dumpling-house", "sorrento-gelato", "balnarring-bakehouse", "somers-general", "flinders-general-store"]
 relatedExperiences: ["mornington-foreshore-walk"]
 readingTimeMinutes: 7
 featured: false
@@ -110,8 +110,6 @@ The Peninsula brewery circuit has become a genuine walk-in dining network, and m
 When the pubs are full and the bakeries are closed, the Peninsula's fast-casual circuit is the honest answer.
 
 **Red Gum BBQ** in Red Hill. American-style barbecue in a paddock-side shed. Queue, order, eat at communal tables. No booking required or useful. The brisket is the point.
-
-**Flinders Pier Takeaway.** Fish and chips at the pier. Simple, reliable, and the only lunch you need on a Flinders afternoon.
 
 **Pho Rosebud.** Vietnamese in a strip mall. No ambiance, excellent pho. The walk-in lunch that costs fifteen dollars and tastes better than most of the fifty-dollar alternatives.
 

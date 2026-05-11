@@ -66,7 +66,7 @@ If you are choosing between making Flinders a base or a detour, choose the base 
 
 ### Other supporting addresses
 
-**The Flinders General Store** is ideal for provisions, coffee and low-fuss staples. **Flinders Pier Takeaway** has its place if you want to keep lunch moving or eat near the water rather than dress the day up.
+**The Flinders General Store** is ideal for provisions, coffee and low-fuss staples.
 
 If you feel the urge to drive inland for a more theatrical dining experience, ask whether you are improving the day or merely complicating it. Usually, in Flinders, local wins.
 
