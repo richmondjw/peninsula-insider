@@ -745,6 +745,9 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
     const bustUrl = publicUrl + (publicUrl.includes('?') ? '&' : '?') + 'v=' + ts;
     console.log('[pi-edit] setting visible image src', bustUrl);
     setImageSrc(el, bustUrl);
+    // Clear placeholder chrome — remove the class so the "Add photo" overlay
+    // and camera icon disappear now that a real image has been assigned.
+    el.classList.remove('venue-card__hero--placeholder');
 
     await recordRevision(supa, session.user.id, {
       entity_type: desc.entityType,
