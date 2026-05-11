@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["pubs", "beer", "dining", "walk-in", "locals", "groups", "casual"]
-relatedVenues: ["flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "merricks-hotel", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "hotel-sorrento", "the-bay-hotel-mornington", "red-hill-brewery", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "mornington-peninsula-brewery", "mornington-peninsula-cider"]
+relatedVenues: ["flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "hotel-sorrento", "the-bay-hotel-mornington", "red-hill-brewery", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "mornington-peninsula-brewery"]
 relatedExperiences: ["mornington-foreshore-walk", "sorrento-back-beach", "portsea-front-beach"]
 readingTimeMinutes: 7
 featured: false
@@ -27,9 +27,9 @@ clusterLinks:
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Which Mornington Peninsula pub crawl route is best?"
-    answer: "The hinterland circuit for people who care about what they are drinking — Merricks Hotel for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range, Balnarring Pub to finish. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."
+    answer: "The hinterland circuit for people who care about what they are drinking — Balnarring Pub for lunch, Red Hill Brewery for the hop garden and pizza, St Andrews Beach Brewery for a more experimental range. The bay-side run (Mornington → Dromana → Rye → Portsea) is the most scenic. The Sorrento strip is the only route walkable without a car."
   - question: "What is the best pub on the Mornington Peninsula?"
-    answer: "Flinders Hotel — the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. Merricks Hotel is the most authentic (crossroads pub, winemaker crowd, honest steak sandwich). Balnarring Pub for the quiet side with a garden and genuine local atmosphere."
+    answer: "Flinders Hotel — the dining room is generous, the beer garden faces the village green, the fire is real, and Flinders itself is the most underrated town on the coast. Balnarring Pub for the quiet side with a garden and genuine local atmosphere."
   - question: "Can you do a pub crawl on the Mornington Peninsula without a car?"
     answer: "Only on the Sorrento strip — three venues within a five-minute walk of each other on Ocean Beach Road. All other routes require driving, which means a designated driver or limiting yourself to one to two drinks per stop and spacing them across the day. The Peninsula's roads are narrow and winding. Plan the logistics before you start."
 ---
@@ -60,13 +60,11 @@ Walk to the foreshore. Ten minutes of harbour and bay. Then the car, heading sou
 
 This route swaps the coastal strip for the ridge and replaces the pubs with a mix of pubs and breweries. It is a better route for people who care about what they are drinking.
 
-**Stop one: Merricks Hotel (noon).** A small pub at a crossroads surrounded by vineyards. The steak sandwich is the order. One beer  -  there is only one tap worth drinking, but it is local and it is cold. The pub is tiny and the crowd is mostly winemakers from the neighbouring properties eating lunch at the counter. This is the Peninsula at its most honest.
+**Stop one: Balnarring Pub (noon).** The quiet-side start. The garden is sheltered, the kitchen runs a solid pub menu, and the crowd skews local rather than tourist. Order the steak sandwich or the parma. One beer. This is the Peninsula at its most honest.
 
 **Stop two: Red Hill Brewery (1:30pm).** Not a pub, but the Peninsula's original craft brewery, and the hop garden is the best beer-drinking setting on the ridge. The tasting paddle covers the core range. The wood-fired pizza is the food. The barn is the room. One flight, one pizza, forty-five minutes.
 
-**Stop three: St Andrews Beach Brewery (3:00pm).** The bigger, newer brewery on the southern side of the ridge. The space is a converted shed with a beer garden that handles a crowd. The food menu is more ambitious than Red Hill's. The beer is a step more experimental. One or two beers. Thirty minutes.
-
-**Stop four: Balnarring Pub (4:30pm).** The quiet-side finish. Drive east over the ridge and down to Balnarring, where the pub has a garden, a log fire in winter, and a crowd that does not include anyone who was at the cellar doors today. This is where the day slows down. Last beer, last plate of chips, the drive home in the early evening.
+**Stop three: St Andrews Beach Brewery (3:00pm).** The bigger, newer brewery on the southern side of the ridge. The space is a converted shed with a beer garden that handles a crowd. The food menu is more ambitious than Red Hill's. The beer is a step more experimental. One or two beers. Thirty minutes. The drive home from here is an easy run back over the ridge.
 
 ## Route three: the Sorrento strip
 
@@ -92,19 +90,17 @@ In order of the pint, the room, the fire, and the crowd:
 
 1. **Flinders Hotel.** The best pub on the Peninsula. The dining room is generous, the beer garden faces the green, the fire is real, and the town around it is the most underrated on the coast. If you visit one Peninsula pub, make it Flinders.
 
-2. **Merricks Hotel.** The smallest and the most authentic. A crossroads pub with a good steak and no ambitions beyond being a good pub.
+2. **Balnarring Pub.** The quiet-side pub with the garden and the local crowd. Better than it needs to be.
 
-3. **Balnarring Pub.** The quiet-side pub with the garden and the local crowd. Better than it needs to be.
+3. **Dromana Hotel.** The workhorse. Nobody writes about it, everybody eats there eventually. The parma is the parma.
 
-4. **Dromana Hotel.** The workhorse. Nobody writes about it, everybody eats there eventually. The parma is the parma.
+4. **Mornington Hotel.** The town pub. Reliable, central, and the starting point for everything else.
 
-5. **Mornington Hotel.** The town pub. Reliable, central, and the starting point for everything else.
+5. **Rye Hotel.** The rough diamond. The front bar is unreconstructed in a way that is becoming rare and valuable.
 
-6. **Rye Hotel.** The rough diamond. The front bar is unreconstructed in a way that is becoming rare and valuable.
+6. **Portsea Hotel.** The view pub. The setting does the heavy lifting, the prices reflect it, and the crowd skews younger.
 
-7. **Portsea Hotel.** The view pub. The setting does the heavy lifting, the prices reflect it, and the crowd skews younger.
-
-8. **Hotel Sorrento and Sorrento Hotel.** Both are fine. Neither is the reason you came to the Peninsula. But both are there when you need them, and that is what a pub is for.
+7. **Hotel Sorrento and Sorrento Hotel.** Both are fine. Neither is the reason you came to the Peninsula. But both are there when you need them, and that is what a pub is for.
 
 ## The case for the pub day
 

@@ -127,7 +127,7 @@ Dinner on Saturday night should be lighter than lunch. The Peninsula rewards cou
 
 Options:
 - Cheese and charcuterie at the accommodation with wine you bought at the cellar door
-- The pub  -  **Flinders Hotel** bistro, **Merricks Hotel** beer garden
+- The pub  -  **Flinders Hotel** bistro or **Balnarring Pub** beer garden
 - **Rare Hare** at Willow Creek if you want a vineyard dinner that is excellent without being heavy
 - Pizza and a bottle at **Merricks General Wine Store** if the wood oven is running
 

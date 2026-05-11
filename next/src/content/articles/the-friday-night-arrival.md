@@ -23,7 +23,6 @@ relatedVenues:
   - "mornington-hotel"
   - "dromana-hotel"
   - "balnarring-pub"
-  - "merricks-hotel"
   - "sorrento-bakery"
   - "small-stone-pantry"
   - "tedesca-osteria"
@@ -47,9 +46,9 @@ clusterLinks:
     href: "/journal/the-couples-weekend/"
 faq:
   - question: "What should I do on Friday night when arriving on the Mornington Peninsula?"
-    answer: "Three options depending on energy and planning: the pub (no booking needed — Merricks Hotel for hinterland stays, Flinders Hotel for the south, Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route — eat on the deck); or a booked dinner at Tedesca Osteria, Rare Hare, or similar if arranged a week ahead. The pub is the most reliable no-planning option."
+    answer: "Three options depending on energy and planning: the pub (no booking needed — Balnarring Pub for hinterland stays, Flinders Hotel for the south, Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route — eat on the deck); or a booked dinner at Tedesca Osteria, Rare Hare, or similar if arranged a week ahead. The pub is the most reliable no-planning option."
   - question: "Which Peninsula pubs are best for Friday night dinner on arrival?"
-    answer: "Merricks Hotel for Red Hill hinterland stays (beer garden, good pub menu). Flinders Hotel for southern Peninsula stays (a step above standard pub fare, walk-ins usually fine). Hotel Sorrento front bar for Sorrento — order from the bar menu, not the bistro. Balnarring Pub for that corridor — call ahead as the kitchen is small."
+    answer: "Balnarring Pub for Red Hill hinterland stays (garden, good pub menu, call ahead). Flinders Hotel for southern Peninsula stays (a step above standard pub fare, walk-ins usually fine). Hotel Sorrento front bar for Sorrento — order from the bar menu, not the bistro."
   - question: "Can I do a provisions stop instead of eating out on Friday night on the Peninsula?"
     answer: "Yes — and it is often the better option. Stop at Epicurean Red Hill or the Red Hill Bakery strip for bread, cheese, and a roast chicken, then Merricks General Wine Store for wine. Alternatively, the Flinders General Store carries a curated range of exactly this combination. The deck dinner — bread, cheese, cold chicken, wine — is one of the best meals the Peninsula offers."
 ---
@@ -64,7 +63,7 @@ Here are the three ways to handle it.
 
 The simplest and most reliable Friday night arrival on the Peninsula is the pub. You need no booking, no planning, and no cooking. You need to know which pub is nearest to where you are staying and whether it does food on Friday nights. All of these do:
 
-**Staying in the Red Hill hinterland:** Drive to **Merricks Hotel**. The beer garden catches the last of the light and the kitchen runs a solid pub menu. Order at the counter. Sit outside. You are now on Peninsula time.
+**Staying in the Red Hill hinterland:** Drive to **Balnarring Pub**. The garden is sheltered and the kitchen runs a solid pub menu. Call ahead on Fridays — the room is small. Order at the counter. Sit outside. You are now on Peninsula time.
 
 **Staying in Flinders or Shoreham:** **Flinders Hotel** bistro. Walk-ins are usually fine on a Friday. The food is a step above standard pub fare. The rooms upstairs are the backup plan if the drive back to the rental feels too far after two bottles.
 

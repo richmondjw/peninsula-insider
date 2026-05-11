@@ -1,6 +1,6 @@
 ---
-title: "The Peninsula Pub Guide: Six Hotels That Still Know What a Pub Is For"
-dek: "Not a gastropub ranking. Not a beer list. A guide to the six Peninsula pubs that still operate as the social centre of a town  -  where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else."
+title: "The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For"
+dek: "Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town  -  where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
@@ -19,7 +19,6 @@ relatedVenues:
   - "dromana-hotel"
   - "balnarring-pub"
   - "rye-hotel"
-  - "merricks-hotel"
   - "the-bay-hotel-mornington"
   - "sorrento-hotel"
   - "red-hill-brewery"
@@ -50,9 +49,9 @@ clusterLinks:
     href: "/journal/the-dog-friendly-peninsula/"
 faq:
   - question: "Which is the best pub on the Mornington Peninsula?"
-    answer: "Depends what you want. Flinders Hotel for rooms and location in a village that earns an overnight. Hotel Sorrento for heritage and atmosphere outside of peak summer. Balnarring Pub for food and local character. Merricks Hotel for the rural beer-garden setting on a Sunday afternoon."
+    answer: "Depends what you want. Flinders Hotel for rooms and location in a village that earns an overnight. Hotel Sorrento for heritage and atmosphere outside of peak summer. Balnarring Pub for food and local character."
   - question: "Are Peninsula pubs dog-friendly?"
-    answer: "Some are. Merricks Hotel beer garden and The Rocks at Mornington are confirmed dog-friendly. Portsea Hotel beer garden allows dogs on-leash outside peak season. Always confirm with the venue directly before bringing a dog."
+    answer: "Some are. Balnarring Pub beer garden and The Rocks at Mornington are confirmed dog-friendly. Portsea Hotel beer garden allows dogs on-leash outside peak season. Always confirm with the venue directly before bringing a dog."
   - question: "Which Peninsula pubs have accommodation?"
     answer: "Flinders Hotel and Hotel Sorrento both have well-renovated rooms above the bar — Flinders from about $280, Hotel Sorrento slightly higher. Portsea Hotel also has renovated accommodation. All three are significantly better than a standard pub room."
 ---
@@ -61,7 +60,7 @@ There is a version of the Mornington Peninsula that has nothing to do with cella
 
 The Peninsula has a density of proper country hotels that is unusual for a coastal region this close to a capital city. Some of them have been operating since the gold rush. Several of them have been renovated recently. All of them still function as the place where the town goes at the end of the day, which is the only real test a pub needs to pass.
 
-This is not a ranking. It is a guide to six pubs that do distinctly different things, in distinctly different towns, for distinctly different reasons. Pick the one that matches where you are staying and what kind of evening you want.
+This is not a ranking. It is a guide to five pubs that do distinctly different things, in distinctly different towns, for distinctly different reasons. Pick the one that matches where you are staying and what kind of evening you want.
 
 ## Flinders Hotel  -  the one with the rooms
 
@@ -99,15 +98,7 @@ The food is excellent  -  modern pub cooking with genuine Peninsula sourcing, an
 
 This is the pub for locals and people who want to feel like locals. It does not photograph as well as Hotel Sorrento. It eats better.
 
-**The call:** lunch on a Saturday after the Balnarring market. Or a midweek dinner if you are renting nearby and want to feel like part of the town.
-
-## Merricks Hotel  -  the one in the paddock
-
-The **Merricks Hotel** sits on the back road between Balnarring and Red Hill in what feels like the middle of a paddock. It has been open since 1873. The beer garden overlooks grapevines and dairy country. There is no town around it  -  just the pub, the road, and the landscape.
-
-The food is solid. The ambience is the point. On a Sunday afternoon with the beer garden full and the light coming in across the vines, the Merricks Hotel is the most rurally beautiful pub setting on the Peninsula. It is also the pub most likely to host a dog, a mud-spattered farmer, and a wine producer who just finished bottling, all at the same table.
-
-**The call:** Sunday afternoon in any season. Drive the back road from Red Hill. Order a pint and a parma. Look at the paddock. Dogs welcome   -   the Merricks Hotel is one of the few Peninsula venues where a dog at your feet is unremarkable. See our [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the broader circuit.
+**The call:** lunch on a Saturday after the Balnarring market. Or a midweek dinner if you are renting nearby and want to feel like part of the town. The beer garden is dog-friendly — see the [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the full circuit.
 
 ## Dromana Hotel  -  the honest one
 
@@ -124,10 +115,9 @@ Not every pub needs to be a destination. Some of them just need to be a pub.
 If you wanted to do a pub day  -  and there are worse ideas  -  the route that makes geographic sense is:
 
 1. **Lunch** at Balnarring Pub (12:30pm, book ahead on weekends)
-2. **Afternoon drink** at Merricks Hotel (3pm, beer garden, no booking needed)
-3. **Sunset** at Hotel Sorrento (5pm, front-bar verandah)
+2. **Sunset** at Hotel Sorrento (5pm, front-bar verandah)
 
-Total drive: about forty minutes across three legs. Total cost: less than a degustation at any of the hatted restaurants. Total satisfaction: high.
+Total drive: about forty minutes. Total cost: less than a degustation at any of the hatted restaurants. Total satisfaction: high.
 
 The Peninsula is a wine region with a pub backbone. Both versions of the place are real. The pubs are just the version that doesn't need a booking.
 
