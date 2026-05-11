@@ -25,6 +25,31 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT_ROOT = path.resolve(__dirname, '../next/src/content');
+const PAGES_ROOT   = path.resolve(__dirname, '../next/src/pages');
+
+/**
+ * Slugify an Astro page path the same way the inline-edit client's
+ * currentPageSlug() does, so registry rows match the slug the client will
+ * use when right-clicking an untagged image. Must stay in sync with
+ * `currentPageSlug()` in `next/src/lib/inline-edit/client.ts`.
+ *
+ *   '/'                                 → 'home'
+ *   '/journal/mornington-peninsula-…/'  → 'journal-mornington-peninsula-…'
+ *   '/eat/best-restaurants/'            → 'eat-best-restaurants'
+ */
+function pageSlugFromRelPath(rel) {
+  const noExt = rel.replace(/\.astro$/, '').replace(/\\/g, '/');
+  if (noExt === 'index') return 'home';
+  // Strip trailing /index — `pages/eat/index.astro` → 'eat'
+  const stripped = noExt.replace(/\/index$/, '');
+  return stripped.toLowerCase().replace(/[^a-z0-9/_-]/g, '-').replace(/\//g, '-');
+}
+
+// Subdirectories under pages/ that we deliberately do NOT register —
+// admin chrome, account-only surfaces, error pages. Anything else under
+// pages/ that emits a real URL gets registered as ('page', slug).
+const PAGE_SKIP_DIRS = new Set(['admin', 'account']);
+const PAGE_SKIP_FILES = new Set(['404.astro']);
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.PUBLIC_SUPABASE_URL;
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -108,6 +133,46 @@ async function collectFromDir(collection) {
   return rows;
 }
 
+/**
+ * Walk `next/src/pages/` and yield every standalone .astro page (not the
+ * `[slug].astro` dynamic-route templates, not index pages). Each becomes
+ * one `(page, slugified-url)` row so that right-clicking any image on
+ * those pages succeeds — the trigger needs a matching registry row even
+ * when the editor uses the URL-path fallback.
+ */
+async function collectStandalonePages() {
+  const rows = [];
+  async function walk(dir, rel = '') {
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+    for (const e of entries) {
+      const r = rel ? `${rel}/${e.name}` : e.name;
+      const full = path.join(dir, e.name);
+      if (e.isDirectory()) {
+        if (PAGE_SKIP_DIRS.has(e.name)) continue;
+        await walk(full, r);
+      } else if (e.isFile() && e.name.endsWith('.astro')) {
+        // Skip dynamic-route templates and 404. Index files are handled
+        // via the STATIC_PAGES list (section landings) so we don't
+        // double-register them.
+        if (e.name.startsWith('[') || e.name === 'index.astro') continue;
+        if (PAGE_SKIP_FILES.has(e.name)) continue;
+        const slug = pageSlugFromRelPath(r);
+        rows.push({ entity_type: 'page', entity_slug: slug, title: null, href: null });
+      }
+    }
+  }
+  try {
+    await walk(PAGES_ROOT);
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      console.warn('[content-registry] skipped pages/ (missing)');
+      return [];
+    }
+    throw err;
+  }
+  return rows;
+}
+
 async function main() {
   const rows = [];
   for (const collection of COLLECTIONS) {
@@ -118,6 +183,9 @@ async function main() {
   for (const page of STATIC_PAGES) {
     rows.push({ entity_type: 'page', ...page });
   }
+  const standalonePages = await collectStandalonePages();
+  rows.push(...standalonePages);
+  console.log(`[content-registry] page (standalone .astro): ${standalonePages.length} entries`);
 
   console.log(`[content-registry] total rows to upsert: ${rows.length}`);
 
