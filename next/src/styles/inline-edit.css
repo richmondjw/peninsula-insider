@@ -1,0 +1,195 @@
+/**
+ * Peninsula Insider — inline editor visual chrome.
+ *
+ * All styles are scoped under `body[data-pi-edit-mode="on"]`. When edit mode
+ * is off, none of this CSS applies and the public site is byte-identical.
+ */
+
+/* -- Edit-mode toggle (always rendered when signed-in admin, top-right) ----- */
+
+.pi-edit-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: #faf7f0;
+  color: #1a1a1a;
+  font: 600 0.75rem/1 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.pi-edit-toggle:hover { background: #f4ead7; }
+.pi-edit-toggle:active { transform: scale(0.98); }
+
+.pi-edit-toggle__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #b0b0b0;
+  flex: none;
+}
+
+body[data-pi-edit-mode="on"] .pi-edit-toggle {
+  background: #8b4e3b;
+  color: #faf7f0;
+  border-color: #8b4e3b;
+}
+
+body[data-pi-edit-mode="on"] .pi-edit-toggle__dot {
+  background: #6ad17a;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+/* -- Editable affordances (only active when edit mode is on) --------------- */
+
+body[data-pi-edit-mode="on"] [data-pi-edit] {
+  position: relative;
+  outline: 1px dashed rgba(139, 78, 59, 0);
+  outline-offset: 0.2rem;
+  transition: outline-color 0.15s ease, background-color 0.15s ease;
+  cursor: text;
+}
+
+body[data-pi-edit-mode="on"] [data-pi-edit="image"] { cursor: context-menu; }
+
+body[data-pi-edit-mode="on"] [data-pi-edit]:hover {
+  outline-color: rgba(139, 78, 59, 0.55);
+  background-color: rgba(139, 78, 59, 0.04);
+}
+
+body[data-pi-edit-mode="on"] [data-pi-edit]::before {
+  content: attr(data-pi-label);
+  position: absolute;
+  top: -0.85rem;
+  left: 0;
+  padding: 0.15rem 0.4rem;
+  font: 600 0.6rem/1 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8b4e3b;
+  background: rgba(250, 247, 240, 0.95);
+  border: 1px solid rgba(139, 78, 59, 0.25);
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+body[data-pi-edit-mode="on"] [data-pi-edit]:hover::before { opacity: 1; }
+
+/* Active state — currently being edited */
+body[data-pi-edit-mode="on"] [data-pi-edit][data-pi-editing="1"] {
+  outline-color: #8b4e3b;
+  outline-width: 2px;
+  outline-style: solid;
+  background-color: rgba(139, 78, 59, 0.07);
+  cursor: text;
+}
+
+body[data-pi-edit-mode="on"] [data-pi-edit][data-pi-editing="1"]::before { opacity: 1; }
+
+/* Image upload overlay */
+body[data-pi-edit-mode="on"] [data-pi-edit="image"][data-pi-uploading="1"] {
+  opacity: 0.55;
+  filter: grayscale(0.4);
+}
+
+body[data-pi-edit-mode="on"] [data-pi-edit="image"][data-pi-uploading="1"]::after {
+  content: 'Uploading…';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5rem 0.9rem;
+  background: #1a1a1a;
+  color: #faf7f0;
+  border-radius: 999px;
+  font: 600 0.7rem/1 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+/* -- Custom right-click menu for images ------------------------------------ */
+
+.pi-edit-menu {
+  position: fixed;
+  z-index: 10000;
+  min-width: 200px;
+  padding: 0.35rem;
+  background: #faf7f0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  font: 400 0.85rem/1.2 'Outfit', system-ui, sans-serif;
+}
+
+.pi-edit-menu__item {
+  display: block;
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+.pi-edit-menu__item:hover { background: rgba(139, 78, 59, 0.1); }
+.pi-edit-menu__item--danger { color: #a03434; }
+.pi-edit-menu__sep {
+  height: 1px;
+  margin: 0.25rem 0.3rem;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* -- Toast notifications --------------------------------------------------- */
+
+.pi-edit-toast {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(2rem);
+  padding: 0.6rem 1.1rem;
+  background: #1a1a1a;
+  color: #faf7f0;
+  border-radius: 999px;
+  font: 500 0.8rem/1 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.03em;
+  z-index: 10001;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.pi-edit-toast[data-visible="1"] {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.pi-edit-toast[data-tone="err"] { background: #a03434; }
+.pi-edit-toast[data-tone="ok"]  { background: #2f6d3a; }
+
+/* Mobile: edit-mode is a heavier touch target */
+@media (max-width: 720px) {
+  .pi-edit-toggle {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+  }
+}

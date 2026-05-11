@@ -29,6 +29,7 @@ import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc } from '../lib/editorial';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
+import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
 // CMS-driven overrides for editor-controlled fields on the homepage. Empty
 // when Supabase is unconfigured or no rows are published; falls through to
@@ -210,6 +211,13 @@ const ssrScene = scenes[0];
             alt={s.imageAlt}
             loading="eager"
             fetchpriority={s.id === ssrScene.id ? 'high' : undefined}
+            {...(s.id === ssrScene.id ? editableImage({
+              entityType: 'page',
+              entitySlug: 'home',
+              fieldPath: 'cover.image',
+              label: 'Cover image',
+              purpose: 'hero',
+            }) : {})}
           />
         </div>
       ))}
@@ -241,8 +249,25 @@ const ssrScene = scenes[0];
               <span class="cinema-copy__chip">{s.label}</span>
               <span class="cinema-copy__hours">{s.hours}</span>
             </p>
-            <h1 class="cinema-copy__headline" set:html={s.headline} />
-            <p class="cinema-copy__dispatch">{s.dispatch}</p>
+            <h1
+              class="cinema-copy__headline"
+              set:html={s.headline}
+              {...(s.id === ssrScene.id ? editableText({
+                entityType: 'page',
+                entitySlug: 'home',
+                fieldPath: 'cover.headline',
+                label: 'Cover headline',
+              }) : {})}
+            />
+            <p
+              class="cinema-copy__dispatch"
+              {...(s.id === ssrScene.id ? editableText({
+                entityType: 'page',
+                entitySlug: 'home',
+                fieldPath: 'cover.dispatch',
+                label: 'Cover dispatch',
+              }) : {})}
+            >{s.dispatch}</p>
           </div>
         ))}
       </div>
@@ -260,7 +285,15 @@ const ssrScene = scenes[0];
     </div>
 
     {/* Bottom-right caption */}
-    <p class="cinema__caption">{ssrScene.caption}</p>
+    <p
+      class="cinema__caption"
+      {...editableText({
+        entityType: 'page',
+        entitySlug: 'home',
+        fieldPath: 'cover.caption',
+        label: 'Cover caption',
+      })}
+    >{ssrScene.caption}</p>
 
     {/* Scroll hint */}
     <div class="cinema__scroll" aria-hidden="true">

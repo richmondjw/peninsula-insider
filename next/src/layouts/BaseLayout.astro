@@ -11,6 +11,7 @@ import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
 import '../styles/search.css';      // site-search overlay + /search page styles
 import '../styles/v4.css';          // V4 mega-menu chrome, additive tokens scoped --v4-*
+import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
 import { ClientRouter } from 'astro:transitions';
 // V4 menu promotion (2026-05-06): the V2 Masthead is replaced by V4Masthead.
 // V2 Masthead.astro stays in the codebase as reference but is no longer
@@ -25,6 +26,7 @@ import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
+import InlineEditor from '../components/admin/InlineEditor.astro';
 
 export interface Props {
   title: string;
@@ -248,6 +250,11 @@ const isAskPage = rawPathname.startsWith('/ask');
   <!-- Cross-device sync (Phase 3 WS3E). Bridges localStorage to Supabase
        when the user is signed in. No-ops when auth isn't configured. -->
   <CloudSync />
+
+  <!-- Inline editor mount. Boots a tiny client bundle that detects an admin
+       session and lights up [data-pi-edit] elements for click-to-edit text
+       and right-click-to-replace images. Inert for non-admin visitors. -->
+  <InlineEditor />
 
   <script is:inline>
     (function () {
