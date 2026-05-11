@@ -6,7 +6,7 @@
  * Expects a full Astro content-collection entry from `venues`.
  */
 
-import { resolveHeroSrc } from '../lib/editorial';
+import { resolveHeroSrc, hasOwnHeroImage } from '../lib/editorial';
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
@@ -50,6 +50,7 @@ const moodTags = Array.isArray(data.tags?.mood) ? data.tags.mood.slice(0, 2) : [
 const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 const heroSrc = resolveHeroSrc(data);
 const heroAlt = data.heroImage?.alt ?? data.name ?? '';
+const hasPhoto = hasOwnHeroImage(data);
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
@@ -58,10 +59,10 @@ const verifiedTier = verificationFreshness(data.lastVerified);
   <div class="venue-card__wash"></div>
   <a
     href={href}
-    class="venue-card__hero"
+    class={`venue-card__hero${hasPhoto ? '' : ' venue-card__hero--placeholder'}`}
     aria-hidden="true"
     tabindex="-1"
-    style={`background-image: url(${heroSrc})`}
+    style={hasPhoto ? `background-image: url(${heroSrc})` : undefined}
     {...editableImage({
       entityType: 'venue',
       entitySlug: slug,

@@ -308,6 +308,33 @@ const BLOCKED_IMAGES = new Set<string>([
 
 const CATEGORY_FALLBACK_RE = /\/category-[a-z-]+-\d+\.[a-z]+$/;
 
+/**
+ * Matches generic location/explore shots used as stand-ins when no dedicated
+ * venue photo exists: place-{name}-NN.webp and explore-{name}-NN.webp.
+ */
+const GENERIC_LOCATION_RE = /\/(?:place|explore)-[a-z-]+-\d+\.[a-z]+$/;
+
+/**
+ * Returns true only when the venue/experience/etc. has a genuinely
+ * dedicated hero image — not a borrowed place shot, explore image,
+ * category fallback, or explicit placeholder.
+ *
+ * Use this in card components to decide whether to show the real photo
+ * or a CMS-editable placeholder slot.
+ */
+export function hasOwnHeroImage(data: any): boolean {
+  const src = String(data?.heroImage?.src ?? '');
+  if (!src) return false;
+  const filename = src.split('/').pop() ?? '';
+  return !(
+    src.includes('placeholder')
+    || CATEGORY_FALLBACK_RE.test(src)
+    || GENERIC_LOCATION_RE.test(src)
+    || src.includes('home-cover')
+    || BLOCKED_IMAGES.has(filename)
+  );
+}
+
 function hashSlug(s: string): number {
   let h = 0;
   for (let i = 0; i < s.length; i++) {
