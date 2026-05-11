@@ -23,7 +23,6 @@ relatedVenues:
   - "flinders-hotel"
   - "barragunda-dining"
   - "stringers-mornington"
-  - "afloat-mornington"
 relatedExperiences:
   - "sorrento-ferry"
   - "sea-search-encounters"

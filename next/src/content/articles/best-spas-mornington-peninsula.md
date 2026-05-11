@@ -68,19 +68,11 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 
 <a href="/stay/endota-spa-mornington">Endota Mornington</a> is the bayside day spa for visitors who want a treatment without the drive to a resort. Consistent therapists, a sensible sixty-to-ninety-minute treatment menu, and a Mornington town location that pairs with a long lunch on Main Street. National chain branding, which some readers dismiss on principle, but for the middle-tier day-spa category it is the most reliable option in northern Peninsula.
 
-## Honourable mentions
-
-### Afloat Mornington
-
-<a href="/eat/afloat-mornington">Afloat Mornington</a> is the Peninsula's floating sauna experience   -   a category of one, heated barrel sauna on Port Phillip Bay with ice plunge and cold-water swimming off the deck. Not a spa in the treatment sense, but the most unusual single wellness experience the Peninsula offers. Book a sunrise or sunset session for the best effect.
-
 ## Which tier for which weekend
 
 - **Anniversary, serious relaxation, first Peninsula visit** → Tier 1 (Alba Thermal Springs, ideally, or Peninsula Hot Springs midweek)
 - **Weekend with golf, a long lunch, or a stay at a resort** → Tier 2 (One Spa at RACV or Spa by Jackalope)
 - **A village weekend where the spa is a supporting act** → Tier 3 (Endota Mornington)
-- **Something unusual, memorable, Instagram-worthy but worth it** → Afloat Mornington
-
 ## Before you book
 
 - **Book Tier 1 venues three to four weeks out for weekends.** Both Peninsula Hot Springs and Alba sell out weekend sessions well in advance in peak season.
