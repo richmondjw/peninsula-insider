@@ -27,10 +27,13 @@
     if (!el || (el as any)._init) return;
     (el as any)._init = true;
 
-    // Mount into the utility bar link cluster so it sits where "Account" was.
-    const utilLinks = document.querySelector('.v2-util__links');
-    if (utilLinks && el.parentElement !== utilLinks) {
-      utilLinks.appendChild(el);
+    // Mount into the masthead action cluster — prefer V4 actions (current
+    // chrome), fall back to the legacy V2 utility bar links.
+    const mountTarget =
+      document.querySelector('.v4-actions') ||
+      document.querySelector('.v2-util__links');
+    if (mountTarget && el.parentElement !== mountTarget) {
+      mountTarget.appendChild(el);
     }
 
     const trigger = el.querySelector('.v2-profile__trigger') as HTMLButtonElement;
