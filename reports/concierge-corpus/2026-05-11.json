@@ -1,0 +1,49 @@
+{
+  "run_id": "2026-05-11T01:31:02.832Z",
+  "trigger": "push",
+  "mode": "delta",
+  "prune_enabled": true,
+  "duration_seconds": 9.9,
+  "git_sha": "9ebb31c",
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dims": 1024,
+  "source_counts": {
+    "venue": 156,
+    "article": 172,
+    "place": 20,
+    "itinerary": 6,
+    "experience": 42,
+    "event": 73,
+    "editorial_block": 10
+  },
+  "database": {
+    "chunks_before": 1593,
+    "chunks_after": 1597
+  },
+  "delta": {
+    "added": 4,
+    "updated": 3,
+    "metadata_only": 0,
+    "unchanged": 1593,
+    "pruned": 0,
+    "errors": 0,
+    "stale_remaining": 0
+  },
+  "added_chunk_ids": [
+    "peninsula-this-weekend-may-16::lede::0",
+    "peninsula-this-weekend-may-16::body::0",
+    "peninsula-this-weekend-may-16::body::1",
+    "peninsula-this-weekend-may-16::body::2"
+  ],
+  "updated_chunk_ids": [
+    "red-hill-market::summary::0",
+    "red-hill-market::editor_note::0",
+    "red-hill-market::tags::0"
+  ],
+  "metadata_only_chunk_ids": [],
+  "pruned_chunk_ids": [],
+  "stale_chunk_ids": [],
+  "expired_event_entity_ids": [],
+  "embedding_cost_usd_estimate": 0,
+  "errors": []
+}
