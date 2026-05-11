@@ -178,6 +178,35 @@ body[data-v4="true"] .masthead {
   line-height: 1;
 }
 
+/* Sign-in pill — ghost variant of the subscribe CTA. Hidden when the
+   ProfileDropdown mounts an authenticated profile menu in its place. */
+.v4-signin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  height: 36px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background var(--v4-mega-open-delay) var(--v4-ease),
+              border-color var(--v4-mega-open-delay) var(--v4-ease),
+              color        var(--v4-mega-open-delay) var(--v4-ease);
+}
+.v4-signin:hover {
+  background: var(--bg-alt);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.v4-signin:focus-visible { outline: none; box-shadow: var(--v4-focus-ring); }
+.v4-signin[hidden] { display: none; }
+
 .v4-subscribe-cta {
   display: inline-flex;
   align-items: center;

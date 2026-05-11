@@ -31,6 +31,55 @@ const { slug, section, title, dek, imageUrl } = Astro.props;
 <script>
   import { getUser, isSavedByUser, toggleSave, onAuthChange, isAuthEnabled } from '../../lib/auth';
 
+  /**
+   * Local-first save store. When anonymous, articles are saved here; the
+   * UI reflects them as Saved across reloads on this device. When the user
+   * signs in, CloudSync (or a sign-in handler) can merge these into
+   * pi.user_saves so the saves follow them to other devices.
+   *
+   * Schema is intentionally separate from `pi:saved:v1` (which is for
+   * venues + events) — `articles` belong to a different slug-space.
+   */
+  const LOCAL_KEY = 'pi:saved-articles:v1';
+
+  type LocalArticle = { slug: string; section: string; title?: string; dek?: string; image_url?: string; savedAt: number };
+  type LocalStore = { version: 1; articles: LocalArticle[] };
+
+  function readLocal(): LocalStore {
+    try {
+      const raw = localStorage.getItem(LOCAL_KEY);
+      if (!raw) return { version: 1, articles: [] };
+      const parsed = JSON.parse(raw);
+      return { version: 1, articles: Array.isArray(parsed?.articles) ? parsed.articles : [] };
+    } catch {
+      return { version: 1, articles: [] };
+    }
+  }
+
+  function writeLocal(store: LocalStore) {
+    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(store)); }
+    catch { /* private mode / quota / disabled — fail silently */ }
+  }
+
+  function isSavedLocal(slug: string): boolean {
+    return readLocal().articles.some((a) => a.slug === slug);
+  }
+
+  function toggleLocal(slug: string, section: string, snapshot: { title?: string; dek?: string; image_url?: string }): boolean {
+    const store = readLocal();
+    const idx = store.articles.findIndex((a) => a.slug === slug);
+    if (idx >= 0) {
+      store.articles.splice(idx, 1);
+      writeLocal(store);
+      window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { kind: 'article', slug } }));
+      return false;
+    }
+    store.articles.push({ slug, section, ...snapshot, savedAt: Date.now() });
+    writeLocal(store);
+    window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { kind: 'article', slug } }));
+    return true;
+  }
+
   async function hydrateButton(btn: HTMLButtonElement) {
     if ((btn as any)._init) return;
     (btn as any)._init = true;
@@ -44,39 +93,42 @@ const { slug, section, title, dek, imageUrl } = Astro.props;
     };
     const labelEl = btn.querySelector('.v2-save__label') as HTMLElement;
 
+    function paint(saved: boolean) {
+      btn.classList.toggle('is-saved', saved);
+      btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
+      labelEl.textContent = saved ? 'Saved' : 'Save';
+    }
+
     async function refresh() {
       const u = await getUser();
       if (u) {
         const saved = await isSavedByUser(slug, u.id);
-        btn.classList.toggle('is-saved', saved);
-        btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
-        labelEl.textContent = saved ? 'Saved' : 'Save';
+        paint(saved);
       } else {
-        btn.classList.remove('is-saved');
-        btn.setAttribute('aria-pressed', 'false');
-        labelEl.textContent = 'Save';
+        paint(isSavedLocal(slug));
       }
     }
 
     btn.addEventListener('click', async () => {
       const u = await getUser();
+
       if (!u) {
-        document.dispatchEvent(new CustomEvent('pi:open-auth'));
+        // Anonymous: save to localStorage so the bookmark sticks on this
+        // device. Doesn't open the auth modal — the masthead Sign in pill
+        // is the dedicated CTA for that path.
+        const nowSaved = toggleLocal(slug, section, snapshot);
+        paint(nowSaved);
         return;
       }
+
+      // Signed in: optimistic UI, then Supabase. Roll back on error.
       const wasSaved = btn.classList.contains('is-saved');
-      btn.classList.toggle('is-saved', !wasSaved);
-      btn.setAttribute('aria-pressed', wasSaved ? 'false' : 'true');
-      labelEl.textContent = wasSaved ? 'Save' : 'Saved';
+      paint(!wasSaved);
       try {
         const { saved } = await toggleSave(slug, section, u.id, snapshot);
-        btn.classList.toggle('is-saved', saved);
-        btn.setAttribute('aria-pressed', saved ? 'true' : 'false');
-        labelEl.textContent = saved ? 'Saved' : 'Save';
+        paint(saved);
       } catch {
-        btn.classList.toggle('is-saved', wasSaved);
-        btn.setAttribute('aria-pressed', wasSaved ? 'true' : 'false');
-        labelEl.textContent = wasSaved ? 'Saved' : 'Save';
+        paint(wasSaved);
       }
     });
 
@@ -85,13 +137,6 @@ const { slug, section, title, dek, imageUrl } = Astro.props;
   }
 
   function init() {
-    if (!isAuthEnabled()) {
-      document.querySelectorAll<HTMLButtonElement>('.v2-save').forEach((b) => {
-        b.classList.add('is-disabled');
-        b.title = 'Sign-in not yet configured';
-      });
-      return;
-    }
     document.querySelectorAll<HTMLButtonElement>('.v2-save').forEach(hydrateButton);
   }
 
