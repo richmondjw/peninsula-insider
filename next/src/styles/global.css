@@ -1138,7 +1138,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    opens the CMS image-replace panel directly. */
 .venue-card__hero--placeholder {
   background-color: #f0ebe1;
-  background-image: none !important;
+  background-image: none;
   display: flex;
   align-items: center;
   justify-content: center;

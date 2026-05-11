@@ -815,6 +815,10 @@ async function applyOverridesOnLoad() {
       if (!row?.public_url) continue;
       if (currentImageSrc(el) === row.public_url) continue;
       setImageSrc(el, row.public_url);
+      // A placeholder card has no inline bg-image at build time; once a real
+      // image is applied via Supabase, remove the placeholder chrome so the
+      // "Add photo" state gives way to the actual image.
+      el.classList.remove('venue-card__hero--placeholder');
       if (row.alt_text) {
         if (el instanceof HTMLImageElement) el.alt = row.alt_text;
         else el.setAttribute('aria-label', row.alt_text);
