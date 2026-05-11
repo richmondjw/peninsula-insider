@@ -23,11 +23,22 @@ const EDIT_MODE_FLAG = 'pi.editMode';
 
 let editMode = false;
 let isAdmin = false;
-let delegationInstalled = false;
 let toggleEl: HTMLButtonElement | null = null;
 let menuEl: HTMLDivElement | null = null;
 let toastEl: HTMLDivElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | null = null;
+
+// Install event delegation immediately at module load. Handlers all check
+// `editMode` and `isAdmin` internally before doing anything, so this is a
+// no-op for non-admin visitors. Installing here (rather than inside the
+// async boot path) makes the editor robust against HMR module-state caching.
+if (typeof document !== 'undefined' && !(document as any).__piEditDelegationInstalled) {
+  document.addEventListener('click', (e) => onDocumentClick(e), true);
+  document.addEventListener('contextmenu', (e) => onContextMenu(e), true);
+  document.addEventListener('keydown', (e) => onKeyDown(e), true);
+  (document as any).__piEditDelegationInstalled = true;
+  console.log('[pi-edit] delegation installed at module load');
+}
 
 // --------------------------------------------------------------------------
 // Boot
@@ -43,10 +54,11 @@ let toastTimer: ReturnType<typeof setTimeout> | null = null;
  */
 export async function bootInlineEditor(): Promise<void> {
   if (typeof document === 'undefined') return;
+  console.log('[pi-edit] boot — auth enabled:', isAuthEnabled());
   if (!isAuthEnabled()) return;
 
   const supa = getSupabase();
-  if (!supa) return;
+  if (!supa) { console.warn('[pi-edit] no supabase client at boot'); return; }
 
   // Patch published overrides for everyone. Fire-and-forget — RLS gates
   // reads to status='published' rows, so anon visitors get the same view
@@ -71,15 +83,9 @@ export async function bootInlineEditor(): Promise<void> {
 
   // Mount/restore the floating toggle. Astro's <ClientRouter /> swaps
   // <body> on soft navigations, so any DOM we appended is gone — we
-  // re-render on every page-load event.
+  // re-render on every page-load event. Delegation is installed at module
+  // load above, so no per-boot install needed here.
   mountToggle();
-
-  // Event delegation is on `document`, which survives view transitions,
-  // so we only install once.
-  if (!delegationInstalled) {
-    installDelegation();
-    delegationInstalled = true;
-  }
 
   // Restore previous edit-mode preference. Body class is page-scoped so we
   // re-apply it here every boot.
@@ -151,27 +157,67 @@ function onDocumentClick(event: MouseEvent) {
   startTextEdit(el);
 }
 
+/**
+ * True for elements rendered as an image — `<img>` itself, or any element
+ * whose computed style has a non-`none` background-image (covers the
+ * `<div role="img" style="background-image: …">` pattern used in hero
+ * sections across the site).
+ */
+function isImageLike(node: Node | null): node is HTMLElement {
+  if (!(node instanceof HTMLElement)) return false;
+  if (node instanceof HTMLImageElement) return true;
+  if (node.dataset.piEdit === 'image') return true;
+  const bg = window.getComputedStyle(node).backgroundImage;
+  return !!bg && bg !== 'none' && bg.includes('url(');
+}
+
 function onContextMenu(event: MouseEvent) {
-  if (!editMode) return;
+  if (!editMode) {
+    console.log('[pi-edit] contextmenu: edit mode off, ignoring');
+    return;
+  }
 
   const target = event.target as HTMLElement | null;
   if (!target) return;
 
-  // 1. Explicitly tagged image surface (background-image div, picture, etc).
-  let el: HTMLElement | null = target.closest<HTMLElement>('[data-pi-edit="image"]');
+  console.log('[pi-edit] contextmenu target:', target.tagName, target.className, target);
 
-  // 2. Otherwise any <img> on the page becomes universally editable —
-  //    auto-derives entity_slug from URL, field_path from src basename.
-  if (!el && target.tagName === 'IMG') el = target;
-  if (!el && target.tagName === 'IMG' === false) {
-    // Nested case — clicking the image's wrapping link/figure.
-    const nested = target.closest<HTMLElement>('a, figure, picture, div');
-    const img = nested?.querySelector('img');
-    if (img) el = img as HTMLElement;
+  let el: HTMLElement | null = null;
+
+  // 1. Explicitly tagged image surface (background-image div, <img>, etc).
+  el = target.closest<HTMLElement>('[data-pi-edit="image"]');
+
+  // 2. Direct hit on an image-like element (<img> or background-image div).
+  if (!el && isImageLike(target)) el = target;
+
+  // 3. Click landed on a wrapper that contains an image (figure / a / picture).
+  if (!el) {
+    const nested = target.closest<HTMLElement>('a, figure, picture');
+    if (nested) {
+      const inner =
+        nested.querySelector('img') ||
+        Array.from(nested.querySelectorAll<HTMLElement>('*')).find(isImageLike);
+      if (inner) el = inner as HTMLElement;
+    }
   }
 
-  if (!el) return;
+  // 4. Click landed on an overlay covering an image (scrims, gradients,
+  //    grain canvases). Walk the z-order at the click point and grab the
+  //    first image-like element behind whatever caught the event.
+  if (!el && typeof document.elementsFromPoint === 'function') {
+    const stack = document.elementsFromPoint(event.clientX, event.clientY);
+    const hit = stack.find(isImageLike);
+    if (hit) el = hit;
+  }
 
+  if (!el) {
+    console.log('[pi-edit] contextmenu: no image-like element found at this point');
+    // Give the editor visible feedback so we know the handler fired.
+    toast('No image detected at this click. Right-click directly on an image.', 'info');
+    return;
+  }
+
+  console.log('[pi-edit] contextmenu opening panel for:', el);
   event.preventDefault();
   event.stopPropagation();
   openImagePanel(el, event.clientX, event.clientY);
@@ -372,6 +418,31 @@ function srcBasename(src: string | null | undefined): string {
   return file.toLowerCase().replace(/[^a-z0-9._-]/g, '-');
 }
 
+/** Current displayed src for either an <img> or a background-image div. */
+function currentImageSrc(el: HTMLElement): string {
+  if (el instanceof HTMLImageElement) return el.currentSrc || el.src;
+  const bg = window.getComputedStyle(el).backgroundImage;
+  const match = bg.match(/url\((['"]?)(.*?)\1\)/);
+  return match?.[2] ?? '';
+}
+
+/** Update either an <img> or a background-image div with a new src. */
+function setImageSrc(el: HTMLElement, src: string) {
+  if (el instanceof HTMLImageElement) {
+    el.src = src;
+    return;
+  }
+  // For bg-image divs, preserve any non-url() parts of the existing inline
+  // style (gradients, etc.) by replacing only the url(...) portion when one
+  // is present; otherwise set fresh.
+  const current = el.style.backgroundImage || window.getComputedStyle(el).backgroundImage;
+  if (current && /url\(/.test(current)) {
+    el.style.backgroundImage = current.replace(/url\((['"]?).*?\1\)/, `url("${src}")`);
+  } else {
+    el.style.backgroundImage = `url("${src}")`;
+  }
+}
+
 function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
   const explicitType = el.dataset.piEntityType;
   const explicitSlug = el.dataset.piEntitySlug;
@@ -390,17 +461,19 @@ function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
     };
   }
 
-  // Auto-derive for untagged images. Only `<img>` elements have src; for
-  // background-image divs the caller must tag explicitly.
-  if (el.tagName !== 'IMG') return null;
-  const img = el as HTMLImageElement;
-  const src = img.currentSrc || img.src;
+  // Auto-derive for untagged image-like elements (<img> or bg-image div).
+  if (!isImageLike(el)) return null;
+  const src = currentImageSrc(el);
   const basename = srcBasename(src);
+  const label =
+    (el instanceof HTMLImageElement ? el.alt : null) ||
+    el.getAttribute('aria-label') ||
+    basename;
   return {
     entityType: 'page',
     entitySlug: currentPageSlug(),
     fieldPath: `img:${basename}`,
-    label: img.alt || basename,
+    label,
     purpose: 'inline',
     autoDetected: true,
   };
@@ -416,8 +489,7 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
   const desc = readImageDescriptor(el);
   if (!desc) return;
 
-  const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
-  const thumbSrc = img?.currentSrc || img?.src || '';
+  const thumbSrc = currentImageSrc(el) || '';
 
   menuEl = document.createElement('div');
   menuEl.className = 'pi-edit-panel';
@@ -535,7 +607,6 @@ async function savePanelMeta(panel: HTMLElement, el: HTMLElement, desc: ImageDes
     if (error) return toast(`Save failed: ${error.message}`, 'err');
   } else {
     // Create a slot row carrying metadata only (no upload yet).
-    const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
     const row = {
       entity_type: desc.entityType,
       entity_slug: desc.entitySlug,
@@ -544,16 +615,16 @@ async function savePanelMeta(panel: HTMLElement, el: HTMLElement, desc: ImageDes
       purpose:     desc.purpose,
       storage_bucket: STORAGE_BUCKET,
       storage_path:   null,
-      public_url:     img?.src ?? null,
+      public_url:     currentImageSrc(el) || null,
       ...patch,
     };
     const { error } = await supa.from('cms_image_slots').insert(row);
     if (error) return toast(`Save failed: ${error.message}`, 'err');
   }
 
-  // Reflect alt in the DOM.
-  const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
-  if (img && altText) img.alt = altText;
+  // Reflect alt in the DOM (only meaningful for <img>).
+  if (altText && el instanceof HTMLImageElement) el.alt = altText;
+  if (altText && !(el instanceof HTMLImageElement)) el.setAttribute('aria-label', altText);
 
   await recordRevision(supa, session.user.id, {
     entity_type: desc.entityType,
@@ -594,12 +665,15 @@ function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
 }
 
 async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) {
+  console.log('[pi-edit] replaceImage start', { desc, file: file.name, size: file.size, type: file.type });
+
   const supa = getSupabase();
-  if (!supa) return toast('Supabase not configured.', 'err');
+  if (!supa) { console.warn('[pi-edit] supabase client not configured'); return toast('Supabase not configured.', 'err'); }
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) return toast('Signed out.', 'err');
+  if (!session) { console.warn('[pi-edit] no session'); return toast('Signed out — please sign in again.', 'err'); }
 
+  toast(`Uploading "${file.name}"…`, 'info');
   el.dataset.piUploading = '1';
   try {
     const ext = file.name.match(/\.([a-z0-9]+)$/i)?.[1]?.toLowerCase() ?? 'jpg';
@@ -607,18 +681,21 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
     const safeSlug = desc.entitySlug.replace(/[^a-z0-9-]/gi, '-');
     const safeField = desc.fieldPath.replace(/[^a-z0-9._-]/gi, '-');
     const storagePath = `${desc.entityType}/${safeSlug}/${safeField}-${ts}.${ext}`;
+    console.log('[pi-edit] uploading to storage', { bucket: STORAGE_BUCKET, storagePath });
 
-    const { error: uploadErr } = await supa.storage
+    const { data: uploadData, error: uploadErr } = await supa.storage
       .from(STORAGE_BUCKET)
       .upload(storagePath, file, {
         upsert: false,
         contentType: file.type || `image/${ext}`,
         cacheControl: '31536000',
       });
-    if (uploadErr) throw new Error(uploadErr.message);
+    console.log('[pi-edit] storage upload result', { uploadData, uploadErr });
+    if (uploadErr) throw new Error(`Storage upload failed: ${uploadErr.message}`);
 
     const { data: pub } = supa.storage.from(STORAGE_BUCKET).getPublicUrl(storagePath);
     const publicUrl = pub.publicUrl;
+    console.log('[pi-edit] storage publicUrl', publicUrl);
 
     // Find or create the cms_image_slots row.
     const { data: existing } = await supa
@@ -644,16 +721,20 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
     };
 
     if (existing?.id) {
+      console.log('[pi-edit] updating existing cms_image_slots row', existing.id);
       const { error } = await supa.from('cms_image_slots').update(row).eq('id', existing.id);
-      if (error) throw new Error(error.message);
+      if (error) throw new Error(`DB update failed: ${error.message}`);
     } else {
+      console.log('[pi-edit] inserting new cms_image_slots row');
       const { error } = await supa.from('cms_image_slots').insert(row);
-      if (error) throw new Error(error.message);
+      if (error) throw new Error(`DB insert failed: ${error.message}`);
     }
 
-    // Update the visible <img> src so the change is immediate.
-    const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
-    if (img) img.src = publicUrl + (publicUrl.includes('?') ? '&' : '?') + 'v=' + ts;
+    // Update the visible image so the change is immediate (handles both
+    // <img> and background-image divs).
+    const bustUrl = publicUrl + (publicUrl.includes('?') ? '&' : '?') + 'v=' + ts;
+    console.log('[pi-edit] setting visible image src', bustUrl);
+    setImageSrc(el, bustUrl);
 
     await recordRevision(supa, session.user.id, {
       entity_type: desc.entityType,
@@ -666,7 +747,8 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
 
     toast(`Replaced "${desc.label}".`, 'ok');
   } catch (err) {
-    toast(`Upload failed: ${(err as Error).message}`, 'err');
+    console.error('[pi-edit] replaceImage failed:', err);
+    toast(`Upload failed: ${(err as Error).message || err}`, 'err');
   } finally {
     delete el.dataset.piUploading;
   }
@@ -703,19 +785,33 @@ async function applyOverridesOnLoad() {
   // Build a lookup: field_path → row. Only auto-keyed entries patch <img>s.
   const byPath = new Map(rows.map((r) => [r.field_path, r]));
 
-  document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
-    // Skip images that are already explicitly tagged — their server-side
-    // rendering already consulted overrides via loadOverrides().
-    if (img.closest('[data-pi-edit]')) return;
-
-    const basename = srcBasename(img.currentSrc || img.src);
-    const row = byPath.get(`img:${basename}`);
-    if (!row || !row.public_url) return;
-    if (img.src === row.public_url) return;
-
-    img.src = row.public_url;
-    if (row.alt_text) img.alt = row.alt_text;
+  // Patch <img>, [role="img"], and any element with an inline
+  // background-image style. The venue/place card hero pattern uses
+  // `<a class="venue-card__hero" style="background-image: url(...)">`
+  // — no role, no <img>, so we need this broader sweep.
+  const candidates: HTMLElement[] = [];
+  document.querySelectorAll<HTMLImageElement>('img').forEach((n) => candidates.push(n));
+  document.querySelectorAll<HTMLElement>('[role="img"], [style*="background-image"]').forEach((n) => {
+    if (!candidates.includes(n)) candidates.push(n);
   });
+
+  for (const el of candidates) {
+    // Skip surfaces that are already explicitly tagged — their server-side
+    // rendering already consulted overrides via loadOverrides().
+    if (el.closest('[data-pi-edit]')) continue;
+    if (!isImageLike(el)) continue;
+
+    const basename = srcBasename(currentImageSrc(el));
+    const row = byPath.get(`img:${basename}`);
+    if (!row || !row.public_url) continue;
+    if (currentImageSrc(el) === row.public_url) continue;
+
+    setImageSrc(el, row.public_url);
+    if (row.alt_text) {
+      if (el instanceof HTMLImageElement) el.alt = row.alt_text;
+      else el.setAttribute('aria-label', row.alt_text);
+    }
+  }
 }
 
 // --------------------------------------------------------------------------

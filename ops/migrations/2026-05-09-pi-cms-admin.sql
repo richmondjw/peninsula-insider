@@ -185,15 +185,19 @@ create policy "cms_revisions_editor_insert"
   on pi.cms_revisions for insert
   with check (pi.is_cms_admin());
 
+-- cms-assets bucket is public so `getPublicUrl(...)` URLs resolve via
+-- /storage/v1/object/public/<bucket>/<path>. Paths are timestamped and
+-- unguessable; RLS still gates INSERT/UPDATE/DELETE to editors.
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values (
   'cms-assets',
   'cms-assets',
-  false,
+  true,
   10485760,
   array['image/jpeg', 'image/png', 'image/webp', 'image/avif']
 )
-on conflict (id) do nothing;
+on conflict (id) do update
+   set public = excluded.public;
 
 drop policy if exists "cms_assets_editor_insert" on storage.objects;
 create policy "cms_assets_editor_insert"

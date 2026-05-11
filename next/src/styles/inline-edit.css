@@ -121,15 +121,19 @@ body[data-pi-edit-mode="on"] [data-pi-edit="image"][data-pi-uploading="1"]::afte
   z-index: 3;
 }
 
-/* -- Universal hover affordance for unmarked <img> in edit mode ------------ */
-/* Mirrors the [data-pi-edit] styling but for ANY <img> on the page so the
-   editor knows it can right-click anything. */
-body[data-pi-edit-mode="on"] img:not([data-pi-edit]):not([data-pi-no-edit]) {
+/* -- Universal hover affordance for unmarked images in edit mode ----------- */
+/* Mirrors the [data-pi-edit] styling but for ANY image-like element on the
+   page (an <img>, or a [role="img"] div using background-image — the
+   article-hero / editor's-letter / place-card pattern) so the editor knows
+   it can right-click anything. */
+body[data-pi-edit-mode="on"] img:not([data-pi-edit]):not([data-pi-no-edit]),
+body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-edit]) {
   cursor: context-menu;
   transition: outline-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-body[data-pi-edit-mode="on"] img:not([data-pi-edit]):not([data-pi-no-edit]):hover {
+body[data-pi-edit-mode="on"] img:not([data-pi-edit]):not([data-pi-no-edit]):hover,
+body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-edit]):hover {
   outline: 2px solid rgba(139, 78, 59, 0.55);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(139, 78, 59, 0.08);
