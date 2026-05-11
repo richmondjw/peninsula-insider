@@ -489,7 +489,7 @@ const isClosed = data.status === 'closed';
   slug={venue.id ?? data.slug}
   section={section}
   title={data.name}
-  href={`/${venueHrefPrefix(data, section)}/${venue.id ?? data.slug}/`}
+  href={`${venueHrefPrefix(data, section)}/${venue.id ?? data.slug}/`}
   dek={data.editorNote}
   imageUrl={data.heroImage?.src}
 />
