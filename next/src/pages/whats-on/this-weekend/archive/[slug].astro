@@ -14,7 +14,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../../../components/NewsletterBlock.astro';
-import ShareBlock from '../../../../components/ShareBlock.astro';
+import PiArticleActions from '../../../../components/PiArticleActions.astro';
 import ClusterLinks from '../../../../components/ClusterLinks.astro';
 import {
   isPeninsulaThisWeekend,
@@ -106,7 +106,13 @@ const older = idx >= 0 && idx < allPtw.length - 1 ? allPtw[idx + 1] : null;
               This is an archived weekend dispatch. The current weekend lives at
               <a href="/whats-on/this-weekend/">/whats-on/this-weekend/</a>.
             </p>
-            <ShareBlock placement="top" title={article.data.title} summary={article.data.dek} format="weekend-picker" />
+            <PiArticleActions
+              slug={article.id}
+              section="whats-on"
+              title={article.data.title}
+              dek={article.data.dek}
+              imageUrl={article.data.heroImage?.src}
+            />
           </div>
           <figure class="article-hero__figure">
             <div class="article-hero__image" role="img" aria-label={article.data.heroImage.alt} style={heroStyle}></div>
@@ -161,7 +167,6 @@ const older = idx >= 0 && idx < allPtw.length - 1 ? allPtw[idx + 1] : null;
         )}
       </nav>
 
-      <ShareBlock placement="end" title={article.data.title} summary={article.data.dek} format="weekend-picker" />
     </div>
   </article>
 

@@ -16,7 +16,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
-import ShareBlock from '../../../components/ShareBlock.astro';
+import PiArticleActions from '../../../components/PiArticleActions.astro';
 import ClusterLinks from '../../../components/ClusterLinks.astro';
 import {
   selectLatestPtw,
@@ -109,7 +109,14 @@ const archiveItems = ptwArticles
             </div>
             <h1 class="article-hero__title">{latest.data.title}</h1>
             <p class="article-hero__dek">{latest.data.dek}</p>
-            <ShareBlock placement="top" title={latest.data.title} summary={latest.data.dek} format="weekend-picker" />
+            <PiArticleActions
+              slug={latest.id}
+              section="whats-on"
+              title={latest.data.title}
+              dek={latest.data.dek}
+              imageUrl={latest.data.heroImage?.src}
+              href="/whats-on/this-weekend/"
+            />
             <p class="ptw__cadence">
               The weekend dispatch refreshes every Wednesday for the weekend ahead.
               <a href="#archive" class="ptw__archive-link">Past weekends ↓</a>
@@ -172,7 +179,6 @@ const archiveItems = ptwArticles
         </section>
       )}
 
-      <ShareBlock placement="end" title={latest.data.title} summary={latest.data.dek} format="weekend-picker" />
     </div>
   </article>
 

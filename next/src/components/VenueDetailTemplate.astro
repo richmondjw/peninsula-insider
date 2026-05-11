@@ -6,7 +6,7 @@ import NewsletterBlock from './NewsletterBlock.astro';
 import VenueCard from './VenueCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
-import ShareBlock from './ShareBlock.astro';
+import PiArticleActions from './PiArticleActions.astro';
 import CorrectionNote from './CorrectionNote.astro';
 
 export interface Props {
@@ -461,7 +461,15 @@ const isClosed = data.status === 'closed';
   </div>
 </section>
 
-<ShareBlock placement="end" title={data.name} summary={data.editorNote ? data.editorNote.slice(0, 120) + '…' : `${data.name} on the Mornington Peninsula`} />
+<PiArticleActions
+  kind="venue"
+  slug={venue.id ?? data.slug}
+  section={section}
+  title={data.name}
+  href={`/${venueHrefPrefix(data, section)}/${venue.id ?? data.slug}/`}
+  dek={data.editorNote}
+  imageUrl={data.heroImage?.src}
+/>
 <NewsletterBlock />
 
 <style>
