@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AuthModal from '../../components/v2/AuthModal.astro';
+import '../../styles/account.css';
 ---
 
 <BaseLayout title="Saved articles — Peninsula Insider" description="Articles you've saved to read later." noindex={true}>
@@ -16,6 +17,11 @@ import AuthModal from '../../components/v2/AuthModal.astro';
 
       <div data-saved-list class="v2-saved-list" hidden></div>
       <div data-saved-empty class="v2-saved-empty" hidden>
+        <div class="v2-saved-empty__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+        </div>
         <p>Nothing saved yet. Open a journal piece you want to come back to and tap the Save button below the article.</p>
         <a class="v2-account-page__cta" href="/journal/">Browse the Journal</a>
       </div>
@@ -62,14 +68,3 @@ import AuthModal from '../../components/v2/AuthModal.astro';
   onAuthChange(render);
 </script>
 
-<style is:global>
-  .v2-saved-list { display: grid; gap: 1rem; }
-  .v2-saved-card { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding: 0.8rem; border: 1px solid var(--line, #D9D1BE); border-radius: 4px; background: #fff; text-decoration: none; color: inherit; transition: border-color .18s ease; }
-  .v2-saved-card:hover { border-color: var(--ochre, #A0541F); }
-  .v2-saved-card__img { aspect-ratio: 1; background-size: cover; background-position: center; background-color: var(--paper-warm, #F3EDDE); border-radius: 2px; }
-  .v2-saved-card__eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ochre, #A0541F); margin: 0 0 0.3rem; }
-  .v2-saved-card__title { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 1.05rem; font-weight: 500; line-height: 1.2; margin: 0 0 0.3rem; color: var(--ink, #171413); }
-  .v2-saved-card__dek { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 0.88rem; line-height: 1.4; color: var(--ink-soft, #3A3531); margin: 0; }
-  .v2-saved-empty { padding: 2rem 0; }
-  .v2-saved-empty p { font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: 1rem; color: var(--ink-soft, #3A3531); margin: 0 0 1rem; max-width: 36ch; }
-</style>

@@ -1,0 +1,334 @@
+/**
+ * Account pages — shared chrome for /account/, /account/saved/, /account/likes/.
+ *
+ * Loads via BaseLayout's import chain when any account page renders. Each
+ * page also adds its own panel-specific styles below the shared frame.
+ */
+
+.v2-account-page {
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 10vw, 7rem);
+  min-height: 70vh;
+  background: var(--paper, #FAF7F0);
+}
+
+.v2-account-page__container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.v2-account-page__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ochre, #A0541F);
+  margin: 0 0 0.7rem;
+}
+
+.v2-account-page__title {
+  font-family: var(--serif, 'Newsreader', Georgia, serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink, #171413);
+  margin: 0 0 0.4rem;
+  font-variation-settings: 'opsz' 60;
+}
+
+.v2-account-page__title em {
+  font-style: italic;
+  color: var(--ochre, #A0541F);
+  font-weight: 300;
+}
+
+.v2-account-page__lead {
+  font-family: var(--serif, 'Newsreader', Georgia, serif);
+  font-size: 1.05rem;
+  color: var(--ink-soft, #3A3531);
+  margin: 0.5rem 0 1.6rem;
+  max-width: 44ch;
+  line-height: 1.55;
+}
+
+/* Tab navigation under the title */
+.v2-account-page__nav {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.35rem;
+  background: var(--paper-warm, #F3EDDE);
+  border-radius: 100px;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.v2-account-page__nav-item {
+  padding: 0.55rem 1.1rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft, #3A3531);
+  text-decoration: none;
+  border-radius: 100px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.v2-account-page__nav-item:hover {
+  color: var(--ink, #171413);
+}
+
+.v2-account-page__nav-item[aria-current="page"] {
+  background: var(--ink, #171413);
+  color: var(--paper, #FAF7F0);
+}
+
+/* Primary CTA (Sign in / Browse the Journal) */
+.v2-account-page__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--ink, #171413);
+  color: var(--paper, #FAF7F0);
+  border: 0;
+  border-radius: 100px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.18s ease, transform 0.08s ease;
+}
+
+.v2-account-page__cta:hover { background: var(--ochre, #A0541F); }
+.v2-account-page__cta:active { transform: scale(0.98); }
+
+/* Profile-page header (avatar + name) */
+.v2-account-page__head {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.v2-account-page__avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--ochre, #A0541F) center/cover no-repeat;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.v2-account-page__email {
+  color: var(--ink-muted, #6E655C);
+  margin: 0.3rem 0 0;
+  font-size: 0.92rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+/* Profile-page edit panel */
+.v2-account-page__panel {
+  background: #fff;
+  border: 1px solid var(--line, #D9D1BE);
+  border-radius: 8px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.v2-account-page__panel-title {
+  font-family: var(--serif, 'Newsreader', Georgia, serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 0 1rem;
+  color: var(--ink, #171413);
+}
+
+.v2-account-page__form { display: grid; gap: 1rem; }
+
+.v2-account-page__form label {
+  display: grid;
+  gap: 0.35rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft, #3A3531);
+}
+
+.v2-account-page__form input[type=text],
+.v2-account-page__form textarea {
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--line, #D9D1BE);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--ink, #171413);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.v2-account-page__form input[type=text]:focus,
+.v2-account-page__form textarea:focus {
+  outline: none;
+  border-color: var(--ochre, #A0541F);
+  box-shadow: 0 0 0 3px rgba(160, 84, 31, 0.12);
+}
+
+.v2-account-page__form textarea {
+  resize: vertical;
+  min-height: 6rem;
+  font-family: var(--serif, 'Newsreader', Georgia, serif);
+  text-transform: none;
+}
+
+.v2-account-page__checkbox {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.55rem !important;
+  font-weight: 400 !important;
+  font-size: 0.92rem !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--ink, #171413) !important;
+}
+
+.v2-account-page__save {
+  padding: 0.75rem 1.4rem;
+  background: var(--ink, #171413);
+  color: var(--paper, #FAF7F0);
+  border: 0;
+  border-radius: 100px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  justify-self: start;
+  transition: background 0.18s ease;
+}
+
+.v2-account-page__save:hover { background: var(--ochre, #A0541F); }
+
+.v2-account-page__status {
+  font-size: 0.85rem;
+  color: var(--ink-muted, #6E655C);
+  font-style: italic;
+  margin: 0;
+}
+
+.v2-account-page__status--ok { color: var(--ochre, #A0541F); }
+.v2-account-page__status--err { color: #B3261E; }
+
+.v2-account-page__signed-out {
+  padding: 2.5rem 0 0;
+  max-width: 36rem;
+}
+
+/* -- Saved-list cards ----------------------------------------------------- */
+
+.v2-saved-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: 1.25rem;
+}
+
+.v2-saved-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #fff;
+  border: 1px solid var(--line, #D9D1BE);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.v2-saved-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ochre, #A0541F);
+  box-shadow: 0 16px 32px -16px rgba(34, 24, 16, 0.18);
+}
+
+.v2-saved-card__img {
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--paper-warm, #F3EDDE);
+}
+
+.v2-saved-card__body { padding: 1rem 1.1rem 1.15rem; }
+
+.v2-saved-card__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ochre, #A0541F);
+  margin: 0 0 0.45rem;
+}
+
+.v2-saved-card__title {
+  font-family: var(--serif, 'Newsreader', Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.45rem;
+  color: var(--ink, #171413);
+}
+
+.v2-saved-card__dek {
+  font-family: var(--serif, 'Newsreader', Georgia, serif);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-soft, #3A3531);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* -- Empty state ---------------------------------------------------------- */
+
+.v2-saved-empty {
+  padding: 3rem 0;
+  text-align: center;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.v2-saved-empty__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--paper-warm, #F3EDDE);
+  color: var(--ochre, #A0541F);
+  margin-bottom: 1.25rem;
+}
+
+.v2-saved-empty p {
+  font-family: var(--serif, 'Newsreader', Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink-soft, #3A3531);
+  margin: 0 0 1.5rem;
+}
