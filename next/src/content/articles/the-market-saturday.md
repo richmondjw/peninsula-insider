@@ -46,7 +46,7 @@ There are a dozen community markets on the Peninsula on any given month. Most of
 
 ### Mornington Farmers Market
 
-The **Mornington Farmers Market** runs on the **second Saturday of each month** on the Mornington Racecourse. This is the most serious market on the Peninsula and the one the region's restaurants quietly shop at. Expect about fifty stalls: seasonal vegetables, pastured meats, cheese from **Main Ridge Dairy**, honey from the hinterland, sourdough from the bakehouses, the mussel farmers from **Advance Mussel Supply**, oysters shucked in front of you, strawberries from **Sunny Ridge**, and the organic greens from **Peninsula Fresh**. Good coffee. Reasonable queues if you arrive by 8:30. Absolute chaos if you arrive at 10:30.
+The **Mornington Farmers Market** runs on the **second Saturday of each month** on the Mornington Racecourse. This is the most serious market on the Peninsula and the one the region's restaurants shop at. Expect about fifty stalls: seasonal vegetables, pastured meats, cheese from **Main Ridge Dairy**, honey from the hinterland, sourdough from the bakehouses, the mussel farmers from **Advance Mussel Supply**, oysters shucked in front of you, strawberries from **Sunny Ridge**, and the organic greens from **Peninsula Fresh**. Good coffee. Reasonable queues if you arrive by 8:30. Absolute chaos if you arrive at 10:30.
 
 This is a market to shop, not graze. Bring a cooler bag. Bring cash for the smaller stalls. Park on the residential streets to the north and walk in, not in the main lot.
 

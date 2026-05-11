@@ -89,7 +89,7 @@ The Peninsula is a premium offsite destination when it feels selective and well 
 
 ## Peninsula Insider's view
 
-Use the Peninsula for what it is actually good at: atmosphere, hospitality, strong dining, reset energy, and programmes that are thoughtfully shaped rather than overbuilt.
+Use the Peninsula for what it is good at: atmosphere, hospitality, strong dining, reset energy, and programmes that are thoughtfully shaped rather than overbuilt.
 
 If you plan the structure first and let the Peninsula elevate it, a retreat here can feel smarter, calmer, and more memorable than the usual city-hotel version.
 

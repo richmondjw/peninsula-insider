@@ -68,7 +68,7 @@ The Peninsula is crowded with rentals, and most of them are fine. The ones worth
 
 ### [Polperro Villas](/stay/polperro-villas)
 
-Two villas. Inside a working vineyard. Each with an outdoor bath, a wood fire, a real kitchen, and a view back across the pinot rows. Walk to the Polperro cellar door through the vines. Breakfast hampers left the night before. A genuinely private weekend at estate-hotel quality, and very quietly one of the most luxurious stays the region has.
+Two villas. Inside a working vineyard. Each with an outdoor bath, a wood fire, a real kitchen, and a view back across the pinot rows. Walk to the Polperro cellar door through the vines. Breakfast hampers left the night before. A genuinely private weekend at estate-hotel quality, and one of the most luxurious stays the region has.
 
 This is the move for a couple on an anniversary weekend, or for anyone who wants the Peninsula to operate like a private country house for forty-eight hours. Book the villa with the north-facing deck if it is available  -  it is meaningfully better in autumn and winter. Two-night minimum. Expect to book at least a month out for any weekend that matters.
 

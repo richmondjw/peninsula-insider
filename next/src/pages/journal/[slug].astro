@@ -27,6 +27,12 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 
+// Plans articles live at /plans/[slug] — redirect with 301 so inbound
+// /journal/ URLs resolve cleanly without serving duplicate content.
+if (article.data.section === 'plans') {
+  return Astro.redirect(`/plans/${routeSlug(article)}/`, 301);
+}
+
 // Peninsula This Weekend dispatches were migrated to a stable rolling URL
 // (/whats-on/this-weekend/) with per-week archive (Wave 2 Brief 2,
 // 2026-05-10). The journal URL pattern still emits a static page so

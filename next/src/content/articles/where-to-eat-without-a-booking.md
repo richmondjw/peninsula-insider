@@ -97,7 +97,7 @@ The Peninsula's bakery and café circuit is the secret walk-in infrastructure. T
 
 The Peninsula brewery circuit has become a genuine walk-in dining network, and most visitors underestimate it.
 
-**Red Hill Brewery.** The original and still the most family-friendly. Wood-fired pizza, a hop garden, indoor and outdoor seating, and beer flights that quietly rival the wine tastings down the road. Walk-in tables are available most of the time, including weekends.
+**Red Hill Brewery.** The original and still the most family-friendly. Wood-fired pizza, a hop garden, indoor and outdoor seating, and beer flights that rival the wine tastings down the road. Walk-in tables are available most of the time, including weekends.
 
 **St Andrews Beach Brewery.** Larger, louder, more ambitious in its food than most Peninsula breweries. The space is a converted shed that handles groups well. Walk-in availability is usually fine outside of Saturday evening.
 

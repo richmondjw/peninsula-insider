@@ -36,7 +36,7 @@ faq:
 
 Most Peninsula writing assumes you have a weekend. A lot of Peninsula visitors do not. They have four hours.
 
-Four hours is what you get on a Tuesday if you have driven a client down, or on a Thursday morning before a flight, or on a Sunday when your Melbourne visitors need to be back at the airport by five. It is not enough for a proper weekend plan and it is too much to waste on a highway detour. And yet the four-hour visit is, quietly, the most common kind of Peninsula trip  -  and the one almost nobody writes about.
+Four hours is what you get on a Tuesday if you have driven a client down, or on a Thursday morning before a flight, or on a Sunday when your Melbourne visitors need to be back at the airport by five. It is not enough for a proper weekend plan and it is too much to waste on a highway detour. And yet the four-hour visit is, the most common kind of Peninsula trip  -  and the one almost nobody writes about.
 
 It is also the version that goes wrong most often, because the instinct is always to do too much. You try to fit a cellar door, a lookout, a beach, a lunch and a producer loop into the same window, and you spend the whole four hours driving between them.
 

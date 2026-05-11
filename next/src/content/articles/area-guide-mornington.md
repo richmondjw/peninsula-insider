@@ -38,7 +38,7 @@ For first-time visitors especially, Mornington is where the Peninsula starts mak
 
 ## What Mornington actually is
 
-Mornington is the commercial hub on the bay side — a real town with shops, schools, services, a working main street and a foreshore that remains central to daily life rather than ornamental. That makes it more urban than the Peninsula's southern villages, but still clearly part of the Peninsula. You get sea air and a functioning town in the same frame.
+Mornington is the commercial hub on the bay side   -   a real town with shops, schools, services, a working main street and a foreshore that remains central to daily life rather than ornamental. That makes it more urban than the Peninsula's southern villages, but still clearly part of the Peninsula. You get sea air and a functioning town in the same frame.
 
 Main Street is the organising spine, but the water is what completes the picture. The foreshore, Mothers Beach, Schnapper Point and the run of bathing boxes keep Mornington from becoming just another affluent bayside centre. It remains coastal in a lived-in way.
 
@@ -46,7 +46,7 @@ Main Street is the organising spine, but the water is what completes the picture
 
 If you can come on a Wednesday, do. The Mornington market gives the town its clearest weekly pulse and turns a casual visit into a more persuasive one. Start early enough that you can use the market, the main street and the foreshore in one arc rather than breaking the day into disconnected errands.
 
-Spring and autumn are the best general seasons. Summer can be lively and attractive, but the town is also a school-holiday magnet and the atmosphere shifts accordingly. Winter works better than many people expect because Mornington is a real town — shops stay open, cafés still matter, and the foreshore can look beautiful in cold light.
+Spring and autumn are the best general seasons. Summer can be lively and attractive, but the town is also a school-holiday magnet and the atmosphere shifts accordingly. Winter works better than many people expect because Mornington is a real town   -   shops stay open, cafés still matter, and the foreshore can look beautiful in cold light.
 
 As a base, Mornington makes sense for people who want easier access back to Melbourne and a cleaner split between town and hinterland. It is less immersive than staying deeper south, but more versatile.
 
@@ -78,7 +78,7 @@ The Wednesday Mornington market is worth planning around because it gives you pr
 
 ### Walk the foreshore in sequence
 
-Go from Main Street down to the water and keep moving. Mothers Beach, the pier, Schnapper Point — the connective tissue matters. Mornington's identity sits in how close its civic and coastal parts remain.
+Go from Main Street down to the water and keep moving. Mothers Beach, the pier, Schnapper Point   -   the connective tissue matters. Mornington's identity sits in how close its civic and coastal parts remain.
 
 ### Use Main Street properly
 
@@ -102,7 +102,7 @@ Skip making your whole day indoors. The foreshore is essential to the town's sha
 
 Start with breakfast on or just off Main Street, then use the morning to walk the commercial spine while the town is fresh. If it is Wednesday, give the market a proper window rather than squeezing it in as an afterthought.
 
-By late morning, head to the foreshore and walk the full sequence — Mothers Beach, the pier, Schnapper Point, the bathing boxes. Lunch should either keep you close to the water or bring you back toward Main Street, depending on weather. Spend the afternoon browsing, taking a second coffee or glass, and using the town as a calm orientation point rather than a box tick.
+By late morning, head to the foreshore and walk the full sequence   -   Mothers Beach, the pier, Schnapper Point, the bathing boxes. Lunch should either keep you close to the water or bring you back toward Main Street, depending on weather. Spend the afternoon browsing, taking a second coffee or glass, and using the town as a calm orientation point rather than a box tick.
 
 Mornington's best day is not dramatic. It is coherent. That is why it works.
 

@@ -36,7 +36,7 @@ That makes Merricks easy to underrate on a first visit. It can seem too slight, 
 
 ## What Merricks actually is
 
-Merricks sits between the bay and the ridge, which gives it an unusual softness. You feel the proximity of the water, but the roads and properties already behave like hinterland. It is a transition zone in the best sense — not neither/nor, but both/and.
+Merricks sits between the bay and the ridge, which gives it an unusual softness. You feel the proximity of the water, but the roads and properties already behave like hinterland. It is a transition zone in the best sense   -   not neither/nor, but both/and.
 
 There is no serious commercial centre. That is the point. Merricks is built around individual destinations and the quality of the roads between them. You come because you know where to turn off, not because a main street tells you what to do.
 
@@ -58,7 +58,7 @@ Merricks also works well as an overnight base because it places you close to Red
 
 ### The estate move
 
-**Merricks Estate** is worth your time when you want a quieter tasting and a proper sense of the district's wine logic. It fits the area's tone — measured, unforced, not desperate for your approval.
+**Merricks Estate** is worth your time when you want a quieter tasting and a proper sense of the district's wine logic. It fits the area's tone   -   measured, unforced, not desperate for your approval.
 
 ### The pub answer
 
@@ -66,7 +66,7 @@ Merricks also works well as an overnight base because it places you close to Red
 
 ### The big nearby draw you should treat as nearby, not central
 
-**Pt Leo Estate** is close enough to define a day around and strong enough to justify it. Sculpture park, serious dining, broad views — it is one of the Peninsula's major attractions. But editorially, it belongs to the wider Merricks orbit rather than replacing Merricks itself. Use it as a major stop, then come back to the area's quieter addresses.
+**Pt Leo Estate** is close enough to define a day around and strong enough to justify it. Sculpture park, serious dining, broad views   -   it is one of the Peninsula's major attractions. But editorially, it belongs to the wider Merricks orbit rather than replacing Merricks itself. Use it as a major stop, then come back to the area's quieter addresses.
 
 ## Stay
 
@@ -106,7 +106,7 @@ Skip choosing accommodation far away to save a little money. Merricks works beca
 
 Begin with a slow start and an easy coffee, then take one focused tasting at Merricks Estate or a nearby producer that suits your palate. Keep the morning sparse. Lunch at Merricks General Wine Store is the non-negotiable editorial recommendation because it catches the area's tone exactly.
 
-If you want a larger set piece, spend the afternoon at Pt Leo Estate — sculpture park first, then a late glass rather than another full meal. Alternatively, drive down toward Merricks Beach for a change in mood and to remind yourself how close the bay remains.
+If you want a larger set piece, spend the afternoon at Pt Leo Estate   -   sculpture park first, then a late glass rather than another full meal. Alternatively, drive down toward Merricks Beach for a change in mood and to remind yourself how close the bay remains.
 
 End wherever you are staying with a bottle you bought during the day and no more travel than necessary.
 

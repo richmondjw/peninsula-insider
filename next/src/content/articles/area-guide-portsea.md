@@ -38,7 +38,7 @@ Portsea is the Peninsula's last township before the land gives itself over to Po
 
 ## What Portsea actually is
 
-Portsea is a village, but barely. A pub, a store, a foreshore, a golf-club world nearby, and a network of roads leading to some of the Peninsula's most quietly powerful landscape. Unlike Sorrento, which declares itself, Portsea stays mostly hidden. The houses do not need to impress you from the street. The appeal is in access — to front beach calm, back beach force, and the extraordinary stretch of national park at the end of the land.
+Portsea is a village, but barely. A pub, a store, a foreshore, a golf-club world nearby, and a network of roads leading to some of the Peninsula's most quietly powerful landscape. Unlike Sorrento, which declares itself, Portsea stays mostly hidden. The houses do not need to impress you from the street. The appeal is in access   -   to front beach calm, back beach force, and the extraordinary stretch of national park at the end of the land.
 
 That makes Portsea feel exclusive in the literal sense. It excludes the casual visitor who wants immediate rewards. If you give it time, the place opens.
 
@@ -102,7 +102,7 @@ Skip the idea that Portsea is better than Sorrento in some simple hierarchical w
 
 ## The best single day here
 
-Start early with a light breakfast or takeaway coffee and head straight into Point Nepean National Park. Give the morning to the walk — the forts, the views, the changing exposure as you move outward. This is not filler before lunch. It is the day.
+Start early with a light breakfast or takeaway coffee and head straight into Point Nepean National Park. Give the morning to the walk   -   the forts, the views, the changing exposure as you move outward. This is not filler before lunch. It is the day.
 
 Have lunch at Portsea Hotel afterwards, preferably with enough time to let the body come back down from the wind and distance. Spend the afternoon based on weather: front beach if the bay is glassy, back beach lookout or walk if you want scale and surf. Finish quietly. Portsea is diminished by nightlife-seeking behaviour.
 

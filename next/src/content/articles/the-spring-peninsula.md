@@ -45,7 +45,7 @@ If you have been thinking about a Peninsula weekend and you are looking at the c
 
 ## Why spring works on the Peninsula
 
-Start with what the weather actually does. Melbourne gets a reputation for erratic spring, and the Peninsula follows the same basic pattern, but with two structural advantages: the bay tempers the cold fronts, and the ridge traps enough afternoon sun that by one in the afternoon the vineyards are in the high teens even when the city is still grey. A typical mid-October weekend on the Peninsula runs something like morning fog off the bay, a clear crisp morning by 9am, and blue afternoons topping out around 20–23 degrees. Evenings cool quickly, which is the right kind of weather for a dining room with a fire still in it.
+Start with what the weather does. Melbourne gets a reputation for erratic spring, and the Peninsula follows the same basic pattern, but with two structural advantages: the bay tempers the cold fronts, and the ridge traps enough afternoon sun that by one in the afternoon the vineyards are in the high teens even when the city is still grey. A typical mid-October weekend on the Peninsula runs something like morning fog off the bay, a clear crisp morning by 9am, and blue afternoons topping out around 20–23 degrees. Evenings cool quickly, which is the right kind of weather for a dining room with a fire still in it.
 
 The calendar benefits are considerable. Most of the Peninsula's best cellar doors reopen to walk-ins seven days a week from the start of September after their winter appointment-only months. Most of the smaller producers that do not take walk-ins at all start doing tastings by appointment through October and November in preparation for their cellar-release season. The **Red Hill Community Market** restarts on the first Saturday of September after its winter break, and the spring versions of that market are the best ones  -  the gardeners are selling their seedlings, the olive producers are bringing out the pressing from the previous autumn, the cheese stalls are full, and everyone who took three months off is catching up.
 
@@ -98,6 +98,6 @@ Here is the weekend we would recommend for a first-time spring visitor.
 
 The reason spring matters on the Peninsula is that it is the season when the region is most obviously alive and most obviously welcoming. The vineyards are coming back into leaf. The markets are at their freshest. The walking tracks are flowering. The cellar doors are busy enough to feel like a destination but quiet enough to give you time. The dining rooms are in their cleanest mode between winter braises and summer excess. And the whole region carries an energy that autumn  -  beautiful as it is  -  does not have, because autumn is winding down and spring is building up.
 
-Come in September. Come again in October. Do both if you can. The people who have been coming to the Peninsula for decades have quietly rearranged their calendars around these months, and they are not wrong.
+Come in September. Come again in October. Do both if you can. The people who have been coming to the Peninsula for decades have rearranged their calendars around these months, and they are not wrong.
 
 Every region has a best season. The Peninsula has two, and spring is the one nobody tells you about.

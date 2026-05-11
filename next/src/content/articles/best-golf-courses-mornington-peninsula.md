@@ -35,17 +35,17 @@ Not every respected golf course on the Peninsula is equally useful to a reader. 
 
 This guide uses tiers rather than a false one-to-fifteen ladder because access matters as much as quality. A course you cannot play is not useless, but it belongs in a different category to one you can build a real weekend around.
 
-## Tier 1 — The destination-makers
+## Tier 1   -   The destination-makers
 
 ### St Andrews Beach Golf Course
 
-The lead story. Serious architecture by Tom Doak, public access, genuine global reputation (regular appearances in world top-100 lists), and one of the clearest reasons to make a Peninsula golf trip happen. Near <a href="/places/cape-schanck">Cape Schanck</a> on the southern end — pair with a hot springs session and you have a complete day. Read the full course review in <a href="/journal/st-andrews-beach-golf-course">our St Andrews Beach profile</a>.
+The lead story. Serious architecture by Tom Doak, public access, genuine global reputation (regular appearances in world top-100 lists), and one of the clearest reasons to make a Peninsula golf trip happen. Near <a href="/places/cape-schanck">Cape Schanck</a> on the southern end   -   pair with a hot springs session and you have a complete day. Read the full course review in <a href="/journal/st-andrews-beach-golf-course">our St Andrews Beach profile</a>.
 
 ### The National Golf Club
 
-Arguably the strongest overall golf property in the region, but private access changes the editorial framing completely. Three courses on one property (Old, Moonah, Gunnamatta) designed by Greg Norman, Peter Thomson, and Robert Trent Jones Jr. Important, impressive — not the same as a bookable recommendation unless you know a member.
+Arguably the strongest overall golf property in the region, but private access changes the editorial framing completely. Three courses on one property (Old, Moonah, Gunnamatta) designed by Greg Norman, Peter Thomson, and Robert Trent Jones Jr. Important, impressive   -   not the same as a bookable recommendation unless you know a member.
 
-## Tier 2 — The serious public-access weekender set
+## Tier 2   -   The serious public-access weekender set
 
 ### Moonah Links
 
@@ -59,7 +59,7 @@ One of the Peninsula's most respected public-access experiences and still centra
 
 Less architectural mythology than the top pair, but highly relevant because it is practical, playable, and widely used. Three 9-hole courses mix-and-match into 18. Good value for a casual round.
 
-## Tier 3 — Strong rounds, narrower fit
+## Tier 3   -   Strong rounds, narrower fit
 
 ### Mornington Golf Club
 Short, scenic, close to town. Good for a relaxed round between other Peninsula activities. Low bar to entry.
@@ -78,7 +78,7 @@ Parkland course in <a href="/places/sorrento">Sorrento</a>. Pleasant, manicured,
 
 This is the band where context matters. Some are scenic, some are useful if you are already staying nearby, some are stronger socially than architecturally, and some need access or pricing clarity before you can make a clean recommendation.
 
-## Tier 4 — Community and local-play value
+## Tier 4   -   Community and local-play value
 
 This is where the broader landscape matters, but not every course deserves destination billing. These courses can still be useful for locals, casual players, or practical trip planning. They just are not the reason to cross the city.
 
@@ -94,11 +94,11 @@ That is the Peninsula Insider question, and it is the only one that really matte
 
 - Green fees are highly variable and should be checked directly before booking.
 - Private and semi-private access rules shift, so do not assume old golf-forum wisdom is current.
-- Shoulder season is often the smartest time to play the Peninsula if you care as much about the weekend as the round — autumn and spring deliver the best combination of weather, availability, and pricing.
+- Shoulder season is often the smartest time to play the Peninsula if you care as much about the weekend as the round   -   autumn and spring deliver the best combination of weather, availability, and pricing.
 - Book at least 3–4 weeks ahead for weekends at St Andrews Beach and The Dunes.
 
 ## Related guides
 
 - <a href="/journal/mornington-peninsula-golf-guide">Why the Mornington Peninsula is Australia's golf country</a>
-- <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach Golf Course — the world-ranked course anyone can book</a>
+- <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach Golf Course   -   the world-ranked course anyone can book</a>
 - <a href="/journal/mornington-peninsula-itinerary">Mornington Peninsula 3-Day Itinerary</a>

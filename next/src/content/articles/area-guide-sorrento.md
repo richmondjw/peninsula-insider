@@ -30,15 +30,15 @@ faq:
 
 Sorrento gets described lazily. Too many guides reduce it to a neat bay town with good gelato and expensive weatherboards, as if the place begins and ends at Ocean Beach Road. That misses the point. Sorrento is the most complete small town on the Mornington Peninsula because it gives you both coasts, a village that still feels built rather than assembled, and enough structure to support a proper stay. It is not just pretty. It is useful.
 
-It is also seasonal in a way that changes the editorial verdict entirely. In January, Sorrento can feel like a queue with water attached. In autumn and spring, it becomes one of Victoria's best short-break towns — walkable, dramatic, and suddenly calm enough to see what is actually there.
+It is also seasonal in a way that changes the editorial verdict entirely. In January, Sorrento can feel like a queue with water attached. In autumn and spring, it becomes one of Victoria's best short-break towns   -   walkable, dramatic, and suddenly calm enough to see what is actually there.
 
-**Best for:** first-time Peninsula visitors, couples who want a base with range, and repeat visitors who have learned the simplest local rule — never judge Sorrento by a peak-summer Saturday.
+**Best for:** first-time Peninsula visitors, couples who want a base with range, and repeat visitors who have learned the simplest local rule   -   never judge Sorrento by a peak-summer Saturday.
 
 ## What Sorrento actually is
 
 Sorrento sits at the tip-side narrowing of the Peninsula, where the bay village, the surf coast and the road to Portsea all run into each other. That geography is the whole story. You can have a civilised breakfast in town, stand above rough ocean water ten minutes later, then be on the Queenscliff ferry or heading into Point Nepean by early afternoon. Very few Peninsula towns give you that much variety without making you drive for it.
 
-The built character matters too. The limestone hotels, older shopfronts and broad village streets give Sorrento a confidence newer resort strips cannot fake. It feels like a place with inheritance — sometimes attractive, sometimes faintly smug, but real. That is preferable to manufactured charm.
+The built character matters too. The limestone hotels, older shopfronts and broad village streets give Sorrento a confidence newer resort strips cannot fake. It feels like a place with inheritance   -   sometimes attractive, sometimes faintly smug, but real. That is preferable to manufactured charm.
 
 If you come expecting a barefoot surf town, you are in the wrong postcode. If you come wanting one of the Peninsula's best-balanced stays, this is it.
 
@@ -46,7 +46,7 @@ If you come expecting a barefoot surf town, you are in the wrong postcode. If yo
 
 Come early on a weekday or arrive late afternoon and stay the night. The worst possible version of Sorrento is the reactive day trip: crawl down from Melbourne in traffic, circle for a park, eat in a hurry, leave annoyed. The best version is slower and more intentional.
 
-Autumn is the sweet spot. The bay still holds warmth, the back beach walks are crisp rather than punishing, and tables become available in places that feel impossible in January. September and October are excellent too — windy sometimes, but clear, bright, and quieter.
+Autumn is the sweet spot. The bay still holds warmth, the back beach walks are crisp rather than punishing, and tables become available in places that feel impossible in January. September and October are excellent too   -   windy sometimes, but clear, bright, and quieter.
 
 Summer is not wrong. It is just work. If you insist on January, book everything, park once, walk as much as possible, and lower your tolerance for spontaneity.
 
@@ -58,7 +58,7 @@ Sorrento does not have the Peninsula's deepest dining bench, but it has enough f
 
 ### The first recommendation
 
-**The Continental Sorrento** is the strongest all-round address in town. Even if you are not staying there, it understands the kind of meal Sorrento needs — polished, unhurried, and close enough to the village's own mood that it feels anchored rather than parachuted in. If you want one dinner that covers the bases, book here.
+**The Continental Sorrento** is the strongest all-round address in town. Even if you are not staying there, it understands the kind of meal Sorrento needs   -   polished, unhurried, and close enough to the village's own mood that it feels anchored rather than parachuted in. If you want one dinner that covers the bases, book here.
 
 ### The classic move
 
@@ -80,7 +80,7 @@ If you want one meal outside the village orbit, drive lightly rather than ambiti
 
 Sorrento is one of the few Peninsula towns where staying in the centre materially improves the trip.
 
-**The Continental Sorrento** is the best hotel answer — central, polished, and actually calibrated to adult weekends rather than family overflow.
+**The Continental Sorrento** is the best hotel answer   -   central, polished, and actually calibrated to adult weekends rather than family overflow.
 
 **Hotel Sorrento** is the more classic option. Less design-forward, still highly functional, and unbeatable if your favourite luxury is waking up over the bay.
 
@@ -98,7 +98,7 @@ The Sorrento Ocean Baths are less about the swim than the setting. On a still da
 
 ### Take Point Nepean seriously
 
-Point Nepean is technically Portsea, but in practice it belongs in any Sorrento stay. It is ten minutes away and changes the scale of the weekend. Forts, quarantine history, hard coastal light, the sense of standing at the end of the bay — it gives the trip weight.
+Point Nepean is technically Portsea, but in practice it belongs in any Sorrento stay. It is ten minutes away and changes the scale of the weekend. Forts, quarantine history, hard coastal light, the sense of standing at the end of the bay   -   it gives the trip weight.
 
 ### Consider the ferry once
 
@@ -122,7 +122,7 @@ Skip treating Portsea and Sorrento as interchangeable. Portsea is quieter, more 
 
 Start with coffee and something substantial from Sorrento Bakery before 8am. Drive or walk to the back beach while the light is still low and spend the first two hours walking rather than trying to turn the morning into content. By late morning, head back into town for a slow circuit of the village and foreshore.
 
-Lunch at The Baths if the weather is doing what you hoped it would. If not, take the more dependable option and settle in at Hotel Sorrento. Early afternoon is for Point Nepean — not the rushed version, the proper one. Give yourself enough time for the walk, the fortifications and the outlooks.
+Lunch at The Baths if the weather is doing what you hoped it would. If not, take the more dependable option and settle in at Hotel Sorrento. Early afternoon is for Point Nepean   -   not the rushed version, the proper one. Give yourself enough time for the walk, the fortifications and the outlooks.
 
 Come back before dusk, shower, then take dinner at The Continental. One last walk after dark on the quieter end of the main street finishes the day better than another drink somewhere loud.
 

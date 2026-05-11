@@ -62,7 +62,7 @@ The Peninsula has two serious thermal bathing complexes and a handful of hotel s
 
 **Peninsula Hot Springs** is the original. Open since 2005, it has grown into the largest and most ambitious wellness complex in the country, with more than fifty bathing and wellness experiences, a Bath House, a hilltop pool, reflexology walks, private baths, and a long enough menu of add-ons that you can spend an entire day there without repeating yourself. It is also, by a distance, the busier of the two. Weekends can feel more crowded than relaxing, and on the wrong day the Amphitheatre pool is as much about the photograph as the temperature. The program is deeper and more varied than anything else in the category, and the twilight sessions in the cooler months remain the single best value the whole operation offers  -  but it rewards people who know how to use it.
 
-**Alba** opened in 2022 and is the Peninsula thermal bathing the region had been quietly waiting for. Twenty-two pools. Stripped-back architecture. A hard cap on daily bather numbers so it never tips into chaos. A sensible cafe. A spa building that is actually a spa building and not a queue. It feels more like a European bath day than a tourist attraction, and that is a decisive advantage for a first-time visitor or anyone who has been burned by a bad day at the original.
+**Alba** opened in 2022 and is the Peninsula thermal bathing the region had been ready for. Twenty-two pools. Stripped-back architecture. A hard cap on daily bather numbers so it never tips into chaos. A sensible cafe. A spa building that is actually a spa building and not a queue. It feels more like a European bath day than a tourist attraction, and that is a decisive advantage for a first-time visitor or anyone who has been burned by a bad day at the original.
 
 Pick Alba if this is your first thermal weekend, if you prefer quiet to scale, or if the idea of a cap on bodies in the water matters to you. Pick Peninsula Hot Springs if you know what you are doing, want the deeper menu, and are willing to book a midweek or twilight slot to get the best of it. Do not try to do both on the same day  -  the body cannot absorb a second circuit, and you will waste the second ticket.
 
@@ -102,4 +102,4 @@ If the weather is fair, add one short coastal walk between the bath and the driv
 
 Friday evening: arrive, eat simply, sleep. Saturday: thermal circuit for two and a half hours, rest, small dinner, early night. Sunday morning: slow breakfast, short walk at the cape, long lunch on the plateau, home. Three moves, in the right order, with nothing extra.
 
-That is the wellness weekend the Peninsula is actually good at. Anything more than that is an errand in a robe.
+That is the wellness weekend the Peninsula is good at. Anything more than that is an errand in a robe.

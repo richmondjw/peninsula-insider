@@ -34,23 +34,23 @@ faq:
 
 The Mornington Peninsula is the most serious wellness destination in Australia. Two major geothermal bathhouses within fifteen minutes of each other. Resort spas with cliff-edge ocean views. Boutique treatment rooms inside some of the country's most celebrated design hotels. And a geography that makes all of it forty minutes from the nearest winery.
 
-This guide tiers the category the way readers actually use it — by what each spa does, who it is for, and how it fits into a real Peninsula weekend. Not every respected spa belongs in the same tier, and the differences matter more than price alone.
+This guide tiers the category the way readers actually use it   -   by what each spa does, who it is for, and how it fits into a real Peninsula weekend. Not every respected spa belongs in the same tier, and the differences matter more than price alone.
 
-## Tier 1 — The destination wellness venues
+## Tier 1   -   The destination wellness venues
 
 These are the spas that anchor a weekend on their own. A reader can plan a Peninsula trip around one of them and have the rest of the itinerary slot in.
 
 ### Peninsula Hot Springs
 
-The original. <a href="/stay/peninsula-hot-springs">Peninsula Hot Springs</a> has been operating since 2005 and has expanded into the largest geothermal wellness complex in the country — more than seventy pools, multiple bathhouse tiers, treatment rooms at the Spa Dreaming Centre, and the Fire & Ice hot-and-cold circuit. For serious bathers, groups, and anyone who wants the full ritual-to-treatment program, this is the anchor. Crowds are real on weekend afternoons; book midweek or Twilight to make it work.
+The original. <a href="/stay/peninsula-hot-springs">Peninsula Hot Springs</a> has been operating since 2005 and has expanded into the largest geothermal wellness complex in the country   -   more than seventy pools, multiple bathhouse tiers, treatment rooms at the Spa Dreaming Centre, and the Fire & Ice hot-and-cold circuit. For serious bathers, groups, and anyone who wants the full ritual-to-treatment program, this is the anchor. Crowds are real on weekend afternoons; book midweek or Twilight to make it work.
 
 ### Alba Thermal Springs
 
 The newer, architecturally tighter, adults-focused alternative. <a href="/stay/alba-thermal-springs">Alba Thermal Springs</a> opened in 2022 with twenty-two geothermal pools, a sensible vitality circuit, and session caps that keep the experience calm. For couples, design lovers, and first-time Peninsula visitors, Alba is often the stronger single booking. Read our full <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba comparison</a> for the honest side-by-side.
 
-## Tier 2 — The resort and boutique spas
+## Tier 2   -   The resort and boutique spas
 
-These are not thermal bathhouses — they are treatment-room-led venues that work as part of a weekend rather than as the centrepiece. All bookable as day guests.
+These are not thermal bathhouses   -   they are treatment-room-led venues that work as part of a weekend rather than as the centrepiece. All bookable as day guests.
 
 ### One Spa at RACV Cape Schanck
 
@@ -58,9 +58,9 @@ The Peninsula's most complete resort spa offering. <a href="/stay/one-spa-racv-c
 
 ### Spa by Jackalope
 
-The most design-led boutique spa on the Peninsula. <a href="/stay/spa-by-jackalope">Spa by Jackalope</a> is small, precise, and uncompromising — dark treatment rooms, Subtle Energies botanical range, and the best single one-on-one treatment experience the Peninsula offers. Built to serve Jackalope Hotel guests first; day-visitor appointments available but limited. The full Jackalope stay with a treatment, a Doot Doot Doot dinner, and a spa morning is one of the Peninsula's flagship weekends.
+The most design-led boutique spa on the Peninsula. <a href="/stay/spa-by-jackalope">Spa by Jackalope</a> is small, precise, and uncompromising   -   dark treatment rooms, Subtle Energies botanical range, and the best single one-on-one treatment experience the Peninsula offers. Built to serve Jackalope Hotel guests first; day-visitor appointments available but limited. The full Jackalope stay with a treatment, a Doot Doot Doot dinner, and a spa morning is one of the Peninsula's flagship weekends.
 
-## Tier 3 — The reliable day spas
+## Tier 3   -   The reliable day spas
 
 These are the practical, sensibly-priced day-spa options that make a Peninsula weekend feel more complete without eating a full day. Useful, not transcendent.
 
@@ -72,7 +72,7 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 
 ### Afloat Mornington
 
-<a href="/eat/afloat-mornington">Afloat Mornington</a> is the Peninsula's floating sauna experience — a category of one, heated barrel sauna on Port Phillip Bay with ice plunge and cold-water swimming off the deck. Not a spa in the treatment sense, but the most unusual single wellness experience the Peninsula offers. Book a sunrise or sunset session for the best effect.
+<a href="/eat/afloat-mornington">Afloat Mornington</a> is the Peninsula's floating sauna experience   -   a category of one, heated barrel sauna on Port Phillip Bay with ice plunge and cold-water swimming off the deck. Not a spa in the treatment sense, but the most unusual single wellness experience the Peninsula offers. Book a sunrise or sunset session for the best effect.
 
 ## Which tier for which weekend
 
@@ -91,7 +91,7 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 
 ## Related guides
 
-- <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba — the honest comparison</a>
+- <a href="/journal/peninsula-hot-springs-vs-alba">Peninsula Hot Springs vs Alba   -   the honest comparison</a>
 - <a href="/journal/mornington-peninsula-stay-and-soak">Where to stay near the hot springs</a>
 - <a href="/spa">The spa section hub</a>
-- <a href="/journal/rainy-day-peninsula">The Peninsula on a rainy day — spa-first itineraries</a>
+- <a href="/journal/rainy-day-peninsula">The Peninsula on a rainy day   -   spa-first itineraries</a>
