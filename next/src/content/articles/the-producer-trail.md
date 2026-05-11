@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore"]
-relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "advance-mussel-supply", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "mornington-peninsula-cider", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
+relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "mornington-peninsula-cider", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
 relatedExperiences: ["red-hill-hinterland-cycling", "balnarring-beach", "mornington-foreshore-walk"]
 readingTimeMinutes: 8
 featured: false
@@ -27,16 +27,16 @@ clusterLinks:
     href: "/journal/the-market-saturday/"
 faq:
   - question: "What is the Peninsula producer trail?"
-    answer: "A day built around four farm-gate and artisan producer visits in a single driving loop — cheese dairies, strawberry farms, mussel farmers, olive groves, bakeries — rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Hastings, Somers, and Balnarring (mussels, organic vegetables, bakehouse, cider). Each stop is 15–30 minutes."
+    answer: "A day built around four farm-gate and artisan producer visits in a single driving loop — cheese dairies, strawberry farms, olive groves, bakeries — rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Somers and Balnarring (organic vegetables, bakehouse, cider). Each stop is 15–30 minutes."
   - question: "Which Peninsula producers are open on weekends?"
-    answer: "Main Ridge Dairy and Red Hill Cheese (Thursday–Sunday). Sunny Ridge Strawberry Farm (October–April, daily). Advance Mussel Supply in Hastings (weekends). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (guided experiences June–August by booking). Saturday is the strongest day for the full producer trail — most are open and at full stock."
+    answer: "Main Ridge Dairy and Red Hill Cheese (Thursday–Sunday). Sunny Ridge Strawberry Farm (October–April, daily). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (guided experiences June–August by booking). Saturday is the strongest day for the full producer trail — most are open and at full stock."
   - question: "What should I bring for a Peninsula producer trail day?"
     answer: "A hard-sided cooler bag with two large ice bricks for cheese and seafood. Paper bags for bread. Cash — the smallest producers occasionally do not run card readers on quiet days. A small notebook to track which cheese came from which dairy. And restraint — the producer trail works best with four stops and one light lunch, not six stops and a winery tasting. Bring the bag; let the producers fill it."
 ---
 
 The Peninsula's most photographed layer is the dining-room layer  -  the long lunches, the cellar-door tasting menus, the architect-designed terraces. The Peninsula's most interesting layer is one step behind it.
 
-It is the producer layer: the people who grow the strawberries the dining rooms macerate for dessert, the dairy that supplies most of the cheese plates on the ridge, the truffle hunter whose dogs work the lower paddocks in June, the mussel farmers in Hastings whose product underwrites half the seafood on the Peninsula's restaurant menus, the olive grove that presses oil for half the kitchens up the road. None of these places are big. Most of them are small family operations that opened a farm shop almost as an afterthought. And almost none of them get visited by the weekend crowd that drives past their gates on the way to lunch.
+It is the producer layer: the people who grow the strawberries the dining rooms macerate for dessert, the dairy that supplies most of the cheese plates on the ridge, the truffle hunter whose dogs work the lower paddocks in June, the olive grove that presses oil for half the kitchens up the road. None of these places are big. Most of them are small family operations that opened a farm shop almost as an afterthought. And almost none of them get visited by the weekend crowd that drives past their gates on the way to lunch.
 
 Which is a shame, because a day spent at four of them in a sensible loop is one of the most rewarding versions of a Peninsula visit you can build  -  and unlike a cellar-door tour, it does not require booking three months in advance, dressing up, or rationing your driver.
 
@@ -88,23 +88,19 @@ The lunch on a producer day should be light. The point is not another long meal 
 
 Pick the one that matches the energy of the group. The producer day is the kind of day where lunch is the supporting act, not the lead.
 
-## The southern loop: Hastings, Somers, Balnarring
+## The southern loop: Somers, Balnarring
 
-The other producer trail runs across the lower Peninsula, through Hastings and the Western Port side, and is the day for visitors who want seafood and grain rather than cheese and strawberries. This is also the trail that almost no one does  -  the geography is less iconic than the ridge, and the producers are scattered across more roads  -  but the rewards are real.
+The other producer trail runs across the lower Peninsula, through the Western Port side, and is the day for visitors who want grain, organic produce, and craft food rather than cheese and strawberries. This is also the trail that almost no one does  -  the geography is less iconic than the ridge, and the producers are scattered across more roads  -  but the rewards are real.
 
-### Stop one: Advance Mussel Supply
-
-**Advance Mussel Supply** in Hastings is the working face of the Peninsula's biggest seafood industry. The operation farms the ropes in Western Port Bay that produce some of the best mussels in Australia, and the small retail counter at the dock will sell you live mussels by the kilo, smoked mussels in jars, and the kind of taramasalata you cannot get at a city supermarket. Twenty minutes, including the small line at the counter.
-
-### Stop two: Peninsula Fresh Organics
+### Stop one: Peninsula Fresh Organics
 
 Drive fifteen minutes south to the **Peninsula Fresh Organics** farm gate near Tuerong. This is the organic vegetable supplier that underwrites the produce side of half a dozen of the Peninsula's serious dining rooms. The farm shop is open most weekends and stocks whatever has come out of the ground that week, plus local eggs, sourdough from the Balnarring Bakehouse, and seasonal preserves. Twenty minutes here is enough.
 
-### Stop three: Balnarring Bakehouse and Somers General
+### Stop two: Balnarring Bakehouse and Somers General
 
 The next stop is a two-part visit. **Balnarring Bakehouse** is the village bakery  -  sourdough loaves, pastries, the kind of sausage roll that justifies the drive on its own. Pick up bread for tomorrow. Then walk or drive five minutes to the **Somers General** strip  -  a small cluster of producer-style shops at the village edge of Somers, including small-batch jam producers, an olive oil counter, and the General Store itself, which doubles as a wine bar in the afternoons.
 
-### Stop four: Mornington Peninsula Cider or Green Olive at Red Hill
+### Stop three: Mornington Peninsula Cider or Green Olive at Red Hill
 
 Close the loop with one of two options. **Mornington Peninsula Cider** is a small cidery in the lower ridge area that does proper cellar-door tastings and sells a half-dozen ciders and perries that fit the day's mood  -  lighter, more fruit-forward, less heavy than a wine tasting. Or, if you have stamina, drive back up the ridge to **Green Olive at Red Hill**, the working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula.
 
@@ -118,7 +114,7 @@ A producer day works on one practical rule: bring the cooler bag, and use it. Th
 
 ## The takeaway dinner
 
-The right end to a producer day is to take everything you bought home and turn it into dinner. Cheese plate from the ridge dairies. Bread from the bakery. Mussels steamed in white wine if you went the southern route. Strawberries with cream from the Sunny Ridge tub. A bottle from one of the small cellar doors. An olive oil drizzle from Green Olive over whatever vegetable you picked up at Peninsula Fresh.
+The right end to a producer day is to take everything you bought home and turn it into dinner. Cheese plate from the ridge dairies. Bread from the bakery. Strawberries with cream from the Sunny Ridge tub. A bottle from one of the small cellar doors. An olive oil drizzle from Green Olive over whatever vegetable you picked up at Peninsula Fresh.
 
 The argument of the producer day is that this dinner  -  assembled at home, from a single day's drive across the Peninsula  -  is one of the best meals you can make. It is also considerably cheaper than the same dinner would be at a restaurant. And, more importantly, it is the version that captures something the restaurants cannot: the relationship between the landscape and the food, with a name attached to every component.
 
@@ -135,6 +131,6 @@ A short list:
 
 The reason this kind of day is worth writing down is that the Peninsula's reputation as a food region rests almost entirely on what happens in the dining rooms  -  the pinot lunches, the architectural restaurants, the cellar-door tasting menus. All of which are excellent. None of which exist without the layer underneath them.
 
-A producer day is the layer underneath. It is the version of the Peninsula that the dining-room version is built on, and meeting it directly changes how you eat at the dining rooms afterwards. The cheese plate at Tedesca makes more sense after you have stood in the Main Ridge Dairy farm shop. The strawberry dessert at Pt Leo is better when you have already picked the strawberries that morning. The mussels at any seafood-focused dining room are not just an item on the menu after you have seen the ropes coming out of Western Port Bay.
+A producer day is the layer underneath. It is the version of the Peninsula that the dining-room version is built on, and meeting it directly changes how you eat at the dining rooms afterwards. The cheese plate at Tedesca makes more sense after you have stood in the Main Ridge Dairy farm shop. The strawberry dessert at Pt Leo is better when you have already picked the strawberries that morning.
 
 It is also one of the few Peninsula days you can build that feels less like tourism and more like meeting the place. Which is, on any honest reading of what the region is for, the actual point.

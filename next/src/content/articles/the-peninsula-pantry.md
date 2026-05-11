@@ -28,8 +28,6 @@ relatedVenues:
   - "red-hill-cheese"
   - "main-ridge-dairy"
   - "peninsula-fresh-organics"
-  - "hastings-fishermens-coop"
-  - "advance-mussel-supply"
   - "pier-street-seafood"
   - "stringers-mornington"
   - "somers-general"
@@ -48,7 +46,7 @@ faq:
   - question: "What is the best shopping route for Peninsula produce on a Saturday?"
     answer: "In order: Mornington Farmers Market (second Saturday) for protein, eggs, cheese, and oil. Then Flinders Sourdough for bread. One cellar door — Quealy or Ocean Eight. Then Epicurean Red Hill or Merricks General Wine Store for pantry fill-in. Optional: Red Hill Brewery or Bass & Flinders for beer or gin. The full circuit runs about three hours and sets you up for a serious Saturday night dinner in the rental."
   - question: "Where can I buy fresh seafood on the Mornington Peninsula?"
-    answer: "Advance Mussel Supply at the Mornington Farmers Market (second Saturday) for mussels shucked in front of you. Pier Street Seafood in Flinders and Hastings Fishermen's Co-op for fresh fish. At the Farmers Market, arrive by 9am before the best fish sells through — chefs shop here too."
+    answer: "Pier Street Seafood in Flinders for fresh local catch. At the Mornington Farmers Market (second Saturday), oyster and seafood stalls carry excellent product — arrive by 9am before the best fish sells through, as chefs shop here too."
   - question: "Is it worth cooking in a Peninsula rental instead of eating out?"
     answer: "Yes — once per trip at minimum. The region's producers are the same larder the hatted restaurants draw from, and you can access them directly for roughly a third of the restaurant cost. One weekend shopping the markets, cooking a whole chicken, and opening a bottle of pinot you bought from the winemaker is the version of the Peninsula experience the restaurants are filtering for you."
 ---
