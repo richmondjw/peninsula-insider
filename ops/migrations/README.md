@@ -45,6 +45,17 @@ the `tjjhpvslpysfklwpqmgz` project:
      their own `is_editor` flag and walk into the admin.
    - Pins `search_path` on both functions (resolves the
      `function_search_path_mutable` advisor warning for these two).
+5. `2026-05-11-pi-cms-admin-fix-recursion.sql`
+   - Hotfix on top of (4). The strict-allowlist version of
+     `pi.is_cms_admin()` reads `pi.admin_user_allowlist` whose own RLS
+     policy calls `pi.is_cms_admin()` — infinite recursion blew the
+     Postgres stack and Storage uploads 500'd with "stack depth limit
+     exceeded". Both helper functions are now `SECURITY DEFINER` so they
+     bypass RLS on the allowlist table, breaking the cycle.
+   - Also adds `user_saves_update_own` RLS policy on `pi.user_saves`.
+     The CloudSync layer uses `upsert(..., { onConflict })` which can
+     trigger an UPDATE; the previous policy set only allowed
+     INSERT/SELECT/DELETE.
 
 > **Note (2026-05-11):** the original `2026-05-09-pi-cms-admin.sql` declared
 > `unique (entity_type, entity_slug, field_path, coalesce(locale, ''))` as an
