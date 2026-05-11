@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-11T15:10:50.941Z",
+  "run_id": "2026-05-11T20:41:22.701Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 9.3,
-  "git_sha": "7fdcb07",
+  "duration_seconds": 6.3,
+  "git_sha": "99c1575",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -17,33 +17,26 @@
     "editorial_block": 10
   },
   "database": {
-    "chunks_before": 1586,
+    "chunks_before": 1582,
     "chunks_after": 1582
   },
   "delta": {
     "added": 0,
-    "updated": 5,
+    "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1580,
-    "pruned": 4,
+    "unchanged": 1582,
+    "pruned": 0,
     "errors": 0,
     "stale_remaining": 0
   },
   "added_chunk_ids": [],
   "updated_chunk_ids": [
-    "best-spas-mornington-peninsula::body::1",
-    "best-spas-mornington-peninsula::body::2",
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
     "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [
-    "afloat-mornington::practical::0",
-    "afloat-mornington::tags::0",
-    "afloat-mornington::summary::0",
-    "afloat-mornington::editor_note::0"
-  ],
+  "pruned_chunk_ids": [],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
   "embedding_cost_usd_estimate": 0,
