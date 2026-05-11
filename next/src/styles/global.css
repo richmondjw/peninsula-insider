@@ -233,6 +233,25 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .masthead__utility-links a:hover { color: var(--accent); }
 
+/* Small-text Sign in link in the utility row, top-right. */
+.masthead__signin {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+  transition: color .2s var(--ease);
+  flex-shrink: 0;
+}
+.masthead__signin:hover { color: var(--accent); }
+.masthead__signin[hidden] { display: none; }
+
 /* ── Brand row (middle) ── */
 .masthead__brand-inner {
   display: flex;

@@ -35,6 +35,12 @@ const {
           <span class="masthead__edition-mark">{issueMark}</span>
           <span class="masthead__edition-label">{issueLabel}</span>
         </span>
+        <button
+          class="masthead__signin"
+          type="button"
+          data-open-auth
+          data-auth-anonymous
+        >Sign in</button>
       </div>
     </div>
   </div>
@@ -106,13 +112,6 @@ const {
               <line x1="21" y1="21" x2="16.5" y2="16.5" />
             </svg>
           </a>
-          <button class="v4-signin" type="button" aria-label="Sign in to Peninsula Insider" data-open-auth data-auth-anonymous>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-            <span>Sign in</span>
-          </button>
           <a href={v4Utility.ask.href} class="v4-ask-pill" aria-label="Ask PI" data-pi-trigger="true">
             <span class="v4-ask-pill__dot">PI</span>
             Ask PI
