@@ -133,6 +133,33 @@ interface Scene {
 // so the homepage renders identically when no CMS rows are published.
 const coverImageOverride = cmsImage['cover.image'];
 const scenes: Scene[] = [
+  // ── Active cover — swap any scene to [0] to make it live ─────────────────
+  {
+    id: 'flinders-weekend',
+    label: 'THE SLOW SIDE',
+    hours: '7 MIN READ',
+    image: '/images/sourced/home-cover-south-coast-rainbow-01.webp',
+    imageAlt: 'Rainbow over Bushrangers Bay and Cape Schanck headland from the south coast, Bass Strait, Mornington Peninsula',
+    caption: 'Bushrangers Bay, south coast',
+    headline: 'The <em>other</em> Peninsula weekend.',
+    dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.',
+    primaryHref: '/journal/a-flinders-weekend/',
+    primaryLabel: 'Read the piece',
+  },
+  // ── Rotation bench ────────────────────────────────────────────────────────
+  {
+    id: 'late-walks',
+    label: 'THE WALK',
+    hours: '7 MIN READ',
+    image: '/images/sourced/home-cover-back-beach-horses-01.jpg',
+    imageAlt: 'Horses on a Peninsula ocean back beach, Bass Strait in the background',
+    caption: 'Back beach, Bass Strait side',
+    headline: 'When the light <em>starts improving.</em>',
+    dispatch: 'Bushrangers Bay for a full reset. Cape Schanck boardwalk when time is short. Sorrento Back Beach for mood rather than route. The four walks that earn the second drink.',
+    primaryHref: '/journal/the-peninsulas-best-late-afternoon-walks/',
+    primaryLabel: 'Read the piece',
+  },
+  // ── Rotation bench — move any scene to [0] to make it live ─────────────
   {
     id: 'cover',
     label: cmsText['cover.label'] ?? 'THE COVER STORY',
@@ -144,6 +171,18 @@ const scenes: Scene[] = [
     dispatch: cmsText['cover.dispatch'] ?? 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
     primaryHref: cmsText['cover.primaryHref'] ?? '/journal/hatted-restaurants-mornington-peninsula-2025/',
     primaryLabel: cmsText['cover.primaryLabel'] ?? 'Read the cover story',
+  },
+  {
+    id: 'cape-schanck',
+    label: 'THE COMPLETE GUIDE',
+    hours: '8 MIN READ',
+    image: '/images/sourced/home-cover-cape-schanck-rainbow-01.webp',
+    imageAlt: 'Rainbow arching over Bass Strait with the Cape Schanck lighthouse headland, Mornington Peninsula',
+    caption: 'Cape Schanck, Mornington Peninsula National Park',
+    headline: 'The lighthouse at the edge of <em>everything.</em>',
+    dispatch: 'The 1859 limestone lighthouse, the boardwalk to Pulpit Rock, and the walk to Bushrangers Bay. The grounds are free from 6am. Here is the full structure of the day.',
+    primaryHref: '/journal/cape-schanck-guide/',
+    primaryLabel: 'Read the guide',
   },
 ];
 
