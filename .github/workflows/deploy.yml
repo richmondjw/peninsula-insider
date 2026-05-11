@@ -150,6 +150,7 @@ jobs:
             ! -name 'next' \
             ! -name 'docs' \
             ! -name 'ops' \
+            ! -name 'scripts' \
             ! -name 'reports' \
             ! -name 'build-v2.sh' \
             ! -name 'build-live.sh' \
