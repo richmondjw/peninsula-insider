@@ -7,7 +7,7 @@
  * every event carries at least one sentence of opinion.
  */
 import EventBadges from './EventBadges.astro';
-import SaveButton from './SaveButton.astro';
+import PiSaveActions from './PiSaveActions.astro';
 import { eventCategoryLabel, eventDateLabel, routeSlug } from '../lib/editorial';
 
 export interface Props {
@@ -71,6 +71,13 @@ const placeHref = placeId ? `/places/${placeId}/` : null;
   />
   <div class="event-card__actions">
     <a href={`/whats-on/${slug}`} class="event-card__cta">Read the full guide -></a>
-    <SaveButton kind="event" slug={slug} title={event.data.title} href={`/whats-on/${slug}/`} />
   </div>
+  <PiSaveActions
+    kind="event"
+    slug={slug}
+    title={event.data.title}
+    href={`/whats-on/${slug}/`}
+    dek={event.data.summary}
+    imageUrl={event.data.heroImage?.src}
+  />
 </article>

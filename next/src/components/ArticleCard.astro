@@ -5,6 +5,7 @@
  * link on the title), no CTA pill, no hairline divider above the dek.
  */
 import { formatLabel, routeSlug } from '../lib/editorial';
+import PiSaveActions from './PiSaveActions.astro';
 
 export interface Props {
   article: any;
@@ -37,4 +38,13 @@ const readingTime = article.data.readingTimeMinutes;
   </h3>
   {meta && <p class="venue-card__place">{meta}</p>}
   <p class="venue-card__signature">{article.data.dek}</p>
+  <PiSaveActions
+    kind="article"
+    slug={slug}
+    title={article.data.title}
+    href={`${articleBase}/${slug}/`}
+    section={article.data.section ?? 'journal'}
+    dek={article.data.dek}
+    imageUrl={article.data.heroImage?.src}
+  />
 </article>

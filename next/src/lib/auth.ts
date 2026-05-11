@@ -173,29 +173,46 @@ export async function toggleLike(slug: string, section: string, userId: string):
 }
 
 // ---- Saves -----------------------------------------------------------------
+//
+// As of the Wave 1 unification (2026-05-11) the only server-side save store
+// is `pi.user_saves` with a typed `kind` column. The previous code referenced
+// a `pi.article_saves` table that was never created, so signed-in article
+// saves silently failed. These wrappers target the unified table and default
+// `kind` to 'article' for the journal-article surfaces that still call them.
+// New code should prefer the `lib/saves/cloud.ts` helpers, which handle
+// every kind uniformly.
 
-export async function isSavedByUser(slug: string, userId: string): Promise<boolean> {
+export async function isSavedByUser(slug: string, userId: string, kind: string = 'article'): Promise<boolean> {
   const c = getSupabase();
   if (!c) return false;
-  const { data } = await c.from('article_saves').select('article_slug').eq('article_slug', slug).eq('user_id', userId).maybeSingle();
+  const { data } = await c
+    .from('user_saves')
+    .select('slug')
+    .eq('user_id', userId)
+    .eq('kind', kind)
+    .eq('slug', slug)
+    .maybeSingle();
   return !!data;
 }
 
 export async function toggleSave(slug: string, section: string, userId: string, snapshot?: SaveSnapshot): Promise<{ saved: boolean }> {
   const c = getSupabase();
   if (!c) throw new Error('Auth not configured');
-  const saved = await isSavedByUser(slug, userId);
+  const kind = 'article';
+  const saved = await isSavedByUser(slug, userId, kind);
   if (saved) {
-    await c.from('article_saves').delete().match({ user_id: userId, article_slug: slug });
+    await c.from('user_saves').delete().match({ user_id: userId, kind, slug });
     return { saved: false };
   }
-  await c.from('article_saves').insert({
+  await c.from('user_saves').insert({
     user_id: userId,
-    article_slug: slug,
+    kind,
+    slug,
     section,
     title: snapshot?.title || null,
     dek: snapshot?.dek || null,
     image_url: snapshot?.image_url || null,
+    href: `/${section}/${slug}/`,
   });
   return { saved: true };
 }
@@ -203,8 +220,20 @@ export async function toggleSave(slug: string, section: string, userId: string, 
 export async function listSaves(userId: string) {
   const c = getSupabase();
   if (!c) return [];
-  const { data } = await c.from('article_saves').select('*').eq('user_id', userId).order('created_at', { ascending: false });
-  return data || [];
+  const { data } = await c
+    .from('user_saves')
+    .select('*')
+    .eq('user_id', userId)
+    .eq('kind', 'article')
+    .order('saved_at', { ascending: false });
+  // Normalise to the legacy shape the /account/saved/ page expects:
+  // article_slug instead of slug. Phase 4 rewrites that page and removes
+  // this shim.
+  return (data || []).map((row: Record<string, unknown>) => ({
+    ...row,
+    article_slug: row.slug,
+    created_at: row.saved_at,
+  }));
 }
 
 export async function listLikes(userId: string) {

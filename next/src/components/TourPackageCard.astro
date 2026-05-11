@@ -4,6 +4,8 @@
  * Expects a full Astro content-collection entry from `tourPackages`.
  */
 
+import PiSaveActions from './PiSaveActions.astro';
+
 export interface Props {
   pkg: any;
 }
@@ -77,4 +79,12 @@ const priceDisplay = data.priceLow
     {priceDisplay && <p class="tour-card__price" set:html={priceDisplay} />}
     <a href={href} class="tour-card__cta">View package &rarr;</a>
   </div>
+  <PiSaveActions
+    kind="tour-package"
+    slug={slug}
+    title={data.name}
+    href={href}
+    dek={excerpt}
+    imageUrl={data.heroImage?.src}
+  />
 </article>

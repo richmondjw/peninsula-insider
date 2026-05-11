@@ -4,6 +4,8 @@
  * Expects a full Astro content-collection entry from `tours`.
  */
 
+import PiSaveActions from './PiSaveActions.astro';
+
 export interface Props {
   tour: any;
   operatorName?: string;
@@ -86,4 +88,12 @@ const priceDisplay = data.priceLow
     {priceDisplay && <p class="tour-card__price">{priceDisplay}</p>}
     <a href={href} class="tour-card__cta">Read notes &rarr;</a>
   </div>
+  <PiSaveActions
+    kind="tour"
+    slug={slug}
+    title={data.name}
+    href={href}
+    dek={excerpt}
+    imageUrl={data.heroImage?.src}
+  />
 </article>

@@ -25,36 +25,16 @@
 ---
 
 <script>
-  import { getSupabase, isAuthEnabled, onAuthChange, listUserSaves, syncUserSaves, getUserItinerary, syncUserItinerary, listUserAlerts, syncUserAlerts } from '../lib/auth';
-
-  type LocalSaveItem = { slug: string; title?: string; href?: string; savedAt?: number };
-  type LocalSaveStore = { version: 1; venues: LocalSaveItem[]; events: LocalSaveItem[] };
+  import { getSupabase, isAuthEnabled, onAuthChange, getUserItinerary, syncUserItinerary, listUserAlerts, syncUserAlerts } from '../lib/auth';
+  import { installCloudSync, pullFromServer, pushToServer, teardownCloudSync } from '../lib/saves/cloud';
 
   type ItineraryItem = { kind: 'venue' | 'event' | 'experience'; slug: string; dayId?: string; note?: string };
   type ItineraryDay = { id: string; label: string };
   type ItineraryStore = { version: 1; items: ItineraryItem[]; days: ItineraryDay[] };
 
-  const SAVE_KEY = 'pi:saved:v1';
   const ITIN_KEY = 'pi:itinerary:v1';
   const ALERT_KEY = 'pi:alerts:v1';
 
-  function readSave(): LocalSaveStore {
-    try {
-      const raw = localStorage.getItem(SAVE_KEY);
-      if (!raw) return { version: 1, venues: [], events: [] };
-      const p = JSON.parse(raw);
-      return {
-        version: 1,
-        venues: Array.isArray(p?.venues) ? p.venues : [],
-        events: Array.isArray(p?.events) ? p.events : [],
-      };
-    } catch {
-      return { version: 1, venues: [], events: [] };
-    }
-  }
-  function writeSave(s: LocalSaveStore) {
-    try { localStorage.setItem(SAVE_KEY, JSON.stringify(s)); } catch {}
-  }
   function readItinerary(): ItineraryStore {
     try {
       const raw = localStorage.getItem(ITIN_KEY);
@@ -102,7 +82,6 @@
     setStatus('anonymous');
   } else {
     let currentUserId: string | null = null;
-    let saveDebounce: ReturnType<typeof setTimeout> | null = null;
     let itinDebounce: ReturnType<typeof setTimeout> | null = null;
     let alertDebounce: ReturnType<typeof setTimeout> | null = null;
 
@@ -116,26 +95,11 @@
     async function pullFromCloud(userId: string) {
       setStatus('pulling');
       try {
-        const cloudSaves = await listUserSaves(userId);
-        const venues: LocalSaveItem[] = [];
-        const events: LocalSaveItem[] = [];
-        cloudSaves.forEach((row) => {
-          const item: LocalSaveItem = {
-            slug: row.slug,
-            title: row.title ?? undefined,
-            href: row.href ?? undefined,
-            savedAt: new Date(row.saved_at).getTime(),
-          };
-          // 'experience' kind isn't first-class in the Phase 2 SaveSiteController
-          // yet (only venue + event). Carry it on the 'venues' bucket for now;
-          // a follow-up can split into a third bucket when SaveSiteController
-          // grows native experience support.
-          if (row.kind === 'event') events.push(item);
-          else venues.push(item);
-        });
-        writeSave({ version: 1, venues, events });
-        // Tell SaveSiteController to refresh from disk.
-        window.dispatchEvent(new CustomEvent('pi:save-changed', { detail: { source: 'cloud-pull' } }));
+        // Saves: pull every kind into the unified pi:saves:v2 local store
+        // and install the change listener so future local edits mirror up.
+        await pullFromServer(userId);
+        await pushToServer(userId);
+        installCloudSync(userId);
 
         const cloudItin = await getUserItinerary(userId);
         if (cloudItin && cloudItin.items.length > 0) {
@@ -183,16 +147,9 @@
       }
     }
 
-    async function pushSaves() {
-      if (!currentUserId) return;
-      setStatus('pushing');
-      const local = readSave();
-      const flat: Array<{ kind: 'venue' | 'event' | 'experience'; slug: string; title?: string; href?: string; savedAt?: number }> = [];
-      local.venues.forEach((v) => flat.push({ kind: 'venue', slug: v.slug, title: v.title, href: v.href, savedAt: v.savedAt }));
-      local.events.forEach((e) => flat.push({ kind: 'event', slug: e.slug, title: e.title, href: e.href, savedAt: e.savedAt }));
-      const result = await syncUserSaves(currentUserId, flat);
-      setStatus(result.ok ? 'synced' : 'error');
-    }
+    // pushSaves is handled inline by lib/saves/cloud.ts (installCloudSync
+    // attaches a change listener that mirrors every local edit to the
+    // server). No explicit batch-push is needed from this component.
 
     async function pushItinerary() {
       if (!currentUserId) return;
@@ -225,25 +182,15 @@
       alertDebounce = setTimeout(() => { pushAlerts(); alertDebounce = null; }, 600);
     }
 
-    function scheduleSaveSync() {
-      if (!currentUserId) return;
-      if (saveDebounce) clearTimeout(saveDebounce);
-      saveDebounce = setTimeout(() => { pushSaves(); saveDebounce = null; }, 600);
-    }
-
     function scheduleItinerarySync() {
       if (!currentUserId) return;
       if (itinDebounce) clearTimeout(itinDebounce);
       itinDebounce = setTimeout(() => { pushItinerary(); itinDebounce = null; }, 600);
     }
 
-    // Listen for local-store events. Skip when the change came from a
-    // cloud pull (we don't want to push back what we just pulled).
-    window.addEventListener('pi:save-changed', (e: Event) => {
-      const detail = (e as CustomEvent).detail || {};
-      if (detail.source === 'cloud-pull') return;
-      scheduleSaveSync();
-    });
+    // Saves change events are handled by lib/saves/cloud.ts directly via
+    // the installed onChange listener; this component only owns itinerary
+    // and alerts sync now.
     window.addEventListener('pi:itinerary-changed', (e: Event) => {
       const detail = (e as CustomEvent).detail || {};
       if (detail.source === 'cloud-pull') return;
@@ -262,7 +209,7 @@
         pullFromCloud(user.id);
       } else {
         currentUserId = null;
-        if (saveDebounce) { clearTimeout(saveDebounce); saveDebounce = null; }
+        teardownCloudSync();
         if (itinDebounce) { clearTimeout(itinDebounce); itinDebounce = null; }
         if (alertDebounce) { clearTimeout(alertDebounce); alertDebounce = null; }
         setStatus('anonymous');

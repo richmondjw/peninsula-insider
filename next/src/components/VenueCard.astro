@@ -8,7 +8,7 @@
 
 import { resolveHeroSrc } from '../lib/editorial';
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
-import SaveButton from './SaveButton.astro';
+import PiSaveActions from './PiSaveActions.astro';
 
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
@@ -84,11 +84,18 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     {data.bookingUrl && data.bookingProvider !== 'none' && (
       <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="venue-card__book" onClick={(e: any) => e.stopPropagation()}>Book</a>
     )}
-    <SaveButton kind="venue" slug={slug} title={data.name} href={href} />
   </div>
   {data.featuredPartner && (
     <p class="venue-card__partner-note">Partner venue</p>
   )}
+  <PiSaveActions
+    kind="venue"
+    slug={slug}
+    title={data.name}
+    href={href}
+    dek={data.signature}
+    imageUrl={heroSrc}
+  />
 </article>
 
 <style>
