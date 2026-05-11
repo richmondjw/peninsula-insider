@@ -41,13 +41,13 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
       <a href={`/places/${slug}`}>{data.name}</a>
     </h3>
     <p class="place-card__intro">{data.intro}</p>
+    <PiSaveActions
+      kind="place"
+      slug={slug}
+      title={data.name}
+      href={`/places/${slug}/`}
+      dek={data.intro}
+      imageUrl={heroSrc}
+    />
   </div>
-  <PiSaveActions
-    kind="place"
-    slug={slug}
-    title={data.name}
-    href={`/places/${slug}/`}
-    dek={data.intro}
-    imageUrl={heroSrc}
-  />
 </article>

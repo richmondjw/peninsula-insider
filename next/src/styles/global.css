@@ -1439,6 +1439,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .place-card .pi-actions {
   position: relative;
   z-index: 1;
+  margin-top: 1rem;
 }
 .place-card__intro {
   font-size: 0.9rem;
