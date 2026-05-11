@@ -37,6 +37,9 @@ let toastTimer: ReturnType<typeof setTimeout> | null = null;
  * One-time setup: verify session + allowlist, install event delegation.
  * Called once per page load (and again after Astro view transitions, but
  * the inner logic is idempotent).
+ *
+ * Also kicks off `applyOverridesOnLoad()` for every visitor — admin or
+ * not — so published image replacements appear without a site rebuild.
  */
 export async function bootInlineEditor(): Promise<void> {
   if (typeof document === 'undefined') return;
@@ -44,6 +47,11 @@ export async function bootInlineEditor(): Promise<void> {
 
   const supa = getSupabase();
   if (!supa) return;
+
+  // Patch published overrides for everyone. Fire-and-forget — RLS gates
+  // reads to status='published' rows, so anon visitors get the same view
+  // as admins (just without the editing chrome).
+  void applyOverridesOnLoad();
 
   const { data: { session } } = await supa.auth.getSession();
   if (!session) { ensureToggleRemoved(); return; }
@@ -146,12 +154,27 @@ function onDocumentClick(event: MouseEvent) {
 function onContextMenu(event: MouseEvent) {
   if (!editMode) return;
 
-  const el = (event.target as HTMLElement | null)?.closest<HTMLElement>('[data-pi-edit="image"]');
+  const target = event.target as HTMLElement | null;
+  if (!target) return;
+
+  // 1. Explicitly tagged image surface (background-image div, picture, etc).
+  let el: HTMLElement | null = target.closest<HTMLElement>('[data-pi-edit="image"]');
+
+  // 2. Otherwise any <img> on the page becomes universally editable —
+  //    auto-derives entity_slug from URL, field_path from src basename.
+  if (!el && target.tagName === 'IMG') el = target;
+  if (!el && target.tagName === 'IMG' === false) {
+    // Nested case — clicking the image's wrapping link/figure.
+    const nested = target.closest<HTMLElement>('a, figure, picture, div');
+    const img = nested?.querySelector('img');
+    if (img) el = img as HTMLElement;
+  }
+
   if (!el) return;
 
   event.preventDefault();
   event.stopPropagation();
-  openImageMenu(el, event.clientX, event.clientY);
+  openImagePanel(el, event.clientX, event.clientY);
 }
 
 function onKeyDown(event: KeyboardEvent) {
@@ -309,46 +332,8 @@ function stripHtml(html: string): string {
 }
 
 // --------------------------------------------------------------------------
-// Image editing (right-click menu)
+// Image editing — popover panel
 // --------------------------------------------------------------------------
-
-function openImageMenu(el: HTMLElement, x: number, y: number) {
-  closeMenu();
-  menuEl = document.createElement('div');
-  menuEl.className = 'pi-edit-menu';
-  menuEl.style.left = `${Math.min(x, window.innerWidth - 220)}px`;
-  menuEl.style.top = `${Math.min(y, window.innerHeight - 200)}px`;
-
-  const items: Array<{ label: string; danger?: boolean; onSelect: () => void; sep?: boolean }> = [
-    { label: 'Replace image…', onSelect: () => triggerImageReplace(el) },
-    { label: 'Edit alt text', onSelect: () => editImageMeta(el, 'alt') },
-    { label: 'Edit caption', onSelect: () => editImageMeta(el, 'caption') },
-    { label: 'Edit credit',  onSelect: () => editImageMeta(el, 'credit'), sep: true },
-    { label: 'Cancel', onSelect: closeMenu },
-  ];
-
-  for (const item of items) {
-    if (item.sep) {
-      const sep = document.createElement('div');
-      sep.className = 'pi-edit-menu__sep';
-      menuEl.appendChild(sep);
-    }
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'pi-edit-menu__item';
-    if (item.danger) btn.classList.add('pi-edit-menu__item--danger');
-    btn.textContent = item.label;
-    btn.addEventListener('click', () => { closeMenu(); item.onSelect(); });
-    menuEl.appendChild(btn);
-  }
-
-  document.body.appendChild(menuEl);
-}
-
-function closeMenu() {
-  menuEl?.remove();
-  menuEl = null;
-}
 
 interface ImageDescriptor {
   entityType: string;
@@ -356,21 +341,241 @@ interface ImageDescriptor {
   fieldPath: string;
   label: string;
   purpose: 'hero' | 'card' | 'gallery' | 'inline' | 'seo';
+  /** True when the element was auto-detected rather than explicitly tagged. */
+  autoDetected: boolean;
+}
+
+/**
+ * Slugify the current URL path into an entity_slug. Drops leading/trailing
+ * slashes, replaces `/` with `-`, lowercases. The root `/` becomes 'home'.
+ *
+ *   '/'                       → 'home'
+ *   '/eat/best-restaurants/'  → 'eat-best-restaurants'
+ *   '/journal/the-cover/'     → 'journal-the-cover'
+ */
+function currentPageSlug(): string {
+  const path = (typeof location !== 'undefined' ? location.pathname : '/').replace(/^\/+|\/+$/g, '');
+  if (path.length === 0) return 'home';
+  return path.toLowerCase().replace(/[^a-z0-9/_-]/g, '-').replace(/\//g, '-');
+}
+
+/**
+ * Stable identifier for an unmarked image — derived from the basename of its
+ * src so the same source file gets the same key everywhere it appears on a
+ * given page. Strips query strings, decodes URI-encoded chars, lowercases.
+ */
+function srcBasename(src: string | null | undefined): string {
+  if (!src) return 'unknown';
+  let s = src.split('?')[0];
+  try { s = decodeURIComponent(s); } catch {}
+  const file = s.split('/').filter(Boolean).pop() || 'unknown';
+  return file.toLowerCase().replace(/[^a-z0-9._-]/g, '-');
 }
 
 function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
-  const entityType = el.dataset.piEntityType;
-  const entitySlug = el.dataset.piEntitySlug;
-  const fieldPath = el.dataset.piFieldPath;
-  const label = el.dataset.piLabel || fieldPath || '';
-  const purpose = (el.dataset.piPurpose || 'hero') as ImageDescriptor['purpose'];
-  if (!entityType || !entitySlug || !fieldPath) return null;
-  return { entityType, entitySlug, fieldPath, label, purpose };
+  const explicitType = el.dataset.piEntityType;
+  const explicitSlug = el.dataset.piEntitySlug;
+  const explicitPath = el.dataset.piFieldPath;
+  const explicitLabel = el.dataset.piLabel;
+  const purpose = (el.dataset.piPurpose || 'inline') as ImageDescriptor['purpose'];
+
+  if (explicitType && explicitSlug && explicitPath) {
+    return {
+      entityType: explicitType,
+      entitySlug: explicitSlug,
+      fieldPath: explicitPath,
+      label: explicitLabel || explicitPath,
+      purpose,
+      autoDetected: false,
+    };
+  }
+
+  // Auto-derive for untagged images. Only `<img>` elements have src; for
+  // background-image divs the caller must tag explicitly.
+  if (el.tagName !== 'IMG') return null;
+  const img = el as HTMLImageElement;
+  const src = img.currentSrc || img.src;
+  const basename = srcBasename(src);
+  return {
+    entityType: 'page',
+    entitySlug: currentPageSlug(),
+    fieldPath: `img:${basename}`,
+    label: img.alt || basename,
+    purpose: 'inline',
+    autoDetected: true,
+  };
 }
 
-function triggerImageReplace(el: HTMLElement) {
+/**
+ * Floating image-edit popover. Replaces the old context-menu list with a
+ * proper editor panel: thumbnail preview, replace button, and inline
+ * fields for alt / caption / credit. Save commits all dirty fields at once.
+ */
+function openImagePanel(el: HTMLElement, x: number, y: number) {
+  closeMenu();
   const desc = readImageDescriptor(el);
   if (!desc) return;
+
+  const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
+  const thumbSrc = img?.currentSrc || img?.src || '';
+
+  menuEl = document.createElement('div');
+  menuEl.className = 'pi-edit-panel';
+  // Position the panel near the click but clamp into viewport.
+  const PANEL_W = 320, PANEL_H = 420;
+  menuEl.style.left = `${Math.max(8, Math.min(x, window.innerWidth - PANEL_W - 8))}px`;
+  menuEl.style.top  = `${Math.max(8, Math.min(y, window.innerHeight - PANEL_H - 8))}px`;
+
+  menuEl.innerHTML = `
+    <div class="pi-edit-panel__head">
+      <div class="pi-edit-panel__thumb" style="background-image: url(${cssUrl(thumbSrc)})"></div>
+      <div class="pi-edit-panel__title">
+        <div class="pi-edit-panel__label">${escapeHtml(desc.label)}</div>
+        <div class="pi-edit-panel__sub">${desc.autoDetected ? 'Auto-detected image' : 'Tagged image slot'}</div>
+      </div>
+      <button type="button" class="pi-edit-panel__close" aria-label="Close">×</button>
+    </div>
+    <button type="button" class="pi-edit-panel__replace" data-action="replace">
+      <span aria-hidden="true">⇪</span> Replace image…
+    </button>
+    <div class="pi-edit-panel__fields">
+      <label class="pi-edit-panel__field">
+        <span>Alt text</span>
+        <input type="text" data-field="alt" />
+      </label>
+      <label class="pi-edit-panel__field">
+        <span>Caption</span>
+        <input type="text" data-field="caption" />
+      </label>
+      <label class="pi-edit-panel__field">
+        <span>Credit</span>
+        <input type="text" data-field="credit" />
+      </label>
+    </div>
+    <div class="pi-edit-panel__foot">
+      <button type="button" class="pi-edit-panel__btn pi-edit-panel__btn--ghost" data-action="cancel">Cancel</button>
+      <button type="button" class="pi-edit-panel__btn pi-edit-panel__btn--primary" data-action="save">Save changes</button>
+    </div>
+  `;
+  document.body.appendChild(menuEl);
+
+  // Hydrate the inputs with the current row, if one exists.
+  void hydratePanel(menuEl, desc);
+
+  // Wire the action buttons.
+  menuEl.addEventListener('click', (e) => {
+    const action = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-action]')?.dataset.action;
+    if (!action) return;
+    if (action === 'replace') triggerImageReplace(el, desc);
+    if (action === 'cancel')  closeMenu();
+    if (action === 'save')    void savePanelMeta(menuEl!, el, desc);
+  });
+  menuEl.querySelector('.pi-edit-panel__close')?.addEventListener('click', closeMenu);
+}
+
+function cssUrl(src: string): string {
+  return src.replace(/["\\]/g, (m) => `\\${m}`);
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
+}
+
+async function hydratePanel(panel: HTMLElement, desc: ImageDescriptor) {
+  const supa = getSupabase();
+  if (!supa) return;
+
+  const { data } = await supa
+    .from('cms_image_slots')
+    .select('alt_text, caption, credit')
+    .eq('entity_type', desc.entityType)
+    .eq('entity_slug', desc.entitySlug)
+    .eq('field_path', desc.fieldPath)
+    .maybeSingle();
+
+  const row = data as { alt_text: string | null; caption: string | null; credit: string | null } | null;
+  if (!row) return;
+
+  const altInput     = panel.querySelector<HTMLInputElement>('input[data-field="alt"]');
+  const captionInput = panel.querySelector<HTMLInputElement>('input[data-field="caption"]');
+  const creditInput  = panel.querySelector<HTMLInputElement>('input[data-field="credit"]');
+  if (altInput && row.alt_text)    altInput.value     = row.alt_text;
+  if (captionInput && row.caption) captionInput.value = row.caption;
+  if (creditInput && row.credit)   creditInput.value  = row.credit;
+}
+
+async function savePanelMeta(panel: HTMLElement, el: HTMLElement, desc: ImageDescriptor) {
+  const supa = getSupabase();
+  if (!supa) return toast('Supabase not configured.', 'err');
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) return toast('Signed out.', 'err');
+
+  const altText = panel.querySelector<HTMLInputElement>('input[data-field="alt"]')?.value ?? null;
+  const caption = panel.querySelector<HTMLInputElement>('input[data-field="caption"]')?.value ?? null;
+  const credit  = panel.querySelector<HTMLInputElement>('input[data-field="credit"]')?.value ?? null;
+
+  const { data: existing } = await supa
+    .from('cms_image_slots')
+    .select('id, public_url, storage_path')
+    .eq('entity_type', desc.entityType)
+    .eq('entity_slug', desc.entitySlug)
+    .eq('field_path', desc.fieldPath)
+    .maybeSingle();
+
+  const patch: Record<string, unknown> = {
+    alt_text: altText || null,
+    caption:  caption || null,
+    credit:   credit || null,
+    status:   'published',
+    updated_by: session.user.id,
+  };
+
+  if (existing?.id) {
+    const { error } = await supa.from('cms_image_slots').update(patch).eq('id', existing.id);
+    if (error) return toast(`Save failed: ${error.message}`, 'err');
+  } else {
+    // Create a slot row carrying metadata only (no upload yet).
+    const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
+    const row = {
+      entity_type: desc.entityType,
+      entity_slug: desc.entitySlug,
+      field_path:  desc.fieldPath,
+      label:       desc.label,
+      purpose:     desc.purpose,
+      storage_bucket: STORAGE_BUCKET,
+      storage_path:   null,
+      public_url:     img?.src ?? null,
+      ...patch,
+    };
+    const { error } = await supa.from('cms_image_slots').insert(row);
+    if (error) return toast(`Save failed: ${error.message}`, 'err');
+  }
+
+  // Reflect alt in the DOM.
+  const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
+  if (img && altText) img.alt = altText;
+
+  await recordRevision(supa, session.user.id, {
+    entity_type: desc.entityType,
+    entity_slug: desc.entitySlug,
+    action: 'update',
+    status: 'published',
+    summary: `Edited metadata for "${desc.label}"`,
+    patch: [{ op: 'set', target: `${desc.fieldPath}.meta`, value: { altText, caption, credit } }],
+  });
+
+  toast(`Saved "${desc.label}".`, 'ok');
+  closeMenu();
+}
+
+function closeMenu() {
+  menuEl?.remove();
+  menuEl = null;
+}
+
+function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
+  const d = desc ?? readImageDescriptor(el);
+  if (!d) return;
 
   const input = document.createElement('input');
   input.type = 'file';
@@ -381,7 +586,8 @@ function triggerImageReplace(el: HTMLElement) {
     const file = input.files?.[0];
     input.remove();
     if (!file) return;
-    await replaceImage(el, desc, file);
+    closeMenu();
+    await replaceImage(el, d, file);
   }, { once: true });
   document.body.appendChild(input);
   input.click();
@@ -466,73 +672,50 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
   }
 }
 
-async function editImageMeta(el: HTMLElement, field: 'alt' | 'caption' | 'credit') {
-  const desc = readImageDescriptor(el);
-  if (!desc) return;
+// --------------------------------------------------------------------------
+// Client-side override patcher
+// --------------------------------------------------------------------------
+
+/**
+ * After every page load, fetch any published image overrides for the current
+ * page slug and patch matching `<img>` srcs in place. Lets auto-detected
+ * image replacements appear without a site rebuild.
+ *
+ * The match is by src basename — the same stable key the editor uses when
+ * saving an override. Only `entity_type='page', entity_slug=currentPageSlug()`
+ * rows are considered.
+ */
+async function applyOverridesOnLoad() {
   const supa = getSupabase();
-  if (!supa) return toast('Supabase not configured.', 'err');
+  if (!supa) return;
 
-  const { data: { session } } = await supa.auth.getSession();
-  if (!session) return toast('Signed out.', 'err');
-
-  const { data: existing } = await supa
+  const entitySlug = currentPageSlug();
+  const { data } = await supa
     .from('cms_image_slots')
-    .select('id, alt_text, caption, credit')
-    .eq('entity_type', desc.entityType)
-    .eq('entity_slug', desc.entitySlug)
-    .eq('field_path', desc.fieldPath)
-    .maybeSingle();
+    .select('field_path, public_url, alt_text')
+    .eq('entity_type', 'page')
+    .eq('entity_slug', entitySlug)
+    .eq('status', 'published');
 
-  const column = field === 'alt' ? 'alt_text' : field;
-  const currentValue = existing ? (existing as Record<string, string | null>)[column] ?? '' : '';
-  const next = window.prompt(`${labelFor(field)} for "${desc.label}":`, currentValue);
-  if (next === null) return;
+  const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
+  if (rows.length === 0) return;
 
-  const patch: Record<string, unknown> = { [column]: next, updated_by: session.user.id, status: 'published' };
+  // Build a lookup: field_path → row. Only auto-keyed entries patch <img>s.
+  const byPath = new Map(rows.map((r) => [r.field_path, r]));
 
-  if (existing?.id) {
-    const { error } = await supa.from('cms_image_slots').update(patch).eq('id', existing.id);
-    if (error) return toast(`Save failed: ${error.message}`, 'err');
-  } else {
-    // Need to create a slot first; this happens when no image was uploaded yet.
-    const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
-    const row = {
-      entity_type: desc.entityType,
-      entity_slug: desc.entitySlug,
-      field_path: desc.fieldPath,
-      label: desc.label,
-      purpose: desc.purpose,
-      storage_bucket: STORAGE_BUCKET,
-      storage_path: null,
-      public_url: img?.src ?? null,
-      [column]: next,
-      status: 'published' as const,
-      updated_by: session.user.id,
-    };
-    const { error } = await supa.from('cms_image_slots').insert(row);
-    if (error) return toast(`Save failed: ${error.message}`, 'err');
-  }
+  document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
+    // Skip images that are already explicitly tagged — their server-side
+    // rendering already consulted overrides via loadOverrides().
+    if (img.closest('[data-pi-edit]')) return;
 
-  // Reflect in DOM where reasonable.
-  if (field === 'alt') {
-    const img = el.tagName === 'IMG' ? (el as HTMLImageElement) : el.querySelector('img');
-    if (img) img.alt = next;
-  }
+    const basename = srcBasename(img.currentSrc || img.src);
+    const row = byPath.get(`img:${basename}`);
+    if (!row || !row.public_url) return;
+    if (img.src === row.public_url) return;
 
-  await recordRevision(supa, session.user.id, {
-    entity_type: desc.entityType,
-    entity_slug: desc.entitySlug,
-    action: 'update',
-    status: 'published',
-    summary: `Edited ${labelFor(field)} for "${desc.label}"`,
-    patch: [{ op: 'set', target: `${desc.fieldPath}.${column}`, value: next }],
+    img.src = row.public_url;
+    if (row.alt_text) img.alt = row.alt_text;
   });
-
-  toast(`${labelFor(field)} saved.`, 'ok');
-}
-
-function labelFor(field: 'alt' | 'caption' | 'credit'): string {
-  return field === 'alt' ? 'Alt text' : field === 'caption' ? 'Caption' : 'Credit';
 }
 
 // --------------------------------------------------------------------------

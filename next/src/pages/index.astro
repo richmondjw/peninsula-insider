@@ -330,9 +330,18 @@ const ssrScene = scenes[0];
     <section class="places places--compact">
       <div class="container">
         <div class="places__header">
-          <p class="label label--accent places__label">Know the terrain</p>
-          <h2 class="places__title">The Peninsula, place by place</h2>
-          <p class="places__sub">Six towns that organise the region — ridge, coast, and bay.</p>
+          <p
+            class="label label--accent places__label"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.label', label: 'Places eyebrow' })}
+          >{cmsText['places.label'] ?? 'Know the terrain'}</p>
+          <h2
+            class="places__title"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.title', label: 'Places title' })}
+          >{cmsText['places.title'] ?? 'The Peninsula, place by place'}</h2>
+          <p
+            class="places__sub"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.sub', label: 'Places sub' })}
+          >{cmsText['places.sub'] ?? 'Six towns that organise the region — ridge, coast, and bay.'}</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
@@ -354,8 +363,14 @@ const ssrScene = scenes[0];
       <div class="container">
         <div class="hp-picks__head">
           <div>
-            <p class="label label--accent">This week's edit</p>
-            <h2 class="hp-picks__title">Three reasons to go</h2>
+            <p
+              class="label label--accent"
+              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'picks.label', label: 'Picks eyebrow' })}
+            >{cmsText['picks.label'] ?? "This week's edit"}</p>
+            <h2
+              class="hp-picks__title"
+              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'picks.title', label: 'Picks title' })}
+            >{cmsText['picks.title'] ?? 'Three reasons to go'}</h2>
           </div>
           <a href="/journal/" class="venues__link">Read all →</a>
         </div>
@@ -401,9 +416,18 @@ const ssrScene = scenes[0];
     <section class="hp-plans">
       <div class="container">
         <div class="hp-plans__head">
-          <p class="label label--accent">The Plans</p>
-          <h2 class="hp-plans__title">Or take the whole weekend.</h2>
-          <p class="hp-plans__sub">Three editorial itineraries — built around a single anchor stay, paced for the way the Peninsula actually works.</p>
+          <p
+            class="label label--accent"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.label', label: 'Plans eyebrow' })}
+          >{cmsText['plans.label'] ?? 'The Plans'}</p>
+          <h2
+            class="hp-plans__title"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.title', label: 'Plans title' })}
+          >{cmsText['plans.title'] ?? 'Or take the whole weekend.'}</h2>
+          <p
+            class="hp-plans__sub"
+            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.sub', label: 'Plans sub' })}
+          >{cmsText['plans.sub'] ?? 'Three editorial itineraries — built around a single anchor stay, paced for the way the Peninsula actually works.'}</p>
         </div>
         <div class="hp-plans__grid">
           {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
