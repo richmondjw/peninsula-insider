@@ -80,7 +80,7 @@ const utilityCards = [
     </div>
   </section>
 
-  <section class="venues">
+  <section class="venues dog-hub-cards">
     <div class="container">
       <div class="venues__header">
         <div>
@@ -124,4 +124,76 @@ const utilityCards = [
     title="Dog-friendly Peninsula picks in your inbox"
     body="Useful beaches, stays, long lunches and practical weekend logic, without the generic pet-travel fluff."
   />
+
+  <style>
+    /* Dog hub cards are text-only guide cards, not venue cards with image/top
+       metadata. The shared .venue-card system assumes a .venue-card__top or
+       hero appears before the title, so the first-child title was sitting too
+       high and the CTA was visually overweight on mobile. Scope the correction
+       here so normal venue listings keep their existing rhythm. */
+    .dog-hub-cards .venue-card {
+      padding: clamp(1.25rem, 4vw, 1.75rem);
+    }
+
+    .dog-hub-cards .venue-card > .venue-card__name,
+    .dog-hub-cards .venue-card > .venue-card__signature,
+    .dog-hub-cards .venue-card > .venue-card__cta {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Hide the 5px gold top-accent bar that .venue-card::before draws.
+       These are text-only guide cards (no hero image), so the bar visually
+       crowds the title and looks like a clipped underline on mobile.
+       Mirrors the existing .venues__grid--links .venue-card::before pattern. */
+    .dog-hub-cards .venue-card::before {
+      display: none;
+    }
+
+    .dog-hub-cards .venue-card__name {
+      margin: 0 0 0.75rem;
+      padding-top: 0.35rem;
+      font-size: clamp(1.55rem, 6.4vw, 2rem);
+      line-height: 1.08;
+      letter-spacing: -0.012em;
+    }
+
+    .dog-hub-cards .venue-card__signature {
+      padding-top: 0.85rem;
+      margin-bottom: 1.15rem;
+      border-top: 1px solid rgba(121, 92, 58, 0.14);
+    }
+
+    .dog-hub-cards .venue-card__cta {
+      width: 100%;
+      min-height: 3.25rem;
+      padding: 0.82rem 1rem;
+    }
+
+    @media (max-width: 760px) {
+      .dog-hub-cards {
+        padding-top: 2.75rem;
+      }
+
+      .dog-hub-cards .venues__grid,
+      .dog-hub-cards .venues__grid--two {
+        gap: 1.25rem;
+      }
+
+      .dog-hub-cards .venue-card {
+        border-radius: 1.2rem;
+      }
+
+      .dog-hub-cards .venue-card__name {
+        font-size: clamp(1.5rem, 6.2vw, 1.85rem);
+        line-height: 1.1;
+      }
+
+      .dog-hub-cards .venue-card__cta {
+        min-height: 3rem;
+        padding: 0.78rem 1rem;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
 </BaseLayout>
