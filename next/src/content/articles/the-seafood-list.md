@@ -12,7 +12,6 @@ heroImage:
 format: "insider-edit"
 tags: ["eat", "seafood", "bayside", "hastings", "mornington", "sorrento", "flinders"]
 relatedVenues:
-  - "hastings-fishermens-coop"
   - "pier-street-seafood"
   - "pier-street-flinders"
   - "flinders-pier-takeaway"
@@ -43,9 +42,9 @@ clusterLinks:
     href: "/journal/a-flinders-weekend/"
 faq:
   - question: "Where do I buy fresh seafood on the Mornington Peninsula?"
-    answer: "Hastings Fishermen's Co-op for whatever came off the boats that morning - flathead, snapper, calamari, sometimes crayfish in season. Pier Street Seafood in Flinders for fish when the local fleet has been out. Both are dock-side operations selling to locals and commercial kitchens, not tourist fish-and-chip shops."
+    answer: "Pier Street Seafood in Flinders for fish when the local fleet has been out - flathead, snapper, calamari in season. A dock-side operation selling to locals and commercial kitchens, not a tourist fish-and-chip shop."
   - question: "Where is the best fish and chips on the Mornington Peninsula?"
-    answer: "Flinders Pier Takeaway — fresh fish, hot chips, seats outside on the pier, boats below you, Bass Strait behind. Hastings Fishermen's Co-op also has an excellent beer-battered flathead counter. Both are legitimately fresh because the supply chain is measured in minutes rather than days."
+    answer: "Flinders Pier Takeaway — fresh fish, hot chips, seats outside on the pier, boats below you, Bass Strait behind. Legitimately fresh because the supply chain is measured in minutes rather than days."
   - question: "What seafood is in season on the Mornington Peninsula?"
     answer: "Summer: snapper, calamari, King George whiting, excellent oysters. Autumn: flathead, outstanding mussels, crayfish begins. Winter: mussel peak — cold water produces sweeter, meatier product; flathead reliable; restaurant menus lean into chowder and bouillabaisse. Spring: broad variety, garfish, calamari returns, oysters begin their summer run."
 ---
@@ -53,14 +52,6 @@ faq:
 The Mornington Peninsula's food identity is pinot and long lunches, and that identity is accurate but incomplete. The Peninsula is a literal peninsula  -  water on three sides, commercial fishing out of Hastings, Mornington, and Flinders, mussel farms in Western Port Bay, oyster beds in the channel. The seafood exists at a level that most visitors never encounter because they are driving past the docks on the way to a cellar door.
 
 This is the seafood list. Not every restaurant that serves fish  -  the entire Peninsula serves fish  -  but the specific places where the seafood is the reason you go, and where the supply chain between water and plate is short enough that you can taste the difference.
-
-## The source: Hastings and Western Port
-
-### Hastings Fishermen's Co-op
-
-The **Hastings Fishermen's Co-op** is the working waterfront. The building sits on the pier above the fishing fleet, and the counter sells whatever came off the boats that morning  -  flathead, snapper, calamari, sometimes crayfish in season. There is a small takeaway window for fish and chips that are legitimately excellent: beer-battered flathead, hand-cut chips, eaten on the pier with the boats below you.
-
-This is not a dining experience. It is a supply experience. Come here to buy fish to cook at your rental, or to eat a box of chips standing up. Either version is one of the best things you can do on the Peninsula.
 
 ## The pier-side plates
 
@@ -117,7 +108,7 @@ The Peninsula's seafood calendar runs roughly like this:
 
 | If you want… | Go to… |
 |---|---|
-| The freshest fish to cook yourself | Hastings Fishermen's Co-op |
+| The freshest fish to cook yourself | Pier Street Seafood, Flinders |
 | Fish and chips on a pier | Flinders Pier Takeaway |
 | A proper seafood lunch | The Baths, Sorrento |
 | Seafood with serious wine | Rocker, Mornington |
