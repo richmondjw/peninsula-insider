@@ -33,9 +33,21 @@ import '../../styles/account.css';
           </svg>
           Share this plan
         </button>
+        <button type="button" class="saved-toolbar__btn saved-toolbar__btn--ghost" data-action="print-plan">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
+          Print
+        </button>
         <button type="button" class="saved-toolbar__btn saved-toolbar__btn--ghost" data-action="clear-plan">
           Clear all
         </button>
+      </div>
+      <div class="saved-print-mast" aria-hidden="true">
+        <span class="saved-print-mast__brand">Peninsula <em>Insider</em></span>
+        <span class="saved-print-mast__tag">My Peninsula plan · the independent editorial guide</span>
       </div>
 
       <div data-saved-groups class="saved-groups"></div>
@@ -172,6 +184,12 @@ import '../../styles/account.css';
       if (action === 'clear-plan') {
         if (!confirm('Clear every saved item? This can\'t be undone.')) return;
         Saves.clear();
+      }
+
+      if (action === 'print-plan') {
+        // Browser-native print pipeline. The @media print rules below strip
+        // chrome and render a one-pager that prints cleanly or saves as PDF.
+        window.print();
       }
     });
 
@@ -415,5 +433,107 @@ import '../../styles/account.css';
   .saved-toast--visible {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+  }
+
+  /* Print masthead is shown only on paper. The screen layout has its own
+     masthead higher up in the page. */
+  .saved-print-mast { display: none; }
+
+  @media print {
+    /* Hide everything that isn't the plan content. */
+    .masthead,
+    footer,
+    nav,
+    .v4-mobile-actions,
+    .pi-edit-toggle,
+    [data-pi-actions],
+    [data-pi-article-actions],
+    [data-pi-article-sticky],
+    .saved-toolbar,
+    .saved-toast,
+    .v2-account-page__nav,
+    .saved-card__remove,
+    .v2-account-page__lead {
+      display: none !important;
+    }
+
+    body, html { background: #fff !important; color: #000 !important; }
+    .v2-account-page { padding: 0 !important; min-height: 0 !important; background: #fff !important; }
+    .v2-account-page__container { max-width: 100% !important; padding: 0 1.5rem !important; }
+
+    .v2-account-page__eyebrow { font-size: 0.6rem !important; color: #6e655c !important; margin: 0 0 0.3rem !important; }
+    .v2-account-page__title { font-size: 1.6rem !important; margin: 0 0 1rem !important; }
+    .v2-account-page__title em { color: #a0541f !important; }
+
+    .saved-print-mast {
+      display: flex !important;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 0 1rem;
+      border-bottom: 1px solid #d9d1be;
+      margin-bottom: 1.5rem;
+    }
+
+    .saved-print-mast__brand {
+      font-family: var(--serif, 'Newsreader', Georgia, serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    .saved-print-mast__brand em {
+      font-style: italic;
+      color: #a0541f;
+      font-weight: 300;
+    }
+    .saved-print-mast__tag {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6e655c;
+    }
+
+    .saved-groups { gap: 1.2rem !important; }
+    .saved-group__head { margin: 0 0 0.5rem !important; }
+    .saved-group__title { font-size: 0.95rem !important; }
+    .saved-group__eyebrow { color: #a0541f !important; }
+    .saved-group__count { color: #6e655c !important; }
+
+    .saved-group__grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 0.5rem !important;
+    }
+
+    .saved-card {
+      grid-template-columns: 3.5rem 1fr !important;
+      gap: 0.65rem !important;
+      padding: 0.5rem !important;
+      border: 1px solid #d9d1be !important;
+      box-shadow: none !important;
+      transform: none !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .saved-card:hover {
+      border-color: #d9d1be !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    .saved-card__img {
+      aspect-ratio: 1 !important;
+      border-radius: 2px !important;
+    }
+    .saved-card__title { font-size: 0.78rem !important; margin: 0 0 0.2rem !important; }
+    .saved-card__dek { font-size: 0.65rem !important; -webkit-line-clamp: 2 !important; line-clamp: 2 !important; }
+    .saved-card__eyebrow { font-size: 0.5rem !important; }
+
+    /* Print URL after the title so a reader can re-find the page later. */
+    .saved-card::after {
+      content: "peninsulainsider.com.au" attr(href);
+      display: none; /* attr() in pseudo-content varies; we leave the href visible only when needed via a future enhancement. */
+    }
+
+    /* Newsletter / related blocks shouldn't appear on the print sheet. */
+    .v2-newsletter, .related-cards, .article-related, .editor-letter { display: none !important; }
   }
 </style>

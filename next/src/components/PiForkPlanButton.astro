@@ -1,0 +1,145 @@
+---
+/**
+ * PiForkPlanButton — "Save this plan as mine" for editorial itineraries.
+ *
+ * Wave 5 of the Save & Share rebuild. Editorial itineraries (Sorrento
+ * Off-Season Weekend, Ridge-to-Sea, etc.) are the closest thing
+ * Peninsula Insider has to a template. This button takes one, plus
+ * every venue / experience referenced in its stops, and forks the whole
+ * lot into the reader's pi:saves:v2 store. The reader can then edit,
+ * remove, share, or print as their own plan.
+ *
+ * The page passes a JSON-encoded array of `SavedItem`-shaped objects;
+ * the script reads them out of a data attribute and calls
+ * `Saves.merge(...)`. Duplicates are de-duped naturally by the unified
+ * store (kind + slug uniqueness).
+ */
+import type { SavedItem } from '../lib/saves/store';
+
+export interface Props {
+  /** Each fork target — typically the itinerary itself first, then every stop. */
+  items: Array<Omit<SavedItem, 'savedAt'>>;
+  /** Optional override for the button label. */
+  label?: string;
+}
+
+const { items, label = 'Save this plan as mine' } = Astro.props;
+const encoded = JSON.stringify(items);
+---
+
+<div class="pi-fork-plan">
+  <button
+    type="button"
+    class="pi-fork-plan__btn"
+    data-pi-fork-plan
+    data-pi-items={encoded}
+  >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+    </svg>
+    {label}
+  </button>
+  <p class="pi-fork-plan__hint">
+    Forks the itinerary plus every stop into your plan. Edit, share, or print from <a href="/account/saved/">your saves</a>.
+  </p>
+</div>
+
+<style is:global>
+  .pi-fork-plan {
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pi-fork-plan__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.4rem;
+    background: var(--ink, #171413);
+    color: var(--paper, #FAF7F0);
+    border: 1px solid var(--ink, #171413);
+    border-radius: 100px;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.08s ease;
+  }
+
+  .pi-fork-plan__btn:hover {
+    background: var(--ochre, #A0541F);
+    border-color: var(--ochre, #A0541F);
+  }
+
+  .pi-fork-plan__btn:active { transform: scale(0.98); }
+
+  .pi-fork-plan__btn[data-state="forked"] {
+    background: var(--ochre, #A0541F);
+    border-color: var(--ochre, #A0541F);
+  }
+
+  .pi-fork-plan__hint {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--ink-soft, #3A3531);
+    margin: 0;
+    max-width: 36rem;
+  }
+
+  .pi-fork-plan__hint a {
+    color: var(--ochre, #A0541F);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+</style>
+
+<script>
+  import * as Saves from '../lib/saves/store';
+
+  function bind() {
+    document.querySelectorAll<HTMLButtonElement>('[data-pi-fork-plan]').forEach((btn) => {
+      if ((btn as any)._piInit) return;
+      (btn as any)._piInit = true;
+      btn.addEventListener('click', () => {
+        let parsed: Array<Omit<Saves.SavedItem, 'savedAt'>> = [];
+        try {
+          parsed = JSON.parse(btn.dataset.piItems ?? '[]');
+        } catch { return; }
+        const now = Date.now();
+        const items: Saves.SavedItem[] = parsed.map((it) => ({ ...it, savedAt: now }));
+        const added = Saves.merge(items);
+        btn.setAttribute('data-state', 'forked');
+        showToast(
+          added > 0
+            ? `Saved ${added} ${added === 1 ? 'item' : 'items'} to your plan.`
+            : 'These are already in your plan.',
+        );
+      });
+    });
+  }
+
+  function showToast(message: string) {
+    let toast = document.querySelector<HTMLElement>('[data-pi-fork-toast]');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'saved-toast';
+      toast.setAttribute('data-pi-fork-toast', '');
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('saved-toast--visible');
+    setTimeout(() => toast?.classList.remove('saved-toast--visible'), 2400);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+  document.addEventListener('astro:page-load', bind);
+</script>
