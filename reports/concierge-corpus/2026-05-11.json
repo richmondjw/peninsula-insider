@@ -1,14 +1,14 @@
 {
-  "run_id": "2026-05-11T01:31:02.832Z",
+  "run_id": "2026-05-11T06:50:40.194Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 9.9,
-  "git_sha": "9ebb31c",
+  "duration_seconds": 13.9,
+  "git_sha": "5ace1aa",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
-    "venue": 156,
+    "venue": 157,
     "article": 172,
     "place": 20,
     "itinerary": 6,
@@ -17,33 +17,44 @@
     "editorial_block": 10
   },
   "database": {
-    "chunks_before": 1593,
-    "chunks_after": 1597
+    "chunks_before": 1597,
+    "chunks_after": 1601
   },
   "delta": {
-    "added": 4,
-    "updated": 3,
+    "added": 8,
+    "updated": 5,
     "metadata_only": 0,
-    "unchanged": 1593,
-    "pruned": 0,
+    "unchanged": 1591,
+    "pruned": 4,
     "errors": 0,
     "stale_remaining": 0
   },
   "added_chunk_ids": [
-    "peninsula-this-weekend-may-16::lede::0",
-    "peninsula-this-weekend-may-16::body::0",
-    "peninsula-this-weekend-may-16::body::1",
-    "peninsula-this-weekend-may-16::body::2"
+    "georgie-bass::summary::0",
+    "georgie-bass::editor_note::0",
+    "georgie-bass::practical::0",
+    "georgie-bass::tags::0",
+    "moke-dining::summary::0",
+    "moke-dining::editor_note::0",
+    "moke-dining::practical::0",
+    "moke-dining::tags::0"
   ],
   "updated_chunk_ids": [
+    "flinders-general-store::editor_note::0",
+    "a-flinders-weekend::body::1",
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
     "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [],
+  "pruned_chunk_ids": [
+    "pier-street-flinders::practical::0",
+    "pier-street-flinders::tags::0",
+    "pier-street-flinders::summary::0",
+    "pier-street-flinders::editor_note::0"
+  ],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
-  "embedding_cost_usd_estimate": 0,
+  "embedding_cost_usd_estimate": 0.0001,
   "errors": []
 }
