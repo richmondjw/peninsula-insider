@@ -15,6 +15,7 @@ tags: ["weddings", "weekend", "planning", "stay", "wine", "peninsula"]
 readingTimeMinutes: 8
 featured: true
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Where Wedding Guests Should Stay on the Mornington Peninsula"

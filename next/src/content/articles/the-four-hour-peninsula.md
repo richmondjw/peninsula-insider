@@ -16,6 +16,7 @@ relatedExperiences: ["arthurs-seat-lookout", "mornington-foreshore-walk", "morni
 readingTimeMinutes: 6
 featured: false
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "First Time on the Peninsula — The Honest Starter Guide"

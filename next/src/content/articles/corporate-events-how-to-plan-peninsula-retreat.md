@@ -15,6 +15,7 @@ tags: ["corporate-events", "retreats", "offsites", "stay", "red-hill", "sorrento
 readingTimeMinutes: 7
 featured: true
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Red Hill vs Sorrento for a Corporate Offsite"

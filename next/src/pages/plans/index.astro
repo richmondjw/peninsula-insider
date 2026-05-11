@@ -25,13 +25,21 @@ const stayHighlights = stays.filter((venue) =>
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
+// Plans articles — articles tagged section: plans, surfaced here as the
+// editorial planning layer. These live at /journal/[slug] until the full
+// URL routing sprint lands.
+const plansArticles = articlesAll
+  .filter((a) => (a.data.section ?? 'journal') === 'plans')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// Companion reads from Journal — editorial context that sharpens the trip.
+// The-birthday-weekend and the-thermal-springs-weekend have moved to the
+// plans grid above, so they're removed from the companion slot.
 const companionSlugs = [
   'the-sorrento-weekend',
   'a-winter-peninsula-weekend',
-  'the-birthday-weekend',
   'where-to-stay-for-a-two-night-escape',
   'the-vineyard-villa-weekend',
-  'the-thermal-springs-weekend',
   'a-flinders-weekend',
 ];
 const companionReads = companionSlugs
@@ -228,6 +236,26 @@ const faqSchema = {
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6.5 PLANS ARTICLES, occasion-based and day-plan guides
+       ═══════════════════════════════════════════════════════════════ -->
+  {plansArticles.length > 0 && (
+    <section class="venues venues--plain" id="plans-guides">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Planning guides</p>
+            <h2 class="venues__title">{plansArticles.length} occasion-based and day-plan guides</h2>
+            <p class="venues__sub venues__sub--standfirst">The practical layer — day plans, occasion weekends, and arrival sequences that map a specific shape of trip. Each one is a decision made for you.</p>
+          </div>
+        </div>
+        <div class="venues__grid">
+          {plansArticles.map((article) => <ArticleCard article={article} />)}
+        </div>
       </div>
     </section>
   )}

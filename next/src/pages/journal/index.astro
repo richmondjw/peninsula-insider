@@ -7,8 +7,9 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { formatLabel, routeSlug, heroBackgroundStyle } from '../../lib/editorial';
 
-const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const articles = (await getCollection('articles', ({ data }) =>
+  data.status === 'published' && (data.section ?? 'journal') !== 'plans'
+)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const featured = articles.find((article) => article.data.featured) ?? articles[0];
 const featuredSlug = featured ? routeSlug(featured) : null;
 const latest = articles.filter((article) => routeSlug(article) !== featuredSlug);

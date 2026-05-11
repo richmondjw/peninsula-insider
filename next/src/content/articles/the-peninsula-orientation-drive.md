@@ -16,6 +16,7 @@ relatedExperiences: ["arthurs-seat-lookout", "red-hill-market", "cape-schanck-bo
 readingTimeMinutes: 8
 featured: false
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "First Time on the Peninsula — The Honest Starter Guide"

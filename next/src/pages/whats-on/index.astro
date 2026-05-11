@@ -51,6 +51,15 @@ const nextWeekendEvents = events.filter((event) => {
 });
 
 const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
+// Track IDs given prominent placement so subsequent sections don't repeat them
+const editorPickIds = new Set(editorsPicks.map((e) => e.id));
+
+// EventStrip: top weekend events by appeal, excluding anything already in editorsPicks
+const eventStripEvents = [...nextWeekendEvents]
+  .filter((e) => !editorPickIds.has(e.id))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 3);
+
 const skipEvents = events.filter((event) => event.data.skipThis);
 
 const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
@@ -142,7 +151,7 @@ const initialTabKey = weekendEvents.length > 0 ? 'weekend' : (todayEvents.length
 // Top events ranked purely by visitor appeal score, irrespective of when
 // they happen. Doesn't depend on lens tags, so always populated.
 const standouts = [...events]
-  .filter((e) => (e.data.visitorAppealScore ?? 0) >= 4)
+  .filter((e) => (e.data.visitorAppealScore ?? 0) >= 4 && !editorPickIds.has(e.id))
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 6);
 
@@ -375,7 +384,7 @@ const faqSchema = {
           appeal score, filtered to events in the upcoming weekend window. */}
       {nextWeekendEvents.length > 0 && (
         <EventStrip
-          events={[...nextWeekendEvents].sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)).slice(0, 3)}
+          events={eventStripEvents}
           eyebrow="Also worth knowing"
           heading={`Three events on the ground this weekend, ${dispatchWindow.label}`}
           intro="Pulled live from the events registry. Editor's anchor picks below; these are the data-ranked supporting cast."
@@ -504,7 +513,7 @@ const faqSchema = {
        6. PER-LENS GRIDS
        ═══════════════════════════════════════════════════════════════ -->
   {lensOrder.filter((lens) => lens.key !== 'weekend-pick' && lensCounts[lens.key] > 0).map((lens) => {
-    const lensEvents = nextWeekendEvents.filter((event) => event.data.lens.includes(lens.key as any));
+    const lensEvents = nextWeekendEvents.filter((event) => event.data.lens.includes(lens.key as any) && !editorPickIds.has(event.id));
     return (
       <section class="venues venues--plain" id={`lens-${lens.key}`}>
         <div class="container">
