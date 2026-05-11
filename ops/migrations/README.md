@@ -32,12 +32,26 @@ the `tjjhpvslpysfklwpqmgz` project:
    - Adds the matching `storage.objects` SELECT policy so published image
      assets are publicly fetchable through Storage
 3. `2026-05-10-pi-cms-seed-founding-editor.sql`
-   - Idempotent founding-editor seed for `james.richmondau@gmail.com`
+   - Idempotent founding-editor seed for `james@peninsulainsider.com.au`
    - Flips `pi.profiles.is_editor = true` and writes a `pi.admin_user_allowlist`
      row with `role = 'admin'`, `can_publish = true`
    - Requires James to have signed in to `/admin/login` at least once so an
      `auth.users` row exists. Otherwise the script raises a NOTICE and exits
      cleanly — re-run after first sign-in.
+
+> **Note (2026-05-11):** the original `2026-05-09-pi-cms-admin.sql` declared
+> `unique (entity_type, entity_slug, field_path, coalesce(locale, ''))` as an
+> inline table constraint, which Postgres rejects because UNIQUE constraints
+> can't contain function calls. The constraint has been replaced with the
+> equivalent `create unique index … on pi.cms_text_fields (…, coalesce(locale, ''))`.
+> Apply order is unchanged.
+>
+> **Note (2026-05-11):** the seed email above was originally
+> `james.richmondau@gmail.com`. The operational editor account in
+> `auth.users` is `james@peninsulainsider.com.au`, so the seed has been
+> updated to target it. Re-running the v1 migration in a fresh project is
+> still idempotent; if you need the gmail address allowlisted as well, add
+> a second `insert` block or seed it manually after the user signs in.
 
 Order matters because (2) references tables, columns, and the `cms-assets`
 bucket created by (1), and (3) references both `pi.profiles` and

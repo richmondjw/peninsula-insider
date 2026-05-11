@@ -46,11 +46,13 @@ create table if not exists pi.cms_text_fields (
   status          text not null default 'draft' check (status in ('draft', 'published')),
   updated_by      uuid references auth.users(id) on delete set null,
   created_at      timestamptz not null default now(),
-  updated_at      timestamptz not null default now(),
-  unique (entity_type, entity_slug, field_path, coalesce(locale, ''))
+  updated_at      timestamptz not null default now()
 );
 
 comment on table pi.cms_text_fields is 'Canonical editable text primitives for the CMS.';
+
+create unique index if not exists cms_text_fields_entity_field_locale_uidx
+  on pi.cms_text_fields (entity_type, entity_slug, field_path, coalesce(locale, ''));
 
 create table if not exists pi.cms_image_slots (
   id              uuid primary key default gen_random_uuid(),
