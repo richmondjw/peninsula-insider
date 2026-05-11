@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-11T13:36:17.084Z",
-  "trigger": "schedule",
+  "run_id": "2026-05-11T13:37:37.975Z",
+  "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 8,
-  "git_sha": "e23db34",
+  "duration_seconds": 7.9,
+  "git_sha": "cc4c805",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -22,15 +22,19 @@
   },
   "delta": {
     "added": 0,
-    "updated": 3,
+    "updated": 7,
     "metadata_only": 0,
-    "unchanged": 1595,
+    "unchanged": 1591,
     "pruned": 0,
     "errors": 0,
     "stale_remaining": 0
   },
   "added_chunk_ids": [],
   "updated_chunk_ids": [
+    "blue-moon-cottages::practical::0",
+    "driftaway-on-dundas::practical::0",
+    "kanasta-retro-caravans::practical::0",
+    "plantation-house-whitecliffs::practical::0",
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
     "red-hill-market::tags::0"
