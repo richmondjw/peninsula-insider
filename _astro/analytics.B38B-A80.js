@@ -1,0 +1,1 @@
+function e(t,n={}){if(!(typeof window>"u"))try{if(typeof window.gtag=="function"){window.gtag("event",t,n);return}window.dataLayer=window.dataLayer||[],window.dataLayer.push({event:t,...n})}catch{}}export{e as t};
