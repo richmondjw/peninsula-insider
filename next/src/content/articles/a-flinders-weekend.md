@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["flinders", "stay", "walks", "slow", "weekend"]
-relatedVenues: ["flinders-hotel", "pier-street-flinders", "flinders-sourdough", "tedesca-osteria", "flinders-general-store", "nazaaray-estate", "mornington-peninsula-chocolates", "flinders-pier-takeaway"]
+relatedVenues: ["flinders-hotel", "georgie-bass", "flinders-sourdough", "tedesca-osteria", "flinders-general-store", "nazaaray-estate", "mornington-peninsula-chocolates", "flinders-pier-takeaway"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk"]
 readingTimeMinutes: 7
 featured: false
@@ -26,7 +26,7 @@ clusterLinks:
     href: "/journal/the-one-night-escape/"
 faq:
   - question: "What is there to do in Flinders on the Mornington Peninsula?"
-    answer: "Walk the cliff track from Cook Street toward West Head (90 min return, empty, Bass Strait views). Breakfast at Flinders Sourdough. Lunch at Pier Street Kitchen. The pier at dusk. Two things and a walk is the right day — Flinders rewards slowness and punishes over-scheduling."
+    answer: "Walk the cliff track from Cook Street toward West Head (90 min return, empty, Bass Strait views). Breakfast at Flinders Sourdough. Lunch at Georgie Bass (all-day cafe, Cook Street, open until 2:30–3pm). The pier at dusk. Two things and a walk is the right day — Flinders rewards slowness and punishes over-scheduling."
   - question: "Is Flinders worth visiting on the Mornington Peninsula?"
     answer: "Yes — especially for second or third-time Peninsula visitors who have already done Red Hill and Sorrento. Quieter, cooler, more local-feeling, and the ocean coast is more dramatic than the bay side. Not the right first destination, but an excellent choice once you know the Peninsula."
   - question: "Where should I stay in Flinders on the Mornington Peninsula?"
@@ -53,7 +53,7 @@ A proper Flinders weekend does three things. Nothing more.
 
 **Two: walk the cliff track toward West Head.** The track runs from the end of Cook Street along the coast, past Flinders Pier, and eventually out toward West Head with views straight across to Phillip Island. It is the best morning walk on the southern Peninsula and it is almost always empty. Allow ninety minutes return. Bring a jacket even in summer  -  the wind off Bass Strait respects no forecast.
 
-**Three: lunch at Pier Street Kitchen.** The village has one genuinely serious restaurant and this is it. The menu runs on Bass Strait seafood and produce from the hinterland, and the room is small enough that a table at lunch feels private without being formal. Order whatever fish the kitchen is running. Don't try to stretch lunch into three hours; the place does its best work at an hour and a half.
+**Three: lunch at Georgie Bass.** The cafe is open until 2:30pm on weekdays and 3pm on weekends, which means you have time to do the walk properly before arriving for food. The all-day menu runs on regional produce from the owners' own farm — seasonal egg dishes, proper sourdough, vegetable preparations that understand what they are. The outdoor courtyard works in most weather. Coffee is Commonfolk. It is a cafe rather than a restaurant, but it is a very good cafe, and the difference matters less than you would expect when the produce is this considered.
 
 That is the whole day. If you finish by 3pm, drive fifteen minutes inland for a cellar door tasting or fifteen minutes west for Cape Schanck and the boardwalk. If you don't, stay in the village and walk the pier again at dusk.
 

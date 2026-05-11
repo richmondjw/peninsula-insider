@@ -16,6 +16,7 @@ relatedExperiences: ["point-nepean-fort-walk", "point-nepean-national-park", "po
 readingTimeMinutes: 7
 featured: false
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Point Nepean National Park Guide"

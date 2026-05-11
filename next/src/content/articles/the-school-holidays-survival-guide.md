@@ -16,6 +16,7 @@ relatedExperiences: ["arthurs-seat-lookout", "mount-martha-beach", "balnarring-b
 readingTimeMinutes: 8
 featured: false
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Peninsula with Kids — Family Day Guide"

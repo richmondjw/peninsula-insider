@@ -16,6 +16,7 @@ relatedExperiences: ["red-hill-market", "mornington-foreshore-walk", "balnarring
 readingTimeMinutes: 8
 featured: false
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Peninsula Pantry — Shopping the Region's Larder"

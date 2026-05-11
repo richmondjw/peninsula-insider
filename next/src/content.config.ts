@@ -288,6 +288,13 @@ const articles = defineCollection({
     aiSummary: z.array(z.string()).optional(),
     faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
     sitemapExclude: z.boolean().default(false),
+    /**
+     * Editorial section this article belongs to. Articles tagged "plans" are
+     * suppressed from the Journal index and surfaced in the Plans index instead.
+     * The URL stays at /journal/[slug] until the full /plans/[slug] routing
+     * sprint lands; this flag is the lightweight first step.
+     */
+    section: z.enum(['journal', 'plans']).default('journal'),
   }),
 });
 

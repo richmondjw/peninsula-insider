@@ -15,6 +15,7 @@ tags: ["spa", "hot-springs", "stay", "wellness", "mornington-peninsula", "packag
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope"]
 readingTimeMinutes: 8
 status: "published"
+section: plans
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
