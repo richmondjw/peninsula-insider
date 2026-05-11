@@ -1,6 +1,7 @@
 ---
 import { routeSlug, heroBackgroundStyle } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
+import { editableImage } from '../lib/inline-edit/attrs';
 
 const audienceLabel: Record<string, string> = {
   couple: 'Couples',
@@ -32,7 +33,18 @@ const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 
 
 <article class="itinerary-card">
   {data.heroImage && (
-    <div class="itinerary-card__hero" style={heroBackgroundStyle(data)} aria-hidden="true"></div>
+    <div
+      class="itinerary-card__hero"
+      style={heroBackgroundStyle(data)}
+      aria-hidden="true"
+      {...editableImage({
+        entityType: 'itinerary',
+        entitySlug: slug,
+        fieldPath: 'hero',
+        label: `${data.title} hero`,
+        purpose: 'hero',
+      })}
+    ></div>
   )}
   <div class="itinerary-card__top">
     <span class="itinerary-card__label">Escape plan</span>

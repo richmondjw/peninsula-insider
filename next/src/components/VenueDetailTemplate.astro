@@ -8,6 +8,8 @@ import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import PiArticleActions from './PiArticleActions.astro';
 import CorrectionNote from './CorrectionNote.astro';
+import { loadOverrides } from '../lib/inline-edit/overrides';
+import { editableImage } from '../lib/inline-edit/attrs';
 
 export interface Props {
   venue: any;
@@ -27,7 +29,16 @@ const hats = data.authority?.hats ?? 0;
 const awards = data.authority?.awards ?? [];
 const pressMentions = data.authority?.pressMentions ?? [];
 const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
-const heroStyle = heroBackgroundStyle(data);
+
+// Per-venue CMS override consult. If an editor has uploaded a venue-specific
+// hero via the inline editor, it wins over the content-JSON default.
+const venueSlug = venue.id ?? data.slug;
+const venueOverrides = await loadOverrides('venue', venueSlug);
+const overrideHero = venueOverrides.image['hero'];
+const heroStyle = overrideHero?.src
+  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
+  : heroBackgroundStyle(data);
+const heroAlt = overrideHero?.alt ?? data.heroImage?.alt ?? heroLabel;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -90,7 +101,19 @@ const isClosed = data.status === 'closed';
       </div>
     )}
 
-    <div class="venue-detail__hero" aria-hidden="true" style={heroStyle}>
+    <div
+      class="venue-detail__hero"
+      aria-hidden="true"
+      style={heroStyle}
+      aria-label={heroAlt}
+      {...editableImage({
+        entityType: 'venue',
+        entitySlug: venueSlug,
+        fieldPath: 'hero',
+        label: `${data.name} hero`,
+        purpose: 'hero',
+      })}
+    >
       <div class="venue-detail__hero-fog"></div>
       <span class="venue-detail__hero-label">{heroLabel}</span>
     </div>

@@ -11,6 +11,7 @@ export interface Props {
 
 import { heroBackgroundStyle } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
+import { editableImage } from '../lib/inline-edit/attrs';
 
 const { place, variant = 'vineyard' } = Astro.props;
 const data = place.data;
@@ -34,7 +35,18 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
 ---
 
 <article class="place-card">
-  <div class={imgClass} aria-hidden="true" style={imgStyle}></div>
+  <div
+    class={imgClass}
+    aria-hidden="true"
+    style={imgStyle}
+    {...editableImage({
+      entityType: 'place',
+      entitySlug: slug,
+      fieldPath: 'hero',
+      label: `${data.name} hero`,
+      purpose: 'hero',
+    })}
+  ></div>
   <div class="place-card__body">
     <p class="place-card__zone">{zoneLabel} · {data.kind}</p>
     <h3 class="place-card__name">

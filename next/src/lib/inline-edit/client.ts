@@ -759,18 +759,60 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
 // --------------------------------------------------------------------------
 
 /**
- * After every page load, fetch any published image overrides for the current
- * page slug and patch matching `<img>` srcs in place. Lets auto-detected
- * image replacements appear without a site rebuild.
+ * After every page load, fetch any published image overrides relevant to the
+ * elements actually on this page and patch their srcs in place. Two passes:
  *
- * The match is by src basename — the same stable key the editor uses when
- * saving an override. Only `entity_type='page', entity_slug=currentPageSlug()`
- * rows are considered.
+ *   1. Explicit pass — every `[data-pi-edit="image"]` element declares its
+ *      identity via `data-pi-entity-type` / `data-pi-entity-slug` /
+ *      `data-pi-field-path`. Group those by `(entity_type, entity_slug)`,
+ *      run one query per group, apply matches by exact field_path.
+ *
+ *   2. Implicit pass — for untagged `<img>` and bg-image elements, fall back
+ *      to the legacy `(page, currentPageSlug(), img:<basename>)` lookup so
+ *      inline article photos and other one-offs still benefit from auto-
+ *      detect replacements.
  */
 async function applyOverridesOnLoad() {
   const supa = getSupabase();
   if (!supa) return;
 
+  // ── Explicit pass ────────────────────────────────────────────────────────
+  const taggedEls = document.querySelectorAll<HTMLElement>('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]');
+  const groups = new Map<string, { entityType: string; entitySlug: string; els: HTMLElement[] }>();
+  taggedEls.forEach((el) => {
+    const entityType = el.dataset.piEntityType;
+    const entitySlug = el.dataset.piEntitySlug;
+    if (!entityType || !entitySlug) return;
+    const key = `${entityType}/${entitySlug}`;
+    const group = groups.get(key) ?? { entityType, entitySlug, els: [] };
+    group.els.push(el);
+    groups.set(key, group);
+  });
+
+  await Promise.all(Array.from(groups.values()).map(async (group) => {
+    const { data } = await supa
+      .from('cms_image_slots')
+      .select('field_path, public_url, alt_text')
+      .eq('entity_type', group.entityType)
+      .eq('entity_slug', group.entitySlug)
+      .eq('status', 'published');
+    const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
+    const byPath = new Map(rows.map((r) => [r.field_path, r]));
+    for (const el of group.els) {
+      const fieldPath = el.dataset.piFieldPath;
+      if (!fieldPath) continue;
+      const row = byPath.get(fieldPath);
+      if (!row?.public_url) continue;
+      if (currentImageSrc(el) === row.public_url) continue;
+      setImageSrc(el, row.public_url);
+      if (row.alt_text) {
+        if (el instanceof HTMLImageElement) el.alt = row.alt_text;
+        else el.setAttribute('aria-label', row.alt_text);
+      }
+    }
+  }));
+
+  // ── Implicit pass ────────────────────────────────────────────────────────
   const entitySlug = currentPageSlug();
   const { data } = await supa
     .from('cms_image_slots')

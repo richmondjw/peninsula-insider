@@ -9,6 +9,7 @@
 import { resolveHeroSrc } from '../lib/editorial';
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
 import PiSaveActions from './PiSaveActions.astro';
+import { editableImage } from '../lib/inline-edit/attrs';
 
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
@@ -55,7 +56,20 @@ const verifiedTier = verificationFreshness(data.lastVerified);
 
 <article class="venue-card">
   <div class="venue-card__wash"></div>
-  <a href={href} class="venue-card__hero" aria-hidden="true" tabindex="-1" style={`background-image: url(${heroSrc})`}></a>
+  <a
+    href={href}
+    class="venue-card__hero"
+    aria-hidden="true"
+    tabindex="-1"
+    style={`background-image: url(${heroSrc})`}
+    {...editableImage({
+      entityType: 'venue',
+      entitySlug: slug,
+      fieldPath: 'hero',
+      label: `${data.name} hero`,
+      purpose: 'hero',
+    })}
+  ></a>
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}
