@@ -12,7 +12,6 @@ heroImage:
 format: "insider-edit"
 tags: ["eat", "seafood", "bayside", "hastings", "mornington", "sorrento", "flinders"]
 relatedVenues:
-  - "advance-mussel-supply"
   - "hastings-fishermens-coop"
   - "pier-street-seafood"
   - "pier-street-flinders"
@@ -44,7 +43,7 @@ clusterLinks:
     href: "/journal/a-flinders-weekend/"
 faq:
   - question: "Where do I buy fresh seafood on the Mornington Peninsula?"
-    answer: "Hastings Fishermen's Co-op for whatever came off the boats that morning — flathead, snapper, calamari, sometimes crayfish. Advance Mussel Supply in Hastings for live mussels by the kilo from the farm in Western Port Bay. Both are dock-side operations selling to locals and commercial kitchens, not tourist fish-and-chip shops."
+    answer: "Hastings Fishermen's Co-op for whatever came off the boats that morning - flathead, snapper, calamari, sometimes crayfish in season. Pier Street Seafood in Flinders for fish when the local fleet has been out. Both are dock-side operations selling to locals and commercial kitchens, not tourist fish-and-chip shops."
   - question: "Where is the best fish and chips on the Mornington Peninsula?"
     answer: "Flinders Pier Takeaway — fresh fish, hot chips, seats outside on the pier, boats below you, Bass Strait behind. Hastings Fishermen's Co-op also has an excellent beer-battered flathead counter. Both are legitimately fresh because the supply chain is measured in minutes rather than days."
   - question: "What seafood is in season on the Mornington Peninsula?"
@@ -62,12 +61,6 @@ This is the seafood list. Not every restaurant that serves fish  -  the entire P
 The **Hastings Fishermen's Co-op** is the working waterfront. The building sits on the pier above the fishing fleet, and the counter sells whatever came off the boats that morning  -  flathead, snapper, calamari, sometimes crayfish in season. There is a small takeaway window for fish and chips that are legitimately excellent: beer-battered flathead, hand-cut chips, eaten on the pier with the boats below you.
 
 This is not a dining experience. It is a supply experience. Come here to buy fish to cook at your rental, or to eat a box of chips standing up. Either version is one of the best things you can do on the Peninsula.
-
-### Advance Mussel Supply
-
-**Advance Mussel Supply** is the mussel farm's retail counter in Hastings. The operation grows mussels on ropes in Western Port Bay and sells them live by the kilo from the dock  -  blue-black shells, briny, sweet, the kind of product that makes a $15 bag of mussels at home feel like the best dinner you have cooked in months.
-
-They also sell smoked mussels, mussel pâté, and taramasalata from their own production. Bring a cooler bag. Buy two kilos of live mussels. Steam them in white wine with garlic and parsley when you get home. This is the Peninsula's most underrated food experience.
 
 ## The pier-side plates
 
@@ -125,7 +118,6 @@ The Peninsula's seafood calendar runs roughly like this:
 | If you want… | Go to… |
 |---|---|
 | The freshest fish to cook yourself | Hastings Fishermen's Co-op |
-| Mussels by the kilo | Advance Mussel Supply |
 | Fish and chips on a pier | Flinders Pier Takeaway |
 | A proper seafood lunch | The Baths, Sorrento |
 | Seafood with serious wine | Rocker, Mornington |

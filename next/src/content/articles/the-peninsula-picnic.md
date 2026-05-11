@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn"]
-relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "advance-mussel-supply", "balnarring-bakehouse", "somers-general", "johnny-ripe", "sorrento-bakery", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market", "small-stone-pantry"]
+relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "sorrento-bakery", "merricks-general-wine-store", "red-hill-market", "mornington-farmers-market", "small-stone-pantry"]
 relatedExperiences: ["montalto-sculpture-trail", "pt-leo-sculpture-park", "arthurs-seat-lookout", "mount-martha-beach", "balnarring-beach", "point-nepean-national-park", "mornington-foreshore-walk", "red-hill-market"]
 readingTimeMinutes: 7
 featured: false
@@ -68,7 +68,7 @@ Pick one, or visit both if they are on the same loop.
 
 **Green Olive at Red Hill** is the single most useful picnic stop on the Peninsula because it sells the three things you need in one place: olive oil, olives, and cured meats. The tapenade is the standout  -  rich, salty, and spreadable on the bread you bought thirty minutes ago. A jar of olives, a tub of tapenade, and a small bottle of olive oil is the middle of the picnic sorted.
 
-For additional produce: **Peninsula Fresh Organics** for seasonal fruit and vegetables (the cherry tomatoes in autumn are genuinely good), **Mornington Peninsula Chocolates** for something sweet at the end, and **Advance Mussel Supply** in Hastings if you are feeling ambitious and have a portable stove  -  their mussels are sold live at the farm gate and are the single most impressive picnic ingredient available on the Peninsula.
+For additional produce: **Peninsula Fresh Organics** for seasonal fruit and vegetables (the cherry tomatoes in autumn are genuinely good), **Mornington Peninsula Chocolates** for something sweet at the end.
 
 ### The market shortcut
 

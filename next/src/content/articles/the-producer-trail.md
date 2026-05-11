@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore"]
-relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "advance-mussel-supply", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "mornington-peninsula-cider", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
+relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "mornington-peninsula-cider", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
 relatedExperiences: ["red-hill-hinterland-cycling", "balnarring-beach", "mornington-foreshore-walk"]
 readingTimeMinutes: 8
 featured: false
@@ -29,7 +29,7 @@ faq:
   - question: "What is the Peninsula producer trail?"
     answer: "A day built around four farm-gate and artisan producer visits in a single driving loop — cheese dairies, strawberry farms, mussel farmers, olive groves, bakeries — rather than cellar doors and restaurants. The northern loop runs through Main Ridge and Red Hill (cheese, strawberries, truffles or chocolates). The southern loop runs through Hastings, Somers, and Balnarring (mussels, organic vegetables, bakehouse, cider). Each stop is 15–30 minutes."
   - question: "Which Peninsula producers are open on weekends?"
-    answer: "Main Ridge Dairy and Red Hill Cheese (Thursday–Sunday). Sunny Ridge Strawberry Farm (October–April, daily). Advance Mussel Supply in Hastings (weekends). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (guided experiences June–August by booking). Saturday is the strongest day for the full producer trail — most are open and at full stock."
+    answer: "Main Ridge Dairy and Red Hill Cheese (Thursday–Sunday). Sunny Ridge Strawberry Farm (October–April, daily). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (guided experiences June–August by booking). Saturday is the strongest day for the full producer trail - most are open and at full stock."
   - question: "What should I bring for a Peninsula producer trail day?"
     answer: "A hard-sided cooler bag with two large ice bricks for cheese and seafood. Paper bags for bread. Cash — the smallest producers occasionally do not run card readers on quiet days. A small notebook to track which cheese came from which dairy. And restraint — the producer trail works best with four stops and one light lunch, not six stops and a winery tasting. Bring the bag; let the producers fill it."
 ---
@@ -92,19 +92,15 @@ Pick the one that matches the energy of the group. The producer day is the kind 
 
 The other producer trail runs across the lower Peninsula, through Hastings and the Western Port side, and is the day for visitors who want seafood and grain rather than cheese and strawberries. This is also the trail that almost no one does  -  the geography is less iconic than the ridge, and the producers are scattered across more roads  -  but the rewards are real.
 
-### Stop one: Advance Mussel Supply
-
-**Advance Mussel Supply** in Hastings is the working face of the Peninsula's biggest seafood industry. The operation farms the ropes in Western Port Bay that produce some of the best mussels in Australia, and the small retail counter at the dock will sell you live mussels by the kilo, smoked mussels in jars, and the kind of taramasalata you cannot get at a city supermarket. Twenty minutes, including the small line at the counter.
-
-### Stop two: Peninsula Fresh Organics
+### Stop one: Peninsula Fresh Organics
 
 Drive fifteen minutes south to the **Peninsula Fresh Organics** farm gate near Tuerong. This is the organic vegetable supplier that underwrites the produce side of half a dozen of the Peninsula's serious dining rooms. The farm shop is open most weekends and stocks whatever has come out of the ground that week, plus local eggs, sourdough from the Balnarring Bakehouse, and seasonal preserves. Twenty minutes here is enough.
 
-### Stop three: Balnarring Bakehouse and Somers General
+### Stop two: Balnarring Bakehouse and Somers General
 
 The next stop is a two-part visit. **Balnarring Bakehouse** is the village bakery  -  sourdough loaves, pastries, the kind of sausage roll that justifies the drive on its own. Pick up bread for tomorrow. Then walk or drive five minutes to the **Somers General** strip  -  a small cluster of producer-style shops at the village edge of Somers, including small-batch jam producers, an olive oil counter, and the General Store itself, which doubles as a wine bar in the afternoons.
 
-### Stop four: Mornington Peninsula Cider or Green Olive at Red Hill
+### Stop three: Mornington Peninsula Cider or Green Olive at Red Hill
 
 Close the loop with one of two options. **Mornington Peninsula Cider** is a small cidery in the lower ridge area that does proper cellar-door tastings and sells a half-dozen ciders and perries that fit the day's mood  -  lighter, more fruit-forward, less heavy than a wine tasting. Or, if you have stamina, drive back up the ridge to **Green Olive at Red Hill**, the working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula.
 
