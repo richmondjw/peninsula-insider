@@ -533,6 +533,66 @@ const ssrScene = scenes[0];
   })()}
 
   <NewsletterBlock />
+
+  {/* ── 5-minute hero rotator ────────────────────────────────────────────────
+       Advances one scene every 5 minutes using the CSS opacity transitions
+       already on .cinema-scene (1.4s) and .cinema-copy (1.0s).
+       define:vars serialises the scene metadata at build time so there is
+       no runtime fetch — just a lightweight setInterval on the client. */}
+  <script define:vars={{ rotatorScenes: scenes.map(s => ({
+    id: s.id,
+    primaryHref: s.primaryHref,
+    primaryLabel: s.primaryLabel,
+    caption: s.caption,
+    label: s.label,
+    hours: s.hours,
+    headline: s.headline,
+    dispatch: s.dispatch,
+  })) }}>
+  if (rotatorScenes.length >= 2) {
+    let idx = 0;
+    setInterval(function () {
+      idx = (idx + 1) % rotatorScenes.length;
+      const s = rotatorScenes[idx];
+
+      // Crossfade image layers
+      document.querySelectorAll('[data-scene]').forEach(function (el) {
+        el.classList.toggle('is-active', el.getAttribute('data-scene') === s.id);
+      });
+
+      // Crossfade copy blocks
+      document.querySelectorAll('[data-copy]').forEach(function (el) {
+        el.classList.toggle('is-active', el.getAttribute('data-copy') === s.id);
+      });
+
+      // Update desktop primary CTA
+      var cta = document.querySelector('.cinema__cta--primary');
+      if (cta) {
+        cta.setAttribute('href', s.primaryHref);
+        cta.innerHTML = s.primaryLabel + ' <span aria-hidden="true">→</span>';
+      }
+
+      // Update bottom-right caption
+      var cap = document.querySelector('.cinema__caption');
+      if (cap) cap.textContent = s.caption;
+
+      // Update mobile copy section (below-fold on small screens)
+      var chip = document.querySelector('.cinema-mobile-copy__chip');
+      if (chip) chip.textContent = s.label;
+      var hrs = document.querySelector('.cinema-mobile-copy__hours');
+      if (hrs) hrs.textContent = s.hours;
+      var hl = document.querySelector('.cinema-mobile-copy__headline');
+      if (hl) hl.innerHTML = s.headline;
+      var dp = document.querySelector('.cinema-mobile-copy__dispatch');
+      if (dp) dp.textContent = s.dispatch;
+      var mCta = document.querySelector('.cinema-mobile-copy__cta--primary');
+      if (mCta) {
+        mCta.setAttribute('href', s.primaryHref);
+        mCta.innerHTML = s.primaryLabel + ' <span aria-hidden="true">→</span>';
+      }
+    }, 5 * 60 * 1000);
+  }
+  </script>
 </BaseLayout>
 
 {/* ─────────────────────────────────────────────────────────────────────────
@@ -1144,8 +1204,7 @@ const ssrScene = scenes[0];
   }
 </style>
 
-{/* No client-side picker for the production cover — single scene, baked
-   server-side. The grid-stack scaffold and [data-scene]/[data-copy] attrs
-   are preserved on the markup so a rotator (time-of-day, issue rotation,
-   editor's three picks, etc.) can be reintroduced by restoring an
-   activate() function similar to the one removed in commit-prod-cover. */}
+{/* Hero rotator is active — see <script define:vars=... /> block above
+   <NewsletterBlock />. Advances one scene every 5 minutes using the CSS
+   opacity transitions already on .cinema-scene / .cinema-copy.
+   To add/remove scenes: edit the `scenes` array in the frontmatter above. */}
