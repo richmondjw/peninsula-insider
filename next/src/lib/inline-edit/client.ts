@@ -204,10 +204,20 @@ function onContextMenu(event: MouseEvent) {
   // 4. Click landed on an overlay covering an image (scrims, gradients,
   //    grain canvases). Walk the z-order at the click point and grab the
   //    first image-like element behind whatever caught the event.
+  //
+  //    Prioritise explicitly-tagged slots (data-pi-edit="image") over any
+  //    generic image-like element. Without this, stacked hero scenes share
+  //    the same footprint: later DOM siblings have a higher default z-index
+  //    so elementsFromPoint() returns the topmost *inactive* scene's <img>
+  //    before the active scene's explicitly-tagged <img>, causing the panel
+  //    to open for the wrong element and save to the wrong field path.
   if (!el && typeof document.elementsFromPoint === 'function') {
     const stack = document.elementsFromPoint(event.clientX, event.clientY);
-    const hit = stack.find(isImageLike);
-    if (hit) el = hit;
+    const tagged = stack.find(
+      (n): n is HTMLElement => n instanceof HTMLElement && n.dataset.piEdit === 'image',
+    );
+    const hit = tagged ?? stack.find(isImageLike);
+    if (hit) el = hit as HTMLElement;
   }
 
   if (!el) {
