@@ -255,7 +255,7 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'best-cellar',  label: 'Best cellar doors',   href: '/wine/best-cellar-doors/' },
           { key: 'brewery',      label: 'Breweries',           href: '/wine/' },
           { key: 'distillery',   label: 'Distilleries',        href: '/wine/' },
-          { key: 'cider',        label: 'Cider',               href: '/wine/mornington-peninsula-cider/' },
+
         ],
       },
       {

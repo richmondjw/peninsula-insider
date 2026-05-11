@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["pubs", "beer", "dining", "walk-in", "locals", "groups", "casual"]
-relatedVenues: ["flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "merricks-hotel", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "hotel-sorrento", "the-bay-hotel-mornington", "red-hill-brewery", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "mornington-peninsula-brewery", "mornington-peninsula-cider"]
+relatedVenues: ["flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "merricks-hotel", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "hotel-sorrento", "the-bay-hotel-mornington", "red-hill-brewery", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "mornington-peninsula-brewery"]
 relatedExperiences: ["mornington-foreshore-walk", "sorrento-back-beach", "portsea-front-beach"]
 readingTimeMinutes: 7
 featured: false

@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore"]
-relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "mornington-peninsula-cider", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
+relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
 relatedExperiences: ["red-hill-hinterland-cycling", "balnarring-beach", "mornington-foreshore-walk"]
 readingTimeMinutes: 8
 featured: false
@@ -100,9 +100,9 @@ Drive fifteen minutes south to the **Peninsula Fresh Organics** farm gate near T
 
 The next stop is a two-part visit. **Balnarring Bakehouse** is the village bakery  -  sourdough loaves, pastries, the kind of sausage roll that justifies the drive on its own. Pick up bread for tomorrow. Then walk or drive five minutes to the **Somers General** strip  -  a small cluster of producer-style shops at the village edge of Somers, including small-batch jam producers, an olive oil counter, and the General Store itself, which doubles as a wine bar in the afternoons.
 
-### Stop three: Mornington Peninsula Cider or Green Olive at Red Hill
+### Stop three: Green Olive at Red Hill
 
-Close the loop with one of two options. **Mornington Peninsula Cider** is a small cidery in the lower ridge area that does proper cellar-door tastings and sells a half-dozen ciders and perries that fit the day's mood  -  lighter, more fruit-forward, less heavy than a wine tasting. Or, if you have stamina, drive back up the ridge to **Green Olive at Red Hill**, the working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula.
+Close the loop at **Green Olive at Red Hill**  -  a working olive grove with a cellar door, an olive oil tasting, a small farm shop, and one of the prettiest verandahs on the Peninsula. The olive oil flight is worth the drive on its own.
 
 ### Lunch in the southern loop
 

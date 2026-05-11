@@ -12,7 +12,6 @@ heroImage:
 format: "insider-edit"
 tags: ["eat", "seafood", "bayside", "hastings", "mornington", "sorrento", "flinders"]
 relatedVenues:
-  - "pier-street-seafood"
   - "pier-street-flinders"
   - "flinders-pier-takeaway"
   - "hotel-sorrento"
@@ -42,7 +41,7 @@ clusterLinks:
     href: "/journal/a-flinders-weekend/"
 faq:
   - question: "Where do I buy fresh seafood on the Mornington Peninsula?"
-    answer: "Pier Street Seafood in Flinders for fish when the local fleet has been out - flathead, snapper, calamari in season. A dock-side operation selling to locals and commercial kitchens, not a tourist fish-and-chip shop."
+    answer: "The Flinders pier precinct is the best bet - fish comes off the local fleet and the daily catch drives the menu. A working waterfront selling to locals and commercial kitchens, not a tourist fish-and-chip shop."
   - question: "Where is the best fish and chips on the Mornington Peninsula?"
     answer: "Flinders Pier Takeaway — fresh fish, hot chips, seats outside on the pier, boats below you, Bass Strait behind. Legitimately fresh because the supply chain is measured in minutes rather than days."
   - question: "What seafood is in season on the Mornington Peninsula?"
@@ -108,7 +107,7 @@ The Peninsula's seafood calendar runs roughly like this:
 
 | If you want… | Go to… |
 |---|---|
-| The freshest fish to cook yourself | Pier Street Seafood, Flinders |
+| The freshest fish to cook yourself | Flinders pier precinct |
 | Fish and chips on a pier | Flinders Pier Takeaway |
 | A proper seafood lunch | The Baths, Sorrento |
 | Seafood with serious wine | Rocker, Mornington |
