@@ -19,6 +19,7 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import PiForkPlanButton from '../../components/PiForkPlanButton.astro';
 import {
   routeSlug,
   stayTypes,
@@ -200,6 +201,53 @@ const relatedArticles = articles
 const relatedItineraries = allItineraries
   .filter((entry: any) => routeSlug(entry) !== slug)
   .slice(0, 4);
+
+// ─── Fork-plan items (Wave 5) ─────────────────────────────────────────────
+// Editorial itineraries become templates: a single tap merges the itinerary
+// itself plus every referenced venue and experience into the reader's
+// pi:saves:v2 store. They can then edit, share, or print as their own plan.
+type ForkItem = {
+  kind: 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
+  slug: string;
+  section?: string;
+  title: string;
+  dek?: string;
+  image_url?: string;
+  href: string;
+};
+const forkItems: ForkItem[] = [];
+if (data) {
+  forkItems.push({
+    kind: 'itinerary',
+    slug,
+    title: data.title,
+    dek: data.dek,
+    image_url: data.heroImage?.src,
+    href: `/plans/${slug}/`,
+  });
+  for (const v of highlightedVenues) {
+    const vSlug = routeSlug(v as any);
+    forkItems.push({
+      kind: 'venue',
+      slug: vSlug,
+      title: (v as any).data.name,
+      dek: (v as any).data.signature || (v as any).data.editorNote,
+      image_url: (v as any).data.heroImage?.src,
+      href: `${venueHrefPrefix((v as any).data.type)}/${vSlug}/`,
+    });
+  }
+  for (const e of highlightedExperiences) {
+    const eSlug = routeSlug(e as any);
+    forkItems.push({
+      kind: 'experience',
+      slug: eSlug,
+      title: (e as any).data.name,
+      dek: (e as any).data.editorNote,
+      image_url: (e as any).data.heroImage?.src,
+      href: `/explore/${eSlug}/`,
+    });
+  }
+}
 
 // ─── Display labels ───────────────────────────────────────────────────────
 const duration = data ? deriveDuration(data) : null;
@@ -423,6 +471,10 @@ const ogImage = data
           <span class="itinerary-detail__cta-note">Anchor stay for this plan</span>
         </div>
       )}
+
+      {/* Fork this editorial plan into the reader's saves. Wave 5 of the
+          Save & Share rebuild — editorial content as a template. */}
+      <PiForkPlanButton items={forkItems} />
 
       <div
         class="itinerary-detail__hero feature__image-block feature__image-block--sand"
