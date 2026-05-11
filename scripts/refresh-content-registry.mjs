@@ -26,6 +26,14 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT_ROOT = path.resolve(__dirname, '../next/src/content');
 const PAGES_ROOT   = path.resolve(__dirname, '../next/src/pages');
+// In CI, the deploy workflow rsyncs `next/dist/*` to the repo root before
+// committing. So the built site lives at the repo root (each URL is an
+// `index.html` at that path). We walk it AFTER the build to capture every
+// URL the site actually emits, including dynamic-route templates like
+// `places/[slug]/`. Fall back to next/dist for local runs (script invoked
+// directly without the dist-to-root sync step).
+const REPO_ROOT    = path.resolve(__dirname, '..');
+const DIST_FALLBACK = path.resolve(__dirname, '../next/dist');
 
 /**
  * Slugify an Astro page path the same way the inline-edit client's
@@ -50,6 +58,17 @@ function pageSlugFromRelPath(rel) {
 // pages/ that emits a real URL gets registered as ('page', slug).
 const PAGE_SKIP_DIRS = new Set(['admin', 'account']);
 const PAGE_SKIP_FILES = new Set(['404.astro']);
+
+// Top-level directories at the repo root that should NEVER be treated as
+// site URLs when walking the built dist. Add to this list whenever a new
+// top-level non-site folder is introduced (mirrors the deploy.yml
+// preserve-allowlist plus the standard repo chrome).
+const DIST_SKIP_TOP_LEVEL = new Set([
+  '.git', '.github', '.claude', '.approvals', 'next', 'node_modules',
+  'docs', 'ops', 'scripts', 'reports', '_astro', 'pagefind',
+  'v2-staging', // staging pages get registered separately if needed
+  'images', 'assets', 'fonts', 'icons', 'downloads',
+]);
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.PUBLIC_SUPABASE_URL;
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -173,6 +192,60 @@ async function collectStandalonePages() {
   return rows;
 }
 
+/**
+ * Walk the built site (repo root after dist sync, or next/dist locally)
+ * and emit one row per real URL. This is the definitive set — captures
+ * every dynamic-route template (places/[slug], eat/[slug], etc.) that the
+ * source-only enumeration misses. URLs that already have an entity row
+ * elsewhere will dedupe via `on conflict do nothing`.
+ */
+async function collectBuiltUrlPages() {
+  // Try repo-root first (CI), fall back to next/dist (local).
+  let walkRoot = REPO_ROOT;
+  try {
+    await fs.access(path.join(REPO_ROOT, 'index.html'));
+  } catch {
+    try {
+      await fs.access(path.join(DIST_FALLBACK, 'index.html'));
+      walkRoot = DIST_FALLBACK;
+    } catch {
+      console.warn('[content-registry] skipped built-site walk (no index.html at repo root or next/dist)');
+      return [];
+    }
+  }
+
+  const rows = [];
+  async function walk(dir, rel = '') {
+    let entries;
+    try {
+      entries = await fs.readdir(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const e of entries) {
+      const r = rel ? `${rel}/${e.name}` : e.name;
+      const full = path.join(dir, e.name);
+      if (e.isDirectory()) {
+        if (rel === '' && DIST_SKIP_TOP_LEVEL.has(e.name)) continue;
+        if (e.name.startsWith('.')) continue;
+        await walk(full, r);
+      } else if (e.isFile() && e.name === 'index.html') {
+        // Convert `rel` (which excludes the trailing 'index.html') into a
+        // page slug matching currentPageSlug(). 'index.html' alone → home.
+        const urlPath = rel; // '' means root
+        if (urlPath === '') {
+          rows.push({ entity_type: 'page', entity_slug: 'home', title: null, href: '/' });
+        } else {
+          const slug = urlPath.toLowerCase().replace(/[^a-z0-9/_-]/g, '-').replace(/\//g, '-');
+          rows.push({ entity_type: 'page', entity_slug: slug, title: null, href: `/${urlPath}/` });
+        }
+      }
+    }
+  }
+  await walk(walkRoot);
+  return rows;
+}
+
 async function main() {
   const rows = [];
   for (const collection of COLLECTIONS) {
@@ -186,6 +259,22 @@ async function main() {
   const standalonePages = await collectStandalonePages();
   rows.push(...standalonePages);
   console.log(`[content-registry] page (standalone .astro): ${standalonePages.length} entries`);
+
+  // Walk the built site to also register dynamic-route URLs
+  // (places/[slug], eat/[slug], etc.) that source-only enumeration misses.
+  const builtUrlPages = await collectBuiltUrlPages();
+  // Dedupe against rows we've already added — built-site walk may overlap
+  // with the standalone-page and STATIC_PAGES sets.
+  const seen = new Set(rows.map((r) => `${r.entity_type}/${r.entity_slug}`));
+  let builtAdded = 0;
+  for (const r of builtUrlPages) {
+    const key = `${r.entity_type}/${r.entity_slug}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push(r);
+    builtAdded++;
+  }
+  console.log(`[content-registry] page (built-site URLs): ${builtUrlPages.length} found, ${builtAdded} new`);
 
   console.log(`[content-registry] total rows to upsert: ${rows.length}`);
 
