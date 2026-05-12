@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-12T00:01:39.639Z",
+  "run_id": "2026-05-12T00:04:18.415Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 5.6,
-  "git_sha": "a1df275",
+  "duration_seconds": 11,
+  "git_sha": "861bdeb",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -17,33 +17,41 @@
     "editorial_block": 10
   },
   "database": {
-    "chunks_before": 1562,
+    "chunks_before": 1558,
     "chunks_after": 1558
   },
   "delta": {
-    "added": 0,
-    "updated": 3,
+    "added": 4,
+    "updated": 6,
     "metadata_only": 0,
-    "unchanged": 1558,
+    "unchanged": 1551,
     "pruned": 4,
     "errors": 0,
     "stale_remaining": 0
   },
-  "added_chunk_ids": [],
+  "added_chunk_ids": [
+    "stringers-sorrento::summary::0",
+    "stringers-sorrento::editor_note::0",
+    "stringers-sorrento::practical::0",
+    "stringers-sorrento::tags::0"
+  ],
   "updated_chunk_ids": [
+    "sourdough-kitchen::editor_note::0",
+    "the-seafood-list::body::1",
+    "the-seafood-list::body::2",
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
     "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
   "pruned_chunk_ids": [
-    "store-ten::practical::0",
-    "store-ten::tags::0",
-    "store-ten::summary::0",
-    "store-ten::editor_note::0"
+    "stringers-mornington::practical::0",
+    "stringers-mornington::summary::0",
+    "stringers-mornington::editor_note::0",
+    "stringers-mornington::tags::0"
   ],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
-  "embedding_cost_usd_estimate": 0,
+  "embedding_cost_usd_estimate": 0.0001,
   "errors": []
 }
