@@ -7,13 +7,14 @@
 export interface Props {
   place: any;
   variant?: 'vineyard' | 'bay' | 'sand';
+  showDetails?: boolean;
 }
 
 import { heroBackgroundStyle } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
 
-const { place, variant = 'vineyard' } = Astro.props;
+const { place, variant = 'vineyard', showDetails = true } = Astro.props;
 const data = place.data;
 const slug = place.id ?? data.slug;
 
@@ -50,18 +51,18 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
     })}
   ></a>
   <div class="place-card__body">
-    <p class="place-card__zone">{zoneLabel} · {data.kind}</p>
+    {showDetails && (<p class="place-card__zone">{zoneLabel} · {data.kind}</p>)}
     <h3 class="place-card__name">
       <a href={`/places/${slug}`}>{data.name}</a>
     </h3>
-    <p class="place-card__intro">{data.intro}</p>
+    {showDetails && (<p class="place-card__intro">{data.intro}</p>)}
   </div>
-  <PiSaveActions
+  {showDetails && (<PiSaveActions
     kind="place"
     slug={slug}
     title={data.name}
     href={`/places/${slug}/`}
     dek={data.intro}
     imageUrl={heroSrc}
-  />
+  />)}
 </article>

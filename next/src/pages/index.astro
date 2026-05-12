@@ -6,8 +6,8 @@
  * one PI dispatch tied to the current spotlight. Scrim + grain + Ken Burns
  * drift carry the cinematic feel; rules in BRAND-PI.md govern voice.
  *
- * Below the fold the existing editorial layout resumes:
- * Weekend Picker → Places rail → Three picks → Shortlist → Editor's Letter
+ * Below the fold the editorial hierarchy is:
+ * Peninsula This Weekend → Places rail → Plans → Shortlist → Editor's Letter
  * → Newsletter.
  *
  * Spotlight is set in the `scenes` array near the top of the script block.
@@ -25,11 +25,9 @@ import Shortlist from '../components/Shortlist.astro';
 import EditorsLetter from '../components/EditorsLetter.astro';
 import PlaceCard from '../components/PlaceCard.astro';
 import ItineraryCard from '../components/ItineraryCard.astro';
-import EventCard from '../components/EventCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc, isUpcoming, melbourneDateKey } from '../lib/editorial';
-import { eventInWindow } from '../lib/events';
+import { formatLabel, routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
@@ -41,16 +39,9 @@ const cmsOverrides = await loadPublishedHomepageOverrides();
 const cmsText = cmsOverrides.textFieldsByPath;
 const cmsImage = cmsOverrides.imageSlotsByPath;
 
-// `now` is declared at the top so every data block below can reference it
-// without hitting the temporal dead zone. Used by event-recency filters
-// and the cinema scene picker.
-const now = new Date();
-
-const venues      = await getCollection('venues');
 const articles    = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const places      = await getCollection('places');
-const experiences = await getCollection('experiences');
 const itineraries = await getCollection('itineraries');
 
 // Homepage Plans card grid (Wave 3 prep, 2026-05-10) — rebalances the
@@ -83,52 +74,6 @@ const dispatchWindow = weekendDispatch
   ? dispatchWeekend(weekendDispatch.data.publishedAt)
   : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
 
-// ── Peninsula Insider Picks This Weekend ─────────────────────────────────
-// Surfaces the canonical weekly editorial shortlist on the homepage. Same
-// data source as /whats-on/: the `weekend-picks` content collection (when
-// curated) with fallback to events tagged `lens: weekend-pick`. Sliced to
-// the top 3 here — full list lives at /whats-on/#picks.
-const events = (await getCollection('events', ({ data }) => data.status === 'published'))
-  .filter((event) => {
-    const cancelled = /cancelled/i.test(event.data.verificationStatus ?? '') || /^cancelled:/i.test(event.data.summary ?? '');
-    if (cancelled) return false;
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    const end = event.data.endDate ?? event.data.startDate;
-    return isUpcoming(end, now);
-  })
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
-
-const nextWeekendEvents = events.filter((event) =>
-  eventInWindow(event, dispatchWindow.start, dispatchWindow.end)
-);
-
-const weekendPicksOverrides = await getCollection('weekend-picks', ({ data }) =>
-  melbourneDateKey(data.weekendStart) === melbourneDateKey(dispatchWindow.start)
-);
-const weekendPicksEntry = weekendPicksOverrides[0];
-
-const eventsBySlug = new Map(events.map((e) => [e.data.slug, e] as const));
-
-type HomeWeekendPick = {
-  event: typeof events[number];
-  verdictOverride?: string;
-  featured: boolean;
-};
-
-const homeWeekendPicks: HomeWeekendPick[] = weekendPicksEntry
-  ? [...weekendPicksEntry.data.picks]
-      .sort((a, b) => a.position - b.position)
-      .map((p) => {
-        const ev = eventsBySlug.get(p.eventSlug);
-        return ev ? { event: ev, verdictOverride: p.editorVerdict, featured: p.featured } : null;
-      })
-      .filter((x): x is HomeWeekendPick => x !== null)
-      .slice(0, 3)
-  : nextWeekendEvents
-      .filter((event) => event.data.lens.includes('weekend-pick'))
-      .slice(0, 3)
-      .map((event, i) => ({ event, featured: i === 0 }));
-
 const editorPicks = articles
   .filter((a) => routeSlug(a) !== routeSlug(featured))
   .filter((a) =>
@@ -137,25 +82,34 @@ const editorPicks = articles
   )
   .slice(0, 5);
 
-const eatPick = venues.find((v) => routeSlug(v) === 'laura')
-  ?? venues.find((v) => routeSlug(v) === 'ten-minutes-by-tractor')
-  ?? venues.filter((v) => v.data.type === 'restaurant')[0];
-
-const stayPick = venues.find((v) => routeSlug(v) === 'jackalope')
-  ?? venues.filter((v) => stayTypes.includes(v.data.type))[0];
-
-const explorePick = experiences.find((e) => routeSlug(e) === 'bushrangers-bay-walk')
-  ?? experiences[0];
-
-const featuredPlaces = places.filter((p) =>
-  ['red-hill', 'sorrento', 'flinders', 'mornington', 'portsea', 'main-ridge'].includes(routeSlug(p))
-);
+const featuredPlaceSlugs = [
+  'mornington',
+  'mount-martha',
+  'dromana',
+  'rosebud',
+  'rye',
+  'sorrento',
+  'portsea',
+  'red-hill',
+  'flinders',
+  'hastings',
+];
+const featuredPlaces = featuredPlaceSlugs
+  .map((slug) => places.find((p) => routeSlug(p) === slug))
+  .filter(Boolean);
+const placesLabelRaw = cmsText['places.label'];
+const placesLabel = /know the terrain/i.test(placesLabelRaw ?? '')
+  ? 'Area guide'
+  : placesLabelRaw ?? 'Area guide';
+const placesTitleRaw = cmsText['places.title'];
+const placesTitle = placesTitleRaw === 'The Peninsula, place by place'
+  ? 'Explore the Peninsula'
+  : placesTitleRaw ?? 'Explore the Peninsula';
 
 const season         = currentSeason();
 const seasonBlurbData = seasonBlurb[season];
-// `now` is declared near the top of the script block.
-// (issueDate const removed 2026-05-12 — was used only by the dropped
-// "Vol 04 · {issueDate}" cinema chrome.)
+// issueDate const removed 2026-05-12 — was used only by the dropped
+// "Vol 04 · {issueDate}" cinema chrome.
 
 // ── Cinematic hero data ────────────────────────────────────────────────────
 // Production cover: the May issue's spotlight is the Hatted Restaurants
@@ -404,40 +358,7 @@ const ssrScene = scenes[0];
     </div>
   </section>
 
-  {/* ── Peninsula Insider Picks This Weekend ─────────────────────────────────
-       The canonical weekly editorial shortlist, surfaced on the homepage so
-       a Friday-afternoon visitor answers "what should I do this weekend?"
-       in the first scroll. Top 3 only — full list at /whats-on/#picks. */}
-  {homeWeekendPicks.length > 0 && (
-    <section class="hp-weekend-picks">
-      <div class="container">
-        <div class="hp-weekend-picks__head">
-          <div>
-            <p class="label label--accent">Peninsula Insider Picks</p>
-            <h2 class="hp-weekend-picks__title">This weekend, the editor would book.</h2>
-            <p class="hp-weekend-picks__sub">The strongest events on the Peninsula for {dispatchWindow.label}. Selected, not listed.</p>
-          </div>
-          <a href="/whats-on/#picks" class="venues__link">See all picks →</a>
-        </div>
-        <div class="event-grid hp-weekend-picks__grid">
-          {homeWeekendPicks.map(({ event, verdictOverride, featured }) => {
-            const eventWithOverride = verdictOverride
-              ? { ...event, data: { ...event.data, editorVerdict: verdictOverride } }
-              : event;
-            return (
-              <EventCard
-                event={eventWithOverride}
-                featured={featured}
-                showVerdict={true}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  )}
-
-  {/* ── Below the fold — existing magazine layout, unchanged ───────────────── */}
+  {/* ── Below the fold — primary weekend dispatch, terrain, plans, shortlist ── */}
   {weekendDispatch && (
     <WeekendPickerBlock
       dispatch={weekendDispatch}
@@ -452,80 +373,27 @@ const ssrScene = scenes[0];
           <p
             class="label label--accent places__label"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.label', label: 'Places eyebrow' })}
-          >{cmsText['places.label'] ?? 'Know the terrain'}</p>
+          >{placesLabel}</p>
           <h2
             class="places__title"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.title', label: 'Places title' })}
-          >{cmsText['places.title'] ?? 'The Peninsula, place by place'}</h2>
+          >{placesTitle}</h2>
           <p
             class="places__sub"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.sub', label: 'Places sub' })}
-          >{cmsText['places.sub'] ?? 'Six towns that organise the region — ridge, coast, and bay.'}</p>
+          >{cmsText['places.sub'] ?? 'Bay towns, back beaches, ridge villages, southern coast, and Western Port — the main areas to orient the trip.'}</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
             <PlaceCard
               place={place}
               variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
+              showDetails={false}
             />
           ))}
         </div>
         <div class="places__footer">
-          <a href="/places/" class="venues__link">All {places.length} places →</a>
-        </div>
-      </div>
-    </section>
-  )}
-
-  {(eatPick || stayPick || explorePick) && (
-    <section class="hp-picks">
-      <div class="container">
-        <div class="hp-picks__head">
-          <div>
-            <p
-              class="label label--accent"
-              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'picks.label', label: 'Picks eyebrow' })}
-            >{cmsText['picks.label'] ?? "This week's edit"}</p>
-            <h2
-              class="hp-picks__title"
-              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'picks.title', label: 'Picks title' })}
-            >{cmsText['picks.title'] ?? 'Three reasons to go'}</h2>
-          </div>
-          <a href="/journal/" class="venues__link">Read all →</a>
-        </div>
-        <div class="hp-picks__grid">
-          {eatPick && (
-            <a href={`/eat/${routeSlug(eatPick)}`} class="hp-pick">
-              <div class="hp-pick__img">
-                <img src={resolveHeroSrc(eatPick.data)} alt={eatPick.data.heroImage?.alt ?? eatPick.data.name ?? 'Restaurant pick'} loading="lazy" decoding="async" />
-              </div>
-              <p class="hp-pick__tag">Eat &amp; Drink</p>
-              <h3 class="hp-pick__name">{eatPick.data.name}</h3>
-              {eatPick.data.signature && (<p class="hp-pick__note">{eatPick.data.signature}</p>)}
-            </a>
-          )}
-          {stayPick && (
-            <a href={`/stay/${routeSlug(stayPick)}`} class="hp-pick">
-              <div class="hp-pick__img">
-                <img src={resolveHeroSrc(stayPick.data)} alt={stayPick.data.heroImage?.alt ?? stayPick.data.name ?? 'Stay pick'} loading="lazy" decoding="async" />
-              </div>
-              <p class="hp-pick__tag">Stay</p>
-              <h3 class="hp-pick__name">{stayPick.data.name}</h3>
-              {stayPick.data.signature && (<p class="hp-pick__note">{stayPick.data.signature}</p>)}
-            </a>
-          )}
-          {explorePick && (
-            <a href={`/explore/${routeSlug(explorePick)}`} class="hp-pick">
-              <div class="hp-pick__img">
-                <img src={resolveHeroSrc(explorePick.data)} alt={explorePick.data.heroImage?.alt ?? explorePick.data.name ?? 'Explore pick'} loading="lazy" decoding="async" />
-              </div>
-              <p class="hp-pick__tag">Explore</p>
-              <h3 class="hp-pick__name">{explorePick.data.name}</h3>
-              {explorePick.data.editorNote && (
-                <p class="hp-pick__note">{String(explorePick.data.editorNote).split('.')[0].trim()}.</p>
-              )}
-            </a>
-          )}
+          <a href="/places/" class="venues__link">Explore all places →</a>
         </div>
       </div>
     </section>
@@ -552,7 +420,7 @@ const ssrScene = scenes[0];
           {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
         </div>
         <div class="hp-plans__footer">
-          <a href="/plans/" class="venues__link">All {itineraries.length} plans →</a>
+          <a href="/plans/" class="venues__link">View all plans →</a>
         </div>
       </div>
     </section>
@@ -1145,139 +1013,20 @@ const ssrScene = scenes[0];
   }
 
   /* =========================================================================
-     Below-fold styles — ported verbatim from index.astro so the integration
-     reads identically to the live homepage. These are scoped to .places--compact
-     and .hp-picks / .hp-pick* and don't collide with anything else.
+     Below-fold styles — homepage sections below the cinematic cover.
      ─────────────────────────────────────────────────────────────────────── */
 
-  /* ── Places compact: suppress intro text so each tile reads as image + name ── */
-  .places--compact .place-card__intro { display: none; }
-
-  /* ── Peninsula Insider Picks This Weekend ───────────────────────────────────
-     The canonical weekly editorial shortlist on the homepage. Sits directly
-     below the cover so a Friday-afternoon visitor sees the editor's picks
-     without scrolling far. Shares EventCard with /whats-on/ for consistency. */
-  .hp-weekend-picks {
-    padding: clamp(4rem, 7vw, 6rem) 0;
-    background: var(--paper, #FAF6EE);
+  /* ── Places compact: homepage terrain tiles read as image + place name only ── */
+  .places--compact .place-card__body {
+    padding: 1rem 0 0;
   }
-  .hp-weekend-picks__head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: clamp(2rem, 4vw, 3rem);
-  }
-  .hp-weekend-picks__title {
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--ink, #171413);
-    margin: 0.25rem 0 0.6rem;
-    font-variation-settings: 'opsz' 32;
-  }
-  .hp-weekend-picks__sub {
-    max-width: 44rem;
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.55;
-    color: var(--ink-soft, #3A3531);
-  }
-  .hp-weekend-picks__grid {
-    /* Inherits .event-grid layout (3-up at wide widths, single column at
-       mobile). Tighter top margin since the head block already has spacing. */
-    margin-top: 0;
-  }
-
-  /* ── Three picks ─────────────────────────────────────────────────────────── */
-  .hp-picks {
-    padding: clamp(4rem, 7vw, 6rem) 0;
-    background: var(--paper, #FAF6EE);
-  }
-  .hp-picks__head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: clamp(2rem, 4vw, 3rem);
-  }
-  .hp-picks__title {
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--ink, #171413);
-    margin: 0.25rem 0 0;
-    font-variation-settings: 'opsz' 32;
-  }
-  .hp-picks__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-  }
-  @media (max-width: 800px) {
-    .hp-picks__grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  }
-  .hp-pick {
-    display: block;
-    text-decoration: none;
-    color: var(--ink, #171413);
-  }
-  .hp-pick__img {
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    background: var(--sand, #E8E2D1);
-  }
-  .hp-pick__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.45s ease;
-  }
-  .hp-pick:hover .hp-pick__img img { transform: scale(1.04); }
-  .hp-pick__tag {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ochre, #A0541F);
-    margin: 0 0 0.45rem;
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-  }
-  .hp-pick__name {
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    color: var(--ink, #171413);
-    margin: 0 0 0.5rem;
-    line-height: 1.25;
-    font-variation-settings: 'opsz' 24;
-  }
-  .hp-pick__note {
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: var(--ink-soft, #3A3531);
-    margin: 0;
-  }
-  .hp-pick:hover .hp-pick__name {
-    color: var(--ochre, #A0541F);
-    transition: color 0.18s ease;
+  .places--compact .place-card__name {
+    margin-bottom: 0;
   }
 
   /* ── Homepage Plans card grid (Wave 3 prep, 2026-05-10) ──────────────────
-     Restores Plans to the visible homepage hierarchy. Sits between the
-     three editorial picks (single venues) and the Journal shortlist —
-     after "three reasons to go", before "five pieces worth the appointment"
-     — so the reading order moves from single venues → full weekend plans
-     → editorial dispatches. Strategic Review §6: homepage was under-
-     weighting Plans, AI assistants and search systems were missing the
-     planning signal.
+     Keeps planning visible after the primary weekend dispatch and regional
+     orientation, without the extra single-venue edit layer.
      ────────────────────────────────────────────────────────────────────── */
   .hp-plans {
     padding: clamp(4rem, 7vw, 6rem) 0;

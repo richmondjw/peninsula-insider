@@ -3,8 +3,8 @@
  * EventCard  -  the primary card for the What's On index.
  *
  * Designed to carry the Peninsula Insider editorial wedge up front:
- * date, category, editor verdict, badges. No plain directory rows  - 
- * every event carries at least one sentence of opinion.
+ * date, category, summary, and badges. No plain directory rows —
+ * every event carries at least one sentence of context.
  */
 import EventBadges from './EventBadges.astro';
 import PiSaveActions from './PiSaveActions.astro';
@@ -15,18 +15,13 @@ export interface Props {
   event: any;
   featured?: boolean;
   /**
-   * Whether to render the editor's verdict block.
-   *
-   * Default: false. The verdict is the editor's voice — keeping it rare
-   * keeps it valuable. By default it only appears inside the curated
-   * "Peninsula Insider Picks This Weekend" section; standard temporal
-   * listings (This Week / This Month / Recurring) render without it so
-   * editorial framing stays selective rather than ambient.
+   * Deprecated no-op. Verdict blocks were removed from cards to keep
+   * What's On surfaces cleaner and less review-site driven.
    */
   showVerdict?: boolean;
 }
 
-const { event, featured = false, showVerdict = false } = Astro.props;
+const { event, featured = false } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
 
@@ -80,12 +75,6 @@ const placeHref = placeId ? `/places/${placeId}/` : null;
     </p>
   )}
   <p class="event-card__summary">{event.data.summary}</p>
-  {showVerdict && event.data.editorVerdict && (
-    <blockquote class="event-card__verdict">
-      <span class="event-card__verdict-label">Editor's verdict</span>
-      <p>{event.data.editorVerdict}</p>
-    </blockquote>
-  )}
   <EventBadges
     worthTheDrive={event.data.worthTheDrive}
     firstTimer={event.data.firstTimer}

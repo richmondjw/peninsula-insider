@@ -33,7 +33,8 @@ const articleOv = dispatchSlug ? await loadOverrides('article', dispatchSlug) : 
 const eyebrow      = globalOv.text['weekend.eyebrow']     ?? 'Peninsula This Weekend';
 const cadence      = globalOv.text['weekend.cadence']     ?? 'Published for the weekend ahead · one pick, one backup, one useful planning note';
 const ctaPrimary   = globalOv.text['weekend.cta.primary'] ?? "Read this week's dispatch →";
-const ctaGhost     = globalOv.text['weekend.cta.ghost']   ?? 'All events →';
+const ctaGhostRaw  = globalOv.text['weekend.cta.ghost']   ?? 'View What’s On →';
+const ctaGhost     = /all events/i.test(ctaGhostRaw) ? 'View What’s On →' : ctaGhostRaw;
 
 const dispatchTitle = articleOv.text['title'] ?? dispatch?.data?.title ?? '';
 const dispatchDek   = articleOv.text['dek']   ?? dispatch?.data?.dek   ?? '';
