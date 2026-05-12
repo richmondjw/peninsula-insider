@@ -24,7 +24,6 @@
   function init() {
     tagElements();
     applyReveals();
-    initParallax();
   }
 
 
@@ -190,43 +189,6 @@
         observer.observe(el);
       }
     }
-  }
-
-
-  /* ----------------------------------------------------------------
-     PARALLAX
-     ---------------------------------------------------------------- */
-
-  function initParallax() {
-    var heroes = document.querySelectorAll('.parallax-hero');
-    if (!heroes.length) return;
-
-    var SPEED = 0.12;
-    var ticking = false;
-
-    function updateParallax() {
-      for (var i = 0; i < heroes.length; i++) {
-        var el = heroes[i];
-        var rect = el.getBoundingClientRect();
-        var elCenter = rect.top + rect.height / 2;
-        var viewCenter = window.innerHeight / 2;
-        var offset = (elCenter - viewCenter) * SPEED;
-
-        if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
-          el.style.transform = 'scale(1.08) translateY(' + offset.toFixed(1) + 'px)';
-        }
-      }
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    updateParallax();
   }
 
 

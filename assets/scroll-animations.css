@@ -139,19 +139,6 @@ html {
 
 
 /* ------------------------------------------------------------------
-   7. PARALLAX
-   Hero visuals get a subtle scale-up so there's room to translate
-   without revealing edges. The actual transform is set by JS.
-   ------------------------------------------------------------------ */
-
-.parallax-hero {
-  will-change: transform;
-  transform: scale(1.08) translateY(0);
-  transition: none;  /* JS drives this — no CSS transition */
-}
-
-
-/* ------------------------------------------------------------------
    8. FEATURE IMAGE REVEAL
    The feature story image block fades and scales in gently.
    ------------------------------------------------------------------ */
@@ -186,11 +173,6 @@ html {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
-    will-change: auto !important;
-  }
-
-  .parallax-hero {
-    transform: none !important;
     will-change: auto !important;
   }
 
