@@ -41,6 +41,11 @@ const cmsOverrides = await loadPublishedHomepageOverrides();
 const cmsText = cmsOverrides.textFieldsByPath;
 const cmsImage = cmsOverrides.imageSlotsByPath;
 
+// `now` is declared at the top so every data block below can reference it
+// without hitting the temporal dead zone. Used by event-recency filters
+// and the cinema scene picker.
+const now = new Date();
+
 const venues      = await getCollection('venues');
 const articles    = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -148,8 +153,7 @@ const featuredPlaces = places.filter((p) =>
 
 const season         = currentSeason();
 const seasonBlurbData = seasonBlurb[season];
-
-const now = new Date();
+// `now` is declared near the top of the script block.
 // (issueDate const removed 2026-05-12 — was used only by the dropped
 // "Vol 04 · {issueDate}" cinema chrome.)
 
