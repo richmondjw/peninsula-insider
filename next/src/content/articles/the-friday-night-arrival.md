@@ -29,7 +29,6 @@ relatedVenues:
   - "rare-hare"
   - "bistro-elba"
   - "red-gum-bbq"
-  - "pane-e-vino"
   - "the-bay-hotel-mornington"
 relatedExperiences: []
 readingTimeMinutes: 6
