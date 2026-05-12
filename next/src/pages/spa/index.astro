@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-import { routeSlug } from '../../lib/editorial';
+import { routeSlug, placeLabel } from '../../lib/editorial';
 
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 const spaArticles = allArticles
@@ -155,11 +155,11 @@ const collectionSchema = {
           {spaVenues.map((venue) => (
             <article class="venue-card venue-card--editorial">
               <div class="venue-card__top">
-                <span class="venue-card__type">{venue.data.place}</span>
+                <span class="venue-card__type">{placeLabel(venue.data.place)}</span>
                 <span class="venue-card__price">{venue.data.priceBand}</span>
               </div>
               <h3 class="venue-card__name">
-                <a href={`/stay/${venue.data.slug}`}>{venue.data.name}</a>
+                <a href={`/stay/${routeSlug(venue)}`}>{venue.data.name}</a>
               </h3>
               <p class="venue-card__signature">{venue.data.signature}</p>
             </article>
