@@ -745,9 +745,14 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
     const bustUrl = publicUrl + (publicUrl.includes('?') ? '&' : '?') + 'v=' + ts;
     console.log('[pi-edit] setting visible image src', bustUrl);
     setImageSrc(el, bustUrl);
-    // Clear placeholder chrome — remove the class so the "Add photo" overlay
-    // and camera icon disappear now that a real image has been assigned.
-    el.classList.remove('venue-card__hero--placeholder');
+    // Clear placeholder chrome — strip any `*__hero--placeholder` class so the
+    // "Add photo" overlay and camera icon disappear now that a real image has
+    // been assigned. Covers venue, event, and any future card variant that
+    // follows the same convention.
+    el.className = el.className
+      .split(/\s+/)
+      .filter((c) => !/__hero--placeholder$/.test(c))
+      .join(' ');
 
     await recordRevision(supa, session.user.id, {
       entity_type: desc.entityType,
@@ -820,8 +825,13 @@ async function applyOverridesOnLoad() {
       setImageSrc(el, row.public_url);
       // A placeholder card has no inline bg-image at build time; once a real
       // image is applied via Supabase, remove the placeholder chrome so the
-      // "Add photo" state gives way to the actual image.
-      el.classList.remove('venue-card__hero--placeholder');
+      // "Add photo" state gives way to the actual image. Cover every card
+      // type that uses the same pattern — venue, event, and any future card
+      // — by stripping all `--placeholder` modifiers via the className.
+      el.className = el.className
+        .split(/\s+/)
+        .filter((c) => !/__hero--placeholder$/.test(c))
+        .join(' ');
       if (row.alt_text) {
         if (el instanceof HTMLImageElement) el.alt = row.alt_text;
         else el.setAttribute('aria-label', row.alt_text);
