@@ -43,6 +43,19 @@ const placeLabel = placeId
   ? String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())
   : null;
 const placeHref = placeId ? `/places/${placeId}/` : null;
+
+function conciseSummary(value: unknown, maxWords = 22): string {
+  const text = String(value ?? '').replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+  const firstSentence = text.match(/^[^.!?]+[.!?]/)?.[0]?.trim();
+  const base = firstSentence && firstSentence.split(/\s+/).length <= maxWords
+    ? firstSentence
+    : text;
+  const words = base.split(/\s+/);
+  if (words.length <= maxWords) return base;
+  return `${words.slice(0, maxWords).join(' ')}…`;
+}
+const summary = conciseSummary(event.data.summary);
 ---
 
 <article class={`event-card ${featured ? 'event-card--featured' : ''}`}>
@@ -74,7 +87,7 @@ const placeHref = placeId ? `/places/${placeId}/` : null;
       {placeHref ? <a href={placeHref}>{placeLabel}</a> : placeLabel}
     </p>
   )}
-  <p class="event-card__summary">{event.data.summary}</p>
+  {summary && (<p class="event-card__summary">{summary}</p>)}
   <EventBadges
     worthTheDrive={event.data.worthTheDrive}
     firstTimer={event.data.firstTimer}

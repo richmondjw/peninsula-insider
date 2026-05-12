@@ -9,11 +9,10 @@ import WeekendPickerBlock from '../../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
   dispatchWeekend,
-  melbourneDateKey,
   isUpcoming,
   routeSlug,
 } from '../../lib/editorial';
-import { chips, eventInWindow, upcomingWeekend } from '../../lib/events';
+import { chips, eventInWindow } from '../../lib/events';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const now = new Date();
@@ -35,66 +34,8 @@ const currentDispatch = dispatches[0];
 const dispatchWindow = currentDispatch
   ? dispatchWeekend(currentDispatch.data.publishedAt)
   : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
-const upcomingWeekendStart = dispatchWindow.start;
-const upcomingWeekendEnd = dispatchWindow.end;
-
-// Events with at least one occurrence inside the upcoming weekend
-// window. Uses the proper recurrence-aware check (weekly events must
-// actually have a Sat/Sun occurrence; monthly events must have their
-// next occurrence inside the window).
-const nextWeekendEvents = events.filter((event) =>
-  eventInWindow(event, upcomingWeekendStart, upcomingWeekendEnd)
-);
-
-// ── Peninsula Insider Picks This Weekend ─────────────────────────────────
-// The curated editorial layer. Per the editorial brief, this is now the
-// canonical weekly shortlist — also the source for the newsletter and
-// social amplification. Capped at 10 to keep the section selective; top
-// 3 get featured-card treatment.
-//
-// Source of truth (Wave 3): when a `weekend-picks` content-collection
-// entry exists for the current upcoming weekend, use its hand-curated
-// list. Otherwise fall back to events tagged with the `weekend-pick`
-// lens so the section is never empty.
-const weekendPicksOverrides = await getCollection('weekend-picks', ({ data }) =>
-  melbourneDateKey(data.weekendStart) === melbourneDateKey(upcomingWeekendStart)
-);
-const weekendPicksEntry = weekendPicksOverrides[0];
-
-const eventsBySlug = new Map(events.map((e) => [e.data.slug, e] as const));
-
-type WeekendPick = {
-  event: typeof events[number];
-  verdictOverride?: string;
-  featured: boolean;
-};
-
-const weekendPicks: WeekendPick[] = weekendPicksEntry
-  ? [...weekendPicksEntry.data.picks]
-      .sort((a, b) => a.position - b.position)
-      .map((p) => {
-        const ev = eventsBySlug.get(p.eventSlug);
-        return ev
-          ? { event: ev, verdictOverride: p.editorVerdict, featured: p.featured }
-          : null;
-      })
-      .filter((x): x is WeekendPick => x !== null)
-      .slice(0, 10)
-  : nextWeekendEvents
-      .filter((event) => event.data.lens.includes('weekend-pick'))
-      .slice(0, 10)
-      .map((event, i) => ({ event, featured: i < 3 }));
-
-// Running set of events already given a slot on this page. Each editorial
-// section below adds to it after taking its slice; subsequent sections
-// filter against it. The temporal tabs are exempt (they're a tab-
-// switching scan view, not a linear read), but every editorial section
-// from the dispatch downward must show each event at most once.
-const seenIds = new Set<string>();
-weekendPicks.forEach((p) => seenIds.add(p.event.id));
-
-const skipEvents = events.filter((event) => event.data.skipThis);
-
+// Mood-led browsing is a core editorial differentiator. Keep it as a
+// prominent navigation layer rather than expanding duplicate listings inline.
 // Hub tiles for "Browse by Mood" — each one navigates to a real
 // /whats-on/by-mood/[mood]/ sub-page driven by the `chips` registry in
 // lib/events.ts. Mood-led browsing lives on those sub-pages; the hub
@@ -106,17 +47,11 @@ const moodTiles = chips.map((chip) => ({
   count: events.filter(chip.filter).length,
 }));
 
-const totalEvents = events.length;
-const recurringCount = events.filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)).length;
-const oneOffCount = totalEvents - recurringCount;
 
 // ── Temporal tabs ────────────────────────────────────────────────────────
-// Three tabs only, per the editorial brief: This Week / This Month /
-// Recurring. Today and This Weekend were removed — Today is too narrow
-// to ever feel useful, and the Weekend is now owned by the Picks
-// section above. Recurring becomes a peer tab rather than its own
-// scroll section so the predictable spine is one click away rather
-// than another full grid below.
+// Three compact tabs only: This Week / This Month / Recurring.
+// The weekend is owned by the editorial dispatch above; these tabs are
+// a utility layer, deliberately short so the page does not become a directory.
 //
 // Each tab is recurrence-aware via `eventInWindow` so a weekly Sunday
 // market only appears under "This Week" if a Sunday falls inside the
@@ -139,26 +74,25 @@ const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) 
   return a.data.startDate.getTime() - b.data.startDate.getTime();
 };
 
-// Don't repeat the weekend picks inside the temporal tabs — the picks
-// section is above and the tabs are the utility layer for everything
-// else. Exempt the Recurring tab so the predictable spine stays whole.
+// Keep the temporal layer short and avoid repeating the same event inside
+// multiple visible support sections.
 const weekEvents = events
-  .filter((e) => !seenIds.has(e.id) && eventInWindow(e, weekStart, weekEnd))
+  .filter((e) => eventInWindow(e, weekStart, weekEnd))
   .sort(sortAppealThenDate)
-  .slice(0, 9);
+  .slice(0, 6);
 const monthEvents = events
-  .filter((e) => !seenIds.has(e.id) && eventInWindow(e, monthStart, monthEnd))
+  .filter((e) => eventInWindow(e, monthStart, monthEnd))
   .sort(sortAppealThenDate)
-  .slice(0, 9);
+  .slice(0, 6);
 const recurringTabEvents = events
   .filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence))
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 12);
+  .slice(0, 6);
 
 const temporalTabs = [
-  { key: 'week',      label: 'This Week',   items: weekEvents,         blurb: 'The next seven days on the Peninsula.' },
-  { key: 'month',     label: 'This Month',  items: monthEvents,        blurb: 'The next thirty days, sorted by appeal then date.' },
-  { key: 'recurring', label: 'Recurring',   items: recurringTabEvents, blurb: "The predictable spine — markets, sessions, programmes that run on a known cadence." },
+  { key: 'week',      label: 'This Week',   items: weekEvents,         blurb: 'A tight edit of the next seven days.' },
+  { key: 'month',     label: 'This Month',  items: monthEvents,        blurb: 'The strongest dates in the next thirty days.' },
+  { key: 'recurring', label: 'Recurring',   items: recurringTabEvents, blurb: 'Reliable markets, sessions, and programmes.' },
 ];
 
 const initialTabKey = weekEvents.length > 0
@@ -166,6 +100,15 @@ const initialTabKey = weekEvents.length > 0
   : monthEvents.length > 0
     ? 'month'
     : 'recurring';
+
+const temporalIds = new Set([
+  ...weekEvents.map((event) => event.id),
+  ...monthEvents.map((event) => event.id),
+  ...recurringTabEvents.map((event) => event.id),
+]);
+const skipEvents = events
+  .filter((event) => event.data.skipThis && !temporalIds.has(event.id))
+  .slice(0, 3);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -175,21 +118,17 @@ const breadcrumbItems = [
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'How are Peninsula Insider Picks chosen?',
-      acceptedAnswer: { '@type': 'Answer', text: 'A named editor curates a shortlist for each upcoming weekend — the strongest, most worthwhile events the editor would actually book. It is deliberately selective, capped at ten, and refreshed weekly. The Picks are the canonical shortlist; the time-based tabs below cover the broader calendar.' } },
-    { '@type': 'Question', name: 'Are the kids-grade A/B/C ratings genuine?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We attend or have attended every family programme we grade. A means we\'d return without hesitation. B means it works but has a flaw. C means we wouldn\'t go back. Grades are visible on every event with the family-saturday or school-holidays lens.' } },
-    { '@type': 'Question', name: 'Why do some events carry a planning note?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Because the useful part of an events guide is context. When an event is likely to be crowded, logistically awkward, or a better fit for a different kind of visitor, we say so briefly and plainly so readers can plan with their eyes open.' } },
+    { '@type': 'Question', name: 'How do you choose what appears?',
+      acceptedAnswer: { '@type': 'Answer', text: 'We keep the page selective: useful dates, recurring anchors, and events with a clear reason to go now.' } },
     { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don\'t cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'No. We stay on the Mornington Peninsula and Western Port fringe so the edit stays local and useful.' } },
   ],
 };
 ---
 
 <BaseLayout
   title="What's On Mornington Peninsula · Peninsula Insider"
-  description="The Peninsula's events page with an editorial point of view. Weekend picks, kids-graded school holidays, worth-the-drive badges, and useful planning notes."
+  description="A tighter edit of what’s on around the Mornington Peninsula: this weekend first, then mood and time."
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
   modifiedTime="2026-04-30"
@@ -203,13 +142,13 @@ const faqSchema = {
        1. CINEMATIC HERO
        ═══════════════════════════════════════════════════════════════ -->
   <GuideHero
-    eyebrow={`What's On · ${totalEvents} curated events · Reviewed weekly`}
-    title="Peninsula events, with an <em>opinion</em> for a change"
-    dek="Every other Peninsula calendar lists everything. This one picks the events the editor would actually book, with planning notes when the logistics matter."
+    eyebrow="What’s On · reviewed weekly"
+    title="What’s on, <em>worth your time</em>"
+    dek="Start with the weekend edit, then browse by mood or timing."
     meta={[
-      { label: `${totalEvents} curated events` },
-      { label: `${recurringCount} recurring programmes` },
-      { label: 'Reviewed weekly' },
+      { label: 'This weekend first' },
+      { label: 'Browse by mood' },
+      { label: 'Updated weekly' },
     ]}
     heroImage="/images/sourced/category-market-02.webp"
     imageAlt="Saturday morning at a Peninsula farmers market, the recurring event spine of the calendar"
@@ -218,51 +157,46 @@ const faqSchema = {
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. PENINSULA INSIDER PICKS THIS WEEKEND
-       The curated editorial layer. The canonical weekly shortlist —
-       also the source for newsletter and social amplification. Top 3
-       get featured-card treatment; verdicts only render here.
+       2. PENINSULA THIS WEEKEND — editorial hero
        ═══════════════════════════════════════════════════════════════ -->
-  {weekendPicks.length > 0 && (
-    <section class="venues venues--plain" id="picks">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Peninsula Insider Picks</p>
-            <h2 class="venues__title">Peninsula Insider Picks This Weekend</h2>
-            <p class="venues__sub venues__sub--standfirst">The strongest, most worthwhile, and most editorially endorsed events for {dispatchWindow.label}. Selected, not listed.</p>
-          </div>
-          <span class="venues__count">{weekendPicks.length} picks</span>
-        </div>
-        <div class="event-grid">
-          {weekendPicks.map(({ event, verdictOverride, featured }) => {
-            const eventWithOverride = verdictOverride
-              ? { ...event, data: { ...event.data, editorVerdict: verdictOverride } }
-              : event;
-            return (
-              <EventCard
-                event={eventWithOverride}
-                featured={featured}
-                showVerdict={true}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </section>
+  {currentDispatch && (
+    <div class="whatson-weekend-hero">
+      <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
+    </div>
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       3. WEEKEND LETTER (editor's letter for the upcoming weekend)
+       5. BROWSE BY MOOD, hub navigation only
+       Five reader-intent lenses cut across the calendar. Each tile links
+       to its dedicated /whats-on/by-mood/[mood]/ sub-page rather than
+       expanding inline, keeping the main What's On page a single linear
+       read with no event repetition.
        ═══════════════════════════════════════════════════════════════ -->
-  {currentDispatch && (
-    <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
-  )}
+  <section class="hub-formats" aria-label="Browse events by mood">
+    <div class="container">
+      <div class="hub-formats__intro">
+        <p class="label label--accent">By mood</p>
+        <h2 class="hub-formats__title">Pick the feeling first</h2>
+        <p class="hub-formats__dek">A faster way into the calendar when you know the kind of day you want.</p>
+      </div>
+      <ul class="hub-formats__grid">
+        {moodTiles.map((tile) => (
+          <li class={`hub-formats__cell${tile.count === 0 ? ' is-empty' : ''}`}>
+            <a href={`/whats-on/by-mood/${tile.slug}/`} class="hub-formats__link">
+              <span class="hub-formats__label">{tile.label}</span>
+              <span class="hub-formats__sub">{tile.note}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
        4. TEMPORAL TABS — This Week / This Month / Recurring
-       The utility layer. No verdicts, just listings. Editor's voice
-       lives in the Picks section above; this surface is for scanning.
+       Compact utility layer. Short, scan-friendly, and not a directory dump.
        ═══════════════════════════════════════════════════════════════ -->
   <section class="whatson-temporal" aria-label="Events by time window">
     <div class="container">
@@ -284,7 +218,6 @@ const faqSchema = {
             data-temporal-tab={tab.key}
           >
             <span class="whatson-temporal__tab-label">{tab.label}</span>
-            <span class="whatson-temporal__tab-count">{tab.items.length}</span>
           </button>
         ))}
       </div>
@@ -359,35 +292,6 @@ const faqSchema = {
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       5. BROWSE BY MOOD, hub navigation only
-       Five reader-intent lenses cut across the calendar. Each tile links
-       to its dedicated /whats-on/by-mood/[mood]/ sub-page rather than
-       expanding inline, keeping the main What's On page a single linear
-       read with no event repetition.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-formats" aria-label="Browse events by mood">
-    <div class="container">
-      <div class="hub-formats__intro">
-        <p class="label label--accent">Or browse by mood</p>
-        <h2 class="hub-formats__title">Pick the feeling first, let the events follow</h2>
-        <p class="hub-formats__dek">Five reader-intent lenses cut across the calendar. Each opens its own page of events matching the mood.</p>
-      </div>
-      <ul class="hub-formats__grid">
-        {moodTiles.map((tile) => (
-          <li class={`hub-formats__cell${tile.count === 0 ? ' is-empty' : ''}`}>
-            <a href={`/whats-on/by-mood/${tile.slug}/`} class="hub-formats__link">
-              <span class="hub-formats__label">{tile.label} · {tile.count}</span>
-              <span class="hub-formats__sub">{tile.note}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
        7. WORTH KNOWING
        ═══════════════════════════════════════════════════════════════ -->
   {skipEvents.length > 0 && (
@@ -415,46 +319,22 @@ const faqSchema = {
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. EDITORIAL STATS
+       10. FAQ — reduced
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="events-stats">
-    <div class="container">
-      <dl class="events-stats__list">
-        <div><dt>Curated events</dt><dd>{totalEvents}</dd></div>
-        <div><dt>Recurring programmes</dt><dd>{recurringCount}</dd></div>
-        <div><dt>One-off events</dt><dd>{oneOffCount}</dd></div>
-      </dl>
-      <p class="events-stats__note">
-        Reviewed weekly by a named editor. We publish what we'd actually attend, with context where the timing, fit, or logistics matter. If you think we've missed something, <a href="/contact/">tell us</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       10. FAQ
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-faq" aria-label="Frequently asked questions">
+  <section class="hub-faq hub-faq--compact" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
-        <h2 class="hub-faq__title">Four answers about how this calendar works</h2>
+        <p class="label label--accent">Good to know</p>
+        <h2 class="hub-faq__title">A quick note on the edit</h2>
       </div>
       <div class="hub-faq__list">
         <details class="hub-faq__item">
-          <summary class="hub-faq__q">How are Peninsula Insider Picks chosen?</summary>
-          <div class="hub-faq__a"><p>A named editor curates a shortlist for each upcoming weekend  -  the strongest, most worthwhile events the editor would actually book. It is deliberately selective, capped at ten, and refreshed weekly. The Picks are the canonical shortlist; the time-based tabs below cover the broader calendar.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Are the kids-grade A/B/C ratings genuine?</summary>
-          <div class="hub-faq__a"><p>Yes. We attend or have attended every family programme we grade. A means we'd return without hesitation. B means it works but has a flaw. C means we wouldn't go back. Grades are visible on every event with the family-saturday or school-holidays lens.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Why do some events carry a planning note?</summary>
-          <div class="hub-faq__a"><p>Because the useful part of an events guide is context. When an event is likely to be crowded, logistically awkward, or a better fit for a different kind of visitor, we say so briefly and plainly so readers can plan around it.</p></div>
+          <summary class="hub-faq__q">How do you choose what appears?</summary>
+          <div class="hub-faq__a"><p>We keep the page selective: useful dates, recurring anchors, and events with a clear reason to go now.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Do you cover events outside the Peninsula?</summary>
-          <div class="hub-faq__a"><p>No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don't cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.</p></div>
+          <div class="hub-faq__a"><p>No. We stay on the Mornington Peninsula and Western Port fringe so the edit stays local and useful.</p></div>
         </details>
       </div>
     </div>
