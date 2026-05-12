@@ -36,7 +36,7 @@ const {
   signatureRole = 'Peninsula Insider',
   image,
   imageAlt = '',
-  imageCaption,
+  imageCaption: _imageCaption,
 } = Astro.props;
 ---
 
@@ -96,13 +96,6 @@ const {
             style={`background-image: url(${image})`}
             {...editableImage({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.image', label: 'Editor’s Letter image' })}
           ></div>
-          {imageCaption && (
-            <figcaption
-              class="letter__image-cap"
-              set:html={imageCaption}
-              {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.imageCaption', label: 'Image caption', kind: 'richtext' })}
-            />
-          )}
         </figure>
       )}
     </div>

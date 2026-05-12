@@ -25,7 +25,7 @@ const {
   signoff = 'The Editors · Peninsula Insider',
   image,
   imageAlt,
-  imageCaption,
+  imageCaption: _imageCaption,
 } = Astro.props;
 ---
 
@@ -35,7 +35,6 @@ const {
 
       <div class="v3-letter__media">
         <img src={image} alt={imageAlt} loading="lazy" />
-        {imageCaption && <span class="v3-letter__caption" set:html={imageCaption} />}
       </div>
 
       <div>

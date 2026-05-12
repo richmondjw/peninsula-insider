@@ -18,7 +18,7 @@ export interface Props {
   heroImage: string;
   /** Descriptive alt text for the image */
   imageAlt: string;
-  /** Optional small location label overlaid at the bottom of the photo */
+  /** Optional photo caption. Temporarily retained for data compatibility, but not displayed until image locations are verified. */
   imageCaption?: string;
 }
 
@@ -28,7 +28,7 @@ const {
   title,
   heroImage,
   imageAlt,
-  imageCaption,
+  imageCaption: _imageCaption,
 } = Astro.props;
 ---
 
@@ -51,9 +51,6 @@ const {
       <div class="subpage-hero__visual" aria-hidden="true">
         <img src={heroImage} alt={imageAlt} loading="lazy" decoding="async" />
         <div class="subpage-hero__fog"></div>
-        {imageCaption && (
-          <span class="subpage-hero__caption">{imageCaption}</span>
-        )}
       </div>
 
     </div>
