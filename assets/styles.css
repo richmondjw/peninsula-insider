@@ -1430,6 +1430,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: var(--tile-image-radius);
 }
 .place-card__image {
+  display: block;
   aspect-ratio: 16 / 9;
   background: linear-gradient(135deg,#8B7B62 0%,#7A8B6D 50%,#4E6B52 100%);
   background-size: cover;
@@ -1441,7 +1442,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .place-card__image--sand {
   background: linear-gradient(135deg,#EFE4C9 0%,#D9C49A 55%,#8B6E47 100%);
 }
-.place-card__body { padding: 1.5rem 0 0; }
+.place-card__body { padding: 1.5rem 0 3rem; }
 .place-card__zone {
   font-size: 0.62rem;
   font-weight: 600;
@@ -1467,8 +1468,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0;
 }
 .place-card .pi-actions {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  z-index: 4;
 }
 .place-card__intro {
   font-size: 0.9rem;
@@ -2984,11 +2987,13 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .experience-card {
+  position: relative;
   background: var(--white);
   display: flex;
   flex-direction: column;
 }
 .experience-card__visual {
+  display: block;
   position: relative;
   aspect-ratio: 4 / 3;
   background: linear-gradient(135deg, #C9B99A 0%, #A89278 30%, #8B7055 60%, #6E5440 100%);
@@ -3092,6 +3097,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   box-shadow: 0 14px 32px rgba(30, 27, 24, 0.07);
 }
 .itinerary-card__hero {
+  display: block;
   aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
@@ -5635,6 +5641,7 @@ p.has-drop-cap::first-letter {
   transition: transform .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
 .event-card__hero {
+  display: block;
   aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
