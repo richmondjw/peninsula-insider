@@ -33,10 +33,12 @@ const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 
 
 <article class="itinerary-card">
   {data.heroImage && (
-    <div
+    <a
+      href={`/plans/${slug}`}
       class="itinerary-card__hero"
       style={heroBackgroundStyle(data)}
       aria-hidden="true"
+      tabindex="-1"
       {...editableImage({
         entityType: 'itinerary',
         entitySlug: slug,
@@ -44,7 +46,7 @@ const nightsLabel = `${data.lengthNights} night${data.lengthNights === 1 ? '' : 
         label: `${data.title} hero`,
         purpose: 'hero',
       })}
-    ></div>
+    ></a>
   )}
   <div class="itinerary-card__top">
     <span class="itinerary-card__label">Escape plan</span>

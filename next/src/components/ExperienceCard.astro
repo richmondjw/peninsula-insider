@@ -35,9 +35,11 @@ const imgStyle = heroBackgroundStyle(data);
 ---
 
 <article class="experience-card">
-  <div
+  <a
+    href={`/explore/${slug}`}
     class={`experience-card__visual experience-card__visual--${data.type}`}
     aria-hidden="true"
+    tabindex="-1"
     style={imgStyle}
     {...editableImage({
       entityType: 'experience',
@@ -49,7 +51,7 @@ const imgStyle = heroBackgroundStyle(data);
   >
     <div class="experience-card__fog"></div>
     <span class="experience-card__tag">{typeLabel[data.type] ?? titleize(data.type)}</span>
-  </div>
+  </a>
   <div class="experience-card__body">
     <div class="experience-card__meta">
       <a href={`/places/${data.place?.id ?? data.place}`} class="experience-card__place-link">{placeLabel(data.place)}</a>

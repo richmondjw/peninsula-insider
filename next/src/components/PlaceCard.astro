@@ -35,9 +35,11 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
 ---
 
 <article class="place-card">
-  <div
+  <a
+    href={`/places/${slug}`}
     class={imgClass}
     aria-hidden="true"
+    tabindex="-1"
     style={imgStyle}
     {...editableImage({
       entityType: 'place',
@@ -46,7 +48,7 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
       label: `${data.name} hero`,
       purpose: 'hero',
     })}
-  ></div>
+  ></a>
   <div class="place-card__body">
     <p class="place-card__zone">{zoneLabel} · {data.kind}</p>
     <h3 class="place-card__name">

@@ -4,6 +4,8 @@
  * section index pages (/eat, /stay, /wine, /journal, /places).
  */
 
+import { editableImage } from '../lib/inline-edit/attrs';
+
 export interface Props {
   eyebrow?: string;
   subEyebrow?: string;
@@ -12,6 +14,9 @@ export interface Props {
   gradient?: 'vineyard' | 'bay' | 'sand' | 'hinterland' | 'stay' | 'journal';
   visualLabel?: string;
   heroImage?: string;
+  /** When provided, the visual panel becomes CMS-editable via right-click. */
+  entitySlug?: string;
+  entityType?: string;
 }
 
 const {
@@ -22,10 +27,16 @@ const {
   gradient = 'vineyard',
   visualLabel,
   heroImage,
+  entitySlug,
+  entityType = 'page',
 } = Astro.props;
 
 const gradClass = `section-hero__visual hero-grad--${gradient}`;
 const heroStyle = heroImage ? `background-image: url(${heroImage})` : undefined;
+
+const editAttrs = entitySlug
+  ? editableImage({ entityType, entitySlug, fieldPath: 'hero', label: `${entitySlug} hero`, purpose: 'hero' })
+  : {};
 ---
 
 <section class="section-hero">
@@ -40,7 +51,7 @@ const heroStyle = heroImage ? `background-image: url(${heroImage})` : undefined;
         <h1 class="section-hero__title" set:html={title} />
         <p class="section-hero__dek">{dek}</p>
       </div>
-      <div class={gradClass} aria-hidden="true" style={heroStyle}>
+      <div class={gradClass} aria-hidden="true" style={heroStyle} {...editAttrs}>
         <div class="section-hero__visual-fog"></div>
         {visualLabel && <span class="section-hero__visual-label">{visualLabel}</span>}
       </div>
