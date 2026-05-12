@@ -154,3 +154,4 @@ runId,parentRunId,jobName,jobSource,startedAt,endedAt,durationMs,status,mutation
 25740300507-1,,deploy-site-to-github-pages,github-actions,2026-05-12T14:16:23Z,2026-05-12T14:19:00Z,157000,success,mutating-live,1,0,0,0,false,,0,0
 >>>>>>> Stashed changes
 >>>>>>> fcdfde2ccf (publish: autofix deploy 2026-05-12 — weekend planner May 16-17, pricing disclaimer, event status normalisation)
+25761281951-1,,deploy-site-to-github-pages,github-actions,2026-05-12T20:48:15Z,2026-05-12T20:48:29Z,14000,failure,mutating-live,1,0,0,0,true,github-issue,0,0
