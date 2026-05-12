@@ -93,3 +93,5 @@ If you want a cellar door this weekend, pick one. Spend two hours there. Go home
 - MPRG (New Wave 26, Michael Vale): no booking; free entry; Tuesday to Sunday 11am to 4pm; Dunns Road, Mornington
 - Shoreham Community Market: no booking; free entry; dog-friendly on lead; 9am to 2pm Sunday 17 May; 67 to 85 Byrnes Road, Shoreham
 - Peninsula Hot Springs Sunday Sessions: check the PHS events page for the May 17 artist before booking; afternoon bathing session required; amphitheatre pool fills early; peninsulahotsprings.com
+
+_Prices may change. Confirm current rates directly with the venue or operator before booking._
