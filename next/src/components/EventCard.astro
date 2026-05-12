@@ -41,22 +41,22 @@ const placeHref = placeId ? `/places/${placeId}/` : null;
 ---
 
 <article class={`event-card ${featured ? 'event-card--featured' : ''}`}>
-  {event.data.heroImage?.src && (
-    <a
-      href={`/whats-on/${slug}`}
-      class="event-card__hero"
-      style={`background-image: url(${event.data.heroImage.src}); background-size: cover; background-position: center;`}
-      aria-hidden="true"
-      tabindex="-1"
-      {...editableImage({
-        entityType: 'event',
-        entitySlug: slug,
-        fieldPath: 'hero',
-        label: `${event.data.title} hero`,
-        purpose: 'hero',
-      })}
-    ></a>
-  )}
+  <a
+    href={`/whats-on/${slug}`}
+    class={`event-card__hero${event.data.heroImage?.src ? '' : ' event-card__hero--placeholder'}`}
+    style={event.data.heroImage?.src
+      ? `background-image: url(${event.data.heroImage.src});`
+      : undefined}
+    aria-hidden="true"
+    tabindex="-1"
+    {...editableImage({
+      entityType: 'event',
+      entitySlug: slug,
+      fieldPath: 'hero',
+      label: `${event.data.title} hero`,
+      purpose: 'hero',
+    })}
+  ></a>
   <div class="event-card__top">
     <span class="event-card__date">{dateLabel}</span>
     <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>

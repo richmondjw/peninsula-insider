@@ -5656,6 +5656,41 @@ p.has-drop-cap::first-letter {
     transform: scale(1.04);
   }
 }
+
+/* Placeholder state — event has no hero image yet. editableImage attrs
+   are already on this element so right-click opens the CMS image-replace
+   panel directly. Mirrors .venue-card__hero--placeholder for consistency. */
+.event-card__hero--placeholder {
+  background-color: #f0ebe1;
+  background-image: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.event-card__hero--placeholder::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 36px;
+  opacity: 0.28;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23795C3A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.event-card__hero--placeholder::after {
+  content: 'Add photo';
+  font-family: var(--sans, 'Inter', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(121, 92, 58, 0.45);
+}
+/* Disable the scale-on-hover transform for placeholder cards — the icon
+   is centred and would translate awkwardly. */
+.event-card:hover .event-card__hero--placeholder {
+  transform: none;
+}
 .event-card__top,
 .event-card__name,
 .event-card__place,
