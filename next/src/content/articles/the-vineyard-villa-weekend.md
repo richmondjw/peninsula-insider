@@ -13,7 +13,6 @@ format: "stay-notes"
 tags: ["stay", "weekend", "villa", "cottage", "red-hill", "main-ridge", "slow"]
 relatedVenues:
   - "polperro-villas"
-  - "hillview-cottages"
   - "lindenderry"
   - "jackalope"
   - "flinders-sourdough"
@@ -39,7 +38,7 @@ faq:
   - question: "What is a vineyard villa stay on the Mornington Peninsula?"
     answer: "A self-contained cottage on a working farm or inside a winery estate — with a fire, a kitchen, and no front desk. The key difference from a hotel: no performance, no meal slots, and a real kitchen that means you can cook rather than book every evening. Typically cheaper than the design hotels, more restorative, and better suited to the kind of Peninsula weekend built around one serious lunch and otherwise staying put."
   - question: "Which vineyard villa stays are worth booking on the Mornington Peninsula?"
-    answer: "Polperro Villas — two private cottages inside the Polperro estate, walkable cellar door, outdoor bath, breakfast hampers, and vineyard views. One of the most private stays the region has at estate-hotel quality. Hillview Farm Cottages at Main Ridge — three cottages on a working farm with paddock views and ridge fog mornings. Both require booking at least a month ahead for good-weather weekends."
+    answer: "Polperro Villas — two private cottages inside the Polperro estate, walkable cellar door, outdoor bath, breakfast hampers, and vineyard views. One of the most private stays the region has at estate-hotel quality. Both require booking at least a month ahead for good-weather weekends."
   - question: "How do you structure a weekend in a Peninsula vineyard villa?"
     answer: "One booking per day, maximum. Friday: arrive before dark, provisions stop at Merricks General or Flinders Sourdough, light the fire, eat simply. Saturday: one serious lunch booking, a walk beforehand if the weather allows, then back to the villa for the afternoon, bath, fire, dinner in the kitchen. Sunday: slow breakfast, late-morning walk, one coffee on the way home. The aim is two bookings across three days and no check-out queue."
 ---
@@ -73,14 +72,6 @@ Two villas. Inside a working vineyard. Each with an outdoor bath, a wood fire, a
 This is the move for a couple on an anniversary weekend, or for anyone who wants the Peninsula to operate like a private country house for forty-eight hours. Book the villa with the north-facing deck if it is available  -  it is meaningfully better in autumn and winter. Two-night minimum. Expect to book at least a month out for any weekend that matters.
 
 The clearest argument for Polperro is that once you are there, you do not need to leave. The cellar door is walkable. The kitchen works. The bath is outside. That is a complete stay, and the rest of the Peninsula becomes optional rather than obligatory.
-
-### [Hillview Farm Cottages](/stay/hillview-cottages)
-
-Three cottages on a working farm at Main Ridge. Self-catered. Wood fires. Paddock views. Eggs from the farm gate. A ridge-fog morning on the deck that justifies the entire trip.
-
-Hillview is the counter-argument to design hotels, and it is the right answer more often than people think. There is no restaurant on site. There is no front desk. The owners are hands-off in the best way. What you get instead is Main Ridge  -  the quiet upper plateau of the Peninsula where the air is cooler, the fog sits longer in the morning, and the landscape is visibly the reason the region started producing wine in the first place.
-
-It is the stay for a couple who want a break from restaurants, a small family who need the extra space, or anyone recovering from the kind of week that required too much of them. Ask for the "Ridge" cottage  -  the view across the pinot blocks is the one that matters. This works particularly well in tandem with a [thermal springs weekend](/journal/the-thermal-springs-weekend), because the cottage gives the bath day somewhere to land.
 
 ### The unbranded farm rental
 

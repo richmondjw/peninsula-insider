@@ -15,7 +15,6 @@ relatedVenues:
   - "alba-thermal-springs"
   - "peninsula-hot-springs"
   - "lindenderry"
-  - "hillview-cottages"
   - "polperro-villas"
   - "tedesca-osteria"
   - "peninsula-hot-springs-glamping"
@@ -83,8 +82,6 @@ The single biggest mistake people make with a thermal weekend is booking a day t
 [Lindenderry at Red Hill](/stay/lindenderry) is the most civilised base. Thirteen minutes from Alba, fifteen from Peninsula Hot Springs, with a garden, a pool, and a terrace breakfast that is itself a reason to stay. The rhythm of a Lindenderry weekend  -  bath, rest, small dinner, garden walk, long sleep, slow morning  -  is close to ideal for this kind of trip.
 
 [Polperro Villas](/stay/polperro-villas) is the move for a couple who want the bath to feed a private weekend. Two self-contained vineyard villas, each with an outdoor bath of their own, a wood fire, and a kitchen you will actually cook in. Drive to Alba mid-morning, do the full circuit, drive back to the villa, and spend the rest of the afternoon in your own bath with the fire lit. On a cool April or winter evening this might be the best wellness day the Peninsula offers, full stop.
-
-[Hillview Farm Cottages](/stay/hillview-cottages) is the quieter, cheaper version of the same idea. Main Ridge. Wood fire. Paddock view. Eggs from the gate in the morning. A cottage kitchen for a simple dinner after the bath. It is the version for people who want the thermal day to feed a whole weekend of not making decisions.
 
 ## What to eat  -  and what not to
 

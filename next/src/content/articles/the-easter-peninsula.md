@@ -59,7 +59,7 @@ Done this way, the long weekend has the same number of moves as the standard wee
 
 Easter accommodation on the Peninsula is the second most stressful booking exercise of the year after Christmas, and the rule is simple: book in February, not in March. By the middle of March, the good rooms are gone and the leftover stock is either overpriced or in the wrong town for what you want.
 
-The stays that handle Easter best are the self-contained ones. **Polperro Villas** and **Crittenden Villas** are at the top of the list  -  both let you cook the Easter Sunday brunch in the room rather than fighting for a cafe table. **Lindenderry** is the formal alternative if you want a hotel with a dining room and the gardens come into their own at the Easter weekend. **Hillview Cottages** in Red Hill are the practical option for families. **Peninsula Hot Springs Glamping** is the most underrated Easter stay  -  the tented suites with private hot tubs and fire pits are ideally suited to a long-weekend reset.
+The stays that handle Easter best are the self-contained ones. **Polperro Villas** and **Crittenden Villas** are at the top of the list  -  both let you cook the Easter Sunday brunch in the room rather than fighting for a cafe table. **Lindenderry** is the formal alternative if you want a hotel with a dining room and the gardens come into their own at the Easter weekend. **Peninsula Hot Springs Glamping** is the most underrated Easter stay  -  the tented suites with private hot tubs and fire pits are ideally suited to a long-weekend reset.
 
 Avoid: any hotel within walking distance of a cellar door. The car park noise from Friday afternoon onwards will undo whatever calm you came for.
 
