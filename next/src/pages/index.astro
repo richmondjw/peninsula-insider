@@ -28,7 +28,7 @@ import ItineraryCard from '../components/ItineraryCard.astro';
 import EventCard from '../components/EventCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc, isUpcoming } from '../lib/editorial';
+import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc, isUpcoming, melbourneDateKey } from '../lib/editorial';
 import { eventInWindow } from '../lib/events';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
@@ -103,7 +103,7 @@ const nextWeekendEvents = events.filter((event) =>
 );
 
 const weekendPicksOverrides = await getCollection('weekend-picks', ({ data }) =>
-  data.weekendStart.getTime() === dispatchWindow.start.getTime()
+  melbourneDateKey(data.weekendStart) === melbourneDateKey(dispatchWindow.start)
 );
 const weekendPicksEntry = weekendPicksOverrides[0];
 

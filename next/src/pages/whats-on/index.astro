@@ -9,6 +9,7 @@ import WeekendPickerBlock from '../../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
   dispatchWeekend,
+  melbourneDateKey,
   isUpcoming,
   routeSlug,
 } from '../../lib/editorial';
@@ -56,7 +57,7 @@ const nextWeekendEvents = events.filter((event) =>
 // list. Otherwise fall back to events tagged with the `weekend-pick`
 // lens so the section is never empty.
 const weekendPicksOverrides = await getCollection('weekend-picks', ({ data }) =>
-  data.weekendStart.getTime() === upcomingWeekendStart.getTime()
+  melbourneDateKey(data.weekendStart) === melbourneDateKey(upcomingWeekendStart)
 );
 const weekendPicksEntry = weekendPicksOverrides[0];
 

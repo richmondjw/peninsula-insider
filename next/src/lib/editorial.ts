@@ -109,21 +109,32 @@ export function eventWeekendOf(date: Date) {
   return d;
 }
 
+export function melbourneDateKey(date: Date) {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Australia/Melbourne',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? '';
+  return `${get('year')}-${get('month')}-${get('day')}`;
+}
+
 /**
- * Given a dispatch's publishedAt, return the weekend it covers under the
- * Sunday-ahead cadence (publish + 6 days = Saturday, publish + 7 = Sunday),
- * with AEST-midnight bounds suitable for filtering events and a human label
+ * Given a dispatch's publishedAt, return the Saturday/Sunday weekend it covers,
+ * using the upcoming Saturday in the dispatch's publication week. Bounds are
+ * Melbourne-midnight windows suitable for filtering events, with a human label
  * like "2–3 May" (or "30 April – 1 May" when the weekend straddles months).
  *
- * Cadence is documented in ops/editorial-jobs.json under dispatchCadence.
+ * The display title remains editorial; this helper keeps homepage and What's On
+ * modules aligned to the same weekend window.
  */
 export function dispatchWeekend(publishedAt: Date) {
   const day = 24 * 60 * 60 * 1000;
-  const sat = new Date(publishedAt.getTime() + 6 * day);
-  const sun = new Date(publishedAt.getTime() + 7 * day);
-  const isoDay = (d: Date) => d.toISOString().slice(0, 10);
-  const start = new Date(`${isoDay(sat)}T00:00:00+10:00`);
-  const end = new Date(`${isoDay(sun)}T23:59:59+10:00`);
+  const sat = eventWeekendOf(publishedAt);
+  const sun = new Date(sat.getTime() + day);
+  const start = new Date(`${melbourneDateKey(sat)}T00:00:00+10:00`);
+  const end = new Date(`${melbourneDateKey(sun)}T23:59:59+10:00`);
   const monthLong = (d: Date) =>
     d.toLocaleDateString('en-AU', { month: 'long', timeZone: 'UTC' });
   const dayNum = (d: Date) => d.getUTCDate();
