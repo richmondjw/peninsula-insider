@@ -8,6 +8,7 @@ import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import CorrectionNote from './CorrectionNote.astro';
 import { titleize, heroBackgroundStyle } from '../lib/editorial';
+import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
 export interface Props {
   place: any;
@@ -49,6 +50,7 @@ const zoneGradient: Record<string, string> = {
   tip: 'hero-grad--stay',
 };
 const heroGradientClass = zoneGradient[place.data.zone] ?? 'hero-grad--vineyard';
+const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 
 // Anchors for the in-page nav.
 const anchors: { href: string; label: string; count: number }[] = [];
@@ -74,16 +76,29 @@ const totalVenues = eatVenues.length + wineVenues.length + stayVenues.length;
 <section class="place-detail">
   <div class="container">
     <p class="place-detail__eyebrow">{zoneLabel} · {place.data.kind}</p>
-    <h1 class="place-detail__title">{place.data.name}</h1>
+    <h1 class="place-detail__title" {...editableText({
+      entityType: 'place', entitySlug: placeSlug, fieldPath: 'name',
+      label: `${place.data.name} — name`,
+    })}>{place.data.name}</h1>
     {place.data.factualLede && (
-      <p class="place-detail__factual-lede">{place.data.factualLede}</p>
+      <p class="place-detail__factual-lede" {...editableText({
+        entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede',
+        label: `${place.data.name} — factual lede`,
+      })}>{place.data.factualLede}</p>
     )}
-    <p class="place-detail__intro">{place.data.intro}</p>
+    <p class="place-detail__intro" {...editableText({
+      entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro',
+      label: `${place.data.name} — intro`,
+    })}>{place.data.intro}</p>
 
     <div
       class={`place-detail__hero ${heroGradientClass}`}
       aria-hidden="true"
       style={heroBackgroundStyle(place.data)}
+      {...editableImage({
+        entityType: 'place', entitySlug: placeSlug, fieldPath: 'hero',
+        label: `${place.data.name} hero`, purpose: 'hero',
+      })}
     >
       <div class="section-hero__visual-fog"></div>
       <span class="section-hero__visual-label">{place.data.heroImage.alt}</span>

@@ -8,6 +8,7 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
+import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -168,9 +169,15 @@ if (experience.data.type === 'golf-course') {
         )}
       </div>
 
-      <h1 class="experience-detail__title">{experience.data.name}</h1>
+      <h1 class="experience-detail__title" {...editableText({
+        entityType: 'experience', entitySlug: slug, fieldPath: 'name',
+        label: `${experience.data.name} — name`,
+      })}>{experience.data.name}</h1>
 
-      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle}>
+      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
+        entityType: 'experience', entitySlug: slug, fieldPath: 'hero',
+        label: `${experience.data.name} hero`, purpose: 'hero',
+      })}>
         <div class="experience-detail__hero-fog"></div>
         <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
       </div>

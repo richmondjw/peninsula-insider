@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildTourSchema } from '../../lib/schema';
+import { editableText } from '../../lib/inline-edit/attrs';
 
 export async function getStaticPaths() {
   const tours = await getCollection('tours');
@@ -98,7 +99,10 @@ const breadcrumbItems = [
     imageCaption={data.departsFrom ?? undefined}
   >
     <div class="prose">
-      <p>{data.intro}</p>
+      <p {...editableText({
+        entityType: 'tour', entitySlug: slug, fieldPath: 'intro',
+        label: `${data.name} — intro`,
+      })}>{data.intro}</p>
       <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last verified: {data.lastVerified?.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
     </div>
   </SubpageHero>

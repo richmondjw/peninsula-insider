@@ -24,6 +24,7 @@ import {
   venueHrefPrefix,
   weatherCopy,
 } from '../../lib/editorial';
+import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -96,8 +97,14 @@ const breadcrumbItems = [
           <span class="event-detail__meta-item">{recurrenceLabel}</span>
         </div>
 
-        <h1 class="event-detail__title">{event.data.title}</h1>
-        <p class="event-detail__summary">{event.data.summary}</p>
+        <h1 class="event-detail__title" {...editableText({
+          entityType: 'event', entitySlug: slug, fieldPath: 'title',
+          label: `${event.data.title} — title`,
+        })}>{event.data.title}</h1>
+        <p class="event-detail__summary" {...editableText({
+          entityType: 'event', entitySlug: slug, fieldPath: 'summary',
+          label: `${event.data.title} — summary`,
+        })}>{event.data.summary}</p>
 
         <EventBadges
           worthTheDrive={event.data.worthTheDrive}
