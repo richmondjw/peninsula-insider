@@ -1467,6 +1467,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0;
 }
 .place-card .pi-actions {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
   z-index: 4;
 }
 .place-card__intro {
@@ -2983,6 +2986,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: clamp(1rem, 1.6vw, 1.4rem);
 }
 .experience-card {
+  position: relative;
   background: var(--white);
   display: flex;
   flex-direction: column;
