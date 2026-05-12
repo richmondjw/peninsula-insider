@@ -4,15 +4,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
 import EventChipBar from '../../components/EventChipBar.astro';
-import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import EventCard from '../../components/EventCard.astro';
 import WeekendPickerBlock from '../../components/WeekendPickerBlock.astro';
-import EventStrip from '../../components/EventStrip.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
   dispatchWeekend,
-  eventCategoryLabel,
   isUpcoming,
   routeSlug,
 } from '../../lib/editorial';
@@ -55,43 +52,17 @@ const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.include
 // Running set of events already given a slot on this page. Each editorial
 // section below adds to it after taking its slice; subsequent sections
 // filter against it. The temporal tabs above are exempt (they're a tab-
-// switching scan view, not a linear read), but every section from Anchors
-// downward must show each event at most once.
+// switching scan view, not a linear read), but every editorial section
+// from the dispatch downward must show each event at most once.
 const seenIds = new Set<string>();
 editorsPicks.forEach((e) => seenIds.add(e.id));
 
-// EventStrip: top weekend events by appeal, excluding anything already shown.
-const eventStripEvents = [...nextWeekendEvents]
-  .filter((e) => !seenIds.has(e.id))
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 3);
-eventStripEvents.forEach((e) => seenIds.add(e.id));
-
 const skipEvents = events.filter((event) => event.data.skipThis);
-
-const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
-  { key: 'racing-sport',     title: 'Racing & Sport',           blurb: "The Peninsula's racing days and endurance weekends, the single category Melbourne visitors under-plan." },
-  { key: 'writers-ideas',    title: 'Writers & Ideas',          blurb: 'Festivals, panels and literary weekends with a programme worth planning a stay around.' },
-  { key: 'market',           title: 'Markets, Ranked',          blurb: "The Peninsula runs eight recurring markets. Here they are in the order we'd actually attend them." },
-  { key: 'cellar-door',      title: 'Cellar Door Events',       blurb: "Release weekends, winemaker dinners and tastings, the region's strongest category, rarely treated as events." },
-  { key: 'live-music',       title: 'Live Music',               blurb: 'Sunday sessions, ridge vineyard sets, and the recurring gigs no other Peninsula site tracks.' },
-  { key: 'wellness',         title: 'Wellness & Retreats',      blurb: 'Thermal circuits, sound baths, and the ongoing programming at Alba and the Hot Springs.' },
-  { key: 'family-programs',  title: 'Kids & Family',            blurb: "School-holiday programmes graded A/B/C. We've been to most of them. We'll tell you which ones." },
-  { key: 'nature',           title: 'Nature & Council Gems',    blurb: 'Free council-run walks, ranger programmes, and the best-hidden family assets on the Peninsula.' },
-  { key: 'exhibition',       title: 'Exhibitions & Galleries',  blurb: "The region's serious public art, a strong rainy-day category nobody leans into." },
-  { key: 'civic',            title: 'Civic & Annual',           blurb: 'ANZAC dawn services, council events, and the moments the Peninsula steps out of its tourist costume.' },
-  { key: 'festival',         title: 'Festivals',                blurb: 'Multi-day programming that defines the Peninsula calendar.' },
-];
-
-// `groups` is now computed lower in the file (after standouts/thisWeek/
-// recurring populate seenIds) so the category sections only render events
-// that haven't already been given a slot.
 
 // Hub tiles for "Browse by Mood" — each one navigates to a real
 // /whats-on/by-mood/[mood]/ sub-page driven by the `chips` registry in
-// lib/events.ts. Eight inline lens grids previously rendered here; they
-// were removed because the sub-pages are the canonical home for mood-led
-// browsing and inline expansion made the page heavy with duplicates.
+// lib/events.ts. Mood-led browsing lives on those sub-pages; the hub
+// here is pure navigation.
 const moodTiles = chips.map((chip) => ({
   slug: chip.slug,
   label: chip.hubLabel ?? chip.label,
@@ -102,7 +73,6 @@ const moodTiles = chips.map((chip) => ({
 const totalEvents = events.length;
 const recurringCount = events.filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)).length;
 const oneOffCount = totalEvents - recurringCount;
-// totalGroups is computed after `groups` is declared, further down.
 
 // ── Temporal tabs (Phase 2 WS2B) ─────────────────────────────────────────
 // Pre-render four time-window slices so the tab bar swaps panels on the
@@ -151,58 +121,16 @@ const temporalTabs = [
 
 const initialTabKey = weekendEvents.length > 0 ? 'weekend' : (todayEvents.length > 0 ? 'today' : 'week');
 
-// ── Standouts of the season ──────────────────────────────────────────────
-// Top events ranked purely by visitor appeal score, irrespective of when
-// they happen. Doesn't depend on lens tags, so always populated.
-const standouts = [...events]
-  .filter((e) => (e.data.visitorAppealScore ?? 0) >= 4 && !seenIds.has(e.id))
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 6);
-standouts.forEach((e) => seenIds.add(e.id));
-
-// ── On this week (Mon-Fri before the weekend) ───────────────────────────
-// Events that fall in the weekday window leading up to the upcoming
-// weekend. Recurring (weekly, monthly, ongoing) events count if they
-// have a startDate weekday between Monday and Friday.
-const day = 24 * 60 * 60 * 1000;
-const weekdayWindowStart = new Date(upcomingWeekendStart.getTime() - 5 * day);
-const weekdayWindowEnd = new Date(upcomingWeekendStart.getTime() - 1);
-const thisWeekEvents = events.filter((event) => {
-  if (seenIds.has(event.id)) return false;
-  const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
-  const start = event.data.startDate;
-  const end = event.data.endDate ?? start;
-  if (isRecurring) {
-    const wd = start.getDay();
-    return wd >= 1 && wd <= 5;
-  }
-  return end >= weekdayWindowStart && start <= weekdayWindowEnd;
-})
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 6);
-thisWeekEvents.forEach((e) => seenIds.add(e.id));
-
 // ── Recurring on the calendar ─────────────────────────────────────────────
-// Weekly + monthly events with their cadence shown explicitly. These are
-// the predictable Peninsula institutions: Red Hill Market, Mornington
-// Farmers Market, Sunday Sessions at the Hot Springs, etc.
+// Weekly + monthly events with their cadence shown explicitly. The
+// predictable Peninsula institutions: Red Hill Market, Mornington Farmers
+// Market, Sunday Sessions at the Hot Springs. Filtered against editor
+// picks above so nothing repeats.
 const recurringEvents = events
   .filter((e) => ['weekly', 'monthly'].includes(e.data.recurrence) && !seenIds.has(e.id))
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 9);
 recurringEvents.forEach((e) => seenIds.add(e.id));
-
-// ── Category groups (the comprehensive "by category" index) ─────────────
-// Computed AFTER every editorial section has populated seenIds, so each
-// category only holds events not already given a slot above. Keeps the
-// page a single linear read with no repetition.
-const groups = categoryOrder
-  .map((group) => ({
-    ...group,
-    items: events.filter((e) => e.data.category === group.key && !seenIds.has(e.id)),
-  }))
-  .filter((group) => group.items.length > 0);
-const totalGroups = groups.length;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -242,10 +170,9 @@ const faqSchema = {
   <GuideHero
     eyebrow={`What's On · ${totalEvents} curated events · Reviewed weekly`}
     title="Peninsula events, with an <em>opinion</em> for a change"
-    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody adds much context. This page does: weekend picks, kids-grade A/B/C on every family event, and useful planning notes when the logistics matter."
+    dek="Every other Peninsula calendar lists everything. This one picks the events the editor would actually book, with planning notes when the logistics matter."
     meta={[
       { label: `${totalEvents} curated events` },
-      { label: `${totalGroups} categories` },
       { label: `${recurringCount} recurring programmes` },
       { label: 'Reviewed weekly' },
     ]}
@@ -363,61 +290,14 @@ const faqSchema = {
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. THE EDITORIAL FRAME, what we'd actually book and what to know
-       ═══════════════════════════════════════════════════════════════ -->
-  <CompareBlock
-    eyebrow="The editorial promise"
-    heading="What we'd actually book, and what we'd flag early"
-    dek="Every other Peninsula calendar lists everything. Ours adds a point of view and practical context. Two lanes below shape every recommendation on this page."
-    left={{
-      label: "Worth booking",
-      title: "Three lenses, one editorial standard.",
-      rows: [
-        { label: 'Weekend Pick',     value: "What the editor would book this weekend if she could only book one. Under three picks per week, usually one." },
-        { label: 'Worth The Drive',  value: 'The events worth the 90-minute return from Melbourne without any other reason. Genuine destination programming.' },
-        { label: 'Family Saturday',  value: 'A-graded kids days, no pre-show queues, no parking gymnastics, no padded lunch break. We\'ve been to all of them.' },
-        { label: 'Locals Know',      value: 'Under-published picks. The recurring sessions, market stalls, and producer days the visitor feeds miss every time.' },
-        { label: 'Free',             value: 'Council-run walks, ranger programmes, and free public events that are genuinely worth the time, not filler.' },
-      ],
-    }}
-    right={{
-      label: "Worth knowing",
-      title: "Short planning notes for the events that need context.",
-      rows: [
-        { label: 'What we flag',     value: 'Events that suit a narrow audience, get crowded quickly, or work best when you know the trade-offs before booking.' },
-        { label: 'How we decide',    value: 'A named editor attends or attended in person, or has direct reporting from a trusted Peninsula source. We do not add planning notes on hearsay.' },
-        { label: 'Why we publish',   value: 'Because readers need context, not just listings. Timing, access, and fit are often the difference between a good Peninsula day and a messy one.' },
-        { label: 'Frequency',        value: 'Only when the context materially changes how we would plan the day.' },
-        { label: 'Recourse',         value: 'If you run an event and think the context has changed, the contact form is open. We revise when the facts move.' },
-      ],
-    }}
-  />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. WEEKEND PICKER DISPATCH
+       2. WEEKEND DISPATCH (this week's editor letter)
        ═══════════════════════════════════════════════════════════════ -->
   {currentDispatch && (
-    <>
-      <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
-      {/* Dispatch surface always carries event richness, even when the editor
-          hasn't curated specific picks into the article yet. Top 3 by visitor
-          appeal score, filtered to events in the upcoming weekend window. */}
-      {nextWeekendEvents.length > 0 && (
-        <EventStrip
-          events={eventStripEvents}
-          eyebrow="Also worth knowing"
-          heading={`Three events on the ground this weekend, ${dispatchWindow.label}`}
-          intro="Pulled live from the events registry. Editor's anchor picks below; these are the data-ranked supporting cast."
-          moreHref="/whats-on/by-mood/this-weekend/"
-          moreLabel="See the full weekend"
-          variant="alt"
-        />
-      )}
-    </>
+    <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. THIS WEEKEND'S ANCHORS
+       3. EDITOR'S ANCHORS — the picks for this weekend
        ═══════════════════════════════════════════════════════════════ -->
   {editorsPicks.length > 0 && (
     <section class="venues venues--plain" id="lens-weekend-pick">
@@ -438,53 +318,7 @@ const faqSchema = {
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4.5 STANDOUTS OF THE SEASON, top by visitor appeal
-       Ranked purely by visitor appeal score, doesn't depend on lens
-       tags so always populated. The "best things on right now" view.
-       ═══════════════════════════════════════════════════════════════ -->
-  {standouts.length > 0 && (
-    <section class="venues" id="standouts">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Standouts on the calendar</p>
-            <h2 class="venues__title">The six events worth shaping a weekend around</h2>
-            <p class="venues__sub venues__sub--standfirst">Ranked by what they are actually like to attend. Coastrek, the Autumn Winery Walk, the Sorrento Solstice. Across the season, not just this weekend.</p>
-          </div>
-          <span class="venues__count">{standouts.length} standouts</span>
-        </div>
-        <div class="event-grid">
-          {standouts.map((event, i) => <EventCard event={event} featured={i === 0} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4.6 ON THIS WEEK, midweek events
-       For the Wednesday traveller booking Friday, or the local
-       wondering what's happening before the weekend hits.
-       ═══════════════════════════════════════════════════════════════ -->
-  {thisWeekEvents.length > 0 && (
-    <section class="venues venues--plain" id="this-week">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">On this week</p>
-            <h2 class="venues__title">Mid-week events worth a Tuesday or a Wednesday</h2>
-            <p class="venues__sub venues__sub--standfirst">The Peninsula doesn't shut down between weekends. Markets, exhibitions, weekday programmes, and the recurring sessions that anchor the locals' calendar.</p>
-          </div>
-          <span class="venues__count">{thisWeekEvents.length} this week</span>
-        </div>
-        <div class="event-grid">
-          {thisWeekEvents.map((event) => <EventCard event={event} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4.7 RECURRING ON THE CALENDAR, the predictable spine
+       4. RECURRING ON THE CALENDAR — the predictable spine
        Weekly and monthly events with their cadence shown. These are
        the Peninsula institutions, predictable and always available.
        ═══════════════════════════════════════════════════════════════ -->
@@ -563,34 +397,12 @@ const faqSchema = {
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. CATEGORY GROUPS
-       ═══════════════════════════════════════════════════════════════ -->
-  {groups.map((group) => (
-    <section class="venues venues--alt" id={`cat-${group.key}`}>
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">{eventCategoryLabel[group.key] ?? group.title}</p>
-            <h2 class="venues__title">{group.title}</h2>
-            <p class="venues__sub">{group.blurb}</p>
-          </div>
-          <span class="venues__count">{group.items.length} events</span>
-        </div>
-        <div class="event-grid">
-          {group.items.map((event) => <EventCard event={event} />)}
-        </div>
-      </div>
-    </section>
-  ))}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       9. EDITORIAL STATS
+       8. EDITORIAL STATS
        ═══════════════════════════════════════════════════════════════ -->
   <section class="events-stats">
     <div class="container">
       <dl class="events-stats__list">
         <div><dt>Curated events</dt><dd>{totalEvents}</dd></div>
-        <div><dt>Categories</dt><dd>{totalGroups}</dd></div>
         <div><dt>Recurring programmes</dt><dd>{recurringCount}</dd></div>
         <div><dt>One-off events</dt><dd>{oneOffCount}</dd></div>
       </dl>
