@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
-import EventChipBar from '../../components/EventChipBar.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import EventCard from '../../components/EventCard.astro';
 import WeekendPickerBlock from '../../components/WeekendPickerBlock.astro';
@@ -38,24 +37,60 @@ const dispatchWindow = currentDispatch
 const upcomingWeekendStart = dispatchWindow.start;
 const upcomingWeekendEnd = dispatchWindow.end;
 
-const nextWeekendEvents = events.filter((event) => {
-  const start = event.data.startDate;
-  if (start > upcomingWeekendEnd) return false;
-  const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
-  if (isRecurring) return true;
-  const end = event.data.endDate ?? event.data.startDate;
-  return end >= upcomingWeekendStart;
-});
+// Events with at least one occurrence inside the upcoming weekend
+// window. Uses the proper recurrence-aware check (weekly events must
+// actually have a Sat/Sun occurrence; monthly events must have their
+// next occurrence inside the window).
+const nextWeekendEvents = events.filter((event) =>
+  eventInWindow(event, upcomingWeekendStart, upcomingWeekendEnd)
+);
 
-const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
+// ── Peninsula Insider Picks This Weekend ─────────────────────────────────
+// The curated editorial layer. Per the editorial brief, this is now the
+// canonical weekly shortlist — also the source for the newsletter and
+// social amplification. Capped at 10 to keep the section selective; top
+// 3 get featured-card treatment.
+//
+// Source of truth (Wave 3): when a `weekend-picks` content-collection
+// entry exists for the current upcoming weekend, use its hand-curated
+// list. Otherwise fall back to events tagged with the `weekend-pick`
+// lens so the section is never empty.
+const weekendPicksOverrides = await getCollection('weekend-picks', ({ data }) =>
+  data.weekendStart.getTime() === upcomingWeekendStart.getTime()
+);
+const weekendPicksEntry = weekendPicksOverrides[0];
+
+const eventsBySlug = new Map(events.map((e) => [e.data.slug, e] as const));
+
+type WeekendPick = {
+  event: typeof events[number];
+  verdictOverride?: string;
+  featured: boolean;
+};
+
+const weekendPicks: WeekendPick[] = weekendPicksEntry
+  ? [...weekendPicksEntry.data.picks]
+      .sort((a, b) => a.position - b.position)
+      .map((p) => {
+        const ev = eventsBySlug.get(p.eventSlug);
+        return ev
+          ? { event: ev, verdictOverride: p.editorVerdict, featured: p.featured }
+          : null;
+      })
+      .filter((x): x is WeekendPick => x !== null)
+      .slice(0, 10)
+  : nextWeekendEvents
+      .filter((event) => event.data.lens.includes('weekend-pick'))
+      .slice(0, 10)
+      .map((event, i) => ({ event, featured: i < 3 }));
 
 // Running set of events already given a slot on this page. Each editorial
 // section below adds to it after taking its slice; subsequent sections
-// filter against it. The temporal tabs above are exempt (they're a tab-
+// filter against it. The temporal tabs are exempt (they're a tab-
 // switching scan view, not a linear read), but every editorial section
 // from the dispatch downward must show each event at most once.
 const seenIds = new Set<string>();
-editorsPicks.forEach((e) => seenIds.add(e.id));
+weekendPicks.forEach((p) => seenIds.add(p.event.id));
 
 const skipEvents = events.filter((event) => event.data.skipThis);
 
@@ -74,17 +109,21 @@ const totalEvents = events.length;
 const recurringCount = events.filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)).length;
 const oneOffCount = totalEvents - recurringCount;
 
-// ── Temporal tabs (Phase 2 WS2B) ─────────────────────────────────────────
-// Pre-render four time-window slices so the tab bar swaps panels on the
-// client without re-fetching. Each slice caps at 9 events to keep the
-// page weight reasonable; deeper browsing falls back to the existing
-// category sections lower down.
+// ── Temporal tabs ────────────────────────────────────────────────────────
+// Three tabs only, per the editorial brief: This Week / This Month /
+// Recurring. Today and This Weekend were removed — Today is too narrow
+// to ever feel useful, and the Weekend is now owned by the Picks
+// section above. Recurring becomes a peer tab rather than its own
+// scroll section so the predictable spine is one click away rather
+// than another full grid below.
+//
+// Each tab is recurrence-aware via `eventInWindow` so a weekly Sunday
+// market only appears under "This Week" if a Sunday falls inside the
+// 7-day window — fixing the bug where every recurring event surfaced
+// under every time window regardless of when it actually occurred.
 const dayMs = 24 * 60 * 60 * 1000;
 const todayStart = new Date(now);
 todayStart.setHours(0, 0, 0, 0);
-const todayEnd = new Date(todayStart.getTime() + dayMs - 1);
-
-const weekend = upcomingWeekend(now);
 
 const weekStart = todayStart;
 const weekEnd = new Date(todayStart.getTime() + 7 * dayMs - 1);
@@ -99,38 +138,33 @@ const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) 
   return a.data.startDate.getTime() - b.data.startDate.getTime();
 };
 
-const todayEvents = events.filter((e) => eventInWindow(e, todayStart, todayEnd))
+// Don't repeat the weekend picks inside the temporal tabs — the picks
+// section is above and the tabs are the utility layer for everything
+// else. Exempt the Recurring tab so the predictable spine stays whole.
+const weekEvents = events
+  .filter((e) => !seenIds.has(e.id) && eventInWindow(e, weekStart, weekEnd))
   .sort(sortAppealThenDate)
   .slice(0, 9);
-const weekendEvents = events.filter((e) => eventInWindow(e, weekend.start, weekend.end))
+const monthEvents = events
+  .filter((e) => !seenIds.has(e.id) && eventInWindow(e, monthStart, monthEnd))
   .sort(sortAppealThenDate)
   .slice(0, 9);
-const weekEvents = events.filter((e) => eventInWindow(e, weekStart, weekEnd))
-  .sort(sortAppealThenDate)
-  .slice(0, 9);
-const monthEvents = events.filter((e) => eventInWindow(e, monthStart, monthEnd))
-  .sort(sortAppealThenDate)
-  .slice(0, 9);
+const recurringTabEvents = events
+  .filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .slice(0, 12);
 
 const temporalTabs = [
-  { key: 'today',    label: 'Today',         items: todayEvents,   blurb: "What's on the Peninsula in the next 24 hours." },
-  { key: 'weekend',  label: 'This weekend',  items: weekendEvents, blurb: `The weekend ahead, ${weekend.label}. Recurring programmes always count.` },
-  { key: 'week',     label: 'This week',     items: weekEvents,    blurb: 'The next seven days, dispatched in editorial order.' },
-  { key: 'month',    label: 'This month',    items: monthEvents,   blurb: 'The next thirty days, sorted by appeal then date.' },
+  { key: 'week',      label: 'This Week',   items: weekEvents,         blurb: 'The next seven days on the Peninsula.' },
+  { key: 'month',     label: 'This Month',  items: monthEvents,        blurb: 'The next thirty days, sorted by appeal then date.' },
+  { key: 'recurring', label: 'Recurring',   items: recurringTabEvents, blurb: "The predictable spine — markets, sessions, programmes that run on a known cadence." },
 ];
 
-const initialTabKey = weekendEvents.length > 0 ? 'weekend' : (todayEvents.length > 0 ? 'today' : 'week');
-
-// ── Recurring on the calendar ─────────────────────────────────────────────
-// Weekly + monthly events with their cadence shown explicitly. The
-// predictable Peninsula institutions: Red Hill Market, Mornington Farmers
-// Market, Sunday Sessions at the Hot Springs. Filtered against editor
-// picks above so nothing repeats.
-const recurringEvents = events
-  .filter((e) => ['weekly', 'monthly'].includes(e.data.recurrence) && !seenIds.has(e.id))
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 9);
-recurringEvents.forEach((e) => seenIds.add(e.id));
+const initialTabKey = weekEvents.length > 0
+  ? 'week'
+  : monthEvents.length > 0
+    ? 'month'
+    : 'recurring';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -140,12 +174,12 @@ const breadcrumbItems = [
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'When does the Peninsula This Weekend dispatch publish?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.' } },
+    { '@type': 'Question', name: 'How are Peninsula Insider Picks chosen?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A named editor curates a shortlist for each upcoming weekend — the strongest, most worthwhile events the editor would actually book. It is deliberately selective, capped at ten, and refreshed weekly. The Picks are the canonical shortlist; the time-based tabs below cover the broader calendar.' } },
     { '@type': 'Question', name: 'Are the kids-grade A/B/C ratings genuine?',
       acceptedAnswer: { '@type': 'Answer', text: 'Yes. We attend or have attended every family programme we grade. A means we\'d return without hesitation. B means it works but has a flaw. C means we wouldn\'t go back. Grades are visible on every event with the family-saturday or school-holidays lens.' } },
     { '@type': 'Question', name: 'Why do some events carry a planning note?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Because the rest of the Peninsula press won\'t name them. We pick one or two events a month that are over-marketed, badly run, or not what their copy claims. One short paragraph explaining why. The word "Insider" doing actual work.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Because the useful part of an events guide is context. When an event is likely to be crowded, logistically awkward, or a better fit for a different kind of visitor, we say so briefly and plainly so readers can plan with their eyes open.' } },
     { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'No. Mornington Peninsula only, defined as Mount Martha down to Portsea, plus Hastings and the Western Port fringe. We don\'t cover Phillip Island, the Bellarine, or Frankston. The constraint is what makes the recommendations sharp.' } },
   ],
@@ -183,24 +217,57 @@ const faqSchema = {
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       1.5 CHIP BAR  -  editorial entry points to mood collections
+       2. PENINSULA INSIDER PICKS THIS WEEKEND
+       The curated editorial layer. The canonical weekly shortlist —
+       also the source for newsletter and social amplification. Top 3
+       get featured-card treatment; verdicts only render here.
        ═══════════════════════════════════════════════════════════════ -->
-  <section style="padding: clamp(1.5rem, 3vw, 2.5rem) 0 0;">
-    <div class="container">
-      <p class="label label--accent" style="margin-bottom: 0.6rem;">Find your weekend shape</p>
-      <EventChipBar active="hub" />
-    </div>
-  </section>
+  {weekendPicks.length > 0 && (
+    <section class="venues venues--plain" id="picks">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Peninsula Insider Picks</p>
+            <h2 class="venues__title">Peninsula Insider Picks This Weekend</h2>
+            <p class="venues__sub venues__sub--standfirst">The strongest, most worthwhile, and most editorially endorsed events for {dispatchWindow.label}. Selected, not listed.</p>
+          </div>
+          <span class="venues__count">{weekendPicks.length} picks</span>
+        </div>
+        <div class="event-grid">
+          {weekendPicks.map(({ event, verdictOverride, featured }) => {
+            const eventWithOverride = verdictOverride
+              ? { ...event, data: { ...event.data, editorVerdict: verdictOverride } }
+              : event;
+            return (
+              <EventCard
+                event={eventWithOverride}
+                featured={featured}
+                showVerdict={true}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       1.7 TEMPORAL TABS  -  Today / Weekend / Week / Month (Phase 2 WS2B)
+       3. WEEKEND LETTER (editor's letter for the upcoming weekend)
+       ═══════════════════════════════════════════════════════════════ -->
+  {currentDispatch && (
+    <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       4. TEMPORAL TABS — This Week / This Month / Recurring
+       The utility layer. No verdicts, just listings. Editor's voice
+       lives in the Picks section above; this surface is for scanning.
        ═══════════════════════════════════════════════════════════════ -->
   <section class="whatson-temporal" aria-label="Events by time window">
     <div class="container">
       <div class="whatson-temporal__header">
         <p class="label label--accent">By time</p>
-        <h2 class="whatson-temporal__title">Events by when, not by what</h2>
-        <p class="whatson-temporal__sub">The first question for any local night out is "when" — not category. Tabs below answer the four versions of "what's on" most readers actually ask.</p>
+        <h2 class="whatson-temporal__title">When are you on the Peninsula?</h2>
       </div>
 
       <div class="whatson-temporal__tabs" role="tablist" aria-label="Filter events by time window">
@@ -237,7 +304,7 @@ const faqSchema = {
             </div>
           ) : (
             <p class="whatson-temporal__empty">
-              Nothing programmed in this window yet. Try a wider one, or check the editorial frame and category sections below for recurring programmes.
+              Nothing programmed in this window. Try a wider one or browse by mood below.
             </p>
           )}
         </div>
@@ -289,57 +356,6 @@ const faqSchema = {
       document.addEventListener('astro:page-load', bindTemporal);
     })();
   </script>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. WEEKEND DISPATCH (this week's editor letter)
-       ═══════════════════════════════════════════════════════════════ -->
-  {currentDispatch && (
-    <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. EDITOR'S ANCHORS — the picks for this weekend
-       ═══════════════════════════════════════════════════════════════ -->
-  {editorsPicks.length > 0 && (
-    <section class="venues venues--plain" id="lens-weekend-pick">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">This weekend's anchors</p>
-            <h2 class="venues__title">If you only do two things this weekend</h2>
-            <p class="venues__sub venues__sub--standfirst">The clearest event anchors shaping the Peninsula from {dispatchWindow.label}, the picks the editor would put her own weekend around.</p>
-          </div>
-          <span class="venues__count">{editorsPicks.length} picks</span>
-        </div>
-        <div class="event-grid">
-          {editorsPicks.map((event, i) => <EventCard event={event} featured={i === 0} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. RECURRING ON THE CALENDAR — the predictable spine
-       Weekly and monthly events with their cadence shown. These are
-       the Peninsula institutions, predictable and always available.
-       ═══════════════════════════════════════════════════════════════ -->
-  {recurringEvents.length > 0 && (
-    <section class="venues venues--alt" id="recurring">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Recurring on the calendar</p>
-            <h2 class="venues__title">The Peninsula's predictable spine</h2>
-            <p class="venues__sub venues__sub--standfirst">Markets, sessions, and programmes that run on a known cadence. Plan ahead, no surprises, the regional rhythm a local takes for granted.</p>
-          </div>
-          <span class="venues__count">{recurringEvents.length} recurring</span>
-        </div>
-        <div class="event-grid">
-          {recurringEvents.map((event) => <EventCard event={event} />)}
-        </div>
-      </div>
-    </section>
-  )}
 
   <!-- ═══════════════════════════════════════════════════════════════
        5. BROWSE BY MOOD, hub navigation only
@@ -424,8 +440,8 @@ const faqSchema = {
       </div>
       <div class="hub-faq__list">
         <details class="hub-faq__item">
-          <summary class="hub-faq__q">When does the Peninsula This Weekend dispatch publish?</summary>
-          <div class="hub-faq__a"><p>Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.</p></div>
+          <summary class="hub-faq__q">How are Peninsula Insider Picks chosen?</summary>
+          <div class="hub-faq__a"><p>A named editor curates a shortlist for each upcoming weekend  -  the strongest, most worthwhile events the editor would actually book. It is deliberately selective, capped at ten, and refreshed weekly. The Picks are the canonical shortlist; the time-based tabs below cover the broader calendar.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Are the kids-grade A/B/C ratings genuine?</summary>

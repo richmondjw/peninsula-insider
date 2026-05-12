@@ -1099,6 +1099,37 @@ const localSecrets = defineCollection({
   }),
 });
 
+/**
+ * weekendPicks — the canonical editorial shortlist for an upcoming
+ * weekend.
+ *
+ * One JSON file per weekend at `src/content/weekend-picks/YYYY-MM-DD.json`
+ * (filename = the Saturday of that weekend in ISO date form). The What's
+ * On page renders the entry whose `weekendStart` matches the current
+ * upcoming weekend; if no entry exists, the page falls back to events
+ * tagged with the `weekend-pick` lens.
+ *
+ * Per the editorial brief, the Picks list also powers newsletter, social
+ * amplification, and AI retrieval — so this is the structured editorial
+ * source of truth, not a UI convenience.
+ */
+const weekendPicks = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/weekend-picks' }),
+  schema: z.object({
+    weekendStart: z.coerce.date(),       // Saturday of the weekend, midnight local
+    weekendLabel: z.string(),             // human-readable, e.g. "16-17 May 2026"
+    editorIntro: z.string().optional(),   // optional one-paragraph intro
+    picks: z.array(
+      z.object({
+        eventSlug: z.string(),            // matches an event ID/slug
+        editorVerdict: z.string(),        // required for picks — keeps the bar high
+        position: z.number().int(),       // 1-based render order, lower = higher
+        featured: z.boolean().default(false),
+      })
+    ).min(1).max(10),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -1119,4 +1150,5 @@ export const collections = {
   editorial_blocks,
   localSecrets,
   insidersThirty,
+  'weekend-picks': weekendPicks,
 };

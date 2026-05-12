@@ -210,7 +210,7 @@ const issueLabel = `Vol 04 · ${new Date().toLocaleDateString('en-AU', { month: 
       date: dispatchWindow.label,
       title: weekendDispatch.data.title.replace(/\b(this|weekend)\b/i, (m) => `<em>${m}</em>`),
       lede: weekendDispatch.data.dek,
-      ctaLabel: 'Read the dispatch',
+      ctaLabel: "Read this weekend's letter",
     } : null}
     events={weekendEvents.map((e) => ({
       href: `/whats-on/${routeSlug(e)}/`,

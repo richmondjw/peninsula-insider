@@ -47,15 +47,15 @@ const { dispatch = null, events = [] } = Astro.props;
               <h2 class="v3-weekend__title" set:html={dispatch.title} />
               <p class="v3-weekend__lede">{dispatch.lede}</p>
               <a href={dispatch.href} class="v3-btn v3-btn--vine v3-weekend__cta">
-                {dispatch.ctaLabel ?? 'Read the dispatch'}
+                {dispatch.ctaLabel ?? "Read this weekend's letter"}
                 <span aria-hidden="true">→</span>
               </a>
             </>
           ) : (
             <>
-              <h2 class="v3-weekend__title">The dispatch lands <em>Sunday</em>.</h2>
-              <p class="v3-weekend__lede">Picks for next weekend, weather, who to call, and the table to ask for. Sent before the bookings close.</p>
-              <a href="/newsletter/" class="v3-btn v3-btn--vine v3-weekend__cta">Get the dispatch <span aria-hidden="true">→</span></a>
+              <h2 class="v3-weekend__title">Peninsula Insider <em>Picks</em>, weekly.</h2>
+              <p class="v3-weekend__lede">The strongest events, openings, and editorial recommendations for the Peninsula. Sent when they're worth sending.</p>
+              <a href="/newsletter/" class="v3-btn v3-btn--vine v3-weekend__cta">Get Peninsula Insider Picks <span aria-hidden="true">→</span></a>
             </>
           )}
         </div>

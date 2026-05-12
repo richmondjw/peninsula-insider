@@ -46,7 +46,7 @@ export interface V4MegaRail {
 export interface V4MegaTopBanner {
   /** e.g. "This weekend, Sat 10 – Sun 11 May" */
   text: string;
-  /** Optional CTA label, e.g. "Read the dispatch →" */
+  /** Optional CTA label, e.g. "Read this weekend's letter →" */
   ctaLabel?: string;
   /** Optional CTA href. */
   ctaHref?: string;
@@ -87,7 +87,7 @@ export const v4Pillars: V4Pillar[] = [
     intro: 'The events calendar with an opinion attached, kids-graded, weather-flagged, worth-the-drive labelled.',
     topBanner: {
       text: "This weekend's calendar",
-      ctaLabel: 'Read the dispatch →',
+      ctaLabel: "Read this weekend's letter →",
       ctaHref: '/whats-on/',
     },
     rail: {
@@ -431,7 +431,7 @@ export const v4Pillars: V4Pillar[] = [
 export const v4Utility = {
   search:    { key: 'search',    label: 'Search',                href: '/search/' },
   ask:       { key: 'ask',       label: 'Ask PI',                href: '/ask/' },
-  subscribe: { key: 'subscribe', label: 'Get the dispatch',      href: '/newsletter/' },
+  subscribe: { key: 'subscribe', label: 'Get Peninsula Insider Picks', href: '/newsletter/' },
   account:   { key: 'account',   label: 'Sign in / Save trip',   href: '/account/' },
   pass:      { key: 'pass',      label: 'The Pass',              href: '/preview-insider-plans/' },
 };

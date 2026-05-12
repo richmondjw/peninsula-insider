@@ -14,9 +14,19 @@ import { editableImage } from '../lib/inline-edit/attrs';
 export interface Props {
   event: any;
   featured?: boolean;
+  /**
+   * Whether to render the editor's verdict block.
+   *
+   * Default: false. The verdict is the editor's voice — keeping it rare
+   * keeps it valuable. By default it only appears inside the curated
+   * "Peninsula Insider Picks This Weekend" section; standard temporal
+   * listings (This Week / This Month / Recurring) render without it so
+   * editorial framing stays selective rather than ambient.
+   */
+  showVerdict?: boolean;
 }
 
-const { event, featured = false } = Astro.props;
+const { event, featured = false, showVerdict = false } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
 
@@ -70,7 +80,7 @@ const placeHref = placeId ? `/places/${placeId}/` : null;
     </p>
   )}
   <p class="event-card__summary">{event.data.summary}</p>
-  {event.data.editorVerdict && (
+  {showVerdict && event.data.editorVerdict && (
     <blockquote class="event-card__verdict">
       <span class="event-card__verdict-label">Editor's verdict</span>
       <p>{event.data.editorVerdict}</p>

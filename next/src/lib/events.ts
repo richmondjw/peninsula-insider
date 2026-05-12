@@ -50,11 +50,58 @@ function formatWeekendLabel(sat: Date, sun: Date): string {
  * Recurring events (weekly, monthly, ongoing) always pass — they are
  * assumed to occur in any given weekend window.
  */
+/**
+ * Returns true if the event has at least one occurrence inside the
+ * [start, end] window. Recurrence-aware:
+ *
+ *  - one-off / annual / seasonal: single occurrence at startDate (or range
+ *    if endDate is set). True if that range overlaps the window.
+ *  - weekly: occurs every week on the same weekday. True if any day in
+ *    the window shares that weekday — or trivially if the window is 7+
+ *    days long (every weekday is covered).
+ *  - monthly: occurs once per month. We trust startDate to be the NEXT
+ *    occurrence; true if startDate falls in the window.
+ *  - ongoing: continuous offering (e.g. permanent exhibition, daily
+ *    studio). True for any future-facing window.
+ *
+ * This replaces the old "any recurring event passes" rule, which caused
+ * weekly events to surface in time windows that didn't actually contain
+ * one of their occurrences (e.g. a Saturday market appearing as "Today"
+ * on a Tuesday).
+ */
 export function eventInWindow(event: Event, start: Date, end: Date): boolean {
-  const recurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
-  if (recurring) return true;
+  const recurrence = event.data.recurrence as string;
   const eStart = event.data.startDate;
   const eEnd = event.data.endDate ?? event.data.startDate;
+  const dayMs = 24 * 60 * 60 * 1000;
+
+  if (recurrence === 'weekly') {
+    // Window of 7 days or more always contains every weekday once.
+    if (end.getTime() - start.getTime() >= 6 * dayMs) return true;
+    const eventWeekday = eStart.getDay();
+    // Walk the window day by day looking for a match. Cheap because the
+    // typical window here is 1–7 days.
+    for (
+      let cursor = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+      cursor <= end;
+      cursor = new Date(cursor.getTime() + dayMs)
+    ) {
+      if (cursor.getDay() === eventWeekday) return true;
+    }
+    return false;
+  }
+
+  if (recurrence === 'monthly') {
+    // Trust startDate to be the next occurrence the content team has set.
+    return eStart >= start && eStart <= end;
+  }
+
+  if (recurrence === 'ongoing') {
+    // Continuous; show in any future-facing window.
+    return end >= new Date();
+  }
+
+  // Default (one-off, annual, seasonal): range-overlap check.
   return eEnd >= start && eStart <= end;
 }
 
