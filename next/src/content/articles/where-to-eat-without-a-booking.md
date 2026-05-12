@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["dining", "walk-in", "no-booking", "pubs", "cafes", "casual", "first-timers"]
-relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "pho-rosebud", "sorrento-gelato", "balnarring-bakehouse", "somers-general", "flinders-general-store"]
+relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "sorrento-gelato", "balnarring-bakehouse", "somers-general", "flinders-general-store"]
 relatedExperiences: ["mornington-foreshore-walk"]
 readingTimeMinutes: 7
 featured: false
