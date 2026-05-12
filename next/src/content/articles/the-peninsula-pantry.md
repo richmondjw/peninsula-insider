@@ -29,7 +29,7 @@ relatedVenues:
   - "main-ridge-dairy"
   - "peninsula-fresh-organics"
   - "pier-street-seafood"
-  - "stringers-mornington"
+  - "stringers-sorrento"
   - "somers-general"
 readingTimeMinutes: 9
 featured: false

@@ -21,7 +21,7 @@ relatedVenues:
   - "portsea-hotel"
   - "flinders-hotel"
   - "barragunda-dining"
-  - "stringers-mornington"
+  - "stringers-sorrento"
 relatedExperiences:
   - "sorrento-ferry"
   - "sea-search-encounters"
@@ -73,11 +73,11 @@ Book for lunch. The afternoon light on the bay makes the room. The oysters are c
 
 This is the dining-room seafood experience for people who want technique and wine to match. The list is short and local. The room is small. Book ahead.
 
-### Stringer's  -  Mornington
+### Stringer's  -  Sorrento
 
-**Stringer's** operates as a wine bar and small-plate restaurant on Mornington's Main Street, and the seafood plates  -  cured kingfish, raw bar selections, grilled octopus  -  are among the best small plates on the Peninsula. The space is narrow and atmospheric, and the wine list is built around natural and minimal-intervention producers that pair well with the raw and cured preparations.
+**Stringer's** operates as a wine bar and small-plate restaurant in Sorrento, and the seafood plates  -  cured kingfish, raw bar selections, grilled octopus  -  are among the best small plates on the Peninsula. The space is narrow and atmospheric, and the wine list is built around natural and minimal-intervention producers that pair well with the raw and cured preparations.
 
-This is the seafood option for people who drink wine first and eat around it. Late lunch or early dinner. A few plates, a bottle, and the walk home along Main Street.
+This is the seafood option for people who drink wine first and eat around it. Late lunch or early dinner. A few plates, a bottle, and the walk back along Sorrento's main strip.
 
 ## The takeaway rule
 
@@ -104,7 +104,7 @@ The Peninsula's seafood calendar runs roughly like this:
 | The freshest fish to cook yourself | Pier Street Seafood, Flinders |
 | A proper seafood lunch | The Baths, Sorrento |
 | Seafood with serious wine | Rocker, Mornington |
-| Small plates and natural wine | Stringer's, Mornington |
+| Small plates and natural wine | Stringer's, Sorrento |
 | The cheapest great meal | Two kilos of mussels, a lemon, and a bottle of vermentino |
 
 The Peninsula's seafood is not competing with its wine story. It is completing it. The pinot gets the attention. The mussels get the locals. Both of them are the region.
