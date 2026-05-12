@@ -1441,7 +1441,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .place-card__image--sand {
   background: linear-gradient(135deg,#EFE4C9 0%,#D9C49A 55%,#8B6E47 100%);
 }
-.place-card__body { padding: 1.5rem 0 0; }
+.place-card__body { padding: 1.5rem 0 3rem; }
 .place-card__zone {
   font-size: 0.62rem;
   font-weight: 600;
@@ -1467,8 +1467,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0;
 }
 .place-card .pi-actions {
-  position: relative;
-  z-index: 1;
+  z-index: 4;
 }
 .place-card__intro {
   font-size: 0.9rem;
