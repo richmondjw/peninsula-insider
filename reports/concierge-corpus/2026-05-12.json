@@ -1,14 +1,14 @@
 {
-  "run_id": "2026-05-12T00:00:16.542Z",
+  "run_id": "2026-05-12T00:01:39.639Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 11.9,
-  "git_sha": "90763bc",
+  "duration_seconds": 5.6,
+  "git_sha": "a1df275",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
-    "venue": 148,
+    "venue": 147,
     "article": 172,
     "place": 20,
     "itinerary": 6,
@@ -17,14 +17,14 @@
     "editorial_block": 10
   },
   "database": {
-    "chunks_before": 1566,
-    "chunks_after": 1562
+    "chunks_before": 1562,
+    "chunks_after": 1558
   },
   "delta": {
     "added": 0,
     "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1562,
+    "unchanged": 1558,
     "pruned": 4,
     "errors": 0,
     "stale_remaining": 0
@@ -37,10 +37,10 @@
   ],
   "metadata_only_chunk_ids": [],
   "pruned_chunk_ids": [
-    "circe-wines::practical::0",
-    "circe-wines::tags::0",
-    "circe-wines::summary::0",
-    "circe-wines::editor_note::0"
+    "store-ten::practical::0",
+    "store-ten::tags::0",
+    "store-ten::summary::0",
+    "store-ten::editor_note::0"
   ],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
