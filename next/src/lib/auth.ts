@@ -143,35 +143,6 @@ export async function updateProfile(userId: string, patch: Partial<Profile>): Pr
   return { ok: true };
 }
 
-// ---- Likes -----------------------------------------------------------------
-
-export async function getLikeCount(slug: string): Promise<number> {
-  const c = getSupabase();
-  if (!c) return 0;
-  const { data } = await c.from('article_like_counts').select('like_count').eq('article_slug', slug).maybeSingle();
-  return (data?.like_count as number) || 0;
-}
-
-export async function isLikedByUser(slug: string, userId: string): Promise<boolean> {
-  const c = getSupabase();
-  if (!c) return false;
-  const { data } = await c.from('article_likes').select('article_slug').eq('article_slug', slug).eq('user_id', userId).maybeSingle();
-  return !!data;
-}
-
-export async function toggleLike(slug: string, section: string, userId: string): Promise<{ liked: boolean; count: number }> {
-  const c = getSupabase();
-  if (!c) throw new Error('Auth not configured');
-  const liked = await isLikedByUser(slug, userId);
-  if (liked) {
-    await c.from('article_likes').delete().match({ user_id: userId, article_slug: slug });
-  } else {
-    await c.from('article_likes').insert({ user_id: userId, article_slug: slug, section });
-  }
-  const count = await getLikeCount(slug);
-  return { liked: !liked, count };
-}
-
 // ---- Saves -----------------------------------------------------------------
 //
 // As of the Wave 1 unification (2026-05-11) the only server-side save store
@@ -234,13 +205,6 @@ export async function listSaves(userId: string) {
     article_slug: row.slug,
     created_at: row.saved_at,
   }));
-}
-
-export async function listLikes(userId: string) {
-  const c = getSupabase();
-  if (!c) return [];
-  const { data } = await c.from('article_likes').select('*').eq('user_id', userId).order('created_at', { ascending: false });
-  return data || [];
 }
 
 // ---- Cross-device save sync (Phase 3 WS3E) --------------------------------

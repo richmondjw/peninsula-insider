@@ -15,7 +15,6 @@ relatedVenues:
   - "jackalope"
   - "lindenderry"
   - "polperro-villas"
-  - "sorrento-coastal-retreat"
   - "crittenden-villas"
   - "point-leo-estate-villas"
   - "the-continental-sorrento"

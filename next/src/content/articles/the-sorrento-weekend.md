@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "slow-peninsula"
 tags: ["sorrento", "portsea", "weekend", "stay", "bayside", "back-beaches"]
-relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "sorrento-bakery", "sorrento-gelato", "portsea-hotel", "the-baths-sorrento", "sorrento-coastal-retreat", "pt-leo-estate", "barragunda-dining"]
+relatedVenues: ["hotel-sorrento", "the-continental-sorrento", "sorrento-hotel", "polperro", "polperro-villas", "sorrento-bakery", "sorrento-gelato", "portsea-hotel", "the-baths-sorrento", "pt-leo-estate", "barragunda-dining"]
 relatedExperiences: ["sorrento-back-beach", "sorrento-ocean-baths", "sorrento-ferry", "portsea-front-beach", "coppins-track", "point-nepean-fort-walk", "point-nepean-national-park"]
 readingTimeMinutes: 8
 featured: false

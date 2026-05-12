@@ -5,7 +5,7 @@ import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
 import { routeSlug, titleize, placeLabel, typeLabel } from '../../../lib/editorial';
 
 const allVenues = await getCollection('venues');
-const slugs = ['sorrento-coastal-retreat','polperro-villas','hillview-cottages','crittenden-villas'];
+const slugs = ['polperro-villas','crittenden-villas','blue-moon-cottages','birch-creek'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 
 const base = import.meta.env.BASE_URL.endsWith('/')

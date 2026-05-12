@@ -6,7 +6,6 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import LikeButton from '../../components/v2/LikeButton.astro';
 import PiArticleActions from '../../components/PiArticleActions.astro';
 import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
@@ -276,9 +275,6 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
         </section>
       )}
 
-      <div class="v2-article-actions">
-        <LikeButton slug={article.id} section="journal" />
-      </div>
     </div>
   </article>
 
