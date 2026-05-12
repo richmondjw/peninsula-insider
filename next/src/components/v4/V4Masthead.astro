@@ -112,10 +112,10 @@ const {
               <line x1="21" y1="21" x2="16.5" y2="16.5" />
             </svg>
           </a>
-          <a href={v4Utility.ask.href} class="v4-ask-pill" aria-label="Ask PI" data-pi-trigger="true">
-            <span class="v4-ask-pill__dot">PI</span>
-            Ask PI
-          </a>
+          {/* "Ask PI" pill removed from the masthead (2026-05-13) per James.
+              The /ask/ route still exists and is reachable from the mobile
+              drawer + footer; we just no longer give it permanent top-right
+              real estate next to the subscribe CTA. */}
           <a href={v4Utility.subscribe.href} class="v4-subscribe-cta">
             {v4Utility.subscribe.label}
           </a>
