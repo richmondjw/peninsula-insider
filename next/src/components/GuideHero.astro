@@ -15,6 +15,8 @@ export interface MetaItem {
   label: string;
 }
 
+import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
+
 export interface Props {
   /** Small caps eyebrow, e.g. "EAT & DRINK · 101 VENUES MAPPED · LAST VERIFIED 30 APR 2026". */
   eyebrow?: string;
@@ -30,6 +32,13 @@ export interface Props {
   imageAlt?: string;
   /** Optional photographer / source credit shown under the image. */
   imageCredit?: string;
+  /**
+   * Optional CMS identity for inline editing. When provided, the title,
+   * dek, and hero image become editable. Pattern mirrors SectionHero so
+   * call sites are uniform: <GuideHero ... entitySlug="eat" />.
+   */
+  entitySlug?: string;
+  entityType?: CmsEntityType;
 }
 
 const {
@@ -40,7 +49,20 @@ const {
   heroImage,
   imageAlt = '',
   imageCredit,
+  entitySlug,
+  entityType = 'page',
 } = Astro.props;
+
+const editable = !!entitySlug;
+const titleAttrs = editable
+  ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
+  : {};
+const dekAttrs = editable
+  ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.dek', label: `${entitySlug} hero dek` })
+  : {};
+const imageAttrs = editable
+  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero image`, purpose: 'hero' })
+  : {};
 ---
 
 <section class="guide-hero" aria-label={title}>
@@ -48,8 +70,8 @@ const {
     <div class="guide-hero__inner">
       <div class="guide-hero__content">
         {eyebrow && <p class="guide-hero__eyebrow">{eyebrow}</p>}
-        <h1 class="guide-hero__title" set:html={title} />
-        {dek && <p class="guide-hero__dek">{dek}</p>}
+        <h1 class="guide-hero__title" set:html={title} {...titleAttrs} />
+        {dek && <p class="guide-hero__dek" {...dekAttrs}>{dek}</p>}
         {meta && meta.length > 0 && (
           <div class="guide-hero__meta">
             {meta.map((item) => (
@@ -65,6 +87,7 @@ const {
             role="img"
             aria-label={imageAlt}
             style={`background-image: url(${heroImage})`}
+            {...imageAttrs}
           ></div>
           {imageCredit && <figcaption class="guide-hero__credit">Photo · {imageCredit}</figcaption>}
         </figure>

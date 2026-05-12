@@ -16,7 +16,10 @@ export type CmsEntityType =
   | 'place'
   | 'venue'
   | 'experience'
-  | 'itinerary';
+  | 'itinerary'
+  | 'tour'
+  | 'tour-operator'
+  | 'tour-package';
 
 export type CmsTextKind = 'text' | 'markdown' | 'richtext';
 

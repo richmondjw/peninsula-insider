@@ -7,6 +7,7 @@ import TourCard from '../../components/TourCard.astro';
 import TourPackageCard from '../../components/TourPackageCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildTourPackageSchema } from '../../lib/schema';
+import { editableText } from '../../lib/inline-edit/attrs';
 
 export async function getStaticPaths() {
   const packages = await getCollection('tourPackages');
@@ -82,7 +83,10 @@ const breadcrumbItems = [
     imageAlt={data.heroImage.alt}
   >
     <div class="prose">
-      <p>{data.intro}</p>
+      <p {...editableText({
+        entityType: 'tour-package', entitySlug: slug, fieldPath: 'intro',
+        label: `${data.name} — intro`,
+      })}>{data.intro}</p>
       <p class="venues__sub" style="font-size:0.8rem;color:var(--soft)">Last verified: {data.lastVerified?.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
     </div>
   </SubpageHero>

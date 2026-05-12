@@ -9,7 +9,7 @@ import ItineraryCard from './ItineraryCard.astro';
 import PiArticleActions from './PiArticleActions.astro';
 import CorrectionNote from './CorrectionNote.astro';
 import { loadOverrides } from '../lib/inline-edit/overrides';
-import { editableImage } from '../lib/inline-edit/attrs';
+import { editableImage, editableText } from '../lib/inline-edit/attrs';
 
 export interface Props {
   venue: any;
@@ -74,11 +74,17 @@ const isClosed = data.status === 'closed';
       <span class="venue-detail__price-band">{data.priceBand}</span>
     </div>
 
-    <h1 class="venue-detail__title">{data.name}</h1>
+    <h1 class="venue-detail__title" {...editableText({
+      entityType: 'venue', entitySlug: venueSlug, fieldPath: 'name',
+      label: `${data.name} — name`,
+    })}>{data.name}</h1>
     {isClosed && (
       <p class="venue-detail__closed-notice">This cellar door is permanently closed. The page is preserved for historical reference.</p>
     )}
-    <p class="venue-detail__signature">{data.signature}</p>
+    <p class="venue-detail__signature" {...editableText({
+      entityType: 'venue', entitySlug: venueSlug, fieldPath: 'signature',
+      label: `${data.name} — signature`,
+    })}>{data.signature}</p>
 
     {(data.bookingUrl || data.phone) && (
       <div class="venue-detail__booking-bar">

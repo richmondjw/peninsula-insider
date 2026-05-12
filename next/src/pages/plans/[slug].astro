@@ -38,6 +38,7 @@ import {
   seasonLabel,
   themeLabel,
 } from '../../lib/escape';
+import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -349,11 +350,20 @@ const ogImage = data
                 </>
               )}
             </div>
-            <h1 class="article-hero__title">{ad.title}</h1>
-            <p class="article-hero__dek">{ad.dek}</p>
+            <h1 class="article-hero__title" {...editableText({
+              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'title',
+              label: `${ad.title} — title`,
+            })}>{ad.title}</h1>
+            <p class="article-hero__dek" {...editableText({
+              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'dek',
+              label: `${ad.title} — dek`,
+            })}>{ad.dek}</p>
           </div>
           <figure class="article-hero__figure">
-            <div class="article-hero__image" role="img" aria-label={ad.heroImage.alt} style={heroBackgroundStyle(ad)}></div>
+            <div class="article-hero__image" role="img" aria-label={ad.heroImage.alt} style={heroBackgroundStyle(ad)} {...editableImage({
+              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'hero',
+              label: `${ad.title} hero`, purpose: 'hero',
+            })}></div>
           </figure>
         </div>
       </div>
@@ -445,8 +455,14 @@ const ogImage = data
         )}
       </div>
 
-      <h1 class="itinerary-detail__title">{data!.title}</h1>
-      <p class="itinerary-detail__dek">{data!.dek}</p>
+      <h1 class="itinerary-detail__title" {...editableText({
+        entityType: 'itinerary', entitySlug: slug, fieldPath: 'title',
+        label: `${data!.title} — title`,
+      })}>{data!.title}</h1>
+      <p class="itinerary-detail__dek" {...editableText({
+        entityType: 'itinerary', entitySlug: slug, fieldPath: 'dek',
+        label: `${data!.title} — dek`,
+      })}>{data!.dek}</p>
 
       <div class="itinerary-detail__chips">
         <span>{audienceText}</span>
