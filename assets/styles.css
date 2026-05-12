@@ -10449,3 +10449,43 @@ body.menu-open .subscribe-pill {
   background: var(--text, #1a1a1a);
   border-color: var(--text, #1a1a1a);
 }
+
+/* What's On hierarchy refinement — 2026-05-12 */
+.whatson-weekend-hero .weekend-picker {
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2.75rem, 5vw, 4.5rem);
+  background: linear-gradient(180deg, #f8f1e7 0%, var(--bg) 100%);
+}
+.whatson-weekend-hero .weekend-picker__inner {
+  border-color: rgba(139, 78, 59, 0.22);
+  box-shadow: 0 24px 60px rgba(34, 24, 16, 0.09);
+}
+.whatson-weekend-hero .weekend-picker__title {
+  font-size: clamp(2.2rem, 4.6vw, 3.5rem);
+}
+.whatson-temporal {
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0 clamp(2rem, 3.5vw, 3rem);
+}
+.whatson-temporal .event-grid {
+  gap: 1.1rem;
+}
+.whatson-temporal .event-card__summary {
+  line-height: 1.5;
+}
+.hub-faq--compact {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+.hub-faq--compact .hub-faq__list {
+  max-width: 680px;
+}
+@media (max-width: 760px) {
+  .whatson-weekend-hero .weekend-picker__inner {
+    border-radius: 1rem;
+  }
+  .whatson-temporal__tabs {
+    gap: 0.2rem;
+    margin-bottom: 1rem;
+  }
+  .whatson-temporal__tab {
+    padding: 0.5rem 0.72rem;
+  }
+}
