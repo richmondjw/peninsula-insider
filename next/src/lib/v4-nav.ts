@@ -253,9 +253,8 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'cellar-door',  label: 'Cellar door',         href: '/wine/cellar-doors/' },
           { key: 'producer',     label: 'Appointment producers', href: '/wine/appointment-producers/' },
           { key: 'best-cellar',  label: 'Best cellar doors',   href: '/wine/best-cellar-doors/' },
-          { key: 'brewery',      label: 'Breweries',           href: '/wine/' },
-          { key: 'distillery',   label: 'Distilleries',        href: '/wine/' },
-          { key: 'cider',        label: 'Cider',               href: '/wine/mornington-peninsula-cider/' },
+          { key: 'brewery',      label: 'Breweries',           href: '/wine/#breweries' },
+          { key: 'distillery',   label: 'Distilleries',        href: '/wine/#distilleries' },
         ],
       },
       {
