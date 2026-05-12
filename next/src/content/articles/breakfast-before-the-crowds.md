@@ -18,7 +18,6 @@ relatedVenues:
   - "pier-street-flinders"
   - "epicurean-red-hill"
   - "mornington-farmers-market"
-  - "rocker"
   - "sourdough-kitchen"
   - "small-stone-pantry"
   - "flinders-general-store"

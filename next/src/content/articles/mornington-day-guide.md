@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-unsplash"
 format: "service"
 tags: ["mornington", "bayside", "day-trip", "coffee", "markets"]
-relatedVenues: ["commonfolk-coffee", "mornington-farmers-market", "bass-and-flinders", "rocker", "sourdough-kitchen", "mr-vincenzos", "the-bay-hotel-mornington", "the-rocks-mornington"]
+relatedVenues: ["commonfolk-coffee", "mornington-farmers-market", "bass-and-flinders", "sourdough-kitchen", "mr-vincenzos", "the-bay-hotel-mornington", "the-rocks-mornington"]
 relatedExperiences: ["mornington-peninsula-gallery", "mount-martha-beach"]
 readingTimeMinutes: 5
 featured: false

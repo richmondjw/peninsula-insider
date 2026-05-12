@@ -17,7 +17,6 @@ relatedVenues:
   - "hotel-sorrento"
   - "the-baths-sorrento"
   - "the-rocks-mornington"
-  - "rocker"
   - "portsea-hotel"
   - "flinders-hotel"
   - "barragunda-dining"
@@ -67,12 +66,6 @@ The pier itself is worth the walk  -  pelicans, fishing boats, the Bass Strait s
 
 Book for lunch. The afternoon light on the bay makes the room. The oysters are consistently excellent.
 
-### Rocker  -  Mornington
-
-**Rocker** on Main Street in Mornington is a seafood-focused restaurant that has been building one of the Peninsula's most consistent kitchens. The cooking is modern Australian with a strong bias toward what is local and in season. The fish is the highlight  -  grilled, cured, crudo, handled with the kind of confidence that comes from a kitchen that knows its suppliers personally.
-
-This is the dining-room seafood experience for people who want technique and wine to match. The list is short and local. The room is small. Book ahead.
-
 ### Stringer's  -  Sorrento
 
 **Stringer's** operates as a wine bar and small-plate restaurant in Sorrento, and the seafood plates  -  cured kingfish, raw bar selections, grilled octopus  -  are among the best small plates on the Peninsula. The space is narrow and atmospheric, and the wine list is built around natural and minimal-intervention producers that pair well with the raw and cured preparations.
@@ -103,7 +96,6 @@ The Peninsula's seafood calendar runs roughly like this:
 |---|---|
 | The freshest fish to cook yourself | Pier Street Seafood, Flinders |
 | A proper seafood lunch | The Baths, Sorrento |
-| Seafood with serious wine | Rocker, Mornington |
 | Small plates and natural wine | Stringer's, Sorrento |
 | The cheapest great meal | Two kilos of mussels, a lemon, and a bottle of vermentino |
 
