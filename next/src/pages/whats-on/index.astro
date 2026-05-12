@@ -49,7 +49,7 @@ const moodTiles = chips.map((chip) => ({
 
 
 // ── Temporal tabs ────────────────────────────────────────────────────────
-// Three compact tabs only: This Week / This Month / Recurring.
+// Three compact tabs only: This Week / This Month / Seasonal.
 // The weekend is owned by the editorial dispatch above; these tabs are
 // a utility layer, deliberately short so the page does not become a directory.
 //
@@ -92,7 +92,7 @@ const recurringTabEvents = events
 const temporalTabs = [
   { key: 'week',      label: 'This Week',   items: weekEvents,         blurb: 'A tight edit of the next seven days.' },
   { key: 'month',     label: 'This Month',  items: monthEvents,        blurb: 'The strongest dates in the next thirty days.' },
-  { key: 'recurring', label: 'Recurring',   items: recurringTabEvents, blurb: 'Reliable markets, sessions, and programmes.' },
+  { key: 'recurring', label: 'Seasonal',    items: recurringTabEvents, blurb: 'Seasonal markets, sessions, and programmes.' },
 ];
 
 const initialTabKey = weekEvents.length > 0
@@ -119,7 +119,7 @@ const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'How do you choose what appears?',
-      acceptedAnswer: { '@type': 'Answer', text: 'We keep the page selective: useful dates, recurring anchors, and events with a clear reason to go now.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'We keep the page selective: useful dates, seasonal anchors, and events with a clear reason to go now.' } },
     { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'No. We stay on the Mornington Peninsula and Western Port fringe so the edit stays local and useful.' } },
   ],
@@ -151,7 +151,7 @@ const faqSchema = {
       { label: 'Updated weekly' },
     ]}
     heroImage="/images/sourced/category-market-02.webp"
-    imageAlt="Saturday morning at a Peninsula farmers market, the recurring event spine of the calendar"
+    imageAlt="Saturday morning at a Peninsula farmers market, part of the seasonal rhythm of the calendar"
     imageCredit="Peninsula Insider"
     entitySlug="whats-on"
   />
@@ -195,7 +195,7 @@ const faqSchema = {
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. TEMPORAL TABS — This Week / This Month / Recurring
+       4. TEMPORAL TABS — This Week / This Month / Seasonal
        Compact utility layer. Short, scan-friendly, and not a directory dump.
        ═══════════════════════════════════════════════════════════════ -->
   <section class="whatson-temporal" aria-label="Events by time window">
@@ -330,7 +330,7 @@ const faqSchema = {
       <div class="hub-faq__list">
         <details class="hub-faq__item">
           <summary class="hub-faq__q">How do you choose what appears?</summary>
-          <div class="hub-faq__a"><p>We keep the page selective: useful dates, recurring anchors, and events with a clear reason to go now.</p></div>
+          <div class="hub-faq__a"><p>We keep the page selective: useful dates, seasonal anchors, and events with a clear reason to go now.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Do you cover events outside the Peninsula?</summary>

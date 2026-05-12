@@ -53,9 +53,9 @@ const skipEvents = events.filter((event) => event.data.skipThis);
 const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
   { key: 'racing-sport',     title: 'Racing & Sport',           blurb: "The Peninsula's racing days and endurance weekends, the single category Melbourne visitors under-plan." },
   { key: 'writers-ideas',    title: 'Writers & Ideas',          blurb: 'Festivals, panels and literary weekends with a programme worth planning a stay around.' },
-  { key: 'market',           title: 'Markets, Ranked',          blurb: "The Peninsula runs eight recurring markets. Here they are in the order we'd actually attend them." },
+  { key: 'market',           title: 'Markets, Ranked',          blurb: "The Peninsula runs eight seasonal markets. Here they are in the order we'd actually attend them." },
   { key: 'cellar-door',      title: 'Cellar Door Events',       blurb: "Release weekends, winemaker dinners and tastings, the region's strongest category, rarely treated as events." },
-  { key: 'live-music',       title: 'Live Music',               blurb: 'Sunday sessions, ridge vineyard sets, and the recurring gigs no other Peninsula site tracks.' },
+  { key: 'live-music',       title: 'Live Music',               blurb: 'Sunday sessions, ridge vineyard sets, and the seasonal gigs no other Peninsula site tracks.' },
   { key: 'wellness',         title: 'Wellness & Retreats',      blurb: 'Thermal circuits, sound baths, and the ongoing programming at Alba and the Hot Springs.' },
   { key: 'family-programs',  title: 'Kids & Family',            blurb: "School-holiday programmes graded A/B/C. We've been to most of them. We'll tell you which ones." },
   { key: 'nature',           title: 'Nature & Council Gems',    blurb: 'Free council-run walks, ranger programmes, and the best-hidden family assets on the Peninsula.' },
@@ -166,11 +166,11 @@ const faqSchema = {
     meta={[
       { label: `${totalEvents} curated events` },
       { label: `${totalGroups} categories` },
-      { label: `${recurringCount} recurring programmes` },
+      { label: `${recurringCount} seasonal programmes` },
       { label: 'Reviewed weekly' },
     ]}
     heroImage="/images/sourced/category-market-02.webp"
-    imageAlt="Saturday morning at a Peninsula farmers market, the recurring event spine of the calendar"
+    imageAlt="Saturday morning at a Peninsula farmers market, part of the seasonal rhythm of the calendar"
     imageCredit="Peninsula Insider"
   />
 
@@ -198,7 +198,7 @@ const faqSchema = {
         { label: 'Weekend Pick',     value: "What the editor would book this weekend if she could only book one. Under three picks per week, usually one." },
         { label: 'Worth The Drive',  value: 'The events worth the 90-minute return from Melbourne without any other reason. Genuine destination programming.' },
         { label: 'Family Saturday',  value: 'A-graded kids days, no pre-show queues, no parking gymnastics, no padded lunch break. We\'ve been to all of them.' },
-        { label: 'Locals Know',      value: 'Under-published picks. The recurring sessions, market stalls, and producer days the visitor feeds miss every time.' },
+        { label: 'Locals Know',      value: 'Under-published picks. The seasonal sessions, market stalls, and producer days the visitor feeds miss every time.' },
         { label: 'Free',             value: 'Council-run walks, ranger programmes, and free public events that are genuinely worth the time, not filler.' },
       ],
     }}
@@ -294,7 +294,7 @@ const faqSchema = {
           <div>
             <p class="label label--accent">On this week</p>
             <h2 class="venues__title">Mid-week events worth a Tuesday or a Wednesday</h2>
-            <p class="venues__sub venues__sub--standfirst">The Peninsula doesn't shut down between weekends. Markets, exhibitions, weekday programmes, and the recurring sessions that anchor the locals' calendar.</p>
+            <p class="venues__sub venues__sub--standfirst">The Peninsula doesn't shut down between weekends. Markets, exhibitions, weekday programmes, and the seasonal sessions that anchor the locals' calendar.</p>
           </div>
           <span class="venues__count">{thisWeekEvents.length} this week</span>
         </div>
@@ -315,11 +315,11 @@ const faqSchema = {
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Recurring on the calendar</p>
-            <h2 class="venues__title">The Peninsula's predictable spine</h2>
-            <p class="venues__sub venues__sub--standfirst">Markets, sessions, and programmes that run on a known cadence. Plan ahead, no surprises, the regional rhythm a local takes for granted.</p>
+            <p class="label label--accent">Seasonal on the calendar</p>
+            <h2 class="venues__title">The Peninsula's seasonal spine</h2>
+            <p class="venues__sub venues__sub--standfirst">Markets, sessions, and programmes that run with the season. Plan ahead, no surprises, the regional rhythm a local takes for granted.</p>
           </div>
-          <span class="venues__count">{recurringEvents.length} recurring</span>
+          <span class="venues__count">{recurringEvents.length} seasonal</span>
         </div>
         <div class="event-grid">
           {recurringEvents.map((event) => <EventCard event={event} />)}
@@ -433,7 +433,7 @@ const faqSchema = {
       <dl class="events-stats__list">
         <div><dt>Curated events</dt><dd>{totalEvents}</dd></div>
         <div><dt>Categories</dt><dd>{totalGroups}</dd></div>
-        <div><dt>Recurring programmes</dt><dd>{recurringCount}</dd></div>
+        <div><dt>Seasonal programmes</dt><dd>{recurringCount}</dd></div>
         <div><dt>One-off events</dt><dd>{oneOffCount}</dd></div>
       </dl>
       <p class="events-stats__note">
