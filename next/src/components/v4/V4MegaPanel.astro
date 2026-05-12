@@ -45,7 +45,7 @@ const panelClass = [
     {pillar.topBanner && <V4PillarTopBanner banner={pillar.topBanner} />}
 
     <div class="v4-mega__grid">
-      <V4MegaRail rail={pillar.rail} />
+      <V4MegaRail rail={pillar.rail} pillarKey={pillar.key} />
       {pillar.columns.map((col) => <V4MegaColumn column={col} />)}
     </div>
 

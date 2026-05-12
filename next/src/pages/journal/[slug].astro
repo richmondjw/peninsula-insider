@@ -15,6 +15,7 @@ import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle,
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -74,13 +75,24 @@ const relatedItineraries = resolveRefs(article.data.relatedItineraries, allItine
 const authorLabel = article.data.houseByline
   ? 'The Peninsula Insider'
   : String(article.data.author?.id ?? article.data.author);
-const articleHeroStyle = heroBackgroundStyle(article.data);
-
 const slug = routeSlug(article);
+
+// Build-time CMS override consult. If an editor has uploaded a new hero
+// via the inline editor, it wins over the content-MDX default — and
+// crucially, it ships in the static HTML so there's no client-side flash
+// where the default paints first and gets swapped after hydration.
+const articleOverrides = await loadOverrides('article', slug);
+const overrideHero = articleOverrides.image['hero'];
+const articleHeroStyle = overrideHero?.src
+  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
+  : heroBackgroundStyle(article.data);
+const heroAlt = overrideHero?.alt ?? article.data.heroImage?.alt ?? article.data.title;
+
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
-const ogImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
-  ? article.data.heroImage.src
-  : '/images/sourced/home-cover.webp';
+const ogImage = overrideHero?.src
+  ?? (article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
+      ? article.data.heroImage.src
+      : '/images/sourced/home-cover.webp');
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -233,7 +245,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
             )}
           </div>
           <figure class="article-hero__figure">
-            <div class="article-hero__image" role="img" aria-label={article.data.heroImage.alt} style={articleHeroStyle} {...editableImage({
+            <div class="article-hero__image" role="img" aria-label={heroAlt} style={articleHeroStyle} {...editableImage({
               entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
             })}></div>
