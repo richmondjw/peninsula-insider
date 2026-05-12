@@ -534,11 +534,13 @@ const ssrScene = scenes[0];
 
   <NewsletterBlock />
 
-  {/* ── 5-minute hero rotator ────────────────────────────────────────────────
-       Advances one scene every 5 minutes using the CSS opacity transitions
-       already on .cinema-scene (1.4s) and .cinema-copy (1.0s).
+  {/* ── 10-second hero rotator ───────────────────────────────────────────────
+       Advances one scene every 10 seconds using the CSS opacity transitions
+       already on .cinema-scene (1.4s) and .cinema-copy (1.0s). The fade
+       overlaps the dwell so the cover never feels static and never feels
+       like a click-through carousel either.
        define:vars serialises the scene metadata at build time so there is
-       no runtime fetch — just a lightweight setInterval on the client. */}
+       no runtime fetch, just a lightweight setInterval on the client. */}
   <script define:vars={{ rotatorScenes: scenes.map(s => ({
     id: s.id,
     primaryHref: s.primaryHref,
@@ -590,7 +592,7 @@ const ssrScene = scenes[0];
         mCta.setAttribute('href', s.primaryHref);
         mCta.innerHTML = s.primaryLabel + ' <span aria-hidden="true">→</span>';
       }
-    }, 5 * 60 * 1000);
+    }, 10 * 1000);
   }
   </script>
 </BaseLayout>
