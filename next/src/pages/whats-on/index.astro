@@ -16,7 +16,7 @@ import {
   isUpcoming,
   routeSlug,
 } from '../../lib/editorial';
-import { eventInWindow, upcomingWeekend } from '../../lib/events';
+import { chips, eventInWindow, upcomingWeekend } from '../../lib/events';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const now = new Date();
@@ -51,14 +51,21 @@ const nextWeekendEvents = events.filter((event) => {
 });
 
 const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
-// Track IDs given prominent placement so subsequent sections don't repeat them
-const editorPickIds = new Set(editorsPicks.map((e) => e.id));
 
-// EventStrip: top weekend events by appeal, excluding anything already in editorsPicks
+// Running set of events already given a slot on this page. Each editorial
+// section below adds to it after taking its slice; subsequent sections
+// filter against it. The temporal tabs above are exempt (they're a tab-
+// switching scan view, not a linear read), but every section from Anchors
+// downward must show each event at most once.
+const seenIds = new Set<string>();
+editorsPicks.forEach((e) => seenIds.add(e.id));
+
+// EventStrip: top weekend events by appeal, excluding anything already shown.
 const eventStripEvents = [...nextWeekendEvents]
-  .filter((e) => !editorPickIds.has(e.id))
+  .filter((e) => !seenIds.has(e.id))
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 3);
+eventStripEvents.forEach((e) => seenIds.add(e.id));
 
 const skipEvents = events.filter((event) => event.data.skipThis);
 
@@ -76,29 +83,26 @@ const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
   { key: 'festival',         title: 'Festivals',                blurb: 'Multi-day programming that defines the Peninsula calendar.' },
 ];
 
-const groups = categoryOrder
-  .map((group) => ({ ...group, items: events.filter((e) => e.data.category === group.key) }))
-  .filter((group) => group.items.length > 0);
+// `groups` is now computed lower in the file (after standouts/thisWeek/
+// recurring populate seenIds) so the category sections only render events
+// that haven't already been given a slot.
 
-const lensOrder: Array<{ key: string; label: string; note: string }> = [
-  { key: 'weekend-pick',    label: 'Weekend Pick',     note: "What we'd actually book" },
-  { key: 'family-saturday', label: 'Family Saturday',  note: 'A-grade kids days' },
-  { key: 'rainy-day',       label: 'Rainy Day',        note: 'Weather-proof options' },
-  { key: 'worth-the-drive', label: 'Worth The Drive',  note: 'From Melbourne, unprompted' },
-  { key: 'date-idea',       label: 'Date Idea',        note: 'Adult-first weekends' },
-  { key: 'school-holidays', label: 'School Holidays',  note: 'Kid-graded, A/B/C' },
-  { key: 'free',            label: 'Free',             note: 'No ticket required' },
-  { key: 'locals-know',     label: 'Locals Know',      note: 'Under-published picks' },
-];
-
-const lensCounts = Object.fromEntries(
-  lensOrder.map((lens) => [lens.key, nextWeekendEvents.filter((e) => e.data.lens.includes(lens.key as any)).length])
-) as Record<string, number>;
+// Hub tiles for "Browse by Mood" — each one navigates to a real
+// /whats-on/by-mood/[mood]/ sub-page driven by the `chips` registry in
+// lib/events.ts. Eight inline lens grids previously rendered here; they
+// were removed because the sub-pages are the canonical home for mood-led
+// browsing and inline expansion made the page heavy with duplicates.
+const moodTiles = chips.map((chip) => ({
+  slug: chip.slug,
+  label: chip.hubLabel ?? chip.label,
+  note: chip.eyebrow,
+  count: events.filter(chip.filter).length,
+}));
 
 const totalEvents = events.length;
-const totalGroups = groups.length;
 const recurringCount = events.filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)).length;
 const oneOffCount = totalEvents - recurringCount;
+// totalGroups is computed after `groups` is declared, further down.
 
 // ── Temporal tabs (Phase 2 WS2B) ─────────────────────────────────────────
 // Pre-render four time-window slices so the tab bar swaps panels on the
@@ -151,9 +155,10 @@ const initialTabKey = weekendEvents.length > 0 ? 'weekend' : (todayEvents.length
 // Top events ranked purely by visitor appeal score, irrespective of when
 // they happen. Doesn't depend on lens tags, so always populated.
 const standouts = [...events]
-  .filter((e) => (e.data.visitorAppealScore ?? 0) >= 4 && !editorPickIds.has(e.id))
+  .filter((e) => (e.data.visitorAppealScore ?? 0) >= 4 && !seenIds.has(e.id))
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 6);
+standouts.forEach((e) => seenIds.add(e.id));
 
 // ── On this week (Mon-Fri before the weekend) ───────────────────────────
 // Events that fall in the weekday window leading up to the upcoming
@@ -163,6 +168,7 @@ const day = 24 * 60 * 60 * 1000;
 const weekdayWindowStart = new Date(upcomingWeekendStart.getTime() - 5 * day);
 const weekdayWindowEnd = new Date(upcomingWeekendStart.getTime() - 1);
 const thisWeekEvents = events.filter((event) => {
+  if (seenIds.has(event.id)) return false;
   const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence as string);
   const start = event.data.startDate;
   const end = event.data.endDate ?? start;
@@ -174,15 +180,29 @@ const thisWeekEvents = events.filter((event) => {
 })
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 6);
+thisWeekEvents.forEach((e) => seenIds.add(e.id));
 
 // ── Recurring on the calendar ─────────────────────────────────────────────
 // Weekly + monthly events with their cadence shown explicitly. These are
 // the predictable Peninsula institutions: Red Hill Market, Mornington
 // Farmers Market, Sunday Sessions at the Hot Springs, etc.
 const recurringEvents = events
-  .filter((e) => ['weekly', 'monthly'].includes(e.data.recurrence))
+  .filter((e) => ['weekly', 'monthly'].includes(e.data.recurrence) && !seenIds.has(e.id))
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 9);
+recurringEvents.forEach((e) => seenIds.add(e.id));
+
+// ── Category groups (the comprehensive "by category" index) ─────────────
+// Computed AFTER every editorial section has populated seenIds, so each
+// category only holds events not already given a slot above. Keeps the
+// page a single linear read with no repetition.
+const groups = categoryOrder
+  .map((group) => ({
+    ...group,
+    items: events.filter((e) => e.data.category === group.key && !seenIds.has(e.id)),
+  }))
+  .filter((group) => group.items.length > 0);
+const totalGroups = groups.length;
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -487,51 +507,31 @@ const faqSchema = {
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       5. BROWSE BY MOOD, hub-formats lane
+       5. BROWSE BY MOOD, hub navigation only
+       Five reader-intent lenses cut across the calendar. Each tile links
+       to its dedicated /whats-on/by-mood/[mood]/ sub-page rather than
+       expanding inline, keeping the main What's On page a single linear
+       read with no event repetition.
        ═══════════════════════════════════════════════════════════════ -->
   <section class="hub-formats" aria-label="Browse events by mood">
     <div class="container">
       <div class="hub-formats__intro">
         <p class="label label--accent">Or browse by mood</p>
         <h2 class="hub-formats__title">Pick the feeling first, let the events follow</h2>
-        <p class="hub-formats__dek">Eight reader-intent lenses cut across the calendar. Each opens the events on this weekend that match the mood.</p>
+        <p class="hub-formats__dek">Five reader-intent lenses cut across the calendar. Each opens its own page of events matching the mood.</p>
       </div>
       <ul class="hub-formats__grid">
-        {lensOrder.map((lens) => (
-          <li class={`hub-formats__cell${lensCounts[lens.key] === 0 ? ' is-empty' : ''}`}>
-            <a href={`#lens-${lens.key}`} class="hub-formats__link">
-              <span class="hub-formats__label">{lens.label} · {lensCounts[lens.key]}</span>
-              <span class="hub-formats__sub">{lens.note}</span>
+        {moodTiles.map((tile) => (
+          <li class={`hub-formats__cell${tile.count === 0 ? ' is-empty' : ''}`}>
+            <a href={`/whats-on/by-mood/${tile.slug}/`} class="hub-formats__link">
+              <span class="hub-formats__label">{tile.label} · {tile.count}</span>
+              <span class="hub-formats__sub">{tile.note}</span>
             </a>
           </li>
         ))}
       </ul>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       6. PER-LENS GRIDS
-       ═══════════════════════════════════════════════════════════════ -->
-  {lensOrder.filter((lens) => lens.key !== 'weekend-pick' && lensCounts[lens.key] > 0).map((lens) => {
-    const lensEvents = nextWeekendEvents.filter((event) => event.data.lens.includes(lens.key as any) && !editorPickIds.has(event.id));
-    return (
-      <section class="venues venues--plain" id={`lens-${lens.key}`}>
-        <div class="container">
-          <div class="venues__header">
-            <div>
-              <p class="label label--accent">{lens.label}</p>
-              <h2 class="venues__title">{lens.note}</h2>
-              <p class="venues__sub">{lensEvents.length} event{lensEvents.length === 1 ? '' : 's'} matching this mood for {dispatchWindow.label}.</p>
-            </div>
-            <span class="venues__count">{lensEvents.length}</span>
-          </div>
-          <div class="event-grid">
-            {lensEvents.map((event, i) => <EventCard event={event} featured={i === 0} />)}
-          </div>
-        </div>
-      </section>
-    );
-  })}
 
   <SectionDivider />
 
