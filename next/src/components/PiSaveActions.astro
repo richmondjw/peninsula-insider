@@ -88,7 +88,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
   .pi-actions {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.3rem;
   }
 
   /* Floating placement: bottom-right of the nearest positioned ancestor.
@@ -103,31 +103,49 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
   .pi-actions__btn {
     appearance: none;
     background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 999px;
     color: var(--ink-soft, #3A3531);
-    width: 2rem;
+
+    /* Height is fixed; width is controlled by max-width so CSS can
+       transition smoothly between collapsed (circle) and expanded (pill).
+       `width: auto` + `max-width: 2rem` starts as a circle; expanding
+       max-width to a concrete value gives the browser a fully transitionable
+       range — unlike `width: 2rem → width: auto` which snaps and flickers. */
     height: 2rem;
+    min-width: 2rem;
+    max-width: 2rem;
+    width: auto;
+
     padding: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.4rem;
     cursor: pointer;
-    transition:
-      width 0.18s ease,
-      padding 0.18s ease,
-      background 0.18s ease,
-      border-color 0.18s ease,
-      color 0.18s ease,
-      transform 0.08s ease;
     overflow: hidden;
+    white-space: nowrap;
+
+    transition:
+      max-width    0.24s cubic-bezier(0.4, 0, 0.2, 1),
+      padding      0.24s cubic-bezier(0.4, 0, 0.2, 1),
+      background   0.18s ease,
+      border-color 0.18s ease,
+      color        0.18s ease,
+      transform    0.08s ease;
+
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  /* Keep the icon from shrinking when the label appears */
+  .pi-actions__btn svg {
+    flex-shrink: 0;
   }
 
   .pi-actions__btn:hover {
@@ -137,24 +155,22 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
 
   .pi-actions__btn:active { transform: scale(0.95); }
 
-  /* Hover label expansion — desktop only, where labels add discoverability
-     without crowding the tap surface. Mobile keeps icon-only for thumb
-     reach. */
+  /* Hover label — desktop only. Fades in after the button has started
+     expanding so text never appears clipped mid-animation. */
   .pi-actions__label {
-    max-width: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-width 0.18s ease, opacity 0.14s ease 0.04s;
     white-space: nowrap;
+    pointer-events: none;
+    transition: opacity 0.14s ease 0.12s;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .pi-actions__btn:hover {
-      width: auto;
-      padding: 0 0.85rem 0 0.7rem;
+      max-width: 8rem;
+      padding: 0 0.9rem 0 0.7rem;
     }
     .pi-actions__btn:hover .pi-actions__label {
-      max-width: 6rem;
       opacity: 1;
     }
   }
