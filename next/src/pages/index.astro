@@ -25,9 +25,11 @@ import Shortlist from '../components/Shortlist.astro';
 import EditorsLetter from '../components/EditorsLetter.astro';
 import PlaceCard from '../components/PlaceCard.astro';
 import ItineraryCard from '../components/ItineraryCard.astro';
+import EventCard from '../components/EventCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc } from '../lib/editorial';
+import { formatLabel, routeSlug, stayTypes, currentSeason, seasonBlurb, dispatchWeekend, resolveHeroSrc, isUpcoming } from '../lib/editorial';
+import { eventInWindow } from '../lib/events';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
@@ -76,6 +78,52 @@ const dispatchWindow = weekendDispatch
   ? dispatchWeekend(weekendDispatch.data.publishedAt)
   : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
 
+// ── Peninsula Insider Picks This Weekend ─────────────────────────────────
+// Surfaces the canonical weekly editorial shortlist on the homepage. Same
+// data source as /whats-on/: the `weekend-picks` content collection (when
+// curated) with fallback to events tagged `lens: weekend-pick`. Sliced to
+// the top 3 here — full list lives at /whats-on/#picks.
+const events = (await getCollection('events', ({ data }) => data.status === 'published'))
+  .filter((event) => {
+    const cancelled = /cancelled/i.test(event.data.verificationStatus ?? '') || /^cancelled:/i.test(event.data.summary ?? '');
+    if (cancelled) return false;
+    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+    const end = event.data.endDate ?? event.data.startDate;
+    return isUpcoming(end, now);
+  })
+  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+
+const nextWeekendEvents = events.filter((event) =>
+  eventInWindow(event, dispatchWindow.start, dispatchWindow.end)
+);
+
+const weekendPicksOverrides = await getCollection('weekend-picks', ({ data }) =>
+  data.weekendStart.getTime() === dispatchWindow.start.getTime()
+);
+const weekendPicksEntry = weekendPicksOverrides[0];
+
+const eventsBySlug = new Map(events.map((e) => [e.data.slug, e] as const));
+
+type HomeWeekendPick = {
+  event: typeof events[number];
+  verdictOverride?: string;
+  featured: boolean;
+};
+
+const homeWeekendPicks: HomeWeekendPick[] = weekendPicksEntry
+  ? [...weekendPicksEntry.data.picks]
+      .sort((a, b) => a.position - b.position)
+      .map((p) => {
+        const ev = eventsBySlug.get(p.eventSlug);
+        return ev ? { event: ev, verdictOverride: p.editorVerdict, featured: p.featured } : null;
+      })
+      .filter((x): x is HomeWeekendPick => x !== null)
+      .slice(0, 3)
+  : nextWeekendEvents
+      .filter((event) => event.data.lens.includes('weekend-pick'))
+      .slice(0, 3)
+      .map((event, i) => ({ event, featured: i === 0 }));
+
 const editorPicks = articles
   .filter((a) => routeSlug(a) !== routeSlug(featured))
   .filter((a) =>
@@ -101,8 +149,9 @@ const featuredPlaces = places.filter((p) =>
 const season         = currentSeason();
 const seasonBlurbData = seasonBlurb[season];
 
-const now       = new Date();
-const issueDate = now.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+const now = new Date();
+// (issueDate const removed 2026-05-12 — was used only by the dropped
+// "Vol 04 · {issueDate}" cinema chrome.)
 
 // ── Cinematic hero data ────────────────────────────────────────────────────
 // Production cover: the May issue's spotlight is the Hatted Restaurants
@@ -268,14 +317,12 @@ const ssrScene = scenes[0];
     {/* Local grain (separate from global so we can tune intensity) */}
     <div class="cinema__grain" aria-hidden="true"></div>
 
-    {/* Top chrome — masthead identity + issue */}
+    {/* Top chrome — brand identity only. The "Vol 04 · {issueDate}" magazine
+        issue chrome was removed (2026-05-12) per the editorial brief: the
+        publication doesn't operate on discrete issues and the framing was
+        out of step with the planning-dashboard direction. */}
     <header class="cinema__top">
       <div class="cinema__brand">Peninsula Insider</div>
-      <div class="cinema__issue">
-        <span>Vol 04</span>
-        <span class="cinema__dot" aria-hidden="true">·</span>
-        <span>{issueDate}</span>
-      </div>
     </header>
 
     {/* Bottom-left copy block. Grid-stack scaffold preserved so rotation
@@ -319,8 +366,6 @@ const ssrScene = scenes[0];
           Ask PI <span aria-hidden="true">→</span>
         </a>
       </div>
-
-      <p class="cinema__signature">PI's notebook</p>
     </div>
 
     {/* Bottom-right caption */}
@@ -334,11 +379,9 @@ const ssrScene = scenes[0];
       })}
     >{ssrScene.caption}</p>
 
-    {/* Scroll hint */}
-    <div class="cinema__scroll" aria-hidden="true">
-      <span class="cinema__scroll-label">Inside the issue</span>
-      <span class="cinema__scroll-line"></span>
-    </div>
+    {/* The "Inside the issue" scroll hint was removed (2026-05-12) along
+        with the issue-volume chrome — same reason: the publication doesn't
+        operate on discrete issues. */}
   </section>
 
   <section class="cinema-mobile-copy" aria-label="Cover story summary">
@@ -356,6 +399,39 @@ const ssrScene = scenes[0];
       </div>
     </div>
   </section>
+
+  {/* ── Peninsula Insider Picks This Weekend ─────────────────────────────────
+       The canonical weekly editorial shortlist, surfaced on the homepage so
+       a Friday-afternoon visitor answers "what should I do this weekend?"
+       in the first scroll. Top 3 only — full list at /whats-on/#picks. */}
+  {homeWeekendPicks.length > 0 && (
+    <section class="hp-weekend-picks">
+      <div class="container">
+        <div class="hp-weekend-picks__head">
+          <div>
+            <p class="label label--accent">Peninsula Insider Picks</p>
+            <h2 class="hp-weekend-picks__title">This weekend, the editor would book.</h2>
+            <p class="hp-weekend-picks__sub">The strongest events on the Peninsula for {dispatchWindow.label}. Selected, not listed.</p>
+          </div>
+          <a href="/whats-on/#picks" class="venues__link">See all picks →</a>
+        </div>
+        <div class="event-grid hp-weekend-picks__grid">
+          {homeWeekendPicks.map(({ event, verdictOverride, featured }) => {
+            const eventWithOverride = verdictOverride
+              ? { ...event, data: { ...event.data, editorVerdict: verdictOverride } }
+              : event;
+            return (
+              <EventCard
+                event={eventWithOverride}
+                featured={featured}
+                showVerdict={true}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
 
   {/* ── Below the fold — existing magazine layout, unchanged ───────────────── */}
   {weekendDispatch && (
@@ -1072,6 +1148,44 @@ const ssrScene = scenes[0];
 
   /* ── Places compact: suppress intro text so each tile reads as image + name ── */
   .places--compact .place-card__intro { display: none; }
+
+  /* ── Peninsula Insider Picks This Weekend ───────────────────────────────────
+     The canonical weekly editorial shortlist on the homepage. Sits directly
+     below the cover so a Friday-afternoon visitor sees the editor's picks
+     without scrolling far. Shares EventCard with /whats-on/ for consistency. */
+  .hp-weekend-picks {
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    background: var(--paper, #FAF6EE);
+  }
+  .hp-weekend-picks__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  .hp-weekend-picks__title {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink, #171413);
+    margin: 0.25rem 0 0.6rem;
+    font-variation-settings: 'opsz' 32;
+  }
+  .hp-weekend-picks__sub {
+    max-width: 44rem;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--ink-soft, #3A3531);
+  }
+  .hp-weekend-picks__grid {
+    /* Inherits .event-grid layout (3-up at wide widths, single column at
+       mobile). Tighter top margin since the head block already has spacing. */
+    margin-top: 0;
+  }
 
   /* ── Three picks ─────────────────────────────────────────────────────────── */
   .hp-picks {
