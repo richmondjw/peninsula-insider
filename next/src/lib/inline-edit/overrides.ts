@@ -25,7 +25,10 @@ export type CmsEntityType =
   | 'place'
   | 'venue'
   | 'experience'
-  | 'itinerary';
+  | 'itinerary'
+  | 'tour'
+  | 'tour-operator'
+  | 'tour-package';
 
 export interface CmsOverrideImage {
   src: string;
