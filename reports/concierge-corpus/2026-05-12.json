@@ -1,14 +1,14 @@
 {
-  "run_id": "2026-05-12T00:48:11.835Z",
+  "run_id": "2026-05-12T03:20:13.165Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 8.2,
-  "git_sha": "49ff676",
+  "duration_seconds": 11.3,
+  "git_sha": "21c3210",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
-    "venue": 145,
+    "venue": 141,
     "article": 172,
     "place": 20,
     "itinerary": 6,
@@ -18,14 +18,14 @@
   },
   "database": {
     "chunks_before": 1549,
-    "chunks_after": 1549
+    "chunks_after": 1533
   },
   "delta": {
     "added": 0,
-    "updated": 5,
+    "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1547,
-    "pruned": 0,
+    "unchanged": 1533,
+    "pruned": 16,
     "errors": 0,
     "stale_remaining": 0
   },
@@ -33,12 +33,27 @@
   "updated_chunk_ids": [
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
-    "red-hill-market::tags::0",
-    "stringers-sorrento::summary::0",
-    "stringers-sorrento::tags::0"
+    "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [],
+  "pruned_chunk_ids": [
+    "mornington-peninsula-cider::practical::0",
+    "mornington-peninsula-cider::tags::0",
+    "pane-e-vino::practical::0",
+    "pane-e-vino::tags::0",
+    "pho-rosebud::practical::0",
+    "pho-rosebud::tags::0",
+    "sorrento-coastal-retreat::practical::0",
+    "sorrento-coastal-retreat::tags::0",
+    "mornington-peninsula-cider::summary::0",
+    "mornington-peninsula-cider::editor_note::0",
+    "pane-e-vino::summary::0",
+    "pane-e-vino::editor_note::0",
+    "pho-rosebud::summary::0",
+    "pho-rosebud::editor_note::0",
+    "sorrento-coastal-retreat::summary::0",
+    "sorrento-coastal-retreat::editor_note::0"
+  ],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
   "embedding_cost_usd_estimate": 0,
