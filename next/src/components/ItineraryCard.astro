@@ -10,6 +10,19 @@ export interface Props {
 const { itinerary } = Astro.props;
 const data = itinerary.data;
 const slug = routeSlug(itinerary);
+const regionLabel = (() => {
+  const source = `${slug} ${data.title ?? ''}`.toLowerCase();
+  if (/red-hill|ridge|vineyard/.test(source)) return 'Red Hill';
+  if (/sorrento|portsea|tip/.test(source)) return 'Sorrento';
+  if (/flinders|cape/.test(source)) return 'Flinders';
+  if (/family|mornington/.test(source)) return 'Mornington';
+  if (/golf|rye/.test(source)) return 'Rye';
+  return 'Peninsula';
+})();
+const tripType = data.lengthNights <= 1 ? 'One-night escape' : data.lengthNights === 2 ? 'Two-night escape' : `${data.lengthNights}-night escape`;
+const audienceLabel = String(data.audience ?? 'weekend').replace(/-/g, ' ');
+const driveLabel = data.totalDriveMinutes ? `${data.totalDriveMinutes} min drive` : null;
+const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel, `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}`].filter(Boolean).join(' · ');
 ---
 
 <article class="itinerary-card">
@@ -39,6 +52,7 @@ const slug = routeSlug(itinerary);
     <a href={`/plans/${slug}`}>{data.title}</a>
   </h3>
   <p class="itinerary-card__dek">{data.dek}</p>
+  <p class="itinerary-card__meta">{metaLine}</p>
   <a href={`/plans/${slug}`} class="itinerary-card__cta">View Plan →</a>
   <PiSaveActions
     kind="itinerary"

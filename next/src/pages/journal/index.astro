@@ -27,64 +27,61 @@ const picks = pickSlugs
   .map((slug) => rest.find((article) => routeSlug(article) === slug))
   .filter((article): article is NonNullable<typeof article> => Boolean(article));
 
-// Group the rest by format for navigation by mood.
-const formatOrder: Array<{ key: string; title: string; intro: string }> = [
+// Group the rest under the five primary Journal categories.
+// Each category may map to one or more underlying format keys from the
+// content collection, but the reader only ever sees the five surfaces.
+const formatOrder: Array<{ key: string; title: string; intro: string; formats: string[] }> = [
   {
-    key: 'weekend-picker',
-    title: 'Weekend Picker',
-    intro: 'Our weekly Peninsula This Weekend dispatches, built for the weekend ahead: one pick, one weather-proof backup, and one useful planning note.',
+    key: 'peninsula-this-weekend',
+    title: 'Peninsula This Weekend',
+    intro: 'Our weekly weekend brief: one pick, one weather-proof backup, and one useful planning note for the days ahead.',
+    formats: ['weekend-picker'],
   },
   {
-    key: 'service',
-    title: 'Service pieces',
-    intro: 'Useful before you book. Weekend shapes, rainy-day plans, family trips, and the questions readers actually ask.',
+    key: 'guides',
+    title: 'Guides',
+    intro: 'Practical, read-before-you-book guides. Weekend shapes, rainy-day plans, family trips, and the questions readers actually ask.',
+    formats: ['service'],
   },
   {
-    key: 'long-lunch-list',
-    title: 'Long lunch lists',
-    intro: 'The daylight-dining playbook. Which tables earn the drive, and how to pick the right one for your day.',
+    key: 'features',
+    title: 'Features',
+    intro: 'Long-form pieces, editor’s letters, interviews, and investigations  -  the writing we spend the extra weeks on.',
+    formats: ['editors-letter', 'interview', 'investigation', 'slow-peninsula'],
   },
   {
-    key: 'cellar-door-dispatch',
-    title: 'Cellar door dispatches',
-    intro: 'The producers worth the appointment, the wines worth the cellar, and the arguments happening in the vines.',
+    key: 'reviews-and-lists',
+    title: 'Reviews & Lists',
+    intro: 'Shortlists with a point of view  -  the tables, cellar doors, and places locals actually rotate through.',
+    formats: ['long-lunch-list', 'insider-edit', 'cellar-door-dispatch'],
   },
   {
     key: 'stay-notes',
-    title: 'Stay notes',
+    title: 'Stay Notes',
     intro: 'The rooms, cottages, and villas that change the shape of a weekend.',
-  },
-  {
-    key: 'insider-edit',
-    title: 'Insider edits',
-    intro: 'Shortlists with a point of view  -  the places locals rotate through, not the ones brochures push.',
-  },
-  {
-    key: 'slow-peninsula',
-    title: 'Slow Peninsula',
-    intro: 'Field notes from the quieter end of the region. Weather, light, time, and the pieces no one is rushing.',
-  },
-  {
-    key: 'editors-letter',
-    title: "Editor's letters",
-    intro: 'Where the issue is framed  -  what changed, what matters, what to read first.',
-  },
-  {
-    key: 'interview',
-    title: 'Interviews',
-    intro: 'Long-form conversations with the people building the Peninsula worth writing about.',
-  },
-  {
-    key: 'investigation',
-    title: 'Investigations',
-    intro: 'Reporting with edges. Where we spend the extra weeks.',
+    formats: ['stay-notes'],
   },
 ];
+
+// Local label override so the lead story and any inline format tags on this
+// page read in the new category language, regardless of the underlying format.
+const journalFormatLabel: Record<string, string> = {
+  'weekend-picker': 'Peninsula This Weekend',
+  service: 'Guides',
+  'editors-letter': 'Features',
+  interview: 'Features',
+  investigation: 'Features',
+  'slow-peninsula': 'Features',
+  'long-lunch-list': 'Reviews & Lists',
+  'insider-edit': 'Reviews & Lists',
+  'cellar-door-dispatch': 'Reviews & Lists',
+  'stay-notes': 'Stay Notes',
+};
 
 const groups = formatOrder
   .map((group) => ({
     ...group,
-    articles: rest.filter((article) => article.data.format === group.key),
+    articles: rest.filter((article) => group.formats.includes(article.data.format)),
   }))
   .filter((group) => group.articles.length > 0);
 
@@ -103,36 +100,25 @@ const breadcrumbItems = [
   <Breadcrumbs items={breadcrumbItems} />
   <SectionHero
     eyebrow="Journal"
-    subEyebrow="Dispatches · lists · essays · stay notes"
+    subEyebrow="Guides · Features · Weekend Notes"
     title="Long-form notes from a region best read <em>slowly.</em>"
-    dek="The Journal is where Peninsula Insider moves past directories and into voice. Browse by format below, or jump straight to the three pieces doing the most work right now."
+    dek="The Journal is where Peninsula Insider moves past directories and into voice. Start with the practical guides, or jump straight to the three pieces doing the most work right now."
     gradient="journal"
-    visualLabel="Long lunch notebook · cellar door dispatches"
+    visualLabel="Guides · features · weekend notes"
     heroImage="/images/sourced/journal-hub-hero-01.webp"
   />
 
   <!-- Editor’s desk note  -  a short seasonal framing block that tells
        the reader what the Journal is focused on right now. Creates the
        sense of a living editorial desk rather than a static archive. -->
-  <section class="editors-desk" aria-label="Editor’s note">
+  <section class="editors-desk editors-desk--single" aria-label="Editor’s note">
     <div class="container">
       <div class="editors-desk__inner">
         <div class="editors-desk__col">
           <p class="label label--accent">From the editor’s desk</p>
           <h2 class="editors-desk__title">What we’re writing about this season</h2>
-          <p class="editors-desk__body">Autumn on the Peninsula is vintage season on the ridge and fireplace-lunch season everywhere else. The Journal is leaning into the service pieces that help you build a weekend around those two moods  -  plus a cellar-door dispatch series, honest stay notes, and the rolling <em>Peninsula This Weekend</em> brief refreshed each week.</p>
-          <p class="editors-desk__body">Every piece below answers a real question a weekend visitor actually asks. If we can’t finish the sentence <em>“Read this before you…”</em> then we don’t publish it.</p>
-        </div>
-        <div class="editors-desk__col editors-desk__formats">
-          <p class="label">Formats in this issue</p>
-          <ul class="editors-desk__format-list">
-            <li><strong>Service pieces</strong>  -  the practical guides: weekend shapes, rainy-day plans, family trips</li>
-            <li><strong>Long lunch lists</strong>  -  the daylight-dining playbook</li>
-            <li><strong>Cellar door dispatches</strong>  -  the wines, the producers, the arguments in the vines</li>
-            <li><strong>Weekend Picker</strong>  -  one pick, one backup, one skip  -  published weekly for the weekend ahead</li>
-            <li><strong>Stay notes</strong>  -  the rooms that change the shape of a weekend</li>
-            <li><strong>Insider edits</strong>  -  shortlists with a point of view</li>
-          </ul>
+          <p class="editors-desk__body">Autumn on the Peninsula is vintage season on the ridge and fireplace-lunch season everywhere else. The Journal is leaning into practical guides for those moods, honest stay notes, and the weekly <em>Peninsula This Weekend</em> brief.</p>
+          <p class="editors-desk__body">Every piece below answers a real question a weekend visitor actually asks.</p>
         </div>
       </div>
     </div>
@@ -162,7 +148,7 @@ const breadcrumbItems = [
         <li><a href="/journal/best-brunch-mornington-peninsula/"><span class="planning-guides__eyebrow">Eat</span><span class="planning-guides__name">Best brunch on the Mornington Peninsula</span></a></li>
         <li><a href="/journal/mornington-peninsula-wedding-venues/"><span class="planning-guides__eyebrow">Wedding</span><span class="planning-guides__name">Peninsula wedding venues worth the weekend</span></a></li>
         <li><a href="/explore/best-walks/"><span class="planning-guides__eyebrow">Walks</span><span class="planning-guides__name">Best walks on the Mornington Peninsula</span></a></li>
-        <li><a href="/journal/cellar-door/"><span class="planning-guides__eyebrow">Wine</span><span class="planning-guides__name">Cellar door dispatches — the producers worth the appointment</span></a></li>
+        <li><a href="/journal/cellar-door/"><span class="planning-guides__eyebrow">Wine</span><span class="planning-guides__name">Peninsula cellar doors — the producers worth the appointment</span></a></li>
       </ul>
     </div>
   </section>
@@ -177,7 +163,7 @@ const breadcrumbItems = [
           </div>
           <div class="feature__content">
             <div class="feature__label">
-              <span class="label label--accent">{formatLabel[featured.data.format] ?? featured.data.format}</span>
+              <span class="label label--accent">{journalFormatLabel[featured.data.format] ?? formatLabel[featured.data.format] ?? featured.data.format}</span>
             </div>
             <h2 class="feature__title">
               <a href={`/journal/${featuredSlug}`}>{featured.data.title}</a>
@@ -204,39 +190,24 @@ const breadcrumbItems = [
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">Editor's picks</p>
+            <p class="label label--accent">Start here</p>
             <h2 class="venues__title">Three pieces to read first</h2>
-            <p class="venues__sub">If you only have 20 minutes with the Journal, start here.</p>
+            <p class="venues__sub">Read first  -  the pieces doing the most work in the Journal right now.</p>
           </div>
         </div>
         <div class="venues__grid">
-          {picks.map((article) => <ArticleCard article={article} />)}
+          {picks.map((article) => <ArticleCard article={article} typeLabel={journalFormatLabel[article.data.format] ?? formatLabel[article.data.format] ?? article.data.format} />)}
         </div>
       </div>
     </section>
   )}
-
-  <section class="format-nav">
-    <div class="container">
-      <p class="label label--accent format-nav__label">Navigate by format</p>
-      <p class="format-nav__sub">Every piece in the Journal carries a format tag. Pick the kind of reading you want  -  or keep scrolling and let the page sort itself.</p>
-      <div class="format-nav__chips">
-        {groups.map((group) => (
-          <a href={`#${group.key}`} class="format-chip">
-            <span class="format-chip__name">{group.title}</span>
-            <span class="format-chip__count">{group.articles.length}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {groups.map((group) => (
     <section class="venues venues--alt" id={group.key}>
       <div class="container">
         <div class="venues__header">
           <div>
-            <p class="label label--accent">{formatLabel[group.key] ?? group.title}</p>
+            <p class="label label--accent">{group.title}</p>
             <h2 class="venues__title">{group.title}</h2>
             <p class="venues__sub">{group.intro}</p>
           </div>

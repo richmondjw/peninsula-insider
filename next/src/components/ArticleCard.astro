@@ -12,9 +12,11 @@ export interface Props {
   /** Hide the format type chip — useful on format-grouped sections where
    *  the section heading already names the format. */
   hideType?: boolean;
+  /** Optional local label override for index pages that group formats differently. */
+  typeLabel?: string;
 }
 
-const { article, hideType = false } = Astro.props;
+const { article, hideType = false, typeLabel } = Astro.props;
 const slug = routeSlug(article);
 const articleBase = (article.data.section ?? 'journal') === 'plans' ? '/plans' : '/journal';
 
@@ -30,7 +32,7 @@ const readingTime = article.data.readingTimeMinutes;
 
 <article class="venue-card venue-card--editorial">
   <div class="venue-card__top">
-    {!hideType && <span class="venue-card__type">{formatLabel[article.data.format] ?? article.data.format}</span>}
+    {!hideType && <span class="venue-card__type">{typeLabel ?? formatLabel[article.data.format] ?? article.data.format}</span>}
     {readingTime && <span class="venue-card__price">{readingTime} min</span>}
   </div>
   <h3 class="venue-card__name">
