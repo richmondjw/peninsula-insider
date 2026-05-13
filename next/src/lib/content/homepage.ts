@@ -100,8 +100,8 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
     imageCaption: 'The last weekend of vintage, Red Hill, <em>the quietest a working winery ever gets.</em>',
   },
   newsletter: {
-    title: 'The briefing that <em>arrives weekly.</em>',
-    body: "One email. The weekend's pick, the tables that have opened up, the cellar doors with windows this week, and the walk worth doing before it's too cold. Read in five minutes, used all weekend.",
+    title: 'The Peninsula briefing for <em>this weekend.</em>',
+    body: "A concise note with the weekend’s best picks, open tables, cellar-door windows, and one useful walk — sent when there is something worth sharing.",
     issueNumber: '',
     issueDate: '',
     previewHeadline: '',
