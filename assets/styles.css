@@ -3131,7 +3131,9 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .itinerary-card__title,
 .itinerary-card__dek,
 .itinerary-card__chips,
-.itinerary-card__cta {
+.itinerary-card__meta,
+.itinerary-card__cta,
+.itinerary-card__actions {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
 }
@@ -3175,6 +3177,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 0.72rem;
   font-weight: 500;
   color: var(--soft);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
 }
 .itinerary-card__title {
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -3209,6 +3213,14 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: 0.25rem 0.6rem;
   border: 1px solid var(--border);
 }
+.itinerary-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-bottom: 1.5rem;
+}
 .itinerary-card__cta {
   display: inline-flex;
   align-items: center;
@@ -3218,8 +3230,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-top: auto;
-  padding-bottom: 1.75rem;
   transition: gap .18s var(--ease), color .18s var(--ease);
 }
 .itinerary-card__cta:hover { gap: 0.65rem; color: var(--acc-h); }
@@ -7448,12 +7458,14 @@ p.has-drop-cap::first-letter {
   .itinerary-card__title,
   .itinerary-card__dek,
   .itinerary-card__chips,
-  .itinerary-card__cta {
+  .itinerary-card__meta,
+  .itinerary-card__cta,
+  .itinerary-card__actions {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
   }
   .itinerary-card__top { padding-top: 1.2rem; }
-  .itinerary-card__cta { padding-bottom: 1.2rem; }
+  .itinerary-card__actions { padding-bottom: 1.2rem; }
 
   /* Split intro: tighter */
   .split-intro__title {
