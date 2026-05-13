@@ -22,7 +22,7 @@ const regionLabel = (() => {
 const tripType = data.lengthNights <= 1 ? 'One-night escape' : data.lengthNights === 2 ? 'Two-night escape' : `${data.lengthNights}-night escape`;
 const audienceLabel = String(data.audience ?? 'weekend').replace(/-/g, ' ');
 const driveLabel = data.totalDriveMinutes ? `${data.totalDriveMinutes} min drive` : null;
-const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel, `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}`].filter(Boolean).join(' · ');
+const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel].filter(Boolean).join(' · ');
 ---
 
 <article class="itinerary-card">
@@ -53,13 +53,16 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
   </h3>
   <p class="itinerary-card__dek">{data.dek}</p>
   <p class="itinerary-card__meta">{metaLine}</p>
-  <a href={`/plans/${slug}`} class="itinerary-card__cta">View Plan →</a>
-  <PiSaveActions
-    kind="itinerary"
-    slug={slug}
-    title={data.title}
-    href={`/plans/${slug}/`}
-    dek={data.dek}
-    imageUrl={data.heroImage?.src}
-  />
+  <div class="itinerary-card__actions">
+    <a href={`/plans/${slug}`} class="itinerary-card__cta">View Plan →</a>
+    <PiSaveActions
+      kind="itinerary"
+      slug={slug}
+      title={data.title}
+      href={`/plans/${slug}/`}
+      dek={data.dek}
+      imageUrl={data.heroImage?.src}
+      floating={false}
+    />
+  </div>
 </article>
