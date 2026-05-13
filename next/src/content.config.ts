@@ -1130,6 +1130,45 @@ const weekendPicks = defineCollection({
   }),
 });
 
+/**
+ * signatureEvents — evergreen Signature Event landing pages.
+ *
+ * These are NOT dated event occurrences (those live in the `events`
+ * collection). A Signature Event is one of the Peninsula's anchor
+ * annual moments (Portsea Polo, Sorrento Writers Festival, Winter
+ * Wine Weekend, etc.) and gets its own editorial page that lives
+ * across years. The dated `events` entries link back to these
+ * evergreen anchors when an occurrence runs.
+ */
+const signatureEvents = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/signature-events' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    tagline: z.string().optional(),
+    summary: z.string(),
+    monthAnchor: z.string(),
+    season: season,
+    location: z.string(),
+    placeRef: reference('places').optional(),
+    recurrence: z.string(),
+    firstHeld: z.string().optional(),
+    officialUrl: z.string().url().optional(),
+    heroImage: z.string(),
+    heroImageAlt: z.string(),
+    heroImageCredit: z.string().optional(),
+    whatItIs: z.string(),
+    whoItsFor: z.string(),
+    peninsulaCalendarContext: z.string(),
+    gettingThere: z.string(),
+    relatedPlaces: z.array(reference('places')).default([]),
+    relatedPlans: z.array(z.string()).default([]),
+    verificationStatus: z.enum(['verified', 'tentative', 'stub']).default('stub'),
+    lastReviewed: z.coerce.date(),
+    editorialNotes: z.string().optional(),
+  }),
+});
+
 export const collections = {
   venues,
   experiences,
@@ -1151,4 +1190,5 @@ export const collections = {
   localSecrets,
   insidersThirty,
   'weekend-picks': weekendPicks,
+  'signature-events': signatureEvents,
 };

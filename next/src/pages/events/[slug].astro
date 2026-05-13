@@ -1,0 +1,356 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import PlaceCard from '../../components/PlaceCard.astro';
+import { routeSlug } from '../../lib/editorial';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('signature-events');
+  return entries.map((entry) => ({
+    params: { slug: routeSlug(entry) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const data = entry.data;
+const slug = routeSlug(entry);
+
+const allPlaces = await getCollection('places');
+
+const placeRefIds = (data.relatedPlaces ?? []).map((ref: any) => String(ref.id ?? ref));
+const relatedPlaces = allPlaces.filter((p) => placeRefIds.includes(routeSlug(p)));
+
+const primaryPlace = data.placeRef
+  ? await getEntry(data.placeRef).catch(() => null)
+  : null;
+
+const canonical = `https://peninsulainsider.com.au/events/${slug}/`;
+
+const seasonLabel: Record<string, string> = {
+  spring: 'Spring',
+  summer: 'Summer',
+  autumn: 'Autumn',
+  winter: 'Winter',
+  'all-year': 'Year-round',
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: "What's On", href: '/whats-on/' },
+  { label: 'Signature Events', href: '/events/' },
+  { label: data.name },
+];
+
+const paragraphs = (body: string) =>
+  body
+    .split(/\n\n+/)
+    .map((p) => p.trim())
+    .filter((p) => p.length > 0);
+
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: data.name,
+  description: data.summary,
+  url: canonical,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'Place',
+    name: data.location,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: data.location,
+      addressRegion: 'VIC',
+      addressCountry: 'AU',
+    },
+  },
+  ...(data.officialUrl ? { sameAs: data.officialUrl } : {}),
+  ...(data.heroImage ? { image: `https://peninsulainsider.com.au${data.heroImage}` } : {}),
+  organizer: {
+    '@type': 'Organization',
+    name: data.name,
+    ...(data.officialUrl ? { url: data.officialUrl } : {}),
+  },
+};
+
+const pageTitle = `${data.name} | Peninsula Insider`;
+const description = data.summary.length > 155
+  ? data.summary.slice(0, 152) + '...'
+  : data.summary;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description}
+  section="whats-on"
+  canonical={canonical}
+  ogImage={data.heroImage}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow="Signature Events"
+    category={data.location}
+    title={data.name}
+    heroImage={data.heroImage}
+    imageAlt={data.heroImageAlt}
+  >
+    {data.tagline && <p class="subpage-hero__dek">{data.tagline}</p>}
+    <div class="event-chips" role="list">
+      <span class="event-chip" role="listitem">{data.monthAnchor}</span>
+      <span class="event-chip" role="listitem">{seasonLabel[data.season] ?? data.season}</span>
+      <span class="event-chip" role="listitem">{data.location}</span>
+      <span class="event-chip" role="listitem">{data.recurrence}</span>
+      {data.firstHeld && <span class="event-chip" role="listitem">Since {data.firstHeld}</span>}
+    </div>
+  </SubpageHero>
+
+  <article class="signature-event">
+    <div class="container">
+      <div class="signature-event__body">
+        <div class="signature-event__main">
+          <section class="signature-event__section">
+            <h2 class="signature-event__h2">At a glance</h2>
+            <p class="signature-event__lede">{data.summary}</p>
+          </section>
+
+          <section class="signature-event__section">
+            <h2 class="signature-event__h2">What it is</h2>
+            <div class="prose">
+              {paragraphs(data.whatItIs).map((p) => <p>{p}</p>)}
+            </div>
+          </section>
+
+          <section class="signature-event__section">
+            <h2 class="signature-event__h2">Who it's for</h2>
+            <div class="prose">
+              {paragraphs(data.whoItsFor).map((p) => <p>{p}</p>)}
+            </div>
+          </section>
+
+          <section class="signature-event__section">
+            <h2 class="signature-event__h2">Where it sits in the Peninsula calendar</h2>
+            <div class="prose">
+              {paragraphs(data.peninsulaCalendarContext).map((p) => <p>{p}</p>)}
+            </div>
+          </section>
+
+          <section class="signature-event__section">
+            <h2 class="signature-event__h2">Getting there</h2>
+            <div class="prose">
+              {paragraphs(data.gettingThere).map((p) => <p>{p}</p>)}
+            </div>
+          </section>
+
+          {data.officialUrl && (
+            <section class="signature-event__section">
+              <p class="signature-event__official">
+                <a
+                  href={data.officialUrl}
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                  class="signature-event__official-link"
+                >
+                  Visit the official site &rarr;
+                </a>
+                <span class="signature-event__official-note">
+                  Confirm current-year dates, tickets and program at the official source.
+                </span>
+              </p>
+            </section>
+          )}
+        </div>
+
+        <aside class="signature-event__side">
+          <div class="signature-event__box">
+            <p class="signature-event__box-label">Signature Event</p>
+            <dl class="signature-event__box-list">
+              <div>
+                <dt>Anchor month</dt>
+                <dd>{data.monthAnchor}</dd>
+              </div>
+              <div>
+                <dt>Season</dt>
+                <dd>{seasonLabel[data.season] ?? data.season}</dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd>
+                  {primaryPlace ? (
+                    <a href={`/places/${routeSlug(primaryPlace)}/`}>{primaryPlace.data.name}</a>
+                  ) : (
+                    <span>{data.location}</span>
+                  )}
+                </dd>
+              </div>
+              <div>
+                <dt>Recurrence</dt>
+                <dd>{data.recurrence}</dd>
+              </div>
+              {data.firstHeld && (
+                <div>
+                  <dt>First held</dt>
+                  <dd>{data.firstHeld}</dd>
+                </div>
+              )}
+            </dl>
+            {data.officialUrl && (
+              <div class="signature-event__actions">
+                <a
+                  href={data.officialUrl}
+                  class="signature-event__action"
+                  rel="nofollow noreferrer"
+                  target="_blank"
+                >
+                  Official site &rarr;
+                </a>
+              </div>
+            )}
+          </div>
+        </aside>
+      </div>
+
+      {relatedPlaces.length > 0 && (
+        <section class="signature-event__related">
+          <h2 class="signature-event__h2">Where this lives on the Peninsula</h2>
+          <div class="place-grid">
+            {relatedPlaces.map((place) => <PlaceCard place={place} />)}
+          </div>
+        </section>
+      )}
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .signature-event {
+    padding: clamp(2rem, 4vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+  .signature-event__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+  @media (min-width: 960px) {
+    .signature-event__body {
+      grid-template-columns: minmax(0, 1fr) 300px;
+    }
+  }
+  .signature-event__section + .signature-event__section {
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+  .signature-event__h2 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    margin: 0 0 0.75rem;
+    color: var(--text, #1a1a1a);
+  }
+  .signature-event__lede {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--text-muted, #4a4a4a);
+    margin: 0;
+  }
+  .signature-event__official {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    background: var(--surface, #f5f1ea);
+    border-left: 3px solid var(--accent, #8a6a3b);
+  }
+  .signature-event__official-link {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--accent, #8a6a3b);
+  }
+  .signature-event__official-note {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted, #6a6a6a);
+  }
+  .signature-event__box {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border, #d8d3c8);
+    background: var(--surface, #f9f6f0);
+    position: sticky;
+    top: 6rem;
+  }
+  .signature-event__box-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent, #8a6a3b);
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+  }
+  .signature-event__box-list {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0 0 1rem;
+  }
+  .signature-event__box-list dt {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted, #6a6a6a);
+    margin-bottom: 0.1rem;
+  }
+  .signature-event__box-list dd {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--text, #1a1a1a);
+  }
+  .signature-event__box-list a {
+    color: var(--accent, #8a6a3b);
+    text-decoration: none;
+  }
+  .signature-event__actions {
+    border-top: 1px solid var(--border, #d8d3c8);
+    padding-top: 0.85rem;
+  }
+  .signature-event__action {
+    display: inline-block;
+    padding: 0.55rem 0.95rem;
+    background: var(--accent, #8a6a3b);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 2px;
+  }
+  .signature-event__related {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--border, #d8d3c8);
+  }
+  .place-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .event-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .event-chip {
+    padding: 0.3rem 0.7rem;
+    background: var(--surface, #f5f1ea);
+    border: 1px solid var(--border, #d8d3c8);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--text-muted, #4a4a4a);
+    white-space: nowrap;
+  }
+</style>

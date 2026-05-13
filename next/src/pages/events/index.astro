@@ -1,0 +1,195 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SubpageHero from '../../components/SubpageHero.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { routeSlug } from '../../lib/editorial';
+
+const allEvents = await getCollection('signature-events');
+
+// Canonical order from the Wave 3 What's On restructure.
+const canonicalOrder: Array<{ slug: string; name: string; location: string; monthAnchor: string; }> = [
+  { slug: 'portsea-polo', name: 'Portsea Polo', location: 'Portsea', monthAnchor: 'Mid-summer' },
+  { slug: 'sorrento-writers-festival', name: 'Sorrento Writers Festival', location: 'Sorrento', monthAnchor: 'Late April' },
+  { slug: 'winter-wine-weekend', name: 'Winter Wine Weekend', location: 'Red Hill plateau', monthAnchor: "June (King's Birthday weekend)" },
+  { slug: 'portsea-swim-classic', name: 'Portsea Swim Classic', location: 'Portsea', monthAnchor: 'Late summer' },
+  { slug: 'pinot-palooza-red-hill', name: 'Pinot Palooza · Red Hill', location: 'Red Hill', monthAnchor: 'Spring' },
+  { slug: 'portsea-twilight', name: 'Portsea Twilight', location: 'Portsea', monthAnchor: 'Summer evening' },
+  { slug: 'main-street-mornington-festival', name: 'Main Street Mornington Festival', location: 'Mornington', monthAnchor: 'Autumn' },
+  { slug: 'mornington-winter-music-festival', name: 'Mornington Winter Music Festival', location: 'Mornington', monthAnchor: 'Winter' },
+  { slug: 'sailing-regattas', name: 'Sailing regattas (overview hub)', location: 'Bayside towns', monthAnchor: 'Summer' },
+  { slug: 'wine-weekends', name: 'Wine weekends (overview hub)', location: 'Wine country', monthAnchor: 'Year-round' },
+];
+
+const cards = canonicalOrder.map((item) => {
+  const entry = allEvents.find((e) => routeSlug(e) === item.slug);
+  return {
+    ...item,
+    entry,
+    published: !!entry,
+    summary: entry?.data.tagline ?? entry?.data.summary,
+    heroImage: entry?.data.heroImage,
+    heroImageAlt: entry?.data.heroImageAlt,
+  };
+});
+
+const canonical = 'https://peninsulainsider.com.au/events/';
+const description = "Editorial guides to the Mornington Peninsula's most recognisable annual events — the Peninsula calendar's anchor moments.";
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: "What's On", href: '/whats-on/' },
+  { label: 'Signature Events' },
+];
+---
+
+<BaseLayout
+  title="Signature Events — the Peninsula calendar's anchor moments | Peninsula Insider"
+  description={description}
+  section="whats-on"
+  canonical={canonical}
+  ogImage="/images/sourced/wine-hub-hero-01.webp"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <SubpageHero
+    eyebrow="What's On"
+    category="Signature Events"
+    title={`Signature Events &mdash; the Peninsula calendar's <em>anchor moments</em>`}
+    heroImage="/images/sourced/wine-hub-hero-01.webp"
+    imageAlt="Mornington Peninsula vineyard in winter — the cool-climate wine country where many of the Peninsula's biggest annual events run."
+  >
+    <p class="subpage-hero__dek">
+      Editorial guides to the Mornington Peninsula's most recognisable annual events — the dates locals plan their year around and the ones that define a season.
+    </p>
+  </SubpageHero>
+
+  <section class="signature-events-index">
+    <div class="container">
+      <ul class="signature-events-grid" role="list">
+        {cards.map((card) => (
+          <li class={`signature-card ${card.published ? '' : 'signature-card--placeholder'}`}>
+            {card.published ? (
+              <a class="signature-card__link" href={`/events/${card.slug}/`}>
+                {card.heroImage && (
+                  <div class="signature-card__image" aria-hidden="true">
+                    <img src={card.heroImage} alt={card.heroImageAlt ?? card.name} loading="lazy" decoding="async" />
+                  </div>
+                )}
+                <div class="signature-card__body">
+                  <p class="signature-card__chip">{card.monthAnchor} · {card.location}</p>
+                  <h2 class="signature-card__title">{card.name}</h2>
+                  {card.summary && <p class="signature-card__summary">{card.summary}</p>}
+                  <p class="signature-card__cta">Read the guide &rarr;</p>
+                </div>
+              </a>
+            ) : (
+              <div class="signature-card__link signature-card__link--placeholder" aria-disabled="true">
+                <div class="signature-card__body">
+                  <p class="signature-card__chip">{card.monthAnchor} · {card.location}</p>
+                  <h2 class="signature-card__title">{card.name}</h2>
+                  <p class="signature-card__summary">Page coming — we're working through the Signature Events series.</p>
+                  <p class="signature-card__cta signature-card__cta--muted">Coming soon</p>
+                </div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .signature-events-index {
+    padding: clamp(2rem, 4vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+  .signature-events-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .signature-card {
+    border: 1px solid var(--border, #d8d3c8);
+    background: var(--surface, #fdfbf6);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .signature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
+  .signature-card--placeholder {
+    opacity: 0.7;
+  }
+  .signature-card--placeholder:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .signature-card__link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .signature-card__link--placeholder {
+    cursor: default;
+  }
+  .signature-card__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--surface-mute, #ece6d8);
+  }
+  .signature-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .signature-card__body {
+    padding: 1.1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  .signature-card__chip {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent, #8a6a3b);
+    margin: 0;
+    font-weight: 600;
+  }
+  .signature-card__title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--text, #1a1a1a);
+    line-height: 1.25;
+  }
+  .signature-card__summary {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted, #4a4a4a);
+    line-height: 1.5;
+  }
+  .signature-card__cta {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent, #8a6a3b);
+  }
+  .signature-card__cta--muted {
+    color: var(--text-muted, #6a6a6a);
+  }
+</style>
