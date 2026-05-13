@@ -28,7 +28,7 @@ import ItineraryCard from '../components/ItineraryCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
-import { formatLabel, routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
+import { routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
@@ -81,7 +81,7 @@ const editorPicks = articles
     ['the-chardonnay-case', 'three-italian-dinners', 'the-peninsula-pantry',
      'the-long-lunch', 'the-thermal-springs-weekend'].includes(routeSlug(a))
   )
-  .slice(0, 5);
+  .slice(0, 3);
 
 // Homepage destination rail: prioritise high-intent, recognisable
 // destination searches rather than evenly representing every Peninsula zone.
@@ -410,7 +410,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
           <p
             class="label label--accent"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.label', label: 'Plans eyebrow' })}
-          >{cmsText['plans.label'] ?? 'The Plans'}</p>
+          >{cmsText['plans.label'] ?? 'Plans'}</p>
           <h2
             class="hp-plans__title"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.title', label: 'Plans title' })}
@@ -424,7 +424,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
           {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
         </div>
         <div class="hp-plans__footer">
-          <a href="/plans/" class="venues__link">View all plans →</a>
+          <a href="/plans/" class="venues__link">View Plans →</a>
         </div>
       </div>
     </section>
@@ -435,22 +435,16 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
     <ScrollReveal client:visible>
     <Shortlist
       eyebrow="The Shortlist"
-      title="Five pieces worth the <em>appointment</em>."
-      dek="The handful we'd send a close friend to this issue, picked for the ratio of payoff to effort, not the view from the tasting room."
-      link={{ label: 'Read all in the Journal', href: '/journal/' }}
-      items={editorPicks.map((article, i) => ({
-        rank: String(i + 1).padStart(2, '0'),
-        meta: [
-          formatLabel[article.data.format] ?? String(article.data.format ?? 'Editorial'),
-          article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min read` : 'Editorial',
-          article.data.publishedAt
-            ? new Date(article.data.publishedAt).toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })
-            : '',
-        ].filter(Boolean),
+      title="Three pieces worth the <em>appointment</em>."
+      dek="The three we'd send a close friend to this issue, picked for the ratio of payoff to effort, not the view from the tasting room."
+      link={{ label: 'View Journal', href: '/journal/' }}
+      items={editorPicks.map((article) => ({
+        rank: '',
+        meta: [],
         name: article.data.title,
         href: `/journal/${routeSlug(article)}`,
         why: article.data.dek,
-        tags: (article.data.tags ?? []).slice(0, 2).map((t: string) => ({ label: String(t).replace(/-/g, ' ') })),
+        tags: [],
       }))}
     />
     </ScrollReveal>
@@ -470,8 +464,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
         ?? `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year.`,
       cmsText['editors-letter.paragraphs.1']
         ?? `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking.`,
-      cmsText['editors-letter.paragraphs.2']
-        ?? `If this is your first issue with us, welcome. If you're returning, thanks for the patience through the refit.`,
+
     ];
     return (
       <EditorsLetter

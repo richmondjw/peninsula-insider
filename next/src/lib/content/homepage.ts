@@ -90,7 +90,6 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
     paragraphs: [
       'Autumn is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year.',
       "We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking.",
-      "If this is your first issue with us, welcome. If you're returning, thanks for the patience through the refit.",
     ],
     pullQuote: 'This issue is built for the six weeks where the Peninsula is at its most itself, before winter settles in and the coast goes quiet.',
     signatureName: 'The Editors',
@@ -100,8 +99,8 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
     imageCaption: 'The last weekend of vintage, Red Hill, <em>the quietest a working winery ever gets.</em>',
   },
   newsletter: {
-    title: 'The Peninsula briefing for <em>this weekend.</em>',
-    body: "A concise note with the weekend’s best picks, open tables, cellar-door windows, and one useful walk — sent when there is something worth sharing.",
+    title: 'Peninsula This Weekend',
+    body: "Curated Peninsula recommendations and stories from our editors — sent when there’s something worth sharing.",
     issueNumber: '',
     issueDate: '',
     previewHeadline: '',

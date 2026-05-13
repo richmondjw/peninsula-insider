@@ -23,8 +23,8 @@ export interface Props {
 }
 
 const {
-  title = 'The Peninsula briefing for <em>this weekend.</em>',
-  body = "A concise note with the weekend’s best picks, open tables, cellar-door windows, and one useful walk — sent when there is something worth sharing.",
+  title = 'Peninsula This Weekend',
+  body = "Curated Peninsula recommendations and stories from our editors — sent when there’s something worth sharing.",
   issueNumber = '',
   issueDate = '',
   previewHeadline = '',
@@ -41,7 +41,7 @@ const {
         <div
           class="v2-newsletter__eyebrow"
           {...editableText({ entityType: 'page', entitySlug: '_global', fieldPath: 'newsletter.eyebrow', label: 'Newsletter eyebrow' })}
-        >Peninsula This Weekend</div>
+        >Curated by our editors.</div>
         <h2
           class="v2-newsletter__title"
           id="newsletter-title"

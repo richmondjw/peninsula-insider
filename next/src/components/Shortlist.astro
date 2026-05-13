@@ -51,8 +51,8 @@ const { eyebrow = 'The Shortlist', title, dek, link, items } = Astro.props;
 
       <ol class="shortlist__list">
         {items.map((item) => (
-          <li class="sl-item">
-            <span class="sl-item__num">{item.rank}</span>
+          <li class={`sl-item${!item.rank ? ' sl-item--unnumbered' : ''}`}>
+            {item.rank && <span class="sl-item__num">{item.rank}</span>}
             <div class="sl-item__body">
               {item.meta.length > 0 && (
                 <div class="sl-item__meta">
