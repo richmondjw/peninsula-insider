@@ -8,13 +8,16 @@ export interface Props {
   place: any;
   variant?: 'vineyard' | 'bay' | 'sand';
   showDetails?: boolean;
+  showMeta?: boolean;
+  showActions?: boolean;
+  introMaxLength?: number;
 }
 
 import { heroBackgroundStyle } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
 
-const { place, variant = 'vineyard', showDetails = true } = Astro.props;
+const { place, variant = 'vineyard', showDetails = true, showMeta = true, showActions = true, introMaxLength } = Astro.props;
 const data = place.data;
 const slug = place.id ?? data.slug;
 
@@ -29,6 +32,11 @@ const imgClass = variant === 'bay'
   : 'place-card__image';
 
 const imgStyle = heroBackgroundStyle(data);
+
+const intro = String(data.intro ?? '');
+const displayIntro = introMaxLength && intro.length > introMaxLength
+  ? `${intro.slice(0, introMaxLength).replace(/\s+\S*$/, '')}…`
+  : intro;
 
 // Capture the inline background-image URL for the saved-view preview.
 const heroMatch = imgStyle.match(/url\(([^)]+)\)/);
@@ -51,13 +59,13 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
     })}
   ></a>
   <div class="place-card__body">
-    {showDetails && (<p class="place-card__zone">{zoneLabel} · {data.kind}</p>)}
+    {showDetails && showMeta && (<p class="place-card__zone">{zoneLabel} · {data.kind}</p>)}
     <h3 class="place-card__name">
       <a href={`/places/${slug}`}>{data.name}</a>
     </h3>
-    {showDetails && (<p class="place-card__intro">{data.intro}</p>)}
+    {showDetails && (<p class="place-card__intro">{displayIntro}</p>)}
   </div>
-  {showDetails && (<PiSaveActions
+  {showDetails && showActions && (<PiSaveActions
     kind="place"
     slug={slug}
     title={data.name}
