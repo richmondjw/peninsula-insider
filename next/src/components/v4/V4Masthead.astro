@@ -16,31 +16,52 @@ export interface Props {
   section?: string;
   issueMark?: string;
   issueLabel?: string;
+  /** Conditions strip — daily live line. Wire to an agent later; hardcoded fallback for now. */
+  conditionPort?: string;
+  conditionTemp?: string;
+  conditionSunset?: string;
+  conditionWater?: string;
 }
 
 const {
   section = 'home',
   issueMark = 'Vol 04',
   issueLabel = "The May Issue · May 2026",
+  conditionPort = 'Sorrento',
+  conditionTemp = '16°C',
+  conditionSunset = '5:48 pm',
+  conditionWater = 'Bay glassy, tide low',
 } = Astro.props;
 ---
 
 <header class="masthead" data-v4-masthead>
 
-  <!-- Row 1 — Utility (V2 carry-over) -->
+  <!-- Row 1 — Utility.
+       Layout (left to right): live conditions strip · edition marker · login.
+       Conditions strip is the publication's "heartbeat" — see preview-hero-v2
+       brief 2026-05-13. Hardcoded for the prototype; will be agent-written. -->
   <div class="masthead__utility">
     <div class="container">
       <div class="masthead__utility-inner">
-        <span class="masthead__edition">
-          <span class="masthead__edition-mark">{issueMark}</span>
-          <span class="masthead__edition-label">{issueLabel}</span>
+        <span class="masthead__conditions" aria-label="Peninsula conditions">
+          <span class="masthead__conditions-item"><strong>{conditionPort}</strong> {conditionTemp}</span>
+          <span class="masthead__conditions-sep" aria-hidden="true">·</span>
+          <span class="masthead__conditions-item">Sunset {conditionSunset}</span>
+          <span class="masthead__conditions-sep" aria-hidden="true">·</span>
+          <span class="masthead__conditions-item">{conditionWater}</span>
         </span>
-        <button
-          class="masthead__signin"
-          type="button"
-          data-open-auth
-          data-auth-anonymous
-        >Login</button>
+        <span class="masthead__utility-right">
+          <span class="masthead__edition">
+            <span class="masthead__edition-mark">{issueMark}</span>
+            <span class="masthead__edition-label">{issueLabel}</span>
+          </span>
+          <button
+            class="masthead__signin"
+            type="button"
+            data-open-auth
+            data-auth-anonymous
+          >Login</button>
+        </span>
       </div>
     </div>
   </div>

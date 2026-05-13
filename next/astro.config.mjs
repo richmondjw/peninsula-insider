@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite';
 
 // Peninsula Insider — Astro config.
 // Decisions locked in roadmap-2026-04-09.md § 4 and § 9:
@@ -45,7 +47,14 @@ export default defineConfig({
   },
   integrations: [
     mdx(), // hub-guide, trail-guide, venue-guide articles use AlertBlock + ClusterLinks components
+    react(), // scoped React islands for motion polish (ScrollReveal etc); not used on content pages
   ],
+  vite: {
+    plugins: [tailwindcss()], // Tailwind v4 via Vite. Preflight is disabled in
+                              // styles/tailwind.css so it never resets the
+                              // global design system. Used only inside files
+                              // that explicitly @import 'tailwind.css'.
+  },
   output: adminHybrid ? 'server' : 'static',
   adapter,
   // Redirects are handled by custom src/pages/*.astro files using the
