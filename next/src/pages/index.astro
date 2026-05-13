@@ -27,6 +27,7 @@ import PlaceCard from '../components/PlaceCard.astro';
 import ItineraryCard from '../components/ItineraryCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { formatLabel, routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
@@ -194,6 +195,16 @@ const scenes: Scene[] = [
 ];
 
 const ssrScene = scenes[0];
+
+// Editorial meta line: cover-essay date. Hardcoded for the prototype;
+// when the cover becomes CMS-driven (or rotates from articles) this should
+// pull from the article's publishedAt. Format matches the New Yorker /
+// Atlantic essay pattern: "{type} · {date} · {read time}".
+const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
 ---
 
 <BaseLayout
@@ -246,127 +257,120 @@ const ssrScene = scenes[0];
     ],
   })} />
 
-  {/* ── Cinematic hero ─────────────────────────────────────────────────────── */}
-  <section class="cinema" aria-label="Cover">
-    {/* Image layer (array kept so rotation can be reintroduced cleanly later) */}
-    <div class="cinema__bg" aria-hidden="true">
-      {scenes.map((s) => (
-        <div class={`cinema-scene${s.id === ssrScene.id ? ' is-active' : ''}`} data-scene={s.id}>
+  {/* ── Split-grid editorial cover (2026-05-13).
+       Replaces the cinematic full-bleed + 10s rotator with a magazine-style
+       static cover: type column left, single photograph right. One cover
+       essay per issue (the publication doesn't carousel through five). The
+       "rotation bench" scenes [1..3] now render as a static "Also in this
+       issue" strip below the hero block. */}
+  <section class="cover" aria-label="Cover essay">
+    <div class="container cover__inner">
+      <div class="cover__type">
+        <p class="cover__meta">
+          <span class="cover__chip">{ssrScene.label}</span>
+          <span class="cover__dot" aria-hidden="true">·</span>
+          <span class="cover__date">{coverDate}</span>
+          <span class="cover__dot" aria-hidden="true">·</span>
+          <span class="cover__hours">{ssrScene.hours}</span>
+        </p>
+        <h1
+          class="cover__headline"
+          set:html={ssrScene.headline}
+          {...editableText({
+            entityType: 'page',
+            entitySlug: 'home',
+            fieldPath: 'cover.headline',
+            label: 'Cover headline',
+          })}
+        />
+        <p
+          class="cover__dispatch"
+          {...editableText({
+            entityType: 'page',
+            entitySlug: 'home',
+            fieldPath: 'cover.dispatch',
+            label: 'Cover dispatch',
+          })}
+        >{ssrScene.dispatch}</p>
+        <div class="cover__ctas">
+          <a class="cover__cta" href={ssrScene.primaryHref}>
+            {ssrScene.primaryLabel} <span aria-hidden="true">→</span>
+          </a>
+          <a class="cover__ask-link" href="/ask/" data-pi-trigger="true">
+            or ask The Insider <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="cover__visual">
+        <div class="cover__visual-frame">
           <img
-            src={s.image}
-            alt={s.imageAlt}
+            src={ssrScene.image}
+            alt={ssrScene.imageAlt}
             loading="eager"
-            fetchpriority={s.id === ssrScene.id ? 'high' : undefined}
-            {...(s.id === ssrScene.id ? editableImage({
+            fetchpriority="high"
+            {...editableImage({
               entityType: 'page',
               entitySlug: 'home',
               fieldPath: 'cover.image',
               label: 'Cover image',
               purpose: 'hero',
-            }) : {})}
+            })}
           />
         </div>
-      ))}
+        <figcaption
+          class="cover__caption"
+          {...editableText({
+            entityType: 'page',
+            entitySlug: 'home',
+            fieldPath: 'cover.caption',
+            label: 'Cover caption',
+          })}
+        >{ssrScene.caption}</figcaption>
+      </figure>
     </div>
+  </section>
 
-    {/* Vertical scrim for legibility of bottom-anchored copy */}
-    <div class="cinema__scrim" aria-hidden="true"></div>
-
-    {/* Local grain (separate from global so we can tune intensity) */}
-    <div class="cinema__grain" aria-hidden="true"></div>
-
-    {/* Top chrome — brand identity only. The "Vol 04 · {issueDate}" magazine
-        issue chrome was removed (2026-05-12) per the editorial brief: the
-        publication doesn't operate on discrete issues and the framing was
-        out of step with the planning-dashboard direction. */}
-    <header class="cinema__top">
-      <div class="cinema__brand">Peninsula Insider</div>
-    </header>
-
-    {/* Bottom-left copy block. Grid-stack scaffold preserved so rotation
-         can be reintroduced cleanly — currently a single scene. */}
-    <div class="cinema__copy">
-      <div class="cinema-copy-wrap">
-        {scenes.map((s) => (
-          <div class={`cinema-copy${s.id === ssrScene.id ? ' is-active' : ''}`} data-copy={s.id}>
-            <p class="cinema-copy__time">
-              <span class="cinema-copy__chip">{s.label}</span>
-              <span class="cinema-copy__hours">{s.hours}</span>
+  {/* Also in this issue — three secondary picks. Static row, no carousel.
+       Sourced from the same scenes array (rotation bench → editorial picks). */}
+  <section class="cover-also" aria-label="Also in this issue">
+    <div class="container">
+      <div class="cover-also__head">
+        <p class="cover-also__label">Also in this issue</p>
+        <a class="cover-also__link" href="/journal/">All essays →</a>
+      </div>
+      <div class="cover-also__grid">
+        {scenes.slice(1, 4).map((s) => (
+          <a class="cover-also__item" href={s.primaryHref}>
+            <div class="cover-also__thumb">
+              <img src={s.image} alt={s.imageAlt} loading="lazy" />
+            </div>
+            <p class="cover-also__meta">
+              <span class="cover-also__chip">{s.label}</span>
+              <span class="cover-also__hours">{s.hours}</span>
             </p>
-            <h1
-              class="cinema-copy__headline"
-              set:html={s.headline}
-              {...(s.id === ssrScene.id ? editableText({
-                entityType: 'page',
-                entitySlug: 'home',
-                fieldPath: 'cover.headline',
-                label: 'Cover headline',
-              }) : {})}
-            />
-            <p
-              class="cinema-copy__dispatch"
-              {...(s.id === ssrScene.id ? editableText({
-                entityType: 'page',
-                entitySlug: 'home',
-                fieldPath: 'cover.dispatch',
-                label: 'Cover dispatch',
-              }) : {})}
-            >{s.dispatch}</p>
-          </div>
+            <h3 class="cover-also__headline" set:html={s.headline} />
+          </a>
         ))}
       </div>
-
-      <div class="cinema__ctas">
-        <a class="cinema__cta cinema__cta--primary" href={ssrScene.primaryHref}>
-          {ssrScene.primaryLabel} <span aria-hidden="true">→</span>
-        </a>
-        <a class="cinema__cta cinema__cta--ghost" href="/ask/" data-pi-trigger="true">
-          Ask PI <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-
-    {/* Bottom-right caption */}
-    <p
-      class="cinema__caption"
-      {...editableText({
-        entityType: 'page',
-        entitySlug: 'home',
-        fieldPath: 'cover.caption',
-        label: 'Cover caption',
-      })}
-    >{ssrScene.caption}</p>
-
-    {/* The "Inside the issue" scroll hint was removed (2026-05-12) along
-        with the issue-volume chrome — same reason: the publication doesn't
-        operate on discrete issues. */}
-  </section>
-
-  <section class="cinema-mobile-copy" aria-label="Cover story summary">
-    <div class="cinema-mobile-copy__inner">
-      <p class="cinema-mobile-copy__time">
-        <span class="cinema-mobile-copy__chip">{ssrScene.label}</span>
-        <span class="cinema-mobile-copy__hours">{ssrScene.hours}</span>
-      </p>
-      <h1 class="cinema-mobile-copy__headline" set:html={ssrScene.headline} />
-      <p class="cinema-mobile-copy__dispatch">{ssrScene.dispatch}</p>
-      <div class="cinema-mobile-copy__ctas">
-        <a class="cinema-mobile-copy__cta cinema-mobile-copy__cta--primary" href={ssrScene.primaryHref}>
-          {ssrScene.primaryLabel} <span aria-hidden="true">→</span>
-        </a>
-      </div>
     </div>
   </section>
 
-  {/* ── Below the fold — primary weekend dispatch, terrain, plans, shortlist ── */}
+  {/* ── Below the fold — primary weekend dispatch, terrain, plans, shortlist ──
+       Each section is wrapped in a <ScrollReveal> island that fades it up
+       as it enters the viewport. The wrappers hydrate on client:visible so
+       they cost nothing until the user starts scrolling. */}
   {weekendDispatch && (
-    <WeekendPickerBlock
-      dispatch={weekendDispatch}
-      weekend={`This weekend · ${dispatchWindow.label}`}
-    />
+    <ScrollReveal client:visible>
+      <WeekendPickerBlock
+        dispatch={weekendDispatch}
+        weekend={`This weekend · ${dispatchWindow.label}`}
+      />
+    </ScrollReveal>
   )}
 
   {featuredPlaces.length > 0 && (
+    <ScrollReveal client:visible>
     <section class="places places--compact">
       <div class="container">
         <div class="places__header">
@@ -397,9 +401,11 @@ const ssrScene = scenes[0];
         </div>
       </div>
     </section>
+    </ScrollReveal>
   )}
 
   {planCards.length > 0 && (
+    <ScrollReveal client:visible>
     <section class="hp-plans">
       <div class="container">
         <div class="hp-plans__head">
@@ -424,9 +430,11 @@ const ssrScene = scenes[0];
         </div>
       </div>
     </section>
+    </ScrollReveal>
   )}
 
   {editorPicks.length > 0 && (
+    <ScrollReveal client:visible>
     <Shortlist
       eyebrow="The Shortlist"
       title="Five pieces worth the <em>appointment</em>."
@@ -447,12 +455,14 @@ const ssrScene = scenes[0];
         tags: (article.data.tags ?? []).slice(0, 2).map((t: string) => ({ label: String(t).replace(/-/g, ' ') })),
       }))}
     />
+    </ScrollReveal>
   )}
 
   {/* Editor's Letter — title and paragraphs keep their seasonal interpolation
       because the JSON-default copy is autumn-specific; CMS overrides apply
       only when an editor explicitly sets that field. Other fields fall
       through to the inline defaults when no override is published. */}
+  <ScrollReveal client:visible>
   {(() => {
     const elImage = cmsImage['editors-letter.image'];
     const editorsLetterTitle = cmsText['editors-letter.title']
@@ -479,538 +489,318 @@ const ssrScene = scenes[0];
       />
     );
   })()}
+  </ScrollReveal>
 
-  <NewsletterBlock />
+  <ScrollReveal client:visible>
+    <NewsletterBlock />
+  </ScrollReveal>
 
-  {/* ── 10-second hero rotator ───────────────────────────────────────────────
-       Advances one scene every 10 seconds using the CSS opacity transitions
-       already on .cinema-scene (1.4s) and .cinema-copy (1.0s). The fade
-       overlaps the dwell so the cover never feels static and never feels
-       like a click-through carousel either.
-       define:vars serialises the scene metadata at build time so there is
-       no runtime fetch, just a lightweight setInterval on the client. */}
-  <script define:vars={{ rotatorScenes: scenes.map(s => ({
-    id: s.id,
-    primaryHref: s.primaryHref,
-    primaryLabel: s.primaryLabel,
-    caption: s.caption,
-    label: s.label,
-    hours: s.hours,
-    headline: s.headline,
-    dispatch: s.dispatch,
-  })) }}>
-  if (rotatorScenes.length >= 2) {
-    let idx = 0;
-    setInterval(function () {
-      idx = (idx + 1) % rotatorScenes.length;
-      const s = rotatorScenes[idx];
-
-      // Crossfade image layers
-      document.querySelectorAll('[data-scene]').forEach(function (el) {
-        el.classList.toggle('is-active', el.getAttribute('data-scene') === s.id);
-      });
-
-      // Crossfade copy blocks
-      document.querySelectorAll('[data-copy]').forEach(function (el) {
-        el.classList.toggle('is-active', el.getAttribute('data-copy') === s.id);
-      });
-
-      // Update desktop primary CTA
-      var cta = document.querySelector('.cinema__cta--primary');
-      if (cta) {
-        cta.setAttribute('href', s.primaryHref);
-        cta.innerHTML = s.primaryLabel + ' <span aria-hidden="true">→</span>';
-      }
-
-      // Update bottom-right caption
-      var cap = document.querySelector('.cinema__caption');
-      if (cap) cap.textContent = s.caption;
-
-      // Update mobile copy section (below-fold on small screens)
-      var chip = document.querySelector('.cinema-mobile-copy__chip');
-      if (chip) chip.textContent = s.label;
-      var hrs = document.querySelector('.cinema-mobile-copy__hours');
-      if (hrs) hrs.textContent = s.hours;
-      var hl = document.querySelector('.cinema-mobile-copy__headline');
-      if (hl) hl.innerHTML = s.headline;
-      var dp = document.querySelector('.cinema-mobile-copy__dispatch');
-      if (dp) dp.textContent = s.dispatch;
-      var mCta = document.querySelector('.cinema-mobile-copy__cta--primary');
-      if (mCta) {
-        mCta.setAttribute('href', s.primaryHref);
-        mCta.innerHTML = s.primaryLabel + ' <span aria-hidden="true">→</span>';
-      }
-    }, 10 * 1000);
-  }
-  </script>
 </BaseLayout>
 
 {/* ─────────────────────────────────────────────────────────────────────────
-   Cinematic hero styles. Self-contained, scoped to .cinema*.
-   Below-fold sections inherit existing global styles.
+   Homepage styles. Split-grid cover (.cover*) + Also-in-issue strip
+   (.cover-also*) up top, then the existing below-fold sections.
    ───────────────────────────────────────────────────────────────────────── */}
 <style is:global>
-  .cinema {
-    position: relative;
-    min-height: 75vh;            /* three-quarter screen — next section peeks below */
-    display: flex;
-    align-items: stretch;
-    overflow: hidden;
-    background: #1E1B18;
-    color: #FDFCFA;
+  /* =========================================================================
+     SPLIT-GRID COVER — editorial spread, no carousel. Replaced the cinematic
+     full-bleed + 10s rotator on 2026-05-13. One cover essay per issue.
+     Cream paper background, type column left, single photograph right; on
+     narrow screens the columns stack vertically with the type on top.
+     ===================================================================== */
+  .cover {
+    background: #F6F1E8;
+    color: #171413;
+    padding: clamp(2.5rem, 5vw, 5rem) 0 clamp(3rem, 5vw, 5.5rem);
+    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
   }
-
-  /* ── Image layer ─────────────────────────────────────────────────────────── */
-  .cinema__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .cinema-scene {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity;
-  }
-  .cinema-scene.is-active {
-    opacity: 1;
-  }
-  .cinema-scene img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 45%;
-    display: block;
-    transform: scale(1.04);
-    /* Ken Burns is applied only to the active scene to save battery. */
-  }
-  .cinema-scene.is-active img {
-    animation: cinema-kenburns 28s ease-in-out infinite alternate;
-  }
-  @keyframes cinema-kenburns {
-    0%   { transform: scale(1.04) translate3d(0, 0, 0); }
-    100% { transform: scale(1.10) translate3d(-1.5%, -1%, 0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .cinema-scene.is-active img { animation: none; transform: scale(1.04); }
-    .cinema-scene { transition: opacity 0.2s linear; }
-  }
-
-  /* ── Scrim — two layers stacked.
-     1. Vertical gradient: top kept light, dark phase pulled UP to 35% so the
-        copy block (~50–80% down) sits on real shade, not photo.
-     2. Bottom-left radial vignette: localised dark wash anchored under the
-        copy column. Reads as natural light fall-off, keeps the rest of the
-        photo bright, and bites legibility back without flattening the image.
-     ──────────────────────────────────────────────────────────────────────── */
-  .cinema__scrim {
-    position: absolute; inset: 0; z-index: 1;
-    pointer-events: none;
-    background:
-      /* localised vignette behind the copy */
-      radial-gradient(
-        ellipse 70% 75% at 22% 88%,
-        rgba(0, 0, 0, 0.62) 0%,
-        rgba(0, 0, 0, 0.32) 45%,
-        transparent 75%
-      ),
-      /* vertical scrim — dark phase starts higher */
-      linear-gradient(
-        to bottom,
-        rgba(20, 18, 16, 0.32) 0%,
-        rgba(20, 18, 16, 0.05) 18%,
-        rgba(20, 18, 16, 0.18) 35%,
-        rgba(20, 18, 16, 0.58) 65%,
-        rgba(20, 18, 16, 0.88) 100%
-      );
-  }
-
-  /* ── Local grain layer — slightly heavier than the global one ────────────── */
-  .cinema__grain {
-    position: absolute; inset: 0; z-index: 2; pointer-events: none;
-    opacity: 0.06;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 160px;
-    mix-blend-mode: overlay;
-  }
-
-  /* ── Top chrome ──────────────────────────────────────────────────────────── */
-  .cinema__top {
-    position: absolute;
-    z-index: 3;
-    top: 0; left: 0; right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1.25rem, 4vw, 3rem);
-    pointer-events: none;
-  }
-  .cinema__brand {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-    letter-spacing: 0.01em;
-    color: #FDFCFA;
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.55),
-      0 1px 14px rgba(0, 0, 0, 0.4);
-  }
-  .cinema__issue {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.66rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(253, 252, 250, 0.92);
-    display: flex;
-    gap: 0.55rem;
+  .cover__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
     align-items: center;
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.55),
-      0 1px 14px rgba(0, 0, 0, 0.4);
   }
-  .cinema__dot { color: rgba(253, 252, 250, 0.4); }
-
-  /* ── Bottom copy block ───────────────────────────────────────────────────── */
-  /* The copy column is a flex stack anchored to the bottom of the hero.
-     Inside it, .cinema-copy-wrap grid-stacks the 5 zone variants so the wrap
-     auto-sizes to the tallest one, and the CTAs flow normally beneath with
-     real margin spacing — not a calculated offset. */
-  .cinema__copy {
-    position: relative;
-    z-index: 3;
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
+  .cover__type {
+    min-width: 0;
   }
-
-  .cinema-copy-wrap {
-    display: grid;               /* all variants share grid cell 1/1 */
-    grid-template-areas: "stack";
-  }
-
-  .cinema-copy {
-    grid-area: stack;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), transform 1.0s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-    will-change: opacity, transform;
-  }
-  .cinema-copy.is-active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .cinema-copy { transition: opacity 0.2s linear; transform: none; }
-  }
-
-  .cinema-copy__time {
+  .cover__meta {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 0 0 1rem;            /* was 1.5rem — tightened gap to headline */
-    padding-bottom: 0.85rem;     /* was 1rem — rule sits a touch closer */
-    border-bottom: 1px solid rgba(253, 252, 250, 0.16);
-    max-width: 24rem;
+    gap: 0.65rem;
+    margin: 0 0 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.16);
+    max-width: 26rem;
   }
-  .cinema-copy__chip {
+  .cover__chip {
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.26em;
     text-transform: uppercase;
-    color: #C9A971;              /* gold, brightened slightly for contrast */
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.7),
-      0 1px 18px rgba(0, 0, 0, 0.5);
+    color: #A0541F;
   }
-  .cinema-copy__hours {
+  .cover__date,
+  .cover__hours {
     font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.62rem;
+    font-size: 0.66rem;
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(253, 252, 250, 0.75); /* was 0.55 — too faint over photo */
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.6),
-      0 1px 16px rgba(0, 0, 0, 0.4);
+    color: rgba(23, 20, 19, 0.55);
   }
-
-  .cinema-copy__headline {
+  .cover__dot {
+    color: rgba(23, 20, 19, 0.3);
+    font-size: 0.62rem;
+  }
+  .cover__headline {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2.6rem, 7vw, 5.6rem);
+    font-size: clamp(2.8rem, 6.2vw, 5.6rem);
     font-weight: 500;
     line-height: 0.96;
     letter-spacing: -0.025em;
-    color: #FDFCFA;
-    margin: 0 0 1.25rem;
+    color: #171413;
+    margin: 0 0 1.5rem;
     max-width: 14ch;
-    /* Multi-stop shadow — tight ink under the type, soft halo behind it.
-       Reads as printed type on paper, not as glow. */
-    text-shadow:
-      0 1px 1px rgba(0, 0, 0, 0.55),
-      0 2px 8px rgba(0, 0, 0, 0.45),
-      0 6px 32px rgba(0, 0, 0, 0.4);
   }
-  .cinema-copy__headline em {
+  .cover__headline em {
     font-style: italic;
     font-weight: 500;
-    color: #C9A971;              /* gold, brightened to match chip */
-    text-shadow:
-      0 1px 1px rgba(0, 0, 0, 0.55),
-      0 2px 12px rgba(0, 0, 0, 0.45),
-      0 4px 28px rgba(120, 90, 40, 0.35);
+    color: #A0541F;
   }
-
-  .cinema-copy__dispatch {
+  .cover__dispatch {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
-    font-weight: 500;            /* was default 400 — italic at body size needs the bump */
-    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    font-size: clamp(1.15rem, 1.5vw, 1.4rem);
     line-height: 1.55;
-    color: #FDFCFA;              /* was rgba(...0.82) — full opacity for legibility */
-    margin: 0;
-    max-width: 48ch;
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.6),
-      0 2px 16px rgba(0, 0, 0, 0.45);
+    color: rgba(23, 20, 19, 0.75);
+    margin: 0 0 2rem;
+    max-width: 42ch;
   }
-
-  /* ── CTAs (constant, sit just below the copy block in normal flow) ───────── */
-  .cinema__ctas {
+  .cover__ctas {
     display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
     align-items: center;
-    margin-top: 1.25rem;         /* tight enough to read as one editorial block */
+    gap: 0.4rem;
+    flex-wrap: wrap;
   }
-  .cinema__cta {
+  .cover__cta {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
     padding: 0.95rem 1.6rem;
+    background: #171413;
+    color: #F6F1E8;
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    transition: background 0.25s ease;
     min-height: 44px;
   }
-  .cinema__cta--primary {
-    background: #8B4E3B;
-    color: #FDFCFA;
+  .cover__cta:hover {
+    background: #A0541F;
   }
-  .cinema__cta--primary:hover { background: #6D3A2B; }
-  .cinema__cta--ghost {
-    background: transparent;
-    color: rgba(253, 252, 250, 0.78);
-    border: 1px solid rgba(253, 252, 250, 0.28);
-  }
-  .cinema__cta--ghost:hover {
-    color: #FDFCFA;
-    border-color: rgba(253, 252, 250, 0.6);
-  }
-
-  .cinema__signature {
+  .cover__ask-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
-    font-size: 0.85rem;
-    color: rgba(253, 252, 250, 0.7);   /* was 0.4 — too ghostly to read */
-    margin: 1.25rem 0 0;
-    letter-spacing: 0.04em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    color: rgba(23, 20, 19, 0.6);
+    text-decoration: none;
+    padding: 0 0.4rem;
+    margin-left: 0.5rem;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.22);
+    transition: color 0.2s ease, border-color 0.2s ease;
   }
-
-  /* ── Bottom-right caption ────────────────────────────────────────────────── */
-  .cinema__caption {
-    position: absolute;
-    z-index: 3;
-    right: clamp(1.25rem, 4vw, 3rem);
-    bottom: clamp(2.5rem, 6vw, 4.5rem);
+  .cover__ask-link:hover {
+    color: #171413;
+    border-bottom-color: rgba(23, 20, 19, 0.6);
+  }
+  .cover__visual {
+    margin: 0;
+    min-width: 0;
+  }
+  .cover__visual-frame {
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+  }
+  .cover__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.01);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cover__visual:hover img {
+    transform: scale(1.04);
+  }
+  .cover__caption {
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.6rem;
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(253, 252, 250, 0.78);
-    margin: 0;
+    color: rgba(23, 20, 19, 0.55);
+    margin: 0.85rem 0 0;
     text-align: right;
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.55),
-      0 1px 14px rgba(0, 0, 0, 0.4);
   }
 
-  /* ── Scroll hint ─────────────────────────────────────────────────────────── */
-  .cinema__scroll {
-    position: absolute;
-    z-index: 3;
-    right: clamp(1.25rem, 4vw, 3rem);
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.85rem;
-    pointer-events: none;
-  }
-  .cinema__scroll-label {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.55rem;
-    font-weight: 500;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(253, 252, 250, 0.4);
-    writing-mode: vertical-rl;
-  }
-  .cinema__scroll-line {
-    width: 1px;
-    height: 56px;
-    background: linear-gradient(to bottom, rgba(253, 252, 250, 0.4), rgba(253, 252, 250, 0));
-  }
-
-  /* ── Mobile ──────────────────────────────────────────────────────────────── */
-  .cinema-mobile-copy {
-    display: none;
+  /* ── Also in this issue ──────────────────────────────────────────────────
+     Static row of three secondary picks (no carousel). Sourced from the
+     rotation-bench scenes in the page frontmatter.
+     ────────────────────────────────────────────────────────────────────── */
+  .cover-also {
     background: #F6F1E8;
-    color: #171413;
+    padding: clamp(2.5rem, 4.5vw, 4.5rem) 0;
     border-bottom: 1px solid rgba(23, 20, 19, 0.08);
   }
-  .cinema-mobile-copy__inner {
-    width: min(100%, 40rem);
-    margin: 0 auto;
-    padding: 1.4rem 1.25rem 1.75rem;
-  }
-  .cinema-mobile-copy__time {
+  .cover-also__head {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 0 0 1rem;
-    padding-bottom: 0.85rem;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.12);
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
   }
-  .cinema-mobile-copy__chip,
-  .cinema-mobile-copy__hours {
+  .cover-also__label {
     font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .cinema-mobile-copy__chip {
+    font-size: 0.66rem;
     font-weight: 700;
-    color: #8B4E3B;
-  }
-  .cinema-mobile-copy__hours {
-    font-weight: 500;
-    color: rgba(23, 20, 19, 0.62);
-  }
-  .cinema-mobile-copy__headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2.4rem, 9vw, 3.4rem);
-    line-height: 0.98;
-    letter-spacing: -0.025em;
-    color: #171413;
-    margin: 0 0 1rem;
-  }
-  .cinema-mobile-copy__headline em {
-    font-style: italic;
-    color: #8B4E3B;
-  }
-  .cinema-mobile-copy__dispatch {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    line-height: 1.5;
-    color: #433b36;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #A0541F;
     margin: 0;
   }
-  .cinema-mobile-copy__ctas {
-    display: flex;
-    margin-top: 1.25rem;
-  }
-  .cinema-mobile-copy__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    width: 100%;
-    min-height: 48px;
-    padding: 0.95rem 1.25rem;
-    text-decoration: none;
+  .cover-also__link {
     font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.66rem;
+    font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
+    color: rgba(23, 20, 19, 0.65);
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
-  .cinema-mobile-copy__cta--primary {
-    background: #8B4E3B;
-    color: #FDFCFA;
+  .cover-also__link:hover { color: #A0541F; }
+  .cover-also__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .cover-also__item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cover-also__item:hover {
+    transform: translateY(-3px);
+  }
+  .cover-also__thumb {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    margin: 0 0 1rem;
+  }
+  .cover-also__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cover-also__item:hover .cover-also__thumb img {
+    transform: scale(1.04);
+  }
+  .cover-also__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0 0 0.55rem;
+  }
+  .cover-also__chip {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #A0541F;
+  }
+  .cover-also__hours {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.56rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(23, 20, 19, 0.5);
+  }
+  .cover-also__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: #171413;
+    margin: 0;
+    max-width: 22ch;
+  }
+  .cover-also__headline em {
+    font-style: italic;
+    color: #A0541F;
   }
 
-  @media (max-width: 768px) {
-    .cinema {
-      min-height: auto;
-      height: 50svh;
+  /* ── Mobile ──────────────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .cover__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
-    .cinema-scene img {
-      object-position: 68% 42%;
-      transform: scale(1.02);
+    .cover__headline {
+      font-size: clamp(2.2rem, 9vw, 3.4rem);
+      max-width: none;
     }
-    .cinema__scrim {
-      background:
-        radial-gradient(
-          ellipse 72% 70% at 24% 88%,
-          rgba(0, 0, 0, 0.46) 0%,
-          rgba(0, 0, 0, 0.2) 44%,
-          transparent 74%
-        ),
-        linear-gradient(
-          to bottom,
-          rgba(20, 18, 16, 0.18) 0%,
-          rgba(20, 18, 16, 0.03) 18%,
-          rgba(20, 18, 16, 0.12) 36%,
-          rgba(20, 18, 16, 0.42) 68%,
-          rgba(20, 18, 16, 0.72) 100%
-        );
+    .cover__visual-frame {
+      aspect-ratio: 4 / 3;
     }
-    .cinema__bg,
-    .cinema__scrim,
-    .cinema__grain,
-    .cinema__top,
-    .cinema__caption {
-      inset: 0;
-    }
-    .cinema__copy {
-      display: none;
-    }
-    .cinema__top {
-      padding-bottom: 1rem;
+    .cover-also__head {
       flex-direction: column;
-      gap: 0.5rem;
       align-items: flex-start;
+      gap: 0.75rem;
     }
-    .cinema__issue {
-      gap: 0.4rem;
-      letter-spacing: 0.18em;
-    }
-    .cinema__scroll { display: none; }
-    .cinema__caption { display: none; }
-    .cinema-mobile-copy { display: block; }
-    body[data-page="home"] .pi-drawer__bubble {
-      display: none;
+    .cover-also__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
   }
+
+  /* ── Entrance choreography (first paint) ─────────────────────────────── */
+  @keyframes cover-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .cover__meta,
+  .cover__headline,
+  .cover__dispatch,
+  .cover__ctas,
+  .cover__visual {
+    animation: cover-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .cover__visual   { animation-delay: 0.10s; }
+  .cover__meta     { animation-delay: 0.18s; }
+  .cover__headline { animation-delay: 0.32s; }
+  .cover__dispatch { animation-delay: 0.52s; }
+  .cover__ctas     { animation-delay: 0.70s; }
+  @media (prefers-reduced-motion: reduce) {
+    .cover__meta,
+    .cover__headline,
+    .cover__dispatch,
+    .cover__ctas,
+    .cover__visual { animation: none; }
+  }
+
+
 
   /* =========================================================================
      Below-fold styles — homepage sections below the cinematic cover.
