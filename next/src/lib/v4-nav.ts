@@ -431,7 +431,7 @@ export const v4Pillars: V4Pillar[] = [
 export const v4Utility = {
   search:    { key: 'search',    label: 'Search',                href: '/search/' },
   ask:       { key: 'ask',       label: 'Ask PI',                href: '/ask/' },
-  subscribe: { key: 'subscribe', label: 'Get Peninsula Insider Picks', href: '/newsletter/' },
+  subscribe: { key: 'subscribe', label: 'Join', href: '/newsletter/' },
   account:   { key: 'account',   label: 'Sign in / Save trip',   href: '/account/' },
   pass:      { key: 'pass',      label: 'The Pass',              href: '/preview-insider-plans/' },
 };

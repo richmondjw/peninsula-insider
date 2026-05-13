@@ -22,12 +22,11 @@ const placeLinks = buildFooterPlaceLinks(places);
   <div class="v2-colophon__container">
     <div class="v2-colophon__head">
       <div class="v2-colophon__wordmark">Peninsula <em>Insider</em></div>
-      <div class="v2-colophon__motto">— the independent guide to the Mornington Peninsula.</div>
     </div>
 
     <div class="v2-colophon__grid">
-      <nav class="v2-col-sect" aria-label="Departments">
-        <p class="v2-col-sect__title">Departments</p>
+      <nav class="v2-col-sect" aria-label="Browse">
+        <p class="v2-col-sect__title">Browse</p>
         <ul>
           {sectionLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
@@ -44,8 +43,8 @@ const placeLinks = buildFooterPlaceLinks(places);
         </ul>
       </nav>
 
-      <nav class="v2-col-sect" aria-label="Colophon">
-        <p class="v2-col-sect__title">Colophon</p>
+      <nav class="v2-col-sect" aria-label="Editorial Approach">
+        <p class="v2-col-sect__title">Editorial Approach</p>
         <ul>
           {aboutLinks.map((link) => (
             <li>

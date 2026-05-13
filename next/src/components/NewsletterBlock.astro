@@ -68,7 +68,7 @@ const {
             autocomplete="email"
             required
           />
-          <button class="v2-newsletter__submit" type="submit">Subscribe</button>
+          <button class="v2-newsletter__submit" type="submit">Join</button>
         </form>
 
         <div class="v2-newsletter__meta">
@@ -125,7 +125,7 @@ const {
             if (input) { input.value = ''; input.disabled = true; }
           }
           function fail(msg) {
-            if (btn) { btn.textContent = 'Subscribe'; btn.disabled = false; }
+            if (btn) { btn.textContent = 'Join'; btn.disabled = false; }
             setStatus(form, msg || 'Something went wrong. Please try again.', 'err');
           }
           if (!endpoint) { setTimeout(ok, 350); return; }

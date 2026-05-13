@@ -211,7 +211,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
 
 <BaseLayout
   title="Peninsula Insider, The Mornington Peninsula Guide"
-  description="The independent guide to the Mornington Peninsula, best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated May 2026."
+  description="An editorial guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated May 2026."
   section="home"
   canonical="https://peninsulainsider.com.au"
 >
@@ -220,7 +220,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
     '@type': 'WebSite',
     name: 'Peninsula Insider',
     url: 'https://peninsulainsider.com.au',
-    description: 'The independent editorial guide to the Mornington Peninsula.',
+    description: 'An editorial guide to the Mornington Peninsula.',
     inLanguage: 'en-AU',
     potentialAction: {
       '@type': 'SearchAction',
@@ -320,15 +320,11 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
             })}
           />
         </div>
-        <figcaption
-          class="cover__caption"
-          {...editableText({
-            entityType: 'page',
-            entitySlug: 'home',
-            fieldPath: 'cover.caption',
-            label: 'Cover caption',
-          })}
-        >{ssrScene.caption}</figcaption>
+        {/* Cover photo-location caption hidden 2026-05-13 per Emma's
+            editorial direction: remove all photo location captions and
+            credits sitewide until each image's location is verified
+            (homepage, what's on, plans, journal). Keep the figure +
+            image; only the figcaption is suppressed. */}
       </figure>
     </div>
   </section>
