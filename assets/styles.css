@@ -3142,11 +3142,33 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   justify-content: space-between;
   margin-bottom: 0.85rem;
 }
+.itinerary-card__top--brand {
+  justify-content: flex-start;
+}
 .itinerary-card__label {
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--accent);
+}
+.itinerary-card__label--plan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  letter-spacing: 0.14em;
+}
+.itinerary-card__monogram {
+  display: inline-grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid rgba(160, 84, 31, 0.55);
+  border-radius: 999px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--accent);
 }
 .itinerary-card__meta {
@@ -4583,6 +4605,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .sl-item:first-child { border-top: 1px solid var(--dark); }
 .sl-item:last-child  { border-bottom: 1px solid var(--dark); }
 .sl-item:hover { padding-left: 0.25rem; }
+.sl-item--unnumbered { grid-template-columns: 1fr; }
 .sl-item__num {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
@@ -4660,6 +4683,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 @media (max-width: 500px) {
   .sl-item { grid-template-columns: 52px 1fr; }
+  .sl-item--unnumbered { grid-template-columns: 1fr; }
   .sl-item__num { font-size: 2.4rem; }
 }
 
