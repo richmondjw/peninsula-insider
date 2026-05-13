@@ -82,17 +82,19 @@ const editorPicks = articles
   )
   .slice(0, 5);
 
+// Homepage destination rail: prioritise high-intent, recognisable
+// destination searches rather than evenly representing every Peninsula zone.
 const featuredPlaceSlugs = [
-  'mornington',
-  'mount-martha',
-  'dromana',
-  'rosebud',
-  'rye',
   'sorrento',
-  'portsea',
   'red-hill',
   'flinders',
-  'hastings',
+  'arthurs-seat',
+  'rosebud',
+  'rye',
+  'portsea',
+  'blairgowrie',
+  'merricks',
+  'main-ridge',
 ];
 const featuredPlaces = featuredPlaceSlugs
   .map((slug) => places.find((p) => routeSlug(p) === slug))
@@ -381,7 +383,7 @@ const ssrScene = scenes[0];
           <p
             class="places__sub"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.sub', label: 'Places sub' })}
-          >{cmsText['places.sub'] ?? 'Bay towns, back beaches, ridge villages, southern coast, and Western Port — the main areas to orient the trip.'}</p>
+          >{cmsText['places.sub'] ?? 'Start with the Peninsula destinations people search for first — the towns, villages and landmarks that anchor most trips.'}</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
