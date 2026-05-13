@@ -1,0 +1,29 @@
+{
+  "window_hours": 24,
+  "window_since": "2026-05-12T22:59:17.077Z",
+  "window_until": "2026-05-13T22:59:17.077Z",
+  "generated_at": "2026-05-13T22:59:17.077Z",
+  "summary": {
+    "total_queries": 0,
+    "test_queries_excluded": 0,
+    "distinct_sessions": 0,
+    "queries_per_session": 0,
+    "median_latency_ms": null,
+    "p95_latency_ms": null,
+    "median_ttft_ms": null,
+    "slow_queries_over_15s": 0,
+    "gaps_detected": 0,
+    "refusals": 0,
+    "total_cost_aud_estimate": 0,
+    "cost_source": "telemetry",
+    "rolling_7d_avg_queries": 0.1,
+    "volume_delta_vs_7d_avg": -0.1
+  },
+  "clusters": [],
+  "model_usage": {},
+  "page_origin": {},
+  "gaps": [],
+  "refusals": [],
+  "slow_queries": [],
+  "samples": []
+}
