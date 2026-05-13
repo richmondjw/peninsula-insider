@@ -48,12 +48,12 @@ const groups: { key: string; label: string; title: string; intro: string; varian
     variant: 'bay', zones: ['bayside'],
   },
   {
-    key: 'tip', label: 'Tip & ocean', title: 'Sorrento to the Tip',
+    key: 'tip', label: 'The Tip', title: 'The Tip — Blairgowrie, Sorrento, Portsea',
     intro: 'Blairgowrie, Sorrento, and Portsea occupy the peninsula\'s narrow western tip, with Point Nepean National Park sealing the end. Limestone cliffs, white-sand ocean beaches facing Bass Strait, a ferry crossing to Queenscliff, and heritage buildings from Victoria\'s earliest settlement attempt. Sorrento is the prettiest town on the Peninsula. Portsea is the richest. Blairgowrie is the best-kept secret.',
     variant: 'sand', zones: ['back-beaches', 'tip'],
   },
   {
-    key: 'ocean', label: 'Ocean & Western Port', title: 'Ocean coast & Western Port',
+    key: 'ocean', label: 'Ocean Coast & Western Port', title: 'Ocean Coast & Western Port',
     intro: 'Rye, Cape Schanck, Flinders, Shoreham, Balnarring, and Hastings wrap the peninsula\'s southern and eastern flanks. Rye is the most relaxed ocean-side town. Cape Schanck is a lighthouse at the edge of a national park. Flinders is a village that thinks of itself as a destination. Shoreham and Balnarring are quiet to the point of deliberate. Hastings is a working port with a marina and a train station.',
     variant: 'sand', zones: ['ocean-coast'],
   },
@@ -115,9 +115,6 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     eyebrow="Places"
     title="The Peninsula, town by <em>town</em>"
     dek="The Peninsula is easier to understand through its places: harbour towns, ridge villages, bay beaches, ocean edges, and the tip. Get the geography right and the rest of the trip arranges itself."
-    meta={[
-      { label: `${places.length} places mapped` },
-    ]}
     heroImage="/images/sourced/places-hub-hero-01.webp"
     imageAlt="The Mornington Peninsula coastline — bay on one side, Bass Strait on the other"
     imageCredit="Peninsula Insider"
@@ -164,7 +161,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
         <h2>Why towns matter here</h2>
         <p class="section-standfirst">Most people come to the Peninsula for a category — beaches, wine, hot springs, golf — and pick accommodation that looks close to that category. That usually works out fine. But the Peninsula is specific in a way that categories flatten.</p>
         <p>The beach towns on Port Phillip Bay are calm, family-tilted, and good in summer. The ocean-side towns face Bass Strait and suit people who like dramatic coastline and solitude. The hinterland ridge is where serious food and wine happens. The Western Port fringe is quieter, underrated, and where artists and racehorses live.</p>
-        <p>Understanding the subregions changes what you book. Staying in Portsea when you want wineries is a 40-minute drive in the wrong direction. Staying in Red Hill when you want beaches puts you 20 minutes from any coast. Read the subregion intros below, use the town cards to shortlist, then go deep in the individual pages.</p>
+        <p>Understanding the areas changes what you book. Staying in Portsea when you want wineries is a 40-minute drive in the wrong direction. Staying in Red Hill when you want beaches puts you 20 minutes from any coast. Read the area notes below, use the town cards to shortlist, then go deep in the individual pages.</p>
       </div>
     </div>
   </section>
@@ -172,7 +169,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. SUBREGION GROUPS — town card grids by zone
+       4. AREA GROUPS — town card grids
        ═══════════════════════════════════════════════════════════════ -->
   {grouped.map((group) => {
     const ordered = [...group.places].sort((a, b) => (placeDensity[routeSlug(b)] ?? 0) - (placeDensity[routeSlug(a)] ?? 0));
@@ -195,7 +192,44 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       5. ALL PLACES — full mosaic
+       5. PENINSULA AT A GLANCE — editorial orientation cards
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="peninsula-glance" aria-label="Peninsula at a Glance">
+    <div class="container">
+      <div class="peninsula-glance__header">
+        <p class="label label--accent">Orientation</p>
+        <h2 class="peninsula-glance__title">Peninsula at a Glance</h2>
+        <p class="peninsula-glance__sub">Four useful ways to read the map before choosing where to stay, eat, walk, or spend the day.</p>
+      </div>
+      <div class="peninsula-glance__grid">
+        <article class="peninsula-glance__card">
+          <p class="peninsula-glance__kicker">Hinterland</p>
+          <h3>Food, wine, fog, and red soil.</h3>
+          <p>Use Red Hill, Main Ridge, and Merricks when the trip is built around cellar doors, long lunches, farmgates, and a slower ridge pace.</p>
+        </article>
+        <article class="peninsula-glance__card">
+          <p class="peninsula-glance__kicker">Bay Coast</p>
+          <h3>Calm water and easy logistics.</h3>
+          <p>Mornington through Rosebud is the practical side: family beaches, foreshore walks, markets, piers, and the simplest day-trip rhythm.</p>
+        </article>
+        <article class="peninsula-glance__card">
+          <p class="peninsula-glance__kicker">The Tip</p>
+          <h3>Limestone, back beaches, and the ferry.</h3>
+          <p>Blairgowrie, Sorrento, and Portsea are where the Peninsula narrows and the weekend becomes more cinematic — beautiful, busy, and best booked ahead.</p>
+        </article>
+        <article class="peninsula-glance__card">
+          <p class="peninsula-glance__kicker">Ocean Coast & Western Port</p>
+          <h3>Wilder edges and quieter towns.</h3>
+          <p>Rye, Cape Schanck, Flinders, Shoreham, Balnarring, and Hastings suit walkers, winter drives, working harbours, and people who prefer less polish.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. ALL PLACES — full mosaic
        ═══════════════════════════════════════════════════════════════ -->
   <section class="places" id="all">
     <div class="container">
@@ -269,3 +303,79 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .peninsula-glance {
+    padding: clamp(3rem, 6vw, 5.5rem) 0;
+    background: #f7f0e6;
+  }
+
+  .peninsula-glance__header {
+    max-width: 760px;
+    margin-bottom: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  .peninsula-glance__title {
+    margin: 0.35rem 0 0;
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(2.1rem, 4vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    color: #1f1b16;
+  }
+
+  .peninsula-glance__sub {
+    max-width: 58ch;
+    margin: 1rem 0 0;
+    color: rgba(31, 27, 22, 0.72);
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    line-height: 1.6;
+  }
+
+  .peninsula-glance__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .peninsula-glance__card {
+    min-height: 100%;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    border: 1px solid rgba(31, 27, 22, 0.12);
+    border-radius: 22px;
+    background: rgba(255, 252, 247, 0.72);
+    box-shadow: 0 18px 45px rgba(39, 30, 19, 0.06);
+  }
+
+  .peninsula-glance__kicker {
+    margin: 0 0 1.1rem;
+    color: #9b6a2f;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .peninsula-glance__card h3 {
+    margin: 0;
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #211c17;
+  }
+
+  .peninsula-glance__card p:last-child {
+    margin: 1rem 0 0;
+    color: rgba(31, 27, 22, 0.72);
+    line-height: 1.62;
+  }
+
+  @media (max-width: 980px) {
+    .peninsula-glance__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 640px) {
+    .peninsula-glance__grid { grid-template-columns: 1fr; }
+  }
+</style>
