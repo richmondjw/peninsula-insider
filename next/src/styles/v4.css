@@ -713,10 +713,37 @@ body[data-v4="true"] .masthead {
   color: var(--accent);
   text-decoration: none;
 }
+.v4-drawer__about {
+  padding: 20px 20px 4px;
+  border-top: 1px solid var(--border, rgba(0,0,0,0.08));
+}
+.v4-drawer__about-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted, #6E655C);
+  margin: 0 0 10px;
+}
+.v4-drawer__about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.v4-drawer__about-list a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  text-decoration: none;
+}
 .v4-drawer__foot {
-  padding: 24px 20px 32px;
+  padding: 16px 20px 32px;
   display: grid;
   gap: 12px;
+  border-top: 1px solid var(--border, rgba(0,0,0,0.08));
 }
 .v4-drawer__foot a {
   font-family: 'Outfit', sans-serif;

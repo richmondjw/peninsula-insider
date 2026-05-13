@@ -9,7 +9,7 @@
  * One pillar expanded at a time. Footer carries search input, sign-in,
  * subscribe pill. Bound by V4BaseLayout's inline script.
  */
-import { v4Pillars, v4Utility } from '../../lib/v4-nav';
+import { v4Pillars, v4Utility, v4FooterAbout } from '../../lib/v4-nav';
 ---
 
 <div class="v4-drawer" id="v4Drawer" role="dialog" aria-modal="true" aria-label="Peninsula Insider menu">
@@ -77,6 +77,15 @@ import { v4Pillars, v4Utility } from '../../lib/v4-nav';
       </li>
     ))}
   </ul>
+
+  <div class="v4-drawer__about">
+    <p class="v4-drawer__about-label">About</p>
+    <ul class="v4-drawer__about-list">
+      {v4FooterAbout.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+  </div>
 
   <div class="v4-drawer__foot">
     <a href={v4Utility.search.href}>Search Peninsula Insider</a>
