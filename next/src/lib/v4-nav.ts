@@ -417,9 +417,8 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the read',
         items: [
-          { key: 'all-journal', label: 'Every issue, every piece', href: '/journal/' },
-          { key: 'methodology', label: 'How we work',              href: '/methodology/' },
-          { key: 'about',       label: 'About PI',                 href: '/about/' },
+          { key: 'all-journal',        label: 'Every issue, every piece', href: '/journal/' },
+          { key: 'editorial-approach', label: 'Editorial approach',       href: '/editorial-approach/' },
         ],
       },
     ],
@@ -461,12 +460,7 @@ export const v4FooterNiche: V4NavItem[] = [
 ];
 
 export const v4FooterAbout: V4NavItem[] = [
-  { key: 'about',       label: 'About',                  href: '/about/' },
-  { key: 'methodology', label: 'Methodology',            href: '/methodology/' },
-  { key: 'map',         label: 'Map of the Peninsula',   href: '/map/' },
-  { key: 'partners',    label: 'Partner with us',        href: '/partners/' },
-  { key: 'pass',        label: 'The Pass',               href: '/preview-insider-plans/' },
-  { key: 'newsletter',  label: 'The Dispatch',           href: '/newsletter/' },
-  { key: 'contact',     label: 'Contact',                href: '/contact/' },
-  { key: 'privacy',     label: 'Privacy',                href: '/privacy/' },
+  { key: 'editorial-approach', label: 'Editorial Approach', href: '/editorial-approach/' },
+  { key: 'partners',           label: 'Partner With Us',    href: '/partners/' },
+  { key: 'contact',            label: 'Contact',            href: '/contact/' },
 ];

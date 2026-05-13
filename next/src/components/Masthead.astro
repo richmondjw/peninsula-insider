@@ -56,7 +56,7 @@ const {
           <a href="/itinerary/" class="masthead__saved-link" data-saved-link hidden>Itinerary</a>
           <a href="/alerts/" class="masthead__saved-link">Alerts</a>
           <a href="/#newsletter" data-auth-anonymous>Join</a>
-          <a href="/about/">About</a>
+          <a href="/editorial-approach/">Editorial Approach</a>
         </div>
       </div>
     </div>
@@ -197,6 +197,23 @@ const {
         <span class="mobile-nav__arrow" aria-hidden="true">→</span>
       </a>
     ))}
+    <p class="mobile-nav__group-label">About</p>
+    <a
+      href="/editorial-approach/"
+      class="mobile-nav__link"
+      aria-current={section === 'editorial-approach' ? 'page' : undefined}
+    >
+      <span>Editorial Approach</span>
+      <span class="mobile-nav__arrow" aria-hidden="true">→</span>
+    </a>
+    <a
+      href="/partners/"
+      class="mobile-nav__link"
+      aria-current={section === 'partners' ? 'page' : undefined}
+    >
+      <span>Partner With Us</span>
+      <span class="mobile-nav__arrow" aria-hidden="true">→</span>
+    </a>
     <a
       href="/contact/"
       class="mobile-nav__link"

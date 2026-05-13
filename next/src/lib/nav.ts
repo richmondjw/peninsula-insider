@@ -179,17 +179,26 @@ export const footerSectionLinks: NavItem[] = [
 ];
 
 /**
- * Footer "About" column.
+ * Footer "About" column. Trust architecture only — three items.
+ * Heading rendered in Footer.astro reads "About"; the items collapse the
+ * prior About + Methodology pages into a single Editorial Approach entry.
  */
 export const footerAboutLinks: NavItem[] = [
-  { key: 'about',       label: 'About',                href: '/about/' },
-  { key: 'methodology', label: 'Methodology',          href: '/methodology/' },
-  { key: 'map',         label: 'Map of the Peninsula', href: '/map/' },
-  { key: 'partners',    label: 'Partner with us',      href: '/partners/' },
-  { key: 'contact',     label: 'Contact',              href: '/contact/' },
-  { key: 'newsletter',  label: 'Newsletter',           href: '/newsletter/' },
-  { key: 'privacy',     label: 'Privacy',              href: '/privacy/' },
-  { key: 'cookies',     label: 'Cookie settings',      href: '#cookie-settings' },
+  { key: 'editorial-approach', label: 'Editorial Approach', href: '/editorial-approach/' },
+  { key: 'partners',           label: 'Partner With Us',    href: '/partners/' },
+  { key: 'contact',             label: 'Contact',           href: '/contact/' },
+];
+
+/**
+ * Footer utility row (rendered alongside the copyright line). Houses the
+ * map link, newsletter, and legal items that previously lived in the About
+ * column but aren't part of the trust-architecture hierarchy.
+ */
+export const footerUtilityLinks: NavItem[] = [
+  { key: 'map',        label: 'Map of the Peninsula', href: '/map/' },
+  { key: 'newsletter', label: 'Newsletter',           href: '/newsletter/' },
+  { key: 'privacy',    label: 'Privacy',              href: '/privacy/' },
+  { key: 'cookies',    label: 'Cookie settings',      href: '#cookie-settings' },
 ];
 
 /**
