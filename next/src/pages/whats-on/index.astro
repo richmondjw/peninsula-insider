@@ -5,14 +5,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import EventCard from '../../components/EventCard.astro';
-import WeekendPickerBlock from '../../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import {
-  dispatchWeekend,
-  isUpcoming,
-  routeSlug,
-} from '../../lib/editorial';
-import { chips, eventInWindow } from '../../lib/events';
+import { isUpcoming, routeSlug } from '../../lib/editorial';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const now = new Date();
@@ -30,42 +24,23 @@ const dispatches = (await getCollection('articles', ({ data }) => data.status ==
   .filter((a) => a.data.format === 'weekend-picker')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const currentDispatch = dispatches[0];
-
-const dispatchWindow = currentDispatch
-  ? dispatchWeekend(currentDispatch.data.publishedAt)
-  : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
-// Mood-led browsing is a core editorial differentiator. Keep it as a
-// prominent navigation layer rather than expanding duplicate listings inline.
-// Hub tiles for "Browse by Mood" — each one navigates to a real
-// /whats-on/by-mood/[mood]/ sub-page driven by the `chips` registry in
-// lib/events.ts. Mood-led browsing lives on those sub-pages; the hub
-// here is pure navigation.
-const moodTiles = chips.map((chip) => ({
-  slug: chip.slug,
-  label: chip.hubLabel ?? chip.label,
-  note: chip.eyebrow,
-  count: events.filter(chip.filter).length,
-}));
-
-
-// ── Temporal tabs ────────────────────────────────────────────────────────
-// Three compact tabs only: This Week / This Month / Seasonal.
-// The weekend is owned by the editorial dispatch above; these tabs are
-// a utility layer, deliberately short so the page does not become a directory.
-//
-// Each tab is recurrence-aware via `eventInWindow` so a weekly Sunday
-// market only appears under "This Week" if a Sunday falls inside the
-// 7-day window — fixing the bug where every recurring event surfaced
-// under every time window regardless of when it actually occurred.
-const dayMs = 24 * 60 * 60 * 1000;
-const todayStart = new Date(now);
-todayStart.setHours(0, 0, 0, 0);
-
-const weekStart = todayStart;
-const weekEnd = new Date(todayStart.getTime() + 7 * dayMs - 1);
-
-const monthStart = todayStart;
-const monthEnd = new Date(todayStart.getTime() + 30 * dayMs - 1);
+const allSignatureEvents = await getCollection('signature-events');
+const signatureOrder = [
+  'portsea-polo',
+  'sorrento-writers-festival',
+  'winter-wine-weekend',
+  'portsea-swim-classic',
+  'peninsula-film-festival',
+  'portsea-twilight',
+  'main-street-mornington-festival',
+  'mornington-winter-music-festival',
+  'sailing-regattas',
+  'wine-weekends',
+  'annual-festivals',
+];
+const signatureEvents = signatureOrder
+  .map((slug) => allSignatureEvents.find((entry) => routeSlug(entry) === slug))
+  .filter(Boolean);
 
 const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) => {
   const ap = a.data.visitorAppealScore ?? 0;
@@ -74,117 +49,105 @@ const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) 
   return a.data.startDate.getTime() - b.data.startDate.getTime();
 };
 
-// Keep the temporal layer short and avoid repeating the same event inside
-// multiple visible support sections.
-const weekEvents = events
-  .filter((e) => eventInWindow(e, weekStart, weekEnd))
+const seasonalEvents = events
+  .filter((event) => event.data.category !== 'market')
+  .filter((event) => ['annual', 'seasonal', 'ongoing'].includes(event.data.recurrence) || Boolean(event.data.season))
   .sort(sortAppealThenDate)
   .slice(0, 6);
-const monthEvents = events
-  .filter((e) => eventInWindow(e, monthStart, monthEnd))
+
+const marketEvents = events
+  .filter((event) => event.data.category === 'market')
   .sort(sortAppealThenDate)
   .slice(0, 6);
-const recurringTabEvents = events
-  .filter((e) => ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence))
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 6);
-
-const temporalTabs = [
-  { key: 'week',      label: 'This Week',   items: weekEvents,         blurb: 'A tight edit of the next seven days.' },
-  { key: 'month',     label: 'This Month',  items: monthEvents,        blurb: 'The strongest dates in the next thirty days.' },
-  { key: 'recurring', label: 'Seasonal',    items: recurringTabEvents, blurb: 'Seasonal markets, sessions, and programmes.' },
-];
-
-const initialTabKey = weekEvents.length > 0
-  ? 'week'
-  : monthEvents.length > 0
-    ? 'month'
-    : 'recurring';
-
-const temporalIds = new Set([
-  ...weekEvents.map((event) => event.id),
-  ...monthEvents.map((event) => event.id),
-  ...recurringTabEvents.map((event) => event.id),
-]);
-const skipEvents = events
-  .filter((event) => event.data.skipThis && !temporalIds.has(event.id))
-  .slice(0, 3);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: "What's On" },
 ];
-
-const faqSchema = {
-  '@context': 'https://schema.org', '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'How do you choose what appears?',
-      acceptedAnswer: { '@type': 'Answer', text: 'We keep the page selective: useful dates, seasonal anchors, and events with a clear reason to go now.' } },
-    { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'No. We stay on the Mornington Peninsula and Western Port fringe so the edit stays local and useful.' } },
-  ],
-};
 ---
 
 <BaseLayout
   title="What's On Mornington Peninsula · Peninsula Insider"
-  description="A tighter edit of what’s on around the Mornington Peninsula: this weekend first, then mood and time."
+  description="A curated edit of what’s happening across the Mornington Peninsula — organised by season, signature events, and markets."
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
-  modifiedTime="2026-04-30"
+  modifiedTime="2026-05-13"
   ogImage="/images/sourced/category-market-02.webp"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
   <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       1. CINEMATIC HERO
-       ═══════════════════════════════════════════════════════════════ -->
   <GuideHero
-    eyebrow="What’s On · reviewed weekly"
+    eyebrow="Reviewed weekly by our editors"
     title="What’s on, <em>worth your time</em>"
-    dek="Start with the weekend edit, then browse by mood or timing."
-    meta={[
-      { label: 'This weekend first' },
-      { label: 'Browse by mood' },
-      { label: 'Updated weekly' },
-    ]}
+    dek="A curated edit of what’s happening across the Peninsula — organised by season and signature events."
     heroImage="/images/sourced/category-market-02.webp"
     imageAlt="Saturday morning at a Peninsula farmers market, part of the seasonal rhythm of the calendar"
-    imageCredit="Peninsula Insider"
     entitySlug="whats-on"
   />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. PENINSULA THIS WEEKEND — editorial hero
-       ═══════════════════════════════════════════════════════════════ -->
   {currentDispatch && (
-    <div class="whatson-weekend-hero">
-      <WeekendPickerBlock dispatch={currentDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
-    </div>
+    <section class="whatson-briefing" aria-label="Peninsula This Weekend briefing">
+      <div class="container">
+        <div class="whatson-briefing__inner">
+          <div>
+            <p class="label label--accent">Peninsula This Weekend</p>
+            <h2 class="whatson-briefing__title">
+              <a href="/whats-on/this-weekend/">{currentDispatch.data.title}</a>
+            </h2>
+            <p class="whatson-briefing__dek">{currentDispatch.data.dek}</p>
+          </div>
+          <a class="whatson-briefing__cta" href="/whats-on/this-weekend/">
+            Read this weekend’s briefing →
+          </a>
+        </div>
+      </div>
+    </section>
   )}
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. BROWSE BY MOOD, hub navigation only
-       Five reader-intent lenses cut across the calendar. Each tile links
-       to its dedicated /whats-on/by-mood/[mood]/ sub-page rather than
-       expanding inline, keeping the main What's On page a single linear
-       read with no event repetition.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-formats" aria-label="Browse events by mood">
+  <section class="whatson-section" aria-label="Seasonal events">
     <div class="container">
-      <div class="hub-formats__intro">
-        <p class="label label--accent">By mood</p>
-        <h2 class="hub-formats__title">Pick the feeling first</h2>
-        <p class="hub-formats__dek">A faster way into the calendar when you know the kind of day you want.</p>
+      <div class="whatson-section__header">
+        <p class="label label--accent">Seasonal</p>
+        <h2 class="whatson-section__title">Seasonal events and recurring reasons to go</h2>
+        <p class="whatson-section__dek">The dates and programs that shape the Peninsula calendar beyond a single weekend.</p>
       </div>
-      <ul class="hub-formats__grid">
-        {moodTiles.map((tile) => (
-          <li class={`hub-formats__cell${tile.count === 0 ? ' is-empty' : ''}`}>
-            <a href={`/whats-on/by-mood/${tile.slug}/`} class="hub-formats__link">
-              <span class="hub-formats__label">{tile.label}</span>
-              <span class="hub-formats__sub">{tile.note}</span>
+      {seasonalEvents.length > 0 ? (
+        <div class="event-grid">
+          {seasonalEvents.map((event) => <EventCard event={event} />)}
+        </div>
+      ) : (
+        <p class="whatson-section__empty">Seasonal events are being refreshed.</p>
+      )}
+    </div>
+  </section>
+
+  <SectionDivider />
+
+  <section class="whatson-section" aria-label="Signature Events">
+    <div class="container">
+      <div class="whatson-section__header whatson-section__header--split">
+        <div>
+          <p class="label label--accent">Signature Events</p>
+          <h2 class="whatson-section__title">The Peninsula’s anchor events</h2>
+          <p class="whatson-section__dek">Annual events with dedicated landing pages, recurring coverage, and a strong Peninsula identity.</p>
+        </div>
+        <a class="whatson-section__text-link" href="/events/">View all Signature Events →</a>
+      </div>
+      <ul class="signature-mini-grid" role="list">
+        {signatureEvents.map((entry) => (
+          <li class="signature-mini-card">
+            <a class="signature-mini-card__link" href={`/events/${routeSlug(entry)}/`}>
+              {entry.data.heroImage && (
+                <div class="signature-mini-card__image" aria-hidden="true">
+                  <img src={entry.data.heroImage} alt={entry.data.heroImageAlt ?? entry.data.name} loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="signature-mini-card__body">
+                <p class="signature-mini-card__meta">{entry.data.monthAnchor} · {entry.data.location}</p>
+                <h3 class="signature-mini-card__title">{entry.data.name}</h3>
+                <p class="signature-mini-card__summary">{entry.data.tagline ?? entry.data.summary}</p>
+                <span class="signature-mini-card__cta">Read the guide →</span>
+              </div>
             </a>
           </li>
         ))}
@@ -194,151 +157,182 @@ const faqSchema = {
 
   <SectionDivider />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. TEMPORAL TABS — This Week / This Month / Seasonal
-       Compact utility layer. Short, scan-friendly, and not a directory dump.
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="whatson-temporal" aria-label="Events by time window">
+  <section class="whatson-section" aria-label="Markets">
     <div class="container">
-      <div class="whatson-temporal__header">
-        <p class="label label--accent">By time</p>
-        <h2 class="whatson-temporal__title">When are you on the Peninsula?</h2>
+      <div class="whatson-section__header">
+        <p class="label label--accent">Markets</p>
+        <h2 class="whatson-section__title">Markets worth planning around</h2>
+        <p class="whatson-section__dek">Recurring farmers, makers, foreshore and community markets with enough Peninsula character to anchor a morning.</p>
       </div>
-
-      <div class="whatson-temporal__tabs" role="tablist" aria-label="Filter events by time window">
-        {temporalTabs.map((tab) => (
-          <button
-            type="button"
-            class="whatson-temporal__tab"
-            role="tab"
-            id={`whatson-temporal-tab-${tab.key}`}
-            aria-controls={`whatson-temporal-panel-${tab.key}`}
-            aria-selected={tab.key === initialTabKey ? 'true' : 'false'}
-            tabindex={tab.key === initialTabKey ? 0 : -1}
-            data-temporal-tab={tab.key}
-          >
-            <span class="whatson-temporal__tab-label">{tab.label}</span>
-          </button>
-        ))}
-      </div>
-
-      {temporalTabs.map((tab) => (
-        <div
-          class="whatson-temporal__panel"
-          role="tabpanel"
-          id={`whatson-temporal-panel-${tab.key}`}
-          aria-labelledby={`whatson-temporal-tab-${tab.key}`}
-          data-temporal-panel={tab.key}
-          hidden={tab.key !== initialTabKey}
-        >
-          <p class="whatson-temporal__blurb">{tab.blurb}</p>
-          {tab.items.length > 0 ? (
-            <div class="event-grid">
-              {tab.items.map((event) => <EventCard event={event} />)}
-            </div>
-          ) : (
-            <p class="whatson-temporal__empty">
-              Nothing programmed in this window. Try a wider one or browse by mood below.
-            </p>
-          )}
+      {marketEvents.length > 0 ? (
+        <div class="event-grid">
+          {marketEvents.map((event) => <EventCard event={event} />)}
         </div>
-      ))}
-    </div>
-  </section>
-
-  <script is:inline>
-    /* What's On temporal-tab controller. Tabs swap which panel is visible.
-       Idempotent across astro:page-load. */
-    (function () {
-      function bindTemporal() {
-        var tabs = document.querySelectorAll('[data-temporal-tab]');
-        var panels = document.querySelectorAll('[data-temporal-panel]');
-        if (!tabs.length || !panels.length) return;
-        var first = tabs[0];
-        if (first._piTemporalBound) return;
-
-        function activate(key) {
-          tabs.forEach(function (t) {
-            var on = t.getAttribute('data-temporal-tab') === key;
-            t.setAttribute('aria-selected', on ? 'true' : 'false');
-            t.setAttribute('tabindex', on ? '0' : '-1');
-          });
-          panels.forEach(function (p) {
-            var on = p.getAttribute('data-temporal-panel') === key;
-            if (on) p.removeAttribute('hidden');
-            else p.setAttribute('hidden', '');
-          });
-        }
-
-        tabs.forEach(function (tab, idx) {
-          tab._piTemporalBound = true;
-          tab.addEventListener('click', function () {
-            activate(tab.getAttribute('data-temporal-tab'));
-          });
-          tab.addEventListener('keydown', function (e) {
-            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-              e.preventDefault();
-              var dir = e.key === 'ArrowRight' ? 1 : -1;
-              var next = (idx + dir + tabs.length) % tabs.length;
-              tabs[next].focus();
-              activate(tabs[next].getAttribute('data-temporal-tab'));
-            }
-          });
-        });
-      }
-      bindTemporal();
-      document.addEventListener('astro:page-load', bindTemporal);
-    })();
-  </script>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       7. WORTH KNOWING
-       ═══════════════════════════════════════════════════════════════ -->
-  {skipEvents.length > 0 && (
-    <section class="skip-block" id="lens-skip">
-      <div class="container">
-        <div class="skip-block__inner">
-          <div>
-            <p class="label label--accent">Worth knowing</p>
-            <h2 class="skip-block__title">Extra context for events that need it</h2>
-            <p class="skip-block__body">Short notes on fit, timing, and trade-offs so readers can plan with their eyes open.</p>
-          </div>
-          <div class="skip-block__list">
-            {skipEvents.map((event) => (
-              <article class="skip-entry">
-                <h3 class="skip-entry__title">
-                  <a href={`/whats-on/${routeSlug(event)}`}>{event.data.title}</a>
-                </h3>
-                <p class="skip-entry__reason">{event.data.skipReason ?? event.data.editorVerdict ?? event.data.summary}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       10. FAQ — reduced
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-faq hub-faq--compact" aria-label="Frequently asked questions">
-    <div class="container">
-      <div class="hub-faq__intro">
-        <p class="label label--accent">Good to know</p>
-        <h2 class="hub-faq__title">A quick note on the edit</h2>
-      </div>
-      <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">How do you choose what appears?</summary>
-          <div class="hub-faq__a"><p>We keep the page selective: useful dates, seasonal anchors, and events with a clear reason to go now.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Do you cover events outside the Peninsula?</summary>
-          <div class="hub-faq__a"><p>No. We stay on the Mornington Peninsula and Western Port fringe so the edit stays local and useful.</p></div>
-        </details>
-      </div>
+      ) : (
+        <p class="whatson-section__empty">Market listings are being refreshed.</p>
+      )}
     </div>
   </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .whatson-briefing {
+    padding: clamp(1.25rem, 3vw, 2rem) 0 0;
+  }
+
+  .whatson-briefing__inner {
+    border-top: 1px solid var(--border, #d8d3c8);
+    border-bottom: 1px solid var(--border, #d8d3c8);
+    padding: clamp(1rem, 2.5vw, 1.5rem) 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .whatson-briefing__title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    line-height: 1.2;
+    margin: 0.35rem 0;
+  }
+
+  .whatson-briefing__title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .whatson-briefing__dek {
+    margin: 0;
+    max-width: 52rem;
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.55;
+  }
+
+  .whatson-briefing__cta,
+  .whatson-section__text-link {
+    color: var(--accent, #8a6a3b);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .whatson-section {
+    padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  }
+
+  .whatson-section__header {
+    max-width: 48rem;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .whatson-section__header--split {
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-items: end;
+  }
+
+  .whatson-section__title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.1;
+    margin: 0.35rem 0;
+  }
+
+  .whatson-section__dek,
+  .whatson-section__empty {
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .signature-mini-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .signature-mini-card {
+    border: 1px solid var(--border, #d8d3c8);
+    background: var(--surface, #fdfbf6);
+  }
+
+  .signature-mini-card__link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .signature-mini-card__image {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--surface-mute, #ece6d8);
+  }
+
+  .signature-mini-card__image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .signature-mini-card__body {
+    padding: 1rem 1.1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .signature-mini-card__meta {
+    margin: 0;
+    color: var(--accent, #8a6a3b);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+  }
+
+  .signature-mini-card__title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.18rem;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .signature-mini-card__summary {
+    margin: 0;
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+
+  .signature-mini-card__cta {
+    margin-top: auto;
+    color: var(--accent, #8a6a3b);
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  @media (max-width: 760px) {
+    .whatson-briefing__inner,
+    .whatson-section__header--split {
+      display: block;
+    }
+
+    .whatson-briefing__cta,
+    .whatson-section__text-link {
+      display: inline-block;
+      margin-top: 0.9rem;
+      white-space: normal;
+    }
+  }
+</style>

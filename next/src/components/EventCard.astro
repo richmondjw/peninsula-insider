@@ -2,13 +2,12 @@
 /**
  * EventCard  -  the primary card for the What's On index.
  *
- * Designed to carry the Peninsula Insider editorial wedge up front:
- * date, category, summary, and badges. No plain directory rows —
- * every event carries at least one sentence of context.
+ * Standard card structure: category, title, location, short description,
+ * and CTA. No plain directory rows — every event carries at least one
+ * sentence of context.
  */
-import EventBadges from './EventBadges.astro';
 import PiSaveActions from './PiSaveActions.astro';
-import { eventCategoryLabel, eventDateLabel, routeSlug } from '../lib/editorial';
+import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
 
 export interface Props {
@@ -25,18 +24,6 @@ const { event, featured = false } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
 
-// Recurrence-aware date label — recurring events show a pattern, not a stale start date.
-function recurrenceAwareDateLabel(data: any): string {
-  if (data.recurrence === 'weekly') {
-    const dayName = (data.startDate as Date).toLocaleDateString('en-AU', { weekday: 'long' });
-    return `Every ${dayName}`;
-  }
-  if (data.recurrence === 'monthly') {
-    return `Monthly — ${eventDateLabel(data.startDate, data.endDate)}`;
-  }
-  return eventDateLabel(data.startDate, data.endDate);
-}
-const dateLabel = recurrenceAwareDateLabel(event.data);
 const placeId =
   typeof event.data.place === 'string' ? event.data.place : event.data.place?.id;
 const placeLabel = placeId
@@ -56,15 +43,31 @@ function conciseSummary(value: unknown, maxWords = 22): string {
   return `${words.slice(0, maxWords).join(' ')}…`;
 }
 const summary = conciseSummary(event.data.summary);
+
+const fallbackHeroByCategory: Record<string, string> = {
+  'food-wine': '/images/sourced/category-winery-01.webp',
+  market: '/images/sourced/category-market-02.webp',
+  festival: '/images/sourced/category-market-01.webp',
+  'cellar-door': '/images/sourced/category-winery-02.webp',
+  community: '/images/sourced/place-mornington-01.webp',
+  arts: '/images/sourced/explore-mprg-01.webp',
+  wellness: '/images/sourced/spa-coastal-pool-01.webp',
+  'live-music': '/images/sourced/article-sunset-01.webp',
+  'racing-sport': '/images/sourced/golf-rye-sunrise-01.webp',
+  'family-programs': '/images/sourced/article-kids-peninsula-01.webp',
+  exhibition: '/images/sourced/explore-mprg-01.webp',
+  civic: '/images/sourced/place-mornington-01.webp',
+  nature: '/images/sourced/explore-greens-bush-01.webp',
+  'writers-ideas': '/images/sourced/article-sorrento-weekend-01.webp',
+};
+const heroImageSrc = event.data.heroImage?.src ?? fallbackHeroByCategory[category] ?? '/images/sourced/category-market-02.webp';
 ---
 
 <article class={`event-card ${featured ? 'event-card--featured' : ''}`}>
   <a
     href={`/whats-on/${slug}`}
-    class={`event-card__hero${event.data.heroImage?.src ? '' : ' event-card__hero--placeholder'}`}
-    style={event.data.heroImage?.src
-      ? `background-image: url(${event.data.heroImage.src});`
-      : undefined}
+    class="event-card__hero"
+    style={`background-image: url(${heroImageSrc});`}
     aria-hidden="true"
     tabindex="-1"
     {...editableImage({
@@ -76,7 +79,6 @@ const summary = conciseSummary(event.data.summary);
     })}
   ></a>
   <div class="event-card__top">
-    <span class="event-card__date">{dateLabel}</span>
     <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
   </div>
   <h3 class="event-card__name">
@@ -88,13 +90,6 @@ const summary = conciseSummary(event.data.summary);
     </p>
   )}
   {summary && (<p class="event-card__summary">{summary}</p>)}
-  <EventBadges
-    worthTheDrive={event.data.worthTheDrive}
-    firstTimer={event.data.firstTimer}
-    kidsGrade={event.data.kidsGrade}
-    weather={event.data.weather}
-    skipThis={event.data.skipThis}
-  />
   <div class="event-card__actions">
     <a href={`/whats-on/${slug}`} class="event-card__cta">Read the full guide -></a>
   </div>
