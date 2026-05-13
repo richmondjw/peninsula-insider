@@ -218,26 +218,12 @@ body[data-v4="true"] .masthead {
    /v3/ surface aren't affected.
    ========================================================= */
 @media (max-width: 760px) {
-  /* Super-thin mobile login ribbon above the main menu row. */
+  /* Hide the utility row entirely on mobile (2026-05-13). The ribbon
+     previously held a thin Login link, but Login is also reachable from the
+     drawer's account row, so the 20px of fixed chrome was not earning its
+     keep. The masthead drops from 3 rows to 2 on mobile. */
   body[data-v4="true"] .masthead__utility {
-    display: block !important;
-    background: rgba(232, 224, 209, 0.38);
-    border-bottom: 1px solid rgba(121, 92, 58, 0.08);
-  }
-  body[data-v4="true"] .masthead__utility-inner {
-    height: 20px;
-    min-height: 20px;
-    justify-content: flex-end;
-    padding: 0;
-  }
-  body[data-v4="true"] .masthead__edition { display: none; }
-  body[data-v4="true"] .masthead__signin {
-    display: inline-flex;
-    align-items: center;
-    height: 20px;
-    font-size: 0.56rem;
-    letter-spacing: 0.16em;
-    line-height: 1;
+    display: none !important;
   }
 
   /* Re-show the brand row (V2 hides it on mobile to make room for V2's nav row,

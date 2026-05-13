@@ -517,7 +517,13 @@ const isAskPage = rawPathname.startsWith('/ask');
     import Lenis from 'lenis';
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reducedMotion && !(window as any)._piLenis) {
+    // Touch devices keep native scroll. Lenis wraps html with `overflow: clip`
+    // which on iOS interferes with pull-to-refresh, scroll-position restore on
+    // back-nav, and the address-bar hide/show transition. We use a coarse
+    // pointer + touch check rather than UA sniffing so it works correctly for
+    // hybrid devices and survives future iPad/Android changes.
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (!reducedMotion && !isTouch && !(window as any)._piLenis) {
       const lenis = new Lenis({
         duration: 1.05,                         // gentle, not slidey
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

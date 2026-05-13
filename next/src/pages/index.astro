@@ -150,7 +150,7 @@ const scenes: Scene[] = [
     imageAlt: 'Flinders boat harbour and coastline from above, Bass Strait, south coast Mornington Peninsula',
     caption: 'Flinders, south coast',
     headline: 'The <em>other</em> Peninsula weekend.',
-    dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.',
+    dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend, south of everything, closer to the ocean, and slower on purpose.',
     primaryHref: '/journal/a-flinders-weekend/',
     primaryLabel: 'Read the piece',
   },
@@ -173,7 +173,7 @@ const scenes: Scene[] = [
     label: cmsText['cover.label'] ?? 'THE COVER STORY',
     hours: cmsText['cover.hours'] ?? '9 MIN READ',
     image: coverImageOverride?.src ?? '/images/sourced/category-restaurant-01.webp',
-    imageAlt: coverImageOverride?.alt ?? 'Warm, polished restaurant interior with a marble bar, timber stools, and low lighting — the kind of room that suits a Peninsula hatted-restaurant shortlist.',
+    imageAlt: coverImageOverride?.alt ?? 'Warm, polished restaurant interior with a marble bar, timber stools, and low lighting. The kind of room that suits a Peninsula hatted-restaurant shortlist.',
     caption: coverImageOverride?.caption ?? cmsText['cover.caption'] ?? 'Peninsula dining room',
     headline: cmsText['cover.headline'] ?? 'The Hatted Restaurants of the <em>Peninsula.</em>',
     dispatch: cmsText['cover.dispatch'] ?? 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
@@ -385,7 +385,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
           <p
             class="places__sub"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'places.sub', label: 'Places sub' })}
-          >{cmsText['places.sub'] ?? 'Bay towns, back beaches, ridge villages, southern coast, and Western Port — the main areas to orient the trip.'}</p>
+          >{cmsText['places.sub'] ?? 'Bay towns, back beaches, ridge villages, southern coast, and Western Port. The main areas to orient the trip.'}</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
@@ -420,7 +420,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
           <p
             class="hp-plans__sub"
             {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'plans.sub', label: 'Plans sub' })}
-          >{cmsText['plans.sub'] ?? 'Three editorial itineraries — built around a single anchor stay, paced for the way the Peninsula actually works.'}</p>
+          >{cmsText['plans.sub'] ?? 'Three editorial itineraries, built around a single anchor stay, paced for the way the Peninsula actually works.'}</p>
         </div>
         <div class="hp-plans__grid">
           {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -755,14 +755,28 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
   @media (max-width: 900px) {
     .cover__inner {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.75rem;
     }
+    /* Flip stack on mobile: photo leads, then type. Destination-guide
+       behaviour: a tourism visitor needs the place to land before they read.
+       Desktop keeps the type-leads composition. */
+    .cover__visual { order: 1; }
+    .cover__type   { order: 2; }
     .cover__headline {
-      font-size: clamp(2.2rem, 9vw, 3.4rem);
+      /* Bump min from 2.2rem to 2.625rem so the feature opener reads as a
+         feature opener on phones, not a card title. */
+      font-size: clamp(2.625rem, 11vw, 3.6rem);
+      line-height: 0.98;
       max-width: none;
     }
+    .cover__dispatch {
+      margin-bottom: 1.5rem;
+    }
     .cover__visual-frame {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 3 / 2;
+    }
+    .cover__caption {
+      text-align: left;
     }
     .cover-also__head {
       flex-direction: column;
@@ -771,7 +785,12 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
     }
     .cover-also__grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.75rem;
+    }
+    /* Shorter cards on mobile so the strip doesn't tower at three full
+       screens of stacked thumbnails. */
+    .cover-also__thumb {
+      aspect-ratio: 16 / 9;
     }
   }
 
