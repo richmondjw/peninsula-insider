@@ -25,16 +25,10 @@ export interface Props {
 const {
   title = 'The briefing that <em>arrives weekly.</em>',
   body = "One email. The weekend's pick, the tables that have opened up, the cellar doors with windows this week, and the walk worth doing before it's too cold. Read in five minutes, used all weekend.",
-  issueNumber = '№ 214',
-  issueDate = 'Issue 04',
-  previewHeadline = 'A <em>quiet</em> autumn weekend — the post-Easter reset.',
-  previewItems = [
-    'The cellar-door shortlist lands — five producers, ranked.',
-    'Laura opens three extra Sunday lunches for autumn.',
-    'The long-lunch piece — three Italian rooms that actually matter.',
-    'Weather brief: dry, cool, best light of the year.',
-    'One walk worth doing: Bushrangers Bay before sunset.',
-  ],
+  issueNumber = '',
+  issueDate = '',
+  previewHeadline = '',
+  previewItems = [],
   endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe',
   source = 'footer',
 } = Astro.props;
@@ -85,29 +79,7 @@ const {
         </div>
       </div>
 
-      <div class="v2-newsletter__preview" aria-hidden="true">
-        <div class="v2-np__head">
-          <span class="v2-np__mark">Peninsula This Weekend</span>
-          <span
-            class="v2-np__issue"
-            {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.issueLabel', label: 'Issue label' })}
-          >{issueNumber} · {issueDate}</span>
-        </div>
-        <h3
-          class="v2-np__title"
-          set:html={previewHeadline}
-          {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.previewHeadline', label: 'Preview headline' })}
-        />
-        <ul class="v2-np__items">
-          {previewItems.map((item, i) => (
-            <li {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: `newsletter.previewItems.${i}`, label: `Preview item ${i + 1}` })}>{item}</li>
-          ))}
-        </ul>
-        <div
-          class="v2-np__foot"
-          {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.footnote', label: 'Newsletter footnote' })}
-        >Read in 4 minutes · Used all weekend</div>
-      </div>
+      <!-- Newsletter preview card hidden until issue copy is verified. -->
     </div>
   </div>
 </section>
@@ -200,7 +172,7 @@ const {
   }
   .v2-newsletter__frame {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: clamp(2rem, 5vw, 5rem);
     align-items: center;
   }
@@ -249,7 +221,7 @@ const {
       margin-top: 1.35rem;
     }
   }
-  .v2-newsletter__copy { max-width: 56ch; }
+  .v2-newsletter__copy { max-width: 64ch; }
   .v2-newsletter__eyebrow {
     font-size: 0.7rem;
     letter-spacing: 0.3em;

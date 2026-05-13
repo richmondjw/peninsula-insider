@@ -102,16 +102,10 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   newsletter: {
     title: 'The briefing that <em>arrives weekly.</em>',
     body: "One email. The weekend's pick, the tables that have opened up, the cellar doors with windows this week, and the walk worth doing before it's too cold. Read in five minutes, used all weekend.",
-    issueNumber: '№ 214',
-    issueDate: 'Issue 04',
-    previewHeadline: 'A <em>quiet</em> autumn weekend — the post-Easter reset.',
-    previewItems: [
-      'The cellar-door shortlist lands — five producers, ranked.',
-      'Laura opens three extra Sunday lunches for autumn.',
-      'The long-lunch piece — three Italian rooms that actually matter.',
-      'Weather brief: dry, cool, best light of the year.',
-      'One walk worth doing: Bushrangers Bay before sunset.',
-    ],
+    issueNumber: '',
+    issueDate: '',
+    previewHeadline: '',
+    previewItems: [],
   },
 };
 
