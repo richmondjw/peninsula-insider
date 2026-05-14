@@ -1,6 +1,6 @@
 ---
 title: "Peninsula This Weekend — 16 to 17 May"
-dek: "The quiet weekend. One forest, one forage, and the last few Sundays of the Shoreham market season."
+dek: "The slower weekend."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-11
@@ -15,7 +15,7 @@ relatedVenues: []
 readingTimeMinutes: 5
 featured: true
 status: "published"
-lastVerified: 2026-05-11
+lastVerified: 2026-05-14
 clusterLinks:
   - label: "How to Build a Red Hill Saturday"
     href: "/journal/how-to-build-a-red-hill-saturday/"
@@ -25,65 +25,42 @@ clusterLinks:
     href: "/journal/things-to-do-mornington-peninsula/"
 faq:
   - question: "What is the best thing to do on the Mornington Peninsula this weekend, 16–17 May?"
-    answer: "If you can still get a spot: Wild Mushroom Forage and Lunch with The Kitchen on Saturday 16 May. Guided foraging through Red Hill and Main Ridge forests, cook-up with butter and herbs at the end, maximum 15 people, $85 per person. Book directly through The Kitchen or visitmorningtonpeninsula.org. If it has sold out, the sessions run 23 and 30 May as well."
+    answer: "The lead booking is the Wild Mushroom Forage and Lunch with The Kitchen on Saturday 16 May. Small-group sessions across the Red Hill and Main Ridge forests, capped at 15 people, with a simple post-walk lunch built around what is found along the way. Additional sessions continue later in May if this Saturday is full."
   - question: "What should you do on Sunday 17 May on the Mornington Peninsula?"
-    answer: "Two options worth considering, depending on what you want from the day. Sustainable House Day opens a handful of Peninsula homes in Bittern, Safety Beach, and Rye, plus the Eco Living Display Centre at The Briars in Mount Martha (free entry), if architecture and sustainability is your register. Or: Shoreham Community Market runs 9am to 2pm at Shoreham Tennis Club Reserve, one of the final Sundays of the season, dog-friendly, easy to pair with a Merricks winery afternoon."
+    answer: "Sustainable House Day suits a slower Peninsula driving day, with homes open in Bittern, Rye and Safety Beach and the Eco Living Display Centre at The Briars in Mount Martha. The Shoreham Community Market also runs Sunday morning at Shoreham Tennis Club Reserve, one of the final Sundays of the season."
 ---
 
 _Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
 
-The weekend after Mother's Day is the first genuinely quiet one on the Peninsula calendar.
+Mid-May on the Peninsula tends to settle into quieter rhythms. The big autumn events have passed, truffle season has not quite arrived, and the coastline feels softer again after the busier weeks around Easter and Mother's Day.
 
-No anchor market on Saturday morning. No winery walk, and truffle season is still two weeks off. What you have is late autumn in the Red Hill forests, the last few Sundays before the southern markets close for winter, and a free day on Sunday that rewards curiosity more than ambition. A weekend to pick one thing and let it carry the day.
+This is the kind of weekend that suits one good booking, a slower lunch, or an unplanned drive through Red Hill and Flinders rather than a packed itinerary.
 
-## The lead: Wild Mushroom Forage and Lunch with The Kitchen
+The lead booking this weekend is the Wild Mushroom Forage and Lunch with The Kitchen.
 
-**Saturday 16 May. 11am to 1:30pm. Red Hill and Main Ridge forests. $85 per person. Maximum 15 spots per session.**
+Held across the Red Hill and Main Ridge forests throughout May, the small-group sessions combine guided foraging with a simple post-walk lunch built around what is found along the way: butter, herbs, warm bread, and freshly cooked mushrooms back at the table.
 
-This is the one to book.
+The appeal is partly the scale. Groups are capped at 15, which keeps the morning feeling more like a local experience than a scheduled event. If this Saturday is already full, additional sessions continue later in May.
 
-The Kitchen runs guided wild mushroom foraging through the Red Hill and Main Ridge forests on Saturdays throughout May. The guide has more than 15 years of local autumn foraging behind them. You learn to identify two edible wild species found on the Peninsula, you harvest responsibly, and at the end: butter, herbs, a warm pan, and good bread.
+For Sunday, Sustainable House Day offers a different pace.
 
-The capacity limit shapes the morning. It is the whole morning, done properly, with the kind of knowledge transfer that only really works in a small group.
+Homes across Bittern, Rye, and Safety Beach open to visitors for one weekend each year, alongside the Eco Living Display Centre at The Briars in Mount Martha. It works best as a loose Peninsula driving day: one or two home visits, coffee somewhere coastal, and time in between rather than a rigid route.
 
-If this Saturday has sold out, the same session runs on 23 and 30 May. Book via The Kitchen or visitmorningtonpeninsula.org. Wear footwear you can walk forest terrain in.
+If the weather shifts, Mornington Peninsula Regional Gallery remains one of the easiest autumn fallbacks on the Peninsula.
 
-## The alternative: Sustainable House Day
+New Wave 26 and the Michael Vale exhibition are both running through May, and the gallery pairs naturally with a slower Main Street Mornington lunch afterwards. One gallery visit and one long lunch is enough for a complete Peninsula afternoon this time of year.
 
-**Sunday 17 May. Free. Multiple Peninsula locations: Bittern, Safety Beach, Rye, and the Eco Living Display Centre at The Briars, Mount Martha.**
+The local option this weekend is the Shoreham Community Market.
 
-If your Sunday brief is something with more structure than a market and less commitment than a full restaurant lunch, Sustainable House Day is worth the trip.
+The market only runs from September through May, and these late-season Sundays tend to feel quieter and more local than the peak summer months. It sits naturally within a southern Peninsula day, easy to pair with Merricks, Point Leo or an afternoon cellar door nearby.
 
-Real homeowners open their doors for one day each year to show what they have built. The Peninsula homes span Bittern, Safety Beach, and Rye, which gives Sunday a natural driving loop through different parts of the Peninsula rather than a single-venue visit. The anchor is the Eco Living Display Centre at The Briars in Mount Martha, which is a permanent sustainability education site and warrants the stop whether or not you attend any private homes.
-
-The audience is design-curious adults who actually want to understand how the building works. If that is your register, it is one of the stronger mid-May Peninsula Sundays on offer.
-
-Register at sustainablehouseday.com before the day.
-
-## The fallback: MPRG and Mornington lunch
-
-**Both days. Mornington Peninsula Regional Gallery, Dunns Road, Mornington. Tuesday to Sunday, 11am to 4pm. Free.**
-
-If the weather turns grey enough to make outdoor plans feel wrong, New Wave 26 and the Michael Vale solo exhibition are both still running at MPRG through 31 May. Allow 45 minutes to an hour. The gallery sits five minutes from Main Street Mornington, which gives you the post-gallery lunch loop that requires no booking and no additional itinerary.
-
-One hour in the gallery, one lunch on Main Street. That is a complete Peninsula morning for roughly the cost of a long lunch, without any of the planning.
-
-## The local edge: Shoreham Community Market
-
-**Sunday 17 May. 9am to 2pm. Shoreham Tennis Club Reserve, 67 to 85 Byrnes Road, Shoreham. Free.**
-
-The Shoreham Market runs September through May only. This is one of its final Sundays for 2026.
-
-It is the most southerly of the Peninsula markets, the most community-shaped, and the one that sits naturally inside a southern Sunday. Arts, crafts, yoga on site, children's activities, live music, and a dog-friendly setting adjacent to Shoreham Beach.
-
-If you are heading to the Merricks wineries on Sunday afternoon, the market from 9 to 11am is an easy start to the day. One winery after, and the afternoon looks after itself.
+This weekend generally rewards slower Peninsula plans. One good lunch, one walk, one booking or one market is probably enough.
 
 ## Bookings and practical notes
 
-- Wild Mushroom Forage and Lunch: booking required; strictly limited to 15 per session; book via The Kitchen or visitmorningtonpeninsula.org; wear appropriate footwear for forest terrain; 11am to 1:30pm Saturday 16 May
+- Wild Mushroom Forage and Lunch: booking required; capped at 15 per session; 11am to 1:30pm Saturday 16 May; $85 per person; book via The Kitchen or visitmorningtonpeninsula.org; wear footwear suited to forest terrain
 - Sustainable House Day: register free at sustainablehouseday.com; Peninsula homes in Bittern, Safety Beach, Rye; Eco Living Display Centre at The Briars, Mount Martha; Sunday 17 May
 - MPRG (New Wave 26, Michael Vale): no booking; free entry; Tuesday to Sunday 11am to 4pm; Dunns Road, Mornington
 - Shoreham Community Market: no booking; free entry; dog-friendly on lead; 9am to 2pm Sunday 17 May; 67 to 85 Byrnes Road, Shoreham
-- Peninsula Hot Springs Sunday Sessions: check the PHS events page for the May 17 artist before booking; afternoon bathing session required; amphitheatre pool fills early; peninsulahotsprings.com
 
 _Prices may change. Confirm current rates directly with the venue or operator before booking._
