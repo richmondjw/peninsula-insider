@@ -30,23 +30,23 @@ faq:
     answer: "Mornington Peninsula, Mornington Peninsula — roughly 75 to 90 minutes from Melbourne depending on traffic."
 ---
 
-Public information on Merricks Creek Wines is thinner than it is for the Peninsula's headline estates, and that usually tells you something useful straight away. This is unlikely to be a polished all-day destination built for tour buses and long lunches. It is more likely to be a smaller-scale cellar door, a private tasting setup, or a venue whose best use is for readers who already know why they are going.
+Public information on Merricks Creek Wines is thinner than it is for the Peninsula's headline estates, and that usually tells you something useful straight away. It reads as a smaller-scale cellar door, a private tasting setup, or a venue whose best use is for readers who already know why they are going.
 
-That is not a criticism. Some of the Peninsula's most interesting wine experiences sit behind modest websites, irregular opening hours, and a phone-first booking culture. But it does change the recommendation. Merricks Creek Wines is not the kind of place we would send a first-time visitor without a little homework first.
+Some of the Peninsula's most interesting wine experiences sit behind modest websites, irregular opening hours, and a phone-first booking culture. It does change the recommendation though. Merricks Creek Wines is not the kind of place to send a first-time visitor without a little homework first.
 
 ## Why it may still be worth your time
 
-The reason to keep venues like this on the list is simple: the Peninsula works best when it is not reduced to the same handful of big estates. Smaller operators often give you the part that matters most   -   a clearer sense of who made the wine, what scale they work at, and whether the visit is actually about the bottle rather than the backdrop.
+The reason to keep venues like this on the list is simple: the Peninsula works best when it is not reduced to the same handful of big estates. Smaller operators often give you the part that matters most: a clearer sense of who made the wine, what scale they work at, and whether the visit is actually about the bottle rather than the backdrop.
 
 If Merricks Creek Wines is open for tastings when you want to go, expect a visit that is tighter, quieter, and more specific than the region's major hospitality estates. That is usually a good sign.
 
 ### How to approach the visit
 
-Treat Merricks Creek Wines as a call-ahead address. Do not build the whole day around it until you have confirmed current access, tasting format, and whether the venue is set up for walk-ins. If the answer is yes, slot it in as one of two stops   -   not five   -   and keep lunch elsewhere. That structure gives smaller producers room to be what they are good at.
+Treat Merricks Creek Wines as a call-ahead address. Worth confirming current access, tasting format, and whether the venue is set up for walk-ins before building a day around it. If the answer is yes, slot it in as one of two stops (not five) and keep lunch elsewhere. That structure gives smaller producers room to be what they are good at.
 
-## Our recommendation
+## How it fits
 
-For readers who like discovering low-profile Peninsula producers, Merricks Creek Wines is worth keeping on the working list. For first-timers chasing the cleanest possible day out, it is better used as a second-trip address after the regional benchmarks are covered. That is the honest split.
+For readers who like discovering low-profile Peninsula producers, Merricks Creek Wines is worth keeping on the working list. For first-timers chasing the cleanest possible day out, it is better used as a second-trip address after the regional benchmarks are covered.
 
 ### What to confirm before you drive
 
@@ -58,4 +58,4 @@ Check whether tastings are by appointment, whether wine sales are direct-to-door
 - **Best for:** Readers who prefer smaller producers to polished estates.
 - **Approach:** Contact first, then fold it into a two-stop day.
 - **Location:** Mornington Peninsula, Mornington Peninsula region.
-- **Bottom line:** Interesting enough to keep on the radar   -   not yet confirmed enough to recommend blindly.
+- **Bottom line:** Interesting enough to keep on the radar, not yet confirmed enough to recommend blindly.

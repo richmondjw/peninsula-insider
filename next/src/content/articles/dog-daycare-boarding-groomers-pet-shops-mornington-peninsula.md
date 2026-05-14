@@ -31,7 +31,7 @@ featured: false
 status: "published"
 ---
 
-Dog-owner utility is where most travel guides fall apart. The practical layer   -   what to do when the dog needs to be somewhere while you're at a restaurant, or when you've left supplies at home   -   determines whether the Peninsula trip still works when plans change.
+Dog-owner utility is where most travel guides fall apart. The practical layer, what to do when the dog needs to be somewhere while you're at a restaurant, or when you've left supplies at home, determines whether the Peninsula trip still works when plans change.
 
 This page covers the support layer, not the activities. For dog-friendly beaches, walks, and venues, see the links above.
 
@@ -41,7 +41,7 @@ This page covers the support layer, not the activities. For dog-friendly beaches
 
 **When you need it:** Day sessions at a cellar-door restaurant that doesn't permit dogs, or an evening at a hatted restaurant. Overnight boarding if your accommodation can't take the dog after all.
 
-**What exists:** The Peninsula and its gateway area (Frankston, Mornington, Rosebud) have dog daycare and boarding facilities. The specifics   -   operators, hours, prices   -   change often enough that we do not publish a directory here. A current Google search for "dog boarding Mornington Peninsula" or "dog daycare [town name]" with reviews is more reliable than a printed list.
+**What exists:** The Peninsula and its gateway area (Frankston, Mornington, Rosebud) have dog daycare and boarding facilities. The specifics, operators, hours, prices, change often enough that we do not publish a directory here. A current Google search for "dog boarding Mornington Peninsula" or "dog daycare [town name]" with reviews is more reliable than a printed list.
 
 **Timing note:** Booking ahead is essential for peak season weekends (December to February, Easter, school holidays). Last-minute daycare is not reliably available.
 
@@ -60,7 +60,7 @@ This page covers the support layer, not the activities. For dog-friendly beaches
 
 **What exists:** Most Peninsula towns (Mornington, Rosebud, Dromana, Flinders, Mt Martha) have at least one groomer. For specialist grooming (breed cuts, full grooms), Mornington and Frankston have the most options.
 
-**Booking:** Groomers book out fast in peak season. If you need grooming during a Peninsula stay, book before you travel   -   do not assume walk-in availability.
+**Booking:** Groomers book out fast in peak season. If you need grooming during a Peninsula stay, book before you travel, do not assume walk-in availability.
 
 ---
 
@@ -83,8 +83,8 @@ For a two-night Peninsula weekend with a dog:
 - **Decide in advance** which activities will and won't work with the dog present
 - **Book daycare or boarding** for the specific session(s) where you'll be at a no-dogs venue
 - **Confirm your accommodation's pet rules** in writing before arriving
-- **Bring fresh water, a bowl, bags, and basic first aid**   -   do not rely on finding these on site
+- **Bring fresh water, a bowl, bags, and basic first aid**, do not rely on finding these on site
 
 → [Emergency vet and pet help on the Mornington Peninsula](/journal/emergency-vet-pet-help-mornington-peninsula/)
 
-*Last fact-verified: 22 April 2026. Specific business listings are not included   -   search for current providers before visiting.*
+*Last fact-verified: 22 April 2026. Specific business listings are not included, search for current providers before visiting.*

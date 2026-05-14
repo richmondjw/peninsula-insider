@@ -32,9 +32,7 @@ faq:
     answer: "Red Hill has winery venues with private event spaces and strong lunch programmes. Sorrento has hotel venues suited to client events. Cape Schanck's RACV resort offers an integrated stay, spa, and golf programme for groups wanting a single-property retreat."
 ---
 
-If you are choosing between Red Hill and Sorrento for a corporate offsite, you are not just choosing a location. You are choosing a tone.
-
-Both can work. They just work differently.
+Choosing between Red Hill and Sorrento for a corporate offsite is really a choice of tone. Both work; they work differently.
 
 ## Red Hill: better for retreat energy
 
@@ -88,17 +86,12 @@ The trade-off is that it can feel more exposed and less private than the best Re
 - you want a clearer town-based weekend shape
 - the event needs easier coastal glamour and simpler guest comprehension
 
-## Peninsula Insider's read
+## The short version
 
-Red Hill is usually the smarter choice for serious retreat logic.
-Sorrento is usually the smarter choice for hosting logic.
+Red Hill fits serious retreat logic. Sorrento fits hosting logic.
 
-That is the cleanest way to think about it.
+If the goal is deep thinking, strong lunch, and a proper change of pace, Red Hill is usually the better setting.
 
-## Final read
-
-If the goal is deep thinking, strong lunch, and a proper change of pace, Red Hill usually wins.
-
-If the goal is polished coastal hosting, recognisable destination energy, and easier social movement, Sorrento usually wins.
+If the goal is polished coastal hosting, recognisable destination energy, and easier social movement, Sorrento is usually the better setting.
 
 The right answer depends less on which place is prettier and more on what the event is actually trying to do.

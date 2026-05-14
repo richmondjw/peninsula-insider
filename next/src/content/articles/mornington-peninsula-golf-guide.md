@@ -45,16 +45,16 @@ The Peninsula is also one of the few Australian regions where the conversation i
 
 That public-access point is not a footnote. It is the difference between a golf culture and a golf myth.
 
-Most Australian golf writing revolves around prestige clubs that the average reader will never play. The Peninsula lets you write about world-class architecture that readers can actually book next month   -   Tom Doak designs, links-style courses, serious ranking credentials, and tee times available online. That combination does not exist in many places.
+Most Australian golf writing revolves around prestige clubs that the average reader will never play. The Peninsula lets you write about world-class architecture that readers can actually book next month: Tom Doak designs, links-style courses, serious ranking credentials, and tee times available online. That combination does not exist in many places.
 
 ## Concentration and contrast
 
 The Peninsula's other advantage is concentration. The best regions create options. The best golf regions create contrast. On the Peninsula you can play highly regarded modern architecture, then spend the rest of the day doing things that make sense for the rest of your group. That changes who the destination is for.
 
 It is not just golfers chasing rankings. It is:
-- **Couples where only one person plays**   -   the non-golfer gets an excellent day at <a href="/places/red-hill">Red Hill cellar doors</a> or <a href="/journal/mornington-peninsula-hot-springs-guide">the springs</a>
-- **Small groups trying to balance one serious round with a proper weekend**   -   a single world-class round leaves time for food, wine, and landscape
-- **Melbourne visitors who want to feel they have actually gone somewhere** without losing a full day to transit   -   90 minutes each way beats a flight-required interstate trip
+- **Couples where only one person plays**: the non-golfer gets an excellent day at <a href="/places/red-hill">Red Hill cellar doors</a> or <a href="/journal/mornington-peninsula-hot-springs-guide">the springs</a>
+- **Small groups trying to balance one serious round with a proper weekend**: a single world-class round leaves time for food, wine, and landscape
+- **Melbourne visitors who want to feel they have actually gone somewhere** without losing a full day to transit: 90 minutes each way beats a flight-required interstate trip
 
 This is where most golf destinations become one-dimensional. The Peninsula does not. The food is too good, the accommodation is too varied, and the post-round options are too obvious for golf to remain an isolated sport here.
 
@@ -88,7 +88,7 @@ Read <a href="/journal/best-golf-courses-mornington-peninsula">the tier guide</a
 
 ## Related guides
 
-- <a href="/journal/best-golf-courses-mornington-peninsula">Best golf courses on the Mornington Peninsula   -   tier guide</a>
+- <a href="/journal/best-golf-courses-mornington-peninsula">Best golf courses on the Mornington Peninsula, tier guide</a>
 - <a href="/journal/st-andrews-beach-golf-course">St Andrews Beach Golf Course profile</a>
 - <a href="/journal/mornington-peninsula-itinerary">3-Day Peninsula Itinerary</a>
 - <a href="/journal/mornington-peninsula-hot-springs-guide">Hot springs guide</a>
