@@ -148,9 +148,9 @@ const scenes: Scene[] = [
     id: 'flinders-weekend',
     label: 'THE SLOW SIDE',
     hours: '7 MIN READ',
-    image: '/images/sourced/home-cover-south-coast-rainbow-01.webp',
-    imageAlt: 'Flinders boat harbour and coastline from above, Bass Strait, south coast Mornington Peninsula',
-    caption: 'Flinders, south coast',
+    image: '/images/sourced/explore-bushrangers-bay-walk-01.webp',
+    imageAlt: 'Bushrangers Bay headland and Bass Strait below Cape Schanck, on the slow southern coast of the Mornington Peninsula',
+    caption: 'Bushrangers Bay, south coast',
     headline: 'The <em>other</em> Peninsula weekend.',
     dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend, south of everything, closer to the ocean, and slower on purpose.',
     primaryHref: '/journal/a-flinders-weekend/',
@@ -614,10 +614,19 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
   .cover__visual {
     margin: 0;
     min-width: 0;
+    /* Page-scoped override: aspect-ratio is set here (and on the inner
+       frame) so the parent and frame match exactly. The 4/3 ratio set in
+       global.css for .cover__visual was leaving a sage-gradient strip
+       below the inner 3/2 frame on desktop. 4/5 portrait gives the image
+       enough vertical weight to balance the bold serif headline column
+       to its left. */
+    aspect-ratio: 4 / 5;
   }
   .cover__visual-frame {
     overflow: hidden;
-    aspect-ratio: 3 / 2;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
   }
   .cover__visual img {
     width: 100%;
@@ -763,8 +772,12 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
     .cover__dispatch {
       margin-bottom: 1.5rem;
     }
+    /* Mobile: image leads the stack, so go landscape so it doesn't
+       dominate the viewport. Parent .cover__visual already overridden
+       to 16/9 by global.css at this breakpoint; match the frame. */
+    .cover__visual { aspect-ratio: 16 / 9; }
     .cover__visual-frame {
-      aspect-ratio: 3 / 2;
+      aspect-ratio: 16 / 9;
     }
     .cover__caption {
       text-align: left;
