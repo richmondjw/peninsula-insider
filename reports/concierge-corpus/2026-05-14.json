@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-14T12:21:28.255Z",
-  "trigger": "schedule",
+  "run_id": "2026-05-14T13:24:04.561Z",
+  "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 7.8,
-  "git_sha": "9a075e1",
+  "duration_seconds": 16.1,
+  "git_sha": "fe89516",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -18,27 +18,40 @@
   },
   "database": {
     "chunks_before": 1536,
-    "chunks_after": 1536
+    "chunks_after": 1535
   },
   "delta": {
     "added": 0,
-    "updated": 3,
+    "updated": 14,
     "metadata_only": 0,
-    "unchanged": 1536,
-    "pruned": 0,
+    "unchanged": 1524,
+    "pruned": 1,
     "errors": 0,
     "stale_remaining": 0
   },
   "added_chunk_ids": [],
   "updated_chunk_ids": [
+    "peninsula-this-weekend-april-24::lede::0",
+    "peninsula-this-weekend-april-24::body::0",
+    "peninsula-this-weekend-april-24::body::1",
+    "peninsula-this-weekend-april-24::body::2",
+    "peninsula-this-weekend-april-26::body::0",
+    "peninsula-this-weekend-april-26::body::1",
+    "peninsula-this-weekend-may-03::body::0",
+    "peninsula-this-weekend-may-03::body::1",
+    "peninsula-this-weekend-may-16::body::0",
+    "peninsula-this-weekend-may-16::body::1",
+    "peninsula-this-weekend-may-16::body::2",
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
     "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [],
+  "pruned_chunk_ids": [
+    "peninsula-this-weekend-april-24::body::3"
+  ],
   "stale_chunk_ids": [],
   "expired_event_entity_ids": [],
-  "embedding_cost_usd_estimate": 0,
+  "embedding_cost_usd_estimate": 0.0001,
   "errors": []
 }
