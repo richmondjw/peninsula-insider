@@ -1697,13 +1697,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 1.2rem;
 }
 .article-hero__byline-name strong { color: var(--dark); font-weight: 500; }
-.article-hero__byline-verified {
-  margin-left: auto;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
 .article-hero__tags {
   display: flex;
   gap: 0.5rem;
@@ -8004,7 +7997,6 @@ body.menu-open .masthead { visibility: hidden; }
     align-items: flex-start;
     gap: 0.5rem;
   }
-  .article-hero__byline-verified { margin-left: 0; }
 }
 
 /* 4) Mobile concierge floater — compact circular icon-only button.

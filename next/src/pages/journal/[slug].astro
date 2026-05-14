@@ -230,11 +230,6 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
             />
             <div class="article-hero__byline">
               <span class="article-hero__byline-name">— By <strong>{authorLabel}</strong></span>
-              {article.data.lastVerified && (
-                <span class="article-hero__byline-verified">
-                  Facts verified {article.data.lastVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long' })}
-                </span>
-              )}
             </div>
             {article.data.tags.length > 0 && (
               <div class="article-hero__tags">
