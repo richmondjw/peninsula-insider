@@ -28,9 +28,9 @@ faq:
     answer: "Usually around 1 hour 40 minutes to two hours by car, longer in summer traffic."
 ---
 
-Portsea is not for beginners. That is not a snobbish line; it is a practical one. If you want the tip of the Peninsula explained clearly, go to Sorrento first. If you want the most obvious village experience, also go to Sorrento first. Portsea is subtler, more private, and much less interested in meeting you halfway.
+Portsea suits people who already know the tip. If you want the Peninsula's tip explained clearly, or the most obvious village experience, Sorrento does that better. Portsea is subtler, more private, and less interested in meeting you halfway.
 
-That is precisely why it matters.
+That is part of why it matters.
 
 Portsea is the Peninsula's last township before the land gives itself over to Point Nepean and the water beyond. The village is small, the social signals are old-money and low-volume, and the best things here are not lined up for easy consumption. They are tucked behind dunes, gates, historic roads and national park tracks. Visitors who already understand the Peninsula tend to love it. First-timers sometimes wonder what the fuss was about. Both reactions make sense.
 
@@ -38,9 +38,9 @@ Portsea is the Peninsula's last township before the land gives itself over to Po
 
 ## What Portsea actually is
 
-Portsea is a village, but barely. A pub, a store, a foreshore, a golf-club world nearby, and a network of roads leading to some of the Peninsula's most quietly powerful landscape. Unlike Sorrento, which declares itself, Portsea stays mostly hidden. The houses do not need to impress you from the street. The appeal is in access   -   to front beach calm, back beach force, and the extraordinary stretch of national park at the end of the land.
+Portsea is a village, but barely. A pub, a store, a foreshore, a golf-club world nearby, and a network of roads leading to some of the Peninsula's quietly powerful landscape. Unlike Sorrento, which declares itself, Portsea stays mostly hidden. The houses do not need to impress you from the street. The appeal is in access: to front beach calm, back beach force, and the stretch of national park at the end of the land.
 
-That makes Portsea feel exclusive in the literal sense. It excludes the casual visitor who wants immediate rewards. If you give it time, the place opens.
+Portsea opens slowly. Give it time and the place comes forward.
 
 ## How to arrive and when to come
 
@@ -52,9 +52,9 @@ Morning arrival is best, especially if the day involves Point Nepean. This is no
 
 ## Eat and drink
 
-### The obvious answer, which is still the right one
+### The main address
 
-**Portsea Hotel** is the main social and dining address because the setting is too good to ignore and the location does most of the work a Portsea meal needs done. Sit on the verandah or where the bay stays in view. Come for lunch or an early dinner rather than trying to force something more elaborate.
+**Portsea Hotel** is the main social and dining address. The setting does most of the work. Sit on the verandah or where the bay stays in view, and come for lunch or an early dinner rather than something more elaborate.
 
 ### The practical stop
 
@@ -62,7 +62,7 @@ The **general store** is not glamorous and does not need to be. If your day is b
 
 ### The nearby support system
 
-Portsea relies partly on Sorrento for wider dining range. That is not a weakness; it is part of the area's actual character. Stay in Portsea for the landscape and privacy, then use Sorrento when you want a larger restaurant choice.
+Portsea relies partly on Sorrento for wider dining range. That is part of the area's character. Stay in Portsea for the landscape and privacy, then use Sorrento when you want a larger restaurant choice.
 
 ## Stay
 
@@ -76,7 +76,7 @@ If you want a more conventional hotel weekend with dinners on foot, stay in Sorr
 
 ### Give Point Nepean the time it deserves
 
-This is the whole argument for Portsea. The fortifications, quarantine station, military remnants and exposed coastal edges give the Peninsula a seriousness that the prettier beach towns do not. Walk or cycle it properly. Do not reduce it to a scenic drive and a few photographs.
+This is the whole argument for Portsea. The fortifications, quarantine station, military remnants and exposed coastal edges give the Peninsula a seriousness that the prettier beach towns do not. Walk or cycle it properly rather than reducing it to a scenic drive.
 
 ### Use the front beach for calm, the back beach for force
 
@@ -90,30 +90,30 @@ Portsea matters to divers for good reason. The marine environment around the tip
 
 The best Portsea walks accumulate. Cliff, dune, scrub, openings of water, then sudden outlooks. The reward is in the sequence.
 
-## What to skip
+## What to leave for another trip
 
-Skip coming here expecting a shopping village. There is no version of Portsea where that is the story.
+Expecting a shopping village. That is not the story here.
 
-Skip peak-summer midday arrivals unless you are staying nearby and have a very high tolerance for congestion.
+Peak-summer midday arrivals, unless you are staying nearby and have a high tolerance for congestion.
 
-Skip comparing every meal to Red Hill. That is the wrong rubric.
+Comparing every meal to Red Hill. Wrong rubric.
 
-Skip the idea that Portsea is better than Sorrento in some simple hierarchical way. It is narrower, quieter and more withholding. For many visitors, that is exactly why it is second, not first.
+Ranking Portsea against Sorrento. It is narrower, quieter and more withholding. For many visitors, that is the appeal.
 
 ## The best single day here
 
-Start early with a light breakfast or takeaway coffee and head straight into Point Nepean National Park. Give the morning to the walk   -   the forts, the views, the changing exposure as you move outward. This is not filler before lunch. It is the day.
+Start early with a light breakfast or takeaway coffee and head straight into Point Nepean National Park. Give the morning to the walk: the forts, the views, the changing exposure as you move outward. This is the day, not filler before lunch.
 
-Have lunch at Portsea Hotel afterwards, preferably with enough time to let the body come back down from the wind and distance. Spend the afternoon based on weather: front beach if the bay is glassy, back beach lookout or walk if you want scale and surf. Finish quietly. Portsea is diminished by nightlife-seeking behaviour.
+Have lunch at Portsea Hotel afterwards, with enough time to let the body come back down from the wind and distance. Spend the afternoon based on weather: front beach if the bay is glassy, back beach lookout or walk if you want scale and surf. Finish quietly.
 
 If you are staying, use the evening for a house dinner or a short drive back toward Sorrento. If not, leave before the roads start bunching around the tip.
 
 ## What you need to know
 
-- **Verdict:** Portsea is the Peninsula's most private-feeling village and the right choice for visitors who want landscape and discretion over bustle.
+- **In short:** Portsea is a private-feeling village, suited to visitors who want landscape and discretion over bustle.
 - **Best for:** Point Nepean, experienced Peninsula visitors, divers, and low-key luxury stays.
 - **Minimum stay:** half a day with Point Nepean; overnight if quiet access is the point.
 - **Best season:** autumn and spring.
 - **Drive from Melbourne:** about 1 hour 40 minutes to two hours.
-- **Do not miss:** Point Nepean, the contrast between front and back beach, and lunch at the hotel.
-- **Skip:** expecting Sorrento with better addresses. Portsea is playing a different game.
+- **Make time for:** Point Nepean, the contrast between front and back beach, and lunch at the hotel.
+- **Note:** Portsea is playing a different game from Sorrento, not a fancier version of the same one.

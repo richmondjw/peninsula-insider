@@ -28,9 +28,9 @@ faq:
     answer: "Usually around an hour by car, which is part of why it works so well as a day-trip town and Peninsula entry point."
 ---
 
-Mornington has a perception problem. Because it is practical, popular and closer to Melbourne than the Peninsula's more mythologised destinations, some people treat it as merely the place you pass through on the way to somewhere better. That is lazy and increasingly inaccurate.
+Mornington is practical, popular and closer to Melbourne than the Peninsula's more mythologised destinations, which sometimes leads people to treat it as the place you pass through on the way to somewhere better. That undersells it.
 
-Mornington is not the Peninsula's most romantic town, nor its most exclusive, nor its most dramatically coastal. What it is, very convincingly, is the most complete town on the Peninsula. That matters. It means there is enough street life, enough food, enough water access and enough everyday civic usefulness to support a proper day rather than just a scenic stop.
+Mornington is not the Peninsula's most romantic town, nor its most exclusive, nor its most dramatically coastal. What it is, very convincingly, is the most complete town on the Peninsula. There is enough street life, enough food, enough water access and enough everyday civic usefulness to support a proper day rather than just a scenic stop.
 
 For first-time visitors especially, Mornington is where the Peninsula starts making sense.
 
@@ -38,7 +38,7 @@ For first-time visitors especially, Mornington is where the Peninsula starts mak
 
 ## What Mornington actually is
 
-Mornington is the commercial hub on the bay side   -   a real town with shops, schools, services, a working main street and a foreshore that remains central to daily life rather than ornamental. That makes it more urban than the Peninsula's southern villages, but still clearly part of the Peninsula. You get sea air and a functioning town in the same frame.
+Mornington is the commercial hub on the bay side: a real town with shops, schools, services, a working main street and a foreshore that remains central to daily life rather than ornamental. That makes it more urban than the Peninsula's southern villages, but still clearly part of the Peninsula. You get sea air and a functioning town in the same frame.
 
 Main Street is the organising spine, but the water is what completes the picture. The foreshore, Mothers Beach, Schnapper Point and the run of bathing boxes keep Mornington from becoming just another affluent bayside centre. It remains coastal in a lived-in way.
 
@@ -46,7 +46,7 @@ Main Street is the organising spine, but the water is what completes the picture
 
 If you can come on a Wednesday, do. The Mornington market gives the town its clearest weekly pulse and turns a casual visit into a more persuasive one. Start early enough that you can use the market, the main street and the foreshore in one arc rather than breaking the day into disconnected errands.
 
-Spring and autumn are the best general seasons. Summer can be lively and attractive, but the town is also a school-holiday magnet and the atmosphere shifts accordingly. Winter works better than many people expect because Mornington is a real town   -   shops stay open, cafés still matter, and the foreshore can look beautiful in cold light.
+Spring and autumn are the best general seasons. Summer can be lively and attractive, but the town is also a school-holiday magnet and the atmosphere shifts accordingly. Winter works better than many expect because Mornington is a real town. Shops stay open, cafés still matter, and the foreshore can look beautiful in cold light.
 
 As a base, Mornington makes sense for people who want easier access back to Melbourne and a cleaner split between town and hinterland. It is less immersive than staying deeper south, but more versatile.
 
@@ -62,7 +62,7 @@ Stay local for a foreshore-adjacent or main-street lunch if the point is to unde
 
 ### The strength is range, not one canonical table
 
-Unlike Red Hill, where the editorial hierarchy is sharply defined, Mornington's advantage is breadth. You have casual spots, polished rooms, wine bars and bayside options. The best choice depends on the kind of day you are building. That flexibility is a strength, not a lack of identity.
+Unlike Red Hill, where the hierarchy is sharply defined, Mornington's advantage is breadth. You have casual spots, polished rooms, wine bars and bayside options. The right choice depends on the kind of day you are building.
 
 ## Stay
 
@@ -78,7 +78,7 @@ The Wednesday Mornington market is worth planning around because it gives you pr
 
 ### Walk the foreshore in sequence
 
-Go from Main Street down to the water and keep moving. Mothers Beach, the pier, Schnapper Point   -   the connective tissue matters. Mornington's identity sits in how close its civic and coastal parts remain.
+Go from Main Street down to the water and keep moving. Mothers Beach, the pier, Schnapper Point. The connective tissue matters. Mornington's identity sits in how close its civic and coastal parts remain.
 
 ### Use Main Street properly
 
@@ -88,30 +88,30 @@ Not just for coffee. Browse, linger, buy something practical, sit for another dr
 
 This is where Mornington quietly shines. From here, you can understand the Peninsula's north-south logic before deciding whether your next day should be beach, wine, or tip.
 
-## What to skip
+## What to leave for another trip
 
-Skip dismissing the town because it feels too easy. Ease is one of its advantages.
+Dismissing the town because it feels easy. Ease is one of its advantages.
 
-Skip a rushed weekend midday visit if your only goal is parking near the water and leaving again. That version tells you nothing.
+A rushed weekend midday visit if your only goal is parking near the water and leaving again. That version tells you nothing.
 
-Skip expecting it to feel like Sorrento or Flinders. Mornington is more urban, more practical and more democratic. Good.
+Expecting it to feel like Sorrento or Flinders. Mornington is more urban, more practical and more democratic.
 
-Skip making your whole day indoors. The foreshore is essential to the town's shape.
+A whole day indoors. The foreshore is essential to the town's shape.
 
 ## The best single day here
 
 Start with breakfast on or just off Main Street, then use the morning to walk the commercial spine while the town is fresh. If it is Wednesday, give the market a proper window rather than squeezing it in as an afterthought.
 
-By late morning, head to the foreshore and walk the full sequence   -   Mothers Beach, the pier, Schnapper Point, the bathing boxes. Lunch should either keep you close to the water or bring you back toward Main Street, depending on weather. Spend the afternoon browsing, taking a second coffee or glass, and using the town as a calm orientation point rather than a box tick.
+By late morning, head to the foreshore and walk the full sequence: Mothers Beach, the pier, Schnapper Point, the bathing boxes. Lunch should either keep you close to the water or bring you back toward Main Street, depending on weather. Spend the afternoon browsing, taking a second coffee or glass, and using the town as a calm orientation point.
 
-Mornington's best day is not dramatic. It is coherent. That is why it works.
+Mornington's best day is coherent rather than dramatic. That is why it works.
 
 ## What you need to know
 
-- **Verdict:** Mornington is the Peninsula's best entry-point town and the smartest first stop for people who want to understand the region rather than just consume its highlights.
+- **In short:** Mornington is a strong entry-point town and a smart first stop for people who want to understand the region rather than just consume its highlights.
 - **Best for:** first-time visitors, day trips, market mornings, and practical overnight stays.
 - **Minimum stay:** half a day is easy; a full day is better.
 - **Best season:** spring and autumn, with Wednesday market mornings ideal.
 - **Drive from Melbourne:** around an hour.
-- **Do not miss:** Main Street, the foreshore walk, and the market if timing aligns.
-- **Skip:** treating it as merely a service stop. Mornington has earned more than that.
+- **Make time for:** Main Street, the foreshore walk, and the market if timing aligns.
+- **Avoid:** treating it as merely a service stop.

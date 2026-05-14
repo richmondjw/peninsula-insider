@@ -28,7 +28,7 @@ aiSummary:
   - "Start with Montalto if you want the easiest all-rounder: strong wine, serious lunch, sculpture grounds, and enough space to make a day of it."
   - "Choose Polperro if the point is a focused tasting rather than a broad estate experience."
   - "Go to Ten Minutes by Tractor when lunch is the anchor and wine is part of a bigger food-led day."
-  - "Do not try to do five cellar doors in one day — Red Hill works better with one or two strong stops."
+  - "Red Hill works better with one or two strong stops than with five cellar doors crammed into a day."
 faq:
   - question: "What is the best winery in Red Hill for a first visit?"
     answer: "Montalto is the clearest first recommendation because it does more than one thing well: tasting, lunch, grounds, and a setting that explains the region properly."

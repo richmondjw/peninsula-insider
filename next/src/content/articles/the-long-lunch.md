@@ -33,21 +33,21 @@ faq:
     answer: "Two to three hours minimum at Montalto or Ten Minutes by Tractor; up to four hours at Laura at Pt Leo Estate if you include time in the sculpture park before sitting down. Plan nothing substantial in the two hours after lunch — the best Peninsula long lunches end in a slow walk, not a drive."
 ---
 
-The argument for the Mornington Peninsula long lunch is simple and not particularly contested by anyone who has made the drive: nowhere within ninety minutes of Melbourne can deliver this combination of kitchen ambition, wine pedigree, and landscape. Sydney people know this. They fly down for it.
+The case for the Mornington Peninsula long lunch is straightforward: nowhere within ninety minutes of Melbourne pairs this kind of kitchen ambition, wine pedigree, and landscape. Sydney people know it. They fly down for it.
 
-The question is not whether the Peninsula does it well. The question is how to do it right.
+The question is how to do it right.
 
 ## Start with the terrain
 
-The plateau that runs through Red Hill and Merricks is the key. Altitude and cool air create pinot noir country that stands with the Yarra Valley's best  -  and the chefs who've set up here know that the vineyards outside the window are their larder, their narrative, and their competitive advantage. The whole regional lunch concept makes more sense when you can see where the wine comes from through the dining room glass.
+The plateau that runs through Red Hill and Merricks is the key. Altitude and cool air create pinot noir country that stands with the Yarra Valley's best, and the chefs who've set up here know the vineyards outside the window are their larder, their narrative, and their competitive advantage. The whole regional lunch concept makes more sense when you can see where the wine comes from through the dining room glass.
 
 ## The three rooms worth booking
 
-**Ten Minutes by Tractor** is the summit. Two hats (GFG 2025), an estate wine program built over two decades, and a degustation that changes with the seasons in ways that feel genuinely responsive rather than performative. Book six weeks ahead for weekends. Lunch is the move; dinner is more formal and less relaxed. The bread service alone is worth the trip.
+**Ten Minutes by Tractor** sits at the top. Two hats (GFG 2025), an estate wine program built over two decades, and a degustation that changes with the seasons in ways that feel genuinely responsive. Book six weeks ahead for weekends. Lunch suits it; dinner is more formal and less relaxed. The bread service alone is worth the trip.
 
-**Montalto Vineyard & Olive Grove** is the one you bring first-timers to. The estate does everything right  -  olive grove, sculpture garden, kitchen garden, cellar door  -  before you've reached the restaurant. The pasta is made daily. The Single Vineyard Pinot Noir is one of the better bottles on the Peninsula. One hat, earnt honestly, and the terrace in summer gives you an afternoon that goes long in all the right ways.
+**Montalto Vineyard & Olive Grove** is the one to bring first-timers to. The estate does everything well (olive grove, sculpture garden, kitchen garden, cellar door) before you've reached the restaurant. The pasta is made daily. The Single Vineyard Pinot Noir is one of the better bottles on the Peninsula. One hat, and the terrace in summer gives you an afternoon that goes long in all the right ways.
 
-**Pt. Leo Estate** is the most cinematic. Walk the sculpture park first  -  the collection is serious, roughly fifty large-scale works in the grounds  -  then take your table in the glass-walled restaurant with Port Phillip stretched out below. Two hats, exceptional wine list, a kitchen that handles produce-forward cooking with real skill. Give yourself half a day minimum.
+**Pt. Leo Estate** is the most cinematic. Walk the sculpture park first (the collection is serious, roughly fifty large-scale works in the grounds) then take your table in the glass-walled restaurant with Port Phillip stretched out below. Two hats, exceptional wine list, a kitchen that handles produce-forward cooking with real skill. Give yourself half a day minimum.
 
 ## The logistics
 

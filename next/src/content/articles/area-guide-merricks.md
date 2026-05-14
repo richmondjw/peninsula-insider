@@ -28,19 +28,19 @@ faq:
     answer: "Usually about an hour to 80 minutes by car, depending on traffic and whether you approach via the bay road or straight into the hinterland."
 ---
 
-Merricks does not shout, which is one of the best things about it. In a Peninsula region full of places that are either famous, crowded or trying hard to become one of those two things, Merricks stays calm. There is no grand village performance. There is just a slim scatter of addresses that people in the know return to because they work.
+Merricks does not shout, which is one of the best things about it. There is no grand village performance, just a slim scatter of addresses that people in the know return to because they work.
 
-That makes Merricks easy to underrate on a first visit. It can seem too slight, too quiet, too reliant on a handful of names. Spend a day here properly and the opposite becomes clear. Merricks is one of the Peninsula's most livable-feeling food-and-wine pockets precisely because it leaves room between its strengths.
+That can make Merricks easy to underrate on a first visit. Spend a day here properly and the opposite becomes clear. Merricks is one of the Peninsula's most livable-feeling food-and-wine pockets, partly because it leaves room between its strengths.
 
 **Best for:** locals-at-heart, understated long lunches, couples who prefer one excellent table to three flashy ones, and visitors using the Peninsula more as a lifestyle than a checklist.
 
 ## What Merricks actually is
 
-Merricks sits between the bay and the ridge, which gives it an unusual softness. You feel the proximity of the water, but the roads and properties already behave like hinterland. It is a transition zone in the best sense   -   not neither/nor, but both/and.
+Merricks sits between the bay and the ridge, which gives it an unusual softness. You feel the proximity of the water, but the roads and properties already behave like hinterland. A transition zone in the best sense: both bay and ridge.
 
-There is no serious commercial centre. That is the point. Merricks is built around individual destinations and the quality of the roads between them. You come because you know where to turn off, not because a main street tells you what to do.
+There is no commercial centre to speak of. Merricks is built around individual destinations and the quality of the roads between them. You come because you know where to turn off, not because a main street tells you what to do.
 
-Compared with Red Hill, Merricks feels more private and more local. Compared with Main Ridge, it is slightly gentler and more social. It occupies the sweet spot between those two moods.
+Compared with Red Hill, Merricks feels more private and more local. Compared with Main Ridge, it is slightly gentler and more social.
 
 ## How to arrive and when to come
 
@@ -54,25 +54,25 @@ Merricks also works well as an overnight base because it places you close to Red
 
 ### The place that explains the area
 
-**Merricks General Wine Store** is the address that tells you what Merricks is about. It is local without being scruffy, smart without becoming self-conscious, and exactly the kind of room you wish more regions had. If you only have one booking here, make it this.
+**Merricks General Wine Store** is the address that tells you what Merricks is about. Local without being scruffy, smart without self-conscious, exactly the kind of room you wish more regions had. If you only have one booking here, make it this.
 
 ### The estate move
 
-**Merricks Estate** is worth your time when you want a quieter tasting and a proper sense of the district's wine logic. It fits the area's tone   -   measured, unforced, not desperate for your approval.
+**Merricks Estate** is worth your time when you want a quieter tasting and a proper sense of the district's wine logic. It fits the area's tone: measured, unforced.
 
 ### The pub answer
 
-**Merricks Beach General Store and the nearby pub circuit** can provide the looser local version of the day, but the stronger classic recommendation is **Merricks General Store** for lunch and **Merricks Estate** or **Pt Leo Estate** for the larger estate move.
+**Merricks Beach General Store and the nearby pub circuit** can provide the looser local version of the day, alongside **Merricks General Store** for lunch and **Merricks Estate** or **Pt Leo Estate** for the larger estate move.
 
-### The big nearby draw you should treat as nearby, not central
+### The big nearby draw
 
-**Pt Leo Estate** is close enough to define a day around and strong enough to justify it. Sculpture park, serious dining, broad views   -   it is one of the Peninsula's major attractions. But editorially, it belongs to the wider Merricks orbit rather than replacing Merricks itself. Use it as a major stop, then come back to the area's quieter addresses.
+**Pt Leo Estate** is close enough to define a day around and strong enough to justify it. Sculpture park, serious dining, broad views. It belongs to the wider Merricks orbit rather than replacing Merricks itself. Use it as a major stop, then come back to the area's quieter addresses.
 
 ## Stay
 
 Merricks is one of the Peninsula's most sensible overnight bases for adults. Rural houses, vineyard cottages and low-key luxury stays tend to suit the place better than full hotel setups.
 
-Choose accommodation that lets you remain in the district after lunch. That is the whole gain. If you need a spa menu and a large lobby, this is not the right area. If you want vines outside, very little noise, and easy access to the hill roads, Merricks is excellent.
+Choose accommodation that lets you remain in the district after lunch. That is the whole gain. If you need a spa menu and a large lobby, this is not the right area. For vines outside the window, very little noise, and easy access to the hill roads, Merricks is excellent.
 
 ## What to do
 
@@ -92,30 +92,30 @@ The gradual shift from inland wine country toward the bay is part of Merricks' a
 
 Buy wine, browse slowly, talk to people, and resist making the day feel like a conquest. Merricks is designed for inhabiting, not collecting.
 
-## What to skip
+## What to leave for another trip
 
-Skip treating Merricks as merely overflow Red Hill. It has a distinct tone and deserves to keep it.
+Treating Merricks as overflow Red Hill. It has its own tone.
 
-Skip too many grand estate stops in one day. The area's charm lies in restraint.
+Too many grand estate stops in one day. The area rewards restraint.
 
-Skip searching for nightlife. The pleasure here happens in daylight and over dinner, not after it.
+Searching for nightlife. The pleasure here happens in daylight and over dinner.
 
-Skip choosing accommodation far away to save a little money. Merricks works because it keeps you close to the good part of the Peninsula.
+Accommodation far away to save a little money. Merricks works because it keeps you close.
 
 ## The best single day here
 
-Begin with a slow start and an easy coffee, then take one focused tasting at Merricks Estate or a nearby producer that suits your palate. Keep the morning sparse. Lunch at Merricks General Wine Store is the non-negotiable editorial recommendation because it catches the area's tone exactly.
+Begin with a slow start and an easy coffee, then take one focused tasting at Merricks Estate or a nearby producer that suits your palate. Keep the morning sparse. Lunch at Merricks General Wine Store catches the area's tone exactly.
 
-If you want a larger set piece, spend the afternoon at Pt Leo Estate   -   sculpture park first, then a late glass rather than another full meal. Alternatively, drive down toward Merricks Beach for a change in mood and to remind yourself how close the bay remains.
+If you want a larger set piece, spend the afternoon at Pt Leo Estate: sculpture park first, then a late glass rather than another full meal. Alternatively, drive down toward Merricks Beach for a change in mood and to remind yourself how close the bay remains.
 
 End wherever you are staying with a bottle you bought during the day and no more travel than necessary.
 
 ## What you need to know
 
-- **Verdict:** Merricks is the Peninsula's most understatedly excellent food-and-wine district and one of its smartest bases for adults.
+- **In short:** Merricks is an understatedly excellent food-and-wine district and one of the Peninsula's smartest bases for adults.
 - **Best for:** long lunches, quiet stays, and visitors who prefer local confidence to big-name buzz.
 - **Minimum stay:** a full day works; overnight is better.
 - **Best season:** autumn and spring, with good winter days close behind.
 - **Drive from Melbourne:** about an hour to 80 minutes.
-- **Do not miss:** Merricks General Wine Store, one estate visit, and the transition between ridge and bay.
-- **Skip:** overcomplicating it. Merricks is good because it is composed.
+- **Make time for:** Merricks General Wine Store, one estate visit, and the transition between ridge and bay.
+- **Note:** Merricks rewards composure rather than stacking.
