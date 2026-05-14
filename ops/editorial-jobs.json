@@ -9,7 +9,9 @@
     "publishTimeUTC": "11:30",
     "weekendCovered": "Saturday and Sunday of the week immediately following the Sunday publish date (i.e. publish-date + 6 days = Saturday, publish-date + 7 days = Sunday)",
     "titleConvention": "Peninsula This Weekend — D[D] to D[D] Month (Saturday and Sunday dates of the upcoming weekend, e.g. Sunday 26 April publish → 'Peninsula This Weekend — 2 to 3 May')",
-    "lockedAt": "2026-04-27"
+    "lockedAt": "2026-04-27",
+    "editorialIntent": "Peninsula This Weekend is an editorial planning piece, not an events roundup. Lead with the feeling, rhythm, or mood of the weekend before any recommendation. Curate selectively; no Skip or Avoid sections; no three-weekend-shapes buzz-bullets. Reader should finish thinking 'that sounds like a good Peninsula weekend', not 'that was a good article'. Tone: editorial, selective, useful, local, premium without luxurious, emotionally aware, calm, confident.",
+    "toneRefreshedAt": "2026-05-14"
   },
   "jobs": [
     {
@@ -591,12 +593,10 @@
       "type": "weekend-dispatch-draft",
       "owner": "PI-dispatch-desk",
       "inputs": [
-        "weekend shape",
-        "lead recommendation",
-        "alternative",
-        "fallback",
-        "local edge",
-        "skip"
+        "weekend shape (mood + organising idea for the weekend ahead)",
+        "anchor booking (the one thing worth locking in)",
+        "slower companion move",
+        "local edge"
       ],
       "outputs": [
         "next/src/content/articles/peninsula-this-weekend-YYYY-MM-DD.md"

@@ -34,7 +34,7 @@ _Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for 
 
 The weekend after Mother's Day is the first genuinely quiet one on the Peninsula calendar.
 
-No anchor market on Saturday morning. No winery walk, no truffle season yet. What you have is: late autumn in the Red Hill forests, the last few Sundays before the southern markets close for winter, and a free day on Sunday that rewards curiosity more than ambition. This is not a weekend to over-schedule. It is a weekend to pick one thing and let it carry the day.
+No anchor market on Saturday morning. No winery walk, and truffle season is still two weeks off. What you have is late autumn in the Red Hill forests, the last few Sundays before the southern markets close for winter, and a free day on Sunday that rewards curiosity more than ambition. A weekend to pick one thing and let it carry the day.
 
 ## The lead: Wild Mushroom Forage and Lunch with The Kitchen
 
@@ -44,7 +44,7 @@ This is the one to book.
 
 The Kitchen runs guided wild mushroom foraging through the Red Hill and Main Ridge forests on Saturdays throughout May. The guide has more than 15 years of local autumn foraging behind them. You learn to identify two edible wild species found on the Peninsula, you harvest responsibly, and at the end: butter, herbs, a warm pan, and good bread.
 
-The capacity limit tells you what this is. It is not a festival. It is not a morning activity you attach to a cellar door in the afternoon. It is the whole morning, done properly, with the kind of knowledge transfer that does not survive a crowd of 40.
+The capacity limit shapes the morning. It is the whole morning, done properly, with the kind of knowledge transfer that only really works in a small group.
 
 If this Saturday has sold out, the same session runs on 23 and 30 May. Book via The Kitchen or visitmorningtonpeninsula.org. Wear footwear you can walk forest terrain in.
 
@@ -74,17 +74,9 @@ One hour in the gallery, one lunch on Main Street. That is a complete Peninsula 
 
 The Shoreham Market runs September through May only. This is one of its final Sundays for 2026.
 
-It is not the Peninsula's biggest or most photographed market. It is the most southerly, the most community-shaped, and the one that fits naturally into a southern Sunday rather than requiring a separate trip north. Arts, crafts, yoga classes on site, children's activities, live music, and a dog-friendly setting adjacent to Shoreham Beach.
+It is the most southerly of the Peninsula markets, the most community-shaped, and the one that sits naturally inside a southern Sunday. Arts, crafts, yoga on site, children's activities, live music, and a dog-friendly setting adjacent to Shoreham Beach.
 
-If you are already planning to visit the Merricks wineries on Sunday afternoon, the market loop from 9am to 11am is an easy start that earns the cellar door visit rather than making it feel arbitrary.
-
-## The skip: a multi-stop cellar door Saturday
-
-This is not the weekend to plan a three-winery Saturday loop and hope the food carries it.
-
-The Autumn Winery Walk was last weekend. Red Hill Truffles season starts 30 May. The King's Birthday wine weekend is in June. Without a specific event to anchor the day, a multi-stop cellar door Saturday in mid-May tends to drift: one venue runs long, the second is rushed, and by the third you are eating a cheese board you did not need.
-
-If you want a cellar door this weekend, pick one. Spend two hours there. Go home. The Peninsula does not improve with over-scheduling.
+If you are heading to the Merricks wineries on Sunday afternoon, the market from 9 to 11am is an easy start to the day. One winery after, and the afternoon looks after itself.
 
 ## Bookings and practical notes
 
