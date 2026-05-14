@@ -27,9 +27,9 @@ clusterLinks:
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 aiSummary:
   - "Start at Red Hill Market if it is on, but leave before the whole morning disappears."
-  - "Choose one cellar door, not a crawl — Polperro for focus or Montalto for the all-in-one version."
+  - "Choose one cellar door, not a crawl: Polperro for focus or Montalto for the all-in-one version."
   - "Make lunch the anchor: Ten Minutes by Tractor if lunch is the point, Montalto if you want range and grounds."
-  - "If you can stay overnight, Red Hill works better as a soft weekend than a rushed day trip."
+  - "Staying overnight turns Red Hill into a soft weekend rather than a rushed day trip."
 faq:
   - question: "What is the best way to spend a Saturday in Red Hill?"
     answer: "One anchor activity per phase: market in the morning (first Saturday of the month), one cellar door before lunch, then a long lunch at Ten Minutes by Tractor, Montalto, or Merricks General Wine Store. The mistake is over-booking — three cellar doors and two lunch options is a worse day than one of each."
@@ -41,7 +41,7 @@ faq:
 
 Red Hill is where people get greedy.
 
-They arrive with a list of five cellar doors, two lunch possibilities, maybe a produce stop, maybe a quick detour to the coast, and by four o'clock they are tired, overbooked, and somehow still slightly dissatisfied. The fix is not a more efficient spreadsheet. The fix is accepting that Red Hill works best when you build the day around two or three things rather than seven.
+They arrive with a list of five cellar doors, two lunch possibilities, maybe a produce stop, maybe a quick detour to the coast, and by four o'clock they are tired, overbooked, and somehow still slightly dissatisfied. Red Hill works best when the day is built around two or three things rather than seven.
 
 ## The plan: start at the market, if it's on
 
@@ -53,10 +53,10 @@ A Red Hill Saturday improves the moment you stop trying to do a Yarra-style tast
 
 ## The anchor: make lunch the centre of the day
 
-If lunch matters most, build around it properly. **Ten Minutes by Tractor** is the full-commitment answer. **Montalto** is the all-rounder with the most generous grounds. Do not book something else too close afterwards. Let the region's strongest move be the thing you actually make space for.
+If lunch matters most, build around it properly. **Ten Minutes by Tractor** is the full-commitment answer. **Montalto** is the all-rounder with the most generous grounds. Leave space afterwards rather than booking something else too close. The region's strongest move benefits from room around it.
 
 ## Where to go next: stay if you can
 
-Red Hill gets better once you stop treating it as a day trip. **Lindenderry at Red Hill** makes an especially good argument for folding the Saturday into a whole weekend, because it keeps the mood soft rather than showy. One night turns lunch from an event into the middle of a trip.
+Red Hill gets better once it stops being a day trip. **Lindenderry at Red Hill** makes a particularly good case for folding the Saturday into a whole weekend, because it keeps the mood soft rather than showy. One night turns lunch from an event into the middle of a trip.
 
-The mistake most people make in Red Hill is assuming more equals better. Usually the opposite is true. One market, one tasting, one excellent lunch. That is already enough.
+Red Hill rewards restraint. One market, one tasting, one excellent lunch is already enough.

@@ -34,11 +34,9 @@ faq:
     answer: "March to May and September to November. Summer is too hot and too crowded; the cheese sweats, the wine warms, and the good spots are taken. Autumn is the sweet spot — warm enough to sit on grass, cool enough to keep food fresh, quiet enough that the sculpture parks and beaches are not crowded. Arrive before noon, eat by 12:30, and pack up by 3pm before the autumn chill arrives."
 ---
 
-The Peninsula picnic is one of those things that everyone assumes they know how to do and almost nobody does well.
+The Peninsula picnic is one of those things that rewards a bit of planning.
 
-The standard version is either too ambitious  -  a hamper packed in Melbourne with things that wilt in the car  -  or too minimal: a bag of crisps and a bottle of warm rosé on a patch of sand. Both miss the point. The Peninsula is one of the best food-producer regions in Australia and most of its producers sell at the farm gate. The whole supply chain for a serious picnic is sitting there in a twenty-minute driving radius, and assembling it is the morning activity, not a chore.
-
-Here is how to do it properly.
+The standard version tends to land in one of two places: a hamper packed in Melbourne with things that wilt in the car, or a bag of crisps and a bottle of warm rosé on a patch of sand. The Peninsula is one of Australia's strongest food-producer regions and most of its producers sell at the farm gate. The whole supply chain for a serious picnic is sitting there in a twenty-minute driving radius, and assembling it is the morning activity, not a chore.
 
 ## The shopping circuit: one hour, three stops
 
@@ -48,9 +46,9 @@ A Peninsula picnic is built in a single morning loop through the Red Hill hinter
 
 Start with bread because everything else sits on it.
 
-**Flinders Sourdough** is the best bread on the Peninsula, and the walnut sourdough loaf is the one to buy for a picnic. It holds for hours without going stale, it stands up to cheese and olive oil, and it is the single item that sets the tone for everything else.
+**Flinders Sourdough** is the bread to seek out on the Peninsula, and the walnut sourdough loaf is the one to buy for a picnic. It holds for hours without going stale, it stands up to cheese and olive oil, and it sets the tone for everything else.
 
-If you are starting from the northern end of the Peninsula, **Red Hill Bakery** is the closer alternative. The sourdough is not quite at the same level but the pastry case will tempt you into a morning sausage roll that you should not resist. **Balnarring Bakehouse** is the quieter eastern option, and its sourdough is more than good enough.
+If you are starting from the northern end of the Peninsula, **Red Hill Bakery** is the closer alternative. The sourdough sits a step behind Flinders, but the pastry case is worth a morning sausage roll. **Balnarring Bakehouse** is the quieter eastern option, and its sourdough is more than good enough.
 
 Buy a whole loaf. You will use it.
 
@@ -58,7 +56,7 @@ Buy a whole loaf. You will use it.
 
 The Peninsula has two serious farmgate cheese producers and both are worth the stop.
 
-**Red Hill Cheese** is the more established operation, with a tasting counter and a retail case that covers a proper range of styles. For a picnic, the washed-rind is the flagship and the cheddar is the workhorse. Buy both  -  a wedge of each  -  and ask for them to be wrapped separately.
+**Red Hill Cheese** is the more established operation, with a tasting counter and a retail case that covers a proper range of styles. For a picnic, the washed-rind is the flagship and the cheddar is the workhorse. Buy both, a wedge of each, and ask for them to be wrapped separately.
 
 **Main Ridge Dairy** is the smaller producer with a narrower but more intensely local range. The halloumi is excellent and grills well on a portable stove if you are doing a beach picnic with a burner. The feta is clean and bright and the right thing for a salad component.
 
@@ -66,7 +64,7 @@ Pick one, or visit both if they are on the same loop.
 
 ### Stop three: charcuterie, olives, and the rest
 
-**Green Olive at Red Hill** is the single most useful picnic stop on the Peninsula because it sells the three things you need in one place: olive oil, olives, and cured meats. The tapenade is the standout  -  rich, salty, and spreadable on the bread you bought thirty minutes ago. A jar of olives, a tub of tapenade, and a small bottle of olive oil is the middle of the picnic sorted.
+**Green Olive at Red Hill** is the most useful picnic stop on the Peninsula because it sells the three things you need in one place: olive oil, olives, and cured meats. The tapenade is the standout: rich, salty, and spreadable on the bread you bought thirty minutes ago. A jar of olives, a tub of tapenade, and a small bottle of olive oil is the middle of the picnic sorted.
 
 For additional produce: **Peninsula Fresh Organics** for seasonal fruit and vegetables (the cherry tomatoes in autumn are genuinely good), and **Mornington Peninsula Chocolates** for something sweet at the end.
 
@@ -76,13 +74,13 @@ If you are visiting on a Saturday morning, the **Red Hill Market** (first Saturd
 
 ### What to bring from home
 
-The things the Peninsula does not sell well at the farm gate: crackers (bring water crackers or lavosh), a decent knife, a cutting board, a blanket, cloth napkins if you want the version that photographs well, and reusable cups. A small cooler bag for the cheese. And a corkscrew  -  the Peninsula's cellar doors will sell you a bottle, but they won't open it for you to take away.
+The things the Peninsula does not sell well at the farm gate: crackers (bring water crackers or lavosh), a decent knife, a cutting board, a blanket, cloth napkins if you want the version that photographs well, and reusable cups. A small cooler bag for the cheese. And a corkscrew: the Peninsula's cellar doors will sell you a bottle, but they won't open it for you to take away.
 
 ## The wine
 
 Buy one bottle on the way through. The cellar doors that sell single bottles for takeaway without requiring a tasting are: **Merricks General Wine Store** (the best retail selection on the Peninsula, and you can walk in and buy a single bottle of excellent local pinot without sitting down), **Montalto**, **Red Hill Estate**, and most of the smaller producers.
 
-For a picnic, the right wine is a chilled pinot noir (the Peninsula does this better than almost anyone) or a rosé. In cooler weather, a bottle of the local chardonnay. Do not bring a heavy red  -  it fights the cheese and the bread and the outdoors.
+For a picnic, a chilled pinot noir (a Peninsula strength) or a rosé sits best. In cooler weather, a bottle of the local chardonnay. A heavy red tends to fight the cheese, the bread, and the outdoors.
 
 ## Where to eat it
 
@@ -90,35 +88,35 @@ The location matters as much as the food, and the Peninsula has a hierarchy of p
 
 ### The sculpture parks
 
-The best picnic setting on the Peninsula is the grounds of **Pt Leo Estate**  -  specifically the sculpture park that stretches along the coastal hillside above Western Port Bay. The park is free to enter, the grass is maintained, the views are extraordinary, and there are enough flat spots between the sculptures that a blanket feels intentional rather than improvised. This is the picnic that looks like a magazine shoot and costs nothing beyond the food.
+For a more elevated picnic setting on the Peninsula, the grounds of **Pt Leo Estate** are hard to beat, specifically the sculpture park that stretches along the coastal hillside above Western Port Bay. The park is free to enter, the grass is maintained, the views run for miles, and there are enough flat spots between the sculptures that a blanket feels intentional rather than improvised.
 
-**Montalto's sculpture trail** is the hinterland alternative  -  less dramatic views, but a beautiful walk through a vineyard-edge sculpture collection with several natural clearings that work as picnic settings. Check with the cellar door before setting up; they are generally relaxed about it.
+**Montalto's sculpture trail** is the hinterland alternative: less dramatic views, but a long walk through a vineyard-edge sculpture collection with several natural clearings that work as picnic settings. Check with the cellar door before setting up; they are generally relaxed about it.
 
 ### The lookout
 
-**Arthurs Seat** summit has dedicated picnic areas with bay views that stretch to Melbourne. The facilities are basic  -  some tables, some grass, a single café  -  but the elevation makes the setting. This is the family picnic option because the playground and the gondola ride are built in.
+**Arthurs Seat** summit has dedicated picnic areas with bay views that stretch to Melbourne. The facilities are basic (some tables, some grass, a single café), but the elevation makes the setting. The family option, with playground and gondola ride built in.
 
 ### The beaches
 
 **Mount Martha Beach** is the bay-side picnic beach. The northern end near the bathing boxes is sheltered, the sand is clean, and the shallow water means children can swim while the adults eat. Arrive before noon for a spot with shade from the Norfolk pines.
 
-**Balnarring Beach** is the quieter Western Port alternative. No kiosk, no crowd, and a ti-tree backdrop that provides natural shade. Bring everything  -  there is no fallback here.
+**Balnarring Beach** is the quieter Western Port alternative. No kiosk, no crowd, and a ti-tree backdrop that provides natural shade. Bring everything; there is no fallback here.
 
 ### The national park
 
-**Point Nepean National Park** has picnic areas near the fort and along the internal road. The setting is dramatic  -  ocean on both sides, military history underfoot, and a sense of being at the very end of the Peninsula that makes a picnic feel like an event. The walk from the car park to the fort takes about thirty minutes and the food tastes better for having carried it.
+**Point Nepean National Park** has picnic areas near the fort and along the internal road. The setting is dramatic: ocean on both sides, military history underfoot, and a sense of being at the very end of the Peninsula that makes a picnic feel like an event. The walk from the car park to the fort takes about thirty minutes and the food tastes better for having carried it.
 
 ### The foreshore
 
-The **Mornington foreshore** between the harbour and the bathing boxes is the most accessible picnic spot on the Peninsula. Park on the Esplanade, walk fifty metres to the grass, set up facing the bay. This is the after-work picnic, the spontaneous picnic, the picnic for people who do not want to drive to Red Hill first.
+The **Mornington foreshore** between the harbour and the bathing boxes is the most accessible picnic spot on the Peninsula. Park on the Esplanade, walk fifty metres to the grass, set up facing the bay. The after-work picnic, the spontaneous picnic, the picnic for anyone not heading up to Red Hill first.
 
 ## The timing
 
 The Peninsula picnic has a season and a clock, and both matter.
 
-**The season** is March through May and September through November. Summer is too hot and too crowded; winter is too wet. The autumn months are the sweet spot  -  warm enough to sit on grass, cool enough that the cheese does not sweat, quiet enough that the picnic spots are available.
+**The season** is March through May and September through November. Summer runs hot and crowded; winter runs wet. The autumn months are the sweet spot: warm enough to sit on grass, cool enough that the cheese does not sweat, quiet enough that the picnic spots are available.
 
-**The clock** runs like this: shop between 9 and 11, set up by noon, eat between 12:30 and 2, and pack up by 3. A picnic that starts after 2pm is a snack, not a meal. A picnic that runs past 4pm in autumn will get cold.
+**The clock** runs like this: shop between 9 and 11, set up by noon, eat between 12:30 and 2, and pack up by 3. A picnic that runs past 4pm in autumn will get cold.
 
 ## What a Peninsula picnic actually costs
 
@@ -137,7 +135,7 @@ For a family of four, swap the wine for sparkling water and juice, add a larger 
 
 ## The principle
 
-The Peninsula picnic is not a compromise. It is a format that the region is specifically built for  -  a food-producer region with public parkland, vineyard grounds, and coastal reserves that are all available, all free, and all better-suited to a blanket and a loaf than to a dining room with a booking system.
+The Peninsula picnic is a format the region is specifically built for: a food-producer region with public parkland, vineyard grounds, and coastal reserves, all available and often free, and well-suited to a blanket and a loaf.
 
 The people who eat best on the Peninsula are not always the ones with the best reservations. Sometimes they are the ones with the best bread.
 

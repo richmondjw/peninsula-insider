@@ -36,7 +36,7 @@ faq:
 
 The Peninsula weekend dies in the planning phase more often than it dies on the road.
 
-Someone suggests it on a Tuesday. Everyone agrees. Then comes the research  -  a dozen winery websites, an accommodation search that returns three hundred results, a restaurant that requires booking six weeks ahead, a hot springs session that only has a 7am slot, and a growing suspicion that the whole thing is too complicated to organise before Friday.
+Someone suggests it on a Tuesday. Everyone agrees. Then comes the research, a dozen winery websites, an accommodation search that returns three hundred results, a restaurant that requires booking six weeks ahead, a hot springs session that only has a 7am slot, and a growing suspicion that the whole thing is too complicated to organise before Friday.
 
 Most Peninsula weekends that never happen were killed by decision paralysis, not by logistics. The region has too many options, presented in no particular order, with no framework for choosing between them. This guide provides the framework.
 
@@ -50,7 +50,7 @@ This is the decision that determines everything else, and it is the one people m
 
 **A family.** Different trip entirely. The version that works has one anchor activity per day (gondola, beach, farm), a lunch that tolerates children, and accommodation with a kitchen so you can cook dinner instead of managing a restaurant with tired kids. Budget: $400–900.
 
-**A group of friends.** The Peninsula group weekend is either excellent or terrible, depending on whether someone takes charge of the plan. The critical decision: one shared dinner at a long table, everything else loosely coordinated. Do not try to keep six adults on the same schedule for an entire weekend. Budget: $200–400 per person.
+**A group of friends.** The Peninsula group weekend works when someone takes charge of the plan. The critical decision: one shared dinner at a long table, everything else loosely coordinated. Six adults rarely stay on the same schedule for a full weekend, and the trip is better for it. Budget: $200–400 per person.
 
 **Solo.** The underrated Peninsula trip. A long walk, a counter lunch, a cellar door tasting where you can talk to the winemaker without a group dynamic. The Peninsula solo day is covered in our [four-hour guide](/journal/the-four-hour-peninsula). Budget: $100–250.
 
@@ -70,11 +70,11 @@ Book the accommodation before the restaurants. The restaurants will adjust to yo
 
 ## Decision three: the anchor meal
 
-Every Peninsula weekend has one anchor meal  -  the lunch or dinner that the trip is organised around. Choose it next.
+Every Peninsula weekend has one anchor meal, the lunch or dinner that the trip is organised around. Choose it next.
 
 **For a Saturday lunch:** The Peninsula's best format. The restaurants are at their liveliest, the kitchens are fully staffed, and a long Saturday lunch followed by an afternoon of nothing is the experience the region was built to deliver.
 
-- **Ten Minutes by Tractor.** The Peninsula's best restaurant. Fixed menu, vineyard dining room, precise seasonal cooking. Book two to four weeks ahead. The anchor meal for a couple or a small group.
+- **Ten Minutes by Tractor.** Fixed menu, vineyard dining room, precise seasonal cooking, one of the Peninsula's most respected kitchens. Book two to four weeks ahead. The anchor meal for a couple or a small group.
 - **Montalto.** Warmer, more accessible, with a sculpture trail and a view. Book one to two weeks ahead. Works for families and groups.
 - **Tedesca Osteria.** Brigitte Hafner's wood-oven cooking in a farmhouse dining room. Better in winter than summer. Book early.
 - **Port Phillip Estate / Pt Leo Estate.** Two sister properties with serious dining rooms and coastal views. The more formal end of the Peninsula lunch.
@@ -91,33 +91,33 @@ Book the anchor meal before anything else. Everything on the weekend bends aroun
 With accommodation and the anchor meal locked in, fill the remaining time. The rule: no more than two planned activities per day beyond meals.
 
 **Morning moves (before lunch):**
-- **Arthurs Seat Eagle**  -  gondola to the summit (1 hour)
-- A cellar door  -  **Polperro**, **Montalto**, or **Crittenden** (45 minutes each)
-- A producer visit  -  **Red Hill Cheese**, **Main Ridge Dairy** (30 minutes)
-- **Red Hill Market**  -  first Saturday of the month only (1–2 hours)
-- **Alba Thermal Springs** or **Peninsula Hot Springs**  -  morning session (2 hours including drive)
+- **Arthurs Seat Eagle**, gondola to the summit (1 hour)
+- A cellar door, **Polperro**, **Montalto**, or **Crittenden** (45 minutes each)
+- A producer visit, **Red Hill Cheese**, **Main Ridge Dairy** (30 minutes)
+- **Red Hill Market**, first Saturday of the month only (1–2 hours)
+- **Alba Thermal Springs** or **Peninsula Hot Springs**, morning session (2 hours including drive)
 
 **Afternoon moves (after lunch):**
-- A beach walk  -  **Sorrento Back Beach**, **Mount Martha** (30–60 minutes)
-- **Pt Leo Sculpture Park**  -  free, coastal, contemplative (1 hour)
-- **Point Nepean National Park**  -  the fort walk to the tip (2 hours)
-- **Mornington Peninsula Gallery**  -  free, indoor, good for a rainy afternoon (45 minutes)
-- A second cellar door  -  only if the first one was short
+- A beach walk, **Sorrento Back Beach**, **Mount Martha** (30–60 minutes)
+- **Pt Leo Sculpture Park**, free, coastal, contemplative (1 hour)
+- **Point Nepean National Park**, the fort walk to the tip (2 hours)
+- **Mornington Peninsula Gallery**, free, indoor, good for a rainy afternoon (45 minutes)
+- A second cellar door, only if the first one was short
 
 **Evening moves:**
-- Sunset drinks  -  **Hotel Sorrento rooftop**, **Pt Leo Wine Terrace**, or **Flinders Hotel** beer garden
-- Hot springs evening session  -  both complexes run late
+- Sunset drinks, **Hotel Sorrento rooftop**, **Pt Leo Wine Terrace**, or **Flinders Hotel** beer garden
+- Hot springs evening session, both complexes run late
 - Nothing. Stay at the accommodation, open a bottle, read a book. The Peninsula evening does not need to be programmed.
 
 ## Decision five: the logistics
 
 The decisions that people agonise over but shouldn't.
 
-**When to leave Melbourne.** Friday evening if you are staying over, or Saturday by 9am if you are doing a day trip. Do not leave Melbourne after 10am on a Saturday  -  the freeway backs up from Frankston to the Peninsula turn-off. Sunday departures should aim for before 3pm to avoid the returning traffic.
+**When to leave Melbourne.** Friday evening if you are staying over, or Saturday by 9am if you are doing a day trip. Leaving Melbourne after 10am on a Saturday means the freeway backed up from Frankston to the Peninsula turn-off. Sunday departures should aim for before 3pm to avoid the returning traffic.
 
 **How much to book.** Book the accommodation and the anchor meal. Everything else can be walk-in, spontaneous, or decided on the morning. The Peninsula rewards flexibility more than planning.
 
-**What to pack.** Walking shoes, a jacket (the ridge is cooler than Melbourne even in summer), swimmers, a cooler bag for producer purchases, and a corkscrew. If staying in a rental, bring breakfast supplies  -  the nearest good café might be twenty minutes away.
+**What to pack.** Walking shoes, a jacket (the ridge is cooler than Melbourne even in summer), swimmers, a cooler bag for producer purchases, and a corkscrew. If staying in a rental, bring breakfast supplies, the nearest good café might be twenty minutes away.
 
 **How much it costs.** A realistic Peninsula weekend budget:
 
@@ -150,7 +150,7 @@ If you need a default and want to stop researching:
 
 That is the whole weekend. Two nights, one great meal, two or three experiences, a walk, a sunset, and enough unstructured time that nobody feels rushed.
 
-The Peninsula is not a place that rewards over-planning. It rewards showing up with one or two decisions made and the rest left open. The best weekends we have seen are the ones where the plan was loose enough to allow for the thing nobody expected  -  the cellar door that a local recommended, the beach that was empty, the restaurant that had a cancellation, the afternoon that turned into nothing and was perfect.
+The Peninsula rewards showing up with one or two decisions made and the rest left open. The best weekends tend to be the ones where the plan was loose enough to allow for the thing nobody expected: the cellar door a local recommended, the beach that was empty, the restaurant that had a cancellation, the afternoon that turned into nothing.
 
 Make the five decisions. Then stop planning and go.
 

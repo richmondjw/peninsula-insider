@@ -33,9 +33,9 @@ faq:
     answer: "Popular venues — hatted wineries, boutique properties — book twelve to twenty-four months in advance. Guest accommodation, transport, and secondary dining should be locked six to nine months out."
 ---
 
-The best Peninsula weddings feel like more than a ceremony and reception. They feel like a small destination experience with a clear centre of gravity. The region is built for that, but it only works if the weekend is shaped intentionally.
+The best Peninsula weddings feel like more than a ceremony and reception. They feel like a small destination experience with a clear centre of gravity. The region is built for that, and it tends to work best when the weekend is shaped intentionally.
 
-The mistake is to think of a wedding venue as the weekend plan. It is not. The venue is the anchor. The wedding weekend is everything around it.
+The venue is the anchor, not the whole plan. The wedding weekend is everything around it.
 
 ## What makes a Peninsula wedding weekend work
 
@@ -95,7 +95,7 @@ These are the moments that make the weekend feel complete:
 - late lunch or recovery brunch
 - optional winery or coastal stop for guests extending the trip
 
-This is where Peninsula Insider can outperform generic wedding directories. A wedding here should not stop at “venue secured”. It should become a Peninsula weekend with shape.
+A wedding here works best when it does not stop at "venue secured" but becomes a Peninsula weekend with shape.
 
 ## Step 4: know what kind of weekend you are actually building
 
@@ -108,22 +108,19 @@ Best when the venue is the hero and the surrounding pieces are tightly selected 
 ### The town-based weekend
 Best when guests need a strong social base and the wedding should spill into the town before and after the main event.
 
-## Common planning mistakes
+## What helps the weekend land
 
-- choosing the prettiest venue without solving guest stay logic
-- ignoring how transport changes guest energy and timing
-- over-programming the weekend
-- assuming guests want a full itinerary when many just want a clear, elegant structure
-- failing to plan the day after, which is often one of the most memorable parts of the whole event
+- match the venue to the guest stay logic
+- think about how transport shapes guest energy and timing
+- leave room in the schedule; many guests want a clear structure rather than a packed itinerary
+- plan the day after; it is often one of the most memorable parts of the whole event
 
-## Peninsula Insider's view
+## The shape that works
 
-The strongest Peninsula wedding weekends are not the ones with the most moving parts. They are the ones where every moving part belongs.
-
-A welcome drink in the wrong town, a stay cluster too far away, or a recovery brunch that feels bolted on can weaken the whole shape. The right version feels inevitable, as though the Peninsula itself is holding the weekend together.
+The strongest Peninsula wedding weekends are the ones where every moving part belongs. The welcome drink, the stay cluster, the recovery brunch all sit within the same place story, and the weekend feels inevitable, as though the Peninsula itself is holding it together.
 
 ## Final read
 
-If you are getting married on the Mornington Peninsula, do not just plan the wedding. Plan the weekend.
+If you are getting married on the Mornington Peninsula, plan the weekend, not only the wedding.
 
 That is the difference between a lovely event and a weekend people talk about for years.
