@@ -264,22 +264,22 @@ body[data-v4="true"] .masthead {
   /* Hide the desktop tagline on mobile — too long for the bar. */
   body[data-v4="true"] .masthead__brand .masthead__tagline { display: none; }
 
-  /* Mobile order: search left, wordmark centred, burger right. */
+  /* Mobile order: burger left, wordmark centred, search right. */
   body[data-v4="true"] .v4-mobile-actions {
     display: contents;
   }
   body[data-v4="true"] .v4-mobile-actions .v4-iconbtn {
-    grid-column: 1;
+    grid-column: 3;
     grid-row: 1;
-    justify-self: start;
+    justify-self: end;
   }
   body[data-v4="true"] .v4-mobile-actions .v4-ask-pill {
     display: none !important;
   }
   body[data-v4="true"] .v4-burger {
-    grid-column: 3;
+    grid-column: 1;
     grid-row: 1;
-    justify-self: end;
+    justify-self: start;
     flex-shrink: 0;
   }
 }
