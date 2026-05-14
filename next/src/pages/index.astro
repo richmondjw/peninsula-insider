@@ -502,7 +502,10 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
   .cover {
     background: #F6F1E8;
     color: #171413;
-    padding: 0 0 clamp(1rem, 1.5vw, 1.5rem);
+    /* Asymmetric vertical rhythm: real breathing room above the eyebrow
+       so it lifts off the masthead hairline, but a tight gap below so
+       "Also in this issue" reads as a continued spread, not a new band. */
+    padding: clamp(2rem, 4vw, 4rem) 0 clamp(0.75rem, 1.25vw, 1.25rem);
     border-bottom: 1px solid rgba(23, 20, 19, 0.08);
   }
   .cover__inner {
@@ -656,7 +659,9 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
      ────────────────────────────────────────────────────────────────────── */
   .cover-also {
     background: #F6F1E8;
-    padding: clamp(1rem, 1.5vw, 1.5rem) 0 clamp(2.5rem, 4.5vw, 4.5rem);
+    /* Tightened top (was 1–1.5rem) so the strip reads as part of the
+       same spread as the cover, not a fresh band. */
+    padding: clamp(0.5rem, 1vw, 1rem) 0 clamp(2.5rem, 4.5vw, 4.5rem);
     border-bottom: 1px solid rgba(23, 20, 19, 0.08);
   }
   .cover-also__head {
