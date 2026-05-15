@@ -234,9 +234,14 @@ const isAskPage = rawPathname.startsWith('/ask');
         index as `meta.image`. Without this, Pagefind tries to auto-detect
         an image from the first <img> tag in the body — which fails for
         most page types here because heroes use CSS background-image, not
-        real img elements. Single source of truth: ogImage. */}
+        real img elements. Single source of truth: ogImage.
+
+        IMPORTANT: no `hidden` attribute. Pagefind treats `hidden` and
+        display:none elements as invisible and skips them during indexing,
+        which means `data-pagefind-meta` attributes on hidden elements are
+        ignored. Empty <span> has zero visual impact regardless. */}
     {!searchExclude && ogImage && (
-      <span data-pagefind-meta={`image:${ogImage}`} hidden></span>
+      <span data-pagefind-meta={`image:${ogImage}`}></span>
     )}
     <slot />
   </main>
