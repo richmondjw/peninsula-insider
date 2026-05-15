@@ -10,7 +10,7 @@ verifiedBy: lucien
 verdict: "Worth driving out for this one course."
 sources:
   - kind: venue-site
-    url: https://www.tedescaosteria.com.au
+    url: https://www.tedesca.com.au
     checkedAt: 2026-05-01T07:40:00+10:00
 relatedVenue: tedesca-osteria
 status: published
