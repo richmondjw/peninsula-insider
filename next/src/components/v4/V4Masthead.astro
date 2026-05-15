@@ -9,6 +9,9 @@
  * (V4MobileDrawer mounted in V4BaseLayout).
  */
 import { v4Pillars, v4Utility } from '../../lib/v4-nav';
+import { getPublicationEdition } from '../../lib/edition';
+
+const _edition = getPublicationEdition();
 import V4PillarLink from './V4PillarLink.astro';
 import V4MegaPanel from './V4MegaPanel.astro';
 
@@ -25,8 +28,8 @@ export interface Props {
 
 const {
   section = 'home',
-  issueMark = 'Vol 04',
-  issueLabel = "The May Issue · May 2026",
+  issueMark = _edition.mark,
+  issueLabel = _edition.label,
   conditionPort = 'Sorrento',
   conditionTemp = '16°C',
   conditionSunset = '5:48 pm',

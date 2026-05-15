@@ -186,6 +186,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: 2px;
   white-space: nowrap;
 }
+.masthead__edition-mark:empty { display: none; }
 .masthead__edition-label {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;

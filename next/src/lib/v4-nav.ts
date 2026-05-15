@@ -394,7 +394,7 @@ export const v4Pillars: V4Pillar[] = [
     href: '/journal/',
     intro: 'Long reads, dispatches, and the Shortlist, every issue, every piece.',
     rail: {
-      eyebrow: 'The cover · Vol 04',
+      eyebrow: 'Editor’s pick · Autumn ’26',
       title: 'On the quiet authority of a good autumn',
       verdict: "The season the Peninsula stops performing. Vintage trucks finished, weekend crowds thinning, the producers finally with time.",
       image: '/images/sourced/place-red-hill-01.webp',
