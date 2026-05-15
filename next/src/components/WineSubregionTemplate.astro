@@ -17,7 +17,7 @@ import Breadcrumbs from './Breadcrumbs.astro';
 import VenueCard from './VenueCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import PlaceMap from './PlaceMap.astro';
-import { routeSlug } from '../lib/editorial';
+import { routeSlug, titleize, resolveHeroSrc, formatHeroCredit } from '../lib/editorial';
 
 export interface AnchorPick {
   venueSlug: string;
@@ -88,24 +88,119 @@ const topAuthority = venues
   .map((v) => Number(v.data.authority?.hallidayScore ?? 0))
   .filter((n) => n > 0)
   .sort((a, b) => b - a)[0];
+
+// Sub-region label without the trailing " Wineries" — used in multiple
+// places below, so compute once.
+const subregionLabel = h1.replace(/\s+Wineries\s*$/i, '');
+
+// Map the linked place's zone to a hero gradient class, matching the
+// pattern on /places/[slug]/. Falls back to a generic vineyard gradient
+// when the place is unset or its zone is unknown.
+const zoneGradient: Record<string, string> = {
+  'red-hill-plateau': 'hero-grad--hinterland',
+  hinterland: 'hero-grad--hinterland',
+  bayside: 'hero-grad--bay',
+  'ocean-coast': 'hero-grad--sand',
+  'back-beaches': 'hero-grad--sand',
+  tip: 'hero-grad--stay',
+};
+const heroGradientClass = (place && zoneGradient[place.data.zone]) ?? 'hero-grad--vineyard';
+
+// Wave 1 — Wine sub-region pages inherit editorial fields from the matching
+// place entry (signature, factsheet text, etc.) when available. Wave 2 will
+// allow per-page overrides via additional props.
+const inheritedSignature = place?.data?.signature ?? null;
+const placeHeroSrc = place ? resolveHeroSrc(place.data) : null;
+const placeHeroAlt = place?.data?.heroImage?.alt ?? `${subregionLabel}, Mornington Peninsula`;
+const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 ---
 
 <Breadcrumbs items={breadcrumbs} />
 
-<section class="place-detail">
+{/* ═══════════════════════════════════════════════════════════════════════
+    WAVE 1 — Magazine hero, designed factsheet, scoreboard
+    Mirrors the visual treatment shipped on /places/[slug]/ so the wine
+    sub-region pages stop reading as directory headers. Inherits the
+    matching place's heroImage + signature line; Wave 2 will allow
+    per-page overrides via additional props.
+═══════════════════════════════════════════════════════════════════════ */}
+
+<!-- HERO — type column + cinematic image column. Stacks at mobile.
+     Falls back to a plain title block if no `place` entry was passed in. -->
+<section class="wine-hero">
   <div class="container">
-    <p class="place-detail__eyebrow">{badgeLabel}</p>
-    <h1 class="place-detail__title">{h1}</h1>
-
-    <div class="prose">
-      {introText.split('\n\n').map((p) => <p>{p}</p>)}
+    <div class={`wine-hero__grid${placeHeroSrc ? '' : ' wine-hero__grid--no-image'}`}>
+      <div class="wine-hero__type">
+        <p class="wine-hero__eyebrow">{badgeLabel}</p>
+        <h1 class="wine-hero__title">{h1}</h1>
+        {inheritedSignature && (
+          <p class="wine-hero__signature">"{inheritedSignature}"</p>
+        )}
+        <div class="wine-hero__intro prose">
+          {introText.split('\n\n').map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+      {placeHeroSrc && (
+        <figure class={`wine-hero__image ${heroGradientClass}`}>
+          <img
+            src={placeHeroSrc}
+            alt={placeHeroAlt}
+            loading="eager"
+            decoding="async"
+          />
+          {placeHeroCredit && (
+            <figcaption class="wine-hero__credit">{formatHeroCredit(placeHeroCredit)}</figcaption>
+          )}
+        </figure>
+      )}
     </div>
+  </div>
+</section>
 
-    <dl class="place-detail__stats">
-      <div><dt>Producers mapped</dt><dd>{totalProducers}</dd></div>
-      {hattedCount > 0 && <div><dt>Hatted restaurants</dt><dd>{hattedCount}</dd></div>}
-      {topAuthority && <div><dt>Top Halliday score</dt><dd>{topAuthority}</dd></div>}
-      <div><dt>Sub-region</dt><dd>{h1.replace(' Wineries', '')}</dd></div>
+<!-- FACTSHEET — 6-cell designed grid blending wine-specific numbers with
+     place metadata. Renders only cells that have content. -->
+<section class="wine-factsheet">
+  <div class="container">
+    <dl class="wine-factsheet__grid">
+      <div class="wine-factsheet__cell">
+        <dt>Producers mapped</dt>
+        <dd>{totalProducers}</dd>
+      </div>
+      {hattedCount > 0 && (
+        <div class="wine-factsheet__cell">
+          <dt>Hatted producers</dt>
+          <dd>{hattedCount}</dd>
+        </div>
+      )}
+      {topAuthority && (
+        <div class="wine-factsheet__cell">
+          <dt>Top Halliday</dt>
+          <dd>{topAuthority}</dd>
+        </div>
+      )}
+      {place?.data?.driveTime && (
+        <div class="wine-factsheet__cell">
+          <dt>From Melbourne</dt>
+          <dd>{place.data.driveTime}</dd>
+        </div>
+      )}
+      {place?.data?.bestSeason && (
+        <div class="wine-factsheet__cell">
+          <dt>Best season</dt>
+          <dd>{place.data.bestSeason}</dd>
+        </div>
+      )}
+      {place?.data?.worstTime ? (
+        <div class="wine-factsheet__cell">
+          <dt>When to skip</dt>
+          <dd>{place.data.worstTime}</dd>
+        </div>
+      ) : (
+        <div class="wine-factsheet__cell">
+          <dt>Sub-region</dt>
+          <dd>{subregionLabel}</dd>
+        </div>
+      )}
     </dl>
   </div>
 </section>
@@ -148,12 +243,40 @@ const topAuthority = venues
   </section>
 )}
 
+<!-- AT-A-GLANCE SCOREBOARD — dark-ink anchor strip showing what's on the
+     page. Matches the equivalent strip on /places/[slug]/. -->
+<section class="wine-scoreboard" aria-label={`${subregionLabel} sub-region contents`}>
+  <div class="container">
+    <p class="wine-scoreboard__label label label--accent">What's mapped here</p>
+    <ul class="wine-scoreboard__list">
+      {totalProducers > 0 && (
+        <li><a href="#producers"><strong>{totalProducers}</strong><span>cellar doors & producers</span></a></li>
+      )}
+      {anchors.length > 0 && (
+        <li><a href="#anchors"><strong>{anchors.length}</strong><span>editor's anchors</span></a></li>
+      )}
+      {hattedCount > 0 && (
+        <li><a href="#producers"><strong>{hattedCount}</strong><span>hatted producers</span></a></li>
+      )}
+      {journalLinks.length > 0 && (
+        <li><a href="#journal"><strong>{journalLinks.length}</strong><span>journal pieces</span></a></li>
+      )}
+      {nearbySubregions.length > 0 && (
+        <li><a href="#nearby"><strong>{nearbySubregions.length}</strong><span>nearby sub-regions</span></a></li>
+      )}
+      {faqItems.length > 0 && (
+        <li><a href="#faqs"><strong>{faqItems.length}</strong><span>answered questions</span></a></li>
+      )}
+    </ul>
+  </div>
+</section>
+
 <section class="venues venues--plain" id="producers">
   <div class="container">
     <div class="venues__header">
       <div>
         <p class="label label--accent">Every producer · {new Date().getFullYear()}</p>
-        <h2 class="venues__title">{totalProducers} cellar door{totalProducers !== 1 ? 's and producers' : ' / producer'} in {h1.replace(' Wineries', '')}</h2>
+        <h2 class="venues__title">{totalProducers} cellar door{totalProducers !== 1 ? 's and producers' : ' / producer'} in {subregionLabel}</h2>
         <p class="venues__sub">Ordered by editorial authority and Halliday score. Each card opens the full editor's note.</p>
       </div>
       <a href="/wine/" class="venues__link">All producers →</a>
@@ -284,7 +407,7 @@ const topAuthority = venues
 )}
 
 {faqItems.length > 0 && (
-  <section class="faq-section">
+  <section class="faq-section" id="faqs">
     <div class="container">
       <div class="prose">
         <h2>Frequently asked questions</h2>
@@ -300,3 +423,210 @@ const topAuthority = venues
 )}
 
 <NewsletterBlock />
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════════
+     WINE SUBREGION TEMPLATE — Wave 1 visual lift (2026-05-13)
+
+     Three new top-of-page sections (.wine-hero, .wine-factsheet,
+     .wine-scoreboard) mirror the equivalent patterns on /places/[slug]/.
+     Rest of the template (terroir, anchors, venue grid, Chardonnay/Pinot,
+     pair-with-village, logistics, map, journal, nearby, FAQ) keeps its
+     existing classes — those sections are untouched.
+  ═══════════════════════════════════════════════════════════════════════ */
+
+  /* ── HERO ────────────────────────────────────────────────────────────── */
+  .wine-hero {
+    padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+    background: var(--paper, #FAF6EE);
+  }
+  .wine-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.75rem, 3vw, 2.5rem);
+    align-items: center;
+  }
+  @media (min-width: 880px) {
+    .wine-hero__grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(2.5rem, 4vw, 4rem);
+    }
+    .wine-hero__grid--no-image {
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 56rem;
+    }
+  }
+  .wine-hero__eyebrow {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent, #A0541F);
+    margin: 0 0 1rem;
+  }
+  .wine-hero__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink, #171413);
+    margin: 0 0 1.2rem;
+  }
+  .wine-hero__signature {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.7vw, 1.3rem);
+    line-height: 1.4;
+    color: var(--accent, #A0541F);
+    margin: 0 0 1.3rem;
+    max-width: 32rem;
+  }
+  .wine-hero__intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--ink, #171413);
+    max-width: 36rem;
+  }
+  .wine-hero__intro p {
+    font-size: clamp(1rem, 1.15vw, 1.1rem);
+    line-height: 1.6;
+    margin: 0 0 0.85rem;
+  }
+  .wine-hero__intro p:last-child { margin-bottom: 0; }
+  .wine-hero__image {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(30, 27, 24, 0.08);
+  }
+  @media (min-width: 880px) {
+    .wine-hero__image { aspect-ratio: 16 / 11; }
+  }
+  .wine-hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .wine-hero__credit {
+    position: absolute;
+    bottom: 0.65rem;
+    right: 0.85rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    border-radius: 2px;
+  }
+
+  /* ── FACTSHEET ──────────────────────────────────────────────────────── */
+  .wine-factsheet {
+    padding: clamp(2rem, 3vw, 2.75rem) 0;
+    background: var(--paper-warm, #F4EEE2);
+    border-top: 1px solid rgba(121, 92, 58, 0.12);
+    border-bottom: 1px solid rgba(121, 92, 58, 0.12);
+  }
+  .wine-factsheet__grid {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    background:
+      linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 1px 100% no-repeat,
+      linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 100% 1px no-repeat;
+  }
+  @media (min-width: 720px) {
+    .wine-factsheet__grid {
+      grid-template-columns: repeat(3, 1fr);
+      background:
+        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) 33.33% 0 / 1px 100% no-repeat,
+        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) 66.66% 0 / 1px 100% no-repeat,
+        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 100% 1px no-repeat;
+    }
+  }
+  .wine-factsheet__cell {
+    padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1rem, 2vw, 1.6rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .wine-factsheet__cell dt {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent, #A0541F);
+    margin: 0;
+  }
+  .wine-factsheet__cell dd {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.3;
+    color: var(--ink, #171413);
+    margin: 0;
+  }
+
+  /* ── SCOREBOARD ─────────────────────────────────────────────────────── */
+  .wine-scoreboard {
+    padding: clamp(2rem, 3vw, 2.75rem) 0;
+    background: var(--ink, #171413);
+    color: var(--paper, #FAF6EE);
+  }
+  .wine-scoreboard__label {
+    color: rgba(250, 246, 238, 0.65);
+    margin: 0 0 1.25rem;
+  }
+  .wine-scoreboard__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+  }
+  @media (min-width: 640px) {
+    .wine-scoreboard__list { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 980px) {
+    .wine-scoreboard__list { grid-template-columns: repeat(6, 1fr); gap: 0 1.5rem; }
+  }
+  .wine-scoreboard__list li a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.9rem 0;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid rgba(250, 246, 238, 0.12);
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+  .wine-scoreboard__list li a:hover {
+    color: var(--accent, #C68B4F);
+    border-color: rgba(250, 246, 238, 0.4);
+  }
+  .wine-scoreboard__list strong {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    line-height: 1;
+    color: var(--paper, #FAF6EE);
+  }
+  .wine-scoreboard__list span {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(250, 246, 238, 0.7);
+  }
+  .wine-scoreboard__list li a:hover strong { color: var(--accent, #C68B4F); }
+</style>
