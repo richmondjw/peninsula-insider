@@ -96,6 +96,124 @@ MAX_WORD_COUNTS = {
     "stay-notes":            1500,
 }
 
+# ---------------------------------------------------------------------------
+# Internal Editorial Structure Framework — checks for §4.5 of the Style Guide
+# Framework lives at: peninsula-insider-vault/03-editorial/editorial-structure-framework.md
+# Phase coverage: orientation, payoffs, planning value, continuation.
+# Started as warnings only — promote to errors after a corpus-wide sweep.
+# ---------------------------------------------------------------------------
+
+# Formats the framework applies to (long-form planning pieces).
+# Excluded: weekend-picker (short dispatches), editors-letter (opinion), interview (Q&A).
+FRAMEWORK_FORMATS = {
+    "service", "slow-peninsula", "insider-edit", "long-lunch-list",
+    "investigation", "cellar-door-dispatch", "stay-notes",
+}
+# Planning-value applies only to pieces that promise utility.
+PLANNING_VALUE_FORMATS = {
+    "service", "insider-edit", "long-lunch-list", "stay-notes",
+}
+
+# Orientation: lede must signal one of mood / problem / why-this-matters / experience type.
+# Heuristics: detect generic openings (warn) and absence of orientation markers (warn).
+GENERIC_OPENING_PATTERNS = [
+    r"^welcome to ",
+    r"^as (summer|autumn|winter|spring) ",
+    r"^the mornington peninsula (is|offers) ",
+    r"^nestled ",
+    r"^picture ",
+    r"^imagine ",
+    r"^there is something (special|magical|wonderful) ",
+]
+ORIENTATION_MARKERS = [
+    r"\bworks best\b",
+    r"\bbest experienced\b",
+    r"\btreat (it|this) as\b",
+    r"\bfail because\b",
+    r"\bproblem (is|with)\b",
+    r"\bbest when\b",
+    r"\bif you ",   # conditional planning frame
+    r"\bmost (people|visitors|travellers) ",
+    r"\bthe trick is\b",
+    r"\bdo this if\b",
+]
+
+# Payoffs: each H2 section should answer the "so what" at least once.
+PAYOFF_MARKERS = [
+    r"\bthis is what makes\b",
+    r"\bthis works best\b",
+    r"\bthe best version\b",
+    r"\bthis is where\b",
+    r"\bbest for\b",
+    r"\bsuits (families|couples|groups|solo|kids|locals)\b",
+    r"\bworth the (drive|trip|walk|wait)\b",
+    r"\bworth doing\b",
+    r"\bworth a (visit|stop|detour)\b",
+    r"\bthe payoff is\b",
+    r"\bthe point is\b",
+    r"\bwhat makes (this|it) work\b",
+    r"\bif you have\b",       # "if you have an hour..."
+    r"\ballow (\d|an? )",     # "allow an hour", "allow 90 minutes"
+]
+
+# Planning value: piece should answer at least two of these categories.
+PLANNING_CATEGORIES = {
+    "timing": [
+        r"\ballow (\d|an? )",
+        r"\b(\d+)\s*(minute|hour|min|hr)s?\b",
+        r"\bhalf a day\b", r"\bhalf.day\b",
+        r"\bmid-afternoon\b", r"\bby lunchtime\b",
+        r"\bby late afternoon\b",
+    ],
+    "suitability": [
+        r"\bsuits (families|couples|groups|solo|kids|locals|dogs)\b",
+        r"\bbest for\b",
+        r"\b(family|kid|dog).friendly\b",
+        r"\bwith (kids|children|dogs)\b",
+        r"\bdate (night|day)\b",
+    ],
+    "pairing": [
+        r"\bcombine (with|nearby)\b",
+        r"\bpair (this|it) with\b",
+        r"\bbest paired with\b",
+        r"\bnext stop\b",
+        r"\bfollow this with\b",
+        r"\bfrom here\b",
+        r"\bnearby (you|is|are)\b",
+        r"\bif you have more time\b",
+    ],
+    "weather": [
+        r"\brainy day\b",
+        r"\bbad weather\b",
+        r"\bworks in (rain|cold|wind|summer|winter|autumn|spring)\b",
+        r"\bweather suitability\b",
+        r"\bif (it|the weather) (rains|turns)\b",
+        r"\bin colder weather\b",
+        r"\bin warmer weather\b",
+    ],
+}
+
+# Continuation: piece should end on a move, not stop.
+CONTINUATION_MARKERS = [
+    r"\bbest paired with\b",
+    r"\bworth extending\b",
+    r"\bworks best as part of\b",
+    r"\bcontinue (toward|to|with)\b",
+    r"\bpair this with\b",
+    r"\bif (the weather|it) turns\b",
+    r"\bfrom here,?\b",
+    r"\bnext stop\b",
+    r"\bfollow this with\b",
+    r"\bif you have more time\b",
+    r"\bif you have an? (extra|more)\b",
+    r"\bextending into\b",
+    r"\binto an overnight\b",
+    r"\bover to\b",         # "over to Sorrento for..."
+    r"\bend the day\b",
+    r"\bstay the night\b",
+    r"\bcarry on to\b",
+]
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -224,6 +342,130 @@ def check_faq_length(slug: str, text: str) -> list[dict]:
     return issues
 
 
+def _strip_markdown_body(body: str) -> str:
+    """Strip H2+/HTML/quotes so paragraph-level checks see prose, not markup."""
+    text = re.sub(r"^#{1,6}\s.*$", "", body, flags=re.MULTILINE)
+    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"`[^`]+`", "", text)
+    return text
+
+
+def _split_h2_sections(body: str) -> list[tuple[str, str]]:
+    """Return [(heading, section_body)] for each H2 section."""
+    sections: list[tuple[str, str]] = []
+    parts = re.split(r"^##\s+(.+?)$", body, flags=re.MULTILINE)
+    # parts: [pre-amble, h2_1, body_1, h2_2, body_2, ...]
+    for i in range(1, len(parts), 2):
+        heading = parts[i].strip()
+        section_body = parts[i + 1] if (i + 1) < len(parts) else ""
+        # Trim at next H1 if any
+        section_body = re.split(r"^#\s+", section_body, flags=re.MULTILINE)[0]
+        sections.append((heading, section_body))
+    return sections
+
+
+def _matches_any(text: str, patterns: list[str]) -> bool:
+    for p in patterns:
+        if re.search(p, text, re.IGNORECASE | re.MULTILINE):
+            return True
+    return False
+
+
+def check_framework_orientation(slug: str, body: str, fmt: str) -> list[dict]:
+    """Lede must signal mood / problem / why-this-matters / experience type.
+    Generic openings or absence of orientation markers in the first 2 paragraphs flag a warning."""
+    if fmt not in FRAMEWORK_FORMATS:
+        return []
+    issues: list[dict] = []
+    prose = _strip_markdown_body(body).strip()
+    if not prose:
+        return issues
+    # First two paragraphs only
+    paragraphs = [p.strip() for p in re.split(r"\n\s*\n", prose) if p.strip()]
+    lede = "\n\n".join(paragraphs[:2]).lower()
+    if not lede:
+        return issues
+    # Generic opening?
+    if _matches_any(lede, GENERIC_OPENING_PATTERNS):
+        issues.append({
+            "slug": slug, "check": "framework_orientation",
+            "severity": "warning",
+            "message": "Lede opens with a generic / tourism-style frame — establish mood, problem, or why-this-matters instead",
+        })
+        return issues
+    # No orientation marker at all?
+    if not _matches_any(lede, ORIENTATION_MARKERS):
+        issues.append({
+            "slug": slug, "check": "framework_orientation",
+            "severity": "warning",
+            "message": "Lede has no orientation marker (mood / problem / why-this-matters / experience type) — see framework §1",
+        })
+    return issues
+
+
+def check_framework_payoffs(slug: str, body: str, fmt: str) -> list[dict]:
+    """Each H2 section should answer 'so what' at least once. Sections without a payoff marker flag a warning."""
+    if fmt not in FRAMEWORK_FORMATS:
+        return []
+    issues: list[dict] = []
+    sections = _split_h2_sections(body)
+    if not sections:
+        return issues
+    missing: list[str] = []
+    for heading, section_body in sections:
+        prose = _strip_markdown_body(section_body)
+        if word_count(prose) < 40:  # short callout sections excused
+            continue
+        if not _matches_any(prose, PAYOFF_MARKERS):
+            missing.append(heading)
+    if missing:
+        sample = ", ".join(f"`{h}`" for h in missing[:3])
+        more = "" if len(missing) <= 3 else f" (and {len(missing) - 3} more)"
+        issues.append({
+            "slug": slug, "check": "framework_payoffs",
+            "severity": "warning",
+            "message": f"{len(missing)} section(s) without a 'so what' payoff sentence: {sample}{more} — see framework §5",
+        })
+    return issues
+
+
+def check_framework_planning_value(slug: str, body: str, fmt: str) -> list[dict]:
+    """Planning pieces should answer at least 2 of: timing / suitability / pairing / weather."""
+    if fmt not in PLANNING_VALUE_FORMATS:
+        return []
+    issues: list[dict] = []
+    prose = _strip_markdown_body(body)
+    if not prose:
+        return issues
+    hit_categories = sum(1 for patterns in PLANNING_CATEGORIES.values() if _matches_any(prose, patterns))
+    if hit_categories < 2:
+        issues.append({
+            "slug": slug, "check": "framework_planning_value",
+            "severity": "warning",
+            "message": f"Piece signals only {hit_categories}/4 planning categories (timing / suitability / pairing / weather) — reads as description, not plan; see framework §6",
+        })
+    return issues
+
+
+def check_framework_continuation(slug: str, body: str, fmt: str) -> list[dict]:
+    """Piece should end on a continuation move (best paired with / worth extending / continue toward / ...)."""
+    if fmt not in FRAMEWORK_FORMATS:
+        return []
+    issues: list[dict] = []
+    prose = _strip_markdown_body(body).strip()
+    if not prose:
+        return issues
+    paragraphs = [p.strip() for p in re.split(r"\n\s*\n", prose) if p.strip()]
+    tail = " ".join(paragraphs[-2:]).lower()
+    if not _matches_any(tail, CONTINUATION_MARKERS):
+        issues.append({
+            "slug": slug, "check": "framework_continuation",
+            "severity": "warning",
+            "message": "Piece ends abruptly — no continuation move (pair / extend / continue / next stop). See framework §7",
+        })
+    return issues
+
+
 def check_duplicate_intent(articles: list[dict]) -> list[dict]:
     """Flag pairs of articles with identical or very similar titles/tags."""
     issues = []
@@ -297,6 +539,10 @@ def run_audit() -> tuple[list[dict], list[dict]]:
         all_issues += check_word_count(slug, body, fmt)
         all_issues += check_stale_venue_refs(slug, data)
         all_issues += check_faq_length(slug, raw)
+        all_issues += check_framework_orientation(slug, body, fmt)
+        all_issues += check_framework_payoffs(slug, body, fmt)
+        all_issues += check_framework_planning_value(slug, body, fmt)
+        all_issues += check_framework_continuation(slug, body, fmt)
 
     all_issues += check_duplicate_intent(article_meta)
     all_issues += check_venue_editor_notes()

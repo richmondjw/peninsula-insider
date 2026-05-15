@@ -1,6 +1,6 @@
 # Peninsula Insider Editorial Style Guide
-**Version:** 1.0  
-**Established:** 2026-05-11  
+**Version:** 1.1  
+**Established:** 2026-05-11 (v1.0); structural-flow rules added 2026-05-15 (v1.1)  
 **Owner:** Peninsula Insider Editorial  
 **Enforced by:** `ops/scripts/editorial-quality-check.py` (weekly CRON + PR gate)
 
@@ -152,7 +152,30 @@ Strong: "The gallery, the distillery, the pub  -  in that order"
 - FAQ answers should answer the specific question — not restate it.
 - No FAQ answer should duplicate content already in the article body.
 
-### 4.5 Paragraph length
+### 4.5 Editorial flow — the seven-phase structure
+
+Every PI editorial is built against the Internal Editorial Structure Framework (vault: `peninsula-insider-vault/03-editorial/editorial-structure-framework.md`). The framework is the load-bearing flow from open to close. The four mechanical rules below are the parts the auto-checker enforces.
+
+**4.5.1 Orientation in the lede.** The opening paragraph must establish at least one of: mood / core insight, the problem or question the piece answers, why this place or experience matters, or the kind of experience the piece is helping shape. Generic tourism openings, broad scene-setting, and unnecessary history are flagged.
+
+**4.5.2 Sequencing over description.** Where a piece is about a day, weekend, walk, route, or trip, the body should make the sequence visible — what comes first, what matters most, what works together. Pieces that stack descriptive paragraphs without progression are flagged.
+
+**4.5.3 Payoff sentences in each section.** Each H2 section should quietly answer the *so what* — *Why does this matter? Who is this best for? Why is this worth doing?* Example payoffs:
+
+- "This is what makes the drive worthwhile."
+- "This works best in colder weather."
+- "The best version of this stop is slower than people expect."
+- "This is where the Peninsula starts to feel properly coastal."
+
+Sections without a payoff sentence are surfaced as a warning.
+
+**4.5.4 Planning value.** Strong PI pieces answer at least two of: *Is this worth the drive? How long should I allow? What should I combine nearby? What works in bad weather? Who does it suit? What pace suits this experience?* The auto-checker scores planning value per piece and flags those that read as pure description.
+
+**4.5.5 Continuation, not stop.** Pieces should end on a continuation move — recap the experience type, name who it suits, suggest the nearby or follow-on. Acceptable endings include "Best paired with…", "Worth extending into an overnight stay.", "Works best as part of a slower Peninsula weekend.", "If the weather turns, continue toward…". Pieces that end abruptly without one of these moves are flagged.
+
+**4.5.6 Readability rhythm.** Inherits from §4.6 below. Prioritise shorter paragraphs, breathing room between ideas, stronger section rhythm, and cleaner transitions. Avoid dense text walls, repeated sentence cadence, overly literary phrasing, excessive editorial commentary, and over-explaining.
+
+### 4.6 Paragraph length
 
 - Service pieces: maximum 5 sentences per paragraph in body sections.
 - Slow-peninsula format: up to 7 sentences is acceptable.
@@ -283,6 +306,7 @@ The `editorial-quality.yml` workflow runs on every PR that modifies content. Err
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-05-11 | Initial version — derived from full corpus editorial review |
+| 1.1 | 2026-05-15 | Added §4.5 *Editorial flow — the seven-phase structure*: orientation in the lede, sequencing over description, payoff sentences per section, planning value, continuation endings, readability rhythm. References the Internal Editorial Structure Framework in the vault. Linter checks for orientation / payoff / continuation will land in a follow-on PR (start as warnings). |
 
 ---
 
