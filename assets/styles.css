@@ -7311,6 +7311,101 @@ p.has-drop-cap::first-letter {
   font-size: clamp(1.15rem, 4.4vw, 1.4rem);
   font-weight: 500;
 }
+
+/* ── Split-button mobile nav items ──
+   Text = <a> navigates to hub page.
+   Chevron = <button> toggles submenu.
+   Matches the visual rhythm of .mobile-nav__link. */
+.mobile-nav__split {
+  border-bottom: 1px solid var(--border);
+}
+.mobile-nav__split-link {
+  display: flex;
+  align-items: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 5.5vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--dark);
+  padding: clamp(0.7rem, 1.8vh, 0.95rem) 0;
+  text-decoration: none;
+  flex: 1;
+  transition: color .2s var(--ease), padding-left .2s var(--ease);
+}
+.mobile-nav__split-link[aria-current="page"],
+.mobile-nav__split--current .mobile-nav__split-link {
+  color: var(--accent);
+}
+.mobile-nav__split-link:hover,
+.mobile-nav__split-link:active {
+  color: var(--accent);
+  padding-left: 0.35rem;
+}
+.mobile-nav__split > .mobile-nav__split-link {
+  /* sits alongside the toggle button in a flex row */
+  display: inline-flex;
+  width: calc(100% - 3rem);
+}
+.mobile-nav__split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+.mobile-nav__split-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0.5rem 0.25rem 0.5rem 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  color: var(--soft);
+  transition: color .2s var(--ease);
+}
+.mobile-nav__split-toggle:hover,
+.mobile-nav__split-toggle.is-open {
+  color: var(--accent);
+}
+.mobile-nav__split-chev {
+  transition: transform .22s var(--ease);
+}
+.mobile-nav__split-toggle.is-open .mobile-nav__split-chev {
+  transform: rotate(180deg);
+}
+/* Submenu panel */
+.mobile-nav__submenu {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0.2rem 0 0.65rem 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.mobile-nav__submenu-link {
+  display: block;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+  font-weight: 400;
+  color: var(--soft);
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  text-decoration: none;
+  transition: color .15s var(--ease), padding-left .15s var(--ease);
+}
+.mobile-nav__submenu li:last-child .mobile-nav__submenu-link {
+  border-bottom: 0;
+}
+.mobile-nav__submenu-link:hover,
+.mobile-nav__submenu-link:active {
+  color: var(--accent);
+  padding-left: 0.5rem;
+}
+
 .mobile-nav__footer {
   margin-top: auto;
   padding: clamp(1.5rem, 4vh, 2.25rem) 0 clamp(2rem, 5vh, 3rem);
@@ -9103,6 +9198,39 @@ body.menu-open .subscribe-pill {
   letter-spacing: 0.04em;
   color: var(--soft);
   padding-left: 0.2rem;
+}
+
+/* Mobile List/Map tab bar — hidden on desktop */
+.map-page__tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  background: var(--paper, #fbf7f0);
+}
+.map-page__tab {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  padding: 0.75rem 1rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft);
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+}
+.map-page__tab--active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+@media (min-width: 880px) {
+  .map-page__tabs { display: none; }
+  /* On desktop, always show both panels */
+  [data-map-panel] { display: flex !important; }
+  [data-map-panel][hidden] { display: flex !important; }
 }
 
 .map-page__layout {
