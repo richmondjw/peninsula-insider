@@ -100,6 +100,13 @@ body[data-v4="true"] .masthead {
   margin-top: 1px;
   transition: transform var(--v4-mega-open-delay) var(--v4-ease);
 }
+/* Peninsula silhouette icon next to the Map nav label. Sized smaller than
+   the body type and slightly de-emphasised so the label leads visually. */
+.v4-pillars__map-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+  margin-top: -1px;             /* optical alignment with cap-height */
+}
 .v4-pillars__item.is-open .v4-pillars__chev { transform: rotate(180deg); }
 .v4-pillars__link:focus-visible {
   outline: none;
@@ -618,6 +625,25 @@ body[data-v4="true"] .masthead {
   text-align: left;
 }
 .v4-drawer__pillar-trigger[aria-expanded="true"] { color: var(--accent); }
+/* Flat link variant — used by the Map item below the expandable pillars.
+   No chevron, no expandable body; renders the Peninsula silhouette icon
+   inline with the label and matches the trigger's typography so the row
+   sits with the pillars naturally. */
+.v4-drawer__pillar-flat-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  color: var(--text);
+  text-decoration: none;
+}
+.v4-drawer__pillar-flat-link svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
 .v4-drawer__pillar-trigger-arrow {
   width: 12px; height: 12px;
   transition: transform 200ms var(--v4-ease);

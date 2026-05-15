@@ -3,10 +3,13 @@
  * V4 MegaPanel — full-width editorial panel anchored to the nav row.
  *
  * Anatomy:
- *   1. Intro line (italic Cormorant, soft colour)
- *   2. Optional top banner (used by What's On)
- *   3. Grid: image rail (280px) + 2 or 3 columns
- *   4. Ask-PI footer line (centred, italic, hairline-bordered)
+ *   1. Grid: image rail (280px) + 2 or 3 columns
+ *
+ * The intro line, top banner ("This weekend's calendar · Read this
+ * weekend's letter"), and Ask-PI footer were removed on 2026-05-13 per
+ * James's nav simplification pass — the rail and columns now carry the
+ * panel on their own. The data fields (intro, topBanner, askLine) are
+ * preserved in v4-nav.ts in case they're wanted again.
  *
  * Shown only when the parent .v4-pillars__item has .is-open. Animation
  * honours prefers-reduced-motion.
@@ -14,7 +17,6 @@
 import type { V4Pillar } from '../../lib/v4-nav';
 import V4MegaColumn from './V4MegaColumn.astro';
 import V4MegaRail from './V4MegaRail.astro';
-import V4PillarTopBanner from './V4PillarTopBanner.astro';
 
 export interface Props {
   pillar: V4Pillar;
@@ -39,19 +41,9 @@ const panelClass = [
   data-v4-mega
 >
   <div class="v4-mega__container">
-
-    <p class="v4-mega__intro">{pillar.intro}</p>
-
-    {pillar.topBanner && <V4PillarTopBanner banner={pillar.topBanner} />}
-
     <div class="v4-mega__grid">
       <V4MegaRail rail={pillar.rail} pillarKey={pillar.key} />
       {pillar.columns.map((col) => <V4MegaColumn column={col} />)}
     </div>
-
-    <p class="v4-mega__ask">
-      <a href="/ask/" data-pi-trigger="true">{pillar.askLine}</a>
-    </p>
-
   </div>
 </div>
