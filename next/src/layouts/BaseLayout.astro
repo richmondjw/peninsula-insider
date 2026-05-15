@@ -192,6 +192,31 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <V4Masthead section={section} />
 
+  {/* Measure the masthead height and publish it as --masthead-h on
+      <html> so .breadcrumbs (and any other element that wants to pin
+      itself just under the masthead) can sticky-position itself
+      precisely on every viewport. ResizeObserver handles the mobile
+      utility-row collapse and the responsive nav height changes. */}
+  <script is:inline>
+    (function () {
+      function setMastheadH() {
+        var m = document.querySelector('.masthead');
+        if (!m) return;
+        var h = Math.round(m.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--masthead-h', h + 'px');
+      }
+      setMastheadH();
+      if ('ResizeObserver' in window) {
+        var m = document.querySelector('.masthead');
+        if (m) new ResizeObserver(setMastheadH).observe(m);
+      } else {
+        window.addEventListener('resize', setMastheadH);
+      }
+      // Re-measure after page transitions (Astro view-transitions).
+      document.addEventListener('astro:page-load', setMastheadH);
+    })();
+  </script>
+
   {/* data-pagefind-body scopes the index to <main>, so the masthead, footer,
       concierge drawer, and search overlay aren't indexed.
       data-pagefind-filter populates the "kind" facet on /search.

@@ -2944,7 +2944,15 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: var(--bg);
   /* Generous top padding so the breadcrumb never reads as "tucked under"
      the sticky masthead — visible breathing room is the whole point. */
-  padding: 1.4rem 0 0.85rem;
+  padding: 1.0rem 0 0.85rem;
+  /* Sticky under the masthead so the reader can always see where they
+     are in the hierarchy on long pages. `--masthead-h` is set in JS by
+     BaseLayout (ResizeObserver on .masthead); the fallback covers SSR
+     and the brief window before the script runs. z-index sits just
+     under the masthead (9999) so dropdowns/modals still layer above. */
+  position: sticky;
+  top: var(--masthead-h, 6rem);
+  z-index: 50;
   /* When linking to a breadcrumb anchor (rare but possible), make sure
      the masthead doesn't occlude it on scroll. */
   scroll-margin-top: 140px;
