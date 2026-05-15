@@ -186,8 +186,14 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
         ))}
       </div>
 
+      <!-- Mobile tab bar: List / Map. Desktop hides this. -->
+      <div class="map-page__tabs" role="tablist" aria-label="Map view" data-map-tabs>
+        <button type="button" class="map-page__tab map-page__tab--active" role="tab" aria-selected="true" data-map-tab="list">List</button>
+        <button type="button" class="map-page__tab" role="tab" aria-selected="false" data-map-tab="map">Map</button>
+      </div>
+
       <div class="map-page__layout">
-        <aside class="map-page__list" aria-label="Map entries list">
+        <aside class="map-page__list" aria-label="Map entries list" data-map-panel="list">
           <div class="map-page__list-header">
             <input
               type="search"
@@ -204,7 +210,7 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
           </p>
         </aside>
 
-        <div class="map-page__canvas">
+        <div class="map-page__canvas" data-map-panel="map">
           <div id="theInsiderMap" class="map-page__map" aria-label="Map of the Mornington Peninsula"></div>
           <p class="map-page__attribution-note">Tiles by OpenStreetMap contributors. Editorial pins by Peninsula Insider.</p>
         </div>
@@ -426,5 +432,77 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
       init();
       document.addEventListener('astro:page-load', init);
     })();
+  </script>
+
+  <!-- Mobile List/Map tab controller.
+       Only active on small screens (CSS hides .map-page__tabs on desktop).
+       Switches between the list panel and map canvas; invalidates Leaflet
+       size when the map tab is first shown so tiles load correctly. -->
+  <script is:inline>
+  (function () {
+    function bindMapTabs() {
+      var tabBar = document.querySelector('[data-map-tabs]');
+      if (!tabBar || tabBar._piTabsBound) return;
+      tabBar._piTabsBound = true;
+
+      var tabs   = tabBar.querySelectorAll('[data-map-tab]');
+      var panels = document.querySelectorAll('[data-map-panel]');
+      var mapInvalidated = false;
+
+      function activateTab(key) {
+        tabs.forEach(function (t) {
+          var active = t.dataset.mapTab === key;
+          t.classList.toggle('map-page__tab--active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          var show = p.dataset.mapPanel === key;
+          p.hidden = !show;
+          // On desktop (>=880px) always show both panels
+          if (window.matchMedia('(min-width: 880px)').matches) {
+            p.hidden = false;
+          }
+        });
+        // Invalidate Leaflet tile size on first map-tab reveal
+        if (key === 'map' && !mapInvalidated) {
+          var container = document.getElementById('theInsiderMap');
+          if (container && container._leaflet_id) {
+            setTimeout(function () {
+              var mapObj = container._leaflet_map ||
+                (window.L && L.map && Object.values(L._maps || {}).find(function (m) {
+                  return m.getContainer && m.getContainer() === container;
+                }));
+              if (mapObj) { mapObj.invalidateSize(); }
+            }, 50);
+          }
+          mapInvalidated = true;
+        }
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activateTab(tab.dataset.mapTab);
+        });
+      });
+
+      // On desktop breakpoint, always show both panels regardless of tab state
+      var mq = window.matchMedia('(min-width: 880px)');
+      function onBreakpoint(e) {
+        panels.forEach(function (p) { p.hidden = !e.matches && p.dataset.mapPanel !== 'list'; });
+        if (e.matches) {
+          panels.forEach(function (p) { p.hidden = false; });
+        }
+      }
+      mq.addEventListener ? mq.addEventListener('change', onBreakpoint) : mq.addListener(onBreakpoint);
+
+      // Default state: list visible on mobile
+      activateTab('list');
+    }
+    bindMapTabs();
+    document.addEventListener('astro:page-load', function () {
+      document.querySelector('[data-map-tabs]') && (document.querySelector('[data-map-tabs]')._piTabsBound = false);
+      bindMapTabs();
+    });
+  })();
   </script>
 </BaseLayout>

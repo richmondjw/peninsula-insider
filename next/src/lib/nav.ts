@@ -6,7 +6,7 @@
  * core masthead nav with golf and spa, which are real top-level lanes but
  * intentionally not in the masthead's seven-slot row.
  *
- * Editorial visual design is preserved — these arrays are shaped to feed the
+ * Editorial visual design is preserved - these arrays are shaped to feed the
  * existing markup without changing it.
  */
 
@@ -21,6 +21,12 @@ export interface NavItem {
   icon?: string;
   /** One-line editorial dek used by the homepage TOC variant of PillarNav. */
   dek?: string;
+  /**
+   * Optional subcategory links rendered in the mobile nav submenu.
+   * When present the mobile nav item becomes a split button:
+   * text → navigates to `href`, chevron → expands this list.
+   */
+  children?: Array<{ label: string; href: string }>;
 }
 
 /**
@@ -33,13 +39,49 @@ export interface NavItem {
  */
 export const mastheadNav: NavItem[] = [
   { key: 'quick-note', label: 'Quick Note',  href: '/quick-note' },
-  { key: 'eat',        label: 'Eat & Drink', href: '/eat'        },
-  { key: 'stay',       label: 'Stay',        href: '/stay'       },
-  { key: 'wine',       label: 'Wine',        href: '/wine'       },
-  { key: 'explore',    label: 'Explore',     href: '/explore'    },
-  { key: 'escape',     label: 'Plans',       href: '/plans'     },
-  { key: 'whats-on',   label: "What’s On", href: '/whats-on'  },
-  { key: 'journal',    label: 'Journal',     href: '/journal'    },
+  {
+    key: 'eat', label: 'Eat & Drink', href: '/eat',
+    children: [
+      { label: 'Best Restaurants',  href: '/eat/best-restaurants/' },
+      { label: 'Long Lunches',      href: '/eat/long-lunch/' },
+      { label: 'Cellar Door Lunch', href: '/eat/cellar-door-lunch/' },
+      { label: 'Cafes',             href: '/eat/cafes/' },
+      { label: 'Fine Dining',       href: '/eat/fine-dining/' },
+    ],
+  },
+  {
+    key: 'stay', label: 'Stay', href: '/stay',
+    children: [
+      { label: 'Best Accommodation', href: '/stay/best-accommodation/' },
+      { label: 'Boutique Hotels',    href: '/stay/boutique-hotels/' },
+      { label: 'Villas',             href: '/stay/villas/' },
+      { label: 'Glamping',           href: '/stay/glamping/' },
+      { label: 'Wellness Retreats',  href: '/stay/wellness-retreats/' },
+    ],
+  },
+  {
+    key: 'wine', label: 'Wine', href: '/wine',
+    children: [
+      { label: 'Cellar Doors',         href: '/wine/cellar-doors/' },
+      { label: 'Best Wineries',        href: '/wine/best-wineries-mornington-peninsula/' },
+      { label: 'Pinot Noir',           href: '/wine/pinot-noir/' },
+      { label: 'Chardonnay',           href: '/wine/chardonnay/' },
+      { label: 'By Appointment',       href: '/wine/appointment-producers/' },
+    ],
+  },
+  {
+    key: 'explore', label: 'Explore', href: '/explore',
+    children: [
+      { label: 'Walks',              href: '/explore/walks/' },
+      { label: 'Beaches',            href: '/explore/beaches/' },
+      { label: 'Markets',            href: '/explore/markets/' },
+      { label: 'Rainy Day',          href: '/explore/rainy-day/' },
+      { label: 'Things to Do',       href: '/explore/things-to-do/' },
+    ],
+  },
+  { key: 'escape',   label: 'Plans',      href: '/plans'    },
+  { key: 'whats-on', label: "What's On",  href: '/whats-on' },
+  { key: 'journal',  label: 'Journal',    href: '/journal'  },
 ];
 
 /**
@@ -54,7 +96,7 @@ export const mastheadNav: NavItem[] = [
  */
 export const mastheadMoreNav: NavItem[] = [
   { key: 'map',              label: 'The Map',        href: '/map/',              dek: 'Every editorial pin, on one screen.' },
-  { key: 'insiders-30',      label: "The Insider's 30", href: '/insiders-30/',    dek: 'The annual ranked list — thirty places that defined the year.' },
+  { key: 'insiders-30',      label: "The Insider's 30", href: '/insiders-30/',    dek: 'The annual ranked list - thirty places that defined the year.' },
   { key: 'tour',             label: 'Tours',          href: '/tour/',             dek: 'Operator-led day trips and packages.' },
   { key: 'boating',          label: 'Boating',        href: '/boating/',          dek: 'Charters, hire, ramps, and tides.' },
   { key: 'golf',             label: 'Golf',           href: '/golf/',             dek: 'Courses on the cape.' },
@@ -66,7 +108,7 @@ export const mastheadMoreNav: NavItem[] = [
 ];
 
 /**
- * Homepage pillar strip — nine tiles with sub-lines and icons. The first
+ * Homepage pillar strip - nine tiles with sub-lines and icons. The first
  * five mirror the masthead pillars; Tours sits next to Escape (booking-led
  * companion to Escape's self-drive); What's On replaces Journal in this
  * view; Golf + Spa round out the lane set.
@@ -83,7 +125,7 @@ export const pillarNav: NavItem[] = [
   {
     key: 'whats-on',
     href: '/whats-on',
-    label: "What’s On",
+    label: "What's On",
     sub: 'Weekend Picks · Events',
     dek: "This week's markets, openings, and festivals.",
     icon: `<rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9 L21 9 M8 3 L8 7 M16 3 L16 7 M7 13 L9 13 M12 13 L14 13 M17 13 L19 13 M7 17 L9 17 M12 17 L14 17" stroke-linecap="round"/>`,
@@ -179,7 +221,7 @@ export const footerSectionLinks: NavItem[] = [
 ];
 
 /**
- * Footer "About" column. Trust architecture only — three items.
+ * Footer "About" column. Trust architecture only - three items.
  * Heading rendered in Footer.astro reads "About"; the items collapse the
  * prior About + Methodology pages into a single Editorial Approach entry.
  */
@@ -203,7 +245,7 @@ export const footerUtilityLinks: NavItem[] = [
 
 /**
  * Curated set of place hubs to surface in the footer "Places" column. These
- * are the highest-intent place pages — the Footer can also load the live
+ * are the highest-intent place pages - the Footer can also load the live
  * places collection and merge in any others, but this list anchors the
  * editorial picks at the top.
  */

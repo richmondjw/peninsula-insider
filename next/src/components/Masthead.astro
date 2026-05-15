@@ -173,18 +173,50 @@ const {
   <div class="mobile-nav__inner">
     <div class="mobile-nav__brand">
       <a href="/" class="mobile-nav__logo">Peninsula <span>Insider</span></a>
-      <p class="mobile-nav__tagline-top">An editorial guide, not a directory</p>
+      <p class="mobile-nav__tagline-top">A thoughtful editorial guide</p>
       <p class="mobile-nav__edition">{issueMark} · {issueLabel}</p>
     </div>
     {navItems.map((item) => (
-      <a
-        href={item.href}
-        class={`mobile-nav__link${item.key === 'journal' ? ' mobile-nav__link--journal' : ''}`}
-        aria-current={section === item.key ? 'page' : undefined}
-      >
-        <span>{item.label}</span>
-        <span class="mobile-nav__arrow" aria-hidden="true">→</span>
-      </a>
+      item.children && item.children.length > 0 ? (
+        /* Split-button item: text navigates to hub, chevron expands submenu */
+        <div class={`mobile-nav__split${item.key === 'journal' ? ' mobile-nav__split--journal' : ''}${section === item.key ? ' mobile-nav__split--current' : ''}`} data-split-root>
+          <a
+            href={item.href}
+            class="mobile-nav__split-link"
+            aria-current={section === item.key ? 'page' : undefined}
+          >
+            <span>{item.label}</span>
+          </a>
+          <button
+            type="button"
+            class="mobile-nav__split-toggle"
+            aria-expanded="false"
+            aria-label={`Explore ${item.label} sections`}
+            data-split-toggle
+          >
+            <svg viewBox="0 0 12 8" width="10" height="7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="mobile-nav__split-chev" aria-hidden="true">
+              <path d="M1 1.5 L6 6.5 L11 1.5" />
+            </svg>
+          </button>
+          <ul class="mobile-nav__submenu" hidden data-split-panel>
+            {item.children.map((child) => (
+              <li>
+                <a href={child.href} class="mobile-nav__submenu-link">{child.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        /* Simple link item — no submenu */
+        <a
+          href={item.href}
+          class={`mobile-nav__link${item.key === 'journal' ? ' mobile-nav__link--journal' : ''}`}
+          aria-current={section === item.key ? 'page' : undefined}
+        >
+          <span>{item.label}</span>
+          <span class="mobile-nav__arrow" aria-hidden="true">→</span>
+        </a>
+      )
     ))}
     <p class="mobile-nav__group-label">More from the Peninsula</p>
     {moreItems.map((item) => (
@@ -226,8 +258,8 @@ const {
       <a href="/ask/" class="mobile-nav__cta mobile-nav__cta--ask" data-pi-trigger="true">
         Ask The Insider for a recommendation
       </a>
-      <a href="/newsletter/" class="mobile-nav__cta">Get the weekly dispatch</a>
-      <p class="mobile-nav__tagline">Independent editorial. Weekly.</p>
+      <a href="/newsletter/" class="mobile-nav__cta">Subscribe to The Insider</a>
+      <p class="mobile-nav__tagline">Independent editorial. Sent when it's worth sending.</p>
     </div>
   </div>
 </nav>
@@ -330,5 +362,61 @@ const {
   }
   bindMore();
   document.addEventListener('astro:page-load', bindMore);
+})();
+</script>
+
+<!-- Mobile nav split-button controller.
+     Each [data-split-root] has:
+       [data-split-toggle] — the chevron button
+       [data-split-panel]  — the hidden submenu <ul>
+     Tap text = navigate (default <a> behaviour).
+     Tap chevron = toggle submenu.
+     Idempotent across astro:page-load. -->
+<script is:inline>
+(function () {
+  function bindSplits() {
+    document.querySelectorAll('[data-split-root]').forEach(function (root) {
+      if (root._piSplitBound) return;
+      root._piSplitBound = true;
+      var toggle = root.querySelector('[data-split-toggle]');
+      var panel  = root.querySelector('[data-split-panel]');
+      if (!toggle || !panel) return;
+
+      var isOpen = false;
+
+      function apply() {
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.classList.toggle('is-open', isOpen);
+        root.classList.toggle('is-open', isOpen);
+        if (isOpen) {
+          panel.removeAttribute('hidden');
+        } else {
+          panel.setAttribute('hidden', '');
+        }
+      }
+
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        isOpen = !isOpen;
+        apply();
+      });
+
+      // Submenu links close the mobile nav overlay on tap
+      panel.addEventListener('click', function (e) {
+        var link = e.target.closest('a[href]');
+        if (!link) return;
+        // Close the entire mobile nav after a short delay (let navigation run)
+        setTimeout(function () {
+          var nav = document.getElementById('mobileNav');
+          var burger = document.querySelector('.masthead__burger');
+          if (nav) nav.classList.remove('is-open');
+          if (burger) burger.setAttribute('aria-expanded', 'false');
+        }, 50);
+      });
+    });
+  }
+  bindSplits();
+  document.addEventListener('astro:page-load', bindSplits);
 })();
 </script>
