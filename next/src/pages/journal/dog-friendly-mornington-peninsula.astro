@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
 const articleSchema = {
@@ -59,6 +60,12 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: 'Dog-Friendly Mornington Peninsula', item: 'https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula' },
   ],
 };
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Journal", href: "/journal/" },
+  { label: "Dog-Friendly Mornington Peninsula — Where to Go with Your Dog" },
+];
 ---
 
 <BaseLayout
@@ -68,6 +75,8 @@ const breadcrumbSchema = {
   canonical="https://peninsulainsider.com.au/journal/dog-friendly-mornington-peninsula"
   ogType="article"
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

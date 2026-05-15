@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SubscribeForm from '../components/SubscribeForm.astro';
 
 const breadcrumbItems = [
@@ -15,6 +16,8 @@ const breadcrumbItems = [
   canonical="https://peninsulainsider.com.au/newsletter/"
   ogImage="/images/sourced/article-sorrento-weekend-01.webp"
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <!-- ═══════════════════════════════════════════════════════════════
        1. HERO, typographic publication front page.
           No photo, no scrim, no glass form. Type, voice, white card.

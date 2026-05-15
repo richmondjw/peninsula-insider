@@ -5,15 +5,24 @@
  * Editorial firewall: Tyler reviews every submission. No paid placements without disclosure.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
 const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Partners", href: "/partners/" },
+  { label: "Tell us about your venue" },
+];
 ---
 
 <BaseLayout
   title="Tell us about your venue  -  Peninsula Insider"
   description="Two ways to get in touch with Peninsula Insider. Editorial submission for venues we should be writing about. Commercial enquiry for partnerships and placement."
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <main class="apply-page">
 
     <section class="apply-hero">

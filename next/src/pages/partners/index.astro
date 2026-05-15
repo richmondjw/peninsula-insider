@@ -11,14 +11,23 @@
  * (Astro ignores _-prefixed folders during compile.)
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { editableText } from '../../lib/inline-edit/attrs';
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Partners", href: "/partners/" },
+  { label: "Partner with Peninsula Insider" },
+];
 ---
 
 <BaseLayout
   title="Partner with Peninsula Insider"
   description="Reach people already planning where to eat, stay, explore and spend time on the Mornington Peninsula. Peninsula Insider partners selectively with businesses whose quality and atmosphere align with the editorial."
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <main class="partners-page">
 
     <!-- HERO -->
