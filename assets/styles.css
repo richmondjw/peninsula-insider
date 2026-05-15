@@ -6549,6 +6549,55 @@ p.has-drop-cap::first-letter {
   margin-bottom: 0;
 }
 
+/* Editorial storytelling sections (Peninsula Days, People Behind the Peninsula) */
+.contact-editorial {
+  padding: 3.6rem 0;
+  border-top: 1px solid var(--border);
+}
+.contact-editorial--people {
+  border-top: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+.contact-editorial__inner {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact-editorial__header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.contact-editorial__icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.contact-editorial__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--dark);
+}
+.contact-editorial__lead {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--soft);
+  font-style: italic;
+}
+.contact-editorial__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.contact-editorial__body p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--soft);
+}
+
 @media (max-width: 768px) {
   .contact-reasons {
     padding: 2.4rem 0 1.8rem;
@@ -6569,6 +6618,9 @@ p.has-drop-cap::first-letter {
   }
   .contact-expectations {
     padding: 1.8rem 0 2.6rem;
+  }
+  .contact-editorial {
+    padding: 2.4rem 0;
   }
 }
 
