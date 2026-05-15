@@ -159,13 +159,22 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
   .pi-actions__btn:active { transform: scale(0.95); }
 
   /* Hover label — desktop only. Fades in after the button has started
-     expanding so text never appears clipped mid-animation. */
+     expanding so text never appears clipped mid-animation.
+     `max-width: 0` is critical: `opacity: 0` alone does not remove the
+     element from the flex layout, so the label would still claim its
+     natural text width and shove the icon off-centre inside the 2rem
+     collapsed circle. Zeroing max-width + overflow:hidden makes the
+     label contribute zero width when collapsed; the icon then sits
+     truly centred. */
   .pi-actions__label {
     opacity: 0;
+    max-width: 0;
     overflow: hidden;
     white-space: nowrap;
     pointer-events: none;
-    transition: opacity 0.14s ease 0.12s;
+    transition:
+      opacity   0.14s ease 0.12s,
+      max-width 0.24s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -177,6 +186,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     }
     .pi-actions__btn:hover .pi-actions__label {
       opacity: 1;
+      max-width: 6rem;
     }
   }
 

@@ -2171,6 +2171,31 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background-position: center;
 }
 
+/* Quick take TLDR list on /places/[slug] pages.
+   The global reset zeroes UL padding so without this rule the bullets
+   sit flush against the column edge. Padding-left + outside list-style
+   gives the classic hanging-indent so wrapped text aligns under the
+   first character of the item, not under the bullet. */
+.place-detail__tldr {
+  max-width: 62ch;
+  margin-bottom: 2.25rem;
+}
+.place-detail__tldr-list {
+  list-style: disc outside;
+  padding-left: 1.4rem;
+  margin-top: 0.6rem;
+}
+.place-detail__tldr-list li {
+  padding-left: 0.35rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--soft);
+}
+.place-detail__tldr-list li::marker {
+  color: var(--accent);
+}
+
 /* =========================================================
    WHY INSIDER (homepage closing pitch)
    ========================================================= */
