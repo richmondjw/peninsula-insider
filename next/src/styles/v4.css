@@ -625,6 +625,46 @@ body[data-v4="true"] .masthead {
   text-align: left;
 }
 .v4-drawer__pillar-trigger[aria-expanded="true"] { color: var(--accent); }
+
+/* Split-button pillar row.
+   Hub link = navigate to section; toggle button = expand submenu. */
+.v4-drawer__pillar-split {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+.v4-drawer__pillar-hub-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 18px 0 18px 20px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.v4-drawer__pillar-hub-link:hover,
+.v4-drawer__pillar.is-expanded .v4-drawer__pillar-hub-link {
+  color: var(--accent);
+}
+.v4-drawer__pillar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 20px;
+  min-width: 56px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--text);
+  transition: color 150ms ease;
+}
+.v4-drawer__pillar-toggle[aria-expanded="true"] { color: var(--accent); }
+.v4-drawer__pillar-toggle[aria-expanded="true"] .v4-drawer__pillar-trigger-arrow {
+  transform: rotate(90deg);
+}
+
 /* Flat link variant — used by the Map item below the expandable pillars.
    No chevron, no expandable body; renders the Peninsula silhouette icon
    inline with the label and matches the trigger's typography so the row
