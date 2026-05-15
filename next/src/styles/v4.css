@@ -309,7 +309,7 @@ body[data-v4="true"] .masthead {
   left: 0;
   right: 0;
   top: 100%;
-  background: var(--bg-alt);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--v4-shadow-mega);
   padding: var(--v4-mega-pad-y) 0;
