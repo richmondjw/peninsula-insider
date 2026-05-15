@@ -63,7 +63,7 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
       name: 'Mornington Peninsula wine region',
     },
     ...(data.phone ? { telephone: data.phone } : {}),
-    ...(data.priceBand ? { priceRange: data.priceBand } : {}),
+    // priceRange intentionally omitted (BRAND-PI: no pricing on site).
     knowsAbout: [
       'Pinot Noir',
       'Chardonnay',
@@ -100,7 +100,7 @@ export function buildRestaurantSchema(data: any, slug: string, section = 'wine')
     name: data.restaurant.name,
     url: `${pageUrl}#restaurant`,
     ...(data.restaurant.cuisine ? { servesCuisine: data.restaurant.cuisine } : {}),
-    ...(data.restaurant.priceRange ? { priceRange: data.restaurant.priceRange } : {}),
+    // priceRange intentionally omitted (BRAND-PI: no pricing on site).
     address: data.address,
     containedInPlace: {
       '@type': 'Winery',
@@ -406,16 +406,9 @@ export const buildTouristTripSchema = ({
       },
     })),
   })),
-  ...(offerUrl
-    ? {
-        offers: {
-          '@type': 'Offer',
-          url: offerUrl,
-          priceCurrency: 'AUD',
-          ...(offerPriceAud ? { price: offerPriceAud } : {}),
-        },
-      }
-    : {}),
+  // Offer/price emission intentionally removed. BRAND-PI rule (2026-05-15):
+  // "No pricing on site. Ever." Including structured data — stale prices in
+  // JSON-LD get scraped and re-presented as out-of-date listings.
 });
 
 // ─── Tour vertical schema builders ───────────────────────────────────────────
@@ -442,22 +435,8 @@ export function buildTourSchema(tour: any, operatorData: any) {
         name: operatorData?.name || tour.operatorSlug,
         url: operatorData?.website || undefined,
       },
-      ...(tour.bookingUrl || tour.aggregatorGYG ? {
-        offers: {
-          '@type': 'Offer',
-          '@id': `${pageUrl}#Offer`,
-          url: `${tour.bookingUrl || tour.aggregatorGYG}&utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=${tour.slug}&utm_content=hero`,
-          priceCurrency: 'AUD',
-          ...(tour.priceLow ? { price: String(tour.priceLow) } : { price: '0', description: 'Contact operator for pricing' }),
-          ...(tour.priceLow && tour.priceHigh && tour.priceLow !== tour.priceHigh ? {
-            priceSpecification: { '@type': 'PriceSpecification', minPrice: tour.priceLow, maxPrice: tour.priceHigh, priceCurrency: 'AUD' }
-          } : {}),
-          availability: 'https://schema.org/InStock',
-          validFrom: tour.lastVerified,
-          validThrough: new Date(new Date(tour.lastVerified).getTime() + 365*24*60*60*1000).toISOString().split('T')[0],
-          seller: { '@type': 'LocalBusiness', name: operatorData?.name || tour.operatorSlug, url: operatorData?.website || '' },
-        }
-      } : {}),
+      // Offer block intentionally removed. BRAND-PI rule (2026-05-15):
+      // "No pricing on site. Ever." — including JSON-LD price emission.
       areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
     },
   ];
@@ -507,16 +486,8 @@ export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
         name: componentToursData.find((t: any) => t.slug === slug)?.name || slug,
         url: absUrl(`/tour/${slug}`),
       })),
-      ...(pkg.priceLow != null ? {
-        offers: {
-          '@type': 'AggregateOffer',
-          '@id': `${pageUrl}#AggregateOffer`,
-          lowPrice: String(pkg.priceLow),
-          highPrice: String(pkg.priceHigh || pkg.priceLow),
-          priceCurrency: 'AUD',
-          offerCount: (pkg.componentTourSlugs || []).length,
-        }
-      } : {}),
+      // AggregateOffer block intentionally removed. BRAND-PI rule (2026-05-15):
+      // "No pricing on site. Ever." — including JSON-LD price emission.
     },
   ];
   if (pkg.faq?.length) {
@@ -781,14 +752,7 @@ export function buildCharterOperatorSchema(c: any) {
       description: c.intro,
       ...(c.heroImage?.src ? { image: `${SITE}${c.heroImage.src}` } : {}),
       areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
-      ...(c.priceLow != null
-        ? {
-            priceRange:
-              c.priceHigh != null && c.priceHigh !== c.priceLow
-                ? `from $${c.priceLow}`
-                : `$${c.priceLow}`,
-          }
-        : {}),
+      // priceRange intentionally omitted (BRAND-PI: no pricing on site).
       currenciesAccepted: 'AUD',
     },
   ];
@@ -802,8 +766,8 @@ export function buildCharterOperatorSchema(c: any) {
         position: i + 1,
         itemOffered: svc,
         ...(c.affiliateUrl ? { url: c.affiliateUrl } : {}),
-        priceCurrency: 'AUD',
-        ...(c.priceLow != null ? { price: String(c.priceLow) } : {}),
+        // priceCurrency + price intentionally omitted
+        // (BRAND-PI: no pricing on site).
       })),
     });
   }
@@ -842,7 +806,7 @@ export function buildBoatHireOperatorSchema(h: any) {
       description: h.intro,
       ...(h.heroImage?.src ? { image: `${SITE}${h.heroImage.src}` } : {}),
       areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
-      ...(h.priceLow != null ? { priceRange: `from $${h.priceLow}` } : {}),
+      // priceRange intentionally omitted (BRAND-PI: no pricing on site).
       currenciesAccepted: 'AUD',
     },
   ];

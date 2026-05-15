@@ -14,14 +14,12 @@ const breadcrumbItems = [
   { label: 'Tour Packages' },
 ];
 
-const occasionFilters = [
-  { label: "Hen's", value: 'hens', href: '#hens' },
-  { label: 'Couples', value: 'anniversary', href: '#couples' },
-  { label: 'Corporate', value: 'corporate', href: '#corporate' },
-  { label: 'Family', value: 'family-reunion', href: '#family' },
-  { label: 'Foodie', value: 'foodies', href: '#foodie' },
-  { label: 'Solo', value: 'solo', href: '#solo' },
-];
+// "Browse by occasion" chips removed 2026-05-15. The anchor targets
+// (#hens, #couples, etc.) never had matching <section id="..."> elements
+// rendered on the page, so the chips floated to nowhere. With only 8
+// packages total — one per occasion in most cases — the all-packages
+// grid below is the more useful surface. If we want occasion filtering
+// later, do it properly with grouped sub-sections or a search facet.
 ---
 
 <BaseLayout
@@ -40,23 +38,6 @@ const occasionFilters = [
     gradient="sand"
     heroImage="/images/sourced/article-flinders-weekend-01.webp"
   />
-
-  <section class="experience-index experience-index--plain">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Browse by occasion</p>
-          <h2 class="venues__title">What are you celebrating?</h2>
-        </div>
-      </div>
-      <div class="tour-filter-chips">
-        {occasionFilters.map(f => (
-          <a href={f.href} class="tour-filter-chip">{f.label}</a>
-        ))}
-        <a href="/tour/" class="tour-filter-chip">Browse individual tours</a>
-      </div>
-    </div>
-  </section>
 
   {allPackages.length > 0 ? (
     <section class="experience-index">

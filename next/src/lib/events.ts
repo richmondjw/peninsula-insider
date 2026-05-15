@@ -304,13 +304,15 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
       : `${siteUrl}${data.heroImage.src}`;
   }
 
+  // Offer block intentionally omitted (BRAND-PI 2026-05-15: no pricing on
+  // site, including JSON-LD). Free-event marker stays in the data layer
+  // (priceTier === 'free') so the visible "Free" label below can still
+  // render, but the structured Offer with priceCurrency/price is dropped.
   if (data.ticketingUrl || data.bookingUrl) {
     ld.offers = {
       '@type': 'Offer',
       url: data.ticketingUrl ?? data.bookingUrl,
       availability: 'https://schema.org/InStock',
-      priceCurrency: 'AUD',
-      ...(data.priceTier === 'free' ? { price: '0' } : {}),
     };
   }
 
@@ -355,42 +357,29 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
 // ─── Display helpers ─────────────────────────────────────────────────────────
 
 /**
- * Human-readable price label for the event sidebar. Falls back through the
- * priceTier enum when priceRange isn't filled in, then to a "Check organiser"
- * fallback so every event surfaces something rather than omitting the row.
+ * Human-readable price label for the event sidebar.
  *
- * The project rule (Discovery Phase 1, workstream 4) is that every event page
- * shows a price line: even "Free" or "Check organiser" beats omission.
+ * Per BRAND-PI rule adopted 2026-05-15 ("No pricing on site. Ever."), the
+ * dollar-figure tier labels were removed. The only price-adjacent value we
+ * still emit is "Free", because that's an editorial signal of access rather
+ * than a fee that goes stale. For paid events, we direct the reader to the
+ * organiser where the live price lives.
  */
 export function eventPriceLabel(data: Event['data']): string {
   if (data.priceTier === 'free' || data.freePaid?.toLowerCase().includes('free')) {
     return 'Free';
   }
-  if (data.priceRange && data.priceRange.trim()) {
-    return data.priceRange.trim();
-  }
-  switch (data.priceTier) {
-    case 'under-50':
-      return 'Under $50';
-    case '50-150':
-      return '$50 to $150';
-    case 'over-150':
-      return '$150 and up';
-  }
-  if (data.freePaid && data.freePaid.trim()) {
-    return data.freePaid.trim();
-  }
-  return 'Check organiser';
+  return 'Check organiser for pricing';
 }
 
 /**
- * Returns true when we have enough confidence in the price field to label it
- * as a known price (rather than a "Check organiser" placeholder).
+ * Returns true when we have enough confidence to label the event as free.
+ * Everything else routes through "Check organiser" rather than emitting a
+ * stale dollar figure.
  */
 export function eventHasKnownPrice(data: Event['data']): boolean {
-  if (data.priceTier && data.priceTier !== 'unknown') return true;
-  if (data.priceRange && data.priceRange.trim()) return true;
-  if (data.freePaid && data.freePaid.trim()) return true;
+  if (data.priceTier === 'free') return true;
+  if (data.freePaid?.toLowerCase().includes('free')) return true;
   return false;
 }
 

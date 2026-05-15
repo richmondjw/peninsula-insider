@@ -101,9 +101,8 @@ const licenceLabel: Record<string, string> = {
         <h2>Key facts</h2>
         <table>
           <tbody>
-            {data.priceLow != null ? (
-              <tr><td>Price</td><td>From ${data.priceLow}{data.priceHigh != null && data.priceHigh !== data.priceLow ? ` to $${data.priceHigh}` : ''} per {data.priceUnit.replace('per-', '')}</td></tr>
-            ) : null}
+            {/* Price row intentionally omitted. BRAND-PI rule (2026-05-15):
+                "No pricing on site. Ever." Book direct with the operator. */}
             {data.vesselType ? <tr><td>Vessel</td><td>{data.vesselName ? `${data.vesselName} — ` : ''}{data.vesselType}</td></tr> : null}
             {data.capacityMax ? <tr><td>Capacity</td><td>{data.capacityMin ? `${data.capacityMin} to ` : 'Up to '}{data.capacityMax} passengers</td></tr> : null}
             {data.departurePoints.length > 0 ? (
@@ -194,7 +193,6 @@ const licenceLabel: Record<string, string> = {
                     data-bf-from={data.slug}
                     data-bf-to={c.data.slug}
                   >{c.data.name}</a>
-                  {c.data.priceLow != null ? ` · From $${c.data.priceLow} per person` : ''}
                   {c.data.licenceCovered === 'covered' ? ' · Licence covered' : c.data.licenceCovered === 'byo' ? ' · BYO licence' : ''}
                 </li>
               ))}

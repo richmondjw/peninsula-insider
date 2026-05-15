@@ -38,7 +38,7 @@ const faq = [
   { q: 'What should I bring on a fishing charter?', a: 'Layered warm clothing (autumn snapper sessions are cold), a waterproof outer layer, closed-toe non-slip footwear, a hat, sunscreen, sunglasses, and any personal medications. Most charters include rods, reels, bait, and tackle; food and drinks are typically not included on standard sessions. Bring an esky if you expect to take fish home.' },
   { q: 'What if I get seasick?', a: 'Take a seasickness preventative the night before and the morning of your trip. The catamaran platforms (I\'m Hooked\'s Devil Cat) are more stable than mono-hulls in chop. Larger purpose-built vessels (Proline\'s 60-foot Due South, Western Port FC\'s 50-foot Westcoaster) are more stable still. Position yourself on deck rather than below in cabin if you start to feel unwell; fresh air and the horizon help.' },
   { q: 'What if the weather is bad?', a: 'Most operators issue a full refund or a session transfer when conditions prevent departure. Confirm the specific cancellation policy at booking; offshore operators (Bass Strait shark and tuna trips) typically have stricter weather thresholds than bay-side operators. Marginal forecasts can produce session adjustments rather than full cancellations; the skipper has discretion.' },
-  { q: 'How much should I tip?', a: 'A tip of $10 to $20 per person for a productive session is customary across the Peninsula charter fleet but never expected. Tipping is a judgment call based on the day, the crew\'s effort, and your experience.' },
+  { q: 'How much should I tip?', a: 'A small tip per person for a productive session is customary across the Peninsula charter fleet but never expected. Tipping is a judgment call based on the day, the crew\'s effort, and your experience.' },
   { q: 'Can children come on a charter?', a: 'Yes, and most operators welcome them. Confirm minimum age with the operator at booking; some shark and offshore trips have minimum age requirements. The Devil Cat catamaran (I\'m Hooked) is family-friendly with the catamaran stability advantage. Children should wear closed-toe footwear and a sun hat; life jackets for under-12s are recommended even where not formally required.' },
 ];
 const faqSchema = buildFaqSchema(faq);
@@ -97,7 +97,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
           </li>
           <li>
             <strong>Mid-size group at the lower price band.</strong> 11 to 18 passengers across two trailer boats
-            running simultaneously, $110 to $150 per person:
+            running simultaneously:
             <a href="/fishing/charters/reel-time-fishing-charters/">Reel Time Fishing Charters</a>.
           </li>
           <li>
@@ -180,7 +180,6 @@ const breadcrumbSchema = buildBreadcrumbSchema([
           {allCharters.map((c) => (
             <li>
               <a href={`/fishing/charters/${c.data.slug}/`} data-bf-event="bf_comparison_click" data-bf-pillar="first-charter-guide" data-bf-operator={c.data.slug}>{c.data.name}</a>
-              {c.data.priceLow != null ? ` · From $${c.data.priceLow} per person` : ''}
               {c.data.licenceCovered === 'covered' ? ' · Licence covered' : c.data.licenceCovered === 'byo' ? ' · BYO licence' : ''}
             </li>
           ))}

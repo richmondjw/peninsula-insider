@@ -81,7 +81,6 @@ const breadcrumbSchema = buildBreadcrumbSchema([
               </h2>
               <p class="venue-card__meta">
                 {h.data.departurePoint}
-                {h.data.priceLow != null ? ` · From $${h.data.priceLow}/${h.data.priceUnit.replace('per-', '')}` : ''}
                 {h.data.licenceRequired === false ? ' · No licence required' : ' · Licence required'}
               </p>
               <p class="venue-card__signature">{h.data.intro}</p>

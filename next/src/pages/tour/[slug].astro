@@ -135,8 +135,6 @@ const breadcrumbItems = [
           <div class="at-a-glance__label">Price band</div>
           <div class="at-a-glance__value">
             {budgetLabel[data.budgetBand] ?? data.budgetBand}
-            {data.priceLow ? ` — from $${data.priceLow} per person` : ''}
-            {data.priceHigh && data.priceHigh !== data.priceLow ? ` to $${data.priceHigh}` : ''}
           </div>
         </div>
         {data.languages?.length > 0 && (

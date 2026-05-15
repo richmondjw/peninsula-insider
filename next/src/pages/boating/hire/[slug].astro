@@ -84,7 +84,8 @@ const primaryBookingUrl = bookingDestination
           <tbody>
             <tr><td>Departure point</td><td>{data.departurePoint}</td></tr>
             {data.vesselTypes.length > 0 ? <tr><td>Vessels</td><td>{data.vesselTypes.join(', ')}</td></tr> : null}
-            {data.priceLow != null ? <tr><td>Price</td><td>From ${data.priceLow}{data.priceHigh != null && data.priceHigh !== data.priceLow ? `–${data.priceHigh}` : ''} per {data.priceUnit.replace('per-', '')}</td></tr> : null}
+            {/* Price row intentionally omitted. BRAND-PI rule (2026-05-15):
+                "No pricing on site. Ever." Book direct with the operator. */}
             <tr><td>Licence required</td><td>{data.licenceRequired ? 'Yes — confirm with operator' : 'No — no licence required for hire vessels under operator threshold'}</td></tr>
             {data.seasonalityNote ? <tr><td>Seasonality</td><td>{data.seasonalityNote}</td></tr> : null}
             {data.nearestRampSlug ? <tr><td>Nearest ramp</td><td><a href={`/boating/ramps/${data.nearestRampSlug}/`}>{data.nearestRampSlug.replace(/-/g, ' ')}</a></td></tr> : null}

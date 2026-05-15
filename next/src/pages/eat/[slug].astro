@@ -103,7 +103,7 @@ const venueSchema = {
   },
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
-  ...(venue.data.priceBand ? { priceRange: venue.data.priceBand } : {}),
+  // priceRange intentionally omitted (BRAND-PI 2026-05-15: no pricing on site).
 };
 
 ---

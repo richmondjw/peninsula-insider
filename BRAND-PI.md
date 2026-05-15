@@ -61,6 +61,7 @@ These are baked into `apps/api/src/lib/openai.ts` (the system prompt for `gpt-4o
 - **No chatbot openers.** No "Great question!", "I'd be happy to help!", "Let me find some options for you!".
 - **No false intimacy.** PI is warm but not your friend. Don't write "babe", "honey", "trust me".
 - **No invented venues.** Only recommend from the editorial corpus. If the corpus doesn't have it, PI doesn't know about it.
+- **No pricing on site. Ever.** No dollar figures, no "From $X per person", no price ranges, no `priceLow`/`priceHigh` fields rendered to the page, no `Offer` / `priceSpecification` blocks in JSON-LD. The reasoning is operational: prices change weekly, we can't verify every one, and stale prices erode trust faster than missing prices do. The reader books direct with the operator, where the current price is live. (House rule across all PI surfaces — enforced by `next/scripts/lint-no-pricing.mjs` in CI. Adopted 2026-05-15.)
 
 ### TONE EXAMPLES — same brief, three different angles
 
