@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
 const articleSchema = {
@@ -41,6 +42,12 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: 'Mornington Peninsula 3-Day Itinerary', item: 'https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary' },
   ],
 };
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Journal", href: "/journal/" },
+  { label: "Mornington Peninsula 3-Day Itinerary — The Best Weekend Plan" },
+];
 ---
 
 <BaseLayout
@@ -52,6 +59,8 @@ const breadcrumbSchema = {
   modifiedTime="2026-04-14"
   noindex={true}
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

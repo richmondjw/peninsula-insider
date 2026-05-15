@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
 const articleSchema = {
@@ -59,6 +60,12 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name: 'Free Things to Do', item: 'https://peninsulainsider.com.au/journal/free-things-to-do-mornington-peninsula' },
   ],
 };
+
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Journal", href: "/journal/" },
+  { label: "Free Things to Do on the Mornington Peninsula" },
+];
 ---
 
 <BaseLayout
@@ -69,6 +76,8 @@ const breadcrumbSchema = {
   ogType="article"
   modifiedTime="2026-04-14"
 >
+  <Breadcrumbs items={breadcrumbItems} />
+
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
