@@ -1137,7 +1137,12 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
-  padding: 0 0 1.75rem;
+  /* Bottom padding leaves a dedicated 3.25rem zone for the floating Save
+     and Share pills. The pills are 2rem tall and sit at `bottom: 0.75rem`,
+     so their top edge lands at 2.75rem from the card's bottom — anything
+     less than ~3rem of padding makes the actions row (READ NOTES / VIEW
+     STAY) overlap the pills horizontally when SAVE expands on hover. */
+  padding: 0 0 3.25rem;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -3071,7 +3076,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: rgba(253,252,250,0.9);
 }
 .experience-card__body {
-  padding: 1.5rem 1.75rem 1.75rem;
+  /* Bottom padding (3.25rem) reserves a dedicated zone for the floating
+     Save / Share pills so they don't overlap the body's last row when
+     SAVE expands on hover. */
+  padding: 1.5rem 1.75rem 3.25rem;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -3245,7 +3253,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   justify-content: space-between;
   gap: 1rem;
   margin-top: auto;
-  padding-bottom: 1.5rem;
+  /* Bottom padding (3.25rem) reserves a dedicated zone for the floating
+     Save / Share pills so they don't overlap the actions row when SAVE
+     expands on hover. */
+  padding-bottom: 3.25rem;
 }
 .itinerary-card__cta {
   display: inline-flex;
@@ -5807,7 +5818,11 @@ p.has-drop-cap::first-letter {
   padding-right: 1.6rem;
 }
 .event-card__top { padding-top: 1.4rem; }
-.event-card__cta { padding-bottom: 1.6rem; }
+/* Bottom padding reserves a dedicated zone for the floating Save / Share
+   pills (2rem tall, anchored at `bottom: 0.75rem`). Anything less than
+   3rem and the pills overlap the "Read the full guide →" link when SAVE
+   expands on hover. */
+.event-card__cta { padding-bottom: 3.25rem; }
 .event-card:hover {
   transform: translateY(-3px);
   border-color: rgba(139, 78, 59, 0.45);
@@ -7512,7 +7527,9 @@ p.has-drop-cap::first-letter {
     padding-right: 1.2rem;
   }
   .itinerary-card__top { padding-top: 1.2rem; }
-  .itinerary-card__actions { padding-bottom: 1.2rem; }
+  /* Mobile: slightly tighter bottom padding (2.75rem) but still enough to
+     clear the floating Save / Share pills. */
+  .itinerary-card__actions { padding-bottom: 2.75rem; }
 
   /* Split intro: tighter */
   .split-intro__title {
@@ -7993,7 +8010,10 @@ p.has-drop-cap::first-letter {
 .tour-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); }
 .tour-card__image { aspect-ratio: 16/9; overflow: hidden; }
 .tour-card__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.tour-card__body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+/* Bottom padding (3.25rem) reserves a dedicated zone for the floating Save
+   / Share pills so they don't overlap the body's last row (CTA / meta)
+   when SAVE expands on hover. */
+.tour-card__body { padding: 1.25rem 1.25rem 3.25rem; flex: 1; display: flex; flex-direction: column; }
 .tour-card__meta { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
 .tour-card__badge { font-family: 'Outfit', sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2em 0.6em; border-radius: 1px; background: var(--bg-alt); color: var(--body); border: 1px solid var(--border); }
 .tour-card__badge--accent { background: var(--accent-muted, #f5ede4); color: var(--accent); border-color: var(--accent-muted, #f5ede4); }
