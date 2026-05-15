@@ -1,0 +1,302 @@
+---
+/**
+ * WineSubregionTemplate
+ * ---------------------
+ * Rich landing template for the five wine sub-regions linked from the
+ * top-nav "By the place" column under Wine: Red Hill, Main Ridge, Merricks,
+ * Balnarring, Flinders.
+ *
+ * Modelled on the depth of /places/<slug>/ but kept wine-first: terroir,
+ * anchor producers, the full grid, signature varietals, pair-with-the-village,
+ * logistics, a scoped map, journal cross-links, related sub-regions, FAQ.
+ *
+ * Reuses existing layout classes (.venues, .zone-intro, .zone-card,
+ * .split-intro, .place-detail__*) so it inherits site CSS without new rules.
+ */
+import Breadcrumbs from './Breadcrumbs.astro';
+import VenueCard from './VenueCard.astro';
+import NewsletterBlock from './NewsletterBlock.astro';
+import PlaceMap from './PlaceMap.astro';
+import { routeSlug } from '../lib/editorial';
+
+export interface AnchorPick {
+  venueSlug: string;
+  verdict: string;
+}
+
+export interface PairWithVillage {
+  placeSlug: string;
+  placeName: string;
+  body: string;
+}
+
+export interface NearbySubregion {
+  slug: string;
+  label: string;
+  hint?: string;
+}
+
+export interface Props {
+  h1: string;
+  badgeLabel: string;
+  subregionSlug: string;
+  introText: string;
+  terroirText: string;
+  venues: any[];
+  anchorPicks?: AnchorPick[];
+  signatureChardonnay?: string;
+  signaturePinot?: string;
+  pairWith?: PairWithVillage;
+  logisticsText?: string;
+  nearbySubregions?: NearbySubregion[];
+  journalLinks?: Array<{ href: string; title: string; body: string }>;
+  place?: any | null; // optional matching `places` collection entry for the map
+  breadcrumbs: Array<{ label: string; href?: string }>;
+  faqItems?: Array<{ q: string; a: string }>;
+}
+
+const {
+  h1,
+  badgeLabel,
+  subregionSlug,
+  introText,
+  terroirText,
+  venues,
+  anchorPicks = [],
+  signatureChardonnay,
+  signaturePinot,
+  pairWith,
+  logisticsText,
+  nearbySubregions = [],
+  journalLinks = [],
+  place = null,
+  breadcrumbs,
+  faqItems = [],
+} = Astro.props;
+
+const venueBySlug: Record<string, any> = {};
+for (const v of venues) {
+  venueBySlug[routeSlug(v)] = v;
+}
+const anchors = anchorPicks
+  .map((p) => ({ venue: venueBySlug[p.venueSlug], verdict: p.verdict }))
+  .filter((a) => a.venue);
+
+const totalProducers = venues.length;
+const hattedCount = venues.filter((v) => Number(v.data.authority?.hats ?? 0) > 0).length;
+const topAuthority = venues
+  .map((v) => Number(v.data.authority?.hallidayScore ?? 0))
+  .filter((n) => n > 0)
+  .sort((a, b) => b - a)[0];
+---
+
+<Breadcrumbs items={breadcrumbs} />
+
+<section class="place-detail">
+  <div class="container">
+    <p class="place-detail__eyebrow">{badgeLabel}</p>
+    <h1 class="place-detail__title">{h1}</h1>
+
+    <div class="prose">
+      {introText.split('\n\n').map((p) => <p>{p}</p>)}
+    </div>
+
+    <dl class="place-detail__stats">
+      <div><dt>Producers mapped</dt><dd>{totalProducers}</dd></div>
+      {hattedCount > 0 && <div><dt>Hatted restaurants</dt><dd>{hattedCount}</dd></div>}
+      {topAuthority && <div><dt>Top Halliday score</dt><dd>{topAuthority}</dd></div>}
+      <div><dt>Sub-region</dt><dd>{h1.replace(' Wineries', '')}</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="zone-intro">
+  <div class="container">
+    <div class="split-intro">
+      <div>
+        <p class="label label--accent">Why this sub-region</p>
+        <h2 class="split-intro__title">The land does most of the work</h2>
+      </div>
+      <p class="split-intro__body">Cool-climate Mornington Peninsula wine is hyper-local. The five sub-regions sit within twenty minutes of each other but the bottle in your glass changes as you move between them. Here's what this one does.</p>
+    </div>
+    <div class="prose">
+      {terroirText.split('\n\n').map((p) => <p>{p}</p>)}
+    </div>
+  </div>
+</section>
+
+{anchors.length > 0 && (
+  <section class="venues" id="anchors">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Editor's anchors</p>
+          <h2 class="venues__title">Start with these</h2>
+          <p class="venues__sub">The names we send people to first when they have one afternoon in {h1.replace(' Wineries', '')}.</p>
+        </div>
+      </div>
+      <div class="zone-intro__grid zone-intro__grid--three">
+        {anchors.map(({ venue, verdict }) => (
+          <a href={`/wine/${routeSlug(venue)}/`} class="zone-card zone-card--link">
+            <p class="zone-card__label">{venue.data.authority?.hallidayScore ? `Halliday ${venue.data.authority.hallidayScore}` : (venue.data.type === 'producer' ? 'Producer' : 'Cellar door')}</p>
+            <h3 class="zone-card__title">{venue.data.name}</h3>
+            <p class="zone-card__body">{verdict}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="venues venues--plain" id="producers">
+  <div class="container">
+    <div class="venues__header">
+      <div>
+        <p class="label label--accent">Every producer · {new Date().getFullYear()}</p>
+        <h2 class="venues__title">{totalProducers} cellar door{totalProducers !== 1 ? 's and producers' : ' / producer'} in {h1.replace(' Wineries', '')}</h2>
+        <p class="venues__sub">Ordered by editorial authority and Halliday score. Each card opens the full editor's note.</p>
+      </div>
+      <a href="/wine/" class="venues__link">All producers →</a>
+    </div>
+    <div class="venues__grid">
+      {venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
+    </div>
+    <p class="venues__rankings-link"><a href="/wine/best-cellar-doors/">See the editorial rankings → Best Cellar Doors on the Peninsula</a></p>
+  </div>
+</section>
+
+{(signatureChardonnay || signaturePinot) && (
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">What to drink here</p>
+          <h2 class="split-intro__title">The bottles this sub-region does best</h2>
+        </div>
+        <p class="split-intro__body">Mornington Peninsula is, in the bottle, mostly two grapes done seriously. Here's what each does in this corner.</p>
+      </div>
+      <div class="zone-intro__grid zone-intro__grid--two">
+        {signatureChardonnay && (
+          <a href="/wine/chardonnay/" class="zone-card zone-card--link">
+            <p class="zone-card__label">Chardonnay</p>
+            <h3 class="zone-card__title">The Chardonnay case</h3>
+            <p class="zone-card__body">{signatureChardonnay}</p>
+          </a>
+        )}
+        {signaturePinot && (
+          <a href="/wine/pinot-noir/" class="zone-card zone-card--link">
+            <p class="zone-card__label">Pinot Noir</p>
+            <h3 class="zone-card__title">The Pinot benchmark</h3>
+            <p class="zone-card__body">{signaturePinot}</p>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+{pairWith && (
+  <section class="venues venues--plain">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Pair with the village</p>
+          <h2 class="venues__title">Eat and sleep in {pairWith.placeName}</h2>
+          <p class="venues__sub">{pairWith.body}</p>
+        </div>
+        <a href={`/places/${pairWith.placeSlug}/`} class="venues__link">Open the {pairWith.placeName} hub →</a>
+      </div>
+    </div>
+  </section>
+)}
+
+{logisticsText && (
+  <section class="zone-intro">
+    <div class="container">
+      <div class="split-intro">
+        <div>
+          <p class="label label--accent">Cellar door logistics</p>
+          <h2 class="split-intro__title">Before you drive</h2>
+        </div>
+        <p class="split-intro__body">A small amount of planning is the difference between a working visit and a queue.</p>
+      </div>
+      <div class="prose">
+        {logisticsText.split('\n\n').map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+)}
+
+{place && (
+  <PlaceMap
+    place={place}
+    venues={venues}
+    experiences={[]}
+    events={[]}
+  />
+)}
+
+{journalLinks.length > 0 && (
+  <section class="venues venues--plain" id="journal">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">In voice</p>
+          <h2 class="venues__title">Journal pieces that touch this sub-region</h2>
+          <p class="venues__sub">Long-form writing connected to the producers above.</p>
+        </div>
+        <a href="/journal/" class="venues__link">All journal →</a>
+      </div>
+      <div class="zone-intro__grid zone-intro__grid--three">
+        {journalLinks.map((j) => (
+          <a href={j.href} class="zone-card zone-card--link">
+            <p class="zone-card__label">Journal</p>
+            <h3 class="zone-card__title">{j.title}</h3>
+            <p class="zone-card__body">{j.body}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{nearbySubregions.length > 0 && (
+  <section class="venues venues--plain" id="nearby">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Keep going</p>
+          <h2 class="venues__title">Nearby wine sub-regions</h2>
+          <p class="venues__sub">The Peninsula's plateau is small. You can cover two sub-regions in one afternoon if you keep tastings short.</p>
+        </div>
+      </div>
+      <div class="zone-intro__grid zone-intro__grid--three">
+        {nearbySubregions.map((n) => (
+          <a href={`/wine/${n.slug}/`} class="zone-card zone-card--link">
+            <p class="zone-card__label">Sub-region</p>
+            <h3 class="zone-card__title">{n.label}</h3>
+            {n.hint && <p class="zone-card__body">{n.hint}</p>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{faqItems.length > 0 && (
+  <section class="faq-section">
+    <div class="container">
+      <div class="prose">
+        <h2>Frequently asked questions</h2>
+        {faqItems.map((item) => (
+          <>
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<NewsletterBlock />
