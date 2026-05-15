@@ -12,6 +12,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import { editableText } from '../../lib/inline-edit/attrs';
 ---
 
 <BaseLayout
@@ -24,8 +25,8 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
     <section class="partners-hero">
       <div class="partners-hero__inner">
         <p class="partners-hero__eyebrow">Peninsula Insider</p>
-        <h1 class="partners-hero__heading">Partner with Peninsula Insider</h1>
-        <p class="partners-hero__sub">
+        <h1 class="partners-hero__heading" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.title', label: 'Partners — title' })}>Partner with Peninsula Insider</h1>
+        <p class="partners-hero__sub" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.dek', label: 'Partners — dek' })}>
           Reach people already planning where to eat, stay, explore and spend
           time on the Mornington Peninsula.
         </p>

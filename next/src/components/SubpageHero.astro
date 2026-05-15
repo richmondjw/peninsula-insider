@@ -5,7 +5,13 @@
  *
  * Left column: eyebrow → H1 → prose slot
  * Right column: hero photo, fills full column height
+ *
+ * When `entitySlug` is provided, the title and hero image become CMS-
+ * editable via right-click. Convention mirrors GuideHero / SectionHero
+ * so call sites read uniformly across the codebase.
  */
+import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   /** Section label shown in accent colour before the rule — e.g. "Eat & Drink" */
@@ -20,6 +26,15 @@ export interface Props {
   imageAlt: string;
   /** Optional photo caption. Temporarily retained for data compatibility, but not displayed until image locations are verified. */
   imageCaption?: string;
+  /**
+   * Optional CMS identity for inline editing. When provided, the title
+   * and hero image become editable, and any published overrides are
+   * applied at build time so the static HTML ships pre-patched.
+   * Defaults to `entityType='page'` to match the URL-path fallback
+   * convention used elsewhere.
+   */
+  entitySlug?: string;
+  entityType?: CmsEntityType;
 }
 
 const {
@@ -29,7 +44,29 @@ const {
   heroImage,
   imageAlt,
   imageCaption: _imageCaption,
+  entitySlug,
+  entityType = 'page',
 } = Astro.props;
+
+const editable = !!entitySlug;
+
+// Build-time override consult — apply published title / hero overrides
+// to the initial markup so there's no flash where the default paints
+// before the client-side patcher runs.
+const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;
+const titleOverride = overrides?.text['hero.title'];
+const imageOverride = overrides?.image['hero'];
+
+const resolvedTitle = titleOverride ?? title;
+const resolvedImageSrc = imageOverride?.src ?? heroImage;
+const resolvedImageAlt = imageOverride?.alt ?? imageAlt;
+
+const titleAttrs = editable
+  ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
+  : {};
+const imageAttrs = editable
+  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero image`, purpose: 'hero' })
+  : {};
 ---
 
 <section class="subpage-hero">
@@ -42,14 +79,14 @@ const {
           <span class="subpage-hero__rule" aria-hidden="true"></span>
           {category && <span class="label">{category}</span>}
         </div>
-        <h1 class="subpage-hero__title" set:html={title} />
+        <h1 class="subpage-hero__title" set:html={resolvedTitle} {...titleAttrs} />
         <div class="subpage-hero__prose">
           <slot />
         </div>
       </div>
 
       <div class="subpage-hero__visual" aria-hidden="true">
-        <img src={heroImage} alt={imageAlt} loading="lazy" decoding="async" />
+        <img src={resolvedImageSrc} alt={resolvedImageAlt} loading="lazy" decoding="async" {...imageAttrs} />
         <div class="subpage-hero__fog"></div>
       </div>
 

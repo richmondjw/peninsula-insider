@@ -2,9 +2,15 @@
 /**
  * SectionHero  -  the two-column editorial hero used on
  * section index pages (/eat, /stay, /wine, /journal, /places).
+ *
+ * When `entitySlug` is provided, the title, dek, and hero image become
+ * CMS-editable via right-click + inline contenteditable. Published
+ * overrides are consulted at build time so the static HTML ships pre-
+ * patched (no flash).
  */
 
-import { editableImage } from '../lib/inline-edit/attrs';
+import { editableImage, editableText, type CmsEntityType } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   eyebrow?: string;
@@ -14,9 +20,9 @@ export interface Props {
   gradient?: 'vineyard' | 'bay' | 'sand' | 'hinterland' | 'stay' | 'journal';
   visualLabel?: string;
   heroImage?: string;
-  /** When provided, the visual panel becomes CMS-editable via right-click. */
+  /** When provided, the title, dek, and visual panel become CMS-editable. */
   entitySlug?: string;
-  entityType?: string;
+  entityType?: CmsEntityType;
 }
 
 const {
@@ -31,11 +37,30 @@ const {
   entityType = 'page',
 } = Astro.props;
 
-const gradClass = `section-hero__visual hero-grad--${gradient}`;
-const heroStyle = heroImage ? `background-image: url(${heroImage})` : undefined;
+const editable = !!entitySlug;
 
-const editAttrs = entitySlug
-  ? editableImage({ entityType, entitySlug, fieldPath: 'hero', label: `${entitySlug} hero`, purpose: 'hero' })
+// Build-time override consult — eliminate flash where the default
+// title / dek / hero paints before the client-side patcher swaps.
+const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;
+const titleOverride = overrides?.text['hero.title'];
+const dekOverride = overrides?.text['hero.dek'];
+const imageOverride = overrides?.image['hero'];
+
+const resolvedTitle = titleOverride ?? title;
+const resolvedDek = dekOverride ?? dek;
+const resolvedHeroImage = imageOverride?.src ?? heroImage;
+
+const gradClass = `section-hero__visual hero-grad--${gradient}`;
+const heroStyle = resolvedHeroImage ? `background-image: url(${resolvedHeroImage})` : undefined;
+
+const titleAttrs = editable
+  ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
+  : {};
+const dekAttrs = editable
+  ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.dek', label: `${entitySlug} hero dek` })
+  : {};
+const imageAttrs = editable
+  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero`, purpose: 'hero' })
   : {};
 ---
 
@@ -48,10 +73,10 @@ const editAttrs = entitySlug
           <span class="section-hero__rule" aria-hidden="true"></span>
           {subEyebrow && <span class="label">{subEyebrow}</span>}
         </div>
-        <h1 class="section-hero__title" set:html={title} />
-        <p class="section-hero__dek">{dek}</p>
+        <h1 class="section-hero__title" set:html={resolvedTitle} {...titleAttrs} />
+        <p class="section-hero__dek" {...dekAttrs}>{resolvedDek}</p>
       </div>
-      <div class={gradClass} aria-hidden="true" style={heroStyle} {...editAttrs}>
+      <div class={gradClass} aria-hidden="true" style={heroStyle} {...imageAttrs}>
         <div class="section-hero__visual-fog"></div>
         {visualLabel && <span class="section-hero__visual-label">{visualLabel}</span>}
       </div>

@@ -10,6 +10,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import { editableText } from '../../../lib/inline-edit/attrs';
 
 const dispatches = (await getCollection('articles', ({ data }) =>
   data.format === 'cellar-door-dispatch' && data.status === 'published'
@@ -34,8 +35,8 @@ const breadcrumbItems = [
     <div class="container">
       <div class="cellar-door-hub__header">
         <p class="label label--accent">Wine</p>
-        <h1 class="cellar-door-hub__title">Cellar Door Dispatches</h1>
-        <p class="cellar-door-hub__dek">The producers worth the appointment, the wines worth the cellar, and the arguments happening in the vines.</p>
+        <h1 class="cellar-door-hub__title" {...editableText({ entityType: 'page', entitySlug: 'journal-cellar-door', fieldPath: 'hero.title', label: 'Cellar Door — title' })}>Cellar Door Dispatches</h1>
+        <p class="cellar-door-hub__dek" {...editableText({ entityType: 'page', entitySlug: 'journal-cellar-door', fieldPath: 'hero.dek', label: 'Cellar Door — dek' })}>The producers worth the appointment, the wines worth the cellar, and the arguments happening in the vines.</p>
       </div>
 
       {dispatches.length > 0 ? (
