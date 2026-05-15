@@ -44,11 +44,8 @@ const excerpt = data.intro
     : data.intro
   : '';
 
-const priceDisplay = data.priceLow
-  ? data.priceHigh && data.priceHigh !== data.priceLow
-    ? `$${data.priceLow}&ndash;$${data.priceHigh} per person`
-    : `From $${data.priceLow} per person`
-  : null;
+// Pricing is intentionally not rendered. BRAND-PI rule (2026-05-15):
+// "No pricing on site. Ever." Readers book direct with the operator.
 ---
 
 <article class="tour-card">
@@ -89,7 +86,6 @@ const priceDisplay = data.priceLow
       <a href={href}>{data.name}</a>
     </h3>
     <p class="tour-card__excerpt">{excerpt}</p>
-    {priceDisplay && <p class="tour-card__price" set:html={priceDisplay} />}
     <a href={href} class="tour-card__cta">View package &rarr;</a>
   </div>
   <PiSaveActions

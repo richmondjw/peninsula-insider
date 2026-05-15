@@ -169,7 +169,6 @@ const breadcrumbSchema = buildBreadcrumbSchema([
                   data-bf-pillar="snapper-season"
                   data-bf-operator={c.data.slug}
                 >{c.data.name}</a>
-                {c.data.priceLow != null ? ` · From $${c.data.priceLow} per person` : ''}
                 {c.data.licenceCovered === 'covered' ? ' · Licence covered' : ''}
               </li>
             ))}

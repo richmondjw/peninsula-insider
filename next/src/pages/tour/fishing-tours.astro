@@ -121,8 +121,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
                 >{c.data.name}</a>
               </h3>
               <p class="venue-card__meta">
-                {c.data.priceLow != null ? `From $${c.data.priceLow} per person` : 'Price on enquiry'}
-                {c.data.licenceCovered === 'covered' ? ' · Licence covered' : c.data.licenceCovered === 'byo' ? ' · BYO licence' : ''}
+                {c.data.licenceCovered === 'covered' ? 'Licence covered' : c.data.licenceCovered === 'byo' ? 'BYO licence' : ''}
               </p>
               <p class="venue-card__signature">{c.data.intro}</p>
               <a href={`/fishing/charters/${c.data.slug}/`} class="venue-card__cta" data-bf-event="bf_cross_vertical_click" data-bf-from="tour-fishing-tours" data-bf-operator={c.data.slug}>Operator profile &rarr;</a>

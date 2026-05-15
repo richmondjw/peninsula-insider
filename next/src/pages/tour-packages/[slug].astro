@@ -115,18 +115,9 @@ const breadcrumbItems = [
             <div class="at-a-glance__value">{data.durationNights === 0 ? 'Day trip' : `${data.durationNights} nights`}</div>
           </div>
         )}
-        {(data.priceLow != null || data.priceHigh != null) && (
-          <div class="at-a-glance__row">
-            <div class="at-a-glance__label">Price range</div>
-            <div class="at-a-glance__value">
-              {data.priceLow && data.priceHigh && data.priceLow !== data.priceHigh
-                ? `$${data.priceLow} to $${data.priceHigh} per person (indicative)`
-                : data.priceLow
-                ? `From $${data.priceLow} per person (indicative)`
-                : 'Contact operators for pricing'}
-            </div>
-          </div>
-        )}
+        {/* Price range row intentionally removed. BRAND-PI rule (2026-05-15):
+            "No pricing on site. Ever." Readers book direct with the operator
+            for current pricing. */}
         <div class="at-a-glance__row">
           <div class="at-a-glance__label">Suits</div>
           <div class="at-a-glance__value">{audienceLabel[data.audience] ?? data.audience}</div>
