@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import WineSubregionTemplate from '../../components/WineSubregionTemplate.astro';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
 import { routeSlug } from '../../lib/editorial';
 
@@ -11,16 +11,20 @@ const canonical = `${SITE}/wine/balnarring/`;
 const wineTypes = ['winery', 'producer'];
 const allVenues = await getCollection('venues');
 const venues = allVenues
-  .filter(
-    (v) =>
-      wineTypes.includes(v.data.type) &&
-      (v.data.place === 'balnarring' || (v.data as any).subregion === 'balnarring')
-  )
+  .filter((v) => {
+    if (!wineTypes.includes(v.data.type)) return false;
+    const placeId = String((v.data as any).place?.id ?? (v.data as any).place ?? '');
+    const sub = String((v.data as any).subregion ?? '');
+    return placeId === 'balnarring' || sub === 'balnarring';
+  })
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+const places = await getCollection('places');
+const place = places.find((p) => routeSlug(p) === 'balnarring') ?? null;
 
 const itemListSchema = buildItemListSchema({
   name: 'Balnarring wineries — Mornington Peninsula',
-  description: 'The cellar doors of the Balnarring subregion on the southern Mornington Peninsula.',
+  description: 'The cellar doors of the Balnarring sub-region — the Peninsula\'s quieter Western Port edge.',
   listPath: '/wine/balnarring',
   items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
 });
@@ -34,24 +38,83 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
 <BaseLayout
   title="Balnarring Wineries · Mornington Peninsula · Peninsula Insider"
-  description="Balnarring is a quieter corner of the Mornington Peninsula wine region. Find the cellar doors in this south-facing coastal subregion."
+  description="The complete editorial guide to the Balnarring wine sub-region — Quealy, Hurley, Elan Vineyard and the Peninsula's quieter Western Port edge."
   section="wine"
   canonical={canonical}
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <WineHubTemplate
+  <WineSubregionTemplate
     h1="Balnarring Wineries"
-    badgeLabel="Subregion · Balnarring"
-    introText={`Balnarring sits on the south-facing slopes above Western Port Bay, south of Merricks. The subregion is cooler and more wind-exposed than the interior plateau, with a character that rewards explorers willing to look beyond the well-signposted cellar doors further north.
+    badgeLabel="Sub-region · Balnarring"
+    subregionSlug="balnarring"
+    introText={`Balnarring is the Peninsula's quieter wine edge. Sitting on the Western Port side, the sub-region trades the polished cellar-door theatre of Red Hill for a smaller, more grower-focused scene — paddocks, gravel driveways, smaller producers working with conviction.
 
-The producers here are typically smaller operations — often appointment-only or open on limited days — but they represent some of the most focused winemaking on the Peninsula. The village itself has a good bakery and pub, making a half-day of it straightforward.`}
+Quealy Winemakers (Halliday 95) and Hurley Vineyard are the names that matter. Both are small, careful operations turning out wines that punch well above the visitor numbers they get. Elan Vineyard adds a gallery to the cellar door — wine and art under one roof in a way that feels organic rather than themed.
+
+The compensation for a smaller producer list is the surrounding village: the monthly Balnarring Farmers' Market is one of the Peninsula's best, the beach is family-scaled and quiet, and the drive between cellar doors feels properly rural.`}
+    terroirText={`Balnarring sits east of the Peninsula ridge at 30–100m elevation, with the land falling gently toward Western Port Bay. The maritime influence is direct — Bittern Inlet is minutes away — but the bay itself is calmer, shallower and warmer than Port Phillip, moderating temperatures rather than aggressively cooling them the way Bass Strait does on the western side.
+
+Soils run to deeper sandy loams over clay, with less of the bright red volcanic basalt that defines the ridge. Drainage is generous. Vine vigour can be higher, which the best Balnarring producers manage with low-yielding plantings and careful canopy work.
+
+The result is wines with a softer, more open texture than the ridge sub-regions. Pinot Gris does particularly well here — Quealy made the case for the variety on the Peninsula long before it was fashionable. Pinot Noir from Balnarring tends to drink earlier than Main Ridge equivalents, with more red-fruit charm and less savoury structure.`}
     venues={venues}
+    anchorPicks={[
+      {
+        venueSlug: 'quealy-winemakers',
+        verdict: 'Kathleen Quealy made the Peninsula case for Pinot Gris (and Friulano, and Moscato Giallo) before the rest of the country caught up. A quiet, working cellar door run by a family that genuinely cares about the answer to your question.',
+      },
+      {
+        venueSlug: 'hurley-vineyard',
+        verdict: "Kevin Bell's tiny single-vineyard estate makes Pinot Noir from three blocks on the same property, bottled separately. Appointment only, deliberately small — one of the most rewarding tastings on the Peninsula if you're in for the detail.",
+      },
+      {
+        venueSlug: 'elan-vineyard',
+        verdict: 'Wine and gallery in the same low-slung shed. Selma Lowther farms biodynamically; the art and the bottles share a quiet, unhurried sensibility. Bring time, not a schedule.',
+      },
+    ]}
+    signatureChardonnay="Balnarring Chardonnay is less common than further west, but where it's made — Hurley's whole-bunch-pressed Chardonnay is the reference — it tends to be textural and gently nutty rather than steely. The warmer, lower sites suit it."
+    signaturePinot="Pinot Noir from Balnarring is open-fruited, perfumed and ready earlier than the ridge sub-regions. The wines drink beautifully young; Hurley's three-block estate range is the most serious local example of how the sub-region's softer soils can still produce structured wines."
+    pairWith={{
+      placeSlug: 'balnarring',
+      placeName: 'Balnarring',
+      body: 'Balnarring village has a strong general store, a good bakery and a hotel pub that does an honest counter lunch. The third-Saturday-of-the-month Balnarring Farmers\' Market is a destination in its own right. Balnarring Beach is calm, shallow Western Port — best for families.',
+    }}
+    logisticsText={`Cellar doors in Balnarring are smaller and more variable in hours than on the ridge. Quealy opens Thursday to Monday; Hurley is appointment-only; Elan opens Friday to Sunday. Always confirm before you drive.
+
+This is a "two stops plus the market" sub-region rather than a cellar-door crawl. If you are visiting on a market Saturday (third Saturday of the month), build the morning around the market and pick one producer for the afternoon.
+
+The roads here are quieter and less direct than the ridge — allow extra time. Mornington Peninsula tour operators cover Balnarring less often than Red Hill; a designated driver is the simplest plan.`}
+    nearbySubregions={[
+      { slug: 'merricks', label: 'Merricks', hint: 'The next sub-region west. Pt. Leo Estate, Stonier, Scorpo and the General Wine Store.' },
+      { slug: 'red-hill', label: 'Red Hill', hint: 'Up the ridge. Paringa, Montalto, Polperro and the monthly market.' },
+      { slug: 'main-ridge', label: 'Main Ridge', hint: 'The highest plateau. Kooyong, Ten Minutes by Tractor, Main Ridge Estate.' },
+    ]}
+    journalLinks={[
+      { href: '/journal/the-cellar-door-short-list/', title: 'The cellar-door short list', body: 'The seven cellar doors I send people to first.' },
+      { href: '/wine/chardonnay/', title: 'The Chardonnay case', body: 'Where Balnarring fits in the Peninsula Chardonnay story.' },
+      { href: '/wine/pinot-noir/', title: 'The Pinot benchmark', body: 'How to read Peninsula Pinot Noir, sub-region by sub-region.' },
+    ]}
+    place={place}
     breadcrumbs={[
       { label: 'Home', href: '/' },
       { label: 'Wine Country', href: '/wine' },
       { label: 'Balnarring' },
+    ]}
+    faqItems={[
+      {
+        q: 'What is Balnarring known for in wine?',
+        a: 'Balnarring is the Peninsula\'s quieter Western Port edge. Quealy Winemakers and Hurley Vineyard are the two producers that have made the sub-region\'s reputation — both small, family-run, and consistently among Halliday\'s top-rated Peninsula estates. Pinot Gris and Pinot Noir are the strengths.',
+      },
+      {
+        q: 'Are there many wineries in Balnarring?',
+        a: 'Fewer than on the ridge. Three is the practical visitor list (Quealy, Hurley, Elan). Several smaller growers in the area sell fruit to estates elsewhere rather than running cellar doors. Pair a Balnarring visit with the monthly farmers\' market or with cellar doors in Merricks for a fuller day.',
+      },
+      {
+        q: 'When is the Balnarring Farmers\' Market?',
+        a: 'Third Saturday of every month, year-round. It is one of the Peninsula\'s best produce markets — smaller and more local than Red Hill Market, with a stronger focus on growers from the Western Port side of the Peninsula. Build a wine day around it.',
+      },
     ]}
   />
 </BaseLayout>

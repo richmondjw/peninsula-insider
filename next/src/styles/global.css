@@ -4141,6 +4141,27 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   gap: 1.25rem;
 }
 
+/* Three-up + two-up variants used by WineSubregionTemplate.
+   Mobile collapses to a single column via the existing
+   .zone-intro__grid @media rules below 720px. */
+.zone-intro__grid--three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.zone-intro__grid--two {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 900px) {
+  .zone-intro__grid--three { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .zone-intro__grid--three,
+  .zone-intro__grid--two { grid-template-columns: 1fr; }
+}
+
 /* =========================================================
    PLACE DETAIL  -  extras: stats bar + in-page jump nav.
    ========================================================= */
