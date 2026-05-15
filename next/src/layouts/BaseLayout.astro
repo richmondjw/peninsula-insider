@@ -229,6 +229,15 @@ const isAskPage = rawPathname.startsWith('/ask');
     data-pagefind-meta={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
     data-pagefind-ignore={searchExclude ? '' : undefined}
   >
+    {/* Pagefind search-result image source. Mirrors the page's ogImage
+        (which every page already sets for social sharing) into the search
+        index as `meta.image`. Without this, Pagefind tries to auto-detect
+        an image from the first <img> tag in the body — which fails for
+        most page types here because heroes use CSS background-image, not
+        real img elements. Single source of truth: ogImage. */}
+    {!searchExclude && ogImage && (
+      <span data-pagefind-meta={`image:${ogImage}`} hidden></span>
+    )}
     <slot />
   </main>
 
