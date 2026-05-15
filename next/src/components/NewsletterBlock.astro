@@ -9,7 +9,9 @@
    Inline-editable surfaces are tagged against entity_type='page',
    entity_slug='home' — matches the existing override schema. */
 
+import { getCollection } from 'astro:content';
 import { editableText } from '../lib/inline-edit/attrs';
+import { routeSlug } from '../lib/editorial';
 
 export interface Props {
   title?: string;
@@ -20,6 +22,13 @@ export interface Props {
   previewItems?: string[];
   endpoint?: string;
   source?: string;
+  /**
+   * Hide the preview card on the right entirely. Useful for footer/embedded
+   * placements where the card would crowd the surface. Default false — the
+   * preview card renders when there's a published weekend-picker article
+   * to source from.
+   */
+  hidePreview?: boolean;
 }
 
 const {
@@ -31,12 +40,64 @@ const {
   previewItems = [],
   endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe',
   source = 'footer',
+  hidePreview = false,
 } = Astro.props;
+
+// ─── Preview card data ─────────────────────────────────────────────────
+// Pulls from the most recent published weekend-picker article so the
+// card on the right of the newsletter band is always in sync with the
+// dispatch that's currently live. This solves the staleness that drove
+// Remy to hide the card in d1903b2fc0 — the card can't go stale because
+// it reads from the canonical article each build. Explicit props still
+// win when a caller wants to override (e.g. for a campaign page).
+const dispatchArticles = await getCollection(
+  'articles',
+  ({ data }) => data.status === 'published' && data.format === 'weekend-picker',
+);
+const dispatch = dispatchArticles
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0] ?? null;
+
+// "Peninsula This Weekend — 16 to 17 May" → "16 to 17 May"
+function deriveIssueLabel(d: any | null): string {
+  if (!d) return '';
+  const t = String(d.data.title ?? '');
+  const m = t.match(/[—–-]\s*(.+)$/);
+  if (m) return m[1].trim();
+  return d.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long' });
+}
+
+// 3 short picks for the bullet list. Cluster links are editor-curated and
+// already short labels, so they're the cleanest source. Fall back to the
+// first 3 FAQ questions (truncated) if cluster links aren't populated.
+function derivePicks(d: any | null): string[] {
+  if (!d) return [];
+  const cluster = (d.data.clusterLinks ?? []) as Array<{ label: string }>;
+  if (cluster.length > 0) return cluster.slice(0, 3).map((c) => c.label);
+  const faq = (d.data.faq ?? []) as Array<{ question: string }>;
+  return faq.slice(0, 3).map((f) => {
+    const q = String(f.question ?? '').replace(/\s+/g, ' ').trim();
+    return q.length > 70 ? q.slice(0, 67).trim() + '…' : q;
+  });
+}
+
+const resolvedHeadline = previewHeadline || (dispatch?.data?.dek ?? '');
+const resolvedIssueLabel =
+  issueNumber && issueDate
+    ? `${issueNumber} · ${issueDate}`
+    : (issueNumber || issueDate || deriveIssueLabel(dispatch));
+const resolvedPicks = previewItems.length > 0 ? previewItems : derivePicks(dispatch);
+const dispatchHref = dispatch ? `/journal/${routeSlug(dispatch)}/` : '';
+const readMinutes = dispatch?.data?.readingTimeMinutes ?? 4;
+const resolvedFoot = dispatch
+  ? `Read in ${readMinutes} ${readMinutes === 1 ? 'minute' : 'minutes'} · Used all weekend`
+  : '';
+
+const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0;
 ---
 
 <section class="v2-newsletter" id="newsletter" aria-labelledby="newsletter-title">
   <div class="v2-newsletter__container">
-    <div class="v2-newsletter__frame">
+    <div class={`v2-newsletter__frame${showPreview ? ' v2-newsletter__frame--has-preview' : ''}`}>
       <div class="v2-newsletter__copy">
         <div
           class="v2-newsletter__eyebrow"
@@ -79,7 +140,25 @@ const {
         </div>
       </div>
 
-      <!-- Newsletter preview card hidden until issue copy is verified. -->
+      {showPreview && (
+        <a
+          href={dispatchHref || '/whats-on/this-weekend/'}
+          class="v2-newsletter__preview"
+          aria-label={`Read this issue: ${resolvedHeadline}`}
+        >
+          <div class="v2-np__head">
+            <span class="v2-np__mark">Peninsula This Weekend</span>
+            {resolvedIssueLabel && <span class="v2-np__issue">{resolvedIssueLabel}</span>}
+          </div>
+          <h3 class="v2-np__title" set:html={resolvedHeadline} />
+          {resolvedPicks.length > 0 && (
+            <ul class="v2-np__items">
+              {resolvedPicks.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+          {resolvedFoot && <div class="v2-np__foot">{resolvedFoot}</div>}
+        </a>
+      )}
     </div>
   </div>
 </section>
@@ -176,8 +255,15 @@ const {
     gap: clamp(2rem, 5vw, 5rem);
     align-items: center;
   }
+  /* Two columns when a preview card is present — the right column
+     carries the magazine-style "this issue" teaser. Type column is
+     slightly wider so the hero headline still leads the band. */
+  .v2-newsletter__frame--has-preview {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  }
   @media (max-width: 880px) {
-    .v2-newsletter__frame { grid-template-columns: 1fr; }
+    .v2-newsletter__frame,
+    .v2-newsletter__frame--has-preview { grid-template-columns: 1fr; }
   }
   @media (max-width: 640px) {
     .v2-newsletter {
@@ -323,6 +409,17 @@ const {
     box-shadow: 0 40px 80px -20px rgba(0,0,0,0.4), 0 8px 18px -4px rgba(0,0,0,0.25);
     max-width: 28rem;
     justify-self: end;
+    /* The whole card is a link to the current dispatch — reset the default
+       anchor decoration and tighten the hover affordance so the card lifts
+       slightly instead of underlining. */
+    display: block;
+    text-decoration: none;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s ease;
+  }
+  .v2-newsletter__preview:hover {
+    transform: rotate(-0.5deg) translateY(-2px);
+    box-shadow: 0 48px 90px -20px rgba(0,0,0,0.45), 0 10px 22px -4px rgba(0,0,0,0.28);
   }
   @media (max-width: 880px) {
     .v2-newsletter__preview { transform: none; margin-top: 2rem; justify-self: stretch; max-width: none; }
