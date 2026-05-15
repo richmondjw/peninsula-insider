@@ -245,6 +245,30 @@ const places = defineCollection({
     publishedAt: z.coerce.date(),
     tldr: z.array(z.string()).optional(),
     driveTime: z.string().optional(),
+    /**
+     * Editorial trip-planning fields. Surface on /places/[slug] pages — the
+     * place-detail template renders each conditionally so partially-filled
+     * places (e.g. arthurs-seat) still render cleanly.
+     *
+     *   signature     one-sentence editorial tagline
+     *   bestFor       short audience tags ("quiet weekends", "golf")
+     *   notFor        anti-audience tags ("cheap accommodation")
+     *   bestSeason    free-text season label ("late spring")
+     *   worstTime     free-text avoid-this-window
+     *   stayDuration  recommended length ("two nights")
+     *   bestDay       sentence describing a perfect day — rendered as a timeline
+     *   insiderNote   one-line editor's note, treated as pull-quote
+     *   skip          one-liner of "what NOT to expect"
+     */
+    signature: z.string().optional(),
+    bestFor: z.array(z.string()).optional(),
+    notFor: z.array(z.string()).optional(),
+    bestSeason: z.string().optional(),
+    worstTime: z.string().optional(),
+    stayDuration: z.string().optional(),
+    bestDay: z.string().optional(),
+    insiderNote: z.string().optional(),
+    skip: z.string().optional(),
     sitemapExclude: z.boolean().default(false),
   }),
 });
