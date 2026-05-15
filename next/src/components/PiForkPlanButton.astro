@@ -21,13 +21,20 @@ export interface Props {
   items: Array<Omit<SavedItem, 'savedAt'>>;
   /** Optional override for the button label. */
   label?: string;
+  /**
+   * Visual variant.
+   *  - 'solid' (default): filled dark pill, for standalone placements.
+   *  - 'ghost': outlined pill, for placements where this button sits next
+   *    to a primary CTA and should defer to it visually.
+   */
+  variant?: 'solid' | 'ghost';
 }
 
-const { items, label = 'Save this plan as mine' } = Astro.props;
+const { items, label = 'Save this plan as mine', variant = 'solid' } = Astro.props;
 const encoded = JSON.stringify(items);
 ---
 
-<div class="pi-fork-plan">
+<div class={`pi-fork-plan pi-fork-plan--${variant}`}>
   <button
     type="button"
     class="pi-fork-plan__btn"
@@ -39,41 +46,43 @@ const encoded = JSON.stringify(items);
     </svg>
     {label}
   </button>
-  <p class="pi-fork-plan__hint">
-    Forks the itinerary plus every stop into your plan. Edit, share, or print from <a href="/account/saved/">your saves</a>.
-  </p>
 </div>
 
 <style is:global>
   .pi-fork-plan {
     margin: 1.5rem 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    display: inline-flex;
   }
+
+  /* When nested inside a CTA row (e.g. on the plan-detail page), the
+     parent row owns the spacing — drop the standalone top margin. */
+  .itinerary-detail__cta-row .pi-fork-plan { margin: 0; }
 
   .pi-fork-plan__btn {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
+    /* Match the .itinerary-detail__cta padding/typography so the two
+       buttons share the same vertical rhythm when they sit in one row. */
     padding: 0.85rem 1.4rem;
     background: var(--ink, #171413);
     color: var(--paper, #FAF7F0);
     border: 1px solid var(--ink, #171413);
-    border-radius: 100px;
+    border-radius: 999px;
     font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background 0.18s ease, border-color 0.18s ease, transform 0.08s ease;
+    transition: background 0.18s ease, border-color 0.18s ease,
+                color 0.18s ease, transform 0.08s ease;
   }
 
   .pi-fork-plan__btn:hover {
     background: var(--ochre, #A0541F);
     border-color: var(--ochre, #A0541F);
+    color: #FFFFFF;
   }
 
   .pi-fork-plan__btn:active { transform: scale(0.98); }
@@ -81,22 +90,27 @@ const encoded = JSON.stringify(items);
   .pi-fork-plan__btn[data-state="forked"] {
     background: var(--ochre, #A0541F);
     border-color: var(--ochre, #A0541F);
+    color: #FFFFFF;
   }
 
-  .pi-fork-plan__hint {
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-size: 0.85rem;
-    line-height: 1.45;
-    color: var(--ink-soft, #3A3531);
-    margin: 0;
-    max-width: 36rem;
+  /* ── Ghost variant ────────────────────────────────────────────────
+     For placements where this button sits next to a filled primary CTA
+     (anchor-stay on /plans/[slug]). Outlined pill so the hierarchy
+     reads: primary action = filled, secondary = outlined. */
+  .pi-fork-plan--ghost .pi-fork-plan__btn {
+    background: transparent;
+    color: var(--ink, #171413);
+    border-color: var(--ink, #171413);
   }
-
-  .pi-fork-plan__hint a {
-    color: var(--ochre, #A0541F);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
+  .pi-fork-plan--ghost .pi-fork-plan__btn:hover {
+    background: var(--ink, #171413);
+    color: var(--paper, #FAF7F0);
+    border-color: var(--ink, #171413);
+  }
+  .pi-fork-plan--ghost .pi-fork-plan__btn[data-state="forked"] {
+    background: var(--ochre, #A0541F);
+    border-color: var(--ochre, #A0541F);
+    color: #FFFFFF;
   }
 </style>
 
