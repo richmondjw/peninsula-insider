@@ -133,12 +133,11 @@ async function fetchSearchQueries() {
   ].join(",");
   const url =
     `${SUPABASE_URL}/rest/v1/site_search_queries` +
-    `?schema=pi` +
-    `&select=${select}` +
+    `?select=${select}` +
     `&created_at=gte.${encodeURIComponent(sinceISO)}` +
     `&order=created_at.desc` +
     `&limit=5000`;
-  const res = await fetch(url, { headers: { ...sbHeaders, "Accept-Profile": "pi" } });
+  const res = await fetch(url, { headers: sbHeaders });
   if (!res.ok) {
     const body = await res.text();
     throw new Error(`Supabase fetch failed: ${res.status} ${body}`);
