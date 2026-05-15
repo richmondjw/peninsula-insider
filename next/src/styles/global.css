@@ -2543,6 +2543,48 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 
 /* ── 3. What you get — numbered four-up ── */
+/* ── Editions — editorial rhythms within The Insider publication ── */
+.news-editions {
+  padding: clamp(2.8rem, 6vw, 4.5rem) 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.news-editions__inner {
+  max-width: 520px;
+}
+.news-editions__list {
+  list-style: none;
+  margin: 1.2rem 0 1.4rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.news-editions__item {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  font-weight: 500;
+  color: var(--dark);
+  padding-left: 1.1rem;
+  position: relative;
+}
+.news-editions__item::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 400;
+}
+.news-editions__note {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
 .news-promise {
   padding: clamp(3.5rem, 8vw, 6rem) 0;
   background: var(--bg-alt);
@@ -2715,6 +2757,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   .news-hero__dek { font-size: 1.08rem; }
   .news-hero__form { padding: 1.2rem 1rem; }
   .news-hero__proof { gap: 0.7rem 1.6rem; font-size: 0.7rem; }
+  .news-editions__item { font-size: 1.05rem; }
   .news-promise__grid { grid-template-columns: 1fr; }
   .news-trust__grid { grid-template-columns: 1fr; gap: 1.4rem; }
 }

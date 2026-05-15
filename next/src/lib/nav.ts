@@ -196,7 +196,7 @@ export const footerAboutLinks: NavItem[] = [
  */
 export const footerUtilityLinks: NavItem[] = [
   { key: 'map',        label: 'Map of the Peninsula', href: '/map/' },
-  { key: 'newsletter', label: 'Newsletter',           href: '/newsletter/' },
+  { key: 'newsletter', label: 'Publication',          href: '/newsletter/' },
   { key: 'privacy',    label: 'Privacy',              href: '/privacy/' },
   { key: 'cookies',    label: 'Cookie settings',      href: '#cookie-settings' },
 ];
