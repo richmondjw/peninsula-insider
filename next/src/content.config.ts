@@ -295,6 +295,21 @@ const articles = defineCollection({
      * sprint lands; this flag is the lightweight first step.
      */
     section: z.enum(['journal', 'plans']).default('journal'),
+    /**
+     * Shape of the trip a plans article describes. Drives the four-group
+     * editorial layout on /plans/. Optional at the schema level because
+     * journal-section articles don't need it; required (editorially) for
+     * any article with section: plans that wants to appear in the
+     * grouped "Peninsula planning guides" section.
+     *
+     *   one-night → focused single-overnight reset
+     *   two-night → the canonical weekend shape
+     *   day-trip  → no overnight, return same day
+     *   seasonal  → anchored to a specific season, event, or weather window
+     */
+    planShape: z
+      .enum(['one-night', 'two-night', 'day-trip', 'seasonal'])
+      .optional(),
   }),
 });
 

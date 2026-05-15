@@ -17,6 +17,7 @@ readingTimeMinutes: 7
 featured: false
 status: "published"
 section: plans
+planShape: "seasonal"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Two Bays Walking Track"

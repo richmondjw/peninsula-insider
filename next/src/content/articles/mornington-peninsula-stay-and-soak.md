@@ -16,6 +16,7 @@ relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-c
 readingTimeMinutes: 8
 status: "published"
 section: plans
+planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"

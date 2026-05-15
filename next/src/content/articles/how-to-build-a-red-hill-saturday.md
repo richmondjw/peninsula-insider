@@ -17,6 +17,7 @@ readingTimeMinutes: 6
 featured: false
 status: "published"
 section: plans
+planShape: "day-trip"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Cellar Door Short List — Five Producers Worth the Appointment"

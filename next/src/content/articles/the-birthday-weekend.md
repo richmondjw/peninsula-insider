@@ -17,6 +17,7 @@ readingTimeMinutes: 7
 featured: false
 status: "published"
 section: plans
+planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"

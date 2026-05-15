@@ -60,31 +60,46 @@ const moodGuides = [
 ];
 const moodResolved = moodGuides;
 
-const guideGroups = [
+// Editorial grouping for the four-section "Peninsula planning guides"
+// block below. Source of truth is the `planShape` frontmatter field on
+// each plans article — assigned per piece, no overlap, no regex luck.
+//
+// Render order is fixed (one-night → two-night → day-trip → seasonal)
+// so the page reads as a coherent length-of-trip ladder. Each group
+// shows up to 6 articles, sorted by publishedAt desc (i.e. newest
+// editorial decisions first). A plans article without a `planShape`
+// value will not appear here — it's an explicit editorial step.
+const planShapeGroups = [
   {
+    key: 'one-night',
     label: 'One Night',
     dek: 'Focused resets where one anchor does most of the work.',
-    match: (article: typeof plansArticles[number]) => /one-night|quick|reset|couples/i.test(`${article.data.title} ${article.data.dek ?? ''} ${(article.data.tags ?? []).join(' ')}`),
   },
   {
+    key: 'two-night',
     label: 'Two Nights',
     dek: 'The native Peninsula rhythm: one ridge day, one coast day, no rushing.',
-    match: (article: typeof plansArticles[number]) => /two-night|weekend|stay|wedding|corporate|retreat/i.test(`${article.data.title} ${article.data.dek ?? ''} ${(article.data.tags ?? []).join(' ')}`),
   },
   {
+    key: 'day-trip',
     label: 'Day Trips',
     dek: 'Single-day plans that choose one geography and stick with it.',
-    match: (article: typeof plansArticles[number]) => /day|saturday|mornington|market|kids/i.test(`${article.data.title} ${article.data.dek ?? ''} ${(article.data.tags ?? []).join(' ')}`),
   },
   {
+    key: 'seasonal',
     label: 'Seasonal Escapes',
-    dek: 'Weather, harvest, winter and hot-springs plans for the right moment.',
-    match: (article: typeof plansArticles[number]) => /winter|autumn|spring|summer|season|soak|spa|hot-springs|golf|wine/i.test(`${article.data.title} ${article.data.dek ?? ''} ${(article.data.tags ?? []).join(' ')}`),
+    dek: 'Weather, harvest, and the calendar moments that ask for a specific plan.',
   },
-].map((group) => ({
-  ...group,
-  articles: plansArticles.filter(group.match).slice(0, 4),
-})).filter((group) => group.articles.length > 0);
+] as const;
+
+const guideGroups = planShapeGroups
+  .map((group) => ({
+    ...group,
+    articles: plansArticles
+      .filter((a) => a.data.planShape === group.key)
+      .slice(0, 6),
+  }))
+  .filter((group) => group.articles.length > 0);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

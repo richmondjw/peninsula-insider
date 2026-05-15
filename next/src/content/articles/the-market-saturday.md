@@ -17,6 +17,7 @@ readingTimeMinutes: 8
 featured: false
 status: "published"
 section: plans
+planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Peninsula Pantry — Shopping the Region's Larder"

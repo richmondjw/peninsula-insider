@@ -11,6 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "slow-peninsula"
 section: plans
+planShape: "two-night"
 tags: ["couples", "weekend", "stay", "wine", "romance", "red-hill", "sorrento", "flinders"]
 relatedVenues:
   - "jackalope"

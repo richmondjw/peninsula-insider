@@ -26,6 +26,7 @@ readingTimeMinutes: 8
 featured: true
 status: "published"
 section: plans
+planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"

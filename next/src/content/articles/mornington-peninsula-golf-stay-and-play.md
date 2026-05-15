@@ -16,6 +16,7 @@ relatedExperiences: ["st-andrews-beach-golf-course", "moonah-links", "the-dunes-
 readingTimeMinutes: 9
 status: "published"
 section: plans
+planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
   - label: "Best Golf Courses on the Mornington Peninsula — Tier Guide"
