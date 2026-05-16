@@ -15,8 +15,7 @@ export interface Props {
 }
 
 const { pillar, current = false, triggerId } = Astro.props;
-// Journal and Notebook both render as calm direct links — no chevron, no mega trigger.
-const isJournal = pillar.key === 'journal' || pillar.key === 'notebook';
+const isJournal = pillar.key === 'journal';
 const linkClass = [
   'v4-pillars__link',
   isJournal ? 'v4-pillars__link--journal' : '',
