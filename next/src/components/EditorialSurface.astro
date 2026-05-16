@@ -131,7 +131,9 @@ const eyebrowFull = season
 <style>
   /* ── Shared ──────────────────────────────────────────────────────── */
   .es {
-    container-type: inline-size;
+    /* container-type removed: element cannot observe its own container context.
+       Breakpoints use @media queries instead — surfaces are always full-width
+       on hub pages so viewport width is the correct signal. */
   }
 
   .es__eyebrow {
@@ -154,7 +156,7 @@ const eyebrowFull = season
     overflow: hidden;
   }
 
-  @container (max-width: 680px) {
+  @media (max-width: 680px) {
     .es--l1 { grid-template-columns: 1fr; }
   }
 
@@ -163,8 +165,9 @@ const eyebrowFull = season
     min-height: 280px;
   }
 
-  @container (max-width: 680px) {
+  @media (max-width: 680px) {
     .es-l1__image { min-height: 220px; }
+    .es-l1__body { padding: 1.5rem; }
   }
 
   .es-l1__image img {
@@ -260,7 +263,7 @@ const eyebrowFull = season
     padding: 1.625rem 2.5rem;
   }
 
-  @container (max-width: 680px) {
+  @media (max-width: 680px) {
     .es--l2 {
       grid-template-columns: auto 1fr;
       grid-template-rows: auto auto;
