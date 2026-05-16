@@ -16,13 +16,23 @@ const places = (await getCollection('places')).sort((a, b) => a.data.name.locale
 const venues = await getCollection('venues');
 const experiences = await getCollection('experiences');
 
-const placeDensity: Record<string, number> = {};
-places.forEach((place) => {
-  const slug = routeSlug(place);
-  const venueCount = venues.filter((v) => String(v.data.place?.id ?? v.data.place) === slug).length;
-  const experienceCount = experiences.filter((e) => String(e.data.place?.id ?? e.data.place) === slug).length;
-  placeDensity[slug] = venueCount + experienceCount;
-});
+// Curated destination order — editorial priority, not alphabetical or regional.
+// Reflects search importance, Peninsula recognition, and editorial strength.
+// Update this array to change what appears and in what order.
+const CURATED_ORDER = [
+  'sorrento', 'red-hill', 'flinders', 'portsea', 'mornington',
+  'cape-schanck', 'main-ridge', 'merricks', 'blairgowrie', 'rye',
+];
+
+// Primary curated destinations — shown in editorial order at the top of the hub
+const primaryDestinations = CURATED_ORDER
+  .map((slug) => places.find((p) => routeSlug(p) === slug))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+// Secondary destinations — remaining places not in the curated primary list
+const secondaryDestinations = places.filter(
+  (p) => !CURATED_ORDER.includes(routeSlug(p))
+).sort((a, b) => a.data.name.localeCompare(b.data.name));
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -36,32 +46,6 @@ const townReads = townReadSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
   .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
-const groups: { key: string; label: string; title: string; intro: string; variant: 'vineyard' | 'bay' | 'sand'; zones: string[] }[] = [
-  {
-    key: 'hinterland', label: 'Hinterland', title: 'Hinterland — Red Hill, Main Ridge, Merricks',
-    intro: 'The elevated central ridge between the bay and the ocean. Cool mornings, fog-prone winters, and volcanic red soils produce some of the best cool-climate Pinot Noir and Chardonnay in Australia. The area is predominantly rural — farmstands, cellar doors on gravel roads, the occasional serious restaurant tucked into a vineyard. There is no beach within five minutes. That\'s the point.',
-    variant: 'vineyard', zones: ['red-hill-plateau', 'hinterland'],
-  },
-  {
-    key: 'bay', label: 'Bay Coast', title: 'Bay Coast — Mornington to Rosebud',
-    intro: 'Mornington, Mount Martha, Safety Beach, Dromana, and Rosebud face Port Phillip Bay along the peninsula\'s eastern edge. The water is calm, the swimming is safe, the bathing boxes are photogenic, and the summer crowds are real. Mornington anchors the northern end as the most town-like of the lot — gallery, market, decent coffee, a working marina.',
-    variant: 'bay', zones: ['bayside'],
-  },
-  {
-    key: 'tip', label: 'The Tip', title: 'The Tip — Blairgowrie, Sorrento, Portsea',
-    intro: 'Blairgowrie, Sorrento, and Portsea occupy the peninsula\'s narrow western tip, with Point Nepean National Park sealing the end. Limestone cliffs, white-sand ocean beaches facing Bass Strait, a ferry crossing to Queenscliff, and heritage buildings from Victoria\'s earliest settlement attempt. Sorrento is the prettiest town on the Peninsula. Portsea is the richest. Blairgowrie is the best-kept secret.',
-    variant: 'sand', zones: ['back-beaches', 'tip'],
-  },
-  {
-    key: 'ocean', label: 'Ocean Coast & Western Port', title: 'Ocean Coast & Western Port',
-    intro: 'Rye, Cape Schanck, Flinders, Shoreham, Balnarring, and Hastings wrap the peninsula\'s southern and eastern flanks. Rye is the most relaxed ocean-side town. Cape Schanck is a lighthouse at the edge of a national park. Flinders is a village that thinks of itself as a destination. Shoreham and Balnarring are quiet to the point of deliberate. Hastings is a working port with a marina and a train station.',
-    variant: 'sand', zones: ['ocean-coast'],
-  },
-];
-
-const grouped = groups
-  .map((group) => ({ ...group, places: places.filter((p) => group.zones.includes(p.data.zone)) }))
-  .filter((group) => group.places.length > 0);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -169,85 +153,52 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <SectionDivider />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. AREA GROUPS — town card grids
+       4. PRIMARY DESTINATIONS — curated editorial order, destination-first
+       No regional groupings. Each destination is its own entity.
        ═══════════════════════════════════════════════════════════════ -->
-  {grouped.map((group) => {
-    const ordered = [...group.places].sort((a, b) => (placeDensity[routeSlug(b)] ?? 0) - (placeDensity[routeSlug(a)] ?? 0));
-    return (
-      <section class="places" id={group.key}>
-        <div class="container">
-          <div class="places__header">
-            <p class="label label--accent places__label">{group.label}</p>
-            <h2 class="places__title">{group.title}</h2>
-            <p class="places__sub">{group.intro}</p>
-          </div>
-          <div class="places__grid">
-            {ordered.map((place) => <PlaceCard place={place} variant={group.variant} showMeta={false} showActions={false} introMaxLength={240} />)}
+  {primaryDestinations.length > 0 && (
+    <section class="places" id="destinations">
+      <div class="container">
+        <div class="places__header">
+          <div>
+            <p class="label label--accent places__label">Destinations</p>
+            <h2 class="places__title">Where do you want to be?</h2>
+            <p class="places__sub">The Peninsula’s strongest destinations, ordered by editorial importance. Each page is a complete guide — atmosphere, planning, best for, and the local category guides that go deeper.</p>
           </div>
         </div>
-      </section>
-    );
-  })}
-
-  <SectionDivider />
+        <div class="places__grid">
+          {primaryDestinations.map((place, index) => (
+            <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} showMeta={false} showActions={false} introMaxLength={240} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       5. PENINSULA AT A GLANCE — editorial orientation cards
+       5. MORE PENINSULA PLACES — secondary destinations
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="peninsula-glance" aria-label="Peninsula at a Glance">
-    <div class="container">
-      <div class="peninsula-glance__header">
-        <p class="label label--accent">Orientation</p>
-        <h2 class="peninsula-glance__title">Peninsula at a Glance</h2>
-        <p class="peninsula-glance__sub">Four useful ways to read the map before choosing where to stay, eat, walk, or spend the day.</p>
+  {secondaryDestinations.length > 0 && (
+    <section class="places places--secondary" id="more-places">
+      <div class="container">
+        <div class="places__header">
+          <div>
+            <p class="label label--accent places__label">More places</p>
+            <h2 class="places__title">Further Peninsula destinations</h2>
+            <p class="places__sub">Every town we cover, with its own editorial page.</p>
+          </div>
+        </div>
+        <div class="places__grid">
+          {secondaryDestinations.map((place, index) => (
+            <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} showMeta={false} showActions={false} introMaxLength={200} />
+          ))}
+        </div>
       </div>
-      <div class="peninsula-glance__grid">
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">Hinterland</p>
-          <h3>Food, wine, fog, and red soil.</h3>
-          <p>Use Red Hill, Main Ridge, and Merricks when the trip is built around cellar doors, long lunches, farmgates, and a slower ridge pace.</p>
-        </article>
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">Bay Coast</p>
-          <h3>Calm water and easy logistics.</h3>
-          <p>Mornington through Rosebud is the practical side: family beaches, foreshore walks, markets, piers, and the simplest day-trip rhythm.</p>
-        </article>
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">The Tip</p>
-          <h3>Limestone, back beaches, and the ferry.</h3>
-          <p>Blairgowrie, Sorrento, and Portsea are where the Peninsula narrows and the weekend becomes more cinematic — beautiful, busy, and best booked ahead.</p>
-        </article>
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">Ocean Coast & Western Port</p>
-          <h3>Wilder edges and quieter towns.</h3>
-          <p>Rye, Cape Schanck, Flinders, Shoreham, Balnarring, and Hastings suit walkers, winter drives, working harbours, and people who prefer less polish.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <SectionDivider />
+    </section>
+  )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       6. ALL PLACES — full mosaic
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="places" id="all">
-    <div class="container">
-      <div class="places__header">
-        <p class="label label--accent places__label">All Places</p>
-        <h2 class="places__title">Browse Every Place</h2>
-        <p class="places__sub">The full place layer, kept simple.</p>
-      </div>
-      <div class="places__grid">
-        {places.map((place, index) => (
-          <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} showMeta={false} showActions={false} introMaxLength={220} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       7. EDITORIAL GUIDES
+       6. EDITORIAL GUIDES — formerly section 7
        ═══════════════════════════════════════════════════════════════ -->
   {townReads.length > 0 && (
     <section class="venues venues--plain">

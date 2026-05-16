@@ -633,6 +633,17 @@ const factualRest = factual.slice(1);
 <!-- ═══════════════════════════════════════════════════════════════════════
      13. READER SUBMISSION CTA
      ═══════════════════════════════════════════════════════════════════════ -->
+<!-- Places ecosystem back-link — reinforces hierarchy, completes the loop
+     Peninsula Insider → Places hub → Destination → Category guide
+     Positioned before the reader submission CTA, after all content. -->
+<div class="place-ecosystem-link">
+  <div class="container">
+    <a href="/places/" class="place-ecosystem-link__anchor">
+      ← Explore more Peninsula destinations
+    </a>
+  </div>
+</div>
+
 <aside class="place-submit-cta">
   <div class="container place-submit-cta__inner">
     <p class="place-submit-cta__label">Got a {place.data.name} secret?</p>
@@ -1252,6 +1263,26 @@ const factualRest = factual.slice(1);
   }
   @media (max-width: 600px) {
     .place-subpages__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Places ecosystem back-link ── */
+  .place-ecosystem-link {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .place-ecosystem-link__anchor {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--soft);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .place-ecosystem-link__anchor:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   .place-submit-cta {
