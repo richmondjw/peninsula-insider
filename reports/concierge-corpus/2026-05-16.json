@@ -1,0 +1,61 @@
+{
+  "run_id": "2026-05-16T10:51:42.454Z",
+  "trigger": "push",
+  "mode": "delta",
+  "prune_enabled": true,
+  "duration_seconds": 11.2,
+  "git_sha": "15409bb",
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dims": 1024,
+  "source_counts": {
+    "venue": 141,
+    "article": 173,
+    "place": 21,
+    "itinerary": 6,
+    "experience": 42,
+    "event": 70,
+    "editorial_block": 10
+  },
+  "database": {
+    "chunks_before": 1524,
+    "chunks_after": 1521
+  },
+  "delta": {
+    "added": 0,
+    "updated": 6,
+    "metadata_only": 0,
+    "unchanged": 1509,
+    "pruned": 3,
+    "errors": 0,
+    "stale_remaining": 9
+  },
+  "added_chunk_ids": [],
+  "updated_chunk_ids": [
+    "peninsula-this-weekend-may-16::lede::0",
+    "peninsula-this-weekend-may-16::body::0",
+    "peninsula-this-weekend-may-16::body::1",
+    "red-hill-market::summary::0",
+    "red-hill-market::editor_note::0",
+    "red-hill-market::tags::0"
+  ],
+  "metadata_only_chunk_ids": [],
+  "pruned_chunk_ids": [
+    "boneo-community-market::summary::0",
+    "emu-plains-market-balnarring::summary::0",
+    "pearcedale-community-market::summary::0"
+  ],
+  "stale_chunk_ids": [
+    "peninsula-this-weekend-may-16::body::2",
+    "breakfast-before-the-crowds::body::4",
+    "peninsula-hot-springs-vs-alba::body::4",
+    "the-easter-peninsula::body::5",
+    "the-producer-trail::body::5",
+    "the-spring-peninsula::body::5",
+    "area-guide-flinders::body::3",
+    "the-thermal-springs-weekend::body::4",
+    "the-peninsula-picnic::body::4"
+  ],
+  "expired_event_entity_ids": [],
+  "embedding_cost_usd_estimate": 0,
+  "errors": []
+}
