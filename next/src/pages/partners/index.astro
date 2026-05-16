@@ -36,13 +36,12 @@ const breadcrumbItems = [
         <p class="partners-hero__eyebrow">Peninsula Insider</p>
         <h1 class="partners-hero__heading" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.title', label: 'Partners — title' })}>Partner with Peninsula Insider</h1>
         <p class="partners-hero__sub" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.dek', label: 'Partners — dek' })}>
-          Reach people already planning where to eat, stay, explore and spend
-          time on the Mornington Peninsula.
+          Reach readers already planning their next Peninsula weekend.
         </p>
         <p class="partners-hero__sub partners-hero__sub--second">
-          Peninsula Insider helps locals and visitors discover what is genuinely
-          worth doing through curated editorial, seasonal guides, events,
-          recommendations and local insight. We partner selectively with
+          Peninsula Insider helps readers discover what is genuinely worth their
+          time on the Mornington Peninsula through curated editorial, seasonal
+          planning and thoughtful recommendations. We partner selectively with
           businesses that align with the quality and experience our audience
           trusts us to recommend.
         </p>
@@ -55,8 +54,7 @@ const breadcrumbItems = [
     <!-- OPERATOR UPDATE BANNER (existing venues, not partnerships) -->
     <aside class="partners-update-banner">
       <div class="partners-section__inner">
-        <p class="partners-update-banner__eyebrow">Already a Peninsula venue we cover?</p>
-        <p class="partners-update-banner__body">Hours moved? Hero photo dated? An event we should know about? <a href="/partners/dashboard/">Open the operator dashboard</a> to manage your listing, or send a one-off via the <a href="/partners/update/">anonymous update form</a>. Editor reads every request, applies in hours.</p>
+        <p class="partners-update-banner__body">Already listed on Peninsula Insider? <a href="/partners/dashboard/">Open the operator dashboard</a> to update hours, photos or events, or use the <a href="/partners/update/">anonymous update form</a>.</p>
       </div>
     </aside>
 
@@ -69,7 +67,7 @@ const breadcrumbItems = [
         <div class="partners-pillars__grid">
 
           <article class="partners-pillar">
-            <h3 class="partners-pillar__title">Trusted local discovery</h3>
+            <h3 class="partners-pillar__title">Trusted Peninsula discovery</h3>
             <p class="partners-pillar__body">
               Appear within a curated Peninsula planning environment designed
               around quality, usefulness and local knowledge. Editorial trust
@@ -78,9 +76,9 @@ const breadcrumbItems = [
           </article>
 
           <article class="partners-pillar">
-            <h3 class="partners-pillar__title">High-intent audience</h3>
+            <h3 class="partners-pillar__title">Readers already planning</h3>
             <p class="partners-pillar__body">
-              Reach people actively deciding where to stay, where to eat, what
+              Reach readers actively deciding where to stay, where to eat, what
               to book and what to do this weekend. Planning intent, not passive
               browsing.
             </p>
@@ -96,11 +94,11 @@ const breadcrumbItems = [
           </article>
 
           <article class="partners-pillar">
-            <h3 class="partners-pillar__title">Meaningful commercial pathways</h3>
+            <h3 class="partners-pillar__title">Commercial placement that fits naturally</h3>
             <p class="partners-pillar__body">
               Support booking clicks, enquiries, event attendance, offers and
-              seasonal campaigns through structured commercial placements that
-              sit naturally inside the editorial.
+              seasonal campaigns through placements that sit naturally within
+              the Peninsula Insider experience.
             </p>
           </article>
 
@@ -145,7 +143,7 @@ const breadcrumbItems = [
           <li><strong>Featured Partner Profiles.</strong> A considered editorial presence on the venue surfaces where we cover your category.</li>
           <li><strong>Seasonal Campaigns.</strong> Three-month editorial presence aligned to summer, autumn, winter or spring on the Peninsula.</li>
           <li><strong>Event Promotion.</strong> Editorial coverage around a specific cultural moment, festival or one-off.</li>
-          <li><strong>Newsletter Partnerships.</strong> Inclusion in the curated Peninsula This Weekend dispatch and seasonal sends.</li>
+          <li><strong>Publication Partnerships.</strong> Inclusion in The Insider editorial editions and seasonal sends.</li>
           <li><strong>Offers and Experiences.</strong> Member-facing offers, bookable experiences and time-bound campaigns.</li>
           <li><strong>Destination and Category Sponsorships.</strong> Long-form curated guides built around a season or theme, with a single named partner.</li>
         </ul>
@@ -293,8 +291,8 @@ const breadcrumbItems = [
 
         <p class="partners-enquiry__followup">
           After enquiry, we share the partnership materials privately, including
-          the media kit, the commercial deck and the founding-partner
-          information where the fit warrants it.
+          the media kit, the commercial deck and additional partnership
+          information where relevant.
         </p>
       </div>
     </section>
@@ -508,25 +506,33 @@ const breadcrumbItems = [
     font-style: italic;
   }
 
-  /* PARTNERSHIP OPPORTUNITIES */
+  /* PARTNERSHIP OPPORTUNITIES — curated, not service-list */
   .partners-opportunities__list {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.75rem;
-    max-width: 760px;
+    margin: 0 0 2rem;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   .partners-opportunities__list li {
     font-family: 'Outfit', sans-serif;
     font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text);
-    padding: 0.9rem 0;
+    line-height: 1.75;
+    color: var(--soft);
+    padding: 1.4rem 0;
     border-bottom: 1px solid var(--border);
   }
-  .partners-opportunities__list li:last-child { border-bottom: none; }
+  .partners-opportunities__list li:first-child { border-top: 1px solid var(--border); }
   .partners-opportunities__list li strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: var(--text);
-    font-weight: 600;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.005em;
   }
   .partners-opportunities__line {
     font-family: 'Outfit', sans-serif;
@@ -590,23 +596,23 @@ const breadcrumbItems = [
 
   /* ENQUIRY FORM */
   .partners-enquiry { background: var(--bg-alt); }
-  .partners-enquiry__inner { max-width: 720px; }
+  .partners-enquiry__inner { max-width: 680px; }
   .partners-enquiry__lede {
     font-family: 'Outfit', sans-serif;
     font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--text);
-    margin: 0 0 2.25rem;
+    line-height: 1.75;
+    color: var(--soft);
+    margin: 0 0 2.5rem;
   }
   .partners-enquiry__form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
   }
   .partners-enquiry__row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.25rem;
   }
   @media (min-width: 640px) {
     .partners-enquiry__row { grid-template-columns: 1fr 1fr; }
@@ -615,13 +621,13 @@ const breadcrumbItems = [
   .partners-enquiry__field {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
   .partners-enquiry__label {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.73rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--soft);
   }
@@ -629,91 +635,83 @@ const breadcrumbItems = [
   .partners-enquiry__field select,
   .partners-enquiry__field textarea {
     font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
+    font-size: 0.97rem;
     line-height: 1.5;
     color: var(--text);
-    background: var(--white);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 0.8rem 0.9rem;
+    border-radius: 2px;
+    padding: 0.85rem 1rem;
     width: 100%;
     box-sizing: border-box;
-    transition: border-color 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .partners-enquiry__field input:focus,
   .partners-enquiry__field select:focus,
   .partners-enquiry__field textarea:focus {
     outline: none;
     border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(107, 130, 100, 0.1);
   }
   .partners-enquiry__field textarea {
     resize: vertical;
-    min-height: 110px;
+    min-height: 120px;
   }
   .partners-enquiry__actions {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.85rem;
-    margin-top: 0.5rem;
+    gap: 1rem;
+    margin-top: 0.75rem;
   }
   .partners-enquiry__button {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--white);
     background: var(--sage);
     border: none;
-    border-radius: 3px;
-    padding: 0.95rem 2.5rem;
+    border-radius: 2px;
+    padding: 1rem 2.5rem;
     cursor: pointer;
     transition: background 0.15s ease;
   }
   .partners-enquiry__button:hover { background: var(--text); }
   .partners-enquiry__fallback {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--soft);
     margin: 0;
   }
   .partners-enquiry__fallback a {
     color: var(--sage);
-    border-bottom: 1px solid var(--sage);
+    border-bottom: 1px solid rgba(107, 130, 100, 0.4);
     text-decoration: none;
     padding-bottom: 1px;
   }
   .partners-enquiry__followup {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
-    border-top: 1px dashed var(--border);
+    border-top: 1px solid var(--border);
     font-family: 'Outfit', sans-serif;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     line-height: 1.65;
     color: var(--soft);
-    font-style: italic;
   }
 
-  /* OPERATOR UPDATE BANNER (retained) */
+  /* OPERATOR UPDATE BANNER — utility note, not a feature banner */
   .partners-update-banner {
     border-bottom: 1px solid var(--border);
-    background: var(--paper, #fbf7f0);
-    padding: clamp(1rem, 2vw, 1.4rem) 1.5rem;
-  }
-  .partners-update-banner__eyebrow {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 0.45rem;
+    background: var(--bg);
+    padding: 0.85rem 1.5rem;
   }
   .partners-update-banner__body {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     line-height: 1.55;
-    color: var(--dark);
+    color: var(--soft);
     margin: 0;
     max-width: 760px;
   }
