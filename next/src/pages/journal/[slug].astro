@@ -11,6 +11,7 @@ import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
+import HubGuideTOC from '../../components/HubGuideTOC.astro';
 import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle, formatHeroCredit } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
@@ -41,7 +42,18 @@ if (article.data.section === 'plans') {
 // URL rather than the article content. See lib/peninsula-this-weekend.ts.
 const ptwRedirectTo = isPeninsulaThisWeekend(article) ? ptwArchivePath(article) : null;
 
-const { Content } = ptwRedirectTo ? { Content: null as any } : await render(article);
+const { Content, headings } = ptwRedirectTo
+  ? { Content: null as any, headings: [] as Array<{ slug: string; text: string; depth: number }> }
+  : await render(article);
+
+// Hub-guide treatment: planning-utility articles (regional reference, hub
+// guides, trail guides, venue guides) read as scan-first reference rather
+// than long-form prose. The template applies a sticky TOC + 2-col grid +
+// reduced related-section noise when the format is in this set. Editorial
+// formats (editor's letters, slow-peninsula, interviews, investigations,
+// etc.) keep the existing magazine-prose treatment.
+const HUB_GUIDE_FORMATS = new Set(['hub-guide', 'service', 'trail-guide', 'venue-guide']);
+const isHubGuide = HUB_GUIDE_FORMATS.has(String(article.data.format ?? ''));
 
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -252,46 +264,48 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
       </div>
     </header>
 
-    <div class="container">
-      {article.data.aiSummary && article.data.aiSummary.length > 0 && (
-        <section class="article-summary" aria-label="Quick summary">
-          <div class="article-summary__eyebrow">Start here</div>
-          <h2 class="article-summary__title">The short version</h2>
-          <ul class="article-summary__list">
-            {article.data.aiSummary.map((item) => <li>{item}</li>)}
-          </ul>
-        </section>
-      )}
+    <div class={`container${isHubGuide ? ' article-body--hub' : ''}`}>
+      {isHubGuide && <HubGuideTOC headings={headings} />}
+      <div class="article-body__content">
+        {article.data.aiSummary && article.data.aiSummary.length > 0 && (
+          <section class="article-summary" aria-label="Quick summary">
+            <div class="article-summary__eyebrow">Start here</div>
+            <h2 class="article-summary__title">The short version</h2>
+            <ul class="article-summary__list">
+              {article.data.aiSummary.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        )}
 
-      <div class="prose has-drop-cap">
-        <Content />
+        <div class="prose has-drop-cap">
+          <Content />
+        </div>
+
+        {showCorrectionNote && <CorrectionNote />}
+
+        {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
+          <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />
+        )}
+
+        {article.data.faq && article.data.faq.length > 0 && (
+          <section class="article-faq" aria-labelledby="article-faq-title">
+            <div class="article-faq__header">
+              <p class="article-faq__eyebrow">Questions readers actually ask</p>
+              <h2 id="article-faq-title" class="article-faq__title">FAQ</h2>
+            </div>
+            <div class="article-faq__items">
+              {article.data.faq.map((item) => (
+                <details class="article-faq__item">
+                  <summary class="article-faq__question">{item.question}</summary>
+                  <div class="article-faq__answer">
+                    <p>{item.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
-
-      {showCorrectionNote && <CorrectionNote />}
-
-      {article.data.clusterLinks && article.data.clusterLinks.length > 0 && (
-        <ClusterLinks links={article.data.clusterLinks} heading="Explore this hub" />
-      )}
-
-      {article.data.faq && article.data.faq.length > 0 && (
-        <section class="article-faq" aria-labelledby="article-faq-title">
-          <div class="article-faq__header">
-            <p class="article-faq__eyebrow">Questions readers actually ask</p>
-            <h2 id="article-faq-title" class="article-faq__title">FAQ</h2>
-          </div>
-          <div class="article-faq__items">
-            {article.data.faq.map((item) => (
-              <details class="article-faq__item">
-                <summary class="article-faq__question">{item.question}</summary>
-                <div class="article-faq__answer">
-                  <p>{item.answer}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </section>
-      )}
-
     </div>
   </article>
 
@@ -329,7 +343,11 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {relatedExperiences.length > 0 && (
+  {/* Hub-guide articles hide the experiences / places / itineraries
+      related sections — they read as long enough already, and the
+      content typically references those entity types inline. Editorial
+      articles keep all four related lanes. */}
+  {!isHubGuide && relatedExperiences.length > 0 && (
     <section class="experience-index">
       <div class="container">
         <div class="venues__header">
@@ -346,7 +364,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {relatedPlaces.length > 0 && (
+  {!isHubGuide && relatedPlaces.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
         <div class="venues__header">
@@ -363,7 +381,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {relatedItineraries.length > 0 && (
+  {!isHubGuide && relatedItineraries.length > 0 && (
     <section class="venues">
       <div class="container">
         <div class="venues__header">
@@ -406,6 +424,25 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
 )}
 
 <style>
+  /* ── Hub-guide layout ───────────────────────────────────────────────
+     For articles with format = hub-guide / service / trail-guide /
+     venue-guide, the body container becomes a 2-col grid at desktop:
+     sticky TOC on the left, content on the right. Mobile / tablet
+     collapses back to single column with the TOC rendering as a
+     horizontal scroll bar at the top (handled in HubGuideTOC.astro).
+  ─────────────────────────────────────────────────────────────────────── */
+  .article-body--hub .article-body__content {
+    min-width: 0;
+  }
+  @media (min-width: 1080px) {
+    .article-body--hub {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: clamp(2.5rem, 4vw, 3.75rem);
+      align-items: start;
+    }
+  }
+
   .article-summary {
     margin: 2.5rem 0 2rem;
     padding: 1.4rem 1.5rem;
