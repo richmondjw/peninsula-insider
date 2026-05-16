@@ -36,12 +36,9 @@ const producers = venues.filter((v) => v.data.type === 'producer');
 const breweries = venues.filter((v) => v.data.type === 'brewery');
 const distilleries = venues.filter((v) => v.data.type === 'distillery');
 
-const benchmarkSlugs = [
-  'pt-leo-estate', 'montalto', 'paringa-estate', 'polperro', 'dexter-wines', 'ocean-eight',
-];
-const benchmarks = benchmarkSlugs
-  .map((slug) => venues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+// Editorial benchmark wineries — driven by editorPick: true on venue JSON.
+// To change the benchmark set, update the venue JSON file; no source code edit needed.
+const benchmarks = venues.filter((venue) => venue.data.editorPick);
 
 const appointmentOnly = venues
   .filter((venue) => venue.data.bookingProvider === 'direct' || Number(venue.data.authority?.hallidayScore ?? 0) >= 95)

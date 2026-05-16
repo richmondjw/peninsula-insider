@@ -91,24 +91,34 @@ const factualRest = factual.slice(1);
 <Breadcrumbs items={breadcrumbItems} />
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     1. FULL-BLEED CINEMATIC HERO
+     1. EDITORIAL SPLIT HERO
+     Text and image as distinct elements — no text over image.
+     Large editorial title left, contained image right.
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class="pdv2-hero" style={`background-image: url(${heroSrc});`}
-  {...editableImage({
-    entityType: 'place', entitySlug: placeSlug, fieldPath: 'hero',
-    label: `${place.data.name} hero`, purpose: 'hero',
-  })}>
-  <div class="pdv2-hero__scrim"></div>
-  <div class="pdv2-hero__inner container">
-    <p class="pdv2-hero__eyebrow">{zoneLabel} · {kindLabel}</p>
-    <h1 class="pdv2-hero__title"
-      {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} — name` })}
-    >{place.data.name}</h1>
-    {place.data.heroImage?.alt && (
-      <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
-    )}
+<section class="place-hero">
+  <div class="container">
+    <div class="place-hero__grid">
+      <div class="place-hero__text">
+        <p class="place-hero__eyebrow">{zoneLabel} · {kindLabel}</p>
+        <h1 class="place-hero__title">{place.data.name}</h1>
+        {place.data.signature && (
+          <p class="place-hero__signature">"{place.data.signature}"</p>
+        )}
+        {place.data.factualLede && (
+          <p class="place-hero__factual">{place.data.factualLede}</p>
+        )}
+      </div>
+      <figure class="place-hero__image">
+        <img
+          src={heroSrc}
+          alt={place.data.heroImage?.alt ?? `${place.data.name}, Mornington Peninsula`}
+          loading="eager"
+          decoding="async"
+        />
+        {heroCredit && <figcaption class="place-hero__credit">{heroCredit}</figcaption>}
+      </figure>
+    </div>
   </div>
-  {heroCredit && <p class="pdv2-hero__credit">{heroCredit}</p>}
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
@@ -117,14 +127,8 @@ const factualRest = factual.slice(1);
 <section class="pdv2-lede">
   <div class="container pdv2-lede__grid">
     <div class="pdv2-lede__main">
-      {factual && (
-        <p class="pdv2-lede__factual"
-          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede', label: `${place.data.name} — factual lede` })}>
-          <span class="pdv2-lede__dropcap">{factualHead}</span>{factualRest}
-        </p>
-      )}
       {place.data.intro && (
-        <p class="pdv2-lede__intro"
+        <p class="pdv2-lede__intro pdv2-lede__intro--lead"
           {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro', label: `${place.data.name} — intro` })}>
           {place.data.intro}
         </p>
@@ -156,22 +160,6 @@ const factualRest = factual.slice(1);
     </aside>
   </div>
 </section>
-
-<!-- ═══════════════════════════════════════════════════════════════════════
-     3. SIGNATURE PULL-QUOTE
-     ═══════════════════════════════════════════════════════════════════════ -->
-{place.data.signature && (
-  <section class="pdv2-quote">
-    <div class="container">
-      <blockquote class="pdv2-quote__text"
-        {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'signature', label: `${place.data.name} — signature` })}>
-        <span class="pdv2-quote__mark" aria-hidden="true">&ldquo;</span>
-        {place.data.signature}
-      </blockquote>
-      <p class="pdv2-quote__byline">Peninsula Insider — editor's note</p>
-    </div>
-  </section>
-)}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
      4. WHO THIS PLACE REWARDS — editorial fit panel
@@ -589,76 +577,88 @@ const factualRest = factual.slice(1);
      Lower sections use place- prefix (from V1, unchanged).
      ═══════════════════════════════════════════════════════════════════════ */
 
-  /* ── 1. FULL-BLEED HERO ─────────────────────────────────────────────── */
-  .pdv2-hero {
-    position: relative;
-    min-height: 62vh;
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
+  /* ── 1. EDITORIAL SPLIT HERO ───────────────────────────────────────── */
+  /* Text left, image right. No text over image. Large editorial title.    */
+  .place-hero {
+    padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem);
+    background: var(--bg);
   }
-  .pdv2-hero__scrim {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.55) 100%),
-      linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%);
-    pointer-events: none;
+  .place-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    align-items: start;
   }
-  .pdv2-hero__inner {
-    position: relative;
-    z-index: 1;
-    padding-top: clamp(4rem, 10vh, 8rem);
-    padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
-    width: 100%;
+  @media (min-width: 800px) {
+    .place-hero__grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      align-items: center;
+    }
   }
-  .pdv2-hero__eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
+  .place-hero__eyebrow {
+    font-size: 0.7rem;
     font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 1.1rem;
-    text-shadow: 0 1px 12px rgba(0,0,0,0.4);
-  }
-  .pdv2-hero__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(3.4rem, 8.5vw, 7rem);
-    font-weight: 500;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    color: var(--white);
-    margin: 0;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
-    max-width: 14ch;
-  }
-  .pdv2-hero__alt {
-    margin-top: 1.25rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.82);
-    max-width: 48ch;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-  }
-  .pdv2-hero__credit {
-    position: absolute;
-    right: 1.5rem; bottom: 0.85rem;
-    z-index: 2;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
+    color: var(--accent);
+    margin: 0 0 1.1rem;
   }
-  @media (max-width: 600px) {
-    .pdv2-hero { min-height: 70vh; }
-    .pdv2-hero__title { font-size: clamp(3rem, 14vw, 5rem); }
+  .place-hero__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin: 0 0 1.25rem;
+  }
+  .place-hero__signature {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    line-height: 1.45;
+    color: var(--accent);
+    margin: 0 0 1.1rem;
+    max-width: 30rem;
+  }
+  .place-hero__factual {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--soft);
+    margin: 0;
+    max-width: 32rem;
+    font-weight: 300;
+  }
+  .place-hero__image {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+  }
+  @media (min-width: 800px) {
+    .place-hero__image { aspect-ratio: 16 / 11; }
+  }
+  .place-hero__image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .place-hero__credit {
+    position: absolute;
+    bottom: 0.6rem; right: 0.8rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    padding: 0.2rem 0.45rem;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
+    border-radius: 2px;
+    margin: 0;
   }
 
-  /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+    /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
   .pdv2-lede {
     padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
     background: var(--bg);
@@ -693,6 +693,14 @@ const factualRest = factual.slice(1);
     line-height: 1.75;
     color: var(--soft);
     font-weight: 300;
+  }
+  .pdv2-lede__intro--lead {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+    line-height: 1.6;
+    color: var(--dark);
+    font-weight: 400;
+    font-style: normal;
   }
   .pdv2-card {
     background: var(--bg-alt);

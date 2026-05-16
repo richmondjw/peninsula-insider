@@ -19,9 +19,9 @@ const itineraries = (await getCollection('itineraries')).sort(
 const allVenues = await getCollection('venues');
 const stays = allVenues.filter((venue) => stayTypes.includes(venue.data.type));
 const places = await getCollection('places');
-const stayHighlights = stays.filter((venue) =>
-  ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)),
-);
+// Editorial curation via schema flag (editorPick: true on venue JSON).
+// No hardcoded slugs — editors update the JSON to change what surfaces here.
+const stayHighlights = stays.filter((venue) => venue.data.editorPick);
 // The Notebook — one contextual planning note for the Plans hub.
 const _pnow = new Date();
 const _pNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _pnow))
@@ -38,9 +38,9 @@ const plansArticles = articlesAll
   .filter((a) => (a.data.section ?? 'journal') === 'plans')
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-const placeHighlights = places.filter((place) =>
-  ['red-hill', 'cape-schanck', 'sorrento'].includes(routeSlug(place)),
-);
+// Editorial curation via schema flag (featured: true on place JSON).
+// No hardcoded slugs — editors update the JSON to change what surfaces here.
+const placeHighlights = places.filter((place) => place.data.featured);
 
 const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
 const twoNight = itineraries.filter((it) => it.data.lengthNights === 2);

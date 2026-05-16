@@ -159,6 +159,14 @@ const venues = defineCollection({
     gallery: z.array(imageRef).default([]),
     affiliateNote: z.string().optional(),
     featuredPartner: z.boolean().default(false),
+    /**
+     * Editorial pick flag. Set true on venues that are surfaced as curated
+     * highlights on hub pages (Plans hub stay highlights, Wine hub benchmarks).
+     * Distinct from featuredPartner (commercial) — this is a purely editorial
+     * signal. Hubs filter by type + editorPick to build their curated rails.
+     * Editorial team can update via schema; no source-code change needed.
+     */
+    editorPick: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     /**
      * Free-text hours summary surfaced on the venue page (e.g.
@@ -269,6 +277,12 @@ const places = defineCollection({
     bestDay: z.string().optional(),
     insiderNote: z.string().optional(),
     skip: z.string().optional(),
+    /**
+     * Editorial featured flag. Set true on places surfaced as curated
+     * highlights on hub pages (Plans hub place rail). Editors update
+     * the JSON; no source-code change needed.
+     */
+    featured: z.boolean().default(false),
     sitemapExclude: z.boolean().default(false),
   }),
 });
