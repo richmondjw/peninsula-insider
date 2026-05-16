@@ -16,6 +16,24 @@ Every shipped SEO change is logged here as a hypothesis-driven experiment. Wins 
 
 ## Active experiments
 
+### 2026-05-17-01 — CTR snippet rewrite on /wine/ hub
+
+- **Status**: shipped to worktree branch 2026-05-17. Awaiting deploy.
+- **PR**: pending
+- **Pages affected**: `/wine/` (the wine hub, single page)
+- **Baseline (May 16 pull, 28d window Apr 17–May 14)**: 813 impressions, 1 click, **0.12% CTR**, average position 25.5. Page is the #1 page by impressions site-wide that is not converting. Single click came from the query "pt leo estate" (1 impression at pos 6).
+- **Query mix diagnosis (top queries this page ranks for)**:
+  - **~170 impressions on street-address searches** ("34 western parade point leo vic 3916" 78 impr pos 32, "20 junction road merricks north vic 3926" 52 impr pos 36, "42 brasser avenue dromana vic 3936" 39 impr pos 32). Zero clicks — users want maps, not a wine hub. **No snippet can fix these** (separate noindex/structural work needed).
+  - **~50 impressions on specific winery name searches** ("main ridge winery", "merricks winery", "kerri greens winery", "flinders winery", "crittenden estate", etc) at positions 50–100. These should land on venue pages, not the hub.
+  - **~20 impressions on genuine hub-intent queries** ("best wineries mornington peninsula" variants, "best mornington peninsula pinot noir", "cellar doors"). One query "best wineries in mornington peninsula" ranks position 1 but only 1 impression in 28d.
+- **Hypothesis**: rewriting title + meta to target the genuine hub-intent queries will lift CTR from 0.12% to ≥1.5% within 14 days. Specifically: by 2026-05-31, this page earns ≥5 clicks per 7-day window with similar impression volume (~200/week). Address-query CTR will remain 0% (out of scope).
+- **Mechanism**: old title "Best Wineries Mornington Peninsula · Peninsula Insider" was generic, with brand suffix consuming character budget. Old meta was 200 chars (Google truncates at ~155). New title front-loads "Cellar Doors" (a more specific phrase used by intent-led searchers, distinct from generic "wineries"), adds year freshness signal, drops the brand suffix. New meta has editorial voice ("worth the appointment", "Pinot worth the cellar"), promises specific value props, fits in 148 chars.
+- **Files changed**: `next/src/pages/wine/index.astro` lines 91–92 (BaseLayout title + description). Also bumped `modifiedTime` to 2026-05-17 to signal freshness.
+- **Verification** (2026-05-17): rebuilt locally — 1356 pages, no errors. New title `Best Cellar Doors on the Mornington Peninsula 2026 Guide` (56 chars) and meta (148 chars) confirmed in `dist/wine/index.html`.
+- **Measurement**: read `/wine/` page-level CTR in `daily-log.md` on 2026-05-24 (7d) and 2026-05-31 (14d). Headline metric: 7d clicks on `/wine/` in the CTR opportunity pages table.
+- **Followups not in this experiment**: address-query indexing (separate problem — likely the wine hub appears for these because it contains venue addresses; may need a way to exclude or move address content to venue pages). Specific winery names ranking the hub instead of venue pages is also a separate indexation/internal-linking issue.
+- **Outcome (filled later)**: _pending — measure 2026-05-24 and 2026-05-31_
+
 ### 2026-05-05-01 — Push the 5 unindexed top-level hubs into the index
 
 - **Status**: shipped to worktree branch 2026-05-05.
