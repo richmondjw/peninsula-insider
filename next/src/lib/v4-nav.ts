@@ -135,7 +135,7 @@ export const v4Pillars: V4Pillar[] = [
   {
     key: 'escape',
     label: 'Plans',
-    href: '/escape/',
+    href: '/plans/',
     intro: 'Pre-shaped Peninsula days, by length, by guide, or by occasion.',
     rail: {
       eyebrow: "Editor's pick · Autumn '26",
@@ -150,8 +150,8 @@ export const v4Pillars: V4Pillar[] = [
         eyebrow: 'By the shape',
         items: [
           { key: 'one-night', label: 'One night',         href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',   label: 'Two-day weekend',   href: '/escape/' },
-          { key: 'long',      label: 'Long weekend',      href: '/escape/' },
+          { key: 'weekend',   label: 'Two-day weekend',   href: '/plans/' },
+          { key: 'long',      label: 'Long weekend',      href: '/plans/' },
           { key: 'kids',      label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
           { key: 'wellness',  label: 'Wellness weekend',  href: '/journal/the-thermal-springs-weekend/' },
           { key: 'romantic',  label: 'Romantic two',      href: '/journal/the-couples-weekend/' },
@@ -174,7 +174,7 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'weddings',     label: 'Weddings',                  href: '/weddings/' },
           { key: 'corporate',    label: 'Corporate offsites',        href: '/corporate-events/' },
           { key: 'corp-guide',   label: 'How to plan a retreat',     href: '/journal/corporate-events-how-to-plan-peninsula-retreat/' },
-          { key: 'group',        label: 'Group of six+',             href: '/escape/' },
+          { key: 'group',        label: 'Group of six+',             href: '/plans/' },
           { key: 'eoy',          label: 'End-of-year offsite',       href: '/corporate-events/' },
         ],
       },
@@ -301,7 +301,7 @@ export const v4Pillars: V4Pillar[] = [
         eyebrow: 'By the trip',
         items: [
           { key: 'one-night',  label: 'One night',         href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',    label: 'A weekend',         href: '/escape/' },
+          { key: 'weekend',    label: 'A weekend',         href: '/plans/' },
           { key: 'kids',       label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
           { key: 'romantic',   label: 'Two of you',        href: '/journal/the-couples-weekend/' },
           { key: 'wellness',   label: 'Wellness weekend',  href: '/spa/' },
@@ -444,7 +444,7 @@ export const v4FooterDepartments: V4NavItem[] = [
   { key: 'wine',     label: 'Wine',        href: '/wine/' },
   { key: 'stay',     label: 'Stay',        href: '/stay/' },
   { key: 'explore',  label: 'Explore',     href: '/explore/' },
-  { key: 'escape',   label: 'Plans',       href: '/escape/' },
+  { key: 'escape',   label: 'Plans',       href: '/plans/' },
   { key: 'whats-on', label: "What's On",   href: '/whats-on/' },
   { key: 'journal',  label: 'Journal',     href: '/journal/' },
 ];
