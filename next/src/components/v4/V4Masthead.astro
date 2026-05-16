@@ -126,35 +126,7 @@ const {
                 </li>
               );
             })}
-            {/* Map — sits after Journal as a simple navigation link (no
-                mega panel, no chevron). Location-pin icon (teardrop + dot)
-                rather than the Peninsula silhouette: signals "map" more
-                directly to a first-time visitor than a regional outline
-                they may not recognise. */}
-            <li class={`v4-pillars__item${section === 'map' ? ' is-current' : ''}`}>
-              <a
-                href="/map/"
-                class="v4-pillars__link"
-                aria-current={section === 'map' ? 'page' : undefined}
-              >
-                <svg
-                  class="v4-pillars__map-icon"
-                  viewBox="0 0 24 24"
-                  width="12"
-                  height="12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 22s-7-7.58-7-13a7 7 0 1 1 14 0c0 5.42-7 13-7 13z"/>
-                  <circle cx="12" cy="9" r="2.5"/>
-                </svg>
-                Map
-              </a>
-            </li>
+
           </ul>
         </nav>
 

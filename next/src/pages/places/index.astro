@@ -301,10 +301,74 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     </div>
   </section>
 
+  <!-- Map discovery — Peninsula Insider map as a planning tool within Places.
+       Maps is a supporting discovery surface within the Places ecosystem,
+       not a standalone primary section. Positioned before newsletter. -->
+  <section class="places-map-cta">
+    <div class="container">
+      <div class="places-map-cta__inner">
+        <div class="places-map-cta__text">
+          <p class="label label--accent">Visual discovery</p>
+          <h2 class="places-map-cta__title">Browse the Peninsula on a map</h2>
+          <p class="places-map-cta__dek">Every destination, venue, walk, and experience plotted. Useful for orienting a new trip or checking what’s nearby.</p>
+        </div>
+        <a href="/map/" class="places-map-cta__link">Open the Peninsula map →</a>
+      </div>
+    </div>
+  </section>
+
   <NewsletterBlock />
 </BaseLayout>
 
 <style>
+  .places-map-cta {
+    padding: 2.5rem 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+  }
+  .places-map-cta__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .places-map-cta__text { flex: 1; min-width: 200px; }
+  .places-map-cta__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0.3rem 0 0.4rem;
+    line-height: 1.15;
+  }
+  .places-map-cta__dek {
+    font-size: 0.88rem;
+    color: var(--soft);
+    margin: 0;
+    max-width: 38rem;
+  }
+  .places-map-cta__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.4rem;
+    background: var(--dark);
+    color: var(--white);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+  }
+  .places-map-cta__link:hover { opacity: 0.82; }
+  @media (max-width: 600px) {
+    .places-map-cta__inner { flex-direction: column; align-items: flex-start; }
+  }
+
   .peninsula-glance {
     padding: clamp(3rem, 6vw, 5.5rem) 0;
     background: #f7f0e6;
