@@ -250,3 +250,4 @@ runId,parentRunId,jobName,jobSource,startedAt,endedAt,durationMs,status,mutation
 25960501335-1,,deploy-site-to-github-pages,github-actions,2026-05-16T11:15:14Z,2026-05-16T11:18:18Z,184000,success,mutating-live,1,0,0,0,false,,0,0
 25960769906-1,,deploy-site-to-github-pages,github-actions,2026-05-16T11:29:35Z,2026-05-16T11:32:46Z,191000,success,mutating-live,1,0,0,0,false,,0,0
 25961069837-1,,deploy-site-to-github-pages,github-actions,2026-05-16T11:45:02Z,2026-05-16T11:48:03Z,181000,success,mutating-live,1,0,0,0,false,,0,0
+25961176359-1,,deploy-site-to-github-pages,github-actions,2026-05-16T11:50:36Z,2026-05-16T11:51:13Z,37000,failure,mutating-live,1,0,0,0,true,github-issue,0,0
