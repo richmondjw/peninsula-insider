@@ -135,9 +135,12 @@ const breadcrumbItems = [
         canvas.addEventListener('blur',  function () { map.scrollWheelZoom.disable(); });
         map.on('click', function () { map.scrollWheelZoom.enable(); });
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: '© OpenStreetMap contributors',
+        // CARTO Positron — minimal editorial base. See map.astro for rationale.
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+          maxZoom: 19,
+          subdomains: 'abcd',
+          attribution: '© OpenStreetMap contributors © CARTO',
+          className: 'pi-map-tiles',
         }).addTo(map);
 
         function escapeHtml(s) {
