@@ -4,8 +4,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { editableText } from '../../lib/inline-edit/attrs';
+import { resolveEditableImage } from '../../lib/inline-edit/overrides';
 import { routeSlug } from '../../lib/editorial';
+
+const corpHero = await resolveEditableImage({
+  entityType: 'page',
+  entitySlug: 'corporate-events',
+  fieldPath: 'hero',
+  label: 'Corporate Events — hero image',
+  purpose: 'hero',
+  fallbackSrc: '/images/sourced/venue-jackalope-hotel-01.webp',
+  fallbackAlt: 'Corporate Retreats · Executive Offsites · Peninsula',
+});
 
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 const corporateArticles = allArticles
@@ -98,7 +109,7 @@ const collectionSchema = {
           <h1 class="section-hero__title" {...editableText({ entityType: 'page', entitySlug: 'corporate-events', fieldPath: 'hero.title', label: 'Corporate Events — title' })}>Mornington Peninsula Corporate Events</h1>
           <p class="section-hero__dek" {...editableText({ entityType: 'page', entitySlug: 'corporate-events', fieldPath: 'hero.dek', label: 'Corporate Events — dek' })}>Teams and planners are not only choosing a venue. They are choosing what kind of Peninsula offsite or retreat will actually work — executive retreat, leadership offsite, strategy day, or conference. This section helps you make that decision with the right information.</p>
         </div>
-        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/venue-jackalope-hotel-01.webp); background-size: cover; background-position: center;" {...editableImage({ entityType: 'page', entitySlug: 'corporate-events', fieldPath: 'hero', label: 'Corporate Events — hero image' })}>
+        <div class="section-hero__visual" aria-hidden="true" style={`background-image: url(${corpHero.src}); background-size: cover; background-position: center;`} {...corpHero.attrs}>
           <div class="section-hero__visual-fog"></div>
           <span class="section-hero__visual-label">Corporate Retreats · Executive Offsites · Peninsula</span>
         </div>

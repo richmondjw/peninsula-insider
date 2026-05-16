@@ -2,7 +2,18 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { editableText } from '../../lib/inline-edit/attrs';
+import { resolveEditableImage } from '../../lib/inline-edit/overrides';
+
+const dogHero = await resolveEditableImage({
+  entityType: 'page',
+  entitySlug: 'dog-friendly',
+  fieldPath: 'hero',
+  label: 'Dog-Friendly — hero image',
+  purpose: 'hero',
+  fallbackSrc: '/images/sourced/dog-beach-emma-01.webp',
+  fallbackAlt: 'Dog-Friendly Peninsula',
+});
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -73,7 +84,7 @@ const utilityCards = [
           <h1 class="section-hero__title" {...editableText({ entityType: 'page', entitySlug: 'dog-friendly', fieldPath: 'hero.title', label: 'Dog-Friendly — title' })}>The practical guide to doing the Peninsula properly with the dog</h1>
           <p class="section-hero__dek" {...editableText({ entityType: 'page', entitySlug: 'dog-friendly', fieldPath: 'hero.dek', label: 'Dog-Friendly — dek' })}>Beaches, wineries, cafés, stays, walks, and backup options that actually work with a dog in the plan. No fluffy pet-travel clichés, just useful local trip logic.</p>
         </div>
-        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/dog-beach-emma-01.webp); background-size: cover; background-position: center;" {...editableImage({ entityType: 'page', entitySlug: 'dog-friendly', fieldPath: 'hero', label: 'Dog-Friendly — hero image' })}>
+        <div class="section-hero__visual" aria-hidden="true" style={`background-image: url(${dogHero.src}); background-size: cover; background-position: center;`} {...dogHero.attrs}>
           <div class="section-hero__visual-fog"></div>
           <span class="section-hero__visual-label">Dog-Friendly Peninsula</span>
         </div>

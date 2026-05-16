@@ -24,7 +24,7 @@ import {
   venueHrefPrefix,
   weatherCopy,
 } from '../../lib/editorial';
-import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { editableText } from '../../lib/inline-edit/attrs';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');

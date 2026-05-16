@@ -36,7 +36,9 @@ const imageAlt = overrideImage?.alt ?? rail.imageAlt;
     <img
       src={imageSrc}
       alt={imageAlt}
-      loading="lazy"
+      loading="eager"
+      fetchpriority="low"
+      decoding="async"
       {...editableImage({
         entityType: 'page',
         entitySlug: '_global',

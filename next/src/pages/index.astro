@@ -174,9 +174,9 @@ const scenes: Scene[] = [
     id: 'cover',
     label: cmsText['cover.label'] ?? 'THE COVER STORY',
     hours: cmsText['cover.hours'] ?? '9 MIN READ',
-    image: coverImageOverride?.src ?? '/images/sourced/category-restaurant-01.webp',
-    imageAlt: coverImageOverride?.alt ?? 'Warm, polished restaurant interior with a marble bar, timber stools, and low lighting. The kind of room that suits a Peninsula hatted-restaurant shortlist.',
-    caption: coverImageOverride?.caption ?? cmsText['cover.caption'] ?? 'Peninsula dining room',
+    image: '/images/sourced/category-restaurant-01.webp',
+    imageAlt: 'Warm, polished restaurant interior with a marble bar, timber stools, and low lighting. The kind of room that suits a Peninsula hatted-restaurant shortlist.',
+    caption: cmsText['cover.caption'] ?? 'Peninsula dining room',
     headline: cmsText['cover.headline'] ?? 'The Hatted Restaurants of the <em>Peninsula.</em>',
     dispatch: cmsText['cover.dispatch'] ?? 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
     primaryHref: cmsText['cover.primaryHref'] ?? '/journal/hatted-restaurants-mornington-peninsula-2025/',
@@ -196,7 +196,18 @@ const scenes: Scene[] = [
   },
 ];
 
-const ssrScene = scenes[0];
+// Apply the published cover.image override to whichever scene is active,
+// rather than baking it into one specific array slot. Without this, the
+// client-side patcher in inline-edit/client.ts has to swap the image after
+// page load — visible flicker on every visit. With this, the initial HTML
+// already carries the override URL and the client patch becomes a no-op.
+const activeScene = scenes[0];
+const ssrScene: Scene = {
+  ...activeScene,
+  image: coverImageOverride?.src ?? activeScene.image,
+  imageAlt: coverImageOverride?.alt ?? activeScene.imageAlt,
+  caption: coverImageOverride?.caption ?? activeScene.caption,
+};
 
 // Editorial meta line: cover-essay date. Hardcoded for the prototype;
 // when the cover becomes CMS-driven (or rotates from articles) this should

@@ -26,6 +26,7 @@ import {
   titleize,
   venueHrefPrefix,
   heroBackgroundStyle,
+  resolveHeroSrc,
   formatLabel,
 } from '../../lib/editorial';
 import {
@@ -38,7 +39,8 @@ import {
   seasonLabel,
   themeLabel,
 } from '../../lib/escape';
-import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { editableText } from '../../lib/inline-edit/attrs';
+import { resolveEditableImage } from '../../lib/inline-edit/overrides';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -105,6 +107,21 @@ const articleFaqSchema = isArticle && ad.faq && ad.faq.length > 0 ? {
     acceptedAnswer: { '@type': 'Answer', text: answer },
   })),
 } : null;
+
+// Build-time hero override consult — bake the published image URL into the
+// initial HTML so the inline-edit client patch in client.ts no-ops on first
+// paint (no flicker). Only relevant on the article branch.
+const articleHero = isArticle
+  ? await resolveEditableImage({
+      entityType: 'article',
+      entitySlug: articleSlug!,
+      fieldPath: 'hero',
+      label: `${ad.title} hero`,
+      purpose: 'hero',
+      fallbackSrc: resolveHeroSrc(ad),
+      fallbackAlt: ad.heroImage?.alt ?? ad.title,
+    })
+  : null;
 
 const aCanonical = isArticle ? `https://peninsulainsider.com.au/plans/${articleSlug}/` : '';
 const aOgImage = isArticle
@@ -360,10 +377,13 @@ const ogImage = data
             })}>{ad.dek}</p>
           </div>
           <figure class="article-hero__figure">
-            <div class="article-hero__image" role="img" aria-label={ad.heroImage.alt} style={heroBackgroundStyle(ad)} {...editableImage({
-              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'hero',
-              label: `${ad.title} hero`, purpose: 'hero',
-            })}></div>
+            <div
+              class="article-hero__image"
+              role="img"
+              aria-label={articleHero!.alt}
+              style={`background-image: url(${articleHero!.src}); background-size: cover; background-position: center;`}
+              {...articleHero!.attrs}
+            ></div>
           </figure>
         </div>
       </div>

@@ -15,7 +15,8 @@ export interface MetaItem {
   label: string;
 }
 
-import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
+import { editableText, type CmsEntityType } from '../lib/inline-edit/attrs';
+import { resolveEditableImage } from '../lib/inline-edit/overrides';
 
 export interface Props {
   /** Small caps eyebrow, e.g. "EAT & DRINK · 101 VENUES MAPPED · LAST VERIFIED 30 APR 2026". */
@@ -60,9 +61,22 @@ const titleAttrs = editable
 const dekAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.dek', label: `${entitySlug} hero dek` })
   : {};
-const imageAttrs = editable
-  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero image`, purpose: 'hero' })
-  : {};
+// Resolve any published hero override at build time so the static HTML
+// already carries the editor's choice (no client-side flicker on first paint).
+const resolvedHero = editable
+  ? await resolveEditableImage({
+      entityType,
+      entitySlug: entitySlug!,
+      fieldPath: 'hero',
+      label: `${entitySlug} hero image`,
+      purpose: 'hero',
+      fallbackSrc: heroImage ?? '',
+      fallbackAlt: imageAlt,
+    })
+  : null;
+const finalHeroSrc = resolvedHero?.src || heroImage;
+const finalHeroAlt = resolvedHero?.alt || imageAlt;
+const imageAttrs = resolvedHero?.attrs ?? {};
 ---
 
 <section class="guide-hero" aria-label={title}>
@@ -80,13 +94,13 @@ const imageAttrs = editable
           </div>
         )}
       </div>
-      {heroImage && (
+      {finalHeroSrc && (
         <figure class="guide-hero__figure">
           <div
             class="guide-hero__image"
             role="img"
-            aria-label={imageAlt}
-            style={`background-image: url(${heroImage})`}
+            aria-label={finalHeroAlt}
+            style={`background-image: url(${finalHeroSrc})`}
             {...imageAttrs}
           ></div>
           {imageCredit && <figcaption class="guide-hero__credit">Photo · {imageCredit}</figcaption>}

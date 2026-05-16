@@ -7,8 +7,9 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
-import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle, resolveHeroSrc } from '../../lib/editorial';
+import { editableText } from '../../lib/inline-edit/attrs';
+import { resolveEditableImage } from '../../lib/inline-edit/overrides';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -84,7 +85,18 @@ const seasonBest = experience.data.seasonBest?.length
 const duration = experience.data.durationMinutes ? `${experience.data.durationMinutes} min` : null;
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
-const heroStyle = heroBackgroundStyle(experience.data);
+// Build-time hero override consult — bake the published image into the
+// initial HTML so the inline-edit client patch no-ops on first paint.
+const experienceHero = await resolveEditableImage({
+  entityType: 'experience',
+  entitySlug: slug,
+  fieldPath: 'hero',
+  label: `${experience.data.name} hero`,
+  purpose: 'hero',
+  fallbackSrc: resolveHeroSrc(experience.data),
+  fallbackAlt: experience.data.heroImage?.alt ?? experience.data.name,
+});
+const heroStyle = `background-image: url(${experienceHero.src}); background-size: cover; background-position: center;`;
 
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
 const ogImage = experience.data.heroImage?.src && !experience.data.heroImage.src.includes('placeholder')
@@ -174,12 +186,14 @@ if (experience.data.type === 'golf-course') {
         label: `${experience.data.name} — name`,
       })}>{experience.data.name}</h1>
 
-      <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
-        entityType: 'experience', entitySlug: slug, fieldPath: 'hero',
-        label: `${experience.data.name} hero`, purpose: 'hero',
-      })}>
+      <div
+        class={`experience-detail__hero feature__image-block ${heroClass}`}
+        aria-hidden="true"
+        style={heroStyle}
+        {...experienceHero.attrs}
+      >
         <div class="experience-detail__hero-fog"></div>
-        <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
+        <span class="experience-detail__hero-label">{experienceHero.alt}</span>
       </div>
 
       <div class="experience-detail__grid">

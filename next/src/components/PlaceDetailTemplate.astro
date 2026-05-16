@@ -8,7 +8,8 @@ import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import CorrectionNote from './CorrectionNote.astro';
 import { titleize, resolveHeroSrc, formatHeroCredit } from '../lib/editorial';
-import { editableText, editableImage } from '../lib/inline-edit/attrs';
+import { editableText } from '../lib/inline-edit/attrs';
+import { resolveEditableImage } from '../lib/inline-edit/overrides';
 
 export interface Props {
   place: any;
@@ -51,6 +52,19 @@ const zoneGradient: Record<string, string> = {
 };
 const heroGradientClass = zoneGradient[place.data.zone] ?? 'hero-grad--vineyard';
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
+
+// Resolve any published hero override at build time so the static HTML
+// already carries the editor's choice. Without this, the client-side
+// patcher swaps the image after first paint (visible flicker).
+const heroImage = await resolveEditableImage({
+  entityType: 'place',
+  entitySlug: placeSlug,
+  fieldPath: 'hero',
+  label: `${place.data.name} hero`,
+  purpose: 'hero',
+  fallbackSrc: resolveHeroSrc(place.data),
+  fallbackAlt: place.data.heroImage?.alt ?? `${place.data.name}, Mornington Peninsula`,
+});
 
 // `anchors` is used as a gate for the scoreboard section — if no
 // venues/experiences/articles exist at all we hide the scoreboard.
@@ -114,14 +128,11 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
       </div>
       <figure
         class={`place-hero__image ${heroGradientClass}`}
-        {...editableImage({
-          entityType: 'place', entitySlug: placeSlug, fieldPath: 'hero',
-          label: `${place.data.name} hero`, purpose: 'hero',
-        })}
+        {...heroImage.attrs}
       >
         <img
-          src={resolveHeroSrc(place.data)}
-          alt={place.data.heroImage?.alt ?? `${place.data.name}, Mornington Peninsula`}
+          src={heroImage.src}
+          alt={heroImage.alt}
           loading="eager"
           decoding="async"
         />

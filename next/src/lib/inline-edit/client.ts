@@ -453,6 +453,30 @@ function setImageSrc(el: HTMLElement, src: string) {
   }
 }
 
+// Preload + decode the new image before swapping the visible element. Without
+// this, applyOverridesOnLoad replaces el.src immediately and the browser paints
+// a blank/old frame while the new image fetches — that's the visible flicker.
+// On decode failure (404, CORS), we skip the swap so we don't replace a working
+// build-time image with a broken override.
+async function swapImageSrcDecoded(el: HTMLElement, src: string): Promise<void> {
+  const probe = new Image();
+  probe.decoding = 'async';
+  probe.src = src;
+  try {
+    if (typeof probe.decode === 'function') {
+      await probe.decode();
+    } else {
+      await new Promise<void>((resolve, reject) => {
+        probe.onload = () => resolve();
+        probe.onerror = () => reject(new Error('image load failed'));
+      });
+    }
+  } catch {
+    return;
+  }
+  setImageSrc(el, src);
+}
+
 function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
   const explicitType = el.dataset.piEntityType;
   const explicitSlug = el.dataset.piEntitySlug;
@@ -816,13 +840,14 @@ async function applyOverridesOnLoad() {
       .eq('status', 'published');
     const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
     const byPath = new Map(rows.map((r) => [r.field_path, r]));
-    for (const el of group.els) {
+    await Promise.all(group.els.map(async (el) => {
       const fieldPath = el.dataset.piFieldPath;
-      if (!fieldPath) continue;
+      if (!fieldPath) return;
       const row = byPath.get(fieldPath);
-      if (!row?.public_url) continue;
-      if (currentImageSrc(el) === row.public_url) continue;
-      setImageSrc(el, row.public_url);
+      if (!row?.public_url) return;
+      if (currentImageSrc(el) === row.public_url) return;
+      await swapImageSrcDecoded(el, row.public_url);
+      if (currentImageSrc(el) !== row.public_url) return;
       // A placeholder card has no inline bg-image at build time; once a real
       // image is applied via Supabase, remove the placeholder chrome so the
       // "Add photo" state gives way to the actual image. Cover every card
@@ -836,7 +861,7 @@ async function applyOverridesOnLoad() {
         if (el instanceof HTMLImageElement) el.alt = row.alt_text;
         else el.setAttribute('aria-label', row.alt_text);
       }
-    }
+    }));
   }));
 
   // ── Implicit pass ────────────────────────────────────────────────────────
@@ -864,23 +889,24 @@ async function applyOverridesOnLoad() {
     if (!candidates.includes(n)) candidates.push(n);
   });
 
-  for (const el of candidates) {
+  await Promise.all(candidates.map(async (el) => {
     // Skip surfaces that are already explicitly tagged — their server-side
     // rendering already consulted overrides via loadOverrides().
-    if (el.closest('[data-pi-edit]')) continue;
-    if (!isImageLike(el)) continue;
+    if (el.closest('[data-pi-edit]')) return;
+    if (!isImageLike(el)) return;
 
     const basename = srcBasename(currentImageSrc(el));
     const row = byPath.get(`img:${basename}`);
-    if (!row || !row.public_url) continue;
-    if (currentImageSrc(el) === row.public_url) continue;
+    if (!row || !row.public_url) return;
+    if (currentImageSrc(el) === row.public_url) return;
 
-    setImageSrc(el, row.public_url);
+    await swapImageSrcDecoded(el, row.public_url);
+    if (currentImageSrc(el) !== row.public_url) return;
     if (row.alt_text) {
       if (el instanceof HTMLImageElement) el.alt = row.alt_text;
       else el.setAttribute('aria-label', row.alt_text);
     }
-  }
+  }));
 }
 
 // --------------------------------------------------------------------------

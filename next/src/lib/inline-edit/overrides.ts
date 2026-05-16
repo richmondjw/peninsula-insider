@@ -46,6 +46,55 @@ export interface CmsOverrides {
 const EMPTY: CmsOverrides = { text: {}, image: {} };
 const cache = new Map<string, Promise<CmsOverrides>>();
 
+export interface ResolvedEditableImage {
+  src: string;
+  alt: string;
+  caption: string | null;
+  credit: string | null;
+  /** data-pi-* attributes — spread onto the element that wraps or is the <img>. */
+  attrs: Record<string, string>;
+}
+
+/**
+ * One-stop resolver for an editable image. Loads any published override at
+ * build time and merges it with the supplied fallback (build-time content
+ * collection data). Returns the final src/alt/etc plus the data-pi-* attrs
+ * to spread on the element.
+ *
+ * The point: when the baked HTML already carries the override's URL, the
+ * client-side patcher in client.ts finds currentSrc === public_url and
+ * no-ops — no flicker. Components that don't use this resolver always
+ * paint the fallback first and rely on the client swap, which flickers.
+ */
+export async function resolveEditableImage(opts: {
+  entityType: CmsEntityType;
+  entitySlug: string;
+  fieldPath: string;
+  label: string;
+  purpose?: 'hero' | 'card' | 'gallery' | 'inline' | 'seo';
+  fallbackSrc: string;
+  fallbackAlt?: string;
+  fallbackCaption?: string | null;
+  fallbackCredit?: string | null;
+}): Promise<ResolvedEditableImage> {
+  const overrides = await loadOverrides(opts.entityType, opts.entitySlug);
+  const override = overrides.image[opts.fieldPath];
+  return {
+    src: override?.src ?? opts.fallbackSrc,
+    alt: override?.alt ?? opts.fallbackAlt ?? '',
+    caption: override?.caption ?? opts.fallbackCaption ?? null,
+    credit: override?.credit ?? opts.fallbackCredit ?? null,
+    attrs: {
+      'data-pi-edit': 'image',
+      'data-pi-entity-type': opts.entityType,
+      'data-pi-entity-slug': opts.entitySlug,
+      'data-pi-field-path': opts.fieldPath,
+      'data-pi-purpose': opts.purpose ?? 'hero',
+      'data-pi-label': opts.label,
+    },
+  };
+}
+
 export async function loadOverrides(
   entityType: CmsEntityType,
   entitySlug: string,
