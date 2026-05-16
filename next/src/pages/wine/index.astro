@@ -12,6 +12,7 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, currentSeason, seasonBlurb, isUpcoming } from '../../lib/editorial';
+import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
@@ -111,6 +112,23 @@ const faqSchema = {
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
+       EDITORIAL SURFACE — Featured Cellar Door (Level 1)
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="wine-surface-wrap container">
+    <EditorialSurface
+      level={1}
+      surface="Featured Cellar Door"
+      season="Autumn 2026"
+      name="Pt Leo Estate, Merricks North"
+      verdict="The benchmark for a reason. Book the restaurant if you can, but the cellar door walk-in is worth it on its own terms. The Mornington estate pinot is the order. The vineyard views are earned, not performed."
+      meta={["Merricks North", "Walk-in and bookings", "Wed–Sun"]}
+      href="/wine/pt-leo-estate/"
+      image="/images/sourced/article-cellar-door-01.webp"
+      imageAlt="Cellar door, Mornington Peninsula wine region"
+    />
+  </div>
+
+<!-- ═══════════════════════════════════════════════════════════════
        2. ORIENTATION: Walk-in vs Appointment
        ═══════════════════════════════════════════════════════════════ -->
   <CompareBlock

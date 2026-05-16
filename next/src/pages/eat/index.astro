@@ -11,7 +11,8 @@ import VenueDirectory from '../../components/VenueDirectory.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import EventStrip from '../../components/EventStrip.astro';
-import { isUpcoming, routeSlug } from '../../lib/editorial';
+import { isUpcoming, routeSlug, currentSeason } from '../../lib/editorial';
+import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
@@ -212,6 +213,27 @@ const faqSchema = {
   <!-- ═══════════════════════════════════════════════════════════════
        1.5 AUDIENCE PICKER: persona-led entry to the section
        ═══════════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       EDITORIAL SURFACE — Featured Long Lunch (Level 1)
+       Post-hero, pre-grid. One surface maximum per hub page.
+       Placement principles: docs/editorial-surface-placement-principles-2026-05-16.md
+       Phase 1: PI curatorial voice only. No partner language.
+       Phase 2: eyebrow line evolves — no redesign required.
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="eat-surface-wrap container">
+    <EditorialSurface
+      level={1}
+      surface="Featured Long Lunch"
+      season="Autumn 2026"
+      name="Laura, Merricks"
+      verdict="Sit at the bar if you can. The set menu runs four courses but the kitchen moves at its own pace — that is the point. Order the kingfish. The wine list skews Peninsula and they know how to suggest from it."
+      meta={["Red Hill region", "Bookings required", "Lunch Thu–Sun"]}
+      href="/eat/laura/"
+      image="/images/sourced/article-long-lunch-01.webp"
+      imageAlt="The long lunch table, Mornington Peninsula"
+    />
+  </div>
+
   <AudiencePicker section="eat" />
 
   <EventStrip

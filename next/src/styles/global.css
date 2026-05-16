@@ -10849,3 +10849,18 @@ body.menu-open .subscribe-pill {
     padding: 0.5rem 0.72rem;
   }
 }
+
+/* ── Editorial Surface wrapper ─────────────────────────────────────────────
+   Consistent vertical breathing room for EditorialSurface.astro instances
+   on hub pages. The container handles horizontal bounds; this handles the
+   gap between the hero above and the AudiencePicker / grid below.
+   One per hub page, maximum — see placement-principles doc.
+   ───────────────────────────────────────────────────────────────────────── */
+.eat-surface-wrap,
+.wine-surface-wrap,
+.explore-surface-wrap,
+.plans-surface-wrap,
+.whats-on-surface-wrap {
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
