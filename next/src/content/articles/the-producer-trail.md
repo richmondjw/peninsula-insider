@@ -11,7 +11,7 @@ heroImage:
   license: "tmp-wikimedia"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore"]
-relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "small-stone-pantry", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
+relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "red-hill-truffles", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
 relatedExperiences: ["red-hill-hinterland-cycling", "balnarring-beach", "mornington-foreshore-walk"]
 readingTimeMinutes: 8
 featured: false

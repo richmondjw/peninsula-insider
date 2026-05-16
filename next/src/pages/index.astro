@@ -45,6 +45,13 @@ const articles    = (await getCollection('articles', ({ data }) => data.status =
 const places      = await getCollection('places');
 const itineraries = await getCollection('itineraries');
 
+// The Notebook — "Today from The Notebook" homepage module.
+// One note only, most recent published + not yet expired. No feed behaviour.
+const now = new Date();
+const notebookNote = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > now))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  [0] ?? null;
+
 // Homepage Plans card grid (Wave 3 prep, 2026-05-10) — rebalances the
 // homepage hierarchy so Plans gets visible weight per Strategic Review §6.
 // Picks three itineraries that span the editorial range: a two-night
@@ -482,6 +489,36 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
   })()}
   </ScrollReveal>
 
+  {/* ── TODAY FROM THE NOTEBOOK ───────────────────────────────────────────
+      One note. No feed. Freshness signal for repeat visitors.
+      Placement: lower homepage, after major editorial surfaces, before footer.
+  ────────────────────────────────────────────────────────────────────────── */}
+  {notebookNote && (
+    <ScrollReveal client:visible>
+      <section class="hp-notebook" aria-label="Today from The Notebook">
+        <div class="container">
+          <div class="hp-notebook__inner">
+            <div class="hp-notebook__label">
+              <p class="label label--accent">The Notebook</p>
+            </div>
+            <div class="hp-notebook__note">
+              <p class="hp-notebook__section">{notebookNote.data.section === 'note' ? 'Editor' : notebookNote.data.section}</p>
+              <a class="hp-notebook__headline" href={`/notebook/${notebookNote.id.replace(/\.md$/, '')}/`}>
+                {notebookNote.data.headline}
+              </a>
+              {notebookNote.data.verdict && (
+                <p class="hp-notebook__verdict">{notebookNote.data.verdict}</p>
+              )}
+            </div>
+            <div class="hp-notebook__link">
+              <a href="/notebook/" class="hp-notebook__more">The Notebook →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </ScrollReveal>
+  )}
+
   <ScrollReveal client:visible>
     <NewsletterBlock />
   </ScrollReveal>
@@ -888,6 +925,66 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
   .hp-plans__footer {
     margin-top: clamp(2rem, 4vw, 3rem);
     text-align: right;
+  }
+
+  /* ── Today from The Notebook ─────────────────────────────────────────────── */
+  .hp-notebook {
+    padding: clamp(2rem, 4vw, 3rem) 0;
+    border-top: 1px solid var(--border);
+  }
+  .hp-notebook__inner {
+    display: grid;
+    grid-template-columns: 7rem 1fr auto;
+    gap: 0 2.5rem;
+    align-items: start;
+  }
+  .hp-notebook__label {
+    padding-top: 0.15rem;
+  }
+  .hp-notebook__section {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0 0 0.35rem;
+  }
+  .hp-notebook__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+  }
+  .hp-notebook__headline:hover { color: var(--accent); }
+  .hp-notebook__verdict {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--soft);
+    margin: 0.4rem 0 0;
+  }
+  .hp-notebook__more {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--soft);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-top: 0.2rem;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+  }
+  .hp-notebook__more:hover { color: var(--text); border-color: var(--text); }
+  @media (max-width: 640px) {
+    .hp-notebook__inner {
+      grid-template-columns: 1fr;
+      gap: 0.75rem 0;
+    }
+    .hp-notebook__link { padding-top: 0.25rem; }
   }
 </style>
 

@@ -25,6 +25,13 @@ const dispatches = (await getCollection('articles', ({ data }) => data.status ==
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const currentDispatch = dispatches[0];
 const allSignatureEvents = await getCollection('signature-events');
+
+// The Notebook — one contextual note surfaced on What’s On.
+// Prefers whats-on or weather section; falls back to most recent.
+const _wonow = new Date();
+const _woNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _wonow))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const notebookNote = _woNotes.find((n) => ['whats-on', 'weather', 'explore'].includes(n.data.section)) ?? _woNotes[0] ?? null;
 const signatureOrder = [
   'portsea-polo',
   'sorrento-writers-festival',
@@ -173,6 +180,23 @@ const breadcrumbItems = [
       )}
     </div>
   </section>
+
+  {notebookNote && (
+    <section class="hub-notebook" aria-label="From The Notebook">
+      <div class="container">
+        <div class="hub-notebook__inner">
+          <p class="label label--accent">From The Notebook</p>
+          <a class="hub-notebook__headline" href={`/notebook/${notebookNote.id.replace(/\.md$/, '')}/`}>
+            {notebookNote.data.headline}
+          </a>
+          {notebookNote.data.verdict && (
+            <p class="hub-notebook__verdict">{notebookNote.data.verdict}</p>
+          )}
+          <a href="/notebook/" class="hub-notebook__link">All notes →</a>
+        </div>
+      </div>
+    </section>
+  )}
 
   <NewsletterBlock />
 </BaseLayout>
