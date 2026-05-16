@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-16T11:16:40.919Z",
-  "trigger": "push",
+  "run_id": "2026-05-16T11:41:13.035Z",
+  "trigger": "schedule",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 8.5,
-  "git_sha": "1dec586",
+  "duration_seconds": 6.6,
+  "git_sha": "a90ce65",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -22,16 +22,15 @@
   },
   "delta": {
     "added": 0,
-    "updated": 4,
+    "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1514,
+    "unchanged": 1515,
     "pruned": 0,
     "errors": 0,
     "stale_remaining": 9
   },
   "added_chunk_ids": [],
   "updated_chunk_ids": [
-    "peninsula-this-weekend-may-16::body::1",
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
     "red-hill-market::tags::0"
