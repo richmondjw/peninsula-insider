@@ -64,16 +64,16 @@ One forest morning with a shape already built into it. One market Sunday with a 
 
 ---
 
-**Wild Mushroom Forage and Lunch**
-The Kitchen · Sat 16 May · 11am–1:30pm · $85 per person · Capped at 15
-Book via visitmorningtonpeninsula.org · Wear footwear suited to forest terrain
+### Wild Mushroom Forage and Lunch with The Kitchen
+Sat 16 May · 11am–1:30pm · $85 per person · Groups capped at 15  
+Book via visitmorningtonpeninsula.org · Footwear suited to forest terrain required
 
-**Shoreham Community Market**
-Byrnes Road, Shoreham · Sun 17 May · 9am–2pm
+### Shoreham Community Market
+Byrnes Road, Shoreham · Sun 17 May · 9am–2pm  
 Free entry · Dog-friendly on lead · No booking required
 
-**If the weather changes — MPRG**
-Dunns Road, Mornington · Tue–Sun 11am–4pm
-New Wave 26 + Michael Vale · Free entry · No booking required
+### Rainy day — Mornington Peninsula Regional Gallery
+Dunns Road, Mornington · Tue–Sun 11am–4pm  
+New Wave 26 + Michael Vale running through May · Free entry · No booking
 
 _Prices may change. Confirm current rates directly with each operator before booking._

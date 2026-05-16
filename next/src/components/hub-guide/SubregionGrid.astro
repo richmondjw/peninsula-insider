@@ -122,6 +122,15 @@ const resolved = items.map((item) => ({
     margin: 0;
     color: var(--ink, #171413);
   }
+  /* Container queries — grid reacts to its own width, not the viewport.
+     See VarietyGuide.astro for the rationale: hub-guide layouts have a
+     sticky TOC eating ~250px of the content column on desktop, so a
+     viewport-based 3-col rule at 980px collapses cards to ~250px each
+     and squeezes the editorial text. Using @container makes the grid
+     correct in both hub-guide and standalone contexts. */
+  .hub-subregions {
+    container-type: inline-size;
+  }
   .hub-subregions__grid {
     list-style: none;
     margin: 0;
@@ -130,10 +139,10 @@ const resolved = items.map((item) => ({
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  @media (min-width: 640px) {
+  @container (min-width: 520px) {
     .hub-subregions__grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
   }
-  @media (min-width: 980px) {
+  @container (min-width: 900px) {
     .hub-subregions__grid { grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
   }
   .hub-subregion {
