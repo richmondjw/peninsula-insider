@@ -1,9 +1,484 @@
 ---
-/* /quick-note/ → /notebook/ redirect.
-   Canonical URL moved to /notebook/ May 2026.
-   Preserves inbound links from search and external sources. */
+/* /quick-note/, daily-cadence editorial briefs.
+   Three time horizons: NOW (last 6h), TODAY (last 24h), THIS WEEK (last 7d).
+   Briefs auto-archive after expiresAt. Section bands group by department.
+   Inspired by The Guardian's left-rail department layout. */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const all = await getCollection('quickNotes', ({ data }) => data.status === 'published');
+const now = new Date();
+const TZ = 'Australia/Melbourne';
+const live = all.filter((n) => n.data.expiresAt > now);
+
+// Sort by published date, newest first
+live.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const HOUR = 60 * 60 * 1000;
+const sixHoursAgo = new Date(now.getTime() - 6 * HOUR);
+const dayAgo = new Date(now.getTime() - 24 * HOUR);
+
+const tierNow = live.filter((n) => n.data.publishedAt >= sixHoursAgo);
+const tierToday = live.filter((n) => n.data.publishedAt >= dayAgo && n.data.publishedAt < sixHoursAgo);
+const tierWeek = live.filter((n) => n.data.publishedAt < dayAgo);
+
+const SECTION_LABEL: Record<string, string> = {
+  eat: 'Eat & Drink',
+  stay: 'Stay',
+  wine: 'Wine Country',
+  explore: 'Explore',
+  spa: 'Spa & Wellness',
+  golf: 'Golf',
+  'whats-on': "What's On",
+  weather: 'Weather',
+  note: 'Editor',
+};
+
+const TAG_LABEL: Record<string, string> = {
+  'opening-window': 'Booking window',
+  'menu-change': 'Menu',
+  'closure': 'Closure',
+  'event': 'Event',
+  'weather': 'Weather',
+  'editor-note': 'Editor',
+  'pricing': 'Pricing',
+  'safety': 'Safety',
+};
+
+function relTime(d: Date): string {
+  const diff = now.getTime() - d.getTime();
+  if (diff < 60 * 1000) return 'just now';
+  if (diff < 60 * 60 * 1000) return `${Math.floor(diff / 60000)}m ago`;
+  if (diff < 24 * 60 * 60 * 1000) return `${Math.floor(diff / 3600000)}h ago`;
+  if (diff < 7 * 24 * 60 * 60 * 1000) return `${Math.floor(diff / 86400000)}d ago`;
+  return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+}
+
+const dateline = now.toLocaleDateString('en-AU', {
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: TZ,
+});
+const lastUpdated = now.toLocaleTimeString('en-AU', {
+  hour: 'numeric', minute: '2-digit', hour12: true, timeZone: TZ,
+});
+
+// Volume + issue numbering. Vol 04 (Autumn 2026); issue increments daily.
+// Use 2026-04-01 as the start of Vol 04 to derive a sensible number.
+const issueStart = new Date('2026-04-01T00:00:00+10:00');
+const issueNumber = Math.floor((now.getTime() - issueStart.getTime()) / 86400000) + 1;
+const hasToday = [...tierNow, ...tierToday].length > 0;
+
+// Group "today" by section for the section-band view
+const sections = ['note', 'weather', 'eat', 'wine', 'stay', 'explore', 'spa', 'whats-on'];
+const todayBySection: Record<string, typeof live> = {};
+[...tierNow, ...tierToday].forEach((n) => {
+  const s = n.data.section;
+  if (!todayBySection[s]) todayBySection[s] = [];
+  todayBySection[s].push(n);
+});
+
+function noteHref(n: any): string {
+  return `/quick-note/${n.id.replace(/\.md$/, '')}/`;
+}
 ---
-<meta http-equiv="refresh" content="0;url=/notebook/" />
-<link rel="canonical" href="https://peninsulainsider.com.au/notebook/" />
-<script>window.location.replace('/notebook/');</script>
-<p>Redirecting to <a href="/notebook/">The Notebook</a>…</p>
+
+<BaseLayout
+  title={`Quick Note, ${dateline} | Peninsula Insider`}
+  description="Daily Peninsula briefs: openings, menu changes, booking windows, weather, and one editor's note. Refreshed every morning."
+  section="home"
+  ogType="website"
+>
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Quick Note' }]} />
+
+  <main class="qn">
+    <!-- Dateline header, Guardian-inspired -->
+    <header class="qn__head">
+      <div class="container">
+        <p class="qn__eyebrow">Quick Note</p>
+        <h1 class="qn__dateline">{dateline}</h1>
+        <p class="qn__sub">
+          <span class="qn__issue">Vol 04 · No {issueNumber}</span>
+          <span class="qn__sep" aria-hidden="true">·</span>
+          <span class="qn__count">{live.length} live briefs</span>
+          <span class="qn__sep" aria-hidden="true">·</span>
+          <span class="qn__cadence">Refreshed every morning</span>
+          <span class="qn__sep" aria-hidden="true">·</span>
+          <span class="qn__updated">Updated {lastUpdated}</span>
+        </p>
+      </div>
+    </header>
+
+    <!-- NOW band, anything in the last 6h, marquee treatment -->
+    {tierNow.length > 0 && (
+      <section class="qn__now" aria-labelledby="qn-now-title">
+        <div class="container">
+          <div class="qn__band-head">
+            <h2 class="qn__band-title" id="qn-now-title">Now <span class="qn__band-tick"></span></h2>
+            <p class="qn__band-sub">Posted in the last six hours.</p>
+          </div>
+          <div class="qn__now-grid">
+            {tierNow.slice(0, 1).map((n) => (
+              <a href={noteHref(n)} class="qn__brief qn__brief--lead">
+                {n.data.image?.src && (
+                  <div class="qn__brief-image" role="img" aria-label={n.data.image.alt ?? ''} style={`background-image: url(${n.data.image.src})`}></div>
+                )}
+                <div class="qn__brief-body">
+                  <div class="qn__brief-meta">
+                    <span class="qn__brief-section">{SECTION_LABEL[n.data.section] ?? n.data.section}</span>
+                    <span class="qn__brief-tag">{TAG_LABEL[n.data.tag] ?? n.data.tag}</span>
+                    <time class="qn__brief-time" datetime={n.data.publishedAt.toISOString()}>{relTime(n.data.publishedAt)}</time>
+                  </div>
+                  <h3 class="qn__brief-headline">{n.data.headline}</h3>
+                  {n.data.dek && <p class="qn__brief-dek">{n.data.dek}</p>}
+                  {n.data.verdict && <p class="qn__brief-verdict">{n.data.verdict}</p>}
+                  {n.data.verifiedBy && (
+                    <p class="qn__brief-byline">Verified {relTime(n.data.verifiedAt ?? n.data.publishedAt)} by {n.data.verifiedBy}</p>
+                  )}
+                </div>
+              </a>
+            ))}
+            {tierNow.slice(1).map((n) => (
+              <a href={noteHref(n)} class="qn__brief qn__brief--std">
+                <div class="qn__brief-meta">
+                  <span class="qn__brief-section">{SECTION_LABEL[n.data.section] ?? n.data.section}</span>
+                  <time class="qn__brief-time" datetime={n.data.publishedAt.toISOString()}>{relTime(n.data.publishedAt)}</time>
+                </div>
+                <h3 class="qn__brief-headline">{n.data.headline}</h3>
+                {n.data.verdict && <p class="qn__brief-verdict">{n.data.verdict}</p>}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- TODAY band, grouped by section -->
+    <section class="qn__today" aria-labelledby="qn-today-title">
+      <div class="container">
+        <div class="qn__band-head">
+          <h2 class="qn__band-title" id="qn-today-title">Today</h2>
+          <p class="qn__band-sub">Posted in the last twenty-four hours, grouped by section.</p>
+        </div>
+        {hasToday ? sections.filter((s) => todayBySection[s]?.length).map((s) => (
+          <div class="qn__sect">
+            <p class="qn__sect-label">{SECTION_LABEL[s]}</p>
+            <div class="qn__sect-grid">
+              {todayBySection[s].map((n) => (
+                <a href={noteHref(n)} class="qn__brief qn__brief--row">
+                  <div class="qn__brief-meta">
+                    <span class="qn__brief-tag">{TAG_LABEL[n.data.tag] ?? n.data.tag}</span>
+                    <time class="qn__brief-time" datetime={n.data.publishedAt.toISOString()}>{relTime(n.data.publishedAt)}</time>
+                  </div>
+                  <h3 class="qn__brief-headline">{n.data.headline}</h3>
+                  {n.data.dek && <p class="qn__brief-dek">{n.data.dek}</p>}
+                  {n.data.verdict && <p class="qn__brief-verdict">{n.data.verdict}</p>}
+                </a>
+              ))}
+            </div>
+          </div>
+        )) : (
+          <div class="qn__empty">
+            <p class="qn__empty-title">Fresh notes are being assembled for this morning.</p>
+            <p class="qn__empty-copy">If the desk is quiet, we still publish weather, one editor's note, and the strongest service update before breakfast.</p>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- THIS WEEK band, older items still in window -->
+    {tierWeek.length > 0 && (
+      <section class="qn__week" aria-labelledby="qn-week-title">
+        <div class="container">
+          <div class="qn__band-head">
+            <h2 class="qn__band-title" id="qn-week-title">This week</h2>
+            <p class="qn__band-sub">Still useful, fading from the live feed.</p>
+          </div>
+          <div class="qn__week-grid">
+            {tierWeek.map((n) => (
+              <a href={noteHref(n)} class="qn__brief qn__brief--card">
+                <div class="qn__brief-meta">
+                  <span class="qn__brief-section">{SECTION_LABEL[n.data.section] ?? n.data.section}</span>
+                  <time class="qn__brief-time" datetime={n.data.publishedAt.toISOString()}>{relTime(n.data.publishedAt)}</time>
+                </div>
+                <h3 class="qn__brief-headline">{n.data.headline}</h3>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- About / cadence note at the foot -->
+    <section class="qn__about">
+      <div class="container">
+        <p>
+          <em>Quick Note</em> is Peninsula Insider's daily layer.
+          Editorial briefs about openings, menu changes, booking windows,
+          weather, and one editor's note. Refreshed every morning;
+          older briefs auto-archive after seven days.
+        </p>
+        <p>The full <a href="/journal/">Journal</a> remains the long-form record.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .qn { background: var(--bg); padding-bottom: clamp(3rem, 6vw, 5rem); }
+  /* .qn .container override removed, Quick Note now inherits the
+     global .container width (1100px) so it lines up with the masthead
+     and every other page. */
+
+  /* Dateline, big serif date, Guardian-style */
+  .qn__head { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem); border-bottom: 4px solid var(--dark); }
+  .qn__eyebrow {
+    display: inline-block;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.7rem;
+  }
+  .qn__dateline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin: 0 0 0.7rem;
+    text-wrap: balance;
+  }
+  .qn__sub {
+    display: flex; flex-wrap: wrap;
+    gap: 0.4rem 0.8rem;
+    font-size: 0.82rem;
+    color: #44372b;
+    margin: 0;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .qn__sep { color: var(--accent); }
+
+  /* Band heads, left-rail label, then content */
+  .qn__band-head { padding: 2.4rem 0 1.6rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  .qn__band-head:first-child { border-top: 0; margin-top: 0; }
+  .qn__band-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    font-weight: 500;
+    margin: 0 0 0.3rem;
+    color: var(--dark);
+    letter-spacing: -0.018em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .qn__band-tick {
+    width: 0.55rem; height: 0.55rem; border-radius: 50%;
+    background: #d92a2a;
+    box-shadow: 0 0 0 0 rgba(217,42,42,0.5);
+    animation: qn-pulse 2.4s infinite;
+  }
+  @keyframes qn-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(217,42,42,0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(217,42,42,0); }
+    100% { box-shadow: 0 0 0 0 rgba(217,42,42,0); }
+  }
+  .qn__band-sub {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    color: var(--soft);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* "Now" tier, lead + secondary grid */
+  .qn__now { background: var(--bg); }
+  .qn__now-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  @media (max-width: 880px) {
+    .qn__now-grid { grid-template-columns: 1fr; }
+  }
+  .qn__brief--lead {
+    grid-row: 1 / span 4;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .qn__brief--lead .qn__brief-body {
+    padding: 1.6rem;
+  }
+  .qn__brief--lead:has(.qn__brief-image) .qn__brief-body {
+    padding-top: 1.4rem;
+  }
+  .qn__brief--lead .qn__brief-headline {
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    line-height: 1.12;
+  }
+  .qn__brief-image {
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-alt);
+    filter: saturate(0.92) contrast(1.02);
+  }
+
+  /* Today tier, grouped by section, left-rail label */
+  .qn__today .qn__sect {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 2rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid rgba(121, 92, 58, 0.10);
+  }
+  @media (max-width: 760px) {
+    .qn__today .qn__sect { grid-template-columns: 1fr; gap: 0.6rem; }
+  }
+  .qn__sect-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 0.2rem;
+    margin: 0;
+  }
+  .qn__sect-grid {
+    display: grid;
+    gap: 1.4rem;
+  }
+  .qn__empty {
+    padding: 1.2rem 0 0.4rem;
+    border-top: 1px solid rgba(121, 92, 58, 0.10);
+    max-width: 48rem;
+  }
+  .qn__empty-title,
+  .qn__empty-copy {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    margin: 0;
+  }
+  .qn__empty-title {
+    font-size: 1.1rem;
+    color: var(--dark);
+    margin-bottom: 0.35rem;
+  }
+  .qn__empty-copy {
+    font-size: 0.96rem;
+    color: var(--soft);
+    line-height: 1.55;
+  }
+
+  /* Brief, base */
+  .qn__brief {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity .2s ease;
+  }
+  .qn__brief:hover { opacity: 0.78; }
+  .qn__brief--row { padding: 0.8rem 0; border-top: 1px dotted var(--border); }
+  .qn__brief--row:first-child { border-top: 0; padding-top: 0; }
+
+  .qn__brief-meta {
+    display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    margin: 0 0 0.5rem;
+    align-items: baseline;
+  }
+  .qn__brief-section {
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .qn__brief-tag {
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    background: var(--bg-alt);
+    padding: 0.18rem 0.5rem;
+    border-radius: 2px;
+  }
+  .qn__brief-time {
+    color: var(--soft);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.74rem;
+    margin-left: auto;
+  }
+  .qn__brief-headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem;
+    color: var(--dark);
+    font-size: 1.18rem;
+  }
+  .qn__brief--std .qn__brief-headline { font-size: 1.05rem; }
+  .qn__brief--row .qn__brief-headline { font-size: 1.08rem; }
+  .qn__brief--card .qn__brief-headline { font-size: 1rem; }
+
+  .qn__brief-dek {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.96rem;
+    line-height: 1.55;
+    color: #44372b;
+    margin: 0 0 0.6rem;
+  }
+  .qn__brief-verdict {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+    border-left: 2px solid var(--accent);
+    padding-left: 0.6rem;
+  }
+  .qn__brief-byline {
+    font-size: 0.72rem;
+    color: var(--soft);
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* This week, small card grid */
+  .qn__week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1.2rem;
+  }
+  .qn__brief--card {
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid rgba(121, 92, 58, 0.10);
+    border-radius: 3px;
+  }
+
+  /* About foot */
+  .qn__about {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .qn__about p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    color: var(--soft);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 56ch;
+    margin: 0 0 0.6rem;
+  }
+  .qn__about a { color: var(--accent); }
+</style>
