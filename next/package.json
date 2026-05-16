@@ -13,6 +13,11 @@
     "astro": "astro",
     "check": "astro check",
     "lint:no-pricing": "node scripts/lint-no-pricing.mjs",
+    "lint:taxonomy": "node scripts/taxonomy-lint.mjs",
+    "lint:taxonomy:strict": "node scripts/taxonomy-lint.mjs --strict",
+    "entity-index": "node scripts/refresh-entity-index.mjs",
+    "entity-index:apply": "node scripts/refresh-entity-index.mjs --apply",
+    "entity-index:report": "node scripts/refresh-entity-index.mjs --report",
     "bf:lint": "node ../scripts/bf-import/verify-lint.mjs",
     "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",
@@ -23,7 +28,8 @@
     "astro": "^6.1.6",
     "pagefind": "^1.3.0",
     "puppeteer": "^24.42.0",
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "yaml": "^2.5.0"
   },
   "dependencies": {
     "@astrojs/mdx": "5.0.3",

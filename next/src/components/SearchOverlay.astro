@@ -256,10 +256,63 @@
       }
     }
 
+    // Capitalise an entity_type for the result-kind chip.
+    function kindLabel(entityType) {
+      if (!entityType) return 'Guide';
+      const map = {
+        venue: 'Venue', experience: 'Experience', event: 'Event',
+        place: 'Place', itinerary: 'Plan', tour: 'Tour',
+        'tour-package': 'Tour package', article: 'Journal',
+        'quick-note': 'Quick note', 'local-secret': 'Local secret',
+      };
+      return map[entityType] || (entityType.charAt(0).toUpperCase() + entityType.slice(1));
+    }
+
+    // Shape RPC SearchHit rows into the form showResults expects so the
+    // Pagefind-shaped renderer keeps working unchanged.
+    function rpcToResults(hits, query) {
+      const q = (query || '').toLowerCase();
+      return hits.map((h) => {
+        const dek = h.dek || '';
+        // Lightweight highlight: wrap the first query-word match in <mark>.
+        let excerpt = escapeHtml(dek.slice(0, 220));
+        if (q && excerpt.toLowerCase().includes(q)) {
+          const i = excerpt.toLowerCase().indexOf(q);
+          excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
+        }
+        return {
+          url: h.href,
+          meta: { title: h.title, kind: kindLabel(h.entity_type) },
+          excerpt,
+        };
+      });
+    }
+
+    // Try the Phase C RPC first; fall back to Pagefind on empty/error.
+    // Pagefind stays as the crawl-time backup so SEO + offline are unaffected.
     async function runSearch(els, query) {
       const q = (query || '').trim();
       if (!q) { showSuggestions(els); return; }
       const myToken = ++state.searchToken;
+
+      // ── Path 1: hybrid RPC (Phase C) ──────────────────────────────────
+      const rpc = window.PISearchRpc;
+      if (rpc && rpc.available) {
+        try {
+          const hits = await rpc.typeahead(q, 6);
+          if (myToken !== state.searchToken) return;
+          if (Array.isArray(hits) && hits.length > 0) {
+            showResults(els, rpcToResults(hits, q), q);
+            logSearch(q, hits.length);
+            return;
+          }
+        } catch (err) {
+          // Swallow — fall through to Pagefind below.
+          console.warn('[search] RPC failed, falling back to Pagefind:', err);
+        }
+      }
+
+      // ── Path 2: Pagefind (existing path) ──────────────────────────────
       try {
         const pf = await loadPagefind();
         if (myToken !== state.searchToken) return;
@@ -358,4 +411,27 @@
     initOverlayInstance();
     document.addEventListener('astro:page-load', initOverlayInstance);
   })();
+</script>
+
+<!--
+  Phase C bootstrap. Exposes window.PISearchRpc = { available, search, typeahead }
+  to the inline script above. The bootstrap is a module so Astro bundles
+  search-client.ts + supabase-js together; it loads once per page-shell.
+  `available` is false when window.__PI_SB is missing or when @supabase
+  cannot construct a client — the runSearch path falls back to Pagefind
+  in that case.
+-->
+<script>
+  import { search, typeahead } from '../lib/search-client.ts';
+
+  function isAvailable() {
+    const sb = (window as any).__PI_SB;
+    return Boolean(sb && sb.url && sb.key);
+  }
+
+  (window as any).PISearchRpc = {
+    get available() { return isAvailable(); },
+    search,
+    typeahead,
+  };
 </script>
