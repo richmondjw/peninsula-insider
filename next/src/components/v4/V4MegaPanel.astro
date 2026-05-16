@@ -25,6 +25,7 @@ export interface Props {
 }
 
 const { pillar, triggerId } = Astro.props;
+// Notebook (and any future link-only pillars) carry no columns — no panel rendered.
 const cols = pillar.columns.length;          // 2 or 3
 const wideRail = cols === 2;                 // Journal pattern, give the rail extra width
 const panelClass = [
@@ -34,6 +35,7 @@ const panelClass = [
 ].filter(Boolean).join(' ');
 ---
 
+{pillar.columns?.length > 0 && (
 <div
   class={panelClass}
   role="menu"
@@ -47,3 +49,4 @@ const panelClass = [
     </div>
   </div>
 </div>
+)}
