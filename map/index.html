@@ -287,18 +287,14 @@ No entries match — clear the search or re-enable a category above.
       // On desktop both panels are always visible — init immediately.
       // On mobile the map panel starts hidden; lazy-init via piInitMap()
       // when the Map tab is first activated so Leaflet has a real container size.
-      if (window.matchMedia('(min-width: 880px)').matches) {
-        init();
-      } else {
-        window.piInitMap = init;
-      }
+      // Always init on page load — including mobile. Previously init was
+      // deferred on mobile until the Map tab was clicked, leaving the List
+      // view stuck empty because renderList() never ran. (Bug fix 2026-05-16.)
+      init();
+      window.piInitMap = null;
       document.addEventListener('astro:page-load', function () {
         window.piInitMap = null;
-        if (window.matchMedia('(min-width: 880px)').matches) {
-          init();
-        } else {
-          window.piInitMap = init;
-        }
+        init();
       });
     })();
   })();</script>  <script>
