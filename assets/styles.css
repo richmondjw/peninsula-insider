@@ -9159,38 +9159,6 @@ body.menu-open .subscribe-pill {
   border-bottom: 1px solid var(--border);
 }
 
-/* =========================================================
-   MAP TILES — editorial treatment on CARTO Voyager
-   ---------------------------------------------------------
-   2026-05-16 — switched base tile from CARTO Positron to Voyager.
-   Positron's native palette was too pale; pushing grayscale on
-   it produced no-contrast maps (land and water collapsed into
-   one warm-grey surface and the Peninsula coastline disappeared).
-   Voyager has the editorial palette we want natively: warm cream
-   land, distinct cool-grey water, soft pencil roads, serif-style
-   labels. The filter below is now a gentle mute rather than a
-   transformation — keeps the editorial feel without erasing the
-   coastline.
-
-   Stylization stack:
-     - saturate(0.45) — pull saturation down 55% so the map reads
-                        muted-editorial. Preserves hue cues (water
-                        still reads cool, land still reads warm)
-                        but quiets every tone.
-     - contrast(1.05) — gentle line sharpening
-     - brightness(0.98) — drop a hair so the paper reads creamy,
-                          not bleached. Helps coastline register.
-
-   Dial controls:
-     - saturate(0)  → full black-and-white (lose hue cues)
-     - contrast(1.15) → harder outlines
-     - swap `voyager` → `voyager_nolabels` in the three tile URLs
-       to drop labels entirely (PI pins become the only text)
-   ========================================================= */
-.pi-map-tiles {
-  filter: saturate(0.45) contrast(1.05) brightness(0.98);
-}
-
 .map-pin-toggle {
   display: inline-flex;
   align-items: center;

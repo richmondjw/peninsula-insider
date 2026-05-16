@@ -36,7 +36,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><link rel="stylesheet" href="/_astro/CookieBanner.BkCkIcy0.css">
+  </script><link rel="stylesheet" href="/_astro/CookieBanner.YBCD18K5.css">
 <link rel="stylesheet" href="/_astro/ProfileDropdown.B3nJ_Nrd.css">
 <link rel="stylesheet" href="/_astro/BaseLayout.CCQMQNF3.css"></head> <body data-page="map" data-path="/map/" data-v4="true"> <header class="masthead" data-v4-masthead> <!-- Row 1 — Utility.
        Layout (left to right): live conditions strip · edition marker · login.
@@ -99,16 +99,9 @@ No entries match — clear the search or re-enable a category above.
         // Click on map to enable scroll zoom (desktop convenience).
         map.on('click', function () { map.scrollWheelZoom.enable(); });
 
-        // CARTO Positron base map — minimal, light grey, editorial.
-        // Replaces the noisy default OSM raster with an outline-led look so
-        // the brand-coloured pin layer reads as the figure, not the ground.
-        // {r} is the retina suffix (@2x on hi-DPI displays). No API key
-        // required; attribution covers both OSM and CARTO per their terms.
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png', {
-          maxZoom: 19,
-          subdomains: 'abcd',
-          attribution: '© OpenStreetMap contributors © CARTO',
-          className: 'pi-map-tiles',
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '© OpenStreetMap contributors',
         }).addTo(map);
 
         // Per-category icon. We use Leaflet DivIcons so we don't need image
