@@ -9162,19 +9162,30 @@ body.menu-open .subscribe-pill {
 /* =========================================================
    MAP TILES — editorial monochrome treatment
    ---------------------------------------------------------
-   Applies a subtle desaturation + contrast lift to the CARTO
-   Positron base tiles so the map reads as a graphic editorial
-   surface rather than a navigational utility. Brand-coloured
-   pins (.map-pin--*) sit on top and pop against the muted
-   substrate.
+   Applies a graphic black-and-white treatment to the CARTO
+   Positron base tiles so the map reads as an editorial spread
+   rather than a navigational utility. Brand-coloured pins
+   (.map-pin--*) sit on top as the figure against this muted
+   ground.
 
-   Dial-up controls if we want more graphic:
-     - Push grayscale to 100% for pure black-and-white
-     - Raise contrast to 1.25 for Toner-like outlines
-     - Add `sepia(8%)` after grayscale for a warm paper tint
+   Stylization stack (2026-05-16, per James "more stylized"):
+     - grayscale(100%) — strip all hue from the base
+     - contrast(1.22)  — sharpen outlines toward a Toner-like line
+     - brightness(1.04) — lift the paper so the whole surface
+                          reads warmer-grey, not muddy-grey
+     - sepia(6%)       — pull the now-grey base a touch toward
+                          PI's cream/ochre palette so the map
+                          sits in the same paper world as the
+                          rest of the site
+
+   Dial-up controls if we want it more graphic still:
+     - Push contrast to 1.35 for harder outlines
+     - Push sepia to 12% for a more obviously toned base
+     - Swap CARTO 'light_all' to 'light_nolabels' to drop labels
+       entirely (pure outlines, PI pins become the only text)
    ========================================================= */
 .pi-map-tiles {
-  filter: grayscale(70%) contrast(1.05) brightness(1.02);
+  filter: grayscale(100%) contrast(1.22) brightness(1.04) sepia(6%);
 }
 
 .map-pin-toggle {
