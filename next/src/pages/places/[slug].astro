@@ -52,15 +52,18 @@ const experiences = allExperiences
 const experienceSlugs = experiences.map((experience) => routeSlug(experience));
 
 // Split venues by category so place hubs stop behaving like a flat list.
+// Editorial curation cap: 3 per category maximum on place pages.
+// Prevents downstream sections becoming a directory as venue count grows.
+// "See all" links on the template route to the hub with place context.
 const eatVenues = venuesForPlace
   .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type))
-  .slice(0, 6);
+  .slice(0, 3);
 const wineVenues = venuesForPlace
   .filter((venue) => wineTypes.includes(venue.data.type))
-  .slice(0, 6);
+  .slice(0, 3);
 const stayVenues = venuesForPlace
   .filter((venue) => stayTypes.includes(venue.data.type))
-  .slice(0, 4);
+  .slice(0, 3);
 
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
 const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));

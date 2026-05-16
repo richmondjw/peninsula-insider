@@ -48,12 +48,24 @@ const { Content, headings } = ptwRedirectTo
 
 // Hub-guide treatment: planning-utility articles (regional reference, hub
 // guides, trail guides, venue guides) read as scan-first reference rather
-// than long-form prose. The template applies a sticky TOC + 2-col grid +
-// reduced related-section noise when the format is in this set. Editorial
-// formats (editor's letters, slow-peninsula, interviews, investigations,
-// etc.) keep the existing magazine-prose treatment.
+// than long-form prose. The template applies a sticky TOC + 2-col grid
+// when the format is in this set.
 const HUB_GUIDE_FORMATS = new Set(['hub-guide', 'service', 'trail-guide', 'venue-guide']);
 const isHubGuide = HUB_GUIDE_FORMATS.has(String(article.data.format ?? ''));
+
+// Editorial-only formats: immersive reading pieces that should end cleanly
+// at the newsletter block. No downstream venue/experience/place/itinerary
+// card sections — those are reference/planning surface patterns, not editorial
+// ones. Venues referenced within the prose appear as inline links only.
+// Applies to: editors-letter, slow-peninsula, interview, investigation, insider-edit.
+const EDITORIAL_FORMATS = new Set([
+  'editors-letter',
+  'slow-peninsula',
+  'interview',
+  'investigation',
+  'insider-edit',
+]);
+const isEditorialFormat = EDITORIAL_FORMATS.has(String(article.data.format ?? ''));
 
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -326,7 +338,10 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {relatedVenues.length > 0 && (
+  {/* Venue cards: reference/guide formats only. Editorial formats (editors-letter,
+      slow-peninsula, interview, investigation, insider-edit) reference venues as
+      inline prose links — card sections break reading immersion on those formats. */}
+  {!isEditorialFormat && relatedVenues.length > 0 && (
     <section class="venues">
       <div class="container">
         <div class="venues__header">
@@ -343,11 +358,13 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {/* Hub-guide articles hide the experiences / places / itineraries
-      related sections — they read as long enough already, and the
-      content typically references those entity types inline. Editorial
-      articles keep all four related lanes. */}
-  {!isHubGuide && relatedExperiences.length > 0 && (
+  {/* Experiences / places / itineraries: hidden for editorial-only formats
+      (editors-letter, slow-peninsula, interview, investigation, insider-edit).
+      Reference and guide formats (hub-guide, service, trail-guide, venue-guide,
+      lists, dispatches) show these panels as useful downstream context.
+      Previously gated on !isHubGuide which had the logic inverted — these
+      panels are appropriate for guides, not for pure editorial pieces. */}
+  {!isEditorialFormat && relatedExperiences.length > 0 && (
     <section class="experience-index">
       <div class="container">
         <div class="venues__header">
@@ -364,7 +381,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {!isHubGuide && relatedPlaces.length > 0 && (
+  {!isEditorialFormat && relatedPlaces.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
         <div class="venues__header">
@@ -381,7 +398,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {!isHubGuide && relatedItineraries.length > 0 && (
+  {!isEditorialFormat && relatedItineraries.length > 0 && (
     <section class="venues">
       <div class="container">
         <div class="venues__header">
