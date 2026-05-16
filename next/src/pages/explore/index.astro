@@ -13,6 +13,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, currentSeason, seasonBlurb, experienceInSeason, isUpcoming } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const experiences = (await getCollection('experiences')).sort((a, b) => a.data.name.localeCompare(b.data.name));
@@ -187,6 +188,23 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     moreLabel="All events"
     variant="alt"
   />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       EDITORIAL SURFACE — Rainy Day Rescue (Level 2)
+       One surface per hub. Post-hero, pre-grid. Phase 1: PI curatorial voice.
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="explore-surface-wrap container">
+    <EditorialSurface
+      level={2}
+      surface="Rainy Day Rescue"
+      season="Autumn 2026"
+      name="Peninsula Hot Springs, Fingal"
+      verdict="When the forecast turns, the equation flips. Cold rain and 40°C thermal pools are not competing forces. The hot springs are the point. Book early for Saturday slots — they go faster on bad-weather weekends."
+      href="/explore/rainy-day/"
+      image="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
+      imageAlt="A grey-sky Peninsula morning — the weather that makes the hot springs make sense"
+    />
+  </div>
 
   <!-- ═══════════════════════════════════════════════════════════════
        3. SEASONAL, what's best right now

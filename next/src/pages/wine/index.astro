@@ -62,6 +62,13 @@ const companionReads = companionSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
   .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
+// Cellar door dispatches — the 86 editorial visits surfaced on the Wine hub
+// as a dedicated "From the cellar door" section. Shows 6 most recent;
+// full archive lives in the Journal.
+const cellarDoorDispatches = articlesAll
+  .filter((a) => a.data.format === 'cellar-door-dispatch')
+  .slice(0, 6);
+
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Wine Country' },
@@ -331,6 +338,31 @@ const faqSchema = {
         </div>
         <div class="venues__grid">
           {companionReads.map((article) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       8b. FROM THE CELLAR DOOR — editorial dispatch archive
+       86 cellar-door visit notes surfaced on the Wine hub.
+       Addresses the structural gap identified in ecosystem-review-2026-05-16:
+       dispatches living only in the Journal aren’t strengthening Wine hub
+       topical authority. This section pulls them into their natural home.
+       ═══════════════════════════════════════════════════════════════ -->
+  {cellarDoorDispatches.length > 0 && (
+    <section class="venues" id="cellar-door-dispatches">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">From the cellar door</p>
+            <h2 class="venues__title">The rooms we’ve visited, in our own words</h2>
+            <p class="venues__sub venues__sub--standfirst">86 cellar-door visits written to a single standard — what the room is for, who it suits, what to order, what to skip. Each one is a standalone editorial note, not a listing.</p>
+          </div>
+          <a href="/journal/" class="venues__link">All dispatches in the Journal →</a>
+        </div>
+        <div class="venues__grid">
+          {cellarDoorDispatches.map((article) => <ArticleCard article={article} />)}
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, stayTypes } from '../../lib/editorial';
+import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const itineraries = (await getCollection('itineraries')).sort(
@@ -151,7 +152,53 @@ const faqSchema = {
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. ORIENTATION: One night vs Two nights
+       EDITORIAL SURFACE — Slow Weekend (Level 2)
+       Post-hero, pre-grid. One surface per hub. Phase 1: PI voice only.
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="plans-surface-wrap container">
+    <EditorialSurface
+      level={2}
+      surface="Slow Weekend"
+      season="Autumn 2026"
+      name="Two nights. One long lunch. No schedule pressure."
+      verdict="The Peninsula’s strongest weekends are the ones with three things in them, not ten. Ridge on Saturday. Coast on Sunday. A table worth driving for in between. This is the plan that earns the drive home."
+      href="/plans/"
+    />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       2. WHAT KIND OF WEEKEND — mood/occasion first
+       Moved to lead position (before night-length grids) per
+       editorial-surface-placement-principles-2026-05-16: readers
+       choose a feeling before a duration. The night-length comparison
+       follows as supporting context.
+       ═══════════════════════════════════════════════════════════════ -->
+  {moodResolved.length > 0 && (
+    <section class="hub-formats" aria-label="Plans by mood">
+      <div class="container">
+        <div class="hub-formats__intro">
+          <p class="label label--accent">What kind of weekend?</p>
+          <h2 class="hub-formats__title">Choose the feeling, then the plan</h2>
+          <p class="hub-formats__dek">The Peninsula reads differently depending on what you want from it. Start here.</p>
+        </div>
+        <ul class="hub-formats__grid">
+          {moodResolved.map((mood) => (
+            <li class="hub-formats__cell">
+              <a href={mood.target} class="hub-formats__link">
+                <span class="hub-formats__label">{mood.label}</span>
+                <span class="hub-formats__sub">{mood.sub}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. ORIENTATION: One night vs Two nights
        ═══════════════════════════════════════════════════════════════ -->
   <CompareBlock
     eyebrow="The decision that shapes everything"
@@ -241,35 +288,8 @@ const faqSchema = {
     </section>
   )}
 
-  <SectionDivider />
-
   <!-- ═══════════════════════════════════════════════════════════════
-       6. ESCAPE BY MOOD, hub-formats lane
-       ═══════════════════════════════════════════════════════════════ -->
-  {moodResolved.length > 0 && (
-    <section class="hub-formats" aria-label="Plans by mood">
-      <div class="container">
-        <div class="hub-formats__intro">
-          <p class="label label--accent">Browse by experience</p>
-          <h2 class="hub-formats__title">Browse by experience</h2>
-          <p class="hub-formats__dek">Browse Peninsula escape plans by the kind of weekend you want.</p>
-        </div>
-        <ul class="hub-formats__grid">
-          {moodResolved.map((mood) => (
-            <li class="hub-formats__cell">
-              <a href={mood.target} class="hub-formats__link">
-                <span class="hub-formats__label">{mood.label}</span>
-                <span class="hub-formats__sub">{mood.sub}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       6.5 PLANNING GUIDES, grouped editorial collections
+       6. PLANNING GUIDES, grouped editorial collections
        ═══════════════════════════════════════════════════════════════ -->
   {guideGroups.length > 0 && (
     <section class="venues venues--plain" id="plans-guides">

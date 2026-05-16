@@ -68,7 +68,7 @@ const breadcrumbItems = [
 
 <BaseLayout
   title="What's On Mornington Peninsula · Peninsula Insider"
-  description="A curated edit of what’s happening across the Mornington Peninsula — organised by season, signature events, and markets."
+  description="A curated edit of what's happening across the Mornington Peninsula - organised by season, signature events, and markets."
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
   modifiedTime="2026-05-13"
@@ -78,27 +78,36 @@ const breadcrumbItems = [
 
   <GuideHero
     eyebrow="Reviewed weekly by our editors"
-    title="What’s on, <em>worth your time</em>"
-    dek="A curated edit of what’s happening across the Peninsula — organised by season and signature events."
+    title="What's on, <em>worth your time</em>"
+    dek="A curated edit of what's happening across the Peninsula - organised by season and signature events."
     heroImage="/images/sourced/category-market-02.webp"
     imageAlt="Saturday morning at a Peninsula farmers market, part of the seasonal rhythm of the calendar"
     entitySlug="whats-on"
   />
 
   {currentDispatch && (
-    <section class="whatson-briefing" aria-label="Peninsula This Weekend briefing">
+    <section class="whatson-briefing" aria-label="Peninsula This Weekend editorial lead">
       <div class="container">
         <div class="whatson-briefing__inner">
-          <div>
+          {currentDispatch.data.heroImage?.src && (
+            <div class="whatson-briefing__image">
+              <img
+                src={currentDispatch.data.heroImage.src}
+                alt={currentDispatch.data.heroImage.alt ?? 'Peninsula This Weekend'}
+                loading="eager"
+              />
+            </div>
+          )}
+          <div class="whatson-briefing__body">
             <p class="label label--accent">Peninsula This Weekend</p>
             <h2 class="whatson-briefing__title">
               <a href="/whats-on/this-weekend/">{currentDispatch.data.title}</a>
             </h2>
             <p class="whatson-briefing__dek">{currentDispatch.data.dek}</p>
+            <a class="whatson-briefing__cta" href="/whats-on/this-weekend/">
+              Read this weekend’s briefing →
+            </a>
           </div>
-          <a class="whatson-briefing__cta" href="/whats-on/this-weekend/">
-            Read this weekend’s briefing →
-          </a>
         </div>
       </div>
     </section>
@@ -128,7 +137,7 @@ const breadcrumbItems = [
       <div class="whatson-section__header whatson-section__header--split">
         <div>
           <p class="label label--accent">Signature Events</p>
-          <h2 class="whatson-section__title">The Peninsula’s anchor events</h2>
+          <h2 class="whatson-section__title">The Peninsula's anchor events</h2>
           <p class="whatson-section__dek">Annual events with dedicated landing pages, recurring coverage, and a strong Peninsula identity.</p>
         </div>
         <a class="whatson-section__text-link" href="/events/">View all Signature Events →</a>
@@ -178,6 +187,10 @@ const breadcrumbItems = [
 </BaseLayout>
 
 <style>
+  /* Peninsula This Weekend — editorial lead section
+     Two-column layout: image left, editorial body right.
+     Image is eager-loaded (above fold) and proportionally constrained.
+     Collapses to single column on mobile. */
   .whatson-briefing {
     padding: clamp(1.25rem, 3vw, 2rem) 0 0;
   }
@@ -185,18 +198,38 @@ const breadcrumbItems = [
   .whatson-briefing__inner {
     border-top: 1px solid var(--border, #d8d3c8);
     border-bottom: 1px solid var(--border, #d8d3c8);
-    padding: clamp(1rem, 2.5vw, 1.5rem) 0;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    overflow: hidden;
+  }
+
+  .whatson-briefing__image {
+    overflow: hidden;
+    min-height: 260px;
+    max-height: 380px;
+  }
+
+  .whatson-briefing__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .whatson-briefing__body {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
     display: flex;
-    justify-content: space-between;
-    gap: 1.5rem;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
   }
 
   .whatson-briefing__title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
-    line-height: 1.2;
-    margin: 0.35rem 0;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 1.15;
+    margin: 0;
   }
 
   .whatson-briefing__title a {
@@ -204,19 +237,42 @@ const breadcrumbItems = [
     text-decoration: none;
   }
 
+  .whatson-briefing__title a:hover {
+    color: var(--accent, #8a6a3b);
+  }
+
   .whatson-briefing__dek {
     margin: 0;
-    max-width: 52rem;
-    color: var(--text-muted, #5f5a50);
-    line-height: 1.55;
+    color: var(--soft, #5f5a50);
+    line-height: 1.65;
+    font-size: 0.95rem;
   }
 
   .whatson-briefing__cta,
   .whatson-section__text-link {
     color: var(--accent, #8a6a3b);
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
-    white-space: nowrap;
+    font-size: 0.85rem;
+    align-self: flex-start;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+
+  /* No image fallback — if heroImage absent, body fills full width */
+  .whatson-briefing__inner:not(:has(.whatson-briefing__image)) {
+    grid-template-columns: 1fr;
+    padding: clamp(1rem, 2.5vw, 1.5rem) 0;
+  }
+
+  @media (max-width: 680px) {
+    .whatson-briefing__inner {
+      grid-template-columns: 1fr;
+    }
+    .whatson-briefing__image {
+      min-height: 200px;
+      max-height: 240px;
+    }
   }
 
   .whatson-section {
