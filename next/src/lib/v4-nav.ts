@@ -387,6 +387,10 @@ export const v4Pillars: V4Pillar[] = [
   },
 
 
+  // 8. NOTEBOOK -------------------------------------------------------------
+  // Minimal link-only pillar. No mega panel, no chevron.
+  // Renders like Journal — calm editorial label, direct link.
+
   // 7. JOURNAL --------------------------------------------------------------
   {
     key: 'journal',

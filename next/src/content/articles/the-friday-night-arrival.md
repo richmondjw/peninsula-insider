@@ -24,7 +24,6 @@ relatedVenues:
   - "dromana-hotel"
   - "balnarring-pub"
   - "sorrento-bakery"
-  - "small-stone-pantry"
   - "tedesca-osteria"
   - "rare-hare"
   - "bistro-elba"

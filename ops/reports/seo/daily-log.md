@@ -673,3 +673,135 @@ Reverse-engineered the GSC Page Indexing report by inspecting all 418 known URLs
 1. Pull GSC data and check whether the indexation chart ticks up further past 76.
 2. Re-run `discover-unindexed.mjs` mid-week (2026-05-08) to see early movement on the three experiments.
 3. Pick next experiment from the remaining 140 Discovered. Strong candidates: the 32 unindexed `/explore/` walks (similar pattern to journal, link equity), or the 4 noindex pages (verify intentional).
+
+---
+
+## 2026-05-16 — daily pull
+
+Property: `sc-domain:peninsulainsider.com.au`
+Window (last 7d): 2026-05-08 → 2026-05-14
+
+### Headline (last 7d vs previous 7d)
+
+| Metric | Last 7d | Prev 7d | Δ | Last 28d |
+|---|---:|---:|---:|---:|
+| Clicks | 98 | 37 | 98  (+61 ↑) | 145 |
+| Impressions | 8,862 | 2,945 | 8,862  (+5,917 ↑) | 13,590 |
+| CTR | 1.11% | 1.26% | 1.11%  (-0.15% ↓) | 1.07% |
+| Avg position | 22.8 | 15.7 | 22.8  (+7.0 ↓) | 20.6 |
+
+### Indexation (priority URLs): 14 / 14 indexed
+
+| URL | Verdict | Coverage |
+|---|---|---|
+| `/` | PASS | Submitted and indexed |
+| `/eat/best-restaurants/` | PASS | Submitted and indexed |
+| `/wine/best-cellar-doors/` | PASS | Submitted and indexed |
+| `/explore/best-walks/` | PASS | Submitted and indexed |
+| `/stay/best-accommodation/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-day-trip/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-in-autumn/` | PASS | Submitted and indexed |
+| `/journal/mornington-peninsula-with-kids/` | PASS | Submitted and indexed |
+| `/journal/dog-friendly-mornington-peninsula/` | PASS | Submitted and indexed |
+| `/places/sorrento/` | PASS | Submitted and indexed |
+| `/places/red-hill/` | PASS | Submitted and indexed |
+| `/places/flinders/` | PASS | Submitted and indexed |
+| `/places/mornington/` | PASS | Submitted and indexed |
+| `/places/rye/` | PASS | Submitted and indexed |
+
+### Top 10 queries by clicks (last 28d)
+
+| # | Query | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | alba hot springs vs peninsula hot springs | 3 | 15 | 20.00% | 4.0 |
+| 2 | alba vs peninsula hot springs | 3 | 34 | 8.82% | 5.6 |
+| 3 | alba thermal springs vs peninsula hot springs | 2 | 14 | 14.29% | 4.6 |
+| 4 | alba hot springs reviews | 1 | 1 | 100.00% | 4.0 |
+| 5 | autumn winery walk | 1 | 9 | 11.11% | 4.0 |
+| 6 | best brunch mornington peninsula | 1 | 14 | 7.14% | 8.6 |
+| 7 | bloody long walk mornington peninsula 2026 | 1 | 8 | 12.50% | 6.8 |
+| 8 | boneo market | 1 | 20 | 5.00% | 9.3 |
+| 9 | endota sorrento | 1 | 26 | 3.85% | 6.0 |
+| 10 | gummy shark size limit | 1 | 2 | 50.00% | 8.5 |
+
+### Top 10 queries by impressions (last 28d)
+
+| # | Query | Impr | Clicks | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | 34 western parade point leo vic 3916 | 78 | 0 | 0.00% | 32.0 |
+| 2 | accommodation near peninsula hot springs | 62 | 0 | 0.00% | 48.6 |
+| 3 | 20 junction road merricks north vic 3926 | 55 | 0 | 0.00% | 36.0 |
+| 4 | a dog-friendly guide mornington peninsula | 47 | 0 | 0.00% | 8.4 |
+| 5 | winter wine weekend 2026 | 39 | 1 | 2.56% | 4.5 |
+| 6 | 42 brasser avenue dromana vic 3936 | 39 | 0 | 0.00% | 32.2 |
+| 7 | alba vs peninsula hot springs | 34 | 3 | 8.82% | 5.6 |
+| 8 | endota sorrento | 26 | 1 | 3.85% | 6.0 |
+| 9 | boneo market | 20 | 1 | 5.00% | 9.3 |
+| 10 | balnarring market | 20 | 0 | 0.00% | 9.5 |
+
+### CTR opportunity queries (≥20 impr, <2% CTR)
+
+| # | Query | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | 34 western parade point leo vic 3916 | 78 | 0.00% | 32.0 |
+| 2 | accommodation near peninsula hot springs | 62 | 0.00% | 48.6 |
+| 3 | 20 junction road merricks north vic 3926 | 55 | 0.00% | 36.0 |
+| 4 | a dog-friendly guide mornington peninsula | 47 | 0.00% | 8.4 |
+| 5 | 42 brasser avenue dromana vic 3936 | 39 | 0.00% | 32.2 |
+| 6 | balnarring market | 20 | 0.00% | 9.5 |
+
+### Top 10 pages by clicks (last 28d)
+
+| # | Page | Clicks | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|---:|
+| 1 | `/` | 14 | 143 | 9.79% | 2.2 |
+| 2 | `/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/` | 11 | 233 | 4.72% | 10.1 |
+| 3 | `/journal/peninsula-hot-springs-vs-alba/` | 10 | 186 | 5.38% | 8.4 |
+| 4 | `/eat/` | 6 | 630 | 0.95% | 43.1 |
+| 5 | `/journal/peninsula-hot-springs-vs-alba` | 6 | 189 | 3.17% | 9.3 |
+| 6 | `/whats-on/autumn-winery-walk-2026/` | 5 | 36 | 13.89% | 3.8 |
+| 7 | `/whats-on/peninsula-hot-springs-kodomo-no-hi/` | 4 | 11 | 36.36% | 4.0 |
+| 8 | `/fishing/locations/gunnamatta-beach/` | 3 | 36 | 8.33% | 6.6 |
+| 9 | `/whats-on/pier-10-mothers-day-lunch-2026/` | 3 | 60 | 5.00% | 12.8 |
+| 10 | `/whats-on/winter-wine-weekend-june/` | 3 | 122 | 2.46% | 8.8 |
+
+### CTR opportunity pages (≥30 impr, <2% CTR)
+
+| # | Page | Impr | CTR | Pos |
+|---:|---|---:|---:|---:|
+| 1 | `/wine/` | 813 | 0.12% | 25.5 |
+| 2 | `/eat/` | 630 | 0.95% | 43.1 |
+| 3 | `/journal/dog-friendly-mornington-peninsula/` | 489 | 0.20% | 22.0 |
+| 4 | `/journal/where-to-eat-mornington-peninsula/` | 305 | 0.33% | 38.0 |
+| 5 | `/places/red-hill/` | 237 | 0.42% | 29.4 |
+| 6 | `/journal/luxury-hotels-mornington-peninsula/` | 234 | 0.43% | 25.5 |
+| 7 | `/whats-on/` | 185 | 0.54% | 26.8 |
+| 8 | `/whats-on/heart-of-the-community-market-rosebud/` | 148 | 0.68% | 10.4 |
+| 9 | `/whats-on/mornington-racecourse-market-may-2026/` | 146 | 1.37% | 6.5 |
+| 10 | `/whats-on/mornington-peninsula-winter-wine-weekend-2026/` | 144 | 1.39% | 6.7 |
+
+### Devices (last 28d)
+
+| Device | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| MOBILE | 92 | 4,242 | 2.17% | 11.7 |
+| DESKTOP | 50 | 9,272 | 0.54% | 24.8 |
+| TABLET | 3 | 76 | 3.95% | 7.9 |
+
+### Top countries (last 28d)
+
+| Country | Clicks | Impr | CTR | Pos |
+|---|---:|---:|---:|---:|
+| aus | 143 | 9,768 | 1.46% | 24.2 |
+| hkg | 1 | 20 | 5.00% | 14.8 |
+| sgp | 1 | 34 | 2.94% | 14.9 |
+| ago | 0 | 1 | 0.00% | 1.0 |
+| alb | 0 | 2 | 0.00% | 17.5 |
+| are | 0 | 7 | 0.00% | 14.3 |
+| arg | 0 | 27 | 0.00% | 22.8 |
+| arm | 0 | 1 | 0.00% | 1.0 |
+
+---
+
+### Notes
+_Add interpretation, decisions, and actions taken below._

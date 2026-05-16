@@ -5584,6 +5584,56 @@ p.has-drop-cap::first-letter {
    of hub pages. No JS — uses <details>/<summary>. The +/−
    indicator is built with ::after.
    ========================================================= */
+/* ── Hub Notebook module ─────────────────────────────────────────────────────
+   One contextual Notebook observation per hub. No feed, no rail.
+   Used on: What’s On, Plans, Explore. */
+.hub-notebook {
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+  border-top: 1px solid var(--border);
+}
+.hub-notebook__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 2rem;
+  align-items: start;
+}
+.hub-notebook__inner .label {
+  grid-column: 1 / -1;
+  margin-bottom: 0.1rem;
+}
+.hub-notebook__headline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+}
+.hub-notebook__headline:hover { color: var(--accent); }
+.hub-notebook__verdict {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--soft);
+  margin: 0.3rem 0 0;
+  grid-column: 1;
+}
+.hub-notebook__link {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  color: var(--soft);
+  text-decoration: none;
+  white-space: nowrap;
+  align-self: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+}
+.hub-notebook__link:hover { color: var(--text); border-color: var(--text); }
+@media (max-width: 640px) {
+  .hub-notebook__inner { grid-template-columns: 1fr; gap: 0.5rem 0; }
+  .hub-notebook__link { justify-self: start; margin-top: 0.25rem; }
+}
+
 .hub-faq {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: var(--bg);

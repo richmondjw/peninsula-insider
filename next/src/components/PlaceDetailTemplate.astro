@@ -1,4 +1,28 @@
 ---
+/**
+ * PlaceDetailTemplate — canonical place page template (consolidated May 2026).
+ *
+ * Merges PlaceDetailTemplateV2 (upper structure) with PlaceDetailTemplate v1
+ * (mature downstream substance). Resolves the two-template situation into one
+ * scalable place experience.
+ *
+ * Structure:
+ *   1. Full-bleed cinematic hero (V2)
+ *   2. Editorial lede — 2-col factual prose + At a glance card (V2)
+ *   3. Signature pull-quote band (V2)
+ *   4. Who this place rewards — fit panel, bestFor/notFor/skip (V1)
+ *   5. TL;DR — numbered editorial summary (V1)
+ *   6. A Perfect Day — signature PI feature (V1)
+ *   7. Chapter navigation — numbered, links to downstream (V2)
+ *   8. Scoreboard — what's mapped, with anchor links (V1)
+ *   9. Downstream sections: eat, wine, stay, explore, escapes, journal (V1 copy)
+ *  10. Service guide links — internal linking + SEO (V1)
+ *  11. Location map — lazy Leaflet (V1)
+ *  12. Related places (both)
+ *  13. Reader submission CTA (V1)
+ *  14. Newsletter block
+ */
+
 import Breadcrumbs from './Breadcrumbs.astro';
 import PlaceCard from './PlaceCard.astro';
 import VenueCard from './VenueCard.astro';
@@ -6,7 +30,6 @@ import ExperienceCard from './ExperienceCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
-import CorrectionNote from './CorrectionNote.astro';
 import { titleize, resolveHeroSrc, formatHeroCredit } from '../lib/editorial';
 import { editableText } from '../lib/inline-edit/attrs';
 import { resolveEditableImage } from '../lib/inline-edit/overrides';
@@ -20,7 +43,6 @@ export interface Props {
   itineraries?: any[];
   articles?: any[];
   relatedPlaces?: any[];
-  snapshotCards?: { label: string; title: string; body: string; href?: string }[];
 }
 
 const {
@@ -32,30 +54,14 @@ const {
   itineraries = [],
   articles = [],
   relatedPlaces = [],
-  snapshotCards = [],
 } = Astro.props;
-const zoneLabel = titleize(place.data.zone);
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Places', href: '/places' },
-  { label: place.data.name },
-];
 
-// Map zone to a hero gradient so place pages stop all looking identical.
-const zoneGradient: Record<string, string> = {
-  'red-hill-plateau': 'hero-grad--hinterland',
-  hinterland: 'hero-grad--hinterland',
-  bayside: 'hero-grad--bay',
-  'ocean-coast': 'hero-grad--sand',
-  'back-beaches': 'hero-grad--sand',
-  tip: 'hero-grad--stay',
-};
-const heroGradientClass = zoneGradient[place.data.zone] ?? 'hero-grad--vineyard';
+const zoneLabel = titleize(place.data.zone);
+const kindLabel = titleize(place.data.kind);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 
 // Resolve any published hero override at build time so the static HTML
-// already carries the editor's choice. Without this, the client-side
-// patcher swaps the image after first paint (visible flicker).
+// already carries the editor's choice (no client-side flicker on first paint).
 const heroImage = await resolveEditableImage({
   entityType: 'place',
   entitySlug: placeSlug,
@@ -65,135 +71,123 @@ const heroImage = await resolveEditableImage({
   fallbackSrc: resolveHeroSrc(place.data),
   fallbackAlt: place.data.heroImage?.alt ?? `${place.data.name}, Mornington Peninsula`,
 });
+const heroSrc = heroImage.src;
+const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 
-// `anchors` is used as a gate for the scoreboard section — if no
-// venues/experiences/articles exist at all we hide the scoreboard.
-const anchors: { href: string }[] = [];
-if (eatVenues.length > 0) anchors.push({ href: '#eat-drink' });
-if (wineVenues.length > 0) anchors.push({ href: '#wine' });
-if (stayVenues.length > 0) anchors.push({ href: '#stay' });
-if (experiences.length > 0) anchors.push({ href: '#explore' });
-if (itineraries.length > 0) anchors.push({ href: '#escapes' });
-if (articles.length > 0) anchors.push({ href: '#journal' });
-// Head metadata (title/description/canonical/og/JSON-LD) is owned by the
-// parent page (places/[slug].astro) which passes the correct values to
-// BaseLayout. Emitting them here too produced duplicate <title> tags and a
-// broken <link rel="canonical" href=".../places/undefined"> on every place
-// page (the local var read place.slug, which is undefined; the correct
-// property is place.id). Removed 2026-05-01 — see ops/reports/seo/experiments.md
-// experiment 2026-05-01-01.
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Places', href: '/places' },
+  { label: place.data.name },
+];
+
+// Chapter navigation — built from what data exists.
+// "A perfect day" chapter only added when bestDay is present.
+const chapters: { href: string; label: string }[] = [];
+if (place.data.bestDay)     chapters.push({ href: '#perfect-day', label: 'A perfect day' });
+if (eatVenues.length > 0)   chapters.push({ href: '#eat-drink',   label: 'Eat & drink' });
+if (wineVenues.length > 0)  chapters.push({ href: '#wine',        label: 'Wine & producers' });
+if (stayVenues.length > 0)  chapters.push({ href: '#stay',        label: 'Stay' });
+if (experiences.length > 0) chapters.push({ href: '#explore',     label: 'Explore' });
+if (itineraries.length > 0) chapters.push({ href: '#escapes',     label: 'Escape plans' });
+if (articles.length > 0)    chapters.push({ href: '#journal',     label: 'From the journal' });
+
+// Scoreboard gate — only shown when at least one downstream section has content.
+const hasContent = eatVenues.length > 0 || wineVenues.length > 0 || stayVenues.length > 0
+  || experiences.length > 0 || itineraries.length > 0 || articles.length > 0;
+
+// First-letter drop-cap for the factual lede.
+const factual = place.data.factualLede ?? '';
+const factualHead = factual.charAt(0);
+const factualRest = factual.slice(1);
 ---
 
 <Breadcrumbs items={breadcrumbItems} />
 
-{/* ═══════════════════════════════════════════════════════════════════════
-    WAVE 1 — Magazine hero, designed factsheet, fit panel (bestFor/notFor)
-    Replaces the old single-column "eyebrow → title → factualLede → intro
-    → background-image → tldr → stats DL → nav row" stack. The new top
-    section surfaces the editor's voice (signature, bestFor, notFor, skip)
-    and reads as a magazine spread rather than a directory header.
-═══════════════════════════════════════════════════════════════════════ */}
+<!-- ═══════════════════════════════════════════════════════════════════════
+     1. FULL-BLEED CINEMATIC HERO
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="pdv2-hero" style={`background-image: url(${heroSrc});`}
+  {...heroImage.attrs}>
+  <div class="pdv2-hero__scrim"></div>
+  <div class="pdv2-hero__inner container">
+    <p class="pdv2-hero__eyebrow">{zoneLabel} · {kindLabel}</p>
+    <h1 class="pdv2-hero__title"
+      {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} — name` })}
+    >{place.data.name}</h1>
+    {heroImage.alt && (
+      <p class="pdv2-hero__alt">{heroImage.alt}</p>
+    )}
+  </div>
+  {heroCredit && <p class="pdv2-hero__credit">{heroCredit}</p>}
+</section>
 
-<!-- HERO — type column + cinematic image column. Stacks at mobile. -->
-<section class="place-hero">
-  <div class="container">
-    <div class="place-hero__grid">
-      <div class="place-hero__type">
-        <p class="place-hero__eyebrow">{zoneLabel} · {titleize(place.data.kind)}</p>
-        <h1
-          class="place-hero__title"
-          {...editableText({
-            entityType: 'place', entitySlug: placeSlug, fieldPath: 'name',
-            label: `${place.data.name} — name`,
-          })}
-        >{place.data.name}</h1>
-        {place.data.signature && (
-          <p
-            class="place-hero__signature"
-            {...editableText({
-              entityType: 'place', entitySlug: placeSlug, fieldPath: 'signature',
-              label: `${place.data.name} — signature line`,
-            })}
-          >"{place.data.signature}"</p>
-        )}
-        {place.data.factualLede && (
-          <p
-            class="place-hero__factual-lede"
-            {...editableText({
-              entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede',
-              label: `${place.data.name} — factual lede`,
-            })}
-          >{place.data.factualLede}</p>
-        )}
-      </div>
-      <figure
-        class={`place-hero__image ${heroGradientClass}`}
-        {...heroImage.attrs}
-      >
-        <img
-          src={heroImage.src}
-          alt={heroImage.alt}
-          loading="eager"
-          decoding="async"
-        />
-        {place.data.heroImage?.credit && (
-          <figcaption class="place-hero__credit">{formatHeroCredit(place.data.heroImage.credit)}</figcaption>
-        )}
-      </figure>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     2. EDITORIAL LEDE — factual prose + at-a-glance sidebar card
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="pdv2-lede">
+  <div class="container pdv2-lede__grid">
+    <div class="pdv2-lede__main">
+      {factual && (
+        <p class="pdv2-lede__factual"
+          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede', label: `${place.data.name} — factual lede` })}>
+          <span class="pdv2-lede__dropcap">{factualHead}</span>{factualRest}
+        </p>
+      )}
+      {place.data.intro && (
+        <p class="pdv2-lede__intro"
+          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro', label: `${place.data.name} — intro` })}>
+          {place.data.intro}
+        </p>
+      )}
     </div>
 
-    <p
-      class="place-hero__intro"
-      {...editableText({
-        entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro',
-        label: `${place.data.name} — intro`,
-      })}
-    >{place.data.intro}</p>
+    <aside class="pdv2-card" aria-label={`${place.data.name} at a glance`}>
+      <p class="pdv2-card__label">At a glance</p>
+      <dl class="pdv2-card__list">
+        {place.data.driveTime && (
+          <div><dt>From Melbourne</dt><dd>{place.data.driveTime}</dd></div>
+        )}
+        {place.data.bestSeason && (
+          <div><dt>Best season</dt><dd>{titleize(place.data.bestSeason)}</dd></div>
+        )}
+        {place.data.stayDuration && (
+          <div><dt>Stay</dt><dd>{place.data.stayDuration}</dd></div>
+        )}
+        {Array.isArray(place.data.bestFor) && place.data.bestFor.length > 0 && (
+          <div><dt>Best for</dt><dd>{place.data.bestFor.slice(0, 2).join(', ')}</dd></div>
+        )}
+        {place.data.worstTime && (
+          <div><dt>Avoid</dt><dd>{place.data.worstTime}</dd></div>
+        )}
+      </dl>
+      {place.data.insiderNote && (
+        <p class="pdv2-card__note"><span>Insider</span> {place.data.insiderNote}</p>
+      )}
+    </aside>
   </div>
 </section>
 
-<!-- FACTSHEET — 6-cell designed grid replacing the old <dl> strip. -->
-<section class="place-factsheet">
-  <div class="container">
-    <dl class="place-factsheet__grid">
-      {place.data.driveTime && (
-        <div class="place-factsheet__cell">
-          <dt>From Melbourne</dt>
-          <dd>{place.data.driveTime}</dd>
-        </div>
-      )}
-      {place.data.stayDuration && (
-        <div class="place-factsheet__cell">
-          <dt>Stay duration</dt>
-          <dd>{place.data.stayDuration}</dd>
-        </div>
-      )}
-      {place.data.bestSeason && (
-        <div class="place-factsheet__cell">
-          <dt>Best season</dt>
-          <dd>{place.data.bestSeason}</dd>
-        </div>
-      )}
-      <div class="place-factsheet__cell">
-        <dt>Zone</dt>
-        <dd>{zoneLabel}</dd>
-      </div>
-      <div class="place-factsheet__cell">
-        <dt>Kind</dt>
-        <dd>{titleize(place.data.kind)}</dd>
-      </div>
-      {place.data.worstTime && (
-        <div class="place-factsheet__cell">
-          <dt>When to skip</dt>
-          <dd>{place.data.worstTime}</dd>
-        </div>
-      )}
-    </dl>
-  </div>
-</section>
+<!-- ═══════════════════════════════════════════════════════════════════════
+     3. SIGNATURE PULL-QUOTE
+     ═══════════════════════════════════════════════════════════════════════ -->
+{place.data.signature && (
+  <section class="pdv2-quote">
+    <div class="container">
+      <blockquote class="pdv2-quote__text"
+        {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'signature', label: `${place.data.name} — signature` })}>
+        <span class="pdv2-quote__mark" aria-hidden="true">&ldquo;</span>
+        {place.data.signature}
+      </blockquote>
+      <p class="pdv2-quote__byline">Peninsula Insider — editor's note</p>
+    </div>
+  </section>
+)}
 
-<!-- IS IT FOR YOU? — bestFor / notFor panel with skip pull-quote. -->
-{(place.data.bestFor?.length || place.data.notFor?.length) && (
+<!-- ═══════════════════════════════════════════════════════════════════════
+     4. WHO THIS PLACE REWARDS — editorial fit panel
+     bestFor / notFor / skip: the most differentiated editorial layer.
+     ═══════════════════════════════════════════════════════════════════════ -->
+{(place.data.bestFor?.length || place.data.notFor?.length || place.data.skip) && (
   <section class="place-fit">
     <div class="container">
       <div class="place-fit__intro">
@@ -201,32 +195,26 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
         <h2 class="place-fit__title">Who this place rewards — and who should keep driving</h2>
       </div>
       <div class="place-fit__grid">
-        {place.data.bestFor && place.data.bestFor.length > 0 && (
+        {place.data.bestFor?.length > 0 && (
           <div class="place-fit__col place-fit__col--for">
             <h3 class="place-fit__col-title">It's for</h3>
             <ul class="place-fit__list">
-              {place.data.bestFor.map((item: string) => (
-                <li>{item}</li>
-              ))}
+              {place.data.bestFor.map((item: string) => <li>{item}</li>)}
             </ul>
           </div>
         )}
         {(place.data.notFor?.length || place.data.skip) && (
           <div class="place-fit__col place-fit__col--not">
-            {place.data.notFor && place.data.notFor.length > 0 && (
+            {place.data.notFor?.length > 0 && (
               <>
                 <h3 class="place-fit__col-title">It's not for</h3>
                 <ul class="place-fit__list place-fit__list--not">
-                  {place.data.notFor.map((item: string) => (
-                    <li>{item}</li>
-                  ))}
+                  {place.data.notFor.map((item: string) => <li>{item}</li>)}
                 </ul>
               </>
             )}
             {place.data.skip && (
-              <blockquote class="place-fit__skip">
-                <p>{place.data.skip}</p>
-              </blockquote>
+              <blockquote class="place-fit__skip"><p>{place.data.skip}</p></blockquote>
             )}
           </div>
         )}
@@ -235,16 +223,14 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </section>
 )}
 
-{/* ═══════════════════════════════════════════════════════════════════════
-    WAVE 2 — Quick take, perfect-day timeline, at-a-glance scoreboard
-═══════════════════════════════════════════════════════════════════════ */}
-
-<!-- QUICK TAKE — re-treated TLDR. -->
-{place.data.tldr && place.data.tldr.length > 0 && (
+<!-- ═══════════════════════════════════════════════════════════════════════
+     5. TL;DR — numbered editorial summary
+     ═══════════════════════════════════════════════════════════════════════ -->
+{place.data.tldr?.length > 0 && (
   <section class="place-tldr">
     <div class="container">
       <div class="place-tldr__intro">
-        <p class="label label--accent">Quick take</p>
+        <p class="label label--accent">{place.data.name} in brief</p>
         <h2 class="place-tldr__title">{place.data.name} in four lines</h2>
       </div>
       <ol class="place-tldr__list">
@@ -259,9 +245,11 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </section>
 )}
 
-<!-- A PERFECT DAY HERE — renders bestDay + insiderNote pull-quote. -->
+<!-- ═══════════════════════════════════════════════════════════════════════
+     6. A PERFECT DAY — the signature Peninsula Insider planning feature
+     ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.bestDay && (
-  <section class="place-day">
+  <section class="place-day" id="perfect-day">
     <div class="container">
       <div class="place-day__intro">
         <p class="label label--accent">A perfect day here</p>
@@ -278,8 +266,31 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </section>
 )}
 
-<!-- AT-A-GLANCE SCOREBOARD — counts as designed anchor strip. -->
-{anchors.length > 0 && (
+<!-- ═══════════════════════════════════════════════════════════════════════
+     7. CHAPTER NAVIGATION — numbered, links to each downstream section
+     ═══════════════════════════════════════════════════════════════════════ -->
+{chapters.length > 0 && (
+  <nav class="pdv2-chapters" aria-label={`${place.data.name} guide contents`}>
+    <div class="container">
+      <p class="pdv2-chapters__label">In this guide</p>
+      <ol class="pdv2-chapters__list">
+        {chapters.map((chapter, i) => (
+          <li>
+            <a href={chapter.href}>
+              <span class="pdv2-chapters__num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="pdv2-chapters__name">{chapter.label}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+)}
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     8. SCOREBOARD — what's mapped, counts with anchor links
+     ═══════════════════════════════════════════════════════════════════════ -->
+{hasContent && (
   <section class="place-scoreboard" aria-label={`${place.data.name} contents`}>
     <div class="container">
       <p class="place-scoreboard__label label label--accent">What's mapped here</p>
@@ -307,44 +318,9 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </section>
 )}
 
-<section class="place-correction-row">
-  <div class="container">
-    <CorrectionNote compact={true} />
-  </div>
-</section>
-
-{snapshotCards.length > 0 && (
-  <section class="zone-intro">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">How this hub works</p>
-          <h2 class="split-intro__title">The place layer is now doing real editorial work</h2>
-        </div>
-        <p class="split-intro__body">Instead of acting like a geography label, the place page connects tables, beds, walks, and weekend logic around one part of the Peninsula.</p>
-      </div>
-      <div class="zone-intro__grid zone-intro__grid--four">
-        {snapshotCards.map((card) => (
-          card.href
-            ? (
-              <a href={card.href} class="zone-card zone-card--link">
-                <p class="zone-card__label">{card.label}</p>
-                <h3 class="zone-card__title">{card.title}</h3>
-                <p class="zone-card__body">{card.body}</p>
-              </a>
-            )
-            : (
-              <article class="zone-card">
-                <p class="zone-card__label">{card.label}</p>
-                <h3 class="zone-card__title">{card.title}</h3>
-                <p class="zone-card__body">{card.body}</p>
-              </article>
-            )
-        ))}
-      </div>
-    </div>
-  </section>
-)}
+<!-- ═══════════════════════════════════════════════════════════════════════
+     9. DOWNSTREAM SECTIONS
+     ═══════════════════════════════════════════════════════════════════════ -->
 
 {eatVenues.length > 0 && (
   <section class="venues" id="eat-drink">
@@ -353,14 +329,16 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
         <div>
           <p class="label label--accent">Eat & drink</p>
           <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
-          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs  -  each with an editor note, not a star rating.</p>
+          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs — each with an editor note, not a star rating.</p>
         </div>
         <a href="/eat/" class="venues__link">All venues →</a>
       </div>
       <div class="venues__grid">
         {eatVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
       </div>
-      <p class="venues__rankings-link"><a href="/eat/best-restaurants/">See the editorial rankings → Best Restaurants on the Peninsula</a></p>
+      <p class="venues__rankings-link">
+        <a href="/eat/best-restaurants/">See the editorial rankings → Best Restaurants on the Peninsula</a>
+      </p>
     </div>
   </section>
 )}
@@ -372,14 +350,16 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
         <div>
           <p class="label label--accent">Wine & producers</p>
           <h2 class="venues__title">Cellar doors and makers around {place.data.name}</h2>
-          <p class="venues__sub">The producers worth the appointment  -  and the ones already shaping the region's vintage conversation.</p>
+          <p class="venues__sub">The producers worth the appointment — and the ones already shaping the region's vintage conversation.</p>
         </div>
         <a href="/wine/" class="venues__link">All wine →</a>
       </div>
       <div class="venues__grid">
         {wineVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
       </div>
-      <p class="venues__rankings-link"><a href="/wine/best-cellar-doors/">See the editorial rankings → Best Cellar Doors on the Peninsula</a></p>
+      <p class="venues__rankings-link">
+        <a href="/wine/best-cellar-doors/">See the editorial rankings → Best Cellar Doors on the Peninsula</a>
+      </p>
     </div>
   </section>
 )}
@@ -398,7 +378,9 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
       <div class="venues__grid">
         {stayVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
       </div>
-      <p class="venues__rankings-link"><a href="/stay/best-accommodation/">See the editorial rankings → Best Places to Stay on the Peninsula</a></p>
+      <p class="venues__rankings-link">
+        <a href="/stay/best-accommodation/">See the editorial rankings → Best Places to Stay on the Peninsula</a>
+      </p>
     </div>
   </section>
 )}
@@ -428,7 +410,7 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
         <div>
           <p class="label label--accent">Use it in sequence</p>
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
-          <p class="venues__sub">These plans have been written around the landscape here  -  not bolted on after.</p>
+          <p class="venues__sub">These plans have been written around the landscape here — not bolted on after.</p>
         </div>
         <a href="/plans/" class="venues__link">Plans →</a>
       </div>
@@ -446,6 +428,7 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
         <div>
           <p class="label label--accent">Read this place properly</p>
           <h2 class="venues__title">Journal pieces connected to {place.data.name}</h2>
+          <p class="venues__sub">Long-form editorial that builds the picture of a place beyond any single visit.</p>
         </div>
         <a href="/journal/" class="venues__link">Journal →</a>
       </div>
@@ -456,7 +439,9 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </section>
 )}
 
-{/* Service guide links — connect town pages into the article mesh */}
+<!-- ═══════════════════════════════════════════════════════════════════════
+     10. SERVICE GUIDE LINKS — internal linking + SEO
+     ═══════════════════════════════════════════════════════════════════════ -->
 <section class="venues venues--plain">
   <div class="container">
     <div class="venues__header">
@@ -478,7 +463,7 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
       <a href="/journal/best-brunch-mornington-peninsula/" class="venue-card__cta">Best Brunch Guide →</a>
       <a href="/journal/mornington-peninsula-hot-springs-guide/" class="venue-card__cta">Hot Springs Guide →</a>
       <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter Guide →</a>
-      {(place.data.kind === 'town') && (
+      {place.data.kind === 'town' && (
         <a href="/journal/mornington-peninsula-wedding-venues/" class="venue-card__cta">Wedding Venues →</a>
       )}
       {(place.data.zone === 'ocean-coast' || place.data.zone === 'back-beaches' || place.data.zone === 'tip') && (
@@ -488,11 +473,9 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </div>
 </section>
 
-{/* ═══════════════════════════════════════════════════════════════════════
-    WAVE 3 — Embedded location map
-    Leaflet loads lazily via IntersectionObserver so the JS doesn't block
-    the page render. Falls back to a static link if Leaflet fails to load.
-═══════════════════════════════════════════════════════════════════════ */}
+<!-- ═══════════════════════════════════════════════════════════════════════
+     11. LOCATION MAP — lazy Leaflet
+     ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.coordinates && (
   <section class="place-map" aria-label={`${place.data.name} location`}>
     <div class="container">
@@ -520,6 +503,9 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </section>
 )}
 
+<!-- ═══════════════════════════════════════════════════════════════════════
+     12. RELATED PLACES
+     ═══════════════════════════════════════════════════════════════════════ -->
 {relatedPlaces.length > 0 && (
   <section class="places">
     <div class="container">
@@ -537,7 +523,9 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
   </section>
 )}
 
-<!-- Phase 4 WS4D — reader-contribution CTA. Same shape on every place hub. -->
+<!-- ═══════════════════════════════════════════════════════════════════════
+     13. READER SUBMISSION CTA
+     ═══════════════════════════════════════════════════════════════════════ -->
 <aside class="place-submit-cta">
   <div class="container place-submit-cta__inner">
     <p class="place-submit-cta__label">Got a {place.data.name} secret?</p>
@@ -548,40 +536,31 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
 
 <NewsletterBlock />
 
-{/* ═══════════════════════════════════════════════════════════════════════
-    Lazy Leaflet bootstrap for the per-place map embed.
-    Loads CSS+JS only when the .place-map__embed enters the viewport, so
-    initial paint isn't blocked. Idempotent — if Leaflet is already loaded
-    (e.g. by the /map/ page during navigation), reuses it. Falls back
-    silently if the script fails to load (the noscript message stays in
-    place); the user can still click through to the full /map/ page.
-═══════════════════════════════════════════════════════════════════════ */}
+<!-- ═══════════════════════════════════════════════════════════════════════
+     Lazy Leaflet bootstrap for the per-place map embed.
+     ═══════════════════════════════════════════════════════════════════════ -->
 <script is:inline>
   (function () {
     const LEAFLET_CSS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
     const LEAFLET_JS  = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-
     function ensureLeaflet() {
       if (window._leafletLoading) return window._leafletLoading;
       if (window.L) return Promise.resolve(window.L);
       window._leafletLoading = new Promise((resolve, reject) => {
         if (!document.querySelector('link[data-leaflet]')) {
           const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = LEAFLET_CSS;
+          link.rel = 'stylesheet'; link.href = LEAFLET_CSS;
           link.setAttribute('data-leaflet', '1');
           document.head.appendChild(link);
         }
         const script = document.createElement('script');
-        script.src = LEAFLET_JS;
-        script.async = true;
+        script.src = LEAFLET_JS; script.async = true;
         script.onload = () => resolve(window.L);
         script.onerror = reject;
         document.head.appendChild(script);
       });
       return window._leafletLoading;
     }
-
     function initMap(el) {
       if (el._piMapInit) return;
       el._piMapInit = true;
@@ -589,292 +568,320 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
       const lng = parseFloat(el.dataset.lng);
       const name = el.dataset.name || 'This place';
       if (!isFinite(lat) || !isFinite(lng)) return;
-
       ensureLeaflet().then((L) => {
-        const map = L.map(el, {
-          center: [lat, lng],
-          zoom: 12,
-          scrollWheelZoom: false,
-          zoomControl: true,
-          attributionControl: true,
-        });
+        const map = L.map(el, { center: [lat, lng], zoom: 12, scrollWheelZoom: false });
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
           maxZoom: 18,
         }).addTo(map);
         L.marker([lat, lng]).addTo(map).bindPopup(name);
-      }).catch(() => {
-        // Network/library failure — leave the noscript fallback in place.
-        el._piMapInit = false;
-      });
+      }).catch(() => { el._piMapInit = false; });
     }
-
     function bindMaps() {
       const els = document.querySelectorAll('[data-place-map]:not([data-bound])');
       if (!els.length) return;
       const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            initMap(e.target);
-            io.unobserve(e.target);
-          }
-        });
+        entries.forEach((e) => { if (e.isIntersecting) { initMap(e.target); io.unobserve(e.target); } });
       }, { rootMargin: '200px' });
-      els.forEach((el) => {
-        el.setAttribute('data-bound', '1');
-        io.observe(el);
-      });
+      els.forEach((el) => { el.setAttribute('data-bound', '1'); io.observe(el); });
     }
-
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', bindMaps);
-    } else {
-      bindMaps();
-    }
+    } else { bindMaps(); }
     document.addEventListener('astro:page-load', bindMaps);
   })();
 </script>
 
 <style>
   /* ═══════════════════════════════════════════════════════════════════════
-     PLACE DETAIL TEMPLATE — full visual rebuild (2026-05-13)
+     PlaceDetailTemplate — consolidated canonical styles (May 2026)
+     Upper sections use pdv2- prefix (from V2).
+     Lower sections use place- prefix (from V1, unchanged).
+     ═══════════════════════════════════════════════════════════════════════ */
 
-     Section order: place-hero → place-factsheet → place-fit → place-tldr
-     → place-day → place-scoreboard → (existing eat/wine/stay/explore/
-     escapes/journal/service grid) → place-map → places (related) →
-     submit-cta → newsletter.
-
-     Visual rhythm: paper / paper-warm / paper alternation so the page
-     stops reading as a wall of similar grids. Width discipline: editorial
-     reading sections (place-day, place-fit) clamp to ~70ch; venue grids
-     remain full-width.
-  ═══════════════════════════════════════════════════════════════════════ */
-
-  /* ── 1. HERO ─────────────────────────────────────────────────────────── */
-  .place-hero {
-    padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(2.5rem, 5vw, 4rem);
-    background: var(--paper, #FAF6EE);
-  }
-  .place-hero__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1.75rem, 3vw, 2.5rem);
-    align-items: center;
-    margin-bottom: clamp(2rem, 3.5vw, 3rem);
-  }
-  @media (min-width: 880px) {
-    .place-hero__grid {
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      gap: clamp(2.5rem, 4vw, 4rem);
-    }
-  }
-  .place-hero__eyebrow {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--accent, #A0541F);
-    margin: 0 0 1rem;
-  }
-  .place-hero__title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(2.6rem, 6vw, 4.5rem);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    color: var(--ink, #171413);
-    margin: 0 0 1.2rem;
-  }
-  .place-hero__signature {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-    line-height: 1.4;
-    color: var(--accent, #A0541F);
-    margin: 0 0 1.2rem;
-    max-width: 32rem;
-  }
-  .place-hero__factual-lede {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
-    line-height: 1.6;
-    color: var(--ink-soft, #3A3531);
-    margin: 0;
-    max-width: 36rem;
-  }
-  .place-hero__image {
-    margin: 0;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    border-radius: 4px;
+  /* ── 1. FULL-BLEED HERO ─────────────────────────────────────────────── */
+  .pdv2-hero {
     position: relative;
-    box-shadow: 0 24px 60px rgba(30, 27, 24, 0.08);
-  }
-  @media (min-width: 880px) {
-    .place-hero__image { aspect-ratio: 16 / 11; }
-  }
-  .place-hero__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .place-hero__credit {
-    position: absolute;
-    bottom: 0.65rem;
-    right: 0.85rem;
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-    padding: 0.25rem 0.5rem;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(4px);
-    border-radius: 2px;
-  }
-  .place-hero__intro {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-    line-height: 1.55;
-    color: var(--ink, #171413);
-    margin: 0;
-    max-width: 50rem;
-  }
-
-  /* ── 2. FACTSHEET ───────────────────────────────────────────────────── */
-  .place-factsheet {
-    padding: clamp(2rem, 3vw, 2.75rem) 0;
-    background: var(--paper-warm, #F4EEE2);
-    border-top: 1px solid rgba(121, 92, 58, 0.12);
-    border-bottom: 1px solid rgba(121, 92, 58, 0.12);
-  }
-  .place-factsheet__grid {
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    background:
-      linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 1px 100% no-repeat,
-      linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 100% 1px no-repeat;
-  }
-  @media (min-width: 720px) {
-    .place-factsheet__grid {
-      grid-template-columns: repeat(3, 1fr);
-      background:
-        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) 33.33% 0 / 1px 100% no-repeat,
-        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) 66.66% 0 / 1px 100% no-repeat,
-        linear-gradient(rgba(121,92,58,0.14), rgba(121,92,58,0.14)) center / 100% 1px no-repeat;
-    }
-  }
-  .place-factsheet__cell {
-    padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1rem, 2vw, 1.6rem);
+    min-height: 62vh;
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
     display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    align-items: flex-end;
+    overflow: hidden;
   }
-  .place-factsheet__cell dt {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
+  .pdv2-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.55) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%);
+    pointer-events: none;
+  }
+  .pdv2-hero__inner {
+    position: relative;
+    z-index: 1;
+    padding-top: clamp(4rem, 10vh, 8rem);
+    padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
+    width: 100%;
+  }
+  .pdv2-hero__eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
-    margin: 0;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 1.1rem;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.4);
   }
-  .place-factsheet__cell dd {
+  .pdv2-hero__title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-    line-height: 1.3;
-    color: var(--ink, #171413);
+    font-size: clamp(3.4rem, 8.5vw, 7rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--white);
     margin: 0;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+    max-width: 14ch;
+  }
+  .pdv2-hero__alt {
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.82);
+    max-width: 48ch;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .pdv2-hero__credit {
+    position: absolute;
+    right: 1.5rem; bottom: 0.85rem;
+    z-index: 2;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+  @media (max-width: 600px) {
+    .pdv2-hero { min-height: 70vh; }
+    .pdv2-hero__title { font-size: clamp(3rem, 14vw, 5rem); }
   }
 
-  /* ── 3. IS IT FOR YOU? ──────────────────────────────────────────────── */
+    /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+  .pdv2-lede {
+    padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+    background: var(--bg);
+  }
+  .pdv2-lede__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  .pdv2-lede__main { max-width: 62ch; }
+  .pdv2-lede__factual {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.4rem, 2vw, 1.65rem);
+    line-height: 1.45;
+    color: var(--dark);
+    margin-bottom: 1.75rem;
+    font-weight: 400;
+  }
+  .pdv2-lede__dropcap {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    float: left;
+    font-size: 4.5em;
+    line-height: 0.85;
+    padding: 0.05em 0.12em 0 0;
+    margin-top: 0.04em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .pdv2-lede__intro {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--soft);
+    font-weight: 300;
+  }
+  .pdv2-lede__intro--lead {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+    line-height: 1.6;
+    color: var(--dark);
+    font-weight: 400;
+    font-style: normal;
+  }
+  .pdv2-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.6rem 1.6rem 1.4rem;
+    font-size: 0.92rem;
+    position: sticky;
+    top: 6rem;
+  }
+  .pdv2-card__label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .pdv2-card__list {
+    display: grid;
+    gap: 0.9rem;
+    margin: 0 0 1.2rem;
+  }
+  .pdv2-card__list > div {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  }
+  .pdv2-card__list > div:last-child { border-bottom: none; padding-bottom: 0; }
+  .pdv2-card__list dt {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+  }
+  .pdv2-card__list dd { color: var(--dark); line-height: 1.45; font-weight: 400; }
+  .pdv2-card__note {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--dark);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 1.1rem;
+  }
+  .pdv2-card__note span {
+    display: block;
+    font-family: inherit;
+    font-style: normal;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  @media (max-width: 900px) {
+    .pdv2-lede__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .pdv2-card { position: static; }
+    .pdv2-card__list > div { grid-template-columns: 8rem 1fr; }
+  }
+  @media (max-width: 600px) {
+    .pdv2-lede__dropcap { font-size: 3.6em; }
+    .pdv2-card__list > div { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+
+  /* ── 3. PULL-QUOTE ──────────────────────────────────────────────────── */
+  .pdv2-quote {
+    background: var(--bg-alt);
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .pdv2-quote__text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    font-weight: 400;
+    font-style: italic;
+    max-width: 32ch;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+  .pdv2-quote__mark {
+    font-family: inherit;
+    color: var(--accent);
+    font-size: 1.4em;
+    line-height: 0;
+    position: relative;
+    top: 0.25em;
+    margin-right: 0.05em;
+  }
+  .pdv2-quote__byline {
+    margin-top: 1.6rem;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--soft);
+    font-weight: 600;
+  }
+
+  /* ── 4. FIT PANEL ───────────────────────────────────────────────────── */
   .place-fit {
     padding: clamp(3rem, 5vw, 4.5rem) 0;
-    background: var(--paper, #FAF6EE);
+    background: var(--bg);
   }
-  .place-fit__intro {
-    max-width: 50rem;
-    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
-  }
+  .place-fit__intro { max-width: 50rem; margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
   .place-fit__title {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
     font-weight: 500;
     letter-spacing: -0.01em;
     line-height: 1.2;
-    color: var(--ink, #171413);
+    color: var(--dark);
     margin: 0.4rem 0 0;
   }
-  .place-fit__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-  }
-  @media (min-width: 720px) {
-    .place-fit__grid { grid-template-columns: 1fr 1fr; }
-  }
+  .place-fit__grid { display: grid; grid-template-columns: 1fr; gap: clamp(1.5rem, 3vw, 2.5rem); }
+  @media (min-width: 720px) { .place-fit__grid { grid-template-columns: 1fr 1fr; } }
   .place-fit__col {
     padding: clamp(1.5rem, 2.5vw, 2rem);
     border-radius: 6px;
-    background: rgba(255, 252, 247, 0.6);
-    border: 1px solid rgba(121, 92, 58, 0.12);
+    background: rgba(255,252,247,0.6);
+    border: 1px solid rgba(121,92,58,0.12);
   }
-  .place-fit__col--not { background: rgba(121, 92, 58, 0.04); }
+  .place-fit__col--not { background: rgba(121,92,58,0.04); }
   .place-fit__col-title {
-    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
+    color: var(--accent);
     margin: 0 0 1rem;
   }
-  .place-fit__col--not .place-fit__col-title { color: rgba(121, 92, 58, 0.7); }
+  .place-fit__col--not .place-fit__col-title { color: rgba(121,92,58,0.7); }
   .place-fit__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 0.55rem;
   }
   .place-fit__list li {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.1rem, 1.4vw, 1.25rem);
     line-height: 1.4;
-    color: var(--ink, #171413);
+    color: var(--dark);
     padding-left: 1.4rem;
     position: relative;
   }
   .place-fit__list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.6em;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--accent, #A0541F);
+    content: ''; position: absolute; left: 0; top: 0.6em;
+    width: 0.5rem; height: 0.5rem;
+    border-radius: 50%; background: var(--accent);
   }
   .place-fit__list--not li {
-    color: var(--ink-soft, #3A3531);
+    color: var(--soft);
     text-decoration: line-through;
-    text-decoration-color: rgba(121, 92, 58, 0.4);
+    text-decoration-color: rgba(121,92,58,0.4);
     text-decoration-thickness: 1px;
   }
-  .place-fit__list--not li::before {
-    background: rgba(121, 92, 58, 0.35);
-  }
+  .place-fit__list--not li::before { background: rgba(121,92,58,0.35); }
   .place-fit__skip {
     margin: 1.5rem 0 0;
     padding: 1rem 1.2rem;
-    border-left: 3px solid rgba(121, 92, 58, 0.45);
-    background: rgba(121, 92, 58, 0.06);
+    border-left: 3px solid rgba(121,92,58,0.45);
+    background: rgba(121,92,58,0.06);
     border-radius: 0 4px 4px 0;
   }
   .place-fit__skip p {
@@ -882,19 +889,16 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
     font-style: italic;
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--ink-soft, #3A3531);
+    color: var(--soft);
     margin: 0;
   }
 
-  /* ── 4. QUICK TAKE (TLDR) ───────────────────────────────────────────── */
+  /* ── 5. TL;DR ───────────────────────────────────────────────────────── */
   .place-tldr {
     padding: clamp(3rem, 5vw, 4.5rem) 0;
-    background: var(--paper-warm, #F4EEE2);
+    background: var(--bg-alt);
   }
-  .place-tldr__intro {
-    max-width: 50rem;
-    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
-  }
+  .place-tldr__intro { max-width: 50rem; margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
   .place-tldr__title {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
@@ -902,16 +906,11 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin: 0.4rem 0 0;
-    color: var(--ink, #171413);
+    color: var(--dark);
   }
   .place-tldr__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 56rem;
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 56rem;
   }
   @media (min-width: 720px) {
     .place-tldr__list { grid-template-columns: 1fr 1fr; gap: 2rem clamp(2rem, 3vw, 3rem); }
@@ -923,29 +922,25 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
     align-items: baseline;
   }
   .place-tldr__num {
-    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.16em;
-    color: var(--accent, #A0541F);
+    color: var(--accent);
     padding-top: 0.2em;
   }
   .place-tldr__body {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     line-height: 1.55;
-    color: var(--ink, #171413);
+    color: var(--dark);
   }
 
-  /* ── 5. A PERFECT DAY HERE ─────────────────────────────────────────── */
+  /* ── 6. A PERFECT DAY ───────────────────────────────────────────────── */
   .place-day {
     padding: clamp(3rem, 5vw, 4.5rem) 0;
-    background: var(--paper, #FAF6EE);
+    background: var(--bg);
   }
-  .place-day__intro {
-    max-width: 50rem;
-    margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
-  }
+  .place-day__intro { max-width: 50rem; margin-bottom: clamp(1.5rem, 2.5vw, 2rem); }
   .place-day__title {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
@@ -953,21 +948,21 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin: 0.4rem 0 0;
-    color: var(--ink, #171413);
+    color: var(--dark);
   }
   .place-day__body {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.2rem, 1.55vw, 1.4rem);
     line-height: 1.55;
-    color: var(--ink, #171413);
+    color: var(--dark);
     max-width: 56rem;
     margin: 0;
   }
   .place-day__note {
     margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
     padding: clamp(1.25rem, 2vw, 1.75rem) clamp(1.5rem, 2.5vw, 2.25rem);
-    background: rgba(121, 92, 58, 0.06);
-    border-left: 3px solid var(--accent, #A0541F);
+    background: rgba(121,92,58,0.06);
+    border-left: 3px solid var(--accent);
     border-radius: 0 4px 4px 0;
     max-width: 50rem;
   }
@@ -976,130 +971,158 @@ if (articles.length > 0) anchors.push({ href: '#journal' });
     font-style: italic;
     font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     line-height: 1.55;
-    color: var(--ink, #171413);
+    color: var(--dark);
     margin: 0 0 0.65rem;
   }
   .place-day__note cite {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-style: normal;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent, #A0541F);
+    color: var(--accent);
+    font-style: normal;
   }
 
-  /* ── 6. AT-A-GLANCE SCOREBOARD ─────────────────────────────────────── */
+  /* ── 7. CHAPTER NAVIGATION ──────────────────────────────────────────── */
+  .pdv2-chapters {
+    background: var(--bg);
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pdv2-chapters__label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+  }
+  .pdv2-chapters__list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    border-top: 1px solid var(--border);
+  }
+  .pdv2-chapters__list li {
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+  .pdv2-chapters__list li a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 1.1rem 1rem;
+    color: var(--dark);
+    text-decoration: none;
+    transition: background-color 160ms, color 160ms;
+  }
+  .pdv2-chapters__list li a:hover { background: var(--bg-alt); color: var(--accent); }
+  .pdv2-chapters__num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    min-width: 2ch;
+  }
+  .pdv2-chapters__name { font-size: 0.95rem; line-height: 1.3; }
+
+  /* ── 8. SCOREBOARD ──────────────────────────────────────────────────── */
   .place-scoreboard {
     padding: clamp(2rem, 3vw, 2.75rem) 0;
-    background: var(--ink, #171413);
-    color: var(--paper, #FAF6EE);
+    background: var(--dark);
+    color: var(--bg);
   }
-  .place-scoreboard__label {
-    color: rgba(250, 246, 238, 0.65);
-    margin: 0 0 1.25rem;
-  }
+  .place-scoreboard .label { color: rgba(250,246,238,0.65); margin: 0 0 1.25rem; }
   .place-scoreboard__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem 1rem;
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem;
   }
-  @media (min-width: 640px) {
-    .place-scoreboard__list { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (min-width: 980px) {
-    .place-scoreboard__list { grid-template-columns: repeat(6, 1fr); gap: 0 1.5rem; }
-  }
+  @media (min-width: 640px) { .place-scoreboard__list { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 980px) { .place-scoreboard__list { grid-template-columns: repeat(6, 1fr); gap: 0 1.5rem; } }
   .place-scoreboard__list li a {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    display: flex; flex-direction: column; gap: 0.25rem;
     padding: 0.9rem 0;
-    text-decoration: none;
-    color: inherit;
-    border-bottom: 1px solid rgba(250, 246, 238, 0.12);
-    transition: color 0.18s ease, border-color 0.18s ease;
+    text-decoration: none; color: inherit;
+    border-bottom: 1px solid rgba(250,246,238,0.12);
+    transition: color 0.18s, border-color 0.18s;
   }
-  .place-scoreboard__list li a:hover {
-    color: var(--accent, #C68B4F);
-    border-color: rgba(250, 246, 238, 0.4);
-  }
+  .place-scoreboard__list li a:hover { color: var(--accent); border-color: rgba(250,246,238,0.4); }
   .place-scoreboard__list strong {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 500;
     font-size: clamp(1.8rem, 2.6vw, 2.4rem);
     line-height: 1;
-    color: var(--paper, #FAF6EE);
+    color: var(--bg);
   }
   .place-scoreboard__list span {
-    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(250, 246, 238, 0.7);
+    color: rgba(250,246,238,0.7);
   }
-  .place-scoreboard__list li a:hover strong { color: var(--accent, #C68B4F); }
+  .place-scoreboard__list li a:hover strong { color: var(--accent); }
 
-  /* ── correction row keeps the trust note visible but understated ────── */
-  .place-correction-row {
-    padding: clamp(1rem, 2vw, 1.5rem) 0;
-    background: var(--paper, #FAF6EE);
-  }
-
-  /* ── 7. LOCATION MAP (Wave 3) ──────────────────────────────────────── */
-  .place-map {
-    padding: clamp(3rem, 5vw, 4.5rem) 0;
-    background: var(--paper-warm, #F4EEE2);
-  }
-  .place-map__intro {
-    max-width: 50rem;
-    margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
-  }
+  /* ── MAP ─────────────────────────────────────────────────────────────── */
+  .place-map { padding: clamp(3rem, 5vw, 4.5rem) 0; background: var(--bg-alt); }
+  .place-map__intro { max-width: 50rem; margin-bottom: clamp(1.5rem, 2.5vw, 2rem); }
   .place-map__title {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.6rem, 2.5vw, 2.1rem);
     font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    margin: 0.4rem 0 0.85rem;
-    color: var(--ink, #171413);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin: 0.4rem 0 0.85rem; color: var(--dark);
   }
   .place-map__full-link {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.85rem;
-    color: var(--accent, #A0541F);
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    transition: opacity 0.18s ease;
+    font-size: 0.85rem; color: var(--accent);
+    text-decoration: none; border-bottom: 1px solid currentColor;
   }
   .place-map__full-link:hover { opacity: 0.75; }
   .place-map__embed {
     height: clamp(280px, 40vw, 420px);
-    border-radius: 6px;
-    overflow: hidden;
-    background: rgba(121, 92, 58, 0.08);
-    box-shadow: 0 18px 40px rgba(30, 27, 24, 0.06);
+    border-radius: 6px; overflow: hidden;
+    background: rgba(121,92,58,0.08);
+    box-shadow: 0 18px 40px rgba(30,27,24,0.06);
     position: relative;
   }
   .place-map__noscript {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    text-align: center;
-    font-family: 'Outfit', system-ui, sans-serif;
-    color: var(--ink-soft, #3A3531);
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem; text-align: center;
+    color: var(--soft);
   }
-  /* Leaflet visual integration — keeps the map quiet, brand-aligned. */
-  .place-map__embed .leaflet-control-attribution {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.62rem;
-    background: rgba(255, 252, 247, 0.85);
+
+  /* ── SUBMIT CTA ─────────────────────────────────────────────────────── */
+  .place-submit-cta {
+    padding: clamp(3rem, 5vw, 4rem) 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
   }
+  .place-submit-cta__inner { max-width: 48rem; }
+  .place-submit-cta__label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+  }
+  .place-submit-cta__body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--dark);
+    margin: 0 0 1.4rem;
+  }
+  .place-submit-cta__link {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+  .place-submit-cta__link:hover { opacity: 0.75; }
 </style>

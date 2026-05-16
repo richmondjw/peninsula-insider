@@ -1,14 +1,14 @@
 {
-  "run_id": "2026-05-16T11:41:13.035Z",
-  "trigger": "schedule",
+  "run_id": "2026-05-16T20:38:13.070Z",
+  "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 6.6,
-  "git_sha": "a90ce65",
+  "duration_seconds": 7.2,
+  "git_sha": "99636d6",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
-    "venue": 141,
+    "venue": 140,
     "article": 173,
     "place": 21,
     "itinerary": 6,
@@ -17,14 +17,14 @@
     "editorial_block": 10
   },
   "database": {
-    "chunks_before": 1524,
-    "chunks_after": 1524
+    "chunks_before": 1520,
+    "chunks_after": 1520
   },
   "delta": {
     "added": 0,
     "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1515,
+    "unchanged": 1511,
     "pruned": 0,
     "errors": 0,
     "stale_remaining": 9

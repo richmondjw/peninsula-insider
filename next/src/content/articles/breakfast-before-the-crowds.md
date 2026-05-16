@@ -19,7 +19,6 @@ relatedVenues:
   - "epicurean-red-hill"
   - "mornington-farmers-market"
   - "sourdough-kitchen"
-  - "small-stone-pantry"
   - "flinders-general-store"
   - "red-hill-bakery"
   - "sorrento-bakery"
