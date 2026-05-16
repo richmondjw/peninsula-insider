@@ -9168,24 +9168,29 @@ body.menu-open .subscribe-pill {
    (.map-pin--*) sit on top as the figure against this muted
    ground.
 
-   Stylization stack (2026-05-16, per James "more stylized"):
-     - grayscale(100%) — strip all hue from the base
-     - contrast(1.22)  — sharpen outlines toward a Toner-like line
-     - brightness(1.04) — lift the paper so the whole surface
-                          reads warmer-grey, not muddy-grey
-     - sepia(6%)       — pull the now-grey base a touch toward
-                          PI's cream/ochre palette so the map
-                          sits in the same paper world as the
-                          rest of the site
+   2026-05-16 — restore land/water contrast. The previous
+   100% grayscale + sepia 6% stack collapsed land and water to
+   the same warm-grey tone, so the Peninsula coastline disappeared.
+   Holding back to 85% grayscale keeps a ~15% blue cast on water
+   while leaving the land effectively monochrome. Sepia is removed
+   entirely — it was the main culprit muddying the two surfaces
+   together. Contrast bumped to 1.28 to sharpen outlines now that
+   we're not relying on grayscale alone to do that work.
 
-   Dial-up controls if we want it more graphic still:
-     - Push contrast to 1.35 for harder outlines
-     - Push sepia to 12% for a more obviously toned base
+   Stylization stack:
+     - grayscale(85%) — strip most hue, preserve faint blue in water
+     - contrast(1.28) — sharpen outlines toward a Toner-like line
+     - brightness(1.03) — lift the paper so the surface reads warm-grey
+
+   Dial-up controls:
+     - Push contrast to 1.4 for harder outlines
+     - Reintroduce sepia (max ~4%) for a paper tint — but verify
+       land/water contrast stays visible first
      - Swap CARTO 'light_all' to 'light_nolabels' to drop labels
        entirely (pure outlines, PI pins become the only text)
    ========================================================= */
 .pi-map-tiles {
-  filter: grayscale(100%) contrast(1.22) brightness(1.04) sepia(6%);
+  filter: grayscale(85%) contrast(1.28) brightness(1.03);
 }
 
 .map-pin-toggle {
