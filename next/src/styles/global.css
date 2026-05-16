@@ -9160,37 +9160,35 @@ body.menu-open .subscribe-pill {
 }
 
 /* =========================================================
-   MAP TILES — editorial monochrome treatment
+   MAP TILES — editorial treatment on CARTO Voyager
    ---------------------------------------------------------
-   Applies a graphic black-and-white treatment to the CARTO
-   Positron base tiles so the map reads as an editorial spread
-   rather than a navigational utility. Brand-coloured pins
-   (.map-pin--*) sit on top as the figure against this muted
-   ground.
-
-   2026-05-16 — restore land/water contrast. The previous
-   100% grayscale + sepia 6% stack collapsed land and water to
-   the same warm-grey tone, so the Peninsula coastline disappeared.
-   Holding back to 85% grayscale keeps a ~15% blue cast on water
-   while leaving the land effectively monochrome. Sepia is removed
-   entirely — it was the main culprit muddying the two surfaces
-   together. Contrast bumped to 1.28 to sharpen outlines now that
-   we're not relying on grayscale alone to do that work.
+   2026-05-16 — switched base tile from CARTO Positron to Voyager.
+   Positron's native palette was too pale; pushing grayscale on
+   it produced no-contrast maps (land and water collapsed into
+   one warm-grey surface and the Peninsula coastline disappeared).
+   Voyager has the editorial palette we want natively: warm cream
+   land, distinct cool-grey water, soft pencil roads, serif-style
+   labels. The filter below is now a gentle mute rather than a
+   transformation — keeps the editorial feel without erasing the
+   coastline.
 
    Stylization stack:
-     - grayscale(85%) — strip most hue, preserve faint blue in water
-     - contrast(1.28) — sharpen outlines toward a Toner-like line
-     - brightness(1.03) — lift the paper so the surface reads warm-grey
+     - saturate(0.45) — pull saturation down 55% so the map reads
+                        muted-editorial. Preserves hue cues (water
+                        still reads cool, land still reads warm)
+                        but quiets every tone.
+     - contrast(1.05) — gentle line sharpening
+     - brightness(0.98) — drop a hair so the paper reads creamy,
+                          not bleached. Helps coastline register.
 
-   Dial-up controls:
-     - Push contrast to 1.4 for harder outlines
-     - Reintroduce sepia (max ~4%) for a paper tint — but verify
-       land/water contrast stays visible first
-     - Swap CARTO 'light_all' to 'light_nolabels' to drop labels
-       entirely (pure outlines, PI pins become the only text)
+   Dial controls:
+     - saturate(0)  → full black-and-white (lose hue cues)
+     - contrast(1.15) → harder outlines
+     - swap `voyager` → `voyager_nolabels` in the three tile URLs
+       to drop labels entirely (PI pins become the only text)
    ========================================================= */
 .pi-map-tiles {
-  filter: grayscale(85%) contrast(1.28) brightness(1.03);
+  filter: saturate(0.45) contrast(1.05) brightness(0.98);
 }
 
 .map-pin-toggle {

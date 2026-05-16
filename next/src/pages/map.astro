@@ -264,7 +264,7 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
         // the brand-coloured pin layer reads as the figure, not the ground.
         // {r} is the retina suffix (@2x on hi-DPI displays). No API key
         // required; attribution covers both OSM and CARTO per their terms.
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png', {
           maxZoom: 19,
           subdomains: 'abcd',
           attribution: '© OpenStreetMap contributors © CARTO',
