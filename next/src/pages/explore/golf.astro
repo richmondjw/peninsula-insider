@@ -250,6 +250,9 @@ const breadcrumbItems = [
                   <p class="golf-card__ranking">{g.rankings[0]}</p>
                 )}
                 <p class="golf-card__note">{firstSentences(d.editorNote, 3)}</p>
+                {g.localRead && (
+                  <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
+                )}
               </div>
               <div class="golf-card__footer">
                 <a href={`/explore/${slug}/`} class="golf-card__cta">Course guide →</a>
@@ -305,6 +308,9 @@ const breadcrumbItems = [
                   <p class="golf-card__ranking">{g.rankings[0]}</p>
                 )}
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
+                {g.localRead && (
+                  <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
+                )}
               </div>
               <div class="golf-card__footer">
                 <a href={`/explore/${slug}/`} class="golf-card__cta">Course guide →</a>
@@ -814,6 +820,27 @@ const breadcrumbItems = [
     color: #44372b;
     line-height: 1.65;
     margin: 0;
+  }
+  .golf-card__local {
+    font-size: 0.82rem;
+    color: #5a4a38;
+    line-height: 1.6;
+    margin: 0.85rem 0 0;
+    padding: 0.65rem 0.85rem;
+    background: rgba(182, 154, 107, 0.09);
+    border-left: 3px solid rgba(182, 154, 107, 0.55);
+    border-radius: 0 0.35rem 0.35rem 0;
+    font-style: italic;
+  }
+  .golf-card__local-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7a5f2a;
+    font-style: normal;
+    margin-right: 0.5rem;
   }
 
   /* ── Card footer ── */
