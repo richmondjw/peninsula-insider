@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-16T12:30:56.356Z",
+  "run_id": "2026-05-16T20:38:13.070Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 9,
-  "git_sha": "f752abc",
+  "duration_seconds": 7.2,
+  "git_sha": "99636d6",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -22,9 +22,9 @@
   },
   "delta": {
     "added": 0,
-    "updated": 4,
+    "updated": 3,
     "metadata_only": 0,
-    "unchanged": 1510,
+    "unchanged": 1511,
     "pruned": 0,
     "errors": 0,
     "stale_remaining": 9
@@ -33,8 +33,7 @@
   "updated_chunk_ids": [
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
-    "red-hill-market::tags::0",
-    "the-national-golf-club::editor_note::0"
+    "red-hill-market::tags::0"
   ],
   "metadata_only_chunk_ids": [],
   "pruned_chunk_ids": [],
