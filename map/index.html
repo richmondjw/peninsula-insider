@@ -222,17 +222,15 @@ No entries match — clear the search or re-enable a category above.
                 var marker = markersById[id];
                 if (!marker) return;
                 // On mobile: switch to Map tab first so the canvas is visible,
-                // then zoom. On desktop both panels are always visible.
+                // then zoom once the map is ready. On desktop always visible.
                 var isMobile = window.matchMedia('(max-width: 879px)').matches;
                 if (isMobile && typeof window.piMapActivateTab === 'function') {
-                  window.piMapActivateTab('map');
-                  // Brief delay lets the panel un-hide before Leaflet zooms
-                  setTimeout(function () {
-                    map.invalidateSize();
+                  window.piMapActivateTab('map', function () {
+                    // Callback fires after Leaflet is init'd and invalidated
                     clusterGroup.zoomToShowLayer(marker, function () {
                       marker.openPopup();
                     });
-                  }, 80);
+                  });
                 } else {
                   clusterGroup.zoomToShowLayer(marker, function () {
                     marker.openPopup();
@@ -286,8 +284,22 @@ No entries match — clear the search or re-enable a category above.
         renderList();
       }
 
-      init();
-      document.addEventListener('astro:page-load', init);
+      // On desktop both panels are always visible — init immediately.
+      // On mobile the map panel starts hidden; lazy-init via piInitMap()
+      // when the Map tab is first activated so Leaflet has a real container size.
+      if (window.matchMedia('(min-width: 880px)').matches) {
+        init();
+      } else {
+        window.piInitMap = init;
+      }
+      document.addEventListener('astro:page-load', function () {
+        window.piInitMap = null;
+        if (window.matchMedia('(min-width: 880px)').matches) {
+          init();
+        } else {
+          window.piInitMap = init;
+        }
+      });
     })();
   })();</script>  <script>
   (function () {
@@ -300,27 +312,43 @@ No entries match — clear the search or re-enable a category above.
       var panels = document.querySelectorAll('[data-map-panel]');
       var mapInvalidated = false;
 
-      function activateTab(key) {
+      function showMapPanel() {
+        panels.forEach(function (p) {
+          p.hidden = p.dataset.mapPanel !== 'map';
+        });
+      }
+
+      function activateTab(key, callback) {
         tabs.forEach(function (t) {
           var active = t.dataset.mapTab === key;
           t.classList.toggle('map-page__tab--active', active);
           t.setAttribute('aria-selected', active ? 'true' : 'false');
         });
         panels.forEach(function (p) {
-          var show = p.dataset.mapPanel === key;
-          p.hidden = !show;
-          // On desktop (>=880px) always show both panels
-          if (window.matchMedia('(min-width: 880px)').matches) {
-            p.hidden = false;
-          }
+          p.hidden = p.dataset.mapPanel !== key;
         });
-        // Invalidate Leaflet tile size on first map-tab reveal
-        if (key === 'map' && !mapInvalidated) {
-          setTimeout(function () {
-            var mapObj = window.piLeafletMap;
-            if (mapObj) mapObj.invalidateSize();
-          }, 60);
-          mapInvalidated = true;
+
+        if (key === 'map') {
+          // Lazy-init Leaflet if this is the first time the map tab is shown
+          if (typeof window.piInitMap === 'function') {
+            window.piInitMap();
+            window.piInitMap = null; // only once
+            // Give Leaflet time to measure the now-visible container
+            setTimeout(function () {
+              var mapObj = window.piLeafletMap;
+              if (mapObj) mapObj.invalidateSize();
+              if (callback) callback();
+            }, 250);
+          } else {
+            // Already initialised — just invalidate size
+            setTimeout(function () {
+              var mapObj = window.piLeafletMap;
+              if (mapObj) mapObj.invalidateSize();
+              if (callback) callback();
+            }, 80);
+          }
+        } else {
+          if (callback) callback();
         }
       }
 
