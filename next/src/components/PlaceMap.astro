@@ -289,12 +289,9 @@ const mapId = `placeMap-${placeSlug}`;
         canvas.addEventListener('blur', function () { map.scrollWheelZoom.disable(); });
         map.on('click', function () { map.scrollWheelZoom.enable(); });
 
-        // CARTO Positron — minimal editorial base. See map.astro for rationale.
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png', {
-          maxZoom: 19,
-          subdomains: 'abcd',
-          attribution: '© OpenStreetMap contributors © CARTO',
-          className: 'pi-map-tiles',
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '© OpenStreetMap contributors',
         }).addTo(map);
 
         var iconFor = function (cat) {
