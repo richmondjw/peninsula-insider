@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-05-16T12:13:53.716Z",
+  "run_id": "2026-05-16T12:30:56.356Z",
   "trigger": "push",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 9.2,
-  "git_sha": "5f4aa21",
+  "duration_seconds": 9,
+  "git_sha": "f752abc",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
@@ -17,15 +17,15 @@
     "editorial_block": 10
   },
   "database": {
-    "chunks_before": 1524,
+    "chunks_before": 1520,
     "chunks_after": 1520
   },
   "delta": {
     "added": 0,
-    "updated": 3,
+    "updated": 4,
     "metadata_only": 0,
-    "unchanged": 1511,
-    "pruned": 4,
+    "unchanged": 1510,
+    "pruned": 0,
     "errors": 0,
     "stale_remaining": 9
   },
@@ -33,15 +33,11 @@
   "updated_chunk_ids": [
     "red-hill-market::summary::0",
     "red-hill-market::editor_note::0",
-    "red-hill-market::tags::0"
+    "red-hill-market::tags::0",
+    "the-national-golf-club::editor_note::0"
   ],
   "metadata_only_chunk_ids": [],
-  "pruned_chunk_ids": [
-    "small-stone-pantry::practical::0",
-    "small-stone-pantry::tags::0",
-    "small-stone-pantry::editor_note::0",
-    "small-stone-pantry::summary::0"
-  ],
+  "pruned_chunk_ids": [],
   "stale_chunk_ids": [
     "peninsula-this-weekend-may-16::body::2",
     "breakfast-before-the-crowds::body::4",
