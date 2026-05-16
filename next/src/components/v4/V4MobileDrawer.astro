@@ -25,17 +25,9 @@ import { v4Pillars, v4Utility, v4FooterAbout } from '../../lib/v4-nav';
   </div>
 
   <ul class="v4-drawer__pillars">
-    {v4Pillars.map((pillar) => {
-      // Pillars without rail/columns (e.g. Notebook) render as a flat direct link.
-      if (!pillar.rail || !pillar.columns?.length) {
-        return (
-          <li class="v4-drawer__pillar v4-drawer__pillar--flat">
-            <a href={pillar.href} class="v4-drawer__pillar-flat-link">{pillar.label}</a>
-          </li>
-        );
-      }
-      return (
+    {v4Pillars.map((pillar) => (
       <li class="v4-drawer__pillar" data-pillar-key={pillar.key}>
+        {/* Split-button row: text link navigates to hub; chevron button expands submenu */}
         <div class="v4-drawer__pillar-split">
           <a href={pillar.href} class="v4-drawer__pillar-hub-link">
             {pillar.label}
@@ -59,6 +51,11 @@ import { v4Pillars, v4Utility, v4FooterAbout } from '../../lib/v4-nav';
             Editor's pick: {pillar.rail.title} →
           </a>
 
+          {/* The top banner ("This weekend's calendar · Read this weekend's
+              letter") and Ask-PI footer line were removed on 2026-05-13
+              per James's nav simplification pass. The rail + columns now
+              carry the drawer body on their own. */}
+
           {pillar.columns.map((col) => (
             <div class="v4-drawer__pillar-col">
               <p class="v4-drawer__pillar-col-eyebrow">{col.eyebrow}</p>
@@ -71,8 +68,7 @@ import { v4Pillars, v4Utility, v4FooterAbout } from '../../lib/v4-nav';
           ))}
         </div>
       </li>
-      );
-    })}
+    ))}
     {/* Map — flat link, no expandable body. Location-pin icon so the
         affordance reads as "map" rather than a regional outline. */}
     <li class="v4-drawer__pillar v4-drawer__pillar--flat">
