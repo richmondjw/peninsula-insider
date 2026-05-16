@@ -53,6 +53,27 @@ const COLLECTIONS = [
   { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/plans/' },
 ];
 
+/**
+ * "Page-tagged" collections: content collections whose detail pages aren't
+ * tagged with a first-class entityType in the templates, so the inline
+ * editor's auto-detect falls back to (entity_type='page', entity_slug=<URL
+ * path slugified>). We mirror that derivation here so the integrity trigger
+ * accepts overrides on those pages.
+ *
+ * Derived slug rule: same as client.ts currentPageSlug() — drop slashes,
+ * lowercase, replace `/` with `-`. e.g. `/events/portsea-polo/` becomes
+ * `events-portsea-polo`.
+ */
+const PAGE_COLLECTIONS = [
+  { folder: 'signature-events', pathPrefix: '/events/' },
+];
+
+function pageSlugFromPath(path) {
+  const trimmed = String(path).replace(/^\/+|\/+$/g, '');
+  if (trimmed.length === 0) return 'home';
+  return trimmed.toLowerCase().replace(/[^a-z0-9/_-]/g, '-').replace(/\//g, '-');
+}
+
 async function loadJsonFiles(folder) {
   const dir = join(CONTENT_ROOT, folder);
   let files;
@@ -114,6 +135,31 @@ async function main() {
     console.log(`[refresh-registry] ${entityType}: ${rows.length} rows upserted`);
     total += rows.length;
   }
+
+  // Page-tagged collections (signature-events etc.) → emit (page, derived-slug)
+  // rows that match the inline editor's client-side auto-detect convention.
+  // Fixes "no matching row in pi.content_registry" rejections on pages that
+  // don't have first-class CMS entityType wiring in their templates.
+  for (const { folder, pathPrefix } of PAGE_COLLECTIONS) {
+    const items = await loadJsonFiles(folder);
+    const rows = items
+      .filter((d) => d.slug)
+      .map((d) => {
+        const href = pathPrefix + d.slug + '/';
+        return {
+          entity_type: 'page',
+          entity_slug: pageSlugFromPath(href),
+          title:       d.name || d.title || d.slug,
+          href,
+          refreshed_at: new Date().toISOString(),
+        };
+      });
+    if (rows.length === 0) continue;
+    await upsertBatch(rows);
+    console.log(`[refresh-registry] page (${folder}): ${rows.length} rows upserted`);
+    total += rows.length;
+  }
+
   console.log(`[refresh-registry] Done — ${total} entities refreshed in pi.content_registry`);
 }
 
