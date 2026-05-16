@@ -290,7 +290,7 @@ const mapId = `placeMap-${placeSlug}`;
         map.on('click', function () { map.scrollWheelZoom.enable(); });
 
         // CARTO Positron — minimal editorial base. See map.astro for rationale.
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png', {
           maxZoom: 19,
           subdomains: 'abcd',
           attribution: '© OpenStreetMap contributors © CARTO',
