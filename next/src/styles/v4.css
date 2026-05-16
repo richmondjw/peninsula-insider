@@ -609,7 +609,7 @@ body[data-v4="true"] .masthead {
 }
 
 .v4-drawer__pillars { list-style: none; margin: 0; padding: 0; }
-.v4-drawer__pillar { border-bottom: 1px solid var(--border); }
+.v4-drawer__pillar { border-bottom: 0; }
 .v4-drawer__pillar-trigger {
   width: 100%;
   display: flex;
@@ -656,7 +656,7 @@ body[data-v4="true"] .masthead {
   min-width: 56px;
   background: transparent;
   border: 0;
-  border-left: 1px solid var(--border);
+  border-left: 0;
   cursor: pointer;
   color: var(--soft);
   transition: color 150ms ease;
