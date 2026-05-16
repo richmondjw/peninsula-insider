@@ -139,6 +139,15 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
         <div class="wine-hero__intro prose">
           {introText.split('\n\n').map((p) => <p>{p}</p>)}
         </div>
+        {place && (
+          <a
+            href={`/places/${routeSlug(place)}/`}
+            class="wine-hero__parent-link"
+            aria-label={`View the full ${place.data.name} destination guide`}
+          >
+            ← {place.data.name} destination guide
+          </a>
+        )}
       </div>
       {placeHeroSrc && (
         <figure class={`wine-hero__image ${heroGradientClass}`}>
@@ -494,6 +503,22 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     margin: 0 0 0.85rem;
   }
   .wine-hero__intro p:last-child { margin-bottom: 0; }
+  .wine-hero__parent-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .wine-hero__parent-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
   .wine-hero__image {
     margin: 0;
     aspect-ratio: 4 / 3;

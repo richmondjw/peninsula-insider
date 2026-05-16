@@ -61,6 +61,42 @@ const heroSrc = resolveHeroSrc(place.data);
 const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 
+// Category sub-page lookup — editorial, not file-system-driven.
+// Extend this map as new place-specific sub-pages are created.
+type SubpageLink = { label: string; href: string; desc: string };
+const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
+  'red-hill': [
+    { label: 'Red Hill Wine',      href: '/wine/red-hill/',         desc: 'Cellar doors, terroir and the sub-region’s anchor producers' },
+    { label: 'Red Hill Stays',     href: '/stay/red-hill/',         desc: 'Vineyard villas, design hotels and hinterland bases' },
+  ],
+  'main-ridge': [
+    { label: 'Main Ridge Wine',    href: '/wine/main-ridge/',       desc: 'Highest-altitude sub-region, small producers and appointment tastings' },
+  ],
+  'flinders': [
+    { label: 'Flinders Wine',      href: '/wine/flinders/',         desc: 'Southern-tip producers, cool climate and coastal cellar doors' },
+    { label: 'Flinders Stays',     href: '/stay/flinders/',         desc: 'Coastal accommodation and back-beach bases' },
+  ],
+  'merricks': [
+    { label: 'Merricks Wine',      href: '/wine/merricks/',         desc: 'Benchmark producers in a quiet farming corridor' },
+  ],
+  'balnarring': [
+    { label: 'Balnarring Wine',    href: '/wine/balnarring/',       desc: 'Southern sub-region, appointment-focused producers' },
+  ],
+  'sorrento': [
+    { label: 'Sorrento Stays',     href: '/stay/sorrento/',         desc: 'Tip-of-the-Peninsula accommodation, coastal and heritage' },
+  ],
+  'mornington': [
+    { label: 'Mornington Stays',   href: '/stay/mornington/',       desc: 'Bay-side bases, walkable and good for first-timers' },
+  ],
+  'cape-schanck': [
+    { label: 'Cape Schanck Stays', href: '/stay/cape-schanck/',     desc: 'Southern-tip accommodation with lighthouse and surf access' },
+  ],
+  'moorooduc': [
+    { label: 'Moorooduc Wine',     href: '/wine/moorooduc-tuerong/', desc: 'Dromana-edge sub-region, diverse producers and bay views' },
+  ],
+};
+const placeSubpages: SubpageLink[] = PLACE_SUBPAGES[placeSlug] ?? [];
+
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Places', href: '/places' },
@@ -81,6 +117,32 @@ if (articles.length > 0)    chapters.push({ href: '#journal',     label: 'From t
 // Scoreboard gate — only shown when at least one downstream section has content.
 const hasContent = eatVenues.length > 0 || wineVenues.length > 0 || stayVenues.length > 0
   || experiences.length > 0 || itineraries.length > 0 || articles.length > 0;
+
+// Category-specific local guides linked from this place page.
+// Only surfaces guides that actually exist — no placeholder links.
+// Maintained here as a data mapping rather than a data field to keep it
+// lightweight and easy to extend when new category sub-pages are built.
+const categoryGuides: Record<string, Array<{ label: string; href: string; desc: string }>> = {
+  'red-hill': [
+    { label: 'Red Hill Wine', href: '/wine/red-hill/', desc: 'Cellar doors, terroir, tasting routes and producers on the plateau.' },
+  ],
+  'main-ridge': [
+    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'The highest, coolest sub-region — small producers, serious pinot.' },
+  ],
+  'merricks': [
+    { label: 'Merricks Wine', href: '/wine/merricks/', desc: 'Pt. Leo Estate, Stonier, Scorpo and the eastern slope producers.' },
+  ],
+  'flinders': [
+    { label: 'Flinders Wine', href: '/wine/flinders/', desc: 'Southern-edge producers with a cooler, ocean-facing character.' },
+  ],
+  'balnarring': [
+    { label: 'Balnarring Wine', href: '/wine/balnarring/', desc: 'The Western Port edge — Quealy, Hurley and a quieter wine scene.' },
+  ],
+  'moorooduc': [
+    { label: 'Moorooduc & Tuerong Wine', href: '/wine/moorooduc-tuerong/', desc: 'Bay-facing slopes — warmer, more approachable, Yabby Lake country.' },
+  ],
+};
+const placeGuides = categoryGuides[placeSlug] ?? [];
 
 // First-letter drop-cap for the factual lede.
 const factual = place.data.factualLede ?? '';
@@ -309,6 +371,34 @@ const factualRest = factual.slice(1);
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+     8b. EXPLORE BY EXPERIENCE — category-specific local guides
+     Connects destination overview to deeper category guides that exist.
+     Only renders when placeGuides has entries — no placeholder links.
+     ═══════════════════════════════════════════════════════════════════════ -->
+{placeGuides.length > 0 && (
+  <section class="place-category-guides" aria-label={`${place.data.name} category guides`}>
+    <div class="container">
+      <div class="place-category-guides__intro">
+        <p class="label label--accent">Explore {place.data.name} by experience</p>
+        <h2 class="place-category-guides__title">Category guides for {place.data.name}</h2>
+        <p class="place-category-guides__sub">Deeper editorial guides focused on one experience category within {place.data.name}.</p>
+      </div>
+      <ul class="place-category-guides__list">
+        {placeGuides.map((guide) => (
+          <li class="place-category-guides__item">
+            <a href={guide.href} class="place-category-guides__link">
+              <span class="place-category-guides__label">{guide.label}</span>
+              <span class="place-category-guides__desc">{guide.desc}</span>
+              <span class="place-category-guides__cta" aria-hidden="true">Read the guide →</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<!-- ═══════════════════════════════════════════════════════════════════════
      9. DOWNSTREAM SECTIONS
      ═══════════════════════════════════════════════════════════════════════ -->
 
@@ -494,8 +584,35 @@ const factualRest = factual.slice(1);
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     12. RELATED PLACES
+     12. EXPLORE BY EXPERIENCE — category sub-pages
+     Surfaces category-specific local guides when they exist for this place.
+     Strengthens hierarchy, internal linking, and SEO clustering.
      ═══════════════════════════════════════════════════════════════════════ -->
+{placeSubpages.length > 0 && (
+  <section class="place-subpages">
+    <div class="container">
+      <div class="place-subpages__header">
+        <p class="label label--accent">Go deeper</p>
+        <h2 class="place-subpages__title">Explore {place.data.name} by experience</h2>
+        <p class="place-subpages__dek">Each guide focuses on one experience category — useful when you already know what you’re here for.</p>
+      </div>
+      <ul class="place-subpages__grid" role="list">
+        {placeSubpages.map((sub: SubpageLink) => (
+          <li class="place-subpages__item">
+            <a href={sub.href} class="place-subpages__link">
+              <span class="place-subpages__label">{sub.label}</span>
+              <span class="place-subpages__desc">{sub.desc}</span>
+              <span class="place-subpages__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     13. RELATED PLACES
 {relatedPlaces.length > 0 && (
   <section class="places">
     <div class="container">
@@ -1084,6 +1201,59 @@ const factualRest = factual.slice(1);
   }
 
   /* ── SUBMIT CTA ─────────────────────────────────────────────────────── */
+  /* ── Explore by experience — category sub-pages ── */
+  .place-subpages {
+    padding: 3.5rem 0;
+    background: var(--bg-alt);
+  }
+  .place-subpages__header { margin-bottom: 1.75rem; }
+  .place-subpages__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0.35rem 0 0.5rem;
+    line-height: 1.1;
+  }
+  .place-subpages__dek { font-size: 0.9rem; color: var(--soft); margin: 0; }
+  .place-subpages__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    list-style: none;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .place-subpages__item { background: var(--bg); }
+  .place-subpages__link {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 0.2rem 0.5rem;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.18s ease;
+    height: 100%;
+  }
+  .place-subpages__link:hover { background: rgba(139,78,59,0.04); }
+  .place-subpages__label {
+    grid-column: 1; grid-row: 1;
+    font-size: 0.95rem; font-weight: 600; color: var(--dark);
+  }
+  .place-subpages__desc {
+    grid-column: 1; grid-row: 2;
+    font-size: 0.8rem; color: var(--soft); line-height: 1.45;
+  }
+  .place-subpages__arrow {
+    grid-column: 2; grid-row: 1;
+    font-size: 0.9rem; color: var(--accent); padding-top: 0.1rem;
+  }
+  @media (max-width: 600px) {
+    .place-subpages__grid { grid-template-columns: 1fr; }
+  }
+
   .place-submit-cta {
     padding: clamp(3rem, 5vw, 4rem) 0;
     background: var(--bg);
@@ -1115,4 +1285,72 @@ const factualRest = factual.slice(1);
     padding-bottom: 1px;
   }
   .place-submit-cta__link:hover { opacity: 0.75; }
+
+  /* ── CATEGORY GUIDES (Explore by Experience) ─────────────────────── */
+  .place-category-guides {
+    padding: clamp(3rem, 5vw, 4.5rem) 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+  }
+  .place-category-guides__intro {
+    max-width: 50rem;
+    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  }
+  .place-category-guides__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--dark);
+    margin: 0.4rem 0 0;
+  }
+  .place-category-guides__sub {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin: 0.6rem 0 0;
+    line-height: 1.6;
+  }
+  .place-category-guides__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .place-category-guides__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.5rem 1.6rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.18s, background 0.18s;
+  }
+  .place-category-guides__link:hover {
+    border-color: var(--accent);
+    background: var(--bg);
+  }
+  .place-category-guides__label {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+  .place-category-guides__desc {
+    font-size: 0.86rem;
+    color: var(--soft);
+    line-height: 1.55;
+  }
+  .place-category-guides__cta {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 0.5rem;
+  }
 </style>

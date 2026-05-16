@@ -209,14 +209,14 @@ export const v4Pillars: V4Pillar[] = [
         ],
       },
       {
-        eyebrow: 'By the place',
+        eyebrow: 'Where to eat',
         items: [
-          { key: 'red-hill',   label: 'Red Hill',   href: '/places/red-hill/' },
-          { key: 'sorrento',   label: 'Sorrento',   href: '/places/sorrento/' },
-          { key: 'flinders',   label: 'Flinders',   href: '/places/flinders/' },
-          { key: 'mornington', label: 'Mornington', href: '/places/mornington/' },
-          { key: 'main-ridge', label: 'Main Ridge', href: '/places/main-ridge/' },
-          { key: 'merricks',   label: 'Merricks',   href: '/places/merricks/' },
+          { key: 'red-hill',   label: 'Red Hill dining',   href: '/places/red-hill/' },
+          { key: 'sorrento',   label: 'Sorrento dining',   href: '/places/sorrento/' },
+          { key: 'flinders',   label: 'Flinders dining',   href: '/places/flinders/' },
+          { key: 'mornington', label: 'Mornington dining', href: '/places/mornington/' },
+          { key: 'merricks',   label: 'Merricks dining',   href: '/places/merricks/' },
+          { key: 'all-venues', label: 'All venues →',       href: '/eat/' },
         ],
       },
       {
@@ -260,12 +260,12 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the place',
         items: [
-          { key: 'red-hill',   label: 'Red Hill',   href: '/wine/red-hill/' },
-          { key: 'main-ridge', label: 'Main Ridge', href: '/wine/main-ridge/' },
-          { key: 'merricks',   label: 'Merricks',   href: '/wine/merricks/' },
-          { key: 'mornington', label: 'Mornington', href: '/places/mornington/' },
-          { key: 'balnarring', label: 'Balnarring', href: '/wine/balnarring/' },
-          { key: 'flinders',   label: 'Flinders',   href: '/wine/flinders/' },
+          { key: 'red-hill',    label: 'Red Hill Wine',    href: '/wine/red-hill/' },
+          { key: 'main-ridge',  label: 'Main Ridge Wine',  href: '/wine/main-ridge/' },
+          { key: 'merricks',    label: 'Merricks Wine',    href: '/wine/merricks/' },
+          { key: 'balnarring',  label: 'Balnarring Wine',  href: '/wine/balnarring/' },
+          { key: 'flinders',    label: 'Flinders Wine',    href: '/wine/flinders/' },
+          { key: 'all-regions', label: 'All wine regions →', href: '/wine/' },
         ],
       },
       {
