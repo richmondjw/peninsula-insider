@@ -387,17 +387,6 @@ export const v4Pillars: V4Pillar[] = [
   },
 
 
-  // 8. NOTEBOOK -------------------------------------------------------------
-  // Minimal link-only pillar. No mega panel, no chevron.
-  // Renders like Journal — calm editorial label, direct link.
-  {
-    key: 'notebook',
-    label: 'Notebook',
-    href: '/notebook/',
-    intro: 'Daily Peninsula observations. Smaller than Journal, more current than features.',
-    columns: [],
-  },
-
   // 7. JOURNAL --------------------------------------------------------------
   {
     key: 'journal',
@@ -457,7 +446,6 @@ export const v4FooterDepartments: V4NavItem[] = [
   { key: 'explore',  label: 'Explore',     href: '/explore/' },
   { key: 'escape',   label: 'Plans',       href: '/plans/' },
   { key: 'whats-on', label: "What's On",   href: '/whats-on/' },
-  { key: 'notebook', label: 'Notebook',    href: '/notebook/' },
   { key: 'journal',  label: 'Journal',     href: '/journal/' },
 ];
 
