@@ -32,6 +32,15 @@ const breadcrumbItems = [
 
     <!-- HERO -->
     <section class="partners-hero">
+      <div class="partners-hero__image-wrap">
+        <img
+          src="/images/sourced/article-vineyard-villa-01.webp"
+          alt="Peninsula Insider · cellar door and vineyard, Mornington Peninsula"
+          class="partners-hero__image"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
       <div class="partners-hero__inner">
         <p class="partners-hero__eyebrow">Peninsula Insider</p>
         <h1 class="partners-hero__heading" {...editableText({ entityType: 'page', entitySlug: 'partners', fieldPath: 'hero.title', label: 'Partners — title' })}>Partner with Peninsula Insider</h1>
@@ -47,6 +56,7 @@ const breadcrumbItems = [
         </p>
         <div class="partners-hero__actions">
           <a href="#enquire" class="partners-hero__cta">Enquire about partnerships</a>
+          <a href="/partners/founders-prospectus/" class="partners-hero__link">View the Founders' Prospectus</a>
         </div>
       </div>
     </section>
@@ -351,11 +361,30 @@ const breadcrumbItems = [
   /* HERO */
   .partners-hero {
     border-bottom: 1px solid var(--border);
-    padding: 5rem 1.5rem 4rem;
-    text-align: center;
     background: var(--bg);
+    overflow: hidden;
   }
-  .partners-hero__inner { max-width: 760px; margin: 0 auto; }
+  .partners-hero__image-wrap {
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+  }
+  @media (min-width: 720px) {
+    .partners-hero__image-wrap { height: 440px; }
+  }
+  .partners-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    display: block;
+  }
+  .partners-hero__inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 4rem;
+    text-align: center;
+  }
   .partners-hero__eyebrow {
     font-family: 'Outfit', sans-serif;
     font-size: 0.7rem;
@@ -387,7 +416,14 @@ const breadcrumbItems = [
     color: var(--soft);
     margin-bottom: 2rem;
   }
-  .partners-hero__actions { margin-top: 0.5rem; }
+  .partners-hero__actions {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
   .partners-hero__cta {
     display: inline-block;
     font-family: 'Outfit', sans-serif;
@@ -403,6 +439,16 @@ const breadcrumbItems = [
     transition: background 0.15s ease;
   }
   .partners-hero__cta:hover { background: var(--text); }
+  .partners-hero__link {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    color: var(--soft);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--border);
+    transition: color 0.15s ease;
+  }
+  .partners-hero__link:hover { color: var(--text); }
 
   /* SECTIONS */
   .partners-section { padding: 4rem 1.5rem; }
