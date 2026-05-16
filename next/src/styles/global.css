@@ -1875,7 +1875,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--dark);
   margin: 2rem 0 0.75rem;
 }
-.prose strong { font-weight: 500; color: var(--dark); }
+.prose strong { font-weight: 600; color: var(--dark); }
 .prose em { font-style: italic; }
 .prose a {
   color: var(--accent);
