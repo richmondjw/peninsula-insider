@@ -656,13 +656,15 @@ body[data-v4="true"] .masthead {
   min-width: 56px;
   background: transparent;
   border: 0;
+  border-left: 1px solid var(--border);
   cursor: pointer;
-  color: var(--text);
+  color: var(--soft);
   transition: color 150ms ease;
 }
+.v4-drawer__pillar-toggle:hover,
 .v4-drawer__pillar-toggle[aria-expanded="true"] { color: var(--accent); }
 .v4-drawer__pillar-toggle[aria-expanded="true"] .v4-drawer__pillar-trigger-arrow {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
 /* Flat link variant — used by the Map item below the expandable pillars.

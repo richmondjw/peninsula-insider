@@ -250,6 +250,9 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
           attributionControl: true,
           scrollWheelZoom: false, // ergonomic default; user can two-finger or +/- zoom
         }).setView([-38.4, 145.0], 11);
+        // Store map on container so tab controller can call invalidateSize
+        container._piLeafletMap = map;
+        window.piLeafletMap = map;
         // Re-enable scroll-wheel zoom on focus to keep the keyboard path useful.
         container.addEventListener('focus', function () { map.scrollWheelZoom.enable(); });
         container.addEventListener('blur', function () { map.scrollWheelZoom.disable(); });
@@ -378,9 +381,23 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
                 var id = btn.getAttribute('data-entry-focus');
                 var marker = markersById[id];
                 if (!marker) return;
-                clusterGroup.zoomToShowLayer(marker, function () {
-                  marker.openPopup();
-                });
+                // On mobile: switch to Map tab first so the canvas is visible,
+                // then zoom. On desktop both panels are always visible.
+                var isMobile = window.matchMedia('(max-width: 879px)').matches;
+                if (isMobile && typeof window.piMapActivateTab === 'function') {
+                  window.piMapActivateTab('map');
+                  // Brief delay lets the panel un-hide before Leaflet zooms
+                  setTimeout(function () {
+                    map.invalidateSize();
+                    clusterGroup.zoomToShowLayer(marker, function () {
+                      marker.openPopup();
+                    });
+                  }, 80);
+                } else {
+                  clusterGroup.zoomToShowLayer(marker, function () {
+                    marker.openPopup();
+                  });
+                }
               });
             });
           }
@@ -465,16 +482,10 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
         });
         // Invalidate Leaflet tile size on first map-tab reveal
         if (key === 'map' && !mapInvalidated) {
-          var container = document.getElementById('theInsiderMap');
-          if (container && container._leaflet_id) {
-            setTimeout(function () {
-              var mapObj = container._leaflet_map ||
-                (window.L && L.map && Object.values(L._maps || {}).find(function (m) {
-                  return m.getContainer && m.getContainer() === container;
-                }));
-              if (mapObj) { mapObj.invalidateSize(); }
-            }, 50);
-          }
+          setTimeout(function () {
+            var mapObj = window.piLeafletMap;
+            if (mapObj) mapObj.invalidateSize();
+          }, 60);
           mapInvalidated = true;
         }
       }
@@ -497,6 +508,9 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
 
       // Default state: list visible on mobile
       activateTab('list');
+
+      // Expose globally so the map marker-click handler can switch tabs
+      window.piMapActivateTab = activateTab;
     }
     bindMapTabs();
     document.addEventListener('astro:page-load', function () {
