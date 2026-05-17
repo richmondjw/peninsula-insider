@@ -113,6 +113,40 @@ jobs:
         run: |
           node next/scripts/refresh-content-registry.mjs
 
+      - name: Refresh entity index (Phase B projector)
+        # Projects every Astro content collection through the canonical
+        # facet taxonomy (next/src/taxonomy/facet-taxonomy.yaml) and upserts
+        # pi.entity_index + pi.entity_attributes. Read by pi.search() at
+        # runtime to power typeahead, planner, concierge, and the iOS app.
+        #
+        # Same continue-on-error stance as refresh-content-registry above:
+        # the deploy proceeds even if the projector fails (e.g. transient
+        # Supabase auth). The runtime falls back to Pagefind in that case.
+        continue-on-error: true
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          node next/scripts/refresh-entity-index.mjs --apply
+
+      - name: Embed entity index (Phase C)
+        # Populates pi.entity_index.embedding for rows whose content_hash
+        # has drifted since the last run. Uses text-embedding-3-small
+        # (same model as the concierge corpus, no second pipeline).
+        # Skipped silently when OPENAI_API_KEY is not configured —
+        # pi.search() still works with lexical + facet, just no semantic.
+        continue-on-error: true
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo "::notice::OPENAI_API_KEY not configured; skipping embedding refresh."
+            exit 0
+          fi
+          node next/scripts/embed-entity-index.mjs --apply
+
       - name: Build Astro site
         working-directory: next
         env:
