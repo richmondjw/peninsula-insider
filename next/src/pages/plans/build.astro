@@ -1,0 +1,337 @@
+---
+/**
+ * /plans/build/ — Phase D wave 2 of the data architecture rollout.
+ *
+ * Interactive planner that runs pi.search against the canonical
+ * facet taxonomy. The user picks any combination of audience, mood,
+ * theme, season, weather, dog-friendly, kids-grade, price band, zone
+ * — plus a free-text query — and gets a live ranked result set powered
+ * by the hybrid lexical + semantic + facet RPC.
+ *
+ * No Pagefind fallback on this page. The whole point of /plans/build/ is
+ * to expose the attribute-aware query layer; if the RPC is unreachable
+ * we render a graceful "search service unavailable" message and point
+ * the user back to /plans/ for the editorial curated experience.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Plans', href: '/plans/' },
+  { label: 'Build a plan' },
+];
+
+// Facet families surfaced in the filter UI. Values mirror the canonical
+// facet-taxonomy.yaml; if a value is added there, add it here too (and
+// vice-versa). Editorial decision: keep this list curated, not auto-
+// generated, so the UI stays readable rather than exposing every facet.
+const FACETS = [
+  {
+    key: 'audience',
+    label: 'Who',
+    values: ['couples', 'families', 'friends', 'solo', 'groups', 'first-timers', 'locals', 'adults-only'],
+  },
+  {
+    key: 'theme',
+    label: 'Theme',
+    values: ['food', 'wine', 'food+wine', 'wellness', 'coastal', 'hinterland', 'golf', 'cycling', 'walking', 'fishing', 'boating', 'cultural', 'history', 'garden', 'producer', 'wildlife', 'live-music'],
+  },
+  {
+    key: 'mood',
+    label: 'Mood',
+    values: ['slow', 'indulgent', 'adventurous', 'romantic', 'social', 'contemplative', 'cosy', 'scenic', 'wellness'],
+  },
+  {
+    key: 'occasion',
+    label: 'Occasion',
+    values: ['anniversary', 'birthday', 'proposal', 'honeymoon', 'babymoon', 'hens', 'bucks', 'corporate', 'family-reunion', 'milestone'],
+  },
+  {
+    key: 'season',
+    label: 'Season',
+    values: ['spring', 'summer', 'autumn', 'winter', 'school-holidays', 'whale-season', 'christmas-period', 'easter-period', 'rainy', 'year-round'],
+  },
+  {
+    key: 'weather',
+    label: 'Weather',
+    values: ['all-weather', 'wet-friendly', 'rainy-day-rescue', 'fair-weather-only'],
+  },
+  {
+    key: 'price-band',
+    label: 'Price',
+    values: ['free', '$', '$$', '$$$', '$$$$'],
+  },
+  {
+    key: 'dog-friendly',
+    label: 'Dog-friendly',
+    values: ['yes', 'outdoors-only'],
+  },
+  {
+    key: 'kids-grade',
+    label: 'Kids',
+    values: ['A', 'B', 'C'],
+  },
+  {
+    key: 'zone',
+    label: 'Where',
+    values: ['bayside', 'hinterland', 'red-hill-plateau', 'ocean-coast', 'back-beaches', 'tip'],
+  },
+];
+
+const ENTITY_TYPES = [
+  { value: '',          label: 'Everything' },
+  { value: 'venue',     label: 'Venues' },
+  { value: 'experience', label: 'Experiences' },
+  { value: 'event',     label: "What's on" },
+  { value: 'itinerary', label: 'Itineraries' },
+  { value: 'place',     label: 'Places' },
+  { value: 'article',   label: 'Journal' },
+];
+---
+
+<BaseLayout
+  title="Build a plan · Peninsula Insider"
+  description="Build a Peninsula plan by picking who you're travelling with, what you want, and what kind of trip you're after. Hybrid search across venues, events, walks, stays, and journal pieces."
+  section="home"
+  noindex={false}
+  searchExclude={false}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <main class="plan-builder">
+
+    <section class="plan-builder__hero">
+      <div class="container">
+        <p class="plan-builder__eyebrow">Peninsula Insider · Build a plan</p>
+        <h1 class="plan-builder__title">Build your Peninsula plan</h1>
+        <p class="plan-builder__lead">
+          Pick a vibe, a who, a where. We'll match the venues, walks, stays, and editorial pieces that fit. Combine
+          as many filters as you like.
+        </p>
+
+        <form class="plan-builder__search" id="planBuilderForm" autocomplete="off" role="search" aria-label="Plan builder">
+          <input
+            type="search"
+            id="planBuilderQ"
+            class="plan-builder__q"
+            placeholder="Optional — long lunch, fireplace, rainy day…"
+            aria-label="Free-text query"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <label class="plan-builder__type-wrap" for="planBuilderType">
+            <span class="plan-builder__type-label">Show</span>
+            <select id="planBuilderType" class="plan-builder__type">
+              {ENTITY_TYPES.map((t) => <option value={t.value}>{t.label}</option>)}
+            </select>
+          </label>
+        </form>
+      </div>
+    </section>
+
+    <section class="plan-builder__filters" aria-label="Filters">
+      <div class="container">
+        {FACETS.map((f) => (
+          <fieldset class="plan-builder__facet" data-facet={f.key}>
+            <legend class="plan-builder__facet-label">{f.label}</legend>
+            <div class="plan-builder__chips">
+              {f.values.map((v) => (
+                <label class="plan-builder__chip">
+                  <input type="checkbox" data-facet-value={v} />
+                  <span>{v}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        ))}
+
+        <div class="plan-builder__actions">
+          <button type="button" id="planBuilderClear" class="plan-builder__btn plan-builder__btn--ghost">Clear all</button>
+          <p id="planBuilderCount" class="plan-builder__count" aria-live="polite">Pick a filter or type to see results.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan-builder__results-section">
+      <div class="container">
+        <div id="planBuilderResults" class="plan-builder__results" aria-live="polite"></div>
+        <div id="planBuilderUnavailable" class="plan-builder__unavailable" hidden>
+          <p>The live planner isn't reachable right now. Try the <a href="/plans/">curated plans hub</a>, or ask <a href="/ask/">The Insider</a> directly.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script is:inline>
+    (function () {
+      const form  = document.getElementById('planBuilderForm');
+      const input = document.getElementById('planBuilderQ');
+      const sel   = document.getElementById('planBuilderType');
+      const clear = document.getElementById('planBuilderClear');
+      const out   = document.getElementById('planBuilderResults');
+      const meta  = document.getElementById('planBuilderCount');
+      const off   = document.getElementById('planBuilderUnavailable');
+
+      let token = 0;
+
+      function escapeHtml(s) {
+        return String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      }
+
+      function collectFilters() {
+        const filters = {};
+        document.querySelectorAll('.plan-builder__facet').forEach((fs) => {
+          const key = fs.dataset.facet;
+          const vals = Array.from(fs.querySelectorAll('input[type=checkbox]:checked'))
+            .map((cb) => cb.dataset.facetValue);
+          if (vals.length > 0) filters[key] = vals;
+        });
+        return filters;
+      }
+
+      function kindLabel(t) {
+        const m = {
+          venue: 'Venue', experience: 'Experience', event: 'Event',
+          place: 'Place', itinerary: 'Plan', tour: 'Tour',
+          'tour-package': 'Tour package', article: 'Journal',
+          'quick-note': 'Quick note', 'local-secret': 'Local secret',
+        };
+        return m[t] || 'Guide';
+      }
+
+      function renderResults(hits) {
+        if (!out) return;
+        if (hits.length === 0) {
+          out.innerHTML = '<p class="plan-builder__empty">No matches yet. Loosen a filter, broaden the query, or try a different combination.</p>';
+          return;
+        }
+        out.innerHTML = '<ul class="plan-builder__list">' + hits.map((h) => {
+          const img = h.hero_image && h.hero_image.src;
+          const dek = h.dek ? escapeHtml(h.dek).slice(0, 220) : '';
+          const facetSummary = Object.keys(h.facets || {}).slice(0, 3).map((k) => k + ': ' + (h.facets[k] || []).slice(0, 2).join(', ')).join(' · ');
+          return (
+            '<li class="plan-builder__item">' +
+              '<a href="' + escapeHtml(h.href) + '" class="plan-builder__card">' +
+                (img ? '<span class="plan-builder__card-img" style="background-image: url(' + JSON.stringify(img) + ');"></span>' : '<span class="plan-builder__card-img plan-builder__card-img--blank"></span>') +
+                '<span class="plan-builder__card-body">' +
+                  '<span class="plan-builder__card-kind">' + escapeHtml(kindLabel(h.entity_type)) + '</span>' +
+                  '<span class="plan-builder__card-title">' + escapeHtml(h.title) + '</span>' +
+                  (dek ? '<span class="plan-builder__card-dek">' + dek + '</span>' : '') +
+                  (facetSummary ? '<span class="plan-builder__card-facets">' + escapeHtml(facetSummary) + '</span>' : '') +
+                '</span>' +
+              '</a>' +
+            '</li>'
+          );
+        }).join('') + '</ul>';
+      }
+
+      async function runSearch() {
+        const myToken = ++token;
+        const filters = collectFilters();
+        const q = (input && input.value || '').trim();
+        const t = sel && sel.value;
+        const hasFilters = Object.keys(filters).length > 0;
+        if (!q && !hasFilters && !t) {
+          if (out) out.innerHTML = '';
+          if (meta) meta.textContent = 'Pick a filter or type to see results.';
+          return;
+        }
+        if (meta) meta.textContent = 'Searching…';
+        const rpc = window.PISearchRpc;
+        if (!rpc || !rpc.available) {
+          if (off) off.hidden = false;
+          if (meta) meta.textContent = 'Search service unavailable.';
+          return;
+        }
+        try {
+          const hits = await rpc.search({
+            q: q || undefined,
+            filters,
+            entityTypes: t ? [t] : undefined,
+            limit: 40,
+          });
+          if (myToken !== token) return;
+          renderResults(hits || []);
+          if (meta) meta.textContent = (hits && hits.length ? hits.length : 0) + ' result' + ((hits && hits.length === 1) ? '' : 's') + '.';
+        } catch (err) {
+          console.warn('[plan-builder] RPC error', err);
+          if (off) off.hidden = false;
+          if (meta) meta.textContent = 'Search failed. Try refreshing.';
+        }
+      }
+
+      // Debounce input + selection
+      let deb = null;
+      function debounced() {
+        clearTimeout(deb);
+        deb = setTimeout(runSearch, 120);
+      }
+
+      form?.addEventListener('submit', (e) => { e.preventDefault(); runSearch(); });
+      input?.addEventListener('input', debounced);
+      sel?.addEventListener('change', runSearch);
+      document.querySelectorAll('.plan-builder__facet input[type=checkbox]').forEach((cb) => {
+        cb.addEventListener('change', debounced);
+      });
+      clear?.addEventListener('click', () => {
+        if (input) input.value = '';
+        if (sel) sel.value = '';
+        document.querySelectorAll('.plan-builder__facet input[type=checkbox]:checked').forEach((cb) => { cb.checked = false; });
+        runSearch();
+      });
+    })();
+  </script>
+
+  <!-- Phase D wave 2: expose pi.search RPC to the inline planner script. -->
+  <script>
+    import { search, typeahead } from '../../lib/search-client.ts';
+    function isAvailable() {
+      const sb = (window as any).__PI_SB;
+      return Boolean(sb && sb.url && sb.key);
+    }
+    (window as any).PISearchRpc = {
+      get available() { return isAvailable(); },
+      search,
+      typeahead,
+    };
+  </script>
+
+  <style>
+    .plan-builder { padding: 0 0 4rem; }
+    .plan-builder__hero { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--c-rule, #e6e1d8); }
+    .plan-builder__eyebrow { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+    .plan-builder__title { font-family: var(--ff-serif, Georgia, serif); font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 0.4rem 0 0.5rem; }
+    .plan-builder__lead { max-width: 60ch; opacity: 0.85; }
+    .plan-builder__search { display: flex; gap: 0.6rem; margin-top: 1.2rem; flex-wrap: wrap; }
+    .plan-builder__q { flex: 1; min-width: 16rem; padding: 0.7rem 0.9rem; font-size: 1rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 6px; }
+    .plan-builder__type-wrap { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .plan-builder__type-label { font-size: 0.85rem; opacity: 0.7; }
+    .plan-builder__type { padding: 0.55rem 0.6rem; font-size: 0.95rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 6px; background: white; }
+    .plan-builder__filters { padding: 1.4rem 0; border-bottom: 1px solid var(--c-rule, #e6e1d8); }
+    .plan-builder__facet { border: none; margin: 0 0 0.9rem; padding: 0; }
+    .plan-builder__facet-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-right: 0.6rem; padding: 0; }
+    .plan-builder__chips { display: inline-flex; flex-wrap: wrap; gap: 0.35rem; }
+    .plan-builder__chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.65rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 999px; font-size: 0.85rem; cursor: pointer; user-select: none; }
+    .plan-builder__chip input { margin: 0; }
+    .plan-builder__chip:has(input:checked) { background: var(--c-accent, #1f3f3a); color: white; border-color: var(--c-accent, #1f3f3a); }
+    .plan-builder__actions { display: flex; align-items: center; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
+    .plan-builder__btn { padding: 0.45rem 0.9rem; border: 1px solid var(--c-rule, #d4cec0); border-radius: 6px; background: white; cursor: pointer; font-size: 0.9rem; }
+    .plan-builder__btn--ghost:hover { background: var(--c-paper-tint, #f6f3eb); }
+    .plan-builder__count { margin: 0; font-size: 0.85rem; opacity: 0.7; }
+    .plan-builder__results-section { padding: 1.4rem 0; }
+    .plan-builder__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+    .plan-builder__card { display: grid; grid-template-rows: 9rem 1fr; text-decoration: none; color: inherit; border: 1px solid var(--c-rule, #e6e1d8); border-radius: 10px; overflow: hidden; background: white; transition: transform 120ms ease; }
+    .plan-builder__card:hover { transform: translateY(-2px); }
+    .plan-builder__card-img { background-size: cover; background-position: center; background-color: var(--c-paper-tint, #f0ece2); }
+    .plan-builder__card-img--blank { background: linear-gradient(135deg, #ece8de, #d8d3c4); }
+    .plan-builder__card-body { padding: 0.8rem 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+    .plan-builder__card-kind { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+    .plan-builder__card-title { font-family: var(--ff-serif, Georgia, serif); font-size: 1.05rem; line-height: 1.25; }
+    .plan-builder__card-dek { font-size: 0.85rem; opacity: 0.8; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .plan-builder__card-facets { font-size: 0.72rem; opacity: 0.55; margin-top: auto; }
+    .plan-builder__empty { padding: 2rem 0; opacity: 0.7; }
+    .plan-builder__unavailable { padding: 2rem 1rem; background: var(--c-paper-tint, #f6f3eb); border-radius: 8px; }
+  </style>
+</BaseLayout>
