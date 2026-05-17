@@ -3,7 +3,7 @@
  * Footer — Project Awesome Footer (May 2026 rebuild).
  *
  * Editorial-publication footer with newsletter band, 5-column link grid
- * (Sections / The Insider / Do Business / Readers / Contact + Social),
+ * (Sections / The Insider / Partner with us / Readers / Contact + Social),
  * Acknowledgement of Country, and a full legal line naming the trading
  * entity (Optiflows Pty Ltd) with ABN and ACN.
  *
@@ -23,7 +23,6 @@ const sectionLinks: Link[] = [
   { href: '/plans/', label: 'Plans' },
   { href: '/whats-on/', label: "What's On" },
   { href: '/journal/', label: 'Journal' },
-  { href: '/picks/', label: 'Picks' },
   { href: '/map/', label: 'Map' },
 ];
 
@@ -73,7 +72,7 @@ const legalLinks: Link[] = [
 
     <div class="pi-foot__masthead">
       <div class="pi-foot__wordmark">Peninsula <em>Insider</em></div>
-      <div class="pi-foot__motto">Built on the Peninsula, for the Peninsula.</div>
+      <div class="pi-foot__motto">An editorial guide to the Mornington Peninsula.</div>
     </div>
 
     <div class="pi-foot__grid">
@@ -96,7 +95,7 @@ const legalLinks: Link[] = [
       </nav>
 
       <nav class="pi-foot__col" aria-labelledby="pi-foot-business">
-        <h2 id="pi-foot-business" class="pi-foot__col-title">Do Business</h2>
+        <h2 id="pi-foot-business" class="pi-foot__col-title">Partner with us</h2>
         <ul>
           {businessLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
@@ -343,13 +342,14 @@ const legalLinks: Link[] = [
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.8rem 1.5rem;
-    font-size: 0.78rem;
+    gap: 0.7rem 1.4rem;
+    font-size: 0.7rem;
     color: var(--ink-muted, #6E655C);
+    opacity: 0.72;
   }
   .pi-foot__legal-copy strong {
-    color: var(--ink-soft, #3A3531);
-    font-weight: 500;
+    color: var(--ink-muted, #6E655C);
+    font-weight: 400;
   }
   .pi-foot__dot {
     color: var(--ochre, #A0541F);
