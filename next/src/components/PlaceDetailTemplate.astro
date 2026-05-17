@@ -61,6 +61,7 @@ const heroSrc = resolveHeroSrc(place.data);
 const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 
+<<<<<<< Updated upstream
 // Category sub-page lookup — editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.
 type SubpageLink = { label: string; href: string; desc: string };
@@ -120,6 +121,8 @@ const stayHref = STAY_SUBPAGE_SLUGS.has(placeSlug)
   ? `/stay/${placeSlug}/`
   : '/stay/';
 
+=======
+>>>>>>> Stashed changes
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Places', href: '/places' },
@@ -141,6 +144,7 @@ if (articles.length > 0)    chapters.push({ href: '#journal',     label: 'From t
 const hasContent = eatVenues.length > 0 || wineVenues.length > 0 || stayVenues.length > 0
   || experiences.length > 0 || itineraries.length > 0 || articles.length > 0;
 
+<<<<<<< Updated upstream
 // Category-specific local guides linked from this place page.
 // Only surfaces guides that actually exist — no placeholder links.
 // Maintained here as a data mapping rather than a data field to keep it
@@ -167,6 +171,8 @@ const categoryGuides: Record<string, Array<{ label: string; href: string; desc: 
 };
 const placeGuides = categoryGuides[placeSlug] ?? [];
 
+=======
+>>>>>>> Stashed changes
 // First-letter drop-cap for the factual lede.
 const factual = place.data.factualLede ?? '';
 const factualHead = factual.charAt(0);
@@ -394,6 +400,7 @@ const factualRest = factual.slice(1);
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+<<<<<<< Updated upstream
      8b. EXPLORE BY EXPERIENCE — category-specific local guides
      Connects destination overview to deeper category guides that exist.
      Only renders when placeGuides has entries — no placeholder links.
@@ -422,6 +429,8 @@ const factualRest = factual.slice(1);
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+=======
+>>>>>>> Stashed changes
      9. DOWNSTREAM SECTIONS
      ═══════════════════════════════════════════════════════════════════════ -->
 
@@ -434,7 +443,11 @@ const factualRest = factual.slice(1);
           <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
           <p class="venues__sub">Restaurants, cafés, bakeries, and pubs — each with an editor note, not a star rating.</p>
         </div>
+<<<<<<< Updated upstream
         <a href="/eat/" class="venues__link">More to eat in {place.data.name} →</a>
+=======
+        <a href="/eat/" class="venues__link">All venues →</a>
+>>>>>>> Stashed changes
       </div>
       <div class="venues__grid">
         {eatVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
@@ -455,7 +468,11 @@ const factualRest = factual.slice(1);
           <h2 class="venues__title">Cellar doors and makers around {place.data.name}</h2>
           <p class="venues__sub">The producers worth the appointment — and the ones already shaping the region's vintage conversation.</p>
         </div>
+<<<<<<< Updated upstream
         <a href={wineHref} class="venues__link">{WINE_SUBPAGE_SLUGS.has(placeSlug) ? `${place.data.name} wine guide` : "All cellar doors"} →</a>
+=======
+        <a href="/wine/" class="venues__link">All wine →</a>
+>>>>>>> Stashed changes
       </div>
       <div class="venues__grid">
         {wineVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
@@ -476,7 +493,11 @@ const factualRest = factual.slice(1);
           <h2 class="venues__title">Sleep in {place.data.name}</h2>
           <p class="venues__sub">When a place has a workable bed attached, it stops being a stop and starts becoming a base.</p>
         </div>
+<<<<<<< Updated upstream
         <a href={stayHref} class="venues__link">{STAY_SUBPAGE_SLUGS.has(placeSlug) ? `${place.data.name} stays` : "All stays"} →</a>
+=======
+        <a href="/stay/" class="venues__link">All stays →</a>
+>>>>>>> Stashed changes
       </div>
       <div class="venues__grid">
         {stayVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
@@ -497,7 +518,11 @@ const factualRest = factual.slice(1);
           <h2 class="venues__title">Explore moves anchored to {place.data.name}</h2>
           <p class="venues__sub">Walks, beaches, lookouts, and markets worth scheduling around the meals.</p>
         </div>
+<<<<<<< Updated upstream
         <a href="/explore/" class="venues__link">Explore near {place.data.name} →</a>
+=======
+        <a href="/explore/" class="venues__link">Explore all →</a>
+>>>>>>> Stashed changes
       </div>
       <div class="experience-grid">
         {experiences.map((experience) => <ExperienceCard experience={experience} />)}
@@ -515,7 +540,11 @@ const factualRest = factual.slice(1);
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
           <p class="venues__sub">These plans have been written around the landscape here — not bolted on after.</p>
         </div>
+<<<<<<< Updated upstream
         <a href="/plans/" class="venues__link">Plan a {place.data.name} weekend →</a>
+=======
+        <a href="/plans/" class="venues__link">Plans →</a>
+>>>>>>> Stashed changes
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -533,7 +562,11 @@ const factualRest = factual.slice(1);
           <h2 class="venues__title">Journal pieces connected to {place.data.name}</h2>
           <p class="venues__sub">Long-form editorial that builds the picture of a place beyond any single visit.</p>
         </div>
+<<<<<<< Updated upstream
         <a href="/journal/" class="venues__link">More in the Journal →</a>
+=======
+        <a href="/journal/" class="venues__link">Journal →</a>
+>>>>>>> Stashed changes
       </div>
       <div class="venues__grid">
         {articles.map((article) => <ArticleCard article={article} />)}
@@ -553,7 +586,11 @@ const factualRest = factual.slice(1);
         <h2 class="venues__title">Service guides for your {place.data.name} trip</h2>
         <p class="venues__sub">Long-form editorial that helps you build a weekend, not just a list of places.</p>
       </div>
+<<<<<<< Updated upstream
       <a href="/journal/" class="venues__link">All Peninsula guides →</a>
+=======
+      <a href="/journal/" class="venues__link">All guides →</a>
+>>>>>>> Stashed changes
     </div>
     <div class="venues__grid venues__grid--links">
       <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
@@ -607,6 +644,7 @@ const factualRest = factual.slice(1);
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
+<<<<<<< Updated upstream
      12. EXPLORE BY EXPERIENCE — category sub-pages
      Surfaces category-specific local guides when they exist for this place.
      Strengthens hierarchy, internal linking, and SEO clustering.
@@ -636,6 +674,10 @@ const factualRest = factual.slice(1);
 
 <!-- ═══════════════════════════════════════════════════════════════════════
      13. RELATED PLACES
+=======
+     12. RELATED PLACES
+     ═══════════════════════════════════════════════════════════════════════ -->
+>>>>>>> Stashed changes
 {relatedPlaces.length > 0 && (
   <section class="places">
     <div class="container">
@@ -656,6 +698,7 @@ const factualRest = factual.slice(1);
 <!-- ═══════════════════════════════════════════════════════════════════════
      13. READER SUBMISSION CTA
      ═══════════════════════════════════════════════════════════════════════ -->
+<<<<<<< Updated upstream
 <!-- Places ecosystem back-link — reinforces hierarchy, completes the loop
      Peninsula Insider → Places hub → Destination → Category guide
      Positioned before the reader submission CTA, after all content. -->
@@ -667,6 +710,8 @@ const factualRest = factual.slice(1);
   </div>
 </div>
 
+=======
+>>>>>>> Stashed changes
 <aside class="place-submit-cta">
   <div class="container place-submit-cta__inner">
     <p class="place-submit-cta__label">Got a {place.data.name} secret?</p>
@@ -809,7 +854,11 @@ const factualRest = factual.slice(1);
     .pdv2-hero__title { font-size: clamp(3rem, 14vw, 5rem); }
   }
 
+<<<<<<< Updated upstream
     /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+=======
+  /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+>>>>>>> Stashed changes
   .pdv2-lede {
     padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
     background: var(--bg);
@@ -845,6 +894,7 @@ const factualRest = factual.slice(1);
     color: var(--soft);
     font-weight: 300;
   }
+<<<<<<< Updated upstream
   .pdv2-lede__intro--lead {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(1.2rem, 1.6vw, 1.4rem);
@@ -853,6 +903,8 @@ const factualRest = factual.slice(1);
     font-weight: 400;
     font-style: normal;
   }
+=======
+>>>>>>> Stashed changes
   .pdv2-card {
     background: var(--bg-alt);
     border: 1px solid var(--border);
@@ -1235,6 +1287,7 @@ const factualRest = factual.slice(1);
   }
 
   /* ── SUBMIT CTA ─────────────────────────────────────────────────────── */
+<<<<<<< Updated upstream
   /* ── Explore by experience — category sub-pages ── */
   .place-subpages {
     padding: 3.5rem 0;
@@ -1308,6 +1361,8 @@ const factualRest = factual.slice(1);
     border-color: var(--accent);
   }
 
+=======
+>>>>>>> Stashed changes
   .place-submit-cta {
     padding: clamp(3rem, 5vw, 4rem) 0;
     background: var(--bg);
@@ -1339,6 +1394,7 @@ const factualRest = factual.slice(1);
     padding-bottom: 1px;
   }
   .place-submit-cta__link:hover { opacity: 0.75; }
+<<<<<<< Updated upstream
 
   /* ── CATEGORY GUIDES (Explore by Experience) ─────────────────────── */
   .place-category-guides {
@@ -1407,4 +1463,6 @@ const factualRest = factual.slice(1);
     color: var(--accent);
     margin-top: 0.5rem;
   }
+=======
+>>>>>>> Stashed changes
 </style>
