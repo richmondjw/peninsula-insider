@@ -2,8 +2,7 @@
   "slug": "harry-baker-2k-sailing-regatta",
   "eventId": "MP-EVT-0039",
   "title": "Harry Baker 2K Sailing Regatta",
-  "summary": "Annual sailing regatta hosted by Sorrento Sailing Couta Boat Club. Signature short coastal race from Sorrento foreshore. Part of the club's active summer–autumn racing calendar.",
-  "description": "Annual sailing regatta hosted by Sorrento Sailing Couta Boat Club. Signature short coastal race from Sorrento foreshore. Part of the club's active summer–autumn racing calendar.",
+  "summary": "Annual short coastal regatta off the Sorrento foreshore, hosted by Sorrento Sailing Couta Boat Club. Primarily a club entry, spectators welcome from the pier.",
   "startDate": "2026-05-30",
   "endDate": "2026-05-30",
   "season": "autumn",
@@ -37,15 +36,21 @@
     "website": "https://sscbc.com.au"
   },
   "primarySourceUrl": "https://sscbc.com.au/2025-26/",
-  "verificationStatus": "Needs manual review",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 3,
   "nearbyAttractions": "Sorrento Village; Continental Hotel; Back Beach",
   "suggestedItineraryPairing": "Combine with lunch at Hotel Sorrento; walk to Sorrento Pier",
-  "internalNotes": "Race distance and format TBC; check SSCBC website for sailing instructions closer to event. Entry for club members primarily.",
-  "manualFollowUpRequired": true,
-  "kidsGradeAuto": "not-for-kids",
   "status": "published",
   "publishedAt": "2026-05-04",
-  "place": "sorrento"
+  "kidsGrade": "C",
+  "kidsGradeNote": "Fine for kids to watch from the pier, but it is a club race, not a public spectator event.",
+  "worthTheDrive": false,
+  "firstTimer": false,
+  "editorVerdict": "A members' race more than a public event, but worth a pier walk if you're in Sorrento for lunch anyway.",
+  "editorNote": "The Harry Baker 2K is a short-coastal regatta hosted by Sorrento Sailing Couta Boat Club, part of the club's active autumn racing calendar. Entry is primarily for club members and visiting sailors with the right class boat.\n\nWho it's for: sailors with an SSCBC connection, and locals who like watching a fleet of Couta Boats and dinghies go around the marks. For everyone else, pair it with a Hotel Sorrento lunch and a walk down to the pier.\n\nCheck the SSCBC site for sailing instructions and the day's start time closer to the date, the format and distance can shift year to year.",
+  "place": "sorrento",
+  "lens": [
+    "ticketed",
+    "locals-know"
+  ]
 }
