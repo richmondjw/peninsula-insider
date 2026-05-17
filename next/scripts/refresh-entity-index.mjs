@@ -43,10 +43,11 @@ const CONTENT_ROOT = resolve(NEXT_ROOT, 'src/content');
 const TAXONOMY_PATH = resolve(NEXT_ROOT, 'src/taxonomy/facet-taxonomy.yaml');
 
 const args = process.argv.slice(2);
-const opts = { apply: false, report: false, limit: null };
+const opts = { apply: false, report: false, sql: false, limit: null };
 for (const a of args) {
   if (a === '--apply') opts.apply = true;
   else if (a === '--report') opts.report = true;
+  else if (a === '--sql') opts.sql = true;
   else if (a === '--dry-run') opts.apply = false;
   else if (a.startsWith('--limit=')) opts.limit = parseInt(a.slice('--limit='.length), 10);
 }
@@ -284,6 +285,62 @@ function buildCoverageReport() {
 }
 
 // ─── output ──────────────────────────────────────────────────────────────
+// ─── SQL emit mode ───────────────────────────────────────────────────────
+// Emits the entire projection as batched INSERT ... ON CONFLICT DO UPDATE
+// statements suitable for piping through Supabase MCP execute_sql when a
+// service key isn't available. Batches of 50 rows so each statement fits
+// well under MCP's payload ceiling.
+function sqlQuote(v) {
+  if (v == null) return 'null';
+  if (typeof v === 'number') return String(v);
+  if (typeof v === 'boolean') return v ? 'true' : 'false';
+  if (v instanceof Date) return `'${v.toISOString()}'::timestamptz`;
+  if (typeof v === 'object') return `'${JSON.stringify(v).replaceAll("'", "''")}'::jsonb`;
+  return `'${String(v).replaceAll("'", "''")}'`;
+}
+
+if (opts.sql) {
+  process.stdout.write('-- pi.entity_index rows\n');
+  const cols = ['entity_type','entity_slug','title','dek','body','facets','zone','place_slug','coordinates','starts_at','ends_at','href','hero_image','taxonomy_version','refreshed_at'];
+  const BATCH = 50;
+  for (let i = 0; i < indexRows.length; i += BATCH) {
+    const batch = indexRows.slice(i, i + BATCH);
+    const values = batch.map((r) => {
+      const c = r.coordinates ? `'${r.coordinates}'::geography` : 'null';
+      return `(${[
+        sqlQuote(r.entity_type), sqlQuote(r.entity_slug), sqlQuote(r.title),
+        sqlQuote(r.dek), sqlQuote(r.body), sqlQuote(r.facets), sqlQuote(r.zone),
+        sqlQuote(r.place_slug), c,
+        r.starts_at ? `'${r.starts_at}'::timestamptz` : 'null',
+        r.ends_at ? `'${r.ends_at}'::timestamptz` : 'null',
+        sqlQuote(r.href), sqlQuote(r.hero_image),
+        sqlQuote(r.taxonomy_version), sqlQuote(r.refreshed_at),
+      ].join(', ')})`;
+    }).join(',\n');
+    const updates = cols.filter((c) => c !== 'entity_type' && c !== 'entity_slug')
+      .map((c) => `${c} = excluded.${c}`).join(', ');
+    process.stdout.write(
+      `insert into pi.entity_index (${cols.join(', ')}) values\n${values}\n` +
+      `on conflict (entity_type, entity_slug) do update set ${updates};\n\n`
+    );
+  }
+  process.stdout.write('-- pi.entity_attributes rows\n');
+  const acols = ['entity_type','entity_slug','facet_key','facet_value','source','refreshed_at'];
+  for (let i = 0; i < attributeRows.length; i += BATCH) {
+    const batch = attributeRows.slice(i, i + BATCH);
+    const values = batch.map((r) => `(${[
+      sqlQuote(r.entity_type), sqlQuote(r.entity_slug),
+      sqlQuote(r.facet_key), sqlQuote(r.facet_value),
+      sqlQuote(r.source), sqlQuote(r.refreshed_at),
+    ].join(', ')})`).join(',\n');
+    process.stdout.write(
+      `insert into pi.entity_attributes (${acols.join(', ')}) values\n${values}\n` +
+      `on conflict (entity_type, entity_slug, facet_key, facet_value) do update set source = excluded.source, refreshed_at = excluded.refreshed_at;\n\n`
+    );
+  }
+  process.exit(0);
+}
+
 if (opts.report) {
   const rows = buildCoverageReport();
   process.stdout.write(`# Entity-attribute coverage\n\n`);

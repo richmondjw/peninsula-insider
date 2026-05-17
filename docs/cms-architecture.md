@@ -213,6 +213,65 @@ ship at the same time as the code.
   open followup. The protection is **not weakened** by this, because the
   trigger runs in the database and is independent of CI.
 
+## Body-prose block editor (article body)
+
+The block editor is the second layer of inline editing for article body content (the actual paragraphs / headings / lists / blockquotes inside an article, not the title and dek which were already editable).
+
+### Build-time pipeline
+
+1. **`next/src/lib/inline-edit/remark-block-ids.mjs`** — remark plugin registered against both the `markdown` and `mdx` integrations in `next/astro.config.mjs`. Walks the root-level MDAST nodes; for every `paragraph`, `heading`, `blockquote`, `list` it stamps two HTML attributes via `hProperties`:
+   - `data-pi-block-id="b<10-char-sha1>"` — content-derived deterministic hash of the first 80 chars of text. Stable across re-renders and reorderings; invalidated only when the text of the block itself changes.
+   - `data-pi-block-kind="paragraph"|"h2"|"h3"|...|"blockquote"|"list"` — readable label shown in the toolbar.
+2. **`next/src/pages/journal/[slug].astro`** wraps `<Content />` in a `<div data-pi-prose-root data-pi-entity-type="article" data-pi-entity-slug={slug}>`. The prose root identifies which entity the block edits belong to.
+3. **Build-time override consult** — `loadOverrides('article', slug).text` is filtered to entries starting `body.block:`, the prefix is stripped, the map is JSON-stringified into a `<script type="application/json" id="pi-block-overrides">` element on the page.
+4. **Pre-paint patcher** — a tiny inline script runs synchronously after the JSON blob: reads the overrides, iterates `[data-pi-prose-root] [data-pi-block-id]` elements, swaps `innerHTML` for any matching ID. No flash because this runs before the body renders.
+
+### Browser-side editor
+
+`next/src/lib/inline-edit/client.ts` exports a block-editor module that:
+
+- Delegates clicks on `[data-pi-prose-root] [data-pi-block-id]` to `startBlockEdit()` (takes precedence over the existing `data-pi-edit="text"` handler).
+- Turns the clicked element into a `contenteditable=true` surface with a floating dark toolbar anchored above it.
+- Toolbar: **B** / **I** / **🔗** / **Cancel** / **Save**, plus keyboard shortcuts (Cmd+B / Cmd+I / Cmd+K / Cmd+Enter / Esc).
+- Link popover: URL input, internal-link autocomplete from `pi.content_registry` (lazy-loaded on first popover open), apply / remove buttons.
+- On save, runs the HTML through a strict sanitiser before persisting.
+
+### Sanitiser allowlist
+
+The sanitiser (`sanitiseBlockHtml` in `client.ts`) walks the saved HTML, normalises, and drops everything not on this allowlist:
+
+| Allowed | Notes |
+|---|---|
+| `<strong>` (and `<b>` → `<strong>`) | No attributes |
+| `<em>` (and `<i>` → `<em>`) | No attributes |
+| `<a href="...">` | `href` only — must be `/`, `#`, `mailto:`, `tel:`, or `https?://`. External links get `target="_blank" rel="noopener noreferrer"` added automatically; internal links don't. |
+| `<br>` | No attributes |
+
+Everything else — `<script>`, `<style>`, `<iframe>`, `<img>`, `<span>`, `<div>`, `class`, `style`, `on*` event handlers, `javascript:` / `data:` URLs — is stripped silently. Tag unwrapping preserves the inner text. The sanitiser runs both client-side (on save) and is the canonical contract for what reaches the DB. Anything that bypasses it (e.g. direct SQL injection) would still be filtered at render time if we ever added a render-time sanitiser pass; today we trust the client-side sanitiser because writes are gated by the editor allowlist.
+
+### Storage shape
+
+Block overrides land in `pi.cms_text_fields` as:
+
+| Column | Value |
+|---|---|
+| `entity_type` | `'article'` |
+| `entity_slug` | the article's routeSlug |
+| `field_path` | `body.block:b<hash>` (the same ID emitted by the remark plugin) |
+| `label` | `Body block (paragraph)` etc — humanised kind label for editor UI |
+| `field_kind` | `'richtext'` |
+| `value` | sanitised HTML |
+| `status` | `'published'` |
+
+The integrity trigger on `cms_text_fields` validates that `('article', slug)` exists in `pi.content_registry` — same protection as every other CMS write.
+
+### Failure modes
+
+- **MDX source edited after a block override exists** — if you change the text of a paragraph in the `.md` file, its block-id changes (content-hash). The previous override becomes orphaned (still in the DB but no longer matches any rendered block). Acceptable trade-off: if you've changed the canonical source, the previous override is stale by definition. A future "stranded overrides" cleanup pass could prune these.
+- **Block reordering in MDX** — does NOT invalidate IDs, because they're content-derived not positional.
+- **Two editors editing the same block at the same time** — last-write-wins. No locking. Acceptable for a small editorial team.
+- **MDX components inside the body** (e.g. `<ClusterLinks>`, `<FAQ>`) — the remark plugin doesn't add IDs to these (only standard markdown blocks), so they're correctly skipped. The block editor cannot accidentally edit them.
+
 ## What this does NOT cover (deferred phases)
 
 - **Phase 2 — Storage tombstones.** Today, replacing a hero image leaves the
