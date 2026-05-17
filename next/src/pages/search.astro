@@ -317,12 +317,65 @@ const KIND_CHIPS = [
         if (page !== 1 && list) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
+      // ── Phase D wave 1: kind chip → RPC predicates ────────────────────
+      // Chip values are legacy Pagefind labels (Eat, Stay, Wine, etc).
+      // Translate each into a combination of (entityTypes, facets) the
+      // pi.search RPC understands. "all" returns null/{} so the RPC
+      // doesn't narrow on type.
+      function kindToRpcPredicates(kind) {
+        switch (kind) {
+          case 'Eat':       return { entityTypes: ['venue'], facets: { theme: ['food','food+wine','coffee'] } };
+          case 'Stay':      return { entityTypes: ['venue'], facets: {} }; // venue.type narrows further in result rendering
+          case 'Wine':      return { entityTypes: ['venue'], facets: { theme: ['wine'] } };
+          case 'Explore':   return { entityTypes: ['experience'], facets: {} };
+          case 'Plans':     return { entityTypes: ['itinerary','tour','tour-package'], facets: {} };
+          case "What's On": return { entityTypes: ['event'], facets: {} };
+          case 'Journal':   return { entityTypes: ['article','quick-note','local-secret'], facets: {} };
+          case 'Places':    return { entityTypes: ['place'], facets: {} };
+          default:          return { entityTypes: null, facets: {} };
+        }
+      }
+
+      function rpcKindLabel(entityType) {
+        const m = {
+          venue: 'Venue', experience: 'Explore', event: "What's On",
+          place: 'Places', itinerary: 'Plans', tour: 'Plans',
+          'tour-package': 'Plans', article: 'Journal',
+          'quick-note': 'Journal', 'local-secret': 'Journal',
+        };
+        return m[entityType] || 'Guide';
+      }
+
+      // Shape a SearchHit into the Pagefind-result shape `renderResults`
+      // expects. We wrap in a shim with a `.data()` method so the
+      // pagination path (which lazily resolves each handle) works
+      // unchanged for both retrieval sources.
+      function rpcHitToHandle(hit, query) {
+        const q = (query || '').toLowerCase();
+        const dek = hit.dek || '';
+        let excerpt = escapeHtml(dek.slice(0, 260));
+        if (q && excerpt.toLowerCase().includes(q)) {
+          const i = excerpt.toLowerCase().indexOf(q);
+          excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
+        }
+        const data = {
+          url:     hit.href,
+          meta:    {
+            title: hit.title,
+            kind:  rpcKindLabel(hit.entity_type),
+            image: hit.hero_image?.src || '',
+          },
+          excerpt,
+        };
+        return { data: async () => data, _rpc: true };
+      }
+
       async function runSearch() {
         const q = (input?.value || '').trim();
         currentQuery = q;
         currentDataPage = new Map();
 
-        if (!q) {
+        if (!q && currentKind === 'all') {
           currentResults = [];
           renderIdle();
           updateUrl(q);
@@ -332,6 +385,39 @@ const KIND_CHIPS = [
         renderLoading();
         const myToken = ++searchToken;
 
+        // ── Path 1: pi.search RPC (Phase D wave 1) ──────────────────────
+        const rpc = window.PISearchRpc;
+        if (rpc && rpc.available) {
+          try {
+            const preds = kindToRpcPredicates(currentKind);
+            const hits = await rpc.search({
+              q: q || undefined,
+              filters: preds.facets,
+              entityTypes: preds.entityTypes,
+              limit: 96,
+            });
+            if (myToken !== searchToken) return;
+            if (Array.isArray(hits) && hits.length > 0) {
+              currentResults = hits.map((h) => rpcHitToHandle(h, q));
+              await showPage(1);
+              logSearch(q, hits.length, currentKind);
+              updateUrl(q);
+              return;
+            }
+            // Empty hits → fall through to Pagefind so we don't 0-result
+            // when the RPC simply has no embedding for a niche query.
+          } catch (err) {
+            console.warn('[search] RPC failed, falling back to Pagefind:', err);
+          }
+        }
+
+        // ── Path 2: Pagefind (legacy path, retained as fallback) ───────
+        if (!q) {
+          currentResults = [];
+          renderIdle();
+          updateUrl(q);
+          return;
+        }
         try {
           const pf = await loadPagefind();
           const filters = currentKind === 'all' ? undefined : { kind: currentKind };
@@ -445,5 +531,25 @@ const KIND_CHIPS = [
 
       input?.focus();
     })();
+  </script>
+
+  <!--
+    Phase D wave 1: expose pi.search RPC to the inline script.
+    Same pattern as SearchOverlay — module script bundled by Astro,
+    imports search-client which carries supabase-js. `available` is
+    false when window.__PI_SB is missing, so the inline runSearch
+    falls through to Pagefind without any visible regression.
+  -->
+  <script>
+    import { search, typeahead } from '../lib/search-client.ts';
+    function isAvailable() {
+      const sb = (window as any).__PI_SB;
+      return Boolean(sb && sb.url && sb.key);
+    }
+    (window as any).PISearchRpc = {
+      get available() { return isAvailable(); },
+      search,
+      typeahead,
+    };
   </script>
 </BaseLayout>
