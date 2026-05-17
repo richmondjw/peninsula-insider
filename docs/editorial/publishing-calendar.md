@@ -16,7 +16,12 @@
 | Period | Cover | Label | Status |
 |--------|-------|-------|--------|
 | May 2026 | The other Peninsula weekend | SLOW PENINSULA | ✅ Live |
-| June 2026 | TBD — Winter cover | FEATURE | 🔜 Pending |
+| June 2026 | A Winter Peninsula Weekend | FEATURE | 🔄 Ready — activate June 1 |
+| July 2026 | The Winter Table | FEATURE | ⏳ Pending |
+| August 2026 | Fireplaces, Red Wine & Long Lunches | FEATURE | ⏳ Pending |
+
+*Winter arc confirmed by Emma 2026-05-17. Coherent seasonal progression across the quarter.*
+*June 1: move `winter-peninsula-weekend` scene to [0] in index.astro. CMS override also works.*
 
 ---
 
@@ -42,12 +47,14 @@
 
 ---
 
-## Upcoming — Winter 2026 (June)
+## Winter 2026 Arc (Confirmed — Emma, 2026-05-17)
 
-Suggested cover candidates for Winter rotation:
-- The Winter Table
-- Fireplaces, Red Wine & Long Lunches
-- A Winter Peninsula Weekend
-- The Long Lunch Season
+| Month | Cover | Article route | Image |
+|-------|-------|--------------|-------|
+| June | A Winter Peninsula Weekend | /journal/a-winter-peninsula-weekend/ | home-cover-cape-schanck-rainbow-01.webp |
+| July | The Winter Table | TBD — article needed | TBD |
+| August | Fireplaces, Red Wine & Long Lunches | TBD — article needed | TBD |
 
-*Emma to confirm which article is cover-ready for the Winter issue.*
+**June activation:** Scene `winter-peninsula-weekend` is already in the rotation bench. Move to [0] on June 1.
+
+**July & August:** Articles for The Winter Table and Fireplaces pieces need to exist before activation. Flag to Emma in late June.
