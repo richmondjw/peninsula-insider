@@ -105,7 +105,7 @@ export const v4Pillars: V4Pillar[] = [
         items: [
           { key: 'all-weekend',     label: 'All this weekend',  href: '/whats-on/' },
           { key: 'mt-eliza-market', label: "Mt Eliza Farmers'", href: '/whats-on/mt-eliza-farmers-market/' },
-          { key: 'main-street',     label: 'Main Street fest',  href: '/whats-on/main-street-mornington-festival-2026/' },
+          { key: 'coastrek',        label: 'Coastrek Fri 22 May', href: '/whats-on/coastrek-mornington-peninsula-2026/' },
         ],
       },
       {
