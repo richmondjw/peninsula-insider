@@ -1,14 +1,20 @@
 /**
- * Peninsula Insider — venue importer (proof-of-concept).
+ * Peninsula Insider — venue importer (Phase 1, full set).
  *
  * Reads venue JSONs from next/src/content/venues, uploads hero images
- * from next/public/images/sourced, and upserts Sanity documents.
+ * (preferring Supabase override → JSON path) and upserts Sanity documents.
  *
- *   Usage:  npx tsx scripts/import-venues.ts [slug1 slug2 …]
+ *   Usage:
+ *     npx tsx scripts/import-venues.ts              # all 141 venues
+ *     npx tsx scripts/import-venues.ts <slug1> …    # named venues only
+ *     npx tsx scripts/import-venues.ts --seed       # PoC 5-venue seed
  *
- * With no args, imports the PoC seed list near the top of this file.
- * With slugs, imports only those venues. Idempotent — the document _id is
- * derived from the slug so re-runs update in place.
+ * Idempotent — `_id = 'venue-<slug>'` so re-runs update in place.
+ *
+ * Override merge: for each venue, the importer consults pi.cms_image_slots
+ * for a published `venue/<slug>/hero` row. If present, that public_url is
+ * downloaded and uploaded to Sanity instead of the JSON's heroImage.src.
+ * Migration provenance is set so we can audit later.
  *
  * Auth: requires `SANITY_AUTH_TOKEN` (write token) in the environment.
  * Token is never printed and never written to disk.
@@ -34,6 +40,11 @@ const SEED_SLUGS = [
   'commonfolk-coffee',
 ]
 
+// Supabase public read endpoint for the CMS overrides table. Anon-key read
+// is gated by RLS to status='published' rows, which is exactly what we want.
+const SUPABASE_URL = 'https://tjjhpvslpysfklwpqmgz.supabase.co'
+const SUPABASE_ANON_KEY = 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp'
+
 const client = createClient({
   projectId: 'a062b30n',
   dataset: 'production',
@@ -41,6 +52,42 @@ const client = createClient({
   token: process.env.SANITY_AUTH_TOKEN,
   useCdn: false,
 })
+
+// ── Override fetch (one-shot at startup) ────────────────────────────────
+
+interface VenueOverride {
+  entity_slug: string
+  field_path: string
+  public_url: string | null
+  alt_text: string | null
+  caption: string | null
+  credit: string | null
+}
+
+async function fetchVenueOverrides(): Promise<Map<string, VenueOverride>> {
+  const url =
+    `${SUPABASE_URL}/rest/v1/cms_image_slots` +
+    `?select=entity_slug,field_path,public_url,alt_text,caption,credit` +
+    `&entity_type=eq.venue&status=eq.published&limit=1000`
+  const r = await fetch(url, {
+    headers: {
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      'Accept-Profile': 'pi',
+    },
+  })
+  if (!r.ok) {
+    console.warn(`  ! Supabase override fetch failed: ${r.status}`)
+    return new Map()
+  }
+  const rows = (await r.json()) as VenueOverride[]
+  const map = new Map<string, VenueOverride>()
+  for (const row of rows) {
+    if (row.field_path === 'hero') map.set(row.entity_slug, row)
+  }
+  console.log(`Found ${map.size} published venue hero overrides in Supabase\n`)
+  return map
+}
 
 // ── Helpers ─────────────────────────────────────────────────────────────
 
@@ -70,18 +117,30 @@ function textToBlocks(text: string): Array<Record<string, unknown>> {
     }))
 }
 
-async function uploadImageAsset(localSrc: string): Promise<string | null> {
-  // localSrc is like "/images/sourced/foo.webp" — relative to next/public.
-  const rel = localSrc.replace(/^\/+/, '')
-  const abs = join(imagesRoot, rel)
+async function uploadImageAsset(src: string): Promise<string | null> {
+  // Two source shapes:
+  //   - "/images/sourced/foo.webp"     → relative to next/public, read from disk
+  //   - "https://….supabase.co/…/foo.jpg" → remote, fetch then upload
   try {
-    const buf = await readFile(abs)
-    const asset = await client.assets.upload('image', buf, {
-      filename: basename(abs),
-    })
+    let buf: Buffer
+    let filename: string
+
+    if (src.startsWith('http://') || src.startsWith('https://')) {
+      const r = await fetch(src)
+      if (!r.ok) throw new Error(`fetch ${r.status}`)
+      buf = Buffer.from(await r.arrayBuffer())
+      filename = basename(new URL(src).pathname)
+    } else {
+      const rel = src.replace(/^\/+/, '')
+      const abs = join(imagesRoot, rel)
+      buf = await readFile(abs)
+      filename = basename(abs)
+    }
+
+    const asset = await client.assets.upload('image', buf, {filename})
     return asset._id
   } catch (err) {
-    console.error(`  ! failed to upload ${abs}:`, (err as Error).message)
+    console.error(`  ! failed to upload ${src}: ${(err as Error).message}`)
     return null
   }
 }
@@ -108,16 +167,52 @@ async function upsertPlaceStub(placeSlug: string): Promise<string> {
 
 // ── Importer ────────────────────────────────────────────────────────────
 
-async function importVenue(slug: string): Promise<void> {
+async function importVenue(
+  slug: string,
+  overrides: Map<string, VenueOverride>,
+): Promise<void> {
   const path = join(venuesDir, `${slug}.json`)
   const raw = JSON.parse(await readFile(path, 'utf8'))
 
-  console.log(`→ ${slug}`)
+  const override = overrides.get(slug)
+  const overrideUrl = override?.public_url
+  const jsonSrc = raw.heroImage?.src
+  let heroSrcKind: 'cms-image-slots' | 'astro-content' | 'failed' = 'failed'
+
+  console.log(`→ ${slug}${overrideUrl ? '  (using Supabase override)' : ''}`)
   const placeId = await upsertPlaceStub(raw.place)
 
+  // Try the override first if one exists; on failure fall back to the JSON
+  // src so we never end up with a hero-less doc when both sources existed.
   let heroAssetId: string | null = null
-  if (raw.heroImage?.src) {
-    heroAssetId = await uploadImageAsset(raw.heroImage.src)
+  if (overrideUrl) {
+    heroAssetId = await uploadImageAsset(overrideUrl)
+    if (heroAssetId) heroSrcKind = 'cms-image-slots'
+    else if (jsonSrc) {
+      console.warn(`  ! override upload failed, falling back to JSON src`)
+      heroAssetId = await uploadImageAsset(jsonSrc)
+      if (heroAssetId) heroSrcKind = 'astro-content'
+    }
+  } else if (jsonSrc) {
+    heroAssetId = await uploadImageAsset(jsonSrc)
+    if (heroAssetId) heroSrcKind = 'astro-content'
+  }
+
+  // Gallery uploads — sequential to keep the rate-limit friendly. Empty for
+  // most venues, so this is cheap in aggregate.
+  const galleryItems: Array<Record<string, unknown>> = []
+  for (const img of raw.gallery ?? []) {
+    if (!img?.src) continue
+    const id = await uploadImageAsset(img.src)
+    if (!id) continue
+    galleryItems.push({
+      _type: 'imageRef',
+      asset: {_type: 'reference', _ref: id},
+      alt: img.alt ?? '',
+      credit: img.credit ?? 'venue-media-kit',
+      license: img.license ?? 'venue-media-kit',
+      caption: img.caption,
+    })
   }
 
   const doc: Record<string, unknown> = {
@@ -135,10 +230,36 @@ async function importVenue(slug: string): Promise<void> {
     bookingUrl: raw.bookingUrl,
     bookingProvider: raw.bookingProvider,
     priceBand: raw.priceBand,
+
+    // Editorial
     signature: raw.signature,
+    whyWeGo: raw.whyWeGo,
     editorNote: textToBlocks(raw.editorNote ?? ''),
+    editorVerdict: raw.editorVerdict,
+    bestFor: raw.bestFor,
+    ifOnlyOneThing: raw.ifOnlyOneThing,
+    pairWith: raw.pairWith,
     tags: raw.tags,
+
+    // Wine-specific
+    subregion: raw.subregion,
+    wines: raw.wines,
+    visiting: raw.visiting,
+    restaurant: raw.restaurant,
+    accommodation: raw.accommodation,
+    sameAs: raw.sameAs,
+
+    // FAQ — normalise key shape (some JSONs already use {q,a}; if they used
+    // {question,answer} we'd map here; current data is already {q,a}).
+    faq: raw.faq,
+
+    // Authority + commerce
     authority: raw.authority,
+    affiliateNote: raw.affiliateNote,
+    featuredPartner: !!raw.featuredPartner,
+    editorPick: !!raw.editorPick,
+
+    // Dog
     dogFriendly: !!raw.dogFriendly,
     dogFriendlyNotes: raw.dogFriendlyNotes,
     dogsAllowedOutdoorsOnly: raw.dogsAllowedOutdoorsOnly,
@@ -146,12 +267,14 @@ async function importVenue(slug: string): Promise<void> {
     waterAccessNearby: raw.waterAccessNearby,
     dogAmenities: raw.dogAmenities ?? [],
     rainyDayDogSuitability: raw.rainyDayDogSuitability,
-    affiliateNote: raw.affiliateNote,
-    featuredPartner: !!raw.featuredPartner,
-    editorPick: !!raw.editorPick,
+
+    // Location + ops
     hoursNote: raw.hoursNote,
     liveStatusUrl: raw.liveStatusUrl,
+
+    // Admin
     lastVerified: raw.lastVerified,
+    lastFactVerified: raw.lastFactVerified,
     publishedAt: raw.publishedAt
       ? new Date(raw.publishedAt).toISOString()
       : new Date().toISOString(),
@@ -162,12 +285,14 @@ async function importVenue(slug: string): Promise<void> {
     doc.heroImage = {
       _type: 'imageRef',
       asset: {_type: 'reference', _ref: heroAssetId},
-      alt: raw.heroImage.alt ?? raw.name,
-      credit: raw.heroImage.credit ?? 'venue-media-kit',
-      license: raw.heroImage.license ?? 'venue-media-kit',
-      caption: raw.heroImage.caption,
+      alt: override?.alt_text ?? raw.heroImage?.alt ?? raw.name,
+      credit: override?.credit ?? raw.heroImage?.credit ?? 'venue-media-kit',
+      license: raw.heroImage?.license ?? 'venue-media-kit',
+      caption: override?.caption ?? raw.heroImage?.caption,
     }
   }
+
+  if (galleryItems.length > 0) doc.gallery = galleryItems
 
   // Strip undefined so Sanity doesn't store null literals.
   for (const k of Object.keys(doc)) {
@@ -175,7 +300,7 @@ async function importVenue(slug: string): Promise<void> {
   }
 
   await client.createOrReplace(doc)
-  console.log(`  ✓ ${slug}`)
+  console.log(`  ✓ ${slug} (hero: ${heroSrcKind})`)
 }
 
 async function main() {
@@ -184,23 +309,47 @@ async function main() {
     process.exit(1)
   }
 
-  const argSlugs = process.argv.slice(2)
-  const slugs = argSlugs.length > 0 ? argSlugs : SEED_SLUGS
+  const args = process.argv.slice(2)
+  const useSeed = args.includes('--seed')
+  const slugArgs = args.filter((a) => !a.startsWith('--'))
 
-  // Sanity check: warn on any missing JSON files.
-  const have = new Set((await readdir(venuesDir)).map((f) => f.replace(/\.json$/, '')))
+  // Available venue files on disk.
+  const have = new Set((await readdir(venuesDir)).filter((f) => f.endsWith('.json')).map((f) =>
+    f.replace(/\.json$/, ''),
+  ))
+
+  let slugs: string[]
+  if (useSeed) {
+    slugs = SEED_SLUGS
+  } else if (slugArgs.length > 0) {
+    slugs = slugArgs
+  } else {
+    slugs = [...have].sort()
+    console.log(`Full venue import: ${slugs.length} venues queued\n`)
+  }
+
   const missing = slugs.filter((s) => !have.has(s))
   if (missing.length > 0) {
     console.warn(`! missing venue JSONs (skipping): ${missing.join(', ')}`)
   }
 
+  // Fetch all venue/hero overrides once up-front.
+  const overrides = await fetchVenueOverrides()
+
+  let ok = 0
+  let failed = 0
   for (const slug of slugs.filter((s) => have.has(s))) {
     try {
-      await importVenue(slug)
+      await importVenue(slug, overrides)
+      ok++
     } catch (err) {
       console.error(`  ✗ ${slug}:`, (err as Error).message)
+      failed++
     }
   }
+
+  console.log(`\nDone: ${ok} imported, ${failed} failed.`)
+  if (failed > 0) process.exit(1)
 }
 
 void main()

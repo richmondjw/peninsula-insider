@@ -4,6 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
 export async function getStaticPaths() {
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
@@ -17,8 +19,18 @@ export async function getStaticPaths() {
 }
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-const { venue } = Astro.props;
+let { venue } = Astro.props;
 const slug = routeSlug(venue);
+
+// Dual-read: when the venue flag is on, swap the focused venue for the
+// Sanity-sourced equivalent. If the Sanity fetch returns null (document
+// unpublished, race condition, etc), the JSON-loaded venue stays — same
+// behaviour as before the flag was flipped. Related/articles/events
+// lookups below still use JSON until their own phase migrates them.
+if (sanityReadEnabled('venues')) {
+  const sanityVenue = await fetchVenueFromSanity(slug);
+  if (sanityVenue) venue = sanityVenue as any;
+}
 
 const allVenues = await getCollection('venues');
 const related = allVenues

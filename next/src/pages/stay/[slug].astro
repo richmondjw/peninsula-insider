@@ -4,6 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
 export async function getStaticPaths() {
   const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
@@ -17,8 +19,14 @@ export async function getStaticPaths() {
 }
 
 const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
-const { venue } = Astro.props;
+let { venue } = Astro.props;
 const slug = routeSlug(venue);
+
+// Dual-read: swap focused venue for Sanity when the flag is on.
+if (sanityReadEnabled('venues')) {
+  const sanityVenue = await fetchVenueFromSanity(slug);
+  if (sanityVenue) venue = sanityVenue as any;
+}
 
 const allVenues = await getCollection('venues');
 const related = allVenues

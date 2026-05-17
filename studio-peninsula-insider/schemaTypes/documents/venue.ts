@@ -17,6 +17,8 @@ export const venue = defineType({
     {name: 'editorial', title: 'Editorial', default: true},
     {name: 'location', title: 'Location'},
     {name: 'commerce', title: 'Booking & price'},
+    {name: 'wine', title: 'Wine'},
+    {name: 'faq', title: 'FAQ'},
     {name: 'authority', title: 'Authority'},
     {name: 'dog', title: 'Dog friendly'},
     {name: 'admin', title: 'Admin'},
@@ -74,12 +76,53 @@ export const venue = defineType({
       validation: (Rule) => Rule.required().max(400),
     }),
     defineField({
+      name: 'whyWeGo',
+      title: 'Why we go',
+      type: 'text',
+      rows: 2,
+      group: 'editorial',
+      description:
+        'Editorial hook surfaced on cards and at the top of the detail page. One or two sentences.',
+    }),
+    defineField({
       name: 'editorNote',
       title: 'Editor note',
       type: 'array',
       of: [{type: 'block'}],
       group: 'editorial',
       description: 'The main editorial body. Supports headings, bold, italic, links.',
+    }),
+    defineField({
+      name: 'editorVerdict',
+      title: 'Editor verdict',
+      type: 'text',
+      rows: 4,
+      group: 'editorial',
+      description:
+        'Sharper editorial assessment, separate from the body prose. Surfaces on rankings pages.',
+    }),
+    defineField({
+      name: 'bestFor',
+      title: 'Best for',
+      type: 'array',
+      of: [{type: 'string'}],
+      group: 'editorial',
+      description: 'Audience / occasion tags. Free-form, e.g. "long lunch", "anniversary weekends".',
+    }),
+    defineField({
+      name: 'ifOnlyOneThing',
+      title: 'If only one thing…',
+      type: 'string',
+      group: 'editorial',
+      description: 'The single must-do at this venue.',
+    }),
+    defineField({
+      name: 'pairWith',
+      title: 'Pair with',
+      type: 'array',
+      of: [{type: 'string'}],
+      group: 'editorial',
+      description: 'Suggested companion venues. Free-form names for now.',
     }),
     defineField({
       name: 'heroImage',
@@ -296,6 +339,58 @@ export const venue = defineType({
       hidden: ({document}) => !document?.dogFriendly,
     }),
 
+    // ── Wine (winery-only) ───────────────────────────────────────────────
+    defineField({
+      name: 'subregion',
+      title: 'Subregion',
+      type: 'string',
+      group: 'wine',
+      description: 'Mornington Peninsula subregion (red-hill, main-ridge, merricks, etc).',
+    }),
+    defineField({
+      name: 'wines',
+      title: 'Wines',
+      type: 'wines',
+      group: 'wine',
+    }),
+    defineField({
+      name: 'visiting',
+      title: 'Visiting',
+      type: 'visiting',
+      group: 'wine',
+      description: 'Cellar door hours, tasting fee, booking requirements.',
+    }),
+    defineField({
+      name: 'restaurant',
+      title: 'On-site restaurant',
+      type: 'onSiteFood',
+      group: 'wine',
+    }),
+    defineField({
+      name: 'accommodation',
+      title: 'On-site accommodation',
+      type: 'onSiteFood',
+      group: 'wine',
+      description: 'Reusing the on-site venue shape for stays attached to a winery.',
+    }),
+    defineField({
+      name: 'sameAs',
+      title: 'External links',
+      type: 'sameAs',
+      group: 'wine',
+    }),
+
+    // ── FAQ ──────────────────────────────────────────────────────────────
+    defineField({
+      name: 'faq',
+      title: 'FAQ',
+      type: 'array',
+      of: [{type: 'faqItem'}],
+      group: 'faq',
+      description:
+        'Structured FAQs surfaced on the detail page and as schema.org FAQPage.',
+    }),
+
     // ── Admin ────────────────────────────────────────────────────────────
     defineField({
       name: 'lastVerified',
@@ -310,6 +405,13 @@ export const venue = defineType({
       type: 'datetime',
       group: 'admin',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'lastFactVerified',
+      title: 'Last fact verified',
+      type: 'date',
+      group: 'admin',
+      description: 'Distinct from lastVerified — when structured facts were last audited.',
     }),
     defineField({
       name: 'sitemapExclude',
