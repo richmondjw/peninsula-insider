@@ -40,6 +40,8 @@ import {
 } from '../../lib/escape';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchItineraryFromSanity } from '../../lib/sanity/itinerary-adapter';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -75,10 +77,19 @@ export async function getStaticPaths() {
   return [...itineraryPaths, ...articlePaths];
 }
 
-const { itinerary, articleData } = Astro.props;
+let { itinerary, articleData } = Astro.props;
 
 // ─── Plans-article branch data ─────────────────────────────────────────────
 const isArticle = articleData != null;
+
+// Phase 4 dual-read: when the itinerary flag is on, swap the focused
+// itinerary for the Sanity-sourced equivalent. Article branch unchanged
+// — articles are Phase 3 (still queued).
+if (!isArticle && itinerary && sanityReadEnabled('itineraries')) {
+  const slugFor = routeSlug(itinerary);
+  const sanityItn = await fetchItineraryFromSanity(slugFor);
+  if (sanityItn) itinerary = sanityItn as any;
+}
 const ArticleContent = isArticle ? (await render(articleData)).Content : (null as any);
 
 const ad = isArticle ? articleData.data : null;
