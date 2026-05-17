@@ -1,0 +1,103 @@
+---
+/**
+ * DispatchAtAGlance — the top-of-page summary strip for Peninsula This
+ * Weekend dispatches. Three compact tiles (Lead / Saturday / Sunday) that
+ * let a reader decide whether to read further inside ten seconds.
+ *
+ * Lives above the editor's line. Anchor-links into the full pick cards
+ * lower on the page.
+ */
+
+interface Tile {
+  eyebrow: string;
+  title: string;
+  anchorId: string;
+}
+
+interface Props {
+  tiles: Tile[];
+}
+
+const { tiles } = Astro.props;
+---
+
+<aside class="ataglance" aria-label="At a glance">
+  <p class="ataglance__eyebrow">At a glance</p>
+  <ol class="ataglance__list">
+    {tiles.map((tile, i) => (
+      <li class="ataglance__item">
+        <a href={`#${tile.anchorId}`} class="ataglance__link">
+          <span class="ataglance__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <span class="ataglance__copy">
+            <span class="ataglance__eyebrow-sm">{tile.eyebrow}</span>
+            <span class="ataglance__title">{tile.title}</span>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</aside>
+
+<style>
+  .ataglance {
+    margin: 2rem 0 2.5rem;
+    padding: 1.5rem;
+    background: rgba(246, 241, 232, 0.65);
+    border: 1px solid rgba(33, 30, 28, 0.1);
+  }
+  .ataglance__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent, #8B4E3B);
+    font-weight: 600;
+  }
+  .ataglance__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  @media (min-width: 760px) {
+    .ataglance__list { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  }
+  .ataglance__item { margin: 0; }
+  .ataglance__link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.85rem 0.85rem 0.85rem 0.4rem;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid transparent;
+    transition: background 0.12s ease;
+  }
+  .ataglance__link:hover { background: rgba(255, 255, 255, 0.6); }
+  .ataglance__num {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-style: italic;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--accent, #8B4E3B);
+    font-weight: 400;
+    flex: 0 0 auto;
+  }
+  .ataglance__copy { display: flex; flex-direction: column; gap: 0.3rem; }
+  .ataglance__eyebrow-sm {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft, #7A726A);
+    font-weight: 600;
+  }
+  .ataglance__title {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    color: var(--ink, #211e1c);
+  }
+</style>

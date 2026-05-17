@@ -2,8 +2,7 @@
   "slug": "mornington-winter-music-festival-2026",
   "eventId": "MP-EVT-0042",
   "title": "Mornington Winter Music Festival 2026",
-  "summary": "Three-day live music festival over King's Birthday long weekend. 20+ venues across Mornington – bars, restaurants, churches and theatres hosting jazz, blues, soul, R&B and other genres. Street entertainment on Main Street with circus acts, stilt walkers, fire twirlers. FREE to $25 per gig. Full prog",
-  "description": "Three-day live music festival over King's Birthday long weekend. 20+ venues across Mornington – bars, restaurants, churches and theatres hosting jazz, blues, soul, R&B and other genres. Street entertainment on Main Street with circus acts, stilt walkers, fire twirlers. FREE to $25 per gig. Full program at morningtonmusicfestival.com.au",
+  "summary": "12th annual three-day festival over King's Birthday weekend: 20+ venues across Mornington, jazz, blues, soul, R&B, plus street entertainment on Main Street. Free to $25 per gig.",
   "startDate": "2026-06-05",
   "endDate": "2026-06-08",
   "startTime": "18:00",
@@ -21,10 +20,10 @@
   "indoorOutdoor": "Indoor + Outdoor",
   "bookingUrl": "https://www.morningtonmusicfestival.com.au",
   "ticketingUrl": "https://www.morningtonmusicfestival.com.au",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Mornington-Winter-Music-Festival-1 | https://mainstreetmornington.com.au/mornington-winter-music-festival/",
+  "officialEventUrl": "https://mainstreetmornington.com.au/mornington-winter-music-festival/",
   "bookingRequired": "Varies by venue",
   "freePaid": "Free / Paid",
-  "priceRange": "Free–$25 per event",
+  "priceRange": "Free to $25 per event",
   "priceTier": "under-50",
   "category": "live-music",
   "subcategory": "Music Festival",
@@ -45,23 +44,26 @@
   "weatherShape": "all-weather",
   "organiser": {
     "name": "Main Street Mornington / Mornington Peninsula Shire",
-    "website": "https://www.morningtonmusicfestival.com.au | https://mainstreetmornington.com.au"
+    "website": "https://www.morningtonmusicfestival.com.au"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Mornington-Winter-Music-Festival-1 | https://mainstreetmornington.com.au/mornington-winter-music-festival/",
-  "secondarySourceUrl": "https://www.morningtonmusicfestival.com.au | https://www.vicfomo.com/mornington_peninsula_shire/",
-  "verificationStatus": "Verified multiple sources",
+  "primarySourceUrl": "https://mainstreetmornington.com.au/mornington-winter-music-festival/",
+  "secondarySourceUrl": "https://www.morningtonmusicfestival.com.au",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 4,
   "nearbyAttractions": "MPRG; Mornington Pier; Main Street dining",
   "suggestedItineraryPairing": "Combine with King's Birthday race day at Mornington Racecourse; stay overnight in Mornington",
-  "internalNotes": "2026 dates confirmed Friday 5 – Monday 8 June (King's Birthday weekend); full program at morningtonmusicfestival.com.au | Full program including specific venues and timing available to download from mainstreetmornington.com.au closer to the event. | Dates confirmed as Friday 5 – Monday 8 June 2026 on official site. 12th annual edition. No ticket prices published at time of check — refer to venue program. | Duplicate research rows merged from: arts_sport_outdoor_events.csv, food_wine_wellness_events.csv, official_tourism_council_events.csv",
-  "manualFollowUpRequired": true,
-  "kidsGradeAuto": "B",
+  "editorVerdict": "Mornington Winter Music Festival is the off-season weekend Main Street built for itself, and now (12 years in) one of the few Peninsula festivals that consistently delivers.",
+  "editorNote": "Three days over King's Birthday long weekend, 20+ venues across central Mornington (bars, restaurants, churches, theatres) hosting jazz, blues, soul, R&B and adjacent genres. Add street entertainment, circus, stilt walkers, fire twirlers on Main Street, then dinner in any of the rooms hosting a gig.\n\nThe practical move: book accommodation in Mornington at least six weeks ahead, plan two ticketed gigs per night maximum (the venues are close but you'll want a meal), use the street program as filler. Free to $25 a gig, full program lives at morningtonmusicfestival.com.au closer to the date.\n\nIf you can layer the Saturday with the King's Birthday race day at Mornington Racecourse, that is the local move.",
+  "kidsGrade": "B",
+  "kidsGradeNote": "Daytime street program is family-friendly; evening venues are licensed, ticketed and adult. Bring kids for the day, not the night.",
+  "worthTheDrive": true,
+  "firstTimer": true,
   "status": "published",
   "publishedAt": "2026-05-04",
   "lens": [
-    "rainy-day",
-    "family-saturday"
+    "weekend-pick",
+    "worth-the-drive",
+    "ticketed"
   ],
   "place": "mornington"
 }

@@ -23,7 +23,6 @@ relatedVenues:
   - "stringers-sorrento"
 relatedExperiences:
   - "sorrento-ferry"
-  - "sea-search-encounters"
   - "mornington-foreshore-walk"
   - "portsea-front-beach"
 readingTimeMinutes: 7
