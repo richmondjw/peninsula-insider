@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 
 // Peninsula Insider — Astro config.
 // Decisions locked in roadmap-2026-04-09.md § 4 and § 9:
@@ -45,8 +46,19 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  markdown: {
+    // Tag every top-level paragraph, heading, list, blockquote in rendered
+    // markdown with a stable data-pi-block-id attribute. The inline editor
+    // uses these IDs as the key when an editor click-edits a block.
+    remarkPlugins: [remarkBlockIds],
+  },
   integrations: [
-    mdx(), // hub-guide, trail-guide, venue-guide articles use AlertBlock + ClusterLinks components
+    mdx({
+      // MDX uses the same remark pipeline as plain markdown, but plugins
+      // declared at the top level don't carry through — they have to be
+      // re-declared on the integration.
+      remarkPlugins: [remarkBlockIds],
+    }),
     react(), // scoped React islands for motion polish (ScrollReveal etc); not used on content pages
   ],
   vite: {

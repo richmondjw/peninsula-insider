@@ -80,10 +80,12 @@ jobs:
         # missing the entity-scoped editor attrs. Stops the filename-keyed
         # auto-detect bug from reappearing under a new card type.
         run: |
-          if [ -f scripts/check-editable-coverage.mjs ]; then
+          if [ -f next/scripts/check-editable-coverage.mjs ]; then
+            node next/scripts/check-editable-coverage.mjs
+          elif [ -f scripts/check-editable-coverage.mjs ]; then
             node scripts/check-editable-coverage.mjs
           else
-            echo "::warning::scripts/check-editable-coverage.mjs is not present in this checkout; skipping CMS editor convention check."
+            echo "::warning::check-editable-coverage.mjs is not present in this checkout (tried next/scripts/ and scripts/); skipping CMS editor convention check."
           fi
 
       - name: Refresh CMS content registry (CMS Integrity Plan, Phase 1)
