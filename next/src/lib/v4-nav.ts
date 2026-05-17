@@ -349,11 +349,11 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'Destinations',
         items: [
-          { key: 'red-hill',    label: 'Red Hill',    href: '/places/red-hill/' },
           { key: 'sorrento',    label: 'Sorrento',    href: '/places/sorrento/' },
+          { key: 'red-hill',    label: 'Red Hill',    href: '/places/red-hill/' },
           { key: 'flinders',    label: 'Flinders',    href: '/places/flinders/' },
+          { key: 'fingal',      label: 'Fingal',      href: '/places/fingal/' },
           { key: 'mornington',  label: 'Mornington',  href: '/places/mornington/' },
-          { key: 'main-ridge',  label: 'Main Ridge',  href: '/places/main-ridge/' },
           { key: 'all-places',  label: 'All destinations →', href: '/places/' },
         ],
       },
