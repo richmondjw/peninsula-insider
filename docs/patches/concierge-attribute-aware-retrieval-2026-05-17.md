@@ -1,220 +1,172 @@
-# Concierge — attribute-aware retrieval layered on chunk RAG
+# Concierge — attribute-aware retrieval via pi.search + filter_entity_ids
 
 **Phase D wave 4 of the data architecture rollout.**
 
 Vault context: `07-projects/peninsula-insider/data-architecture-assessment-2026-05-16.md`.
 
-This patch lives **outside this repo** — apply in `apps/api/src/routes/concierge.ts`
-(the platform API repo). The PI site only calls
-`POST $PUBLIC_CONCIERGE_API_URL/concierge/ask/stream`; the change here is
-the backend.
+## Status
 
-## Why
-
-The concierge today retrieves from `concierge_chunks` (semantic-only,
-project `mvdtkgsfuhmkioygxgge`). It can't enforce *hard* attribute
-filters — when a user says "dog-friendly cellar door with kids", the LLM
-might still recommend a venue with `dogFriendly: false` because the
-ranking is similarity-only.
-
-`pi.search()` (project `tjjhpvslpysfklwpqmgz`, Phase C) returns
-attribute-filtered entity hits via the canonical taxonomy. Layering
-*both* gives:
-- hard guarantees (dog-friendly stays dog-friendly)
-- prose-quality answers (chunk RAG still drives the answer text)
-- a single canonical taxonomy across web, planner, concierge, and iOS
+- **PI runtime schema (`tjjhpvslpysfklwpqmgz`):** `pi.search()` shipped in Phase C.
+- **Concierge corpus schema (`mvdtkgsfuhmkioygxgge`):** `concierge_vector_search` and `concierge_bm25_search` now accept an optional `filter_entity_ids text[]` parameter. **Applied 2026-05-17 via MCP.** See [ops/migrations/concierge/2026-05-17-concierge-search-entity-filter.sql](../../ops/migrations/concierge/2026-05-17-concierge-search-entity-filter.sql).
+- **Concierge backend (`apps/api/src/routes/concierge.ts` — separate repo):** awaiting adoption. This doc is the contract.
 
 ## Architecture
 
 ```
-user query
-   │
-   ▼
-parse intent  ──►  facet predicates  ──►  pi.search(q, filters, ...)
-   │                                          │
-   ▼                                          ▼
-chunk RAG (concierge_chunks)            entity hits
-   │                                          │
-   └─────────►  rerank chunks by facet match ◄┘
-                         │
-                         ▼
-                LLM with grounded entity context
+                       user query
+                            │
+        ┌───────────────────┴────────────────────┐
+        │                                        │
+        ▼                                        ▼
+  pi.search(q, filters)              concierge_*_search(q, ..., filter_entity_ids)
+  on tjjhpvslpysfklwpqmgz            on mvdtkgsfuhmkioygxgge
+        │                                        │
+        │ list of entity hits                    │ chunks pre-filtered to those entities
+        │                                        │
+        └────────────┬───────────────────────────┘
+                     ▼
+              LLM with grounded context
 ```
 
-Stage by stage:
+The SQL-side hard filter means the backend doesn't need to rerank or contradiction-filter in TypeScript. Both calls happen in parallel; entity IDs from `pi.search` become the filter list passed to the chunk RPC.
 
-1. **Intent parsing** — parse the free-text query into facet predicates.
-   Two implementations possible:
-   - **Rule layer:** synonym map keyed off `facet-taxonomy.yaml`
-     (download from this repo at deploy time; cached in memory).
-     Cheap. Catches 70% of common queries.
-   - **LLM classifier:** Haiku-class call. ~50–100ms. Use for the long
-     tail; fall back to chunk-only retrieval if it errors.
-
-2. **Hard-filter retrieval** — `pi.search()` returns up to ~25 entity
-   matches that satisfy the facet predicates.
-
-3. **Chunk retrieval** — existing `concierge_chunks` query against the
-   user's full message (semantic similarity). Returns ~25 chunks.
-
-4. **Rerank** — boost chunks whose `source_entity_slug` matches one of
-   the entity hits from step 2. Weight: +0.5 in the combined score.
-   Drop chunks whose entity *contradicts* a hard filter ("dog-friendly:
-   yes" was asked, but this chunk's entity has `dog-friendly: no").
-
-5. **Generate** — pass top-N reranked chunks to the LLM as grounding
-   context. Existing prompt + streaming pipeline unchanged.
-
-## Diff (illustrative)
+## Backend integration
 
 ```ts
 // apps/api/src/routes/concierge.ts
 
 import { createClient } from '@supabase/supabase-js';
 
-// New: PI runtime client (separate project from the concierge corpus)
-const piRuntime = createClient(
-  process.env.PI_RUNTIME_SUPABASE_URL!,     // tjjhpvslpysfklwpqmgz
-  process.env.PI_RUNTIME_SUPABASE_ANON_KEY!,
-  { auth: { persistSession: false }, db: { schema: 'pi' } }
+// Existing concierge corpus client (unchanged)
+const concierge = createClient(
+  process.env.SUPABASE_URL!,           // mvdtkgsfuhmkioygxgge
+  process.env.SUPABASE_SERVICE_KEY!,
 );
 
-interface ParsedIntent {
-  facets: Record<string, string[]>;
-  entityTypes?: string[];
-}
+// NEW: PI runtime client. Anon key suffices — pi.search has GRANT EXECUTE TO anon.
+const piRuntime = createClient(
+  process.env.PI_RUNTIME_SUPABASE_URL!,       // tjjhpvslpysfklwpqmgz
+  process.env.PI_RUNTIME_SUPABASE_ANON_KEY!,
+  { auth: { persistSession: false }, db: { schema: 'pi' } },
+);
 
-// Stage 1 — rule-layer intent parser. Loads facet-taxonomy.yaml at boot.
-async function parseIntent(q: string, taxonomy: Taxonomy): Promise<ParsedIntent> {
+// NEW: lightweight intent parser using facet-taxonomy.yaml's synonyms.
+// Loaded at boot from this repo's main branch and cached in memory.
+async function parseIntent(q: string): Promise<{
+  facets: Record<string, string[]>;
+}> {
+  const taxonomy = await loadFacetTaxonomy();  // cached
   const lower = q.toLowerCase();
   const facets: Record<string, Set<string>> = {};
   for (const [family, defn] of Object.entries(taxonomy.facets)) {
     for (const [value, meta] of Object.entries(defn.values)) {
       const alts = [value, ...(meta.synonyms || [])];
-      if (alts.some((a) => lower.includes(a.replace(/-/g, ' '))
-                        || lower.includes(a))) {
+      if (alts.some((a) =>
+        lower.includes(String(a).replace(/-/g, ' ')) ||
+        lower.includes(String(a)))) {
         (facets[family] ??= new Set()).add(value);
       }
     }
   }
-  return {
-    facets: Object.fromEntries(
-      Object.entries(facets).map(([k, s]) => [k, [...s]])
-    ),
-  };
+  return { facets: Object.fromEntries(
+    Object.entries(facets).map(([k, s]) => [k, [...s]])
+  )};
 }
 
-// Stage 2 — pi.search RPC
-async function piSearchEntities(q: string, intent: ParsedIntent) {
-  const { data, error } = await piRuntime.rpc('search', {
-    q,
-    filters: intent.facets,
-    entity_types: intent.entityTypes ?? null,
-    result_limit: 25,
-  });
-  if (error) {
-    console.warn('[concierge] pi.search failed, skipping attribute layer', error);
-    return [];
-  }
-  return data as SearchHit[];
-}
-
-// Stage 4 — rerank chunks by entity match
-function rerankChunks(
-  chunks: ConciergeChunk[],
-  entityHits: SearchHit[],
-  intent: ParsedIntent
-): ConciergeChunk[] {
-  const entitySlugs = new Set(
-    entityHits.map((h) => `${h.entity_type}:${h.entity_slug}`)
-  );
-  // Build a contradicts predicate: any facet the user explicitly asked
-  // for, an entity that has the negation, drop the chunk.
-  const isContradiction = (chunkEntity: { type: string; slug: string }) => {
-    const hit = entityHits.find(
-      (h) => h.entity_type === chunkEntity.type && h.entity_slug === chunkEntity.slug
-    );
-    if (!hit) return false; // unknown to pi.entity_index — let through
-    // Example: if user asked dog-friendly=yes, entity facets must include 'yes'.
-    for (const [k, vs] of Object.entries(intent.facets)) {
-      if (!hit.facets[k] || !vs.some((v) => hit.facets[k].includes(v))) {
-        return true; // entity does not satisfy this required facet
-      }
-    }
-    return false;
-  };
-
-  return chunks
-    .filter((c) => !isContradiction({ type: c.source_entity_type, slug: c.source_entity_slug }))
-    .map((c) => {
-      const matched = entitySlugs.has(`${c.source_entity_type}:${c.source_entity_slug}`);
-      return { ...c, score: c.score + (matched ? 0.5 : 0) };
-    })
-    .sort((a, b) => b.score - a.score);
-}
-
-// Main handler (existing endpoint) — modified
+// MODIFIED endpoint:
 export async function POST(req: Request) {
   const { q } = await req.json();
-  const intent = await parseIntent(q, await getTaxonomy());
 
-  // Run both retrievals in parallel
+  const intent = await parseIntent(q);
+  const hasFacets = Object.keys(intent.facets).length > 0;
+
+  // Run pi.search + concierge retrieval in parallel. When the intent
+  // parser found no facets (e.g. open-ended question), pass null and
+  // let the chunk RPC behave as today.
   const [entityHits, chunkHits] = await Promise.all([
-    piSearchEntities(q, intent),
-    existingConciergeChunkRetrieval(q),   // unchanged
+    hasFacets ? piRuntime.rpc('search', {
+      q,
+      filters: intent.facets,
+      result_limit: 25,
+    }) : { data: [] },
+    // EXISTING chunk RPC, with the new 6th parameter
+    concierge.rpc('concierge_bm25_search', {
+      query_text: q,
+      match_count: 30,
+      filter_region: null,
+      filter_category: null,
+      filter_source_type: null,
+      filter_entity_ids: null,  // populated below
+    }),
   ]);
 
-  const reranked = rerankChunks(chunkHits, entityHits, intent);
-  return streamAnswer(q, reranked.slice(0, 12), entityHits.slice(0, 6));
+  // If we got entity hits, RE-RUN the chunk retrieval with the hard filter.
+  // This costs one extra round-trip but guarantees attribute coverage.
+  // Alternative: do both in parallel and discard the unfiltered result
+  // when entity hits are present.
+  let chunks = chunkHits.data ?? [];
+  if (entityHits.data && entityHits.data.length > 0) {
+    const ids = entityHits.data.map((h: any) => `${h.entity_type}:${h.entity_slug}`);
+    const filtered = await concierge.rpc('concierge_bm25_search', {
+      query_text: q,
+      match_count: 30,
+      filter_entity_ids: ids,
+    });
+    if (filtered.data && filtered.data.length > 0) chunks = filtered.data;
+  }
+
+  return streamAnswer(q, chunks, entityHits.data ?? []);
 }
 ```
 
-## Environment variables to add to the platform-api service
+## Environment variables to add
 
 ```
 PI_RUNTIME_SUPABASE_URL=https://tjjhpvslpysfklwpqmgz.supabase.co
-PI_RUNTIME_SUPABASE_ANON_KEY=<anon key from tjjhpvslpysfklwpqmgz project>
+PI_RUNTIME_SUPABASE_ANON_KEY=<anon key from tjjhpvslpysfklwpqmgz>
 ```
 
-The anon key suffices — `pi.search()` has `GRANT EXECUTE TO anon`.
-Do **not** use the service role key here; the concierge is a public
-read-only consumer.
+Anon key. Do NOT use the service role key — concierge is a public read-only consumer.
+
+## Filter ID format
+
+The new `filter_entity_ids text[]` parameter accepts **either**:
+
+- **Canonical pi form** — `venue:alba-thermal-springs` (what `pi.search` returns: `entity_type:entity_slug`)
+- **Raw corpus form** — `venue_alba_thermal_springs` (what `concierge_chunks` stores: matches `source_entity_id` directly)
+
+The SQL function tries both. Backend can pass either — canonical form is the natural choice when `pi.search` is the upstream.
 
 ## Taxonomy distribution
 
-The intent parser needs `facet-taxonomy.yaml` from this repo. Two options:
+The intent parser needs `facet-taxonomy.yaml`. Two options:
 
 1. **Build-time copy** — concierge build job pulls
    `https://raw.githubusercontent.com/richmondjw/peninsula-insider/main/next/src/taxonomy/facet-taxonomy.yaml`
-   and bakes the parsed object into the bundle. Refresh on every deploy.
-2. **Runtime fetch + cache** — fetch the YAML on container start, cache
-   in memory, refresh hourly. Simpler ops, slightly slower cold start.
+   and parses at module load. Refresh on every deploy.
+2. **Runtime fetch + cache** — fetch the YAML on container start, cache in memory, refresh hourly.
 
-(1) is recommended — atomic with the deploy.
+(1) recommended — atomic with the deploy.
 
 ## Eval
 
-Existing eval harness at `ops/scripts/insider-eval-runner.mjs` (this
-repo) calls `${API}/concierge/ask`. After the change, expect:
-- recall up on "find me X with attribute Y" queries
-- precision up — no more "dog-friendly: yes" answers recommending
-  no-dog venues
-- latency +50–150ms (pi.search RPC + intent parse)
+Existing eval harness at `ops/scripts/insider-eval-runner.mjs` in this repo. After the backend change, expected effects:
+
+- **Recall up** on attribute queries — "find me X with facet Y" hits the right entities.
+- **Precision up** — chunks from entities that fail the attribute filter are removed before the LLM sees them. No more "dog-friendly: yes" answers recommending non-dog venues.
+- **Latency +50–150ms** — `pi.search` round-trip plus second chunk call. Parallelisable; can be optimised to a single chunk call if intent parsing is moved upstream of the parallel block.
 
 ## Rollout
 
-- ship behind `CONCIERGE_ATTRIBUTE_RERANK=1` env flag for a week
-- compare against a side-by-side run with the flag off via the eval
-  harness
-- flip the default once recall + precision are at parity or better
+- Ship behind `CONCIERGE_ATTRIBUTE_RERANK=1` env flag for a week.
+- Run side-by-side eval via existing harness with flag on/off.
+- Flip default once recall + precision parity-or-better confirmed.
 
-## Operational follow-up after this lands
+## After this lands
 
-The taxonomy is now read by three consumers:
-1. PI site (`pi.search` via Astro)
-2. Concierge backend (this patch)
-3. iOS app (Sprint 2, queued)
+The taxonomy is read by three consumers:
+1. PI site (`pi.search` via Astro) — live.
+2. Concierge backend (this patch) — pending application.
+3. iOS app (Sprint 2 queued).
 
-Make `next/src/taxonomy/facet-taxonomy.yaml` the contracted spec across
-all three. Any breaking change requires bumping `version:` and a
-coordinated release of all consumers.
+Make `next/src/taxonomy/facet-taxonomy.yaml` the contracted spec across all three. Breaking changes require version bump + coordinated release.
