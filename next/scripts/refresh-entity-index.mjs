@@ -76,8 +76,22 @@ for (const fields of Object.values(taxonomy.mappings)) {
 // entityType, folder, hrefPrefix mirror refresh-content-registry.mjs.
 // titleField names the JSON field that holds the display title (varies
 // between `name` and `title`).
+// Per-venue routing — venues live at /stay/, /eat/, or /wine/ depending on
+// type. Mirrors next/src/lib/editorial.ts venueHrefPrefix(). Hardcoding
+// '/stay/' for all venues produces 404 links from search, planner, and
+// concierge tiles for restaurants/cafes/wineries.
+const STAY_TYPES = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
+
+function venueHrefPrefix(type) {
+  if (STAY_TYPES.includes(type)) return '/stay/';
+  if (WINE_TYPES.includes(type)) return '/wine/';
+  return '/eat/';
+}
+
 const COLLECTIONS = [
-  { folder: 'venues',         entityType: 'venue',         hrefPrefix: '/stay/',     titleField: 'name'  },
+  // hrefPrefix=null on venues → derived per-row via venueHrefPrefix(entry.type)
+  { folder: 'venues',         entityType: 'venue',         hrefPrefix: null,         titleField: 'name'  },
   { folder: 'experiences',    entityType: 'experience',    hrefPrefix: '/explore/',  titleField: 'name'  },
   { folder: 'places',         entityType: 'place',         hrefPrefix: '/places/',   titleField: 'name'  },
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/',  titleField: 'title' },
@@ -208,7 +222,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
     coordinates: coords,
     starts_at:    startsAt ? new Date(startsAt).toISOString() : null,
     ends_at:      endsAt ? new Date(endsAt).toISOString() : null,
-    href:         hrefPrefix + slug + '/',
+    href:         (hrefPrefix ?? venueHrefPrefix(entry.type)) + slug + '/',
     hero_image:   entry.heroImage || null,
     taxonomy_version: String(taxonomy.version || '0'),
     refreshed_at: new Date().toISOString(),
