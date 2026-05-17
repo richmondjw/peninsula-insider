@@ -12,6 +12,10 @@ import {itineraryStop} from './objects/itineraryStop'
 import {place} from './documents/place'
 import {venue} from './documents/venue'
 import {itinerary} from './documents/itinerary'
+import {experience} from './documents/experience'
+import {tourOperator} from './documents/tourOperator'
+import {tour} from './documents/tour'
+import {tourPackage} from './documents/tourPackage'
 
 export const schemaTypes = [
   // Reusable object types — registered first so documents can reference them.
@@ -31,4 +35,8 @@ export const schemaTypes = [
   place,
   venue,
   itinerary,
+  experience,
+  tourOperator,
+  tour,
+  tourPackage,
 ]
