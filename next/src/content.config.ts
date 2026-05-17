@@ -15,6 +15,7 @@ const zone = z.enum([
   'ocean-coast',
   'back-beaches',
   'tip',
+  'western-port',
 ]);
 
 const season = z.enum(['spring', 'summer', 'autumn', 'winter', 'all-year']);
