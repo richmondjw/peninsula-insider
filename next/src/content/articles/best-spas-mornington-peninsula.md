@@ -30,6 +30,12 @@ faq:
     answer: "Hot springs (Alba and Peninsula Hot Springs) are primarily outdoor geothermal bathing — multiple pools at different temperatures, no treatments required. Resort spas (One Spa, Spa by Jackalope, Endota Mornington) are primarily massage, facial, and treatment programs, often with one or two indoor pools. For a bathing-focused day, book the hot springs. For a treatment-focused day, book a resort spa. Some weekends combine both — bath in the morning, treatment in the afternoon."
   - question: "How far in advance should I book a Mornington Peninsula spa?"
     answer: "Hot springs: 3–4 weeks for weekend sessions in peak season (December–February, school holidays, long weekends). Alba is often harder to get than Peninsula Hot Springs because of lower capacity caps. Midweek sessions are available on much shorter notice. Resort spa treatments: 1–2 weeks for weekends; same-week midweek availability is usually possible. Book the hot springs before booking accommodation — sessions fill faster than beds."
+aiSummary:
+  - "A ranked editorial guide to the Mornington Peninsula's spa and wellness venues — covering thermal bathing, day spa treatments, and overnight spa retreats."
+  - "Key properties covered: Peninsula Hot Springs (the Peninsula's largest thermal bathing facility, Fingal), Alba Thermal Springs (smaller, quieter, Red Hill corridor), Endota Spa (day spa, Mornington), One Spa at RACV Cape Schanck (resort day spa)."
+  - "The editorial distinction between thermal bathing and day spa treatments — which requires advance booking and which can usually accommodate walk-ins."
+  - "Suits: wellness-focused visitors; couples planning a recovery day; anyone who wants to understand the full range of Peninsula wellness options beyond the two major thermal springs."
+  - "Planning note: thermal bathing requires advance booking (weeks ahead on weekends). Day spa treatments at hotel spas can usually be arranged with 1–2 days notice."
 ---
 
 The Mornington Peninsula is the most serious wellness destination in Australia. Two major geothermal bathhouses within fifteen minutes of each other. Resort spas with cliff-edge ocean views. Boutique treatment rooms inside some of the country's most celebrated design hotels. And a geography that makes all of it forty minutes from the nearest winery.

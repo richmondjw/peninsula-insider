@@ -26,6 +26,12 @@ faq:
     answer: "Autumn and winter into spring. Misty mornings, greener edges and the sense that the plateau is working exactly as its climate intended."
   - question: "How far is Main Ridge from Melbourne?"
     answer: "Usually around 75 to 90 minutes by car, depending on which side of the Peninsula you approach from."
+aiSummary:
+  - "Main Ridge is the Mornington Peninsula's highest sub-region — the narrowest and most elevated part of the ridge, producing small quantities of benchmark-quality Pinot Noir and Chardonnay from some of Victoria's most serious small producers."
+  - "Known for: Ten Minutes by Tractor (three vineyard sites, one estate degustation restaurant), Main Ridge Estate (Peninsula's oldest planted vinery), appointment-only producers who are harder to find than their wine quality warrants."
+  - "Different from Red Hill: Main Ridge is quieter, less commercial, and the producers are smaller and often appointment-focused. The experience is more private and wine-nerd oriented."
+  - "Suits: serious wine visitors who have done Red Hill and want to go deeper; people booking a full cellar-door day structured around quality over convenience."
+  - "Planning note: many Main Ridge producers require advance booking. Ten Minutes by Tractor books out months ahead for weekend degustation sessions. Allow a full day."
 ---
 
 Main Ridge expects you to pay attention. There is almost no village theatre here. No useful shopping strip, no concentration of casual cafés, no tidy package for people who want the region explained in one glance. Instead there are ridgeline roads, damp gullies, small producers, and some of the strongest wine-and-lunch territory in Victoria.

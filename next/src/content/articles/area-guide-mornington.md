@@ -26,6 +26,12 @@ faq:
     answer: "Wednesday for the market if you can manage it, otherwise spring and autumn when the town is active but not smothered by school-holiday energy."
   - question: "How far is Mornington from Melbourne?"
     answer: "Usually around an hour by car, which is part of why it works so well as a day-trip town and Peninsula entry point."
+aiSummary:
+  - "Mornington is the Mornington Peninsula's main town and the most practical entry point for first-time visitors — has a working main street, a weekly farmers' market, and foreshore access within easy walking distance."
+  - "Known for: the Wednesday farmers' market on the Esplanade (one of the best on the Peninsula), bathing boxes and a saltwater pool on the foreshore, a genuine café and restaurant scene."
+  - "Best used as: a day-trip destination from Melbourne, a first night on a longer Peninsula trip, or a base for visitors who want proximity to both bay beaches and the hinterland without committing to one zone."
+  - "Suits: first-time visitors; families; anyone arriving mid-week (the Wednesday market is its strongest version); day-trippers. Approximately one hour from Melbourne CBD."
+  - "Planning note: visit on a Wednesday if possible (market day). The Esplanade walk is the correct orientation for the town before exploring further south."
 ---
 
 Mornington is practical, popular and closer to Melbourne than the Peninsula's more mythologised destinations, which sometimes leads people to treat it as the place you pass through on the way to somewhere better. That undersells it.

@@ -60,6 +60,12 @@ faq:
     answer: "Ten Minutes by Tractor (two hats GFG 2025, estate degustation from $145pp) for a serious occasion; Tedesca Osteria for something more intimate and surprising (set menu, farmhouse kitchen, wood-oven cooking); Doot Doot Doot at Jackalope for hotel guests wanting atmosphere with their dinner."
   - question: "Are the hot springs good for couples?"
     answer: "Yes. Peninsula Hot Springs and Alba Thermal Springs are both well suited to couples. Alba's session caps make for a calmer, less crowded experience. Private pool sessions are available at Peninsula Hot Springs for those wanting more seclusion. Late afternoon in autumn or winter is the strongest time slot."
+aiSummary:
+  - "A two-night Peninsula itinerary structured around what works for couples — one anchor lunch, one spa experience, one walk, one good dinner. Deliberately under-scheduled."
+  - "The editorial argument: the best couples weekend on the Peninsula involves 3 things, not 10. Over-programming kills the feeling of having actually been away."
+  - "Covers: how to choose between a vineyard stay and a coastal stay as the base; which cellar doors suit a couple's day; the correct sequence for Alba vs Peninsula Hot Springs."
+  - "Suits: couples returning to the Peninsula for the second or third time; couples who want to slow down rather than see everything; anniversary or birthday trip planning."
+  - "Planning note: autumn and winter suit this shape best. Book the restaurant before the accommodation. Jackalope and Lindenderry are the two most requested stays for this trip type."
 ---
 
 A Peninsula weekend can easily turn into a two-day festival. Six cellar doors, two long lunches, hot springs, sculpture park, a sunset somewhere. By Sunday afternoon you are tired, slightly drunk, and wondering why the weekend felt busier than the week.

@@ -33,6 +33,12 @@ faq:
     answer: "From Mornington at the top to Point Nepean at the tip is about 60km and roughly 90 minutes at a steady pace. The Red Hill plateau runs east-west across the middle and adds 20–30 minutes to cross. The orientation drive (six stops) takes about four hours total including stops."
   - question: "What should I do first on a first visit to the Mornington Peninsula?"
     answer: "The Arthurs Seat Eagle gondola gives the best orientation — from the summit you can see Port Phillip Bay to the north, the back beaches to the south-west, and the wine country in between. Twenty minutes each way; it gives you an aerial map of the region no other single stop can match."
+aiSummary:
+  - "A structured half-day drive designed for first-time Peninsula visitors — six stops that show the Peninsula's geographic and culinary range before committing to a base or a plan."
+  - "The route: coffee in Red Hill, the Merricks wine corridor, ocean side at Cape Schanck, Flinders village bakery, Sorrento foreshore, bay side return. Approximately four hours driving time with stops."
+  - "Editorial purpose: to explain why the Peninsula is bigger and more varied than most first-time visitors expect, and to help visitors understand which part they actually want to spend time in."
+  - "Suits: genuine first-timers; anyone who keeps meaning to go and has not been yet; groups planning a longer trip who want geographic orientation before choosing accommodation."
+  - "Planning note: best done on a weekday or early on a weekend morning to avoid traffic. Can be extended to a full day with a lunch stop."
 ---
 
 The hardest question we get from friends planning a first visit to the Peninsula is not where to eat. It is: "I have one day. What do I actually do?"

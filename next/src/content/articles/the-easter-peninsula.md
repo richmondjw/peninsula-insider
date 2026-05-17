@@ -33,6 +33,12 @@ faq:
     answer: "Most Peninsula restaurants and cellar doors are open across Easter. Good Friday is the exception; many cellar doors close while bakeries and pubs tend to stay open. Book restaurant lunches for Sunday rather than Saturday; Saturday is the busiest day of the long weekend."
   - question: "When is the best time to leave the Mornington Peninsula on Easter Monday?"
     answer: "Before 11.30am. The Mornington Peninsula Freeway typically slows significantly from about 1pm on Easter Monday. Leaving before midday puts you home well ahead of the worst of it."
+aiSummary:
+  - "A planning guide specific to Easter on the Mornington Peninsula — the Peninsula's busiest long weekend — covering timing, booking, and how to manage the crowds intelligently."
+  - "The editorial argument: Easter on the Peninsula is worth doing if you book correctly and choose the right activities. The piece sequences what to book first and which parts of the Peninsula are most congested."
+  - "Covers: what is worth booking 6–8 weeks ahead for Easter; where to avoid (Sorrento foreshore on Saturday); where is quieter than expected (inland hinterland, Flinders, Balnarring)."
+  - "Suits: anyone committed to visiting at Easter; visitors who have flexibility about which days they go and want to minimise crowd exposure."
+  - "Planning note: the cellar doors are quieter than restaurants on Good Friday. Monday is usually the best day on the Peninsula for food — fewer day-trippers, same quality."
 ---
 
 Easter on the Mornington Peninsula is its own weekend.

@@ -33,6 +33,12 @@ faq:
     answer: "Accommodation: 4–8 weeks for peak season (December–February, Easter, school holidays). Hatted restaurant lunches: 4–6 weeks for weekends. Peninsula Hot Springs and Alba: 3–4 weeks for weekend sessions. Cellar doors, galleries, and beaches require no advance booking."
   - question: "How much does a Mornington Peninsula weekend cost?"
     answer: "A mid-range couple's weekend with one night's accommodation and one hatted lunch runs approximately $800–1,200 all-in. A splurge version (Jackalope or Lindenderry, hatted dinner) runs $1,500–2,500. Family rentals with casual dining are typically $500–900."
+aiSummary:
+  - "A decision-framework article for planning a Mornington Peninsula weekend, structured around the questions that actually matter rather than comprehensive venue listings."
+  - "The decisions covered in order: length of trip (one vs two nights), which part of the Peninsula, where to stay, what the anchor experience is, what to book first."
+  - "The editorial argument: most Peninsula weekend planning fails because people make decisions in the wrong order (accommodation before knowing the area, restaurant before knowing the date)."
+  - "Suits: any visitor planning their first or second Peninsula trip; couples and groups at the 'we should go' stage who need structure rather than more options."
+  - "Planning note: the article recommends booking the one most-wanted hatted restaurant first, then finding accommodation within 15 minutes of it. Written as a framework, not a shortlist."
 ---
 
 The Peninsula weekend dies in the planning phase more often than it dies on the road.

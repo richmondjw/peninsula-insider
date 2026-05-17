@@ -33,6 +33,12 @@ faq:
     answer: "A minimum of two and a half to three hours to reach the fort and return. With the Quarantine Station, Cheviot Hill lookout, and fort tunnels, allow four hours. Entry to the park is free; the shuttle carries a small fare."
   - question: "Is Point Nepean suitable for families with young children?"
     answer: "The sealed walking road is stroller-friendly and the shuttle removes the 11km return walk, making it accessible for families. Cheviot Hill is a short detour from the main path. The fort tunnels are dark — a phone torch helps but is not required. Allow for slower walking pace with young children."
+aiSummary:
+  - "A planning guide for visiting Point Nepean National Park — the national park at the very end of the Peninsula, accessible by shuttle bus from the Portsea end."
+  - "Covers: the correct shuttle bus booking process; which walk to do based on fitness and time; what the historic fortifications and quarantine station offer beyond the views."
+  - "The editorial argument: Point Nepean is systematically undervisited partly because the booking process is opaque and the experience isn't immediately obvious from the road."
+  - "Suits: first-time visitors with a half-day, walkers, history-interested visitors, anyone staying in Sorrento or Portsea who wants to understand the Peninsula's tip properly."
+  - "Planning note: book the shuttle bus in advance especially in peak season. Bring water, good walking shoes, and more time than you think. The walk to the headland and back is 3–4 hours at a comfortable pace."
 ---
 
 **Point Nepean National Park** sits at the very tip of the Mornington Peninsula, directly west of Portsea, pointing into the narrow gap between Port Phillip and Bass Strait that sailors call the Rip. The park is seven kilometres long, about a kilometre wide, and contains three distinct stories: a nineteenth-century quarantine station, a military defence complex with gun batteries from three wars, and a double-coast walking corridor with views in both directions.

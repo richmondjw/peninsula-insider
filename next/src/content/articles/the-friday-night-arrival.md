@@ -50,6 +50,12 @@ faq:
     answer: "Balnarring Pub for Red Hill hinterland stays (garden, good pub menu, call ahead). Flinders Hotel for southern Peninsula stays (a step above standard pub fare, walk-ins usually fine). Hotel Sorrento front bar for Sorrento, ordering from the bar menu rather than the bistro."
   - question: "Can I do a provisions stop instead of eating out on Friday night on the Peninsula?"
     answer: "Yes, and it is often the better option. Stop at Epicurean Red Hill or the Red Hill Bakery strip for bread, cheese, and a roast chicken, then Merricks General Wine Store for wine. Alternatively, the Flinders General Store carries a curated range of exactly this combination. The deck dinner of bread, cheese, cold chicken, and wine is one of the simplest pleasures the Peninsula offers."
+aiSummary:
+  - "A planning framework for arriving at the Mornington Peninsula on a Friday evening — the most common arrival pattern and the one most likely to go wrong without a clear plan."
+  - "The framework: book dinner as the first anchor (arriving hungry with no plan on a Friday evening at Sorrento or Red Hill is the most common Peninsula disaster), then get to the accommodation before 8pm."
+  - "Covers: which restaurants are worth a Friday evening booking versus which to leave for Saturday; how to sequence the first few hours to make the weekend feel like it started well."
+  - "Suits: any visitor arriving on a Friday; couples planning a weekend where Friday evening matters."
+  - "Planning note: Friday evening traffic via Peninsula Link is significant from 4–7pm. Build in time. The restaurants that suit a Friday arrival are often different from the ones worth a Saturday lunch."
 ---
 
 The Peninsula weekend does not start at the cellar door on Saturday morning. It starts at six o'clock on Friday evening when you pull into the driveway of wherever you are staying and realise that you are hungry, the sun is going down, and the weekend has technically begun but you have not yet done anything with it.

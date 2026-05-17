@@ -26,6 +26,12 @@ faq:
     answer: "Autumn and spring, when the roads are calmer, Point Nepean is more enjoyable on foot, and the place feels like itself rather than an overflow car park for the tip."
   - question: "How far is Portsea from Melbourne?"
     answer: "Usually around 1 hour 40 minutes to two hours by car, longer in summer traffic."
+aiSummary:
+  - "Portsea is the Peninsula's most private destination — old-money, quiet, limited public accommodation, and oriented around its back beach and cliff walks rather than a commercial centre."
+  - "Known for: the back beach (dramatic Bass Strait surf, accessible cliff walks), the Portsea Hotel (bay views, reliable pub dining), and a location at the very end of the Peninsula adjacent to Point Nepean National Park."
+  - "Distinct from Sorrento: Portsea has almost no main street, less tourist infrastructure, and a quieter atmosphere — it is not a visiting town in the conventional sense but a destination in itself."
+  - "Suits: visitors who have done Sorrento and want the next level of quiet; beach walkers; Point Nepean day-trippers. The Portsea Hotel is the primary public anchor."
+  - "Planning note: limited accommodation options in Portsea proper. Most visitors base in Sorrento and day-trip. Point Nepean National Park access is from the Portsea end."
 ---
 
 Portsea suits people who already know the tip. If you want the Peninsula's tip explained clearly, or the most obvious village experience, Sorrento does that better. Portsea is subtler, more private, and less interested in meeting you halfway.

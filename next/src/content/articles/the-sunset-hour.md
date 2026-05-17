@@ -31,6 +31,12 @@ faq:
     answer: "Sorrento Back Beach at dusk — sandstone cliffs catch the last indirect light, the beach empties by 5pm in autumn, and a 30-minute walk south is one of the Peninsula's most underrated experiences. Mornington Foreshore for a flat, accessible alternative facing directly west across the bay. Both are free, require no booking, and work best in autumn when the light is warmest."
   - question: "Where can I have a sunset drink on the Mornington Peninsula?"
     answer: "Hotel Sorrento rooftop for the social version — arrive 30 minutes before sunset. The Baths Sorrento for a quieter waterfront option, better for couples than groups. Pt Leo Wine Terrace for serious wine and views across Western Port Bay to Phillip Island. Polperro cellar door on evenings they are open — the most intimate option, with vineyard views that catch the last light beautifully."
+aiSummary:
+  - "A guide to the best sunset experiences on the Mornington Peninsula — structured around specific locations and the correct timing for each."
+  - "Key locations: Arthurs Seat lookout (hinterland ridge view toward Port Phillip Bay, best in autumn and winter), Sorrento foreshore (bay-facing, classic postcard), Flinders pier (ocean-side drama), the wineries on the Red Hill ridge road."
+  - "The editorial argument: Peninsula sunsets are one of the most consistently underplanned parts of a Peninsula visit. A correct sunset experience requires knowing where to be and when."
+  - "Suits: all visitors; particularly couples and photographers; anyone who wants to add a specific visual anchor to a Peninsula day."
+  - "Planning note: sunset times shift significantly by season. Winter sunsets on the ridge are earlier but more dramatic. The article includes typical seasonal timing notes."
 ---
 
 The Peninsula's evenings are wasted by almost everyone who visits.

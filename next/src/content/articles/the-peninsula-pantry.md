@@ -49,6 +49,12 @@ faq:
     answer: "Pier Street Seafood in Flinders for fresh local catch. At the Mornington Farmers Market (second Saturday), oyster and seafood stalls carry excellent product — arrive by 9am before the best fish sells through, as chefs shop here too."
   - question: "Is it worth cooking in a Peninsula rental instead of eating out?"
     answer: "Yes — once per trip at minimum. The region's producers are the same larder the hatted restaurants draw from, and you can access them directly for roughly a third of the restaurant cost. One weekend shopping the markets, cooking a whole chicken, and opening a bottle of pinot you bought from the winemaker is the version of the Peninsula experience the restaurants are filtering for you."
+aiSummary:
+  - "A guide to the Mornington Peninsula's best food producers, farm gates, and specialty food shops — structured as a way to understand the Peninsula's agricultural identity."
+  - "Key stops: Red Hill Cheese, the Red Hill Bakery, Balnarring Organic Farm, Boneo Plains Alpacas, the Merricks General Wine Store produce section, and the Flinders Sourdough."
+  - "The editorial argument: the Peninsula's food culture is more interesting than its restaurant list suggests. The farm gates and produce shops tell a different, more specific story."
+  - "Suits: food-focused visitors; anyone interested in provenance and regional food identity; visitors who want to take something home from the Peninsula."
+  - "Planning note: most farm gates operate on limited hours or by arrangement. Red Hill Market on a first Saturday is the single best way to access most of these producers in one morning."
 ---
 
 A weekend with a kitchen is a weekend with an unusually good larder within reach: sourdough from a wood oven on Friday night, single-origin oil from a grove you can see from the kitchen window, a rib-eye from a farmer whose paddock you drove past on the way in. If you have booked anywhere with a kitchen, Saturday morning rewards shopping over eating out.

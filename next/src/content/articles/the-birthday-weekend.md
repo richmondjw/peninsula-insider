@@ -33,6 +33,12 @@ faq:
     answer: "Match the stay to the dinner. Jackalope if dining at Doot Doot Doot: no driving, walk from room to table. Lindenderry at Red Hill for the country-house celebration. Point Leo Estate Villas to wake up in the same landscape as the Laura dinner. Crittenden or Polperro Villas for a private vineyard villa for two."
   - question: "How far in advance should I book a birthday dinner on the Mornington Peninsula?"
     answer: "Three to six months for peak-season Saturdays at Laura, Tedesca Osteria, or Ten Minutes by Tractor. Six weeks for quieter weekends. Book Doot Doot Doot at Jackalope at least four weeks out for a weekend date."
+aiSummary:
+  - "A Peninsula weekend framework structured specifically for birthday celebrations — covers what makes a Peninsula birthday weekend work and what to avoid."
+  - "Covers: which accommodation properties are best set up for celebration contexts; how to find a table at a hatted restaurant for a group; what extras to pre-arrange."
+  - "The editorial distinction: a birthday weekend needs one genuinely extraordinary meal, not a full schedule of events. The rest of the trip should be calmer and lower-key."
+  - "Suits: anyone planning a milestone birthday trip for 2–6 people; couples celebrating a birthday or anniversary on the Peninsula."
+  - "Planning note: birthday and anniversary requests need to be made directly with the restaurant when booking, not assumed. The piece includes specific language to use."
 ---
 
 The Peninsula is one of the best places in Australia to stage a significant birthday. It is also the place where most birthday weekends quietly miss the mark.

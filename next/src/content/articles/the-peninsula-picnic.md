@@ -33,6 +33,12 @@ faq:
     answer: "Three stops: bread from Flinders Sourdough (walnut sourdough loaf, holds well for hours); cheese from Red Hill Cheese or Main Ridge Dairy (one washed-rind, one cheddar or halloumi); and olives, tapenade, and cured meats from Green Olive at Red Hill. Add fruit from Peninsula Fresh Organics and one bottle of local pinot from Merricks General Wine Store. One hour, under $100 for two people."
   - question: "What time of year is best for a Peninsula picnic?"
     answer: "March to May and September to November. Summer is too hot and too crowded; the cheese sweats, the wine warms, and the good spots are taken. Autumn is the sweet spot — warm enough to sit on grass, cool enough to keep food fresh, quiet enough that the sculpture parks and beaches are not crowded. Arrive before noon, eat by 12:30, and pack up by 3pm before the autumn chill arrives."
+aiSummary:
+  - "A guide to the best picnic spots and picnic-enabling food sources on the Mornington Peninsula — structured as a half-day or full-day itinerary."
+  - "The route: buy from one of the Peninsula's farm-gate or market sources, choose a location based on the season and the group, arrive before midday."
+  - "Key locations: Red Hill Market on a first Saturday (best produce selection), Arthurs Seat lookout reserve, Point Leo Estate grounds (public access), Cape Schanck clifftop."
+  - "Suits: families; couples wanting a low-key Peninsula day; anyone who wants an alternative to restaurant lunch on a good weather day."
+  - "Planning note: the Peninsula's best picnic spots are not signposted. The article provides specific GPS-level guidance for the locations that actually work."
 ---
 
 The Peninsula picnic is one of those things that rewards a bit of planning.
