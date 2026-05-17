@@ -465,7 +465,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
   {(() => {
     const elImage = cmsImage['editors-letter.image'];
     const editorsLetterTitle = cmsText['editors-letter.title']
-      ?? `On the <em>quiet authority</em> of a good ${seasonBlurbData.label?.toLowerCase() ?? 'autumn'}.`;
+      ?? `On the <em>quiet authority</em> of a good ${season ?? 'autumn'}.`;
     const editorsLetterParagraphs = [
       cmsText['editors-letter.paragraphs.0']
         ?? `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year.`,
