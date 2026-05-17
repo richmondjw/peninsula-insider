@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Corrections' },
+];
+
+const lastUpdated = '17 May 2026';
+---
+
+<BaseLayout
+  title="Corrections | Peninsula Insider"
+  description="How Peninsula Insider handles corrections, clarifications and editorial updates. Spotted something wrong? Tell us."
+  section="home"
+  canonical="https://peninsulainsider.com.au/corrections/"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="legal">
+    <div class="container">
+      <div class="legal__header">
+        <p class="label label--accent">Editorial standards</p>
+        <h1 class="legal__title">Corrections &amp; clarifications</h1>
+        <p class="legal__updated">Policy last updated: {lastUpdated}</p>
+      </div>
+
+      <div class="legal__body prose">
+        <p>Peninsula Insider takes accuracy seriously. If something we have published is wrong, incomplete or misleading, we correct it. Quickly, openly and on the page where the error appeared.</p>
+
+        <h2>What counts as a correction</h2>
+        <p>We treat the following as material errors that require a correction:</p>
+        <ul>
+          <li>Factual inaccuracies in editorial copy (names, dates, prices, addresses, opening hours, ownership)</li>
+          <li>Misattributed quotes or mischaracterised positions</li>
+          <li>Out-of-date information that materially misleads a reader planning a visit</li>
+          <li>Photo credits or captions that are wrong or missing</li>
+          <li>Broken or misdirected booking and ticketing links</li>
+        </ul>
+        <p>Minor copy edits, typo fixes and structural improvements are made silently. Material corrections are noted.</p>
+
+        <h2>How we handle them</h2>
+        <ol>
+          <li><strong>Verify</strong> the error against the original source or a fresh check with the venue or organiser.</li>
+          <li><strong>Update</strong> the page with the correct information.</li>
+          <li><strong>Note</strong> the correction at the foot of the article where the change is material, with the date.</li>
+          <li><strong>Reply</strong> to the reader who flagged it, where contact details were provided.</li>
+        </ol>
+
+        <h2>Reporting an error</h2>
+        <p>If you have spotted something that needs fixing, write to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>. Include the page URL and a brief description of the issue. We act on corrections promptly, typically within one business day.</p>
+
+        <h2>If you remain dissatisfied</h2>
+        <p>If you have raised a correction and feel it has not been handled properly, you can escalate through our <a href="/complaints/">complaints process</a>.</p>
+
+        <h2>Related</h2>
+        <ul>
+          <li><a href="/editorial-approach/">Editorial approach</a></li>
+          <li><a href="/ethics/">Code of ethics</a></li>
+          <li><a href="/complaints/">Complaints</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
