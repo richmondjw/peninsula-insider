@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import GuideHero from '../../components/GuideHero.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
@@ -93,17 +92,17 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <Breadcrumbs items={breadcrumbItems} />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       1. CINEMATIC HERO
+       1. LIGHTWEIGHT PAGE HEADER
+       Minimal. Destinations are the page's primary function — the header
+       introduces, the grid delivers. No hero image on this page.
        ═══════════════════════════════════════════════════════════════ -->
-  <GuideHero
-    eyebrow="Places"
-    title="The Peninsula, town by <em>town</em>"
-    dek="The Peninsula is easier to understand through its places: harbour towns, ridge villages, bay beaches, ocean edges, and the tip. Get the geography right and the rest of the trip arranges itself."
-    heroImage="/images/sourced/places-hub-hero-01.webp"
-    imageAlt="The Mornington Peninsula coastline — bay on one side, Bass Strait on the other"
-    imageCredit="Peninsula Insider"
-    entitySlug="places"
-  />
+  <div class="places-page-header">
+    <div class="container">
+      <p class="label label--accent places-page-header__eyebrow">Peninsula Insider</p>
+      <h1 class="places-page-header__title">Peninsula destinations</h1>
+      <p class="places-page-header__dek">Choose where you want to be. Each page is a complete guide.</p>
+    </div>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════════════════
        2. PRIMARY DESTINATIONS — immediately after hero, destination-first.
@@ -252,9 +251,40 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 </BaseLayout>
 
 <style>
+  /* ── Lightweight page header ── */
+  .places-page-header {
+    padding: 2rem 0 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .places-page-header__eyebrow {
+    margin-bottom: 0.35rem;
+  }
+  .places-page-header__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.05;
+    margin: 0 0 0.5rem;
+  }
+  .places-page-header__dek {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin: 0;
+    max-width: 36rem;
+  }
+  @media (max-width: 640px) {
+    .places-page-header {
+      padding: 1.5rem 0 1.25rem;
+    }
+    .places-page-header__title {
+      font-size: 1.6rem;
+    }
+  }
+
   /* Primary destinations — leads the page, full editorial weight */
   .places--primary {
-    padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
+    padding: clamp(2rem, 4vw, 3rem) 0 clamp(3rem, 5vw, 4.5rem);
   }
   .places__header--primary {
     margin-bottom: 2.5rem;
