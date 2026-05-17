@@ -9,6 +9,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { routeSlug } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { editableText } from '../../lib/inline-edit/attrs';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const places = (await getCollection('places')).sort((a, b) => a.data.name.localeCompare(b.data.name));
@@ -104,8 +105,8 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <div class="places-page-header">
     <div class="container">
       <p class="label label--accent places-page-header__eyebrow">Peninsula Insider</p>
-      <h1 class="places-page-header__title">Peninsula destinations</h1>
-      <p class="places-page-header__dek">Choose where you want to be. Each page is a complete guide.</p>
+      <h1 class="places-page-header__title" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.title', label: 'Places — title' })}>Peninsula destinations</h1>
+      <p class="places-page-header__dek" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.dek', label: 'Places — dek' })}>Choose where you want to be. Each page is a complete guide.</p>
     </div>
   </div>
 
