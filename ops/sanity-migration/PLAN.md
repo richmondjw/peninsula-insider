@@ -1,6 +1,6 @@
 # Peninsula Insider — Sanity Migration Plan
 
-**Status:** Phase 0 in progress
+**Status:** Phase 1 ready for prod cutover
 **Started:** May 2026
 **Target completion:** ~10–12 calendar weeks
 **Source of truth after cutover:** Sanity (project `a062b30n`, dataset `production`)
@@ -62,25 +62,26 @@ Each phase flips its own flag to `true`. If anything breaks, flip back to `false
 
 ## Phase tracker
 
-### Phase 0 — Foundations *(in progress)*
-- [x] Studio bootstrap (Studio is live at localhost:3333)
+### Phase 0 — Foundations *(complete)*
+- [x] Studio bootstrap
 - [x] Schema scaffold (imageRef, coordinates, authority, tags, place, venue)
 - [x] PoC import (5 venues + 5 places, idempotent)
-- [ ] Custom domain for Studio (`studio.peninsulainsider.com.au`)
-- [ ] Production studio deploy (`sanity deploy`)
-- [ ] Read/write/preview tokens issued
-- [ ] Vercel env vars wired
-- [ ] Astro Sanity client + image helper + query module
-- [ ] Webhook handler at `/api/revalidate` (HMAC-verified)
-- [ ] Feature flag plumbing in Astro
-- [ ] Daily dataset export cron
+- [ ] Custom domain for Studio (`studio.peninsulainsider.com.au`) — DNS pending
+- [x] Production studio deploy at https://peninsula-insider.sanity.studio/
+- [x] Read + Preview + Webhook secret issued
+- [x] Vercel env vars wired (14 vars, all 3 environments)
+- [x] Astro Sanity client + image helper + query module
+- [x] Webhook handler at `/api/revalidate` (HMAC-verified)
+- [x] Feature flag plumbing in Astro
+- [ ] Daily dataset export cron — Phase 2 starter
 
-### Phase 1 — Venues
-- [ ] Schema review with Emma (refine field groups, add `whyWeGo`/`bestFor`/`ifOnlyOneThing`/`pairWith`)
-- [ ] Full venue import (~250 venues)
-- [ ] Merge Supabase venue/hero overrides (113 rows)
-- [ ] Update `VenueDetailTemplate.astro` for dual-read
-- [ ] Diff script: HTML output JSON-path vs Sanity-path
+### Phase 1 — Venues *(ready for prod cutover)*
+- [x] Schema extended (whyWeGo, editorVerdict, bestFor, ifOnlyOneThing, pairWith, subregion, wines, visiting, restaurant, accommodation, sameAs, faq, lastFactVerified)
+- [x] Full venue import — 141 of 141 imported (no failures)
+- [x] Merge Supabase venue/hero overrides — 22 applied with JSON-fallback for upstream errors
+- [x] Astro adapter (next/src/lib/sanity/venue-adapter.ts) feeds existing VenueDetailTemplate
+- [x] Dual-read wired in eat/[slug], wine/[slug], stay/[slug] behind `SANITY_VENUES_ENABLED`
+- [x] Diff script — 141/141 clean field-by-field comparison
 - [ ] Flip `SANITY_VENUES_ENABLED=true` on prod
 - [ ] 1-week dual-run monitoring
 - [ ] Delete JSON path, archive `next/src/content/venues/`
