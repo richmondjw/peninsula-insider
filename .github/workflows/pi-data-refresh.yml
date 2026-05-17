@@ -1,0 +1,94 @@
+name: PI data refresh
+
+# Data-layer refresh — content_registry → entity_index → embeddings.
+#
+# Independent of the full deploy. Runs ALL three projector steps against
+# Supabase but does NOT rebuild or redeploy the static site. Cheap and
+# idempotent: ~30s end-to-end when nothing has drifted.
+#
+# Three triggers, in priority order:
+#   1. workflow_dispatch — manual / OpenClaw cron via `gh workflow run`
+#   2. schedule (cron)   — 03:00 UTC daily as a safety net
+#   3. push to main      — already covered by deploy.yml, NOT triggered here
+#
+# Why a separate workflow from deploy.yml:
+#   - Deploy is heavy: build 1,300+ pages, sync to root, push to gh-pages.
+#     Running it every 6h burns CI minutes and produces noisy run logs.
+#   - This workflow is data-only. Safe to fire frequently from cron.
+#   - If you want to re-deploy the site too, trigger deploy.yml separately.
+
+on:
+  workflow_dispatch:
+    inputs:
+      embed:
+        description: 'Run embedding refresh (requires OPENAI_API_KEY)'
+        required: false
+        default: 'true'
+        type: boolean
+  schedule:
+    # 03:00 UTC daily = 13:00 / 14:00 Melbourne (winter / summer). Overnight
+    # in production, before the morning editorial run begins.
+    - cron: '0 3 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pi-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        working-directory: next
+        run: npm ci --no-audit --no-fund
+
+      - name: Refresh content registry
+        env:
+          SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node next/scripts/refresh-content-registry.mjs
+
+      - name: Refresh entity index
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node next/scripts/refresh-entity-index.mjs --apply
+
+      - name: Embed entity index
+        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.embed != 'false' }}
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo "::notice::OPENAI_API_KEY not configured; skipping embedding refresh."
+            exit 0
+          fi
+          node next/scripts/embed-entity-index.mjs --apply
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## PI data refresh"
+            echo ""
+            echo "- Trigger: ${{ github.event_name }}"
+            echo "- Started: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+            echo ""
+            echo "Pipeline: content_registry → entity_index → embeddings."
+          } >> "$GITHUB_STEP_SUMMARY"
