@@ -1,33 +1,85 @@
 ---
-/* Footer — V2 design (colophon).
-   Strangler-fig migration of the legacy three-column footer.
-   Keeps the dynamic places-collection pattern from the legacy
-   Footer.astro so newly-published places surface automatically.
-   Namespaced .v2-colophon* / .v2-col-sect* for clean coexistence
-   with anything else; CSS inline so the component is self-contained. */
-
-import { getCollection } from 'astro:content';
-import {
-  footerAboutLinks as aboutLinks,
-  footerUtilityLinks as utilityLinks,
-  buildFooterPlaceLinks,
-} from '../lib/nav';
-import { v4FooterDepartments as sectionLinks } from '../lib/v4-nav';
+/**
+ * Footer — Project Awesome Footer (May 2026 rebuild).
+ *
+ * Editorial-publication footer with newsletter band, 5-column link grid
+ * (Sections / The Insider / Do Business / Readers / Contact + Social),
+ * Acknowledgement of Country, and a full legal line naming the trading
+ * entity (Optiflows Pty Ltd) with ABN and ACN.
+ *
+ * Replaces the prior V2 colophon. Namespaced .pi-foot-* for clean
+ * cohabitation; CSS inline so the component is self-contained.
+ */
 
 const year = new Date().getFullYear();
-const places = await getCollection('places');
-const placeLinks = buildFooterPlaceLinks(places);
+
+type Link = { href: string; label: string };
+
+const sectionLinks: Link[] = [
+  { href: '/eat/', label: 'Eat & Drink' },
+  { href: '/stay/', label: 'Stay' },
+  { href: '/explore/', label: 'Do' },
+  { href: '/wine/', label: 'Wine' },
+  { href: '/plans/', label: 'Plans' },
+  { href: '/whats-on/', label: "What's On" },
+  { href: '/journal/', label: 'Journal' },
+  { href: '/picks/', label: 'Picks' },
+  { href: '/map/', label: 'Map' },
+];
+
+const insiderLinks: Link[] = [
+  { href: '/about/', label: 'About' },
+  { href: '/editorial-approach/', label: 'Editorial Approach' },
+  { href: '/corrections/', label: 'Corrections' },
+  { href: '/ethics/', label: 'Code of Ethics' },
+  { href: '/complaints/', label: 'Complaints' },
+];
+
+const businessLinks: Link[] = [
+  { href: '/partners/advertising-kit/', label: 'Advertise' },
+  { href: '/partners/', label: 'Partner with us' },
+  { href: '/submit/', label: 'Submit a tip' },
+  { href: '/submit/?type=event', label: 'Submit an event' },
+  { href: '/contact/', label: 'Press inquiries' },
+  { href: '/careers/', label: 'Careers' },
+];
+
+const readerLinks: Link[] = [
+  { href: '/account/', label: 'Sign in' },
+  { href: '/pass/', label: 'Pass' },
+  { href: '/account/saved/', label: 'Saved & Plans' },
+  { href: '/newsletter/', label: 'Newsletters' },
+  { href: '/feed.xml', label: 'RSS' },
+  { href: '/site-index/', label: 'Sitemap' },
+  { href: '/accessibility/', label: 'Accessibility' },
+];
+
+const contactEmails: Link[] = [
+  { href: 'mailto:hello@peninsulainsider.com.au', label: 'hello@peninsulainsider.com.au' },
+  { href: 'mailto:tips@peninsulainsider.com.au', label: 'tips@peninsulainsider.com.au' },
+  { href: 'mailto:corrections@peninsulainsider.com.au', label: 'corrections@peninsulainsider.com.au' },
+  { href: 'mailto:advertising@peninsulainsider.com.au', label: 'advertising@peninsulainsider.com.au' },
+];
+
+const legalLinks: Link[] = [
+  { href: '/privacy/', label: 'Privacy' },
+  { href: '/terms/', label: 'Terms' },
+  { href: '/editorial-approach/', label: 'Editorial Approach' },
+  { href: '/corrections/', label: 'Corrections' },
+];
 ---
 
-<footer class="v2-colophon">
-  <div class="v2-colophon__container">
-    <div class="v2-colophon__head">
-      <div class="v2-colophon__wordmark">Peninsula <em>Insider</em></div>
+<footer class="pi-foot" role="contentinfo">
+  <div class="pi-foot__container">
+
+    <div class="pi-foot__masthead">
+      <div class="pi-foot__wordmark">Peninsula <em>Insider</em></div>
+      <div class="pi-foot__motto">Built on the Peninsula, for the Peninsula.</div>
     </div>
 
-    <div class="v2-colophon__grid">
-      <nav class="v2-col-sect" aria-label="Browse">
-        <p class="v2-col-sect__title">Browse</p>
+    <div class="pi-foot__grid">
+      <nav class="pi-foot__col" aria-labelledby="pi-foot-sections">
+        <h2 id="pi-foot-sections" class="pi-foot__col-title">Sections</h2>
         <ul>
           {sectionLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
@@ -35,70 +87,118 @@ const placeLinks = buildFooterPlaceLinks(places);
         </ul>
       </nav>
 
-      <nav class="v2-col-sect" aria-label="Places">
-        <p class="v2-col-sect__title">Places</p>
+      <nav class="pi-foot__col" aria-labelledby="pi-foot-insider">
+        <h2 id="pi-foot-insider" class="pi-foot__col-title">The Insider</h2>
         <ul>
-          {placeLinks.map((link) => (
+          {insiderLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
           ))}
         </ul>
       </nav>
 
-      <nav class="v2-col-sect" aria-label="About">
-        <p class="v2-col-sect__title">About</p>
+      <nav class="pi-foot__col" aria-labelledby="pi-foot-business">
+        <h2 id="pi-foot-business" class="pi-foot__col-title">Do Business</h2>
         <ul>
-          {aboutLinks.map((link) => (
-            <li>
-              <a href={link.href}>{link.label}</a>
-            </li>
+          {businessLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
           ))}
         </ul>
       </nav>
-    </div>
 
-    <nav class="v2-colophon__utility" aria-label="Utility">
-      <ul class="v2-colophon__utility-list">
-        {utilityLinks.map((link) => (
-          <li>
+      <nav class="pi-foot__col" aria-labelledby="pi-foot-readers">
+        <h2 id="pi-foot-readers" class="pi-foot__col-title">Readers</h2>
+        <ul>
+          {readerLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="pi-foot__col" aria-labelledby="pi-foot-contact">
+        <h2 id="pi-foot-contact" class="pi-foot__col-title">Contact</h2>
+        <ul class="pi-foot__contact">
+          {contactEmails.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+        <div class="pi-foot__social">
+          <h3 class="pi-foot__social-title">Follow</h3>
+          <div class="pi-foot__social-row">
             <a
-              href={link.href}
-              data-pi-consent={link.key === 'cookies' ? 'open' : undefined}
-            >{link.label}</a>
-          </li>
+              href="https://www.instagram.com/peninsula_insider/"
+              rel="me noopener"
+              target="_blank"
+              aria-label="Peninsula Insider on Instagram (opens in new tab)"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/peninsulainsider"
+              rel="me noopener"
+              target="_blank"
+              aria-label="Peninsula Insider on Facebook (opens in new tab)"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-7.5h2.52l.38-2.93H13.5V8.7c0-.85.24-1.43 1.46-1.43h1.56V4.65c-.27-.04-1.2-.12-2.28-.12-2.26 0-3.8 1.38-3.8 3.9v2.17H7.92v2.93h2.52V21h3.06Z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/peninsula-insider"
+              rel="me noopener"
+              target="_blank"
+              aria-label="Peninsula Insider on LinkedIn (opens in new tab)"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.94 8.5H4.06V20h2.88V8.5ZM5.5 4.25a1.66 1.66 0 1 0 0 3.33 1.66 1.66 0 0 0 0-3.33ZM20 20h-2.88v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V20H10.2V8.5h2.77v1.57h.04c.39-.74 1.34-1.52 2.76-1.52 2.95 0 3.5 1.94 3.5 4.47V20Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="pi-foot__aoc">
+      Peninsula Insider is published on the unceded lands of the Bunurong / Boon Wurrung
+      people of the Kulin Nation. We pay our respects to Elders past and present and
+      acknowledge their continuing connection to land, waters and culture.
+    </p>
+
+    <div class="pi-foot__legal">
+      <div class="pi-foot__legal-copy">
+        &copy; {year} <strong>Peninsula Insider</strong>, a trading name of Optiflows Pty Ltd
+        <span class="pi-foot__dot">·</span> ABN 71 155 199 637
+        <span class="pi-foot__dot">·</span> ACN 155 199 637
+      </div>
+      <ul class="pi-foot__legal-links">
+        {legalLinks.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
         ))}
+        <li><a href="#cookie-settings" data-pi-consent="open">Cookie settings</a></li>
       </ul>
-    </nav>
-
-    <div class="v2-colophon__disclaimer">
-      <p>Peninsula Insider is an editorial platform sharing curated recommendations based on our own research and experience. While we aim to keep information accurate, details such as opening hours, pricing, and availability may change. Please confirm directly with venues before visiting.</p>
-      <p>From time to time, we may work with partners or accept invitations. Where this occurs, it will be disclosed within the relevant content. Our recommendations remain independently curated.</p>
     </div>
 
-    <div class="v2-colophon__social">
-      <a href="https://www.instagram.com/peninsula_insider/" target="_blank" rel="noopener noreferrer" class="v2-colophon__social-link">Instagram</a>
-    </div>
-
-    <div class="v2-colophon__foot">
-      <span>© {year} Peninsula Insider <span class="v2-col-sect__ornament">·</span> All rights reserved.</span>
-      <span><em>Built on the Peninsula, for the Peninsula.</em></span>
-    </div>
   </div>
 </footer>
 
 <style is:global>
-  .v2-colophon {
+  .pi-foot {
     background: var(--paper-warm, #F3EDDE);
-    padding: clamp(4rem, 7vw, 6rem) 0 2rem;
+    padding: clamp(4rem, 7vw, 6rem) 0 1.5rem;
     border-top: 4px solid var(--ink, #171413);
     color: var(--ink-soft, #3A3531);
     font-family: var(--sans, 'Inter', system-ui, sans-serif);
   }
-  .v2-colophon__container {
+  .pi-foot__container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 clamp(1.25rem, 4vw, 2.5rem);
   }
-  .v2-colophon__head {
+
+  .pi-foot__masthead {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -108,7 +208,7 @@ const placeLinks = buildFooterPlaceLinks(places);
     flex-wrap: wrap;
     gap: 1rem;
   }
-  .v2-colophon__wordmark {
+  .pi-foot__wordmark {
     font-family: var(--serif, 'Newsreader', Georgia, serif);
     font-size: clamp(1.6rem, 3vw, 2rem);
     font-weight: 500;
@@ -116,114 +216,37 @@ const placeLinks = buildFooterPlaceLinks(places);
     color: var(--ink, #171413);
     font-variation-settings: 'opsz' 48;
   }
-  .v2-colophon__wordmark em {
+  .pi-foot__wordmark em {
     color: var(--ochre, #A0541F);
     font-style: italic;
     font-weight: 300;
   }
-  .v2-colophon__motto {
+  .pi-foot__motto {
     font-family: var(--serif, 'Newsreader', Georgia, serif);
     font-style: italic;
     font-size: 0.95rem;
     color: var(--ink-muted, #6E655C);
     font-variation-settings: 'opsz' 18;
   }
-  .v2-colophon__grid {
+
+  .pi-foot__grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: clamp(2rem, 4vw, 3.5rem);
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: 2.5rem;
   }
-  @media (max-width: 880px) {
-    .v2-colophon__grid {
-      grid-template-columns: 1fr 1fr;
-    }
+  @media (max-width: 1024px) {
+    .pi-foot__grid { grid-template-columns: repeat(3, 1fr); }
   }
-  @media (max-width: 560px) {
-    .v2-colophon__grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
+  @media (max-width: 720px) {
+    .pi-foot__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   }
-  .v2-colophon__disclaimer {
-    border-top: 1px solid var(--line, #D9D1BE);
-    padding-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .v2-colophon__disclaimer p {
-    font-size: 0.78rem;
-    color: var(--ink-muted, #6E655C);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-    max-width: 72ch;
-  }
-  .v2-colophon__social {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .v2-colophon__social-link {
-    font-size: 0.82rem;
-    color: var(--ink-soft, #3A3531);
-    text-decoration: none;
-    transition: color .18s ease;
-  }
-  .v2-colophon__social-link:hover { color: var(--ochre, #A0541F); }
-  .v2-colophon__utility {
-    border-top: 1px solid var(--line-soft, #E8E2D1);
-    padding-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .v2-colophon__utility-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.4rem;
-  }
-  .v2-colophon__utility-list a {
-    font-size: 0.78rem;
-    color: var(--ink-muted, #6E655C);
-    text-decoration: none;
-    transition: color .18s ease;
-  }
-  .v2-colophon__utility-list a:hover { color: var(--ochre, #A0541F); }
-  .v2-colophon__foot {
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line-soft, #E8E2D1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    font-size: 0.78rem;
-    color: var(--ink-muted, #6E655C);
-  }
-  .v2-colophon__foot em {
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-style: italic;
-    font-variation-settings: 'opsz' 16;
+  @media (max-width: 480px) {
+    .pi-foot__grid { grid-template-columns: 1fr; }
   }
 
-  .v2-col-sect ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-  .v2-col-sect a {
-    font-size: 0.9rem;
-    color: var(--ink-soft, #3A3531);
-    text-decoration: none;
-    transition: color .18s ease;
-  }
-  .v2-col-sect a:hover { color: var(--ochre, #A0541F); }
-  .v2-col-sect__title {
+  .pi-foot__col-title {
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.24em;
@@ -233,25 +256,119 @@ const placeLinks = buildFooterPlaceLinks(places);
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--ink, #171413);
   }
-  .v2-col-sect__ornament {
+  .pi-foot__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .pi-foot__col a {
+    font-size: 0.9rem;
+    color: var(--ink-soft, #3A3531);
+    text-decoration: none;
+    transition: color .18s ease;
+  }
+  .pi-foot__col a:hover,
+  .pi-foot__col a:focus-visible { color: var(--ochre, #A0541F); }
+  .pi-foot__col a:focus-visible { outline: 2px solid var(--ochre, #A0541F); outline-offset: 2px; }
+
+  .pi-foot__contact a {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-style: italic;
+    font-size: 0.92rem;
+    word-break: break-all;
+  }
+
+  .pi-foot__social {
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line, #D9D1BE);
+  }
+  .pi-foot__social-title {
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink, #171413);
+    margin: 0 0 0.75rem;
+  }
+  .pi-foot__social-row {
+    display: flex;
+    gap: 0.7rem;
+  }
+  .pi-foot__social-row a {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--ink, #171413);
+    border-radius: 50%;
+    color: var(--ink, #171413);
+    transition: background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .pi-foot__social-row a:hover,
+  .pi-foot__social-row a:focus-visible {
+    background: var(--ink, #171413);
+    color: var(--paper-warm, #F3EDDE);
+    border-color: var(--ink, #171413);
+  }
+  .pi-foot__social-row a:focus-visible {
+    outline: 2px solid var(--ochre, #A0541F);
+    outline-offset: 2px;
+  }
+  .pi-foot__social-row svg { width: 16px; height: 16px; }
+
+  .pi-foot__aoc {
+    margin: 0 auto 1.5rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line, #D9D1BE);
+    border-bottom: 1px solid var(--line, #D9D1BE);
+    max-width: 72ch;
+    text-align: center;
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink-soft, #3A3531);
+    font-variation-settings: 'opsz' 18;
+  }
+
+  .pi-foot__legal {
+    padding-top: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    font-size: 0.78rem;
+    color: var(--ink-muted, #6E655C);
+  }
+  .pi-foot__legal-copy strong {
+    color: var(--ink-soft, #3A3531);
+    font-weight: 500;
+  }
+  .pi-foot__dot {
     color: var(--ochre, #A0541F);
     margin: 0 0.2rem;
   }
-  .v2-col-sect--brand p {
-    font-family: var(--serif, 'Newsreader', Georgia, serif);
-    font-size: 0.98rem;
-    line-height: 1.55;
-    color: var(--ink-soft, #3A3531);
-    margin: 0 0 1rem;
-    font-variation-settings: 'opsz' 18;
-    max-width: 36ch;
+  .pi-foot__legal-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
   }
-  .v2-col-sect__label {
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-    font-size: 0.68rem;
-    font-style: italic;
+  .pi-foot__legal-links a {
     color: var(--ink-muted, #6E655C);
-    font-variation-settings: 'opsz' 16;
-    font-weight: 400;
+    text-decoration: none;
+    transition: color .18s ease;
   }
+  .pi-foot__legal-links a:hover,
+  .pi-foot__legal-links a:focus-visible { color: var(--ochre, #A0541F); }
+  .pi-foot__legal-links a:focus-visible { outline: 2px solid var(--ochre, #A0541F); outline-offset: 2px; }
 </style>
