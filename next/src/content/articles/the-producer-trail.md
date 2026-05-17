@@ -33,6 +33,12 @@ faq:
     answer: "Main Ridge Dairy and Red Hill Cheese (Thursday–Sunday). Sunny Ridge Strawberry Farm (October–April, daily). Balnarring Bakehouse (most days). Peninsula Fresh Organics farm gate (weekends). Red Hill Truffles (guided experiences June–August by booking). Saturday is the strongest day for the full producer trail — most are open and at full stock."
   - question: "What should I bring for a Peninsula producer trail day?"
     answer: "A hard-sided cooler bag with two large ice bricks for cheese and seafood. Paper bags for bread. Cash — the smallest producers occasionally do not run card readers on quiet days. A small notebook to track which cheese came from which dairy. And restraint — the producer trail works best with four stops and one light lunch, not six stops and a winery tasting. Bring the bag; let the producers fill it."
+aiSummary:
+  - "An itinerary built around the Mornington Peninsula's best farm-gate and artisan food producers — structured as a half-day or full-day drive through the hinterland."
+  - "The route is hinterland-focused: Red Hill through Merricks through Balnarring, with specific stops that the Peninsula's tourism infrastructure systematically underpromotes."
+  - "The editorial argument: the Peninsula's identity as a food region is built on producers who rarely appear on restaurant menus — finding them directly is the real Peninsula food experience."
+  - "Suits: food-obsessed visitors on their second or third Peninsula trip; anyone who wants to go beyond the restaurant shortlist."
+  - "Planning note: midweek is better than weekends for farm gates. Call ahead. Several producers listed are by appointment only."
 ---
 
 The Peninsula's most photographed layer is the dining-room layer: the long lunches, the cellar-door tasting menus, the architect-designed terraces. The most interesting layer is one step behind it.

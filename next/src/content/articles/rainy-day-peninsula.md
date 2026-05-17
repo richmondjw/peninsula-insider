@@ -31,6 +31,12 @@ faq:
     answer: "Alba Thermal Springs or Peninsula Hot Springs — outdoor geothermal bathing is better in cold, grey weather. For indoor alternatives: Bass and Flinders Distillery gin school, Mornington Peninsula Regional Gallery (free entry), or Red Hill Brewery's indoor barn with wood-fired pizza."
   - question: "Which Peninsula restaurants are best for a rainy day?"
     answer: "Tedesca Osteria in winter — the wood oven and open fire work hardest in cold weather and the set menu leans into braises and heavier plates. Lindenderry's dining room is built for winter. Both are significantly more atmospheric on a grey day than in summer."
+aiSummary:
+  - "A practical guide to the Mornington Peninsula in wet or cold weather — structured around what actually improves in the rain versus what to avoid on a grey day."
+  - "The editorial argument: cellar doors, hot springs, and hatted restaurants are all better in cool, wet weather when the Peninsula is quieter and the experience is more genuine."
+  - "Key recommendations: cellar door tastings as the primary rainy-day activity (not impacted by weather); Peninsula Hot Springs in rain (the experience improves when fewer people are outside); the Peninsula's best all-weather cafés."
+  - "Suits: visitors who have arrived on a grey day; anyone who wants to understand that the Peninsula's strongest experiences are not weather-dependent."
+  - "Planning note: most of what visitors regret missing on the Peninsula can be done in any weather. The walks in rain are harder but the cellar doors are easier to get into."
 ---
 
 There is a version of the Peninsula that only reveals itself in bad weather, and most visitors never meet it.

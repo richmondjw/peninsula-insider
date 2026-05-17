@@ -33,6 +33,11 @@ faq:
     answer: "Red Hill Brewery (15–20 minutes, pizza and beer, walk-in friendly) or Merricks General Wine Store (cellar door and kitchen, relaxed pace) are the most efficient. Montalto works if you want the sculpture grounds but budget an extra 30 minutes."
   - question: "Is Arthurs Seat Eagle worth a short Peninsula day trip?"
     answer: "Yes — the gondola is about 20 minutes each way and gives the Peninsula's best panoramic view in around 45 minutes total. Most useful for first-time visitors and families. Book online in advance on weekends and school holidays."
+aiSummary:
+  - "A structured half-day guide for Peninsula visitors with limited time — four hours, two to three stops, one clear priority experience."
+  - "The framework: choose one experience category (wine, walk, or coast), get out of the car for more than twenty minutes at each stop, and eat somewhere proper rather than grabbing something en route."
+  - "Suits: Melbourne day-trippers with a specific window; anyone who wants to introduce a friend or family member to the Peninsula without committing to a full day."
+  - "Planning note: the piece argues that four hours is enough for one cellar door plus lunch, or one walk plus a coastal stop, but not both plus shopping. Clarity of goal is everything."
 ---
 
 Most Peninsula writing assumes you have a weekend. A lot of Peninsula visitors do not. They have four hours.

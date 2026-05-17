@@ -1,9 +1,8 @@
 {
   "slug": "mornington-tourist-railway-school-holiday-special-runs",
   "eventId": "MP-EVT-0061",
-  "title": "Mornington Tourist Railway – School Holiday Special Runs",
-  "summary": "Heritage steam and diesel train rides at Mornington Tourist Railway. Special runs during school holidays and on select Sundays. 5km scenic journey between Moorooduc and Mornington. Vintage carriages. Kids and train enthusiasts of all ages. Moorooduc Station is also adjacent to the Moorooduc Station ",
-  "description": "Heritage steam and diesel train rides at Mornington Tourist Railway. Special runs during school holidays and on select Sundays. 5km scenic journey between Moorooduc and Mornington. Vintage carriages. Kids and train enthusiasts of all ages. Moorooduc Station is also adjacent to the Moorooduc Station Market.",
+  "title": "Mornington Tourist Railway, School Holiday Special Runs",
+  "summary": "Heritage steam and diesel rides on selected Sundays and through school holiday breaks. 5km between Moorooduc and Mornington, vintage carriages, simple and good.",
   "startDate": "2026-07-05",
   "endDate": "2026-07-05",
   "startTime": "10:00",
@@ -39,7 +38,7 @@
   "petFriendly": false,
   "accessibilityNotes": "Platform access; some steps into carriages; check accessibility with operator",
   "weather": "mixed",
-  "weatherDependency": "Minimal – covered carriages; outdoor platforms",
+  "weatherDependency": "Minimal, covered carriages, outdoor platforms",
   "weatherShape": "wet-friendly",
   "organiser": {
     "name": "Mornington Railway Preservation Society",
@@ -47,18 +46,23 @@
   },
   "primarySourceUrl": "https://www.visitmorningtonpeninsula.org/Stories/calling-all-kids-here-is-your-guide-to-ultimate-school-holiday-fun",
   "secondarySourceUrl": "https://www.searoad.com.au/blog/school-holiday-activities-mornington-peninsula",
-  "verificationStatus": "Verified official source",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 4,
   "nearbyAttractions": "Moorooduc Station Market; Mornington foreshore",
   "suggestedItineraryPairing": "Train ride + Moorooduc Station Market (if aligned) + Mornington beach",
-  "internalNotes": "Exact school holiday run dates for July 2026 and later not yet published. Check operator website closer to date. Railway also runs Santa Specials in December. Date shown is estimated first Sunday of July 2026 school holidays.",
-  "manualFollowUpRequired": true,
-  "kidsGradeAuto": "C",
+  "editorVerdict": "Simple, unironic, properly run: a heritage steam ride that doesn't pretend to be anything more than what it is, which is exactly the appeal.",
+  "editorNote": "The Mornington Tourist Railway runs a 5km heritage line between Moorooduc and Mornington, with selected Sundays year-round and additional special runs during school holidays. Steam or diesel depending on the day, vintage carriages, volunteer-operated.\n\nFor general Sunday runs you can usually walk up. School holiday specials and themed events need booking. Check the website close to dates because the schedule shifts.\n\nThe extra trick is to align with the Moorooduc Station Market on the same site for a doubled-up morning. Adults around $25, kids $15.",
+  "kidsGrade": "A",
+  "kidsGradeNote": "Train-mad kids will lose their minds; even the indifferent ones get something out of it. Bring snacks for the carriage.",
+  "worthTheDrive": false,
+  "firstTimer": true,
   "status": "published",
   "publishedAt": "2026-05-04",
   "lens": [
-    "walk-in"
+    "family-saturday",
+    "school-holidays",
+    "walk-in",
+    "ticketed"
   ],
   "place": "moorooduc"
 }

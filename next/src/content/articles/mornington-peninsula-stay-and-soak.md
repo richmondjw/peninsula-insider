@@ -32,6 +32,12 @@ faq:
     answer: "Yes — Peninsula Hot Springs Glamping offers tented accommodation on the property with bathhouse access included. Functional rather than luxurious, but it eliminates the commute entirely and lets you extend into evening and morning sessions."
   - question: "What is the best hotel near Alba Thermal Springs and Peninsula Hot Springs for couples?"
     answer: "Jackalope Hotel in Merricks North is 20 minutes from both and is regarded as the Peninsula's most coherent wellness stay — Spa by Jackalope on-site, Doot Doot Doot for dinner, and 20 minutes to either hot springs for day sessions."
+aiSummary:
+  - "A planning guide for combining a Peninsula stay with a thermal springs visit — covering the logistics of pairing accommodation with Peninsula Hot Springs or Alba Thermal Springs."
+  - "The key insight: choosing the wrong accommodation for a hot springs trip adds unnecessary driving and undermines the restorative purpose of the visit."
+  - "Covers: which accommodation is within 15 minutes of each springs location; how to book the springs and accommodation in the right order; what the day looks like when sequenced correctly."
+  - "Suits: couples prioritising wellness; anyone wanting to make a thermal visit the anchor of a longer Peninsula stay."
+  - "Planning note: the article is specifically about the staying-and-soaking combination rather than just visiting the springs on a day trip. Two nights is the minimum for the trip to make sense."
 ---
 
 The single best move a Peninsula spa weekend can make is to cut the driving. Most visitors book a random Mornington hotel, then commute thirty to forty-five minutes each way to Alba or Peninsula Hot Springs. That is ninety minutes of lost relaxation per spa visit, multiplied across the trip.

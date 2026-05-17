@@ -40,9 +40,24 @@ if (!SUPABASE_KEY) {
   process.exit(1);
 }
 
+// Per-venue routing — venues live at /stay/, /eat/, or /wine/ depending on
+// type. Mirrors next/src/lib/editorial.ts venueHrefPrefix(). Hardcoding
+// '/stay/' for all venues produces 404 links for restaurants/cafes/wineries
+// (the largest source of "this result isn't on the website" reports).
+const STAY_TYPES = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
+// All other venue types (restaurant, cafe, bakery, pub, market) → /eat/.
+
+function venueHrefPrefix(type) {
+  if (STAY_TYPES.includes(type)) return '/stay/';
+  if (WINE_TYPES.includes(type)) return '/wine/';
+  return '/eat/';
+}
+
 /** Collections to walk: collection folder → { entityType, hrefPrefix } */
 const COLLECTIONS = [
-  { folder: 'venues',         entityType: 'venue',         hrefPrefix: '/stay/' },
+  // venues get hrefPrefix=null — derived per-row via venueHrefPrefix(d.type)
+  { folder: 'venues',         entityType: 'venue',         hrefPrefix: null },
   { folder: 'places',         entityType: 'place',         hrefPrefix: '/places/' },
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/' },
@@ -51,6 +66,8 @@ const COLLECTIONS = [
   { folder: 'tours',          entityType: 'tour',          hrefPrefix: '/tours/' },
   { folder: 'tour-operators', entityType: 'tour-operator', hrefPrefix: '/tour-operators/' },
   { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/plans/' },
+  { folder: 'quick-notes',    entityType: 'quick-note',    hrefPrefix: '/quick-note/' },
+  { folder: 'local-secrets',  entityType: 'local-secret',  hrefPrefix: '/journal/local-secrets/' },
 ];
 
 /**
@@ -84,10 +101,28 @@ async function loadJsonFiles(folder) {
   }
   const rows = [];
   for (const file of files) {
-    if (!file.endsWith('.json') || file.startsWith('_')) continue;
+    if (file.startsWith('_')) continue;
+    const isJson = file.endsWith('.json');
+    const isMd = file.endsWith('.md') || file.endsWith('.mdx');
+    if (!isJson && !isMd) continue;
     try {
       const raw = await readFile(join(dir, file), 'utf8');
-      rows.push(JSON.parse(raw));
+      if (isJson) {
+        rows.push(JSON.parse(raw));
+      } else {
+        // Astro derives slug from filename when not in frontmatter. Mirror
+        // that so MD/MDX collections (articles, species, fishing-*, etc.)
+        // are upserted with the same slug the renderer uses.
+        const baseSlug = file.replace(/\.(md|mdx)$/i, '');
+        // Extract title from frontmatter if present, else fall back to slug.
+        const fmMatch = /^---\n([\s\S]*?)\n---/.exec(raw);
+        let title = baseSlug;
+        if (fmMatch) {
+          const titleLine = /^title:\s*"?([^"\n]+)"?/m.exec(fmMatch[1]);
+          if (titleLine) title = titleLine[1].trim().replace(/^"|"$/g, '');
+        }
+        rows.push({ slug: baseSlug, title });
+      }
     } catch (err) {
       console.warn(`[refresh-registry] Skipping ${folder}/${file}: ${err.message}`);
     }
@@ -126,7 +161,7 @@ async function main() {
         entity_type: entityType,
         entity_slug: d.slug,
         title:       d.name || d.title || d.slug,
-        href:        hrefPrefix + d.slug + '/',
+        href:        (hrefPrefix ?? venueHrefPrefix(d.type)) + d.slug + '/',
         refreshed_at: new Date().toISOString(),
       }));
 

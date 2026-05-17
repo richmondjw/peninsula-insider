@@ -209,14 +209,14 @@ export const v4Pillars: V4Pillar[] = [
         ],
       },
       {
-        eyebrow: 'By the place',
+        eyebrow: 'Where to eat',
         items: [
-          { key: 'red-hill',   label: 'Red Hill',   href: '/places/red-hill/' },
-          { key: 'sorrento',   label: 'Sorrento',   href: '/places/sorrento/' },
-          { key: 'flinders',   label: 'Flinders',   href: '/places/flinders/' },
-          { key: 'mornington', label: 'Mornington', href: '/places/mornington/' },
-          { key: 'main-ridge', label: 'Main Ridge', href: '/places/main-ridge/' },
-          { key: 'merricks',   label: 'Merricks',   href: '/places/merricks/' },
+          { key: 'red-hill',   label: 'Red Hill dining',   href: '/places/red-hill/' },
+          { key: 'sorrento',   label: 'Sorrento dining',   href: '/places/sorrento/' },
+          { key: 'flinders',   label: 'Flinders dining',   href: '/places/flinders/' },
+          { key: 'mornington', label: 'Mornington dining', href: '/places/mornington/' },
+          { key: 'merricks',   label: 'Merricks dining',   href: '/places/merricks/' },
+          { key: 'all-venues', label: 'All venues →',       href: '/eat/' },
         ],
       },
       {
@@ -260,12 +260,12 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the place',
         items: [
-          { key: 'red-hill',   label: 'Red Hill',   href: '/wine/red-hill/' },
-          { key: 'main-ridge', label: 'Main Ridge', href: '/wine/main-ridge/' },
-          { key: 'merricks',   label: 'Merricks',   href: '/wine/merricks/' },
-          { key: 'mornington', label: 'Mornington', href: '/places/mornington/' },
-          { key: 'balnarring', label: 'Balnarring', href: '/wine/balnarring/' },
-          { key: 'flinders',   label: 'Flinders',   href: '/wine/flinders/' },
+          { key: 'red-hill',    label: 'Red Hill Wine',    href: '/wine/red-hill/' },
+          { key: 'main-ridge',  label: 'Main Ridge Wine',  href: '/wine/main-ridge/' },
+          { key: 'merricks',    label: 'Merricks Wine',    href: '/wine/merricks/' },
+          { key: 'balnarring',  label: 'Balnarring Wine',  href: '/wine/balnarring/' },
+          { key: 'flinders',    label: 'Flinders Wine',    href: '/wine/flinders/' },
+          { key: 'all-regions', label: 'All wine regions →', href: '/wine/' },
         ],
       },
       {
@@ -330,7 +330,60 @@ export const v4Pillars: V4Pillar[] = [
     askLine: 'Want the room that opens up on the cancellation list? Ask PI →',
   },
 
-  // 6. EXPLORE --------------------------------------------------------------
+
+  // 6. PLACES ---------------------------------------------------------------
+  {
+    key: 'places',
+    label: 'Places',
+    href: '/places/',
+    intro: 'Destination guides for every part of the Peninsula — where to base yourself, what each area is best for, and the local guides that go deeper.',
+    rail: {
+      eyebrow: "Editor’s pick · Autumn ✘’26",
+      title: 'Red Hill',
+      verdict: 'The plateau that defines Peninsula food and wine. Cellar doors, hatted restaurants and the ridgeline roads that make the weekend.',
+      image: '/images/sourced/place-red-hill-01.webp',
+      imageAlt: 'Red Hill vineyards and ridge, Mornington Peninsula',
+      href: '/places/red-hill/',
+    },
+    columns: [
+      {
+        eyebrow: 'Destinations',
+        items: [
+          { key: 'sorrento',    label: 'Sorrento',    href: '/places/sorrento/' },
+          { key: 'red-hill',    label: 'Red Hill',    href: '/places/red-hill/' },
+          { key: 'flinders',    label: 'Flinders',    href: '/places/flinders/' },
+          { key: 'fingal',      label: 'Fingal',      href: '/places/fingal/' },
+          { key: 'mornington',  label: 'Mornington',  href: '/places/mornington/' },
+          { key: 'all-places',  label: 'All destinations →', href: '/places/' },
+        ],
+      },
+      {
+        eyebrow: 'Category guides',
+        items: [
+          { key: 'red-hill-wine',   label: 'Red Hill Wine',    href: '/wine/red-hill/' },
+          { key: 'flinders-wine',   label: 'Flinders Wine',    href: '/wine/flinders/' },
+          { key: 'main-ridge-wine', label: 'Main Ridge Wine',  href: '/wine/main-ridge/' },
+          { key: 'red-hill-stay',   label: 'Red Hill Stays',   href: '/stay/red-hill/' },
+          { key: 'flinders-stay',   label: 'Flinders Stays',   href: '/stay/flinders/' },
+          { key: 'sorrento-stay',   label: 'Sorrento Stays',   href: '/stay/sorrento/' },
+        ],
+      },
+      {
+        eyebrow: 'Discover on map',
+        items: [
+          { key: 'map',           label: 'Open the Peninsula map', href: '/map/' },
+          { key: 'cape-schanck',  label: 'Cape Schanck',           href: '/places/cape-schanck/' },
+          { key: 'merricks',      label: 'Merricks',               href: '/places/merricks/' },
+          { key: 'portsea',       label: 'Portsea',                href: '/places/portsea/' },
+          { key: 'mount-martha',  label: 'Mount Martha',           href: '/places/mount-martha/' },
+          { key: 'where-to-base', label: 'Where to base yourself', href: '/explore/where-to-base-yourself/' },
+        ],
+      },
+    ],
+    askLine: 'Not sure which part of the Peninsula fits? Ask PI →',
+  },
+
+  // 7. EXPLORE --------------------------------------------------------------
   {
     key: 'explore',
     label: 'Explore',
@@ -354,32 +407,23 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the move',
         items: [
-          { key: 'walks',     label: 'Walks',         href: '/explore/walks/' },
-          { key: 'beaches',   label: 'Beaches',       href: '/explore/beaches/' },
-          { key: 'markets',   label: 'Markets',       href: '/explore/markets/' },
-          { key: 'on-water',  label: 'On the water',  href: '/boating/' },
-          { key: 'fishing',   label: 'Fishing spots', href: '/fishing/' },
-          { key: 'all-moves', label: 'All experiences →', href: '/explore/' },
-        ],
-      },
-      {
-        eyebrow: 'By the place',
-        items: [
-          { key: 'red-hill-ridge', label: 'Red Hill & ridge',     href: '/places/red-hill/' },
-          { key: 'sorrento-cape',  label: 'Sorrento & cape',      href: '/places/sorrento/' },
-          { key: 'mornington-bay', label: 'Mornington & bay',     href: '/places/mornington/' },
-          { key: 'point-nepean',   label: 'Point Nepean',         href: '/places/point-nepean/' },
-          { key: 'flinders-coast', label: 'Flinders & coast',     href: '/places/flinders/' },
-          { key: 'all-places',     label: 'Every town we cover',  href: '/places/' },
+          { key: 'walks',       label: 'Walks & trails',    href: '/explore/walks/' },
+          { key: 'beaches',     label: 'Beaches',           href: '/explore/beaches/' },
+          { key: 'markets',     label: 'Markets',           href: '/explore/markets/' },
+          { key: 'hot-springs', label: 'Hot springs',       href: '/explore/hot-springs/' },
+          { key: 'on-water',    label: 'On the water',      href: '/boating/' },
+          { key: 'all-moves',   label: 'All experiences →', href: '/explore/' },
         ],
       },
       {
         eyebrow: 'In voice',
         items: [
-          { key: 'orientation', label: 'First-visit drive',  href: '/journal/the-peninsula-orientation-drive/' },
-          { key: 'rainy',       label: 'Rainy-day plans',    href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
-          { key: 'sunset',      label: 'Sunset moves',       href: '/journal/the-sunset-drink/' },
-          { key: 'cape-schanck', label: 'Cape Schanck guide', href: '/journal/cape-schanck-guide/' },
+          { key: 'orientation',  label: 'First-visit drive',   href: '/journal/the-peninsula-orientation-drive/' },
+          { key: 'rainy',        label: 'Rainy-day plans',     href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
+          { key: 'sunset',       label: 'Sunset moves',        href: '/journal/the-sunset-drink/' },
+          { key: 'cape-schanck', label: 'Cape Schanck guide',  href: '/journal/cape-schanck-guide/' },
+          { key: 'dog',          label: 'Dog-friendly moves',  href: '/dog-friendly/' },
+          { key: 'free',         label: 'Free things to do',   href: '/explore/free/' },
         ],
       },
     ],
@@ -445,6 +489,7 @@ export const v4Utility = {
 
 export const v4FooterDepartments: V4NavItem[] = [
   { key: 'eat',      label: 'Eat & Drink', href: '/eat/' },
+  { key: 'places',   label: 'Places',      href: '/places/' },
   { key: 'wine',     label: 'Wine',        href: '/wine/' },
   { key: 'stay',     label: 'Stay',        href: '/stay/' },
   { key: 'explore',  label: 'Explore',     href: '/explore/' },

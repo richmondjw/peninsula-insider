@@ -160,6 +160,14 @@ const venues = defineCollection({
     gallery: z.array(imageRef).default([]),
     affiliateNote: z.string().optional(),
     featuredPartner: z.boolean().default(false),
+    /**
+     * Editorial pick flag. Set true on venues that are surfaced as curated
+     * highlights on hub pages (Plans hub stay highlights, Wine hub benchmarks).
+     * Distinct from featuredPartner (commercial) — this is a purely editorial
+     * signal. Hubs filter by type + editorPick to build their curated rails.
+     * Editorial team can update via schema; no source-code change needed.
+     */
+    editorPick: z.boolean().default(false),
     lastVerified: z.coerce.date(),
     /**
      * Free-text hours summary surfaced on the venue page (e.g.
@@ -270,6 +278,12 @@ const places = defineCollection({
     bestDay: z.string().optional(),
     insiderNote: z.string().optional(),
     skip: z.string().optional(),
+    /**
+     * Editorial featured flag. Set true on places surfaced as curated
+     * highlights on hub pages (Plans hub place rail). Editors update
+     * the JSON; no source-code change needed.
+     */
+    featured: z.boolean().default(false),
     sitemapExclude: z.boolean().default(false),
   }),
 });
@@ -334,6 +348,73 @@ const articles = defineCollection({
      */
     planShape: z
       .enum(['one-night', 'two-night', 'day-trip', 'seasonal'])
+      .optional(),
+    /**
+     * Structured dispatch payload for weekend-picker articles. When present,
+     * the /whats-on/this-weekend/ template renders the picks as scannable
+     * cards (hero, "at a glance" row, per-day cards, rainy-day backup) and
+     * the same data feeds the weekly HTML email at ops/email/dispatch-weekly.html.
+     *
+     * Optional — articles without it fall back to plain markdown rendering.
+     * Editors keep writing the long-form body in markdown; `dispatch` is the
+     * structured layer for the scannable surface and the email.
+     */
+    dispatch: z
+      .object({
+        // One-line editor's framing of the weekend ("Mid-May gives the
+        // Peninsula back to itself. One forest morning, one market Sunday.")
+        editorLine: z.string(),
+        // Weather hint shown in the top strip. Free text so editors can
+        // write "Cool, dry, autumn light" or "Rain Saturday afternoon".
+        weather: z.string().optional(),
+        // The marquee booking — the one thing to lock in.
+        lead: z.object({
+          title: z.string(),
+          when: z.string(),                 // "Saturday 16 May, 11am–1:30pm"
+          where: z.string(),                // "Red Hill & Main Ridge forests"
+          price: z.string().optional(),     // "$85 per person"
+          who: z.string().optional(),       // "Capped at 15"
+          summary: z.string(),
+          bookingLabel: z.string().optional(), // "Book via The Kitchen"
+          bookingUrl: z.string().url().optional(),
+          eventRef: z.string().optional(),  // matching events/[slug] for venue link
+        }),
+        // Saturday + Sunday picks if present.
+        saturday: z.object({
+          title: z.string(),
+          when: z.string(),
+          where: z.string(),
+          price: z.string().optional(),
+          summary: z.string(),
+          bookingLabel: z.string().optional(),
+          bookingUrl: z.string().url().optional(),
+          eventRef: z.string().optional(),
+        }).optional(),
+        sunday: z.object({
+          title: z.string(),
+          when: z.string(),
+          where: z.string(),
+          price: z.string().optional(),
+          summary: z.string(),
+          bookingLabel: z.string().optional(),
+          bookingUrl: z.string().url().optional(),
+          eventRef: z.string().optional(),
+        }).optional(),
+        // The indoor / weather-changes backup.
+        rainyDay: z.object({
+          title: z.string(),
+          when: z.string(),
+          where: z.string(),
+          price: z.string().optional(),
+          summary: z.string(),
+          bookingLabel: z.string().optional(),
+          bookingUrl: z.string().url().optional(),
+          eventRef: z.string().optional(),
+        }).optional(),
+        // One-line close ("Don't add more to either day. Let the Peninsula's
+        // own pace do the work.")
+        weekendShape: z.string().optional(),
+      })
       .optional(),
   }),
 });

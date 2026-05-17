@@ -58,6 +58,28 @@ const hasWines = isWinery && data.wines;
 const hasRestaurant = isWinery && data.restaurant;
 const hasAccommodation = isWinery && data.accommodation;
 const isClosed = data.status === 'closed';
+
+// Wine-specific derived signals
+const isAppointmentOnly = isWinery && data.visiting?.bookingRequired === true;
+const hallidayScore = data.authority?.hallidayScore as number | undefined;
+const hallidayDescriptor = hallidayScore
+  ? hallidayScore >= 99 ? 'Perfect'
+  : hallidayScore >= 97 ? 'Exceptional'
+  : hallidayScore >= 95 ? 'Outstanding'
+  : hallidayScore >= 93 ? 'Highly Recommended'
+  : hallidayScore >= 90 ? 'Recommended'
+  : null
+  : null;
+const subregionLabel = isWinery && data.subregion
+  ? String(data.subregion).split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+  : null;
+const wineKeyVarieties: string[] = isWinery ? (data.wines?.keyVarieties ?? []) : [];
+const wineTopLabel: string | null = isWinery ? (data.wines?.topLabel ?? null) : null;
+const winemakerName: string | null = isWinery ? (data.wines?.winemaker ?? null) : null;
+// Best season signal for wine pages (from season tags)
+const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seasonTags.includes('all-year')
+  ? seasonTags.map((s: string) => s.charAt(0).toUpperCase() + s.slice(1)).join(' and ')
+  : null;
 ---
 
 <Breadcrumbs items={breadcrumbItems} />
@@ -70,6 +92,10 @@ const isClosed = data.status === 'closed';
       <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
       <span class="venue-detail__dot" aria-hidden="true"></span>
       <a href={`/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
+      {subregionLabel && (
+        <><span class="venue-detail__dot" aria-hidden="true"></span>
+        <span class="venue-detail__subregion">{subregionLabel}</span></>
+      )}
       <span class="venue-detail__dot" aria-hidden="true"></span>
       <span class="venue-detail__price-band">{data.priceBand}</span>
     </div>
@@ -104,6 +130,23 @@ const isClosed = data.status === 'closed';
             {data.phone}
           </a>
         )}
+      </div>
+    )}
+
+    {/* Appointment-only planning signal — wine venues only.
+        Positioned before the hero so it's seen before the reader
+        commits to the page. Not a warning, a planning note. */}
+    {isAppointmentOnly && (
+      <div class="venue-appointment-note" role="note">
+        <span class="venue-appointment-note__icon" aria-hidden="true">—</span>
+        <span class="venue-appointment-note__text">
+          <strong>By appointment.</strong> This producer doesn't take walk-ins.
+          {data.phone
+            ? <> Call <a href={`tel:${data.phone.replace(/\s/g,'')}`}>{data.phone}</a> to arrange a visit.</>  
+            : data.bookingUrl
+              ? <> <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer">Book online</a> to arrange a visit.</>
+              : ' Contact the winery directly to arrange a visit.'}
+        </span>
       </div>
     )}
 
@@ -184,6 +227,44 @@ const isClosed = data.status === 'closed';
           </div>
         )}
 
+        {/* Wine identity panel — surfaces schema-rich wine signals with
+            editorial weight. Winemaker, key varieties, signature label,
+            seasonal context. Visible on wine pages only.
+            Design principle: structured but understated — no luxury-wine
+            clichés, no gold leaf, no overdesigned badges. */}
+        {isWinery && (wineKeyVarieties.length > 0 || winemakerName || wineTopLabel || wineBestSeason) && (
+          <div class="wine-identity">
+            {winemakerName && (
+              <div class="wine-identity__row">
+                <span class="wine-identity__label">Winemaker</span>
+                <span class="wine-identity__value">{winemakerName}</span>
+              </div>
+            )}
+            {wineKeyVarieties.length > 0 && (
+              <div class="wine-identity__row">
+                <span class="wine-identity__label">Varieties</span>
+                <span class="wine-identity__varieties">
+                  {wineKeyVarieties.map((v: string) => (
+                    <span class="wine-identity__variety">{v}</span>
+                  ))}
+                </span>
+              </div>
+            )}
+            {wineTopLabel && (
+              <div class="wine-identity__row">
+                <span class="wine-identity__label">Worth seeking</span>
+                <span class="wine-identity__value wine-identity__value--italic">{wineTopLabel}</span>
+              </div>
+            )}
+            {wineBestSeason && (
+              <div class="wine-identity__row">
+                <span class="wine-identity__label">Best in</span>
+                <span class="wine-identity__value">{wineBestSeason}</span>
+              </div>
+            )}
+          </div>
+        )}
+
         <CorrectionNote compact={true} />
       </div>
 
@@ -213,10 +294,13 @@ const isClosed = data.status === 'closed';
             </>
           )}
 
-          {data.authority?.hallidayScore && (
+          {hallidayScore && (
             <>
               <dt>Halliday</dt>
-              <dd>{data.authority.hallidayScore} points</dd>
+              <dd>
+                <span class="facts__halliday-score">{hallidayScore}</span>
+                {hallidayDescriptor && <span class="facts__halliday-desc">{hallidayDescriptor}</span>}
+              </dd>
             </>
           )}
 
@@ -499,9 +583,142 @@ const isClosed = data.status === 'closed';
   dek={data.editorNote}
   imageUrl={data.heroImage?.src}
 />
+{/* Destination hierarchy link — editorial return path to the parent place guide.
+    Venue pages are the deepest layer of the ecosystem; this closes the loop.
+    Renders only when place data is available (true for all 141 tagged venues). */}
+{(data.place?.id ?? data.place) && (
+  <div class="venue-place-link">
+    <div class="container">
+      <a
+        href={`/places/${data.place?.id ?? data.place}/`}
+        class="venue-place-link__anchor"
+      >
+        ← Part of {placeLabel(data.place)} — view the destination guide
+      </a>
+    </div>
+  </div>
+)}
+
 <NewsletterBlock />
 
 <style>
+  /* ── Destination hierarchy return link ── */
+  .venue-place-link {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .venue-place-link__anchor {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .venue-place-link__anchor:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ── Wine: subregion in meta line ── */
+  .venue-detail__subregion {
+    font-size: 0.72rem;
+    color: var(--soft);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Wine: appointment-only planning note ── */
+  .venue-appointment-note {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin: 1rem 0 1.5rem;
+    padding: 0.85rem 1.1rem;
+    background: var(--bg-alt);
+    border-left: 2px solid var(--accent);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .venue-appointment-note__icon {
+    color: var(--accent);
+    font-style: normal;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+  .venue-appointment-note__text a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ── Wine: Halliday score in facts aside ── */
+  .facts__halliday-score {
+    font-weight: 600;
+    color: var(--dark);
+  }
+  .facts__halliday-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--soft);
+    margin-top: 0.1rem;
+    font-style: italic;
+  }
+
+  /* ── Wine identity panel ── */
+  .wine-identity {
+    margin: 2rem 0 1.5rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    gap: 0.75rem;
+  }
+  .wine-identity__row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+  .wine-identity__label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    padding-top: 0.15rem;
+  }
+  .wine-identity__value {
+    font-size: 0.9rem;
+    color: var(--dark);
+    line-height: 1.45;
+  }
+  .wine-identity__value--italic {
+    font-style: italic;
+  }
+  .wine-identity__varieties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .wine-identity__variety {
+    font-size: 0.78rem;
+    color: var(--text);
+    background: var(--bg-alt);
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--border);
+  }
+  @media (max-width: 480px) {
+    .wine-identity__row {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+    .wine-identity__label {
+      font-size: 0.6rem;
+    }
+  }
+
   /* ── Insider Verdict block ── */
   .venue-verdict {
     margin: 1.5rem 0 2rem;

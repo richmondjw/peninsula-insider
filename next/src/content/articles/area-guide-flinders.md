@@ -26,6 +26,12 @@ faq:
     answer: "Cooler months suit it best. Autumn, winter sun and spring all sharpen the place because the walks improve and the village's quiet confidence comes forward."
   - question: "How far is Flinders from Melbourne?"
     answer: "Usually around 90 minutes to 1 hour 45 minutes by car, depending on traffic and exactly where you start."
+aiSummary:
+  - "Flinders is the Mornington Peninsula's quiet southern village — compact, salt-air confident, and deliberately different in character from the busier bay-facing towns to the north."
+  - "Known for: a world-ranked golf course (Flinders Golf Club), a village bakery (Flinders Sourdough), direct ocean-coast access, and proximity to the marine sanctuary and back beach."
+  - "Suits: golfers; visitors who have already done Sorrento and want something quieter; anyone who wants the wild Bass Strait coast as their base. Not suited to: visitors expecting village activity or a restaurant scene beyond pub dining."
+  - "Best season: cooler months (autumn, winter, spring) when the walks are best and the coastal drama is sharpest. Winter is specifically recommended in the editorial."
+  - "Planning note: Flinders Hotel is the primary accommodation; village is small and most activity is self-directed (walking, golf, coast). Drive time from Melbourne approximately 1h 25m."
 ---
 
 Flinders is what people say they want when they claim to be looking for a quieter Peninsula weekend, and it actually delivers it. There is no oversized main street, no parade of high-summer peacocking, no sense that the whole village exists to absorb Melbourne's overflow. It is a real place first and a destination second.

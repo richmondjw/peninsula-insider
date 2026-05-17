@@ -2,7 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import ExperienceCard from '../../components/ExperienceCard.astro';
+import GuideHero from '../../components/GuideHero.astro';
+import CompareBlock from '../../components/CompareBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
   buildCollectionPageSchema,
@@ -11,30 +12,132 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 
-const experiences = await getCollection('experiences');
-const markets = experiences
-  .filter((e) => e.data.type === 'market');
+// ── Load markets in editorial order ───────────────────────────────────────────
+const allExperiences = await getCollection('experiences');
+const marketOrder = [
+  'red-hill-market',
+  'balnarring-farmers-market',
+  'mornington-main-street-market',
+  'rye-beachside-market',
+  'mount-eliza-farmers-market',
+];
+const allMarkets = allExperiences.filter((e) => e.data.type === 'market');
+const markets = marketOrder
+  .map((slug) => allMarkets.find((m) => (m.data.slug ?? m.id) === slug))
+  .filter(Boolean) as typeof allMarkets;
 
+// ── Editorial overlay (page-only attributes not yet in the experience schema) ──
+type MarketMeta = {
+  cadence: string;
+  cadenceShort: string;
+  day: string;
+  hours: string;
+  focus: string;
+  focusMod: 'producer' | 'mixed' | 'craft';
+  tier: 1 | 2 | 3;
+  insiderRead: string;
+  detailHref?: string;
+};
+const marketMeta: Record<string, MarketMeta> = {
+  'red-hill-market': {
+    cadence: '1st Saturday · monthly',
+    cadenceShort: '1st Sat',
+    day: 'Saturday',
+    hours: '8am–1pm',
+    focus: 'Produce · artisan · food',
+    focusMod: 'mixed',
+    tier: 1,
+    insiderRead: 'Arrive by 8.30am in summer or accept the carpark and the best produce vendors are already gone.',
+    detailHref: '/explore/red-hill-market/',
+  },
+  'balnarring-farmers-market': {
+    cadence: '3rd Saturday · monthly',
+    cadenceShort: '3rd Sat',
+    day: 'Saturday',
+    hours: '8am–12.30pm',
+    focus: 'Food producers',
+    focusMod: 'producer',
+    tier: 1,
+    insiderRead: 'The producer-first counterpoint to Red Hill. Pair with the Merricks/Shoreham wine corridor for the afternoon.',
+  },
+  'mornington-main-street-market': {
+    cadence: '2nd & 4th Wed · fortnightly',
+    cadenceShort: '2nd & 4th Wed',
+    day: 'Wednesday',
+    hours: '9am–2pm',
+    focus: 'Town · mixed',
+    focusMod: 'mixed',
+    tier: 2,
+    insiderRead: 'The town market for the northern Peninsula. Best as a midweek add-on to a Mornington day rather than a destination round-trip.',
+  },
+  'rye-beachside-market': {
+    cadence: 'Sunday · seasonal',
+    cadenceShort: 'Sun',
+    day: 'Sunday',
+    hours: '9am–2pm',
+    focus: 'Craft · casual',
+    focusMod: 'craft',
+    tier: 3,
+    insiderRead: 'Setting does the work — bayside foreshore, summer crowds, a small craft-leaning stall row. Treat as a swim-then-browse add-on.',
+  },
+  'mount-eliza-farmers-market': {
+    cadence: 'Last Sunday · monthly',
+    cadenceShort: 'Last Sun',
+    day: 'Sunday',
+    hours: '9am–1pm',
+    focus: 'Produce · community',
+    focusMod: 'producer',
+    tier: 3,
+    insiderRead: 'Smallest of the five, useful mainly for visitors staying at the very northern end of the Peninsula who would rather skip the drive south.',
+  },
+};
+
+function focusBadgeClass(mod: MarketMeta['focusMod']) {
+  return mod === 'producer'
+    ? 'market-badge--producer'
+    : mod === 'craft'
+    ? 'market-badge--craft'
+    : 'market-badge--mixed';
+}
+function tierBadgeClass(tier: MarketMeta['tier']) {
+  return tier === 1 ? 'market-tier--1' : tier === 2 ? 'market-tier--2' : 'market-tier--3';
+}
+
+// ── Month-at-a-glance: which markets fire on each Sat/Sun/Wed of a month ─────
+type CalDay = { date: string; day: string; markets: { slug: string; name: string; mod: string }[] };
+const m = (slug: string) => ({
+  slug,
+  name: markets.find((x) => (x.data.slug ?? x.id) === slug)?.data.name ?? slug,
+  mod: focusBadgeClass(marketMeta[slug].focusMod),
+});
+const calendarRows: CalDay[] = [
+  { date: 'Wk 1', day: '1st Saturday', markets: [m('red-hill-market')] },
+  { date: 'Wk 2', day: '2nd Wednesday', markets: [m('mornington-main-street-market')] },
+  { date: 'Wk 3', day: '3rd Saturday', markets: [m('balnarring-farmers-market')] },
+  { date: 'Wk 4', day: '4th Wednesday', markets: [m('mornington-main-street-market')] },
+  { date: 'Wk 4', day: 'Last Sunday', markets: [m('mount-eliza-farmers-market')] },
+  { date: 'Summer', day: 'Sundays', markets: [m('rye-beachside-market')] },
+];
+
+// ── JSON-LD schemas ───────────────────────────────────────────────────────────
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Markets — Ranked and Calendarised',
-  description: 'Ranked guide to the best markets on the Mornington Peninsula — Red Hill, Balnarring, Mornington, Rye, and Mount Eliza.',
+  description: 'Ranked guide to the best markets on the Mornington Peninsula — Red Hill, Balnarring, Mornington, Rye, and Mount Eliza. With a month-at-a-glance calendar.',
   path: '/explore/markets',
-  dateModified: '2026-04-23',
+  dateModified: '2026-05-17',
 });
-
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Markets',
-  description: 'Ranked guide to the best markets on the Mornington Peninsula.',
+  description: 'Five Mornington Peninsula markets ranked by editorial value.',
   listPath: '/explore/markets',
   items: [
     { name: 'Red Hill Community Market', path: '/explore/red-hill-market', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
-    { name: 'Balnarring Farmers Market (Emu Plains)', path: '/eat/balnarring-market', itemType: 'TouristAttraction', addressLocality: 'Balnarring' },
-    { name: 'Mornington Main Street Market', path: '/eat/mornington-farmers-market', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'Rye Beachside Market', path: '/places/rye', itemType: 'TouristAttraction', addressLocality: 'Rye' },
-    { name: 'Mount Eliza Farmers Market', path: '/places/mount-eliza', itemType: 'TouristAttraction', addressLocality: 'Mount Eliza' },
+    { name: 'Balnarring Farmers Market', path: '/explore/balnarring-farmers-market', itemType: 'TouristAttraction', addressLocality: 'Balnarring' },
+    { name: 'Mornington Main Street Market', path: '/explore/mornington-main-street-market', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
+    { name: 'Rye Beachside Market', path: '/explore/rye-beachside-market', itemType: 'TouristAttraction', addressLocality: 'Rye' },
+    { name: 'Mount Eliza Farmers Market', path: '/explore/mount-eliza-farmers-market', itemType: 'TouristAttraction', addressLocality: 'Mount Eliza' },
   ],
 });
-
 const faqSchema = buildFaqSchema([
   {
     q: 'When is the Red Hill Market?',
@@ -46,20 +149,22 @@ const faqSchema = buildFaqSchema([
   },
   {
     q: 'Are there markets on the Mornington Peninsula every week?',
-    a: 'No. The flagship markets (Red Hill, Balnarring) are monthly. Mornington Main Street Market runs fortnightly. There is no significant weekly market.',
+    a: 'No. The flagship markets (Red Hill, Balnarring) are monthly. Mornington Main Street Market runs fortnightly. Mount Eliza runs on the last Sunday of the month. Rye is summer-weighted.',
   },
   {
     q: 'Are the markets suitable for visiting in winter?',
-    a: 'Yes. Red Hill and Balnarring markets run year-round. Winter attendance is lower, which many visitors prefer. Wet weather can affect stall numbers at open-air markets.',
+    a: 'Yes. Red Hill, Balnarring, Mornington, and Mount Eliza markets run year-round. Winter attendance is lower, which many visitors prefer. Wet weather can affect stall numbers at open-air markets.',
+  },
+  {
+    q: 'Which Peninsula market is best for serious produce?',
+    a: 'Balnarring Farmers Market — the stall mix runs heavily to growers and food producers from the Western Port hinterland. Red Hill is broader; Balnarring is deeper on producers.',
   },
 ]);
-
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: 'https://peninsulainsider.com.au/' },
   { name: 'Explore', url: 'https://peninsulainsider.com.au/explore/' },
   { name: 'Markets' },
 ]);
-
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Explore', href: '/explore' },
@@ -68,10 +173,12 @@ const breadcrumbItems = [
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Markets — Red Hill, Balnarring, and More · Peninsula Insider"
-  description="Ranked and calendarised guide to the best markets on the Mornington Peninsula — Red Hill Community Market, Balnarring Farmers Market, Mornington, and more."
+  title="Mornington Peninsula Markets — Red Hill, Balnarring & More · Peninsula Insider"
+  description="Ranked and calendarised guide to the five Mornington Peninsula markets — Red Hill, Balnarring, Mornington, Rye, and Mount Eliza. Month-at-a-glance calendar and producer-first comparison."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/markets/"
+  ogImage="/images/sourced/article-red-hill-saturday-01.webp"
+  modifiedTime="2026-05-17"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -79,104 +186,739 @@ const breadcrumbItems = [
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
+  <!-- 1. HERO -->
+  <GuideHero
+    eyebrow={`Explore guide · ${markets.length} markets · Last verified 17 May 2026`}
+    title="Mornington Peninsula <em>Markets</em>"
+    dek="Genuine producers, hinterland growers, and the social calendar of the upper Peninsula. Five markets ranked, the monthly rhythm mapped, and the one-line rule for getting the best of each."
+    meta={[
+      { label: `${markets.length} markets assessed` },
+      { label: '2 flagship · monthly' },
+      { label: 'Year-round bar Rye' },
+      { label: '6 min read' },
+    ]}
+    heroImage="/images/sourced/article-red-hill-saturday-01.webp"
+    imageAlt="Morning crowds and produce stalls at a Mornington Peninsula market"
+    imageCredit="Peninsula Insider"
+    entitySlug="explore-markets"
+  />
+
+  <!-- 2. MONTH AT A GLANCE — bespoke calendar strip -->
+  <section class="experience-index" aria-label="Market calendar at a glance">
     <div class="container">
-      <h1 class="article__title">Mornington Peninsula Markets</h1>
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Month at a glance</p>
+          <h2 class="venues__title">The Peninsula's market rhythm</h2>
+          <p class="venues__sub">No two market Saturdays look the same. Here is which market fires on which week — and the colour code is producer-first / mixed / craft so you can see the shape of the month at a glance.</p>
+        </div>
+      </div>
+      <ol class="market-calendar">
+        {calendarRows.map((row) => (
+          <li class="market-calendar__row">
+            <span class="market-calendar__week">{row.date}</span>
+            <span class="market-calendar__day">{row.day}</span>
+            <span class="market-calendar__chips">
+              {row.markets.map((mk) => (
+                <span class={`market-chip ${mk.mod}`}>{mk.name}</span>
+              ))}
+            </span>
+          </li>
+        ))}
+      </ol>
+      <p class="market-calendar__legend">
+        <span class="market-chip market-badge--producer">Producer-first</span>
+        <span class="market-chip market-badge--mixed">Mixed</span>
+        <span class="market-chip market-badge--craft">Craft / casual</span>
+      </p>
+    </div>
+  </section>
 
-      <div class="prose">
-        <blockquote>
-          <p><strong>TL;DR</strong></p>
-          <ul>
-            <li>Five main markets: Red Hill Community Market, Mornington Main Street Market, Rye Beachside Market, Balnarring Farmers Market, and Mount Eliza Farmers Market.</li>
-            <li><a href="/explore/red-hill-market/">Red Hill Market</a> (first Saturday of the month) is the Peninsula's most complete market — best produce, best food stalls, best artisan work.</li>
-            <li>Balnarring Farmers Market runs on the third Saturday; more food-producer focused.</li>
-            <li>All markets are outdoor and weather-dependent, though most run in light rain.</li>
-            <li>Early arrival matters — Red Hill is worth being there by 8:30am in summer.</li>
-          </ul>
-        </blockquote>
+  <!-- 3. COMPARE — Red Hill vs Balnarring -->
+  <CompareBlock
+    eyebrow="The two flagship Saturdays"
+    heading="Red Hill or Balnarring"
+    dek="Most visitors choose between these two. They share a month and a half of difference. The frame that matters before you set the alarm."
+    left={{
+      label: 'Red Hill · 1st Saturday',
+      title: 'The broad church. Variety, atmosphere, the Peninsula on a clear morning.',
+      rows: [
+        { label: 'Stall mix', value: 'Produce, artisan, prepared food, ceramics, linen, very good coffee. The widest stall list on the Peninsula.' },
+        { label: 'Scale', value: 'Big. Several hundred stalls in summer. Carpark fills by 9am.' },
+        { label: 'Setting', value: 'Red Hill Showgrounds, hinterland ridge. The drive in is part of the morning.' },
+        { label: 'Best for', value: 'A first market visit. A Red Hill Saturday built around the morning. Anyone who wants the postcard.' },
+        { label: 'Combine with', value: 'Main Ridge and Red Hill wineries. Lunch at a cellar door. The Epicurean for an afternoon stop.' },
+      ],
+    }}
+    right={{
+      label: 'Balnarring · 3rd Saturday',
+      title: 'The producer-first quiet one. Growers, beef, eggs, honey, less noise.',
+      rows: [
+        { label: 'Stall mix', value: 'Heavily food-producer. Western Port hinterland beef, lamb, eggs, seasonal produce, a small group of bakers.' },
+        { label: 'Scale', value: 'Smaller. Easier to actually buy a week of vegetables without queueing.' },
+        { label: 'Setting', value: 'Balnarring Racecourse reserve. Pastoral, low-key, dogs and prams welcome.' },
+        { label: 'Best for', value: 'Repeat visitors. Cooks. Anyone who finds Red Hill too crowded.' },
+        { label: 'Combine with', value: 'Merricks General Wine Store, Shoreham wineries, the Western Port coast.' },
+      ],
+    }}
+  />
 
-        <p>The best Peninsula markets are not craft-fair exercises — they are genuine producers' markets, strong on fruit, vegetables, meat, cheese, prepared food, and (at Red Hill especially) the kind of food-producer conversation you don't get at a supermarket.</p>
-
-        <h2>The five markets ranked</h2>
-
-        <h3>1. Red Hill Community Market — Red Hill</h3>
-        <p><em>When:</em> First Saturday of every month, 8am–1pm. <em>Where:</em> Red Hill Showgrounds, Arthurs Seat Road, Red Hill.</p>
-        <p>The anchor of the Peninsula's market calendar. Strong produce from hinterland growers. Prepared food from quality vendors — fresh pastries, wood-fired bread, local cheese. Artisan stalls that lean toward quality craft rather than generic souvenir ware. The atmosphere at 8:30am on a clear autumn morning is one of the Peninsula's unrepeatable small pleasures.</p>
-        <p>Arrive early in summer (before 9am) or accept that the carpark is full and the best produce vendors have sold out. The market feeds directly into <a href="/journal/how-to-build-a-red-hill-saturday/">how to build a Red Hill Saturday</a> — a hinterland loop that uses the market as its anchor.</p>
-        <p><em>Best for:</em> Produce. Artisan food. A hinterland Saturday morning.</p>
-
-        <h3>2. Balnarring Farmers Market — Balnarring</h3>
-        <p><em>When:</em> Third Saturday of every month, 8am–12:30pm. <em>Where:</em> Balnarring Racecourse, Coolart Road, Balnarring.</p>
-        <p>Smaller than Red Hill Market, more food-producer focused, minimal craft. The producers are largely from the Western Port hinterland — beef, lamb, eggs, honey, seasonal produce. The setting at the racecourse reserve is genuinely pastoral. The Merricks General Wine Store is 5 km away for a natural continuation.</p>
-        <p><em>Best for:</em> Serious food producers. A quieter market experience. Combining with the Merricks/Shoreham corridor.</p>
-
-        <h3>3. Mornington Main Street Market — Mornington</h3>
-        <p><em>When:</em> Second and fourth Wednesdays, plus some Saturdays. <em>Where:</em> Main Street, Mornington.</p>
-        <p>The town market for the northern Peninsula. More accessibility-focused — some craft, some produce, some street food. Good for combining with a <a href="/places/mornington/">Mornington town</a> visit. Less essential if you're already doing Red Hill.</p>
-        <p><em>Best for:</em> Midweek visits. Town-day additions. Northern Peninsula stays.</p>
-
-        <h3>4. Rye Beachside Market — Rye</h3>
-        <p>A beachside market on the bay foreshore. Largely crafts and gift items with some food. Lower food-producer density than Red Hill or Balnarring. The setting — beachside in summer — is the draw more than the stalls. Good for a casual browse on a Sunday morning if you're already in Rye.</p>
-        <p><em>Best for:</em> Casual atmosphere. A Rye Sunday morning add-on.</p>
-
-        <h3>5. Mount Eliza Farmers Market — Mount Eliza</h3>
-        <p>A smaller community market in the northern Peninsula town of Mount Eliza. Good local produce from the Mornington corridor. Lower volume than Red Hill but worthwhile for those based in the northern area.</p>
-        <p><em>Best for:</em> Northern Peninsula visitors. Combining with a Mount Eliza coffee stop.</p>
-
-        <h2>The market calendar at a glance</h2>
-        <table>
-          <thead><tr><th>Market</th><th>Day</th><th>Frequency</th><th>Focus</th></tr></thead>
-          <tbody>
-            <tr><td>Red Hill Community Market</td><td>1st Saturday</td><td>Monthly</td><td>Produce, artisan, food</td></tr>
-            <tr><td>Balnarring Farmers Market</td><td>3rd Saturday</td><td>Monthly</td><td>Food producers</td></tr>
-            <tr><td>Mornington Main Street Market</td><td>2nd and 4th Wednesday</td><td>Fortnightly</td><td>General</td></tr>
-            <tr><td>Rye Beachside Market</td><td>Sunday</td><td>Variable</td><td>Craft, casual</td></tr>
-            <tr><td>Mount Eliza Farmers Market</td><td>Sunday</td><td>Monthly</td><td>Produce</td></tr>
-          </tbody>
-        </table>
-
-        <h2>How to combine markets with a Peninsula day</h2>
-        <p>The Red Hill and Balnarring markets are two Saturdays apart. A weekend itinerary built around both is practical:</p>
-        <ul>
-          <li><strong>Saturday 1 (Red Hill Saturday):</strong> Market in the morning, winery lunch in the afternoon. See <a href="/journal/how-to-build-a-red-hill-saturday/">how to build a Red Hill Saturday</a>.</li>
-          <li><strong>Saturday 3 (Balnarring Saturday):</strong> Market in the morning, then <a href="/places/shoreham/">Shoreham</a> or the Merricks General Wine Store in the afternoon.</li>
-        </ul>
-
-        <p><em>Last fact-verified 23 April 2026</em></p>
-
-        <h2>FAQ</h2>
-
-        <h3>When is the Red Hill Market?</h3>
-        <p>The first Saturday of every month, 8am–1pm, at Red Hill Showgrounds.</p>
-
-        <h3>What is the best market on the Mornington Peninsula?</h3>
-        <p>Red Hill Community Market — for variety, quality, and atmosphere. Balnarring Farmers Market if you prioritise food producers over craft and artisan goods.</p>
-
-        <h3>Are there markets on the Mornington Peninsula every week?</h3>
-        <p>No. The flagship markets (Red Hill, Balnarring) are monthly. Mornington Main Street Market runs fortnightly. There is no significant weekly market.</p>
-
-        <h3>Are the markets suitable for visiting in winter?</h3>
-        <p>Yes. Red Hill and Balnarring markets run year-round. Winter attendance is lower, which many visitors prefer. Wet weather can affect stall numbers at open-air markets.</p>
+  <!-- 4. FIVE MARKETS — proper cards, all five tracked -->
+  <section class="experience-index experience-index--plain" aria-label="All Peninsula markets">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">The five markets · ranked</p>
+          <h2 class="venues__title">Every Peninsula market, side by side</h2>
+          <p class="venues__sub">Editorial ranking based on producer density, atmosphere, and how often we send first-time visitors there. Tap any card for the detail page.</p>
+        </div>
+        <a href="/explore/" class="venues__link">All explore guides →</a>
+      </div>
+      <div class="market-grid">
+        {markets.map((market, idx) => {
+          const d = market.data;
+          const slug = d.slug ?? market.id;
+          const meta = marketMeta[slug];
+          if (!meta) return null;
+          const detailHref = `/explore/${slug}/`;
+          const locality = d.address?.split(',')[1]?.trim() ?? '';
+          return (
+            <article class="market-card">
+              <div class="market-card__rank">{String(idx + 1).padStart(2, '0')}</div>
+              <div class="market-card__media" style={`background-image: url('${d.heroImage.src}')`} role="img" aria-label={d.heroImage.alt}></div>
+              <div class="market-card__body">
+                <div class="market-card__badges">
+                  <span class={`market-badge ${focusBadgeClass(meta.focusMod)}`}>{meta.focus}</span>
+                  <span class={`market-badge market-badge--tier ${tierBadgeClass(meta.tier)}`}>Tier {meta.tier}</span>
+                </div>
+                <h3 class="market-card__name"><a href={detailHref}>{d.name}</a></h3>
+                <p class="market-card__meta">
+                  <span class="market-card__when">{meta.cadence}</span>
+                  <span class="market-card__sep"> · </span>
+                  <span class="market-card__hours">{meta.hours}</span>
+                  {locality && <span class="market-card__sep"> · </span>}
+                  {locality && <span class="market-card__where">{locality}</span>}
+                </p>
+                <p class="market-card__note">{d.editorNote.split('. ').slice(0, 2).join('. ').trim().replace(/\.?$/, '.')}</p>
+                <p class="market-card__insider">
+                  <span class="market-card__insider-tag">Insider read</span>{meta.insiderRead}
+                </p>
+              </div>
+              <div class="market-card__footer">
+                <a href={detailHref} class="market-card__cta">Market guide →</a>
+                {d.website && (
+                  <a href={d.website} class="market-card__site" target="_blank" rel="noopener">Official site →</a>
+                )}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
-  </article>
+  </section>
 
-  {markets.length > 0 && (
-    <section class="experience-index">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Markets · {markets.length} tracked</p>
-            <h2 class="venues__title">All Peninsula markets in our collection</h2>
-          </div>
-          <a href="/explore/" class="venues__link">All experiences →</a>
-        </div>
-        <div class="experience-grid">
-          {markets.map((market) => <ExperienceCard experience={market} />)}
+  <!-- 5. PAIRING PANELS — Build the day around the market -->
+  <section class="experience-index" aria-label="Pair the market with the rest of the day">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Build the day around it</p>
+          <h2 class="venues__title">What to do once the market closes</h2>
+          <p class="venues__sub">The market is the anchor, not the day. Three ready-made shapes for the three flagship Saturdays.</p>
         </div>
       </div>
-    </section>
-  )}
+      <div class="pairing-grid">
+        <div class="pairing-card">
+          <h3 class="pairing-card__heading">Red Hill Saturday</h3>
+          <p class="pairing-card__sub">Market 8–10.30am. Long lunch in the hinterland.</p>
+          <ul class="pairing-card__list">
+            <li><a href="/journal/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a> — the editorial guide to the morning-into-lunch shape.</li>
+            <li><a href="/wine/">Main Ridge and Red Hill cellar doors</a> — within 10 minutes of the showgrounds.</li>
+            <li><a href="/eat/the-epicurean-red-hill/">The Epicurean Red Hill</a> — long-lunch option for an afternoon that does not pretend to be brief.</li>
+          </ul>
+        </div>
+        <div class="pairing-card">
+          <h3 class="pairing-card__heading">Balnarring Saturday</h3>
+          <p class="pairing-card__sub">Market 8–11am. Wine corridor, coastal lunch.</p>
+          <ul class="pairing-card__list">
+            <li><a href="/places/shoreham/">Shoreham</a> — quiet coastal village 10 minutes south.</li>
+            <li><a href="/places/merricks/">Merricks General Wine Store</a> — the natural lunch continuation.</li>
+            <li><a href="/explore/balnarring-beach/">Balnarring Beach</a> — Western Port swim or a long walk on the racecourse side.</li>
+          </ul>
+        </div>
+        <div class="pairing-card">
+          <h3 class="pairing-card__heading">Mornington Wednesday</h3>
+          <p class="pairing-card__sub">Market 9am–2pm. Town day, bay-side coffee.</p>
+          <ul class="pairing-card__list">
+            <li><a href="/places/mornington/">Mornington town</a> — Main Street rolls straight into the market on market Wednesdays.</li>
+            <li><a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> — pram-friendly, a clean way to finish the morning.</li>
+            <li><a href="/eat/">Eat &amp; Drink in Mornington</a> — lunch options once the stalls pack up.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. EDITORIAL READS -->
+  <section class="experience-index experience-index--plain" aria-label="Markets editorial">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Further reading</p>
+          <h2 class="venues__title">Markets editorial</h2>
+          <p class="venues__sub">Pieces from the PI archive that pick up where this hub stops.</p>
+        </div>
+      </div>
+      <div class="market-articles">
+        <a href="/journal/how-to-build-a-red-hill-saturday/" class="market-article-card">
+          <div class="market-article-card__img" style="background-image: url('/images/sourced/article-red-hill-saturday-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__body">
+            <p class="market-article-card__tag">Editor's perspective</p>
+            <h3 class="market-article-card__title">How to build a Red Hill Saturday</h3>
+            <p class="market-article-card__dek">Market in the morning, hinterland in the afternoon. The piece that explains why the upper Peninsula has its own weekend gravity.</p>
+            <span class="market-article-card__cta">Read →</span>
+          </div>
+        </a>
+        <a href="/wine/" class="market-article-card">
+          <div class="market-article-card__img" style="background-image: url('/images/sourced/category-cottage-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__body">
+            <p class="market-article-card__tag">Hub</p>
+            <h3 class="market-article-card__title">Red Hill and Main Ridge cellar doors</h3>
+            <p class="market-article-card__dek">The wineries within 15 minutes of the market that turn a Saturday morning into a Saturday lunch.</p>
+            <span class="market-article-card__cta">Read →</span>
+          </div>
+        </a>
+        <a href="/places/red-hill/" class="market-article-card">
+          <div class="market-article-card__img" style="background-image: url('/images/sourced/place-red-hill-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__body">
+            <p class="market-article-card__tag">Place guide</p>
+            <h3 class="market-article-card__title">Red Hill — the village around the market</h3>
+            <p class="market-article-card__dek">What Red Hill actually is on the other 30 days of the month. A short guide to the village that the market sits inside.</p>
+            <span class="market-article-card__cta">Read →</span>
+          </div>
+        </a>
+        <a href="/places/balnarring/" class="market-article-card">
+          <div class="market-article-card__img" style="background-image: url('/images/sourced/place-balnarring-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__body">
+            <p class="market-article-card__tag">Place guide</p>
+            <h3 class="market-article-card__title">Balnarring — the Western Port quiet half</h3>
+            <p class="market-article-card__dek">The corridor that runs from Balnarring through Merricks to Shoreham — and why the market is the easiest way in.</p>
+            <span class="market-article-card__cta">Read →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. STAT BLOCK — dark feature, mirrors golf-stayplay -->
+  <section class="market-feature" aria-label="The market morning at a glance">
+    <div class="container">
+      <div class="market-feature__inner">
+        <div class="market-feature__body">
+          <p class="label label--accent">A clean market morning</p>
+          <h2 class="market-feature__heading">The Peninsula's market morning, in numbers</h2>
+          <p class="market-feature__dek">The two flagship markets sit on opposite Saturdays of the month, which means a four-week visitor can hit Red Hill and Balnarring without overlap. The producer density at Balnarring is higher per stall; the scale and atmosphere at Red Hill are higher per visit. Both reward early arrival and a cap on what you carry — most market regret is the bag that got too heavy by 10am.</p>
+          <p class="market-feature__dek">For the rest of the month, Mornington's fortnightly Wednesday fills the midweek slot, Mount Eliza covers the northern villages, and Rye runs through summer on the bay foreshore for a casual swim-and-browse rhythm. None of these are destination rounds — they are add-ons to where you already are.</p>
+          <p class="market-feature__dek">If you have one Saturday only, it is Red Hill. If you have two and a serious kitchen interest, it is Red Hill then Balnarring. The <a href="/journal/how-to-build-a-red-hill-saturday/" class="market-feature__link">Red Hill Saturday guide</a> is the next read.</p>
+        </div>
+        <div class="market-feature__aside">
+          <div class="market-feature__fact">
+            <span class="market-feature__fact-num">5</span>
+            <span class="market-feature__fact-label">Peninsula markets tracked editorially</span>
+          </div>
+          <div class="market-feature__fact">
+            <span class="market-feature__fact-num">2</span>
+            <span class="market-feature__fact-label">flagship Saturdays per month</span>
+          </div>
+          <div class="market-feature__fact">
+            <span class="market-feature__fact-num">8.30</span>
+            <span class="market-feature__fact-label">am best arrival at Red Hill in summer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ — accordion -->
+  <section class="experience-index experience-index--plain" aria-label="Markets FAQ">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Common questions</p>
+          <h2 class="venues__title">FAQ</h2>
+        </div>
+      </div>
+      <div class="market-faq">
+        <details class="market-faq__item">
+          <summary class="market-faq__q">When is the Red Hill Market?</summary>
+          <div class="market-faq__a">
+            <p>The first Saturday of every month, 8am–1pm, at Red Hill Showgrounds on Arthurs Seat Road. The carpark fills by 9am in summer; arrive by 8.30am for the best produce.</p>
+          </div>
+        </details>
+        <details class="market-faq__item">
+          <summary class="market-faq__q">What is the best market on the Mornington Peninsula?</summary>
+          <div class="market-faq__a">
+            <p>Red Hill Community Market — for variety, scale, and atmosphere. It is the correct answer for a first-time visitor.</p>
+            <p>If you prioritise food producers over craft and prepared food, Balnarring Farmers Market is the deeper experience. Smaller, quieter, more growers per stall.</p>
+          </div>
+        </details>
+        <details class="market-faq__item">
+          <summary class="market-faq__q">Are there markets on the Peninsula every week?</summary>
+          <div class="market-faq__a">
+            <p>No. The flagship markets (Red Hill, Balnarring) are monthly and sit on alternating Saturdays. Mornington Main Street Market runs on the 2nd and 4th Wednesdays. Mount Eliza is the last Sunday of the month. Rye is summer-weighted. There is no significant weekly market.</p>
+          </div>
+        </details>
+        <details class="market-faq__item">
+          <summary class="market-faq__q">Are the markets suitable for visiting in winter?</summary>
+          <div class="market-faq__a">
+            <p>Yes. Red Hill, Balnarring, Mornington, and Mount Eliza run year-round. Winter attendance is lower, which many visitors prefer. Wet weather can affect stall numbers at the open-air markets, but neither Red Hill nor Balnarring cancel for light rain.</p>
+          </div>
+        </details>
+        <details class="market-faq__item">
+          <summary class="market-faq__q">Which Peninsula market is best for serious produce?</summary>
+          <div class="market-faq__a">
+            <p>Balnarring Farmers Market. The stall mix runs heavily to Western Port hinterland growers — beef, lamb, eggs, honey, seasonal vegetables. Red Hill is broader; Balnarring is deeper on producers.</p>
+          </div>
+        </details>
+        <details class="market-faq__item">
+          <summary class="market-faq__q">Can I combine two markets in one weekend?</summary>
+          <div class="market-faq__a">
+            <p>Yes — if your visit straddles the right Saturdays. Red Hill (1st Saturday) and Balnarring (3rd Saturday) are two weeks apart. A weekend that lands on either is a natural anchor; a four-week visit gets both. Mornington's Wednesday market can fold into either weekend midweek.</p>
+          </div>
+        </details>
+      </div>
+      <p class="market-verified">Last fact-verified 17 May 2026.</p>
+    </div>
+  </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  /* ─────────────────────────────────────────────────────────────────
+     MONTH-AT-A-GLANCE CALENDAR
+     ───────────────────────────────────────────────────────────────── */
+  .market-calendar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(121, 92, 58, 0.14);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 8px 24px rgba(34, 24, 16, 0.05);
+  }
+  .market-calendar__row {
+    display: grid;
+    grid-template-columns: 5.5rem 12rem 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1.4rem;
+    border-bottom: 1px solid rgba(121, 92, 58, 0.09);
+  }
+  .market-calendar__row:last-child { border-bottom: none; }
+  .market-calendar__row:nth-child(odd) { background: rgba(139, 78, 59, 0.025); }
+  .market-calendar__week {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .market-calendar__day {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .market-calendar__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .market-calendar__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 0;
+    font-size: 0.78rem;
+    color: var(--soft);
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .market-calendar__row {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      padding: 0.95rem 1.1rem;
+    }
+  }
+
+  /* Shared chip + badge palette */
+  .market-chip,
+  .market-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2rem;
+    line-height: 1.45;
+    border: 1px solid transparent;
+  }
+  .market-badge--producer {
+    background: rgba(90, 140, 80, 0.12);
+    color: #3d6e34;
+    border-color: rgba(90, 140, 80, 0.25);
+  }
+  .market-badge--mixed {
+    background: rgba(182, 154, 107, 0.15);
+    color: #7a5f2a;
+    border-color: rgba(182, 154, 107, 0.3);
+  }
+  .market-badge--craft {
+    background: rgba(139, 78, 59, 0.09);
+    color: var(--accent);
+    border-color: rgba(139, 78, 59, 0.22);
+  }
+  .market-badge--tier {
+    background: transparent;
+    color: var(--soft);
+    border-color: var(--border);
+    font-weight: 500;
+  }
+  .market-tier--1.market-badge--tier {
+    color: var(--accent);
+    background: rgba(139, 78, 59, 0.06);
+    border-color: rgba(139, 78, 59, 0.3);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+     MARKET CARD GRID
+     ───────────────────────────────────────────────────────────────── */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 800px) { .market-grid { grid-template-columns: 1fr; } }
+
+  .market-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(255,252,247,0.99) 0%, rgba(248,243,236,0.99) 100%);
+    border: 1px solid rgba(121, 92, 58, 0.14);
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 32px rgba(34, 24, 16, 0.06);
+    overflow: hidden;
+    transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .market-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px rgba(34, 24, 16, 0.11);
+  }
+  .market-card__rank {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: rgba(253, 252, 250, 0.92);
+    backdrop-filter: blur(6px);
+    color: var(--accent);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(34, 24, 16, 0.12);
+  }
+  .market-card__media {
+    aspect-ratio: 16 / 8;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-alt);
+  }
+  .market-card__body {
+    padding: 1.25rem 1.4rem 0.75rem;
+    flex: 1;
+  }
+  .market-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.7rem;
+  }
+  .market-card__name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  .market-card__name a { color: var(--text); text-decoration: none; }
+  .market-card__name a:hover { color: var(--accent); }
+  .market-card__meta {
+    font-size: 0.78rem;
+    color: var(--soft);
+    margin: 0 0 0.85rem;
+    letter-spacing: 0.01em;
+  }
+  .market-card__when { font-weight: 600; color: var(--text); }
+  .market-card__sep { opacity: 0.55; }
+  .market-card__note {
+    font-size: 0.88rem;
+    color: #44372b;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .market-card__insider {
+    font-size: 0.82rem;
+    color: #5a4a38;
+    line-height: 1.6;
+    margin: 0.85rem 0 0;
+    padding: 0.65rem 0.85rem;
+    background: rgba(182, 154, 107, 0.09);
+    border-left: 3px solid rgba(182, 154, 107, 0.55);
+    border-radius: 0 0.35rem 0.35rem 0;
+    font-style: italic;
+  }
+  .market-card__insider-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7a5f2a;
+    font-style: normal;
+    margin-right: 0.5rem;
+  }
+  .market-card__footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.4rem 1.1rem;
+    border-top: 1px solid rgba(121, 92, 58, 0.09);
+    margin-top: auto;
+  }
+  .market-card__cta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .market-card__cta:hover { color: var(--acc-h); }
+  .market-card__site {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--soft);
+    text-decoration: none;
+  }
+  .market-card__site:hover { color: var(--text); }
+
+  /* ─────────────────────────────────────────────────────────────────
+     EDITORIAL ARTICLE CARDS (mirrors golf-article-card palette)
+     ───────────────────────────────────────────────────────────────── */
+  .market-articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 700px) { .market-articles { grid-template-columns: 1fr; } }
+
+  .market-article-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid rgba(121, 92, 58, 0.12);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 6px 20px rgba(34, 24, 16, 0.05);
+    transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .market-article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(34, 24, 16, 0.11);
+  }
+  .market-article-card__img {
+    aspect-ratio: 16 / 7;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-alt);
+  }
+  .market-article-card__body {
+    padding: 1.4rem 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .market-article-card__tag {
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.45rem;
+  }
+  .market-article-card__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+  .market-article-card__dek {
+    font-size: 0.85rem;
+    color: var(--soft);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+  .market-article-card__cta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin-top: auto;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+     DARK STAT FEATURE (mirrors golf-stayplay)
+     ───────────────────────────────────────────────────────────────── */
+  .market-feature {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .market-feature__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .market-feature__inner { grid-template-columns: 1fr; }
+  }
+  .market-feature .label--accent { color: var(--gold); }
+  .market-feature__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+  .market-feature__dek {
+    font-size: 0.93rem;
+    color: rgba(253, 252, 250, 0.72);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+  .market-feature__link {
+    color: var(--gold);
+    text-decoration: underline;
+    text-decoration-color: rgba(182, 154, 107, 0.45);
+  }
+  .market-feature__link:hover { text-decoration-color: var(--gold); }
+  .market-feature__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 200px;
+  }
+  .market-feature__fact { text-align: right; }
+  @media (max-width: 700px) {
+    .market-feature__aside { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+    .market-feature__fact { text-align: left; }
+  }
+  .market-feature__fact-num {
+    display: block;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .market-feature__fact-label {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(253, 252, 250, 0.55);
+    line-height: 1.4;
+    max-width: 16ch;
+    margin-left: auto;
+  }
+  @media (max-width: 700px) {
+    .market-feature__fact-label { margin-left: 0; }
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
+     FAQ — details/summary
+     ───────────────────────────────────────────────────────────────── */
+  .market-faq {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(121, 92, 58, 0.14);
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .market-faq__item {
+    border-bottom: 1px solid rgba(121, 92, 58, 0.1);
+  }
+  .market-faq__item:last-child { border-bottom: none; }
+  .market-faq__item[open] { background: rgba(139, 78, 59, 0.03); }
+  .market-faq__q {
+    cursor: pointer;
+    list-style: none;
+    padding: 1.15rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    user-select: none;
+  }
+  .market-faq__q::-webkit-details-marker { display: none; }
+  .market-faq__q::after {
+    content: '+';
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .market-faq__item[open] .market-faq__q::after { content: '−'; }
+  .market-faq__a {
+    padding: 0 1.5rem 1.25rem;
+    font-size: 0.88rem;
+    color: #44372b;
+    line-height: 1.7;
+  }
+  .market-faq__a p { margin-bottom: 0.6rem; }
+  .market-faq__a p:last-child { margin-bottom: 0; }
+  .market-faq__a a { color: var(--accent); text-decoration: underline; }
+
+  .market-verified {
+    margin-top: 2rem;
+    font-size: 0.78rem;
+    color: var(--soft);
+    text-align: center;
+  }
+</style>

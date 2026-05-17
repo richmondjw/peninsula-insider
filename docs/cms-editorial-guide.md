@@ -39,7 +39,44 @@ the other venue's card untouched. This is by design — the entire 2026-05-11
 overhaul existed to make this true. If you ever see the old behaviour
 again (one click affecting many cards), flag it as a regression.
 
-## How to edit text
+## How to edit article body content (paragraphs, headings, lists)
+
+On any journal article (`/journal/<slug>/`), the body prose is **click-to-edit** when you're in admin edit mode:
+
+1. Hover any paragraph, heading, list, or blockquote in the article body. You'll see a dashed outline + a soft background highlight.
+2. Click. The block becomes editable. A black floating toolbar appears above it with **B** / **I** / **🔗** / **Cancel** / **Save** buttons.
+3. Type to edit. Keyboard shortcuts:
+   - `Cmd+B` / `Ctrl+B` — bold
+   - `Cmd+I` / `Ctrl+I` — italic
+   - `Cmd+K` / `Ctrl+K` — insert / edit link
+   - `Cmd+Enter` / `Ctrl+Enter` — save
+   - `Esc` — cancel
+4. To add a link: select the text you want linked, hit `Cmd+K` (or the 🔗 button). A popover appears. Type the URL — internal paths (`/journal/foo/`) or full URLs (`https://...`) both work. Bare domains get `https://` auto-prefixed. External links get `target="_blank" rel="noopener noreferrer"` automatically. Hit Enter or Apply.
+5. To remove a link: click on the existing link text inside the editable block, hit `Cmd+K`, then click "Remove link" in the popover.
+6. Click **Save** (or hit `Cmd+Enter`). The change goes live immediately. A toast confirms.
+
+What you can edit:
+- Paragraphs (`<p>`)
+- Headings — H2, H3, H4 (the H1 is the article title and is handled by the separate top-of-page edit)
+- Lists — bulleted and numbered (treat the whole list as one block)
+- Blockquotes
+
+What you **cannot** edit via the block editor (by design):
+- Images — use right-click image replace instead, that's a different flow
+- Custom components (FAQ blocks, Cluster Links, Correction Notes, etc.) — these are structural
+- Code blocks
+- Tables (v2)
+
+Formatting allowed when saving:
+- **Bold** (`<strong>`)
+- *Italic* (`<em>`)
+- Links (`<a href="...">`)
+- Line breaks (`<br>`)
+- Everything else is stripped silently — no `<font>`, no inline styles, no scripts, no Google Docs nonsense.
+
+If you paste from Word or Google Docs, the editor strips all formatting and inserts plain text. Apply bold/italic/links again via the toolbar.
+
+## How to edit other text fields
 
 1. Sign in.
 2. Click the text you want to change. If it's editable, the cursor will

@@ -91,4 +91,4 @@ If your question is what to actually do on Saturday and Sunday this week, the [P
 
 These picks complement that. They are the things worth booking, doing, or eating *between* the dispatch's weekend plan — Thursday night, Friday afternoon, the mid-week lunch, the booking you make now for a Saturday in June. Use the dispatch for the weekend itself. Use these for the rest of the week.
 
-_Prices and availability change. Confirm directly with the venue or operator before booking._
+Prices may change. Confirm current rates directly with the venue or operator before booking.

@@ -33,6 +33,12 @@ faq:
     answer: "Second Saturday of each month on the Esplanade bayfront. It's the best monthly market on the Peninsula for produce, cheese, bread, and local goods — worth structuring a whole day around if you're coming in the morning."
   - question: "Is Mornington worth visiting on its own, or should I continue to Red Hill?"
     answer: "Worth a full day on its own — gallery, market, foreshore, good coffee, and Mount Martha Beach. If you want wineries and cellar doors, Red Hill is a separate day. Trying to combine both usually ends with rushing everything and enjoying neither."
+aiSummary:
+  - "A complete day-trip guide to Mornington town — structured to make the most of the Peninsula's main hub in a single day without a car-heavy itinerary."
+  - "Covers: the Wednesday market as the ideal starting point; the foreshore walk; the best café and lunch options; what the main street actually offers beyond coffee."
+  - "The editorial argument: Mornington is consistently underused as a destination in its own right rather than a gateway town. This piece treats it as the destination."
+  - "Suits: day-trippers from Melbourne; visitors staying in Mount Martha or nearby who want a full Mornington day; anyone who has dismissed Mornington as 'just a service town'."
+  - "Planning note: Wednesday is the best day by a significant margin (market day). Parking fills quickly near the market from 8:30am. The Esplanade walk is the correct way to close the day."
 ---
 
 Mornington has a problem and the problem is geography. It is the first stop on the Peninsula when you drive down from Melbourne, and for a long time that meant nobody stayed: you bought a coffee, stretched your legs, and pressed on to the wineries or the tip. The town became a waypoint by default.

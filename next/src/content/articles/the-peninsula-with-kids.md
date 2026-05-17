@@ -31,6 +31,12 @@ faq:
     answer: "Yes, with the right itinerary. Mount Martha Beach on the bay side is ideal for young children — gentle shallow water, easy parking, no rip. Avoid the ocean back beaches (Sorrento, Gunnamatta) with under-fives: the surf is serious and the car parks are further from the sand than they look."
   - question: "Which are the most family-friendly restaurants on the Mornington Peninsula?"
     answer: "Red Hill Brewery (outdoor grass, wood-fired pizza, room to move), Merricks General Wine Store (relaxed dining, fast kitchen), and Epicurean Red Hill are the strongest family lunch options. Avoid long degustation formats or formal terrace restaurants — they don't work with children and neither side will enjoy it."
+aiSummary:
+  - "A practical guide to visiting the Mornington Peninsula with children — structured around what actually works and what to avoid, rather than an exhaustive list of family-friendly attractions."
+  - "Key recommendations: calm bay beaches for young children (Rosebud, Dromana, Mount Martha); Arthurs Seat Eagle gondola as the standout family activity; Red Hill Market on a first Saturday; Ashcombe Maze for a half-day."
+  - "The editorial angle: Peninsula beaches are divided — bay side is calm and safe for young children, ocean side has surf and rips. The piece helps parents choose the right beach for their children's ages and swimming ability."
+  - "Suits: families with children under 12; first-time Peninsula visitors with kids; anyone planning a Peninsula trip around school holiday activities."
+  - "Planning note: the most common mistake is choosing ocean-side accommodation when young children need bay-side beaches. This piece helps sequence that decision correctly."
 ---
 
 A Peninsula day with kids works best when it isn't a watered-down version of the grown-up trip.

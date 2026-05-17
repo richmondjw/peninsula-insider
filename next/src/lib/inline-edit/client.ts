@@ -148,7 +148,25 @@ function onDocumentClick(event: MouseEvent) {
 
   if (!editMode) return;
 
-  const el = (event.target as HTMLElement | null)?.closest<HTMLElement>('[data-pi-edit="text"]');
+  // Clicks inside the block toolbar / link popover are handled by their own
+  // listeners — don't fall through to text-edit / block-edit logic below.
+  const target = event.target as HTMLElement | null;
+  if (!target) return;
+  if (target.closest('.pi-block-toolbar') || target.closest('.pi-link-popover')) return;
+
+  // Block editor takes precedence when the click lands inside an article
+  // prose root and on an editable block. We check this BEFORE the existing
+  // `data-pi-edit="text"` flow because article title / dek tags also have
+  // `data-pi-edit="text"` but block IDs do not.
+  const block = target.closest<HTMLElement>('[data-pi-prose-root] [data-pi-block-id]');
+  if (block && block.dataset.piEditing !== '1') {
+    event.preventDefault();
+    event.stopPropagation();
+    startBlockEdit(block);
+    return;
+  }
+
+  const el = target.closest<HTMLElement>('[data-pi-edit="text"]');
   if (!el) return;
   if (el.dataset.piEditing === '1') return;
 
@@ -236,8 +254,12 @@ function onContextMenu(event: MouseEvent) {
 function onKeyDown(event: KeyboardEvent) {
   if (event.key === 'Escape') {
     closeMenu();
+    closeLinkPopover();
     const active = document.querySelector<HTMLElement>('[data-pi-editing="1"]');
-    if (active) cancelTextEdit(active);
+    if (active) {
+      if (active.hasAttribute('data-pi-block-id')) cancelBlockEdit(active);
+      else cancelTextEdit(active);
+    }
   }
 }
 
@@ -911,6 +933,577 @@ async function recordRevision(
     patch: rev.patch,
     created_by: userId,
   });
+}
+
+// --------------------------------------------------------------------------
+// Block editor (article body prose)
+// --------------------------------------------------------------------------
+//
+// Tagged paragraphs / headings / lists / blockquotes under
+// `[data-pi-prose-root]` become click-to-edit. The block is wrapped in a
+// contenteditable surface with a floating toolbar that supports:
+//   - Bold (Cmd/Ctrl+B)
+//   - Italic (Cmd/Ctrl+I)
+//   - Hyperlink (Cmd/Ctrl+K) — popover with URL input and optional internal
+//     link autocomplete from pi.content_registry
+//   - Save (Cmd/Ctrl+Enter)
+//   - Cancel (Esc)
+//
+// All saves go through a strict allowlist sanitiser before hitting the DB.
+// Stored as cms_text_fields rows keyed `body.block:<deterministic-id>`.
+
+interface BlockDescriptor {
+  entityType: string;
+  entitySlug: string;
+  blockId: string;
+  blockKind: string;
+}
+
+let blockToolbar: HTMLDivElement | null = null;
+let linkPopover: HTMLDivElement | null = null;
+let activeBlock: HTMLElement | null = null;
+let activeBlockDesc: BlockDescriptor | null = null;
+
+function readBlockDescriptor(el: HTMLElement): BlockDescriptor | null {
+  const blockId = el.dataset.piBlockId;
+  const blockKind = el.dataset.piBlockKind || 'paragraph';
+  const root = el.closest<HTMLElement>('[data-pi-prose-root]');
+  if (!root || !blockId) return null;
+  const entityType = root.dataset.piEntityType;
+  const entitySlug = root.dataset.piEntitySlug;
+  if (!entityType || !entitySlug) return null;
+  return { entityType, entitySlug, blockId, blockKind };
+}
+
+function startBlockEdit(el: HTMLElement) {
+  const desc = readBlockDescriptor(el);
+  if (!desc) return;
+
+  // Close anything else that was open.
+  closeMenu();
+  closeLinkPopover();
+  document.querySelectorAll<HTMLElement>('[data-pi-editing="1"]').forEach((other) => {
+    if (other === el) return;
+    if (other.hasAttribute('data-pi-block-id')) cancelBlockEdit(other);
+    else cancelTextEdit(other);
+  });
+
+  el.dataset.piOriginal = el.innerHTML;
+  el.dataset.piEditing = '1';
+  el.setAttribute('contenteditable', 'true');
+  el.classList.add('pi-block-editing');
+  el.focus();
+
+  activeBlock = el;
+  activeBlockDesc = desc;
+
+  // Cursor at the end of existing content (less disruptive than select-all).
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  range.collapse(false);
+  const sel = window.getSelection();
+  if (sel) { sel.removeAllRanges(); sel.addRange(range); }
+
+  mountBlockToolbar(el, desc);
+
+  el.addEventListener('keydown', onBlockKeyDown);
+  el.addEventListener('paste', onBlockPaste);
+  // Reposition toolbar when block height changes (e.g. typing into a list).
+  el.addEventListener('input', repositionToolbar);
+}
+
+function cancelBlockEdit(el: HTMLElement) {
+  el.innerHTML = el.dataset.piOriginal ?? '';
+  finishBlockEdit(el);
+}
+
+function finishBlockEdit(el: HTMLElement) {
+  el.removeAttribute('contenteditable');
+  el.classList.remove('pi-block-editing');
+  delete el.dataset.piEditing;
+  delete el.dataset.piOriginal;
+  el.removeEventListener('keydown', onBlockKeyDown);
+  el.removeEventListener('paste', onBlockPaste);
+  el.removeEventListener('input', repositionToolbar);
+  unmountBlockToolbar();
+  closeLinkPopover();
+  if (activeBlock === el) {
+    activeBlock = null;
+    activeBlockDesc = null;
+  }
+}
+
+function onBlockKeyDown(event: KeyboardEvent) {
+  const mod = event.metaKey || event.ctrlKey;
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    if (activeBlock) cancelBlockEdit(activeBlock);
+    return;
+  }
+  if (mod && event.key === 'Enter') {
+    event.preventDefault();
+    if (activeBlock && activeBlockDesc) void saveBlockEdit(activeBlock, activeBlockDesc);
+    return;
+  }
+  if (mod && (event.key === 'b' || event.key === 'B')) {
+    event.preventDefault();
+    document.execCommand('bold');
+    return;
+  }
+  if (mod && (event.key === 'i' || event.key === 'I')) {
+    event.preventDefault();
+    document.execCommand('italic');
+    return;
+  }
+  if (mod && (event.key === 'k' || event.key === 'K')) {
+    event.preventDefault();
+    openLinkPopoverForSelection();
+    return;
+  }
+}
+
+/**
+ * Paste handler — converts incoming clipboard data to plain text so editors
+ * pasting from Word / Google Docs / web pages don't import a mess of inline
+ * styles, font tags, and tracking pixels. Formatting can still be re-applied
+ * via the toolbar once the text is in.
+ */
+function onBlockPaste(event: ClipboardEvent) {
+  event.preventDefault();
+  const text = event.clipboardData?.getData('text/plain') ?? '';
+  if (!text) return;
+  // insertText respects the current selection / cursor position naturally.
+  document.execCommand('insertText', false, text);
+}
+
+// -- Block toolbar ---------------------------------------------------------
+
+function mountBlockToolbar(el: HTMLElement, desc: BlockDescriptor) {
+  unmountBlockToolbar();
+
+  const bar = document.createElement('div');
+  bar.className = 'pi-block-toolbar';
+  bar.setAttribute('role', 'toolbar');
+  bar.setAttribute('aria-label', 'Edit block formatting');
+  bar.innerHTML = `
+    <button type="button" class="pi-block-toolbar__btn" data-action="bold" aria-label="Bold (Cmd+B)" title="Bold (Cmd+B)"><strong>B</strong></button>
+    <button type="button" class="pi-block-toolbar__btn" data-action="italic" aria-label="Italic (Cmd+I)" title="Italic (Cmd+I)"><em>I</em></button>
+    <button type="button" class="pi-block-toolbar__btn" data-action="link" aria-label="Link (Cmd+K)" title="Link (Cmd+K)">🔗</button>
+    <span class="pi-block-toolbar__sep" aria-hidden="true"></span>
+    <span class="pi-block-toolbar__label">${escapeHtml(desc.blockKind)}</span>
+    <span class="pi-block-toolbar__spacer"></span>
+    <button type="button" class="pi-block-toolbar__btn pi-block-toolbar__btn--ghost" data-action="cancel" aria-label="Cancel (Esc)" title="Cancel (Esc)">Cancel</button>
+    <button type="button" class="pi-block-toolbar__btn pi-block-toolbar__btn--primary" data-action="save" aria-label="Save (Cmd+Enter)" title="Save (Cmd+Enter)">Save</button>
+  `;
+  // Prevent toolbar mousedown from stealing focus from the contenteditable
+  // (which would commit a blur-save). Click events still fire because we
+  // suppress mousedown only.
+  bar.addEventListener('mousedown', (e) => e.preventDefault());
+  bar.addEventListener('click', onBlockToolbarClick);
+  document.body.appendChild(bar);
+  blockToolbar = bar;
+  repositionToolbar();
+}
+
+function unmountBlockToolbar() {
+  if (blockToolbar) {
+    blockToolbar.remove();
+    blockToolbar = null;
+  }
+}
+
+function repositionToolbar() {
+  if (!blockToolbar || !activeBlock) return;
+  const rect = activeBlock.getBoundingClientRect();
+  const top = window.scrollY + rect.top - blockToolbar.offsetHeight - 10;
+  const left = window.scrollX + rect.left;
+  blockToolbar.style.top = `${Math.max(8, top)}px`;
+  blockToolbar.style.left = `${Math.max(8, left)}px`;
+}
+
+function onBlockToolbarClick(event: MouseEvent) {
+  const btn = (event.target as HTMLElement | null)?.closest<HTMLElement>('[data-action]');
+  if (!btn || !activeBlock || !activeBlockDesc) return;
+  const action = btn.dataset.action;
+  switch (action) {
+    case 'bold':
+      document.execCommand('bold');
+      activeBlock.focus();
+      break;
+    case 'italic':
+      document.execCommand('italic');
+      activeBlock.focus();
+      break;
+    case 'link':
+      openLinkPopoverForSelection();
+      break;
+    case 'cancel':
+      cancelBlockEdit(activeBlock);
+      break;
+    case 'save':
+      void saveBlockEdit(activeBlock, activeBlockDesc);
+      break;
+  }
+}
+
+// -- Link popover ----------------------------------------------------------
+
+let linkSavedRange: Range | null = null;
+let linkSuggestions: Array<{ href: string; label: string }> | null = null;
+
+function openLinkPopoverForSelection() {
+  if (!activeBlock) return;
+  closeLinkPopover();
+  const sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0) return;
+  // Save the current selection so we can re-apply it after the popover
+  // takes focus.
+  linkSavedRange = sel.getRangeAt(0).cloneRange();
+
+  // If the cursor / selection is inside an existing <a>, edit that.
+  let existingAnchor: HTMLAnchorElement | null = null;
+  let node: Node | null = sel.anchorNode;
+  while (node && node !== activeBlock) {
+    if (node instanceof HTMLAnchorElement) { existingAnchor = node; break; }
+    node = node.parentNode;
+  }
+  const existingHref = existingAnchor?.getAttribute('href') ?? '';
+
+  const pop = document.createElement('div');
+  pop.className = 'pi-link-popover';
+  pop.innerHTML = `
+    <label class="pi-link-popover__label" for="pi-link-input">Link URL</label>
+    <input
+      id="pi-link-input"
+      class="pi-link-popover__input"
+      type="text"
+      placeholder="https://… or /journal/some-article/"
+      autocomplete="off"
+      spellcheck="false"
+      value="${escapeHtml(existingHref)}"
+    />
+    <div class="pi-link-popover__suggestions" role="listbox"></div>
+    <div class="pi-link-popover__actions">
+      ${existingAnchor ? '<button type="button" class="pi-link-popover__btn pi-link-popover__btn--danger" data-link-action="remove">Remove link</button>' : ''}
+      <span class="pi-block-toolbar__spacer"></span>
+      <button type="button" class="pi-link-popover__btn" data-link-action="cancel">Cancel</button>
+      <button type="button" class="pi-link-popover__btn pi-link-popover__btn--primary" data-link-action="apply">Apply</button>
+    </div>
+  `;
+  pop.addEventListener('mousedown', (e) => e.preventDefault());
+  pop.addEventListener('click', onLinkPopoverClick);
+  document.body.appendChild(pop);
+  linkPopover = pop;
+  positionLinkPopover();
+
+  const input = pop.querySelector<HTMLInputElement>('#pi-link-input');
+  if (input) {
+    input.focus();
+    input.select();
+    input.addEventListener('input', onLinkInputChange);
+    input.addEventListener('keydown', onLinkInputKeyDown);
+  }
+  // Lazy-load internal-link suggestions on first popover open.
+  void ensureLinkSuggestions();
+}
+
+function positionLinkPopover() {
+  if (!linkPopover || !activeBlock) return;
+  const rect = activeBlock.getBoundingClientRect();
+  const top = window.scrollY + rect.bottom + 8;
+  const left = window.scrollX + rect.left;
+  linkPopover.style.top = `${top}px`;
+  linkPopover.style.left = `${Math.max(8, left)}px`;
+}
+
+function closeLinkPopover() {
+  if (linkPopover) {
+    linkPopover.remove();
+    linkPopover = null;
+  }
+  linkSavedRange = null;
+}
+
+function onLinkPopoverClick(event: MouseEvent) {
+  const btn = (event.target as HTMLElement | null)?.closest<HTMLElement>('[data-link-action]');
+  if (btn) {
+    const action = btn.dataset.linkAction;
+    const input = linkPopover?.querySelector<HTMLInputElement>('#pi-link-input');
+    const url = input?.value.trim() ?? '';
+    if (action === 'cancel') closeLinkPopover();
+    else if (action === 'remove') applyLink(null);
+    else if (action === 'apply') applyLink(normaliseLinkUrl(url));
+    return;
+  }
+  // Click on a suggestion row.
+  const suggestion = (event.target as HTMLElement | null)?.closest<HTMLElement>('[data-suggestion-href]');
+  if (suggestion) {
+    const input = linkPopover?.querySelector<HTMLInputElement>('#pi-link-input');
+    if (input) input.value = suggestion.dataset.suggestionHref ?? '';
+    applyLink(normaliseLinkUrl(suggestion.dataset.suggestionHref ?? ''));
+  }
+}
+
+function onLinkInputChange(event: Event) {
+  const value = (event.target as HTMLInputElement).value;
+  renderLinkSuggestions(value);
+}
+
+function onLinkInputKeyDown(event: KeyboardEvent) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const value = (event.target as HTMLInputElement).value.trim();
+    applyLink(normaliseLinkUrl(value));
+  } else if (event.key === 'Escape') {
+    event.preventDefault();
+    closeLinkPopover();
+  }
+}
+
+/** Normalise a user-typed URL. Bare domain → https://; trailing slashes
+ *  preserved; internal paths left as-is. Returns null for empty input. */
+function normaliseLinkUrl(raw: string): string | null {
+  const v = raw.trim();
+  if (!v) return null;
+  if (v.startsWith('/') || v.startsWith('#') || v.startsWith('mailto:') || v.startsWith('tel:')) return v;
+  if (/^https?:\/\//i.test(v)) return v;
+  // Bare domain or path — assume https://
+  return `https://${v}`;
+}
+
+function applyLink(url: string | null) {
+  if (!activeBlock) return closeLinkPopover();
+  activeBlock.focus();
+  // Restore the selection we saved when the popover opened.
+  if (linkSavedRange) {
+    const sel = window.getSelection();
+    if (sel) { sel.removeAllRanges(); sel.addRange(linkSavedRange); }
+  }
+  if (url === null) {
+    document.execCommand('unlink');
+  } else {
+    document.execCommand('createLink', false, url);
+    // Post-process: external links get target+rel; internal links don't.
+    const sel = window.getSelection();
+    if (sel && sel.anchorNode) {
+      let node: Node | null = sel.anchorNode;
+      while (node && node !== activeBlock) {
+        if (node instanceof HTMLAnchorElement && node.getAttribute('href') === url) {
+          if (/^https?:\/\//i.test(url)) {
+            node.setAttribute('target', '_blank');
+            node.setAttribute('rel', 'noopener noreferrer');
+          } else {
+            node.removeAttribute('target');
+            node.removeAttribute('rel');
+          }
+          break;
+        }
+        node = node.parentNode;
+      }
+    }
+  }
+  closeLinkPopover();
+}
+
+async function ensureLinkSuggestions() {
+  if (linkSuggestions !== null) return;
+  linkSuggestions = []; // mark in-progress to avoid double-loads
+  const supa = getSupabase();
+  if (!supa) return;
+  const { data } = await supa
+    .from('content_registry')
+    .select('href, title, entity_type, entity_slug')
+    .not('href', 'is', null)
+    .limit(800);
+  linkSuggestions = (data ?? [])
+    .filter((r: any) => r.href)
+    .map((r: any) => ({
+      href: r.href as string,
+      label: (r.title || `${r.entity_type} / ${r.entity_slug}`) as string,
+    }));
+  // If the popover is still open, re-render with whatever the user has typed.
+  const input = linkPopover?.querySelector<HTMLInputElement>('#pi-link-input');
+  if (input) renderLinkSuggestions(input.value);
+}
+
+function renderLinkSuggestions(query: string) {
+  const box = linkPopover?.querySelector<HTMLDivElement>('.pi-link-popover__suggestions');
+  if (!box) return;
+  const q = query.trim().toLowerCase();
+  if (!q || !linkSuggestions || linkSuggestions.length === 0) {
+    box.innerHTML = '';
+    return;
+  }
+  const matches = linkSuggestions
+    .filter((s) => s.href.toLowerCase().includes(q) || s.label.toLowerCase().includes(q))
+    .slice(0, 6);
+  if (matches.length === 0) {
+    box.innerHTML = '';
+    return;
+  }
+  box.innerHTML = matches.map((m) => `
+    <button type="button" class="pi-link-popover__suggestion" data-suggestion-href="${escapeHtml(m.href)}">
+      <span class="pi-link-popover__suggestion-label">${escapeHtml(m.label)}</span>
+      <span class="pi-link-popover__suggestion-href">${escapeHtml(m.href)}</span>
+    </button>
+  `).join('');
+}
+
+// -- Save + sanitiser ------------------------------------------------------
+
+/**
+ * Strict HTML allowlist. Only the tags + attributes we explicitly trust to
+ * appear in editor-saved prose. Everything else is stripped on save.
+ *
+ * Allowed:
+ *   <strong>, <b>             → <strong>
+ *   <em>, <i>                  → <em>
+ *   <a href="..." target rel> with safe href schemes
+ *   <br>
+ *
+ * Notably NOT allowed: <script>, <style>, <iframe>, on* handlers, data:/
+ * javascript: URLs, inline style attributes, class attributes, custom tags,
+ * any image / video / audio embed (those are managed by the right-click
+ * image flow, not the block editor).
+ */
+function sanitiseBlockHtml(html: string): string {
+  const doc = new DOMParser().parseFromString(`<div>${html}</div>`, 'text/html');
+  const root = doc.body.firstElementChild;
+  if (!root) return '';
+  walk(root);
+  return root.innerHTML.trim();
+
+  function walk(node: Element) {
+    const children = Array.from(node.children);
+    for (const child of children) {
+      const tag = child.tagName.toLowerCase();
+      if (tag === 'b') replaceTag(child, 'strong');
+      else if (tag === 'i') replaceTag(child, 'em');
+      else if (tag === 'strong' || tag === 'em') stripAllAttributes(child);
+      else if (tag === 'br') stripAllAttributes(child);
+      else if (tag === 'a') sanitiseAnchor(child as HTMLAnchorElement);
+      else {
+        // Unrecognised tag — unwrap (keep its text content, drop the element).
+        const parent = child.parentNode;
+        if (!parent) continue;
+        while (child.firstChild) parent.insertBefore(child.firstChild, child);
+        parent.removeChild(child);
+        continue;
+      }
+      if (child.parentNode) walk(child);
+    }
+  }
+
+  function replaceTag(el: Element, newTag: string) {
+    const replacement = doc.createElement(newTag);
+    while (el.firstChild) replacement.appendChild(el.firstChild);
+    el.parentNode?.replaceChild(replacement, el);
+  }
+
+  function stripAllAttributes(el: Element) {
+    for (const attr of Array.from(el.attributes)) el.removeAttribute(attr.name);
+  }
+
+  function sanitiseAnchor(a: HTMLAnchorElement) {
+    const href = a.getAttribute('href') ?? '';
+    if (!isSafeHref(href)) {
+      // Drop the anchor, keep its text.
+      const parent = a.parentNode;
+      if (!parent) return;
+      while (a.firstChild) parent.insertBefore(a.firstChild, a);
+      parent.removeChild(a);
+      return;
+    }
+    const isExternal = /^https?:\/\//i.test(href);
+    for (const attr of Array.from(a.attributes)) {
+      if (attr.name === 'href') continue;
+      if (isExternal && (attr.name === 'target' || attr.name === 'rel')) continue;
+      a.removeAttribute(attr.name);
+    }
+    if (isExternal) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  }
+
+  function isSafeHref(href: string): boolean {
+    if (!href) return false;
+    if (href.startsWith('/') || href.startsWith('#')) return true;
+    if (/^mailto:/i.test(href) || /^tel:/i.test(href)) return true;
+    if (/^https?:\/\//i.test(href)) return true;
+    // Block javascript:, data:, vbscript:, etc.
+    return false;
+  }
+}
+
+async function saveBlockEdit(el: HTMLElement, desc: BlockDescriptor) {
+  const rawHtml = el.innerHTML;
+  const cleanHtml = sanitiseBlockHtml(rawHtml);
+  const originalHtml = sanitiseBlockHtml(el.dataset.piOriginal ?? '');
+
+  if (cleanHtml === originalHtml) {
+    toast('No change.', 'info');
+    finishBlockEdit(el);
+    return;
+  }
+
+  const supa = getSupabase();
+  if (!supa) { toast('Supabase not configured.', 'err'); return; }
+
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) { toast('Signed out — please sign in again.', 'err'); return; }
+
+  const fieldPath = `body.block:${desc.blockId}`;
+  const label = `Body block (${desc.blockKind})`;
+  const row = {
+    entity_type: desc.entityType,
+    entity_slug: desc.entitySlug,
+    field_path: fieldPath,
+    label,
+    field_kind: 'richtext' as const,
+    value: cleanHtml,
+    status: 'published' as const,
+    updated_by: session.user.id,
+  };
+
+  const { data: existing } = await supa
+    .from('cms_text_fields')
+    .select('id')
+    .eq('entity_type', desc.entityType)
+    .eq('entity_slug', desc.entitySlug)
+    .eq('field_path', fieldPath)
+    .is('locale', null)
+    .maybeSingle();
+
+  let saveErr: { message: string } | null = null;
+  if (existing?.id) {
+    const { error } = await supa.from('cms_text_fields').update(row).eq('id', existing.id);
+    saveErr = error;
+  } else {
+    const { error } = await supa.from('cms_text_fields').insert(row);
+    saveErr = error;
+  }
+
+  if (saveErr) {
+    toast(`Save failed: ${saveErr.message}`, 'err');
+    return;
+  }
+
+  // Reflect the sanitised HTML in the DOM so the editor sees the final form
+  // (e.g. a stripped <span> disappears immediately, not on next page load).
+  el.innerHTML = cleanHtml;
+
+  await recordRevision(supa, session.user.id, {
+    entity_type: desc.entityType,
+    entity_slug: desc.entitySlug,
+    action: 'update',
+    status: 'published',
+    summary: `Edited body block (${desc.blockKind})`,
+    patch: [{ op: 'set', target: fieldPath, value: cleanHtml }],
+  });
+
+  toast(`Saved.`, 'ok');
+  finishBlockEdit(el);
 }
 
 // --------------------------------------------------------------------------

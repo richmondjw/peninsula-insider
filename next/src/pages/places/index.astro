@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import GuideHero from '../../components/GuideHero.astro';
 import CompareBlock from '../../components/CompareBlock.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
@@ -10,19 +9,35 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { routeSlug } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
+import { editableText } from '../../lib/inline-edit/attrs';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const places = (await getCollection('places')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 const venues = await getCollection('venues');
 const experiences = await getCollection('experiences');
 
-const placeDensity: Record<string, number> = {};
-places.forEach((place) => {
-  const slug = routeSlug(place);
-  const venueCount = venues.filter((v) => String(v.data.place?.id ?? v.data.place) === slug).length;
-  const experienceCount = experiences.filter((e) => String(e.data.place?.id ?? e.data.place) === slug).length;
-  placeDensity[slug] = venueCount + experienceCount;
-});
+// Curated destination order — editorial priority, not alphabetical or regional.
+// Reflects search importance, Peninsula recognition, and editorial strength.
+// Update this array to change what appears and in what order.
+// Curated primary destinations in editorial priority order.
+// Reflects search importance, Peninsula recognition, and editorial strength.
+// Fingal added (Peninsula Hot Springs, Moonah Links, Cape Schanck access).
+// Dromana promoted (Dromana Drive-In, Arthurs Seat Eagle, gateway positioning).
+const CURATED_ORDER = [
+  'sorrento', 'red-hill', 'flinders', 'portsea', 'mornington',
+  'cape-schanck', 'fingal', 'dromana', 'main-ridge', 'merricks',
+  'blairgowrie', 'rye',
+];
+
+// Primary curated destinations — shown in editorial order at the top of the hub
+const primaryDestinations = CURATED_ORDER
+  .map((slug) => places.find((p) => routeSlug(p) === slug))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+// Secondary destinations — remaining places not in the curated primary list
+const secondaryDestinations = places.filter(
+  (p) => !CURATED_ORDER.includes(routeSlug(p))
+).sort((a, b) => a.data.name.localeCompare(b.data.name));
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -36,32 +51,6 @@ const townReads = townReadSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
   .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
-const groups: { key: string; label: string; title: string; intro: string; variant: 'vineyard' | 'bay' | 'sand'; zones: string[] }[] = [
-  {
-    key: 'hinterland', label: 'Hinterland', title: 'Hinterland — Red Hill, Main Ridge, Merricks',
-    intro: 'The elevated central ridge between the bay and the ocean. Cool mornings, fog-prone winters, and volcanic red soils produce some of the best cool-climate Pinot Noir and Chardonnay in Australia. The area is predominantly rural — farmstands, cellar doors on gravel roads, the occasional serious restaurant tucked into a vineyard. There is no beach within five minutes. That\'s the point.',
-    variant: 'vineyard', zones: ['red-hill-plateau', 'hinterland'],
-  },
-  {
-    key: 'bay', label: 'Bay Coast', title: 'Bay Coast — Mornington to Rosebud',
-    intro: 'Mornington, Mount Martha, Safety Beach, Dromana, and Rosebud face Port Phillip Bay along the peninsula\'s eastern edge. The water is calm, the swimming is safe, the bathing boxes are photogenic, and the summer crowds are real. Mornington anchors the northern end as the most town-like of the lot — gallery, market, decent coffee, a working marina.',
-    variant: 'bay', zones: ['bayside'],
-  },
-  {
-    key: 'tip', label: 'The Tip', title: 'The Tip — Blairgowrie, Sorrento, Portsea',
-    intro: 'Blairgowrie, Sorrento, and Portsea occupy the peninsula\'s narrow western tip, with Point Nepean National Park sealing the end. Limestone cliffs, white-sand ocean beaches facing Bass Strait, a ferry crossing to Queenscliff, and heritage buildings from Victoria\'s earliest settlement attempt. Sorrento is the prettiest town on the Peninsula. Portsea is the richest. Blairgowrie is the best-kept secret.',
-    variant: 'sand', zones: ['back-beaches', 'tip'],
-  },
-  {
-    key: 'ocean', label: 'Ocean Coast & Western Port', title: 'Ocean Coast & Western Port',
-    intro: 'Rye, Cape Schanck, Flinders, Shoreham, Point Leo, Balnarring, Somers, and Hastings wrap the peninsula\'s southern and eastern flanks. Cape Schanck is a lighthouse at the edge of a national park. Flinders is a village that thinks of itself as a destination. Point Leo is one sculpture park and one surf break. Shoreham, Balnarring and Somers are quiet to the point of deliberate. Hastings, Bittern, Crib Point and Stony Point are the working Western Port edge — fishing fleets, mussel farms, and the ferries out to French and Phillip Islands.',
-    variant: 'sand', zones: ['ocean-coast', 'western-port'],
-  },
-];
-
-const grouped = groups
-  .map((group) => ({ ...group, places: places.filter((p) => group.zones.includes(p.data.zone)) }))
-  .filter((group) => group.places.length > 0);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -109,145 +98,107 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   <Breadcrumbs items={breadcrumbItems} />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       1. CINEMATIC HERO
+       1. LIGHTWEIGHT PAGE HEADER
+       Minimal. Destinations are the page's primary function — the header
+       introduces, the grid delivers. No hero image on this page.
        ═══════════════════════════════════════════════════════════════ -->
-  <GuideHero
-    eyebrow="Places"
-    title="The Peninsula, town by <em>town</em>"
-    dek="The Peninsula is easier to understand through its places: harbour towns, ridge villages, bay beaches, ocean edges, and the tip. Get the geography right and the rest of the trip arranges itself."
-    heroImage="/images/sourced/places-hub-hero-01.webp"
-    imageAlt="The Mornington Peninsula coastline — bay on one side, Bass Strait on the other"
-    imageCredit="Peninsula Insider"
-    entitySlug="places"
-  />
+  <div class="places-page-header">
+    <div class="container">
+      <p class="label label--accent places-page-header__eyebrow">Peninsula Insider</p>
+      <h1 class="places-page-header__title" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.title', label: 'Places — title' })}>Peninsula destinations</h1>
+      <p class="places-page-header__dek" {...editableText({ entityType: 'page', entitySlug: 'places', fieldPath: 'hero.dek', label: 'Places — dek' })}>Choose where you want to be. Each page is a complete guide.</p>
+    </div>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. THE GEOGRAPHIC FRAME — Bay coast vs Ocean & tip
+       2. PRIMARY DESTINATIONS — immediately after hero, destination-first.
+       Curated editorial order. No regional groupings.
+       ═══════════════════════════════════════════════════════════════ -->
+  {primaryDestinations.length > 0 && (
+    <section class="places places--primary" id="destinations">
+      <div class="container">
+        <div class="places__header places__header--primary">
+          <div>
+            <p class="label label--accent places__label">Peninsula destinations</p>
+            <h2 class="places__title places__title--primary">Where on the Peninsula?</h2>
+          </div>
+        </div>
+        <div class="places__grid">
+          {primaryDestinations.map((place, index) => (
+            <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} showMeta={false} showActions={false} introMaxLength={200} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <SectionDivider />
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       3. GEOGRAPHIC FRAME — planning orientation, below destinations.
+       Bay coast vs ocean — practical planning utility, not branded regions.
        ═══════════════════════════════════════════════════════════════ -->
   <CompareBlock
     eyebrow="The decision before the booking"
-    heading="Bay coast or the Ocean & tip"
-    dek="The Peninsula splits cleanly along which water each place faces. Knowing which coast your accommodation looks at decides the temperature of the trip."
+    heading="Bay coast or the Ocean side"
+    dek="The Peninsula splits cleanly along which water each place faces. Knowing this changes what you book."
     left={{
-      label: 'Bay Coast — Port Phillip',
-      title: 'Calm water. Bathing boxes. Family-tilted, summer-bright.',
+      label: 'Bay side — Port Phillip',
+      title: 'Calm water. Family-tilted. Summer-bright.',
       rows: [
-        { label: 'Towns', value: 'Mornington, Mount Martha, Safety Beach, Dromana, Rosebud — plus the bay-side of Sorrento and Portsea' },
-        { label: 'Water', value: 'Sheltered Port Phillip. Calm, shallow, safe for young children. Warmer in summer than the ocean side.' },
-        { label: 'Atmosphere', value: 'Bathing-box postcards, calm bay swimming, foreshore parks, walking paths, family-friendly cafés and pubs.' },
-        { label: 'Best for', value: 'Family weekends, brunch culture, beginner swimming, casual day trips. Summer at its busiest.' },
-        { label: 'Trade-off', value: 'Less drama, more crowds in peak season. Vineyard country is a 15–20 minute drive inland.' },
+        { label: 'Towns', value: 'Mornington, Mount Martha, Dromana, Rosebud, Safety Beach' },
+        { label: 'Water', value: 'Sheltered. Shallow, calm, safe for young children. Warmer in summer.' },
+        { label: 'Best for', value: 'Family weekends, casual day trips, beach swimming, foreshore walks.' },
       ],
     }}
     right={{
-      label: 'Ocean & tip — Bass Strait',
-      title: 'Wild water. Limestone. Year-round drama.',
+      label: 'Ocean side — Bass Strait',
+      title: 'Wild water. Limestone cliffs. Year-round drama.',
       rows: [
-        { label: 'Towns', value: 'Sorrento (back), Portsea (back), Rye, Cape Schanck, Flinders, Shoreham, Balnarring' },
-        { label: 'Water', value: 'Open Bass Strait. Surf, rips, surge. Cold year-round. Look but don\'t swim unpatrolled.' },
-        { label: 'Atmosphere', value: 'Limestone cliffs, white-sand ocean beaches, lighthouses, exposed dune systems, fewer crowds.' },
-        { label: 'Best for', value: 'Surfers, walkers, photographers, winter visits, anyone who prefers solitude over swimming.' },
-        { label: 'Trade-off', value: 'Less family-safe water. Best in cool weather; summer crowds at Sorrento and Portsea front beaches.' },
+        { label: 'Towns', value: 'Sorrento, Portsea, Rye, Cape Schanck, Flinders, Shoreham' },
+        { label: 'Water', value: 'Open Bass Strait. Surf, rips, surge. Cold year-round.' },
+        { label: 'Best for', value: 'Walkers, winter visits, dramatic scenery, surfers, solitude-seekers.' },
       ],
     }}
   />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. WHY TOWNS MATTER — short editorial frame
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="article">
+  <!-- Map — geographic orientation, positioned after the CompareBlock so users
+       can visualise the Peninsula spatially while still in the destination-selection
+       moment. Supports orientation without dominating the planning flow. -->
+  <section class="places-map-cta">
     <div class="container">
-      <div class="prose">
-        <h2>Why towns matter here</h2>
-        <p class="section-standfirst">Most people come to the Peninsula for a category — beaches, wine, hot springs, golf — and pick accommodation that looks close to that category. That usually works out fine. But the Peninsula is specific in a way that categories flatten.</p>
-        <p>The beach towns on Port Phillip Bay are calm, family-tilted, and good in summer. The ocean-side towns face Bass Strait and suit people who like dramatic coastline and solitude. The hinterland ridge is where serious food and wine happens. The Western Port fringe is quieter, underrated, and where artists and racehorses live.</p>
-        <p>Understanding the areas changes what you book. Staying in Portsea when you want wineries is a 40-minute drive in the wrong direction. Staying in Red Hill when you want beaches puts you 20 minutes from any coast. Read the area notes below, use the town cards to shortlist, then go deep in the individual pages.</p>
-      </div>
-    </div>
-  </section>
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. AREA GROUPS — town card grids
-       ═══════════════════════════════════════════════════════════════ -->
-  {grouped.map((group) => {
-    const ordered = [...group.places].sort((a, b) => (placeDensity[routeSlug(b)] ?? 0) - (placeDensity[routeSlug(a)] ?? 0));
-    return (
-      <section class="places" id={group.key}>
-        <div class="container">
-          <div class="places__header">
-            <p class="label label--accent places__label">{group.label}</p>
-            <h2 class="places__title">{group.title}</h2>
-            <p class="places__sub">{group.intro}</p>
-          </div>
-          <div class="places__grid">
-            {ordered.map((place) => <PlaceCard place={place} variant={group.variant} showMeta={false} showActions={false} introMaxLength={240} />)}
-          </div>
+      <div class="places-map-cta__inner">
+        <div class="places-map-cta__text">
+          <span class="places-map-cta__eyebrow">See the whole Peninsula</span>
+          <h2 class="places-map-cta__title">Every destination on one map</h2>
+          <p class="places-map-cta__dek">Destinations, venues, walks and experiences plotted. Useful for understanding distances, finding what’s nearby, and orienting a new trip.</p>
         </div>
-      </section>
-    );
-  })}
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. PENINSULA AT A GLANCE — editorial orientation cards
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="peninsula-glance" aria-label="Peninsula at a Glance">
-    <div class="container">
-      <div class="peninsula-glance__header">
-        <p class="label label--accent">Orientation</p>
-        <h2 class="peninsula-glance__title">Peninsula at a Glance</h2>
-        <p class="peninsula-glance__sub">Four useful ways to read the map before choosing where to stay, eat, walk, or spend the day.</p>
-      </div>
-      <div class="peninsula-glance__grid">
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">Hinterland</p>
-          <h3>Food, wine, fog, and red soil.</h3>
-          <p>Use Red Hill, Main Ridge, and Merricks when the trip is built around cellar doors, long lunches, farmgates, and a slower ridge pace.</p>
-        </article>
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">Bay Coast</p>
-          <h3>Calm water and easy logistics.</h3>
-          <p>Mornington through Rosebud is the practical side: family beaches, foreshore walks, markets, piers, and the simplest day-trip rhythm.</p>
-        </article>
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">The Tip</p>
-          <h3>Limestone, back beaches, and the ferry.</h3>
-          <p>Blairgowrie, Sorrento, and Portsea are where the Peninsula narrows and the weekend becomes more cinematic — beautiful, busy, and best booked ahead.</p>
-        </article>
-        <article class="peninsula-glance__card">
-          <p class="peninsula-glance__kicker">Ocean Coast & Western Port</p>
-          <h3>Wilder edges and quieter towns.</h3>
-          <p>Rye, Cape Schanck, Flinders, Shoreham, Balnarring, and Hastings suit walkers, winter drives, working harbours, and people who prefer less polish.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       6. ALL PLACES — full mosaic
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="places" id="all">
-    <div class="container">
-      <div class="places__header">
-        <p class="label label--accent places__label">All Places</p>
-        <h2 class="places__title">Browse Every Place</h2>
-        <p class="places__sub">The full place layer, kept simple.</p>
-      </div>
-      <div class="places__grid">
-        {places.map((place, index) => (
-          <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} showMeta={false} showActions={false} introMaxLength={220} />
-        ))}
+        <a href="/map/" class="places-map-cta__link">Open the map →</a>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       7. EDITORIAL GUIDES
+       4. MORE PENINSULA PLACES — secondary destinations, alphabetical
+       ═══════════════════════════════════════════════════════════════ -->
+  {secondaryDestinations.length > 0 && (
+    <section class="places places--secondary" id="more-places">
+      <div class="container">
+        <div class="places__header">
+          <p class="label places__label--secondary">More Peninsula places</p>
+        </div>
+        <div class="places__grid places__grid--secondary">
+          {secondaryDestinations.map((place, index) => (
+            <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} showMeta={false} showActions={false} introMaxLength={160} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       6. EDITORIAL GUIDES — formerly section 7
        ═══════════════════════════════════════════════════════════════ -->
   {townReads.length > 0 && (
     <section class="venues venues--plain">
@@ -301,10 +252,171 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     </div>
   </section>
 
+
   <NewsletterBlock />
 </BaseLayout>
 
 <style>
+  /* ── Lightweight page header ── */
+  .places-page-header {
+    padding: 2rem 0 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .places-page-header__eyebrow {
+    margin-bottom: 0.35rem;
+  }
+  .places-page-header__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.05;
+    margin: 0 0 0.5rem;
+  }
+  .places-page-header__dek {
+    font-size: 0.9rem;
+    color: var(--soft);
+    margin: 0;
+    max-width: 36rem;
+  }
+  @media (max-width: 640px) {
+    .places-page-header {
+      padding: 1.5rem 0 1.25rem;
+    }
+    .places-page-header__title {
+      font-size: 1.6rem;
+    }
+  }
+
+  /* Primary destinations — leads the page, full editorial weight */
+  .places--primary {
+    padding: clamp(2rem, 4vw, 3rem) 0 clamp(3rem, 5vw, 4.5rem);
+  }
+  .places__header--primary {
+    margin-bottom: 2.5rem;
+  }
+  .places__title--primary {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0.4rem 0 0;
+    line-height: 1.05;
+  }
+
+  /* Secondary destinations — quieter, supporting layer */
+  .places--secondary {
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
+    background: var(--bg-alt);
+  }
+  .places__label--secondary {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+  .places__grid--secondary {
+    opacity: 0.9;
+  }
+  /* Tighter card grid on secondary — smaller minimum so more fit per row */
+  .places--secondary .places__grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  @media (max-width: 640px) {
+    .places--secondary .places__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .places--primary {
+      padding: 2rem 0 2.5rem;
+    }
+  }
+  @media (max-width: 380px) {
+    .places--secondary .places__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Map section — geographic orientation, sits after CompareBlock.
+     Slightly more vertical presence than a simple CTA strip: it’s doing
+     spatial work in the orientation flow, not just a footer action. */
+  .places-map-cta {
+    padding: 3rem 0;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+  }
+  /* Subtle topographic-grid texture — signals spatial/map without imagery */
+  .places-map-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .places-map-cta__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .places-map-cta__text { flex: 1; min-width: 200px; }
+  .places-map-cta__eyebrow {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .places-map-cta__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 0.5rem;
+    line-height: 1.1;
+  }
+  .places-map-cta__dek {
+    font-size: 0.88rem;
+    color: rgba(253,252,250,0.6);
+    margin: 0;
+    max-width: 36rem;
+  }
+  .places-map-cta__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--white);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    white-space: nowrap;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+  }
+  .places-map-cta__link:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.6);
+  }
+  @media (max-width: 600px) {
+    .places-map-cta { padding: 2.5rem 0; }
+    .places-map-cta__inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  }
+
   .peninsula-glance {
     padding: clamp(3rem, 6vw, 5.5rem) 0;
     background: #f7f0e6;

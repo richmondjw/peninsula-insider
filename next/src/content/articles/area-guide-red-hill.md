@@ -26,6 +26,12 @@ faq:
     answer: "Autumn for vineyard colour and settled long-lunch weather, then spring for green hills and clearer daylight. The first-Saturday market mornings are the sharpest version of the place."
   - question: "How far is Red Hill from Melbourne?"
     answer: "Usually around an hour to 80 minutes by car via EastLink and Peninsula Link, depending on whether you are heading to the village proper or further into the ridge roads."
+aiSummary:
+  - "Red Hill is the Mornington Peninsula's primary food and wine destination — a basalt plateau at 100–300m elevation producing benchmark cool-climate Pinot Noir and Chardonnay."
+  - "The village itself is small (a general store, a monthly Saturday market, vineyard roads) but anchors the entire upper Peninsula's culinary geography."
+  - "Best for: visitors building a trip around cellar doors and long lunches. The winery restaurant cluster — Ten Minutes by Tractor, Montalto, Paringa Estate, Principia — is the strongest such concentration in Victoria."
+  - "Suits: couples, food and wine focused visitors, anyone with two nights and appetite. Not suited to: those wanting beach access close by (any coast is 20+ minutes from the ridge)."
+  - "Planning note: the first Saturday of each month market is the sharpest single entry point to the place. Book hatted restaurants 4–8 weeks ahead on weekends."
 ---
 
 Red Hill is where Peninsula weekends become expensive very quickly. Not because the place is cynical, but because it is concentrated. The winery restaurants are close enough together to make over-stacking feel feasible. People pile on tastings, add a market, squeeze in produce stops, then wonder why the day ends in logistical fatigue instead of pleasure.

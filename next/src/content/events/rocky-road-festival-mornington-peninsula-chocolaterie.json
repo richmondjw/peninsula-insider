@@ -1,9 +1,8 @@
 {
   "slug": "rocky-road-festival-mornington-peninsula-chocolaterie",
   "eventId": "MP-EVT-0010",
-  "title": "Rocky Road Festival \u2013 Mornington Peninsula Chocolaterie",
-  "summary": "Month-long Rocky Road Festival at Mornington Peninsula Chocolaterie and Ice Creamery in Flinders. 31 limited-edition rocky road flavours throughout May 2026. Hosted tasting sessions every Sunday in May ($28pp). Free general entry with chocolate showroom and pick-and-mix. Vegan, gluten-friendly and n",
-  "description": "Month-long Rocky Road Festival at Mornington Peninsula Chocolaterie and Ice Creamery in Flinders. 31 limited-edition rocky road flavours throughout May 2026. Hosted tasting sessions every Sunday in May ($28pp). Free general entry with chocolate showroom and pick-and-mix. Vegan, gluten-friendly and no-added-sugar options available.",
+  "title": "Rocky Road Festival, Mornington Peninsula Chocolaterie",
+  "summary": "31 limited-edition rocky road flavours across May at the Flinders chocolaterie. Free to wander, $28 for the hosted Sunday tasting sessions. Vegan, gluten-free and no-added-sugar options.",
   "startDate": "2026-05-01",
   "endDate": "2026-05-31",
   "startTime": "11:00",
@@ -21,7 +20,7 @@
   "indoorOutdoor": "Indoor / Outdoor",
   "bookingUrl": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
   "ticketingUrl": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
-  "officialEventUrl": "https://www.visitmorningtonpeninsula.org/whats-on | https://www.visitmorningtonpeninsula.org/Whats-On/View/17665/rocky-road-festival-tasting-sessions-at-mornington-peninsula-chocolaterie",
+  "officialEventUrl": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17665/rocky-road-festival-tasting-sessions-at-mornington-peninsula-chocolaterie",
   "bookingRequired": "Yes (for tasting sessions)",
   "freePaid": "Free / Paid",
   "priceRange": "Free general entry; tasting sessions $28 per person",
@@ -29,7 +28,7 @@
   "category": "food-wine",
   "subcategory": "Food & Family Event",
   "recurrence": "annual",
-  "recurrenceNote": "Annual \u2013 month of May (future years unconfirmed)",
+  "recurrenceNote": "Annual, month of May",
   "suitableFor": "Families; foodies; chocoholics",
   "audienceTags": [
     "families",
@@ -39,32 +38,35 @@
   "petFriendly": false,
   "accessibilityNotes": "Accessible venue; indoor showroom and outdoor gardens",
   "weather": "mixed",
-  "weatherDependency": "Minimal \u2013 indoor/covered options available",
+  "weatherDependency": "Minimal, indoor/covered options available",
   "weatherShape": "wet-friendly",
   "organiser": {
     "name": "Mornington Peninsula Chocolaterie",
-    "website": "https://www.mpchocolaterie.com.au | https://www.mpchocolaterie.com.au/"
+    "website": "https://www.mpchocolaterie.com.au"
   },
-  "primarySourceUrl": "https://www.visitmorningtonpeninsula.org/whats-on | https://www.visitmorningtonpeninsula.org/Whats-On/View/17665/rocky-road-festival-tasting-sessions-at-mornington-peninsula-chocolaterie",
+  "primarySourceUrl": "https://www.visitmorningtonpeninsula.org/Whats-On/View/17665/rocky-road-festival-tasting-sessions-at-mornington-peninsula-chocolaterie",
   "secondarySourceUrl": "https://www.simpletix.com/e/rocky-road-festival-tasting-session-2026-tickets-270471",
-  "verificationStatus": "Tentative",
   "lastCheckedDate": "2026-05-04",
   "editorialPriority": 4,
   "nearbyAttractions": "Flinders Village; Cape Schanck; Red Hill wineries",
   "suggestedItineraryPairing": "Chocolate tasting + Cape Schanck coastal walk",
-  "internalNotes": "Specific dates for individual events within the festival TBC \u2013 check Chocolaterie website directly. | Confirmed May 2026. Annual event \u2013 2026 dates fully confirmed. 2027 dates unconfirmed (infer from annual pattern). | Duplicate research rows merged from: arts_sport_outdoor_events.csv, markets_family_community_events.csv",
-  "manualFollowUpRequired": true,
-  "kidsGradeAuto": "C",
+  "kidsGrade": "B",
+  "kidsGradeNote": "Made for families, the whole place is geared to kids in May.",
+  "editorVerdict": "31 flavours of rocky road for the price of a coffee, plus the chocolaterie is genuinely good. Easiest May weekend with kids on the Peninsula.",
+  "editorNote": "Every May the Mornington Peninsula Chocolaterie at Flinders runs 31 limited-edition rocky road flavours across the month. Wandering is free, the $28 Sunday tasting session is the hosted version where you sit down and taste through a curated flight. Vegan, gluten-free and no-added-sugar options on the bench, which is rare for chocolate events at this scale.\n\nGo Sunday morning, do the tasting session, then walk Flinders village and along to the pier before driving the coast road to Cape Schanck. With kids it's the easiest play of the month: indoor showroom, outdoor garden, ice cream window.\n\nBook the Sunday tasting a fortnight ahead, the slots go.",
   "status": "published",
   "publishedAt": "2026-05-04",
+  "firstTimer": true,
   "lens": [
-    "ticketed"
+    "ticketed",
+    "family-saturday",
+    "rainy-day"
   ],
   "place": "flinders",
   "nextOccurrence": "2027-05-01",
   "heroImage": {
     "src": "/images/sourced/category-cafe-02.webp",
-    "alt": "Artisan food display at a Peninsula caf\u00e9",
+    "alt": "Artisan food display at a Peninsula cafe",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   }

@@ -48,12 +48,24 @@ const { Content, headings } = ptwRedirectTo
 
 // Hub-guide treatment: planning-utility articles (regional reference, hub
 // guides, trail guides, venue guides) read as scan-first reference rather
-// than long-form prose. The template applies a sticky TOC + 2-col grid +
-// reduced related-section noise when the format is in this set. Editorial
-// formats (editor's letters, slow-peninsula, interviews, investigations,
-// etc.) keep the existing magazine-prose treatment.
+// than long-form prose. The template applies a sticky TOC + 2-col grid
+// when the format is in this set.
 const HUB_GUIDE_FORMATS = new Set(['hub-guide', 'service', 'trail-guide', 'venue-guide']);
 const isHubGuide = HUB_GUIDE_FORMATS.has(String(article.data.format ?? ''));
+
+// Editorial-only formats: immersive reading pieces that should end cleanly
+// at the newsletter block. No downstream venue/experience/place/itinerary
+// card sections — those are reference/planning surface patterns, not editorial
+// ones. Venues referenced within the prose appear as inline links only.
+// Applies to: editors-letter, slow-peninsula, interview, investigation, insider-edit.
+const EDITORIAL_FORMATS = new Set([
+  'editors-letter',
+  'slow-peninsula',
+  'interview',
+  'investigation',
+  'insider-edit',
+]);
+const isEditorialFormat = EDITORIAL_FORMATS.has(String(article.data.format ?? ''));
 
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -95,6 +107,16 @@ const slug = routeSlug(article);
 // where the default paints first and gets swapped after hydration.
 const articleOverrides = await loadOverrides('article', slug);
 const overrideHero = articleOverrides.image['hero'];
+
+// Body-block text overrides — one entry per paragraph/heading/list/blockquote
+// the editor has rewritten via the inline editor. Field path format:
+// `body.block:<deterministic-hash>`. Inlined as a JSON blob below so the
+// pre-paint patcher in client.ts can apply them before the body becomes
+// visible, eliminating the flash where the MDX-rendered default paints first.
+const blockOverridesEntries = Object.entries(articleOverrides.text)
+  .filter(([k]) => k.startsWith('body.block:'))
+  .map(([k, v]) => [k.slice('body.block:'.length), v] as const);
+const blockOverrides = Object.fromEntries(blockOverridesEntries);
 const articleHeroStyle = overrideHero?.src
   ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
   : heroBackgroundStyle(article.data);
@@ -194,7 +216,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
   </html>
 ) : (
 <BaseLayout
-  title={`${article.data.title} | Peninsula Insider`}
+  title={`${article.data.title} · Peninsula Insider`}
   description={article.data.dek}
   section="journal"
   canonical={canonical}
@@ -277,9 +299,39 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
           </section>
         )}
 
-        <div class="prose has-drop-cap">
+        <div class="prose has-drop-cap" data-pi-prose-root data-pi-entity-type="article" data-pi-entity-slug={slug}>
           <Content />
         </div>
+
+        {/* Pre-paint block-override patcher. Reads the JSON blob below and
+            swaps the innerHTML of each matching [data-pi-block-id] element
+            BEFORE the browser paints the body. Ships only when there are
+            overrides to apply — saves a script roundtrip on uncustomised
+            articles. is:inline ensures the script runs synchronously in
+            document order. */}
+        {Object.keys(blockOverrides).length > 0 && (
+          <>
+            <script
+              type="application/json"
+              id="pi-block-overrides"
+              set:html={JSON.stringify(blockOverrides)}
+            />
+            <script is:inline>
+              {`(function(){
+                try {
+                  var n = document.getElementById('pi-block-overrides');
+                  if (!n || !n.textContent) return;
+                  var o = JSON.parse(n.textContent);
+                  var els = document.querySelectorAll('[data-pi-prose-root] [data-pi-block-id]');
+                  for (var i = 0; i < els.length; i++) {
+                    var id = els[i].getAttribute('data-pi-block-id');
+                    if (o[id] != null) els[i].innerHTML = o[id];
+                  }
+                } catch (e) { /* fail silent — the default content stays visible */ }
+              })();`}
+            </script>
+          </>
+        )}
 
         {showCorrectionNote && <CorrectionNote />}
 
@@ -326,7 +378,10 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {relatedVenues.length > 0 && (
+  {/* Venue cards: reference/guide formats only. Editorial formats (editors-letter,
+      slow-peninsula, interview, investigation, insider-edit) reference venues as
+      inline prose links — card sections break reading immersion on those formats. */}
+  {!isEditorialFormat && relatedVenues.length > 0 && (
     <section class="venues">
       <div class="container">
         <div class="venues__header">
@@ -343,11 +398,13 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {/* Hub-guide articles hide the experiences / places / itineraries
-      related sections — they read as long enough already, and the
-      content typically references those entity types inline. Editorial
-      articles keep all four related lanes. */}
-  {!isHubGuide && relatedExperiences.length > 0 && (
+  {/* Experiences / places / itineraries: hidden for editorial-only formats
+      (editors-letter, slow-peninsula, interview, investigation, insider-edit).
+      Reference and guide formats (hub-guide, service, trail-guide, venue-guide,
+      lists, dispatches) show these panels as useful downstream context.
+      Previously gated on !isHubGuide which had the logic inverted — these
+      panels are appropriate for guides, not for pure editorial pieces. */}
+  {!isEditorialFormat && relatedExperiences.length > 0 && (
     <section class="experience-index">
       <div class="container">
         <div class="venues__header">
@@ -364,7 +421,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {!isHubGuide && relatedPlaces.length > 0 && (
+  {!isEditorialFormat && relatedPlaces.length > 0 && (
     <section class="venues venues--plain">
       <div class="container">
         <div class="venues__header">
@@ -381,7 +438,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     </section>
   )}
 
-  {!isHubGuide && relatedItineraries.length > 0 && (
+  {!isEditorialFormat && relatedItineraries.length > 0 && (
     <section class="venues">
       <div class="container">
         <div class="venues__header">

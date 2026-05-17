@@ -31,6 +31,12 @@ faq:
     answer: "Wine and food (one of Victoria's strongest cool-climate regions), hot springs (Peninsula Hot Springs and Alba Thermal Springs), coastal scenery, and boutique accommodation. The Red Hill and Main Ridge hinterland is the culinary and wine heart; Sorrento and Portsea are the coastal destinations."
   - question: "What is the best season to visit the Mornington Peninsula for the first time?"
     answer: "Autumn (March–May) is the best for a first visit — warm enough for outdoor activities, vineyard colour in the landscape, and significantly lower crowds after mid-March. Winter is excellent for value and quiet restaurants. Summer (December–February) is the busiest and the hardest to navigate for first-timers."
+aiSummary:
+  - "A candid orientation guide for first-time Peninsula visitors — designed to replace the ten Google tabs with one honest starting point."
+  - "Covers: how to choose which part of the Peninsula to visit (the most consequential decision for first-timers); what to book first; what to leave until a second trip."
+  - "The editorial argument: most first-time Peninsula trips fail because visitors don't understand the Peninsula's geography before choosing where to stay. This piece addresses the geography first."
+  - "Suits: genuine first-timers; anyone who has heard about the Peninsula from friends and doesn't know where to start; visitors from interstate or overseas."
+  - "Planning note: the article recommends visiting one part of the Peninsula well rather than trying to cover the whole thing. For most first-timers, Red Hill plus Sorrento is the correct shape."
 ---
 
 Here is what nobody tells you about the Mornington Peninsula before your first visit: it is much larger than you think, the best parts of it are not the most famous parts, the drive from Melbourne takes longer than Google says on a Saturday morning, and the single biggest mistake you can make is trying to do too much.
