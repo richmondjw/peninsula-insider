@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "may-planning", "autumn", "food-wine", "rainy-day"]
 relatedVenues: []
 readingTimeMinutes: 4
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-05-14
 clusterLinks:
