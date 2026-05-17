@@ -1,7 +1,18 @@
 # Peninsula Insider — LinkedIn Editorial Framework
-**Version:** 1.0 · May 2026  
+**Version:** 1.1 · May 2026  
 **Author:** Remy  
-**Status:** For James + Emma review
+**Status:** Active — James + Emma (both have publish access; James can auto-deploy)
+**Channel type:** Peninsula Insider company page (not a personal account)
+
+---
+
+## Channel Identity
+
+**LinkedIn = editorial authority**  
+**Instagram = atmospheric Peninsula intelligence**  
+These are complementary but distinct channels. LinkedIn builds the rational case for PI's expertise. Instagram demonstrates the sensory and atmospheric intelligence that makes the Peninsula worth caring about. Neither should try to do the other's job.
+
+**Publishing setup:** Peninsula Insider company page. James and Emma both have access. James can auto-deploy posts once the framework is in place.
 
 ---
 
