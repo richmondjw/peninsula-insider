@@ -87,3 +87,6 @@ A practical note: all three rooms book out at least a month ahead for weekends, 
 If you only have one chance to eat on the Peninsula this year, book it for a Thursday or Friday in autumn, pick the room that matches the occasion, and let everything else arrange itself around that single decision.
 
 The Peninsula has many good restaurants. These three set the ceiling, and choosing between them is less a choice about food than about what kind of weekend you want.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

@@ -138,3 +138,6 @@ The towns that support walk-in days most reliably are:
 **Dromana.** The pub, Jetty Road Brewery, and the foreshore. Simple and honest.
 
 The walk-in Peninsula is a different version of the region  -  less curated, less expensive, more spontaneous, and occasionally better. The trick is not knowing the right restaurant. It is knowing the right category.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

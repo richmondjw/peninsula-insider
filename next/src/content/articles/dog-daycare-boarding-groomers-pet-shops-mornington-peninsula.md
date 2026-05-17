@@ -88,3 +88,6 @@ For a two-night Peninsula weekend with a dog:
 → [Emergency vet and pet help on the Mornington Peninsula](/journal/emergency-vet-pet-help-mornington-peninsula/)
 
 *Last fact-verified: 22 April 2026. Specific business listings are not included, search for current providers before visiting.*
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

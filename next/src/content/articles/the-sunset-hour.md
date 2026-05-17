@@ -125,3 +125,6 @@ Sunset times shift dramatically across the Peninsula year:
 - **Spring (September–November):** around 6:00–7:30pm. Variable and often spectacular after rain.
 
 Autumn sunset on the Peninsula is the best light in regional Victoria. That is not a promotional claim. It is a fact about geography, atmosphere, and the angle of the sun across a body of water. If you schedule one thing on a Peninsula visit, schedule the last hour.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

@@ -98,3 +98,6 @@ The villa weekend is not for everyone.
 If you want the Peninsula to feel like an event (the black steel of [Jackalope](/stay/jackalope), a chandelier dining room, a bar staffed by people who know your cocktail) the hotel is the right answer. See our [guide to the two-night Peninsula escape](/journal/where-to-stay-for-a-two-night-escape) for that version. If you are a first-time visitor who wants to see the region's highlights, a villa will feel oddly disconnected from the rest of the Peninsula, because the point is to barely leave it. And if you do not want to cook, a villa is mainly going to frustrate you.
 
 For anyone who has been promising themselves a real break, the villa is the stay the Peninsula is quietly best at.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

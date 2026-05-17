@@ -137,3 +137,6 @@ Monday is the day everyone tries to drive home at 4pm and the freeway turns into
 The Peninsula in late April is genuinely beautiful and the long weekend gives you four days instead of two. The vintage is finishing on the ridge. The light is at its best. The autumn vegetable harvest is filling the markets. The long weekend lets the trip move at a pace that a normal two-night weekend never quite hits.
 
 Treat Easter as its own weekend. Different rhythm, different bookings, different moves. The four days feel like four days.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

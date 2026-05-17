@@ -118,3 +118,6 @@ It costs less than any other Peninsula day. It requires zero bookings. It suppor
 And it gives you the version of the Peninsula that the locals actually live on  -  not the curated, reservations-only, hundred-dollar-a-head version, but the one where you drive to a pub, sit down, order a beer, and stay until someone suggests the next one.
 
 The wineries are the reason people come. The pubs are the reason they come back.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

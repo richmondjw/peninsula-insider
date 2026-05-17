@@ -113,3 +113,5 @@ Height, lunch, bay. The shape of a good Dromana day.
 - **Drive from Melbourne:** about 70 to 90 minutes.
 - **Make time for:** Arthurs Seat, one winery stop behind town, and the foreshore at sunset.
 - **Note:** Dromana's strength is competence rather than glamour.
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

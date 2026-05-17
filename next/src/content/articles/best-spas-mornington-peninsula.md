@@ -93,3 +93,6 @@ These are the practical, sensibly-priced day-spa options that make a Peninsula w
 - <a href="/journal/mornington-peninsula-stay-and-soak">Where to stay near the hot springs</a>
 - <a href="/spa">The spa section hub</a>
 - <a href="/journal/rainy-day-peninsula">The Peninsula on a rainy day: spa-first itineraries</a>
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

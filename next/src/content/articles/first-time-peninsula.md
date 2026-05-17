@@ -128,3 +128,6 @@ That scale means the Peninsula forgives. If the restaurant you wanted is booked,
 A first visit that picks one section, stays there, eats one great lunch, sees one great view, and comes home knowing what to do next time will land better than one that tries to cover the whole map.
 
 There will be a next time.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*

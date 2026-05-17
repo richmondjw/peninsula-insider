@@ -112,3 +112,6 @@ If you are a serious wine drinker who came to the Peninsula for the pinot, add t
 And if you are simply someone who is coming down for a weekend and does not particularly care about vintage charts, taste one chardonnay at the cellar door before the red flight. Most people do not. Most people are missing the more interesting wine on the bench.
 
 The Peninsula is pinot country, and the pinot is very good. But the chardonnay is where the next ten years of the conversation is going to happen.
+
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*
