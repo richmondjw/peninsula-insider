@@ -583,9 +583,44 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   dek={data.editorNote}
   imageUrl={data.heroImage?.src}
 />
+{/* Destination hierarchy link — editorial return path to the parent place guide.
+    Venue pages are the deepest layer of the ecosystem; this closes the loop.
+    Renders only when place data is available (true for all 141 tagged venues). */}
+{(data.place?.id ?? data.place) && (
+  <div class="venue-place-link">
+    <div class="container">
+      <a
+        href={`/places/${data.place?.id ?? data.place}/`}
+        class="venue-place-link__anchor"
+      >
+        ← Part of {placeLabel(data.place)} — view the destination guide
+      </a>
+    </div>
+  </div>
+)}
+
 <NewsletterBlock />
 
 <style>
+  /* ── Destination hierarchy return link ── */
+  .venue-place-link {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .venue-place-link__anchor {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .venue-place-link__anchor:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
   /* ── Wine: subregion in meta line ── */
   .venue-detail__subregion {
     font-size: 0.72rem;

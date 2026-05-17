@@ -20,10 +20,9 @@ const places = await getCollection('places');
 const season = currentSeason();
 const blurb = seasonBlurb[season];
 
-const featuredStaySlugs = ['jackalope', 'hotel-sorrento', 'flinders-hotel'];
-const featuredStays = featuredStaySlugs
-  .map((slug) => venues.find((v) => routeSlug(v) === slug))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+// Editorial curation via schema flag — editorPick: true on venue JSON.
+// Update venue JSON files to change what surfaces here; no source code edit needed.
+const featuredStays = venues.filter((v) => v.data.editorPick);
 
 const ridgeZones = ['red-hill-plateau', 'hinterland'];
 const coastZones = ['ocean-coast', 'back-beaches', 'tip'];

@@ -144,20 +144,20 @@ const ogImage = place.data.heroImage?.src && !place.data.heroImage.src.includes(
 
 // --- SEO: Per-town title overrides and meta descriptions ---
 const titleOverrides: Record<string, string> = {
-  'sorrento': `Sorrento Mornington Peninsula 2026 — Where to Eat, Stay & Swim | Peninsula Insider`,
-  'red-hill': `Red Hill Mornington Peninsula 2026 — Best Wineries & Restaurants | Peninsula Insider`,
-  'flinders': `Flinders Mornington Peninsula 2026 — Guide to the Ocean Village | Peninsula Insider`,
-  'arthurs-seat': `Arthurs Seat Guide 2026 — Lookout, Eagle & Ridge Views | Peninsula Insider`,
-  'mornington': `Mornington Town Guide 2026 — Restaurants, Markets & Beaches | Peninsula Insider`,
-  'rye': `Rye Mornington Peninsula 2026 — Beaches, Hot Springs & Brewery Guide | Peninsula Insider`,
-  'portsea': `Portsea Guide 2026 — Beaches, Dining & the Tip of the Peninsula | Peninsula Insider`,
-  'main-ridge': `Main Ridge Guide 2026 — Cellar Doors, Producers & the Plateau | Peninsula Insider`,
-  'dromana': `Dromana Guide 2026 — Gateway to the Peninsula & Arthur's Seat | Peninsula Insider`,
-  'mount-martha': `Mount Martha Guide 2026 — Beaches, Walks & Bayside Living | Peninsula Insider`,
-  'cape-schanck': `Cape Schanck Guide 2026 — Walks, Lighthouse & Wild Coast | Peninsula Insider`,
-  'balnarring': `Balnarring Guide 2026 — Market, Beaches & Hinterland Quiet | Peninsula Insider`,
-  'merricks': `Merricks Guide 2026 — Wineries, General Store & Village Pace | Peninsula Insider`,
-  'point-nepean': `Point Nepean Guide 2026 — Fort Walk, National Park & History | Peninsula Insider`,
+  'sorrento': `Sorrento Mornington Peninsula 2026 — Where to Eat, Stay & Swim · Peninsula Insider`,
+  'red-hill': `Red Hill Mornington Peninsula 2026 — Best Wineries & Restaurants · Peninsula Insider`,
+  'flinders': `Flinders Mornington Peninsula 2026 — Guide to the Ocean Village · Peninsula Insider`,
+  'arthurs-seat': `Arthurs Seat Guide 2026 — Lookout, Eagle & Ridge Views · Peninsula Insider`,
+  'mornington': `Mornington Town Guide 2026 — Restaurants, Markets & Beaches · Peninsula Insider`,
+  'rye': `Rye Mornington Peninsula 2026 — Beaches, Hot Springs & Brewery Guide · Peninsula Insider`,
+  'portsea': `Portsea Guide 2026 — Beaches, Dining & the Tip of the Peninsula · Peninsula Insider`,
+  'main-ridge': `Main Ridge Guide 2026 — Cellar Doors, Producers & the Plateau · Peninsula Insider`,
+  'dromana': `Dromana Guide 2026 — Gateway to the Peninsula & Arthur's Seat · Peninsula Insider`,
+  'mount-martha': `Mount Martha Guide 2026 — Beaches, Walks & Bayside Living · Peninsula Insider`,
+  'cape-schanck': `Cape Schanck Guide 2026 — Walks, Lighthouse & Wild Coast · Peninsula Insider`,
+  'balnarring': `Balnarring Guide 2026 — Market, Beaches & Hinterland Quiet · Peninsula Insider`,
+  'merricks': `Merricks Guide 2026 — Wineries, General Store & Village Pace · Peninsula Insider`,
+  'point-nepean': `Point Nepean Guide 2026 — Fort Walk, National Park & History · Peninsula Insider`,
 };
 const descOverrides: Record<string, string> = {
   'sorrento': 'The insider guide to Sorrento on the Mornington Peninsula — best restaurants, ocean baths, where to stay, and why off-season Sorrento is a revelation. Updated 2026.',
@@ -175,7 +175,7 @@ const descOverrides: Record<string, string> = {
   'merricks': 'The insider guide to Merricks — wineries, Merricks General Wine Store, beach access, and the laid-back village pace the Peninsula does well. Updated 2026.',
   'point-nepean': 'The insider guide to Point Nepean — the fort walk, national park, quarantine station history, and the tip of the Mornington Peninsula. Updated 2026.',
 };
-const pageTitle = titleOverrides[placeSlug] ?? `${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`;
+const pageTitle = titleOverrides[placeSlug] ?? `${place.data.name} Guide — Things to Do, Eat & Stay · Peninsula Insider`;
 
 // Description preference order (most extractable / accurate first):
 // 1. Per-slug handcrafted override (existing pattern)
