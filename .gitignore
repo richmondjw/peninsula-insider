@@ -36,3 +36,7 @@ ops/config/
 ops/tokens/
 ops/data/
 ops/logs/
+
+# Astro build cache
+.astro/
+
