@@ -1,6 +1,6 @@
 # Peninsula Insider — Sanity Migration Plan
 
-**Status:** Phase 1 ready for prod cutover
+**Status:** Phases 0–2, 4 (partial), and 5 complete; awaiting cutover
 **Started:** May 2026
 **Target completion:** ~10–12 calendar weeks
 **Source of truth after cutover:** Sanity (project `a062b30n`, dataset `production`)
@@ -103,17 +103,21 @@ Each phase flips its own flag to `true`. If anything breaks, flip back to `false
 - [ ] Preview mode wired and tested
 - [ ] Flip flag, dual-run, archive
 
-### Phase 4 — Events + Itineraries
-- [ ] Event + itinerary schemas
-- [ ] Import scripts (12 + 4 hero overrides)
-- [ ] Update `pages/whats-on/[slug].astro` + `plans/[slug].astro` itinerary branch
-- [ ] Flip flags, dual-run, archive
+### Phase 4 — Itineraries *(complete; events deferred)*
+- [x] Itinerary schema + nested itineraryStop object
+- [x] Import script — 6 itineraries with venue refs resolved
+- [x] Merged 4 Supabase itinerary/hero overrides
+- [x] plans/[slug] dual-read for itinerary branch
+- [x] Diff: 6/6 clean
+- [ ] **DEFERRED**: events (91 docs, mostly scraper-owned — coordinate with the import-events cron pipeline before migrating)
 
-### Phase 5 — Tours + Tour Operators + Tour Packages + Experiences
-- [ ] Shared object types (`departure`, `bookingCta`, `operatorBadge`)
-- [ ] Four schemas
-- [ ] Import scripts (6+11+4+7 = 28 hero overrides)
-- [ ] Update detail pages — they already use `SubpageHero` so this is small
+### Phase 5 — Tours + Operators + Packages + Experiences *(complete)*
+- [x] Four document schemas (experience, tourOperator, tour, tourPackage)
+- [x] Consolidated importer with dependency order (operators → tours → packages, experiences anytime)
+- [x] 85 docs imported (42 + 17 + 18 + 8), 100% success
+- [x] Weak refs used to tolerate stale source data
+- [x] phase5-adapters.ts (4 adapters in one module)
+- [x] Dual-read in explore/[slug], tour/[slug], tour/operators/[slug], tour-packages/[slug]
 - [ ] Flip flags, dual-run, archive
 
 ### Phase 6 — Cross-references
