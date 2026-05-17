@@ -32,6 +32,7 @@ import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import { titleize, resolveHeroSrc, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   place: any;
@@ -57,9 +58,16 @@ const {
 
 const zoneLabel = titleize(place.data.zone);
 const kindLabel = titleize(place.data.kind);
-const heroSrc = resolveHeroSrc(place.data);
-const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
+
+// CMS override consult — if an editor has uploaded a place-specific hero
+// via the inline editor, it wins over the content-JSON default. Resolved
+// at SSR so first paint matches the override and there's no client-side
+// swap flicker on subsequent loads.
+const placeOverrides = placeSlug ? await loadOverrides('place', placeSlug) : null;
+const overrideHero = placeOverrides?.image['hero'];
+const heroSrc = overrideHero?.src ?? resolveHeroSrc(place.data);
+const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 
 // Category sub-page lookup — editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.
@@ -166,8 +174,8 @@ const factualRest = factual.slice(1);
     <h1 class="pdv2-hero__title"
       {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} — name` })}
     >{place.data.name}</h1>
-    {place.data.heroImage?.alt && (
-      <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
+    {(overrideHero?.alt ?? place.data.heroImage?.alt) && (
+      <p class="pdv2-hero__alt">{overrideHero?.alt ?? place.data.heroImage.alt}</p>
     )}
   </div>
   {heroCredit && <p class="pdv2-hero__credit">{heroCredit}</p>}

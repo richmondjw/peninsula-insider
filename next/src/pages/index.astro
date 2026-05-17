@@ -203,7 +203,21 @@ const scenes: Scene[] = [
   },
 ];
 
-const ssrScene = scenes[0];
+// The `<img>` below is tagged `page/home/cover.image`, so whichever scene
+// is active (scenes[0]) must render the override when one's published — or
+// the image swaps after first paint when an admin loads the page (flicker)
+// and anon visitors never see the override at all. Apply override to the
+// active scene rather than baking it into scenes[2] which only fires if
+// that scene gets promoted to [0].
+const activeScene = scenes[0];
+const ssrScene: Scene = coverImageOverride
+  ? {
+      ...activeScene,
+      image: coverImageOverride.src,
+      imageAlt: coverImageOverride.alt ?? activeScene.imageAlt,
+      caption: coverImageOverride.caption ?? activeScene.caption,
+    }
+  : activeScene;
 
 // Editorial meta line: cover-essay date. Hardcoded for the prototype;
 // when the cover becomes CMS-driven (or rotates from articles) this should

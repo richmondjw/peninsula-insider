@@ -97,6 +97,8 @@ const breadcrumbItems = [
     heroImage={data.heroImage.src}
     imageAlt={data.heroImage.alt}
     imageCaption={data.departsFrom ?? undefined}
+    entityType="tour"
+    entitySlug={slug}
   >
     <div class="prose">
       <p {...editableText({
