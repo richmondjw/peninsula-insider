@@ -338,7 +338,7 @@ export const v4Pillars: V4Pillar[] = [
     href: '/places/',
     intro: 'Destination guides for every part of the Peninsula — where to base yourself, what each area is best for, and the local guides that go deeper.',
     rail: {
-      eyebrow: "Editor’s pick · Autumn ✘’26",
+      eyebrow: "Editor's pick · Autumn '26",
       title: 'Red Hill',
       verdict: 'The plateau that defines Peninsula food and wine. Cellar doors, hatted restaurants and the ridgeline roads that make the weekend.',
       image: '/images/sourced/place-red-hill-01.webp',
@@ -442,7 +442,7 @@ export const v4Pillars: V4Pillar[] = [
     href: '/journal/',
     intro: 'Long reads, dispatches, and the Shortlist, every issue, every piece.',
     rail: {
-      eyebrow: 'Editor’s pick · Autumn ’26',
+      eyebrow: 'Editor's pick · Autumn '26',
       title: 'On the quiet authority of a good autumn',
       verdict: "The season the Peninsula stops performing. Vintage trucks finished, weekend crowds thinning, the producers finally with time.",
       image: '/images/sourced/place-red-hill-01.webp',

@@ -176,10 +176,7 @@ const categoryGuides: Record<string, Array<{ label: string; href: string; desc: 
 };
 const placeGuides = categoryGuides[placeSlug] ?? [];
 
-// First-letter drop-cap for the factual lede.
 const factual = place.data.factualLede ?? '';
-const factualHead = factual.charAt(0);
-const factualRest = factual.slice(1);
 ---
 
 <Breadcrumbs items={breadcrumbItems} />
@@ -214,7 +211,7 @@ const factualRest = factual.slice(1);
       {factual && (
         <p class="pdv2-lede__factual"
           {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede', label: `${place.data.name} — factual lede` })}>
-          <span class="pdv2-lede__dropcap">{factualHead}</span>{factualRest}
+          {factual}
         </p>
       )}
       {place.data.intro && (
@@ -840,7 +837,7 @@ const factualRest = factual.slice(1);
     margin-bottom: 1.75rem;
     font-weight: 400;
   }
-  .pdv2-lede__dropcap {
+  .pdv2-lede__factual::first-letter {
     font-family: 'Cormorant Garamond', Georgia, serif;
     float: left;
     font-size: 4.5em;
@@ -929,7 +926,7 @@ const factualRest = factual.slice(1);
     .pdv2-card__list > div { grid-template-columns: 8rem 1fr; }
   }
   @media (max-width: 600px) {
-    .pdv2-lede__dropcap { font-size: 3.6em; }
+    .pdv2-lede__factual::first-letter { font-size: 3.6em; }
     .pdv2-card__list > div { grid-template-columns: 1fr; gap: 0.25rem; }
   }
 
