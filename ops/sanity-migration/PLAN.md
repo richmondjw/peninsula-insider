@@ -1,6 +1,6 @@
 # Peninsula Insider — Sanity Migration Plan
 
-**Status:** Phases 0–2, 4 (partial), and 5 complete; awaiting cutover
+**Status:** Phases 0–5 complete (all content migrated); awaiting cutover + Phase 6/7
 **Started:** May 2026
 **Target completion:** ~10–12 calendar weeks
 **Source of truth after cutover:** Sanity (project `a062b30n`, dataset `production`)
@@ -92,15 +92,15 @@ Each phase flips its own flag to `true`. If anything breaks, flip back to `false
 - [ ] Update `PlaceDetailTemplate.astro` for dual-read
 - [ ] Flip flag, dual-run, archive
 
-### Phase 3 — Articles + Authors
-- [ ] Enumerate custom MDX components in `next/src/content/articles/`
-- [ ] Author document schema
-- [ ] Article document schema with Portable Text body
-- [ ] MDX → Portable Text converter (custom components as PT block types)
-- [ ] Import script with body conversion
-- [ ] Merge 7 article hero overrides
-- [ ] Update `pages/journal/[slug].astro` + `plans/[slug].astro` article branch
-- [ ] Preview mode wired and tested
+### Phase 3 — Articles + Authors *(complete)*
+- [x] Enumerated 6 custom MDX components (AlertBlock, PracticalCallout, CellarDoorList, DogPolicyTable, SubregionGrid, VarietyGuide)
+- [x] Author document schema + 1 doc imported
+- [x] Article document schema with Portable Text body
+- [x] Markdown → PT converter (.md path) and MDX embed extractor (.mdx path)
+- [x] 174 of 174 articles imported with 7 hero overrides merged
+- [x] journal/[slug] dual-read gated behind `SANITY_ARTICLES_ENABLED`
+- [x] PortableTextBody component renders structured embeds inline; items-array embeds (CellarDoorList, etc) currently render placeholder stubs editors will refine in Studio
+- [ ] Preview mode wired — deferred follow-up
 - [ ] Flip flag, dual-run, archive
 
 ### Phase 4 — Itineraries *(complete; events deferred)*
@@ -109,7 +109,9 @@ Each phase flips its own flag to `true`. If anything breaks, flip back to `false
 - [x] Merged 4 Supabase itinerary/hero overrides
 - [x] plans/[slug] dual-read for itinerary branch
 - [x] Diff: 6/6 clean
-- [ ] **DEFERRED**: events (91 docs, mostly scraper-owned — coordinate with the import-events cron pipeline before migrating)
+- [x] Events imported as a snapshot — 91 of 91 docs
+- [x] whats-on/[slug] dual-read behind `SANITY_EVENTS_ENABLED`
+- [ ] **CARRY-FORWARD**: the import-events cron pipeline still writes to JSON; that pipeline needs migrating to write into Sanity directly before events can be the canonical source
 
 ### Phase 5 — Tours + Operators + Packages + Experiences *(complete)*
 - [x] Four document schemas (experience, tourOperator, tour, tourPackage)
