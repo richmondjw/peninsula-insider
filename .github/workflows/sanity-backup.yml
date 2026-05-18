@@ -1,0 +1,53 @@
+name: Sanity dataset backup
+
+on:
+  schedule:
+    # Daily at 17:00 UTC (~ 03:00 Melbourne, off-peak).
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Sanity CLI
+        run: npm install -g sanity@latest
+
+      - name: Export dataset
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          mkdir -p ops/backups
+          # `sanity dataset export` produces a tar.gz with all docs + assets refs.
+          # Run from the studio directory so the CLI picks up project context.
+          (cd studio-peninsula-insider && sanity dataset export production "../ops/backups/sanity-$DATE.tar.gz" --no-drafts)
+          ls -lh ops/backups/sanity-$DATE.tar.gz
+
+      - name: Prune older than 90 days
+        run: |
+          find ops/backups -name 'sanity-*.tar.gz' -mtime +90 -print -delete || true
+
+      - name: Commit backup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ops/backups/
+          if git diff --cached --quiet; then
+            echo "No changes to commit (export already current)."
+          else
+            DATE=$(date -u +%Y-%m-%d)
+            git commit -m "ops(backups): sanity dataset export $DATE [skip ci]"
+            git push
+          fi

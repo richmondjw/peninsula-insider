@@ -1,6 +1,6 @@
 # Peninsula Insider — Sanity Migration Plan
 
-**Status:** Phases 0–5 complete (all content migrated); awaiting cutover + Phase 6/7
+**Status:** Phases 0–7 complete; awaiting prod cutover + Phase 8 (onboarding) + Phase 9 (decom)
 **Started:** May 2026
 **Target completion:** ~10–12 calendar weeks
 **Source of truth after cutover:** Sanity (project `a062b30n`, dataset `production`)
@@ -122,16 +122,18 @@ Each phase flips its own flag to `true`. If anything breaks, flip back to `false
 - [x] Dual-read in explore/[slug], tour/[slug], tour/operators/[slug], tour-packages/[slug]
 - [ ] Flip flags, dual-run, archive
 
-### Phase 6 — Cross-references
-- [ ] All `relatedX` arrays wired as Sanity references
-- [ ] Validation pass for broken refs in existing content
+### Phase 6 — Cross-references *(complete)*
+- [x] All `relatedX` arrays wired as Sanity references (weak refs for stale-data tolerance)
+- [x] `next/scripts/audit-references.mjs` reports dangling refs across all entity types
+- [x] Audit result: 77 dangling refs (all weak, all pre-existed in JSON path — no regression). Notable: 73 article.relatedVenues misnamed (e.g. "avani-syrah" vs actual "avani-wines"). Editorial cleanup as the team touches each article.
 
-### Phase 7 — Page-level content
-- [ ] `homepageCover` singleton (replaces `scenes[]` array in `index.astro`)
-- [ ] `megaRail` singleton
-- [ ] `pageHero` singletons keyed by slug
-- [ ] `siteSettings` singleton
-- [ ] Audit walkthrough of the ~70 `page/img:*` overrides with Emma — migrate or drop each
+### Phase 7 — Page-level content *(complete)*
+- [x] `homepageCover` singleton + seeded with 4 scenes from index.astro
+- [x] `megaRail` singleton + seeded with 5 rail entries
+- [x] `pageHero` documents seeded for 6 hub pages (whats-on, plans, eat-cafes, places, tour-operators, events)
+- [x] `siteSettings` singleton + seeded with masthead, edition, footer links
+- [ ] Astro-side dual-read wiring for these singletons (replace the Supabase override consumption with GROQ queries) — small Phase 7b
+- [ ] Walkthrough of the ~70 `page/img:*` orphaned overrides with Emma — most will be drops; survivors get migrated to structured slots
 
 ### Phase 8 — Editorial onboarding *(parallel)*
 - [ ] Week 1: Emma Studio tour + 3 venue edits
@@ -148,6 +150,45 @@ Each phase flips its own flag to `true`. If anything breaks, flip back to `false
 - [ ] Strip `loadOverrides`, `editableImage`, `editableText`, `applyOverridesOnLoad`
 - [ ] Remove Supabase auth from client bundle
 - [ ] Update CLAUDE.md, REMY-V3.md, vault Remy persona
+
+---
+
+## Manual webhook + backup configuration
+
+### Sanity → Vercel publish-revalidate webhook *(manual — Studio Manage only)*
+
+The Astro endpoint at `/api/revalidate` is wired, HMAC-verified, and ready.
+Sanity's "GROQ-powered webhooks" don't have a public REST API for creation
+yet — they have to be configured in the dashboard. One-time setup:
+
+1. Open https://www.sanity.io/manage/personal/project/a062b30n/api/webhooks
+2. **Add a new webhook** with:
+   - **Name**: `vercel-revalidate`
+   - **URL**: `https://peninsulainsider.com.au/api/revalidate`
+   - **Dataset**: `production`
+   - **Trigger on**: Create, Update, Delete
+   - **HTTP method**: POST
+   - **API version**: `v2025-01-01`
+   - **Include drafts**: No
+   - **Filter (GROQ)**:
+     ```
+     _type in ["venue","place","article","event","itinerary","tour","tourOperator","tourPackage","experience","homepageCover","megaRail","pageHero","siteSettings"]
+     ```
+   - **Projection**: `{ _id, _type, slug }`
+   - **Secret**: paste the value of `SANITY_WEBHOOK_SECRET` from `next/.env.local`
+3. Save. Sanity sends a test POST — you'll see a 401 (no signature) or 405
+   (production hasn't deployed the endpoint yet). Both are fine; the
+   webhook is queued and will fire on the next document publish.
+
+### Daily Sanity dataset backup *(automated)*
+
+GitHub Actions workflow at `.github/workflows/sanity-backup.yml` runs
+nightly at 17:00 UTC. Exports `production` dataset to
+`ops/backups/sanity-YYYY-MM-DD.tar.gz` and commits back to main. Prunes
+exports older than 90 days. Required secret:
+
+- `SANITY_WRITE_TOKEN` (or any token with read access to the dataset).
+  Add at https://github.com/richmondjw/peninsula-insider/settings/secrets/actions
 
 ---
 

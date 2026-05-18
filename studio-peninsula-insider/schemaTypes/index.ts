@@ -23,6 +23,10 @@ import {tourPackage} from './documents/tourPackage'
 import {author} from './documents/author'
 import {article} from './documents/article'
 import {event} from './documents/event'
+import {siteSettings} from './documents/siteSettings'
+import {homepageCover} from './documents/homepageCover'
+import {megaRail} from './documents/megaRail'
+import {pageHero} from './documents/pageHero'
 
 export const schemaTypes = [
   // Reusable object types — registered first so documents can reference them.
@@ -55,4 +59,8 @@ export const schemaTypes = [
   author,
   article,
   event,
+  siteSettings,
+  homepageCover,
+  megaRail,
+  pageHero,
 ]
