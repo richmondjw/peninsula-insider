@@ -1,0 +1,117 @@
+---
+/**
+ * Portable Text → mixed HTML + Astro components for Sanity-sourced article
+ * bodies.
+ *
+ * Walks the PT block array, batching contiguous standard blocks into a
+ * single `toHTML` call (keeps the text → HTML conversion fast), and
+ * peeling out custom embed blocks to render via the actual Astro
+ * components used in the legacy MDX pipeline. So `cellarDoorList`,
+ * `dogPolicyTable`, `subregionGrid`, `varietyGuide`, `alertBlock`, and
+ * `practicalCallout` render identically to their MDX counterparts.
+ */
+import {toHTML, type PortableTextHtmlComponents} from '@portabletext/to-html'
+import AlertBlock from './AlertBlock.astro'
+import PracticalCallout from './hub-guide/PracticalCallout.astro'
+import CellarDoorList from './hub-guide/CellarDoorList.astro'
+import DogPolicyTable from './hub-guide/DogPolicyTable.astro'
+import SubregionGrid from './hub-guide/SubregionGrid.astro'
+import VarietyGuide from './hub-guide/VarietyGuide.astro'
+
+export interface Props {
+  blocks: Array<Record<string, unknown>>
+}
+const {blocks} = Astro.props
+
+// Group consecutive standard blocks into runs we can render as one HTML
+// string; custom embed types become their own slot.
+type Run =
+  | {kind: 'text'; blocks: Array<Record<string, unknown>>}
+  | {kind: 'embed'; block: Record<string, unknown>}
+
+const runs: Run[] = []
+for (const b of blocks) {
+  const t = b._type as string
+  if (t === 'block') {
+    const last = runs[runs.length - 1]
+    if (last && last.kind === 'text') last.blocks.push(b)
+    else runs.push({kind: 'text', blocks: [b]})
+  } else {
+    runs.push({kind: 'embed', block: b})
+  }
+}
+
+const ptComponents: Partial<PortableTextHtmlComponents> = {
+  marks: {
+    link: ({value, children}) => {
+      const href = String(value?.href ?? '#').replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+      }[c] as string))
+      const isExternal = /^https?:\/\//i.test(href)
+      const rel = isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''
+      return `<a href="${href}"${rel}>${children}</a>`
+    },
+  },
+}
+
+function htmlFor(blockGroup: Array<Record<string, unknown>>): string {
+  return toHTML(blockGroup as any, {components: ptComponents})
+}
+
+function parseItemsJson(raw: unknown): any[] {
+  if (!raw) return []
+  const s = String(raw).trim()
+  if (!s) return []
+  try {
+    const parsed = JSON.parse(s)
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    // Importer fell back to storing the raw JSX-attr text — try a
+    // permissive single-quote → double-quote swap before giving up.
+    try {
+      const swapped = s.replace(/'/g, '"')
+      const parsed = JSON.parse(swapped)
+      return Array.isArray(parsed) ? parsed : []
+    } catch {
+      return []
+    }
+  }
+}
+---
+
+<div class="portable-text-body">
+  {runs.map((r, i) => {
+    if (r.kind === 'text') {
+      return <div set:html={htmlFor(r.blocks)} />
+    }
+    const b: any = r.block
+    switch (b._type) {
+      case 'alertBlock':
+        return (
+          <AlertBlock type={b.level ?? 'info'} heading={b.heading ?? ''}>
+            {b.body && <p set:text={b.body} />}
+          </AlertBlock>
+        )
+      case 'practicalCallout':
+        return (
+          <PracticalCallout
+            variant={b.variant}
+            eyebrow={b.eyebrow}
+            heading={b.heading ?? ''}
+          >
+            {b.body && <p set:text={b.body} />}
+          </PracticalCallout>
+        )
+      case 'cellarDoorList':
+        return <CellarDoorList items={parseItemsJson(b.itemsJson)} />
+      case 'dogPolicyTable':
+        return <DogPolicyTable rows={parseItemsJson(b.rowsJson)} />
+      case 'subregionGrid':
+        return <SubregionGrid items={parseItemsJson(b.itemsJson)} />
+      case 'varietyGuide':
+        return <VarietyGuide items={parseItemsJson(b.itemsJson)} />
+      default:
+        return null
+    }
+  })}
+</div>
