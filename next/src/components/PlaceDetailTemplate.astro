@@ -32,6 +32,7 @@ import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import { titleize, resolveHeroSrc, formatHeroCredit } from '../lib/editorial';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   place: any;
@@ -57,9 +58,17 @@ const {
 
 const zoneLabel = titleize(place.data.zone);
 const kindLabel = titleize(place.data.kind);
-const heroSrc = resolveHeroSrc(place.data);
-const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
+
+// CMS override consult at SSR — if an editor uploaded a place-specific
+// hero via the inline editor, it wins over the content-JSON default and
+// ships in the static HTML. No client-side swap, no flicker. Restores the
+// override propagation the client-side patcher used to provide before
+// PR #162 gated it to admin-click.
+const placeOverrides = placeSlug ? await loadOverrides('place', placeSlug) : null;
+const overrideHero = placeOverrides?.image['hero'];
+const heroSrc = overrideHero?.src ?? resolveHeroSrc(place.data);
+const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 
 // Category sub-page lookup — editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.

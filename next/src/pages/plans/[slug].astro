@@ -39,6 +39,7 @@ import {
   themeLabel,
 } from '../../lib/escape';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -117,6 +118,11 @@ const aBreadcrumbs = isArticle
 // ─── Itinerary branch data ─────────────────────────────────────────────────
 const data = isArticle ? null : itinerary.data;
 const slug = isArticle ? '' : routeSlug(itinerary);
+
+// CMS override consult for the itinerary hero — baked at SSR so the
+// editor's uploaded image ships in the static HTML.
+const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
+const itineraryHeroOverride = itineraryOverrides?.image['hero'];
 
 const allItineraries = isArticle ? [] : await getCollection('itineraries');
 const allVenues = isArticle ? allVenuesRaw : allVenuesRaw;
@@ -546,10 +552,16 @@ const ogImage = data
       <div
         class="itinerary-detail__hero feature__image-block feature__image-block--sand"
         aria-hidden="true"
-        style={heroBackgroundStyle(data!)}
+        style={itineraryHeroOverride?.src
+          ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
+          : heroBackgroundStyle(data!)}
+        {...editableImage({
+          entityType: 'itinerary', entitySlug: slug, fieldPath: 'hero',
+          label: `${data!.title} hero`, purpose: 'hero',
+        })}
       >
         <div class="itinerary-detail__hero-fog"></div>
-        <span class="itinerary-detail__hero-label">{data!.heroImage.alt}</span>
+        <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
       </div>
 
       <div class="itinerary-detail__grid">

@@ -9,6 +9,7 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -84,7 +85,14 @@ const seasonBest = experience.data.seasonBest?.length
 const duration = experience.data.durationMinutes ? `${experience.data.durationMinutes} min` : null;
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
-const heroStyle = heroBackgroundStyle(experience.data);
+
+// CMS override consult at SSR — bake the editor's uploaded hero into
+// the static HTML if there's a published override for this experience.
+const experienceOverrides = await loadOverrides('experience', slug);
+const overrideHero = experienceOverrides.image['hero'];
+const heroStyle = overrideHero?.src
+  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
+  : heroBackgroundStyle(experience.data);
 
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
 const ogImage = experience.data.heroImage?.src && !experience.data.heroImage.src.includes('placeholder')
