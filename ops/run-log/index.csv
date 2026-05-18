@@ -315,3 +315,6 @@ runId,parentRunId,jobName,jobSource,startedAt,endedAt,durationMs,status,mutation
 26012943762-1,,deploy-site-to-github-pages,github-actions,2026-05-18T04:08:02Z,2026-05-18T04:11:32Z,210000,success,mutating-live,1,0,0,0,false,,0,0
 26015036623-1,,deploy-site-to-github-pages,github-actions,2026-05-18T05:21:12Z,2026-05-18T05:24:25Z,193000,success,mutating-live,1,0,0,0,false,,0,0
 26015947156-1,,deploy-site-to-github-pages,github-actions,2026-05-18T05:49:17Z,2026-05-18T05:52:59Z,222000,success,mutating-live,1,0,0,0,false,,0,0
+26051882839-1,,events-rederive-lenses,github-actions,2026-05-18T18:16:06Z,2026-05-18T18:17:16Z,70000,skipped,scan-only,1,0,0,0,false,,0,0
+26052419587-1,,events-recompute-occurrence,github-actions,2026-05-18T18:26:38Z,2026-05-18T18:27:39Z,61000,skipped,scan-only,1,0,0,0,false,,0,0
+26054722234-1,,events-archive-expired,github-actions,2026-05-18T19:11:29Z,2026-05-18T19:12:28Z,59000,skipped,scan-only,1,0,0,0,false,,0,0
