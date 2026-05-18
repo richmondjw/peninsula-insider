@@ -11,6 +11,8 @@
 
 import { editableImage, editableText, type CmsEntityType } from '../lib/inline-edit/attrs';
 import { loadOverrides } from '../lib/inline-edit/overrides';
+import { sanityReadEnabled } from '../lib/sanity/client';
+import { fetchPageHeroFromSanity } from '../lib/sanity/singletons-adapter';
 
 export interface Props {
   eyebrow?: string;
@@ -39,16 +41,29 @@ const {
 
 const editable = !!entitySlug;
 
-// Build-time override consult — eliminate flash where the default
-// title / dek / hero paints before the client-side patcher swaps.
-const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;
-const titleOverride = overrides?.text['hero.title'];
-const dekOverride = overrides?.text['hero.dek'];
-const imageOverride = overrides?.image['hero'];
+// Override resolution: Sanity pageHero singleton when flag is on,
+// otherwise the legacy Supabase override path.
+let resolvedTitle = title;
+let resolvedDek = dek;
+let resolvedHeroImage = heroImage;
 
-const resolvedTitle = titleOverride ?? title;
-const resolvedDek = dekOverride ?? dek;
-const resolvedHeroImage = imageOverride?.src ?? heroImage;
+const isPageEntity = entityType === 'page' && !!entitySlug;
+if (isPageEntity && sanityReadEnabled('page-level')) {
+  const ph = await fetchPageHeroFromSanity(entitySlug!);
+  if (ph) {
+    if (ph.title) resolvedTitle = ph.title;
+    if (ph.dek) resolvedDek = ph.dek;
+    if (ph.imageSrc) resolvedHeroImage = ph.imageSrc;
+  }
+} else if (editable) {
+  const overrides = await loadOverrides(entityType, entitySlug!);
+  const titleOverride = overrides.text['hero.title'];
+  const dekOverride = overrides.text['hero.dek'];
+  const imageOverride = overrides.image['hero'];
+  if (titleOverride) resolvedTitle = titleOverride;
+  if (dekOverride) resolvedDek = dekOverride;
+  if (imageOverride?.src) resolvedHeroImage = imageOverride.src;
+}
 
 const gradClass = `section-hero__visual hero-grad--${gradient}`;
 const heroStyle = resolvedHeroImage ? `background-image: url(${resolvedHeroImage})` : undefined;
