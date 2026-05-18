@@ -517,7 +517,7 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
             </div>
             <div class="hp-notebook__note">
               <p class="hp-notebook__section">{notebookNote.data.section === 'note' ? 'Editor' : notebookNote.data.section}</p>
-              <a class="hp-notebook__headline" href={`/notebook/${notebookNote.id.replace(/\.md$/, '')}/`}>
+              <a class="hp-notebook__headline" href={`/quick-note/${notebookNote.id.replace(/\.md$/, '')}/`}>
                 {notebookNote.data.headline}
               </a>
               {notebookNote.data.verdict && (

@@ -510,7 +510,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <div class="container">
         <div class="hub-notebook__inner">
           <p class="label label--accent">Notebook observation</p>
-          <a class="hub-notebook__headline" href={`/notebook/${notebookNote.id.replace(/\.md$/, '')}/`}>
+          <a class="hub-notebook__headline" href={`/quick-note/${notebookNote.id.replace(/\.md$/, '')}/`}>
             {notebookNote.data.headline}
           </a>
           {notebookNote.data.verdict && (

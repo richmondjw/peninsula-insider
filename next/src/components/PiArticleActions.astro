@@ -142,18 +142,41 @@ const resolvedHref = href ?? `/${section}/${slug}/`;
 
 <script>
   /**
-   * Sticky pair visibility — show between 30% and 90% scroll. We use the
-   * `<article>` element's bounding rect when available, falling back to
-   * window scroll for non-article pages that opt into this widget.
+   * Sticky pair visibility — uses IntersectionObserver to watch the inline
+   * `.pi-article-actions` element. The sticky floater only appears once the
+   * inline save is fully scrolled off-screen, preventing both from showing
+   * simultaneously. It hides again when the reader scrolls back up (inline
+   * re-enters viewport) or reaches the bottom 10% of the article.
+   *
+   * Falls back to display:none when IntersectionObserver is unavailable.
    */
   function bindSticky() {
     const sticky = document.querySelector<HTMLElement>('[data-pi-article-sticky]');
-    if (!sticky || (sticky as any)._piInit) return;
+    const inline = document.querySelector<HTMLElement>('[data-pi-article-actions]');
+    if (!sticky || !inline || (sticky as any)._piInit) return;
     (sticky as any)._piInit = true;
 
+    // Track whether the inline element is visible.
+    let inlineVisible = true;
+
+    // Track whether we're past 90% of the article (tuck sticky away at end).
     const article = document.querySelector('article') || document.body;
 
-    function update() {
+    function showSticky() {
+      sticky.hidden = false;
+      sticky.setAttribute('data-visible', '1');
+      sticky.setAttribute('aria-hidden', 'false');
+    }
+
+    function hideSticky() {
+      sticky.removeAttribute('data-visible');
+      sticky.setAttribute('aria-hidden', 'true');
+      setTimeout(() => {
+        if (!sticky.hasAttribute('data-visible')) sticky.hidden = true;
+      }, 220);
+    }
+
+    function updateVisibility() {
       const rect = article.getBoundingClientRect();
       const articleHeight = rect.height;
       const viewport = window.innerHeight;
@@ -161,25 +184,28 @@ const resolvedHref = href ?? `/${section}/${slug}/`;
       const progress = articleHeight > viewport
         ? scrolled / (articleHeight - viewport)
         : 0;
+      const pastEnd = progress > 0.9;
 
-      const visible = progress > 0.3 && progress < 0.9;
-      if (visible) {
-        sticky.hidden = false;
-        sticky.setAttribute('data-visible', '1');
-        sticky.setAttribute('aria-hidden', 'false');
+      if (!inlineVisible && !pastEnd) {
+        showSticky();
       } else {
-        sticky.removeAttribute('data-visible');
-        sticky.setAttribute('aria-hidden', 'true');
-        // Defer hidden=true until the fade has finished so the transition runs.
-        setTimeout(() => {
-          if (!sticky.hasAttribute('data-visible')) sticky.hidden = true;
-        }, 220);
+        hideSticky();
       }
     }
 
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
+    // IntersectionObserver: watch the inline element.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        inlineVisible = entries[0].isIntersecting;
+        updateVisibility();
+      },
+      { threshold: 0 }
+    );
+    observer.observe(inline);
+
+    // Also track near-end-of-article to hide the sticky gracefully.
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    window.addEventListener('resize', updateVisibility, { passive: true });
   }
 
   if (document.readyState === 'loading') {
