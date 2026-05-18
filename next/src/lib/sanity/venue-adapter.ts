@@ -11,7 +11,7 @@
  * can be inlined into a single Sanity-native template and the legacy shape
  * dropped. For now, the adapter is the seam.
  */
-import {sanityClient} from './client'
+import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
 import {venueBySlugQuery, allVenueSlugsQuery} from './queries'
 
@@ -236,8 +236,12 @@ function adapt(doc: SanityVenue): AdaptedVenue {
 }
 
 /** Fetch a single venue from Sanity. Returns null if not found. */
-export async function fetchVenueFromSanity(slug: string): Promise<AdaptedVenue | null> {
-  const doc = (await sanityClient.fetch(venueBySlugQuery, {slug})) as SanityVenue | null
+export async function fetchVenueFromSanity(
+  slug: string,
+  opts: {preview?: boolean} = {},
+): Promise<AdaptedVenue | null> {
+  const client = getSanityReadClient(opts.preview ?? false)
+  const doc = (await client.fetch(venueBySlugQuery, {slug})) as SanityVenue | null
   if (!doc) return null
   return adapt(doc)
 }
@@ -245,6 +249,6 @@ export async function fetchVenueFromSanity(slug: string): Promise<AdaptedVenue |
 /** All venue slugs in Sanity. Used to build getStaticPaths during the
  *  Sanity-only phase; for dual-run, the page still derives paths from JSON. */
 export async function fetchAllVenueSlugsFromSanity(): Promise<string[]> {
-  const rows = (await sanityClient.fetch(allVenueSlugsQuery)) as Array<{slug: string}>
+  const rows = (await getSanityReadClient(false).fetch(allVenueSlugsQuery)) as Array<{slug: string}>
   return rows.map((r) => r.slug)
 }

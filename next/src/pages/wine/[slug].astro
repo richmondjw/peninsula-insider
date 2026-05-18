@@ -30,8 +30,9 @@ let { venue } = Astro.props;
 const slug = routeSlug(venue);
 
 // Dual-read: swap focused venue for Sanity when flag is on.
+const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
 if (sanityReadEnabled('venues')) {
-  const sanityVenue = await fetchVenueFromSanity(slug);
+  const sanityVenue = await fetchVenueFromSanity(slug, {preview: previewMode});
   if (sanityVenue) venue = sanityVenue as any;
 }
 

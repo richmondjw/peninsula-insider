@@ -11,18 +11,42 @@ import {
 import { resolveCmsAccess } from './lib/cms/server';
 
 /**
- * Hybrid admin gate.
+ * Two responsibilities:
  *
- * Default (production): a request can only reach `/admin` or `/admin/api/*`
- * when the user has a valid Supabase session AND is flagged as an editor
- * (RLS-backed `pi.profiles.is_editor` check inside `resolveCmsAccess`).
+ * 1. Sanity Visual Editing preview-mode detection. Sets
+ *    Astro.locals.sanityPreview = true when the request carries the
+ *    `pi-sanity-preview` cookie OR a valid `?sanity-preview=<secret>`
+ *    query param. Adapter code reads this and switches to the stega-
+ *    encoded preview client.
  *
- * Legacy fallback (Phase 1 QA): when `PI_ADMIN_LEGACY_GATE=1` is set, the
- * transitional `?admin=1` / `pi_admin=1` cookie seam still grants access.
- * This lets local development keep working without a real Supabase session
- * during the cutover, but is intentionally off by default.
+ * 2. Hybrid admin gate. When PI_ADMIN_HYBRID=1, /admin/* and
+ *    /admin/api/* require a valid Supabase session + editor flag.
  */
 export const onRequest = defineMiddleware(async (context, next) => {
+  // ── Preview-mode detection (runs on every request, cheap) ────────────
+  const previewSecret =
+    (import.meta as any).env?.SANITY_PREVIEW_SECRET ?? process.env.SANITY_PREVIEW_SECRET;
+  const queryPreview = context.url.searchParams.get('sanity-preview');
+  const cookiePreview = context.cookies.get('pi-sanity-preview')?.value === '1';
+  const isPreviewRequest =
+    cookiePreview || (!!queryPreview && !!previewSecret && queryPreview === previewSecret);
+
+  (context.locals as Record<string, unknown>).sanityPreview = isPreviewRequest;
+
+  // Set the cookie if entering preview via query param so subsequent
+  // navigation stays in preview mode. Short-lived (1 hour) so it
+  // doesn't accidentally persist past an editing session.
+  if (!cookiePreview && queryPreview && previewSecret && queryPreview === previewSecret) {
+    context.cookies.set('pi-sanity-preview', '1', {
+      path: '/',
+      maxAge: 3600,
+      httpOnly: false,
+      sameSite: 'none',
+      secure: true,
+    });
+  }
+
+  // ── Admin gate ───────────────────────────────────────────────────────
   if (!isAdminHybridEnabled()) {
     return next();
   }
@@ -31,24 +55,18 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const isAdminRoute = isAdminPath(pathname) || isAdminApiPath(pathname);
   const isLogin = isAdminLoginPath(pathname);
 
-  // Cheap exit: nothing here we have to gate.
   if (!isAdminRoute && !isLogin) {
     return next();
   }
 
   const cookieHeader = context.request.headers.get('cookie');
-
-  // Real session validation by default. We only run the (slightly more
-  // expensive) Supabase calls for routes that actually care.
   const access = await resolveCmsAccess(cookieHeader);
   let allowed = access.ok;
 
-  // Optional legacy fallback for Phase 1 QA.
   if (!allowed && isAdminLegacyGateEnabled()) {
     allowed = canAccessAdmin(context.url, cookieHeader);
   }
 
-  // If they're already signed in and hit the login page, send them home.
   if (isLogin && allowed) {
     return context.redirect('/admin/');
   }
