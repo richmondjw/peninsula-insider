@@ -31,7 +31,7 @@ export const sanityClientFresh = createClient({
 export const sanityPreviewClient = createClient({
   ...baseConfig,
   useCdn: false,
-  perspective: 'previewDrafts',
+  perspective: 'drafts',
   token: process.env.SANITY_PREVIEW_TOKEN,
   stega: {
     enabled: true,
