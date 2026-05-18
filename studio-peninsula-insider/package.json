@@ -15,8 +15,12 @@
     "sanity"
   ],
   "dependencies": {
+    "@sanity/block-tools": "^3.70.0",
     "@sanity/client": "^7.22.0",
+    "@sanity/schema": "^5.25.1",
     "@sanity/vision": "^5.25.1",
+    "jsdom": "^29.1.1",
+    "marked": "^18.0.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "sanity": "^5.25.1",

@@ -9,6 +9,10 @@ import {onSiteFood} from './objects/onSiteFood'
 import {faqItem} from './objects/faqItem'
 import {sameAs} from './objects/sameAs'
 import {itineraryStop} from './objects/itineraryStop'
+import {
+  alertBlock, practicalCallout, cellarDoorList,
+  dogPolicyTable, subregionGrid, varietyGuide,
+} from './objects/embedBlocks'
 import {place} from './documents/place'
 import {venue} from './documents/venue'
 import {itinerary} from './documents/itinerary'
@@ -16,6 +20,9 @@ import {experience} from './documents/experience'
 import {tourOperator} from './documents/tourOperator'
 import {tour} from './documents/tour'
 import {tourPackage} from './documents/tourPackage'
+import {author} from './documents/author'
+import {article} from './documents/article'
+import {event} from './documents/event'
 
 export const schemaTypes = [
   // Reusable object types — registered first so documents can reference them.
@@ -30,6 +37,12 @@ export const schemaTypes = [
   faqItem,
   sameAs,
   itineraryStop,
+  alertBlock,
+  practicalCallout,
+  cellarDoorList,
+  dogPolicyTable,
+  subregionGrid,
+  varietyGuide,
 
   // Document types.
   place,
@@ -39,4 +52,7 @@ export const schemaTypes = [
   tourOperator,
   tour,
   tourPackage,
+  author,
+  article,
+  event,
 ]

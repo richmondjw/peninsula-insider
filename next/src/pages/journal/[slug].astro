@@ -17,6 +17,9 @@ import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
+import PortableTextBody from '../../components/PortableTextBody.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -26,7 +29,19 @@ export async function getStaticPaths() {
   }));
 }
 
-const { article } = Astro.props;
+let { article } = Astro.props;
+
+// Phase 3 dual-read. When the article flag is on, swap the focused
+// article for the Sanity-sourced equivalent. Body rendering then takes
+// the PortableTextBody path below instead of Astro's `render(article)`.
+let sanityBody: Array<Record<string, unknown>> | null = null;
+if (sanityReadEnabled('articles')) {
+  const sanityArt = await fetchArticleFromSanity(routeSlug(article));
+  if (sanityArt) {
+    article = sanityArt as any;
+    sanityBody = sanityArt.body;
+  }
+}
 
 // Plans articles live at /plans/[slug] — redirect with 301 so inbound
 // /journal/ URLs resolve cleanly without serving duplicate content.
@@ -42,9 +57,16 @@ if (article.data.section === 'plans') {
 // URL rather than the article content. See lib/peninsula-this-weekend.ts.
 const ptwRedirectTo = isPeninsulaThisWeekend(article) ? ptwArchivePath(article) : null;
 
+// When Sanity is the source for this article we render the Portable Text
+// body via <PortableTextBody> further down; Astro's render() doesn't apply
+// to Sanity docs so we short-circuit with an empty Content placeholder
+// and empty headings (TOC headings can be generated from PT in a later
+// pass — Phase 3 follow-up).
 const { Content, headings } = ptwRedirectTo
   ? { Content: null as any, headings: [] as Array<{ slug: string; text: string; depth: number }> }
-  : await render(article);
+  : sanityBody
+    ? { Content: null as any, headings: [] as Array<{ slug: string; text: string; depth: number }> }
+    : await render(article);
 
 // Hub-guide treatment: planning-utility articles (regional reference, hub
 // guides, trail guides, venue guides) read as scan-first reference rather
@@ -300,7 +322,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
         )}
 
         <div class="prose has-drop-cap" data-pi-prose-root data-pi-entity-type="article" data-pi-entity-slug={slug}>
-          <Content />
+          {sanityBody ? <PortableTextBody blocks={sanityBody} /> : <Content />}
         </div>
 
         {/* Pre-paint block-override patcher. Reads the JSON blob below and

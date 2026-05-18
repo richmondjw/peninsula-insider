@@ -1,0 +1,111 @@
+---
+/**
+ * Portable Text → HTML renderer for Sanity-sourced article bodies.
+ *
+ * Handles the 6 custom embed types (AlertBlock, PracticalCallout,
+ * CellarDoorList, DogPolicyTable, SubregionGrid, VarietyGuide) by
+ * dispatching to the existing Astro components. Plain block content
+ * (paragraphs, headings, lists, marks) flows through @portabletext/to-html.
+ */
+import {toHTML, type PortableTextHtmlComponents} from '@portabletext/to-html'
+import AlertBlock from './AlertBlock.astro'
+
+export interface Props {
+  blocks: Array<Record<string, unknown>>
+}
+
+const {blocks} = Astro.props
+
+function escapeAttr(v: unknown): string {
+  return String(v ?? '').replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c] as string))
+}
+
+// Custom block-type handlers. They emit HTML strings that the prose
+// renderer drops in alongside the converted markdown.
+const components: Partial<PortableTextHtmlComponents> = {
+  types: {
+    alertBlock: ({value}) => {
+      // The existing <AlertBlock> Astro component renders this shape; we
+      // emit equivalent HTML inline so the PT renderer can produce a
+      // single HTML string in one pass.
+      const level = value.level ?? 'info'
+      const heading = escapeAttr(value.heading ?? '')
+      const body = escapeAttr(value.body ?? '')
+      return `<aside class="alert-block alert-block--${level}">
+        <p class="alert-block__heading">${heading}</p>
+        ${body ? `<p class="alert-block__body">${body}</p>` : ''}
+      </aside>`
+    },
+    practicalCallout: ({value}) => {
+      const variant = value.variant ? ` practical-callout--${escapeAttr(value.variant)}` : ''
+      const eyebrow = value.eyebrow ? `<p class="practical-callout__eyebrow">${escapeAttr(value.eyebrow)}</p>` : ''
+      const heading = `<p class="practical-callout__heading">${escapeAttr(value.heading ?? '')}</p>`
+      const body = value.body ? `<div class="practical-callout__body">${escapeAttr(value.body)}</div>` : ''
+      return `<aside class="practical-callout${variant}">${eyebrow}${heading}${body}</aside>`
+    },
+    // Items-array embeds — for now render a minimal placeholder; editors
+    // can refine the props later in Studio. The original Astro
+    // components remain available; once props are structured per-type
+    // we can wire each properly. This keeps the import path lossless.
+    cellarDoorList: ({value}) =>
+      `<div class="pt-embed-stub" data-pt-embed="cellarDoorList" data-items='${escapeAttr(value.itemsJson ?? '')}'></div>`,
+    dogPolicyTable: ({value}) =>
+      `<div class="pt-embed-stub" data-pt-embed="dogPolicyTable" data-rows='${escapeAttr(value.rowsJson ?? '')}'></div>`,
+    subregionGrid: ({value}) =>
+      `<div class="pt-embed-stub" data-pt-embed="subregionGrid" data-items='${escapeAttr(value.itemsJson ?? '')}'></div>`,
+    varietyGuide: ({value}) =>
+      `<div class="pt-embed-stub" data-pt-embed="varietyGuide" data-items='${escapeAttr(value.itemsJson ?? '')}'></div>`,
+  },
+  marks: {
+    link: ({value, children}) => {
+      const href = escapeAttr(value?.href ?? '#')
+      const isExternal = /^https?:\/\//i.test(href)
+      const rel = isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''
+      return `<a href="${href}"${rel}>${children}</a>`
+    },
+  },
+}
+
+const html = toHTML(blocks as any, {components})
+---
+
+<div class="portable-text-body" set:html={html} />
+
+<style>
+  /* Match the existing prose container styling; the journal page wraps
+     this in its own .prose / .has-drop-cap classes upstream, so we just
+     reset block embed styling here. */
+  .portable-text-body :global(.alert-block) {
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 3px solid currentColor;
+  }
+  .portable-text-body :global(.alert-block--danger) { border-color: #c0392b; background: rgba(192, 57, 43, 0.06); }
+  .portable-text-body :global(.alert-block--warning) { border-color: #d4a017; background: rgba(212, 160, 23, 0.08); }
+  .portable-text-body :global(.alert-block--info) { border-color: #2c80b4; background: rgba(44, 128, 180, 0.06); }
+  .portable-text-body :global(.alert-block__heading) { font-weight: 600; margin: 0 0 0.4rem; }
+  .portable-text-body :global(.alert-block__body) { margin: 0; font-size: 0.95rem; line-height: 1.55; }
+  .portable-text-body :global(.practical-callout) { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--bg-alt, #f7f5ef); border-radius: 4px; }
+  .portable-text-body :global(.practical-callout__eyebrow) { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent, #8b4e3b); font-weight: 600; margin: 0 0 0.35rem; }
+  .portable-text-body :global(.practical-callout__heading) { font-weight: 600; margin: 0 0 0.6rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.25rem; }
+  .portable-text-body :global(.practical-callout__body) { margin: 0; line-height: 1.6; }
+  .portable-text-body :global(.pt-embed-stub) {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+    background: rgba(139, 78, 59, 0.06);
+    border: 1px dashed rgba(139, 78, 59, 0.4);
+    border-radius: 4px;
+    color: var(--soft, #6b6660);
+    font-size: 0.85rem;
+  }
+  .portable-text-body :global(.pt-embed-stub)::before {
+    content: 'Embed: ' attr(data-pt-embed) ' (editor must refine props in Studio)';
+  }
+</style>
+<!-- AlertBlock imported but unused — kept for future wiring -->
+{false && <AlertBlock heading="" />}
