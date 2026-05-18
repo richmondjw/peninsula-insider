@@ -10,6 +10,8 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchExperienceFromSanity } from '../../lib/sanity/phase5-adapters';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -50,7 +52,13 @@ export async function getStaticPaths() {
   }));
 }
 
-const { experience } = Astro.props;
+let { experience } = Astro.props;
+
+// Dual-read: swap for Sanity when flag is on.
+if (sanityReadEnabled('experiences')) {
+  const sanityExp = await fetchExperienceFromSanity(routeSlug(experience));
+  if (sanityExp) experience = sanityExp as any;
+}
 const allExperiences = await getCollection('experiences');
 const venues = await getCollection('venues');
 const itineraries = await getCollection('itineraries');

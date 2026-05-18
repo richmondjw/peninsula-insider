@@ -8,6 +8,8 @@ import TourPackageCard from '../../components/TourPackageCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildTourPackageSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchTourPackageFromSanity } from '../../lib/sanity/phase5-adapters';
 
 export async function getStaticPaths() {
   const packages = await getCollection('tourPackages');
@@ -17,9 +19,15 @@ export async function getStaticPaths() {
   }));
 }
 
-const { pkg } = Astro.props;
+let { pkg } = Astro.props;
+const slug = pkg.id ?? pkg.data.slug;
+
+// Dual-read.
+if (sanityReadEnabled('tour-packages')) {
+  const sanityPkg = await fetchTourPackageFromSanity(slug);
+  if (sanityPkg) pkg = sanityPkg as any;
+}
 const data = pkg.data;
-const slug = pkg.id ?? data.slug;
 
 const allTours = await getCollection('tours');
 const allOperators = await getCollection('tourOperators');

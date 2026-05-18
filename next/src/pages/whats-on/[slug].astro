@@ -25,6 +25,8 @@ import {
   weatherCopy,
 } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchEventFromSanity } from '../../lib/sanity/event-adapter';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -34,7 +36,13 @@ export async function getStaticPaths() {
   }));
 }
 
-const { event } = Astro.props;
+let { event } = Astro.props;
+
+// Dual-read.
+if (sanityReadEnabled('events')) {
+  const sanityEvent = await fetchEventFromSanity(routeSlug(event));
+  if (sanityEvent) event = sanityEvent as any;
+}
 const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
 const venue = event.data.venue ? await getEntry(event.data.venue).catch(() => null) : null;
 

@@ -6,6 +6,8 @@ import SubpageHero from '../../components/SubpageHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildTourSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchTourFromSanity } from '../../lib/sanity/phase5-adapters';
 
 export async function getStaticPaths() {
   const tours = await getCollection('tours');
@@ -15,7 +17,14 @@ export async function getStaticPaths() {
   }));
 }
 
-const { tour } = Astro.props;
+let { tour } = Astro.props;
+
+// Dual-read.
+if (sanityReadEnabled('tours')) {
+  const slug = tour.id ?? tour.data.slug;
+  const sanityTour = await fetchTourFromSanity(slug);
+  if (sanityTour) tour = sanityTour as any;
+}
 const data = tour.data;
 
 const allOperators = await getCollection('tourOperators');

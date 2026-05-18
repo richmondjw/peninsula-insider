@@ -5,6 +5,8 @@ import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../components/PlaceMap.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../lib/editorial';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchPlaceFromSanity } from '../../lib/sanity/place-adapter';
 
 export async function getStaticPaths() {
   const places = await getCollection('places');
@@ -14,7 +16,13 @@ export async function getStaticPaths() {
   }));
 }
 
-const { place } = Astro.props;
+let { place } = Astro.props;
+
+// Dual-read: swap focused place for Sanity when flag is on.
+if (sanityReadEnabled('places')) {
+  const sanityPlace = await fetchPlaceFromSanity(routeSlug(place));
+  if (sanityPlace) place = sanityPlace as any;
+}
 const allVenues = await getCollection('venues');
 const places = await getCollection('places');
 const allExperiences = await getCollection('experiences');
