@@ -23,6 +23,7 @@ const related = allEvents
   .slice(0, 3);
 const relatedFallback = allEvents.slice(0, 3);
 const sidebar = related.length >= 2 ? related : relatedFallback;
+export const prerender = true;
 ---
 <BaseLayout
   title={`${event.data.title}, ${place?.data?.name ?? 'Mornington Peninsula'} · Peninsula Insider`}

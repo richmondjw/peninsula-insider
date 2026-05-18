@@ -82,6 +82,7 @@ const pageTitle = `${data.name} · Peninsula Insider`;
 const description = data.summary.length > 155
   ? data.summary.slice(0, 152) + '...'
   : data.summary;
+export const prerender = true;
 ---
 
 <BaseLayout

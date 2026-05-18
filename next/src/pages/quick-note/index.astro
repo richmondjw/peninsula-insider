@@ -81,6 +81,7 @@ const todayBySection: Record<string, typeof live> = {};
 function noteHref(n: any): string {
   return `/quick-note/${n.id.replace(/\.md$/, '')}/`;
 }
+export const prerender = true;
 ---
 
 <BaseLayout

@@ -38,6 +38,7 @@ const heroImage = data.heroImage?.src && !data.heroImage.src.includes('placehold
 
 const editorParas = String(data.editorNote ?? data.description ?? '').split(/\n\n+/).filter(Boolean);
 const pullquote = data.editorVerdict;
+export const prerender = true;
 ---
 
 <BaseLayout

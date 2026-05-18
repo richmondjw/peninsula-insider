@@ -63,6 +63,7 @@ const articles = allArticles
       article.data.title.toLowerCase().includes(placeNameLower),
   )
   .slice(0, 4);
+export const prerender = true;
 ---
 <BaseLayout
   title={`${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`}

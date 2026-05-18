@@ -2,4 +2,5 @@
 // /account/likes/ was removed when like functionality was removed from the site.
 // Redirect permanently to /account/saved/ so bookmarks and history resolve cleanly.
 return Astro.redirect('/account/saved/', 301);
+export const prerender = true;
 ---

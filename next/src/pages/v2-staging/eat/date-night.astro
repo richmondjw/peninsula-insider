@@ -14,6 +14,7 @@ const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/';
+export const prerender = true;
 ---
 <BaseLayout title="Date Night Mornington Peninsula · Peninsula Insider" description="The best restaurants for a date night on the Mornington Peninsula — intimate hatted dining rooms, vineyard settings, and the waterfront tables worth booking ahead." section="eat" canonical="https://peninsulainsider.com.au/eat/date-night/" modifiedTime="2026-04-24">
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />

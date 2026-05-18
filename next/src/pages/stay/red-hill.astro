@@ -10,6 +10,7 @@ const allVenues = await getCollection('venues');
 const slugs = ['jackalope','lindenderry','polperro-villas','port-phillip-estate','peninsula-hot-springs-glamping'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Red Hill & Hinterland' }];
+export const prerender = true;
 ---
 <BaseLayout title="Where to Stay in Red Hill and the Hinterland · Peninsula Insider" description="The best stays in Red Hill and the Mornington Peninsula hinterland, from design hotels to vineyard villas and slower wine-country bases." section="stay" canonical="https://peninsulainsider.com.au/stay/red-hill/" modifiedTime="2026-05-08">
   <Breadcrumbs items={breadcrumbItems} />

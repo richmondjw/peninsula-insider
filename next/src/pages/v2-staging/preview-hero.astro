@@ -47,6 +47,7 @@ const hl = seasonalHeadlines[season];
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/';
+export const prerender = true;
 ---
 <BaseLayout
   title="DRAFT — Hero Preview | Peninsula Insider"

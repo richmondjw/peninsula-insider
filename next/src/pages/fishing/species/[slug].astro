@@ -41,6 +41,7 @@ const reverse = allLocations.filter(
   (l) => l.data.primarySpecies.includes(data.slug) && !data.locationSlugs.includes(l.data.slug),
 );
 const speciesLocations = [...explicit, ...reverse];
+export const prerender = true;
 ---
 
 <BaseLayout

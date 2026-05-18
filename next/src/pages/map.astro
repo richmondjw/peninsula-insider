@@ -134,6 +134,7 @@ const categoryLegend: Array<{ key: MapEntry['category']; label: string; count: n
   { key: 'stay',       label: 'Stay',        count: venuePins.filter((p) => p.category === 'stay').length },
   { key: 'experience', label: 'Experiences', count: experiencePins.length },
 ];
+export const prerender = true;
 ---
 
 <BaseLayout

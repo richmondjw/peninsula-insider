@@ -10,6 +10,7 @@ const allVenues = await getCollection('venues');
 const slugs = ['hotel-sorrento','the-continental-sorrento'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Sorrento' }];
+export const prerender = true;
 ---
 <BaseLayout title="Where to Stay in Sorrento · Peninsula Insider" description="The best places to stay in Sorrento, from grand old coastal hotels to refined weekend bases near both bay and back beach." section="stay" canonical="https://peninsulainsider.com.au/stay/sorrento/" modifiedTime="2026-04-24">
   <Breadcrumbs items={breadcrumbItems} />
