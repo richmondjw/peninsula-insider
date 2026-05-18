@@ -87,7 +87,7 @@ From here you can decide how hard to lean into the weather.
 
 ### 10:30  -  Cape Schanck, if the wind is honest but manageable
 
-A caution first: when Cape Schanck is bad, it is properly bad. In severe wind, skip this entirely. On a drizzly, low-cloud morning with moderate wind, the **Cape Schanck Boardwalk** is one of the Peninsula's strongest rainy-day moves because the whole place looks as though it was designed for weather. The basalt darkens, the water turns steel-coloured, and the lighthouse starts doing real work as a visual object rather than a postcard one.
+A caution first: when Cape Schanck is bad, it is properly bad. In severe wind, leave it for another trip. On a drizzly, low-cloud morning with moderate wind, the **Cape Schanck Boardwalk** is one of the Peninsula's strongest rainy-day moves because the whole place looks as though it was designed for weather. The basalt darkens, the water turns steel-coloured, and the lighthouse starts doing real work as a visual object rather than a postcard one.
 
 You don't need the full walk in rough conditions. Even the upper section and the first lookout are enough to reset the day.
 
