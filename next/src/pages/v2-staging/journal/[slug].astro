@@ -32,6 +32,7 @@ const fallback = allArticles
   .slice(0, 3);
 
 const relatedFinal = related.length >= 2 ? related : fallback;
+export const prerender = true;
 ---
 <BaseLayout
   title={`${article.data.title} — Peninsula Insider`}

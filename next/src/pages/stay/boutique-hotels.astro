@@ -10,6 +10,7 @@ const allVenues = await getCollection('venues');
 const slugs = ['flinders-hotel','hotel-sorrento','lindenderry','jackalope','the-continental-sorrento'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Boutique Hotels' }];
+export const prerender = true;
 ---
 <BaseLayout title="Boutique Hotels Mornington Peninsula · Peninsula Insider" description="The best boutique hotels on the Mornington Peninsula, from Flinders and Sorrento to Red Hill design-led stays." section="stay" canonical="https://peninsulainsider.com.au/stay/boutique-hotels/" modifiedTime="2026-04-24">
   <Breadcrumbs items={breadcrumbItems} />

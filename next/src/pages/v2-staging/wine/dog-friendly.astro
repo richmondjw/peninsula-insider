@@ -15,6 +15,7 @@ const faqSchema={'@context':'https://schema.org','@type':'FAQPage',mainEntity:[{
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/';
+export const prerender = true;
 ---
 <BaseLayout title="Dog-Friendly Wineries Mornington Peninsula · Peninsula Insider" description="Wineries on the Mornington Peninsula that welcome dogs — confirmed outdoor areas at Stonier, Main Ridge Estate, Kerri Greens, Green Olive, and Montalto Piazza. Verified April 2026." section="wine">
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />

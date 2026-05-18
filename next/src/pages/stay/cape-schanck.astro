@@ -10,6 +10,7 @@ const allVenues = await getCollection('venues');
 const slugs = ['one-spa-racv-cape-schanck'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Cape Schanck' }];
+export const prerender = true;
 ---
 <BaseLayout title="Where to Stay in Cape Schanck · Peninsula Insider" description="Where to stay in Cape Schanck on the Mornington Peninsula, for resort-led, golf-adjacent, and slower coastal retreat weekends." section="stay" canonical="https://peninsulainsider.com.au/stay/cape-schanck/" modifiedTime="2026-04-24">
   <Breadcrumbs items={breadcrumbItems} />

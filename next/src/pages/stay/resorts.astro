@@ -10,6 +10,7 @@ const allVenues = await getCollection('venues');
 const slugs = ['peninsula-hot-springs','one-spa-racv-cape-schanck','alba-thermal-springs'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Resorts & Retreats' }];
+export const prerender = true;
 ---
 <BaseLayout title="Resorts and Retreats Mornington Peninsula · Peninsula Insider" description="Thermal, spa, and retreat-style accommodation on the Mornington Peninsula for slower, wellness-led escapes." section="stay" canonical="https://peninsulainsider.com.au/stay/resorts/" modifiedTime="2026-04-24">
   <Breadcrumbs items={breadcrumbItems} />

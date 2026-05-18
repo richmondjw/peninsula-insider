@@ -10,6 +10,7 @@ const allVenues = await getCollection('venues');
 const slugs = ['flinders-hotel'];
 const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Flinders' }];
+export const prerender = true;
 ---
 <BaseLayout title="Where to Stay in Flinders · Peninsula Insider" description="Where to stay in Flinders on the Mornington Peninsula, led by the village-hotel logic that makes the ocean-side weekend work properly." section="stay" canonical="https://peninsulainsider.com.au/stay/flinders/" modifiedTime="2026-04-24">
   <Breadcrumbs items={breadcrumbItems} />

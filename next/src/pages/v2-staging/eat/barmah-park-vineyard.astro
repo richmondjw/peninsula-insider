@@ -25,6 +25,7 @@ const articles = venue
       )
       .slice(0, 3)
   : [];
+export const prerender = true;
 ---
 <BaseLayout
   title={venue ? `${venue.data.name} — Peninsula Insider` : 'Barmah Park — Peninsula Insider'}

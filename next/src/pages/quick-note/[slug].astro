@@ -33,6 +33,7 @@ const publishedFmt = note.data.publishedAt.toLocaleString('en-AU', {
 const expiresFmt = note.data.expiresAt.toLocaleDateString('en-AU', {
   day: 'numeric', month: 'long',
 });
+export const prerender = true;
 ---
 
 <BaseLayout

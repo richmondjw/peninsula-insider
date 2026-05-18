@@ -24,6 +24,7 @@ const SHORTLIST_SLUGS = [
 const shortlist = SHORTLIST_SLUGS
   .map((slug) => venues.find((v) => routeSlug(v) === slug))
   .filter((v): v is NonNullable<typeof v> => Boolean(v));
+export const prerender = true;
 ---
 
 <PrintLayout title="A Mornington Peninsula Autumn · Peninsula Insider">

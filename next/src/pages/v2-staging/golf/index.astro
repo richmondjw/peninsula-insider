@@ -10,6 +10,7 @@ const allArticles = await getCollection('articles', ({ data }) => data.status ==
 const golfArticles = allArticles
   .filter((a) => a.data.tags?.includes('golf'))
   .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+export const prerender = true;
 ---
 
 <BaseLayout

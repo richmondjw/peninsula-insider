@@ -82,6 +82,7 @@ function venueCard(venue: any, imgPh: string = 'ph-vine') {
   const hats = venue.data.authority?.hats ?? 0;
   return { placeLabel, hats, imgPh };
 }
+export const prerender = true;
 ---
 <BaseLayout
   title="Best Wineries Mornington Peninsula · Peninsula Insider"

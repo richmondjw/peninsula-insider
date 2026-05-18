@@ -198,7 +198,7 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     acceptedAnswer: { '@type': 'Answer', text: answer },
   })),
 } : null;
-
+export const prerender = true;
 ---
 
 {ptwRedirectTo ? (

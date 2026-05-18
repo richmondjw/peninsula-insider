@@ -39,6 +39,7 @@ const featuredStays = highlightedVenues
 const relatedItineraries = allItineraries
   .filter((entry) => routeSlug(entry) !== slug)
   .slice(0, 2);
+export const prerender = true;
 ---
 <BaseLayout
   title={`${itinerary.data.title} — Mornington Peninsula Weekend Escape | Peninsula Insider`}

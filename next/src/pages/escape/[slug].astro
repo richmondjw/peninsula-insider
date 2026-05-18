@@ -24,6 +24,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.props;
 const to = `/plans/${slug}/`;
 const canonical = `https://peninsulainsider.com.au${to}`;
+export const prerender = true;
 ---
 <!doctype html>
 <html lang="en-AU">

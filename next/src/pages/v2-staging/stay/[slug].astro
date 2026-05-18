@@ -31,6 +31,7 @@ const articles = (await getCollection('articles', ({ data }) => data.status === 
     article.data.relatedVenues.some((entry: any) => String(entry.id ?? entry) === slug)
   )
   .slice(0, 3);
+export const prerender = true;
 ---
 <BaseLayout
   title={`${venue.data.name} — Peninsula Insider`}

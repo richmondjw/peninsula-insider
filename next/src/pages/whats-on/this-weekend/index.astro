@@ -141,6 +141,7 @@ const liveThisWeekend = allEvents
   .filter((e) => !dispatchPickEventSlugs.has(routeSlug(e)))
   .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime())
   .slice(0, 6);
+export const prerender = true;
 ---
 
 <BaseLayout

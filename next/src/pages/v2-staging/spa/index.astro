@@ -13,6 +13,7 @@ const spaArticles = allArticles
 
 const allVenues = await getCollection('venues');
 const spaVenues = allVenues.filter((v) => v.data.type === 'spa');
+export const prerender = true;
 ---
 
 <BaseLayout

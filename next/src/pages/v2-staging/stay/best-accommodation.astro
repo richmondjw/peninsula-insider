@@ -49,6 +49,7 @@ const orderedVenues = [...luxury, ...midRange, ...affordable];
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/';
+export const prerender = true;
 ---
 <BaseLayout
   title="Best Accommodation Mornington Peninsula · Peninsula Insider"

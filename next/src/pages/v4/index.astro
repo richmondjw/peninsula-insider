@@ -135,6 +135,7 @@ const seasonalVenues = venues
 const seasonalExperiences = experiences
   .filter((e) => experienceInSeason(e, season))
   .slice(0, 3);
+export const prerender = true;
 ---
 
 <V4BaseLayout

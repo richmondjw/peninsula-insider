@@ -73,6 +73,7 @@ const allPtw = sortPtwLatestFirst(allArticles.filter(isPeninsulaThisWeekend));
 const idx = allPtw.findIndex((a) => ptwArchiveSlug(a) === archiveSlug);
 const newer = idx > 0 ? allPtw[idx - 1] : null;
 const older = idx >= 0 && idx < allPtw.length - 1 ? allPtw[idx + 1] : null;
+export const prerender = true;
 ---
 
 <BaseLayout

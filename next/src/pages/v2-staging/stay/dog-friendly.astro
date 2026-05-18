@@ -11,6 +11,7 @@ const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) ==
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/';
+export const prerender = true;
 ---
 <BaseLayout
   title="Dog-Friendly Accommodation Mornington Peninsula · Peninsula Insider"
