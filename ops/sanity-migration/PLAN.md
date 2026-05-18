@@ -1,6 +1,6 @@
 # Peninsula Insider — Sanity Migration Plan
 
-**Status:** Phases 0–7 complete; awaiting prod cutover + Phase 8 (onboarding) + Phase 9 (decom)
+**Status:** Phases 0–8 complete; awaiting prod cutover + Phase 9 (decom-on-rails)
 **Started:** May 2026
 **Target completion:** ~10–12 calendar weeks
 **Source of truth after cutover:** Sanity (project `a062b30n`, dataset `production`)
@@ -132,8 +132,17 @@ Each phase flips its own flag to `true`. If anything breaks, flip back to `false
 - [x] `megaRail` singleton + seeded with 5 rail entries
 - [x] `pageHero` documents seeded for 6 hub pages (whats-on, plans, eat-cafes, places, tour-operators, events)
 - [x] `siteSettings` singleton + seeded with masthead, edition, footer links
-- [ ] Astro-side dual-read wiring for these singletons (replace the Supabase override consumption with GROQ queries) — small Phase 7b
+- [x] Astro-side dual-read wiring: homepage cover (index.astro), V4MegaRail.astro, SubpageHero.astro, SectionHero.astro all consume Sanity singletons when `SANITY_PAGE_LEVEL_ENABLED=true`
+- [x] PortableTextBody renders actual hub-guide components (CellarDoorList, DogPolicyTable, SubregionGrid, VarietyGuide) for items-array embeds — placeholder stubs replaced
 - [ ] Walkthrough of the ~70 `page/img:*` orphaned overrides with Emma — most will be drops; survivors get migrated to structured slots
+
+### Phase 8 — Editorial onboarding *(doc ready)*
+- [x] `workspace/JWR_PKM_2026/04-agents/editorial-guides/sanity-studio.md` — Emma's daily-driver guide
+- [ ] Live 15-min walkthrough with Emma in the deployed Studio
+
+### Phase 9 — Decommissioning *(script ready, do not execute yet)*
+- [x] `ops/sanity-migration/decommission.sh` — dry-run + execute modes
+- [ ] **Blocked until** every `SANITY_<ENTITY>_ENABLED` flag has been on in production for ≥14 days and no editor reports cutover incidents
 
 ### Phase 8 — Editorial onboarding *(parallel)*
 - [ ] Week 1: Emma Studio tour + 3 venue edits

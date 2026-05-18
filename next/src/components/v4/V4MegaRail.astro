@@ -10,6 +10,8 @@
 import type { V4MegaRail } from '../../lib/v4-nav';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchMegaRailFromSanity } from '../../lib/sanity/singletons-adapter';
 
 export interface Props {
   rail: V4MegaRail;
@@ -21,14 +23,28 @@ export interface Props {
 }
 const { rail, pillarKey } = Astro.props;
 
-// Build-time override consult — fetch any published mega-menu image
-// overrides at build, so the static HTML ships with the editor's choice
-// already in place. Eliminates the flash where the default image paints
-// before the client-side patcher swaps it.
-const globalOverrides = await loadOverrides('page', '_global');
-const overrideImage = globalOverrides.image[`mega-rail.${pillarKey}`];
-const imageSrc = overrideImage?.src ?? rail.image;
-const imageAlt = overrideImage?.alt ?? rail.imageAlt;
+// Image resolution: Sanity singleton (when flag on) → legacy Supabase
+// override (when off) → component default. Eliminates flicker on both
+// the editor's pin image AND the rail label/href whenever Sanity is
+// driving page-level content.
+let imageSrc = rail.image;
+let imageAlt = rail.imageAlt;
+
+if (sanityReadEnabled('page-level')) {
+  const entries = await fetchMegaRailFromSanity();
+  const entry = entries?.find((e) => e.key === pillarKey);
+  if (entry?.imageSrc) {
+    imageSrc = entry.imageSrc;
+    imageAlt = entry.imageAlt ?? rail.imageAlt;
+  }
+} else {
+  const globalOverrides = await loadOverrides('page', '_global');
+  const overrideImage = globalOverrides.image[`mega-rail.${pillarKey}`];
+  if (overrideImage?.src) {
+    imageSrc = overrideImage.src;
+    imageAlt = overrideImage.alt ?? rail.imageAlt;
+  }
+}
 ---
 
 <a class="v4-mega__rail" href={rail.href}>
