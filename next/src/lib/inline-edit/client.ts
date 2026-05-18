@@ -12,6 +12,15 @@
  * the security boundary. This means inline editing works on both static
  * (GitHub Pages) and hybrid (Vercel) deploys; the admin API at
  * /admin/api/content/* is unused by this client.
+ *
+ * Image override resolution is the *server's* job. Components that own
+ * editable images call `loadOverrides()` at render time and bake the
+ * published `public_url` into the SSR'd markup. For anon visitors the
+ * client-side patcher does nothing. Admins running the editor get a
+ * lightweight client-side pass so newly-replaced images appear without
+ * waiting for a rebuild, but it's gated to authenticated admin sessions
+ * to avoid the build-time → Supabase swap that caused visible flicker
+ * on first paint.
  */
 
 import { getSupabase, isAuthEnabled } from '../auth';
@@ -48,9 +57,6 @@ if (typeof document !== 'undefined' && !(document as any).__piEditDelegationInst
  * One-time setup: verify session + allowlist, install event delegation.
  * Called once per page load (and again after Astro view transitions, but
  * the inner logic is idempotent).
- *
- * Also kicks off `applyOverridesOnLoad()` for every visitor — admin or
- * not — so published image replacements appear without a site rebuild.
  */
 export async function bootInlineEditor(): Promise<void> {
   if (typeof document === 'undefined') return;
@@ -59,11 +65,6 @@ export async function bootInlineEditor(): Promise<void> {
 
   const supa = getSupabase();
   if (!supa) { console.warn('[pi-edit] no supabase client at boot'); return; }
-
-  // Patch published overrides for everyone. Fire-and-forget — RLS gates
-  // reads to status='published' rows, so anon visitors get the same view
-  // as admins (just without the editing chrome).
-  void applyOverridesOnLoad();
 
   const { data: { session } } = await supa.auth.getSession();
   if (!session) { ensureToggleRemoved(); return; }
@@ -88,7 +89,9 @@ export async function bootInlineEditor(): Promise<void> {
   mountToggle();
 
   // Restore previous edit-mode preference. Body class is page-scoped so we
-  // re-apply it here every boot.
+  // re-apply it here every boot. Patching overrides is gated to edit-mode
+  // (handled in setEditMode), so admins browsing normally see SSR output
+  // verbatim — no client-side swap flicker.
   const stored = sessionStorage.getItem(EDIT_MODE_FLAG);
   setEditMode(stored === '1');
 
@@ -121,15 +124,23 @@ function mountToggle() {
   toggleEl.className = 'pi-edit-toggle';
   toggleEl.setAttribute('aria-label', 'Toggle inline edit mode');
   toggleEl.innerHTML = '<span class="pi-edit-toggle__dot" aria-hidden="true"></span><span class="pi-edit-toggle__label">Edit mode</span>';
-  toggleEl.addEventListener('click', () => setEditMode(!editMode));
+  toggleEl.addEventListener('click', () => setEditMode(!editMode, 'click'));
   document.body.appendChild(toggleEl);
 }
 
-function setEditMode(on: boolean) {
+function setEditMode(on: boolean, source: 'click' | 'restore' = 'restore') {
   editMode = on;
   document.body.dataset.piEditMode = on ? 'on' : 'off';
   sessionStorage.setItem(EDIT_MODE_FLAG, on ? '1' : '0');
   if (!on) closeMenu();
+  // Only fetch and apply published overrides when the admin *explicitly*
+  // turns edit mode on (clicks the toggle). Restoring from sessionStorage
+  // on a fresh page load does NOT re-fire the pass — that would cause
+  // visible flicker as the post-paint swap clobbers SSR output. Editors
+  // who want to pick up changes published since the last build can either
+  // reload (rebuild-deployed pages will already have them in SSR) or
+  // toggle edit mode off and on again.
+  if (on && source === 'click') void applyOverridesOnLoad();
 }
 
 // --------------------------------------------------------------------------
@@ -799,24 +810,29 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
 // --------------------------------------------------------------------------
 
 /**
- * After every page load, fetch any published image overrides relevant to the
- * elements actually on this page and patch their srcs in place. Two passes:
+ * Admin-only: after every page load, fetch any published image overrides
+ * for the tagged slots on this page and patch their srcs in place. Only
+ * runs for authenticated admins so editors see their replacements without
+ * waiting for a rebuild.
  *
- *   1. Explicit pass — every `[data-pi-edit="image"]` element declares its
- *      identity via `data-pi-entity-type` / `data-pi-entity-slug` /
- *      `data-pi-field-path`. Group those by `(entity_type, entity_slug)`,
- *      run one query per group, apply matches by exact field_path.
+ * Anon visitors never call this — they see SSR-rendered output verbatim.
+ * Components that own editable images are responsible for resolving
+ * overrides server-side via `loadOverrides()` and baking the published
+ * `public_url` into the markup at render time. That guarantees the first
+ * paint already shows the correct image and there's no swap flicker.
  *
- *   2. Implicit pass — for untagged `<img>` and bg-image elements, fall back
- *      to the legacy `(page, currentPageSlug(), img:<basename>)` lookup so
- *      inline article photos and other one-offs still benefit from auto-
- *      detect replacements.
+ * Only the explicit pass remains: every `[data-pi-edit="image"]` element
+ * declares its identity via `data-pi-entity-type` / `data-pi-entity-slug` /
+ * `data-pi-field-path`. Groups are queried in parallel and matched by
+ * exact field_path. The basename-keyed implicit pass that previously
+ * swept every `<img>` and bg-image element was removed — it was the main
+ * source of post-paint flicker for anon visitors and is no longer needed
+ * now that SSR owns override resolution.
  */
 async function applyOverridesOnLoad() {
   const supa = getSupabase();
   if (!supa) return;
 
-  // ── Explicit pass ────────────────────────────────────────────────────────
   const taggedEls = document.querySelectorAll<HTMLElement>('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]');
   const groups = new Map<string, { entityType: string; entitySlug: string; els: HTMLElement[] }>();
   taggedEls.forEach((el) => {
@@ -860,49 +876,6 @@ async function applyOverridesOnLoad() {
       }
     }
   }));
-
-  // ── Implicit pass ────────────────────────────────────────────────────────
-  const entitySlug = currentPageSlug();
-  const { data } = await supa
-    .from('cms_image_slots')
-    .select('field_path, public_url, alt_text')
-    .eq('entity_type', 'page')
-    .eq('entity_slug', entitySlug)
-    .eq('status', 'published');
-
-  const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
-  if (rows.length === 0) return;
-
-  // Build a lookup: field_path → row. Only auto-keyed entries patch <img>s.
-  const byPath = new Map(rows.map((r) => [r.field_path, r]));
-
-  // Patch <img>, [role="img"], and any element with an inline
-  // background-image style. The venue/place card hero pattern uses
-  // `<a class="venue-card__hero" style="background-image: url(...)">`
-  // — no role, no <img>, so we need this broader sweep.
-  const candidates: HTMLElement[] = [];
-  document.querySelectorAll<HTMLImageElement>('img').forEach((n) => candidates.push(n));
-  document.querySelectorAll<HTMLElement>('[role="img"], [style*="background-image"]').forEach((n) => {
-    if (!candidates.includes(n)) candidates.push(n);
-  });
-
-  for (const el of candidates) {
-    // Skip surfaces that are already explicitly tagged — their server-side
-    // rendering already consulted overrides via loadOverrides().
-    if (el.closest('[data-pi-edit]')) continue;
-    if (!isImageLike(el)) continue;
-
-    const basename = srcBasename(currentImageSrc(el));
-    const row = byPath.get(`img:${basename}`);
-    if (!row || !row.public_url) continue;
-    if (currentImageSrc(el) === row.public_url) continue;
-
-    setImageSrc(el, row.public_url);
-    if (row.alt_text) {
-      if (el instanceof HTMLImageElement) el.alt = row.alt_text;
-      else el.setAttribute('aria-label', row.alt_text);
-    }
-  }
 }
 
 // --------------------------------------------------------------------------
