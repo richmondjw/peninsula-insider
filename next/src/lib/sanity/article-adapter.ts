@@ -8,7 +8,7 @@
  * to a Portable Text renderer for the body. All other fields render
  * via the existing template paths.
  */
-import {sanityClient} from './client'
+import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
 
 const img = `{ asset->{_id}, alt, credit, caption, license }`
@@ -83,8 +83,8 @@ export interface AdaptedArticle {
   }
 }
 
-export async function fetchArticleFromSanity(slug: string): Promise<AdaptedArticle | null> {
-  const d: any = await sanityClient.fetch(articleBySlugQuery, {slug})
+export async function fetchArticleFromSanity(slug: string, opts: {preview?: boolean} = {}): Promise<AdaptedArticle | null> {
+  const d: any = await getSanityReadClient(opts.preview ?? false).fetch(articleBySlugQuery, {slug})
   if (!d) return null
 
   const refs = (slugs: string[] | null | undefined, c: any) =>

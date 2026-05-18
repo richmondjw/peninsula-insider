@@ -40,7 +40,9 @@ let { event } = Astro.props;
 
 // Dual-read.
 if (sanityReadEnabled('events')) {
-  const sanityEvent = await fetchEventFromSanity(routeSlug(event));
+  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
+
+  const sanityEvent = await fetchEventFromSanity(routeSlug(event), {preview: previewMode});
   if (sanityEvent) event = sanityEvent as any;
 }
 const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
@@ -83,7 +85,6 @@ const breadcrumbItems = [
   { label: "What's On", href: '/whats-on' },
   { label: event.data.title },
 ];
-export const prerender = true;
 ---
 
 <BaseLayout

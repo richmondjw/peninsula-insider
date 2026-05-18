@@ -5,7 +5,7 @@
  * itinerary branch consumes it unchanged. Venue references are unpacked
  * from Sanity refs back into legacy {id, collection: 'venues'} shape.
  */
-import {sanityClient} from './client'
+import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
 
 const imageProjection = `{ asset->{_id}, alt, credit, caption, license }`
@@ -103,8 +103,8 @@ function imageRefToAstroShape(img: SanityImageRef, fallbackAlt: string) {
   }
 }
 
-export async function fetchItineraryFromSanity(slug: string) {
-  const doc = (await sanityClient.fetch(itineraryBySlugQuery, {slug})) as SanityItinerary | null
+export async function fetchItineraryFromSanity(slug: string, opts: {preview?: boolean} = {}) {
+  const doc = (await getSanityReadClient(opts.preview ?? false).fetch(itineraryBySlugQuery, {slug})) as SanityItinerary | null
   if (!doc) return null
   return {
     id: doc.slug,

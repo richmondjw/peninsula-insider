@@ -36,7 +36,9 @@ let { article } = Astro.props;
 // below instead of Astro's render()).
 let sanityBody: Array<Record<string, unknown>> | null = null;
 if (sanityReadEnabled('articles')) {
-  const sanityArt = await fetchArticleFromSanity(routeSlug(article));
+  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
+
+  const sanityArt = await fetchArticleFromSanity(routeSlug(article), {preview: previewMode});
   if (sanityArt) {
     article = sanityArt as any;
     sanityBody = sanityArt.body;
@@ -218,7 +220,6 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     acceptedAnswer: { '@type': 'Answer', text: answer },
   })),
 } : null;
-export const prerender = true;
 ---
 
 {ptwRedirectTo ? (
