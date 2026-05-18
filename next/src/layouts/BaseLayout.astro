@@ -27,6 +27,7 @@ import CookieBanner from '../components/CookieBanner.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
 import InlineEditor from '../components/admin/InlineEditor.astro';
+import SanityVisualEditing from '../components/admin/SanityVisualEditing.astro';
 
 export interface Props {
   title: string;
@@ -294,6 +295,9 @@ const isAskPage = rawPathname.startsWith('/ask');
        session and lights up [data-pi-edit] elements for click-to-edit text
        and right-click-to-replace images. Inert for non-admin visitors. -->
   <InlineEditor />
+
+  <!-- Sanity Visual Editing overlay (renders only when Astro.locals.sanityPreview is true). -->
+  <SanityVisualEditing />
 
   <script is:inline>
     (function () {

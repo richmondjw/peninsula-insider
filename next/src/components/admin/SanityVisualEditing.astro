@@ -1,0 +1,30 @@
+---
+/**
+ * Sanity Visual Editing overlay — renders only when the request is in
+ * preview mode (Astro.locals.sanityPreview, set by middleware).
+ *
+ * The overlay script:
+ *   - Reads stega-encoded markers attached to every string field by the
+ *     sanityPreviewClient (see lib/sanity/client.ts)
+ *   - Listens for postMessage from the parent Studio frame
+ *   - Renders clickable hotspots over each stega-marked element
+ *   - When the editor clicks one, opens the corresponding field in
+ *     Sanity Studio's Presentation panel
+ *
+ * The script is inert outside the Studio Presentation iframe (no parent
+ * frame to message), so shipping it on a non-Studio preview load is
+ * harmless. We still gate render on `sanityPreview` to keep the bundle
+ * off the public site entirely.
+ */
+const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
+---
+
+{isPreview && (
+  <script>
+    // Lazy-import keeps the visual-editing bundle off any page that
+    // isn't actually rendering inside Studio.
+    import('@sanity/visual-editing/astro').then(({ enableVisualEditing }) => {
+      enableVisualEditing({ zIndex: 9999 });
+    });
+  </script>
+)}

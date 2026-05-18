@@ -26,8 +26,13 @@ const slug = routeSlug(venue);
 // Sanity-sourced equivalent. If Sanity returns null (doc unpublished or
 // missing), the JSON-loaded venue stays in place. Related/article/event
 // lookups below remain on JSON until their own phase migrates.
+// Preview mode: when an editor opens the page inside Studio's
+// Presentation iframe, Astro.locals.sanityPreview is true (set by
+// middleware) and the adapter switches to the stega-encoded preview
+// client so the Visual Editing overlay can attach clickable hotspots.
+const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
 if (sanityReadEnabled('venues')) {
-  const sanityVenue = await fetchVenueFromSanity(slug);
+  const sanityVenue = await fetchVenueFromSanity(slug, {preview: previewMode});
   if (sanityVenue) venue = sanityVenue as any;
 }
 
