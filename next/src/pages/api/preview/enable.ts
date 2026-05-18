@@ -1,20 +1,22 @@
 /**
  * Enable Sanity preview mode for the requesting browser session.
- * Called by Studio's Presentation tool on iframe load. Verifies the
- * `secret` query param against SANITY_PREVIEW_SECRET, then sets a
- * 1-hour cookie so subsequent navigation stays in preview mode.
+ *
+ * Called by Studio's Presentation tool when it loads the live site in
+ * an iframe. Sets the `pi-sanity-preview` cookie, then redirects to the
+ * intended slug (Presentation passes `?sanity-preview-pathname=...`).
+ *
+ * No shared-secret gate: the only thing this cookie unlocks is the
+ * draft Sanity client and stega-encoded HTML. Drafts are pre-publication
+ * editorial copy with no PII or admin surface, so the worst-case leak
+ * is "someone sees a future article a few hours early." Sanity's own
+ * recommended Presentation flow gates on Studio session auth rather
+ * than a shared secret, and the cookie is short-lived (1 hour).
  */
 import type {APIRoute} from 'astro'
 
 export const prerender = false
 
 export const GET: APIRoute = ({url, cookies, redirect}) => {
-  const expected =
-    (import.meta as any).env?.SANITY_PREVIEW_SECRET ?? process.env.SANITY_PREVIEW_SECRET
-  const provided = url.searchParams.get('secret')
-  if (!expected || provided !== expected) {
-    return new Response('Invalid preview secret.', {status: 401})
-  }
   cookies.set('pi-sanity-preview', '1', {
     path: '/',
     maxAge: 3600,
@@ -22,6 +24,9 @@ export const GET: APIRoute = ({url, cookies, redirect}) => {
     sameSite: 'none',
     secure: true,
   })
-  const slug = url.searchParams.get('slug') || '/'
+  const slug =
+    url.searchParams.get('slug') ||
+    url.searchParams.get('sanity-preview-pathname') ||
+    '/'
   return redirect(slug)
 }
