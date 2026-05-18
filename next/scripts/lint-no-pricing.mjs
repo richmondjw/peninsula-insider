@@ -32,6 +32,13 @@ const ROOT = path.resolve('src');
 // price-aware admin view later without losing historical data.
 const ALLOW = new Set([
   'content.config.ts', // Zod schema field declarations only
+  // Sanity adapters — data-layer passthrough from Sanity → Astro shape.
+  // Same justification as content.config.ts: the FIELDS are preserved so
+  // historical data survives, but the templates that consume the
+  // adapters don't render them. If a price field ever appears in an
+  // .astro template, the rule still fires on that file.
+  'lib/sanity/event-adapter.ts',
+  'lib/sanity/phase5-adapters.ts',
 ]);
 
 const violations = [];
