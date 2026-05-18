@@ -23,7 +23,7 @@ const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === tr
   <script>
     // Lazy-import keeps the visual-editing bundle off any page that
     // isn't actually rendering inside Studio.
-    import('@sanity/visual-editing/astro').then(({ enableVisualEditing }) => {
+    import('@sanity/visual-editing').then(({ enableVisualEditing }) => {
       enableVisualEditing({ zIndex: 9999 });
     });
   </script>
