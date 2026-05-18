@@ -30,6 +30,8 @@ import NewsletterBlock from '../components/NewsletterBlock.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
+import { sanityReadEnabled } from '../lib/sanity/client';
+import { fetchHomepageCoverFromSanity } from '../lib/sanity/singletons-adapter';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
 // CMS-driven overrides for editor-controlled fields on the homepage. Empty
@@ -210,7 +212,7 @@ const scenes: Scene[] = [
 // active scene rather than baking it into scenes[2] which only fires if
 // that scene gets promoted to [0].
 const activeScene = scenes[0];
-const ssrScene: Scene = coverImageOverride
+let ssrScene: Scene = coverImageOverride
   ? {
       ...activeScene,
       image: coverImageOverride.src,
@@ -218,6 +220,30 @@ const ssrScene: Scene = coverImageOverride
       caption: coverImageOverride.caption ?? activeScene.caption,
     }
   : activeScene;
+
+// Phase 7b — when the page-level flag is on, hydrate the cover from
+// Sanity's homepageCover singleton. Replaces both the hard-coded scenes
+// array AND the legacy Supabase cmsImage override. Editors set the
+// active scene in Studio with a dropdown; flicker is impossible because
+// the active scene's image is the only thing that reaches the page.
+if (sanityReadEnabled('page-level')) {
+  const sanityCover = await fetchHomepageCoverFromSanity();
+  if (sanityCover && sanityCover.scenes.length > 0) {
+    const sc = sanityCover.scenes[Math.min(sanityCover.activeIndex, sanityCover.scenes.length - 1)];
+    ssrScene = {
+      id: sc.id,
+      label: sc.label,
+      hours: sc.hours,
+      image: sc.image,
+      imageAlt: sc.imageAlt,
+      caption: sc.caption,
+      headline: sc.headline,
+      dispatch: sc.dispatch,
+      primaryHref: sc.primaryHref,
+      primaryLabel: sc.primaryLabel,
+    };
+  }
+}
 
 // Editorial meta line: cover-essay date. Hardcoded for the prototype;
 // when the cover becomes CMS-driven (or rotates from articles) this should
