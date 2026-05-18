@@ -33,7 +33,7 @@ jobs:
           # Use --project to avoid needing the local Studio's sanity.cli.ts
           # config (which depends on the Studio's node_modules being installed).
           sanity dataset export production "ops/backups/sanity-$DATE.tar.gz" \
-            --project a062b30n \
+            --project-id a062b30n \
             --no-drafts
           ls -lh "ops/backups/sanity-$DATE.tar.gz"
 
