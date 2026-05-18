@@ -27,8 +27,13 @@ export default defineConfig({
         origin: PREVIEW_URL,
         preview: '/',
         previewMode: {
-          enable: '/api/preview/enable',
-          disable: '/api/preview/disable',
+          // Trailing slashes are mandatory: Vercel does a 308 trailing-slash
+          // redirect on the bare path, and the 308 response strips the
+          // Set-Cookie header. Without the slash, the preview cookie never
+          // lands and the Visual Editing overlay fails with "Unable to
+          // connect" because middleware never sees sanityPreview=true.
+          enable: '/api/preview/enable/',
+          disable: '/api/preview/disable/',
         },
       },
       resolve: {
