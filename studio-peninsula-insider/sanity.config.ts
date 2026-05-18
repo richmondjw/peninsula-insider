@@ -33,6 +33,9 @@ export default defineConfig({
       },
       resolve: {
         locations: {
+          // Presentation routes to /preview/<section>/<slug> — SSR routes
+          // that render with the stega-encoded preview client. Public URLs
+          // (/wine/<slug>/ etc.) stay prerendered for fast public traffic.
           venue: defineLocations({
             select: {name: 'name', slug: 'slug.current', type: 'type'},
             resolve: (doc) => {
@@ -41,68 +44,68 @@ export default defineConfig({
               const type = String(doc?.type ?? '')
               const wineTypes = ['winery', 'producer', 'brewery', 'distillery']
               const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa']
-              const prefix = wineTypes.includes(type)
-                ? '/wine'
+              const section = wineTypes.includes(type)
+                ? 'wine'
                 : stayTypes.includes(type)
-                  ? '/stay'
-                  : '/eat'
-              return {locations: [{title: doc?.name ?? slug, href: `${prefix}/${slug}/`}]}
+                  ? 'stay'
+                  : 'eat'
+              return {locations: [{title: doc?.name ?? slug, href: `/preview/${section}/${slug}/`}]}
             },
           }),
           place: defineLocations({
             select: {name: 'name', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.name ?? doc.slug, href: `/places/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.name ?? doc.slug, href: `/preview/places/${doc.slug}/`}]}
                 : null,
           }),
           article: defineLocations({
             select: {title: 'title', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.title ?? doc.slug, href: `/journal/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.title ?? doc.slug, href: `/preview/journal/${doc.slug}/`}]}
                 : null,
           }),
           experience: defineLocations({
             select: {name: 'name', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.name ?? doc.slug, href: `/explore/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.name ?? doc.slug, href: `/preview/explore/${doc.slug}/`}]}
                 : null,
           }),
           itinerary: defineLocations({
             select: {title: 'title', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.title ?? doc.slug, href: `/plans/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.title ?? doc.slug, href: `/preview/plans/${doc.slug}/`}]}
                 : null,
           }),
           event: defineLocations({
             select: {title: 'title', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.title ?? doc.slug, href: `/whats-on/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.title ?? doc.slug, href: `/preview/whats-on/${doc.slug}/`}]}
                 : null,
           }),
           tour: defineLocations({
             select: {name: 'name', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.name ?? doc.slug, href: `/tour/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.name ?? doc.slug, href: `/preview/tour/${doc.slug}/`}]}
                 : null,
           }),
           tourOperator: defineLocations({
             select: {name: 'name', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.name ?? doc.slug, href: `/tour/operators/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.name ?? doc.slug, href: `/preview/tour-operators/${doc.slug}/`}]}
                 : null,
           }),
           tourPackage: defineLocations({
             select: {name: 'name', slug: 'slug.current'},
             resolve: (doc) =>
               doc?.slug
-                ? {locations: [{title: doc?.name ?? doc.slug, href: `/tour-packages/${doc.slug}/`}]}
+                ? {locations: [{title: doc?.name ?? doc.slug, href: `/preview/tour-packages/${doc.slug}/`}]}
                 : null,
           }),
           homepageCover: defineLocations({
