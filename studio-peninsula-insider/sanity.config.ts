@@ -25,7 +25,11 @@ export default defineConfig({
     presentationTool({
       previewUrl: {
         origin: PREVIEW_URL,
-        preview: '/',
+        // SSR landing (next/src/pages/preview/index.astro). Must be a
+        // /preview/ route so the Visual Editing overlay mounts on the
+        // default-no-doc-selected iframe — public paths like '/' are
+        // statically prerendered and can't host the channel handshake.
+        preview: '/preview/',
         previewMode: {
           // Trailing slashes are mandatory: Vercel does a 308 trailing-slash
           // redirect on the bare path, and the 308 response strips the
