@@ -7,7 +7,7 @@
  * map heroImage to a Sanity CDN URL, return a `{id, data}` envelope so
  * existing Astro pages consume it without changes.
  */
-import {getSanityReadClient} from './client'
+import {sanityClient} from './client'
 import {intentUrl} from './image'
 
 const img = `{ asset->{_id}, alt, credit, caption, license }`
@@ -55,8 +55,8 @@ const experienceQuery = `*[_type == "experience" && slug.current == $slug][0]{
   heroImage ${img}
 }`
 
-export async function fetchExperienceFromSanity(slug: string, opts: {preview?: boolean} = {}) {
-  const d: any = await getSanityReadClient(opts.preview ?? false).fetch(experienceQuery, {slug})
+export async function fetchExperienceFromSanity(slug: string) {
+  const d: any = await sanityClient.fetch(experienceQuery, {slug})
   if (!d) return null
   return {
     id: d.slug,
@@ -103,8 +103,8 @@ const tourOperatorQuery = `*[_type == "tourOperator" && slug.current == $slug][0
   heroImage ${img}
 }`
 
-export async function fetchTourOperatorFromSanity(slug: string, opts: {preview?: boolean} = {}) {
-  const d: any = await getSanityReadClient(opts.preview ?? false).fetch(tourOperatorQuery, {slug})
+export async function fetchTourOperatorFromSanity(slug: string) {
+  const d: any = await sanityClient.fetch(tourOperatorQuery, {slug})
   if (!d) return null
   return {
     id: d.slug,
@@ -144,8 +144,8 @@ const tourQuery = `*[_type == "tour" && slug.current == $slug][0]{
   heroImage ${img}
 }`
 
-export async function fetchTourFromSanity(slug: string, opts: {preview?: boolean} = {}) {
-  const d: any = await getSanityReadClient(opts.preview ?? false).fetch(tourQuery, {slug})
+export async function fetchTourFromSanity(slug: string) {
+  const d: any = await sanityClient.fetch(tourQuery, {slug})
   if (!d) return null
   return {
     id: d.slug,
@@ -198,8 +198,8 @@ const tourPackageQuery = `*[_type == "tourPackage" && slug.current == $slug][0]{
   heroImage ${img}
 }`
 
-export async function fetchTourPackageFromSanity(slug: string, opts: {preview?: boolean} = {}) {
-  const d: any = await getSanityReadClient(opts.preview ?? false).fetch(tourPackageQuery, {slug})
+export async function fetchTourPackageFromSanity(slug: string) {
+  const d: any = await sanityClient.fetch(tourPackageQuery, {slug})
   if (!d) return null
   return {
     id: d.slug,

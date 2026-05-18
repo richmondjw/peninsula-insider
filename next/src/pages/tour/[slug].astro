@@ -22,9 +22,7 @@ let { tour } = Astro.props;
 // Dual-read.
 if (sanityReadEnabled('tours')) {
   const slug = tour.id ?? tour.data.slug;
-  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-
-  const sanityTour = await fetchTourFromSanity(slug, {preview: previewMode});
+  const sanityTour = await fetchTourFromSanity(slug);
   if (sanityTour) tour = sanityTour as any;
 }
 const data = tour.data;
@@ -88,6 +86,7 @@ const breadcrumbItems = [
   { label: 'Tours', href: '/tour/' },
   { label: data.name },
 ];
+export const prerender = true;
 ---
 
 <BaseLayout

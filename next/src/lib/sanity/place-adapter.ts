@@ -4,7 +4,7 @@
  * Mirrors the existing Astro content-collection place shape so
  * PlaceDetailTemplate.astro consumes it unchanged.
  */
-import {getSanityReadClient} from './client'
+import {sanityClient} from './client'
 import {intentUrl} from './image'
 
 const imageProjection = `{ asset->{_id}, alt, credit, caption, license }`
@@ -139,8 +139,8 @@ function adapt(doc: SanityPlace): AdaptedPlace {
   }
 }
 
-export async function fetchPlaceFromSanity(slug: string, opts: {preview?: boolean} = {}): Promise<AdaptedPlace | null> {
-  const doc = (await getSanityReadClient(opts.preview ?? false).fetch(placeBySlugQuery, {slug})) as SanityPlace | null
+export async function fetchPlaceFromSanity(slug: string): Promise<AdaptedPlace | null> {
+  const doc = (await sanityClient.fetch(placeBySlugQuery, {slug})) as SanityPlace | null
   if (!doc) return null
   return adapt(doc)
 }

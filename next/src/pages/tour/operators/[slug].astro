@@ -22,9 +22,7 @@ const slug = operator.id ?? operator.data.slug;
 
 // Dual-read.
 if (sanityReadEnabled('tour-operators')) {
-  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-
-  const sanityOp = await fetchTourOperatorFromSanity(slug, {preview: previewMode});
+  const sanityOp = await fetchTourOperatorFromSanity(slug);
   if (sanityOp) operator = sanityOp as any;
 }
 const data = operator.data;
@@ -51,6 +49,7 @@ const breadcrumbItems = [
   { label: 'Operators', href: '/tour/operators/' },
   { label: data.name },
 ];
+export const prerender = true;
 ---
 
 <BaseLayout

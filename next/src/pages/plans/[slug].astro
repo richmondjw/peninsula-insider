@@ -81,9 +81,7 @@ let { itinerary, articleData } = Astro.props;
 
 // Dual-read for itinerary branch (article branch handled in journal flow).
 if (articleData == null && itinerary && sanityReadEnabled('itineraries')) {
-  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-
-  const sanityItn = await fetchItineraryFromSanity(routeSlug(itinerary), {preview: previewMode});
+  const sanityItn = await fetchItineraryFromSanity(routeSlug(itinerary));
   if (sanityItn) itinerary = sanityItn as any;
 }
 
@@ -336,6 +334,7 @@ const canonical = data ? `https://peninsulainsider.com.au/plans/${slug}/` : '';
 const ogImage = data
   ? (data.heroImage?.src && !data.heroImage.src.includes('placeholder') ? data.heroImage.src : '/images/sourced/home-cover.webp')
   : '';
+export const prerender = true;
 ---
 
 {isArticle ? (

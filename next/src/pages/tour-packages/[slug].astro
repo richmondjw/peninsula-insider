@@ -24,9 +24,7 @@ const slug = pkg.id ?? pkg.data.slug;
 
 // Dual-read.
 if (sanityReadEnabled('tour-packages')) {
-  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-
-  const sanityPkg = await fetchTourPackageFromSanity(slug, {preview: previewMode});
+  const sanityPkg = await fetchTourPackageFromSanity(slug);
   if (sanityPkg) pkg = sanityPkg as any;
 }
 const data = pkg.data;
@@ -72,6 +70,7 @@ const breadcrumbItems = [
   { label: 'Tour Packages', href: '/tour-packages/' },
   { label: data.name },
 ];
+export const prerender = true;
 ---
 
 <BaseLayout
