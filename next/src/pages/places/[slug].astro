@@ -20,7 +20,9 @@ let { place } = Astro.props;
 
 // Dual-read: swap focused place for Sanity when flag is on.
 if (sanityReadEnabled('places')) {
-  const sanityPlace = await fetchPlaceFromSanity(routeSlug(place));
+  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
+
+  const sanityPlace = await fetchPlaceFromSanity(routeSlug(place), {preview: previewMode});
   if (sanityPlace) place = sanityPlace as any;
 }
 const allVenues = await getCollection('venues');
@@ -324,7 +326,6 @@ const placeSchema = {
   },
   url: canonical,
 };
-export const prerender = true;
 ---
 
 <BaseLayout

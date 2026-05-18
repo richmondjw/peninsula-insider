@@ -7,7 +7,7 @@
  * (the existing template renders it as plain prose; Portable Text
  * rendering for events isn't needed in the initial migration).
  */
-import {sanityClient} from './client'
+import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
 
 const img = `{ asset->{_id}, alt, credit, caption, license }`
@@ -54,8 +54,8 @@ function imageOrFallback(image: SanityImageRef, fallbackAlt: string) {
   }
 }
 
-export async function fetchEventFromSanity(slug: string) {
-  const d: any = await sanityClient.fetch(eventBySlugQuery, {slug})
+export async function fetchEventFromSanity(slug: string, opts: {preview?: boolean} = {}) {
+  const d: any = await getSanityReadClient(opts.preview ?? false).fetch(eventBySlugQuery, {slug})
   if (!d) return null
   return {
     id: d.slug,

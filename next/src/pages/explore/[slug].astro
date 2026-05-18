@@ -56,7 +56,9 @@ let { experience } = Astro.props;
 
 // Dual-read: swap for Sanity when flag is on.
 if (sanityReadEnabled('experiences')) {
-  const sanityExp = await fetchExperienceFromSanity(routeSlug(experience));
+  const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
+
+  const sanityExp = await fetchExperienceFromSanity(routeSlug(experience), {preview: previewMode});
   if (sanityExp) experience = sanityExp as any;
 }
 const allExperiences = await getCollection('experiences');
@@ -157,7 +159,6 @@ if (experience.data.type === 'golf-course') {
     (experienceSchema as any).publicAccess = golfData.access === 'public';
   }
 }
-export const prerender = true;
 ---
 
 <BaseLayout

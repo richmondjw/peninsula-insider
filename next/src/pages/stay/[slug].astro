@@ -89,7 +89,6 @@ const venueSchema = {
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
   // priceRange intentionally omitted (BRAND-PI 2026-05-15: no pricing on site).
 };
-export const prerender = true;
 ---
 
 <BaseLayout
