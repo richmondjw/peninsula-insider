@@ -643,6 +643,21 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
   justify-content: space-between;
   gap: 12px;
 }
+.pi-sanity-modal__head-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.pi-sanity-modal__current {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  background: #e8eaef center / cover no-repeat;
+  flex: 0 0 48px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
 .pi-sanity-modal__title {
   font-weight: 600;
   font-size: 16px;
@@ -690,15 +705,47 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
   cursor: pointer;
 }
 .pi-sanity-modal__upload:hover { background: #1e40af; }
+.pi-sanity-modal__toolbar {
+  flex-wrap: wrap;
+}
+.pi-sanity-modal__chips,
+.pi-sanity-modal__sort {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.pi-sanity-modal__chip {
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  color: #1a1d24;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+.pi-sanity-modal__chip:hover { background: #f3f4f7; }
+.pi-sanity-modal__chip[aria-pressed="true"] {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #fff;
+}
+.pi-sanity-modal__chip:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
 .pi-sanity-modal__grid {
   flex: 1 1 auto;
   overflow-y: auto;
   padding: 14px 18px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
   align-content: start;
 }
+.pi-sanity-modal__grid:focus { outline: none; }
 .pi-sanity-modal__asset {
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: #fff;
@@ -712,6 +759,21 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
   transition: border-color 0.12s, transform 0.12s;
 }
 .pi-sanity-modal__asset:hover { border-color: #1d4ed8; transform: translateY(-1px); }
+.pi-sanity-modal__asset:focus-visible {
+  outline: none;
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.25);
+}
+.pi-sanity-modal__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.pi-sanity-modal__dims {
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.45);
+}
 .pi-sanity-modal__thumb {
   display: block;
   width: 100%;
@@ -720,11 +782,12 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
   border-radius: 6px;
 }
 .pi-sanity-modal__name {
-  font-size: 11px;
-  color: rgba(0, 0, 0, 0.65);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.78);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 500;
 }
 .pi-sanity-modal__status {
   grid-column: 1 / -1;
@@ -760,3 +823,87 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
   opacity: 0.55;
   cursor: not-allowed;
 }
+
+
+/* Drag-and-drop overlay — sits on top of the modal panel when a file is
+   being dragged over the modal. */
+.pi-sanity-modal__drop {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(29, 78, 216, 0.86);
+  color: #fff;
+  z-index: 5;
+  pointer-events: none;
+}
+.pi-sanity-modal--drag .pi-sanity-modal__drop { display: flex; }
+.pi-sanity-modal__drop-inner {
+  font-size: 22px;
+  font-weight: 600;
+  padding: 18px 28px;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  letter-spacing: 0.02em;
+}
+
+/* Error state action row inside the grid. */
+.pi-sanity-modal__err-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.pi-sanity-modal__err-actions a.pi-sanity-modal__btn {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+/* Sticky banner — used for Undo and "Try again" prompts. */
+.pi-sanity-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2147483700;
+  background: #1a1a1a;
+  color: #faf7f0;
+  border-radius: 999px;
+  padding: 0.5rem 0.75rem 0.5rem 1.1rem;
+  font: 500 0.82rem/1 'Outfit', system-ui, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: piSanityBannerIn 0.2s ease-out both;
+}
+@keyframes piSanityBannerIn {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+.pi-sanity-banner__btn {
+  appearance: none;
+  border: 0;
+  background: #8b4e3b;
+  color: #faf7f0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.pi-sanity-banner__btn:hover { background: #6f3d2e; }
+.pi-sanity-banner__close {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(250, 247, 240, 0.55);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.3rem;
+}
+.pi-sanity-banner__close:hover { color: #fff; }
