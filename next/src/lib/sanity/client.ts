@@ -17,15 +17,40 @@ const baseConfig: ClientConfig = {
   perspective: 'published',
 }
 
+/**
+ * Stega configuration shared by the public + preview clients.
+ *
+ * Stega injects invisible Unicode markers into every string returned by
+ * a Sanity query. Sanity's @sanity/visual-editing overlay reads those
+ * markers to know which doc + field each rendered element binds to,
+ * which is what makes click-to-edit work.
+ *
+ * Default behaviour (when public traffic loads the site outside of
+ * Studio Presentation) is: the invisible markers are present in the
+ * HTML, but unless an overlay script is mounted there's nothing to
+ * read them. They render as zero-width chars, no visual side effect.
+ *
+ * Caveat worth knowing: a public visitor copying body text from the
+ * site will also copy the invisible chars. We accept that trade in
+ * exchange for click-to-edit on every Sanity-bound surface across
+ * the public site, not just /preview/ SSR routes.
+ */
+const stegaConfig = {
+  enabled: true,
+  studioUrl,
+}
+
 export const sanityClient = createClient({
   ...baseConfig,
   token: process.env.SANITY_READ_TOKEN,
+  stega: stegaConfig,
 })
 
 export const sanityClientFresh = createClient({
   ...baseConfig,
   useCdn: false,
   token: process.env.SANITY_READ_TOKEN,
+  stega: stegaConfig,
 })
 
 export const sanityPreviewClient = createClient({
