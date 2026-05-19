@@ -108,6 +108,16 @@ export function openBindModal(opts: BindModalOpts): void {
   document.body.appendChild(wrap);
   activeWrap = wrap;
 
+  // Scroll lock — match the media library modal's behaviour.
+  const prevHtmlOverflow = document.documentElement.style.overflow;
+  const prevBodyOverflow = document.body.style.overflow;
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+  (wrap as HTMLElement & { __piScrollRestore?: () => void }).__piScrollRestore = () => {
+    document.documentElement.style.overflow = prevHtmlOverflow;
+    document.body.style.overflow = prevBodyOverflow;
+  };
+
   const panel = wrap.querySelector<HTMLDivElement>('.pi-sanity-modal__panel')!;
   const search = wrap.querySelector<HTMLInputElement>('.pi-sanity-modal__search')!;
   const resultsBox = wrap.querySelector<HTMLDivElement>('.pi-sanity-modal__bind-results')!;
@@ -312,7 +322,12 @@ export function openBindModal(opts: BindModalOpts): void {
 
 export function closeBindModal(): void {
   if (activeCleanup) { activeCleanup(); activeCleanup = null; }
-  if (activeWrap) { activeWrap.remove(); activeWrap = null; }
+  if (activeWrap) {
+    const restore = (activeWrap as HTMLElement & { __piScrollRestore?: () => void }).__piScrollRestore;
+    if (restore) restore();
+    activeWrap.remove();
+    activeWrap = null;
+  }
 }
 
 function esc(s: string | null | undefined): string {
