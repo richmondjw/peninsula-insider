@@ -85,7 +85,11 @@ interface SanityItinerary {
   }>
 }
 
-function imageRefToAstroShape(img: SanityImageRef, fallbackAlt: string) {
+function imageRefToAstroShape(
+  img: SanityImageRef,
+  fallbackAlt: string,
+  ctx?: {docId: string; docType: string; path: string},
+) {
   if (!img?.asset) {
     return {
       src: '/images/sourced/home-cover.webp',
@@ -95,7 +99,7 @@ function imageRefToAstroShape(img: SanityImageRef, fallbackAlt: string) {
     }
   }
   return {
-    src: intentUrl(img, 'hero'),
+    src: intentUrl(img, 'hero', ctx),
     alt: img.alt ?? fallbackAlt,
     credit: img.credit ?? '',
     license: img.license ?? 'venue-media-kit',
@@ -143,7 +147,11 @@ export async function fetchItineraryFromSanity(slug: string) {
       publishedAt: new Date(doc.publishedAt),
       lastVerified: doc.lastVerified ? new Date(doc.lastVerified) : undefined,
       sitemapExclude: !!doc.sitemapExclude,
-      heroImage: imageRefToAstroShape(doc.heroImage ?? null, doc.title),
+      heroImage: imageRefToAstroShape(doc.heroImage ?? null, doc.title, {
+        docId: doc._id,
+        docType: 'itinerary',
+        path: 'heroImage',
+      }),
       anchorStay: doc.anchorStaySlug
         ? {id: doc.anchorStaySlug, collection: 'venues' as const}
         : undefined,
