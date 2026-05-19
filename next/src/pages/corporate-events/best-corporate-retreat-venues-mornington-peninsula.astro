@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import SectionHero from '../../components/SectionHero.astro';
 import {
   buildArticleSchema,
   buildFaqSchema,
@@ -71,21 +72,15 @@ export const prerender = true;
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <section class="section-hero">
-    <div class="container">
-      <div class="section-hero__inner">
-        <div class="section-hero__content">
-          <p class="label label--accent">Best Retreat Venues</p>
-          <h1 class="section-hero__title">Best Corporate Retreat Venues on the Mornington Peninsula</h1>
-          <p class="section-hero__dek">A corporate retreat venue on the Peninsula should do more than look good in photos. It should change the quality of the conversations. This guide matches venues to group size, event format, and what each property actually delivers — not what the marketing suggests.</p>
-        </div>
-        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/venue-jackalope-hotel-01.webp); background-size: cover; background-position: center;">
-          <div class="section-hero__visual-fog"></div>
-          <span class="section-hero__visual-label">Corporate Retreats · Jackalope · Peninsula</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SectionHero
+    entityType="page"
+    entitySlug="corporate-events/best-corporate-retreat-venues-mornington-peninsula"
+    eyebrow="Best Retreat Venues"
+    title="Best Corporate Retreat Venues on the Mornington Peninsula"
+    dek="A corporate retreat venue on the Peninsula should do more than look good in photos. It should change the quality of the conversations. This guide matches venues to group size, event format, and what each property actually delivers — not what the marketing suggests."
+    visualLabel="Corporate Retreats · Jackalope · Peninsula"
+    heroImage="/images/sourced/venue-jackalope-hotel-01.webp"
+  />
 
   <section class="editorial-promise">
     <div class="container">

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import SectionHero from '../../components/SectionHero.astro';
 import {
   buildArticleSchema,
   buildFaqSchema,
@@ -71,21 +72,15 @@ export const prerender = true;
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <section class="section-hero">
-    <div class="container">
-      <div class="section-hero__inner">
-        <div class="section-hero__content">
-          <p class="label label--accent">Winery Weddings</p>
-          <h1 class="section-hero__title">Winery Wedding Venues on the Mornington Peninsula</h1>
-          <p class="section-hero__dek">A winery wedding on the Peninsula is not just a location choice. It is a commitment to a particular kind of day — food and wine at the centre, working farmland as the backdrop, and guests who need to get there and get home. This guide helps you understand what that actually means before you choose a venue.</p>
-        </div>
-        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/article-vineyard-villa-01.webp); background-size: cover; background-position: center;">
-          <div class="section-hero__visual-fog"></div>
-          <span class="section-hero__visual-label">Winery Weddings · Red Hill · Merricks</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SectionHero
+    entityType="page"
+    entitySlug="weddings/winery-wedding-venues-mornington-peninsula"
+    eyebrow="Winery Weddings"
+    title="Winery Wedding Venues on the Mornington Peninsula"
+    dek="A winery wedding on the Peninsula is not just a location choice. It is a commitment to a particular kind of day — food and wine at the centre, working farmland as the backdrop, and guests who need to get there and get home. This guide helps you understand what that actually means before you choose a venue."
+    visualLabel="Winery Weddings · Red Hill · Merricks"
+    heroImage="/images/sourced/article-vineyard-villa-01.webp"
+  />
 
   <section class="editorial-promise">
     <div class="container">
