@@ -32,6 +32,8 @@ import { routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/e
 import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
 import { sanityReadEnabled } from '../lib/sanity/client';
 import { fetchHomepageCoverFromSanity } from '../lib/sanity/singletons-adapter';
+import { fetchPlaceFromSanity } from '../lib/sanity/place-adapter';
+import { fetchItineraryFromSanity } from '../lib/sanity/itinerary-adapter';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
 // CMS-driven overrides for editor-controlled fields on the homepage. Empty
@@ -117,6 +119,44 @@ const placesTitleRaw = cmsText['places.title'];
 const placesTitle = placesTitleRaw === 'The Peninsula, place by place'
   ? 'Explore the Peninsula'
   : placesTitleRaw ?? 'Explore the Peninsula';
+
+// Dual-read: when the per-entity Sanity flag is on, overwrite the heroImage
+// src on featured places + plan cards with the Sanity CDN URL. Sanity's
+// production client has stega enabled and the adapters thread ctx through
+// intentUrl(), so the rendered URL carries an invisible marker pointing
+// back at the source doc/field. That marker is what lets the admin
+// right-click overlay auto-detect the binding for "Replace from media
+// library…". Card visuals are unchanged — only the URL string differs.
+async function applySanityHero<T extends { data: any }>(
+  entity: T,
+  slug: string,
+  fetcher: (s: string) => Promise<any | null>,
+): Promise<T> {
+  const doc = await fetcher(slug);
+  const sanitySrc = doc?.data?.heroImage?.src;
+  if (!sanitySrc) return entity;
+  return {
+    ...entity,
+    data: {
+      ...entity.data,
+      heroImage: { ...entity.data.heroImage, src: sanitySrc },
+    },
+  };
+}
+const placeReadOn      = sanityReadEnabled('places');
+const itineraryReadOn  = sanityReadEnabled('itineraries');
+const [hydratedFeaturedPlaces, hydratedPlanCards] = await Promise.all([
+  Promise.all(
+    featuredPlaces.map((p) =>
+      placeReadOn ? applySanityHero(p, routeSlug(p), fetchPlaceFromSanity) : p,
+    ),
+  ),
+  Promise.all(
+    planCards.map((it) =>
+      itineraryReadOn ? applySanityHero(it, routeSlug(it), fetchItineraryFromSanity) : it,
+    ),
+  ),
+]);
 
 const season         = currentSeason();
 const seasonBlurbData = seasonBlurb[season];
@@ -474,7 +514,7 @@ export const prerender = true;
           >{cmsText['places.sub'] ?? 'Start with the Peninsula destinations people search for first, the towns, villages and landmarks that anchor most trips.'}</p>
         </div>
         <div class="places__grid">
-          {featuredPlaces.map((place, index) => (
+          {hydratedFeaturedPlaces.map((place, index) => (
             <PlaceCard
               place={place}
               variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
@@ -509,7 +549,7 @@ export const prerender = true;
           >{cmsText['plans.sub'] ?? 'Three editorial itineraries, built around a single anchor stay, paced for the way the Peninsula actually works.'}</p>
         </div>
         <div class="hp-plans__grid">
-          {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+          {hydratedPlanCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
         </div>
         <div class="hp-plans__footer">
           <a href="/plans/" class="venues__link">View Plans →</a>
