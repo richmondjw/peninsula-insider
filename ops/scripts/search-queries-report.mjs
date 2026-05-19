@@ -27,7 +27,8 @@ const WINDOW_HOURS = (() => {
   return Number.isFinite(n) && n > 0 ? n : 24;
 })();
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
+// PI Supabase project — use PI_SUPABASE_URL if set, otherwise fall back to the known PI project URL
+const SUPABASE_URL = process.env.PI_SUPABASE_URL || process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
