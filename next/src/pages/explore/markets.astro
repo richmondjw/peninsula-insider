@@ -11,6 +11,29 @@ import {
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
+
+// ── Editorial-card hero lookup ────────────────────────────────────────────────
+// Cards in section 6 ("Markets editorial") that link to a journal article bind
+// their background image to that article's heroImage so an editor changing the
+// hero in Sanity (or the article frontmatter) updates the explore-page card.
+// Cards that link to hubs or place guides have no article doc to bind to and
+// keep their hardcoded image until a parent doc exists.
+const allArticlesForCards = await getCollection('articles', ({ data }) => data.status === 'published');
+async function resolveArticleHero(slug: string, fallback: string): Promise<string> {
+  if (sanityReadEnabled('articles')) {
+    const sanityArt = await fetchArticleFromSanity(slug);
+    if (sanityArt?.data.heroImage?.src) return sanityArt.data.heroImage.src;
+  }
+  const local = allArticlesForCards.find((a) => routeSlug(a) === slug);
+  return (local?.data as any)?.heroImage?.src ?? fallback;
+}
+const heroRedHillSaturday = await resolveArticleHero(
+  'how-to-build-a-red-hill-saturday',
+  '/images/sourced/article-red-hill-saturday-01.webp',
+);
 
 // ── Load markets in editorial order ───────────────────────────────────────────
 const allExperiences = await getCollection('experiences');
@@ -372,7 +395,7 @@ export const prerender = true;
       </div>
       <div class="market-articles">
         <a href="/journal/how-to-build-a-red-hill-saturday/" class="market-article-card">
-          <div class="market-article-card__img" style="background-image: url('/images/sourced/article-red-hill-saturday-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__img" style={`background-image: url('${heroRedHillSaturday}')`} aria-hidden="true"></div>
           <div class="market-article-card__body">
             <p class="market-article-card__tag">Editor's perspective</p>
             <h3 class="market-article-card__title">How to build a Red Hill Saturday</h3>
@@ -380,6 +403,13 @@ export const prerender = true;
             <span class="market-article-card__cta">Read →</span>
           </div>
         </a>
+        {/*
+          The three cards below link to hub/place routes (/wine/, /places/red-hill/,
+          /places/balnarring/), not to journal articles. There's no parent editorial
+          doc to bind these images to today, so they stay hardcoded. When a Sanity
+          schema for place/hub hero images lands these can be wired the same way as
+          the Red Hill Saturday card above.
+        */}
         <a href="/wine/" class="market-article-card">
           <div class="market-article-card__img" style="background-image: url('/images/sourced/category-cottage-01.webp')" aria-hidden="true"></div>
           <div class="market-article-card__body">

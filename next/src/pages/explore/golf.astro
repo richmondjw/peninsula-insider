@@ -11,6 +11,40 @@ import {
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
+import { routeSlug } from '../../lib/editorial';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
+
+// ── Editorial-card hero lookup ────────────────────────────────────────────────
+// Cards in section 8 ("Golf editorial") all link to journal articles. Their
+// background image is bound to each article's heroImage so editors can change
+// the card art by editing the article in Sanity (or its frontmatter), with the
+// hardcoded path retained as a build-time fallback.
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+async function resolveArticleHero(slug: string, fallback: string): Promise<string> {
+  if (sanityReadEnabled('articles')) {
+    const sanityArt = await fetchArticleFromSanity(slug);
+    if (sanityArt?.data.heroImage?.src) return sanityArt.data.heroImage.src;
+  }
+  const local = allArticles.find((a) => routeSlug(a) === slug);
+  return (local?.data as any)?.heroImage?.src ?? fallback;
+}
+const heroGolfGuide = await resolveArticleHero(
+  'mornington-peninsula-golf-guide',
+  '/images/sourced/golf-rye-sunrise-01.webp',
+);
+const heroGolfTier = await resolveArticleHero(
+  'best-golf-courses-mornington-peninsula',
+  '/images/sourced/golf-rye-sunrise-01.webp',
+);
+const heroGolfStayPlay = await resolveArticleHero(
+  'mornington-peninsula-golf-stay-and-play',
+  '/images/sourced/article-sorrento-weekend-01.webp',
+);
+const heroStAndrews = await resolveArticleHero(
+  'st-andrews-beach-golf-course',
+  '/images/sourced/place-cape-schanck-01.webp',
+);
 
 // ── Load golf courses from experiences collection ─────────────────────────────
 const allExperiences = await getCollection('experiences');
@@ -520,7 +554,7 @@ export const prerender = true;
       <div class="golf-articles">
 
         <a href="/journal/mornington-peninsula-golf-guide/" class="golf-article-card">
-          <div class="golf-article-card__img" style="background-image: url('/images/sourced/golf-rye-sunrise-01.webp')" aria-hidden="true"></div>
+          <div class="golf-article-card__img" style={`background-image: url('${heroGolfGuide}')`} aria-hidden="true"></div>
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Editor's perspective</p>
             <h3 class="golf-article-card__title">Why the Peninsula is Australia's best golf region</h3>
@@ -530,7 +564,7 @@ export const prerender = true;
         </a>
 
         <a href="/journal/best-golf-courses-mornington-peninsula/" class="golf-article-card">
-          <div class="golf-article-card__img" style="background-image: url('/images/sourced/golf-rye-sunrise-01.webp')" aria-hidden="true"></div>
+          <div class="golf-article-card__img" style={`background-image: url('${heroGolfTier}')`} aria-hidden="true"></div>
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Tier guide</p>
             <h3 class="golf-article-card__title">The best golf courses ranked — honest tier guide</h3>
@@ -540,7 +574,7 @@ export const prerender = true;
         </a>
 
         <a href="/journal/mornington-peninsula-golf-stay-and-play/" class="golf-article-card">
-          <div class="golf-article-card__img" style="background-image: url('/images/sourced/article-sorrento-weekend-01.webp')" aria-hidden="true"></div>
+          <div class="golf-article-card__img" style={`background-image: url('${heroGolfStayPlay}')`} aria-hidden="true"></div>
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Stay and play</p>
             <h3 class="golf-article-card__title">Stay and play — accommodation near every course</h3>
@@ -550,7 +584,7 @@ export const prerender = true;
         </a>
 
         <a href="/journal/st-andrews-beach-golf-course/" class="golf-article-card">
-          <div class="golf-article-card__img" style="background-image: url('/images/sourced/place-cape-schanck-01.webp')" aria-hidden="true"></div>
+          <div class="golf-article-card__img" style={`background-image: url('${heroStAndrews}')`} aria-hidden="true"></div>
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Course deep-dive</p>
             <h3 class="golf-article-card__title">St Andrews Beach — the world-ranked course anyone can book</h3>
