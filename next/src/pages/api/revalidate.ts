@@ -22,7 +22,9 @@
 import type {APIRoute} from 'astro'
 import {isValidSignature, SIGNATURE_HEADER_NAME} from '@sanity/webhook'
 
-export const prerender = false
+// Static builds (GitHub Pages) don't use this webhook — prerender as a
+// placeholder so output:static doesn't throw NoAdapterInstalled.
+export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
 
 interface SanityWebhookBody {
   _type: string

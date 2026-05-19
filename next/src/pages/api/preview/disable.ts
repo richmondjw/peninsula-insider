@@ -4,7 +4,9 @@
  */
 import type {APIRoute} from 'astro'
 
-export const prerender = false
+// Static builds (GitHub Pages) don't use this endpoint — prerender as a
+// placeholder so output:static doesn't throw NoAdapterInstalled.
+export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
 
 export const GET: APIRoute = ({cookies, redirect, url}) => {
   cookies.delete('pi-sanity-preview', {path: '/'})
