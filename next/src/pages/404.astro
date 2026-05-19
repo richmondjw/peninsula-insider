@@ -2,7 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import AskPICTA from '../components/AskPICTA.astro';
+import {fetchSiteSettingsFromSanity, SITE_SETTINGS_IMAGE_FALLBACKS} from '../lib/sanity/singletons-adapter';
 export const prerender = true;
+
+// 404 graphic comes from siteSettings.notFoundImage (Sanity). Hard fallback
+// to the concierge avatar so pre-seed render is identical.
+let notFoundImage = SITE_SETTINGS_IMAGE_FALLBACKS.notFoundImage.src;
+try {
+  const s = await fetchSiteSettingsFromSanity();
+  if (s?.notFoundImage?.src) notFoundImage = s.notFoundImage.src;
+} catch {}
 ---
 
 <BaseLayout
@@ -19,7 +28,7 @@ export const prerender = true;
         <div class="not-found__pi" aria-hidden="true">
           <span class="not-found__avatar">
             <span class="not-found__avatar-fallback">PI</span>
-            <img src="/images/pi-concierge.svg" alt="" width="72" height="72" onerror="this.remove()" />
+            <img src={notFoundImage} alt="" width="72" height="72" onerror="this.remove()" />
           </span>
         </div>
 

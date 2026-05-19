@@ -5,15 +5,28 @@
  * filed-under tags. Designed as a magazine column, not a chatbot.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import {fetchSiteSettingsFromSanity, SITE_SETTINGS_IMAGE_FALLBACKS} from '../lib/sanity/singletons-adapter';
 
 const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
 export const prerender = true;
+
+// Concierge icon comes from siteSettings (Sanity). Hard fallback to the
+// previous hardcoded /images/pi-concierge.svg so pre-seed render is identical.
+let conciergeIcon = SITE_SETTINGS_IMAGE_FALLBACKS.conciergeAvatar.src;
+try {
+  const s = await fetchSiteSettingsFromSanity();
+  if (s?.conciergeAvatar?.src) conciergeIcon = s.conciergeAvatar.src;
+} catch {}
 ---
 
 <BaseLayout
   title="Ask The Insider — Your Peninsula Concierge"
   description="Ask Peninsula Insider anything about the Mornington Peninsula. Cellar doors, dining, stays, rainy days, dog-friendly spots. Local knowledge, editorial taste."
 >
+
+  <script is:inline define:vars={{ conciergeIcon }}>
+    window.__PI_CONCIERGE_ICON = conciergeIcon;
+  </script>
 
   <main class="ask-page">
 
@@ -23,7 +36,7 @@ export const prerender = true;
         <div class="ask-hero__avatar" aria-hidden="true">
           <span class="pi-avatar pi-avatar--xl">
             <span class="pi-avatar__fallback">PI</span>
-            <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
+            <img src={conciergeIcon} alt="" onerror="this.remove()" />
           </span>
         </div>
         <p class="ask-hero__eyebrow">Peninsula Insider · Field notes</p>
@@ -43,7 +56,7 @@ export const prerender = true;
           <div class="ask-dialog__id">
             <span class="pi-avatar pi-avatar--md" aria-hidden="true">
               <span class="pi-avatar__fallback">PI</span>
-              <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
+              <img src={conciergeIcon} alt="" onerror="this.remove()" />
             </span>
             <div class="ask-dialog__id-text">
               <p class="ask-dialog__name">The Insider <span class="ask-dialog__name-mark" aria-hidden="true">✦</span></p>
@@ -67,7 +80,7 @@ export const prerender = true;
             <div class="ask-msg__byline">
               <span class="pi-avatar pi-avatar--sm" aria-hidden="true">
                 <span class="pi-avatar__fallback">PI</span>
-                <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
+                <img src={conciergeIcon} alt="" onerror="this.remove()" />
               </span>
               <span class="ask-msg__byline-name">The Insider</span>
               <span class="ask-msg__byline-rule" aria-hidden="true"></span>
@@ -187,7 +200,7 @@ export const prerender = true;
     return `
       <span class="pi-avatar pi-avatar--${size}" aria-hidden="true">
         <span class="pi-avatar__fallback">PI</span>
-        <img src="/images/pi-concierge.svg" alt="" width="${px}" height="${px}" onerror="this.remove()" />
+        <img src="${window.__PI_CONCIERGE_ICON || '/images/pi-concierge.svg'}" alt="" width="${px}" height="${px}" onerror="this.remove()" />
       </span>
     `;
   }
