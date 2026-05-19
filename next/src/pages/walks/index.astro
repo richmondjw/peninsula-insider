@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import SectionHero from '../../components/SectionHero.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const experiences = await getCollection('experiences');
@@ -106,21 +107,15 @@ export const prerender = true;
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <section class="section-hero">
-    <div class="container">
-      <div class="section-hero__inner">
-        <div class="section-hero__content">
-          <p class="label label--accent">Walks &amp; Hikes</p>
-          <h1 class="section-hero__title">Walks on the Mornington Peninsula</h1>
-          <p class="section-hero__dek">People are not just looking for a track to walk. They are looking for a Peninsula experience anchored by a walk. This section matches you to the right walk for the day you are trying to have — and tells you what to do before and after.</p>
-        </div>
-        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/explore-hub-hero-01.webp); background-size: cover; background-position: center;">
-          <div class="section-hero__visual-fog"></div>
-          <span class="section-hero__visual-label">Coastal walks · Clifftop tracks · Bushland</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SectionHero
+    entityType="page"
+    entitySlug="walks"
+    eyebrow="Walks & Hikes"
+    title="Walks on the Mornington Peninsula"
+    dek="People are not just looking for a track to walk. They are looking for a Peninsula experience anchored by a walk. This section matches you to the right walk for the day you are trying to have — and tells you what to do before and after."
+    visualLabel="Coastal walks · Clifftop tracks · Bushland"
+    heroImage="/images/sourced/explore-hub-hero-01.webp"
+  />
 
   <section class="format-nav">
     <div class="container">

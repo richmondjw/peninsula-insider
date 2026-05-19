@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import SectionHero from '../../components/SectionHero.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -88,21 +89,15 @@ export const prerender = true;
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <section class="section-hero">
-    <div class="container">
-      <div class="section-hero__inner">
-        <div class="section-hero__content">
-          <p class="label label--accent">Weddings</p>
-          <h1 class="section-hero__title">Mornington Peninsula Weddings</h1>
-          <p class="section-hero__dek">Couples are not only choosing a venue. They are choosing the kind of Peninsula wedding that fits them — vineyard, coastal, estate, intimate, or destination weekend. This section helps you make that decision properly.</p>
-        </div>
-        <div class="section-hero__visual" aria-hidden="true" style="background-image: url(/images/sourced/article-vineyard-villa-01.webp); background-size: cover; background-position: center;">
-          <div class="section-hero__visual-fog"></div>
-          <span class="section-hero__visual-label">Weddings · Vineyard Estates · Coastal Venues</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <SectionHero
+    entityType="page"
+    entitySlug="weddings"
+    eyebrow="Weddings"
+    title="Mornington Peninsula Weddings"
+    dek="Couples are not only choosing a venue. They are choosing the kind of Peninsula wedding that fits them — vineyard, coastal, estate, intimate, or destination weekend. This section helps you make that decision properly."
+    visualLabel="Weddings · Vineyard Estates · Coastal Venues"
+    heroImage="/images/sourced/article-vineyard-villa-01.webp"
+  />
 
   <section class="format-nav">
     <div class="container">
