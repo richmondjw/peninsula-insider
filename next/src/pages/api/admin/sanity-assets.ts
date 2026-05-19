@@ -1,7 +1,8 @@
 /**
- * GET /api/admin/sanity-assets?page=0&q=…
+ * GET /api/admin/sanity-assets?page=0&q=…&pageSize=96
  *
- * Lists Sanity image assets (the media library). Paginated 24 per page.
+ * Lists Sanity image assets (the media library). Default page size is 96;
+ * client may override via `?pageSize=…` up to a server cap of 200.
  * Optional `?q=` filter matches against `originalFilename`.
  *
  * Admin-only. Returns 401 for non-editors. The Sanity write token is read
@@ -22,7 +23,8 @@ export async function getStaticPaths() {
   return [];
 }
 
-const PAGE_SIZE = 24;
+const DEFAULT_PAGE_SIZE = 96;
+const MAX_PAGE_SIZE = 200;
 
 export const GET: APIRoute = async ({ request, url }) => {
   const access = await resolveCmsAccess(request.headers.get('cookie'));
@@ -38,8 +40,10 @@ export const GET: APIRoute = async ({ request, url }) => {
   const q = (url.searchParams.get('q') || '').trim().toLowerCase();
   const sort = (url.searchParams.get('sort') || 'recent').trim();
   const orientation = (url.searchParams.get('orientation') || 'any').trim();
-  const start = page * PAGE_SIZE;
-  const end = start + PAGE_SIZE;
+  const rawPageSize = parseInt(url.searchParams.get('pageSize') || `${DEFAULT_PAGE_SIZE}`, 10);
+  const pageSize = Math.min(MAX_PAGE_SIZE, Math.max(1, isNaN(rawPageSize) ? DEFAULT_PAGE_SIZE : rawPageSize));
+  const start = page * pageSize;
+  const end = start + pageSize;
 
   // Filter assets by filename when a query is provided. Use `lower(...)` so
   // the match is case-insensitive — Sanity assets carry the originalFilename
@@ -69,7 +73,7 @@ export const GET: APIRoute = async ({ request, url }) => {
       end,
       q: q ? `*${q}*` : '',
     });
-    return jsonResponse({ ok: true, data: { assets, page, pageSize: PAGE_SIZE } });
+    return jsonResponse({ ok: true, data: { assets, page, pageSize } });
   } catch (err) {
     return internalError((err as Error).message || 'Failed to list assets');
   }
