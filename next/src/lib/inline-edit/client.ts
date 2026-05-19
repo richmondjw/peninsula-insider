@@ -764,10 +764,87 @@ function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
     input.remove();
     if (!file) return;
     closeMenu();
-    await replaceImage(el, d, file);
+    // Sanity path: resolve the binding, upload to Sanity asset API,
+    // patch the source doc. Falls back to the legacy Supabase upload
+    // ONLY if no Sanity binding can be resolved (e.g. brand asset that
+    // genuinely has no Sanity field — the legacy patcher is disabled so
+    // this is effectively a dead-end, but we keep the call for the
+    // error toast the legacy path produces).
+    await replaceImageViaSanity(el, d, file);
   }, { once: true });
   document.body.appendChild(input);
   input.click();
+}
+
+/**
+ * Upload a freshly-picked file to Sanity and patch the source doc.
+ * Mirrors the upload+patch sequence inside `sanity-image-overlay.ts`'s
+ * "Upload new" path, but runs without opening the library modal — for
+ * the "Replace image (upload)…" menu button where the editor already
+ * has a specific file ready.
+ */
+async function replaceImageViaSanity(el: HTMLElement, desc: ImageDescriptor, file: File) {
+  try {
+    const mod = await import('./sanity-image-overlay');
+    const source = mod.resolveSanitySource(el, desc);
+    if (!source) {
+      toast(
+        "This image isn't bound to a Sanity field yet. Right-click again and choose \"Bind to a Sanity doc…\" first.",
+        'info',
+      );
+      return;
+    }
+
+    toast('Uploading…', 'info');
+
+    // 1. Upload the file as a Sanity asset.
+    const form = new FormData();
+    form.append('file', file);
+    const upRes = await fetch('/api/admin/sanity-asset-upload', {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: form,
+    });
+    const upBody = await upRes.json();
+    if (!upRes.ok || !upBody.ok) {
+      toast(`Upload failed: ${upBody.error || upRes.statusText}`, 'err');
+      return;
+    }
+    const newAssetRef = upBody.data?._id;
+    if (!newAssetRef) {
+      toast('Upload returned no asset id', 'err');
+      return;
+    }
+
+    // 2. Patch the source doc to point at the new asset.
+    const payload: Record<string, string> = {
+      fieldPath: source.fieldPath,
+      newAssetRef,
+    };
+    if (source.docId) payload.docId = source.docId;
+    else {
+      if (source.entityType) payload.entityType = source.entityType;
+      if (source.entitySlug) payload.entitySlug = source.entitySlug;
+    }
+    const pRes = await fetch('/api/admin/sanity-patch', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const pBody = await pRes.json();
+    if (!pRes.ok || !pBody.ok) {
+      toast(`Patch failed: ${pBody.error || pRes.statusText}`, 'err');
+      return;
+    }
+
+    // 3. Swap visible src.
+    if (pBody.data?.newUrl) setImageSrc(el, pBody.data.newUrl);
+    toast('Replaced', 'ok');
+  } catch (err) {
+    console.error('[pi-edit] upload-and-patch failed:', err);
+    toast(`Replace failed: ${(err as Error).message}`, 'err');
+  }
 }
 
 /**
