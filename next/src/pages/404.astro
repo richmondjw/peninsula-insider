@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import AskPICTA from '../components/AskPICTA.astro';
 import {fetchSiteSettingsFromSanity, SITE_SETTINGS_IMAGE_FALLBACKS} from '../lib/sanity/singletons-adapter';
+import {editableImage} from '../lib/inline-edit/attrs';
 export const prerender = true;
 
 // 404 graphic comes from siteSettings.notFoundImage (Sanity). Hard fallback
@@ -12,6 +13,16 @@ try {
   const s = await fetchSiteSettingsFromSanity();
   if (s?.notFoundImage?.src) notFoundImage = s.notFoundImage.src;
 } catch {}
+
+const notFoundImageAttrs = editableImage({
+  entityType: 'page',
+  entitySlug: '_global',
+  fieldPath: 'site-settings.notFoundImage',
+  label: '404 page graphic',
+  purpose: 'hero',
+  sanitySingletonId: 'siteSettings',
+  sanitySingletonPath: 'notFoundImage',
+});
 ---
 
 <BaseLayout
@@ -28,7 +39,7 @@ try {
         <div class="not-found__pi" aria-hidden="true">
           <span class="not-found__avatar">
             <span class="not-found__avatar-fallback">PI</span>
-            <img src={notFoundImage} alt="" width="72" height="72" onerror="this.remove()" />
+            <img src={notFoundImage} alt="" width="72" height="72" onerror="this.remove()" {...notFoundImageAttrs} />
           </span>
         </div>
 

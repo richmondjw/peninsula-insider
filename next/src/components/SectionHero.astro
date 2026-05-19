@@ -76,7 +76,19 @@ const dekAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.dek', label: `${entitySlug} hero dek` })
   : {};
 const imageAttrs = editable
-  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero`, purpose: 'hero' })
+  ? editableImage({
+      entityType,
+      entitySlug: entitySlug!,
+      fieldPath: 'hero',
+      label: `${entitySlug} hero`,
+      purpose: 'hero',
+      ...(isPageEntity
+        ? {
+            sanitySingletonId: `pageHero-${entitySlug!.replace(/\//g, '--')}`,
+            sanitySingletonPath: 'image',
+          }
+        : {}),
+    })
   : {};
 ---
 
