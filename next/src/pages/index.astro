@@ -413,6 +413,23 @@ export const prerender = true;
     </div>
   </section>
 
+  {/* ── Section navigation strip ─────────────────────────────────────────────
+       Horizontal scrollable chip row. Primarily a mobile affordance: gives
+       users a direct path into any section without opening the hamburger.
+       Desktop: the full nav is visible; this strip is supplementary. */}
+  <nav class="hp-section-nav" aria-label="Browse sections">
+    <div class="hp-section-nav__track">
+      <a class="hp-section-nav__chip" href="/eat/">Eat &amp; Drink</a>
+      <a class="hp-section-nav__chip" href="/stay/">Stay</a>
+      <a class="hp-section-nav__chip" href="/wine/">Wine</a>
+      <a class="hp-section-nav__chip" href="/explore/">Explore</a>
+      <a class="hp-section-nav__chip" href="/whats-on/">What&rsquo;s On</a>
+      <a class="hp-section-nav__chip" href="/places/">Places</a>
+      <a class="hp-section-nav__chip" href="/plans/">Plans</a>
+      <a class="hp-section-nav__chip" href="/journal/">Journal</a>
+    </div>
+  </nav>
+
   {/* ── Below the fold — primary weekend dispatch, terrain, plans, shortlist ──
        Each section is wrapped in a <ScrollReveal> island that fades it up
        as it enters the viewport. The wrappers hydrate on client:visible so
@@ -922,6 +939,52 @@ export const prerender = true;
   /* =========================================================================
      Below-fold styles — homepage sections below the cinematic cover.
      ─────────────────────────────────────────────────────────────────────── */
+
+  /* ── Section navigation strip ─────────────────────────────────────────── */
+  .hp-section-nav {
+    border-top: 1px solid var(--line, #D9D1BE);
+    border-bottom: 1px solid var(--line, #D9D1BE);
+    background: var(--paper-warm, #F3EDDE);
+    overflow: hidden;
+  }
+  .hp-section-nav__track {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+  }
+  .hp-section-nav__track::-webkit-scrollbar { display: none; }
+  .hp-section-nav__chip {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.75rem 1rem;
+    font-family: var(--sans, 'Inter', system-ui, sans-serif);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft, #3A3531);
+    text-decoration: none;
+    border-right: 1px solid var(--line, #D9D1BE);
+    transition: color 0.15s ease, background 0.15s ease;
+    flex-shrink: 0;
+  }
+  .hp-section-nav__chip:first-child { padding-left: 0; }
+  .hp-section-nav__chip:last-child { border-right: none; }
+  .hp-section-nav__chip:hover,
+  .hp-section-nav__chip:focus-visible {
+    color: var(--ochre, #A0541F);
+    background: transparent;
+  }
+  /* On desktop the full nav is available — keep strip subtle */
+  @media (min-width: 768px) {
+    .hp-section-nav {
+      display: none; /* hamburger nav is reachable on desktop; strip is a mobile affordance */
+    }
+  }
 
   /* ── Places compact: homepage terrain tiles read as image + place name only ── */
   .places--compact .place-card__body {

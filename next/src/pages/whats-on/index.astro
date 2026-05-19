@@ -121,7 +121,7 @@ export const prerender = true;
       </div>
       {seasonalEvents.length > 0 ? (
         <div class="event-grid">
-          {seasonalEvents.map((event) => <EventCard event={event} />)}
+          {seasonalEvents.map((event, i) => <EventCard event={event} featured={i === 0} />)}
         </div>
       ) : (
         <p class="whatson-section__empty">Seasonal events are being refreshed.</p>
@@ -174,7 +174,7 @@ export const prerender = true;
       </div>
       {marketEvents.length > 0 ? (
         <div class="event-grid">
-          {marketEvents.map((event) => <EventCard event={event} />)}
+          {marketEvents.map((event, i) => <EventCard event={event} featured={i === 0} />)}
         </div>
       ) : (
         <p class="whatson-section__empty">Market listings are being refreshed.</p>

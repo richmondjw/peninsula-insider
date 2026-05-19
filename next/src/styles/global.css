@@ -5920,9 +5920,40 @@ p.has-drop-cap::first-letter {
   border-color: rgba(139, 78, 59, 0.45);
   box-shadow: 0 14px 32px rgba(30, 27, 24, 0.07);
 }
+/* Featured (lead) card — first in each What's On section.
+   Spans full grid width with a larger hero and stronger typographic scale.
+   Signals editorial hierarchy: this is the recommended pick. */
 .event-card--featured {
+  grid-column: 1 / -1;
   background: var(--bg-alt);
   border-color: rgba(139, 78, 59, 0.35);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.event-card--featured .event-card__hero {
+  aspect-ratio: 4 / 3;
+  border-bottom: none;
+  border-right: 1px solid var(--border);
+  height: 100%;
+}
+.event-card--featured .event-card__name {
+  font-size: 1.85rem;
+}
+/* On mobile the featured card stacks vertically like a normal card */
+@media (max-width: 600px) {
+  .event-card--featured {
+    grid-template-columns: 1fr;
+  }
+  .event-card--featured .event-card__hero {
+    aspect-ratio: 16 / 9;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    height: auto;
+  }
+  .event-card--featured .event-card__name {
+    font-size: 1.65rem;
+  }
 }
 .event-card__top {
   display: flex;

@@ -349,16 +349,38 @@
     white-space: nowrap; border: 0;
   }
 
+  /* ── Mobile: slim bottom bar ──────────────────────────────────────────── */
   @media (max-width: 720px) {
     .cookie-banner__inner {
-      grid-template-columns: 1fr;
-      gap: 0.85rem;
+      grid-template-columns: 1fr auto;
+      gap: 0.6rem 0.75rem;
+      padding: 0.65rem clamp(1rem, 4vw, 1.5rem);
+      align-items: center;
+    }
+    /* Hide title and long body on mobile — replaced by compact copy below */
+    .cookie-banner__title { display: none; }
+    .cookie-banner__body {
+      font-size: 0.8rem;
+      line-height: 1.35;
+      /* Truncate to one line on mobile */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .cookie-banner__actions {
-      justify-content: stretch;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+      gap: 0.4rem;
     }
     .cookie-banner__actions .cookie-banner__btn {
-      flex: 1;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      flex: none;
+    }
+    /* Manage panel still expands full-width when opened */
+    .cookie-banner__manage {
+      grid-column: 1 / -1;
     }
   }
 </style>
