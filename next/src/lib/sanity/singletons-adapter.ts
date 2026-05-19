@@ -6,8 +6,10 @@
  *   - siteSettings   → drives masthead label, edition, footer links
  *   - pageHero(slug) → drives the SubpageHero override for a given hub
  */
-import {sanityClient} from './client'
+import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
+
+type FetchOpts = {preview?: boolean}
 
 const img = `{ asset->{_id}, alt, credit, caption, license }`
 
@@ -48,12 +50,12 @@ export interface HomepageCoverScene {
   primaryLabel: string
 }
 
-export async function fetchHomepageCoverFromSanity(): Promise<{
+export async function fetchHomepageCoverFromSanity(opts: FetchOpts = {}): Promise<{
   scenes: HomepageCoverScene[]
   activeIndex: number
   coverDate: string | null
 } | null> {
-  const d: any = await sanityClient.fetch(homepageCoverQuery)
+  const d: any = await getSanityReadClient(opts.preview).fetch(homepageCoverQuery)
   if (!d?.scenes?.length) return null
   return {
     scenes: d.scenes.map((s: any) => {
@@ -94,8 +96,8 @@ export interface MegaRailEntry {
   imageAlt?: string
 }
 
-export async function fetchMegaRailFromSanity(): Promise<MegaRailEntry[] | null> {
-  const d: any = await sanityClient.fetch(megaRailQuery)
+export async function fetchMegaRailFromSanity(opts: FetchOpts = {}): Promise<MegaRailEntry[] | null> {
+  const d: any = await getSanityReadClient(opts.preview).fetch(megaRailQuery)
   if (!d?.entries?.length) return null
   return d.entries.map((e: any) => {
     if (!e.image?.asset) return {key: e.key, label: e.label, href: e.href, eyebrow: e.eyebrow}
@@ -128,8 +130,8 @@ export interface SiteSettings {
   social: {instagram?: string; facebook?: string; twitter?: string}
 }
 
-export async function fetchSiteSettingsFromSanity(): Promise<SiteSettings | null> {
-  const d: any = await sanityClient.fetch(siteSettingsQuery)
+export async function fetchSiteSettingsFromSanity(opts: FetchOpts = {}): Promise<SiteSettings | null> {
+  const d: any = await getSanityReadClient(opts.preview).fetch(siteSettingsQuery)
   if (!d) return null
   return {
     mastheadLabel: d.mastheadLabel ?? 'Peninsula Insider',
@@ -149,7 +151,7 @@ const pageHeroQuery = `*[_type == "pageHero" && pathSlug == $slug][0]{
   "image": image ${img}
 }`
 
-export async function fetchPageHeroFromSanity(slug: string): Promise<{
+export async function fetchPageHeroFromSanity(slug: string, opts: FetchOpts = {}): Promise<{
   title?: string
   eyebrow?: string
   category?: string
@@ -157,7 +159,7 @@ export async function fetchPageHeroFromSanity(slug: string): Promise<{
   imageSrc?: string
   imageAlt?: string
 } | null> {
-  const d: any = await sanityClient.fetch(pageHeroQuery, {slug})
+  const d: any = await getSanityReadClient(opts.preview).fetch(pageHeroQuery, {slug})
   if (!d) return null
   let imageSrc: string | undefined
   let imageAlt: string | undefined
