@@ -18,39 +18,30 @@ const baseConfig: ClientConfig = {
 }
 
 /**
- * Stega configuration shared by the public + preview clients.
- *
- * Stega injects invisible Unicode markers into every string returned by
- * a Sanity query. Sanity's @sanity/visual-editing overlay reads those
- * markers to know which doc + field each rendered element binds to,
- * which is what makes click-to-edit work.
- *
- * Default behaviour (when public traffic loads the site outside of
- * Studio Presentation) is: the invisible markers are present in the
- * HTML, but unless an overlay script is mounted there's nothing to
- * read them. They render as zero-width chars, no visual side effect.
- *
- * Caveat worth knowing: a public visitor copying body text from the
- * site will also copy the invisible chars. We accept that trade in
- * exchange for click-to-edit on every Sanity-bound surface across
- * the public site, not just /preview/ SSR routes.
+ * Stega was enabled on the production client in PR #191 to give the admin
+ * overlay an auto-binding path. Disabled here because the invisible
+ * Unicode markers were appended to image URLs as well as strings — and
+ * the CSS `url(...)` parser includes them as part of the URL, producing
+ * 404s on every place-card / hero / event-card that uses
+ * `background-image: url(...)` (and only those — <img src> tolerates
+ * the chars). The overlay still binds via:
+ *   - explicit data-pi-edit attrs (most components — Rounds B/C/E)
+ *   - data-pi-sanity-singleton-* attrs (singletons — Round B)
+ *   - pi.image_bindings table (bind-on-the-spot — Round F)
+ * Preview client keeps stega — /preview/ SSR routes render only inside
+ * Studio's iframe so the chars never reach public traffic.
  */
-const stegaConfig = {
-  enabled: true,
-  studioUrl,
-}
-
 export const sanityClient = createClient({
   ...baseConfig,
   token: process.env.SANITY_READ_TOKEN,
-  stega: stegaConfig,
+  stega: {enabled: false},
 })
 
 export const sanityClientFresh = createClient({
   ...baseConfig,
   useCdn: false,
   token: process.env.SANITY_READ_TOKEN,
-  stega: stegaConfig,
+  stega: {enabled: false},
 })
 
 export const sanityPreviewClient = createClient({
