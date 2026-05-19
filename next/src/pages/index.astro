@@ -914,12 +914,19 @@ export const prerender = true;
     }
     .cover-also__grid {
       grid-template-columns: 1fr;
-      gap: 1.75rem;
+      gap: 0;
     }
-    /* Shorter cards on mobile so the strip doesn't tower at three full
-       screens of stacked thumbnails. */
+    .cover-also__item {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .cover-also__item:first-child {
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    /* No thumbnails on mobile — text-only strip keeps the three picks
+       compact and avoids three full-width images before the fold. */
     .cover-also__thumb {
-      aspect-ratio: 16 / 9;
+      display: none;
     }
   }
 
