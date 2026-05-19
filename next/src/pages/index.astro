@@ -435,9 +435,8 @@ export const prerender = true;
       <a class="hp-section-nav__chip" href="/stay/">Stay</a>
       <a class="hp-section-nav__chip" href="/wine/">Wine</a>
       <a class="hp-section-nav__chip" href="/explore/">Explore</a>
-      <a class="hp-section-nav__chip" href="/whats-on/">What&rsquo;s On</a>
-      <a class="hp-section-nav__chip" href="/places/">Places</a>
       <a class="hp-section-nav__chip" href="/plans/">Plans</a>
+      <a class="hp-section-nav__chip" href="/whats-on/">What&rsquo;s On</a>
       <a class="hp-section-nav__chip" href="/journal/">Journal</a>
     </div>
   </nav>
@@ -521,6 +520,7 @@ export const prerender = true;
 
   {editorPicks.length > 0 && (
     <ScrollReveal client:visible>
+    <div class="hp-shortlist-wrap">
     <Shortlist
       eyebrow="The Shortlist"
       title="Three pieces worth the <em>appointment</em>."
@@ -535,6 +535,7 @@ export const prerender = true;
         tags: [],
       }))}
     />
+    </div>
     </ScrollReveal>
   )}
 
@@ -995,6 +996,14 @@ export const prerender = true;
   @media (min-width: 768px) {
     .hp-section-nav {
       display: none; /* hamburger nav is reachable on desktop; strip is a mobile affordance */
+    }
+  }
+
+  /* One editorial on mobile: hide the Shortlist block on small screens,
+     keep the Editor's Letter as the single editorial surface. */
+  @media (max-width: 767px) {
+    .hp-shortlist-wrap {
+      display: none;
     }
   }
 
