@@ -2,6 +2,7 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {presentationTool, defineLocations} from 'sanity/presentation'
+import {media} from 'sanity-plugin-media'
 import {schemaTypes} from './schemaTypes'
 
 const PREVIEW_URL = 'https://peninsulainsider.com.au'
@@ -143,6 +144,17 @@ export default defineConfig({
     }),
 
     visionTool(),
+
+    /**
+     * Media library — sanity-plugin-media (community).
+     * Adds a dedicated Media browser in the Studio sidebar plus a
+     * "Select from media library" picker on every image field, so
+     * editors can pick from previously-uploaded assets instead of
+     * re-uploading the same file. Tag / search / replace across
+     * all assets in the dataset.
+     * Docs: https://github.com/sanity-io/sanity-plugin-media
+     */
+    media(),
   ],
 
   schema: {
