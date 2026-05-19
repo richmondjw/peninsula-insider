@@ -1,5 +1,5 @@
 ---
-/* NewsletterBlock — V2 design, namespaced (.v2-newsletter*).
+/* NewsletterBlock - V2 design, namespaced (.v2-newsletter*).
    Strangler-fig migration of the V1 newsletter band.
    Every page that imports this component now ships the V2 magazine
    newsletter band: dark, two-column, preview-card, ochre-on-paper.
@@ -7,7 +7,7 @@
    without depending on V1's main stylesheet.
 
    Inline-editable surfaces are tagged against entity_type='page',
-   entity_slug='home' — matches the existing override schema. */
+   entity_slug='home' - matches the existing override schema. */
 
 import { getCollection } from 'astro:content';
 import { editableText } from '../lib/inline-edit/attrs';
@@ -16,6 +16,7 @@ import { routeSlug } from '../lib/editorial';
 export interface Props {
   title?: string;
   body?: string;
+  sub?: string;
   issueNumber?: string;
   issueDate?: string;
   previewHeadline?: string;
@@ -24,7 +25,7 @@ export interface Props {
   source?: string;
   /**
    * Hide the preview card on the right entirely. Useful for footer/embedded
-   * placements where the card would crowd the surface. Default false — the
+   * placements where the card would crowd the surface. Default false - the
    * preview card renders when there's a published weekend-picker article
    * to source from.
    */
@@ -32,8 +33,9 @@ export interface Props {
 }
 
 const {
-  title = 'Peninsula This Weekend',
-  body = "Curated Peninsula recommendations and stories from our editors — sent when there’s something worth sharing.",
+  title = 'Get the dispatch in your inbox',
+  body = "Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.",
+  sub = 'Curated and sent occasionally by Peninsula Insider.',
   issueNumber = '',
   issueDate = '',
   previewHeadline = '',
@@ -47,7 +49,7 @@ const {
 // Pulls from the most recent published weekend-picker article so the
 // card on the right of the newsletter band is always in sync with the
 // dispatch that's currently live. This solves the staleness that drove
-// Remy to hide the card in d1903b2fc0 — the card can't go stale because
+// Remy to hide the card in d1903b2fc0 - the card can't go stale because
 // it reads from the canonical article each build. Explicit props still
 // win when a caller wants to override (e.g. for a campaign page).
 const dispatchArticles = await getCollection(
@@ -57,11 +59,11 @@ const dispatchArticles = await getCollection(
 const dispatch = dispatchArticles
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0] ?? null;
 
-// "Peninsula This Weekend — 16 to 17 May" → "16 to 17 May"
+// "Peninsula This Weekend - 16 to 17 May" → "16 to 17 May"
 function deriveIssueLabel(d: any | null): string {
   if (!d) return '';
   const t = String(d.data.title ?? '');
-  const m = t.match(/[—–-]\s*(.+)$/);
+  const m = t.match(/[---]\s*(.+)$/);
   if (m) return m[1].trim();
   return d.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long' });
 }
@@ -76,7 +78,7 @@ function derivePicks(d: any | null): string[] {
   const faq = (d.data.faq ?? []) as Array<{ question: string }>;
   return faq.slice(0, 3).map((f) => {
     const q = String(f.question ?? '').replace(/\s+/g, ' ').trim();
-    return q.length > 70 ? q.slice(0, 67).trim() + '…' : q;
+    return q.length > 70 ? q.slice(0, 67).trim() + '...' : q;
   });
 }
 
@@ -113,6 +115,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           class="v2-newsletter__body"
           {...editableText({ entityType: 'page', entitySlug: 'home', fieldPath: 'newsletter.body', label: 'Newsletter body' })}
         >{body}</p>
+        {sub && <p class="v2-newsletter__sub">{sub}</p>}
 
         <form
           class="v2-newsletter__form"
@@ -164,7 +167,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
 </section>
 
 <script is:inline>
-  /* V2 newsletter — namespaced submit handler. Survives view transitions. */
+  /* V2 newsletter - namespaced submit handler. Survives view transitions. */
   (function () {
     function emailValid(s) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s); }
     function setStatus(form, msg, kind) {
@@ -196,7 +199,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           }
           var endpoint = form.dataset.endpoint || '';
           var source   = form.dataset.source   || 'v2-newsletter';
-          if (btn) { btn.disabled = true; btn.textContent = 'Joining…'; }
+          if (btn) { btn.disabled = true; btn.textContent = 'Joining...'; }
           setStatus(form, '', '');
           function ok() {
             if (btn) btn.textContent = 'Done';
@@ -255,7 +258,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     gap: clamp(2rem, 5vw, 5rem);
     align-items: center;
   }
-  /* Two columns when a preview card is present — the right column
+  /* Two columns when a preview card is present - the right column
      carries the magazine-style "this issue" teaser. Type column is
      slightly wider so the hero headline still leads the band. */
   .v2-newsletter__frame--has-preview {
@@ -338,6 +341,15 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     color: rgba(250,247,240,0.7);
     max-width: 48ch;
     font-variation-settings: 'opsz' 20;
+    margin: 0 0 0.65rem;
+  }
+  .v2-newsletter__sub {
+    font-family: var(--serif, 'Newsreader', Georgia, serif);
+    font-style: italic;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(250,247,240,0.5);
+    max-width: 48ch;
     margin: 0 0 2rem;
   }
   .v2-newsletter__form {
@@ -409,7 +421,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     box-shadow: 0 40px 80px -20px rgba(0,0,0,0.4), 0 8px 18px -4px rgba(0,0,0,0.25);
     max-width: 28rem;
     justify-self: end;
-    /* The whole card is a link to the current dispatch — reset the default
+    /* The whole card is a link to the current dispatch - reset the default
        anchor decoration and tighten the hover affordance so the card lifts
        slightly instead of underlining. */
     display: block;
