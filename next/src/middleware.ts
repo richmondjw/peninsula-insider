@@ -77,10 +77,14 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Let the login page render so the user can sign in.
   if (isAdminRoute && !isLogin && !allowed) {
     if (isAdminApiPath(pathname)) {
-      return new Response(JSON.stringify({ ok: false, error: 'Unauthorized' }), {
-        status: 401,
-        headers: { 'content-type': 'application/json; charset=utf-8' },
-      });
+      const reason = (access as { reason?: string }).reason ?? 'unknown';
+      return new Response(
+        JSON.stringify({ ok: false, error: `Unauthorized (${reason})`, reason }),
+        {
+          status: 401,
+          headers: { 'content-type': 'application/json; charset=utf-8' },
+        },
+      );
     }
 
     const nextPath = `${pathname}${context.url.search}`;
