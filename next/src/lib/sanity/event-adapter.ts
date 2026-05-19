@@ -41,12 +41,16 @@ type SanityImageRef = {
   license?: string | null
 } | null
 
-function imageOrFallback(image: SanityImageRef, fallbackAlt: string) {
+function imageOrFallback(
+  image: SanityImageRef,
+  fallbackAlt: string,
+  ctx?: {docId: string; docType: string; path: string},
+) {
   if (!image?.asset) {
     return undefined // events allow missing hero
   }
   return {
-    src: intentUrl(image, 'hero'),
+    src: intentUrl(image, 'hero', ctx),
     alt: image.alt ?? fallbackAlt,
     credit: image.credit ?? '',
     license: image.license ?? 'venue-media-kit',
@@ -127,7 +131,11 @@ export async function fetchEventFromSanity(slug: string) {
       relatedArticles: [],
       lens: d.lens ?? [],
       editorNote: d.editorNoteText ?? '',
-      heroImage: imageOrFallback(d.heroImage ?? null, d.title),
+      heroImage: imageOrFallback(d.heroImage ?? null, d.title, {
+        docId: d._id,
+        docType: 'event',
+        path: 'heroImage',
+      }),
       internalNotes: d.internalNotes ?? undefined,
       manualFollowUpRequired: !!d.manualFollowUpRequired,
       status: d.status ?? 'published',

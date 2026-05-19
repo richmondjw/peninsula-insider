@@ -37,12 +37,16 @@ type SanityImageRef = {
   license?: string | null
 } | null
 
-function imageOrFallback(image: SanityImageRef, fallbackAlt: string) {
+function imageOrFallback(
+  image: SanityImageRef,
+  fallbackAlt: string,
+  ctx?: {docId: string; docType: string; path: string},
+) {
   if (!image?.asset) {
     return {src: '/images/sourced/home-cover.webp', alt: fallbackAlt, credit: '', license: 'venue-media-kit'}
   }
   return {
-    src: intentUrl(image, 'hero'),
+    src: intentUrl(image, 'hero', ctx),
     alt: image.alt ?? fallbackAlt,
     credit: image.credit ?? '',
     license: image.license ?? 'venue-media-kit',
@@ -103,7 +107,11 @@ export async function fetchArticleFromSanity(slug: string): Promise<AdaptedArtic
       houseByline: !!d.houseByline,
       publishedAt: new Date(d.publishedAt),
       updatedAt: d.updatedAt ? new Date(d.updatedAt) : undefined,
-      heroImage: imageOrFallback(d.heroImage ?? null, d.title),
+      heroImage: imageOrFallback(d.heroImage ?? null, d.title, {
+        docId: d._id,
+        docType: 'article',
+        path: 'heroImage',
+      }),
       format: d.format,
       tags: d.tags ?? [],
       relatedVenues: refs(d.relatedVenueSlugs, 'venues'),
