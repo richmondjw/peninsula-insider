@@ -108,6 +108,94 @@ function normaliseFieldPath(raw: string): string {
   return p;
 }
 
+// ─── Editor-supplied bindings cache (pi.image_bindings) ─────────────────
+//
+// When an admin uses "Bind to a Sanity doc…" the row is written to
+// pi.image_bindings. We cache the result of GET /api/admin/image-binding
+// per (pageUrlPattern) for the lifetime of the page so subsequent
+// right-clicks resolve synchronously. The cache is cleared after a fresh
+// bind so the new row is picked up immediately on the next right-click.
+
+export interface BindingRow {
+  id: string;
+  page_url_pattern: string;
+  image_basename: string;
+  sanity_doc_id: string;
+  sanity_doc_type: string;
+  sanity_field_path: string;
+}
+
+let bindingsCache: { pattern: string; rows: BindingRow[] } | null = null;
+let bindingsInFlight: Promise<BindingRow[]> | null = null;
+
+export function currentPageUrlPattern(): string {
+  if (typeof location === 'undefined') return '/';
+  let p = location.pathname || '/';
+  if (!p.startsWith('/')) p = `/${p}`;
+  if (p.length > 1 && !p.endsWith('/') && !/\.[a-z0-9]{2,5}$/i.test(p)) p = `${p}/`;
+  return p;
+}
+
+export async function loadBindingsForPage(pattern = currentPageUrlPattern()): Promise<BindingRow[]> {
+  if (bindingsCache && bindingsCache.pattern === pattern) return bindingsCache.rows;
+  if (bindingsInFlight) return bindingsInFlight;
+  bindingsInFlight = (async () => {
+    try {
+      const res = await fetch(
+        `/api/admin/image-binding?pageUrlPattern=${encodeURIComponent(pattern)}`,
+        { credentials: 'same-origin' },
+      );
+      if (!res.ok) return [];
+      const body = await res.json();
+      const rows = ((body?.data?.bindings as BindingRow[]) ?? []) as BindingRow[];
+      bindingsCache = { pattern, rows };
+      return rows;
+    } catch {
+      return [];
+    } finally {
+      bindingsInFlight = null;
+    }
+  })();
+  return bindingsInFlight;
+}
+
+export function invalidateBindingsCache(): void {
+  bindingsCache = null;
+}
+
+export function getCachedBindings(): BindingRow[] {
+  return bindingsCache?.rows ?? [];
+}
+
+export function srcBasenameFor(src: string | null | undefined): string {
+  if (!src) return 'unknown';
+  let s = src.split('?')[0];
+  try { s = decodeURIComponent(s); } catch { /* ignore */ }
+  const file = s.split('/').filter(Boolean).pop() || 'unknown';
+  return file.toLowerCase().replace(/[^a-z0-9._-]/g, '-');
+}
+
+/**
+ * Synchronous binding lookup against the cache. Returns null when no
+ * matching binding exists for the element's image filename basename.
+ */
+export function lookupBinding(el: HTMLElement): BindingRow | null {
+  if (!bindingsCache) return null;
+  let src = '';
+  if (el instanceof HTMLImageElement) {
+    src = el.getAttribute('src') || el.src;
+  } else {
+    const bg = el.style.backgroundImage || window.getComputedStyle(el).backgroundImage;
+    const m = bg.match(/url\((['"]?)([^)]+?)\1\)/);
+    src = m?.[2] ?? '';
+  }
+  const basename = srcBasenameFor(src);
+  for (const row of bindingsCache.rows) {
+    if (row.image_basename === basename) return row;
+  }
+  return null;
+}
+
 export function resolveSanitySource(
   el: HTMLElement,
   desc: EditableDescriptor,
@@ -161,6 +249,17 @@ export function resolveSanitySource(
       docId: stega.docId,
       fieldPath: stega.fieldPath,
       resolvedVia: 'stega',
+    };
+  }
+
+  // c) Editor-supplied binding (pi.image_bindings). Synchronous lookup
+  //    against the cache populated by `loadBindingsForPage()` on boot.
+  const binding = lookupBinding(el);
+  if (binding) {
+    return {
+      docId: binding.sanity_doc_id,
+      fieldPath: normaliseFieldPath(binding.sanity_field_path),
+      resolvedVia: 'data-pi-edit',
     };
   }
 
