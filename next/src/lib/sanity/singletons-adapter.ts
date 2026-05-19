@@ -1,10 +1,10 @@
 /**
  * Sanity adapters for page-level singletons.
  *
- *   - homepageCover  → drives index.astro's <section class="cover">
- *   - megaRail       → drives V4MegaRail.astro
- *   - siteSettings   → drives masthead label, edition, footer links
- *   - pageHero(slug) → drives the SubpageHero override for a given hub
+ *   - homepageCover  -> drives index.astro's <section class="cover">
+ *   - megaRail       -> drives V4MegaRail.astro
+ *   - siteSettings   -> drives masthead label, edition, footer links, brand imagery
+ *   - pageHero(slug) -> drives the SubpageHero override for a given hub
  */
 import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
@@ -26,7 +26,19 @@ function imageOrFallback(image: SanityImageRef, fallback: string, fallbackAlt: s
   return {src: intentUrl(image, 'hero'), alt: image.alt ?? fallbackAlt}
 }
 
-// ── Homepage cover ───────────────────────────────────────────────────────
+/** Small-icon variant: thumb-intent URL (320w), suits logos / avatars. */
+function iconOrFallback(image: SanityImageRef, fallback: string, fallbackAlt: string) {
+  if (!image?.asset) return {src: fallback, alt: fallbackAlt}
+  return {src: intentUrl(image, 'thumb'), alt: image.alt ?? fallbackAlt}
+}
+
+/** OG-intent (1200x630) variant for share-card fallback imagery. */
+function ogOrFallback(image: SanityImageRef, fallback: string, fallbackAlt: string) {
+  if (!image?.asset) return {src: fallback, alt: fallbackAlt}
+  return {src: intentUrl(image, 'og'), alt: image.alt ?? fallbackAlt}
+}
+
+// Homepage cover ----------------------------------------------------------
 
 const homepageCoverQuery = `*[_id == "homepageCover"][0]{
   activeSceneIndex,
@@ -78,7 +90,7 @@ export async function fetchHomepageCoverFromSanity(opts: FetchOpts = {}): Promis
   }
 }
 
-// ── Mega-rail ────────────────────────────────────────────────────────────
+// Mega-rail ---------------------------------------------------------------
 
 const megaRailQuery = `*[_id == "megaRail"][0]{
   entries[]{
@@ -113,12 +125,28 @@ export async function fetchMegaRailFromSanity(opts: FetchOpts = {}): Promise<Meg
   })
 }
 
-// ── Site settings ────────────────────────────────────────────────────────
+// Site settings -----------------------------------------------------------
 
 const siteSettingsQuery = `*[_id == "siteSettings"][0]{
   mastheadLabel, tagline, editionLabel, edition, editionYear, social,
-  footerLinks[]{label, href}
+  footerLinks[]{label, href},
+  "logo": logo ${img},
+  "conciergeAvatar": conciergeAvatar ${img},
+  "ogFallback": ogFallback ${img},
+  "notFoundImage": notFoundImage ${img}
 }`
+
+// Hardcoded paths preserved so any consumer that lands before the doc is
+// seeded renders byte-identically to the current static markup.
+const LOGO_FALLBACK = '/images/pi-logo-new.svg'
+const CONCIERGE_FALLBACK = '/images/pi-concierge.svg'
+const OG_FALLBACK = '/images/sourced/home-cover.webp'
+const NOT_FOUND_FALLBACK = '/images/pi-concierge.svg'
+
+export interface SiteSettingsImage {
+  src: string
+  alt: string
+}
 
 export interface SiteSettings {
   mastheadLabel: string
@@ -128,6 +156,10 @@ export interface SiteSettings {
   editionYear?: number
   footerLinks: Array<{label: string; href: string}>
   social: {instagram?: string; facebook?: string; twitter?: string}
+  logo: SiteSettingsImage
+  conciergeAvatar: SiteSettingsImage
+  ogFallback: SiteSettingsImage
+  notFoundImage: SiteSettingsImage
 }
 
 export async function fetchSiteSettingsFromSanity(opts: FetchOpts = {}): Promise<SiteSettings | null> {
@@ -141,10 +173,23 @@ export async function fetchSiteSettingsFromSanity(opts: FetchOpts = {}): Promise
     editionYear: d.editionYear ?? undefined,
     footerLinks: d.footerLinks ?? [],
     social: d.social ?? {},
+    logo: iconOrFallback(d.logo, LOGO_FALLBACK, 'Peninsula Insider'),
+    conciergeAvatar: iconOrFallback(d.conciergeAvatar, CONCIERGE_FALLBACK, ''),
+    ogFallback: ogOrFallback(d.ogFallback, OG_FALLBACK, 'Peninsula Insider'),
+    notFoundImage: iconOrFallback(d.notFoundImage, NOT_FOUND_FALLBACK, ''),
   }
 }
 
-// ── Page hero ────────────────────────────────────────────────────────────
+/** Default values used when the singleton doc hasn't been seeded yet -
+ *  exposed for consumers that want to render without a network round-trip. */
+export const SITE_SETTINGS_IMAGE_FALLBACKS = {
+  logo: {src: LOGO_FALLBACK, alt: 'Peninsula Insider'} as SiteSettingsImage,
+  conciergeAvatar: {src: CONCIERGE_FALLBACK, alt: ''} as SiteSettingsImage,
+  ogFallback: {src: OG_FALLBACK, alt: 'Peninsula Insider'} as SiteSettingsImage,
+  notFoundImage: {src: NOT_FOUND_FALLBACK, alt: ''} as SiteSettingsImage,
+}
+
+// Page hero ---------------------------------------------------------------
 
 const pageHeroQuery = `*[_type == "pageHero" && pathSlug == $slug][0]{
   pathSlug, title, eyebrow, category, dek,
