@@ -86,6 +86,7 @@ export interface AdaptedPlace {
 function imageRefToAstroShape(
   img: SanityImageRef,
   fallbackAlt: string,
+  ctx?: {docId: string; docType: string; path: string},
 ): {src: string; alt: string; credit: string; license: string; caption?: string} {
   if (!img?.asset) {
     return {
@@ -96,7 +97,7 @@ function imageRefToAstroShape(
     }
   }
   return {
-    src: intentUrl(img, 'hero'),
+    src: intentUrl(img, 'hero', ctx),
     alt: img.alt ?? fallbackAlt,
     credit: img.credit ?? '',
     license: img.license ?? 'venue-media-kit',
@@ -130,7 +131,11 @@ function adapt(doc: SanityPlace): AdaptedPlace {
       featured: !!doc.featured,
       publishedAt: new Date(doc.publishedAt),
       sitemapExclude: !!doc.sitemapExclude,
-      heroImage: imageRefToAstroShape(doc.heroImage ?? null, doc.name),
+      heroImage: imageRefToAstroShape(doc.heroImage ?? null, doc.name, {
+        docId: doc._id,
+        docType: 'place',
+        path: 'heroImage',
+      }),
       relatedPlaces: (doc.relatedPlaces ?? []).map((r) => ({
         id: r.slug,
         collection: 'places' as const,
