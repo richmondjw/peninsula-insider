@@ -551,7 +551,10 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
       <button type="button" class="pi-edit-panel__close" aria-label="Close">×</button>
     </div>
     <button type="button" class="pi-edit-panel__replace" data-action="replace">
-      <span aria-hidden="true">⇪</span> Replace image…
+      <span aria-hidden="true">⇪</span> Replace image (upload)…
+    </button>
+    <button type="button" class="pi-edit-panel__replace" data-action="replace-sanity" style="margin-top:6px">
+      <span aria-hidden="true">⬚</span> Replace from media library…
     </button>
     <div class="pi-edit-panel__fields">
       <label class="pi-edit-panel__field">
@@ -582,6 +585,7 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     const action = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-action]')?.dataset.action;
     if (!action) return;
     if (action === 'replace') triggerImageReplace(el, desc);
+    if (action === 'replace-sanity') void triggerSanityReplace(el, desc);
     if (action === 'cancel')  closeMenu();
     if (action === 'save')    void savePanelMeta(menuEl!, el, desc);
   });
@@ -705,6 +709,38 @@ function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
   }, { once: true });
   document.body.appendChild(input);
   input.click();
+}
+
+/**
+ * Replace via Sanity media library. Lazy-loads the modal module so anon
+ * visitors (and admins who never click this button) never download it.
+ * Resolution priority:
+ *   1. explicit data-pi-edit attrs → entitySlug → Sanity doc lookup
+ *   2. stega payload decoded from the rendered image src
+ *   3. neither → toast a hint and bail
+ */
+async function triggerSanityReplace(el: HTMLElement, desc: ImageDescriptor) {
+  try {
+    const mod = await import('./sanity-image-overlay');
+    const source = mod.resolveSanitySource(el, desc);
+    if (!source) {
+      toast(
+        "This image isn't bound to a Sanity field yet. Add a data-pi-edit attribute or wire it through a stega-enabled query to enable replacement.",
+        'info',
+      );
+      return;
+    }
+    mod.openMediaLibraryModal({
+      el,
+      source,
+      toast,
+      setImageSrc,
+      onClose: () => closeMenu(),
+    });
+  } catch (err) {
+    console.error('[pi-edit] sanity overlay failed to load', err);
+    toast(`Couldn't open media library: ${(err as Error).message}`, 'err');
+  }
 }
 
 async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) {
