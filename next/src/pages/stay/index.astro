@@ -12,9 +12,29 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, stayTypes, currentSeason, seasonBlurb } from '../../lib/editorial';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-const venues = (await getCollection('venues')).filter((v) => stayTypes.includes(v.data.type));
+const venuesRaw = (await getCollection('venues')).filter((v) => stayTypes.includes(v.data.type));
+
+// Dual-read filtered stay venues through Sanity (same PR #211 pattern).
+// Filter first so we only fan out across stay venues, not all 500+.
+const venueReadOn = sanityReadEnabled('venues');
+const venues = venueReadOn
+  ? await Promise.all(
+      venuesRaw.map(async (v) => {
+        try {
+          const doc = await fetchVenueFromSanity(routeSlug(v));
+          const sanitySrc = doc?.data?.heroImage?.src;
+          if (!sanitySrc) return v;
+          return { ...v, data: { ...v.data, heroImage: { ...v.data.heroImage, src: sanitySrc } } };
+        } catch {
+          return v;
+        }
+      }),
+    )
+  : venuesRaw;
 const itineraries = await getCollection('itineraries');
 const places = await getCollection('places');
 const season = currentSeason();
