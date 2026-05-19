@@ -44,6 +44,39 @@ function conciseSummary(value: unknown, maxWords = 22): string {
 }
 const summary = conciseSummary(event.data.summary);
 
+// Date at-a-glance: prefer recurrenceNote for recurring events;
+// fall back to a short formatted startDate for dated events.
+function shortDate(d: Date): string {
+  return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Melbourne' });
+}
+const dateLabel: string | null =
+  event.data.recurrenceNote
+    ? event.data.recurrenceNote
+    : event.data.nextOccurrence
+    ? shortDate(event.data.nextOccurrence)
+    : event.data.startDate
+    ? shortDate(event.data.startDate)
+    : null;
+
+// CTA label varies by category — editorial voice, not generic "Read more".
+const ctaByCategory: Record<string, string> = {
+  market: 'Market detail \u2192',
+  'food-wine': 'Plan this \u2192',
+  'cellar-door': 'Plan this \u2192',
+  wellness: 'Plan this \u2192',
+  'family-programs': 'Plan this \u2192',
+  nature: 'Plan this \u2192',
+  festival: 'Read the guide \u2192',
+  'live-music': 'Read the guide \u2192',
+  exhibition: 'Read the guide \u2192',
+  arts: 'Read the guide \u2192',
+  'writers-ideas': 'Read the guide \u2192',
+  'racing-sport': 'Read the guide \u2192',
+  community: 'See the detail \u2192',
+  civic: 'See the detail \u2192',
+};
+const ctaLabel = ctaByCategory[category] ?? 'See the detail \u2192';
+
 const fallbackHeroByCategory: Record<string, string> = {
   'food-wine': '/images/sourced/category-winery-01.webp',
   market: '/images/sourced/category-market-02.webp',
@@ -80,6 +113,7 @@ const heroImageSrc = event.data.heroImage?.src ?? fallbackHeroByCategory[categor
   ></a>
   <div class="event-card__top">
     <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
+    {dateLabel && <span class="event-card__date">{dateLabel}</span>}
   </div>
   <h3 class="event-card__name">
     <a href={`/whats-on/${slug}`}>{event.data.title}</a>
@@ -91,7 +125,7 @@ const heroImageSrc = event.data.heroImage?.src ?? fallbackHeroByCategory[categor
   )}
   {summary && (<p class="event-card__summary">{summary}</p>)}
   <div class="event-card__actions">
-    <a href={`/whats-on/${slug}`} class="event-card__cta">Read the full guide -></a>
+    <a href={`/whats-on/${slug}`} class="event-card__cta">{ctaLabel}</a>
   </div>
   <PiSaveActions
     kind="event"

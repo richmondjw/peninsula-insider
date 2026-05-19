@@ -548,9 +548,9 @@ try {
     gap: 0.55rem;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
     background: var(--pi-paper-warm);
-    border: 1px solid rgba(139, 78, 59, 0.35);
+    border: 1px solid rgba(23, 20, 19, 0.14);
     border-radius: 100px;
-    color: var(--pi-terra);
+    color: var(--pi-ink-muted, #6E655C);
     font-family: inherit;
     text-align: left;
     box-shadow:
@@ -580,7 +580,7 @@ try {
       0 1px 0 rgba(255, 252, 247, 0.85) inset,
       0 6px 18px rgba(34, 24, 16, 0.13),
       0 18px 42px rgba(34, 24, 16, 0.16);
-    border-color: rgba(139, 78, 59, 0.55);
+    border-color: rgba(23, 20, 19, 0.28);
   }
 
   .pi-drawer__bubble-avatar {
@@ -615,9 +615,9 @@ try {
     text-transform: uppercase;
     letter-spacing: 0.16em;
     font-size: 0.66rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
-    color: var(--pi-terra);
+    color: var(--pi-ink-muted, #6E655C);
     white-space: nowrap;
   }
   .pi-drawer__bubble-label em {
@@ -628,16 +628,16 @@ try {
     font-size: 1.15em;
     letter-spacing: 0.01em;
     margin-left: 0.25em;
-    color: var(--pi-ink);
+    color: var(--pi-ink-soft, #3A3531);
   }
   .pi-drawer__bubble-pulse {
     position: absolute;
     top: 6px; right: 12px;
-    width: 8px; height: 8px;
+    width: 6px; height: 6px;
     border-radius: 50%;
-    background: var(--pi-sage);
-    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.5);
-    animation: pi-drawer-pulse 2.4s ease-out infinite;
+    background: rgba(122, 139, 109, 0.55);
+    box-shadow: 0 0 0 0 rgba(122, 139, 109, 0.3);
+    animation: pi-drawer-pulse 3s ease-out infinite;
   }
 
   /* ── MOBILE — tighter spacing for thumb reach.
