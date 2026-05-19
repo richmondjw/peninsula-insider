@@ -36,16 +36,25 @@ export const GET: APIRoute = async ({ request, url }) => {
 
   const page = Math.max(0, parseInt(url.searchParams.get('page') || '0', 10) || 0);
   const q = (url.searchParams.get('q') || '').trim().toLowerCase();
+  const sort = (url.searchParams.get('sort') || 'recent').trim();
+  const orientation = (url.searchParams.get('orientation') || 'any').trim();
   const start = page * PAGE_SIZE;
   const end = start + PAGE_SIZE;
 
   // Filter assets by filename when a query is provided. Use `lower(...)` so
   // the match is case-insensitive — Sanity assets carry the originalFilename
   // exactly as uploaded, which is often Mixed Case.
-  const filter = q
-    ? `*[_type=="sanity.imageAsset" && lower(originalFilename) match $q]`
-    : `*[_type=="sanity.imageAsset"]`;
-  const query = `${filter} | order(_createdAt desc)[$start...$end]{
+  const conds: string[] = [`_type=="sanity.imageAsset"`];
+  if (q) conds.push(`lower(originalFilename) match $q`);
+  // Aspect ratio bands: landscape > 1.15, portrait < 0.85, square between.
+  if (orientation === 'landscape') conds.push(`metadata.dimensions.aspectRatio > 1.15`);
+  else if (orientation === 'portrait') conds.push(`metadata.dimensions.aspectRatio < 0.85`);
+  else if (orientation === 'square')
+    conds.push(`metadata.dimensions.aspectRatio >= 0.85 && metadata.dimensions.aspectRatio <= 1.15`);
+
+  const filter = `*[${conds.join(' && ')}]`;
+  const orderBy = sort === 'name' ? 'lower(originalFilename) asc' : '_createdAt desc';
+  const query = `${filter} | order(${orderBy})[$start...$end]{
     _id,
     url,
     originalFilename,

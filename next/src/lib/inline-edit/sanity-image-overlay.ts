@@ -203,43 +203,75 @@ interface SanityAssetSummary {
 }
 
 let activeModal: HTMLDivElement | null = null;
+let activeModalCleanup: (() => void) | null = null;
+
+type Sort = 'recent' | 'name';
+type Orientation = 'any' | 'landscape' | 'portrait' | 'square';
 
 export function openMediaLibraryModal(opts: ModalOpts): void {
   closeMediaLibraryModal();
+
+  const headerSub = opts.source.resolvedVia === 'stega'
+    ? `Source: stega — doc ${escapeHtml(opts.source.docId ?? '')}, field ${escapeHtml(opts.source.fieldPath)}`
+    : `Source: ${escapeHtml(opts.source.entityType ?? '')}/${escapeHtml(opts.source.entitySlug ?? '')}, field ${escapeHtml(opts.source.fieldPath)}`;
+
+  // Snapshot the currently-visible src for the preview thumbnail and so
+  // Undo can restore it.
+  let currentVisibleSrc = '';
+  if (opts.el instanceof HTMLImageElement) {
+    currentVisibleSrc = opts.el.getAttribute('src') || opts.el.src || '';
+  } else {
+    const bg = opts.el.style.backgroundImage || window.getComputedStyle(opts.el).backgroundImage;
+    const m = bg.match(/url\((['"]?)([^)]+?)\1\)/);
+    currentVisibleSrc = m?.[2] ?? '';
+  }
+  const currentClean = stripStega(currentVisibleSrc);
 
   const wrap = document.createElement('div');
   wrap.className = 'pi-sanity-modal';
   wrap.setAttribute('role', 'dialog');
   wrap.setAttribute('aria-modal', 'true');
-  wrap.setAttribute('aria-label', 'Replace from Sanity media library');
+  wrap.setAttribute('aria-labelledby', 'pi-sanity-modal-title');
   wrap.innerHTML = `
     <div class="pi-sanity-modal__backdrop" data-close="1"></div>
-    <div class="pi-sanity-modal__panel">
+    <div class="pi-sanity-modal__panel" tabindex="-1">
       <div class="pi-sanity-modal__head">
-        <div>
-          <div class="pi-sanity-modal__title">Replace from media library</div>
-          <div class="pi-sanity-modal__sub">${
-            opts.source.resolvedVia === 'stega'
-              ? `Source: stega — doc ${escapeHtml(opts.source.docId ?? '')}, field ${escapeHtml(opts.source.fieldPath)}`
-              : `Source: ${escapeHtml(opts.source.entityType ?? '')}/${escapeHtml(opts.source.entitySlug ?? '')}, field ${escapeHtml(opts.source.fieldPath)}`
-          }</div>
+        <div class="pi-sanity-modal__head-main">
+          ${currentClean ? `<span class="pi-sanity-modal__current" aria-hidden="true" style="background-image: url('${cssUrl(currentClean)}')"></span>` : ''}
+          <div>
+            <div class="pi-sanity-modal__title" id="pi-sanity-modal-title">Replace from media library</div>
+            <div class="pi-sanity-modal__sub">${headerSub}</div>
+          </div>
         </div>
         <button type="button" class="pi-sanity-modal__close" data-close="1" aria-label="Close">×</button>
       </div>
       <div class="pi-sanity-modal__toolbar">
-        <input type="search" class="pi-sanity-modal__search" placeholder="Search assets by filename…" />
+        <input type="search" class="pi-sanity-modal__search" placeholder="Search assets by filename…" aria-label="Search assets" />
+        <div class="pi-sanity-modal__chips" role="group" aria-label="Filter by orientation">
+          <button type="button" class="pi-sanity-modal__chip" data-orient="any" aria-pressed="true">Any</button>
+          <button type="button" class="pi-sanity-modal__chip" data-orient="landscape" aria-pressed="false">Landscape</button>
+          <button type="button" class="pi-sanity-modal__chip" data-orient="portrait" aria-pressed="false">Portrait</button>
+          <button type="button" class="pi-sanity-modal__chip" data-orient="square" aria-pressed="false">Square</button>
+        </div>
+        <div class="pi-sanity-modal__sort" role="group" aria-label="Sort">
+          <button type="button" class="pi-sanity-modal__chip" data-sort="recent" aria-pressed="true">Recent</button>
+          <button type="button" class="pi-sanity-modal__chip" data-sort="name" aria-pressed="false">Name</button>
+        </div>
         <label class="pi-sanity-modal__upload">
           <span>Upload new…</span>
           <input type="file" accept="image/jpeg,image/png,image/webp,image/avif" hidden />
         </label>
       </div>
-      <div class="pi-sanity-modal__grid" role="listbox" aria-label="Assets">
+      <div class="pi-sanity-modal__grid" role="listbox" aria-label="Assets" tabindex="0">
         <div class="pi-sanity-modal__status">Loading…</div>
       </div>
       <div class="pi-sanity-modal__foot">
         <button type="button" class="pi-sanity-modal__btn" data-action="prev">‹ Prev</button>
         <span class="pi-sanity-modal__page">Page 1</span>
         <button type="button" class="pi-sanity-modal__btn" data-action="next">Next ›</button>
+      </div>
+      <div class="pi-sanity-modal__drop" aria-hidden="true">
+        <div class="pi-sanity-modal__drop-inner">Drop to upload</div>
       </div>
     </div>
   `;
@@ -248,82 +280,140 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
 
   let page = 0;
   let q = '';
+  let sort: Sort = 'recent';
+  let orientation: Orientation = 'any';
+  let assets: SanityAssetSummary[] = [];
+  let focusedIdx = -1;
+  let uploadInFlight = false;
+  let lastLoadReq = 0;
 
+  const panel = wrap.querySelector<HTMLDivElement>('.pi-sanity-modal__panel')!;
   const grid = wrap.querySelector<HTMLDivElement>('.pi-sanity-modal__grid')!;
   const search = wrap.querySelector<HTMLInputElement>('.pi-sanity-modal__search')!;
   const fileInput = wrap.querySelector<HTMLInputElement>('.pi-sanity-modal__upload input')!;
   const pageEl = wrap.querySelector<HTMLSpanElement>('.pi-sanity-modal__page')!;
 
+  const setChipState = (group: 'orient' | 'sort', value: string) => {
+    const attr = group === 'orient' ? 'data-orient' : 'data-sort';
+    wrap.querySelectorAll<HTMLButtonElement>(`[${attr}]`).forEach((b) => {
+      b.setAttribute('aria-pressed', b.getAttribute(attr) === value ? 'true' : 'false');
+    });
+  };
+
+  const orientLabel = (a: SanityAssetSummary): string =>
+    a.dimensions ? `${a.dimensions.width}×${a.dimensions.height}` : '';
+
+  const renderAssets = () => {
+    if (assets.length === 0) {
+      grid.innerHTML = '<div class="pi-sanity-modal__status">No assets found.</div>';
+      return;
+    }
+    grid.innerHTML = assets
+      .map(
+        (a, i) => `
+      <button type="button" role="option" class="pi-sanity-modal__asset" data-asset-id="${escapeHtml(a._id)}" data-idx="${i}" aria-label="Replace with ${escapeHtml(a.originalFilename || a._id)}" title="${escapeHtml(a.originalFilename || a._id)}">
+        <span class="pi-sanity-modal__thumb" style="background-image: url('${cssUrl(a.url)}?w=360&h=225&fit=crop&auto=format')"></span>
+        <span class="pi-sanity-modal__meta">
+          <span class="pi-sanity-modal__name">${escapeHtml(a.originalFilename || a._id)}</span>
+          <span class="pi-sanity-modal__dims">${escapeHtml(orientLabel(a))}</span>
+        </span>
+      </button>`,
+      )
+      .join('');
+  };
+
   const loadAssets = async () => {
+    const reqId = ++lastLoadReq;
     grid.innerHTML = '<div class="pi-sanity-modal__status">Loading…</div>';
     pageEl.textContent = `Page ${page + 1}`;
+    focusedIdx = -1;
+    const params = new URLSearchParams();
+    params.set('page', String(page));
+    if (q) params.set('q', q);
+    if (sort !== 'recent') params.set('sort', sort);
+    if (orientation !== 'any') params.set('orientation', orientation);
     try {
-      const url = `/api/admin/sanity-assets?page=${page}${q ? `&q=${encodeURIComponent(q)}` : ''}`;
-      const res = await fetch(url, { credentials: 'same-origin' });
+      const res = await fetch(`/api/admin/sanity-assets?${params.toString()}`, {
+        credentials: 'same-origin',
+      });
+      if (reqId !== lastLoadReq) return;
       const body = await res.json();
       if (!res.ok || !body.ok) {
-        grid.innerHTML = `<div class="pi-sanity-modal__status pi-sanity-modal__status--err">${escapeHtml(body.error || 'Failed to load')}</div>`;
+        renderError(grid, res.status, body?.error || 'Failed to load', () => void loadAssets());
         return;
       }
-      const assets: SanityAssetSummary[] = body.data?.assets ?? [];
-      if (assets.length === 0) {
-        grid.innerHTML = '<div class="pi-sanity-modal__status">No assets found.</div>';
-        return;
-      }
-      grid.innerHTML = assets
-        .map(
-          (a) => `
-        <button type="button" class="pi-sanity-modal__asset" data-asset-id="${escapeHtml(a._id)}" title="${escapeHtml(a.originalFilename || a._id)}">
-          <span class="pi-sanity-modal__thumb" style="background-image: url('${cssUrl(a.url)}?w=320&h=200&fit=crop&auto=format')"></span>
-          <span class="pi-sanity-modal__name">${escapeHtml(a.originalFilename || a._id)}</span>
-        </button>`,
-        )
-        .join('');
+      assets = (body.data?.assets ?? []) as SanityAssetSummary[];
+      renderAssets();
     } catch (err) {
-      grid.innerHTML = `<div class="pi-sanity-modal__status pi-sanity-modal__status--err">${escapeHtml((err as Error).message)}</div>`;
+      if (reqId !== lastLoadReq) return;
+      renderError(grid, 0, (err as Error).message, () => void loadAssets());
     }
+  };
+
+  const doPatch = async (assetId: string): Promise<{ ok: boolean; newUrl?: string; previousAssetRef?: string; status?: number; error?: string }> => {
+    const payload: Record<string, string> = {
+      fieldPath: opts.source.fieldPath,
+      newAssetRef: assetId,
+    };
+    if (opts.source.docId) payload.docId = opts.source.docId;
+    if (opts.source.entityType) payload.entityType = opts.source.entityType;
+    if (opts.source.entitySlug) payload.entitySlug = opts.source.entitySlug;
+    const res = await fetch('/api/admin/sanity-patch', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const body = await res.json();
+    if (!res.ok || !body.ok) return { ok: false, status: res.status, error: body?.error };
+    return {
+      ok: true,
+      newUrl: body.data?.newUrl,
+      previousAssetRef: body.data?.previousAssetRef,
+    };
   };
 
   const onPick = async (assetId: string) => {
     opts.toast('Patching…', 'info');
     try {
-      const payload: Record<string, string> = {
-        fieldPath: opts.source.fieldPath,
-        newAssetRef: assetId,
-      };
-      if (opts.source.docId) payload.docId = opts.source.docId;
-      if (opts.source.entityType) payload.entityType = opts.source.entityType;
-      if (opts.source.entitySlug) payload.entitySlug = opts.source.entitySlug;
-
-      const res = await fetch('/api/admin/sanity-patch', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const body = await res.json();
-      if (!res.ok || !body.ok) {
-        opts.toast(`Save failed: ${body.error || res.statusText}`, 'err');
+      const result = await doPatch(assetId);
+      if (!result.ok) {
+        handleApiError(result.status ?? 0, result.error, opts.toast, () => void onPick(assetId));
         return;
       }
-      // Cache-bust so the visible swap is immediate even if the asset URL is
-      // already in browser cache. NOTE: this updates `src` only — responsive
-      // `srcset` regeneration is a follow-up; for now the picture element's
-      // other sources stay on the previous asset until next deploy.
-      const newUrl = body.data?.newUrl as string | undefined;
-      if (newUrl) {
-        const bust = newUrl.includes('?') ? `${newUrl}&v=${Date.now()}` : `${newUrl}?v=${Date.now()}`;
+      const previousVisibleSrc = currentVisibleSrc;
+      if (result.newUrl) {
+        const bust = result.newUrl.includes('?')
+          ? `${result.newUrl}&v=${Date.now()}`
+          : `${result.newUrl}?v=${Date.now()}`;
         opts.setImageSrc(opts.el, bust);
+        currentVisibleSrc = bust;
       }
-      opts.toast('Replaced from Sanity.', 'ok');
       closeMediaLibraryModal();
       opts.onClose();
+      if (result.previousAssetRef) {
+        const prevRef = result.previousAssetRef;
+        showUndoToast(async () => {
+          opts.toast('Undoing…', 'info');
+          const undo = await doPatch(prevRef);
+          if (!undo.ok) {
+            opts.toast(`Undo failed: ${undo.error || 'request failed'}`, 'err');
+            return;
+          }
+          if (previousVisibleSrc) opts.setImageSrc(opts.el, previousVisibleSrc);
+          opts.toast('Reverted.', 'ok');
+        });
+      } else {
+        opts.toast('Replaced from Sanity.', 'ok');
+      }
     } catch (err) {
       opts.toast(`Save failed: ${(err as Error).message}`, 'err');
     }
   };
 
   const onUpload = async (file: File) => {
+    if (uploadInFlight) return;
+    uploadInFlight = true;
     opts.toast(`Uploading "${file.name}"…`, 'info');
     try {
       const fd = new FormData();
@@ -335,7 +425,7 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
       });
       const body = await res.json();
       if (!res.ok || !body.ok) {
-        opts.toast(`Upload failed: ${body.error || res.statusText}`, 'err');
+        handleApiError(res.status, body?.error || 'Upload failed', opts.toast, () => void onUpload(file));
         return;
       }
       const assetId = body.data?._id as string | undefined;
@@ -346,10 +436,12 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
       await onPick(assetId);
     } catch (err) {
       opts.toast(`Upload failed: ${(err as Error).message}`, 'err');
+    } finally {
+      uploadInFlight = false;
     }
   };
 
-  // Wire events.
+  // ── Click event delegation ─────────────────────────────────────────────
   wrap.addEventListener('click', (e) => {
     const target = e.target as HTMLElement | null;
     if (!target) return;
@@ -358,10 +450,32 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
       opts.onClose();
       return;
     }
+    const retry = target.closest<HTMLElement>('[data-retry="1"]');
+    if (retry) {
+      const fn = (retry as HTMLElement & { __piRetry?: () => void }).__piRetry;
+      if (fn) fn();
+      return;
+    }
     const asset = target.closest<HTMLElement>('[data-asset-id]');
     if (asset) {
       const id = asset.dataset.assetId;
       if (id) void onPick(id);
+      return;
+    }
+    const orient = target.closest<HTMLElement>('[data-orient]');
+    if (orient) {
+      orientation = (orient.dataset.orient || 'any') as Orientation;
+      setChipState('orient', orientation);
+      page = 0;
+      void loadAssets();
+      return;
+    }
+    const sortBtn = target.closest<HTMLElement>('[data-sort]');
+    if (sortBtn) {
+      sort = (sortBtn.dataset.sort || 'recent') as Sort;
+      setChipState('sort', sort);
+      page = 0;
+      void loadAssets();
       return;
     }
     const action = target.closest<HTMLElement>('[data-action]')?.dataset.action;
@@ -389,21 +503,187 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
     if (f) void onUpload(f);
   });
 
-  document.addEventListener('keydown', onModalKeyDown);
+  // ── Drag-and-drop upload ───────────────────────────────────────────────
+  let dragDepth = 0;
+  const onDragEnter = (e: DragEvent) => {
+    if (!e.dataTransfer?.types?.includes('Files')) return;
+    e.preventDefault();
+    dragDepth += 1;
+    wrap.classList.add('pi-sanity-modal--drag');
+  };
+  const onDragOver = (e: DragEvent) => {
+    if (!e.dataTransfer?.types?.includes('Files')) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'copy';
+  };
+  const onDragLeave = () => {
+    dragDepth = Math.max(0, dragDepth - 1);
+    if (dragDepth === 0) wrap.classList.remove('pi-sanity-modal--drag');
+  };
+  const onDrop = (e: DragEvent) => {
+    e.preventDefault();
+    dragDepth = 0;
+    wrap.classList.remove('pi-sanity-modal--drag');
+    const f = e.dataTransfer?.files?.[0];
+    if (f && /^image\//.test(f.type)) void onUpload(f);
+    else if (f) opts.toast('Only image files are accepted.', 'err');
+  };
+  wrap.addEventListener('dragenter', onDragEnter);
+  wrap.addEventListener('dragover', onDragOver);
+  wrap.addEventListener('dragleave', onDragLeave);
+  wrap.addEventListener('drop', onDrop);
+
+  // ── Keyboard nav, Esc, focus trap, arrow keys ──────────────────────────
+  const focusableSel =
+    'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  const onKey = (e: KeyboardEvent) => {
+    if (!activeModal) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeMediaLibraryModal();
+      opts.onClose();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusables = Array.from(panel.querySelectorAll<HTMLElement>(focusableSel)).filter(
+        (n) => n.offsetParent !== null,
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+      return;
+    }
+    const inGrid = grid.contains(document.activeElement) || document.activeElement === grid;
+    if (!inGrid || assets.length === 0) return;
+    const cols = Math.max(1, Math.floor(grid.clientWidth / 200));
+    let next = focusedIdx;
+    if (e.key === 'ArrowRight') next = Math.min(assets.length - 1, focusedIdx + 1);
+    else if (e.key === 'ArrowLeft') next = Math.max(0, focusedIdx - 1);
+    else if (e.key === 'ArrowDown') next = Math.min(assets.length - 1, focusedIdx + cols);
+    else if (e.key === 'ArrowUp') next = Math.max(0, focusedIdx - cols);
+    else if (e.key === 'Enter' && focusedIdx >= 0) {
+      e.preventDefault();
+      const a = assets[focusedIdx];
+      if (a) void onPick(a._id);
+      return;
+    } else {
+      return;
+    }
+    if (next !== focusedIdx) {
+      e.preventDefault();
+      focusedIdx = next < 0 ? 0 : next;
+      const target = grid.querySelector<HTMLElement>(`[data-idx="${focusedIdx}"]`);
+      target?.focus();
+    }
+  };
+  document.addEventListener('keydown', onKey);
+
+  activeModalCleanup = () => {
+    document.removeEventListener('keydown', onKey);
+  };
 
   void loadAssets();
+  setTimeout(() => search.focus(), 0);
 }
 
 export function closeMediaLibraryModal(): void {
+  if (activeModalCleanup) {
+    activeModalCleanup();
+    activeModalCleanup = null;
+  }
   if (activeModal) {
     activeModal.remove();
     activeModal = null;
   }
-  document.removeEventListener('keydown', onModalKeyDown);
 }
 
-function onModalKeyDown(e: KeyboardEvent) {
-  if (e.key === 'Escape') closeMediaLibraryModal();
+// ── Error handling ───────────────────────────────────────────────────────
+
+function handleApiError(status: number, error: string | undefined, toast: ToastFn, retry: () => void) {
+  if (status === 401) {
+    toast('Session expired — re-login required.', 'err');
+    showStickyBanner('Session expired.', 'Re-login', '/admin/login/');
+    return;
+  }
+  toast(`${error || 'Request failed'}`, 'err');
+  showStickyBanner(`Error: ${error || 'Request failed'}`, 'Try again', null, retry);
+}
+
+function renderError(host: HTMLElement, status: number, msg: string, retry: () => void) {
+  const sessionExpired = status === 401;
+  host.innerHTML = `
+    <div class="pi-sanity-modal__status pi-sanity-modal__status--err">
+      <div>${sessionExpired ? 'Session expired — please re-login.' : escapeHtml(msg)}</div>
+      <div class="pi-sanity-modal__err-actions">
+        ${sessionExpired
+          ? `<a class="pi-sanity-modal__btn" href="/admin/login/">Re-login</a>`
+          : `<button type="button" class="pi-sanity-modal__btn" data-retry="1">Try again</button>`}
+      </div>
+    </div>
+  `;
+  if (!sessionExpired) {
+    const btn = host.querySelector<HTMLElement>('[data-retry="1"]');
+    if (btn) (btn as HTMLElement & { __piRetry?: () => void }).__piRetry = retry;
+  }
+}
+
+// ── Sticky banner (undo + retry) ─────────────────────────────────────────
+
+let stickyBannerEl: HTMLDivElement | null = null;
+let stickyBannerTimer: ReturnType<typeof setTimeout> | null = null;
+
+function showUndoToast(onUndo: () => void) {
+  showStickyBanner('Replaced from Sanity.', 'Undo (5s)', null, onUndo, 5000);
+}
+
+function showStickyBanner(
+  label: string,
+  actionLabel: string,
+  href: string | null,
+  onAction?: () => void,
+  ttlMs = 6000,
+) {
+  if (stickyBannerEl) {
+    stickyBannerEl.remove();
+    stickyBannerEl = null;
+  }
+  if (stickyBannerTimer) {
+    clearTimeout(stickyBannerTimer);
+    stickyBannerTimer = null;
+  }
+  const el = document.createElement('div');
+  el.className = 'pi-sanity-banner';
+  el.innerHTML = `
+    <span class="pi-sanity-banner__msg">${escapeHtml(label)}</span>
+    ${href
+      ? `<a class="pi-sanity-banner__btn" href="${escapeHtml(href)}">${escapeHtml(actionLabel)}</a>`
+      : `<button type="button" class="pi-sanity-banner__btn" data-banner-action="1">${escapeHtml(actionLabel)}</button>`}
+    <button type="button" class="pi-sanity-banner__close" aria-label="Dismiss">×</button>
+  `;
+  document.body.appendChild(el);
+  stickyBannerEl = el;
+  el.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    if (t.closest('[data-banner-action="1"]')) {
+      onAction?.();
+      el.remove();
+      if (stickyBannerEl === el) stickyBannerEl = null;
+    } else if (t.closest('.pi-sanity-banner__close')) {
+      el.remove();
+      if (stickyBannerEl === el) stickyBannerEl = null;
+    }
+  });
+  stickyBannerTimer = setTimeout(() => {
+    el.remove();
+    if (stickyBannerEl === el) stickyBannerEl = null;
+  }, ttlMs);
 }
 
 // ─── Tiny utils (duplicated here to keep this module self-contained when

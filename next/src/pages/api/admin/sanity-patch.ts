@@ -100,6 +100,20 @@ export const POST: APIRoute = async ({ request }) => {
   // want to patch the published doc.
   if (targetDocId.startsWith('drafts.')) targetDocId = targetDocId.slice('drafts.'.length);
 
+  // Fetch the current asset ref at fieldPath BEFORE patching so the client
+  // can offer an Undo. Non-fatal if it fails — Undo simply won't appear.
+  // The fieldPath has already been validated as a safe identifier above.
+  let previousAssetRef: string | null = null;
+  try {
+    const prev = await client.fetch<{ ref: string | null } | null>(
+      `*[_id == $id][0]{ "ref": ${fieldPath}.asset._ref }`,
+      { id: targetDocId },
+    );
+    if (prev && typeof prev.ref === 'string') previousAssetRef = prev.ref;
+  } catch {
+    /* non-fatal */
+  }
+
   try {
     await client
       .patch(targetDocId)
@@ -122,7 +136,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     return jsonResponse({
       ok: true,
-      data: { docId: targetDocId, fieldPath, newAssetRef, newUrl },
+      data: { docId: targetDocId, fieldPath, newAssetRef, newUrl, previousAssetRef },
     });
   } catch (err) {
     return internalError(`Patch failed: ${(err as Error).message}`);
