@@ -21,6 +21,7 @@
  */
 import type {APIRoute} from 'astro'
 import {isValidSignature, SIGNATURE_HEADER_NAME} from '@sanity/webhook'
+import {routesForDocument as sharedRoutesFor, triggerRevalidate} from '../../lib/sanity/revalidate-paths'
 
 // Static builds (GitHub Pages) don't use this webhook — prerender as a
 // placeholder so output:static doesn't throw NoAdapterInstalled.
@@ -32,48 +33,10 @@ interface SanityWebhookBody {
   slug?: {current?: string} | string | null
 }
 
-// Map a document `_type` → the routes that need invalidating when it changes.
+// Map kept in lib/sanity/revalidate-paths.ts so the admin overlay's
+// /api/admin/sanity-patch can reuse the same routing logic.
 function routesForDocument(body: SanityWebhookBody): string[] {
-  const slug =
-    typeof body.slug === 'string'
-      ? body.slug
-      : typeof body.slug === 'object' && body.slug
-        ? body.slug.current
-        : undefined
-
-  switch (body._type) {
-    case 'venue':
-      if (!slug) return []
-      // Venue pages live under /eat/, /wine/, /stay/ depending on type.
-      // We blast all three — only the right one will actually serve content.
-      return [`/eat/${slug}/`, `/wine/${slug}/`, `/stay/${slug}/`, `/places/`]
-    case 'place':
-      return slug ? [`/places/${slug}/`, `/places/`] : []
-    case 'article':
-      return slug ? [`/journal/${slug}/`, `/journal/`, `/`] : ['/journal/', '/']
-    case 'event':
-      return slug ? [`/whats-on/${slug}/`, `/whats-on/`] : ['/whats-on/']
-    case 'itinerary':
-      return slug ? [`/plans/${slug}/`, `/plans/`] : ['/plans/']
-    case 'tour':
-      return slug ? [`/tour/${slug}/`, `/tour/`] : ['/tour/']
-    case 'tourOperator':
-      return slug ? [`/tour/operators/${slug}/`, `/tour/operators/`] : ['/tour/operators/']
-    case 'tourPackage':
-      return slug ? [`/tour-packages/${slug}/`, `/tour-packages/`] : ['/tour-packages/']
-    case 'experience':
-      return slug ? [`/explore/${slug}/`, `/explore/`] : ['/explore/']
-    case 'homepageCover':
-    case 'megaRail':
-    case 'siteSettings':
-      return ['/']
-    case 'pageHero':
-      // pageHero singletons key on a path field — best-effort: blast the homepage
-      // and the editor can manually trigger a rebuild for deeper hubs if needed.
-      return ['/']
-    default:
-      return []
-  }
+  return sharedRoutesFor({_type: body._type, slug: body.slug})
 }
 
 export const POST: APIRoute = async ({request}) => {
@@ -106,20 +69,11 @@ export const POST: APIRoute = async ({request}) => {
     })
   }
 
-  // Astro's Vercel adapter exposes on-demand revalidation via the platform's
-  // standard `Cache-Control: no-cache` + `purge: 1` semantics. The simplest
-  // portable approach is to fetch each route with a cache-busting header
-  // which the Vercel edge interprets as an invalidation signal.
-  await Promise.all(
-    routes.map((path) =>
-      fetch(`https://peninsulainsider.com.au${path}`, {
-        method: 'GET',
-        headers: {'x-prerender-revalidate': process.env.VERCEL_REVALIDATE_TOKEN ?? ''},
-      }).catch((err) => {
-        console.error(`[revalidate] failed for ${path}:`, err)
-      }),
-    ),
-  )
+  // Fire revalidations through the shared helper. Same logic the admin
+  // overlay uses for inline edits, so a Studio publish and a /admin/
+  // right-click replace go through the same cache-bust path.
+  const origin = new URL(request.url).origin
+  await triggerRevalidate(routes, origin)
 
   console.log(`[revalidate] ${body._type}/${body._id} → ${routes.join(', ')}`)
   return new Response(

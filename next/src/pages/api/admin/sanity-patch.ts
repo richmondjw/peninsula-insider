@@ -25,6 +25,7 @@ import {
   unauthorized,
 } from '../../../lib/cms/server';
 import { entityTypeToSanityType, getSanityWriteClient } from '../../../lib/sanity/write-client';
+import { routesForDocument, triggerRevalidate } from '../../../lib/sanity/revalidate-paths';
 
 export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
 export async function getStaticPaths() {
@@ -133,6 +134,31 @@ export const POST: APIRoute = async ({ request }) => {
       dataset: client.config().dataset!,
     });
     const newUrl = builder.image(newAssetRef).auto('format').url();
+
+    // Fire-and-forget on-demand revalidation so the inline edit reflects
+    // on the public site within a few seconds — no need to wait for a
+    // Sanity webhook (which only catches Studio edits) or a natural
+    // deploy. Best-effort: lookup _type+slug, map to affected routes,
+    // GET each with the prerender-revalidate header.
+    //
+    // We don't await this — the editor's visible swap already happened
+    // client-side; the cache bust is just so OTHER browser sessions
+    // (and the editor's own next page-load) see the new image.
+    (async () => {
+      try {
+        const meta = await client.fetch<{ _type: string; slug?: { current?: string } } | null>(
+          `*[_id == $id][0]{ _type, slug }`,
+          { id: targetDocId },
+        );
+        if (!meta) return;
+        const routes = routesForDocument({ _type: meta._type, slug: meta.slug });
+        if (routes.length === 0) return;
+        const origin = new URL(request.url).origin;
+        await triggerRevalidate(routes, origin);
+      } catch (err) {
+        console.error('[sanity-patch] revalidate trigger failed:', err);
+      }
+    })();
 
     return jsonResponse({
       ok: true,
