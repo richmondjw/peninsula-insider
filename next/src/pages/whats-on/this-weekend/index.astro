@@ -285,11 +285,11 @@ export const prerender = true;
       {/* ─── Mid-page newsletter CTA ────────────────────────────────── */}
       <aside class="ptw-cta" aria-label="Newsletter signup">
         <p class="ptw-cta__eyebrow">Get the dispatch in your inbox</p>
-        <h2 class="ptw-cta__title">One email, every week, for the weekend ahead.</h2>
         <p class="ptw-cta__body">
-          Written by a single editor who lives on the Peninsula. No roundups, no partner posts, no fluff.
+          Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.
         </p>
-        <a class="ptw-cta__button" href="/newsletter/">Subscribe to Peninsula This Weekend →</a>
+        <p class="ptw-cta__sub">Curated and sent occasionally by Peninsula Insider.</p>
+        <a class="ptw-cta__button" href="/newsletter/">Join</a>
       </aside>
 
       {/* ─── Editor's long-form body (existing markdown) ────────────── */}
@@ -536,9 +536,15 @@ export const prerender = true;
     color: var(--ink, #211e1c);
   }
   .ptw-cta__body {
-    margin: 0 0 1.5rem;
+    margin: 0 0 0.75rem;
     color: var(--ink-soft, #433d39);
     line-height: 1.6;
+  }
+  .ptw-cta__sub {
+    margin: 0 0 1.5rem;
+    font-size: 0.85rem;
+    color: var(--ink-muted, #6E655C);
+    font-style: italic;
   }
   .ptw-cta__button {
     display: inline-block;
