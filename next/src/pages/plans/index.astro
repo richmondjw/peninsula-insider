@@ -20,7 +20,7 @@ const itinerariesRaw = (await getCollection('itineraries')).sort(
 );
 
 // Dual-read itineraries through Sanity so admin overlay heroImage edits
-// persist on the hub. Same PR #211 pattern. Small set (~6) — trivial cost.
+// persist on the hub. Same PR #211 pattern. Small set (~6) - trivial cost.
 const itineraryReadOn = sanityReadEnabled('itineraries');
 const itineraries = itineraryReadOn
   ? await Promise.all(
@@ -40,9 +40,9 @@ const allVenues = await getCollection('venues');
 const stays = allVenues.filter((venue) => stayTypes.includes(venue.data.type));
 const places = await getCollection('places');
 // Editorial curation via schema flag (editorPick: true on venue JSON).
-// No hardcoded slugs — editors update the JSON to change what surfaces here.
+// No hardcoded slugs - editors update the JSON to change what surfaces here.
 const stayHighlights = stays.filter((venue) => venue.data.editorPick);
-// The Notebook — one contextual planning note for the Plans hub.
+// The Notebook - one contextual planning note for the Plans hub.
 const _pnow = new Date();
 const _pNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _pnow))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
@@ -51,7 +51,7 @@ const notebookNote = _pNotes.find((n) => ['eat', 'stay', 'explore', 'wine'].incl
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-// Plans articles — articles tagged section: plans, surfaced here as the
+// Plans articles - articles tagged section: plans, surfaced here as the
 // editorial planning layer. These live at /journal/[slug] until the full
 // URL routing sprint lands.
 const plansArticles = articlesAll
@@ -59,7 +59,7 @@ const plansArticles = articlesAll
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 // Editorial curation via schema flag (featured: true on place JSON).
-// No hardcoded slugs — editors update the JSON to change what surfaces here.
+// No hardcoded slugs - editors update the JSON to change what surfaces here.
 const placeHighlights = places.filter((place) => place.data.featured);
 
 const oneNight = itineraries.filter((it) => it.data.lengthNights <= 1);
@@ -68,13 +68,13 @@ const longer = itineraries.filter((it) => it.data.lengthNights >= 3);
 
 // Editorial grouping for the four-section "Peninsula planning guides"
 // block below. Source of truth is the `planShape` frontmatter field on
-// each plans article — assigned per piece, no overlap, no regex luck.
+// each plans article - assigned per piece, no overlap, no regex luck.
 //
 // Render order is fixed (one-night → two-night → day-trip → seasonal)
 // so the page reads as a coherent length-of-trip ladder. Each group
 // shows up to 6 articles, sorted by publishedAt desc (i.e. newest
 // editorial decisions first). A plans article without a `planShape`
-// value will not appear here — it's an explicit editorial step.
+// value will not appear here - it's an explicit editorial step.
 const planShapeGroups = [
   {
     key: 'one-night',
@@ -169,19 +169,62 @@ export const prerender = true;
   </style>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       EDITORIAL SURFACE — Slow Weekend (Level 2)
+       EDITORIAL SURFACE - Slow Weekend (Level 2)
        Post-hero, pre-grid. One surface per hub. Phase 1: PI voice only.
        ═══════════════════════════════════════════════════════════════ -->
   <div class="plans-surface-wrap container">
     <EditorialSurface
       level={2}
       surface="Slow Weekend"
-      season="Autumn 2026"
-      name="Two nights. One long lunch. No schedule pressure."
-      verdict="The Peninsula’s strongest weekends are the ones with three things in them, not ten. Ridge on Saturday. Coast on Sunday. A table worth driving for in between. This is the plan that earns the drive home."
+      season="Winter 2026"
+      name="Fewer decisions. Better days."
+      verdict="Winter is when the Peninsula stops performing for visitors and starts working for people who know how to use it. One table, one walk, one night somewhere quiet. The best Peninsula days have always been the ones with room in them."
       href="/plans/"
     />
   </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       1b. PLAN BY MOOD — occasion-led entry points
+       Four moods, each linking to the relevant planning article or itinerary.
+       Keeps the trip-length grid from being the only way in.
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="plans-mood" aria-label="Plan by mood">
+    <div class="container">
+      <div class="venues__header">
+        <div>
+          <p class="label label--accent">Plan by mood</p>
+          <h2 class="venues__title">The Peninsula responds well to the right intention</h2>
+          <p class="venues__sub venues__sub--standfirst">Not every Peninsula trip is the same shape. Choose the mood first, then the plan finds you.</p>
+        </div>
+      </div>
+      <div class="mood-grid">
+        <a class="mood-card" href="/journal/a-winter-peninsula-weekend/">
+          <span class="mood-card__icon" aria-hidden="true">🔥</span>
+          <strong class="mood-card__title">Fireplace Weekend</strong>
+          <p class="mood-card__dek">Cellar doors with hearths, fog on the ridge, and a dining room that earns the drive. The Peninsula in winter is its most itself.</p>
+          <span class="mood-card__link">Read the plan →</span>
+        </a>
+        <a class="mood-card" href="/journal/rainy-day-peninsula/" data-fallback-href="/plans/">
+          <span class="mood-card__icon" aria-hidden="true">🌧️</span>
+          <strong class="mood-card__title">Rainy Day Plans</strong>
+          <p class="mood-card__dek">A wet Peninsula day doesn’t mean a wasted one. Hot springs, cellar door tastings, covered markets, and bakeries that justify the drive on any forecast.</p>
+          <span class="mood-card__link">Read the plan →</span>
+        </a>
+        <a class="mood-card" href="/plans/wellness-weekend/">
+          <span class="mood-card__icon" aria-hidden="true">🌿</span>
+          <strong class="mood-card__title">Slow Wine Weekend</strong>
+          <p class="mood-card__dek">Two cellar doors, one long lunch, nowhere to be. The Peninsula’s wine region rewards the visitors who decide in advance not to rush it.</p>
+          <span class="mood-card__link">See the plan →</span>
+        </a>
+        <a class="mood-card" href="/plans/sorrento-off-season-weekend/">
+          <span class="mood-card__icon" aria-hidden="true">🧘</span>
+          <strong class="mood-card__title">One Booking Day</strong>
+          <p class="mood-card__dek">One table, one walk, one swim if the water is right. The best Peninsula days have always been the ones with room in them rather than a schedule to execute.</p>
+          <span class="mood-card__link">See the plan →</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
        2. PLANNING GUIDES — planShape groups as hero
@@ -254,7 +297,7 @@ export const prerender = true;
         { label: 'Format', value: 'Friday arrival, full Saturday on the ridge, full Sunday on the coast (or vice versa), Monday-morning drive home. The trip stops performing and starts settling.' },
         { label: 'Best for', value: 'Two-region trips, wine plus walks, ridge plus tip, hot springs plus a beach. Restorative weekends that need a real second day.' },
         { label: 'Best base', value: 'Red Hill if the food is the centre. Sorrento or Flinders if the coast is the centre. Pick one and commit.' },
-        { label: 'Trade-offs', value: 'More planning, more booking. Hatted rooms and best stays book 4–8 weeks ahead.' },
+        { label: 'Trade-offs', value: 'More planning, more booking. Hatted rooms and best stays book 4-8 weeks ahead.' },
         { label: 'Pair with', value: 'A long Saturday lunch on the ridge, hot springs Sunday morning, a coastal walk before the drive home.' },
       ],
     }}
@@ -537,5 +580,51 @@ export const prerender = true;
     color: var(--text-muted, #5f5a50);
     font-size: 0.85rem;
     font-style: normal;
+  }
+
+  /* ── Mood grid ——————————————————————————─ */
+  .plans-mood { padding: 3rem 0; }
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 900px) { .mood-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .mood-grid { grid-template-columns: 1fr; } }
+  .mood-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.5rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    text-decoration: none;
+    background: var(--bg);
+    transition: border-color 0.18s, background 0.18s;
+  }
+  .mood-card:hover { border-color: var(--accent); background: var(--bg-alt, #f7f5f0); }
+  .mood-card__icon { font-size: 1.4rem; line-height: 1; }
+  .mood-card__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .mood-card__dek {
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: var(--soft);
+    flex: 1;
+    margin: 0;
+  }
+  .mood-card__link {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    margin-top: 0.25rem;
   }
 </style>
