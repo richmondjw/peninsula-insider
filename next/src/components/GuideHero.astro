@@ -81,7 +81,21 @@ const dekAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.dek', label: `${entitySlug} hero dek` })
   : {};
 const imageAttrs = editable
-  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero image`, purpose: 'hero' })
+  ? editableImage({
+      entityType,
+      entitySlug: entitySlug!,
+      fieldPath: 'hero',
+      label: `${entitySlug} hero image`,
+      purpose: 'hero',
+      // When the page-level singleton is in play, point the admin overlay
+      // at the pageHero doc keyed by slug (slashes → double-dash).
+      ...(isPageEntity
+        ? {
+            sanitySingletonId: `pageHero-${entitySlug!.replace(/\//g, '--')}`,
+            sanitySingletonPath: 'image',
+          }
+        : {}),
+    })
   : {};
 ---
 

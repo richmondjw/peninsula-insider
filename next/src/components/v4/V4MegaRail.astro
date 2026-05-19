@@ -28,15 +28,31 @@ const { rail, pillarKey } = Astro.props;
 let imageSrc = rail.image;
 let imageAlt = rail.imageAlt;
 
+// Canonical entry order matches the megaRail schema's `key` enum. We use
+// this as the fallback index when the Sanity dual-read hasn't fired, so
+// the admin overlay's patch path (entries[idx].image) still resolves.
+const canonicalOrder = ['whats-on', 'escape', 'eat', 'wine', 'stay'];
+let sanityEntryIndex: number | null = null;
+
 const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
 if (isPreview || sanityReadEnabled('page-level')) {
   const entries = await fetchMegaRailFromSanity({preview: isPreview});
-  const entry = entries?.find((e) => e.key === pillarKey);
-  if (entry?.imageSrc) {
-    imageSrc = entry.imageSrc;
-    imageAlt = entry.imageAlt ?? rail.imageAlt;
+  const idx = entries?.findIndex((e) => e.key === pillarKey) ?? -1;
+  if (entries && idx >= 0) {
+    sanityEntryIndex = idx;
+    const entry = entries[idx];
+    if (entry?.imageSrc) {
+      imageSrc = entry.imageSrc;
+      imageAlt = entry.imageAlt ?? rail.imageAlt;
+    }
   }
-} else {
+}
+if (sanityEntryIndex === null) {
+  const fallbackIdx = canonicalOrder.indexOf(pillarKey);
+  if (fallbackIdx >= 0) sanityEntryIndex = fallbackIdx;
+}
+
+if (!isPreview && !sanityReadEnabled('page-level')) {
   const globalOverrides = await loadOverrides('page', '_global');
   const overrideImage = globalOverrides.image[`mega-rail.${pillarKey}`];
   if (overrideImage?.src) {
@@ -56,8 +72,14 @@ if (isPreview || sanityReadEnabled('page-level')) {
         entityType: 'page',
         entitySlug: '_global',
         fieldPath: `mega-rail.${pillarKey}`,
-        label: `Mega menu — ${pillarKey} rail image`,
+        label: `Mega rail: ${rail.title ?? pillarKey}`,
         purpose: 'inline',
+        ...(sanityEntryIndex !== null
+          ? {
+              sanitySingletonId: 'megaRail',
+              sanitySingletonPath: `entries[${sanityEntryIndex}].image`,
+            }
+          : {}),
       })}
     />
   </div>

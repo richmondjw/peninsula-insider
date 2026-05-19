@@ -84,7 +84,19 @@ const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
   : {};
 const imageAttrs = editable
-  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero image`, purpose: 'hero' })
+  ? editableImage({
+      entityType,
+      entitySlug: entitySlug!,
+      fieldPath: 'hero',
+      label: `${entitySlug} hero image`,
+      purpose: 'hero',
+      ...(isPageEntity
+        ? {
+            sanitySingletonId: `pageHero-${entitySlug!.replace(/\//g, '--')}`,
+            sanitySingletonPath: 'image',
+          }
+        : {}),
+    })
   : {};
 ---
 
