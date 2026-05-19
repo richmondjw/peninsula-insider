@@ -48,8 +48,9 @@ let resolvedDek = dek;
 let resolvedHeroImage = heroImage;
 
 const isPageEntity = entityType === 'page' && !!entitySlug;
-if (isPageEntity && sanityReadEnabled('page-level')) {
-  const ph = await fetchPageHeroFromSanity(entitySlug!);
+const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
+if (isPageEntity && (isPreview || sanityReadEnabled('page-level'))) {
+  const ph = await fetchPageHeroFromSanity(entitySlug!, {preview: isPreview});
   if (ph) {
     if (ph.title) resolvedTitle = ph.title;
     if (ph.dek) resolvedDek = ph.dek;

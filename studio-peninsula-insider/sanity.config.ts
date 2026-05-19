@@ -117,20 +117,25 @@ export default defineConfig({
                 ? {locations: [{title: doc?.name ?? doc.slug, href: `/preview/tour-packages/${doc.slug}/`}]}
                 : null,
           }),
+          // Singletons resolve to /preview/ SSR routes (added in feat/preview-singletons)
+          // rather than the public URLs. Public hub pages are statically prerendered
+          // and can't host the Visual Editing channel — only SSR routes carry stega.
           homepageCover: defineLocations({
-            resolve: () => ({locations: [{title: 'Homepage', href: '/'}]}),
+            resolve: () => ({locations: [{title: 'Homepage cover', href: '/preview/home/'}]}),
           }),
           megaRail: defineLocations({
-            resolve: () => ({locations: [{title: 'Homepage', href: '/'}]}),
+            // Mega rail renders in every page's header; the homepage preview is the
+            // most convenient surface to edit it from.
+            resolve: () => ({locations: [{title: 'Mega menu rail', href: '/preview/home/'}]}),
           }),
           siteSettings: defineLocations({
-            resolve: () => ({locations: [{title: 'Homepage', href: '/'}]}),
+            resolve: () => ({locations: [{title: 'Site settings', href: '/preview/home/'}]}),
           }),
           pageHero: defineLocations({
             select: {pathSlug: 'pathSlug'},
             resolve: (doc) =>
               doc?.pathSlug
-                ? {locations: [{title: doc.pathSlug, href: `/${doc.pathSlug}/`}]}
+                ? {locations: [{title: doc.pathSlug, href: `/preview/hero/${doc.pathSlug}/`}]}
                 : null,
           }),
         },

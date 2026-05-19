@@ -28,8 +28,9 @@ const { rail, pillarKey } = Astro.props;
 let imageSrc = rail.image;
 let imageAlt = rail.imageAlt;
 
-if (sanityReadEnabled('page-level')) {
-  const entries = await fetchMegaRailFromSanity();
+const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
+if (isPreview || sanityReadEnabled('page-level')) {
+  const entries = await fetchMegaRailFromSanity({preview: isPreview});
   const entry = entries?.find((e) => e.key === pillarKey);
   if (entry?.imageSrc) {
     imageSrc = entry.imageSrc;
