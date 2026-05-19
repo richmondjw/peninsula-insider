@@ -14,6 +14,8 @@ import {
 import { routeSlug } from '../../lib/editorial';
 import { sanityReadEnabled } from '../../lib/sanity/client';
 import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
+import { fetchPlaceFromSanity } from '../../lib/sanity/place-adapter';
+import { fetchPageHeroFromSanity } from '../../lib/sanity/singletons-adapter';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 6 ("Markets editorial") that link to a journal article bind
@@ -34,6 +36,29 @@ const heroRedHillSaturday = await resolveArticleHero(
   'how-to-build-a-red-hill-saturday',
   '/images/sourced/article-red-hill-saturday-01.webp',
 );
+
+// Cards that link to a /places/<slug>/ guide bind to that place's heroImage in
+// Sanity. Cards that link to a hub (/wine/) bind to that hub's pageHero
+// singleton image. Same "edit-once, propagate" model as the article cards.
+const allPlacesForCards = await getCollection('places');
+async function resolvePlaceHero(slug: string, fallback: string): Promise<string> {
+  if (sanityReadEnabled('places')) {
+    const sanityPlace = await fetchPlaceFromSanity(slug);
+    if (sanityPlace?.data.heroImage?.src) return sanityPlace.data.heroImage.src;
+  }
+  const local = allPlacesForCards.find((p) => routeSlug(p) === slug);
+  return (local?.data as any)?.heroImage?.src ?? fallback;
+}
+async function resolveHubHero(pathSlug: string, fallback: string): Promise<string> {
+  if (sanityReadEnabled('page-level')) {
+    const ph = await fetchPageHeroFromSanity(pathSlug);
+    if (ph?.imageSrc) return ph.imageSrc;
+  }
+  return fallback;
+}
+const heroWineHub = await resolveHubHero('wine', '/images/sourced/category-cottage-01.webp');
+const heroPlaceRedHill = await resolvePlaceHero('red-hill', '/images/sourced/place-red-hill-01.webp');
+const heroPlaceBalnarring = await resolvePlaceHero('balnarring', '/images/sourced/place-balnarring-01.webp');
 
 // ── Load markets in editorial order ───────────────────────────────────────────
 const allExperiences = await getCollection('experiences');
@@ -404,14 +429,14 @@ export const prerender = true;
           </div>
         </a>
         {/*
-          The three cards below link to hub/place routes (/wine/, /places/red-hill/,
-          /places/balnarring/), not to journal articles. There's no parent editorial
-          doc to bind these images to today, so they stay hardcoded. When a Sanity
-          schema for place/hub hero images lands these can be wired the same way as
-          the Red Hill Saturday card above.
+          The three cards below bind to their destination's hero image:
+          /wine/ → pageHero singleton with pathSlug "wine"
+          /places/red-hill/ → red-hill place doc heroImage
+          /places/balnarring/ → balnarring place doc heroImage
+          Editing any of those propagates here automatically.
         */}
         <a href="/wine/" class="market-article-card">
-          <div class="market-article-card__img" style="background-image: url('/images/sourced/category-cottage-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__img" style={`background-image: url('${heroWineHub}')`} aria-hidden="true"></div>
           <div class="market-article-card__body">
             <p class="market-article-card__tag">Hub</p>
             <h3 class="market-article-card__title">Red Hill and Main Ridge cellar doors</h3>
@@ -420,7 +445,7 @@ export const prerender = true;
           </div>
         </a>
         <a href="/places/red-hill/" class="market-article-card">
-          <div class="market-article-card__img" style="background-image: url('/images/sourced/place-red-hill-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__img" style={`background-image: url('${heroPlaceRedHill}')`} aria-hidden="true"></div>
           <div class="market-article-card__body">
             <p class="market-article-card__tag">Place guide</p>
             <h3 class="market-article-card__title">Red Hill — the village around the market</h3>
@@ -429,7 +454,7 @@ export const prerender = true;
           </div>
         </a>
         <a href="/places/balnarring/" class="market-article-card">
-          <div class="market-article-card__img" style="background-image: url('/images/sourced/place-balnarring-01.webp')" aria-hidden="true"></div>
+          <div class="market-article-card__img" style={`background-image: url('${heroPlaceBalnarring}')`} aria-hidden="true"></div>
           <div class="market-article-card__body">
             <p class="market-article-card__tag">Place guide</p>
             <h3 class="market-article-card__title">Balnarring — the Western Port quiet half</h3>
