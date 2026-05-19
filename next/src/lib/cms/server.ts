@@ -75,6 +75,37 @@ export function readSupabaseAccessToken(cookieHeader: string | null | undefined)
   return null;
 }
 
+export function readSupabaseRefreshToken(cookieHeader: string | null | undefined): string | null {
+  return readCookie(cookieHeader, PI_AUTH_REFRESH_COOKIE);
+}
+
+/**
+ * When the access token cookie is missing but a refresh token cookie is
+ * present, exchange it for a fresh access token via Supabase's
+ * refresh_token grant. Returns the new access token on success.
+ *
+ * Used by the admin gate so a one-hour idle period doesn't lock an
+ * authenticated admin out of /api/admin/*.
+ */
+export async function refreshAccessToken(refreshToken: string): Promise<string | null> {
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) return null;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=refresh_token`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: SUPABASE_ANON_KEY,
+      },
+      body: JSON.stringify({ refresh_token: refreshToken }),
+    });
+    if (!res.ok) return null;
+    const body = (await res.json()) as { access_token?: string };
+    return body.access_token ?? null;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Build a Supabase client scoped to the request user's JWT. All queries it
  * issues will pass the JWT in the Authorization header, so RLS evaluates as
@@ -133,7 +164,21 @@ export async function resolveCmsAccess(
 ): Promise<ResolvedCmsAccess> {
   if (!isCmsServerConfigured()) return { ok: false, reason: 'not-configured' };
 
-  const token = readSupabaseAccessToken(cookieHeader);
+  let token = readSupabaseAccessToken(cookieHeader);
+
+  // Refresh-token fallback: if the access token cookie is missing but a
+  // refresh token is present, exchange it for a fresh access token. This
+  // covers the common case where Supabase's auto-refresh fires
+  // browser-side but the access-token cookie hasn't been resynced yet,
+  // or the access token expired and the user revisited after >1hr.
+  if (!token) {
+    const refresh = readSupabaseRefreshToken(cookieHeader);
+    if (refresh) {
+      const fresh = await refreshAccessToken(refresh);
+      if (fresh) token = fresh;
+    }
+  }
+
   if (!token) return { ok: false, reason: 'no-token' };
 
   const client = createCmsClientForToken(token);
