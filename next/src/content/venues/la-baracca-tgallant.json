@@ -10,8 +10,8 @@
   },
   "address": "1385 Mornington-Flinders Rd, Main Ridge VIC 3928",
   "phone": "+61 3 5989 6565",
-  "website": "https://www.tgallant.com.au/la-baracca",
-  "bookingUrl": "https://www.tgallant.com.au/dining",
+  "website": "https://www.tgallant.com.au",
+  "bookingUrl": "https://www.tgallant.com.au",
   "bookingProvider": "direct",
   "priceBand": "$$",
   "signature": "The Peninsula's original winery pizza barn  -  wood-fired margheritas, handmade pasta, and the estate's Pinot Grigio by the carafe",
@@ -47,7 +47,7 @@
   },
   "heroImage": {
     "src": "/images/sourced/category-restaurant-03.webp",
-    "alt": "Mornington Peninsula landscape \u2014 representative image for La Baracca at T'Gallant",
+    "alt": "Mornington Peninsula landscape — representative image for La Baracca at T'Gallant",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
@@ -55,5 +55,6 @@
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true
+  "sitemapExclude": true,
+  "operatingStatus": "verify-open"
 }
