@@ -150,6 +150,7 @@ function blocksToText(blocks: Array<Record<string, unknown>> | null | undefined)
 function imageRefToAstroShape(
   img: SanityImageRef,
   fallbackAlt: string,
+  ctx?: {docId: string; docType: string; path: string},
 ): {src: string; alt: string; credit: string; license: string; caption?: string} {
   if (!img?.asset) {
     return {
@@ -160,7 +161,7 @@ function imageRefToAstroShape(
     }
   }
   return {
-    src: intentUrl(img, 'hero'),
+    src: intentUrl(img, 'hero', ctx),
     alt: img.alt ?? fallbackAlt,
     credit: img.credit ?? '',
     license: img.license ?? 'venue-media-kit',
@@ -169,10 +170,20 @@ function imageRefToAstroShape(
 }
 
 function adapt(doc: SanityVenue): AdaptedVenue {
-  const heroImage = imageRefToAstroShape(doc.heroImage ?? null, doc.name)
+  const heroImage = imageRefToAstroShape(doc.heroImage ?? null, doc.name, {
+    docId: doc._id,
+    docType: 'venue',
+    path: 'heroImage',
+  })
   const gallery = (doc.gallery ?? [])
     .filter((g): g is NonNullable<SanityImageRef> => g != null)
-    .map((g) => imageRefToAstroShape(g, doc.name))
+    .map((g, idx) =>
+      imageRefToAstroShape(g, doc.name, {
+        docId: doc._id,
+        docType: 'venue',
+        path: `gallery[${idx}]`,
+      }),
+    )
 
   return {
     id: doc.slug,
