@@ -20,12 +20,16 @@ type SanityImageRef = {
   license?: string | null
 } | null
 
-function imageOrFallback(image: SanityImageRef, fallbackAlt: string) {
+function imageOrFallback(
+  image: SanityImageRef,
+  fallbackAlt: string,
+  ctx?: {docId: string; docType: string; path: string},
+) {
   if (!image?.asset) {
     return {src: '/images/sourced/home-cover.webp', alt: fallbackAlt, credit: '', license: 'venue-media-kit'}
   }
   return {
-    src: intentUrl(image, 'hero'),
+    src: intentUrl(image, 'hero', ctx),
     alt: image.alt ?? fallbackAlt,
     credit: image.credit ?? '',
     license: image.license ?? 'venue-media-kit',
@@ -85,7 +89,9 @@ export async function fetchExperienceFromSanity(slug: string) {
       offLeashNearby: d.offLeashNearby ?? undefined,
       waterAccessNearby: d.waterAccessNearby ?? undefined,
       rainyDayDogSuitability: d.rainyDayDogSuitability ?? undefined,
-      heroImage: imageOrFallback(d.heroImage ?? null, d.name),
+      heroImage: imageOrFallback(d.heroImage ?? null, d.name, {
+        docId: d._id, docType: 'experience', path: 'heroImage',
+      }),
       gallery: [],
       golf: d.golf ?? undefined,
       lastVerified: new Date(d.lastVerified),
@@ -124,7 +130,9 @@ export async function fetchTourOperatorFromSanity(slug: string) {
       affiliateProgram: d.affiliateProgram ?? 'unknown',
       affiliateUrl: d.affiliateUrl ?? undefined,
       vetted: !!d.vetted,
-      heroImage: imageOrFallback(d.heroImage ?? null, d.name),
+      heroImage: imageOrFallback(d.heroImage ?? null, d.name, {
+        docId: d._id, docType: 'tourOperator', path: 'heroImage',
+      }),
       lastVerified: new Date(d.lastVerified),
       publishedAt: new Date(d.publishedAt),
     },
@@ -179,7 +187,9 @@ export async function fetchTourFromSanity(slug: string) {
       bookingIntelligence: d.bookingIntelligence ?? undefined,
       cancellationPolicy: d.cancellationPolicy ?? undefined,
       faq: d.faq ?? [],
-      heroImage: imageOrFallback(d.heroImage ?? null, d.name),
+      heroImage: imageOrFallback(d.heroImage ?? null, d.name, {
+        docId: d._id, docType: 'tour', path: 'heroImage',
+      }),
       lastVerified: new Date(d.lastVerified),
       publishedAt: new Date(d.publishedAt),
     },
@@ -222,7 +232,9 @@ export async function fetchTourPackageFromSanity(slug: string) {
       whyThisCombination: d.whyThisCombination,
       bookingSequence: d.bookingSequence ?? undefined,
       faq: d.faq ?? [],
-      heroImage: imageOrFallback(d.heroImage ?? null, d.name),
+      heroImage: imageOrFallback(d.heroImage ?? null, d.name, {
+        docId: d._id, docType: 'tourPackage', path: 'heroImage',
+      }),
       lastVerified: new Date(d.lastVerified),
       publishedAt: new Date(d.publishedAt),
     },
