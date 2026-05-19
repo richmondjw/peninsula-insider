@@ -16,11 +16,34 @@
  */
 import imageUrlBuilder from '@sanity/image-url'
 import type {SanityImageSource} from '@sanity/image-url/lib/types/types'
+import {vercelStegaCombine} from '@vercel/stega'
 import {sanityClient} from './client'
 
 const builder = imageUrlBuilder(sanityClient)
 
+const STUDIO_URL = 'https://peninsula-insider.sanity.studio'
+
 export type ImageIntent = 'hero' | 'card' | 'thumb' | 'gallery' | 'og'
+
+/**
+ * Optional source-document context for stega-encoding the generated image
+ * URL. When provided, intentUrl appends an invisible stega payload pointing
+ * at the Studio intent URL for the underlying field, so the admin overlay's
+ * stega-fallback resolver can decode docId + fieldPath off the rendered
+ * <img src> even when the element lacks explicit `data-pi-edit` attrs.
+ *
+ * The encoded payload is whitespace-zero-width chars appended to the URL;
+ * browsers, the Sanity CDN, and any consumer that trims/normalises the
+ * string all ignore it.
+ */
+export interface SanitySourceContext {
+  /** Sanity document `_id` */
+  docId: string
+  /** Sanity document `_type` (used to populate the Studio intent URL) */
+  docType: string
+  /** Dot/bracket-notation path to the image field (e.g. `heroImage`, `gallery[0]`) */
+  path: string
+}
 
 const intentDefaults: Record<
   ImageIntent,
@@ -37,12 +60,38 @@ export function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
 
+/**
+ * Build a Sanity Studio intent URL for an `edit` action on the given doc + path.
+ * Shape mirrors what @sanity/client's stega encoder emits, so the admin
+ * overlay's `parseStudioIntentHref()` decodes it identically.
+ */
+function buildStudioIntentHref(ctx: SanitySourceContext): string {
+  const segment = `id=${ctx.docId};type=${ctx.docType};path=${ctx.path}`
+  return `${STUDIO_URL}/intent/edit/${encodeURIComponent(segment)}`
+}
+
+/**
+ * Wrap a URL with a stega-encoded Sanity source marker, when context is
+ * provided. Safe no-op when ctx is undefined.
+ */
+function withStega(url: string, ctx?: SanitySourceContext): string {
+  if (!ctx) return url
+  const payload = {origin: 'sanity.io', href: buildStudioIntentHref(ctx)}
+  // `skip: false` forces encoding even outside Vercel edge runtimes — we
+  // want the marker present on every server-rendered URL.
+  return vercelStegaCombine(url, payload, false)
+}
+
 /** Convenience: build the canonical URL for a given intent. */
-export function intentUrl(source: SanityImageSource, intent: ImageIntent): string {
+export function intentUrl(
+  source: SanityImageSource,
+  intent: ImageIntent,
+  ctx?: SanitySourceContext,
+): string {
   const cfg = intentDefaults[intent]
   let b = builder.image(source).width(cfg.width).auto('format').fit('max')
   if (cfg.height) b = b.height(cfg.height).fit('crop')
-  return b.quality(cfg.quality).url()
+  return withStega(b.quality(cfg.quality).url(), ctx)
 }
 
 /**
