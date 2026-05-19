@@ -191,7 +191,7 @@ export const prerender = true;
       })}>{experience.data.name}</h1>
 
       <div class={`experience-detail__hero feature__image-block ${heroClass}`} aria-hidden="true" style={heroStyle} {...editableImage({
-        entityType: 'experience', entitySlug: slug, fieldPath: 'hero',
+        entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage',
         label: `${experience.data.name} hero`, purpose: 'hero',
       })}>
         <div class="experience-detail__hero-fog"></div>
