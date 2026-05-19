@@ -74,13 +74,19 @@ function buildStudioIntentHref(ctx: SanitySourceContext): string {
  * Wrap a URL with a stega-encoded Sanity source marker, when context is
  * provided. Safe no-op when ctx is undefined.
  */
-function withStega(url: string, ctx?: SanitySourceContext): string {
-  if (!ctx) return url
-  const payload = {origin: 'sanity.io', href: buildStudioIntentHref(ctx)}
-  // `skip: false` forces encoding even outside Vercel edge runtimes — we
-  // want the marker present on every server-rendered URL.
-  return vercelStegaCombine(url, payload, false)
+// withStega was a no-op for ctx=undefined, otherwise appended Sanity
+// stega chars to the URL. Disabled because those invisible chars broke
+// CSS `background-image: url(...)` parsing across dozens of components.
+// Admin overlay binds via explicit data-pi-edit / data-pi-sanity-
+// singleton-* attrs / pi.image_bindings, so the stega fallback isn't
+// needed. Signature kept so call sites compile unchanged.
+function withStega(url: string, _ctx?: SanitySourceContext): string {
+  void _ctx
+  return url
 }
+// Reference imports so build doesn't complain about them being unused.
+void vercelStegaCombine
+void buildStudioIntentHref
 
 /** Convenience: build the canonical URL for a given intent. */
 export function intentUrl(
