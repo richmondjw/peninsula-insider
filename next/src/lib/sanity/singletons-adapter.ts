@@ -21,21 +21,42 @@ type SanityImageRef = {
   license?: string | null
 } | null
 
-function imageOrFallback(image: SanityImageRef, fallback: string, fallbackAlt: string) {
+interface StegaCtx {
+  docId: string
+  docType: string
+  path: string
+}
+
+function imageOrFallback(
+  image: SanityImageRef,
+  fallback: string,
+  fallbackAlt: string,
+  ctx?: StegaCtx,
+) {
   if (!image?.asset) return {src: fallback, alt: fallbackAlt}
-  return {src: intentUrl(image, 'hero'), alt: image.alt ?? fallbackAlt}
+  return {src: intentUrl(image, 'hero', ctx), alt: image.alt ?? fallbackAlt}
 }
 
 /** Small-icon variant: thumb-intent URL (320w), suits logos / avatars. */
-function iconOrFallback(image: SanityImageRef, fallback: string, fallbackAlt: string) {
+function iconOrFallback(
+  image: SanityImageRef,
+  fallback: string,
+  fallbackAlt: string,
+  ctx?: StegaCtx,
+) {
   if (!image?.asset) return {src: fallback, alt: fallbackAlt}
-  return {src: intentUrl(image, 'thumb'), alt: image.alt ?? fallbackAlt}
+  return {src: intentUrl(image, 'thumb', ctx), alt: image.alt ?? fallbackAlt}
 }
 
 /** OG-intent (1200x630) variant for share-card fallback imagery. */
-function ogOrFallback(image: SanityImageRef, fallback: string, fallbackAlt: string) {
+function ogOrFallback(
+  image: SanityImageRef,
+  fallback: string,
+  fallbackAlt: string,
+  ctx?: StegaCtx,
+) {
   if (!image?.asset) return {src: fallback, alt: fallbackAlt}
-  return {src: intentUrl(image, 'og'), alt: image.alt ?? fallbackAlt}
+  return {src: intentUrl(image, 'og', ctx), alt: image.alt ?? fallbackAlt}
 }
 
 // Homepage cover ----------------------------------------------------------
@@ -70,8 +91,12 @@ export async function fetchHomepageCoverFromSanity(opts: FetchOpts = {}): Promis
   const d: any = await getSanityReadClient(opts.preview).fetch(homepageCoverQuery)
   if (!d?.scenes?.length) return null
   return {
-    scenes: d.scenes.map((s: any) => {
-      const i = imageOrFallback(s.image, '/images/sourced/home-cover.webp', s.label ?? '')
+    scenes: d.scenes.map((s: any, idx: number) => {
+      const i = imageOrFallback(s.image, '/images/sourced/home-cover.webp', s.label ?? '', {
+        docId: 'homepageCover',
+        docType: 'homepageCover',
+        path: `scenes[${idx}].image`,
+      })
       return {
         id: s.id ?? '',
         label: s.label ?? '',
@@ -111,9 +136,13 @@ export interface MegaRailEntry {
 export async function fetchMegaRailFromSanity(opts: FetchOpts = {}): Promise<MegaRailEntry[] | null> {
   const d: any = await getSanityReadClient(opts.preview).fetch(megaRailQuery)
   if (!d?.entries?.length) return null
-  return d.entries.map((e: any) => {
+  return d.entries.map((e: any, idx: number) => {
     if (!e.image?.asset) return {key: e.key, label: e.label, href: e.href, eyebrow: e.eyebrow}
-    const i = imageOrFallback(e.image, '', e.label ?? '')
+    const i = imageOrFallback(e.image, '', e.label ?? '', {
+      docId: 'megaRail',
+      docType: 'megaRail',
+      path: `entries[${idx}].image`,
+    })
     return {
       key: e.key,
       label: e.label,
@@ -173,10 +202,18 @@ export async function fetchSiteSettingsFromSanity(opts: FetchOpts = {}): Promise
     editionYear: d.editionYear ?? undefined,
     footerLinks: d.footerLinks ?? [],
     social: d.social ?? {},
-    logo: iconOrFallback(d.logo, LOGO_FALLBACK, 'Peninsula Insider'),
-    conciergeAvatar: iconOrFallback(d.conciergeAvatar, CONCIERGE_FALLBACK, ''),
-    ogFallback: ogOrFallback(d.ogFallback, OG_FALLBACK, 'Peninsula Insider'),
-    notFoundImage: iconOrFallback(d.notFoundImage, NOT_FOUND_FALLBACK, ''),
+    logo: iconOrFallback(d.logo, LOGO_FALLBACK, 'Peninsula Insider', {
+      docId: 'siteSettings', docType: 'siteSettings', path: 'logo',
+    }),
+    conciergeAvatar: iconOrFallback(d.conciergeAvatar, CONCIERGE_FALLBACK, '', {
+      docId: 'siteSettings', docType: 'siteSettings', path: 'conciergeAvatar',
+    }),
+    ogFallback: ogOrFallback(d.ogFallback, OG_FALLBACK, 'Peninsula Insider', {
+      docId: 'siteSettings', docType: 'siteSettings', path: 'ogFallback',
+    }),
+    notFoundImage: iconOrFallback(d.notFoundImage, NOT_FOUND_FALLBACK, '', {
+      docId: 'siteSettings', docType: 'siteSettings', path: 'notFoundImage',
+    }),
   }
 }
 
@@ -192,7 +229,7 @@ export const SITE_SETTINGS_IMAGE_FALLBACKS = {
 // Page hero ---------------------------------------------------------------
 
 const pageHeroQuery = `*[_type == "pageHero" && pathSlug == $slug][0]{
-  pathSlug, title, eyebrow, category, dek,
+  _id, pathSlug, title, eyebrow, category, dek,
   "image": image ${img}
 }`
 
@@ -209,7 +246,11 @@ export async function fetchPageHeroFromSanity(slug: string, opts: FetchOpts = {}
   let imageSrc: string | undefined
   let imageAlt: string | undefined
   if (d.image?.asset) {
-    const i = imageOrFallback(d.image, '', d.title ?? slug)
+    const i = imageOrFallback(d.image, '', d.title ?? slug, {
+      docId: d._id,
+      docType: 'pageHero',
+      path: 'image',
+    })
     imageSrc = i.src
     imageAlt = i.alt
   }
