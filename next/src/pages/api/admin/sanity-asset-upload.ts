@@ -30,8 +30,8 @@ const MAX_BYTES = 25 * 1024 * 1024; // 25MB
 export const POST: APIRoute = async ({ request }) => {
   const access = await resolveCmsAccess(request.headers.get('cookie'));
   if (!access.ok) {
-    if (access.reason === 'not-editor') return forbidden('Not an editor');
-    return unauthorized();
+    if (access.reason === 'not-editor') return forbidden(`Not an editor (${access.reason})`);
+    return unauthorized(`Unauthorized (${access.reason ?? 'unknown'})`);
   }
 
   const client = getSanityWriteClient();
