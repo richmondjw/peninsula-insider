@@ -202,6 +202,18 @@ const isAskPage = rawPathname.startsWith('/ask');
       });
     })();
   </script>
+  <!-- TEMPORARY PASSWORD GATE — remove once Sanity bugs resolved -->
+  <script is:inline>
+    (function() {
+      var PASS = 'peninsula';
+      var KEY  = 'pi-access-v1';
+      if (sessionStorage.getItem(KEY) === '1') return;
+      var path = window.location.pathname;
+      if (path === '/access/' || path === '/access') return;
+      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+    })();
+  </script>
+  <!-- END TEMPORARY PASSWORD GATE -->
 </head>
 <body data-page={section} data-path={rawPathname} data-v4="true">
 
