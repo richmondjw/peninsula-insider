@@ -27,6 +27,17 @@ interface StegaCtx {
   path: string
 }
 
+/**
+ * Strip zero-width Unicode characters that vercelStegaCombine embeds into URLs
+ * for the admin edit overlay. These chars are invisible in text but corrupt
+ * CDN image URLs — Sanity CDN does not strip them, causing images to 404.
+ * Strip from any URL before using as an <img src>.
+ */
+function cleanSrc(url: string): string {
+  // U+200B, U+200C, U+200D zero-width space/non-joiner/joiner + U+FEFF BOM
+  return url.replace(/[\u200B\u200C\u200D\uFEFF]/g, '')
+}
+
 function imageOrFallback(
   image: SanityImageRef,
   fallback: string,
@@ -34,7 +45,7 @@ function imageOrFallback(
   ctx?: StegaCtx,
 ) {
   if (!image?.asset) return {src: fallback, alt: fallbackAlt}
-  return {src: intentUrl(image, 'hero', ctx), alt: image.alt ?? fallbackAlt}
+  return {src: cleanSrc(intentUrl(image, 'hero', ctx)), alt: image.alt ?? fallbackAlt}
 }
 
 /** Small-icon variant: thumb-intent URL (320w), suits logos / avatars. */
@@ -45,7 +56,7 @@ function iconOrFallback(
   ctx?: StegaCtx,
 ) {
   if (!image?.asset) return {src: fallback, alt: fallbackAlt}
-  return {src: intentUrl(image, 'thumb', ctx), alt: image.alt ?? fallbackAlt}
+  return {src: cleanSrc(intentUrl(image, 'thumb', ctx)), alt: image.alt ?? fallbackAlt}
 }
 
 /** OG-intent (1200x630) variant for share-card fallback imagery. */
@@ -56,7 +67,7 @@ function ogOrFallback(
   ctx?: StegaCtx,
 ) {
   if (!image?.asset) return {src: fallback, alt: fallbackAlt}
-  return {src: intentUrl(image, 'og', ctx), alt: image.alt ?? fallbackAlt}
+  return {src: cleanSrc(intentUrl(image, 'og', ctx)), alt: image.alt ?? fallbackAlt}
 }
 
 // Homepage cover ----------------------------------------------------------
