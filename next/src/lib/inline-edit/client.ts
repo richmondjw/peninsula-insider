@@ -183,14 +183,17 @@ function setEditMode(on: boolean, source: 'click' | 'restore' = 'restore') {
   document.body.dataset.piEditMode = on ? 'on' : 'off';
   sessionStorage.setItem(EDIT_MODE_FLAG, on ? '1' : '0');
   if (!on) closeMenu();
-  // Only fetch and apply published overrides when the admin *explicitly*
-  // turns edit mode on (clicks the toggle). Restoring from sessionStorage
-  // on a fresh page load does NOT re-fire the pass — that would cause
-  // visible flicker as the post-paint swap clobbers SSR output. Editors
-  // who want to pick up changes published since the last build can either
-  // reload (rebuild-deployed pages will already have them in SSR) or
-  // toggle edit mode off and on again.
-  if (on && source === 'click') void applyOverridesOnLoad();
+  // LEGACY: `applyOverridesOnLoad()` patched in Supabase-stored image
+  // overrides on top of SSR output when edit mode toggled on. With the
+  // Sanity migration complete (PRs #181–#203), Sanity is the source of
+  // truth — overrides live in Sanity docs, are baked into SSR via the
+  // dual-read adapters, and pushed live via on-demand revalidation. The
+  // Supabase override path is dead weight AND was actively interfering
+  // (toggling edit mode visibly swapped images to stale Supabase rows).
+  // Call disabled below; the function itself is kept until the legacy
+  // override schema is dropped in a future migration.
+  void source; // suppress unused-warning; kept for callsite parity
+  // if (on && source === 'click') void applyOverridesOnLoad();
 }
 
 // --------------------------------------------------------------------------
