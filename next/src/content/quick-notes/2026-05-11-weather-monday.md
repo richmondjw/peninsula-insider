@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in live feed, Red Hill South, Victoria. Checked 11 May 2026 06:50 AEST. Current conditions: 6°C, Clear, E 5km/h, humidity 93%, pressure 1032hPa, visibility 10km. Monday 11 May hourly forecast: 00:00 11°C Clear 0% rain; 06:00 6°C Clear 0% rain 5km/h E; 09:00 11°C Sunny 0% rain; 12:00 15°C Sunny 0% rain; 15:00 16°C Sunny 0% rain 6km/h S; 18:00 14°C Clear 0% rain 10km/h SSE; 21:00 14°C Clear 0% rain. Min 9°C, Max 16°C. Sunrise 07:10, Sunset 17:22. Tuesday 12 May: full sun, 0% rain, max 18°C. Wednesday 13 May: full sun, 0% rain, max 18°C."
     checkedAt: 2026-05-11T06:50:00+10:00
-status: published
+status: archived
 ---
 The wet spell is over. Red Hill is sitting at 6°C at first light with a light E breeze and completely clear skies — 100% sunshine from here through the afternoon. After six consecutive days of rain and overcast, the Peninsula's weather reset is clean and total.
 

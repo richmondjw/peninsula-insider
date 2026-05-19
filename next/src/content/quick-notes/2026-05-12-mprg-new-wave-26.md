@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "MPRG exhibition details from visitmorningtonpeninsula.org/whats-on checked 12 May 2026. New Wave 26: Saturday 28 February to Monday 31 May 2026, 11am–4pm. Michael Vale Exhibition: Saturday 28 February to Sunday 31 May 2026, 11am–4pm. Opening hours (Tuesday–Sunday, 11am–4pm, closed Mondays) verified via visitmelbourne.com and pgav.org.au. Location: 350 Dunns Road, Mornington. Free entry confirmed. No exhibition-specific detail sourced beyond listing data."
     checkedAt: 2026-05-12T06:44:00+10:00
-status: published
+status: archived
 ---
 Mornington Peninsula Regional Gallery is open today from 11am to 4pm. Two exhibitions are currently running: New Wave 26, a group show that opened in late February, and a solo exhibition of work by Michael Vale. Both close at the end of May.
 

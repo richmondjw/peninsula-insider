@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on/"
     note: "Peninsula Hot Springs what's-on page, checked 16 May 2026 06:54 AEST. Sunday Sessions with Mich McManus confirmed 17 May 2026 at noon. Daily activities confirmed: studio yoga 7:30am, hot springs yoga 9:15am, body clay ritual (weekends 10:30am, 12pm, 1pm, 3pm), fire and ice workshop (weekends 12pm, 2pm, 4pm, 5pm), sauna infusion 5pm. Upcoming events: Showcase Chloe Gill 23 May 7pm; Sunday Sessions Kinematic 24 May 12pm; Sunday Sessions Paul Dillon 31 May 12pm. Note: availability and pricing not independently confirmed beyond the what's-on listing. Thermal circuit booking required separately from event entry."
     checkedAt: 2026-05-16T06:54:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs is running the Sunday Sessions today at noon. The artist is Mich McManus — the first of the autumn series at the Springs. The event runs alongside the full Sunday programme: studio yoga from 7:30am, hot springs yoga at 9:15am, body clay at 10:30am, noon, 1pm, and 3pm, fire and ice from noon through 5pm, and sauna infusion at 5pm.
 

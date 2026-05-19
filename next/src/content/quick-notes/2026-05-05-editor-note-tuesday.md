@@ -12,6 +12,6 @@ sources:
   - kind: visit
     note: Editorial planning desk, Tuesday 5 May edition
     checkedAt: 2026-05-05T06:50:00+10:00
-status: published
+status: archived
 ---
 Tuesday is the quiet return. Restaurants that went dark on Monday are back — Tedesca, the Red Hill dining rooms, the Merricks corridor. Cellar doors that were appointment-only are fully staffed again. The difference from a weekend is simply scale: fewer people, shorter waits, and a better chance the kitchen is running at pace rather than volume. Today's weather is consistently wet from morning through mid-afternoon, which removes the temptation to do the scenic drive between stops. That narrows the good option to this: pick one venue, go properly, and treat the rain as a reason to linger rather than rush. The Peninsula works in autumn. It just works differently.

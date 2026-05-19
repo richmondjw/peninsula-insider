@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "Weather context: wttr.in/Mornington+Peninsula — Monday 16°C, drizzle through morning. Tuesday 15°C, 71% rain probability. Wednesday continued unsettled. Source checked 18 May 2026 06:56 AEST. Editorial framing only — no venue-specific claims."
     checkedAt: 2026-05-18T07:01:00+10:00
-status: published
+status: archived
 ---
 The week opens unsettled, and that is the honest Peninsula autumn.
 

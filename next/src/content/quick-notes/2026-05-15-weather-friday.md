@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in live feed, Mornington Peninsula, Victoria. Checked 15 May 2026 06:47 AEST. Current: 9°C Clear, NNE 9km/h, humidity 87%. Friday 15 May: Min 13°C, Max 20°C — 00:00 14°C Clear 0%; 06:00 9°C Clear 0%; 09:00 15°C Sunny 0%; 12:00 19°C Sunny 0%; 15:00 20°C Sunny 0%; 18:00 17°C Clear 0%; 21:00 16°C Clear 0%. Sunrise 07:13am, Sunset 05:18pm. Saturday 16 May: Min 14°C, Max 20°C, partly cloudy to overcast PM, 0% rain. Sunday 17 May: Min 14°C, Max 18°C — 00:00 15°C Light rain 100%; 06:00 15°C Patchy rain 64%; 09:00 15°C Patchy rain 88%; 12:00 17°C Cloudy 0%; 15:00 18°C Overcast 0%; 18:00 16°C Light drizzle 100%; 21:00 15°C Light rain 100%."
     checkedAt: 2026-05-15T06:47:00+10:00
-status: published
+status: archived
 ---
 Friday is the warmest day of the Peninsula's current clear run and almost certainly its last. The high-pressure system has held since Monday — five consecutive dry days — but the pattern is ending. Saturday stays dry but carries cloud through the afternoon. Sunday brings rain: 100% probability in the morning, easing only around midday, returning as drizzle by evening.
 

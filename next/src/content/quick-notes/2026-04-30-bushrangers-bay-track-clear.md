@@ -13,7 +13,7 @@ sources:
     url: https://www.parks.vic.gov.au
     checkedAt: 2026-04-30T16:00:00+10:00
 relatedVenue: bushrangers-bay
-status: published
+status: archived
 ---
 
 The trail's been intermittent through April with the wet weather. Parks Vic's status flipped to green this morning — boardwalk's been repaired, the descent to the beach is firm, and the climb back up still earns the coffee at Cape Schanck café.

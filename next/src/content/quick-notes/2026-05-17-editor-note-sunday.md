@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "BOM Sunday 17 May forecast: 100% rain, 15–20mm, easing this afternoon. Max 17°C. Checked 17 May 2026 06:51 AEST via au-weather API. Sunday Sessions with Mich McManus at Peninsula Hot Springs, noon, confirmed from peninsulahotsprings.com what's-on page (checked 16 May 06:54 AEST). Editorial judgment: no specific venue hours, prices, or availability claimed beyond the confirmed Springs programme."
     checkedAt: 2026-05-17T06:57:00+10:00
-status: published
+status: archived
 ---
 The Peninsula weekend closes with rain, and that requires a different frame.
 

@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "Bureau of Meteorology, Mornington Peninsula forecast via au-weather API, checked 17 May 2026 06:51 AEST. Sunday 17 May: Min 13°C, Max 17°C. Rain chance 100%, forecast 15–20mm. Extended text: 'Cloudy. Very high chance of rain, becoming less likely this afternoon. Winds northeasterly 15 to 25 km/h tending northerly in the morning then becoming light in the early afternoon.' UV low. Sunrise 07:17 AEST, Sunset 17:18 AEST. Monday 18 May outlook: Max 18°C, 40% shower chance, partly cloudy — some improvement expected."
     checkedAt: 2026-05-17T06:51:00+10:00
-status: published
+status: archived
 ---
 Sunday on the Mornington Peninsula arrives wet. The Bureau of Meteorology has 100% rain probability through the morning, with 15 to 20mm forecast before conditions ease. The temperature peaks at 17°C — cooler than Saturday's 21°C, with a northeasterly wind at 15 to 25 km/h dropping to light by early afternoon as the rain system passes.
 

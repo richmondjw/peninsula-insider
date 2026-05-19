@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial assessment based on verified weather forecast (wttr.in Red Hill South, 10 May 2026 — sunny from ~15:00, 16°C max) and general Mornington Peninsula Wine Region operating knowledge. No specific cellar door closures or changes verified. Assessment reflects expected demand pattern after extended wet spell; no venue-specific claims made."
     checkedAt: 2026-05-10T06:47:00+10:00
-status: published
+status: archived
 ---
 Six days of rain suppresses casual Peninsula day-trip demand. Most cellar doors on the Red Hill, Main Ridge, and Merricks arc will have had quieter than usual weekend traffic through the wet sequence. Sunday morning, before the sky clears, is when the booking pressure is lowest.
 

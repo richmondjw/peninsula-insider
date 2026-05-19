@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: Editorial planning desk, Wednesday 6 May edition.
     checkedAt: 2026-05-06T06:58:00+10:00
-status: published
+status: archived
 ---
 The weekday Peninsula is a different place from its weekend self. Wednesday in particular: restaurants are running at half capacity, cellar door appointments are available without a month of lead time, and the staff ratio flips in the visitor's favour. Main Ridge's small production cellar doors — the kind that are appointment-only on Saturday — will often take a Wednesday walk-in call made that morning. Montalto's cellar door runs table service seven days but Wednesday is when the room isn't full.
 

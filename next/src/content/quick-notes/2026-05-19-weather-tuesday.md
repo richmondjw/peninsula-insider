@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in/Mornington+Peninsula,Victoria,Australia — checked 19 May 2026 06:53 AEST. Current: 8°C, fog (WMO code 248), 100% cloud, visibility 0, humidity 100%, wind W 9km/h. Pre-dawn (midnight–3am): clear, 13°C, 0% rain probability. Tuesday 19 May forecast: avgtempC 13°C, no rain in available hourly data. Sunrise 07:17, sunset 05:15. Contrast: Monday 18 May editorial desk had forecast 71% Tuesday rain probability based on earlier modelling — current data shows that sequence did not hold. Forecast may continue to update through the morning."
     checkedAt: 2026-05-19T06:53:00+10:00
-status: published
+status: archived
 ---
 Tuesday opens in fog. At 6am on the Mornington Peninsula the visibility is near zero, the temperature sitting at 8°C with westerly air at 9km/h. The humidity is 100%. This is the Peninsula's characteristic autumn fog: cold, low, and — importantly — not rain.
 

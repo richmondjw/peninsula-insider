@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in / World Weather Online live feed for Red Hill, Victoria. Thursday 7 May: 6°C at 06:00 (feels like 1°C), patchy rain nearby, SW 39km/h, 81% humidity. Hourly: 9°C at 00:00 (100%), 9°C at 03:00 (100%), 6°C at 06:00 (100%), 10°C at 09:00 (100%), 12°C at 12:00 (100%), 12°C at 15:00 (100%), 12°C at 18:00 (100%), 11°C at 21:00 (100%). Friday 8 May: Max 15°C Min 12°C, 100% rain all day. Checked live 07 May 2026 06:44 AEST."
     checkedAt: 2026-05-07T06:44:00+10:00
-status: published
+status: archived
 ---
 Red Hill is sitting at 6°C this morning and it feels like 1°C with a 39km/h southwest moving through. The forecast carries 100% rain probability across every hourly slot today — no gap at midday, no clear window in the afternoon. Maximum reaches 12°C around noon before it falls back. The SW wind eases slightly overnight but Thursday closes the same way it opened: wet.
 

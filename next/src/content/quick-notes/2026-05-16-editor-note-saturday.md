@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Saturday 16 May 2026. Weather verified from wttr.in Mornington Peninsula 16 May 06:54 AEST — 15°C current, 21°C max today, 0% rain all day until 9pm (70% patchy); Sunday 100% rain midnight through morning. Peninsula Hot Springs weekend programme verified from peninsulahotsprings.com/whats-on 16 May 06:54 AEST — cacao circle noon, body clay 10:30am/12pm/1pm/3pm, fire and ice noon/2pm/4pm/5pm, studio yoga 7:30am, hot springs yoga 9:15am, sauna infusion 5pm. Cellar door pattern (majority Wed–Sun) sourced from established MPVA editorial knowledge; no specific venue hours or booking windows claimed for individual producers. No venue-specific changes, prices, or availability invented."
     checkedAt: 2026-05-16T06:56:00+10:00
-status: published
+status: archived
 ---
 Saturday on the Mornington Peninsula arrives at 21°C with clear skies into the afternoon and rain not arriving until 9pm. It is the stronger day of the two, and the one to use.
 

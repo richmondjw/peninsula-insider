@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Peninsula Hot Springs weekday programme verified from peninsulahotsprings.com/whats-on/ checked 12 May 2026 06:43 AEST. Studio yoga daily 7:30am confirmed; hot springs yoga daily 9:15am; fire and ice workshop weekdays 10:30am, 4pm & 5pm; body clay ritual weekdays 12pm & 2pm; sauna infusion daily 5pm. Weather: wttr.in Red Hill South 12 May 2026 06:41 AEST — 7°C fog now, clearing by 9am, 18°C max, 0% rain. Availability claim is editorial assessment; no venue-specific booking data accessed."
     checkedAt: 2026-05-12T06:43:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs runs its full weekday programme on Tuesdays. Studio yoga began at 7:30am. Hot springs yoga runs at 9:15am. The fire and ice workshop cycles through 10:30am, 4pm, and 5pm. Body clay ritual sits at noon and 2pm. Sauna infusion closes the activity day at 5pm.
 

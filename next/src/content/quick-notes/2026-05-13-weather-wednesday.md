@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in live feed, Mornington Peninsula, Victoria. Checked 13 May 2026 06:49 AEST. Current: 12°C, Mist, ENE 9km/h, humidity 100%, pressure 1033hPa. Wednesday 13 May hourly: 00:00 13°C Clear 0% rain; 06:00 12°C Mist 0% rain ENE 9km/h; 09:00 13°C Sunny 0% rain; 12:00 16°C Sunny 0% rain; 15:00 17°C Sunny 0% rain; 18:00 15°C Clear 0% rain; 21:00 14°C Clear 0% rain. Min 12°C, Max 17°C. Sunrise 07:12am, Sunset 05:20pm. Thursday 14 May: Min 12°C, Max 19°C, Clear/Partly Cloudy, 0% rain."
     checkedAt: 2026-05-13T06:49:00+10:00
-status: published
+status: archived
 ---
 Wednesday repeats Tuesday's pattern almost exactly. The mist that sits over the coast at dawn is the same 1033hPa high-pressure signature that has held the Peninsula clear for three days. Where Tuesday opened at 7°C, today opens at 12°C — the overnight minimum is slightly warmer, which means the mist typically burns off sooner. Expect clear skies from 9am.
 

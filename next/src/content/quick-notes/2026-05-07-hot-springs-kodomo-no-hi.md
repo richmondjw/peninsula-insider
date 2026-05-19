@@ -14,7 +14,7 @@ sources:
     note: "Kodomo no Hi (Children's Day: a Japanese cultural celebration) confirmed on Peninsula Hot Springs What's On page — Saturday 9 May, 10am to 8pm. Sunday Sessions with Ereignis confirmed 10 May, 12pm. Bathe in Cinema (Ocean with David Attenborough) confirmed 8 May, 6:30pm. Daily activities confirmed: studio yoga 7:30am daily, hot springs yoga 9:15am daily, fire & ice workshop weekdays 10:30am/4pm/5pm, body clay ritual weekdays 12pm & 2pm, sauna infusion daily 5pm. Checked live 07 May 2026 06:44 AEST."
     checkedAt: 2026-05-07T06:50:00+10:00
 relatedVenue: peninsula-hot-springs
-status: published
+status: archived
 ---
 Peninsula Hot Springs marks Kodomo no Hi — the Japanese Children's Day — with a cultural celebration this Saturday 9 May, running from 10am to 8pm across the Springs complex. The event follows the traditional date (5 May by the Japanese calendar, observed here on the nearest Saturday) and is one of the Springs' longer cultural programming days in the autumn calendar.
 

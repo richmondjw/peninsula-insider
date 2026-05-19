@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial planning desk, Friday 8 May edition. Weather data from wttr.in live feed, Red Hill, Victoria. Checked 08 May 2026 06:44 AEST."
     checkedAt: 2026-05-08T06:44:00+10:00
-status: published
+status: archived
 ---
 The rain ran hard on Thursday and it is running the same way today. Friday closes out the full wet sequence — 100% across every forecast slot, maximum 15°C, WSW holding at 20km/h through the afternoon.
 

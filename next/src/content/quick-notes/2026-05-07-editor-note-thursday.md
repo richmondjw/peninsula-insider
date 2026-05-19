@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: Editorial planning desk, Thursday 7 May edition.
     checkedAt: 2026-05-07T06:46:00+10:00
-status: published
+status: archived
 ---
 The Peninsula in heavy autumn rain is a different version of itself — not diminished, just reorganised. The cellar doors that run indoor table service rather than outdoor terraces come into focus. The restaurants that anchor a long Thursday lunch are exactly right for a day when there is no reason to rush back outside. The Hot Springs, which operates in any weather because the pool temperature is controlled and the water is warm, fills faster on wet days.
 

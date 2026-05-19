@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Tuesday 19 May 2026. Weather from wttr.in Mornington Peninsula checked 06:53 AEST — current fog, 8°C, no rain in forecast. Prior Monday forecast (71% Tuesday rain probability) has not held. Editorial framing only — no venue-specific changes or availability claims."
     checkedAt: 2026-05-19T06:56:00+10:00
-status: published
+status: archived
 ---
 Monday's editorial called the week wet. That remains broadly true — Monday delivered its rain, the forecast showed Tuesday at 71% probability, Wednesday was uncertain. The indoor Peninsula programme was the correct frame.
 

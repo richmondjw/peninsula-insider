@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Verified direct on peninsulahotsprings.com/whats-on/ 10 May 2026 06:46 AEST. Sunday Sessions with Ereignis listed for 10 May at 12pm. Event detail page confirms: acoustic music at Bath House Café, complimentary with bathing experience, weather conditions noted as potentially affecting the outdoor programme."
     checkedAt: 2026-05-10T06:46:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs has Sunday Sessions with Ereignis running from midday at the Bath House Café Amphitheatre. The programme is complimentary with any thermal bathing session — acoustic sounds, the amphitheatre setting, nourishing food and light bites from the café.
 

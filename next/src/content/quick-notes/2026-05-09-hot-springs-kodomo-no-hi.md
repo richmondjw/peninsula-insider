@@ -14,7 +14,7 @@ sources:
     note: "Kodomo no Hi confirmed on Peninsula Hot Springs What's On page: 9 May, 10am to 8pm. Daily activities and weekend times also confirmed live. Checked 09 May 2026 06:50 AEST."
     checkedAt: 2026-05-09T06:50:00+10:00
 relatedVenue: peninsula-hot-springs
-status: published
+status: archived
 ---
 Peninsula Hot Springs is running Kodomo no Hi today — a cultural celebration of Japanese Children's Day — across the full thermal facility from 10am to 8pm on Saturday 9 May.
 

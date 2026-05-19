@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in live feed, Red Hill South, Victoria. Current (06:49 AEST, 9 May): 11°C, feels like 10°C, SW 11km/h, 94% humidity, overcast. Saturday 9 May hourly: 0000–0600 patchy rain, 100% chance rain, 11–14°C; 0900 chance drops to 69%, 14°C; midday–afternoon rain returns 80%, 14°C max. Sunrise 07:08, sunset 17:24. Sunday 10 May: clears from noon, 0% rain from 1200, sunny afternoon, 16°C max. Checked live 09 May 2026 06:48 AEST."
     checkedAt: 2026-05-09T06:48:00+10:00
-status: published
+status: archived
 ---
 Red Hill is 11°C at the open, feels like 10°C with a SW at 11km/h and 94% humidity. The overcast that closed out Friday has not shifted overnight.
 

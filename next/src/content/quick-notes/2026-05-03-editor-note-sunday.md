@@ -12,6 +12,6 @@ sources:
   - kind: visit
     note: Editorial planning desk, Sunday 3 May edition
     checkedAt: 2026-05-03T10:40:00+10:00
-status: published
+status: archived
 ---
 This is not the day for a heroic Peninsula itinerary. The weather is mixed, the roads will be busiest around lunch, and the smartest version of today is slower: one table, one tasting, one late walk if the sky opens. The publication should read that way too.

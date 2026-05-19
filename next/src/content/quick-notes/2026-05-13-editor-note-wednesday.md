@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Wednesday 13 May 2026. Weather verified from wttr.in Mornington Peninsula 13 May 06:49 AEST — 12°C mist clearing by 9am, 17°C max, 0% rain. Peninsula cellar door operating pattern (Wednesday–Sunday) is established editorial knowledge consistent with producer websites and MPVA data reviewed in prior weeks. No specific venue booking or price claims made. MPRG exhibitions (New Wave 26 and Michael Vale) confirmed open Wednesday–Sunday 11am–4pm per visitmelbourne.com and pgav.org.au as of 12 May 2026."
     checkedAt: 2026-05-13T06:50:00+10:00
-status: published
+status: archived
 ---
 There is a specific version of the Peninsula that only exists Wednesday through Friday: the one where the cellar doors are all open and the weekend visitors have not yet arrived.
 

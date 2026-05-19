@@ -21,6 +21,6 @@ sources:
     url: https://www.redhellestate.com.au/
     note: Red Hill Estate. Known Tuesday–Sunday trading. Terrace unlikely to be used today given weather — indoor space only.
     checkedAt: 2026-05-05T06:53:00+10:00
-status: published
+status: archived
 ---
 The Peninsula's wine country tier — Montalto, Main Ridge, Red Hill Estate — is back open on Tuesdays, and today's rain strips away the reason to do any of them outside. That leaves the indoor format: a table, a seated flight, and enough time to work through it without checking the terrace. Montalto's cellar door runs table service independent of the restaurant — you can book wine without committing to lunch. Main Ridge is the smallest and most serious; call ahead because they are not always staffed for drop-ins mid-week. Red Hill Estate runs consistently. None of these required outdoor conditions and all three reward the slower version. Call to check availability before driving out — Tuesday is not the busiest trading day and some cellars run with reduced staffing.

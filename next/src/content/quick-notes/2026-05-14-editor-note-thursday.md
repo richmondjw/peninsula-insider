@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Thursday 14 May 2026. Weather verified from wttr.in Mornington Peninsula 14 May 10:00 AEST — 16°C currently, 19°C max, 0% rain, clear to partly cloudy. Peninsula cellar door operating pattern (Wednesday–Sunday, majority of producers) is consistent with MPVA data and individual producer sites reviewed in prior weeks. No specific venue booking or price claims made."
     checkedAt: 2026-05-14T10:01:00+10:00
-status: published
+status: archived
 ---
 There is a specific kind of Thursday on the Mornington Peninsula that is worth knowing about. It does not happen every week — it requires three things at once: the cellar door circuit running in full, the weather above 18°C, and the weekend visitors not yet on the freeway. Today is that Thursday.
 
