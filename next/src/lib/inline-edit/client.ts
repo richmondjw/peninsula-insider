@@ -69,6 +69,15 @@ export async function bootInlineEditor(): Promise<void> {
   const { data: { session } } = await supa.auth.getSession();
   if (!session) { ensureToggleRemoved(); return; }
 
+  // Mirror the Supabase session into the cookies the server-side admin
+  // gate reads (pi-sb-access-token / pi-sb-refresh-token). The /admin/login
+  // page does this once at sign-in, but the access token expires after
+  // ~1 hour while the JS-side session keeps refreshing in the background.
+  // Without this mirror, admins get silent 401s from /api/admin/* even
+  // though their session is healthy. Idempotent — overwrites with current
+  // tokens on every boot.
+  syncSessionCookies(session.access_token, session.refresh_token, session.expires_in);
+
   // Check allowlist membership for UX. RLS will also reject writes from
   // non-allowlisted users, but verifying upfront lets us not render UI
   // affordances that will fail.
@@ -96,13 +105,54 @@ export async function bootInlineEditor(): Promise<void> {
   setEditMode(stored === '1');
 
   // If the session ends mid-page, hide the chrome.
-  supa.auth.onAuthStateChange((event) => {
+  supa.auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_OUT') {
       isAdmin = false;
       setEditMode(false);
       ensureToggleRemoved();
+      clearSessionCookies();
+      return;
+    }
+    // Supabase auto-refreshes the access token in the background. Keep
+    // the cookies in sync so server-side admin gates don't see a stale
+    // (or missing) token.
+    if (session && (event === 'TOKEN_REFRESHED' || event === 'SIGNED_IN' || event === 'INITIAL_SESSION' || event === 'USER_UPDATED')) {
+      syncSessionCookies(session.access_token, session.refresh_token, session.expires_in);
     }
   });
+}
+
+const PI_SB_ACCESS_COOKIE = 'pi-sb-access-token';
+const PI_SB_REFRESH_COOKIE = 'pi-sb-refresh-token';
+
+function setRawCookie(name: string, value: string, maxAgeSeconds: number): void {
+  const secure = location.protocol === 'https:' ? '; Secure' : '';
+  document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${Math.max(60, Math.floor(maxAgeSeconds))}; SameSite=Lax${secure}`;
+}
+
+function clearRawCookie(name: string): void {
+  document.cookie = `${name}=; Path=/; Max-Age=0; SameSite=Lax`;
+}
+
+/**
+ * Mirror a Supabase session into the cookies the server-side admin gate
+ * reads. Called on every boot when an authenticated session exists, plus
+ * on every TOKEN_REFRESHED event from the Supabase auth listener.
+ */
+function syncSessionCookies(accessToken: string | undefined | null, refreshToken: string | undefined | null, expiresInSeconds: number | undefined | null): void {
+  if (accessToken) {
+    setRawCookie(PI_SB_ACCESS_COOKIE, accessToken, expiresInSeconds ?? 3600);
+  }
+  if (refreshToken) {
+    // Refresh tokens are long-lived (Supabase default is unbounded until use);
+    // give the cookie 30 days so a returning admin's automatic refresh works.
+    setRawCookie(PI_SB_REFRESH_COOKIE, refreshToken, 60 * 60 * 24 * 30);
+  }
+}
+
+function clearSessionCookies(): void {
+  clearRawCookie(PI_SB_ACCESS_COOKIE);
+  clearRawCookie(PI_SB_REFRESH_COOKIE);
 }
 
 function ensureToggleRemoved() {
