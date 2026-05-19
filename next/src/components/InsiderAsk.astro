@@ -35,6 +35,15 @@ const {
     "What's open on a wet Sunday",
   ],
 } = Astro.props;
+
+// Concierge icon resolves via siteSettings Sanity singleton with a hard
+// fallback to /images/pi-concierge.svg so pre-seed render is unchanged.
+import {fetchSiteSettingsFromSanity, SITE_SETTINGS_IMAGE_FALLBACKS} from '../lib/sanity/singletons-adapter';
+let conciergeIcon = SITE_SETTINGS_IMAGE_FALLBACKS.conciergeAvatar.src;
+try {
+  const s = await fetchSiteSettingsFromSanity();
+  if (s?.conciergeAvatar?.src) conciergeIcon = s.conciergeAvatar.src;
+} catch {}
 ---
 
 <section class="insider-ask" aria-label="Ask The Insider">
@@ -42,7 +51,7 @@ const {
     <div class="insider-ask__inner">
       <div class="insider-ask__head">
         <span class="insider-ask__avatar" aria-hidden="true">
-          <img src="/images/pi-concierge.svg" alt="" width="56" height="56" onerror="this.remove()" />
+          <img src={conciergeIcon} alt="" width="56" height="56" onerror="this.remove()" />
           <span class="insider-ask__avatar-fallback">PI</span>
         </span>
         <div class="insider-ask__heading-block">

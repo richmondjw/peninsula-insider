@@ -24,6 +24,15 @@ const {
   hint = "She knows the staff, the table, and what to actually order.",
   variant = 'rule',
 } = Astro.props;
+
+// Concierge icon resolves via siteSettings Sanity singleton with a hard
+// fallback to /images/pi-concierge.svg so pre-seed render is unchanged.
+import {fetchSiteSettingsFromSanity, SITE_SETTINGS_IMAGE_FALLBACKS} from '../lib/sanity/singletons-adapter';
+let conciergeIcon = SITE_SETTINGS_IMAGE_FALLBACKS.conciergeAvatar.src;
+try {
+  const s = await fetchSiteSettingsFromSanity();
+  if (s?.conciergeAvatar?.src) conciergeIcon = s.conciergeAvatar.src;
+} catch {}
 ---
 
 <aside
@@ -36,7 +45,7 @@ const {
   <button class="pi-cta__btn" type="button" aria-label={label}>
     <span class="pi-cta__avatar" aria-hidden="true">
       <span class="pi-cta__fallback">PI</span>
-      <img src="/images/pi-concierge.svg" alt="" width="36" height="36" onerror="this.remove()" />
+      <img src={conciergeIcon} alt="" width="36" height="36" onerror="this.remove()" />
     </span>
     <span class="pi-cta__text">
       <span class="pi-cta__eyebrow">Ask The Insider <span aria-hidden="true">✦</span></span>
