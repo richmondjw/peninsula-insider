@@ -35,6 +35,10 @@ interface EditableDescriptor {
   entitySlug: string;
   fieldPath: string;
   autoDetected: boolean;
+  /** Sanity singleton _id when this image binds to a singleton doc. */
+  sanitySingletonId?: string;
+  /** Dot-notation path inside the singleton doc. Defaults to fieldPath. */
+  sanitySingletonPath?: string;
 }
 
 interface ToastFn {
@@ -108,7 +112,17 @@ export function resolveSanitySource(
   el: HTMLElement,
   desc: EditableDescriptor,
 ): SanitySource | null {
-  // a) data-pi-edit attrs — only useful when the entityType maps to a Sanity
+  // a) Explicit Sanity singleton binding via data-pi-sanity-singleton-id.
+  //    Highest priority — the element's source is unambiguous.
+  if (!desc.autoDetected && desc.sanitySingletonId) {
+    return {
+      docId: desc.sanitySingletonId,
+      fieldPath: normaliseFieldPath(desc.sanitySingletonPath ?? desc.fieldPath),
+      resolvedVia: 'data-pi-edit',
+    };
+  }
+
+  // b) data-pi-edit attrs — only useful when the entityType maps to a Sanity
   //    type with a slug. Page-level slots fall through to stega.
   if (!desc.autoDetected) {
     const SANITY_BACKED: ReadonlySet<string> = new Set([

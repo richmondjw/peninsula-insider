@@ -432,6 +432,10 @@ interface ImageDescriptor {
   purpose: 'hero' | 'card' | 'gallery' | 'inline' | 'seo';
   /** True when the element was auto-detected rather than explicitly tagged. */
   autoDetected: boolean;
+  /** Sanity singleton _id, when the source is a singleton doc. */
+  sanitySingletonId?: string;
+  /** Dot-notation path inside the singleton doc to the image field. */
+  sanitySingletonPath?: string;
 }
 
 /**
@@ -501,6 +505,8 @@ function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
       label: explicitLabel || explicitPath,
       purpose,
       autoDetected: false,
+      sanitySingletonId: el.dataset.piSanitySingletonId || undefined,
+      sanitySingletonPath: el.dataset.piSanitySingletonPath || undefined,
     };
   }
 

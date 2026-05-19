@@ -38,6 +38,20 @@ export interface EditableImageOpts {
   label: string;
   /** Defaults to `'hero'`. */
   purpose?: 'hero' | 'card' | 'gallery' | 'inline' | 'seo';
+  /**
+   * Optional: when this image is sourced from a Sanity *singleton* doc
+   * (e.g. `homepageCover`, `megaRail`, `siteSettings`), pass the singleton
+   * `_id` here. The admin overlay will resolve the patch target directly
+   * to that doc id instead of trying to query by slug.
+   */
+  sanitySingletonId?: string;
+  /**
+   * Optional: dot-notation path inside the singleton doc to the image
+   * field. Defaults to `fieldPath`. Use this when the legacy `fieldPath`
+   * (e.g. `cover.image`) doesn't match the Sanity schema's actual path
+   * (e.g. `scenes[2].image`).
+   */
+  sanitySingletonPath?: string;
 }
 
 /**
@@ -72,7 +86,7 @@ export function editableText(opts: EditableTextOpts): Record<string, string> {
  *     src={src} alt={alt} />
  */
 export function editableImage(opts: EditableImageOpts): Record<string, string> {
-  return {
+  const attrs: Record<string, string> = {
     'data-pi-edit': 'image',
     'data-pi-entity-type': opts.entityType,
     'data-pi-entity-slug': opts.entitySlug,
@@ -80,4 +94,9 @@ export function editableImage(opts: EditableImageOpts): Record<string, string> {
     'data-pi-purpose': opts.purpose ?? 'hero',
     'data-pi-label': opts.label,
   };
+  if (opts.sanitySingletonId) {
+    attrs['data-pi-sanity-singleton-id'] = opts.sanitySingletonId;
+    attrs['data-pi-sanity-singleton-path'] = opts.sanitySingletonPath ?? opts.fieldPath;
+  }
+  return attrs;
 }

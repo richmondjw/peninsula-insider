@@ -237,10 +237,12 @@ let ssrScene: Scene = coverImageOverride
 // Dual-read: hydrate the cover from Sanity's homepageCover singleton
 // when the page-level flag is on. Replaces both the inline `scenes[]`
 // array AND the legacy Supabase cover.image override.
+let sanityActiveSceneIndex: number | null = null;
 if (sanityReadEnabled('page-level')) {
   const sanityCover = await fetchHomepageCoverFromSanity();
   if (sanityCover && sanityCover.scenes.length > 0) {
-    const sc = sanityCover.scenes[Math.min(sanityCover.activeIndex, sanityCover.scenes.length - 1)];
+    sanityActiveSceneIndex = Math.min(sanityCover.activeIndex, sanityCover.scenes.length - 1);
+    const sc = sanityCover.scenes[sanityActiveSceneIndex];
     ssrScene = {
       id: sc.id,
       label: sc.label,
@@ -376,6 +378,16 @@ export const prerender = true;
               fieldPath: 'cover.image',
               label: 'Cover image',
               purpose: 'hero',
+              // Bind to the homepageCover Sanity singleton so the admin
+              // overlay's "Replace from media library" can patch the right
+              // scene's image. Falls through to legacy Supabase override if
+              // the Sanity dual-read didn't fire (flag off).
+              ...(sanityActiveSceneIndex !== null
+                ? {
+                    sanitySingletonId: 'homepageCover',
+                    sanitySingletonPath: `scenes[${sanityActiveSceneIndex}].image`,
+                  }
+                : {}),
             })}
           />
         </div>
