@@ -91,6 +91,21 @@ export async function bootInlineEditor(): Promise<void> {
   }
   if (!isAdmin) return;
 
+  // Warm the editor-supplied bindings cache for this page so the right-
+  // click handler can resolve "Bind to a Sanity doc…" results synchronously.
+  // Once loaded, patch matching <img> / bg-image elements with data-pi-edit
+  // attrs so the existing tagged-image flow lights up for previously-bound
+  // images on this URL. Admin-gated — anon visitors never reach this code.
+  void (async () => {
+    try {
+      const mod = await import('./sanity-image-overlay');
+      await mod.loadBindingsForPage();
+      applyBindingsToDom();
+    } catch (err) {
+      console.warn('[pi-edit] failed to warm bindings cache', err);
+    }
+  })();
+
   // Mount/restore the floating toggle. Astro's <ClientRouter /> swaps
   // <body> on soft navigations, so any DOM we appended is gone — we
   // re-render on every page-load event. Delegation is installed at module
@@ -612,6 +627,9 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     <button type="button" class="pi-edit-panel__replace" data-action="replace">
       <span aria-hidden="true">⇪</span> Replace image (upload)…
     </button>
+    <button type="button" class="pi-edit-panel__replace" data-action="bind-sanity" style="margin-top:6px" hidden>
+      <span aria-hidden="true">🔗</span> Bind to a Sanity doc…
+    </button>
     <button type="button" class="pi-edit-panel__replace" data-action="replace-sanity" style="margin-top:6px">
       <span aria-hidden="true">⬚</span> Replace from media library…
     </button>
@@ -645,10 +663,34 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     if (!action) return;
     if (action === 'replace') triggerImageReplace(el, desc);
     if (action === 'replace-sanity') void triggerSanityReplace(el, desc);
+    if (action === 'bind-sanity') void triggerSanityBind(el, desc);
     if (action === 'cancel')  closeMenu();
     if (action === 'save')    void savePanelMeta(menuEl!, el, desc);
   });
   menuEl.querySelector('.pi-edit-panel__close')?.addEventListener('click', closeMenu);
+
+  // Async probe: figure out whether this image already has a Sanity binding
+  // (stega marker, data-pi-edit, or pi.image_bindings row). If NOT, surface
+  // the "Bind to a Sanity doc…" button and hide the Replace button until
+  // the editor has bound something.
+  void (async () => {
+    try {
+      const mod = await import('./sanity-image-overlay');
+      const source = mod.resolveSanitySource(el, desc);
+      if (!menuEl) return;
+      const bindBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="bind-sanity"]');
+      const replaceBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="replace-sanity"]');
+      if (!source) {
+        if (bindBtn) bindBtn.hidden = false;
+        if (replaceBtn) replaceBtn.hidden = true;
+      } else {
+        if (bindBtn) bindBtn.hidden = true;
+        if (replaceBtn) replaceBtn.hidden = false;
+      }
+    } catch {
+      /* leave defaults — Replace visible, Bind hidden */
+    }
+  })();
 }
 
 function cssUrl(src: string): string {
@@ -778,6 +820,77 @@ function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
  *   2. stega payload decoded from the rendered image src
  *   3. neither → toast a hint and bail
  */
+/**
+ * Open the "Bind to a Sanity doc…" modal for an image that has no existing
+ * Sanity binding. On save, the new pi.image_bindings row is cached, the
+ * data-pi-edit attrs are injected onto matching elements, and a toast
+ * prompts the editor to right-click again.
+ */
+async function triggerSanityBind(el: HTMLElement, _desc: ImageDescriptor) {
+  try {
+    const overlay = await import('./sanity-image-overlay');
+    const bindMod = await import('./sanity-bind-modal');
+    const src = currentImageSrc(el);
+    const basename = overlay.srcBasenameFor(src);
+    const pattern = overlay.currentPageUrlPattern();
+    closeMenu();
+    bindMod.openBindModal({
+      imageBasename: basename,
+      pageUrlPattern: pattern,
+      toast,
+      onClose: () => { /* nothing extra */ },
+      onBound: (binding) => {
+        overlay.invalidateBindingsCache();
+        void (async () => {
+          await overlay.loadBindingsForPage();
+          applyBindingsToDom();
+        })();
+        // Tag this specific element immediately so an instant right-click
+        // works without waiting for the cache reload.
+        el.setAttribute('data-pi-edit', 'image');
+        el.setAttribute('data-pi-entity-type', binding.sanity_doc_type);
+        el.setAttribute('data-pi-entity-slug', binding.sanity_doc_id);
+        el.setAttribute('data-pi-field-path', binding.sanity_field_path);
+        el.setAttribute('data-pi-sanity-singleton-id', binding.sanity_doc_id);
+        el.setAttribute('data-pi-sanity-singleton-path', binding.sanity_field_path);
+      },
+    });
+  } catch (err) {
+    console.error('[pi-edit] bind modal failed to load', err);
+    toast(`Couldn't open bind modal: ${(err as Error).message}`, 'err');
+  }
+}
+
+/**
+ * Walk the DOM and add `data-pi-edit="image"` + sanity-binding attrs to
+ * every `<img>` / background-image element whose filename basename matches
+ * a row in pi.image_bindings for the current page. Idempotent — re-runs
+ * after each bind save. Admin-gated.
+ */
+function applyBindingsToDom(): void {
+  void import('./sanity-image-overlay').then((mod) => {
+    const rows = mod.getCachedBindings();
+    if (!rows.length) return;
+    const byBasename = new Map<string, typeof rows[number]>();
+    for (const r of rows) byBasename.set(r.image_basename, r);
+
+    const candidates = document.querySelectorAll<HTMLElement>('img, [style*="background-image"], [data-pi-edit="image"]');
+    for (const el of candidates) {
+      if (el.dataset.piEdit === 'image' && el.dataset.piEntityType) continue;
+      const src = currentImageSrc(el);
+      const basename = mod.srcBasenameFor(src);
+      const row = byBasename.get(basename);
+      if (!row) continue;
+      el.setAttribute('data-pi-edit', 'image');
+      if (!el.dataset.piEntityType) el.setAttribute('data-pi-entity-type', row.sanity_doc_type);
+      if (!el.dataset.piEntitySlug) el.setAttribute('data-pi-entity-slug', row.sanity_doc_id);
+      if (!el.dataset.piFieldPath)  el.setAttribute('data-pi-field-path', row.sanity_field_path);
+      el.setAttribute('data-pi-sanity-singleton-id', row.sanity_doc_id);
+      el.setAttribute('data-pi-sanity-singleton-path', row.sanity_field_path);
+    }
+  }).catch(() => { /* ignore */ });
+}
+
 async function triggerSanityReplace(el: HTMLElement, desc: ImageDescriptor) {
   try {
     const mod = await import('./sanity-image-overlay');
