@@ -377,6 +377,18 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
   document.body.appendChild(wrap);
   activeModal = wrap;
 
+  // Scroll lock — keep the underlying page still while the editor wheels
+  // inside the modal. Record the previous overflow values so close can
+  // restore them exactly (some other component may already have set them).
+  const prevHtmlOverflow = document.documentElement.style.overflow;
+  const prevBodyOverflow = document.body.style.overflow;
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+  (wrap as HTMLElement & { __piScrollRestore?: () => void }).__piScrollRestore = () => {
+    document.documentElement.style.overflow = prevHtmlOverflow;
+    document.body.style.overflow = prevBodyOverflow;
+  };
+
   let page = 0;
   let q = '';
   let sort: Sort = 'recent';
@@ -698,6 +710,8 @@ export function closeMediaLibraryModal(): void {
     activeModalCleanup = null;
   }
   if (activeModal) {
+    const restore = (activeModal as HTMLElement & { __piScrollRestore?: () => void }).__piScrollRestore;
+    if (restore) restore();
     activeModal.remove();
     activeModal = null;
   }
