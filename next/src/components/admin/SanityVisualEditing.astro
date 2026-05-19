@@ -1,30 +1,32 @@
 ---
 /**
- * Sanity Visual Editing overlay — renders only when the request is in
- * preview mode (Astro.locals.sanityPreview, set by middleware).
+ * Sanity Visual Editing overlay — mounts on every page so click-to-edit
+ * works on the public site when loaded inside Studio's Presentation
+ * iframe.
  *
  * The overlay script:
  *   - Reads stega-encoded markers attached to every string field by the
- *     sanityPreviewClient (see lib/sanity/client.ts)
+ *     Sanity client (lib/sanity/client.ts — stega is now enabled on the
+ *     production client too)
  *   - Listens for postMessage from the parent Studio frame
  *   - Renders clickable hotspots over each stega-marked element
  *   - When the editor clicks one, opens the corresponding field in
  *     Sanity Studio's Presentation panel
  *
- * The script is inert outside the Studio Presentation iframe (no parent
- * frame to message), so shipping it on a non-Studio preview load is
- * harmless. We still gate render on `sanityPreview` to keep the bundle
- * off the public site entirely.
+ * The script self-detects whether it's in an iframe and goes inert if
+ * there's no parent frame to message — so public visitors loading the
+ * site outside of Studio pay only the bundle download cost (~25 KB
+ * gzipped) and the overlay produces no UI.
+ *
+ * The bundle is only requested when the script tag fires, so it's
+ * download-once-cache-forever after the first load.
  */
-const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
 ---
 
-{isPreview && (
-  <script>
-    // Lazy-import keeps the visual-editing bundle off any page that
-    // isn't actually rendering inside Studio.
-    import('@sanity/visual-editing').then(({ enableVisualEditing }) => {
-      enableVisualEditing({ zIndex: 9999 });
-    });
-  </script>
-)}
+<script>
+  // Mount on every page. @sanity/visual-editing internally checks for
+  // parent frame and stays inert when loaded outside Studio.
+  import('@sanity/visual-editing').then(({ enableVisualEditing }) => {
+    enableVisualEditing({ zIndex: 9999 });
+  });
+</script>
