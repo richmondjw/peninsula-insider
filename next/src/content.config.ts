@@ -312,6 +312,7 @@ const articles = defineCollection({
       'hub-guide',
       'trail-guide',
       'venue-guide',
+      'peninsula-notes',
     ]),
     tags: z.array(z.string()).default([]),
     relatedVenues: z.array(reference('venues')).default([]),
