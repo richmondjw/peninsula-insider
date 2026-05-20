@@ -29,7 +29,7 @@ import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
-import { loadPublishedHomepageOverrides } from '../lib/content/homepage';
+import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
 import { sanityReadEnabled } from '../lib/sanity/client';
 import { fetchHomepageCoverFromSanity } from '../lib/sanity/singletons-adapter';
 import { fetchPlaceFromSanity } from '../lib/sanity/place-adapter';
@@ -619,33 +619,29 @@ export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
     </ScrollReveal>
   )}
 
-  {/* Editor's Letter — title and paragraphs keep their seasonal interpolation
-      because the JSON-default copy is autumn-specific; CMS overrides apply
-      only when an editor explicitly sets that field. Other fields fall
-      through to the inline defaults when no override is published. */}
+  {/* Editor's Letter — falls through to homepage.ts defaults when no CMS override is published.
+      Rotate the copy in homepage.ts each season; CMS overrides win when set. */}
   <ScrollReveal client:visible>
   {(() => {
     const elImage = cmsImage['editors-letter.image'];
-    const editorsLetterTitle = cmsText['editors-letter.title']
-      ?? `On the <em>quiet authority</em> of a good ${season ?? 'autumn'}.`;
+    const hpContent = getHomepageAdminContent();
+    const elDefaults = hpContent.editorsLetter;
+    const editorsLetterTitle = cmsText['editors-letter.title'] ?? elDefaults.title;
     const editorsLetterParagraphs = [
-      cmsText['editors-letter.paragraphs.0']
-        ?? `${seasonBlurbData.label ?? 'Autumn'} is the season the Peninsula stops performing. The weekend crowds thin, the vintage trucks finish their last runs, and the ridge takes on the colour it has for about six weeks a year.`,
-      cmsText['editors-letter.paragraphs.1']
-        ?? `We've rebuilt the cellar-door shortlist from scratch this season, visited every restaurant on the long-lunch list at least twice, and walked every beach on the ranking.`,
-
+      cmsText['editors-letter.paragraphs.0'] ?? elDefaults.paragraphs[0],
+      cmsText['editors-letter.paragraphs.1'] ?? elDefaults.paragraphs[1],
     ];
     return (
       <EditorsLetter
-        eyebrow={cmsText['editors-letter.eyebrow'] ?? "Editor's Letter"}
+        eyebrow={cmsText['editors-letter.eyebrow'] ?? elDefaults.eyebrow}
         title={editorsLetterTitle}
         paragraphs={editorsLetterParagraphs}
-        pullQuote={cmsText['editors-letter.pullQuote'] ?? "This issue is built for the six weeks where the Peninsula is at its most itself, before winter settles in and the coast goes quiet."}
-        signatureName={cmsText['editors-letter.signatureName'] ?? "The Editors"}
-        signatureRole={cmsText['editors-letter.signatureRole'] ?? "Peninsula Insider"}
-        image={elImage?.src ?? "/images/sourced/place-red-hill-01.webp"}
-        imageAlt={elImage?.alt ?? "Vine rows in late-season colour, Red Hill"}
-        imageCaption={elImage?.caption ?? "The last weekend of vintage, Red Hill, <em>the quietest a working winery ever gets.</em>"}
+        pullQuote={cmsText['editors-letter.pullQuote'] ?? elDefaults.pullQuote}
+        signatureName={cmsText['editors-letter.signatureName'] ?? elDefaults.signatureName}
+        signatureRole={cmsText['editors-letter.signatureRole'] ?? elDefaults.signatureRole}
+        image={elImage?.src ?? elDefaults.image}
+        imageAlt={elImage?.alt ?? elDefaults.imageAlt}
+        imageCaption={elImage?.caption ?? elDefaults.imageCaption}
       />
     );
   })()}
