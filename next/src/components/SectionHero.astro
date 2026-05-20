@@ -79,7 +79,7 @@ const imageAttrs = editable
   ? editableImage({
       entityType,
       entitySlug: entitySlug!,
-      fieldPath: 'hero',
+      fieldPath: isPageEntity ? 'hero' : 'heroImage',
       label: `${entitySlug} hero`,
       purpose: 'hero',
       ...(isPageEntity

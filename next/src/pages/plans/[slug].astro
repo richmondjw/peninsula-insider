@@ -393,7 +393,7 @@ export const prerender = true;
             aria-label={ad.heroImage.alt}
             style={heroBackgroundStyle(ad)}
             {...editableImage({
-              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'hero',
+              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'heroImage',
               label: `${ad.title} hero`, purpose: 'hero',
             })}
           ></div>
@@ -565,7 +565,7 @@ export const prerender = true;
           ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
           : heroBackgroundStyle(data!)}
         {...editableImage({
-          entityType: 'itinerary', entitySlug: slug, fieldPath: 'hero',
+          entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage',
           label: `${data!.title} hero`, purpose: 'hero',
         })}
       >
