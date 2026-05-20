@@ -20,29 +20,25 @@
     // Skip mount entirely outside browser (SSR build).
     if (typeof window === 'undefined') return;
 
-    // Skip if we're the top-level window. Studio's Presentation loads the
-    // site in an iframe, so window.top !== window when in Presentation.
+    // Only mount when we're loaded inside a frame. Studio's Presentation
+    // tool loads the site in an iframe, so window.top !== window.self.
+    // We previously also checked document.referrer for a sanity.studio
+    // origin, but that check breaks when Presentation navigates via the
+    // /api/preview/enable/ redirect — after the redirect, document.referrer
+    // is the enable endpoint URL (not the Studio URL), so enableVisualEditing
+    // never fired and Presentation showed "Unable to connect."
+    //
+    // Dropping the referrer check is safe: if enableVisualEditing() is
+    // called outside a real Studio parent it simply waits for a postMessage
+    // that never arrives and times out silently — no user-visible effect.
     let inIframe = false;
     try {
       inIframe = window.top !== window.self;
     } catch (_) {
-      // Cross-origin throws on .top access — treat as iframed (we ARE in
-      // a frame we can't introspect, which is exactly the Studio case).
+      // Cross-origin throws on .top access — treat as iframed.
       inIframe = true;
     }
     if (!inIframe) return;
-
-    // Belt-and-braces: only mount if the parent is Sanity Studio. The
-    // referrer is the URL of the page that loaded us, which for a Studio
-    // iframe is the Studio's own URL. Cross-origin iframe restrictions
-    // can blank document.referrer; in that case skip rather than
-    // attaching the overlay to arbitrary embeds.
-    const ref = document.referrer || '';
-    const isStudioParent =
-      ref.startsWith('https://peninsula-insider.sanity.studio') ||
-      ref.startsWith('https://sanity.io') ||
-      ref.includes('.sanity.studio');
-    if (!isStudioParent) return;
 
     import('@sanity/visual-editing').then(({ enableVisualEditing }) => {
       enableVisualEditing({ zIndex: 9999 });
