@@ -187,6 +187,8 @@ interface Scene {
   primaryLabel: string;
 }
 
+type RenderScene = Scene & { sanitySceneIndex?: number };
+
 // Cover scene fields are editor-controlled. CMS overrides (when present)
 // win over the inline defaults; the inline values are the canonical fallback
 // so the homepage renders identically when no CMS rows are published.
@@ -278,11 +280,16 @@ let ssrScene: Scene = coverImageOverride
 // when the page-level flag is on. Replaces both the inline `scenes[]`
 // array AND the legacy Supabase cover.image override.
 let sanityActiveSceneIndex: number | null = null;
+let alsoScenes: RenderScene[] = scenes.slice(1, 4);
 if (sanityReadEnabled('page-level')) {
   const sanityCover = await fetchHomepageCoverFromSanity();
   if (sanityCover && sanityCover.scenes.length > 0) {
     sanityActiveSceneIndex = Math.min(sanityCover.activeIndex, sanityCover.scenes.length - 1);
     const sc = sanityCover.scenes[sanityActiveSceneIndex];
+    const sanityScenes: RenderScene[] = sanityCover.scenes.map((scene, idx) => ({
+      ...scene,
+      sanitySceneIndex: idx,
+    }));
     ssrScene = {
       id: sc.id,
       label: sc.label,
@@ -295,6 +302,9 @@ if (sanityReadEnabled('page-level')) {
       primaryHref: sc.primaryHref,
       primaryLabel: sc.primaryLabel,
     };
+    alsoScenes = sanityScenes
+      .filter((_, idx) => idx !== sanityActiveSceneIndex)
+      .slice(0, 3);
   }
 }
 
@@ -449,10 +459,27 @@ export const prerender = true;
         <a class="cover-also__link" href="/journal/">All stories →</a>
       </div>
       <div class="cover-also__grid">
-        {scenes.slice(1, 4).map((s) => (
+        {alsoScenes.map((s) => (
           <a class="cover-also__item" href={s.primaryHref}>
             <div class="cover-also__thumb">
-              <img src={s.image} alt={s.imageAlt} loading="lazy" />
+              <img
+                src={s.image}
+                alt={s.imageAlt}
+                loading="lazy"
+                {...editableImage({
+                  entityType: 'page',
+                  entitySlug: 'home',
+                  fieldPath: `cover.scenes.${s.id}.image`,
+                  label: `${s.label || 'Homepage secondary'} image`,
+                  purpose: 'card',
+                  ...(s.sanitySceneIndex !== undefined
+                    ? {
+                        sanitySingletonId: 'homepageCover',
+                        sanitySingletonPath: `scenes[${s.sanitySceneIndex}].image`,
+                      }
+                    : {}),
+                })}
+              />
             </div>
             <p class="cover-also__meta">
               <span class="cover-also__chip">{s.label}</span>

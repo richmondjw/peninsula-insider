@@ -6,7 +6,7 @@
  *   - siteSettings   -> drives masthead label, edition, footer links, brand imagery
  *   - pageHero(slug) -> drives the SubpageHero override for a given hub
  */
-import {getSanityReadClient} from './client'
+import {getSanityReadClient, sanityClientFresh} from './client'
 import {intentUrl} from './image'
 
 type FetchOpts = {preview?: boolean}
@@ -99,7 +99,10 @@ export async function fetchHomepageCoverFromSanity(opts: FetchOpts = {}): Promis
   activeIndex: number
   coverDate: string | null
 } | null> {
-  const d: any = await getSanityReadClient(opts.preview).fetch(homepageCoverQuery)
+  // Homepage cover edits are made from the live-site admin overlay. Use the
+  // fresh published client here so an immediate refresh after an image patch
+  // does not re-render from Sanity CDN's stale copy.
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(homepageCoverQuery)
   if (!d?.scenes?.length) return null
   return {
     scenes: d.scenes.map((s: any, idx: number) => {
