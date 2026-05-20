@@ -14,7 +14,7 @@ section: "journal"
 tags: ["winter", "seasonal", "red-hill", "flinders", "truffle", "peninsula-notes"]
 readingTimeMinutes: 3
 featured: false
-status: "draft"
+status: "published"
 lastVerified: 2026-05-19
 ---
 

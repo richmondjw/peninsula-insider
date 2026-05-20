@@ -15,7 +15,7 @@ tags: ["slow-peninsula", "one-booking", "pacing", "planning", "long-lunch"]
 relatedVenues: ["montalto", "polperro", "merricks-general-wine-store", "flinders-hotel", "paringa-estate"]
 readingTimeMinutes: 5
 featured: false
-status: "draft"
+status: "published"
 lastVerified: 2026-05-19
 ---
 

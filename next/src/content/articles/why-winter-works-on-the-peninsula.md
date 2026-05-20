@@ -15,7 +15,7 @@ tags: ["winter", "seasonal", "slow-peninsula", "atmosphere", "red-hill", "cellar
 relatedVenues: ["montalto", "ten-minutes-by-tractor", "tedesca-osteria", "flinders-hotel", "merricks-general-wine-store", "peninsula-hot-springs", "alba-thermal-springs"]
 readingTimeMinutes: 6
 featured: false
-status: "draft"
+status: "published"
 lastVerified: 2026-05-19
 ---
 
