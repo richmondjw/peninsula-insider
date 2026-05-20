@@ -6,28 +6,19 @@
  * elements marked with `data-pi-edit` to be edited in place:
  *
  *   - text  → click element → contenteditable → save on blur / Enter
- *   - image → right-click → custom menu (Replace / Edit alt / Edit caption)
+ *   - image → right-click → Sanity media replacement panel
  *
- * Writes go direct to Supabase via the user's JWT — RLS in the pi schema is
- * the security boundary. This means inline editing works on both static
- * (GitHub Pages) and hybrid (Vercel) deploys; the admin API at
- * /admin/api/content/* is unused by this client.
- *
- * Image override resolution is the *server's* job. Components that own
- * editable images call `loadOverrides()` at render time and bake the
- * published `public_url` into the SSR'd markup. For anon visitors the
- * client-side patcher does nothing. Admins running the editor get a
- * lightweight client-side pass so newly-replaced images appear without
- * waiting for a rebuild, but it's gated to authenticated admin sessions
- * to avoid the build-time → Supabase swap that caused visible flicker
- * on first paint.
+ * Text writes still go direct to Supabase via the user's JWT and RLS.
+ * Image writes are intentionally Sanity-only: uploads create Sanity assets,
+ * then `/api/admin/sanity-patch` patches the source document field and
+ * triggers revalidation. The old Supabase image-slot override path is gone
+ * from the client to avoid split-brain persistence.
  */
 
 import { getSupabase, isAuthEnabled } from '../auth';
 
 type Tone = 'ok' | 'err' | 'info';
 
-const STORAGE_BUCKET = 'cms-assets';
 const EDIT_MODE_FLAG = 'pi.editMode';
 
 let editMode = false;
@@ -198,17 +189,7 @@ function setEditMode(on: boolean, source: 'click' | 'restore' = 'restore') {
   document.body.dataset.piEditMode = on ? 'on' : 'off';
   sessionStorage.setItem(EDIT_MODE_FLAG, on ? '1' : '0');
   if (!on) closeMenu();
-  // LEGACY: `applyOverridesOnLoad()` patched in Supabase-stored image
-  // overrides on top of SSR output when edit mode toggled on. With the
-  // Sanity migration complete (PRs #181–#203), Sanity is the source of
-  // truth — overrides live in Sanity docs, are baked into SSR via the
-  // dual-read adapters, and pushed live via on-demand revalidation. The
-  // Supabase override path is dead weight AND was actively interfering
-  // (toggling edit mode visibly swapped images to stale Supabase rows).
-  // Call disabled below; the function itself is kept until the legacy
-  // override schema is dropped in a future migration.
-  void source; // suppress unused-warning; kept for callsite parity
-  // if (on && source === 'click') void applyOverridesOnLoad();
+  void source; // kept for callsite parity with click/restore callers.
 }
 
 // --------------------------------------------------------------------------
@@ -597,9 +578,12 @@ function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
 }
 
 /**
- * Floating image-edit popover. Replaces the old context-menu list with a
- * proper editor panel: thumbnail preview, replace button, and inline
- * fields for alt / caption / credit. Save commits all dirty fields at once.
+ * Sanity-only image edit popover.
+ *
+ * This deliberately avoids the legacy Supabase image-slot path. Image
+ * replacement must resolve a Sanity document + image field before any upload
+ * or library selection can run, so a visible swap always corresponds to a
+ * persistent Sanity patch.
  */
 function openImagePanel(el: HTMLElement, x: number, y: number) {
   closeMenu();
@@ -607,11 +591,12 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
   if (!desc) return;
 
   const thumbSrc = currentImageSrc(el) || '';
+  const cleanThumbSrc = thumbSrc.split('?')[0] || thumbSrc;
 
   menuEl = document.createElement('div');
   menuEl.className = 'pi-edit-panel';
   // Position the panel near the click but clamp into viewport.
-  const PANEL_W = 320, PANEL_H = 420;
+  const PANEL_W = 340, PANEL_H = 330;
   menuEl.style.left = `${Math.max(8, Math.min(x, window.innerWidth - PANEL_W - 8))}px`;
   menuEl.style.top  = `${Math.max(8, Math.min(y, window.innerHeight - PANEL_H - 8))}px`;
 
@@ -620,42 +605,30 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
       <div class="pi-edit-panel__thumb" style="background-image: url(${cssUrl(thumbSrc)})"></div>
       <div class="pi-edit-panel__title">
         <div class="pi-edit-panel__label">${escapeHtml(desc.label)}</div>
-        <div class="pi-edit-panel__sub">${desc.autoDetected ? 'Auto-detected image' : 'Tagged image slot'}</div>
+        <div class="pi-edit-panel__sub">Sanity image field</div>
       </div>
       <button type="button" class="pi-edit-panel__close" aria-label="Close">×</button>
     </div>
-    <button type="button" class="pi-edit-panel__replace" data-action="replace">
-      <span aria-hidden="true">⇪</span> Replace image (upload)…
-    </button>
-    <button type="button" class="pi-edit-panel__replace" data-action="bind-sanity" style="margin-top:6px" hidden>
-      <span aria-hidden="true">🔗</span> Bind to a Sanity doc…
-    </button>
-    <button type="button" class="pi-edit-panel__replace" data-action="replace-sanity" style="margin-top:6px">
-      <span aria-hidden="true">⬚</span> Replace from media library…
-    </button>
-    <div class="pi-edit-panel__fields">
-      <label class="pi-edit-panel__field">
-        <span>Alt text</span>
-        <input type="text" data-field="alt" />
-      </label>
-      <label class="pi-edit-panel__field">
-        <span>Caption</span>
-        <input type="text" data-field="caption" />
-      </label>
-      <label class="pi-edit-panel__field">
-        <span>Credit</span>
-        <input type="text" data-field="credit" />
-      </label>
+    <div class="pi-edit-panel__body">
+      <div class="pi-edit-panel__source" data-role="source">Checking Sanity binding…</div>
+      <div class="pi-edit-panel__filename">${escapeHtml(srcBasename(cleanThumbSrc))}</div>
+      <div class="pi-edit-panel__actions">
+        <button type="button" class="pi-edit-panel__replace" data-action="replace-sanity" disabled>
+          <span aria-hidden="true">□</span> Media library
+        </button>
+        <button type="button" class="pi-edit-panel__replace pi-edit-panel__replace--secondary" data-action="replace" disabled>
+          <span aria-hidden="true">↑</span> Upload new
+        </button>
+        <button type="button" class="pi-edit-panel__replace pi-edit-panel__replace--secondary" data-action="bind-sanity" hidden>
+          <span aria-hidden="true">+</span> Bind image
+        </button>
+      </div>
     </div>
     <div class="pi-edit-panel__foot">
       <button type="button" class="pi-edit-panel__btn pi-edit-panel__btn--ghost" data-action="cancel">Cancel</button>
-      <button type="button" class="pi-edit-panel__btn pi-edit-panel__btn--primary" data-action="save">Save changes</button>
     </div>
   `;
   document.body.appendChild(menuEl);
-
-  // Hydrate the inputs with the current row, if one exists.
-  void hydratePanel(menuEl, desc);
 
   // Wire the action buttons.
   menuEl.addEventListener('click', (e) => {
@@ -665,30 +638,37 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     if (action === 'replace-sanity') void triggerSanityReplace(el, desc);
     if (action === 'bind-sanity') void triggerSanityBind(el, desc);
     if (action === 'cancel')  closeMenu();
-    if (action === 'save')    void savePanelMeta(menuEl!, el, desc);
   });
   menuEl.querySelector('.pi-edit-panel__close')?.addEventListener('click', closeMenu);
 
-  // Async probe: figure out whether this image already has a Sanity binding
-  // (stega marker, data-pi-edit, or pi.image_bindings row). If NOT, surface
-  // the "Bind to a Sanity doc…" button and hide the Replace button until
-  // the editor has bound something.
+  // Async probe: enable write actions only after a real Sanity source is known.
   void (async () => {
     try {
       const mod = await import('./sanity-image-overlay');
       const source = mod.resolveSanitySource(el, desc);
       if (!menuEl) return;
+      const sourceEl = menuEl.querySelector<HTMLElement>('[data-role="source"]');
       const bindBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="bind-sanity"]');
       const replaceBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="replace-sanity"]');
+      const uploadBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="replace"]');
       if (!source) {
+        if (sourceEl) sourceEl.textContent = 'Not bound to Sanity yet.';
         if (bindBtn) bindBtn.hidden = false;
-        if (replaceBtn) replaceBtn.hidden = true;
+        if (replaceBtn) replaceBtn.disabled = true;
+        if (uploadBtn) uploadBtn.disabled = true;
       } else {
+        const target = source.docId
+          ? `${source.docId} · ${source.fieldPath}`
+          : `${source.entityType}/${source.entitySlug} · ${source.fieldPath}`;
+        if (sourceEl) sourceEl.textContent = target;
         if (bindBtn) bindBtn.hidden = true;
-        if (replaceBtn) replaceBtn.hidden = false;
+        if (replaceBtn) replaceBtn.disabled = false;
+        if (uploadBtn) uploadBtn.disabled = false;
       }
     } catch {
-      /* leave defaults — Replace visible, Bind hidden */
+      if (!menuEl) return;
+      const sourceEl = menuEl.querySelector<HTMLElement>('[data-role="source"]');
+      if (sourceEl) sourceEl.textContent = 'Could not check Sanity binding.';
     }
   })();
 }
@@ -699,92 +679,6 @@ function cssUrl(src: string): string {
 
 function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
-}
-
-async function hydratePanel(panel: HTMLElement, desc: ImageDescriptor) {
-  const supa = getSupabase();
-  if (!supa) return;
-
-  const { data } = await supa
-    .from('cms_image_slots')
-    .select('alt_text, caption, credit')
-    .eq('entity_type', desc.entityType)
-    .eq('entity_slug', desc.entitySlug)
-    .eq('field_path', desc.fieldPath)
-    .maybeSingle();
-
-  const row = data as { alt_text: string | null; caption: string | null; credit: string | null } | null;
-  if (!row) return;
-
-  const altInput     = panel.querySelector<HTMLInputElement>('input[data-field="alt"]');
-  const captionInput = panel.querySelector<HTMLInputElement>('input[data-field="caption"]');
-  const creditInput  = panel.querySelector<HTMLInputElement>('input[data-field="credit"]');
-  if (altInput && row.alt_text)    altInput.value     = row.alt_text;
-  if (captionInput && row.caption) captionInput.value = row.caption;
-  if (creditInput && row.credit)   creditInput.value  = row.credit;
-}
-
-async function savePanelMeta(panel: HTMLElement, el: HTMLElement, desc: ImageDescriptor) {
-  const supa = getSupabase();
-  if (!supa) return toast('Supabase not configured.', 'err');
-  const { data: { session } } = await supa.auth.getSession();
-  if (!session) return toast('Signed out.', 'err');
-
-  const altText = panel.querySelector<HTMLInputElement>('input[data-field="alt"]')?.value ?? null;
-  const caption = panel.querySelector<HTMLInputElement>('input[data-field="caption"]')?.value ?? null;
-  const credit  = panel.querySelector<HTMLInputElement>('input[data-field="credit"]')?.value ?? null;
-
-  const { data: existing } = await supa
-    .from('cms_image_slots')
-    .select('id, public_url, storage_path')
-    .eq('entity_type', desc.entityType)
-    .eq('entity_slug', desc.entitySlug)
-    .eq('field_path', desc.fieldPath)
-    .maybeSingle();
-
-  const patch: Record<string, unknown> = {
-    alt_text: altText || null,
-    caption:  caption || null,
-    credit:   credit || null,
-    status:   'published',
-    updated_by: session.user.id,
-  };
-
-  if (existing?.id) {
-    const { error } = await supa.from('cms_image_slots').update(patch).eq('id', existing.id);
-    if (error) return toast(`Save failed: ${error.message}`, 'err');
-  } else {
-    // Create a slot row carrying metadata only (no upload yet).
-    const row = {
-      entity_type: desc.entityType,
-      entity_slug: desc.entitySlug,
-      field_path:  desc.fieldPath,
-      label:       desc.label,
-      purpose:     desc.purpose,
-      storage_bucket: STORAGE_BUCKET,
-      storage_path:   null,
-      public_url:     currentImageSrc(el) || null,
-      ...patch,
-    };
-    const { error } = await supa.from('cms_image_slots').insert(row);
-    if (error) return toast(`Save failed: ${error.message}`, 'err');
-  }
-
-  // Reflect alt in the DOM (only meaningful for <img>).
-  if (altText && el instanceof HTMLImageElement) el.alt = altText;
-  if (altText && !(el instanceof HTMLImageElement)) el.setAttribute('aria-label', altText);
-
-  await recordRevision(supa, session.user.id, {
-    entity_type: desc.entityType,
-    entity_slug: desc.entitySlug,
-    action: 'update',
-    status: 'published',
-    summary: `Edited metadata for "${desc.label}"`,
-    patch: [{ op: 'set', target: `${desc.fieldPath}.meta`, value: { altText, caption, credit } }],
-  });
-
-  toast(`Saved "${desc.label}".`, 'ok');
-  closeMenu();
 }
 
 function closeMenu() {
@@ -806,12 +700,6 @@ function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
     input.remove();
     if (!file) return;
     closeMenu();
-    // Sanity path: resolve the binding, upload to Sanity asset API,
-    // patch the source doc. Falls back to the legacy Supabase upload
-    // ONLY if no Sanity binding can be resolved (e.g. brand asset that
-    // genuinely has no Sanity field — the legacy patcher is disabled so
-    // this is effectively a dead-end, but we keep the call for the
-    // error toast the legacy path produces).
     await replaceImageViaSanity(el, d, file);
   }, { once: true });
   document.body.appendChild(input);
@@ -821,9 +709,7 @@ function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
 /**
  * Upload a freshly-picked file to Sanity and patch the source doc.
  * Mirrors the upload+patch sequence inside `sanity-image-overlay.ts`'s
- * "Upload new" path, but runs without opening the library modal — for
- * the "Replace image (upload)…" menu button where the editor already
- * has a specific file ready.
+ * "Upload new" path, but runs directly from the compact edit panel.
  */
 async function replaceImageViaSanity(el: HTMLElement, desc: ImageDescriptor, file: File) {
   try {
@@ -880,8 +766,13 @@ async function replaceImageViaSanity(el: HTMLElement, desc: ImageDescriptor, fil
       return;
     }
 
-    // 3. Swap visible src.
-    if (pBody.data?.newUrl) setImageSrc(el, pBody.data.newUrl);
+    // 3. Swap visible src with a cache-buster so the editor never sees the
+    // old CDN image after a verified Sanity patch.
+    if (pBody.data?.newUrl) {
+      const nextUrl = String(pBody.data.newUrl);
+      const separator = nextUrl.includes('?') ? '&' : '?';
+      setImageSrc(el, `${nextUrl}${separator}v=${Date.now()}`);
+    }
     toast('Replaced', 'ok');
   } catch (err) {
     console.error('[pi-edit] upload-and-patch failed:', err);
@@ -990,177 +881,6 @@ async function triggerSanityReplace(el: HTMLElement, desc: ImageDescriptor) {
     console.error('[pi-edit] sanity overlay failed to load', err);
     toast(`Couldn't open media library: ${(err as Error).message}`, 'err');
   }
-}
-
-async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) {
-  console.log('[pi-edit] replaceImage start', { desc, file: file.name, size: file.size, type: file.type });
-
-  const supa = getSupabase();
-  if (!supa) { console.warn('[pi-edit] supabase client not configured'); return toast('Supabase not configured.', 'err'); }
-
-  const { data: { session } } = await supa.auth.getSession();
-  if (!session) { console.warn('[pi-edit] no session'); return toast('Signed out — please sign in again.', 'err'); }
-
-  toast(`Uploading "${file.name}"…`, 'info');
-  el.dataset.piUploading = '1';
-  try {
-    const ext = file.name.match(/\.([a-z0-9]+)$/i)?.[1]?.toLowerCase() ?? 'jpg';
-    const ts = Date.now();
-    const safeSlug = desc.entitySlug.replace(/[^a-z0-9-]/gi, '-');
-    const safeField = desc.fieldPath.replace(/[^a-z0-9._-]/gi, '-');
-    const storagePath = `${desc.entityType}/${safeSlug}/${safeField}-${ts}.${ext}`;
-    console.log('[pi-edit] uploading to storage', { bucket: STORAGE_BUCKET, storagePath });
-
-    const { data: uploadData, error: uploadErr } = await supa.storage
-      .from(STORAGE_BUCKET)
-      .upload(storagePath, file, {
-        upsert: false,
-        contentType: file.type || `image/${ext}`,
-        cacheControl: '31536000',
-      });
-    console.log('[pi-edit] storage upload result', { uploadData, uploadErr });
-    if (uploadErr) throw new Error(`Storage upload failed: ${uploadErr.message}`);
-
-    const { data: pub } = supa.storage.from(STORAGE_BUCKET).getPublicUrl(storagePath);
-    const publicUrl = pub.publicUrl;
-    console.log('[pi-edit] storage publicUrl', publicUrl);
-
-    // Find or create the cms_image_slots row.
-    const { data: existing } = await supa
-      .from('cms_image_slots')
-      .select('id')
-      .eq('entity_type', desc.entityType)
-      .eq('entity_slug', desc.entitySlug)
-      .eq('field_path', desc.fieldPath)
-      .maybeSingle();
-
-    const row = {
-      entity_type: desc.entityType,
-      entity_slug: desc.entitySlug,
-      field_path: desc.fieldPath,
-      label: desc.label,
-      purpose: desc.purpose,
-      storage_bucket: STORAGE_BUCKET,
-      storage_path: storagePath,
-      public_url: publicUrl,
-      mime_type: file.type || `image/${ext}`,
-      status: 'published' as const,
-      updated_by: session.user.id,
-    };
-
-    if (existing?.id) {
-      console.log('[pi-edit] updating existing cms_image_slots row', existing.id);
-      const { error } = await supa.from('cms_image_slots').update(row).eq('id', existing.id);
-      if (error) throw new Error(`DB update failed: ${error.message}`);
-    } else {
-      console.log('[pi-edit] inserting new cms_image_slots row');
-      const { error } = await supa.from('cms_image_slots').insert(row);
-      if (error) throw new Error(`DB insert failed: ${error.message}`);
-    }
-
-    // Update the visible image so the change is immediate (handles both
-    // <img> and background-image divs).
-    const bustUrl = publicUrl + (publicUrl.includes('?') ? '&' : '?') + 'v=' + ts;
-    console.log('[pi-edit] setting visible image src', bustUrl);
-    setImageSrc(el, bustUrl);
-    // Clear placeholder chrome — strip any `*__hero--placeholder` class so the
-    // "Add photo" overlay and camera icon disappear now that a real image has
-    // been assigned. Covers venue, event, and any future card variant that
-    // follows the same convention.
-    el.className = el.className
-      .split(/\s+/)
-      .filter((c) => !/__hero--placeholder$/.test(c))
-      .join(' ');
-
-    await recordRevision(supa, session.user.id, {
-      entity_type: desc.entityType,
-      entity_slug: desc.entitySlug,
-      action: 'update',
-      status: 'published',
-      summary: `Replaced image "${desc.label}" inline`,
-      patch: [{ op: 'set', target: desc.fieldPath, value: publicUrl }],
-    });
-
-    toast(`Replaced "${desc.label}".`, 'ok');
-  } catch (err) {
-    console.error('[pi-edit] replaceImage failed:', err);
-    toast(`Upload failed: ${(err as Error).message || err}`, 'err');
-  } finally {
-    delete el.dataset.piUploading;
-  }
-}
-
-// --------------------------------------------------------------------------
-// Client-side override patcher
-// --------------------------------------------------------------------------
-
-/**
- * Admin-only: after every page load, fetch any published image overrides
- * for the tagged slots on this page and patch their srcs in place. Only
- * runs for authenticated admins so editors see their replacements without
- * waiting for a rebuild.
- *
- * Anon visitors never call this — they see SSR-rendered output verbatim.
- * Components that own editable images are responsible for resolving
- * overrides server-side via `loadOverrides()` and baking the published
- * `public_url` into the markup at render time. That guarantees the first
- * paint already shows the correct image and there's no swap flicker.
- *
- * Only the explicit pass remains: every `[data-pi-edit="image"]` element
- * declares its identity via `data-pi-entity-type` / `data-pi-entity-slug` /
- * `data-pi-field-path`. Groups are queried in parallel and matched by
- * exact field_path. The basename-keyed implicit pass that previously
- * swept every `<img>` and bg-image element was removed — it was the main
- * source of post-paint flicker for anon visitors and is no longer needed
- * now that SSR owns override resolution.
- */
-async function applyOverridesOnLoad() {
-  const supa = getSupabase();
-  if (!supa) return;
-
-  const taggedEls = document.querySelectorAll<HTMLElement>('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]');
-  const groups = new Map<string, { entityType: string; entitySlug: string; els: HTMLElement[] }>();
-  taggedEls.forEach((el) => {
-    const entityType = el.dataset.piEntityType;
-    const entitySlug = el.dataset.piEntitySlug;
-    if (!entityType || !entitySlug) return;
-    const key = `${entityType}/${entitySlug}`;
-    const group = groups.get(key) ?? { entityType, entitySlug, els: [] };
-    group.els.push(el);
-    groups.set(key, group);
-  });
-
-  await Promise.all(Array.from(groups.values()).map(async (group) => {
-    const { data } = await supa
-      .from('cms_image_slots')
-      .select('field_path, public_url, alt_text')
-      .eq('entity_type', group.entityType)
-      .eq('entity_slug', group.entitySlug)
-      .eq('status', 'published');
-    const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
-    const byPath = new Map(rows.map((r) => [r.field_path, r]));
-    for (const el of group.els) {
-      const fieldPath = el.dataset.piFieldPath;
-      if (!fieldPath) continue;
-      const row = byPath.get(fieldPath);
-      if (!row?.public_url) continue;
-      if (currentImageSrc(el) === row.public_url) continue;
-      setImageSrc(el, row.public_url);
-      // A placeholder card has no inline bg-image at build time; once a real
-      // image is applied via Supabase, remove the placeholder chrome so the
-      // "Add photo" state gives way to the actual image. Cover every card
-      // type that uses the same pattern — venue, event, and any future card
-      // — by stripping all `--placeholder` modifiers via the className.
-      el.className = el.className
-        .split(/\s+/)
-        .filter((c) => !/__hero--placeholder$/.test(c))
-        .join(' ');
-      if (row.alt_text) {
-        if (el instanceof HTMLImageElement) el.alt = row.alt_text;
-        else el.setAttribute('aria-label', row.alt_text);
-      }
-    }
-  }));
 }
 
 // --------------------------------------------------------------------------
