@@ -10,9 +10,16 @@
  */
 
 interface DocLike {
+  _id?: string | null;
   _type: string;
   slug?: { current?: string } | string | null;
   pathSlug?: string | null;
+}
+
+function pageHeroSlugFromId(id: string | null | undefined): string | undefined {
+  if (!id?.startsWith('pageHero-')) return undefined;
+  const slug = id.slice('pageHero-'.length).replace(/--/g, '/').replace(/^\/+|\/+$/g, '');
+  return slug || undefined;
 }
 
 export function routesForDocument(doc: DocLike): string[] {
@@ -57,7 +64,7 @@ export function routesForDocument(doc: DocLike): string[] {
       // path (e.g. "eat/bakeries"). Strip any leading slash, append
       // trailing slash, and revalidate that exact route.
       {
-        const pageSlug = doc.pathSlug ?? slug;
+        const pageSlug = doc.pathSlug ?? slug ?? pageHeroSlugFromId(doc._id);
         if (!pageSlug) return ['/'];
         return [`/${pageSlug.replace(/^\/+|\/+$/g, '')}/`];
       }

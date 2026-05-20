@@ -148,7 +148,7 @@ export interface MegaRailEntry {
 }
 
 export async function fetchMegaRailFromSanity(opts: FetchOpts = {}): Promise<MegaRailEntry[] | null> {
-  const d: any = await getSanityReadClient(opts.preview).fetch(megaRailQuery)
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(megaRailQuery)
   if (!d?.entries?.length) return null
   return d.entries.map((e: any, idx: number) => {
     if (!e.image?.asset) return {key: e.key, label: e.label, href: e.href, eyebrow: e.eyebrow}
@@ -206,7 +206,7 @@ export interface SiteSettings {
 }
 
 export async function fetchSiteSettingsFromSanity(opts: FetchOpts = {}): Promise<SiteSettings | null> {
-  const d: any = await getSanityReadClient(opts.preview).fetch(siteSettingsQuery)
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(siteSettingsQuery)
   if (!d) return null
   return {
     mastheadLabel: d.mastheadLabel ?? 'Peninsula Insider',
@@ -255,7 +255,7 @@ export async function fetchPageHeroFromSanity(slug: string, opts: FetchOpts = {}
   imageSrc?: string
   imageAlt?: string
 } | null> {
-  const d: any = await getSanityReadClient(opts.preview).fetch(pageHeroQuery, {slug})
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(pageHeroQuery, {slug})
   if (!d) return null
   let imageSrc: string | undefined
   let imageAlt: string | undefined

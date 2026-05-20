@@ -16,7 +16,7 @@
  *   Filter:      _type in ["venue","place","article","event","itinerary",
  *                          "tour","tourOperator","tourPackage","experience",
  *                          "homepageCover","megaRail","pageHero","siteSettings"]
- *   Projection:  { _id, _type, slug, "tags": tags }
+ *   Projection:  { _id, _type, slug, pathSlug, "tags": tags }
  *   Secret:      from `SANITY_WEBHOOK_SECRET` env var
  */
 import type {APIRoute} from 'astro'
@@ -31,12 +31,13 @@ interface SanityWebhookBody {
   _type: string
   _id: string
   slug?: {current?: string} | string | null
+  pathSlug?: string | null
 }
 
 // Map kept in lib/sanity/revalidate-paths.ts so the admin overlay's
 // /api/admin/sanity-patch can reuse the same routing logic.
 function routesForDocument(body: SanityWebhookBody): string[] {
-  return sharedRoutesFor({_type: body._type, slug: body.slug})
+  return sharedRoutesFor({_id: body._id, _type: body._type, slug: body.slug, pathSlug: body.pathSlug})
 }
 
 export const POST: APIRoute = async ({request}) => {

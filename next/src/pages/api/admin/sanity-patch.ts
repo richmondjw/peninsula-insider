@@ -335,7 +335,12 @@ export const POST: APIRoute = async ({ request }) => {
         { id: targetDocId },
       );
       if (meta) {
-        revalidatedRoutes = routesForDocument({ _type: meta._type, slug: meta.slug });
+        revalidatedRoutes = routesForDocument({
+          _id: targetDocId,
+          _type: meta._type,
+          slug: meta.slug,
+          pathSlug: meta.pathSlug,
+        });
         if (revalidatedRoutes.length > 0) {
           const origin = new URL(request.url).origin;
           await triggerRevalidate(revalidatedRoutes, origin);
