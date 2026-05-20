@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial planning desk, Saturday 9 May edition. Weather from wttr.in live feed, Red Hill, Victoria. Peninsula Hot Springs programme verified on peninsulahotsprings.com/whats-on. Checked 09 May 2026 06:49 AEST."
     checkedAt: 2026-05-09T06:49:00+10:00
-status: published
+status: archived
 ---
 Five days into an autumn wet sequence and Saturday is the final chapter. The rain has been consistent, the temperatures mild — the Peninsula in this mode is not unpleasant, it is just not outdoor weather.
 

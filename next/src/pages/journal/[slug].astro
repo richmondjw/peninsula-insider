@@ -18,7 +18,7 @@ import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
 import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
+import { fetchArticleFromSanity, extractHeadingsFromPT } from '../../lib/sanity/article-adapter';
 import PortableTextBody from '../../components/PortableTextBody.astro';
 
 export async function getStaticPaths() {
@@ -59,11 +59,12 @@ const ptwRedirectTo = isPeninsulaThisWeekend(article) ? ptwArchivePath(article) 
 
 // Astro's render() can't be called on a Sanity-sourced article. When
 // sanityBody is set we render the body via <PortableTextBody> further
-// down; Content stays null here. TOC headings from PT are deferred.
+// down; Content stays null here. Headings are extracted from the
+// Portable Text body so hub-guide TOC keeps working on Sanity articles.
 const { Content, headings } = ptwRedirectTo
   ? { Content: null as any, headings: [] as Array<{ slug: string; text: string; depth: number }> }
   : sanityBody
-    ? { Content: null as any, headings: [] as Array<{ slug: string; text: string; depth: number }> }
+    ? { Content: null as any, headings: extractHeadingsFromPT(sanityBody) }
     : await render(article);
 
 // Hub-guide treatment: planning-utility articles (regional reference, hub

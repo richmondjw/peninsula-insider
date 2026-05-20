@@ -13,7 +13,7 @@ sources:
     url: https://laurarestaurant.com.au
     checkedAt: 2026-05-01T07:30:00+10:00
 relatedVenue: laura-pt-leo
-status: published
+status: archived
 ---
 
 Three extra Sunday sittings for the first weekend of autumn. The kitchen's pace stays the same — three hours, no rush — but the booking window itself is competitive, so the alarm matters more than the menu.

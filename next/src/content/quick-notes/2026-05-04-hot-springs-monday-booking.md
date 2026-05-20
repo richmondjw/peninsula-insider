@@ -14,6 +14,6 @@ sources:
     note: Site checked Monday morning. Booking flow showing Monday sessions available.
     checkedAt: 2026-05-04T06:50:00+10:00
 relatedVenue: peninsula-hot-springs
-status: published
+status: archived
 ---
 Peninsula Hot Springs doesn't close on weekdays. Monday in particular tends to clear the weekend queue — and this morning the site is showing session availability. With the outdoor weather looking solid until early afternoon, the combination works: arrive at opening, soak while it's calm, and leave before the northerly and rain build after 3pm. Book directly through the venue site. Sessions fill faster than people expect even on weekdays.

@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Tuesday 12 May 2026. Weather from wttr.in live feed Red Hill South (06:41 AEST) — 0% rain, fog clearing by 9am, max 18°C. Peninsula Hot Springs weekday programme from peninsulahotsprings.com/whats-on/ checked 12 May 2026. MPRG Tuesday opening hours confirmed via visitmelbourne.com and pgav.org.au — Tuesday 11am–4pm. Editorial assessment of Tuesday visitor pressure reflects general Peninsula midweek patterns; no venue-specific crowd data claimed."
     checkedAt: 2026-05-12T06:42:00+10:00
-status: published
+status: archived
 ---
 There is something specific about Tuesday on the Mornington Peninsula. It is the quietest day of the operating week — past the weekend traffic, before the Wednesday-to-Sunday cellar door crowd begins to rebuild. The visitor pressure is roughly half of Saturday. On the walking tracks, the car parks, and in the tasting rooms that open midweek, Tuesday reads as the Peninsula's own time.
 

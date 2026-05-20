@@ -14,7 +14,7 @@ sources:
     note: "Bathe in Cinema presents Ocean with David Attenborough confirmed via Peninsula Hot Springs What's On page. Date: 8 May, time: 6:30pm. Weekday activity schedule confirmed: Hot Springs Yoga 9:15am daily, Fire and Ice Workshop weekdays 10:30am / 4pm / 5pm, Body Clay Ritual weekdays 12pm & 2pm. Checked live 06 May 2026."
     checkedAt: 2026-05-06T07:02:00+10:00
 relatedVenue: peninsula-hot-springs
-status: published
+status: archived
 ---
 Peninsula Hot Springs has Bathe in Cinema on the program this Friday evening. The format puts a film screening alongside poolside bathing — this one is David Attenborough's *Ocean*, which runs at 6:30pm on Friday 8 May. It is the kind of event that works especially well in autumn: warm pools, cold air, darkness around the screening. Book direct through the Hot Springs site; event nights fill earlier than standard sessions.
 

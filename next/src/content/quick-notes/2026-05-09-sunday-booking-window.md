@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "Weather forecast from wttr.in live feed, Red Hill South, Victoria. Sunday 10 May: 0% rain from 1200, sunny afternoon, 16°C max, winds 8km/h by evening. Checked live 09 May 2026 06:48 AEST. Cellar door booking windows consistent with general Peninsula Wine Region operating practice (no specific venue changes verified)."
     checkedAt: 2026-05-09T06:51:00+10:00
-status: published
+status: archived
 ---
 Sunday 10 May is the break in the sequence. After five wet days the forecast shows a clean afternoon: 0% chance of rain from noon, sunshine through the mid-afternoon, 16°C, and winds dropping to 8km/h by evening. It is not a forecast caveat — the pattern is clear and it has been building all week.
 

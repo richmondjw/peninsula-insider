@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in/Mornington+Peninsula,Victoria,Australia — checked 18 May 2026 06:56 AEST. Monday 18 May: Max 16°C, Min 13°C, current 14°C (feels 15°C), overcast, humidity 88%. Hourly: 9am 100% rain chance, 3pm 67%, 6pm 0%, 9pm 0%. Wind southerly, light. UV index 2. Open-Meteo cross-check: max 16.6°C, min 12.4°C, WMO code 53 (moderate drizzle), sunrise 07:17, sunset 17:16. Tuesday outlook: max 15°C, 71% rain probability."
     checkedAt: 2026-05-18T06:56:00+10:00
-status: published
+status: archived
 ---
 Monday on the Mornington Peninsula opens wet. The morning is the heavy window — 100% rain probability at 9am, with conditions carrying moderate drizzle through until at least midday. The temperature sits around 14°C through the morning session, peaking at 16°C by early afternoon. Humidity is high at 88%, and the light southerly wind keeps it damp rather than dramatic.
 

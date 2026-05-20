@@ -14,7 +14,7 @@ sources:
     note: "Bathe in Cinema presents Ocean with David Attenborough confirmed on Peninsula Hot Springs What's On page. Date: 8 May, time: 6:30pm. Verified live 08 May 2026 06:46 AEST. Saturday 9 May: Kodomo no Hi (Children's Day: a Japanese cultural celebration) 10am–8pm. Sunday 10 May: Sunday Sessions with Ereignis, 12pm."
     checkedAt: 2026-05-08T06:46:00+10:00
 relatedVenue: peninsula-hot-springs
-status: published
+status: archived
 ---
 Peninsula Hot Springs has Bathe in Cinema tonight: David Attenborough's *Ocean* screened at the poolside in the thermal baths, 6:30pm, Friday 8 May.
 

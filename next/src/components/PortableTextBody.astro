@@ -11,6 +11,7 @@
  * `practicalCallout` render identically to their MDX counterparts.
  */
 import {toHTML, type PortableTextHtmlComponents} from '@portabletext/to-html'
+import Slugger from 'github-slugger'
 import AlertBlock from './AlertBlock.astro'
 import PracticalCallout from './hub-guide/PracticalCallout.astro'
 import CellarDoorList from './hub-guide/CellarDoorList.astro'
@@ -41,7 +42,16 @@ for (const b of blocks) {
   }
 }
 
+// One slugger per page render — mirrors Astro's own rehype-collect-headings
+// behaviour (github-slugger, stateful dedup across all headings on the page).
+const slugger = new Slugger()
+
 const ptComponents: Partial<PortableTextHtmlComponents> = {
+  block: {
+    h2: ({children}) => `<h2 id="${slugger.slug(children.replace(/<[^>]*>/g, ''))}">${ children}</h2>`,
+    h3: ({children}) => `<h3 id="${slugger.slug(children.replace(/<[^>]*>/g, ''))}">${ children}</h3>`,
+    h4: ({children}) => `<h4 id="${slugger.slug(children.replace(/<[^>]*>/g, ''))}">${ children}</h4>`,
+  },
   marks: {
     link: ({value, children}) => {
       const href = String(value?.href ?? '#').replace(/[&<>"']/g, (c) => ({

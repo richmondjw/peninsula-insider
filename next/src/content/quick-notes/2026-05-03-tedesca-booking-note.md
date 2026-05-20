@@ -13,6 +13,6 @@ sources:
     url: https://www.tedesca.com.au/
     checkedAt: 2026-05-03T10:42:00+10:00
 relatedVenue: tedesca-osteria
-status: published
+status: archived
 ---
 The useful consumer detail on the Tedesca site is not romance, it's logistics: bookings are pushed through the online system, response times on email may run longer than a day, and the room is still only thirty seats. On a Sunday edition, that's enough to move this from aspiration to planning note.

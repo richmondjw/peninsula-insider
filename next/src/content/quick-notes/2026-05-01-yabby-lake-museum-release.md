@@ -16,7 +16,7 @@ sources:
     note: "Confirmed allocation pours available at cellar door for mailing-list members"
     checkedAt: 2026-05-01T08:00:00+10:00
 relatedVenue: yabby-lake
-status: published
+status: archived
 ---
 
 The single-block program is the case for Peninsula Pinot in three glasses. Block 6 has been the most-quietly-loved of the three this side of the decade. Worth a visit even if the allocation's already gone — the cellar-door staff will pour from open bottles.

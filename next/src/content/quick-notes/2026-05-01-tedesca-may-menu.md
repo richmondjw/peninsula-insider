@@ -13,7 +13,7 @@ sources:
     url: https://www.tedesca.com.au
     checkedAt: 2026-05-01T07:40:00+10:00
 relatedVenue: tedesca-osteria
-status: published
+status: archived
 ---
 
 Hafner's three-month menus stay still; the weekly course is the editorial freshness. May's first one — charcoal asparagus, sheep's curd, lemon zest — is the best argument for the lunch-only dining room of any course this year.

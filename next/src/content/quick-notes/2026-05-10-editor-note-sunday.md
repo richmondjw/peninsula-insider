@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Sunday 10 May 2026. Weather from wttr.in live feed Red Hill South (06:45 AEST). Peninsula Hot Springs programme from peninsulahotsprings.com/whats-on/ (06:46 AEST). Checked 10 May 2026."
     checkedAt: 2026-05-10T06:48:00+10:00
-status: published
+status: archived
 ---
 Yesterday's note called it: Sunday would be the break. The forecast held, but the timing shifted. Instead of noon clearing, the pattern shows a wet morning running through to 9am — still overcast at midday, partly cloudy, genuinely sunny from around 3pm. Sunset at 5:23pm means the outdoor window is roughly two hours. Tight, but it is the first real outdoor light the Peninsula has had in six days.
 

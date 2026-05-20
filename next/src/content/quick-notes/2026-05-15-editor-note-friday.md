@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Friday 15 May 2026. Weather verified from wttr.in Mornington Peninsula 15 May 06:47 AEST — 9°C current, 20°C max today, sunny all day, 0% rain. Saturday holds at 20°C but clouds build. Sunday rain forecast 100% morning and evening. Cellar door operating pattern (majority open Wed–Sun) is consistent with established MPVA knowledge; no specific venue booking or price claims made."
     checkedAt: 2026-05-15T06:48:00+10:00
-status: published
+status: archived
 ---
 There is something particular about a Friday on the Peninsula at 20°C. It is the last day of the week before the visitor volume shifts, the roads fill, and the cellar door queues form. Today that gap opens at precisely the warmest point of the autumn run.
 

@@ -283,6 +283,30 @@ export function stripStega(s: string): string {
   return vercelStegaSplit(s).cleaned;
 }
 
+export async function openSourceInStudio(source: SanitySource, toast: ToastFn): Promise<void> {
+  const target = window.open('about:blank', '_blank');
+  if (target) target.opener = null;
+
+  const params = new URLSearchParams();
+  params.set('fieldPath', source.fieldPath);
+  if (source.docId) params.set('docId', source.docId);
+  if (source.entityType) params.set('entityType', source.entityType);
+  if (source.entitySlug) params.set('entitySlug', source.entitySlug);
+
+  const res = await fetch(`/api/admin/sanity-doc-link?${params.toString()}`, {
+    credentials: 'same-origin',
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok || !body?.ok || !body.data?.url) {
+    target?.close();
+    toast(`Couldn't resolve Sanity document: ${body?.error || res.statusText}`, 'err');
+    return;
+  }
+  const href = String(body.data.url);
+  if (target) target.location.href = href;
+  else window.location.href = href;
+}
+
 // ─── Modal ───────────────────────────────────────────────────────────────
 
 interface ModalOpts {
@@ -331,9 +355,10 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
   wrap.setAttribute('role', 'dialog');
   wrap.setAttribute('aria-modal', 'true');
   wrap.setAttribute('aria-labelledby', 'pi-sanity-modal-title');
+  wrap.setAttribute('data-lenis-prevent', '');
   wrap.innerHTML = `
     <div class="pi-sanity-modal__backdrop" data-close="1"></div>
-    <div class="pi-sanity-modal__panel" tabindex="-1">
+    <div class="pi-sanity-modal__panel" tabindex="-1" data-lenis-prevent>
       <div class="pi-sanity-modal__head">
         <div class="pi-sanity-modal__head-main">
           ${currentClean ? `<span class="pi-sanity-modal__current" aria-hidden="true" style="background-image: url('${cssUrl(currentClean)}')"></span>` : ''}
@@ -376,6 +401,7 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
   `;
   document.body.appendChild(wrap);
   activeModal = wrap;
+  document.dispatchEvent(new CustomEvent('pi:lenis-stop'));
 
   // Scroll lock — keep the underlying page still while the editor wheels
   // inside the modal. Record the previous overflow values so close can
@@ -403,6 +429,20 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
   const search = wrap.querySelector<HTMLInputElement>('.pi-sanity-modal__search')!;
   const fileInput = wrap.querySelector<HTMLInputElement>('.pi-sanity-modal__upload input')!;
   const pageEl = wrap.querySelector<HTMLSpanElement>('.pi-sanity-modal__page')!;
+
+  const onWheel = (e: WheelEvent) => {
+    if (!grid.contains(e.target as Node) && !(e.target as HTMLElement | null)?.closest('.pi-sanity-modal__toolbar')) {
+      return;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+    grid.scrollBy({
+      top: e.deltaY,
+      left: e.deltaX,
+      behavior: 'auto',
+    });
+  };
+  panel.addEventListener('wheel', onWheel, { passive: false });
 
   const setChipState = (group: 'orient' | 'sort', value: string) => {
     const attr = group === 'orient' ? 'data-orient' : 'data-sort';
@@ -698,6 +738,7 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
 
   activeModalCleanup = () => {
     document.removeEventListener('keydown', onKey);
+    panel.removeEventListener('wheel', onWheel);
   };
 
   void loadAssets();
@@ -714,6 +755,7 @@ export function closeMediaLibraryModal(): void {
     if (restore) restore();
     activeModal.remove();
     activeModal = null;
+    document.dispatchEvent(new CustomEvent('pi:lenis-start'));
   }
 }
 

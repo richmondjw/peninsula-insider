@@ -12,6 +12,6 @@ sources:
   - kind: gov
     note: wttr.in / World Weather Online live feed for Red Hill, Victoria. Monday 4 May hourly forecast.
     checkedAt: 2026-05-04T06:48:00+10:00
-status: published
+status: archived
 ---
 Red Hill is sitting at 11°C right now with clear skies — the overnight has cleaned things out. That changes gradually: sunny by mid-morning, temperatures climbing to 19°C around 3pm, but that's also when the northerly sharpens and patchy rain starts becoming likely. Evening will see light showers. If you have a walk, winery visit, or coastal plan today, push it before lunch and you're in good shape.

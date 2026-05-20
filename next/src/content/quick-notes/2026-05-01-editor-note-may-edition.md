@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editor's planning week, late April"
     checkedAt: 2026-04-29T00:00:00+10:00
-status: published
+status: archived
 ---
 
 May is the Peninsula's quietest, most rewarding month. The summer crowds are gone, the wine releases land, the cellar doors have time to talk, and the light through autumn ridge is the cinematographer's favourite four weeks of the year. Your weekend brief follows below.

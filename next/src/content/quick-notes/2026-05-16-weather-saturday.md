@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in live feed, Mornington Peninsula (Red Hill, -38.35, 145.017), Victoria. Checked 16 May 2026 06:54 AEST. Current: 15°C Partly Cloudy, NE 11km/h, humidity 72%. Saturday 16 May: Min 15°C, Max 21°C — 00:00 15°C Clear 0%; 03:00 15°C Partly Cloudy 0%; 06:00 15°C Partly Cloudy 0%; 09:00 16°C Partly Cloudy 0%; 12:00 20°C Sunny 0%; 15:00 20°C Partly Cloudy 0%; 18:00 19°C Partly Cloudy 0%; 21:00 18°C Patchy rain nearby 70%. Sunrise 07:14am, Sunset 05:18pm. Sunday 17 May: Min 15°C, Max not yet shown in truncated data — 00:00 16°C Light drizzle 100%; 03:00 15°C Light drizzle 100%; 06:00 15°C Patchy rain 83%."
     checkedAt: 2026-05-16T06:54:00+10:00
-status: published
+status: archived
 ---
 Saturday is the better of the two weekend days, and the temperature confirms it. The high reaches 21°C — warmer than Friday's 20°C peak — with partly cloudy skies through the morning and genuine sun from noon. Rain probability is 0% across every daytime hour. The forecast holds clear until 9pm, when patchy rain arrives at 70% probability.
 

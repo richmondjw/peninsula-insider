@@ -14,7 +14,7 @@ sources:
     checkedAt: 2026-05-01T07:50:00+10:00
 relatedVenue: peninsula-hot-springs
 relatedArticle: the-thermal-springs-weekend
-status: published
+status: archived
 ---
 
 Twilight bathing — the 5pm to 10pm slot — is the right way to do Hot Springs in May. Cooler air, fewer day-trippers, the hilltop pool finally feels like the night photo on the website.

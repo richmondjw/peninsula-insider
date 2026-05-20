@@ -17,6 +17,6 @@ sources:
     url: https://www.montalto.com.au/
     note: Montalto website. Restaurant shows Tue–Sun trading.
     checkedAt: 2026-05-04T06:53:00+10:00
-status: published
+status: archived
 ---
 The Peninsula's kitchen rhythm runs Tuesday through Sunday. Monday is when chefs take their rest and prep days begin — and it catches visitors off guard regularly. Tedesca, the Red Hill and Merricks corridor restaurants, and most of the serious dining rooms are not trading today. Your Monday options are Peninsula Hot Springs, Montalto's cellar door (wine, not restaurant), the bakeries in Mornington town, and a small number of cafes. If in doubt, call. The drive from Melbourne on a false lunch assumption is a long one.

@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on/"
     note: "Peninsula Hot Springs what's-on page verified 16 May 2026 06:54 AEST. Daily activities confirmed: studio yoga 7:30am (daily), hot springs yoga 9:15am (daily), body clay ritual (weekends 10:30am, 12pm, 1pm, 3pm), fire and ice workshop (weekends 12pm, 2pm, 4pm, 5pm), sauna infusion 5pm daily, cacao circle weekends 12pm. Upcoming events: Sunday Sessions with Mich McManus 17 May 12pm; Showcase with Chloe Gill 23 May 7pm; Sunday Sessions Kinematic 24 May 12pm; Sunday Sessions Paul Dillon 31 May 12pm. Weather for Sunday 17 May from wttr.in: 00:00–06:00 100%/83% rain; midday clearing uncertain; rain returns PM."
     checkedAt: 2026-05-16T06:54:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs is running its full weekend programme today. Studio yoga opened at 7:30am; hot springs yoga follows at 9:15am. The cacao circle runs at noon. Body clay sessions are at 10:30am, noon, 1pm, and 3pm; fire and ice runs at noon, 2pm, 4pm, and 5pm. Sauna infusion closes the activity day at 5pm. Saturday at 21°C and mostly clear is the outdoor thermal circuit at its autumn best — the pools, the terraces, and the hillside sections all working in good condition.
 

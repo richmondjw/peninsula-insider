@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, 15 May 2026. Operating pattern (majority of Mornington Peninsula Wine Region producers open Wed–Sun) sourced from established MPVA editorial knowledge; no specific venue hours or booking windows claimed for individual producers. Weather verified from wttr.in Mornington Peninsula 15 May 06:47 AEST — 20°C max Friday, 0% rain all day; Saturday 20°C, cloud builds PM, 0% rain; Sunday 100% rain morning, clears midday. No venue-specific changes, prices, or availability invented."
     checkedAt: 2026-05-15T06:50:00+10:00
-status: published
+status: archived
 ---
 The Mornington Peninsula wine region's cellar door circuit runs Wednesday through Sunday for the majority of producers. Friday is the second full day of that window and typically the quietest — the weekend hasn't arrived, but the doors are open.
 

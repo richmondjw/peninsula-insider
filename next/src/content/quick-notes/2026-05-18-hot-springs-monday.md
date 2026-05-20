@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on/"
     note: "Peninsula Hot Springs what's-on page, checked 18 May 2026 06:57 AEST. Weekday daily activities confirmed: studio yoga 7:30am daily, hot springs yoga 9:15am daily, fire and ice 10:30am/4pm/5pm weekdays, body clay 12pm/2pm weekdays, sauna infusion 5pm daily. Upcoming events confirmed: Showcase performance with Chloe Gill 23 May 7pm; Sunday Sessions with Kinematic 24 May 12pm; Sunday Sessions with Paul Dillon 31 May 12pm. Note: thermal circuit booking and pricing not independently confirmed beyond the what's-on listing. Availability not verified — book directly with the venue."
     checkedAt: 2026-05-18T06:57:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs is operating its full weekday programme today. The schedule for Monday 18 May runs as follows: studio yoga at 7:30am, hot springs yoga at 9:15am, fire and ice workshop at 10:30am, 4pm, and 5pm, body clay ritual at 12pm and 2pm, and sauna infusion at 5pm.
 

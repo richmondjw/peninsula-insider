@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Monday 11 May 2026. Weather from wttr.in live feed Red Hill South (06:50 AEST) — 0% rain, full sun, max 16°C. Peninsula Hot Springs weekday programme from peninsulahotsprings.com/whats-on/ checked 10 May 2026 06:46 AEST. Editorial assessment of Monday visitor patterns reflects general Peninsula seasonality; no venue-specific crowd claims made."
     checkedAt: 2026-05-11T06:51:00+10:00
-status: published
+status: archived
 ---
 Monday operates differently on the Mornington Peninsula. The weekend visitors have cleared. The car parks on the Red Hill ridge are not full. A cellar door that on Saturday requires a booking two weeks out will today have room for a walk-in. That is the structural truth of Monday, and it applies whether the weather cooperates or not.
 

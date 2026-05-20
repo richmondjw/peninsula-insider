@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on/"
     note: "Peninsula Hot Springs whats-on page verified 15 May 2026 06:47 AEST. Sunday Sessions with Mich McManus confirmed: Sunday 17 May, 12pm. Daily activities confirmed: studio yoga 7:30am (daily), hot springs yoga 9:15am (daily), body clay ritual (weekdays 12pm & 2pm; weekends 10:30am, 12pm, 1pm, 3pm), fire and ice workshop (weekdays 10:30am, 4pm, 5pm; weekends 12pm, 2pm, 4pm, 5pm), sauna infusion 5pm daily, cacao circle weekends 12pm. Further May events: Showcase with Chloe Gill 23 May 7pm; Sunday Sessions Kinematic 24 May 12pm; Paul Dillon 31 May 12pm. Rain forecast for 17 May sourced from wttr.in Mornington Peninsula: 00:00–09:00 100% light rain; 12:00 0% cloudy; 15:00 0% overcast; 18:00 100% light drizzle."
     checkedAt: 2026-05-15T06:47:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs runs its full Friday weekday programme today. Studio yoga opened at 7:30am. Hot springs yoga is from 9:15am. Fire and ice runs at 10:30am, 4pm, and 5pm; body clay at noon and 2pm; sauna infusion closes the activity day at 5pm. Friday's outdoor pools under 20°C autumn sun are the programme's best version this week.
 

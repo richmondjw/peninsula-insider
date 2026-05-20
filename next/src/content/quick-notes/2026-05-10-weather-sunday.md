@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in live feed, Red Hill South, Victoria. Current (06:45 AEST, 10 May): 12°C, overcast (cloud cover 100%), S 6km/h, humidity 94%, pressure 1029hPa. Sunday 10 May hourly: 0h patchy rain 83%; 3h patchy rain 82%; 6h overcast; 9h patchy rain 71%; 12h partly cloudy (🌤️); 15h sunny (☀️); 18h–21h sunny. Max ~16°C. Sunrise 07:09, sunset 17:23. Checked live 10 May 2026 06:45 AEST via wttr.in Mornington Peninsula."
     checkedAt: 2026-05-10T06:45:00+10:00
-status: published
+status: archived
 ---
 Red Hill is 12°C at the open, overcast and still damp from six days of autumn rain. The S wind sits at 6km/h — light enough that it does not bite, but the cloud cover is total and humidity sits at 94%.
 
