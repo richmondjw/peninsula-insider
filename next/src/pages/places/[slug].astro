@@ -324,7 +324,7 @@ const placeSchema = {
   },
   url: canonical,
 };
-export const prerender = true;
+export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
 ---
 
 <BaseLayout
