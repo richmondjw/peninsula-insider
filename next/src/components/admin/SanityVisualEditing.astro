@@ -2,46 +2,15 @@
 /**
  * Sanity Visual Editing overlay.
  *
- * Only mounts when we're loaded inside a Sanity Studio Presentation
- * iframe. PR #191 dropped the gate hoping enableVisualEditing() would
- * self-detect — it doesn't, the overlay was leaking onto public traffic
- * (boxes around headlines + "Open in Studio" buttons). This component
- * now gates the mount explicitly on:
- *   1. Being in a child frame (window !== top), AND
- *   2. The parent referrer being the Studio origin
- *
- * Outside Studio the import never fires, so the visual-editing bundle
- * (~25 KB gzipped) isn't downloaded by public visitors either.
+ * Only mounts when the perspective cookie (set by /api/preview/enable/)
+ * is present, meaning we are in a Sanity Presentation draft-mode session.
+ * Uses the official @sanity/visual-editing React component (client:only)
+ * so the ~25 KB bundle is never downloaded by public visitors.
  */
+import {perspectiveCookieName} from '@sanity/preview-url-secret/constants'
+import SanityVisualEditingReact from './SanityVisualEditingReact'
+
+const draftMode = Astro.cookies.has(perspectiveCookieName)
 ---
 
-<script>
-  (function () {
-    // Skip mount entirely outside browser (SSR build).
-    if (typeof window === 'undefined') return;
-
-    // Only mount when we're loaded inside a frame. Studio's Presentation
-    // tool loads the site in an iframe, so window.top !== window.self.
-    // We previously also checked document.referrer for a sanity.studio
-    // origin, but that check breaks when Presentation navigates via the
-    // /api/preview/enable/ redirect — after the redirect, document.referrer
-    // is the enable endpoint URL (not the Studio URL), so enableVisualEditing
-    // never fired and Presentation showed "Unable to connect."
-    //
-    // Dropping the referrer check is safe: if enableVisualEditing() is
-    // called outside a real Studio parent it simply waits for a postMessage
-    // that never arrives and times out silently — no user-visible effect.
-    let inIframe = false;
-    try {
-      inIframe = window.top !== window.self;
-    } catch (_) {
-      // Cross-origin throws on .top access — treat as iframed.
-      inIframe = true;
-    }
-    if (!inIframe) return;
-
-    import('@sanity/visual-editing').then(({ enableVisualEditing }) => {
-      enableVisualEditing({ zIndex: 9999 });
-    });
-  })();
-</script>
+{draftMode && <SanityVisualEditingReact client:only="react" />}

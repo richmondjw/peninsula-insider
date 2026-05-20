@@ -1,38 +1,43 @@
 /**
- * Enable Sanity preview mode for the requesting browser session.
+ * Enable Sanity preview/draft mode.
  *
- * Called by Studio's Presentation tool when it loads the live site in
- * an iframe. Sets the `pi-sanity-preview` cookie, then redirects to the
- * intended slug (Presentation passes `?sanity-preview-pathname=...`).
+ * Called by Studio's Presentation tool. Validates the cryptographically-
+ * signed secret Presentation appends (?sanity-preview-secret=...) then
+ * sets the perspective cookie and redirects to the requested page.
  *
- * No shared-secret gate: the only thing this cookie unlocks is the
- * draft Sanity client and stega-encoded HTML. Drafts are pre-publication
- * editorial copy with no PII or admin surface, so the worst-case leak
- * is "someone sees a future article a few hours early." Sanity's own
- * recommended Presentation flow gates on Studio session auth rather
- * than a shared secret, and the cookie is short-lived (1 hour).
+ * Uses @sanity/preview-url-secret for validation — more secure than the
+ * old plain-cookie approach and the officially recommended Astro pattern.
  */
 import type {APIRoute} from 'astro'
+import {validatePreviewUrl} from '@sanity/preview-url-secret'
+import {perspectiveCookieName} from '@sanity/preview-url-secret/constants'
+import {sanityClient} from '../../../lib/sanity/client'
 
-// Static builds (GitHub Pages) don't use this endpoint — prerender as a
-// placeholder so output:static doesn't throw NoAdapterInstalled.
-// In hybrid/Vercel mode (PI_ADMIN_HYBRID=1) this becomes a real SSR route.
-export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
+export const prerender = process.env.PI_ADMIN_HYBRID !== '1'
 
-export const GET: APIRoute = ({url, cookies, redirect}) => {
-  cookies.set('pi-sanity-preview', '1', {
-    path: '/',
-    maxAge: 3600,
+export const GET: APIRoute = async ({request, cookies, redirect}) => {
+  // Build a token-bearing client so validatePreviewUrl can read the
+  // sanity.previewUrlSecret document from the dataset.
+  const clientWithToken = sanityClient.withConfig({
+    token: process.env.SANITY_READ_TOKEN,
+    useCdn: false,
+    perspective: 'published',
+  })
+
+  const {isValid, redirectTo = '/preview/', studioPreviewPerspective} =
+    await validatePreviewUrl(clientWithToken, request.url)
+
+  if (!isValid) {
+    return new Response('Invalid preview secret', {status: 401})
+  }
+
+  cookies.set(perspectiveCookieName, studioPreviewPerspective ?? 'drafts', {
     httpOnly: false,
     sameSite: 'none',
     secure: true,
+    path: '/',
+    maxAge: 3600,
   })
-  // Fall back to /preview/ (not /) so the Presentation iframe lands on a
-  // page that hosts the Visual Editing channel — the homepage is statically
-  // prerendered and can't complete the handshake.
-  const slug =
-    url.searchParams.get('slug') ||
-    url.searchParams.get('sanity-preview-pathname') ||
-    '/preview/'
-  return redirect(slug)
+
+  return redirect(redirectTo, 307)
 }

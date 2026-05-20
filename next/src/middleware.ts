@@ -1,4 +1,5 @@
 import { defineMiddleware } from 'astro:middleware';
+import {perspectiveCookieName} from '@sanity/preview-url-secret/constants';
 import {
   buildAdminLoginHref,
   canAccessAdmin,
@@ -15,29 +16,32 @@ import { resolveCmsAccess } from './lib/cms/server';
  *
  * 1. Sanity Visual Editing preview-mode detection. Sets
  *    Astro.locals.sanityPreview = true when the request carries the
- *    `pi-sanity-preview` cookie OR a valid `?sanity-preview=<secret>`
- *    query param. Adapter code reads this and switches to the stega-
- *    encoded preview client.
+ *    perspective cookie (set by /api/preview/enable/ via
+ *    @sanity/preview-url-secret) OR a valid `?sanity-preview=<secret>`
+ *    query param (backward-compat fallback). Adapter code reads this
+ *    and switches to the stega-encoded preview client.
  *
  * 2. Hybrid admin gate. When PI_ADMIN_HYBRID=1, /admin/* and
  *    /admin/api/* require a valid Supabase session + editor flag.
  */
 export const onRequest = defineMiddleware(async (context, next) => {
   // ── Preview-mode detection (runs on every request, cheap) ────────────
+  const cookiePreview = context.cookies.has(perspectiveCookieName);
+
+  // Backward-compat: also accept the legacy ?sanity-preview=<secret> query
+  // param so old Studio integrations keep working during the transition.
   const previewSecret =
     (import.meta as any).env?.SANITY_PREVIEW_SECRET ?? process.env.SANITY_PREVIEW_SECRET;
   const queryPreview = context.url.searchParams.get('sanity-preview');
-  const cookiePreview = context.cookies.get('pi-sanity-preview')?.value === '1';
   const isPreviewRequest =
     cookiePreview || (!!queryPreview && !!previewSecret && queryPreview === previewSecret);
 
   (context.locals as Record<string, unknown>).sanityPreview = isPreviewRequest;
 
-  // Set the cookie if entering preview via query param so subsequent
-  // navigation stays in preview mode. Short-lived (1 hour) so it
-  // doesn't accidentally persist past an editing session.
+  // Set the perspective cookie if entering preview via query param so
+  // subsequent navigation stays in preview mode. Short-lived (1 hour).
   if (!cookiePreview && queryPreview && previewSecret && queryPreview === previewSecret) {
-    context.cookies.set('pi-sanity-preview', '1', {
+    context.cookies.set(perspectiveCookieName, 'drafts', {
       path: '/',
       maxAge: 3600,
       httpOnly: false,
