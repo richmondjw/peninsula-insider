@@ -323,3 +323,4 @@ runId,parentRunId,jobName,jobSource,startedAt,endedAt,durationMs,status,mutation
 26120045477-1,,events-archive-expired,github-actions,2026-05-19T19:25:23Z,2026-05-19T19:26:20Z,57000,skipped,scan-only,1,0,0,0,false,,0,0
 26182458694-1,,events-rederive-lenses,github-actions,2026-05-20T18:37:54Z,2026-05-20T18:39:11Z,77000,skipped,scan-only,1,0,0,0,false,,0,0
 26184203505-1,,events-recompute-occurrence,github-actions,2026-05-20T19:11:58Z,2026-05-20T19:12:55Z,57000,skipped,scan-only,1,0,0,0,false,,0,0
+26185556418-1,,events-archive-expired,github-actions,2026-05-20T19:38:44Z,2026-05-20T19:39:40Z,56000,skipped,scan-only,1,0,0,0,false,,0,0
