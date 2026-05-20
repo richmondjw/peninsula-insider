@@ -89,7 +89,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
     title: 'On the <em>particular pleasure</em> of a winter Peninsula.',
     paragraphs: [
       'Winter is the season the Peninsula stops performing for tourists. The weekend crowds go home, the dining rooms empty out, and the ridge settles into a quiet it only finds for about eight weeks a year.',
-      "We've updated the cellar-door shortlist for fireside season, revisited the long-lunch list for rooms that earn their place in the cold, and added the thermal springs guide for the weeks ahead.",
+      "We've updated the cellar-door shortlist for fireside season and added the thermal springs guide for the weeks ahead. The long-lunch list is filtered to the rooms that earn their place when it's cold outside.",
     ],
     pullQuote: 'This issue is built for the season where empty tables are a feature, not a failing — and the coast is at its most honest.',
     signatureName: 'The Editors',
