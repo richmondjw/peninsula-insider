@@ -77,14 +77,23 @@ const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) 
   return a.data.startDate.getTime() - b.data.startDate.getTime();
 };
 
+// Deduplicate: track slugs shown in signature section so they don't
+// reappear in seasonal or market grids below.
+const signatureSlugsOnPage = new Set(signatureEvents.map((e: any) => routeSlug(e)));
+
 const seasonalEvents = events
   .filter((event) => event.data.category !== 'market')
   .filter((event) => ['annual', 'seasonal', 'ongoing'].includes(event.data.recurrence) || Boolean(event.data.season))
+  .filter((event) => !signatureSlugsOnPage.has(routeSlug(event)))   // don't repeat signature events
   .sort(sortAppealThenDate)
   .slice(0, 6);
 
+// Track seasonal slugs so markets can't duplicate either
+const seasonalSlugsOnPage = new Set(seasonalEvents.map((e) => routeSlug(e)));
+
 const marketEvents = events
   .filter((event) => event.data.category === 'market')
+  .filter((event) => !signatureSlugsOnPage.has(routeSlug(event)) && !seasonalSlugsOnPage.has(routeSlug(event)))
   .sort(sortAppealThenDate)
   .slice(0, 6);
 

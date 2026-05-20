@@ -235,8 +235,25 @@ export const prerender = true;
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       1.5 AUDIENCE PICKER: persona-led entry to the section
+       1.5 AREA QUICK-NAV (mobile-only)
+       Geographic orientation strip — helps mobile users place themselves
+       before scrolling into venue grids. Hidden on desktop where the
+       CompareBlock below already does this job.
        ═══════════════════════════════════════════════════════════════ -->
+  <nav class="hub-area-nav" aria-label="Browse by area">
+    <div class="container">
+      <p class="hub-area-nav__label">Browse by area</p>
+      <ul class="hub-area-nav__chips">
+        <li><a href="/places/red-hill/" class="hub-area-nav__chip">Red Hill</a></li>
+        <li><a href="/places/mornington/" class="hub-area-nav__chip">Mornington</a></li>
+        <li><a href="/places/sorrento/" class="hub-area-nav__chip">Sorrento</a></li>
+        <li><a href="/places/portsea/" class="hub-area-nav__chip">Portsea</a></li>
+        <li><a href="/places/flinders/" class="hub-area-nav__chip">Flinders</a></li>
+        <li><a href="/places/main-ridge/" class="hub-area-nav__chip">Main Ridge</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- ═══════════════════════════════════════════════════════════════
        EDITORIAL SURFACE — Featured Long Lunch (Level 1)
        Post-hero, pre-grid. One surface maximum per hub page.
