@@ -17,6 +17,15 @@ export async function getStaticPaths() {
 }
 
 let { place } = Astro.props;
+if (!place) {
+  const slug = String(Astro.params.slug ?? '');
+  const allPlacesForRoute = await getCollection('places');
+  place = allPlacesForRoute.find((entry) => routeSlug(entry) === slug);
+}
+
+if (!place) {
+  return new Response('Place not found', { status: 404 });
+}
 
 // Dual-read: swap focused place for Sanity when flag is on.
 if (sanityReadEnabled('places')) {
