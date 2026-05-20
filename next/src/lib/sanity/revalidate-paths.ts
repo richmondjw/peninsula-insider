@@ -12,6 +12,7 @@
 interface DocLike {
   _type: string;
   slug?: { current?: string } | string | null;
+  pathSlug?: string | null;
 }
 
 export function routesForDocument(doc: DocLike): string[] {
@@ -55,8 +56,11 @@ export function routesForDocument(doc: DocLike): string[] {
       // pageHero singletons key on a path field. The slug here IS the
       // path (e.g. "eat/bakeries"). Strip any leading slash, append
       // trailing slash, and revalidate that exact route.
-      if (!slug) return ['/'];
-      return [`/${slug.replace(/^\/+|\/+$/g, '')}/`];
+      {
+        const pageSlug = doc.pathSlug ?? slug;
+        if (!pageSlug) return ['/'];
+        return [`/${pageSlug.replace(/^\/+|\/+$/g, '')}/`];
+      }
     default:
       return [];
   }

@@ -148,6 +148,37 @@ async function createPlaceFromLocalJson(
   return { _id: `place-${slug}` };
 }
 
+function pageHeroSlugFromId(docId: string): string | null {
+  if (!docId.startsWith('pageHero-')) return null;
+  const slug = docId.slice('pageHero-'.length).replace(/--/g, '/').replace(/^\/+|\/+$/g, '');
+  return slug || null;
+}
+
+async function createPageHeroFromId(
+  client: ReturnType<typeof getSanityWriteClient>,
+  docId: string,
+  fieldPath: string,
+  newAssetRef: string,
+): Promise<boolean> {
+  if (!client || fieldPath !== 'image') return false;
+  const pathSlug = pageHeroSlugFromId(docId);
+  if (!pathSlug) return false;
+
+  await client.createIfNotExists({
+    _id: docId,
+    _type: 'pageHero',
+    pathSlug,
+    image: {
+      _type: 'imageRef',
+      asset: { _type: 'reference', _ref: newAssetRef },
+      alt: pathSlug,
+      credit: 'Peninsula Insider',
+      license: 'editor-upload',
+    },
+  });
+  return true;
+}
+
 export const POST: APIRoute = async ({ request }) => {
   const access = await resolveCmsAccess(request.headers.get('cookie'));
   if (!access.ok) {
@@ -219,6 +250,25 @@ export const POST: APIRoute = async ({ request }) => {
   // want to patch the published doc.
   if (targetDocId.startsWith('drafts.')) targetDocId = targetDocId.slice('drafts.'.length);
 
+  // Page-level heroes are progressively created as editors touch them.
+  // If a rendered image points at a pageHero singleton that has not been
+  // seeded yet, create the shell document so the patch has somewhere durable
+  // to land instead of failing with "document ... was not found".
+  try {
+    const existing = await client.fetch<{ _id: string } | null>(
+      `*[_id == $id][0]{_id}`,
+      { id: targetDocId },
+    );
+    if (!existing?._id) {
+      const createdPageHero = await createPageHeroFromId(client, targetDocId, fieldPath, newAssetRef);
+      if (!createdPageHero) {
+        return badRequest(`No Sanity document found with id "${targetDocId}"`);
+      }
+    }
+  } catch (err) {
+    return internalError(`Doc existence check failed: ${(err as Error).message}`);
+  }
+
   // Fetch the current image object BEFORE patching so replacement keeps
   // imageRef metadata (alt, credit, license, caption) instead of downgrading
   // the field to a bare Sanity image.
@@ -280,8 +330,8 @@ export const POST: APIRoute = async ({ request }) => {
     // (and the editor's own next page-load) see the new image.
     let revalidatedRoutes: string[] = [];
     try {
-      const meta = await client.fetch<{ _type: string; slug?: { current?: string } } | null>(
-        `*[_id == $id][0]{ _type, slug }`,
+      const meta = await client.fetch<{ _type: string; slug?: { current?: string }; pathSlug?: string } | null>(
+        `*[_id == $id][0]{ _type, slug, pathSlug }`,
         { id: targetDocId },
       );
       if (meta) {
