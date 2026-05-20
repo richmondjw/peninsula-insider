@@ -27,9 +27,12 @@ export const GET: APIRoute = ({url, cookies, redirect}) => {
     sameSite: 'none',
     secure: true,
   })
+  // Fall back to /preview/ (not /) so the Presentation iframe lands on a
+  // page that hosts the Visual Editing channel — the homepage is statically
+  // prerendered and can't complete the handshake.
   const slug =
     url.searchParams.get('slug') ||
     url.searchParams.get('sanity-preview-pathname') ||
-    '/'
+    '/preview/'
   return redirect(slug)
 }
