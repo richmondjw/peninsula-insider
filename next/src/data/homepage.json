@@ -10,10 +10,10 @@
     { "label": "Join", "href": "#newsletter" }
   ],
   "hero": {
-    "eyebrow": "Autumn edition",
+    "eyebrow": "Winter edition",
     "title": "The smarter way to open a Mornington Peninsula weekend.",
     "dek": "Less brochure, more editorial cover. Peninsula Insider should feel like the front page of a publication that already knows where you should book first, where you should linger, and what is actually worth the drive.",
-    "meta": "Edited by Peninsula Insider · Updated for autumn",
+    "meta": "Edited by Peninsula Insider · Updated for winter",
     "primaryCta": { "label": "Read the cover story", "href": "#featured-story" },
     "secondaryCta": { "label": "Get the weekly letter", "href": "#newsletter" },
     "highlights": [
@@ -46,39 +46,45 @@
   ],
   "featuredStory": {
     "eyebrow": "Featured cover story",
-    "title": "The autumn weekend locals keep to themselves",
-    "dek": "A sharper front page starts with a proper lead, one opinionated dispatch that gives the whole site a centre of gravity. This week it is the argument for slower lunches, one coastal walk, and fewer forgettable stops.",
+    "title": "The Peninsula in winter: quieter, sharper, worth it",
+    "dek": "The crowds are gone and the Peninsula is showing a different face. Cellar doors with room to breathe, long lunches without a booking queue, and a coastline that finally feels like yours.",
     "byline": "By James Richmond",
-    "date": "Autumn 2026",
+    "date": "Winter 2026",
     "cta": { "label": "Open the story", "href": "#journal" },
     "bullets": [
-      "Why April is the month when the Peninsula feels most earned",
-      "Three bookings worth making before Friday afternoon",
-      "One walk, one lunch, and one cellar door to anchor the weekend"
+      "Why May is the month the Peninsula sheds its tourist layer and earns its regulars",
+      "Three winter bookings worth making before the weekend fills",
+      "One coastal walk, one fireside lunch, and one cellar door worth the drive"
     ]
   },
   "weekendPlanner": {
-    "eyebrow": "Coming up on the Peninsula",
-    "title": "Wild mushroom forage, the last southern markets, and one quiet Peninsula weekend",
-    "dek": "The first genuinely quiet weekend of autumn. One forest forage, one community market near the end of its season, and a Sunday that rewards curiosity over ambition.",
+    "eyebrow": "This weekend on the Peninsula",
+    "title": "Mushroom foraging, new wave art, chocolate, and hot springs",
+    "dek": "A weekend that earns the drive. One guided forage, one gallery closing soon, a final chocolate tasting session, and Sunday live music at the springs.",
     "cards": [
       {
-        "moment": "Saturday 16 May",
+        "moment": "Saturday 23 May",
         "title": "Wild Mushroom Forage and Lunch with The Kitchen",
         "note": "Guided foraging through Red Hill and Main Ridge forests. Cook-up with butter and herbs at the end. Maximum 15 spots. $85 per person.",
         "tag": "Book now"
       },
       {
-        "moment": "Sunday 17 May",
-        "title": "Sustainable House Day — Peninsula loop",
-        "note": "Real homeowners open their Peninsula builds for one day. Bittern, Safety Beach, Rye, and The Briars in Mount Martha. Free.",
-        "tag": "Free Sunday"
+        "moment": "Sat 23 – Sun 24 May",
+        "title": "New Wave 26 at MPRG",
+        "note": "The Mornington Peninsula Regional Gallery's annual contemporary survey closes 31 May. Catch it this weekend before it wraps.",
+        "tag": "Closing soon"
       },
       {
-        "moment": "Sunday 17 May",
-        "title": "Shoreham Community Market — near the end of season",
-        "note": "One of the last Sundays of the season at Shoreham Tennis Club Reserve. Dog-friendly, 9am to 2pm. Pair with a Merricks afternoon.",
-        "tag": "Final weeks"
+        "moment": "Sunday 24 May",
+        "title": "Rocky Road Festival Tasting Sessions at Flinders Chocolaterie",
+        "note": "The final tasting session of the Rocky Road Festival. Book ahead — it finishes this Sunday.",
+        "tag": "Final session"
+      },
+      {
+        "moment": "Sunday 24 May",
+        "title": "Peninsula Hot Springs Sunday Sessions",
+        "note": "Live music included with bathing every Sunday. The best reason to book the springs over a weekend rather than a weekday.",
+        "tag": "Live music"
       }
     ]
   },
