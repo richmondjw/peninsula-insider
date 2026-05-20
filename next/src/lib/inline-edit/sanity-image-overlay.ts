@@ -283,6 +283,30 @@ export function stripStega(s: string): string {
   return vercelStegaSplit(s).cleaned;
 }
 
+export async function openSourceInStudio(source: SanitySource, toast: ToastFn): Promise<void> {
+  const target = window.open('about:blank', '_blank');
+  if (target) target.opener = null;
+
+  const params = new URLSearchParams();
+  params.set('fieldPath', source.fieldPath);
+  if (source.docId) params.set('docId', source.docId);
+  if (source.entityType) params.set('entityType', source.entityType);
+  if (source.entitySlug) params.set('entitySlug', source.entitySlug);
+
+  const res = await fetch(`/api/admin/sanity-doc-link?${params.toString()}`, {
+    credentials: 'same-origin',
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok || !body?.ok || !body.data?.url) {
+    target?.close();
+    toast(`Couldn't resolve Sanity document: ${body?.error || res.statusText}`, 'err');
+    return;
+  }
+  const href = String(body.data.url);
+  if (target) target.location.href = href;
+  else window.location.href = href;
+}
+
 // ─── Modal ───────────────────────────────────────────────────────────────
 
 interface ModalOpts {

@@ -616,6 +616,9 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
         <button type="button" class="pi-edit-panel__replace" data-action="replace-sanity" disabled>
           <span aria-hidden="true">□</span> Media library
         </button>
+        <button type="button" class="pi-edit-panel__replace pi-edit-panel__replace--secondary" data-action="open-sanity" disabled>
+          <span aria-hidden="true">↗</span> Edit in Sanity
+        </button>
         <button type="button" class="pi-edit-panel__replace pi-edit-panel__replace--secondary" data-action="bind-sanity" hidden>
           <span aria-hidden="true">+</span> Bind image
         </button>
@@ -632,6 +635,7 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     const action = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-action]')?.dataset.action;
     if (!action) return;
     if (action === 'replace-sanity') void triggerSanityReplace(el, desc);
+    if (action === 'open-sanity') void triggerOpenInSanity(el, desc);
     if (action === 'bind-sanity') void triggerSanityBind(el, desc);
     if (action === 'cancel')  closeMenu();
   });
@@ -646,10 +650,12 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
       const sourceEl = menuEl.querySelector<HTMLElement>('[data-role="source"]');
       const bindBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="bind-sanity"]');
       const replaceBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="replace-sanity"]');
+      const sanityBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="open-sanity"]');
       if (!source) {
         if (sourceEl) sourceEl.textContent = 'Not bound to Sanity yet.';
         if (bindBtn) bindBtn.hidden = false;
         if (replaceBtn) replaceBtn.disabled = true;
+        if (sanityBtn) sanityBtn.disabled = true;
       } else {
         const target = source.docId
           ? `${source.docId} · ${source.fieldPath}`
@@ -657,6 +663,7 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
         if (sourceEl) sourceEl.textContent = target;
         if (bindBtn) bindBtn.hidden = true;
         if (replaceBtn) replaceBtn.disabled = false;
+        if (sanityBtn) sanityBtn.disabled = false;
       }
     } catch {
       if (!menuEl) return;
@@ -677,6 +684,21 @@ function escapeHtml(s: string): string {
 function closeMenu() {
   menuEl?.remove();
   menuEl = null;
+}
+
+async function triggerOpenInSanity(el: HTMLElement, desc: ImageDescriptor) {
+  try {
+    const mod = await import('./sanity-image-overlay');
+    const source = mod.resolveSanitySource(el, desc);
+    if (!source) {
+      toast('This image is not bound to a Sanity document yet.', 'info');
+      return;
+    }
+    await mod.openSourceInStudio(source, toast);
+  } catch (err) {
+    console.error('[pi-edit] failed to open Sanity Studio', err);
+    toast(`Couldn't open Sanity: ${(err as Error).message}`, 'err');
+  }
 }
 
 /**
