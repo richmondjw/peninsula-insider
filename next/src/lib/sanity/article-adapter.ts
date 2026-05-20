@@ -8,6 +8,7 @@
  * to a Portable Text renderer for the body. All other fields render
  * via the existing template paths.
  */
+import Slugger from 'github-slugger'
 import {sanityClient} from './client'
 import {intentUrl} from './image'
 
@@ -85,6 +86,50 @@ export interface AdaptedArticle {
     faq?: Array<{question: string; answer: string}>
     sitemapExclude: boolean
   }
+}
+
+export interface PTHeading {
+  slug: string
+  text: string
+  depth: number
+}
+
+/**
+ * Extract headings from a Portable Text body, matching Astro's own
+ * heading-collection logic (github-slugger, same pass order).
+ *
+ * Only processes top-level `block` nodes whose `style` is h1–h6.
+ * Text content is assembled by concatenating the `text` value of
+ * every span-type child, stripping any marks.
+ *
+ * The returned array is structurally identical to the `headings` array
+ * returned by Astro's `render()`, so it can be passed directly to
+ * `<HubGuideTOC>` and all existing TOC plumbing.
+ */
+export function extractHeadingsFromPT(
+  blocks: Array<Record<string, unknown>>,
+): PTHeading[] {
+  const slugger = new Slugger()
+  const headings: PTHeading[] = []
+  const headingStyles = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+
+  for (const block of blocks) {
+    if (block._type !== 'block') continue
+    const style = String(block.style ?? 'normal')
+    if (!headingStyles.has(style)) continue
+
+    const depth = parseInt(style[1], 10)
+    // Concatenate text from all span children
+    const text = ((block.children as Array<Record<string, unknown>>) ?? [])
+      .filter((c) => c._type === 'span')
+      .map((c) => String(c.text ?? ''))
+      .join('')
+
+    const slug = slugger.slug(text)
+    headings.push({depth, slug, text})
+  }
+
+  return headings
 }
 
 export async function fetchArticleFromSanity(slug: string): Promise<AdaptedArticle | null> {
