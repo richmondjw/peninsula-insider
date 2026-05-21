@@ -10,7 +10,6 @@
   },
   "address": "Flinders Pier, Flinders VIC 3929",
   "website": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park",
-  "bookingUrl": "",
   "bookingProvider": "none",
   "priceBand": "$",
   "signature": "A rugged cliff-edge walk east from Flinders village — basalt platforms, Mushroom Reef, and a stretch of coast most visitors never reach",
@@ -59,6 +58,11 @@
     "surface": "coastal track, rock platforms",
     "dogs": false,
     "startPoint": "Flinders Pier car park",
-    "highlights": ["Basalt rock platforms", "Blow holes", "Mushroom Reef Marine Sanctuary", "Ocean views"]
+    "highlights": [
+      "Basalt rock platforms",
+      "Blow holes",
+      "Mushroom Reef Marine Sanctuary",
+      "Ocean views"
+    ]
   }
 }

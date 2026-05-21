@@ -10,7 +10,6 @@
   },
   "address": "Portsea Back Beach, Portsea VIC 3944",
   "website": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park",
-  "bookingUrl": "",
   "bookingProvider": "none",
   "priceBand": "$",
   "signature": "A dramatic clifftop walk from Portsea Back Beach to London Bridge — limestone arches, Bass Strait below, and the most spectacular short walk on the tip",
@@ -59,6 +58,10 @@
     "surface": "clifftop track, some uneven terrain",
     "dogs": false,
     "startPoint": "Portsea Back Beach car park",
-    "highlights": ["London Bridge limestone arch", "Clifftop Bass Strait views", "Limestone rock formations"]
+    "highlights": [
+      "London Bridge limestone arch",
+      "Clifftop Bass Strait views",
+      "Limestone rock formations"
+    ]
   }
 }

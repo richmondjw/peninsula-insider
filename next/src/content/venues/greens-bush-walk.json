@@ -10,7 +10,6 @@
   },
   "address": "Greens Bush, Mornington Peninsula National Park, VIC 3939",
   "website": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/greens-bush",
-  "bookingUrl": "",
   "bookingProvider": "none",
   "priceBand": "$",
   "signature": "The Peninsula's largest remnant bushland — ancient coastal scrub, significant birdlife, and genuine quiet in the middle of one of Victoria's most visited regions",
@@ -61,6 +60,11 @@
     "surface": "natural formed track, some rough sections",
     "dogs": false,
     "startPoint": "Boneo Rd car park or Cape Schanck end",
-    "highlights": ["Spring wildflowers", "Exceptional birdlife", "Remote bushland", "Two Bays Track connection"]
+    "highlights": [
+      "Spring wildflowers",
+      "Exceptional birdlife",
+      "Remote bushland",
+      "Two Bays Track connection"
+    ]
   }
 }

@@ -39,6 +39,7 @@ const ALLOW = new Set([
   // .astro template, the rule still fires on that file.
   'lib/sanity/event-adapter.ts',
   'lib/sanity/phase5-adapters.ts',
+  'lib/sanity/queries.ts', // GROQ query definitions — data-layer field selection only, not rendered
 ]);
 
 const violations = [];

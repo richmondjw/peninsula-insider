@@ -10,7 +10,6 @@
   },
   "address": "The Esplanade, Mornington VIC 3931",
   "website": "https://www.mornpen.vic.gov.au",
-  "bookingUrl": "",
   "bookingProvider": "none",
   "priceBand": "$",
   "signature": "A flat bay foreshore walk past the iconic bathing boxes — Mornington's most pleasant morning ritual",
@@ -62,6 +61,11 @@
     "surface": "paved path",
     "dogs": true,
     "startPoint": "Mornington Main Beach, The Esplanade",
-    "highlights": ["Bathing boxes", "Bay views", "Norfolk pine avenue", "Café access at both ends"]
+    "highlights": [
+      "Bathing boxes",
+      "Bay views",
+      "Norfolk pine avenue",
+      "Café access at both ends"
+    ]
   }
 }

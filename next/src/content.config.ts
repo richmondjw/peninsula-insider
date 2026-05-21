@@ -43,6 +43,8 @@ const mood = z.enum([
   'garden',
   'waterfront',
   'golf',
+  'outdoor',
+  'surf',
 ]);
 
 const audience = z.enum([
@@ -120,6 +122,9 @@ const venues = defineCollection({
       'glamping',
       'farm-stay',
       'spa',
+      'walk',
+      'beach',
+      'activity',
     ]),
     place: reference('places'),
     zone,

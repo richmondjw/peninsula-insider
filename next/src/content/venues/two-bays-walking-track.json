@@ -10,7 +10,6 @@
   },
   "address": "Arthurs Seat State Park, Dromana VIC 3936",
   "website": "https://www.parks.vic.gov.au/places-to-see/parks/two-bays-walking-track",
-  "bookingUrl": "",
   "bookingProvider": "none",
   "priceBand": "$",
   "signature": "The Peninsula's signature long walk — 26km linking Port Phillip Bay to Western Port through hinterland bushland and state park",
@@ -62,6 +61,11 @@
     "dogs": false,
     "startPoint": "Dromana (Port Phillip Bay end)",
     "endPoint": "Bushrangers Bay (Western Port end)",
-    "highlights": ["Greens Bush old-growth", "Arthurs Seat views", "Coastal heathland", "Birdlife"]
+    "highlights": [
+      "Greens Bush old-growth",
+      "Arthurs Seat views",
+      "Coastal heathland",
+      "Birdlife"
+    ]
   }
 }
