@@ -30,10 +30,9 @@ import NewsletterBlock from '../components/NewsletterBlock.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
-import { sanityReadEnabled } from '../lib/sanity/client';
 import { fetchHomepageCoverFromSanity } from '../lib/sanity/singletons-adapter';
-import { fetchPlaceFromSanity } from '../lib/sanity/place-adapter';
-import { fetchItineraryFromSanity } from '../lib/sanity/itinerary-adapter';
+import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
+import { fetchAllItinerariesFromSanity } from '../lib/sanity/itinerary-adapter';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 
 // CMS-driven overrides for editor-controlled fields on the homepage. Empty
@@ -46,8 +45,8 @@ const cmsImage = cmsOverrides.imageSlotsByPath;
 
 const articles    = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const places      = await getCollection('places');
-const itineraries = await getCollection('itineraries');
+const places      = await fetchAllPlacesFromSanity();
+const itineraries = await fetchAllItinerariesFromSanity();
 
 // The Notebook — "Today from The Notebook" homepage module.
 // One note only, most recent published + not yet expired. No feed behaviour.
@@ -120,51 +119,9 @@ const placesTitle = placesTitleRaw === 'The Peninsula, place by place'
   ? 'Explore the Peninsula'
   : placesTitleRaw ?? 'Explore the Peninsula';
 
-// Dual-read: when the per-entity Sanity flag is on, overwrite the heroImage
-// src on featured places + plan cards with the Sanity CDN URL. Sanity's
-// production client has stega enabled and the adapters thread ctx through
-// intentUrl(), so the rendered URL carries an invisible marker pointing
-// back at the source doc/field. That marker is what lets the admin
-// right-click overlay auto-detect the binding for "Replace from media
-// library…". Card visuals are unchanged — only the URL string differs.
-async function applySanityHero<T extends { data: any }>(
-  entity: T,
-  slug: string,
-  fetcher: (s: string) => Promise<any | null>,
-): Promise<T> {
-  const doc = await fetcher(slug);
-  const sanitySrc = doc?.data?.heroImage?.src;
-  if (!sanitySrc) return entity;
-  return {
-    ...entity,
-    data: {
-      ...entity.data,
-      heroImage: { ...entity.data.heroImage, src: sanitySrc },
-    },
-  };
-}
-const placeReadOn      = sanityReadEnabled('places');
-const itineraryReadOn  = sanityReadEnabled('itineraries');
-let hydratedFeaturedPlaces = featuredPlaces as typeof featuredPlaces;
-let hydratedPlanCards      = planCards as typeof planCards;
-try {
-  const [hPlaces, hPlans] = await Promise.all([
-    Promise.all(
-      featuredPlaces.map((p) =>
-        placeReadOn ? applySanityHero(p, routeSlug(p), fetchPlaceFromSanity) : p,
-      ),
-    ),
-    Promise.all(
-      planCards.map((it) =>
-        itineraryReadOn ? applySanityHero(it, routeSlug(it), fetchItineraryFromSanity) : it,
-      ),
-    ),
-  ]);
-  hydratedFeaturedPlaces = hPlaces as typeof featuredPlaces;
-  hydratedPlanCards      = hPlans as typeof planCards;
-} catch (err) {
-  console.error('[homepage] Sanity card hydration failed, falling back to static data:', err);
-}
+// Places and itineraries come directly from Sanity (Phase 4 cutover).
+// The applySanityHero hydration layer is removed — card images are already
+// Sanity CDN URLs via fetchAllPlacesFromSanity / fetchAllItinerariesFromSanity.
 
 const season         = currentSeason();
 const seasonBlurbData = seasonBlurb[season];
@@ -550,7 +507,7 @@ export const prerender = true;
           >{cmsText['places.sub'] ?? 'Start with the Peninsula destinations people search for first, the towns, villages and landmarks that anchor most trips.'}</p>
         </div>
         <div class="places__grid">
-          {hydratedFeaturedPlaces.map((place, index) => (
+          {featuredPlaces.map((place, index) => (
             <PlaceCard
               place={place}
               variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'}
@@ -585,7 +542,7 @@ export const prerender = true;
           >{cmsText['plans.sub'] ?? 'Three editorial itineraries, built around a single anchor stay, paced for the way the Peninsula actually works.'}</p>
         </div>
         <div class="hp-plans__grid">
-          {hydratedPlanCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
+          {planCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
         </div>
         <div class="hp-plans__footer">
           <a href="/plans/" class="venues__link">View Plans →</a>

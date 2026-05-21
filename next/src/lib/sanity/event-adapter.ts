@@ -9,29 +9,7 @@
  */
 import {sanityClient} from './client'
 import {intentUrl} from './image'
-
-const img = `{ asset->{_id}, alt, credit, caption, license }`
-
-const eventBySlugQuery = `*[_type == "event" && slug.current == $slug][0]{
-  _id, title, "slug": slug.current, summary, description, eventId,
-  startDate, endDate, startTime, endTime, season, month,
-  category, subcategory, recurrence, recurrenceNote,
-  venueName, venueRegion, suburb, streetAddress, coordinates, indoorOutdoor,
-  bookingUrl, ticketingUrl, officialEventUrl, bookingRequired, freePaid,
-  priceRange, priceTier, suitableFor, audienceTags, familyFriendly,
-  petFriendly, accessibilityNotes, weather, weatherDependency, weatherShape,
-  organiser, primarySourceUrl, secondarySourceUrl, verificationStatus,
-  lastCheckedDate, visitorAppealScore, editorialPriority,
-  nearbyAttractions, suggestedItineraryPairing, nextOccurrence,
-  kidsGrade, kidsGradeNote, worthTheDrive, firstTimer, standoutOfMonth,
-  skipThis, skipReason, skipInstead, editorVerdict, whyWeCare,
-  pairingProse, editorVisited, featuredInDispatch, lens,
-  status, publishedAt, internalNotes, manualFollowUpRequired, sitemapExclude,
-  "venueSlug": venue->slug.current,
-  "placeSlug": place->slug.current,
-  heroImage ${img},
-  "editorNoteText": pt::text(editorNote)
-}`
+import {eventBySlugQuery, allEventsQuery} from './queries'
 
 type SanityImageRef = {
   asset?: {_id: string}
@@ -58,9 +36,7 @@ function imageOrFallback(
   }
 }
 
-export async function fetchEventFromSanity(slug: string) {
-  const d: any = await sanityClient.fetch(eventBySlugQuery, {slug})
-  if (!d) return null
+function adapt(d: any) {
   return {
     id: d.slug,
     slug: d.slug,
@@ -143,4 +119,15 @@ export async function fetchEventFromSanity(slug: string) {
       sitemapExclude: !!d.sitemapExclude,
     },
   }
+}
+
+export async function fetchEventFromSanity(slug: string) {
+  const d: any = await sanityClient.fetch(eventBySlugQuery, {slug})
+  if (!d) return null
+  return adapt(d)
+}
+
+export async function fetchAllEventsFromSanity() {
+  const docs: any[] = await sanityClient.fetch(allEventsQuery)
+  return docs.map(adapt)
 }

@@ -13,7 +13,7 @@
  */
 import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
-import {venueBySlugQuery, allVenueSlugsQuery} from './queries'
+import {venueBySlugQuery, allVenueSlugsQuery, allVenuesFullQuery} from './queries'
 
 type SanityImageRef = {
   asset?: {_id: string; metadata?: {dimensions?: {width: number; height: number}}}
@@ -118,6 +118,7 @@ export interface AdaptedVenue {
     hoursNote?: string
     liveStatusUrl?: string
     lastVerified: Date
+    lastFactVerified?: Date
     publishedAt: Date
     sitemapExclude: boolean
     // Wine-specific extras passed through; VenueDetailTemplate uses these
@@ -231,6 +232,7 @@ function adapt(doc: SanityVenue): AdaptedVenue {
       hoursNote: doc.hoursNote ?? undefined,
       liveStatusUrl: doc.liveStatusUrl ?? undefined,
       lastVerified: new Date(doc.lastVerified),
+      lastFactVerified: doc.lastFactVerified ? new Date(doc.lastFactVerified) : undefined,
       publishedAt: new Date(doc.publishedAt),
       sitemapExclude: !!doc.sitemapExclude,
       subregion: doc.subregion ?? undefined,
@@ -262,4 +264,11 @@ export async function fetchVenueFromSanity(
 export async function fetchAllVenueSlugsFromSanity(): Promise<string[]> {
   const rows = (await getSanityReadClient(false).fetch(allVenueSlugsQuery)) as Array<{slug: string}>
   return rows.map((r) => r.slug)
+}
+
+/** All venues from Sanity with full fields. Used by getStaticPaths in Phase 4
+ *  to generate static pages for every published venue. */
+export async function fetchAllVenuesFromSanity(): Promise<AdaptedVenue[]> {
+  const docs = (await getSanityReadClient(false).fetch(allVenuesFullQuery)) as SanityVenue[]
+  return docs.map(adapt)
 }

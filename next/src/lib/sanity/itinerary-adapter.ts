@@ -7,28 +7,7 @@
  */
 import {sanityClient} from './client'
 import {intentUrl} from './image'
-
-const imageProjection = `{ asset->{_id}, alt, credit, caption, license }`
-
-const itineraryBySlugQuery = `*[_type == "itinerary" && slug.current == $slug][0]{
-  _id, title, "slug": slug.current, dek, audience, mood, lengthNights,
-  duration, theme, occasion, origin, budget, season,
-  editorialFrame, skipThese, drivingDistanceKm, walkingIntensity,
-  budgetRangeAud, costBreakdown, bookingChecklist, variations,
-  totalDriveMinutes, editorNote, publishedAt, lastVerified, sitemapExclude,
-  heroImage ${imageProjection},
-  "anchorStaySlug": anchorStay->slug.current,
-  anchorStayBlurb,
-  "anchorTownSlug": anchorTown->slug.current,
-  "altStaySlugs": altStays[]->slug.current,
-  "baseTownSlugs": baseTowns[]->slug.current,
-  faq[]{question, answer},
-  stops[]{
-    day, order, timeOfDay, note, timeRange, practical, driveMinutesToNext,
-    "venueSlug": venue->slug.current,
-    experienceSlug
-  }
-}`
+import {itineraryBySlugQuery, allItinerariesQuery} from './queries'
 
 type SanityImageRef = {
   asset?: {_id: string}
@@ -107,9 +86,7 @@ function imageRefToAstroShape(
   }
 }
 
-export async function fetchItineraryFromSanity(slug: string) {
-  const doc = (await sanityClient.fetch(itineraryBySlugQuery, {slug})) as SanityItinerary | null
-  if (!doc) return null
+function adapt(doc: SanityItinerary) {
   return {
     id: doc.slug,
     slug: doc.slug,
@@ -180,4 +157,15 @@ export async function fetchItineraryFromSanity(slug: string) {
         })),
     },
   }
+}
+
+export async function fetchItineraryFromSanity(slug: string) {
+  const doc = (await sanityClient.fetch(itineraryBySlugQuery, {slug})) as SanityItinerary | null
+  if (!doc) return null
+  return adapt(doc)
+}
+
+export async function fetchAllItinerariesFromSanity() {
+  const docs = (await sanityClient.fetch(allItinerariesQuery)) as SanityItinerary[]
+  return docs.map(adapt)
 }

@@ -6,17 +6,7 @@
  */
 import {sanityClient} from './client'
 import {intentUrl} from './image'
-
-const imageProjection = `{ asset->{_id}, alt, credit, caption, license }`
-
-const placeBySlugQuery = `*[_type == "place" && slug.current == $slug][0]{
-  _id, name, "slug": slug.current, kind, zone,
-  coordinates, factualLede, intro, signature, insiderNote,
-  tldr, bestFor, notFor, bestSeason, worstTime, stayDuration, bestDay, skip,
-  driveTime, featured, publishedAt, sitemapExclude,
-  heroImage ${imageProjection},
-  "relatedPlaces": relatedPlaces[]->{ "slug": slug.current, name, kind, zone }
-}`
+import {placeBySlugQuery, allPlacesQuery} from './queries'
 
 type SanityImageRef = {
   asset?: {_id: string}
@@ -148,4 +138,9 @@ export async function fetchPlaceFromSanity(slug: string): Promise<AdaptedPlace |
   const doc = (await sanityClient.fetch(placeBySlugQuery, {slug})) as SanityPlace | null
   if (!doc) return null
   return adapt(doc)
+}
+
+export async function fetchAllPlacesFromSanity(): Promise<AdaptedPlace[]> {
+  const docs = (await sanityClient.fetch(allPlacesQuery)) as SanityPlace[]
+  return docs.map(adapt)
 }

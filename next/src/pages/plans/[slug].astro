@@ -39,9 +39,9 @@ import {
   themeLabel,
 } from '../../lib/escape';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
-import { loadOverrides } from '../../lib/inline-edit/overrides';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchItineraryFromSanity } from '../../lib/sanity/itinerary-adapter';
+import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -62,28 +62,25 @@ const moodLabel: Record<string, string> = {
 };
 
 export async function getStaticPaths() {
-  const itineraries = await getCollection('itineraries');
-  const plansArticles = await getCollection('articles', ({ data }) =>
-    data.section === 'plans' && data.status === 'published'
-  );
-  const itineraryPaths = itineraries.map((itinerary) => ({
-    params: { slug: routeSlug(itinerary) },
-    props: { itinerary, articleData: null as any },
+  const [sanityItineraries, sanityVenues, sanityPlaces, plansArticles] = await Promise.all([
+    fetchAllItinerariesFromSanity(),
+    fetchAllVenuesFromSanity(),
+    fetchAllPlacesFromSanity(),
+    getCollection('articles', ({ data }) => data.section === 'plans' && data.status === 'published'),
+  ]);
+  const sharedProps = { allVenues: sanityVenues, allPlaces: sanityPlaces, allItineraries: sanityItineraries };
+  const itineraryPaths = sanityItineraries.map((itinerary) => ({
+    params: { slug: itinerary.slug },
+    props: { itinerary, articleData: null as any, ...sharedProps },
   }));
   const articlePaths = plansArticles.map((article) => ({
     params: { slug: routeSlug(article) },
-    props: { itinerary: null as any, articleData: article },
+    props: { itinerary: null as any, articleData: article, ...sharedProps },
   }));
   return [...itineraryPaths, ...articlePaths];
 }
 
-let { itinerary, articleData } = Astro.props;
-
-// Dual-read for itinerary branch (article branch handled in journal flow).
-if (articleData == null && itinerary && sanityReadEnabled('itineraries')) {
-  const sanityItn = await fetchItineraryFromSanity(routeSlug(itinerary));
-  if (sanityItn) itinerary = sanityItn as any;
-}
+const { itinerary, articleData, allVenues, allPlaces, allItineraries } = Astro.props;
 
 // ─── Plans-article branch data ─────────────────────────────────────────────
 const isArticle = articleData != null;
@@ -92,10 +89,10 @@ const ArticleContent = isArticle ? (await render(articleData)).Content : (null a
 const ad = isArticle ? articleData.data : null;
 const articleSlug = isArticle ? routeSlug(articleData) : null;
 
-// Resolve related venues/experiences for article branch
-const allVenuesRaw = await getCollection('venues');
+// Resolve related venues/experiences for article branch.
+// allVenues comes from getStaticPaths props (Sanity data).
 const allExperiencesRaw = await getCollection('experiences');
-const venueMapBase = new Map(allVenuesRaw.map((v: any) => [routeSlug(v), v]));
+const venueMapBase = new Map(allVenues.map((v: any) => [v.slug ?? routeSlug(v), v]));
 const expMapBase = new Map(allExperiencesRaw.map((e: any) => [routeSlug(e), e]));
 
 const articleRelatedVenues = isArticle
@@ -127,20 +124,14 @@ const aBreadcrumbs = isArticle
 const data = isArticle ? null : itinerary.data;
 const slug = isArticle ? '' : routeSlug(itinerary);
 
-// CMS override consult for the itinerary hero — baked at SSR so the
-// editor's uploaded image ships in the static HTML.
-const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
-const itineraryHeroOverride = itineraryOverrides?.image['hero'];
-
-const allItineraries = isArticle ? [] : await getCollection('itineraries');
-const allVenues = isArticle ? allVenuesRaw : allVenuesRaw;
-const allExperiences = isArticle ? allExperiencesRaw : allExperiencesRaw;
-const allPlaces = isArticle ? [] : await getCollection('places');
+// allItineraries, allVenues, allPlaces come from getStaticPaths props (Sanity data).
+// itineraryOverrides/itineraryHeroOverride removed: Sanity images are baked at build time.
+const allExperiences = allExperiencesRaw;
 const articles = isArticle ? [] : await getCollection('articles', ({ data: a }) => a.status === 'published');
 
-const venueMap = new Map(allVenues.map((venue: any) => [routeSlug(venue), venue]));
+const venueMap = new Map(allVenues.map((venue: any) => [venue.slug ?? routeSlug(venue), venue]));
 const experienceMap = new Map(allExperiences.map((experience: any) => [routeSlug(experience), experience]));
-const placeMap = new Map(allPlaces.map((place: any) => [routeSlug(place), place]));
+const placeMap = new Map(allPlaces.map((place: any) => [place.slug ?? routeSlug(place), place]));
 
 // ─── Resolve venue/experience references on stops ─────────────────────────
 const venueSlugs = data
@@ -213,8 +204,8 @@ const relatedArticles = articles
       article.data.relatedExperiences.some((entry: any) => experienceSlugs.includes(String(entry.id ?? entry)))
   )
   .slice(0, 2);
-const relatedItineraries = allItineraries
-  .filter((entry: any) => routeSlug(entry) !== slug)
+const relatedItineraries = (isArticle ? [] : allItineraries)
+  .filter((entry: any) => (entry.slug ?? routeSlug(entry)) !== slug)
   .slice(0, 4);
 
 // ─── Fork-plan items (Wave 5) ─────────────────────────────────────────────
@@ -561,16 +552,14 @@ export const prerender = true;
       <div
         class="itinerary-detail__hero feature__image-block feature__image-block--sand"
         aria-hidden="true"
-        style={itineraryHeroOverride?.src
-          ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-          : heroBackgroundStyle(data!)}
+        style={heroBackgroundStyle(data!)}
         {...editableImage({
           entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage',
           label: `${data!.title} hero`, purpose: 'hero',
         })}
       >
         <div class="itinerary-detail__hero-fog"></div>
-        <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
+        <span class="itinerary-detail__hero-label">{data!.heroImage.alt}</span>
       </div>
 
       <div class="itinerary-detail__grid">

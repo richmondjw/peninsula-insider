@@ -1,5 +1,4 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
   eventJsonLd,
@@ -25,32 +24,36 @@ import {
   weatherCopy,
 } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchEventFromSanity } from '../../lib/sanity/event-adapter';
+import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
 
 export async function getStaticPaths() {
-  const events = await getCollection('events');
-  return events.map((event) => ({
-    params: { slug: routeSlug(event) },
-    props: { event },
+  const [sanityEvents, sanityVenues, sanityPlaces] = await Promise.all([
+    fetchAllEventsFromSanity(),
+    fetchAllVenuesFromSanity(),
+    fetchAllPlacesFromSanity(),
+  ]);
+  return sanityEvents.map((event) => ({
+    params: { slug: event.slug },
+    props: { event, allEvents: sanityEvents, allVenues: sanityVenues, allPlaces: sanityPlaces },
   }));
 }
 
-let { event } = Astro.props;
+const { event, allEvents, allVenues, allPlaces } = Astro.props;
 
-// Dual-read.
-if (sanityReadEnabled('events')) {
-  const sanityEvent = await fetchEventFromSanity(routeSlug(event));
-  if (sanityEvent) event = sanityEvent as any;
-}
-const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
-const venue = event.data.venue ? await getEntry(event.data.venue).catch(() => null) : null;
+// Resolve venue and place from Sanity data (replaces getEntry which reads
+// from empty Astro content collections after the Phase 4 cutover).
+const venueMap = new Map(allVenues.map((v: any) => [v.slug, v]));
+const placeMap = new Map(allPlaces.map((p: any) => [p.slug, p]));
+const venue = event.data.venue?.id ? (venueMap.get(event.data.venue.id) ?? null) : null;
+const place = event.data.place?.id ? (placeMap.get(event.data.place.id) ?? null) : null;
 
-const allEvents = (await getCollection('events')).filter((e) => routeSlug(e) !== routeSlug(event));
-const related = allEvents
-  .filter((e) => e.data.category === event.data.category)
+const otherEvents = allEvents.filter((e: any) => e.slug !== event.slug);
+const related = otherEvents
+  .filter((e: any) => e.data.category === event.data.category)
   .slice(0, 3);
-const relatedFallback = allEvents.slice(0, 3);
+const relatedFallback = otherEvents.slice(0, 3);
 const sidebar = related.length >= 2 ? related : relatedFallback;
 
 const lensList = (event.data.lens ?? []).map((key: string) => ({
@@ -58,7 +61,7 @@ const lensList = (event.data.lens ?? []).map((key: string) => ({
   label: eventLensLabel[key] ?? key,
 }));
 
-const slug = routeSlug(event);
+const slug = event.slug;
 const placeName = place?.data?.name ?? 'Mornington Peninsula';
 const canonical = `https://peninsulainsider.com.au/whats-on/${slug}/`;
 

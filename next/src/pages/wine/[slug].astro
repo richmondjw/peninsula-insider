@@ -11,36 +11,31 @@ import {
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllVenuesFromSanity, fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
 export async function getStaticPaths() {
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
-  const venues = await getCollection('venues');
-  return venues
-    .filter((venue) => wineTypes.includes(venue.data.type))
-    .map((venue) => ({
-      params: { slug: routeSlug(venue) },
-      props: { venue },
-    }));
+  const allVenuesSanity = await fetchAllVenuesFromSanity();
+  const wineVenues = allVenuesSanity.filter((v) => wineTypes.includes(v.data.type));
+  return wineVenues.map((venue) => {
+    const related = wineVenues.filter((v) => v.slug !== venue.slug).slice(0, 3);
+    return {
+      params: { slug: venue.slug },
+      props: { venue, related },
+    };
+  });
 }
 
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
-let { venue } = Astro.props;
-const slug = routeSlug(venue);
+let { venue, related } = Astro.props;
+const slug = venue.slug;
 
-// Dual-read: swap focused venue for Sanity when flag is on.
+// Preview mode: refetch from drafts perspective when inside Studio's iframe.
 const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (sanityReadEnabled('venues')) {
-  const sanityVenue = await fetchVenueFromSanity(slug, {preview: previewMode});
-  if (sanityVenue) venue = sanityVenue as any;
+if (previewMode) {
+  const previewVenue = await fetchVenueFromSanity(slug, {preview: true});
+  if (previewVenue) venue = previewVenue;
 }
-
-const allVenues = await getCollection('venues');
-const related = allVenues
-  .filter((entry) => routeSlug(entry) !== slug)
-  .filter((entry) => wineTypes.includes(entry.data.type))
-  .slice(0, 3);
 
 // Cross-link articles that reference this venue
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
