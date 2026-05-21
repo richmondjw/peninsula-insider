@@ -247,6 +247,33 @@ const pageHeroQuery = `*[_type == "pageHero" && pathSlug == $slug][0]{
   "image": image ${img}
 }`
 
+/**
+ * Bulk-fetch all pageHero documents in a single Sanity request and return a
+ * Map keyed by pathSlug. Used by journal/[slug].astro getStaticPaths so hero
+ * overrides are resolved with one network round-trip rather than one per article.
+ */
+const allPageHerosQuery = `*[_type == "pageHero"]{ _id, pathSlug, "image": image ${img} }`
+
+export async function fetchAllPageHerosFromSanity(opts: FetchOpts = {}): Promise<Map<string, {imageSrc?: string; imageAlt?: string}>> {
+  const docs: any[] = (await (opts.preview ? getSanityReadClient(true) : sanityClient).fetch(allPageHerosQuery)) ?? []
+  const map = new Map<string, {imageSrc?: string; imageAlt?: string}>()
+  for (const d of docs) {
+    if (!d.pathSlug) continue
+    const result: {imageSrc?: string; imageAlt?: string} = {}
+    if (d.image?.asset) {
+      const i = imageOrFallback(d.image, '', d.pathSlug ?? '', {
+        docId: d._id,
+        docType: 'pageHero',
+        path: 'image',
+      })
+      if (i.src) result.imageSrc = i.src
+      result.imageAlt = i.alt
+    }
+    map.set(d.pathSlug, result)
+  }
+  return map
+}
+
 export async function fetchPageHeroFromSanity(slug: string, opts: FetchOpts = {}): Promise<{
   title?: string
   eyebrow?: string

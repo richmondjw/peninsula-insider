@@ -12,43 +12,23 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { isUpcoming, routeSlug, currentSeason } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
+import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
 import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-const venuesRaw = (await getCollection('venues'))
-  .filter((venue)
-  .filter((v) => v.data.status !== 'permanently_closed') => eatTypes.includes(venue.data.type))
+const venues = (await fetchAllVenuesFromSanity())
+  .filter((v) => eatTypes.includes(v.data.type))
+  .filter((v) => v.data.status !== 'permanently_closed')
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
-
-// Dual-read: overwrite heroImage.src on each filtered venue with the Sanity
-// venue doc's heroImage when SANITY_VENUES_ENABLED is on. Same pattern as
-// PR #211 on places — needed so admin overlay image edits persist on the
-// hub page instead of reverting to the content-collection path. Filtered
-// first so we only fan out across the ~50 eat venues, not all 500+.
-const venueReadOn = sanityReadEnabled('venues');
-const venues = venueReadOn
-  ? await Promise.all(
-      venuesRaw.map(async (v) => {
-        try {
-          const doc = await fetchVenueFromSanity(routeSlug(v));
-          const sanitySrc = doc?.data?.heroImage?.src;
-          if (!sanitySrc) return v;
-          return { ...v, data: { ...v.data, heroImage: { ...v.data.heroImage, src: sanitySrc } } };
-        } catch {
-          return v;
-        }
-      }),
-    )
-  : venuesRaw;
 
 // Filter dimensions for the directory grid (Phase 2, WS2A). Built from the
 // venue corpus so the filter row only ever shows values that actually have
 // matches. Place lookup uses the live places collection so the dropdown
 // shows pretty names rather than slugs.
-const placesAll = await getCollection('places');
+const placesAll = await fetchAllPlacesFromSanity();
 const placeNameBySlug = new Map<string, string>(
   placesAll.map((p) => [p.id ?? p.data.slug, p.data.name]),
 );
@@ -121,7 +101,7 @@ const casualStops = venues.filter((venue) => ['cafe', 'bakery'].includes(venue.d
 
 // Food + wine events coming up — surfaces from /whats-on/ on the section hub.
 const eatEventCategories = ['food-wine', 'cellar-door', 'market'];
-const eatEvents = (await getCollection('events'))
+const eatEvents = (await fetchAllEventsFromSanity())
   .filter((event) => eatEventCategories.includes(event.data.category))
   .filter((event) => {
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;

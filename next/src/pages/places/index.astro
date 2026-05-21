@@ -10,35 +10,10 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import { routeSlug } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchPlaceFromSanity } from '../../lib/sanity/place-adapter';
+import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-const placesRaw = (await getCollection('places')).sort((a, b) => a.data.name.localeCompare(b.data.name));
-
-// Dual-read: when SANITY_PLACES_ENABLED is on, overwrite heroImage.src on
-// each collection entry with the Sanity place doc's heroImage. Without
-// this, an editor uploading a new image via the admin overlay sees the
-// patch save to Sanity but the static page keeps serving the original
-// content-collection file path. Same shape as PR #206 on index.astro.
-const placeReadOn = sanityReadEnabled('places');
-const places = placeReadOn
-  ? await Promise.all(
-      placesRaw.map(async (p) => {
-        try {
-          const doc = await fetchPlaceFromSanity(routeSlug(p));
-          const sanitySrc = doc?.data?.heroImage?.src;
-          if (!sanitySrc) return p;
-          return { ...p, data: { ...p.data, heroImage: { ...p.data.heroImage, src: sanitySrc } } };
-        } catch {
-          return p;
-        }
-      }),
-    )
-  : placesRaw;
-
-const venues = await getCollection('venues');
-const experiences = await getCollection('experiences');
+const places = (await fetchAllPlacesFromSanity()).sort((a, b) => a.data.name.localeCompare(b.data.name));
 
 // Curated destination order — editorial priority, not alphabetical or regional.
 // Reflects search importance, Peninsula recognition, and editorial strength.

@@ -6,31 +6,9 @@ import SectionHero from '../../components/SectionHero.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { formatLabel, routeSlug, heroBackgroundStyle } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
-
-const articlesRaw = (await getCollection('articles', ({ data }) =>
+const articles = (await getCollection('articles', ({ data }) =>
   data.status === 'published' && (data.section ?? 'journal') !== 'plans'
 )).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-
-// Dual-read journal articles through Sanity so admin overlay heroImage
-// edits persist on the hub. Same PR #211 pattern. All ~150 articles run
-// in parallel via Promise.all — build-time impact accepted.
-const articleReadOn = sanityReadEnabled('articles');
-const articles = articleReadOn
-  ? await Promise.all(
-      articlesRaw.map(async (a) => {
-        try {
-          const doc = await fetchArticleFromSanity(routeSlug(a));
-          const sanitySrc = doc?.data?.heroImage?.src;
-          if (!sanitySrc) return a;
-          return { ...a, data: { ...a.data, heroImage: { ...a.data.heroImage, src: sanitySrc } } };
-        } catch {
-          return a;
-        }
-      }),
-    )
-  : articlesRaw;
 const featured = articles.find((article) => article.data.featured) ?? articles[0];
 const featuredSlug = featured ? routeSlug(featured) : null;
 const latest = articles.filter((article) => routeSlug(article) !== featuredSlug);

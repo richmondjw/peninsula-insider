@@ -7,12 +7,12 @@ import SectionDivider from '../../components/SectionDivider.astro';
 import EventCard from '../../components/EventCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { isUpcoming, routeSlug } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchEventFromSanity } from '../../lib/sanity/event-adapter';
+import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const now = new Date();
-const eventsRaw = (await getCollection('events', ({ data }) => data.status === 'published'))
+const events = (await fetchAllEventsFromSanity())
+  .filter((event) => event.data.status === 'published')
   .filter((event) => {
     const cancelled = /cancelled/i.test(event.data.verificationStatus ?? '') || /^cancelled:/i.test(event.data.summary ?? '');
     if (cancelled) return false;
@@ -21,25 +21,6 @@ const eventsRaw = (await getCollection('events', ({ data }) => data.status === '
     return isUpcoming(end, now);
   })
   .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
-
-// Dual-read events through Sanity so admin overlay heroImage edits persist.
-// Same PR #211 pattern. Filtered to upcoming/recurring events only, bounded
-// fan-out. No-op when SANITY_EVENTS_ENABLED is off.
-const eventReadOn = sanityReadEnabled('events');
-const events = eventReadOn
-  ? await Promise.all(
-      eventsRaw.map(async (e) => {
-        try {
-          const doc = await fetchEventFromSanity(routeSlug(e));
-          const sanitySrc = doc?.data?.heroImage?.src;
-          if (!sanitySrc) return e;
-          return { ...e, data: { ...e.data, heroImage: { ...e.data.heroImage, src: sanitySrc } } };
-        } catch {
-          return e;
-        }
-      }),
-    )
-  : eventsRaw;
 
 const dispatches = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .filter((a) => a.data.format === 'weekend-picker')
