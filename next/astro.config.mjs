@@ -12,12 +12,15 @@ import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 //   • Content-first: zero-JS by default on content pages
 //   • Islands are added per-need (map, search, wizard, admin)
 //
-// Phase 3 (2026-05-21): always output: 'hybrid' + Vercel adapter.
+// Phase 3 (2026-05-21): always output: 'static' + Vercel adapter.
 // Previously output switched between 'server' (PI_ADMIN_HYBRID=1) and 'static'.
-// Hybrid gives us the best of both: pages prerender at build time (baking
-// Sanity data in), while /api/admin/* and /api/preview/* remain serverless
-// SSR functions. PI_ADMIN_HYBRID is no longer needed and has been removed
-// from Vercel env. See next/docs/HANDOVER-SANITY-STATIC-MIGRATION.md Phase 3.
+// Static (with adapter) gives us the best of both: pages prerender at build
+// time (baking Sanity data in), while /api/admin/* and /api/preview/* remain
+// serverless SSR functions via `export const prerender = false`. PI_ADMIN_HYBRID
+// is no longer needed and has been removed from Vercel env.
+// Note: output: 'hybrid' was removed in Astro 5 — 'static' now has the same
+// hybrid behaviour (opt-out of prerendering per-route with prerender=false).
+// See next/docs/HANDOVER-SANITY-STATIC-MIGRATION.md Phase 3.
 
 // Preview builds to /V2/ on GitHub Pages set ASTRO_BASE=/V2/.
 // Production (root-served) builds leave it unset.
@@ -63,7 +66,7 @@ export default defineConfig({
                               // global design system. Used only inside files
                               // that explicitly @import 'tailwind.css'.
   },
-  output: 'hybrid',
+  output: 'static',
   adapter,
   // Redirects are handled by custom src/pages/*.astro files using the
   // Redirect component (src/components/Redirect.astro). This gives flash-free

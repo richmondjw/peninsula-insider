@@ -178,7 +178,7 @@ Steps:
 
 ---
 
-### Phase 3 — Build-Time Reads for Singletons
+### Phase 3 — Build-Time Reads for Singletons ✅ COMPLETE (2026-05-21)
 **Effort: 2 days | Can run parallel with Phase 4**
 
 **Goal:** `homepageCover`, `siteSettings`, `megaRail`, and `pageHero` are fetched once at build time, not on every SSR request.
@@ -207,6 +207,19 @@ Also in this phase:
 - Remove `sanityReadEnabled('page-level')` guards (no longer needed at build time).
 
 **Deliverable:** Singleton content baked into static HTML at build time.
+
+**Implementation notes (2026-05-21):**
+- `next/astro.config.mjs` — always `output: 'hybrid'` with `@astrojs/vercel` adapter. Previously switched between `output: 'server'` (PI_ADMIN_HYBRID=1) and `output: 'static'`. Hybrid gives static pages baked at build time + SSR serverless for API routes.
+- `PI_ADMIN_HYBRID` env var removed from Vercel production. No longer needed.
+- All 12 API routes (`src/pages/api/admin/*`, `api/preview/*`, `api/revalidate.ts`) changed to `export const prerender = false` (SSR, required for serverless function behaviour).
+- `src/pages/index.astro` — `export const prerender = process.env.PI_ADMIN_HYBRID !== '1'` → `export const prerender = true`. `sanityReadEnabled('page-level')` guard removed from `fetchHomepageCoverFromSanity()` call. Now always fetches at build time with try/catch.
+- `src/components/v4/V4MegaRail.astro` — removed `sanityReadEnabled` guard and Supabase override fallback. Always calls `fetchMegaRailFromSanity()` at build time.
+- `src/components/SectionHero.astro` and `SubpageHero.astro` — removed `sanityReadEnabled` guard and `loadOverrides` Supabase fallback. Always calls `fetchPageHeroFromSanity()` at build time via `if (isPageEntity)`.
+- `src/pages/places/[slug].astro` — kept as `prerender = false` (SSR placeholder) pending Phase 4 getStaticPaths implementation.
+- `src/pages/preview/[section]/[slug].astro` — kept as `prerender = false` (always SSR — renders draft content inside Studio iframe).
+- **Deployment note:** Phase 3 commit `17e12e315e` was pushed to GitHub main branch on 2026-05-21. Earlier Sanity webhook deployments had raced ahead and locked production on the Phase 2 commit (deploy hook triggers on Sanity publishes and uses the latest main commit at the moment Vercel clones — if Sanity published just before or concurrent with the git push, Phase 2 was deployed instead). Push confirmed via `git push origin main`.
+- **PI_PUBLIC_SANITY_READS_DISABLED** — currently `""` (empty string) in Vercel production. This is fine for Phase 3: the singleton fetches in `index.astro`, `V4MegaRail`, `SectionHero`, and `SubpageHero` no longer use `sanityReadEnabled()`. The entity card overlay reads (`places`, `itineraries`) in `index.astro` still use `sanityReadEnabled()` — with `""` value these return `false`, which is intentional until Phase 4.
+- **Note for Phase 6:** `sanityReadEnabled` import is still in `index.astro` because `placeReadOn` and `itineraryReadOn` use it for entity overlay conditionals. Delete in Phase 4/6 when those entity reads are moved to `getStaticPaths`.
 
 ---
 
