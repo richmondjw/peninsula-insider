@@ -9,7 +9,7 @@
  * via the existing template paths.
  */
 import Slugger from 'github-slugger'
-import {sanityClientFresh} from './client'
+import {sanityClient} from './client'
 import {intentUrl} from './image'
 
 const img = `{ asset->{_id}, alt, credit, caption, license }`
@@ -133,7 +133,7 @@ export function extractHeadingsFromPT(
 }
 
 export async function fetchArticleFromSanity(slug: string): Promise<AdaptedArticle | null> {
-  const d: any = await sanityClientFresh.fetch(articleBySlugQuery, {slug})
+  const d: any = await sanityClient.fetch(articleBySlugQuery, {slug})
   if (!d) return null
 
   const refs = (slugs: string[] | null | undefined, c: any) =>

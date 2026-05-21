@@ -6,7 +6,7 @@
  *   - siteSettings   -> drives masthead label, edition, footer links, brand imagery
  *   - pageHero(slug) -> drives the SubpageHero override for a given hub
  */
-import {getSanityReadClient, sanityClientFresh} from './client'
+import {getSanityReadClient, sanityClient} from './client'
 import {intentUrl} from './image'
 
 type FetchOpts = {preview?: boolean}
@@ -102,7 +102,7 @@ export async function fetchHomepageCoverFromSanity(opts: FetchOpts = {}): Promis
   // Homepage cover edits are made from the live-site admin overlay. Use the
   // fresh published client here so an immediate refresh after an image patch
   // does not re-render from Sanity CDN's stale copy.
-  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(homepageCoverQuery)
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClient).fetch(homepageCoverQuery)
   if (!d?.scenes?.length) return null
   return {
     scenes: d.scenes.map((s: any, idx: number) => {
@@ -148,7 +148,7 @@ export interface MegaRailEntry {
 }
 
 export async function fetchMegaRailFromSanity(opts: FetchOpts = {}): Promise<MegaRailEntry[] | null> {
-  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(megaRailQuery)
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClient).fetch(megaRailQuery)
   if (!d?.entries?.length) return null
   return d.entries.map((e: any, idx: number) => {
     if (!e.image?.asset) return {key: e.key, label: e.label, href: e.href, eyebrow: e.eyebrow}
@@ -206,7 +206,7 @@ export interface SiteSettings {
 }
 
 export async function fetchSiteSettingsFromSanity(opts: FetchOpts = {}): Promise<SiteSettings | null> {
-  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(siteSettingsQuery)
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClient).fetch(siteSettingsQuery)
   if (!d) return null
   return {
     mastheadLabel: d.mastheadLabel ?? 'Peninsula Insider',
@@ -255,7 +255,7 @@ export async function fetchPageHeroFromSanity(slug: string, opts: FetchOpts = {}
   imageSrc?: string
   imageAlt?: string
 } | null> {
-  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClientFresh).fetch(pageHeroQuery, {slug})
+  const d: any = await (opts.preview ? getSanityReadClient(true) : sanityClient).fetch(pageHeroQuery, {slug})
   if (!d) return null
   let imageSrc: string | undefined
   let imageAlt: string | undefined
