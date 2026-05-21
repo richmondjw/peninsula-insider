@@ -1,13 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchAllToursFromSanity, fetchAllTourOperatorsFromSanity } from '../../lib/sanity/phase5-adapters';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import TourCard from '../../components/TourCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
-const allTours = await getCollection('tours');
-const allOperators = await getCollection('tourOperators');
+const [allTours, allOperators] = await Promise.all([
+  fetchAllToursFromSanity(),
+  fetchAllTourOperatorsFromSanity(),
+]);
 const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
 
 const fullDayTours = allTours.filter(t => t.data.duration === 'full-day');

@@ -21,16 +21,18 @@ import { fetchAllPageHerosFromSanity } from '../../lib/sanity/singletons-adapter
 import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
 import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
+import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
 
 export async function getStaticPaths() {
-  const [articles, allVenues, allPlaces, allItineraries, pageHeros] = await Promise.all([
+  const [articles, allVenues, allPlaces, allItineraries, pageHeros, allExperiences] = await Promise.all([
     getCollection('articles', ({ data }) => data.status === 'published'),
     fetchAllVenuesFromSanity(),
     fetchAllPlacesFromSanity(),
     fetchAllItinerariesFromSanity(),
     fetchAllPageHerosFromSanity(),
+    fetchAllExperiencesFromSanity(),
   ]);
-  const sharedProps = { allVenues, allPlaces, allItineraries };
+  const sharedProps = { allVenues, allPlaces, allItineraries, allExperiences };
   return articles.map((article) => {
     const slug = routeSlug(article);
     const heroOverride = pageHeros.get(`journal/${slug}`) ?? null;
@@ -41,7 +43,7 @@ export async function getStaticPaths() {
   });
 }
 
-let { article, heroOverride, allVenues, allPlaces, allItineraries } = Astro.props;
+let { article, heroOverride, allVenues, allPlaces, allItineraries, allExperiences } = Astro.props;
 
 // Plans articles live at /plans/[slug] — redirect with 301 so inbound
 // /journal/ URLs resolve cleanly without serving duplicate content.
@@ -101,7 +103,6 @@ const relatedArticles = pickRelatedArticles(article, allArticles, {
 
 const relatedVenues = resolveRefs(article.data.relatedVenues, allVenues).slice(0, 3);
 
-const allExperiences = await getCollection('experiences');
 const relatedExperiences = resolveRefs(article.data.relatedExperiences, allExperiences).slice(0, 3);
 
 const relatedPlaces = resolveRefs(article.data.relatedPlaces, allPlaces).slice(0, 3);

@@ -1,6 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchAllToursFromSanity, fetchAllTourPackagesFromSanity, fetchAllTourOperatorsFromSanity } from '../../lib/sanity/phase5-adapters';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import TourCard from '../../components/TourCard.astro';
@@ -9,12 +9,14 @@ import TourOperatorCard from '../../components/TourOperatorCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildCollectionPageSchema, buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
 
-const allTours = (await getCollection('tours'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const allPackages = (await getCollection('tourPackages'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const allOperators = (await getCollection('tourOperators'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const [_tours, _packages, _operators] = await Promise.all([
+  fetchAllToursFromSanity(),
+  fetchAllTourPackagesFromSanity(),
+  fetchAllTourOperatorsFromSanity(),
+]);
+const allTours = _tours.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const allPackages = _packages.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const allOperators = _operators.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const allOperatorsMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
 
 const featuredTours = allTours.slice(0, 6);

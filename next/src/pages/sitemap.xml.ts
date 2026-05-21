@@ -1,6 +1,11 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { routeSlug } from '../lib/editorial';
+import { fetchAllVenuesFromSanity } from '../lib/sanity/venue-adapter';
+import { fetchAllExperiencesFromSanity } from '../lib/sanity/phase5-adapters';
+import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
+import { fetchAllItinerariesFromSanity } from '../lib/sanity/itinerary-adapter';
+import { fetchAllEventsFromSanity } from '../lib/sanity/event-adapter';
 
 const SITE_URL = 'https://peninsulainsider.com.au';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -38,12 +43,12 @@ export const GET: APIRoute = async () => {
     boatRamps,
     boatHire,
   ] = await Promise.all([
-    getCollection('venues'),
-    getCollection('experiences'),
-    getCollection('places'),
+    fetchAllVenuesFromSanity(),
+    fetchAllExperiencesFromSanity(),
+    fetchAllPlacesFromSanity(),
     getCollection('articles', ({ data }) => data.status === 'published'),
-    getCollection('itineraries'),
-    getCollection('events'),
+    fetchAllItinerariesFromSanity(),
+    fetchAllEventsFromSanity(),
     getCollection('species', ({ data }) => data.status === 'published'),
     getCollection('fishingLocations', ({ data }) => data.status === 'published'),
     getCollection('fishingCharters', ({ data }) => data.status === 'published'),

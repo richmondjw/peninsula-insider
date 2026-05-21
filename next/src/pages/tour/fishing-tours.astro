@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { fetchAllToursFromSanity } from '../../lib/sanity/phase5-adapters';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
@@ -22,7 +23,7 @@ const allCharters = await getCollection('fishingCharters', ({ data }) => data.st
 
 // Existing /tour/ entries with cruise-sailing, surf-water, or wildlife-nature
 // experience type that touch fishing intent — surfaced here as adjacent options.
-const allTours = await getCollection('tours');
+const allTours = await fetchAllToursFromSanity();
 const adjacentTours = allTours.filter((t) =>
   ['cruise-sailing', 'surf-water'].includes(t.data.experienceType),
 );

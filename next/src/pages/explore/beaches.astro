@@ -1,6 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import GuideHero from '../../components/GuideHero.astro';
@@ -13,7 +13,7 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 
-const experiences = await getCollection('experiences');
+const experiences = await fetchAllExperiencesFromSanity();
 const beaches = experiences
   .filter((e) => e.data.type === 'beach')
   .sort((a, b) => (b.data.durationMinutes ?? 0) - (a.data.durationMinutes ?? 0));

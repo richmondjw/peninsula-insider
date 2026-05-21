@@ -22,14 +22,18 @@
  *  - Sufficient for a regional discovery map; we don't need vector tiles or
  *    3D for this product.
  */
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+import { fetchAllVenuesFromSanity } from '../lib/sanity/venue-adapter';
+import { fetchAllExperiencesFromSanity } from '../lib/sanity/phase5-adapters';
+import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
 
-const venuesAll = await getCollection('venues');
-const experiencesAll = await getCollection('experiences');
-const placesAll = await getCollection('places');
+const [venuesAll, experiencesAll, placesAll] = await Promise.all([
+  fetchAllVenuesFromSanity(),
+  fetchAllExperiencesFromSanity(),
+  fetchAllPlacesFromSanity(),
+]);
 
 const placeNameBySlug = new Map<string, string>(
   placesAll.map((p) => [p.id ?? p.data.slug, p.data.name]),

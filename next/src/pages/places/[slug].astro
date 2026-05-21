@@ -6,24 +6,29 @@ import PlaceMap from '../../components/PlaceMap.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, stayTypes, wineTypes, activityTypes, isUpcoming } from '../../lib/editorial';
 import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
+import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
+import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
 
 export async function getStaticPaths() {
-  const allPlaces = await fetchAllPlacesFromSanity();
+  const [allPlaces, allVenues, allExperiences, allItineraries, allArticles, allEvents] = await Promise.all([
+    fetchAllPlacesFromSanity(),
+    fetchAllVenuesFromSanity(),
+    fetchAllExperiencesFromSanity(),
+    fetchAllItinerariesFromSanity(),
+    getCollection('articles', ({ data }) => data.status === 'published'),
+    fetchAllEventsFromSanity(),
+  ]);
   return allPlaces.map((place) => ({
     params: { slug: place.slug },
-    props: { place, allPlaces },
+    props: { place, allPlaces, allVenues, allExperiences, allItineraries, allArticles, allEvents },
   }));
 }
 
 export const prerender = true;
 
-const { place, allPlaces } = Astro.props as { place: Awaited<ReturnType<typeof fetchAllPlacesFromSanity>>[number]; allPlaces: Awaited<ReturnType<typeof fetchAllPlacesFromSanity>> };
-
-const allVenues = await getCollection('venues');
-const allExperiences = await getCollection('experiences');
-const allItineraries = await getCollection('itineraries');
-const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
-const allEvents = await getCollection('events');
+const { place, allPlaces, allVenues, allExperiences, allItineraries, allArticles, allEvents } = Astro.props as any;
 
 const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();

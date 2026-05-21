@@ -20,17 +20,21 @@
  *   Q6: New /itinerary/ route, /saved/ stays as the simple shortlist.
  *   Q8: Native browser print v1.
  */
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
 import { routeSlug, venueHrefPrefix } from '../lib/editorial';
+import { fetchAllVenuesFromSanity } from '../lib/sanity/venue-adapter';
+import { fetchAllEventsFromSanity } from '../lib/sanity/event-adapter';
+import { fetchAllExperiencesFromSanity } from '../lib/sanity/phase5-adapters';
 
-const venues = await getCollection('venues');
-const events = await getCollection('events');
-const experiences = await getCollection('experiences');
+const [venues, events, experiences] = await Promise.all([
+  fetchAllVenuesFromSanity(),
+  fetchAllEventsFromSanity(),
+  fetchAllExperiencesFromSanity(),
+]);
 
 /**
  * Build-time lookup tables. Carry coordinates so the client can compute

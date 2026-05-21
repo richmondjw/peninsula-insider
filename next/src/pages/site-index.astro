@@ -3,14 +3,19 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { routeSlug, stayTypes, wineTypes } from '../lib/editorial';
+import { fetchAllVenuesFromSanity } from '../lib/sanity/venue-adapter';
+import { fetchAllExperiencesFromSanity } from '../lib/sanity/phase5-adapters';
+import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
+import { fetchAllItinerariesFromSanity } from '../lib/sanity/itinerary-adapter';
+import { fetchAllEventsFromSanity } from '../lib/sanity/event-adapter';
 
 const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
-  getCollection('venues'),
-  getCollection('experiences'),
-  getCollection('places'),
+  fetchAllVenuesFromSanity(),
+  fetchAllExperiencesFromSanity(),
+  fetchAllPlacesFromSanity(),
   getCollection('articles', ({ data }) => data.status === 'published'),
-  getCollection('itineraries'),
-  getCollection('events'),
+  fetchAllItinerariesFromSanity(),
+  fetchAllEventsFromSanity(),
 ]);
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];

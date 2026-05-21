@@ -42,6 +42,7 @@ import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
 import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
+import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -62,13 +63,14 @@ const moodLabel: Record<string, string> = {
 };
 
 export async function getStaticPaths() {
-  const [sanityItineraries, sanityVenues, sanityPlaces, plansArticles] = await Promise.all([
+  const [sanityItineraries, sanityVenues, sanityPlaces, plansArticles, sanityExperiences] = await Promise.all([
     fetchAllItinerariesFromSanity(),
     fetchAllVenuesFromSanity(),
     fetchAllPlacesFromSanity(),
     getCollection('articles', ({ data }) => data.section === 'plans' && data.status === 'published'),
+    fetchAllExperiencesFromSanity(),
   ]);
-  const sharedProps = { allVenues: sanityVenues, allPlaces: sanityPlaces, allItineraries: sanityItineraries };
+  const sharedProps = { allVenues: sanityVenues, allPlaces: sanityPlaces, allItineraries: sanityItineraries, allExperiences: sanityExperiences };
   const itineraryPaths = sanityItineraries.map((itinerary) => ({
     params: { slug: itinerary.slug },
     props: { itinerary, articleData: null as any, ...sharedProps },
@@ -80,7 +82,7 @@ export async function getStaticPaths() {
   return [...itineraryPaths, ...articlePaths];
 }
 
-const { itinerary, articleData, allVenues, allPlaces, allItineraries } = Astro.props;
+const { itinerary, articleData, allVenues, allPlaces, allItineraries, allExperiences } = Astro.props;
 
 // ─── Plans-article branch data ─────────────────────────────────────────────
 const isArticle = articleData != null;
@@ -90,10 +92,9 @@ const ad = isArticle ? articleData.data : null;
 const articleSlug = isArticle ? routeSlug(articleData) : null;
 
 // Resolve related venues/experiences for article branch.
-// allVenues comes from getStaticPaths props (Sanity data).
-const allExperiencesRaw = await getCollection('experiences');
+// allVenues and allExperiences come from getStaticPaths props (Sanity data).
 const venueMapBase = new Map(allVenues.map((v: any) => [v.slug ?? routeSlug(v), v]));
-const expMapBase = new Map(allExperiencesRaw.map((e: any) => [routeSlug(e), e]));
+const expMapBase = new Map(allExperiences.map((e: any) => [routeSlug(e), e]));
 
 const articleRelatedVenues = isArticle
   ? (ad.relatedVenues ?? [])
@@ -124,9 +125,8 @@ const aBreadcrumbs = isArticle
 const data = isArticle ? null : itinerary.data;
 const slug = isArticle ? '' : routeSlug(itinerary);
 
-// allItineraries, allVenues, allPlaces come from getStaticPaths props (Sanity data).
+// allItineraries, allVenues, allPlaces, allExperiences come from getStaticPaths props (Sanity data).
 // itineraryOverrides/itineraryHeroOverride removed: Sanity images are baked at build time.
-const allExperiences = allExperiencesRaw;
 const articles = isArticle ? [] : await getCollection('articles', ({ data: a }) => a.status === 'published');
 
 const venueMap = new Map(allVenues.map((venue: any) => [venue.slug ?? routeSlug(venue), venue]));
