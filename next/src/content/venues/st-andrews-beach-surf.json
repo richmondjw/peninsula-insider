@@ -1,0 +1,65 @@
+{
+  "slug": "st-andrews-beach-surf",
+  "name": "St Andrews Beach",
+  "type": "beach",
+  "place": "st-andrews-beach",
+  "zone": "ocean-coast",
+  "coordinates": {
+    "lat": -38.4137,
+    "lng": 144.9082
+  },
+  "address": "St Andrews Beach, VIC 3941",
+  "website": "",
+  "bookingUrl": "",
+  "bookingProvider": "none",
+  "priceBand": "$",
+  "signature": "An unpatrolled, uncrowded stretch of Bass Strait coast — the Peninsula's best kept surf secret between Rye and Gunnamatta",
+  "editorNote": "St Andrews Beach sits between Rye Ocean Beach and Gunnamatta and shares both their swell exposure and none of their crowds. The beach is unpatrolled — no flags, no surf club, no facilities — which keeps the weekend day-tripper numbers manageable even in peak summer.\n\nThe break is a quality beach break that works across a range of swell sizes and directions. On a good south or south-west swell with a north-west wind it is consistently one of the better waves on the Peninsula. The access track through the coastal scrub is part of the experience.\n\nSwim and surf here at your own risk. No patrol means no rescue infrastructure — know your limits, check conditions, and never surf alone. Best for experienced surfers and strong ocean swimmers who understand the environment.",
+  "whyWeGo": "The Peninsula's best unpatrolled surf stretch — quality waves and none of the Gunnamatta weekend crowd.",
+  "bestFor": [
+    "surfing",
+    "walks",
+    "experienced swimmers"
+  ],
+  "ifOnlyOneThing": "Check Swellnet before you drive. This beach is worth the trip only on the right day.",
+  "pairWith": [
+    "St Andrews Beach Brewery",
+    "Gunnamatta Ocean Beach"
+  ],
+  "tags": {
+    "mood": [
+      "outdoor",
+      "surf",
+      "walk"
+    ],
+    "season": [
+      "all-year"
+    ],
+    "audience": [
+      "solo",
+      "couples"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/beach-st-andrews-01.webp",
+    "alt": "St Andrews Beach — unpatrolled surf break, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  },
+  "gallery": [],
+  "featuredPartner": false,
+  "lastVerified": "2026-05-21",
+  "publishedAt": "2026-05-21",
+  "sitemapExclude": true,
+  "patrol": {
+    "patrolled": false,
+    "patrolSeason": "Unpatrolled year-round",
+    "slsc": "None — swim at own risk"
+  },
+  "surf": {
+    "swellExposure": "Bass Strait — full open ocean exposure, similar to Gunnamatta",
+    "difficulty": "intermediate-advanced",
+    "breakType": "beach break",
+    "bestConditions": "S-SW swell 2-4ft, NW wind"
+  }
+}
