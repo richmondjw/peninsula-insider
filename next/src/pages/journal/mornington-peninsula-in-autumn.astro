@@ -2,15 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { sanityReadEnabled } from '../../lib/sanity/client';
 import { fetchPageHeroFromSanity } from '../../lib/sanity/singletons-adapter';
 
 const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
 let heroImage = '/images/sourced/article-cellar-door-01.webp';
-if (isPreview || sanityReadEnabled('page-level')) {
-  const ph = await fetchPageHeroFromSanity('journal/mornington-peninsula-in-autumn', {preview: isPreview});
-  if (ph?.imageSrc) heroImage = ph.imageSrc;
-}
+const _ph = await fetchPageHeroFromSanity('journal/mornington-peninsula-in-autumn', {preview: isPreview});
+if (_ph?.imageSrc) heroImage = _ph.imageSrc;
 
 const articleSchema = {
   '@context': 'https://schema.org',

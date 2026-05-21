@@ -12,8 +12,7 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 import { routeSlug } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
+import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 8 ("Golf editorial") all link to journal articles. Their
@@ -21,33 +20,29 @@ import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
 // the card art by editing the article in Sanity (or its frontmatter), with the
 // hardcoded path retained as a build-time fallback.
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
-async function resolveArticleHero(slug: string, fallback: string): Promise<string> {
-  if (sanityReadEnabled('articles')) {
-    const sanityArt = await fetchArticleFromSanity(slug);
-    if (sanityArt?.data.heroImage?.src) return sanityArt.data.heroImage.src;
-  }
+function resolveArticleHero(slug: string, fallback: string): string {
   const local = allArticles.find((a) => routeSlug(a) === slug);
   return (local?.data as any)?.heroImage?.src ?? fallback;
 }
-const heroGolfGuide = await resolveArticleHero(
+const heroGolfGuide = resolveArticleHero(
   'mornington-peninsula-golf-guide',
   '/images/sourced/golf-rye-sunrise-01.webp',
 );
-const heroGolfTier = await resolveArticleHero(
+const heroGolfTier = resolveArticleHero(
   'best-golf-courses-mornington-peninsula',
   '/images/sourced/golf-rye-sunrise-01.webp',
 );
-const heroGolfStayPlay = await resolveArticleHero(
+const heroGolfStayPlay = resolveArticleHero(
   'mornington-peninsula-golf-stay-and-play',
   '/images/sourced/article-sorrento-weekend-01.webp',
 );
-const heroStAndrews = await resolveArticleHero(
+const heroStAndrews = resolveArticleHero(
   'st-andrews-beach-golf-course',
   '/images/sourced/place-cape-schanck-01.webp',
 );
 
 // ── Load golf courses from experiences collection ─────────────────────────────
-const allExperiences = await getCollection('experiences');
+const allExperiences = await fetchAllExperiencesFromSanity();
 const golfCourses = allExperiences.filter(e => e.data.type === 'golf-course');
 
 // Cape Schanck / Fingal cluster — editorial order

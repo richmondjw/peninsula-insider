@@ -1,33 +1,26 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildTourSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchTourFromSanity } from '../../lib/sanity/phase5-adapters';
+import { fetchAllToursFromSanity, fetchAllTourOperatorsFromSanity } from '../../lib/sanity/phase5-adapters';
 
 export async function getStaticPaths() {
-  const tours = await getCollection('tours');
+  const [tours, allOperators] = await Promise.all([
+    fetchAllToursFromSanity(),
+    fetchAllTourOperatorsFromSanity(),
+  ]);
   return tours.map((tour) => ({
-    params: { slug: tour.id ?? tour.data.slug },
-    props: { tour },
+    params: { slug: tour.slug },
+    props: { tour, allOperators },
   }));
 }
 
-let { tour } = Astro.props;
-
-// Dual-read.
-if (sanityReadEnabled('tours')) {
-  const slug = tour.id ?? tour.data.slug;
-  const sanityTour = await fetchTourFromSanity(slug);
-  if (sanityTour) tour = sanityTour as any;
-}
+const { tour, allOperators } = Astro.props;
 const data = tour.data;
 
-const allOperators = await getCollection('tourOperators');
 const operator = allOperators.find(op => op.data.slug === data.operatorSlug);
 const operatorData = operator?.data ?? null;
 

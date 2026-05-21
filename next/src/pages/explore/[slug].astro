@@ -10,8 +10,9 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchExperienceFromSanity } from '../../lib/sanity/phase5-adapters';
+import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -45,24 +46,20 @@ const heroVariant: Record<string, string> = {
 };
 
 export async function getStaticPaths() {
-  const experiences = await getCollection('experiences');
+  const [experiences, allVenues, allItineraries, allArticles] = await Promise.all([
+    fetchAllExperiencesFromSanity(),
+    fetchAllVenuesFromSanity(),
+    fetchAllItinerariesFromSanity(),
+    getCollection('articles', ({ data }) => data.status === 'published'),
+  ]);
+  const sharedProps = { allExperiences: experiences, allVenues, allItineraries, allArticles };
   return experiences.map((experience) => ({
     params: { slug: routeSlug(experience) },
-    props: { experience },
+    props: { experience, ...sharedProps },
   }));
 }
 
-let { experience } = Astro.props;
-
-// Dual-read: swap for Sanity when flag is on.
-if (sanityReadEnabled('experiences')) {
-  const sanityExp = await fetchExperienceFromSanity(routeSlug(experience));
-  if (sanityExp) experience = sanityExp as any;
-}
-const allExperiences = await getCollection('experiences');
-const venues = await getCollection('venues');
-const itineraries = await getCollection('itineraries');
-const articles = await getCollection('articles', ({ data }) => data.status === 'published');
+const { experience, allExperiences, allVenues: venues, allItineraries: itineraries, allArticles: articles } = Astro.props;
 
 const slug = routeSlug(experience);
 const placeSlug = String(experience.data.place?.id ?? experience.data.place);
