@@ -1,0 +1,75 @@
+{
+  "slug": "sorrento-front-beach",
+  "name": "Sorrento Front Beach",
+  "type": "beach",
+  "place": "sorrento",
+  "zone": "tip",
+  "coordinates": {
+    "lat": -38.3378,
+    "lng": 144.7424
+  },
+  "address": "Sullivan Bay, Sorrento VIC 3943",
+  "website": "https://www.sorrentoslsc.com.au",
+  "bookingUrl": "",
+  "bookingProvider": "none",
+  "priceBand": "$",
+  "signature": "Sorrento's calm bay beach — sheltered swimming, the ferry terminal, and the most social beach scene on the tip of the Peninsula",
+  "editorNote": "Sorrento Front Beach is the social heart of a Sorrento summer — the calm bay side of the town where the ferry from Queenscliff docks, the boat ramp launches, and everyone who has been walking the main street eventually ends up. The water is calm and clear, the beach is sandy, and the backdrop of the town behind it is as Peninsula as it gets.\n\nSorrento SLSC patrols through summer and runs Nippers on Sunday mornings — one of the more heritage-rich clubs on the Peninsula, with a beautiful old clubhouse and a community that has been coming to this beach for generations.\n\nFor ocean swimming, the back beach is five minutes away. The front beach is for everything else: a late afternoon swim after lunch at the Continental, watching the Queenscliff ferry come in, or just sitting in the shallows while the kids do what kids do.",
+  "whyWeGo": "The front beach at Sorrento is where the Peninsula's summer social life actually happens.",
+  "bestFor": [
+    "families",
+    "swimming",
+    "nippers"
+  ],
+  "ifOnlyOneThing": "Walk the foreshore at low tide toward the rock pools at the western end.",
+  "pairWith": [
+    "Hotel Sorrento",
+    "The Continental",
+    "Portsea Back Beach"
+  ],
+  "tags": {
+    "mood": [
+      "family",
+      "slow",
+      "outdoor",
+      "waterfront"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "families",
+      "couples",
+      "first-timers"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/beach-sorrento-front-01.webp",
+    "alt": "Sorrento Front Beach — bay swimming and the ferry terminal, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  },
+  "gallery": [],
+  "featuredPartner": false,
+  "lastVerified": "2026-05-21",
+  "publishedAt": "2026-05-21",
+  "sitemapExclude": true,
+  "patrol": {
+    "patrolled": true,
+    "patrolSeason": "Late November to Easter",
+    "patrolDays": "Weekends and public holidays",
+    "slsc": "Sorrento SLSC",
+    "nippers": true,
+    "nippersDays": "Sunday mornings, late November to March",
+    "nippersAges": "5–14 years",
+    "nippersInfo": "https://www.sorrentoslsc.com.au/nippers"
+  },
+  "surf": {
+    "swellExposure": "Port Phillip Bay — very sheltered",
+    "difficulty": "beginner-family",
+    "breakType": "flat bay water",
+    "bestConditions": "Any calm day"
+  }
+}

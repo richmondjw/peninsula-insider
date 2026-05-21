@@ -1,0 +1,72 @@
+{
+  "slug": "rosebud-beach",
+  "name": "Rosebud Beach",
+  "type": "beach",
+  "place": "rosebud",
+  "zone": "bayside",
+  "coordinates": {
+    "lat": -38.3598,
+    "lng": 144.9003
+  },
+  "address": "The Esplanade, Rosebud VIC 3939",
+  "website": "https://www.rosebudslsc.com.au",
+  "bookingUrl": "",
+  "bookingProvider": "none",
+  "priceBand": "$",
+  "signature": "The Peninsula's most popular family bay beach — long, shallow, and calm with excellent facilities and a strong surf lifesaving club",
+  "editorNote": "Rosebud Beach is where Peninsula families go in summer — a long, very shallow bay beach that is almost impossibly calm, with warm water that heats up quickly in the shallows and stays that way through January and February. The beach is wide, the foreshore is grassed, and the facilities (car parks, BBQs, playgrounds, cafes) make it the most complete day-out beach on the bay side.\n\nRosebud SLSC is one of the Peninsula's largest and most active clubs, running a strong junior surf lifesaving (Nippers) program every Sunday morning through summer. Nippers at Rosebud is a Peninsula institution — hundreds of kids in coloured caps doing beach sprints, surf races, and board work with the bay as their classroom.\n\nThe beach is shallow enough that toddlers can paddle while adults stand in waist-deep water 50 metres from shore. Not a surf beach — not trying to be. The best bay family beach on the Peninsula.",
+  "whyWeGo": "The Peninsula's definitive family bay beach — shallow, warm, and busy in the best way.",
+  "bestFor": [
+    "families",
+    "swimming",
+    "nippers"
+  ],
+  "ifOnlyOneThing": "Go on a Sunday morning in summer when Nippers is running — the beach is alive in a way that's hard to describe.",
+  "pairWith": [
+    "Safety Beach",
+    "Arthurs Seat Eagle"
+  ],
+  "tags": {
+    "mood": [
+      "family",
+      "slow",
+      "outdoor"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "families",
+      "first-timers"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/beach-rosebud-01.webp",
+    "alt": "Rosebud Beach — family bay swimming, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  },
+  "gallery": [],
+  "featuredPartner": false,
+  "lastVerified": "2026-05-21",
+  "publishedAt": "2026-05-21",
+  "sitemapExclude": true,
+  "patrol": {
+    "patrolled": true,
+    "patrolSeason": "Late November to Easter",
+    "patrolDays": "Weekends and public holidays",
+    "slsc": "Rosebud SLSC",
+    "nippers": true,
+    "nippersDays": "Sunday mornings, late November to March",
+    "nippersAges": "5–14 years",
+    "nippersInfo": "https://www.rosebudslsc.com.au/nippers"
+  },
+  "surf": {
+    "swellExposure": "Port Phillip Bay — very sheltered, very shallow",
+    "difficulty": "beginner-family",
+    "breakType": "flat bay water",
+    "bestConditions": "Any calm summer day"
+  }
+}
