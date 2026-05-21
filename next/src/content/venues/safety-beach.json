@@ -1,0 +1,69 @@
+{
+  "slug": "safety-beach",
+  "name": "Safety Beach",
+  "type": "beach",
+  "place": "safety-beach",
+  "zone": "bayside",
+  "coordinates": {
+    "lat": -38.3348,
+    "lng": 145.0018
+  },
+  "address": "The Esplanade, Safety Beach VIC 3936",
+  "website": "https://www.safetybeachslsc.com.au",
+  "bookingUrl": "",
+  "bookingProvider": "none",
+  "priceBand": "$",
+  "signature": "The Peninsula's most sheltered bay beach — flat calm water, a long sandy shore, and the best views of Arthurs Seat from the water's edge",
+  "editorNote": "Safety Beach earns its name — a long, flat, and genuinely calm stretch of Port Phillip Bay that is as close to pool-like swimming as you get on the Peninsula. The water is shallow a long way out, the beach is sandy, and the backdrop of Arthurs Seat rising directly behind makes it one of the most visually dramatic bay beach settings on the Peninsula.\n\nPatrolled by Safety Beach SLSC through summer. Good for SUP, kayaking, and calm water swimming. The long foreshore reserve is well-suited to picnics and early morning walks.\n\nClose to Dromana and the base of Arthurs Seat — easy to combine with the Eagle gondola or a hinterland winery loop.",
+  "whyWeGo": "The Peninsula's calmest bay swim with Arthurs Seat as the backdrop — hard to beat for a peaceful afternoon.",
+  "bestFor": [
+    "families",
+    "swimming",
+    "SUP and kayaking"
+  ],
+  "ifOnlyOneThing": "Get in the water early morning when the bay is glassy and the light on Arthurs Seat is golden.",
+  "pairWith": [
+    "Arthurs Seat Eagle",
+    "Dromana Hotel"
+  ],
+  "tags": {
+    "mood": [
+      "family",
+      "slow",
+      "outdoor"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "families",
+      "couples",
+      "first-timers"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/beach-safety-beach-01.webp",
+    "alt": "Safety Beach — calm bay water with Arthurs Seat, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  },
+  "gallery": [],
+  "featuredPartner": false,
+  "lastVerified": "2026-05-21",
+  "publishedAt": "2026-05-21",
+  "sitemapExclude": true,
+  "patrol": {
+    "patrolled": true,
+    "patrolSeason": "Late November to Easter",
+    "patrolDays": "Weekends and public holidays",
+    "slsc": "Safety Beach SLSC"
+  },
+  "surf": {
+    "swellExposure": "Port Phillip Bay — very sheltered, no ocean swell",
+    "difficulty": "beginner-family",
+    "breakType": "flat bay water",
+    "bestConditions": "Any calm day"
+  }
+}

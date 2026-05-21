@@ -1,0 +1,70 @@
+{
+  "slug": "mount-martha-beach",
+  "name": "Mount Martha Beach",
+  "type": "beach",
+  "place": "mount-martha",
+  "zone": "bayside",
+  "coordinates": {
+    "lat": -38.2756,
+    "lng": 145.0284
+  },
+  "address": "The Esplanade, Mount Martha VIC 3934",
+  "website": "https://www.mmslsc.com.au",
+  "bookingUrl": "",
+  "bookingProvider": "none",
+  "priceBand": "$",
+  "signature": "A long, calm bay beach backed by Norfolk pines — the Peninsula's best family swim and the most civilised stretch of bay foreshore",
+  "editorNote": "Mount Martha Beach is the bay side at its best — a long, gently curving stretch of calm Port Phillip water backed by Norfolk pines and low foreshore reserves, with the kind of gradual entry that makes it ideal for small children and nervous swimmers alike.\n\nThe Mt Martha SLSC patrols the main beach through summer. The foreshore is well-maintained, there is good parking, and the walk north toward Mornington along The Esplanade is one of the more pleasant bay-side walks on the Peninsula.\n\nCome here when the ocean beaches are closing out and you still want water, or when you have young kids who need calm conditions. On a still summer morning the bay is glassy and the views across to the You Yangs are genuinely beautiful.",
+  "whyWeGo": "The Peninsula's best bay swim — calm, clean, long, and properly patrolled.",
+  "bestFor": [
+    "families",
+    "swimming",
+    "walks"
+  ],
+  "ifOnlyOneThing": "Walk the foreshore north toward Mornington in the early morning before it gets busy.",
+  "pairWith": [
+    "Commonfolk Coffee",
+    "The Rocks Mornington"
+  ],
+  "tags": {
+    "mood": [
+      "family",
+      "slow",
+      "walk",
+      "outdoor"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "audience": [
+      "families",
+      "couples",
+      "first-timers"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/beach-mount-martha-01.webp",
+    "alt": "Mount Martha Beach — calm bay foreshore, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  },
+  "gallery": [],
+  "featuredPartner": false,
+  "lastVerified": "2026-05-21",
+  "publishedAt": "2026-05-21",
+  "sitemapExclude": true,
+  "patrol": {
+    "patrolled": true,
+    "patrolSeason": "Late November to Easter",
+    "patrolDays": "Weekends and public holidays",
+    "slsc": "Mount Martha SLSC"
+  },
+  "surf": {
+    "swellExposure": "Port Phillip Bay — calm, no ocean swell",
+    "difficulty": "beginner-family",
+    "breakType": "flat bay water",
+    "bestConditions": "Any calm day — best in morning before afternoon sea breeze"
+  }
+}
