@@ -15,7 +15,7 @@ relatedVenues: ["tedesca-osteria"]
 relatedExperiences: ["greens-bush-two-bays-section"]
 readingTimeMinutes: 4
 featured: false
-status: "draft"
+status: "published"
 lastVerified: 2026-05-20
 clusterLinks:
   - label: "Peninsula This Weekend — 23 to 24 May"
