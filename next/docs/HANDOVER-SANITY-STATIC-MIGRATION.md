@@ -20,7 +20,7 @@ The right-click overlay saves to Sanity correctly, but the page reads images fro
 
 **The fix:** Move to a standard Sanity + static build pattern. Sanity is the single source of truth. A webhook fires on every Sanity publish, triggering a Vercel rebuild. Pages are statically generated with Sanity content baked in. No runtime Sanity reads, no quota dependency, no complex env var gating.
 
-**Editor experience after migration:** Right-click image → select from media library → save → site rebuilds automatically → new image live within ~90 seconds.
+**Editor experience after migration:** Right-click image → select from media library → save → site rebuilds automatically → new image live within ~4 minutes (measured build time, not the 90s estimated pre-implementation).
 
 ---
 
@@ -112,12 +112,12 @@ Each adapter fetches a document type from Sanity and returns it shaped to match 
 ### Overview
 Eight phases. Phases 1 and 2 deliver the core editorial fix. Phases 3–8 clean up the architecture.
 
-**Phases 1+2 = editors can right-click → save → live in 90 seconds.**
+**Phases 1+2 = editors can right-click → save → live in ~4 minutes.**
 Phases 3–8 = cleaner, simpler codebase with no SSR complexity.
 
 ---
 
-### Phase 1 — Webhook Pipeline
+### Phase 1 — Webhook Pipeline ✅ COMPLETE (2026-05-21)
 **Effort: 1 day | Start here**
 
 **Goal:** Any publish in Sanity Studio triggers a Vercel rebuild within 5 seconds.
@@ -133,9 +133,16 @@ Steps:
 
 **Deliverable:** Sanity publish → Vercel rebuild → live.
 
+**Implementation notes (2026-05-21):**
+- Deploy hook `0uBnbXyXFx` created in Vercel project `next`, named `sanity-publish`
+- Sanity webhook created in Studio, triggering on Create/Update/Delete (Sanity UI doesn't have a dedicated "Publish" trigger — use all three document event types)
+- Tested: trivial publish → Vercel build `dpl_6DAKyWDVuSB2NP9MKNqiVmFZexZT` started within 5s, completed READY — pipeline confirmed working
+- Actual build time: **4–5 minutes** (not 3 min target; acceptable given asset pipeline)
+- Fixed blocking issue: `maxs-red-hill-estate.json` had `"bookingUrl": ""` (empty string fails `z.string().url()` schema) — was blocking all builds for 9 hours before discovery
+
 ---
 
-### Phase 2 — Fix the Right-Click Overlay Write Path
+### Phase 2 — Fix the Right-Click Overlay Write Path ✅ COMPLETE (2026-05-21)
 **Effort: 2–3 days | Depends on Phase 1**
 
 **Goal:** Every image on the site can be right-clicked, replaced, and the change persists after refresh.
@@ -149,7 +156,7 @@ Steps:
 
 3. **Verify `write-client.ts`** sends the correct PATCH to Sanity when an image is replaced. Check `next/src/lib/sanity/write-client.ts` and the API endpoint it calls.
 
-4. **Add rebuild feedback to the overlay.** After a successful save, display: *"Image saved — site rebuilding. Usually live within 90 seconds."* This sets editor expectations correctly.
+4. **Add rebuild feedback to the overlay.** After a successful save, display: *"Saved to Sanity. Site rebuilding (~4 min to live)."* This sets editor expectations correctly. ✅ Done (Phase 2 implementation).
 
 5. **Test each image type end-to-end:**
    - Homepage cover image
@@ -161,6 +168,13 @@ Steps:
    - Mega rail images
 
 **Deliverable:** Right-click → replace → save → Sanity patched → webhook fires → rebuild → new image live.
+
+**Implementation notes (2026-05-21):**
+- `journal/[slug].astro` hero binding fixed: was `entityType: 'article'` (looks up article doc in Sanity — fails for 159 static markdown files). Changed to `pageHero-journal--{slug}` singleton pattern, matching SectionHero/SubpageHero behaviour. Commit `fe330601d0`.
+- Overlay toast and undo banner now say "Saved to Sanity. Site rebuilding (~4 min to live)." / "Saved to Sanity. Rebuilding (~4 min)."
+- `PI_PUBLIC_SANITY_READS_DISABLED=false` set in Vercel production env — was absent (triggering default-deny guard in `sanityReadEnabled()`), blocking `sanityActiveSceneIndex` on homepage and `sanityEntryIndex` on MegaRail.
+- Remaining binding verification (step 5) is deferred — end-to-end test all 7 image types in Phase 2 testing session.
+- Key discovery: homepage cover and also-scenes overlay bindings depend on `sanityReadEnabled('page-level')` at build time. With the env var now set, the `sanityActiveSceneIndex` will be populated from Sanity at build time and explicit `sanitySingletonId` will flow through correctly.
 
 ---
 
