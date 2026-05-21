@@ -4,7 +4,7 @@ dek: "Showcase performance with Chloe Gill: Friday 23 May, 7pm. Friday forecast:
 section: spa
 tag: opening-window
 publishedAt: 2026-05-20T06:57:00+10:00
-expiresAt: 2026-05-24T06:00:00+10:00
+expiresAt: 2026-05-22T06:45:00+10:00
 verifiedAt: 2026-05-20T06:42:00+10:00
 verifiedBy: quick-note-desk
 verdict: "Three days out, a clear forecast, and a wet mid-week that tends to consolidate end-of-week bookings. Book the Showcase now."

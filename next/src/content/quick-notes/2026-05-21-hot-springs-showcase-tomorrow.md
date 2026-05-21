@@ -4,7 +4,7 @@ dek: "Showcase with Chloe Gill: Friday 23 May, 7pm. BOM Friday forecast: mostly 
 section: spa
 tag: opening-window
 publishedAt: 2026-05-21T06:48:00+10:00
-expiresAt: 2026-05-24T06:00:00+10:00
+expiresAt: 2026-05-22T06:45:00+10:00
 verifiedAt: 2026-05-21T06:46:00+10:00
 verifiedBy: quick-note-desk
 verdict: "Tomorrow. Mostly sunny forecast confirmed. Book today if you have not already — Showcase events are limited capacity."
