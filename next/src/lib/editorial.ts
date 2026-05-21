@@ -165,6 +165,7 @@ export const typeLabel: Record<string, string> = {
 export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 export const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 export const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
+export const activityTypes = ['beach', 'activity'];
 
 export function titleize(value: string) {
   return value.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());

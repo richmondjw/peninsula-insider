@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../components/PlaceMap.astro';
 import EventStrip from '../../components/EventStrip.astro';
-import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../lib/editorial';
+import { routeSlug, stayTypes, wineTypes, activityTypes, isUpcoming } from '../../lib/editorial';
 import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
 
 export async function getStaticPaths() {
@@ -60,7 +60,7 @@ const experienceSlugs = experiences.map((experience) => routeSlug(experience));
 // Prevents downstream sections becoming a directory as venue count grows.
 // "See all" links on the template route to the hub with place context.
 const eatVenues = venuesForPlace
-  .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type))
+  .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type) && !activityTypes.includes(venue.data.type))
   .slice(0, 3);
 const wineVenues = venuesForPlace
   .filter((venue) => wineTypes.includes(venue.data.type))
@@ -68,6 +68,9 @@ const wineVenues = venuesForPlace
 const stayVenues = venuesForPlace
   .filter((venue) => stayTypes.includes(venue.data.type))
   .slice(0, 3);
+const activityVenues = venuesForPlace
+  .filter((venue) => activityTypes.includes(venue.data.type))
+  .slice(0, 6);
 
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
 const relatedPlaces = allPlaces.filter((entry) => relatedSlugs.includes(entry.slug));
@@ -337,6 +340,7 @@ const placeSchema = {
     eatVenues={eatVenues}
     wineVenues={wineVenues}
     stayVenues={stayVenues}
+    activityVenues={activityVenues}
     experiences={experiences}
     itineraries={itineraries}
     articles={articles}
