@@ -296,8 +296,10 @@ export const prerender = true;
           </div>
           <figure class="article-hero__figure">
             <div class="article-hero__image" role="img" aria-label={heroAlt} style={articleHeroStyle} {...editableImage({
-              entityType: 'article', entitySlug: slug, fieldPath: 'heroImage',
+              entityType: 'page', entitySlug: `journal/${slug}`, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
+              sanitySingletonId: `pageHero-journal--${slug}`,
+              sanitySingletonPath: 'image',
             })}></div>
             {article.data.heroImage.credit && (
               <figcaption class="article-hero__credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>

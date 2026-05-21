@@ -555,7 +555,7 @@ export function openMediaLibraryModal(opts: ModalOpts): void {
           opts.toast('Reverted.', 'ok');
         });
       } else {
-        opts.toast('Replaced from Sanity.', 'ok');
+        opts.toast('Saved to Sanity. Site rebuilding (~4 min to live).', 'ok');
       }
     } catch (err) {
       opts.toast(`Save failed: ${(err as Error).message}`, 'err');
@@ -795,7 +795,7 @@ let stickyBannerEl: HTMLDivElement | null = null;
 let stickyBannerTimer: ReturnType<typeof setTimeout> | null = null;
 
 function showUndoToast(onUndo: () => void) {
-  showStickyBanner('Replaced from Sanity.', 'Undo (5s)', null, onUndo, 5000);
+  showStickyBanner('Saved to Sanity. Rebuilding (~4 min).', 'Undo (5s)', null, onUndo, 5000);
 }
 
 function showStickyBanner(
