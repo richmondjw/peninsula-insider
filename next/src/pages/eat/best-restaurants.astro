@@ -10,6 +10,7 @@ import { routeSlug, titleize } from '../../lib/editorial';
 const eatTypes = ['restaurant', 'cafe', 'winery'];
 const venues = (await getCollection('venues'))
   .filter((v) => eatTypes.includes(v.data.type))
+  .filter((v) => v.data.status !== 'permanently_closed')
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
 // Top 15 by editorial authority (hats descending)

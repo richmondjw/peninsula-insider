@@ -11,6 +11,7 @@ const allVenues = await getCollection('venues');
 
 const venues = (await getCollection('venues'))
   .filter(v => v.data.type === 'bakery')
+  .filter((v) => v.data.status !== 'permanently_closed')
   .sort((a, b) => (a.data.name ?? '').localeCompare(b.data.name ?? ''));
 
 const breadcrumbItems = [

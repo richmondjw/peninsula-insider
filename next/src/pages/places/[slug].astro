@@ -43,7 +43,8 @@ const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();
 
 const venuesForPlace = allVenues
-  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug);
+  .filter((venue) => String(venue.data.place?.id ?? venue.data.place) === placeSlug)
+  .filter((venue) => venue.data.status !== 'permanently_closed');
 
 // Events at this place: match place ref, OR suburb name (machine-imported
 // events without a clean place ref still surface if the suburb matches).

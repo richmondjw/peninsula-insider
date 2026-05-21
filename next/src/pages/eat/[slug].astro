@@ -12,6 +12,7 @@ export async function getStaticPaths() {
   const venues = await getCollection('venues');
   return venues
     .filter((venue) => eatTypes.includes(venue.data.type))
+    .filter((venue) => venue.data.status !== 'permanently_closed')
     .map((venue) => ({
       params: { slug: routeSlug(venue) },
       props: { venue },

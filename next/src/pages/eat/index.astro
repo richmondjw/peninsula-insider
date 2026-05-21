@@ -19,7 +19,8 @@ import EditorialSurface from '../../components/EditorialSurface.astro';
 // ── Data ──────────────────────────────────────────────────────────────────────
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const venuesRaw = (await getCollection('venues'))
-  .filter((venue) => eatTypes.includes(venue.data.type))
+  .filter((venue)
+  .filter((v) => v.data.status !== 'permanently_closed') => eatTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hats ?? 0) - Number(a.data.authority?.hats ?? 0));
 
 // Dual-read: overwrite heroImage.src on each filtered venue with the Sanity
