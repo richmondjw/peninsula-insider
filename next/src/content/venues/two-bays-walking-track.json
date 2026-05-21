@@ -1,0 +1,67 @@
+{
+  "slug": "two-bays-walking-track",
+  "name": "Two Bays Walking Track",
+  "type": "walk",
+  "place": "dromana",
+  "zone": "red-hill-plateau",
+  "coordinates": {
+    "lat": -38.3637,
+    "lng": 144.9332
+  },
+  "address": "Arthurs Seat State Park, Dromana VIC 3936",
+  "website": "https://www.parks.vic.gov.au/places-to-see/parks/two-bays-walking-track",
+  "bookingUrl": "",
+  "bookingProvider": "none",
+  "priceBand": "$",
+  "signature": "The Peninsula's signature long walk — 26km linking Port Phillip Bay to Western Port through hinterland bushland and state park",
+  "editorNote": "The Two Bays Walking Track is the Peninsula's defining long walk — a 26km trail that crosses the Peninsula from Dromana on Port Phillip Bay to Bushrangers Bay on Western Port, passing through Arthurs Seat State Park, the Greens Bush section of Mornington Peninsula National Park, and coastal heathland along the way.\n\nMost people walk it as a series of day sections rather than end-to-end. The Greens Bush section (southern half) is the most rewarding — old-growth bushland, significant birdlife, and the kind of quiet that feels genuinely remote even though you are never more than a few kilometres from a winery.\n\nThe full walk requires a car shuffle or taxi/rideshare at each end. Parks Victoria maintains the track well. Carry water — there are no facilities between trailheads. Best in autumn and spring when the hinterland is at its most atmospheric.",
+  "whyWeGo": "The Peninsula's best long walk — two bays, real bushland, and a sense of the Peninsula's full geography in one day.",
+  "bestFor": [
+    "walks",
+    "solo",
+    "couples"
+  ],
+  "ifOnlyOneThing": "Walk the Greens Bush section south from Arthurs Seat. Four hours through old-growth coastal scrub with no one else around.",
+  "pairWith": [
+    "Arthurs Seat Eagle",
+    "Cape Schanck Lighthouse"
+  ],
+  "tags": {
+    "mood": [
+      "outdoor",
+      "walk",
+      "slow"
+    ],
+    "season": [
+      "autumn",
+      "spring",
+      "winter"
+    ],
+    "audience": [
+      "solo",
+      "couples"
+    ]
+  },
+  "heroImage": {
+    "src": "/images/sourced/walk-two-bays-01.webp",
+    "alt": "Two Bays Walking Track — hinterland bushland, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "other-licensed"
+  },
+  "gallery": [],
+  "featuredPartner": false,
+  "lastVerified": "2026-05-21",
+  "publishedAt": "2026-05-21",
+  "sitemapExclude": true,
+  "walk": {
+    "distance": "26km end-to-end (sections walkable)",
+    "duration": "Full day end-to-end; 2–4 hrs per section",
+    "difficulty": "moderate",
+    "grade": "3",
+    "surface": "formed track, some uneven terrain",
+    "dogs": false,
+    "startPoint": "Dromana (Port Phillip Bay end)",
+    "endPoint": "Bushrangers Bay (Western Port end)",
+    "highlights": ["Greens Bush old-growth", "Arthurs Seat views", "Coastal heathland", "Birdlife"]
+  }
+}
