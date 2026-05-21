@@ -10,8 +10,6 @@
  */
 
 import { editableImage, editableText, type CmsEntityType } from '../lib/inline-edit/attrs';
-import { loadOverrides } from '../lib/inline-edit/overrides';
-import { sanityReadEnabled } from '../lib/sanity/client';
 import { fetchPageHeroFromSanity } from '../lib/sanity/singletons-adapter';
 
 export interface Props {
@@ -49,21 +47,18 @@ let resolvedHeroImage = heroImage;
 
 const isPageEntity = entityType === 'page' && !!entitySlug;
 const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (isPageEntity && (isPreview || sanityReadEnabled('page-level'))) {
-  const ph = await fetchPageHeroFromSanity(entitySlug!, {preview: isPreview});
-  if (ph) {
-    if (ph.title) resolvedTitle = ph.title;
-    if (ph.dek) resolvedDek = ph.dek;
-    if (ph.imageSrc) resolvedHeroImage = ph.imageSrc;
+// Build-time read: bake pageHero singleton from Sanity into static HTML.
+if (isPageEntity) {
+  try {
+    const ph = await fetchPageHeroFromSanity(entitySlug!, {preview: isPreview});
+    if (ph) {
+      if (ph.title) resolvedTitle = ph.title;
+      if (ph.dek) resolvedDek = ph.dek;
+      if (ph.imageSrc) resolvedHeroImage = ph.imageSrc;
+    }
+  } catch (err) {
+    console.error(`[SectionHero] Sanity pageHero fetch failed for ${entitySlug}, using static fallback:`, err);
   }
-} else if (editable) {
-  const overrides = await loadOverrides(entityType, entitySlug!);
-  const titleOverride = overrides.text['hero.title'];
-  const dekOverride = overrides.text['hero.dek'];
-  const imageOverride = overrides.image['hero'];
-  if (titleOverride) resolvedTitle = titleOverride;
-  if (dekOverride) resolvedDek = dekOverride;
-  if (imageOverride?.src) resolvedHeroImage = imageOverride.src;
 }
 
 const gradClass = `section-hero__visual hero-grad--${gradient}`;

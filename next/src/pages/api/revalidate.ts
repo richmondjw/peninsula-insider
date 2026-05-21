@@ -25,7 +25,7 @@ import {routesForDocument as sharedRoutesFor, triggerRevalidate} from '../../lib
 
 // Static builds (GitHub Pages) don't use this webhook — prerender as a
 // placeholder so output:static doesn't throw NoAdapterInstalled.
-export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
+export const prerender = false;
 
 interface SanityWebhookBody {
   _type: string

@@ -23,7 +23,7 @@ import {
 } from '../../../lib/cms/server';
 import { getSanityWriteClient } from '../../../lib/sanity/write-client';
 
-export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
+export const prerender = false;
 export async function getStaticPaths() {
   return [];
 }

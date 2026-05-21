@@ -333,7 +333,10 @@ const placeSchema = {
   },
   url: canonical,
 };
-export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
+// Phase 4 will add getStaticPaths() and set this to true once places are
+// fetched from Sanity at build time. For now keep as SSR so the page
+// continues to work while Sanity entity migration is pending.
+export const prerender = false;
 ---
 
 <BaseLayout

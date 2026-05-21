@@ -22,7 +22,7 @@ import {
   unauthorized,
 } from '../../../lib/cms/server';
 
-export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
+export const prerender = false;
 export async function getStaticPaths() {
   return [];
 }

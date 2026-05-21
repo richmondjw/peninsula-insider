@@ -11,8 +11,6 @@
  * so call sites read uniformly across the codebase.
  */
 import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
-import { loadOverrides } from '../lib/inline-edit/overrides';
-import { sanityReadEnabled } from '../lib/sanity/client';
 import { fetchPageHeroFromSanity } from '../lib/sanity/singletons-adapter';
 
 export interface Props {
@@ -60,23 +58,19 @@ let resolvedImageAlt = imageAlt;
 
 const isPageEntity = entityType === 'page' && !!entitySlug;
 const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (isPageEntity && (isPreview || sanityReadEnabled('page-level'))) {
-  const ph = await fetchPageHeroFromSanity(entitySlug!, {preview: isPreview});
-  if (ph) {
-    if (ph.title) resolvedTitle = ph.title;
-    if (ph.imageSrc) {
-      resolvedImageSrc = ph.imageSrc;
-      resolvedImageAlt = ph.imageAlt ?? imageAlt;
+// Build-time read: bake pageHero singleton from Sanity into static HTML.
+if (isPageEntity) {
+  try {
+    const ph = await fetchPageHeroFromSanity(entitySlug!, {preview: isPreview});
+    if (ph) {
+      if (ph.title) resolvedTitle = ph.title;
+      if (ph.imageSrc) {
+        resolvedImageSrc = ph.imageSrc;
+        resolvedImageAlt = ph.imageAlt ?? imageAlt;
+      }
     }
-  }
-} else if (editable) {
-  const overrides = await loadOverrides(entityType, entitySlug!);
-  const titleOverride = overrides.text['hero.title'];
-  const imageOverride = overrides.image['hero'];
-  if (titleOverride) resolvedTitle = titleOverride;
-  if (imageOverride?.src) {
-    resolvedImageSrc = imageOverride.src;
-    resolvedImageAlt = imageOverride.alt ?? imageAlt;
+  } catch (err) {
+    console.error(`[SubpageHero] Sanity pageHero fetch failed for ${entitySlug}, using static fallback:`, err);
   }
 }
 

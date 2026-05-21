@@ -17,7 +17,7 @@ import type {APIRoute} from 'astro'
 // Static builds (GitHub Pages) don't use this endpoint — prerender as a
 // placeholder so output:static doesn't throw NoAdapterInstalled.
 // In hybrid/Vercel mode (PI_ADMIN_HYBRID=1) this becomes a real SSR route.
-export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
+export const prerender = false;
 
 export const GET: APIRoute = ({url, cookies, redirect}) => {
   cookies.set('pi-sanity-preview', '1', {

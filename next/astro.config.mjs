@@ -12,31 +12,25 @@ import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 //   • Content-first: zero-JS by default on content pages
 //   • Islands are added per-need (map, search, wizard, admin)
 //
-// Admin hybrid cutover (see next/docs/pi-cms-hybrid-cutover-2026-05-10.md):
-// when PI_ADMIN_HYBRID=1, switch to server output and load a Vercel adapter so
-// `src/middleware.ts` runs at request time and `/admin/api/*` becomes real
-// serverless. Without that env var, behaviour is unchanged. The adapter is
-// loaded dynamically so the static build does not need it installed.
+// Phase 3 (2026-05-21): always output: 'hybrid' + Vercel adapter.
+// Previously output switched between 'server' (PI_ADMIN_HYBRID=1) and 'static'.
+// Hybrid gives us the best of both: pages prerender at build time (baking
+// Sanity data in), while /api/admin/* and /api/preview/* remain serverless
+// SSR functions. PI_ADMIN_HYBRID is no longer needed and has been removed
+// from Vercel env. See next/docs/HANDOVER-SANITY-STATIC-MIGRATION.md Phase 3.
 
 // Preview builds to /V2/ on GitHub Pages set ASTRO_BASE=/V2/.
 // Production (root-served) builds leave it unset.
 const base = process.env.ASTRO_BASE || undefined;
 
-const adminHybrid = process.env.PI_ADMIN_HYBRID === '1';
-
 let adapter;
-if (adminHybrid) {
-  try {
-    const mod = await import('@astrojs/vercel');
-    adapter = mod.default({});
-  } catch (err) {
-    // The adapter is intentionally optional. If hybrid mode is requested but
-    // the adapter is not installed, fail loud rather than silently producing a
-    // static build that cannot run middleware or admin endpoints.
-    throw new Error(
-      'PI_ADMIN_HYBRID=1 but @astrojs/vercel is not installed. Run `npm install @astrojs/vercel` in next/ and retry.'
-    );
-  }
+try {
+  const mod = await import('@astrojs/vercel');
+  adapter = mod.default({});
+} catch (err) {
+  throw new Error(
+    '@astrojs/vercel is not installed. Run `npm install @astrojs/vercel` in next/ and retry.'
+  );
 }
 
 
@@ -69,7 +63,7 @@ export default defineConfig({
                               // global design system. Used only inside files
                               // that explicitly @import 'tailwind.css'.
   },
-  output: adminHybrid ? 'server' : 'static',
+  output: 'hybrid',
   adapter,
   // Redirects are handled by custom src/pages/*.astro files using the
   // Redirect component (src/components/Redirect.astro). This gives flash-free

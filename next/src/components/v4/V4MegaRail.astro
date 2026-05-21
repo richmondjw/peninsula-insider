@@ -9,8 +9,6 @@
  */
 import type { V4MegaRail } from '../../lib/v4-nav';
 import { editableImage } from '../../lib/inline-edit/attrs';
-import { loadOverrides } from '../../lib/inline-edit/overrides';
-import { sanityReadEnabled } from '../../lib/sanity/client';
 import { fetchMegaRailFromSanity } from '../../lib/sanity/singletons-adapter';
 
 export interface Props {
@@ -34,8 +32,9 @@ let imageAlt = rail.imageAlt;
 const canonicalOrder = ['whats-on', 'escape', 'eat', 'wine', 'stay'];
 let sanityEntryIndex: number | null = null;
 
+// Build-time read: bake megaRail singleton from Sanity into static HTML.
 const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (isPreview || sanityReadEnabled('page-level')) {
+try {
   const entries = await fetchMegaRailFromSanity({preview: isPreview});
   const idx = entries?.findIndex((e) => e.key === pillarKey) ?? -1;
   if (entries && idx >= 0) {
@@ -46,19 +45,12 @@ if (isPreview || sanityReadEnabled('page-level')) {
       imageAlt = entry.imageAlt ?? rail.imageAlt;
     }
   }
+} catch (err) {
+  console.error(`[V4MegaRail] Sanity fetch failed for pillar ${pillarKey}, using static fallback:`, err);
 }
 if (sanityEntryIndex === null) {
   const fallbackIdx = canonicalOrder.indexOf(pillarKey);
   if (fallbackIdx >= 0) sanityEntryIndex = fallbackIdx;
-}
-
-if (!isPreview && !sanityReadEnabled('page-level')) {
-  const globalOverrides = await loadOverrides('page', '_global');
-  const overrideImage = globalOverrides.image[`mega-rail.${pillarKey}`];
-  if (overrideImage?.src) {
-    imageSrc = overrideImage.src;
-    imageAlt = overrideImage.alt ?? rail.imageAlt;
-  }
 }
 ---
 

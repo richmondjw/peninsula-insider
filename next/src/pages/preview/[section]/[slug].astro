@@ -32,9 +32,9 @@ import {
 } from '../../../lib/sanity/phase5-adapters';
 
 // Static builds (GitHub Pages) exclude this route — prerender as a
-// placeholder so output:static doesn't throw NoAdapterInstalled.
-// Full SSR preview only runs under PI_ADMIN_HYBRID=1 (Vercel).
-export const prerender = process.env.PI_ADMIN_HYBRID !== '1';
+// Sanity Visual Editing preview — always SSR (renders draft content at
+// request time; must not be prerendered).
+export const prerender = false;
 
 const {section, slug} = Astro.params as {section: string; slug: string};
 const preview = true;
