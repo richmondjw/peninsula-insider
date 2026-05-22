@@ -350,6 +350,18 @@ export const POST: APIRoute = async ({ request }) => {
       console.error('[sanity-patch] revalidate trigger failed:', err);
     }
 
+    // Trigger a full Vercel rebuild so the static site picks up the new
+    // image within ~4 minutes. Fire-and-forget — same philosophy as
+    // triggerRevalidate above. The editor's in-browser swap already happened;
+    // this just ensures the next organic visitor sees the updated image
+    // without waiting for the next scheduled deploy.
+    const deployHookUrl = process.env.VERCEL_DEPLOY_HOOK_URL;
+    if (deployHookUrl) {
+      fetch(deployHookUrl, { method: 'POST' }).catch((err) => {
+        console.error('[sanity-patch] deploy hook trigger failed:', err);
+      });
+    }
+
     return jsonResponse({
       ok: true,
       data: {

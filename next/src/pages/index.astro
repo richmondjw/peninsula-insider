@@ -244,7 +244,10 @@ let ssrScene: Scene = coverImageOverride
 // Build-time read: bake the homepageCover singleton from Sanity into the
 // static HTML. No runtime guard needed — this runs once per build.
 let sanityActiveSceneIndex: number | null = null;
-let alsoScenes: RenderScene[] = scenes.slice(1, 4);
+// Static fallback: tag alsoScenes with their position in the scenes array so
+// the admin overlay can always bind to homepageCover.scenes[N].image, even
+// when the Sanity read fails (e.g. during local dev without SANITY_READ_ENABLED).
+let alsoScenes: RenderScene[] = scenes.slice(1, 4).map((s, i) => ({ ...s, sanitySceneIndex: i + 1 }));
 try {
   const sanityCover = await fetchHomepageCoverFromSanity();
   if (sanityCover && sanityCover.scenes.length > 0) {
@@ -396,14 +399,11 @@ export const prerender = true;
               purpose: 'hero',
               // Bind to the homepageCover Sanity singleton so the admin
               // overlay's "Replace from media library" can patch the right
-              // scene's image. Falls through to legacy Supabase override if
-              // the Sanity dual-read didn't fire (flag off).
-              ...(sanityActiveSceneIndex !== null
-                ? {
-                    sanitySingletonId: 'homepageCover',
-                    sanitySingletonPath: `scenes[${sanityActiveSceneIndex}].image`,
-                  }
-                : {}),
+              // scene's image. If Sanity reads failed at build time (local dev
+              // without the flag, or quota exhaustion), fall back to scenes[0]
+              // which is always the active cover in the static array.
+              sanitySingletonId: 'homepageCover',
+              sanitySingletonPath: `scenes[${sanityActiveSceneIndex ?? 0}].image`,
             })}
           />
         </div>
