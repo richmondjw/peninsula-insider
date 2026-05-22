@@ -181,7 +181,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9000;
+    /* Sit below the concierge bubble (9001) so they never cover each other */
+    z-index: 8900;
     background: var(--white);
     border-top: 1px solid var(--border);
     box-shadow: 0 -8px 28px -16px rgba(0, 0, 0, 0.18);
@@ -351,6 +352,22 @@
 
   /* ── Mobile: slim bottom bar ──────────────────────────────────────────── */
   @media (max-width: 720px) {
+    /*
+     * On mobile the concierge bubble is always visible in the bottom-right
+     * corner. To prevent the cookie banner from sitting directly behind it
+     * (making both hard to tap), we lift the banner off the very bottom so
+     * the bubble floats clear above it.
+     *
+     * Bubble is ~50px tall + 18px bottom offset = ~68px.  We use 72px so
+     * there's a small breathing gap between the two surfaces.
+     *
+     * Once the user dismisses the cookie banner it is hidden entirely, so
+     * this offset only matters on the first visit.
+     */
+    .cookie-banner[data-state='visible'] {
+      bottom: 72px;
+      border-radius: 12px 12px 0 0;
+    }
     .cookie-banner__inner {
       grid-template-columns: 1fr auto;
       gap: 0.6rem 0.75rem;

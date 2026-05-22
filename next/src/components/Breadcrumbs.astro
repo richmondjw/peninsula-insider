@@ -56,7 +56,8 @@ const breadcrumbSchema = {
 
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-<nav class="breadcrumbs" aria-label="Breadcrumb">
+{/* Desktop: full breadcrumb trail */}
+<nav class="breadcrumbs breadcrumbs--desktop" aria-label="Breadcrumb">
   <div class="container">
     <ol class="breadcrumbs__list">
       {items.map((item, index) => (
@@ -71,3 +72,50 @@ const breadcrumbSchema = {
     </ol>
   </div>
 </nav>
+
+{/* Mobile: compact back link — shows the immediate parent only */}
+{
+  (() => {
+    const parent = [...items].reverse().find((item, i) => i > 0 && item.href);
+    if (!parent) return null;
+    return (
+      <nav class="breadcrumbs breadcrumbs--mobile" aria-label="Back">
+        <div class="container">
+          <a href={parent.href} class="breadcrumbs__back">
+            <span aria-hidden="true">←</span>
+            <span>Back to {parent.label}</span>
+          </a>
+        </div>
+      </nav>
+    );
+  })()
+}
+
+<style>
+  /* Desktop: show full trail, hide back link */
+  .breadcrumbs--mobile { display: none; }
+
+  @media (max-width: 768px) {
+    /* Mobile: hide full trail, show back link */
+    .breadcrumbs--desktop { display: none; }
+    .breadcrumbs--mobile  { display: block; }
+
+    .breadcrumbs__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--soft, #6E665A);
+      text-decoration: none;
+      padding: 0.5rem 0;
+    }
+    .breadcrumbs__back:hover { color: var(--accent, #8B4E3B); }
+    .breadcrumbs__back span:first-child {
+      font-size: 0.9em;
+      margin-top: -0.05em;
+    }
+  }
+</style>

@@ -661,6 +661,32 @@ try {
       padding: 0.45rem 0.95rem 0.45rem 0.45rem;
     }
     .pi-drawer__bubble-avatar { width: 34px; height: 34px; }
+
+    /*
+     * Collapsed state — icon-only pill.
+     * After AUTO_COLLAPSE_MS the bubble shrinks to avatar-only so it
+     * stops competing with page content. Tapping it re-expands then opens.
+     */
+    .pi-drawer__bubble--collapsed {
+      padding: 0.45rem;
+      gap: 0;
+    }
+    .pi-drawer__bubble--collapsed .pi-drawer__bubble-label {
+      display: none;
+    }
+  }
+
+  /*
+   * Never let the bubble float over newsletter / email input fields.
+   * Pages that contain a newsletter block add the `has-newsletter-field`
+   * class to <body>; on those pages the bubble shifts left so it clears
+   * the typical input area in the bottom-right corner.
+   */
+  @media (max-width: 720px) {
+    body.has-newsletter-field .pi-drawer__bubble {
+      right: auto;
+      left: 18px;
+    }
   }
 
   /* ── BODY-LEVEL: prevent page scroll when drawer is open on mobile ── */
@@ -1385,6 +1411,44 @@ try {
         ask(q);
       }
     });
+
+    // ── Mobile auto-collapse ─────────────────────────
+    // On mobile, collapse the bubble label after AUTO_COLLAPSE_MS of
+    // inactivity so the pill shrinks to icon-only and stops blocking content.
+    // Tapping the collapsed bubble expands it instantly, then opens the drawer.
+    const AUTO_COLLAPSE_MS = 5000;
+    let collapseTimer = null;
+    const isMobileView = () => window.matchMedia('(max-width: 720px)').matches;
+
+    function scheduleMobileCollapse() {
+      if (!isMobileView()) return;
+      clearTimeout(collapseTimer);
+      collapseTimer = setTimeout(() => {
+        if (getState() !== 'open') {
+          tab.classList.add('pi-drawer__bubble--collapsed');
+        }
+      }, AUTO_COLLAPSE_MS);
+    }
+
+    function expandBubble() {
+      tab.classList.remove('pi-drawer__bubble--collapsed');
+      scheduleMobileCollapse();
+    }
+
+    // Kick off collapse timer on load (first-visit landing state)
+    scheduleMobileCollapse();
+
+    // Re-expand whenever the drawer opens or closes
+    drawer.addEventListener('pi:state-change', scheduleMobileCollapse);
+
+    // Tap on collapsed bubble: expand first, open on second tap
+    tab.addEventListener('mouseenter', expandBubble);
+    tab.addEventListener('touchstart', (e) => {
+      if (tab.classList.contains('pi-drawer__bubble--collapsed')) {
+        e.preventDefault();
+        expandBubble();
+      }
+    }, { passive: false });
 
     // ── Public API ───────────────────────────────────
     window.openConcierge = function (prefill) {

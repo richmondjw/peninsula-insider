@@ -733,11 +733,26 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
+  /*
+   * Soft text-shadow so the label stays legible over pale coastal/sky
+   * imagery without a heavy background block.
+   */
+  text-shadow: 0 1px 6px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.35);
 }
 .section-hero__visual-fog {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(245,241,235,0.12) 0%, transparent 40%, rgba(30,27,24,0.3) 100%);
+}
+/*
+ * When the section hero has a real photo (style contains background-image)
+ * the fog gradient is strengthened on mobile so the visual-label and any
+ * overlaid text reads clearly over pale coastal/sky photography.
+ */
+@media (max-width: 768px) {
+  .section-hero__visual[style] .section-hero__visual-fog {
+    background: linear-gradient(to bottom, rgba(20,18,15,0.18) 0%, transparent 45%, rgba(20,18,15,0.52) 100%);
+  }
 }
 
 /* hero gradient variants — use background-image (not shorthand)

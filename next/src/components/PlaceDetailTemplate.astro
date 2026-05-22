@@ -767,6 +767,20 @@ const factual = place.data.factualLede ?? '';
       linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%);
     pointer-events: none;
   }
+
+  /*
+   * On mobile the viewport is taller relative to the image and the
+   * hero text sits lower, often over busier image areas. Strengthen
+   * the bottom gradient so the title and eyebrow always read clearly
+   * regardless of the image composition.
+   */
+  @media (max-width: 768px) {
+    .pdv2-hero__scrim {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,0.72) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0) 25%);
+    }
+  }
   .pdv2-hero__inner {
     position: relative;
     z-index: 1;
