@@ -1,0 +1,60 @@
+---
+import PortableTextBody from '../PortableTextBody.astro'
+
+export interface Props {
+  section: Record<string, any>
+}
+
+const {section} = Astro.props
+const blocks = Array.isArray(section.body) ? section.body : []
+const variant = section.layoutVariant || 'standard'
+---
+
+{(section.heading || blocks.length > 0) && (
+  <section class={`pb-rich pb-rich--${variant}`}>
+    <div class="container pb-rich__inner">
+      {section.heading && <h2>{section.heading}</h2>}
+      {blocks.length > 0 && (
+        <div class="prose pb-rich__body">
+          <PortableTextBody blocks={blocks} />
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .pb-rich {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    background: #fff;
+  }
+  .pb-rich__inner {
+    max-width: 860px;
+  }
+  .pb-rich--narrow .pb-rich__inner {
+    max-width: 700px;
+  }
+  .pb-rich--twoColumn .pb-rich__inner {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    max-width: 1080px;
+  }
+  .pb-rich h2 {
+    margin: 0 0 1.2rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--dark, #171413);
+  }
+  .pb-rich__body :global(.portable-text-body > div + div) {
+    margin-top: 1rem;
+  }
+  @media (max-width: 760px) {
+    .pb-rich--twoColumn .pb-rich__inner {
+      display: block;
+    }
+  }
+</style>
+

@@ -1,0 +1,125 @@
+---
+import {imageAlt, imageUrl} from '../../lib/sanity/page-builder'
+
+export interface Props {
+  section: Record<string, any>
+}
+
+const {section} = Astro.props
+const limit = Math.max(1, Math.min(Number(section.limit ?? 3), 12))
+const refs = Array.isArray(section.manualReferences) ? section.manualReferences.slice(0, limit) : []
+
+function hrefFor(item: any): string {
+  const slug = item?.slug
+  if (!slug) return '#'
+  switch (item._type) {
+    case 'article':
+      return `/journal/${slug}/`
+    case 'place':
+      return `/places/${slug}/`
+    case 'event':
+      return `/whats-on/${slug}/`
+    case 'itinerary':
+      return `/plans/${slug}/`
+    case 'venue':
+      return `/eat/${slug}/`
+    default:
+      return `/${slug}/`
+  }
+}
+---
+
+{(section.heading || refs.length > 0) && (
+  <section class="pb-related">
+    <div class="container">
+      <div class="pb-related__head">
+        {section.heading && <h2>{section.heading}</h2>}
+        {section.intro && <p>{section.intro}</p>}
+      </div>
+      {refs.length > 0 ? (
+        <div class="pb-related__grid">
+          {refs.map((item) => {
+            const src = imageUrl(item.image, 'card')
+            const title = item.title || item.name || 'Related item'
+            return (
+              <a class="pb-related-card" href={hrefFor(item)}>
+                {src && <img src={src} alt={imageAlt(item.image, title)} loading="lazy" decoding="async" />}
+                <p class="pb-related-card__type">{item._type}</p>
+                <h3>{title}</h3>
+                {(item.dek || item.summary || item.intro) && <p>{item.dek || item.summary || item.intro}</p>}
+              </a>
+            )
+          })}
+        </div>
+      ) : (
+        <p class="pb-related__empty">Add manual picks in Sanity to show related content here.</p>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .pb-related {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    background: #f8f4ec;
+  }
+  .pb-related__head {
+    max-width: 760px;
+    margin-bottom: 2rem;
+  }
+  .pb-related h2 {
+    margin: 0 0 0.7rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+  }
+  .pb-related__head p,
+  .pb-related__empty {
+    margin: 0;
+    color: var(--soft, #6f675f);
+    line-height: 1.6;
+  }
+  .pb-related__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .pb-related-card {
+    color: inherit;
+    text-decoration: none;
+  }
+  .pb-related-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .pb-related-card__type {
+    margin: 0 0 0.4rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent, #a0541f);
+  }
+  .pb-related-card h3 {
+    margin: 0 0 0.45rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .pb-related-card p:not(.pb-related-card__type) {
+    margin: 0;
+    color: var(--soft, #6f675f);
+    line-height: 1.5;
+  }
+  @media (max-width: 860px) {
+    .pb-related__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

@@ -1,0 +1,59 @@
+---
+export interface Props {
+  section: Record<string, any>
+}
+
+const {section} = Astro.props
+const faqs = Array.isArray(section.faqs) ? section.faqs : []
+---
+
+{(section.heading || faqs.length > 0) && (
+  <section class="pb-faq">
+    <div class="container pb-faq__inner">
+      {section.heading && <h2>{section.heading}</h2>}
+      {faqs.length > 0 && (
+        <div class="pb-faq__list">
+          {faqs.map((faq) => (
+            <details>
+              <summary>{faq.q || faq.question || 'Question'}</summary>
+              {(faq.a || faq.answer) && <p>{faq.a || faq.answer}</p>}
+            </details>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .pb-faq {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    background: #fff;
+  }
+  .pb-faq__inner {
+    max-width: 900px;
+  }
+  .pb-faq h2 {
+    margin: 0 0 1.5rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+  }
+  .pb-faq details {
+    border-top: 1px solid rgba(23, 20, 19, 0.12);
+    padding: 1rem 0;
+  }
+  .pb-faq details:last-child {
+    border-bottom: 1px solid rgba(23, 20, 19, 0.12);
+  }
+  .pb-faq summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .pb-faq p {
+    margin: 0.75rem 0 0;
+    color: var(--soft, #6f675f);
+    line-height: 1.6;
+  }
+</style>
+

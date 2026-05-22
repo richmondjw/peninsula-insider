@@ -1,0 +1,55 @@
+---
+import HeroSection from './HeroSection.astro'
+import RichTextSection from './RichTextSection.astro'
+import ImageTextSection from './ImageTextSection.astro'
+import FeatureGridSection from './FeatureGridSection.astro'
+import CtaBannerSection from './CtaBannerSection.astro'
+import FaqSection from './FaqSection.astro'
+import CardGridSection from './CardGridSection.astro'
+import RelatedContentSection from './RelatedContentSection.astro'
+
+export interface Props {
+  sections?: Array<Record<string, any>>
+}
+
+const {sections = []} = Astro.props
+const isDev = import.meta.env.DEV
+---
+
+{sections.map((section) => {
+  switch (section?._type) {
+    case 'heroSection':
+      return <HeroSection section={section} />
+    case 'richTextSection':
+      return <RichTextSection section={section} />
+    case 'imageTextSection':
+      return <ImageTextSection section={section} />
+    case 'featureGridSection':
+      return <FeatureGridSection section={section} />
+    case 'ctaBannerSection':
+      return <CtaBannerSection section={section} />
+    case 'faqSection':
+      return <FaqSection section={section} />
+    case 'cardGridSection':
+      return <CardGridSection section={section} />
+    case 'relatedContentSection':
+      return <RelatedContentSection section={section} />
+    default:
+      return isDev ? (
+        <section class="pb-unknown container">
+          <p>Unknown page-builder section: <code>{section?._type ?? 'missing _type'}</code></p>
+        </section>
+      ) : null
+  }
+})}
+
+<style>
+  .pb-unknown {
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px dashed rgba(160, 84, 31, 0.5);
+    color: var(--soft, #6f675f);
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+</style>
+

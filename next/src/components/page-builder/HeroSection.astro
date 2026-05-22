@@ -1,0 +1,124 @@
+---
+import {imageAlt, imageUrl} from '../../lib/sanity/page-builder'
+
+export interface Props {
+  section: Record<string, any>
+}
+
+const {section} = Astro.props
+const heading = section.heading || ''
+const src = imageUrl(section.image, 'hero')
+const alt = imageAlt(section.image, heading)
+const variant = section.layoutVariant || 'split'
+---
+
+<section class={`pb-hero pb-hero--${variant}`}>
+  <div class="container pb-hero__inner">
+    <div class="pb-hero__copy">
+      {section.eyebrow && <p class="label label--accent">{section.eyebrow}</p>}
+      {heading && <h1>{heading}</h1>}
+      {section.subheading && <p class="pb-hero__dek">{section.subheading}</p>}
+      {(section.primaryCtaLabel || section.secondaryCtaLabel) && (
+        <div class="pb-actions">
+          {section.primaryCtaLabel && section.primaryCtaUrl && <a class="pb-btn pb-btn--primary" href={section.primaryCtaUrl}>{section.primaryCtaLabel}</a>}
+          {section.secondaryCtaLabel && section.secondaryCtaUrl && <a class="pb-btn pb-btn--secondary" href={section.secondaryCtaUrl}>{section.secondaryCtaLabel}</a>}
+        </div>
+      )}
+    </div>
+    {src && (
+      <figure class="pb-hero__media">
+        <img src={src} alt={alt} loading="eager" decoding="async" />
+        {section.image?.caption && <figcaption>{section.image.caption}</figcaption>}
+      </figure>
+    )}
+  </div>
+</section>
+
+<style>
+  .pb-hero {
+    padding: clamp(3rem, 7vw, 6rem) 0;
+    background: #f8f4ec;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
+  }
+  .pb-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .pb-hero--centered .pb-hero__inner {
+    display: block;
+    max-width: 880px;
+    text-align: center;
+  }
+  .pb-hero__copy h1 {
+    margin: 0.35rem 0 1rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    color: var(--dark, #171413);
+  }
+  .pb-hero__dek {
+    margin: 0;
+    max-width: 42rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.45;
+    color: rgba(23, 20, 19, 0.68);
+  }
+  .pb-hero--centered .pb-hero__dek {
+    margin-inline: auto;
+  }
+  .pb-hero__media {
+    margin: 0;
+  }
+  .pb-hero__media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .pb-hero__media figcaption {
+    margin-top: 0.65rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.7rem;
+    color: var(--soft, #6f675f);
+  }
+  .pb-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.7rem;
+  }
+  .pb-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.85rem 1.2rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .pb-btn--primary {
+    background: var(--dark, #171413);
+    color: #fffaf0;
+  }
+  .pb-btn--secondary {
+    color: var(--dark, #171413);
+    border-bottom: 1px solid rgba(23, 20, 19, 0.35);
+  }
+  @media (max-width: 780px) {
+    .pb-hero__inner {
+      grid-template-columns: 1fr;
+    }
+    .pb-hero__media {
+      order: -1;
+    }
+  }
+</style>
+

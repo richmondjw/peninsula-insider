@@ -1,0 +1,104 @@
+---
+import {imageAlt, imageUrl} from '../../lib/sanity/page-builder'
+
+export interface Props {
+  section: Record<string, any>
+}
+
+const {section} = Astro.props
+const features = Array.isArray(section.features) ? section.features : []
+---
+
+{(section.heading || features.length > 0) && (
+  <section class="pb-feature-grid">
+    <div class="container">
+      <div class="pb-section-head">
+        {section.eyebrow && <p class="label label--accent">{section.eyebrow}</p>}
+        {section.heading && <h2>{section.heading}</h2>}
+        {section.intro && <p>{section.intro}</p>}
+      </div>
+      {features.length > 0 && (
+        <div class="pb-feature-grid__grid">
+          {features.map((feature) => {
+            const src = imageUrl(feature.image, 'thumb')
+            const body = (
+              <>
+                {src ? <img src={src} alt={imageAlt(feature.image, feature.title || '')} loading="lazy" decoding="async" /> : feature.icon && <span class="pb-feature-grid__icon">{feature.icon}</span>}
+                {feature.title && <h3>{feature.title}</h3>}
+                {feature.description && <p>{feature.description}</p>}
+              </>
+            )
+            return feature.link ? <a class="pb-feature-card" href={feature.link}>{body}</a> : <article class="pb-feature-card">{body}</article>
+          })}
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .pb-feature-grid {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    background: #f8f4ec;
+  }
+  .pb-section-head {
+    max-width: 720px;
+    margin-bottom: clamp(1.7rem, 4vw, 3rem);
+  }
+  .pb-section-head h2 {
+    margin: 0.35rem 0 0.8rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    line-height: 1.05;
+  }
+  .pb-section-head p:not(.label) {
+    margin: 0;
+    color: var(--soft, #6f675f);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .pb-feature-grid__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .pb-feature-card {
+    display: block;
+    padding: 1.25rem;
+    border: 1px solid rgba(23, 20, 19, 0.1);
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+  }
+  .pb-feature-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .pb-feature-grid__icon {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent, #a0541f);
+  }
+  .pb-feature-card h3 {
+    margin: 0 0 0.45rem;
+    font-size: 1.05rem;
+  }
+  .pb-feature-card p {
+    margin: 0;
+    color: var(--soft, #6f675f);
+    line-height: 1.55;
+  }
+  @media (max-width: 860px) {
+    .pb-feature-grid__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
