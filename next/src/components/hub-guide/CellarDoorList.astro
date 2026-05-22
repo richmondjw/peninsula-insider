@@ -24,7 +24,7 @@
  *     …
  *   ]} />
  */
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import { resolveHeroSrc, formatHeroCredit } from '../../lib/editorial';
 import PiSaveActions from '../PiSaveActions.astro';
 
@@ -50,7 +50,7 @@ export interface Props {
 
 const { items, eyebrow = "Editor's cellar-door list", heading, hrefPrefix = '/wine' } = Astro.props;
 
-const allVenues = await getCollection('venues');
+const allVenues = await fetchAllVenuesFromSanity();
 const venueBySlug = new Map<string, any>();
 for (const v of allVenues) {
   venueBySlug.set(v.data.slug ?? v.id, v);
