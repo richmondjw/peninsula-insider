@@ -264,6 +264,50 @@ const {
   </div>
 </nav>
 
+<!-- Sprint 4 — Shrink-on-scroll: hide utility row after 60px on mobile -->
+<script is:inline>
+(function () {
+  var SCROLL_THRESHOLD = 60;
+  var mq = window.matchMedia('(max-width: 768px)');
+  var header = document.querySelector('.masthead');
+  if (!header) return;
+
+  function update() {
+    if (!mq.matches) {
+      // Desktop: always remove the scrolled class
+      header.classList.remove('is-scrolled');
+      return;
+    }
+    if (window.scrollY >= SCROLL_THRESHOLD) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        update();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Re-evaluate on resize (e.g. orientation change)
+  mq.addEventListener('change', update);
+  update();
+
+  // Re-bind after Astro client-side navigation
+  document.addEventListener('astro:page-load', function () {
+    header = document.querySelector('.masthead');
+    if (header) update();
+  });
+})();
+</script>
+
 <!-- Trigger drawer when an Ask link is clicked (progressive enhancement) -->
 <script is:inline>
 (function () {

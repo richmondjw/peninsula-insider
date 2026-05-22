@@ -404,4 +404,34 @@ export const prerender = true;
       white-space: normal;
     }
   }
+
+  /* Sprint 2 — tighten section vertical rhythm on mobile */
+  @media (max-width: 480px) {
+    .whatson-briefing {
+      padding-top: 1rem;
+    }
+    .whatson-briefing__inner {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+    .whatson-section {
+      padding-top: 1.75rem;
+      padding-bottom: 1.75rem;
+    }
+    .whatson-section__header {
+      margin-bottom: 1rem;
+    }
+    /* Signature mini cards: 2-col at 480px to avoid giant single cards */
+    .signature-mini-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+  }
+
+  /* Very small phones: signature grid goes single column */
+  @media (max-width: 360px) {
+    .signature-mini-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

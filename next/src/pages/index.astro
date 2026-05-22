@@ -1202,6 +1202,36 @@ export const prerender = true;
     }
     .hp-notebook__link { padding-top: 0.25rem; }
   }
+
+  /* Sprint 2 — mobile spacing audit: tighten homepage-specific sections at <=480px */
+  @media (max-width: 480px) {
+    /*
+     * The cover bottom gap is intentionally tight (0.75–1.25rem) above,
+     * but cover-also bottom adds 2.5–4.5rem. At mobile that's 40px of
+     * dead space before the section nav. Cap it.
+     */
+    .cover {
+      padding-top: 1.25rem;
+      padding-bottom: 0.5rem;
+    }
+    .cover-also {
+      padding-top: 0.4rem;
+      padding-bottom: 1.5rem;
+    }
+    .cover-also__head {
+      margin-bottom: 1rem;
+    }
+    /* Plans grid: single column at 480px */
+    .hp-plans__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    /* Notebook: already collapses at 640px */
+    .hp-notebook {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
 </style>
 
 {/* Hero rotator is active — see <script define:vars=... /> block above
