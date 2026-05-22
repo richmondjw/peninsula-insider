@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { getCollection } from 'astro:content';
+import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
 import { routeSlug } from '../../lib/editorial';
 import {
   buildCollectionPageSchema,
@@ -12,7 +12,7 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 
-const itinerariesAll = await getCollection('itineraries');
+const itinerariesAll = await fetchAllItinerariesFromSanity();
 const itinerarySlugs = [
   'flinders-and-cape-reset',
   'ridge-to-sea-two-night-escape',

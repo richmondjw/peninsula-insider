@@ -8,7 +8,7 @@
  *
  * Emits ItemList JSON-LD so search engines understand the curated list.
  */
-import { getCollection } from 'astro:content';
+import { fetchAllEventsFromSanity } from '../../../lib/sanity/event-adapter';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import EventCard from '../../../components/EventCard.astro';
@@ -32,7 +32,7 @@ if (!chip) {
 
 // Pull active events (recurring or upcoming), then apply the chip filter.
 const now = new Date();
-const allEvents = (await getCollection('events'))
+const allEvents = (await fetchAllEventsFromSanity())
   .filter((event) => {
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     const end = event.data.endDate ?? event.data.startDate;

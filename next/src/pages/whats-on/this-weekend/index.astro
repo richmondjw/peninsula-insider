@@ -17,6 +17,7 @@
  * dated archive (see src/pages/journal/[slug].astro).
  */
 import { getCollection, getEntry, render } from 'astro:content';
+import { fetchAllEventsFromSanity } from '../../../lib/sanity/event-adapter';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
@@ -126,7 +127,7 @@ const friday = ptwWeekendFriday(latest);
 const sunday = new Date(friday);
 sunday.setUTCDate(friday.getUTCDate() + 2);
 sunday.setUTCHours(23, 59, 0, 0);
-const allEvents = await getCollection('events', ({ data }) => data.status === 'published');
+const allEvents = await fetchAllEventsFromSanity();
 const dispatchPickEventSlugs = new Set(
   [dispatch?.lead, dispatch?.saturday, dispatch?.sunday, dispatch?.rainyDay]
     .map((p: any) => p?.eventRef)

@@ -5,6 +5,11 @@
  * NOT linked from anywhere. For James's review only.
  */
 import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../lib/sanity/venue-adapter';
+import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
+import { fetchAllExperiencesFromSanity } from '../lib/sanity/phase5-adapters';
+import { fetchAllItinerariesFromSanity } from '../lib/sanity/itinerary-adapter';
+import { fetchAllEventsFromSanity } from '../lib/sanity/event-adapter';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PillarNav from '../components/PillarNav.astro';
 import FeatureArticle from '../components/FeatureArticle.astro';
@@ -18,20 +23,23 @@ import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason, dispatchWeekend } from '../lib/editorial';
 
-const venues = await getCollection('venues');
+const [venues, places, experiences, itineraries, eventsRaw] = await Promise.all([
+  fetchAllVenuesFromSanity(),
+  fetchAllPlacesFromSanity(),
+  fetchAllExperiencesFromSanity(),
+  fetchAllItinerariesFromSanity(),
+  fetchAllEventsFromSanity(),
+]);
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const places = await getCollection('places');
-const experiences = await getCollection('experiences');
-const itineraries = await getCollection('itineraries');
 
-const eventsAll = (await getCollection('events'))
-  .filter((event) => {
+const eventsAll = eventsRaw
+  .filter((event: any) => {
     if (['weekly', 'monthly', 'ongoing', 'seasonal'].includes(event.data.recurrence)) return true;
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end);
   })
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+  .sort((a: any, b: any) => a.data.startDate.getTime() - b.data.startDate.getTime());
 const weekendPicks = eventsAll.filter((event) => event.data.lens.includes('weekend-pick' as any)).slice(0, 3);
 const weekendDispatch = articles
   .filter((article) => article.data.format === 'weekend-picker')
