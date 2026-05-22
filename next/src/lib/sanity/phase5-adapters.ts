@@ -49,6 +49,10 @@ function blocksToText(blocks: Array<Record<string, unknown>> | null | undefined)
 }
 
 // ── Experience ──────────────────────────────────────────────────────────
+const allExperiencesListQuery = `*[_type == "experience" && !(_id in path("drafts.**"))] | order(name asc){
+  "slug": slug.current, publishedAt, sitemapExclude
+}`
+
 const experienceQuery = `*[_type == "experience" && slug.current == $slug][0]{
   _id, name, "slug": slug.current, type, zone, coordinates, address,
   website, bookingUrl, durationMinutes, difficulty, seasonBest,
@@ -239,4 +243,18 @@ export async function fetchTourPackageFromSanity(slug: string) {
       publishedAt: new Date(d.publishedAt),
     },
   }
+}
+
+/**
+ * All published experiences — lightweight list for sitemap generation.
+ */
+export async function fetchAllExperiencesFromSanity(): Promise<Array<{slug: string; data: {sitemapExclude: boolean; publishedAt: Date}}>> {
+  const rows = (await sanityClient.fetch(allExperiencesListQuery)) as Array<{slug: string; publishedAt: string; sitemapExclude?: boolean}>
+  return (rows ?? []).map((r) => ({
+    slug: r.slug,
+    data: {
+      sitemapExclude: !!r.sitemapExclude,
+      publishedAt: new Date(r.publishedAt),
+    },
+  }))
 }

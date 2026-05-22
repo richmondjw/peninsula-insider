@@ -13,7 +13,7 @@
  */
 import {getSanityReadClient} from './client'
 import {intentUrl} from './image'
-import {venueBySlugQuery, allVenueSlugsQuery} from './queries'
+import {venueBySlugQuery, allVenueSlugsQuery, allVenuesQuery} from './queries'
 
 type SanityImageRef = {
   asset?: {_id: string; metadata?: {dimensions?: {width: number; height: number}}}
@@ -262,4 +262,11 @@ export async function fetchVenueFromSanity(
 export async function fetchAllVenueSlugsFromSanity(): Promise<string[]> {
   const rows = (await getSanityReadClient(false).fetch(allVenueSlugsQuery)) as Array<{slug: string}>
   return rows.map((r) => r.slug)
+}
+
+/** All published venues adapted to the Astro shape. Used by sitemap and
+ *  any build-time page that needs the full venue list. */
+export async function fetchAllVenuesFromSanity(): Promise<AdaptedVenue[]> {
+  const docs = (await getSanityReadClient(false).fetch(allVenuesQuery)) as SanityVenue[]
+  return (docs ?? []).map(adapt)
 }

@@ -12,6 +12,10 @@ import {intentUrl} from './image'
 
 const img = `{ asset->{_id}, alt, credit, caption, license }`
 
+const allEventsListQuery = `*[_type == "event" && !(_id in path("drafts.**"))] | order(startDate desc){
+  "slug": slug.current, publishedAt, sitemapExclude, recurrence, endDate, startDate
+}`
+
 const eventBySlugQuery = `*[_type == "event" && slug.current == $slug][0]{
   _id, title, "slug": slug.current, summary, description, eventId,
   startDate, endDate, startTime, endTime, season, month,
@@ -143,4 +147,21 @@ export async function fetchEventFromSanity(slug: string) {
       sitemapExclude: !!d.sitemapExclude,
     },
   }
+}
+
+/**
+ * All published events — lightweight list for sitemap generation.
+ */
+export async function fetchAllEventsFromSanity(): Promise<Array<{slug: string; data: {sitemapExclude: boolean; publishedAt: Date; recurrence: string; endDate?: Date; startDate?: Date}}>> {
+  const rows = (await sanityClient.fetch(allEventsListQuery)) as Array<{slug: string; publishedAt: string; sitemapExclude?: boolean; recurrence?: string; endDate?: string; startDate?: string}>
+  return (rows ?? []).map((r) => ({
+    slug: r.slug,
+    data: {
+      sitemapExclude: !!r.sitemapExclude,
+      publishedAt: new Date(r.publishedAt),
+      recurrence: r.recurrence ?? 'once',
+      endDate: r.endDate ? new Date(r.endDate) : undefined,
+      startDate: r.startDate ? new Date(r.startDate) : undefined,
+    },
+  }))
 }

@@ -10,6 +10,10 @@ import {intentUrl} from './image'
 
 const imageProjection = `{ asset->{_id}, alt, credit, caption, license }`
 
+const allItinerariesListQuery = `*[_type == "itinerary" && !(_id in path("drafts.**"))] | order(publishedAt desc){
+  "slug": slug.current, publishedAt, sitemapExclude
+}`
+
 const itineraryBySlugQuery = `*[_type == "itinerary" && slug.current == $slug][0]{
   _id, title, "slug": slug.current, dek, audience, mood, lengthNights,
   duration, theme, occasion, origin, budget, season,
@@ -180,4 +184,19 @@ export async function fetchItineraryFromSanity(slug: string) {
         })),
     },
   }
+}
+
+/**
+ * All published itineraries — lightweight list for sitemap generation.
+ * Returns minimal shape (slug + sitemapExclude + publishedAt).
+ */
+export async function fetchAllItinerariesFromSanity(): Promise<Array<{slug: string; data: {sitemapExclude: boolean; publishedAt: Date}}>> {
+  const rows = (await sanityClient.fetch(allItinerariesListQuery)) as Array<{slug: string; publishedAt: string; sitemapExclude?: boolean}>
+  return (rows ?? []).map((r) => ({
+    slug: r.slug,
+    data: {
+      sitemapExclude: !!r.sitemapExclude,
+      publishedAt: new Date(r.publishedAt),
+    },
+  }))
 }

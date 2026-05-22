@@ -5,41 +5,30 @@ import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../components/PlaceMap.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchPlaceFromSanity } from '../../lib/sanity/place-adapter';
+import { fetchAllPlacesFromSanity, type AdaptedPlace } from '../../lib/sanity/place-adapter';
 
 export async function getStaticPaths() {
-  const places = await getCollection('places');
-  return places.map((place) => ({
-    params: { slug: routeSlug(place) },
-    props: { place },
+  const allPlaces = await fetchAllPlacesFromSanity();
+  return allPlaces.map((place) => ({
+    params: { slug: place.slug },
+    props: { place, allPlaces },
   }));
 }
 
-let { place } = Astro.props;
-if (!place) {
-  const slug = String(Astro.params.slug ?? '');
-  const allPlacesForRoute = await getCollection('places');
-  place = allPlacesForRoute.find((entry) => routeSlug(entry) === slug);
-}
+export const prerender = true;
 
-if (!place) {
-  return new Response('Place not found', { status: 404 });
-}
+const { place, allPlaces } = Astro.props as { place: AdaptedPlace; allPlaces: AdaptedPlace[] };
 
-// Dual-read: swap focused place for Sanity when flag is on.
-if (sanityReadEnabled('places')) {
-  const sanityPlace = await fetchPlaceFromSanity(routeSlug(place));
-  if (sanityPlace) place = sanityPlace as any;
-}
 const allVenues = await getCollection('venues');
-const places = await getCollection('places');
+// allPlaces is passed as a prop from getStaticPaths — no extra fetch needed.
+const places = allPlaces;
 const allExperiences = await getCollection('experiences');
 const allItineraries = await getCollection('itineraries');
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 const allEvents = await getCollection('events');
 
-const placeSlug = routeSlug(place);
+// AdaptedPlace has slug directly; no routeSlug() wrapper needed.
+const placeSlug = place.slug;
 const placeNameLower = place.data.name.toLowerCase();
 
 const venuesForPlace = allVenues
@@ -84,7 +73,8 @@ const stayVenues = venuesForPlace
   .slice(0, 3);
 
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
-const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));
+// places is AdaptedPlace[] — use entry.slug directly (no routeSlug wrapper).
+const relatedPlaces = places.filter((entry) => relatedSlugs.includes(entry.slug));
 
 const itineraries = allItineraries
   .filter((itinerary) =>
@@ -334,10 +324,7 @@ const placeSchema = {
   },
   url: canonical,
 };
-// Phase 4 will add getStaticPaths() and set this to true once places are
-// fetched from Sanity at build time. For now keep as SSR so the page
-// continues to work while Sanity entity migration is pending.
-export const prerender = false;
+// prerender = true is set at the top of the frontmatter block.
 ---
 
 <BaseLayout
