@@ -11,37 +11,36 @@ import {
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
-import { fetchAllVenuesFromSanity, fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
-import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
-import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
 export async function getStaticPaths() {
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
-  const [allVenuesSanity, allItineraries, allEvents] = await Promise.all([
-    fetchAllVenuesFromSanity(),
-    fetchAllItinerariesFromSanity(),
-    fetchAllEventsFromSanity(),
-  ]);
-  const wineVenues = allVenuesSanity.filter((v) => wineTypes.includes(v.data.type));
-  return wineVenues.map((venue) => {
-    const related = wineVenues.filter((v) => v.slug !== venue.slug).slice(0, 3);
-    return {
-      params: { slug: venue.slug },
-      props: { venue, related, allItineraries, allEvents },
-    };
-  });
+  const venues = await getCollection('venues');
+  return venues
+    .filter((venue) => wineTypes.includes(venue.data.type))
+    .map((venue) => ({
+      params: { slug: routeSlug(venue) },
+      props: { venue },
+    }));
 }
 
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
-let { venue, related, allItineraries, allEvents } = Astro.props as any;
-const slug = venue.slug;
+let { venue } = Astro.props;
+const slug = routeSlug(venue);
 
-// Preview mode: refetch from drafts perspective when inside Studio's iframe.
+// Dual-read: swap focused venue for Sanity when flag is on.
 const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (previewMode) {
-  const previewVenue = await fetchVenueFromSanity(slug, {preview: true});
-  if (previewVenue) venue = previewVenue;
+if (sanityReadEnabled('venues')) {
+  const sanityVenue = await fetchVenueFromSanity(slug, {preview: previewMode});
+  if (sanityVenue) venue = sanityVenue as any;
 }
+
+const allVenues = await getCollection('venues');
+const related = allVenues
+  .filter((entry) => routeSlug(entry) !== slug)
+  .filter((entry) => wineTypes.includes(entry.data.type))
+  .slice(0, 3);
 
 // Cross-link articles that reference this venue
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
@@ -50,21 +49,21 @@ const articles = (await getCollection('articles', ({ data }) => data.status === 
   )
   .slice(0, 3);
 
-// Cross-link itineraries that include this venue as a stop — from getStaticPaths props
-const itineraries = allItineraries
-  .filter((itinerary: any) =>
-    itinerary.data.stops.some((stop: any) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
+// Cross-link itineraries that include this venue as a stop
+const itineraries = (await getCollection('itineraries'))
+  .filter((itinerary) =>
+    itinerary.data.stops.some((stop) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
   )
   .slice(0, 2);
 
-// Events at this venue — from getStaticPaths props, gated on a clean venue ref.
-const venueEvents = allEvents
-  .filter((event: any) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
-  .filter((event: any) => {
+// Events at this venue, gated on a clean venue ref.
+const venueEvents = (await getCollection('events'))
+  .filter((event) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
+  .filter((event) => {
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     return isUpcoming(event.data.endDate ?? event.data.startDate);
   })
-  .sort((a: any, b: any) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 3);
 
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));

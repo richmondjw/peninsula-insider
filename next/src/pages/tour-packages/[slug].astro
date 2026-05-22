@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
@@ -7,33 +8,37 @@ import TourPackageCard from '../../components/TourPackageCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { buildTourPackageSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
-import { fetchAllTourPackagesFromSanity, fetchAllToursFromSanity, fetchAllTourOperatorsFromSanity } from '../../lib/sanity/phase5-adapters';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchTourPackageFromSanity } from '../../lib/sanity/phase5-adapters';
 
 export async function getStaticPaths() {
-  const [packages, allTours, allOperators] = await Promise.all([
-    fetchAllTourPackagesFromSanity(),
-    fetchAllToursFromSanity(),
-    fetchAllTourOperatorsFromSanity(),
-  ]);
-  const sharedProps = { allTours, allOperators, allPackages: packages };
+  const packages = await getCollection('tourPackages');
   return packages.map((pkg) => ({
-    params: { slug: pkg.slug },
-    props: { pkg, ...sharedProps },
+    params: { slug: pkg.id ?? pkg.data.slug },
+    props: { pkg },
   }));
 }
 
-const { pkg, allTours, allOperators, allPackages } = Astro.props;
-const slug = pkg.slug;
+let { pkg } = Astro.props;
+const slug = pkg.id ?? pkg.data.slug;
+
+// Dual-read.
+if (sanityReadEnabled('tour-packages')) {
+  const sanityPkg = await fetchTourPackageFromSanity(slug);
+  if (sanityPkg) pkg = sanityPkg as any;
+}
 const data = pkg.data;
 
+const allTours = await getCollection('tours');
+const allOperators = await getCollection('tourOperators');
 const operatorMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
 
 const componentTours = (data.componentTourSlugs || [])
-  .map((tourSlug: string) => allTours.find(t => t.slug === tourSlug))
+  .map((tourSlug: string) => allTours.find(t => (t.id ?? t.data.slug) === tourSlug))
   .filter((t): t is NonNullable<typeof t> => Boolean(t));
 
-const otherPackages = allPackages
-  .filter(p => p.slug !== slug)
+const allPackages = (await getCollection('tourPackages'))
+  .filter(p => (p.id ?? p.data.slug) !== slug)
   .slice(0, 3);
 
 const packageSchema = buildTourPackageSchema(data, componentTours.map(t => t.data));
@@ -249,7 +254,7 @@ export const prerender = true;
     </section>
   )}
 
-  {otherPackages.length > 0 && (
+  {allPackages.length > 0 && (
     <section class="experience-index">
       <div class="container">
         <div class="venues__header">
@@ -260,7 +265,7 @@ export const prerender = true;
           <a href="/tour-packages/" class="venues__link">All packages &rarr;</a>
         </div>
         <div class="package-grid">
-          {otherPackages.map((p) => <TourPackageCard pkg={p} />)}
+          {allPackages.map((p) => <TourPackageCard pkg={p} />)}
         </div>
       </div>
     </section>

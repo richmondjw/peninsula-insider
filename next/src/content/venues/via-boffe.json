@@ -10,7 +10,9 @@
   },
   "address": "200 Main Ridge Rd, Main Ridge VIC 3928",
   "phone": "+61 3 5989 6111",
-  "bookingProvider": "none",
+  "website": "https://viaboffe.com.au",
+  "bookingUrl": "https://viaboffe.com.au/bookings",
+  "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
     "awards": [
@@ -26,8 +28,9 @@
     "date night",
     "long lunch"
   ],
-  "ifOnlyOneThing": "Book ahead — the room is tiny and it fills fast on weekends.",
+  "ifOnlyOneThing": "Book ahead \u2014 the room is tiny and it fills fast on weekends.",
   "pairWith": [
+    "Lightfoot Wines",
     "Mornington Peninsula Cider"
   ],
   "tags": {
@@ -46,14 +49,13 @@
   },
   "heroImage": {
     "src": "/images/sourced/category-restaurant-01.webp",
-    "alt": "Mornington Peninsula landscape — representative image for Via Boffe",
+    "alt": "Mornington Peninsula landscape \u2014 representative image for Via Boffe",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },
   "gallery": [],
   "featuredPartner": false,
-  "lastVerified": "2026-05-21",
+  "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "sitemapExclude": true,
-  "socialNote": "No website — Facebook page only"
+  "sitemapExclude": true
 }

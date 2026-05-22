@@ -10,13 +10,14 @@
  * /plans/wellness-weekend/) and uses the custom Redirect component for
  * a flash-free JS redirect with meta-refresh fallback.
  */
-import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
+import { getCollection } from 'astro:content';
+import { routeSlug } from '../../lib/editorial';
 
 export async function getStaticPaths() {
-  const itineraries = await fetchAllItinerariesFromSanity();
+  const itineraries = await getCollection('itineraries');
   return itineraries.map((it) => ({
-    params: { slug: it.slug },
-    props: { slug: it.slug },
+    params: { slug: routeSlug(it) },
+    props: { slug: routeSlug(it) },
   }));
 }
 

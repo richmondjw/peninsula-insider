@@ -4,7 +4,7 @@ dek: "Showcase performance with Chloe Gill: Friday 23 May at 7pm. Peninsula Hot 
 section: spa
 tag: opening-window
 publishedAt: 2026-05-19T06:57:00+10:00
-expiresAt: 2026-05-22T06:45:00+10:00
+expiresAt: 2026-05-24T06:00:00+10:00
 verifiedAt: 2026-05-19T06:53:00+10:00
 verifiedBy: quick-note-desk
 verdict: "The Showcase is four days out. A wet-week, mid-autumn Friday evening event at the Springs — availability will not sit still. Book now."

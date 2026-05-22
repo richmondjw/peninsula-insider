@@ -12,9 +12,8 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, currentSeason, seasonBlurb, isUpcoming } from '../../lib/editorial';
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
-import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
-import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -22,7 +21,7 @@ const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
 
 // Cellar door + wine events surfacing from /whats-on/ on the wine hub.
 const wineEventCategories = ['cellar-door', 'food-wine'];
-const wineEvents = (await fetchAllEventsFromSanity())
+const wineEvents = (await getCollection('events'))
   .filter((event) => wineEventCategories.includes(event.data.category))
   .filter((event) => {
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
@@ -30,9 +29,27 @@ const wineEvents = (await fetchAllEventsFromSanity())
   })
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 3);
-const venues = (await fetchAllVenuesFromSanity())
-  .filter((v) => wineTypes.includes(v.data.type))
+const venuesRaw = (await getCollection('venues'))
+  .filter((venue) => wineTypes.includes(venue.data.type))
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
+
+// Dual-read after the eat-style filter so we only fan out across wine venues
+// (~50), not all 500+ in the corpus. Same shape as PR #211 on places.
+const venueReadOn = sanityReadEnabled('venues');
+const venues = venueReadOn
+  ? await Promise.all(
+      venuesRaw.map(async (v) => {
+        try {
+          const doc = await fetchVenueFromSanity(routeSlug(v));
+          const sanitySrc = doc?.data?.heroImage?.src;
+          if (!sanitySrc) return v;
+          return { ...v, data: { ...v.data, heroImage: { ...v.data.heroImage, src: sanitySrc } } };
+        } catch {
+          return v;
+        }
+      }),
+    )
+  : venuesRaw;
 
 const wineries = venues.filter((v) => v.data.type === 'winery');
 const producers = venues.filter((v) => v.data.type === 'producer');
@@ -48,7 +65,7 @@ const appointmentOnly = venues
   .filter((venue) => !benchmarks.some((b) => routeSlug(b) === routeSlug(venue)))
   .slice(0, 6);
 
-const places = await fetchAllPlacesFromSanity();
+const places = await getCollection('places');
 const wineHubs = places.filter((place) =>
   ['red-hill', 'main-ridge', 'merricks', 'balnarring', 'moorooduc', 'tuerong'].includes(routeSlug(place)),
 );

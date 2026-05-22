@@ -37,6 +37,13 @@ export const sanityClient = createClient({
   stega: {enabled: false},
 })
 
+export const sanityClientFresh = createClient({
+  ...baseConfig,
+  useCdn: false,
+  token: process.env.SANITY_READ_TOKEN,
+  stega: {enabled: false},
+})
+
 export const sanityPreviewClient = createClient({
   ...baseConfig,
   useCdn: false,
@@ -52,3 +59,26 @@ export function getSanityReadClient(preview: boolean = false) {
   return preview ? sanityPreviewClient : sanityClient
 }
 
+export function sanityReadEnabled(
+  entity:
+    | 'venues'
+    | 'places'
+    | 'articles'
+    | 'events'
+    | 'itineraries'
+    | 'tours'
+    | 'tour-operators'
+    | 'tour-packages'
+    | 'experiences'
+    | 'page-level',
+): boolean {
+  // Emergency public-site guard: if Sanity read quota is exhausted, letting
+  // public pages dual-read from Sanity can fail builds and SSR requests. The
+  // local Astro content layer remains the safe fallback until quota/revalidation
+  // strategy is resolved.
+  if (process.env.PI_PUBLIC_SANITY_READS_DISABLED === 'true') return false
+  if (process.env.PI_PUBLIC_SANITY_READS_DISABLED !== 'false') return false
+  if (process.env.SANITY_READ_ENABLED !== 'true') return false
+  const flag = `SANITY_${entity.toUpperCase().replace(/-/g, '_')}_ENABLED`
+  return process.env[flag] === 'true'
+}

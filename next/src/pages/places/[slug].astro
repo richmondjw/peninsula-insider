@@ -4,31 +4,40 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../components/PlaceMap.astro';
 import EventStrip from '../../components/EventStrip.astro';
-import { routeSlug, stayTypes, wineTypes, activityTypes, isUpcoming } from '../../lib/editorial';
-import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
-import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
-import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
-import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
+import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../lib/editorial';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchPlaceFromSanity } from '../../lib/sanity/place-adapter';
 
 export async function getStaticPaths() {
-  const [allPlaces, allVenues, allExperiences, allItineraries, allArticles, allEvents] = await Promise.all([
-    fetchAllPlacesFromSanity(),
-    fetchAllVenuesFromSanity(),
-    fetchAllExperiencesFromSanity(),
-    fetchAllItinerariesFromSanity(),
-    getCollection('articles', ({ data }) => data.status === 'published'),
-    fetchAllEventsFromSanity(),
-  ]);
-  return allPlaces.map((place) => ({
-    params: { slug: place.slug },
-    props: { place, allPlaces, allVenues, allExperiences, allItineraries, allArticles, allEvents },
+  const places = await getCollection('places');
+  return places.map((place) => ({
+    params: { slug: routeSlug(place) },
+    props: { place },
   }));
 }
 
-export const prerender = true;
+let { place } = Astro.props;
+if (!place) {
+  const slug = String(Astro.params.slug ?? '');
+  const allPlacesForRoute = await getCollection('places');
+  place = allPlacesForRoute.find((entry) => routeSlug(entry) === slug);
+}
 
-const { place, allPlaces, allVenues, allExperiences, allItineraries, allArticles, allEvents } = Astro.props as any;
+if (!place) {
+  return new Response('Place not found', { status: 404 });
+}
+
+// Dual-read: swap focused place for Sanity when flag is on.
+if (sanityReadEnabled('places')) {
+  const sanityPlace = await fetchPlaceFromSanity(routeSlug(place));
+  if (sanityPlace) place = sanityPlace as any;
+}
+const allVenues = await getCollection('venues');
+const places = await getCollection('places');
+const allExperiences = await getCollection('experiences');
+const allItineraries = await getCollection('itineraries');
+const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
+const allEvents = await getCollection('events');
 
 const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();
@@ -65,7 +74,7 @@ const experienceSlugs = experiences.map((experience) => routeSlug(experience));
 // Prevents downstream sections becoming a directory as venue count grows.
 // "See all" links on the template route to the hub with place context.
 const eatVenues = venuesForPlace
-  .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type) && !activityTypes.includes(venue.data.type))
+  .filter((venue) => !stayTypes.includes(venue.data.type) && !wineTypes.includes(venue.data.type))
   .slice(0, 3);
 const wineVenues = venuesForPlace
   .filter((venue) => wineTypes.includes(venue.data.type))
@@ -73,12 +82,9 @@ const wineVenues = venuesForPlace
 const stayVenues = venuesForPlace
   .filter((venue) => stayTypes.includes(venue.data.type))
   .slice(0, 3);
-const activityVenues = venuesForPlace
-  .filter((venue) => activityTypes.includes(venue.data.type))
-  .slice(0, 6);
 
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
-const relatedPlaces = allPlaces.filter((entry) => relatedSlugs.includes(entry.slug));
+const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));
 
 const itineraries = allItineraries
   .filter((itinerary) =>
@@ -328,6 +334,10 @@ const placeSchema = {
   },
   url: canonical,
 };
+// Phase 4 will add getStaticPaths() and set this to true once places are
+// fetched from Sanity at build time. For now keep as SSR so the page
+// continues to work while Sanity entity migration is pending.
+export const prerender = false;
 ---
 
 <BaseLayout
@@ -345,7 +355,6 @@ const placeSchema = {
     eatVenues={eatVenues}
     wineVenues={wineVenues}
     stayVenues={stayVenues}
-    activityVenues={activityVenues}
     experiences={experiences}
     itineraries={itineraries}
     articles={articles}
