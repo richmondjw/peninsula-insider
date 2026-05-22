@@ -5,10 +5,16 @@ import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
 import { fetchAllVenuesFromSanity, fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
+import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
+import { fetchAllEventsFromSanity } from '../../lib/sanity/event-adapter';
 
 export async function getStaticPaths() {
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-  const allVenuesSanity = await fetchAllVenuesFromSanity();
+  const [allVenuesSanity, allItineraries, allEvents] = await Promise.all([
+    fetchAllVenuesFromSanity(),
+    fetchAllItinerariesFromSanity(),
+    fetchAllEventsFromSanity(),
+  ]);
   const eatVenues = allVenuesSanity.filter((v) => eatTypes.includes(v.data.type));
   return eatVenues.map((venue) => {
     const placeId = String(venue.data.place?.id ?? venue.data.place ?? '');
@@ -17,13 +23,13 @@ export async function getStaticPaths() {
       .slice(0, 3);
     return {
       params: { slug: venue.slug },
-      props: { venue, related },
+      props: { venue, related, allItineraries, allEvents },
     };
   });
 }
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-let { venue, related } = Astro.props;
+let { venue, related, allItineraries, allEvents } = Astro.props as any;
 const slug = venue.slug;
 
 // Preview mode: when an editor opens the page inside Studio's Presentation
@@ -41,23 +47,22 @@ const articles = (await getCollection('articles', ({ data }) => data.status === 
   )
   .slice(0, 3);
 
-// Cross-link itineraries that include this venue as a stop
-const itineraries = (await getCollection('itineraries'))
-  .filter((itinerary) =>
-    itinerary.data.stops.some((stop) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
+// Cross-link itineraries that include this venue as a stop — from getStaticPaths props
+const itineraries = allItineraries
+  .filter((itinerary: any) =>
+    itinerary.data.stops.some((stop: any) => String(stop.venue?.id ?? stop.venue ?? '') === slug)
   )
   .slice(0, 2);
 
-// Events at this venue: only render the strip when at least one event has
-// a clean venue ref pointing at this venue. Renders nothing for venues
-// that exist only as dining destinations (no event programme).
-const venueEvents = (await getCollection('events'))
-  .filter((event) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
-  .filter((event) => {
+// Events at this venue — from getStaticPaths props. Only render the strip when at
+// least one event has a clean venue ref pointing at this venue.
+const venueEvents = allEvents
+  .filter((event: any) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
+  .filter((event: any) => {
     if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
     return isUpcoming(event.data.endDate ?? event.data.startDate);
   })
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
+  .sort((a: any, b: any) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 3);
 
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
