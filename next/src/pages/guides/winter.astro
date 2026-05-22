@@ -10,11 +10,11 @@
  * preview; the on-screen view is intentionally minimal — the artefact
  * is the PDF.
  */
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import PrintLayout from '../../layouts/PrintLayout.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = await fetchAllVenuesFromSanity();
 
 // Winter shortlist: ridge cellar doors with fires, hot springs, a
 // hatted dining room, a long lunch, a coastal walk reward, a stay.

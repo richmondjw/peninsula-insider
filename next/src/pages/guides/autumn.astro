@@ -5,11 +5,11 @@
  * Renders to /downloads/peninsula-insider-autumn-guide.pdf via the
  * existing render-pdfs.mjs pipeline.
  */
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import PrintLayout from '../../layouts/PrintLayout.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = await fetchAllVenuesFromSanity();
 
 // Autumn shortlist: vintage running, markets warm, the season the
 // region is at its most editorial.

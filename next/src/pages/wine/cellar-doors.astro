@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const allVenues = await getCollection('venues');
+const allVenues = await fetchAllVenuesFromSanity();
 // Top cellar doors - walk-in first, appointment-recommended second
 const walkInSlugs = ['montalto','foxeys-hangout','paringa-estate','polperro','t-gallant','red-hill-estate','green-olive-red-hill','ocean-eight','crittenden-estate'];
 const appointmentSlugs = ['ten-minutes-by-tractor','pt-leo-estate','kooyong','yabby-lake','main-ridge-estate','eldridge-estate','dexter-wines','garagiste'];

@@ -5,11 +5,11 @@
  * Renders to /downloads/peninsula-insider-spring-guide.pdf via the
  * existing render-pdfs.mjs pipeline.
  */
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import PrintLayout from '../../layouts/PrintLayout.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const venues = await getCollection('venues');
+const venues = await fetchAllVenuesFromSanity();
 
 // Spring shortlist: market season, ridge views with the new vintage
 // going in the ground, the soft-walking weather before tourism wakes up.

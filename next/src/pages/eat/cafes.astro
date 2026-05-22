@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
@@ -7,7 +7,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const allVenues = await getCollection('venues');
+const allVenues = await fetchAllVenuesFromSanity();
 
 const cafeTypes = ['cafe'];
 const cafeSlugs = ['commonfolk-coffee','many-little','somers-general',  'merricks-general-wine-store','store-ten','stringers-mornington','flinders-general-store',

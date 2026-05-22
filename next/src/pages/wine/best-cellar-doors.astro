@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
@@ -7,7 +7,7 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
-const venues = (await getCollection('venues'))
+const venues = (await fetchAllVenuesFromSanity())
   .filter((v) => wineTypes.includes(v.data.type))
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 

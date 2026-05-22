@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
@@ -7,8 +7,8 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const allVenues = await getCollection('venues');
-const venues = (await getCollection('venues')).filter(v=>v.data.type==='pub').sort((a,b)=>(a.data.name??'').localeCompare(b.data.name??''));
+const allVenues = await fetchAllVenuesFromSanity();
+const venues = allVenues.filter(v=>v.data.type==='pub').sort((a,b)=>(a.data.name??'').localeCompare(b.data.name??''));
 
 const breadcrumbItems=[{label:'Home',href:'/'},{label:'Eat & Drink',href:'/eat/'},{label:'Best Pubs'}];
 const schema={'@context':'https://schema.org','@type':'CollectionPage',name:'Best Pubs Mornington Peninsula',description:'The best pubs on the Mornington Peninsula — bay-view beer gardens, village locals, and the pub bistros that do an honest meal.',url:'https://peninsulainsider.com.au/eat/pubs/',breadcrumb:{'@type':'BreadcrumbList',itemListElement:[{position:1,name:'Home',item:'https://peninsulainsider.com.au/'},{position:2,name:'Eat & Drink',item:'https://peninsulainsider.com.au/eat/'},{position:3,name:'Best Pubs',item:'https://peninsulainsider.com.au/eat/pubs/'}].map(e=>({'@type':'ListItem',...e}))},mainEntity:{'@type':'ItemList',itemListOrder:'https://schema.org/ItemListOrderDescending',numberOfItems:venues.length,itemListElement:venues.map((v,i)=>({'@type':'ListItem',position:i+1,name:v.data.name,url:`https://peninsulainsider.com.au/eat/${routeSlug(v)}/`}))}};

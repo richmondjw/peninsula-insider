@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
@@ -12,7 +13,7 @@ const spaArticles = allArticles
   .filter((a) => a.data.tags?.some((t) => ['spa', 'hot-springs', 'wellness'].includes(t)))
   .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
 
-const allVenues = await getCollection('venues');
+const allVenues = await fetchAllVenuesFromSanity();
 const spaVenues = allVenues.filter((v) => v.data.type === 'spa');
 
 const breadcrumbItems = [
