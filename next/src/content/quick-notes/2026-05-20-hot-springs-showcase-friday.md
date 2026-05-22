@@ -1,6 +1,6 @@
 ---
 headline: "Peninsula Hot Springs — Showcase with Chloe Gill is three days out. Friday weather confirmed clear."
-dek: "Showcase performance with Chloe Gill: Friday 23 May, 7pm. Friday forecast: clear and sunny, 9–14°C, 0% rain all day. Three days out; the wet mid-week window is when bookings move. Thermal circuit and weekday activities confirmed running today."
+dek: "Showcase performance with Chloe Gill: Saturday 23 May, 7pm. Friday forecast: clear and sunny, 9–14°C, 0% rain all day. Three days out; the wet mid-week window is when bookings move. Thermal circuit and weekday activities confirmed running today."
 section: spa
 tag: opening-window
 publishedAt: 2026-05-20T06:57:00+10:00
@@ -18,7 +18,7 @@ sources:
     checkedAt: 2026-05-20T06:42:00+10:00
 status: published
 ---
-Three days to the Showcase. The event itself — Chloe Gill performing at Peninsula Hot Springs, Friday 23 May at 7pm — has not changed. What has changed is the weather picture around it, and the picture is favourable.
+Three days to the Showcase. The event itself — Chloe Gill performing at Peninsula Hot Springs, Saturday 23 May at 7pm — has not changed. What has changed is the weather picture around it, and the picture is favourable.
 
 Friday's current forecast: clear morning, sunny at 9am, overcast by afternoon, zero rain probability across the entire day. Temperature running 9°C at dawn, rising to 14°C by mid-afternoon. It is a cold, dry, clear Peninsula autumn day — which is exactly the day that makes a thermal circuit followed by an evening showcase work. The contrast between the cold air outside and the warm water is the Springs' specific pleasure, and Friday delivers it without the compromise of rain.
 

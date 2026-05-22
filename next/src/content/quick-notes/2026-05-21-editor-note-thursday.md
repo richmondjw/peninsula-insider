@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "Editorial desk, Thursday 21 May 2026. Weather from Bureau of Meteorology Main Ridge forecast issued 6:39 AM AEST — Thursday: slight shower chance 20%, light winds, 9–16°C. Friday 22: mostly sunny, 5% rain. Editorial framing only."
     checkedAt: 2026-05-21T06:47:00+10:00
-status: published
+status: archived
 ---
 Wednesday delivered what it promised: persistent cloud, patchy rain through the middle hours, the Peninsula largely interior-facing. Thursday carries the tail of that, but something has shifted. The wet sequence — the low that ran Monday through Wednesday — has moved on. What remains is the overcast without the rain.
 

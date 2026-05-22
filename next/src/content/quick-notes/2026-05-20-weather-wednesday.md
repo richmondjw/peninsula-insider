@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "wttr.in/Mornington+Peninsula,Victoria,Australia — checked 20 May 2026 06:42 AEST. Current: 12°C (feels 10°C), cloudy, 83% cloud cover, 10km visibility, humidity 81%, WNW 14km/h. Wednesday 20 May forecast: min 12°C, max 16°C. Hourly rain probability: 6am 0%, 9am 70%, 12pm 100%, 3pm 89%, 6pm 78%, 9pm 100%. Precipitation amounts trace to 0.1mm per period — event is scattered patchy rain, not heavy. Thursday 21: min 11°C, max 15°C, similar pattern clearing Thursday evening. Friday 22: min 9°C, max 14°C, clear/sunny morning (0% rain 6am–9am), overcast afternoon, 0% rain all day. Sunrise Wed 07:18, sunset 05:14."
     checkedAt: 2026-05-20T06:42:00+10:00
-status: published
+status: archived
 ---
 Wednesday opens dry — the 6am window is clear at 12°C — but the wet sequence arrives from mid-morning. Rain probability climbs from 0% at 6am to 70% by 9am and holds at 70–100% through to 9pm. Amounts are light: the modelling shows trace precipitation of 0.1mm per period. This is not a heavy rain day. It is a persistent grey day, the Peninsula under a low ceiling, the kind of autumn Wednesday where the sky stays closed and the temperature plateaus in the low-to-mid teens.
 

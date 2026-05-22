@@ -12,7 +12,7 @@ sources:
   - kind: visit
     note: "Editorial desk, Wednesday 20 May 2026. Weather from wttr.in Mornington Peninsula checked 06:42 AEST — current cloudy 12°C, rain arriving mid-morning (70–100% probability 9am–9pm). Friday 22 May confirmed clear: sunny morning, 0% rain probability all day. Editorial framing only — no venue-specific changes or availability claims."
     checkedAt: 2026-05-20T06:56:00+10:00
-status: published
+status: archived
 ---
 The wet week that Monday forecast and Tuesday sidestepped has arrived. Wednesday is the Peninsula under cloud, with rain probability climbing through the morning and holding through the evening. It is not a punishing day — amounts are trace, temperature reaches 16°C, there is no storm in it. But it is the kind of day where the outdoor plan does not hold.
 

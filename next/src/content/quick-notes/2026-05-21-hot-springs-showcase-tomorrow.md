@@ -1,6 +1,6 @@
 ---
 headline: "Peninsula Hot Springs — Showcase with Chloe Gill is tomorrow. Friday confirmed mostly sunny."
-dek: "Showcase with Chloe Gill: Friday 23 May, 7pm. BOM Friday forecast: mostly sunny, 5% rain, 6–16°C. Daily thermal circuit and weekday activities running today. 24-hour booking window."
+dek: "Showcase with Chloe Gill: Saturday 23 May, 7pm. BOM Friday forecast: mostly sunny, 5% rain, 6–16°C. Daily thermal circuit and weekday activities running today. 24-hour booking window."
 section: spa
 tag: opening-window
 publishedAt: 2026-05-21T06:48:00+10:00
@@ -19,7 +19,7 @@ sources:
     checkedAt: 2026-05-21T06:46:00+10:00
 status: published
 ---
-The Showcase with Chloe Gill is tomorrow. Friday 23 May, 7pm, at Peninsula Hot Springs. The event remains confirmed on the venue's what's-on page as of 6:46 AM Thursday.
+The Showcase with Chloe Gill is tomorrow. Saturday 23 May, 7pm, at Peninsula Hot Springs. The event remains confirmed on the venue's what's-on page as of 6:46 AM Thursday.
 
 The weather picture around it is now confirmed favourable. The Bureau of Meteorology's 6:39 AM forecast for the Mornington Peninsula area has Friday as mostly sunny, 5% rain probability, 0mm possible, light winds. Minimum 6°C warming to 16°C by mid-afternoon. This is the correct Peninsula autumn day for a thermal circuit into an evening event: the cold air outside contrasts with the warm water, the clear sky holds through the afternoon, and the evening arrives at the Springs at its seasonal best.
 
