@@ -10,9 +10,8 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
-import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
-import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchExperienceFromSanity } from '../../lib/sanity/phase5-adapters';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -46,20 +45,24 @@ const heroVariant: Record<string, string> = {
 };
 
 export async function getStaticPaths() {
-  const [experiences, allVenues, allItineraries, allArticles] = await Promise.all([
-    fetchAllExperiencesFromSanity(),
-    fetchAllVenuesFromSanity(),
-    fetchAllItinerariesFromSanity(),
-    getCollection('articles', ({ data }) => data.status === 'published'),
-  ]);
-  const sharedProps = { allExperiences: experiences, allVenues, allItineraries, allArticles };
+  const experiences = await getCollection('experiences');
   return experiences.map((experience) => ({
     params: { slug: routeSlug(experience) },
-    props: { experience, ...sharedProps },
+    props: { experience },
   }));
 }
 
-const { experience, allExperiences, allVenues: venues, allItineraries: itineraries, allArticles: articles } = Astro.props;
+let { experience } = Astro.props;
+
+// Dual-read: swap for Sanity when flag is on.
+if (sanityReadEnabled('experiences')) {
+  const sanityExp = await fetchExperienceFromSanity(routeSlug(experience));
+  if (sanityExp) experience = sanityExp as any;
+}
+const allExperiences = await getCollection('experiences');
+const venues = await getCollection('venues');
+const itineraries = await getCollection('itineraries');
+const articles = await getCollection('articles', ({ data }) => data.status === 'published');
 
 const slug = routeSlug(experience);
 const placeSlug = String(experience.data.place?.id ?? experience.data.place);

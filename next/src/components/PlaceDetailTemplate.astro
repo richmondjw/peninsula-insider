@@ -39,7 +39,6 @@ export interface Props {
   eatVenues?: any[];
   wineVenues?: any[];
   stayVenues?: any[];
-  activityVenues?: any[];
   experiences?: any[];
   itineraries?: any[];
   articles?: any[];
@@ -51,7 +50,6 @@ const {
   eatVenues = [],
   wineVenues = [],
   stayVenues = [],
-  activityVenues = [],
   experiences = [],
   itineraries = [],
   articles = [],
@@ -141,11 +139,10 @@ const breadcrumbItems = [
 // "A perfect day" chapter only added when bestDay is present.
 const chapters: { href: string; label: string }[] = [];
 if (place.data.bestDay)     chapters.push({ href: '#perfect-day', label: 'A perfect day' });
-if (eatVenues.length > 0)      chapters.push({ href: '#eat-drink',  label: 'Eat & drink' });
-if (wineVenues.length > 0)     chapters.push({ href: '#wine',       label: 'Wine & producers' });
-if (stayVenues.length > 0)     chapters.push({ href: '#stay',       label: 'Stay' });
-if (activityVenues.length > 0) chapters.push({ href: '#beaches-activities', label: 'Beaches & activities' });
-if (experiences.length > 0)    chapters.push({ href: '#explore',    label: 'Explore' });
+if (eatVenues.length > 0)   chapters.push({ href: '#eat-drink',   label: 'Eat & drink' });
+if (wineVenues.length > 0)  chapters.push({ href: '#wine',        label: 'Wine & producers' });
+if (stayVenues.length > 0)  chapters.push({ href: '#stay',        label: 'Stay' });
+if (experiences.length > 0) chapters.push({ href: '#explore',     label: 'Explore' });
 if (itineraries.length > 0) chapters.push({ href: '#escapes',     label: 'Escape plans' });
 if (articles.length > 0)    chapters.push({ href: '#journal',     label: 'From the journal' });
 
@@ -388,9 +385,6 @@ const factual = place.data.factualLede ?? '';
         {stayVenues.length > 0 && (
           <li><a href="#stay"><strong>{stayVenues.length}</strong><span>stays</span></a></li>
         )}
-        {activityVenues.length > 0 && (
-          <li><a href="#beaches-activities"><strong>{activityVenues.length}</strong><span>beaches & activities</span></a></li>
-        )}
         {experiences.length > 0 && (
           <li><a href="#explore"><strong>{experiences.length}</strong><span>ways to explore</span></a></li>
         )}
@@ -496,23 +490,6 @@ const factual = place.data.factualLede ?? '';
       <p class="venues__rankings-link">
         <a href="/stay/best-accommodation/">See the editorial rankings → Best Places to Stay on the Peninsula</a>
       </p>
-    </div>
-  </section>
-)}
-
-{activityVenues.length > 0 && (
-  <section class="venues" id="beaches-activities">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Get outside</p>
-          <h2 class="venues__title">Beaches & activities near {place.data.name}</h2>
-          <p class="venues__sub">Surf beaches, bay swims, SLSC clubs, and things to do outside.</p>
-        </div>
-      </div>
-      <div class="venues__grid">
-        {activityVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/explore" />)}
-      </div>
     </div>
   </section>
 )}

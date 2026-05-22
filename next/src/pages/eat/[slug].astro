@@ -4,35 +4,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
-import { fetchAllVenuesFromSanity, fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
+import { sanityReadEnabled } from '../../lib/sanity/client';
+import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
 export async function getStaticPaths() {
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-  const allVenuesSanity = await fetchAllVenuesFromSanity();
-  const eatVenues = allVenuesSanity.filter((v) => eatTypes.includes(v.data.type));
-  return eatVenues.map((venue) => {
-    const placeId = String(venue.data.place?.id ?? venue.data.place ?? '');
-    const related = eatVenues
-      .filter((v) => v.slug !== venue.slug && String(v.data.place?.id ?? v.data.place) === placeId)
-      .slice(0, 3);
-    return {
-      params: { slug: venue.slug },
-      props: { venue, related },
-    };
-  });
+  const venues = await getCollection('venues');
+  return venues
+    .filter((venue) => eatTypes.includes(venue.data.type))
+    .filter((venue) => venue.data.status !== 'permanently_closed')
+    .map((venue) => ({
+      params: { slug: routeSlug(venue) },
+      props: { venue },
+    }));
 }
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-let { venue, related } = Astro.props;
-const slug = venue.slug;
+let { venue } = Astro.props;
+const slug = routeSlug(venue);
 
-// Preview mode: when an editor opens the page inside Studio's Presentation
-// iframe, refetch from the preview (drafts) perspective so the overlay works.
+// Dual-read: when the venues flag is on, swap the focused venue for the
+// Sanity-sourced equivalent. If Sanity returns null (doc unpublished or
+// missing), the JSON-loaded venue stays in place. Related/article/event
+// lookups below remain on JSON until their own phase migrates.
+// Preview mode: when an editor opens the page inside Studio's
+// Presentation iframe, Astro.locals.sanityPreview is true (set by
+// middleware) and the adapter switches to the stega-encoded preview
+// client so the Visual Editing overlay can attach clickable hotspots.
 const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (previewMode) {
-  const previewVenue = await fetchVenueFromSanity(slug, {preview: true});
-  if (previewVenue) venue = previewVenue;
+if (sanityReadEnabled('venues')) {
+  const sanityVenue = await fetchVenueFromSanity(slug, {preview: previewMode});
+  if (sanityVenue) venue = sanityVenue as any;
 }
+
+const allVenues = await getCollection('venues');
+const related = allVenues
+  .filter((entry) => routeSlug(entry) !== slug)
+  .filter((entry) => eatTypes.includes(entry.data.type))
+  .filter((entry) => String(entry.data.place?.id ?? entry.data.place) === String(venue.data.place?.id ?? venue.data.place))
+  .slice(0, 3);
 
 // Cross-link articles that reference this venue
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
