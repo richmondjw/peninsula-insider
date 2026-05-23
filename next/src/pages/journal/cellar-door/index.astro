@@ -14,7 +14,7 @@ import { editableText } from '../../../lib/inline-edit/attrs';
 
 const dispatches = (await getCollection('articles', ({ data }) =>
   data.format === 'cellar-door-dispatch' && data.status === 'published'
-)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+)).sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

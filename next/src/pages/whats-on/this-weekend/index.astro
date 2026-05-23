@@ -140,7 +140,7 @@ const liveThisWeekend = allEvents
     return start <= sunday && end >= friday;
   })
   .filter((e) => !dispatchPickEventSlugs.has(routeSlug(e)))
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime())
+  .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0))
   .slice(0, 6);
 export const prerender = true;
 ---

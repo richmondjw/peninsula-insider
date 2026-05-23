@@ -23,7 +23,7 @@ import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason,
 
 const venues = await getCollection('venues');
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const places = await getCollection('places');
 const experiences = await getCollection('experiences');
 const itineraries = await getCollection('itineraries');
@@ -39,10 +39,10 @@ const eventsAll = (await getCollection('events'))
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end);
   })
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+  .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0));
 const weekendDispatch = articles
   .filter((article) => article.data.format === 'weekend-picker')
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0))[0];
 // Derive the weekend the dispatch covers from its publishedAt under the
 // Sunday-ahead cadence, so the picker label and events filter stay in sync
 // without per-week edits. Falls back to a static window if no dispatch.

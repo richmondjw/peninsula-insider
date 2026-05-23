@@ -31,7 +31,7 @@ const [venues, places, experiences, itineraries, eventsRaw] = await Promise.all(
   fetchAllEventsFromSanity(),
 ]);
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const eventsAll = eventsRaw
   .filter((event: any) => {
@@ -39,11 +39,11 @@ const eventsAll = eventsRaw
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end);
   })
-  .sort((a: any, b: any) => a.data.startDate.getTime() - b.data.startDate.getTime());
+  .sort((a: any, b: any) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0));
 const weekendPicks = eventsAll.filter((event) => event.data.lens?.includes('weekend-pick' as any)).slice(0, 3);
 const weekendDispatch = articles
   .filter((article) => article.data.format === 'weekend-picker')
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0))[0];
 const dispatchWindow = weekendDispatch
   ? dispatchWeekend(weekendDispatch.data.publishedAt)
   : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
@@ -111,7 +111,7 @@ const seasonalDeks: Record<string, string> = {
   spring: 'New vintage releases, wildflower walks, menus rewritten for the season, and the most generous midweek bookings of the year.',
 };
 const hl = seasonalHeadlines[season];
-export const prerender = true;
+export const prerender = false;
 ---
 
 <BaseLayout

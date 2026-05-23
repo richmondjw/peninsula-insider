@@ -89,7 +89,7 @@ const EDITORIAL_FORMATS = new Set([
 const isEditorialFormat = EDITORIAL_FORMATS.has(String(article.data.format ?? ''));
 
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const currentIndex = allArticles.findIndex((a) => routeSlug(a) === routeSlug(article));
 const prevArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;

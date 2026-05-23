@@ -25,11 +25,11 @@ const events = (await getCollection('events'))
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end, now);
   })
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+  .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0));
 
 const dispatches = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .filter((a) => a.data.format === 'weekend-picker')
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const currentDispatch = dispatches[0];
 
 const dispatchWindow = currentDispatch

@@ -23,7 +23,7 @@ const stayHighlights = stays.filter((venue) =>
   ['jackalope', 'hotel-sorrento', 'flinders-hotel'].includes(routeSlug(venue)),
 );
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const companionSlugs = [
   'the-sorrento-weekend',

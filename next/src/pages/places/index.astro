@@ -64,7 +64,7 @@ const secondaryDestinations = places.filter(
 ).sort((a, b) => a.data.name.localeCompare(b.data.name));
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const townReadSlugs = [
   'a-flinders-weekend',
   'mornington-day-guide',

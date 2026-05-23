@@ -11,7 +11,7 @@ import NewsletterBlock from '../../components/v2/NewsletterBlock.astro';
 import { currentSeason, seasonBlurb } from '../../lib/editorial';
 
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const venues = await getCollection('venues');
 const places = await getCollection('places');
 const experiences = await getCollection('experiences');

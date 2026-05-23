@@ -11,7 +11,7 @@ import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
 
 const articlesRaw = (await getCollection('articles', ({ data }) =>
   data.status === 'published' && (data.section ?? 'journal') !== 'plans'
-)).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+)).sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 // Dual-read journal articles through Sanity so admin overlay heroImage
 // edits persist on the hub. Same PR #211 pattern. All ~150 articles run

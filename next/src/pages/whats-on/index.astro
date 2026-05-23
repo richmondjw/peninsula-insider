@@ -20,7 +20,7 @@ const eventsRaw = (await getCollection('events', ({ data }) => data.status === '
     const end = event.data.endDate ?? event.data.startDate;
     return isUpcoming(end, now);
   })
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+  .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0));
 
 // Dual-read events through Sanity so admin overlay heroImage edits persist.
 // Same PR #211 pattern. Filtered to upcoming/recurring events only, bounded
@@ -43,7 +43,7 @@ const events = eventReadOn
 
 const dispatches = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .filter((a) => a.data.format === 'weekend-picker')
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const currentDispatch = dispatches[0];
 const allSignatureEvents = await getCollection('signature-events');
 
@@ -51,7 +51,7 @@ const allSignatureEvents = await getCollection('signature-events');
 // Prefers whats-on or weather section; falls back to most recent.
 const _wonow = new Date();
 const _woNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _wonow))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const notebookNote = _woNotes.find((n) => ['whats-on', 'weather', 'explore'].includes(n.data.section)) ?? _woNotes[0] ?? null;
 const signatureOrder = [
   'portsea-polo',
@@ -74,7 +74,7 @@ const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) 
   const ap = a.data.visitorAppealScore ?? 0;
   const bp = b.data.visitorAppealScore ?? 0;
   if (ap !== bp) return bp - ap;
-  return a.data.startDate.getTime() - b.data.startDate.getTime();
+  return (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0);
 };
 
 // Deduplicate: track slugs shown in signature section so they don't

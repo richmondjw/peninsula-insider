@@ -46,14 +46,14 @@ import {
 
 // Pull the same collections the V2 home uses, so editorial parity is exact.
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const venues = await getCollection('venues');
 const places = await getCollection('places');
 
 // Weekend dispatch — newest weekend-picker article.
 const weekendDispatch = articles
   .filter((a) => a.data.format === 'weekend-picker')
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())[0];
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0))[0];
 
 const dispatchWindow = weekendDispatch
   ? dispatchWeekend(weekendDispatch.data.publishedAt)
@@ -65,7 +65,7 @@ const eventsAll = (await getCollection('events'))
     if (['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence)) return true;
     return isUpcoming(e.data.endDate ?? e.data.startDate);
   })
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
+  .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0));
 const weekendEvents = eventsAll
   .filter((e) => {
     if (!e.data.lens?.includes('weekend-pick' as any)) return false;

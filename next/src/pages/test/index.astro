@@ -12,7 +12,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 // Cover essay — match the live homepage's current spotlight.
 const cover = {

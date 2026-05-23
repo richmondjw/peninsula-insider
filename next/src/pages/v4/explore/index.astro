@@ -34,7 +34,7 @@ const itineraries = itinerarySlugs
   .map((slug) => itinerariesAll.find((i) => routeSlug(i) === slug))
   .filter((i): i is NonNullable<typeof i> => Boolean(i));
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const season = currentSeason();
 const blurb = seasonBlurb[season];

@@ -14,9 +14,9 @@ const [_tours, _packages, _operators] = await Promise.all([
   fetchAllTourPackagesFromSanity(),
   fetchAllTourOperatorsFromSanity(),
 ]);
-const allTours = _tours.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const allPackages = _packages.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
-const allOperators = _operators.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+const allTours = _tours.sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+const allPackages = _packages.sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+const allOperators = _operators.sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const allOperatorsMap = Object.fromEntries(allOperators.map(op => [op.data.slug, op.data]));
 
 const featuredTours = allTours.slice(0, 6);

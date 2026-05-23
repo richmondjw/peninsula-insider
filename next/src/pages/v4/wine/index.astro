@@ -52,7 +52,7 @@ const wineHubs = places.filter((place) =>
 );
 
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const companionSlugs = [
   'the-chardonnay-case', 'the-cellar-door-short-list', 'how-to-build-a-red-hill-saturday', 'the-peninsula-pantry',
 ];

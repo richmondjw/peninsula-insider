@@ -14,7 +14,7 @@ const TZ = 'Australia/Melbourne';
 const live = all.filter((n) => n.data.expiresAt > now);
 
 // Sort by published date, newest first
-live.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+live.sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const HOUR = 60 * 60 * 1000;
 const sixHoursAgo = new Date(now.getTime() - 6 * HOUR);

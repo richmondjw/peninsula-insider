@@ -17,7 +17,7 @@ const { article } = Astro.props;
 const { Content } = await render(article);
 
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const related = allArticles
   .filter((entry) => routeSlug(entry) !== routeSlug(article))

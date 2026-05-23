@@ -14,7 +14,7 @@ import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 
 const secrets = (await getCollection('localSecrets'))
   .filter((s) => !s.data.sitemapExclude)
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

@@ -5,7 +5,7 @@ import NewsletterBlock from '../../components/v2/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
 const dispatches = articles.filter((a) => a.data.format === 'weekend-picker').slice(0, 3);
 const highlights = articles.filter((a) => a.data.format !== 'weekend-picker').slice(0, 3);
