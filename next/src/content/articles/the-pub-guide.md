@@ -98,7 +98,7 @@ The food is excellent: modern pub cooking with genuine Peninsula sourcing, and a
 
 This is the pub for locals and people who want to feel like locals. It does not photograph as well as Hotel Sorrento. It eats better.
 
-Best for lunch on a Saturday after the Balnarring market. Or a midweek dinner if you are renting nearby and want to feel like part of the town. The beer garden is dog-friendly — see the [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the full circuit.
+Best for lunch on a Saturday after the Balnarring market. Or a midweek dinner if you are renting nearby and want to feel like part of the town. The beer garden is dog-friendly - see the [Peninsula dog guide](/journal/the-dog-friendly-peninsula/) for the full circuit.
 
 ## Dromana Hotel, the honest one
 

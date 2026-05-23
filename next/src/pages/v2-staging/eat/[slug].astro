@@ -5,11 +5,14 @@ import V2VenueDetail from '../../../components/v2/V2VenueDetail.astro';
 import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
 import { routeSlug } from '../../../lib/editorial';
 
+const STATIC_V2_EAT_OVERRIDES = new Set(['barmah-park-vineyard', 'port-phillip-estate-restaurant']);
+
 export async function getStaticPaths() {
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
   const venues = await getCollection('venues');
   return venues
     .filter((venue) => eatTypes.includes(venue.data.type))
+    .filter((venue) => !STATIC_V2_EAT_OVERRIDES.has(routeSlug(venue)))
     .map((venue) => ({
       params: { slug: routeSlug(venue) },
       props: { venue },

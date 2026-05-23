@@ -7,12 +7,16 @@ import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial'
 import { sanityReadEnabled } from '../../lib/sanity/client';
 import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
+// Slugs with a dedicated static .astro page in /eat/ — skip to avoid route conflicts.
+const STATIC_EAT_OVERRIDES = new Set(['barmah-park-vineyard', 'port-phillip-estate-restaurant']);
+
 export async function getStaticPaths() {
   const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
   const venues = await getCollection('venues');
   return venues
     .filter((venue) => eatTypes.includes(venue.data.type))
     .filter((venue) => venue.data.status !== 'permanently_closed')
+    .filter((venue) => !STATIC_EAT_OVERRIDES.has(routeSlug(venue)))
     .map((venue) => ({
       params: { slug: routeSlug(venue) },
       props: { venue },

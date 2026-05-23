@@ -44,12 +44,17 @@ const heroVariant: Record<string, string> = {
   wellness: 'feature__image-block--hinterland',
 };
 
+// Slugs with a dedicated static .astro page in /explore/ — skip to avoid route conflicts.
+const STATIC_EXPLORE_OVERRIDES = new Set(['bushrangers-bay', 'mornington-peninsula-walk']);
+
 export async function getStaticPaths() {
   const experiences = await getCollection('experiences');
-  return experiences.map((experience) => ({
-    params: { slug: routeSlug(experience) },
-    props: { experience },
-  }));
+  return experiences
+    .filter((experience) => !STATIC_EXPLORE_OVERRIDES.has(routeSlug(experience)))
+    .map((experience) => ({
+      params: { slug: routeSlug(experience) },
+      props: { experience },
+    }));
 }
 
 let { experience } = Astro.props;

@@ -39,8 +39,6 @@ The first is that in the three weeks between Boxing Day and Australia Day, the t
 
 The version of Sorrento that locals would actually recommend runs on different rules. It uses the town as a base, not a checklist. It takes the ridge wineries out of the plan entirely. It leans on the geography  -  village, bay, back beach, heath, national park, tip  -  in the order that light and weather suggest. And it quietly ignores the high season.
 
-Here is how to do a proper Sorrento weekend.
-
 ## The core move: stay in the village
 
 The single decision that separates a good Sorrento weekend from a tolerable one is refusing to commute back up the Peninsula for dinner. If you stay in Red Hill or Flinders and drive down for the day, you are always running a shuttle. If you stay in Sorrento, the whole weekend becomes walkable, and the dining rooms you would otherwise rush through become the places the evening slows down in.
