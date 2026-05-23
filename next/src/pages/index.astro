@@ -207,9 +207,9 @@ const scenes: Scene[] = [
     id: 'flinders-weekend',
     label: 'SLOW PENINSULA',
     hours: '7 MIN READ',
-    image: '/images/sourced/explore-bushrangers-bay-walk-01.webp',
-    imageAlt: 'Bushrangers Bay headland and Bass Strait below Cape Schanck, on the slow southern coast of the Mornington Peninsula',
-    caption: 'Bushrangers Bay, south coast',
+    image: '/images/sourced/home-cover-sorrento-pier-01.jpg',
+    imageAlt: 'Sorrento pier extending into the calm bay, boats moored in blue water, viewed from the coastal hillside above',
+    caption: 'Sorrento, Port Phillip Bay',
     headline: 'The <em>other</em> Peninsula weekend.',
     dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, Flinders offers another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.',
     primaryHref: '/journal/a-flinders-weekend/',
@@ -382,24 +382,51 @@ export const prerender = true;
     ],
   })} />
 
-  {/* ── Split-grid editorial cover (2026-05-13).
-       Replaces the cinematic full-bleed + 10s rotator with a magazine-style
-       static cover: type column left, single photograph right. One cover
-       essay per issue (the publication doesn't carousel through five). The
-       "rotation bench" scenes [1..3] now render as a static "Also in this
-       issue" strip below the hero block. */}
-  <section class="cover" aria-label="Cover essay">
-    <div class="container cover__inner">
-      <div class="cover__type">
-        <p class="cover__meta">
-          <span class="cover__chip">{ssrScene.label}</span>
-          <span class="cover__dot" aria-hidden="true">·</span>
-          <span class="cover__date">{coverDate}</span>
-          <span class="cover__dot" aria-hidden="true">·</span>
-          <span class="cover__hours">{ssrScene.hours}</span>
-        </p>
+  {/* ── Cinema hero — letterboxed editorial cover (2026-05-23).
+       Black top and bottom bars bracket a full-bleed film frame.
+       Bars collapse on first scroll to expand the image edge-to-edge.
+       Replaces the split-grid cover + also-in-issue strip. */}
+  <section class="cinema" aria-label="Cover story" data-section="cinema">
+
+    {/* TOP BAR: publication identity + current story label */}
+    <div class="cinema__bar cinema__bar--top">
+      <span class="cinema__pub">PENINSULA INSIDER</span>
+      <span class="cinema__bar-dot" aria-hidden="true">·</span>
+      <span class="cinema__season">AUTUMN 2026</span>
+      <span class="cinema__bar-spacer" aria-hidden="true"></span>
+      <span class="cinema__chip">{ssrScene.label}</span>
+      <span class="cinema__bar-dot cinema__bar-dot--mid" aria-hidden="true">·</span>
+      <span class="cinema__hours">{ssrScene.hours}</span>
+    </div>
+
+    {/* FILM FRAME: full-bleed image with overlay copy */}
+    <div class="cinema__frame">
+      {/* Still image with dramatic Ken Burns drift.
+          To add video: replace the <img> with:
+          <video class="cinema__still" autoplay muted loop playsinline poster={ssrScene.image}>
+            <source src="/video/cover-hero.mp4" type="video/mp4" />
+          </video>  */}
+      <img
+        class="cinema__still"
+        src={ssrScene.image}
+        alt={ssrScene.imageAlt}
+        loading="eager"
+        fetchpriority="high"
+        {...editableImage({
+          entityType: 'page',
+          entitySlug: 'home',
+          fieldPath: 'cover.image',
+          label: 'Cover image',
+          purpose: 'hero',
+          sanitySingletonId: 'homepageCover',
+          sanitySingletonPath: `scenes[${sanityActiveSceneIndex ?? 0}].image`,
+        })}
+      />
+      <div class="cinema__scrim" aria-hidden="true"></div>
+
+      <div class="cinema__copy">
         <h1
-          class="cover__headline"
+          class="cinema__headline"
           set:html={ssrScene.headline}
           {...editableText({
             entityType: 'page',
@@ -409,7 +436,7 @@ export const prerender = true;
           })}
         />
         <p
-          class="cover__dispatch"
+          class="cinema__dispatch"
           {...editableText({
             entityType: 'page',
             entitySlug: 'home',
@@ -417,88 +444,31 @@ export const prerender = true;
             label: 'Cover dispatch',
           })}
         >{ssrScene.dispatch}</p>
-        <div class="cover__ctas">
-          <a class="cover__cta" href={ssrScene.primaryHref}>
+        <div class="cinema__ctas">
+          <a class="cinema__cta" href={ssrScene.primaryHref}>
             {ssrScene.primaryLabel} <span aria-hidden="true">→</span>
           </a>
-          <a class="cover__ask-link" href="/ask/" data-pi-trigger="true">
+          <a class="cinema__ask-link" href="/ask/" data-pi-trigger="true">
             or ask The Insider <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
-
-      <figure class="cover__visual">
-        <div class="cover__visual-frame">
-          <img
-            src={ssrScene.image}
-            alt={ssrScene.imageAlt}
-            loading="eager"
-            fetchpriority="high"
-            {...editableImage({
-              entityType: 'page',
-              entitySlug: 'home',
-              fieldPath: 'cover.image',
-              label: 'Cover image',
-              purpose: 'hero',
-              // Bind to the homepageCover Sanity singleton so the admin
-              // overlay's "Replace from media library" can patch the right
-              // scene's image. If Sanity reads failed at build time (local dev
-              // without the flag, or quota exhaustion), fall back to scenes[0]
-              // which is always the active cover in the static array.
-              sanitySingletonId: 'homepageCover',
-              sanitySingletonPath: `scenes[${sanityActiveSceneIndex ?? 0}].image`,
-            })}
-          />
-        </div>
-        {/* Cover photo-location caption hidden 2026-05-13 per Emma's
-            editorial direction: remove all photo location captions and
-            credits sitewide until each image's location is verified
-            (homepage, what's on, plans, journal). Keep the figure +
-            image; only the figcaption is suppressed. */}
-      </figure>
     </div>
-  </section>
 
-  {/* Also in this issue — three secondary picks. Static row, no carousel.
-       Sourced from the same scenes array (rotation bench → editorial picks). */}
-  <section class="cover-also" aria-label="Also in this issue">
-    <div class="container">
-      <div class="cover-also__head">
-        <p class="cover-also__label">Also in this issue</p>
-        <a class="cover-also__link" href="/journal/">All stories →</a>
-      </div>
-      <div class="cover-also__grid">
-        {alsoScenes.map((s) => (
-          <a class="cover-also__item" href={s.primaryHref}>
-            <div class="cover-also__thumb">
-              <img
-                src={s.image}
-                alt={s.imageAlt}
-                loading="lazy"
-                {...editableImage({
-                  entityType: 'page',
-                  entitySlug: 'home',
-                  fieldPath: `cover.scenes.${s.id}.image`,
-                  label: `${s.label || 'Homepage secondary'} image`,
-                  purpose: 'card',
-                  ...(s.sanitySceneIndex !== undefined
-                    ? {
-                        sanitySingletonId: 'homepageCover',
-                        sanitySingletonPath: `scenes[${s.sanitySceneIndex}].image`,
-                      }
-                    : {}),
-                })}
-              />
-            </div>
-            <p class="cover-also__meta">
-              <span class="cover-also__chip">{s.label}</span>
-              <span class="cover-also__hours">{s.hours}</span>
-            </p>
-            <h3 class="cover-also__headline" set:html={s.headline} />
-          </a>
-        ))}
-      </div>
+    {/* BOTTOM BAR: secondary picks in the letterbox band */}
+    <div class="cinema__bar cinema__bar--bottom">
+      <span class="cinema__also-label">Also in this issue</span>
+      <span class="cinema__bar-spacer" aria-hidden="true"></span>
+      {alsoScenes.map((s) => (
+        <a class="cinema__also-item" href={s.primaryHref}>
+          <span class="cinema__also-chip">{s.label}</span>
+          <span class="cinema__also-title" set:html={s.headline} />
+        </a>
+      ))}
+      <span class="cinema__bar-spacer cinema__bar-spacer--tail" aria-hidden="true"></span>
+      <a class="cinema__all-link" href="/journal/">All stories →</a>
     </div>
+
   </section>
 
   {/* ── Section navigation strip ─────────────────────────────────────────────
@@ -681,350 +651,320 @@ export const prerender = true;
 </BaseLayout>
 
 {/* ─────────────────────────────────────────────────────────────────────────
-   Homepage styles. Split-grid cover (.cover*) + Also-in-issue strip
-   (.cover-also*) up top, then the existing below-fold sections.
+   Homepage styles. Cinema hero (.cinema*) up top, then below-fold sections.
    ───────────────────────────────────────────────────────────────────────── */}
 <style is:global>
   /* =========================================================================
-     SPLIT-GRID COVER — editorial spread, no carousel. Replaced the cinematic
-     full-bleed + 10s rotator on 2026-05-13. One cover essay per issue.
-     Cream paper background, type column left, single photograph right; on
-     narrow screens the columns stack vertically with the type on top.
-     ===================================================================== */
-  .cover {
-    background: #FFFFFF;
-    color: #171413;
-    /* Asymmetric vertical rhythm: real breathing room above the eyebrow
-       so it lifts off the masthead hairline, but a tight gap below so
-       "Also in this issue" reads as a continued spread, not a new band. */
-    padding: clamp(2rem, 4vw, 4rem) 0 clamp(0.75rem, 1.25vw, 1.25rem);
-    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
+     CINEMA HERO — letterboxed editorial cover (2026-05-23)
+     Dark background creates top/bottom "bars" around a full-bleed film frame.
+     Bars collapse on first scroll (JS adds .is-open) so the image expands
+     edge-to-edge. Oversized Cormorant headline anchored to frame bottom-left.
+     ========================================================================= */
+
+  .cinema {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    min-height: 560px;
+    background: #0A0806;
+    color: #F6F1E8;
+    overflow: hidden;
   }
-  .cover__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(2.5rem, 5vw, 5rem);
-    align-items: center;
-  }
-  .cover__type {
-    min-width: 0;
-  }
-  .cover__meta {
+
+  /* Letterbox bars: top + bottom bands that bracket the film frame */
+  .cinema__bar {
+    flex-shrink: 0;
+    height: clamp(52px, 9vh, 100px);
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    margin: 0 0 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.16);
-    max-width: 26rem;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    overflow: hidden;
+    white-space: nowrap;
+    transition: height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.45s ease;
   }
-  .cover__chip {
+  .cinema__bar--top {
+    border-bottom: 1px solid rgba(246, 241, 232, 0.1);
+  }
+  .cinema__bar--bottom {
+    border-top: 1px solid rgba(246, 241, 232, 0.1);
+  }
+
+  /* Bars collapse when .is-open is added on scroll */
+  .cinema.is-open .cinema__bar--top,
+  .cinema.is-open .cinema__bar--bottom {
+    height: 0;
+    opacity: 0;
+  }
+
+  /* Bar typographic atoms */
+  .cinema__pub {
     font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 232, 0.92);
+  }
+  .cinema__season {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.58rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 232, 0.45);
+  }
+  .cinema__bar-dot {
+    color: rgba(246, 241, 232, 0.2);
+    font-size: 0.5rem;
+    flex-shrink: 0;
+  }
+  /* Spacer rule between identity and story label */
+  .cinema__bar-spacer {
+    flex: 1;
+    min-width: 1rem;
+    height: 1px;
+    background: rgba(246, 241, 232, 0.08);
+    display: block;
+    flex-shrink: 1;
+  }
+  .cinema__bar-spacer--tail {
+    flex: 0 0 1.5rem;
+  }
+  .cinema__chip {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.56rem;
     font-weight: 700;
     letter-spacing: 0.26em;
     text-transform: uppercase;
-    color: #A0541F;
+    color: #C4763A;
+    flex-shrink: 0;
   }
-  .cover__date,
-  .cover__hours {
+  .cinema__hours {
     font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.66rem;
-    font-weight: 500;
+    font-size: 0.56rem;
+    font-weight: 400;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.55);
+    color: rgba(246, 241, 232, 0.38);
+    flex-shrink: 0;
   }
-  .cover__dot {
-    color: rgba(23, 20, 19, 0.3);
-    font-size: 0.62rem;
+
+  /* Bottom bar: "also in this issue" */
+  .cinema__also-label {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 232, 0.38);
+    flex-shrink: 0;
   }
-  .cover__headline {
+  .cinema__also-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1.25rem;
+    border-left: 1px solid rgba(246, 241, 232, 0.1);
+    text-decoration: none;
+    flex-shrink: 0;
+    max-width: 32ch;
+    overflow: hidden;
+    transition: opacity 0.2s ease;
+  }
+  .cinema__also-item:hover { opacity: 0.65; }
+  .cinema__also-chip {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #C4763A;
+    flex-shrink: 0;
+  }
+  .cinema__also-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2.8rem, 6.2vw, 5.6rem);
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: rgba(246, 241, 232, 0.72);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .cinema__also-title em {
+    font-style: italic;
+    color: rgba(246, 241, 232, 0.72);
+  }
+  .cinema__all-link {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(246, 241, 232, 0.45);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+  .cinema__all-link:hover { color: rgba(246, 241, 232, 0.9); }
+
+  /* Film frame: flexes to fill the space between bars */
+  .cinema__frame {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Still image with dramatic Ken Burns drift */
+  .cinema__still {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center 38%;
+    animation: cinema-drift 16s ease-in-out infinite alternate;
+  }
+  @keyframes cinema-drift {
+    from { transform: scale(1.0);   }
+    to   { transform: scale(1.075); }
+  }
+
+  /* Gradient scrim: deep at the bottom for text legibility, fades to clear */
+  .cinema__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top,
+        rgba(10, 8, 6, 0.90) 0%,
+        rgba(10, 8, 6, 0.52) 26%,
+        rgba(10, 8, 6, 0.10) 56%,
+        transparent          100%);
+    pointer-events: none;
+  }
+
+  /* Copy: headline + dispatch + CTAs, pinned to frame bottom-left */
+  .cinema__copy {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+    z-index: 2;
+  }
+
+  .cinema__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3.8rem, 11vw, 10.5rem);
     font-weight: 500;
-    line-height: 0.96;
+    line-height: 0.9;
     letter-spacing: -0.025em;
-    color: #171413;
-    margin: 0 0 1.5rem;
-    max-width: 14ch;
+    color: #F6F1E8;
+    margin: 0 0 clamp(1rem, 2.5vw, 1.75rem);
+    max-width: none;
+    animation: cinema-enter 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
   }
-  .cover__headline em {
+  .cinema__headline em {
     font-style: italic;
-    font-weight: 500;
-    color: #A0541F;
+    color: #D4874A;
   }
-  .cover__dispatch {
+
+  .cinema__dispatch {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
-    font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+    font-size: clamp(1.0rem, 1.4vw, 1.28rem);
     line-height: 1.55;
-    color: rgba(23, 20, 19, 0.75);
-    margin: 0 0 2rem;
-    max-width: 42ch;
+    color: rgba(246, 241, 232, 0.8);
+    margin: 0 0 1.75rem;
+    max-width: 54ch;
+    animation: cinema-enter 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.50s both;
   }
-  .cover__ctas {
+
+  .cinema__ctas {
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: wrap;
+    animation: cinema-enter 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.70s both;
   }
-  .cover__cta {
+  .cinema__cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.95rem 1.6rem;
-    background: #171413;
-    color: #F6F1E8;
+    gap: 0.55rem;
+    padding: 0.9rem 1.6rem;
+    background: #F6F1E8;
+    color: #171413;
     font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
+    font-size: 0.7rem;
+    font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: background 0.25s ease;
     min-height: 44px;
+    transition: background 0.22s ease, color 0.22s ease;
   }
-  .cover__cta:hover {
-    background: #A0541F;
+  .cinema__cta:hover {
+    background: #D4874A;
+    color: #F6F1E8;
   }
-  .cover__ask-link {
+  .cinema__ask-link {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
     font-size: 1rem;
-    color: rgba(23, 20, 19, 0.6);
+    color: rgba(246, 241, 232, 0.6);
     text-decoration: none;
     padding: 0 0.4rem;
     margin-left: 0.5rem;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.22);
+    border-bottom: 1px solid rgba(246, 241, 232, 0.25);
     transition: color 0.2s ease, border-color 0.2s ease;
   }
-  .cover__ask-link:hover {
-    color: #171413;
-    border-bottom-color: rgba(23, 20, 19, 0.6);
-  }
-  .cover__visual {
-    margin: 0;
-    min-width: 0;
-    /* Page-scoped override: aspect-ratio is set here (and on the inner
-       frame) so the parent and frame match exactly. The 4/3 ratio set in
-       global.css for .cover__visual was leaving a sage-gradient strip
-       below the inner 3/2 frame on desktop. 4/5 portrait gives the image
-       enough vertical weight to balance the bold serif headline column
-       to its left. */
-    aspect-ratio: 4 / 5;
-  }
-  .cover__visual-frame {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 4 / 5;
-  }
-  .cover__visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transform: scale(1.01);
-    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .cover__visual:hover img {
-    transform: scale(1.04);
-  }
-  .cover__caption {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.55);
-    margin: 0.85rem 0 0;
-    text-align: right;
+  .cinema__ask-link:hover {
+    color: rgba(246, 241, 232, 0.92);
+    border-bottom-color: rgba(246, 241, 232, 0.6);
   }
 
-  /* ── Also in this issue ──────────────────────────────────────────────────
-     Static row of three secondary picks (no carousel). Sourced from the
-     rotation-bench scenes in the page frontmatter.
-     ────────────────────────────────────────────────────────────────────── */
-  .cover-also {
-    background: #FFFFFF;
-    /* Tightened top (was 1–1.5rem) so the strip reads as part of the
-       same spread as the cover, not a fresh band. */
-    padding: clamp(0.5rem, 1vw, 1rem) 0 clamp(2.5rem, 4.5vw, 4.5rem);
-    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
-  }
-  .cover-also__head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
-  }
-  .cover-also__label {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: #A0541F;
-    margin: 0;
-  }
-  .cover-also__link {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.66rem;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.65);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .cover-also__link:hover { color: #A0541F; }
-  .cover-also__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-  }
-  .cover-also__item {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .cover-also__item:hover {
-    transform: translateY(-3px);
-  }
-  .cover-also__thumb {
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    margin: 0 0 1rem;
-  }
-  .cover-also__thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .cover-also__item:hover .cover-also__thumb img {
-    transform: scale(1.04);
-  }
-  .cover-also__meta {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    margin: 0 0 0.55rem;
-  }
-  .cover-also__chip {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #A0541F;
-  }
-  .cover-also__hours {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.56rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.5);
-  }
-  .cover-also__headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.3rem, 1.8vw, 1.65rem);
-    font-weight: 500;
-    line-height: 1.18;
-    letter-spacing: -0.015em;
-    color: #171413;
-    margin: 0;
-    max-width: 22ch;
-  }
-  .cover-also__headline em {
-    font-style: italic;
-    color: #A0541F;
+  /* Entrance animation */
+  @keyframes cinema-enter {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0);    }
   }
 
-  /* ── Mobile ──────────────────────────────────────────────────────────── */
+  /* Responsive */
   @media (max-width: 900px) {
-    .cover__inner {
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-    }
-    /* Flip stack on mobile: photo leads, then type. Destination-guide
-       behaviour: a tourism visitor needs the place to land before they read.
-       Desktop keeps the type-leads composition. */
-    .cover__visual { order: 1; }
-    .cover__type   { order: 2; }
-    .cover__headline {
-      /* Bump min from 2.2rem to 2.625rem so the feature opener reads as a
-         feature opener on phones, not a card title. */
-      font-size: clamp(2.625rem, 11vw, 3.6rem);
-      line-height: 0.98;
-      max-width: none;
-    }
-    .cover__dispatch {
-      margin-bottom: 1.5rem;
-    }
-    /* Mobile: image leads the stack, so go landscape so it doesn't
-       dominate the viewport. Parent .cover__visual already overridden
-       to 16/9 by global.css at this breakpoint; match the frame. */
-    .cover__visual { aspect-ratio: 16 / 9; }
-    .cover__visual-frame {
-      aspect-ratio: 16 / 9;
-    }
-    .cover__caption {
-      text-align: left;
-    }
-    .cover-also__head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-    .cover-also__grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .cover-also__item {
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-    .cover-also__item:first-child {
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-    /* No thumbnails on mobile — text-only strip keeps the three picks
-       compact and avoids three full-width images before the fold. */
-    .cover-also__thumb {
-      display: none;
-    }
+    /* Secondary stories in bottom bar hidden on tablet/mobile */
+    .cinema__also-item { display: none; }
+    .cinema__bar--bottom { justify-content: space-between; }
+    /* Top bar: show pub name only — hide separators and secondary tokens */
+    .cinema__season,
+    .cinema__chip,
+    .cinema__hours,
+    .cinema__bar-dot,
+    .cinema__bar-spacer { display: none; }
+  }
+  @media (max-width: 640px) {
+    .cinema__dispatch { display: none; }
+    .cinema__bar { padding: 0 1.25rem; }
+    .cinema__copy { padding: 2rem 1.25rem; }
   }
 
-  /* ── Entrance choreography (first paint) ─────────────────────────────── */
-  @keyframes cover-enter {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .cover__meta,
-  .cover__headline,
-  .cover__dispatch,
-  .cover__ctas,
-  .cover__visual {
-    animation: cover-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  .cover__visual   { animation-delay: 0.10s; }
-  .cover__meta     { animation-delay: 0.18s; }
-  .cover__headline { animation-delay: 0.32s; }
-  .cover__dispatch { animation-delay: 0.52s; }
-  .cover__ctas     { animation-delay: 0.70s; }
+  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .cover__meta,
-    .cover__headline,
-    .cover__dispatch,
-    .cover__ctas,
-    .cover__visual { animation: none; }
+    .cinema__still {
+      animation: none;
+      transform: scale(1.04);
+    }
+    .cinema__headline,
+    .cinema__dispatch,
+    .cinema__ctas { animation: none; }
+    .cinema__bar,
+    .cinema.is-open .cinema__bar--top,
+    .cinema.is-open .cinema__bar--bottom { transition: none; }
   }
 
 
@@ -1204,7 +1144,20 @@ export const prerender = true;
   }
 </style>
 
-{/* Hero rotator is active — see <script define:vars=... /> block above
-   <NewsletterBlock />. Advances one scene every 5 minutes using the CSS
-   opacity transitions already on .cinema-scene / .cinema-copy.
-   To add/remove scenes: edit the `scenes` array in the frontmatter above. */}
+<script>
+  /* Cinema letterbox: collapse bars on first scroll so the image fills edge-to-edge. */
+  (function () {
+    const cinema = document.querySelector('.cinema');
+    if (!cinema) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const update = () => {
+      if (window.scrollY > 30) {
+        cinema.classList.add('is-open');
+      } else {
+        cinema.classList.remove('is-open');
+      }
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }());
+</script>
