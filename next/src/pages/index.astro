@@ -320,10 +320,11 @@ try {
   console.error('[homepage] Sanity cover fetch failed, falling back to static cover:', err);
 }
 
-// Local-image override: when scenes[0] references a /images/ path it wins
-// over the Sanity CDN URL, so the cover can be swapped via code without a
-// Studio edit. Sanity still controls text fields; only the image is overridden.
-if (activeScene.image.startsWith('/images/')) {
+// Local-image override: only applies when Sanity returned no cover data.
+// If Sanity has a cover, Sanity wins — editors control the image via the
+// right-click admin overlay and patches land on homepageCover.scenes[N].image.
+// The hardcoded /images/ path in scenes[] acts as a build-time fallback only.
+if (sanityActiveSceneIndex === null && activeScene.image.startsWith('/images/')) {
   ssrScene = { ...ssrScene, image: activeScene.image, imageAlt: activeScene.imageAlt, caption: activeScene.caption };
 }
 
