@@ -143,6 +143,18 @@ export async function fetchTourOperatorFromSanity(slug: string) {
   }
 }
 
+const allTourOperatorsListQuery = `*[_type == "tourOperator" && !(_id in path("drafts.**"))] | order(name asc){
+  "slug": slug.current, name, intro, operatorType
+}`
+
+export async function fetchAllTourOperatorsFromSanity(): Promise<Array<{id: string; data: {slug: string; name: string; intro: string; operatorType: string}}>> {
+  const docs: any[] = await sanityClient.fetch(allTourOperatorsListQuery)
+  return docs.map((d) => ({
+    id: d.slug,
+    data: { slug: d.slug, name: d.name ?? '', intro: d.intro ?? '', operatorType: d.operatorType ?? '' },
+  }))
+}
+
 // ── Tour ────────────────────────────────────────────────────────────────
 const tourQuery = `*[_type == "tour" && slug.current == $slug][0]{
   _id, name, "slug": slug.current, intro, whatHappens, whoSuits,
@@ -155,6 +167,18 @@ const tourQuery = `*[_type == "tour" && slug.current == $slug][0]{
   faq[]{question, answer},
   heroImage ${img}
 }`
+
+const allToursListQuery = `*[_type == "tour" && !(_id in path("drafts.**"))] | order(name asc){
+  "slug": slug.current, name, intro, experienceType
+}`
+
+export async function fetchAllToursFromSanity(): Promise<Array<{id: string; data: {slug: string; name: string; intro: string; experienceType: string}}>> {
+  const docs: any[] = await sanityClient.fetch(allToursListQuery)
+  return docs.map((d) => ({
+    id: d.slug,
+    data: { slug: d.slug, name: d.name ?? '', intro: d.intro ?? '', experienceType: d.experienceType ?? '' },
+  }))
+}
 
 export async function fetchTourFromSanity(slug: string) {
   const d: any = await sanityClient.fetch(tourQuery, {slug})
@@ -243,6 +267,18 @@ export async function fetchTourPackageFromSanity(slug: string) {
       publishedAt: new Date(d.publishedAt),
     },
   }
+}
+
+const allTourPackagesListQuery = `*[_type == "tourPackage" && !(_id in path("drafts.**"))] | order(name asc){
+  "slug": slug.current, name, intro, occasion, audience
+}`
+
+export async function fetchAllTourPackagesFromSanity(): Promise<Array<{id: string; data: {slug: string; name: string; intro: string; occasion: string; audience: string}}>> {
+  const docs: any[] = await sanityClient.fetch(allTourPackagesListQuery)
+  return docs.map((d) => ({
+    id: d.slug,
+    data: { slug: d.slug, name: d.name ?? '', intro: d.intro ?? '', occasion: d.occasion ?? '', audience: d.audience ?? '' },
+  }))
 }
 
 /**
