@@ -140,7 +140,7 @@ function adapt(doc: SanityPlace): AdaptedPlace {
         docType: 'place',
         path: 'heroImage',
       }),
-      relatedPlaces: (doc.relatedPlaces ?? []).map((r) => ({
+      relatedPlaces: (doc.relatedPlaces ?? []).filter((r): r is NonNullable<typeof r> => r != null && Boolean(r.slug)).map((r) => ({
         id: r.slug,
         collection: 'places' as const,
       })),
