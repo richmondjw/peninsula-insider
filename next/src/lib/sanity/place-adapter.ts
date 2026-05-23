@@ -161,5 +161,5 @@ export async function fetchPlaceFromSanity(slug: string): Promise<AdaptedPlace |
  */
 export async function fetchAllPlacesFromSanity(): Promise<AdaptedPlace[]> {
   const docs = (await sanityClient.fetch(allPlacesQuery)) as SanityPlace[]
-  return (docs ?? []).map(adapt)
+  return (docs ?? []).filter((d) => d?.slug).map(adapt)
 }
