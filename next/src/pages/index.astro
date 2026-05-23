@@ -207,9 +207,9 @@ const scenes: Scene[] = [
     id: 'flinders-weekend',
     label: 'SLOW PENINSULA',
     hours: '7 MIN READ',
-    image: '/images/sourced/home-cover-sorrento-pier-01.jpg',
-    imageAlt: 'Sorrento pier extending into the calm bay, boats moored in blue water, viewed from the coastal hillside above',
-    caption: 'Sorrento, Port Phillip Bay',
+    image: '/images/sourced/home-cover-flinders-pier-steps-01.jpg',
+    imageAlt: 'Wooden boardwalk steps descending through coastal scrub toward Flinders pier and the calm waters of Western Port Bay',
+    caption: 'Flinders, Western Port Bay',
     headline: 'The <em>other</em> Peninsula weekend.',
     dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, Flinders offers another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.',
     primaryHref: '/journal/a-flinders-weekend/',
@@ -318,6 +318,13 @@ try {
   }
 } catch (err) {
   console.error('[homepage] Sanity cover fetch failed, falling back to static cover:', err);
+}
+
+// Local-image override: when scenes[0] references a /images/ path it wins
+// over the Sanity CDN URL, so the cover can be swapped via code without a
+// Studio edit. Sanity still controls text fields; only the image is overridden.
+if (activeScene.image.startsWith('/images/')) {
+  ssrScene = { ...ssrScene, image: activeScene.image, imageAlt: activeScene.imageAlt, caption: activeScene.caption };
 }
 
 // Editorial meta line: cover-essay date. Hardcoded for the prototype;
