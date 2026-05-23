@@ -108,9 +108,11 @@ const ogImage = experience.data.heroImage?.src && !experience.data.heroImage.src
   : '/images/sourced/home-cover.webp';
 
 // Truncate editor note to ~155 chars
-const description = experience.data.editorNote.length > 155
-  ? experience.data.editorNote.slice(0, 152) + '...'
-  : experience.data.editorNote;
+const description = experience.data.editorNote
+  ? experience.data.editorNote.length > 155
+    ? experience.data.editorNote.slice(0, 152) + '...'
+    : experience.data.editorNote
+  : '';
 
 // Schema.org type mapping: specific types get richer markup
 const schemaTypeMap: Record<string, string | string[]> = {

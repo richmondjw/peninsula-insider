@@ -67,7 +67,7 @@ export const prerender = true;
 ---
 <BaseLayout
   title={`${place.data.name} Guide — Things to Do, Eat & Stay | Peninsula Insider`}
-  description={place.data.intro.length > 155 ? place.data.intro.slice(0, 152) + '...' : place.data.intro}
+  description={place.data.intro ? (place.data.intro.length > 155 ? place.data.intro.slice(0, 152) + '...' : place.data.intro) : ''}
   section=""
   ogImage={place.data.heroImage?.src}
 >

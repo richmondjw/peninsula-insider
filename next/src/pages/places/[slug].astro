@@ -190,9 +190,11 @@ const pageTitle = titleOverrides[placeSlug] ?? `${place.data.name} Guide — Thi
 // 2. Factual lede (one-sentence, schema-friendly, AI-extractable) — added 2026-05-10 per Operational Definitions v1.2 Evergreen rule
 // 3. Truncated intro (legacy fallback for places without a factual lede yet)
 const description = descOverrides[placeSlug] ?? place.data.factualLede ?? (
-  place.data.intro.length > 155
-    ? place.data.intro.slice(0, 152) + '...'
-    : place.data.intro
+  place.data.intro
+    ? place.data.intro.length > 155
+      ? place.data.intro.slice(0, 152) + '...'
+      : place.data.intro
+    : ''
 );
 
 // --- SEO: Per-town FAQ schema ---
