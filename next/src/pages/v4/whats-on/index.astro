@@ -47,7 +47,7 @@ const nextWeekendEvents = events.filter((event) => {
   return end >= upcomingWeekendStart;
 });
 
-const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.includes('weekend-pick')).slice(0, 3);
+const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens?.includes('weekend-pick')).slice(0, 3);
 const skipEvents = events.filter((event) => event.data.skipThis);
 
 const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [
@@ -80,7 +80,7 @@ const lensOrder: Array<{ key: string; label: string; note: string }> = [
 ];
 
 const lensCounts = Object.fromEntries(
-  lensOrder.map((lens) => [lens.key, nextWeekendEvents.filter((e) => e.data.lens.includes(lens.key as any)).length])
+  lensOrder.map((lens) => [lens.key, nextWeekendEvents.filter((e) => e.data.lens?.includes(lens.key as any)).length])
 ) as Record<string, number>;
 
 const totalEvents = events.length;
@@ -356,7 +356,7 @@ export const prerender = true;
        6. PER-LENS GRIDS
        ═══════════════════════════════════════════════════════════════ -->
   {lensOrder.filter((lens) => lens.key !== 'weekend-pick' && lensCounts[lens.key] > 0).map((lens) => {
-    const lensEvents = nextWeekendEvents.filter((event) => event.data.lens.includes(lens.key as any));
+    const lensEvents = nextWeekendEvents.filter((event) => event.data.lens?.includes(lens.key as any));
     return (
       <section class="venues venues--plain" id={`lens-${lens.key}`}>
         <div class="container">

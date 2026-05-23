@@ -53,7 +53,7 @@ const upcomingWeekendStart = dispatchWindow.start;
 const upcomingWeekendEnd = dispatchWindow.end;
 const weekendPicks = eventsAll
   .filter((event) => {
-    if (!event.data.lens.includes('weekend-pick' as any)) return false;
+    if (!event.data.lens?.includes('weekend-pick' as any)) return false;
     const start = event.data.startDate;
     if (start > upcomingWeekendEnd) return false; // starts after this weekend
     // 'seasonal' events have explicit end dates and must not be treated as always in-window.

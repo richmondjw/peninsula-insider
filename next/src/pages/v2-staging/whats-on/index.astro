@@ -37,7 +37,7 @@ const nextWeekendEvents = events.filter((event) => {
   return end >= upcomingWeekendStart;
 });
 
-const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens.includes('weekend-pick' as any)).slice(0, 3);
+const editorsPicks = nextWeekendEvents.filter((event) => event.data.lens?.includes('weekend-pick' as any)).slice(0, 3);
 const skipEvents = events.filter((event) => event.data.skipThis);
 
 const categoryOrder: Array<{ key: string; title: string; blurb: string }> = [

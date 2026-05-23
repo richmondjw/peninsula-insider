@@ -68,7 +68,7 @@ const eventsAll = (await getCollection('events'))
   .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime());
 const weekendEvents = eventsAll
   .filter((e) => {
-    if (!e.data.lens.includes('weekend-pick' as any)) return false;
+    if (!e.data.lens?.includes('weekend-pick' as any)) return false;
     const start = e.data.startDate;
     if (start > dispatchWindow.end) return false;
     const isRecurring = ['weekly', 'monthly', 'ongoing'].includes(e.data.recurrence as string);
