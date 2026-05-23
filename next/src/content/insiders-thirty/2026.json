@@ -1,45 +1,195 @@
 {
   "year": 2026,
   "publishedAt": "2026-05-05",
-  "editorialFraming": "Thirty venues across the Mornington Peninsula that defined the year. Cross-category, ranked, editor-selected. The cuts are hard by design — the point of thirty is that thirty has to mean something. Updated annually each May.",
-  "editorsLetter": "The Insider's 30 is the Peninsula Insider editorial desk's annual answer to a single question: if you could only point a friend at thirty places on the Mornington Peninsula in a year, which thirty? It sits across categories deliberately. A Walk of the Year that rivals the Restaurant of the Year is the Peninsula's whole proposition. Selections are editorial — visited, verified, and cross-checked against the year's reader feedback. There is no paid placement, ever. The list updates the first weekend of May each year and stays current at /insiders-30/ until then.",
+  "editorialFraming": "Thirty venues across the Mornington Peninsula that defined the year. Cross-category, ranked, editor-selected. The cuts are hard by design \u2014 the point of thirty is that thirty has to mean something. Updated annually each May.",
+  "editorsLetter": "The Insider's 30 is the Peninsula Insider editorial desk's annual answer to a single question: if you could only point a friend at thirty places on the Mornington Peninsula in a year, which thirty? It sits across categories deliberately. A Walk of the Year that rivals the Restaurant of the Year is the Peninsula's whole proposition. Selections are editorial \u2014 visited, verified, and cross-checked against the year's reader feedback. There is no paid placement, ever. The list updates the first weekend of May each year and stays current at /insiders-30/ until then.",
   "heroImage": {
     "src": "/images/sourced/home-cover.webp",
-    "alt": "The Mornington Peninsula at sunset — the year's defining places",
+    "alt": "The Mornington Peninsula at sunset \u2014 the year's defining places",
     "credit": "Peninsula Insider",
     "license": "venue-media-kit"
   },
   "picks": [
-    { "rank": 1,  "venue": "tedesca-osteria",          "category": "eat",    "blurb": "The single dining room that justified the most weekend drives in 2026. Fire-led, regionally rooted, and confident enough to keep the menu tight." },
-    { "rank": 2,  "venue": "ten-minutes-by-tractor",   "category": "wine",   "blurb": "The cellar door + dining room hybrid the rest of the ridge measures itself against. A masterclass in pacing." },
-    { "rank": 3,  "venue": "montalto",                  "category": "wine",   "blurb": "The long-lunch room that scales without losing the plot. The grounds, the Piazza, the tasting bar — every door is a different right answer." },
-    { "rank": 4,  "venue": "pt-leo-estate",            "category": "wine",   "blurb": "Sculpture park, hatted dining, casual deck — the Peninsula's most layered single property." },
-    { "rank": 5,  "venue": "jackalope",                 "category": "stay",   "blurb": "Architectural confidence the rest of the region rarely matches. Worth the splurge for the right occasion." },
-    { "rank": 6,  "venue": "barragunda-dining",        "category": "eat",    "blurb": "Two-hatted, ridge-quiet, and cooking with the conviction of a kitchen that has nothing to prove." },
-    { "rank": 7,  "venue": "laura-pt-leo",             "category": "eat",    "blurb": "The Pt Leo Estate fine-dining room that earns the price with technique and produce in equal measure." },
-    { "rank": 8,  "venue": "polperro",                  "category": "wine",   "blurb": "Red Hill cellar door + restaurant whose pinot is the benchmark and whose room is the unfussiest serious dining on the ridge." },
-    { "rank": 9,  "venue": "paringa-estate",           "category": "wine",   "blurb": "The estate that taught the Peninsula how to do long lunches well. Still does." },
-    { "rank": 10, "venue": "foxeys-hangout",           "category": "wine",   "blurb": "Walk-in, hand-poured, no-bookings energy — the Peninsula at its most conversational." },
-    { "rank": 11, "venue": "alba-thermal-springs",     "category": "wellness", "blurb": "The thermal complex that found its architectural confidence and built the day around the soak." },
-    { "rank": 12, "venue": "peninsula-hot-springs",    "category": "wellness", "blurb": "The category's senior — sprawling, ritual-led, and still a singular Peninsula day out." },
-    { "rank": 13, "venue": "hotel-sorrento",           "category": "stay",   "blurb": "The bay-side classic that re-earned its place this year through quiet rooms and a kitchen with new edges." },
-    { "rank": 14, "venue": "continental-sorrento",     "category": "stay",   "blurb": "The Sorrento heritage stay that came back. Bones, light, and the right kind of restraint." },
-    { "rank": 15, "venue": "flinders-hotel",           "category": "stay",   "blurb": "The pub-with-rooms model done right. A counter meal and a window seat is the entire Peninsula in one." },
-    { "rank": 16, "venue": "bass-and-flinders",        "category": "wine",   "blurb": "Distillery whose gin botanical walks and tasting flights doubled as a Peninsula geography lesson." },
-    { "rank": 17, "venue": "garagiste",                "category": "wine",   "blurb": "Small-producer cellar door that's quietly become the Saturday afternoon people compare other Saturday afternoons to." },
-    { "rank": 18, "venue": "doot-doot-doot",            "category": "eat",    "blurb": "Jackalope's signature room where the design and the menu finally converged in 2026. Worth the ride to the bottom of the ridge." },
-    { "rank": 19, "venue": "stillwater-at-crittenden",  "category": "wine",   "blurb": "Lakeside winery dining that punches above its postcode and stays bookable on a normal Saturday." },
-    { "rank": 20, "venue": "willow-creek-vineyard",    "category": "wine",   "blurb": "Rare Hare's casual energy plus a cellar door doing the work — the Peninsula's quiet all-rounder." },
-    { "rank": 21, "venue": "stonier-wines",             "category": "wine",   "blurb": "The cellar door whose chardonnay is the regional benchmark and whose tasting room is the most thoughtful in Merricks." },
-    { "rank": 22, "venue": "yabby-lake",                "category": "wine",   "blurb": "Single-block expressions of pinot and chardonnay; a tasting that makes the rest of the day taste different." },
-    { "rank": 23, "venue": "main-ridge-estate",        "category": "wine",   "blurb": "The Peninsula's foundational pinot grower; appointment-only, family-run, and unimpeachable." },
-    { "rank": 24, "venue": "red-hill-estate",          "category": "wine",   "blurb": "The all-weather Red Hill anchor whose deck is the photograph everyone's family shared in 2026." },
-    { "rank": 25, "venue": "commonfolk-coffee",        "category": "eat",    "blurb": "The Mornington roaster + café whose breakfast plates have stayed honest as the rest of the bay polished up." },
-    { "rank": 26, "venue": "balnarring-bakehouse",      "category": "eat",    "blurb": "The mid-Peninsula bakery doing the small-town work the cellar doors quietly depend on." },
-    { "rank": 27, "venue": "flinders-sourdough",       "category": "eat",    "blurb": "A bakery, but in the way that defines whether a village has gravity. Flinders does." },
-    { "rank": 28, "venue": "red-hill-cheese",          "category": "producer", "blurb": "A producer-as-day-out that the cellar-door circuit folds around. The cheese alone justifies the loop." },
-    { "rank": 29, "venue": "sunny-ridge-strawberry-farm", "category": "experience", "blurb": "Family-grade A; pick-your-own that doubles as the children's most-shared Peninsula memory of the year." },
-    { "rank": 30, "venue": "moonah-links",              "category": "experience", "blurb": "The 36-hole resort whose course conditioning and staff attention put it in serious-golf-trip territory." }
+    {
+      "rank": 1,
+      "venue": "tedesca-osteria",
+      "category": "eat",
+      "blurb": "The single dining room that justified the most weekend drives in 2026. Fire-led, regionally rooted, and confident enough to keep the menu tight."
+    },
+    {
+      "rank": 2,
+      "venue": "ten-minutes-by-tractor",
+      "category": "wine",
+      "blurb": "The cellar door + dining room hybrid the rest of the ridge measures itself against. A masterclass in pacing."
+    },
+    {
+      "rank": 3,
+      "venue": "montalto",
+      "category": "wine",
+      "blurb": "The long-lunch room that scales without losing the plot. The grounds, the Piazza, the tasting bar \u2014 every door is a different right answer."
+    },
+    {
+      "rank": 4,
+      "venue": "pt-leo-estate",
+      "category": "wine",
+      "blurb": "Sculpture park, hatted dining, casual deck \u2014 the Peninsula's most layered single property."
+    },
+    {
+      "rank": 5,
+      "venue": "jackalope",
+      "category": "stay",
+      "blurb": "Architectural confidence the rest of the region rarely matches. Worth the splurge for the right occasion."
+    },
+    {
+      "rank": 6,
+      "venue": "barragunda-dining",
+      "category": "eat",
+      "blurb": "Two-hatted, ridge-quiet, and cooking with the conviction of a kitchen that has nothing to prove."
+    },
+    {
+      "rank": 7,
+      "venue": "laura-pt-leo",
+      "category": "eat",
+      "blurb": "The Pt Leo Estate fine-dining room that earns the price with technique and produce in equal measure."
+    },
+    {
+      "rank": 8,
+      "venue": "polperro",
+      "category": "wine",
+      "blurb": "Red Hill cellar door + restaurant whose pinot is the benchmark and whose room is the unfussiest serious dining on the ridge."
+    },
+    {
+      "rank": 9,
+      "venue": "paringa-estate",
+      "category": "wine",
+      "blurb": "The estate that taught the Peninsula how to do long lunches well. Still does."
+    },
+    {
+      "rank": 10,
+      "venue": "foxeys-hangout",
+      "category": "wine",
+      "blurb": "Walk-in, hand-poured, no-bookings energy \u2014 the Peninsula at its most conversational."
+    },
+    {
+      "rank": 11,
+      "venue": "alba-thermal-springs",
+      "category": "wellness",
+      "blurb": "The thermal complex that found its architectural confidence and built the day around the soak."
+    },
+    {
+      "rank": 12,
+      "venue": "peninsula-hot-springs",
+      "category": "wellness",
+      "blurb": "The category's senior \u2014 sprawling, ritual-led, and still a singular Peninsula day out."
+    },
+    {
+      "rank": 13,
+      "venue": "hotel-sorrento",
+      "category": "stay",
+      "blurb": "The bay-side classic that re-earned its place this year through quiet rooms and a kitchen with new edges."
+    },
+    {
+      "rank": 14,
+      "venue": "continental-sorrento",
+      "category": "stay",
+      "blurb": "The Sorrento heritage stay that came back. Bones, light, and the right kind of restraint."
+    },
+    {
+      "rank": 15,
+      "venue": "flinders-hotel",
+      "category": "stay",
+      "blurb": "The pub-with-rooms model done right. A counter meal and a window seat is the entire Peninsula in one."
+    },
+    {
+      "rank": 16,
+      "venue": "bass-and-flinders",
+      "category": "wine",
+      "blurb": "Distillery whose gin botanical walks and tasting flights doubled as a Peninsula geography lesson."
+    },
+    {
+      "rank": 17,
+      "venue": "garagiste",
+      "category": "wine",
+      "blurb": "Small-producer cellar door that's quietly become the Saturday afternoon people compare other Saturday afternoons to."
+    },
+    {
+      "rank": 18,
+      "venue": "doot-doot-doot",
+      "category": "eat",
+      "blurb": "Jackalope's signature room where the design and the menu finally converged in 2026. Worth the ride to the bottom of the ridge."
+    },
+    {
+      "rank": 19,
+      "venue": "crittenden-restaurant",
+      "category": "wine",
+      "blurb": "Lakeside winery dining that punches above its postcode and stays bookable on a normal Saturday."
+    },
+    {
+      "rank": 20,
+      "venue": "willow-creek-vineyard",
+      "category": "wine",
+      "blurb": "Rare Hare's casual energy plus a cellar door doing the work \u2014 the Peninsula's quiet all-rounder."
+    },
+    {
+      "rank": 21,
+      "venue": "stonier-wines",
+      "category": "wine",
+      "blurb": "The cellar door whose chardonnay is the regional benchmark and whose tasting room is the most thoughtful in Merricks."
+    },
+    {
+      "rank": 22,
+      "venue": "yabby-lake",
+      "category": "wine",
+      "blurb": "Single-block expressions of pinot and chardonnay; a tasting that makes the rest of the day taste different."
+    },
+    {
+      "rank": 23,
+      "venue": "main-ridge-estate",
+      "category": "wine",
+      "blurb": "The Peninsula's foundational pinot grower; appointment-only, family-run, and unimpeachable."
+    },
+    {
+      "rank": 24,
+      "venue": "red-hill-estate",
+      "category": "wine",
+      "blurb": "The all-weather Red Hill anchor whose deck is the photograph everyone's family shared in 2026."
+    },
+    {
+      "rank": 25,
+      "venue": "commonfolk-coffee",
+      "category": "eat",
+      "blurb": "The Mornington roaster + caf\u00e9 whose breakfast plates have stayed honest as the rest of the bay polished up."
+    },
+    {
+      "rank": 26,
+      "venue": "balnarring-bakehouse",
+      "category": "eat",
+      "blurb": "The mid-Peninsula bakery doing the small-town work the cellar doors quietly depend on."
+    },
+    {
+      "rank": 27,
+      "venue": "flinders-sourdough",
+      "category": "eat",
+      "blurb": "A bakery, but in the way that defines whether a village has gravity. Flinders does."
+    },
+    {
+      "rank": 28,
+      "venue": "red-hill-cheese",
+      "category": "producer",
+      "blurb": "A producer-as-day-out that the cellar-door circuit folds around. The cheese alone justifies the loop."
+    },
+    {
+      "rank": 29,
+      "venue": "sunny-ridge-strawberry-farm",
+      "category": "experience",
+      "blurb": "Family-grade A; pick-your-own that doubles as the children's most-shared Peninsula memory of the year."
+    },
+    {
+      "rank": 30,
+      "venue": "moonah-links",
+      "category": "experience",
+      "blurb": "The 36-hole resort whose course conditioning and staff attention put it in serious-golf-trip territory."
+    }
   ],
   "sitemapExclude": false
 }

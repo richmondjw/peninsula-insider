@@ -26,7 +26,7 @@ clusterLinks:
     href: "/journal/three-italian-dinners/"
 faq:
   - question: "When does Red Hill Truffles open for 2026?"
-    answer: "Red Hill Truffles' Périgord black truffle season runs from Saturday 30 May 2026 through to the end of September. The hunt and pizza option ($189pp, 3 hours) is the most flexible on lead time. The two premium hunts — Truffle Hunt × Max's at Red Hill Estate ($217pp, includes a two-course lunch) and Truffle Hunt & Gourmet Lunch at The Epicurean Red Hill ($195pp) — book out four to six weeks ahead and should be locked in this week if you want a June or July date."
+    answer: "Red Hill Truffles' Périgord black truffle season runs from Saturday 30 May 2026 through to the end of September. The hunt and pizza option ($189pp, 3 hours) is the most flexible on lead time. The two premium hunts — Truffle Hunt × Red Hill Estate Restaurant ($199 adults, includes a two-course truffle lunch) and Truffle Hunt & Gourmet Lunch at The Epicurean Red Hill ($195pp) — book out four to six weeks ahead and should be locked in this week if you want a June or July date."
   - question: "What is on at Peninsula Hot Springs on Thursday nights in May 2026?"
     answer: "Bathe-in Cinema runs Thursday evenings at the Peninsula Hot Springs amphitheatre pool throughout May, June, and July 2026. You watch the film from inside a thermal pool. A bathing-session ticket is required; the amphitheatre fills early; check the PHS events page for the week's film. Better in mid-autumn and winter than it is in summer — the cold air is the point."
 ---
@@ -41,7 +41,7 @@ Four picks. One for this week, one for tonight, one for whichever afternoon you 
 
 This is the only genuinely time-sensitive pick on the list.
 
-Red Hill Truffles runs three public hunt formats through the Périgord season. The Truffle Hunt and Pizza option, three hours, $189 per person, is the forgiving one and tends to have availability into the season. The two we'd actually book — Truffle Hunt × Max's Restaurant at Red Hill Estate at $217 per person, and Truffle Hunt and Gourmet Lunch at The Epicurean Red Hill at $195 per person — fill four to six weeks ahead. June Saturdays are already tight. July long-weekend dates almost always go first.
+Red Hill Truffles runs three public hunt formats through the Périgord season. The Truffle Hunt and Pizza option, three hours, $189 per person, is the forgiving one and tends to have availability into the season. The two we'd actually book — Truffle Hunt × Red Hill Estate Restaurant at $199 per person, and Truffle Hunt and Gourmet Lunch at The Epicurean Red Hill at $195 per person — fill four to six weeks ahead. June Saturdays are already tight. July long-weekend dates almost always go first.
 
 If you want a hunt during the King's Birthday weekend (5 to 8 June), book this week. After Sunday it stops being a choice and starts being a question of what is left.
 
