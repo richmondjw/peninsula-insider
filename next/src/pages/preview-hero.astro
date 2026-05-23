@@ -350,7 +350,7 @@ export const prerender = true;
                 <li>
                   <a href={`/explore/${routeSlug(experience)}`}>
                     <span class="seasonal-shelf__name">{experience.data.name}</span>
-                    <span class="seasonal-shelf__note">{experience.data.editorNote.split('.').slice(0, 1).join('.')}</span>
+                    <span class="seasonal-shelf__note">{experience.data.editorNote?.split('.')[0] ?? ''}</span>
                   </a>
                 </li>
               ))}
