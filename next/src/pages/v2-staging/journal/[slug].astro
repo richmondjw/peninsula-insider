@@ -5,9 +5,8 @@ import V2ArticleDetail from '../../../components/v2/V2ArticleDetail.astro';
 import NewsletterBlock from '../../../components/v2/NewsletterBlock.astro';
 import { routeSlug } from '../../../lib/editorial';
 
-const STATIC_V2_JOURNAL_OVERRIDES = new Set(['free-things-to-do-mornington-peninsula']);
-
 export async function getStaticPaths() {
+  const STATIC_V2_JOURNAL_OVERRIDES = new Set(['free-things-to-do-mornington-peninsula']);
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
   return articles
     .filter((article) => !STATIC_V2_JOURNAL_OVERRIDES.has(routeSlug(article)))

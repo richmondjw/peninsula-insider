@@ -21,23 +21,20 @@ import { sanityReadEnabled } from '../../lib/sanity/client';
 import { fetchArticleFromSanity, extractHeadingsFromPT } from '../../lib/sanity/article-adapter';
 import PortableTextBody from '../../components/PortableTextBody.astro';
 
-// Slugs that have a dedicated static .astro page in /journal/ — exclude from
-// [slug].astro to avoid Astro "conflicts with higher priority route" warnings.
-const STATIC_JOURNAL_OVERRIDES = new Set([
-  'best-golf-courses-mornington-peninsula',
-  'best-spas-mornington-peninsula',
-  'free-things-to-do-mornington-peninsula',
-  'mornington-peninsula-beach-guide',
-  'mornington-peninsula-golf-guide',
-  'the-dog-friendly-peninsula',
-  'the-peninsula-beach-swimming-guide',
-  'the-peninsula-with-kids',
-  'the-rainy-day-peninsula-without-a-booking',
-  'things-to-do-mornington-peninsula',
-  'where-to-stay-mornington-peninsula',
-]);
-
 export async function getStaticPaths() {
+  const STATIC_JOURNAL_OVERRIDES = new Set([
+    'best-golf-courses-mornington-peninsula',
+    'best-spas-mornington-peninsula',
+    'free-things-to-do-mornington-peninsula',
+    'mornington-peninsula-beach-guide',
+    'mornington-peninsula-golf-guide',
+    'the-dog-friendly-peninsula',
+    'the-peninsula-beach-swimming-guide',
+    'the-peninsula-with-kids',
+    'the-rainy-day-peninsula-without-a-booking',
+    'things-to-do-mornington-peninsula',
+    'where-to-stay-mornington-peninsula',
+  ]);
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
   return articles
     .filter((article) => !STATIC_JOURNAL_OVERRIDES.has(routeSlug(article)))
