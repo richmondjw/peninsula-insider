@@ -187,6 +187,47 @@ const venues = defineCollection({
      * Google profile with current open/closed state and live hours.
      */
     liveStatusUrl: z.string().url().optional(),
+    /**
+     * Editorial recommendation layer — replaces thin directory-style copy.
+     * whyWeGo:     One-line insider positioning statement (leads the page).
+     * bestFor:     Short audience/mood tags for the Worth Knowing panel.
+     * ifOnlyOneThing: Single best-bet recommendation.
+     * pairWith:    Nearby or complementary venues to combine with.
+     */
+    whyWeGo: z.string().optional(),
+    bestFor: z.array(z.string()).optional(),
+    ifOnlyOneThing: z.string().optional(),
+    pairWith: z.array(z.string()).optional(),
+    /**
+     * Worth Knowing panel — quick-scan trust layer.
+     * Structured fields that surface on the venue page as a scannable
+     * recommendation panel. All optional; panel renders only when at
+     * least one field is present.
+     */
+    worthKnowing: z.object({
+      bestSeason: z.string().optional(),
+      timing: z.string().optional(),
+      atmosphere: z.string().optional(),
+      worksWellWith: z.array(z.string()).optional(),
+      goodFor: z.array(z.string()).optional(),
+      lessIdealFor: z.string().optional(),
+    }).optional(),
+    /**
+     * Seasonal intelligence — optional per-season guidance blocks.
+     * Rendered as a section on the venue page when present.
+     * Keys: autumn | winter | spring | summer
+     */
+    seasonalNotes: z.object({
+      autumn: z.string().optional(),
+      winter: z.string().optional(),
+      spring: z.string().optional(),
+      summer: z.string().optional(),
+    }).optional(),
+    /**
+     * Venue status — for closed/paused venues.
+     * Omit for active venues (defaults to active).
+     */
+    status: z.enum(['active', 'closed', 'paused', 'seasonal']).default('active'),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
