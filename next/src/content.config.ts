@@ -227,7 +227,7 @@ const venues = defineCollection({
      * Venue status — for closed/paused venues.
      * Omit for active venues (defaults to active).
      */
-    status: z.enum(['active', 'closed', 'paused', 'seasonal']).default('active'),
+    status: z.enum(['active', 'closed', 'paused', 'seasonal', 'permanently_closed']).default('active'),
     publishedAt: z.coerce.date(),
     sitemapExclude: z.boolean().default(false),
   }),
