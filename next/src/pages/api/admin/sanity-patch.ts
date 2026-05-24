@@ -208,13 +208,20 @@ export const POST: APIRoute = async ({ request }) => {
     return badRequest('Invalid fieldPath');
   }
 
-  // ── Page-entity route: write to Supabase image_slots, not Sanity ─────────
-  // Page-level images (homepage cover, editor's letter, etc.) are stored in
-  // Supabase cms_image_slots. The Sanity asset upload still provides the CDN
-  // URL; we just store the reference in Supabase instead of a Sanity singleton
-  // document, which eliminates the homepageCover GROQ dependency and CDN cache
-  // issues that caused persistent image revert bugs.
-  if (entityType === 'page' && entitySlug) {
+  // ── All explicit entity patches: write to Supabase image_slots ──────────
+  // Any patch that comes with an entityType+entitySlug (i.e. from a right-click
+  // on an image with data-pi-entity-* attributes) is stored in Supabase
+  // cms_image_slots. This covers page-level singletons (homepage cover,
+  // editor's letter) and collection entities (events, places, venues, etc.).
+  //
+  // The Sanity asset CDN still provides the image URL — we're just using
+  // Supabase as the durable store instead of Sanity document patches, which
+  // avoids CDN caching races, missing-document failures, and the 4-minute
+  // rebuild wait. Client-side hydration on each page swaps image src on load.
+  //
+  // Stega-decoded patches (docId only, no entityType) still fall through to
+  // the Sanity document write path below.
+  if (entityType && entitySlug) {
     if (!access.client) return internalError('No Supabase client available');
     // Build the public CDN URL from the Sanity asset ref so we still get fast
     // image delivery without adding another storage dependency.
