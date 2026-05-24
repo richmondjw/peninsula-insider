@@ -640,42 +640,7 @@ export const prerender = true;
     <NewsletterBlock />
   </ScrollReveal>
 
-  {/*
-    Image slot hydration — reads all published cms_image_slots rows from
-    Supabase and swaps matching <img> src values on every page load. Covers
-    page-level singletons (homepage cover) and collection entity cards
-    (events, places, venues, etc.) whose images were replaced via right-click.
-    Makes edits visible immediately on next load — no rebuild wait.
-    Non-fatal: if Supabase is unreachable the baked-in static images remain.
-  */}
-  <script define:vars={{ supabaseUrl: import.meta.env.PUBLIC_SUPABASE_URL, supabaseAnonKey: import.meta.env.PUBLIC_SUPABASE_ANON_KEY }}>
-    (async () => {
-      if (!supabaseUrl || !supabaseAnonKey) return;
-      try {
-        const url = new URL('/rest/v1/cms_image_slots', supabaseUrl);
-        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url');
-        url.searchParams.set('status', 'eq.published');
-        const res = await fetch(url.toString(), {
-          headers: {
-            apikey: supabaseAnonKey,
-            Authorization: `Bearer ${supabaseAnonKey}`,
-            'Accept-Profile': 'pi',
-          },
-        });
-        if (!res.ok) return;
-        const slots = await res.json();
-        for (const slot of slots) {
-          if (!slot.public_url) continue;
-          const el = document.querySelector(
-            `[data-pi-entity-type="${slot.entity_type}"][data-pi-entity-slug="${slot.entity_slug}"][data-pi-field-path="${slot.field_path}"]`
-          );
-          if (el instanceof HTMLImageElement) el.src = slot.public_url;
-        }
-      } catch {
-        // Non-fatal — baked-in static images stay
-      }
-    })();
-  </script>
+  {/* Image slot hydration is handled globally in BaseLayout. */}
 
 </BaseLayout>
 

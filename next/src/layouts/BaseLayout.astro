@@ -323,6 +323,48 @@ const isAskPage = rawPathname.startsWith('/ask');
        and right-click-to-replace images. Inert for non-admin visitors. -->
   <InlineEditor />
 
+  <!-- Image slot hydration — reads all published cms_image_slots from Supabase
+       and swaps matching <img> src values on every page load. Covers every page
+       so right-click image edits on any page (events, places, venues, home) are
+       visible immediately on next load without waiting for a rebuild.
+       Non-fatal: if Supabase is unreachable the static images remain. -->
+  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+    (function () {
+      if (!__SB_URL || !__SB_ANON) return;
+      function applySlots() {
+        var url = new URL('/rest/v1/cms_image_slots', __SB_URL);
+        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url');
+        url.searchParams.set('status', 'eq.published');
+        fetch(url.toString(), {
+          headers: {
+            apikey: __SB_ANON,
+            Authorization: 'Bearer ' + __SB_ANON,
+            'Accept-Profile': 'pi',
+          },
+        }).then(function (res) {
+          if (!res.ok) return;
+          return res.json();
+        }).then(function (slots) {
+          if (!Array.isArray(slots)) return;
+          slots.forEach(function (slot) {
+            if (!slot.public_url) return;
+            var el = document.querySelector(
+              '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
+            );
+            if (el instanceof HTMLImageElement) el.src = slot.public_url;
+          });
+        }).catch(function () { /* non-fatal */ });
+      }
+      // Run on initial load and on Astro view-transition page loads.
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applySlots, { once: true });
+      } else {
+        applySlots();
+      }
+      document.addEventListener('astro:page-load', applySlots);
+    })();
+  </script>
+
   <!-- Sanity Visual Editing overlay (renders only when Astro.locals.sanityPreview is true). -->
   <SanityVisualEditing />
 
