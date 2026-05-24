@@ -28,11 +28,23 @@
       max-width: 420px;
       text-align: center;
     }
-    .gate__logo {
+    .gate__logo-img {
       display: block;
-      width: 120px;
+      width: 100px;
       height: auto;
-      margin: 0 auto 2rem;
+      margin: 0 auto 0.75rem;
+    }
+    .gate__logo-text {
+      font-family: 'Georgia', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+    }
+    .gate__logo-text em {
+      font-style: italic;
+      color: #A0541F;
     }
 
     /* Teaser strip */
@@ -193,7 +205,8 @@
 </head>
 <body>
   <div class="gate">
-    <img class="gate__logo" src="/images/pi-logo-new.svg" alt="Peninsula Insider" />
+    <img class="gate__logo-img" src="/images/pi-logo-new.svg" alt="Peninsula Insider" />
+    <p class="gate__logo-text">Peninsula <em>Insider</em></p>
 
     <label class="gate__label" for="pw">Access</label>
     <input
