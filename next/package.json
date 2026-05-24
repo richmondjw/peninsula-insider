@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run lint:no-pricing && astro build",
+    "build": "node scripts/clear-content-cache.mjs && npm run lint:no-pricing && astro build",
     "build:search": "npm run lint:no-pricing && astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
@@ -55,5 +55,5 @@
     "@rollup/rollup-linux-x64-gnu": "^4.60.2",
     "@rollup/rollup-win32-x64-msvc": "^4.60.4"
   },
-  "_buildComment": "cache-clear enabled 2026-05-24"
+  "_buildComment": "cache-clear baked into build script 2026-05-24"
 }
