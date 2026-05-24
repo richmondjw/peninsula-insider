@@ -304,6 +304,61 @@ const coverDate = new Date('2026-05-13').toLocaleDateString('en-AU', {
   month: 'long',
   year: 'numeric',
 });
+
+// ── Seasonal hero carousel ────────────────────────────────────────────────
+// Slow cross-fading image system for the cover visual. Each season has 4–5
+// curated still images sourced from the existing /images/sourced/ library.
+// Images are chosen for Peninsula atmosphere, not stock-tourism energy:
+// fog, vines, quiet coastline, long-lunch light. The CMS cover image (when
+// set) overrides the first carousel slot so editor-set covers still surface.
+// Rotation is handled entirely client-side (10 s per image); prefers-reduced-
+// motion disables it and shows only the first frame.
+interface CarouselImage {
+  src: string;
+  alt: string;
+}
+
+const seasonalHeroImages: Record<'summer' | 'autumn' | 'winter' | 'spring', CarouselImage[]> = {
+  summer: [
+    { src: '/images/sourced/explore-sorrento-ocean-baths-01.webp',     alt: 'Sorrento ocean baths at early morning, calm bay water and soft summer light' },
+    { src: '/images/sourced/article-beach-swimming-01.webp',            alt: 'Peninsula bay beach in summer morning light, gentle low tide' },
+    { src: '/images/sourced/article-sunset-01.webp',                    alt: 'Golden evening light over the Peninsula vineyard ridge' },
+    { src: '/images/sourced/explore-mornington-foreshore-01.webp',      alt: 'Mornington foreshore in summer afternoon, quiet coastal scene' },
+    { src: '/images/sourced/article-long-lunch-01.webp',                alt: 'Outdoor long-lunch table in dappled Peninsula light' },
+  ],
+  autumn: [
+    { src: '/images/sourced/article-vineyard-villa-01.webp',            alt: 'Autumn vineyard rows on the Peninsula ridge in soft afternoon light' },
+    { src: '/images/sourced/article-cellar-door-01.webp',               alt: 'Cellar door interior with warm light in Peninsula autumn' },
+    { src: '/images/sourced/article-long-lunch-01.webp',                alt: 'Long lunch table at a Peninsula vineyard restaurant in low autumn sun' },
+    { src: '/images/sourced/place-main-ridge-01.webp',                  alt: 'Main Ridge vineyard and hills in autumn colour' },
+    { src: '/images/sourced/article-chardonnay-case-01.webp',           alt: 'Harvest season at a Peninsula wine producer' },
+  ],
+  winter: [
+    { src: '/images/sourced/article-rainy-day-01.webp',                 alt: 'Rain-streaked window looking out over the Peninsula, winter mood' },
+    { src: '/images/sourced/explore-cape-schanck-boardwalk-01.webp',    alt: 'Cape Schanck boardwalk in winter light, steel-grey Bass Strait below' },
+    { src: '/images/sourced/article-cellar-door-01.webp',               alt: 'Warm cellar door interior on a quiet winter Peninsula afternoon' },
+    { src: '/images/sourced/place-flinders-01.webp',                    alt: 'Flinders coastline in winter, low cloud and empty horizon' },
+    { src: '/images/sourced/article-vineyard-villa-01.webp',            alt: 'Vineyard rows in winter dormancy on the Peninsula ridge' },
+  ],
+  spring: [
+    { src: '/images/sourced/explore-greens-bush-01.webp',               alt: 'Greens Bush walk in spring, fresh coastal scrub and filtered light' },
+    { src: '/images/sourced/explore-two-bays-walk-01.webp',             alt: 'Two Bays walking track in spring morning light' },
+    { src: '/images/sourced/place-red-hill-01.webp',                    alt: 'Red Hill in spring, greener hills and softer morning light' },
+    { src: '/images/sourced/article-picnic-01.webp',                    alt: 'Peninsula picnic scene in spring, open landscape and warm light' },
+    { src: '/images/sourced/explore-arthurs-seat-lookout-01.webp',      alt: "Arthur's Seat lookout in spring, panoramic view over the bay" },
+  ],
+};
+
+// Active carousel images. If a CMS cover override is set, swap it into
+// the first slot so the editor-chosen image always leads.
+let heroCarousel: CarouselImage[] = seasonalHeroImages[season];
+if (coverImageOverride?.src) {
+  heroCarousel = [
+    { src: coverImageOverride.src, alt: coverImageOverride.alt ?? ssrScene.imageAlt },
+    ...seasonalHeroImages[season].slice(1),
+  ];
+}
+
 export const prerender = true;
 ---
 
@@ -403,20 +458,24 @@ export const prerender = true;
       </div>
 
       <figure class="cover__visual">
-        <div class="cover__visual-frame">
-          <img
-            src={ssrScene.image}
-            alt={ssrScene.imageAlt}
-            loading="eager"
-            fetchpriority="high"
-            {...editableImage({
-              entityType: 'page',
-              entitySlug: 'home',
-              fieldPath: 'cover.image',
-              label: 'Cover image',
-              purpose: 'hero',
-            })}
-          />
+        <div class="cover__visual-frame" id="cover-carousel" aria-label="Seasonal Peninsula photography">
+          {heroCarousel.map((img, i) => (
+            <img
+              class={`cover__carousel-slide${i === 0 ? ' is-active' : ''}`}
+              src={img.src}
+              alt={img.alt}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchpriority={i === 0 ? 'high' : undefined}
+              data-slide-index={i}
+              {...(i === 0 ? editableImage({
+                entityType: 'page',
+                entitySlug: 'home',
+                fieldPath: 'cover.image',
+                label: 'Cover image',
+                purpose: 'hero',
+              }) : {})}
+            />
+          ))}
         </div>
         {/* Cover photo-location caption hidden 2026-05-13 per Emma's
             editorial direction: remove all photo location captions and
@@ -642,6 +701,45 @@ export const prerender = true;
 
   {/* Image slot hydration is handled globally in BaseLayout. */}
 
+  {/* ── Seasonal hero carousel rotation ───────────────────────────────────
+       Slow cross-fade between curated seasonal Peninsula still images.
+       Interval: 10 s. Transition: 2.4 s opacity ease-in-out (CSS).
+       No controls, no indicators. Movement should feel almost invisible.
+       Skipped entirely when prefers-reduced-motion is set (CSS handles it).
+  ────────────────────────────────────────────────────────────────────── */}
+  <script is:inline>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var INTERVAL_MS = 10000; // 10 s per image
+
+      function initCarousel(el) {
+        var slides = el.querySelectorAll('.cover__carousel-slide');
+        if (slides.length < 2) return; // nothing to rotate
+        var current = 0;
+        el.setAttribute('data-carousel-ready', '1');
+        // Ensure only the first slide is visible on init
+        slides.forEach(function (s, i) {
+          s.classList.toggle('is-active', i === 0);
+        });
+        setInterval(function () {
+          slides[current].classList.remove('is-active');
+          current = (current + 1) % slides.length;
+          slides[current].classList.add('is-active');
+        }, INTERVAL_MS);
+      }
+
+      function setup() {
+        var el = document.getElementById('cover-carousel');
+        if (el) initCarousel(el);
+      }
+
+      // Run on initial load and on Astro view-transition re-mounts.
+      setup();
+      document.addEventListener('astro:page-load', setup);
+    })();
+  </script>
+
 </BaseLayout>
 
 {/* ─────────────────────────────────────────────────────────────────────────
@@ -787,16 +885,39 @@ export const prerender = true;
     height: 100%;
     aspect-ratio: 4 / 5;
   }
-  .cover__visual img {
+  /* Carousel: all slides stack in the same grid cell. */
+  .cover__visual-frame {
+    display: grid;
+  }
+  .cover__carousel-slide {
+    grid-area: 1 / 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transform: scale(1.01);
-    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Default: invisible. JS adds .is-active to bring the current image up. */
+    opacity: 0;
+    transition: opacity 2.4s ease-in-out;
+    /* Subtle static scale — no hover drift on the carousel */
+    transform: scale(1.02);
+    will-change: opacity;
   }
-  .cover__visual:hover img {
-    transform: scale(1.04);
+  .cover__carousel-slide.is-active {
+    opacity: 1;
+  }
+  /* Fallback: when JS hasn't run yet, show the first slide */
+  .cover__visual-frame:not([data-carousel-ready]) .cover__carousel-slide:first-child {
+    opacity: 1;
+  }
+  /* prefers-reduced-motion: show only the first frame, no transitions */
+  @media (prefers-reduced-motion: reduce) {
+    .cover__carousel-slide {
+      opacity: 0 !important;
+      transition: none !important;
+    }
+    .cover__carousel-slide:first-child {
+      opacity: 1 !important;
+    }
   }
   .cover__caption {
     font-family: 'Outfit', system-ui, sans-serif;
