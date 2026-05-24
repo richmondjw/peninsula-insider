@@ -6,176 +6,119 @@ import NewsletterBlock from '../components/NewsletterBlock.astro';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'About' },
+  { label: 'About Peninsula Insider' },
 ];
 
-const principles = [
+const pillars = [
   {
-    title: 'Editorial first, always',
-    body: 'Every venue, every recommendation, every word — earned, not bought. If a restaurant appears, it\'s because the editor ate there and had an opinion worth writing.',
+    title: 'The Peninsula rewards slower attention',
+    body: 'Most visits to the Peninsula are rushed. A good cellar door missed because the timing was wrong. A walk skipped because no one mentioned the conditions. A lunch chosen by default rather than by recommendation. Peninsula Insider exists to change that — to help people arrive with better information and leave with better experiences.',
   },
   {
-    title: 'We pay our own way',
-    body: 'We pay for our own meals, our own rooms, our own parking. The moment a publication starts taking comps without saying so, the reader has to figure out what\'s real. We\'d rather just write it straight.',
+    title: 'Recommendations, not inventory',
+    body: 'We don\'t list everything. We cover what is genuinely worth your time — the cellar door with the afternoon light, the restaurant that earns a second visit, the walk that changes in winter. The goal is usefulness, not comprehensiveness.',
   },
   {
-    title: 'Opinions, not stars',
-    body: 'Star ratings are a consensus machine. We write editor notes — a short, honest paragraph about what a place actually feels like when you sit down. Agreement is optional; clarity is not.',
+    title: 'Seasonal intelligence matters',
+    body: 'The Peninsula in June is a different place from the Peninsula in January. Different conditions, different crowds, different things worth doing. Our recommendations shift with the season because the region does.',
   },
   {
-    title: 'Service journalism',
-    body: 'Every piece answers a real question a weekend visitor actually asks: where to eat, what to do when it rains, which cellar doors are worth the appointment. The Peninsula doesn\'t need more content. It needs better answers.',
-  },
-];
-
-const howItWorks = [
-  {
-    title: 'Editor notes, not star ratings',
-    body: 'Every venue carries a short, opinionated paragraph about what the place actually feels like — the light at 2pm, the menu\'s weak spot, whether the wine list lives up to the view. Stars flatten; sentences clarify.',
-  },
-  {
-    title: 'Questions first, pieces second',
-    body: 'Every Journal piece starts from a question a weekend visitor actually asks: Where do I eat if I can\'t get a booking? What do I do when it rains? Is the drive to Flinders worth it for one night? If we can\'t name the question, we don\'t write the piece.',
-  },
-  {
-    title: 'Weekend-shaped, not list-shaped',
-    body: 'Itineraries put lunch, walk, and bed in the right order. Service pieces tell you when to arrive, not just where.',
-  },
-  {
-    title: 'Seasonal, not static',
-    body: 'The homepage, section hubs, and venue surfaces shift with the calendar. What you see in May is different from what you see in December — because the Peninsula is a different place in every season.',
+    title: 'Editorial judgement over algorithmic ranking',
+    body: 'Every recommendation reflects time actually spent there and an editor\'s honest opinion. A venue appears because it earned it — not because it submitted a form, paid for placement, or has the most reviews.',
   },
 ];
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="About · Peninsula Insider"
-  description="Peninsula Insider is the independent editorial guide to the Mornington Peninsula — honest, opinionated coverage of eating, drinking, staying, and exploring."
+  title="About Peninsula Insider"
+  description="Peninsula Insider is a trusted guide to the Mornington Peninsula — seasonal recommendations, planning intelligence, and honest local editorial."
   section="home"
 >
   <Breadcrumbs items={breadcrumbItems} />
 
   <SectionHero
-    eyebrow="About"
-    subEyebrow="Independent editorial"
-    title="Independent editorial for the <em>Mornington Peninsula.</em>"
-    dek="Peninsula Insider is an editorial guide to the Mornington Peninsula — opinionated, firsthand, and built around judgment rather than inventory."
+    eyebrow="About Peninsula Insider"
+    title="The Peninsula, experienced <em>properly.</em>"
+    dek="Peninsula Insider helps people discover, plan, and experience the Mornington Peninsula with more confidence — through trusted recommendations, seasonal intelligence, and honest local editorial."
     gradient="journal"
     heroImage="/images/sourced/home-cover-back-beach-horses-01.jpg"
     visualLabel="Peninsula Insider · the back beach"
   />
 
-  <!-- Mission -->
+  <!-- Why PI exists -->
   <section class="about-mission">
     <div class="container">
       <div class="about-mission__grid">
         <div class="about-mission__lead">
-          <p class="label label--accent">The mission</p>
-          <h2 class="about-mission__title">The Peninsula, taken seriously.</h2>
+          <p class="label label--accent">Why we exist</p>
+          <h2 class="about-mission__title">Most people experience the Peninsula too quickly.</h2>
         </div>
         <div class="about-mission__body prose">
-          <p>The Mornington Peninsula has more than 200 cellar doors, more hatted restaurants per kilometre than anywhere outside inner Melbourne, and a coastline that changes character four times in forty minutes of driving.</p>
-          <p>Peninsula Insider covers it with editor notes, genuine visits, and a clear point of view. Every recommendation reflects time actually spent there.</p>
+          <p>The Mornington Peninsula has more than two hundred cellar doors, more hatted restaurants per kilometre than anywhere outside inner Melbourne, and a coastline that changes character four times in forty minutes of driving. It rewards people who know where to look and when.</p>
+          <p>Peninsula Insider was built to help people look in the right places — to slow down, decide deliberately, and make better use of their time on the Peninsula. Not a directory. Not a search result. A trusted guide that has done the work first.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Principles -->
+  <!-- What makes it different -->
   <section class="about-principles">
     <div class="container">
       <div class="split-intro">
         <div>
-          <p class="label label--accent">Editorial standards</p>
-          <h2 class="split-intro__title">Four things we don't compromise on.</h2>
+          <p class="label label--accent">How we help</p>
+          <h2 class="split-intro__title">A different kind of Peninsula guide.</h2>
         </div>
-        <p class="split-intro__body">These are operating constraints, not aspirations. If we break them, the coverage stops working.</p>
+        <p class="split-intro__body">Four things that shape how Peninsula Insider works — and why it's more useful than a list.</p>
       </div>
       <div class="about-principles__grid">
-        {principles.map((principle) => (
+        {pillars.map((p) => (
           <article class="about-principle">
-            <h3 class="about-principle__title">{principle.title}</h3>
-            <p class="about-principle__body">{principle.body}</p>
+            <h3 class="about-principle__title">{p.title}</h3>
+            <p class="about-principle__body">{p.body}</p>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="about-difference">
-    <div class="container">
-      <div class="split-intro">
-        <div>
-          <p class="label label--accent">The coverage</p>
-          <h2 class="split-intro__title">The editorial commitments behind the coverage.</h2>
-        </div>
-        <p class="split-intro__body">These are the choices that make the coverage useful rather than decorative.</p>
-      </div>
-      <div class="about-principles__grid">
-        {howItWorks.map((item) => (
-          <article class="about-principle">
-            <h3 class="about-principle__title">{item.title}</h3>
-            <p class="about-principle__body">{item.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Masthead -->
-  <section class="about-masthead">
+  <!-- What PI is becoming -->
+  <section class="about-mission">
     <div class="container">
       <div class="about-mission__grid">
         <div class="about-mission__lead">
-          <p class="label label--accent">The publication</p>
-          <h2 class="about-mission__title">Independently founded. Editorially led.</h2>
+          <p class="label label--accent">What Peninsula Insider is</p>
+          <h2 class="about-mission__title">More than an editorial guide.</h2>
         </div>
         <div class="about-mission__body prose">
-          <p>Peninsula Insider is independently founded and editorially led through a long-standing connection to the Mornington Peninsula. Coverage is shaped through regular time spent across the region — coastlines, wineries, seasonal openings, long weekends, and the quieter corners that reward attention.</p>
-          <p>Every factual claim in a feature is logged with a primary source before draft. Every cover passes editor sign-off before publish. Every commercial relationship is disclosed in the article that touches it.</p>
-          <p>For the operating rules behind the editorial in detail, see <a href="/editorial-approach/">Editorial Approach</a>. If you spotted an error, write to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a> — we fix fast.</p>
+          <p>Peninsula Insider started as editorial coverage of the region's best dining, wine, accommodation, and experiences. It has grown into a broader planning and discovery companion — seasonal recommendations, curated plans, a weekly dispatch, and increasingly, tools that help people find what is worth their time before they arrive.</p>
+          <p>The editorial remains the core. The recommendations are still firsthand, the opinions still genuine, the judgement still editorial. What has changed is the usefulness — a more complete guide to spending time on the Peninsula well.</p>
+          <p>For how recommendations are selected and how partnerships are handled, see <a href="/our-approach/">Our Approach</a>.</p>
         </div>
-      </div>
-      <div class="about-masthead__credits">
-        <dl>
-          <div>
-            <dt>Founders, Editors &amp; Publishers</dt>
-            <dd>Peninsula Insider</dd>
-          </div>
-          <div>
-            <dt>Editorial desk</dt>
-            <dd>Peninsula Insider</dd>
-          </div>
-          <div>
-            <dt>Contact</dt>
-            <dd><a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a></dd>
-          </div>
-        </dl>
       </div>
     </div>
   </section>
 
-  <!-- Colophon -->
+  <!-- Publication identity -->
   <section class="about-colophon">
     <div class="container">
       <div class="about-mission__grid">
         <div class="about-mission__lead">
-          <p class="label label--accent">Colophon</p>
-          <h2 class="about-mission__title">Focused, independent, deliberate.</h2>
+          <p class="label label--accent">The publication</p>
+          <h2 class="about-mission__title">Independent. Editorially led. Local.</h2>
         </div>
         <div class="about-mission__body prose">
-          <p>Peninsula Insider is a focused editorial operation — deliberately small, deliberately independent. Coverage is slow and considered, built on genuine visits and editorial judgement rather than volume or velocity.</p>
-          <p>The dispatch arrives when there is something worth sharing. The newsletter is the way to receive it.</p>
-          <p>If you're a venue owner who'd like to be on our radar, see our <a href="/contact/">contact page</a>. If you're a reader who spotted an error, we fix fast: <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a>.</p>
+          <p>Peninsula Insider is independently founded and editorially led through a long-standing connection to the Mornington Peninsula. Coverage is shaped by regular time spent across the region — coastlines, cellar doors, seasonal openings, long weekends, and the quieter corners that reward attention.</p>
+          <p><em>The Insider</em> is the publication's editorial correspondence — curated Peninsula weekends, seasonal discoveries, and what's worth knowing before you plan. Sent when there's something worth sharing. <a href="/newsletter/">Read more about The Insider.</a></p>
+          <p>Spotted an error? Write to <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a> — we fix fast.</p>
         </div>
       </div>
     </div>
   </section>
 
   <NewsletterBlock
-    body="Thoughtful recommendations, seasonal discoveries, and what's happening across the Mornington Peninsula."
+    body="Seasonal recommendations, curated discoveries, and what's worth your time on the Mornington Peninsula."
     sub="Curated and sent occasionally by Peninsula Insider."
   />
 </BaseLayout>
