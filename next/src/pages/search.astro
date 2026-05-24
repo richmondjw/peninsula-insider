@@ -39,8 +39,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Search · Peninsula Insider"
-  description="Search Peninsula Insider for places, stays, long lunches, beaches, itineraries, events, and local intelligence across the Mornington Peninsula."
+  title="Explore · Peninsula Insider"
+  description="Explore Peninsula Insider — discover places, stays, long lunches, beaches, itineraries, events, and local seasonal intelligence across the Mornington Peninsula."
   section="home"
   noindex={true}
   searchExclude={true}
@@ -51,8 +51,8 @@ export const prerender = true;
 
     <section class="search-page-v2__hero">
       <div class="container">
-        <p class="search-page-v2__eyebrow">Peninsula Insider · Search</p>
-        <h1 class="search-page-v2__title">Search the Peninsula</h1>
+        <p class="search-page-v2__eyebrow">Peninsula Insider · Explore</p>
+        <h1 class="search-page-v2__title">Explore the Peninsula</h1>
 
         <form class="search-page-v2__bar" id="searchPageForm" autocomplete="off" role="search" aria-label="Search Peninsula Insider">
           <span class="search-page-v2__bar-icon" aria-hidden="true">
@@ -65,7 +65,7 @@ export const prerender = true;
             type="search"
             id="searchPageInput"
             class="search-page-v2__input"
-            placeholder="Search the Peninsula Insider…"
+            placeholder="Try a place, a mood, a season…"
             aria-label="Search query"
             autocomplete="off"
             spellcheck="false"
@@ -211,7 +211,7 @@ export const prerender = true;
         if (list) {
           list.innerHTML = `
             <div class="search-page-v2__idle">
-              <p>Try a place ("Sorrento", "Red Hill"), an intent ("long lunch", "rainy day"), or a category ("cellar door", "family beach").</p>
+              <p>Try a place, a mood, or a season — "Rainy day", "Long lunch", "Winter wineries", "Coming from Melbourne", "Dog-friendly near Sorrento".</p>
             </div>
           `;
         }
