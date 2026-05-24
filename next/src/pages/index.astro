@@ -640,6 +640,46 @@ export const prerender = true;
     <NewsletterBlock />
   </ScrollReveal>
 
+  {/*
+    Cover image hydration — reads the published cms_image_slots row for
+    page/home/cover.image from Supabase and swaps the cover <img> src on
+    every page load. This makes right-click image edits visible instantly
+    (< 1s on next load) without waiting for a ~4-minute static rebuild.
+    The static HTML keeps the hardcoded image as the initial render; this
+    script upgrades it client-side. Non-fatal: if Supabase is unreachable
+    the baked-in image remains.
+  */}
+  <script define:vars={{ supabaseUrl: import.meta.env.PUBLIC_SUPABASE_URL, supabaseAnonKey: import.meta.env.PUBLIC_SUPABASE_ANON_KEY }}>
+    (async () => {
+      if (!supabaseUrl || !supabaseAnonKey) return;
+      try {
+        const url = new URL('/rest/v1/cms_image_slots', supabaseUrl);
+        url.searchParams.set('select', 'field_path,public_url');
+        url.searchParams.set('entity_type', 'eq.page');
+        url.searchParams.set('entity_slug', 'eq.home');
+        url.searchParams.set('status', 'eq.published');
+        const res = await fetch(url.toString(), {
+          headers: {
+            apikey: supabaseAnonKey,
+            Authorization: `Bearer ${supabaseAnonKey}`,
+            'Accept-Profile': 'pi',
+          },
+        });
+        if (!res.ok) return;
+        const slots = await res.json();
+        for (const slot of slots) {
+          if (!slot.public_url) continue;
+          const el = document.querySelector(
+            `[data-pi-entity-type="page"][data-pi-entity-slug="home"][data-pi-field-path="${slot.field_path}"]`
+          );
+          if (el instanceof HTMLImageElement) el.src = slot.public_url;
+        }
+      } catch {
+        // Non-fatal — baked-in static image stays
+      }
+    })();
+  </script>
+
 </BaseLayout>
 
 {/* ─────────────────────────────────────────────────────────────────────────
