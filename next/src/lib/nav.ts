@@ -226,7 +226,7 @@ export const footerSectionLinks: NavItem[] = [
  * prior About + Methodology pages into a single Editorial Approach entry.
  */
 export const footerAboutLinks: NavItem[] = [
-  { key: 'editorial-approach', label: 'Editorial Approach', href: '/editorial-approach/' },
+  { key: 'our-approach',       label: 'Our Approach',       href: '/our-approach/' },
   { key: 'partners',           label: 'Partner With Us',    href: '/partners/' },
   { key: 'contact',             label: 'Contact',           href: '/contact/' },
 ];
