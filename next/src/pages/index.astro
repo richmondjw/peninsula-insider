@@ -31,7 +31,6 @@ import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, currentSeason, seasonBlurb, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
 import { sanityReadEnabled } from '../lib/sanity/client';
-import { fetchHomepageCoverFromSanity } from '../lib/sanity/singletons-adapter';
 import { fetchPlaceFromSanity } from '../lib/sanity/place-adapter';
 import { fetchItineraryFromSanity } from '../lib/sanity/itinerary-adapter';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
@@ -195,7 +194,7 @@ interface Scene {
   primaryLabel: string;
 }
 
-type RenderScene = Scene & { sanitySceneIndex?: number };
+type RenderScene = Scene;
 
 // Cover scene fields are editor-controlled. CMS overrides (when present)
 // win over the inline defaults; the inline values are the canonical fallback
@@ -284,47 +283,15 @@ let ssrScene: Scene = coverImageOverride
     }
   : activeScene;
 
-// Build-time read: bake the homepageCover singleton from Sanity into the
-// static HTML. No runtime guard needed — this runs once per build.
-let sanityActiveSceneIndex: number | null = null;
-// Static fallback: tag alsoScenes with their position in the scenes array so
-// the admin overlay can always bind to homepageCover.scenes[N].image, even
-// when the Sanity read fails (e.g. during local dev without SANITY_READ_ENABLED).
-let alsoScenes: RenderScene[] = scenes.slice(1, 4).map((s, i) => ({ ...s, sanitySceneIndex: i + 1 }));
-try {
-  const sanityCover = await fetchHomepageCoverFromSanity();
-  if (sanityCover && sanityCover.scenes.length > 0) {
-    sanityActiveSceneIndex = Math.min(sanityCover.activeIndex, sanityCover.scenes.length - 1);
-    const sc = sanityCover.scenes[sanityActiveSceneIndex];
-    const sanityScenes: RenderScene[] = sanityCover.scenes.map((scene, idx) => ({
-      ...scene,
-      sanitySceneIndex: idx,
-    }));
-    ssrScene = {
-      id: sc.id,
-      label: sc.label,
-      hours: sc.hours,
-      image: sc.image,
-      imageAlt: sc.imageAlt,
-      caption: sc.caption,
-      headline: sc.headline,
-      dispatch: sc.dispatch,
-      primaryHref: sc.primaryHref,
-      primaryLabel: sc.primaryLabel,
-    };
-    alsoScenes = sanityScenes
-      .filter((_, idx) => idx !== sanityActiveSceneIndex)
-      .slice(0, 3);
-  }
-} catch (err) {
-  console.error('[homepage] Sanity cover fetch failed, falling back to static cover:', err);
-}
+// Secondary scenes for the "Also in this issue" strip — static only.
+const alsoScenes: RenderScene[] = scenes.slice(1, 4);
 
-// Local-image override: only applies when Sanity returned no cover data.
-// If Sanity has a cover, Sanity wins — editors control the image via the
-// right-click admin overlay and patches land on homepageCover.scenes[N].image.
-// The hardcoded /images/ path in scenes[] acts as a build-time fallback only.
-if (sanityActiveSceneIndex === null && activeScene.image.startsWith('/images/')) {
+// Supabase CMS override wins over the hardcoded local image.
+// Editors replace the cover via right-click → "Replace from media library".
+// The patch writes to cms_image_slots (entity: page/home, field: cover.image).
+// loadPublishedHomepageOverrides() reads that row above as cmsImage['cover.image'].
+// If nothing is published in Supabase, fall through to the hardcoded scene image.
+if (!coverImageOverride && activeScene.image.startsWith('/images/')) {
   ssrScene = { ...ssrScene, image: activeScene.image, imageAlt: activeScene.imageAlt, caption: activeScene.caption };
 }
 
@@ -448,13 +415,6 @@ export const prerender = true;
               fieldPath: 'cover.image',
               label: 'Cover image',
               purpose: 'hero',
-              // Bind to the homepageCover Sanity singleton so the admin
-              // overlay's "Replace from media library" can patch the right
-              // scene's image. If Sanity reads failed at build time (local dev
-              // without the flag, or quota exhaustion), fall back to scenes[0]
-              // which is always the active cover in the static array.
-              sanitySingletonId: 'homepageCover',
-              sanitySingletonPath: `scenes[${sanityActiveSceneIndex ?? 0}].image`,
             })}
           />
         </div>
@@ -489,12 +449,6 @@ export const prerender = true;
                   fieldPath: `cover.scenes.${s.id}.image`,
                   label: `${s.label || 'Homepage secondary'} image`,
                   purpose: 'card',
-                  ...(s.sanitySceneIndex !== undefined
-                    ? {
-                        sanitySingletonId: 'homepageCover',
-                        sanitySingletonPath: `scenes[${s.sanitySceneIndex}].image`,
-                      }
-                    : {}),
                 })}
               />
             </div>

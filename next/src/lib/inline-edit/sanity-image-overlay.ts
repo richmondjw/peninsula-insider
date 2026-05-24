@@ -223,6 +223,10 @@ export function resolveSanitySource(
       'experience',
       'tour-operator',
       'tour-package',
+      // Page-level entities route through Supabase image_slots (not Sanity
+      // document patches) but use the same entityType+entitySlug+fieldPath
+      // binding shape — so they belong in this set.
+      'page',
     ]);
     if (SANITY_BACKED.has(desc.entityType)) {
       return {

@@ -26,6 +26,7 @@ import {
 } from '../../../lib/cms/server';
 import { entityTypeToSanityType, getSanityWriteClient } from '../../../lib/sanity/write-client';
 import { routesForDocument, triggerRevalidate } from '../../../lib/sanity/revalidate-paths';
+import { upsertImageSlot } from '../../../lib/cms/api';
 
 export const prerender = false;
 export async function getStaticPaths() {
@@ -186,9 +187,6 @@ export const POST: APIRoute = async ({ request }) => {
     return unauthorized(`Unauthorized (${access.reason ?? 'unknown'})`);
   }
 
-  const client = getSanityWriteClient();
-  if (!client) return internalError('SANITY_ADMIN_WRITE_TOKEN not configured');
-
   let body: PatchBody;
   try {
     body = (await request.json()) as PatchBody;
@@ -209,6 +207,58 @@ export const POST: APIRoute = async ({ request }) => {
   if (!/^[a-zA-Z_][a-zA-Z0-9_.[\]]*$/.test(fieldPath)) {
     return badRequest('Invalid fieldPath');
   }
+
+  // ── Page-entity route: write to Supabase image_slots, not Sanity ─────────
+  // Page-level images (homepage cover, editor's letter, etc.) are stored in
+  // Supabase cms_image_slots. The Sanity asset upload still provides the CDN
+  // URL; we just store the reference in Supabase instead of a Sanity singleton
+  // document, which eliminates the homepageCover GROQ dependency and CDN cache
+  // issues that caused persistent image revert bugs.
+  if (entityType === 'page' && entitySlug) {
+    if (!access.client) return internalError('No Supabase client available');
+    // Build the public CDN URL from the Sanity asset ref so we still get fast
+    // image delivery without adding another storage dependency.
+    const sanityBuilder = imageUrlBuilder({ projectId: 'a062b30n', dataset: 'production' });
+    const newUrl = sanityBuilder.image(newAssetRef).auto('format').url();
+    const actorId = access.access?.identity?.userId ?? null;
+    const slot = await upsertImageSlot(
+      access.client,
+      {
+        entityType: 'page',
+        entitySlug,
+        fieldPath,
+        label: fieldPath,
+        purpose: 'hero',
+        storageBucket: 'sanity-cdn',
+        storagePath: null,
+        publicUrl: newUrl,
+        mimeType: null,
+        status: 'published',
+      },
+      actorId,
+    );
+    if (!slot) return internalError('Failed to save image slot to Supabase');
+    // Fire deploy hook so the static build picks up the new URL.
+    const deployHookUrl = process.env.VERCEL_DEPLOY_HOOK_URL;
+    if (deployHookUrl) {
+      fetch(deployHookUrl, { method: 'POST' }).catch((err) => {
+        console.error('[sanity-patch] page-entity deploy hook failed:', err);
+      });
+    }
+    return jsonResponse({
+      ok: true,
+      data: {
+        entityType: 'page',
+        entitySlug,
+        fieldPath,
+        newUrl,
+      },
+    });
+  }
+
+  // All paths below this point require the Sanity write client.
+  const client = getSanityWriteClient();
+  if (!client) return internalError('SANITY_ADMIN_WRITE_TOKEN not configured');
 
   // Resolve target doc id.
   let targetDocId = docId ?? null;
