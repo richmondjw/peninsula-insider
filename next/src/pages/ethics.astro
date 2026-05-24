@@ -1,66 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Code of Ethics' },
-];
-
-const lastUpdated = '17 May 2026';
+/**
+ * /ethics/ → /about/ redirect
+ * Code of Ethics content removed May 2026; consolidated into About page.
+ */
+import Redirect from '../components/Redirect.astro';
 export const prerender = true;
 ---
-
-<BaseLayout
-  title="Code of Ethics | Peninsula Insider"
-  description="The editorial code Peninsula Insider operates by — honesty, independence, fairness, and respect for the people and places we cover."
-  section="home"
-  canonical="https://peninsulainsider.com.au/ethics/"
->
-  <Breadcrumbs items={breadcrumbItems} />
-
-  <section class="legal">
-    <div class="container">
-      <div class="legal__header">
-        <p class="label label--accent">Editorial standards</p>
-        <h1 class="legal__title">Code of ethics</h1>
-        <p class="legal__updated">Last updated: {lastUpdated}</p>
-      </div>
-
-      <div class="legal__body prose">
-        <p>Peninsula Insider is an independent editorial publication. The code below sets the standards we hold ourselves to. It is informed by the <a href="https://www.meaa.org/meaa-media/code-of-ethics/" target="_blank" rel="noopener">MEAA Journalist Code of Ethics</a> and shaped by the practical realities of covering a region we live in and care about.</p>
-
-        <h2>Honesty</h2>
-        <p>We report and recommend what we believe to be true. We do not fabricate experiences, invent quotes, manipulate images in ways that mislead, or present sponsored content as independent editorial.</p>
-
-        <h2>Independence</h2>
-        <p>Editorial decisions are made on editorial grounds. Coverage is not for sale. Commercial relationships do not buy favourable reviews, top-of-list placement, or coverage that wouldn't otherwise be warranted. Where a commercial relationship exists, it is disclosed clearly on the page where it appears.</p>
-
-        <h2>Firsthand experience</h2>
-        <p>Recommendations are grounded in genuine visits and editorial judgement. Where information comes from public listings, event submissions or operator-supplied detail, we say so.</p>
-
-        <h2>Fairness</h2>
-        <p>We give venues, organisers and people the chance to respond to material criticism before publishing. We correct errors openly and quickly through our <a href="/corrections/">corrections process</a>.</p>
-
-        <h2>Respect for the Peninsula</h2>
-        <p>We cover the Mornington Peninsula because we value it. We acknowledge the Bunurong / Boon Wurrung people of the Kulin Nation as the Traditional Owners and Custodians of these lands, and we take care not to amplify uses or volumes of visitation that would damage the places we love.</p>
-
-        <h2>Privacy and dignity</h2>
-        <p>We treat the people we write about with respect. We do not publish private information without a clear public-interest justification, and we avoid intrusion on grief or hardship.</p>
-
-        <h2>Disclosure</h2>
-        <p>Where editorial judgement could reasonably be questioned because of a personal or commercial relationship, we disclose it. This includes paid partnerships, hosted visits, affiliate links and meaningful personal ties to a venue.</p>
-
-        <h2>Accountability</h2>
-        <p>If you believe we have fallen short of this code, write to <a href="mailto:hello@peninsulainsider.com.au">hello@peninsulainsider.com.au</a> or escalate through our <a href="/complaints/">complaints process</a>. We take concerns seriously and respond.</p>
-
-        <h2>Related</h2>
-        <ul>
-          <li><a href="/our-approach/">Editorial approach</a></li>
-          <li><a href="/corrections/">Corrections</a></li>
-          <li><a href="/complaints/">Complaints</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<Redirect to="/about/" />

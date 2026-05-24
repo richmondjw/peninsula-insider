@@ -1,68 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Complaints' },
-];
-
-const lastUpdated = '17 May 2026';
+/**
+ * /complaints/ → /corrections/ redirect
+ * Complaints page removed May 2026; direct readers to corrections process.
+ */
+import Redirect from '../components/Redirect.astro';
 export const prerender = true;
 ---
-
-<BaseLayout
-  title="Complaints | Peninsula Insider"
-  description="How to raise a complaint about Peninsula Insider editorial content, and how we handle it."
-  section="home"
-  canonical="https://peninsulainsider.com.au/complaints/"
->
-  <Breadcrumbs items={breadcrumbItems} />
-
-  <section class="legal">
-    <div class="container">
-      <div class="legal__header">
-        <p class="label label--accent">Reader recourse</p>
-        <h1 class="legal__title">Complaints</h1>
-        <p class="legal__updated">Last updated: {lastUpdated}</p>
-      </div>
-
-      <div class="legal__body prose">
-        <p>We aim to publish editorial that is accurate, fair and consistent with our <a href="/our-approach/">editorial approach</a> and <a href="/ethics/">code of ethics</a>. If something we have published falls short, we want to know.</p>
-
-        <h2>Before you complain</h2>
-        <p>If the issue is a factual error or out-of-date detail, the fastest path is our <a href="/corrections/">corrections process</a>. Email <a href="mailto:corrections@peninsulainsider.com.au">corrections@peninsulainsider.com.au</a> with the URL and the issue. We typically action corrections within one business day.</p>
-
-        <h2>Lodging a complaint</h2>
-        <p>For matters beyond a simple correction — for example, concerns about fairness, accuracy, conduct or breach of our code of ethics — please write to <a href="mailto:hello@peninsulainsider.com.au?subject=Complaint">hello@peninsulainsider.com.au</a> with <strong>"Complaint"</strong> in the subject line. Include:</p>
-        <ul>
-          <li>The URL or title of the article in question</li>
-          <li>A description of your concern, in your own words</li>
-          <li>What outcome you are seeking (correction, clarification, removal, right of reply, apology, other)</li>
-          <li>Your name and a contact email or phone</li>
-        </ul>
-
-        <h2>How we handle it</h2>
-        <ol>
-          <li><strong>Acknowledge</strong> receipt within two business days.</li>
-          <li><strong>Review</strong> the complaint against the original copy, sources and our editorial standards.</li>
-          <li><strong>Respond</strong> with our findings, typically within ten business days. Where the matter is complex, we will keep you updated on timing.</li>
-          <li><strong>Act</strong> — issue a correction, clarification, update or apology where warranted; or explain why we believe the original stands.</li>
-        </ol>
-
-        <h2>If you remain dissatisfied</h2>
-        <p>We will tell you in writing why we have reached our conclusion. If you still believe the matter is unresolved, you are free to escalate it externally. Peninsula Insider is currently developing its external accountability framework, and we will update this page when that is in place.</p>
-
-        <h2>Vexatious complaints</h2>
-        <p>We treat all complaints seriously. We reserve the right to decline to engage further with complaints that are repetitive, abusive or made in bad faith.</p>
-
-        <h2>Related</h2>
-        <ul>
-          <li><a href="/our-approach/">Editorial approach</a></li>
-          <li><a href="/ethics/">Code of ethics</a></li>
-          <li><a href="/corrections/">Corrections</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<Redirect to="/corrections/" />

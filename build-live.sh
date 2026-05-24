@@ -51,6 +51,7 @@ find . -mindepth 1 -maxdepth 1 \
   ! -name 'BRAND-PI.md' \
   ! -name '.approvals' \
   ! -name '.claude' \
+  ! -name 'studio-peninsula-insider' \
   -exec rm -rf {} +
 
 cp -r "$DIST_DIR"/* .
