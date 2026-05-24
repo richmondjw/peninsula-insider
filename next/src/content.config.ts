@@ -1,7 +1,7 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Peninsula Insider  -  Content schema
+// Peninsula Insider  -  Content schema (cache-bust: 2026-05-24)
 //
 // Astro v6 Content Layer format. Each collection declares its own glob loader
 // pointing at the JSON or Markdown files under src/content/<name>/.
