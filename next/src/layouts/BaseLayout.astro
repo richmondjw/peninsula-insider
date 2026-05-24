@@ -351,7 +351,13 @@ const isAskPage = rawPathname.startsWith('/ask');
             var el = document.querySelector(
               '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
             );
-            if (el instanceof HTMLImageElement) el.src = slot.public_url;
+            if (!el) return;
+            if (el instanceof HTMLImageElement) {
+              el.src = slot.public_url;
+            } else {
+              // Background-image element (div, a, figure, etc.)
+              el.style.backgroundImage = 'url("' + slot.public_url.replace(/"/g, '\\"') + '")';
+            }
           });
         }).catch(function () { /* non-fatal */ });
       }
