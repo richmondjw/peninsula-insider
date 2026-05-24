@@ -5,7 +5,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 NEXT_DIR="$ROOT_DIR/next"
-DIST_DIR="$NEXT_DIR/dist"
+DIST_DIR="$NEXT_DIR/dist/client"
 FALLBACK_CSS_SRC="$NEXT_DIR/src/styles/global.css"
 FALLBACK_CSS_DEST="$ROOT_DIR/assets/styles.css"
 
