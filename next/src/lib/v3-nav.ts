@@ -232,7 +232,7 @@ export const v3Pillars: V3Pillar[] = [
 export const v3Utility = {
   ask:        { key: 'ask',        label: 'Ask PI',     href: '/ask/' },
   whatsOn:    { key: 'whats-on',   label: "What's On",  href: '/whats-on/' },
-  subscribe:  { key: 'subscribe',  label: 'Subscribe',  href: '/newsletter/' },
+  subscribe:  { key: 'subscribe',  label: 'Join the Dispatch',  href: '/dispatch/' },
   account:    { key: 'account',    label: 'Sign in',    href: '/account/' },
   pass:       { key: 'pass',       label: 'The Pass',   href: '/preview-insider-plans/' },
   search:     { key: 'search',     label: 'Search',     href: '/search/' },

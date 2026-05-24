@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Peninsula Insider</title>
+  <title>Peninsula Insider — Coming Soon</title>
   <meta name="robots" content="noindex, nofollow" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,7 +25,7 @@
     }
     .gate {
       width: 100%;
-      max-width: 380px;
+      max-width: 420px;
       text-align: center;
     }
     .gate__logo {
@@ -48,6 +48,112 @@
       color: #888;
       margin-bottom: 2.5rem;
     }
+
+    /* Teaser strip */
+    .gate__teaser {
+      background: #fff;
+      border: 1px solid #e5e0d8;
+      border-radius: 6px;
+      padding: 1.75rem 1.5rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .gate__teaser-eyebrow {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #A0541F;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .gate__teaser-heading {
+      font-family: 'Georgia', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #1a1a1a;
+      margin-bottom: 0.65rem;
+    }
+    .gate__teaser-heading em {
+      font-style: italic;
+      color: #A0541F;
+    }
+    .gate__teaser-body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 1.25rem;
+    }
+    .gate__subscribe-row {
+      display: flex;
+      gap: 0.4rem;
+    }
+    .gate__subscribe-input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.7rem 0.85rem;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.88rem;
+      border: 1.5px solid #d0ccc4;
+      background: #f7f5f0;
+      color: #1a1a1a;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .gate__subscribe-input:focus { border-color: #A0541F; }
+    .gate__subscribe-btn {
+      padding: 0.7rem 1rem;
+      background: #A0541F;
+      color: #fff;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .gate__subscribe-btn:hover { background: #1a1a1a; }
+    .gate__subscribe-btn:disabled { opacity: 0.6; cursor: progress; }
+    .gate__subscribe-status {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 0.6rem;
+      min-height: 1.2em;
+    }
+    .gate__subscribe-status.success { color: #2f6e3a; }
+    .gate__subscribe-status.error { color: #c0392b; }
+
+    /* Divider */
+    .gate__divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      color: #aaa;
+    }
+    .gate__divider::before,
+    .gate__divider::after {
+      content: '';
+      flex: 1;
+      border-top: 1px solid #e0dbd3;
+    }
+    .gate__divider span {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Password gate */
     .gate__label {
       font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.7rem;
@@ -103,6 +209,7 @@
   <div class="gate">
     <p class="gate__logo">Peninsula <em>Insider</em></p>
     <p class="gate__sub">An editorial guide</p>
+
     <label class="gate__label" for="pw">Access</label>
     <input
       id="pw"
@@ -114,6 +221,27 @@
     />
     <button class="gate__btn" id="btn">Enter →</button>
     <p class="gate__error" id="err">Incorrect password</p>
+
+    <div class="gate__divider"><span>Not yet an insider?</span></div>
+
+    <!-- Teaser + subscribe -->
+    <div class="gate__teaser">
+      <span class="gate__teaser-eyebrow">Coming soon</span>
+      <h1 class="gate__teaser-heading">Something good is coming <em>to the Peninsula.</em></h1>
+      <p class="gate__teaser-body">We're putting together the guide this place deserves. Be the first to know.</p>
+      <div class="gate__subscribe-row">
+        <input
+          id="sub-email"
+          class="gate__subscribe-input"
+          type="email"
+          placeholder="your@email.com"
+          autocomplete="email"
+          aria-label="Email address"
+        />
+        <button class="gate__subscribe-btn" id="sub-btn">Notify me</button>
+      </div>
+      <p class="gate__subscribe-status" id="sub-status"></p>
+    </div>
   </div>
 
   <script is:inline>
@@ -137,6 +265,49 @@
       document.getElementById('btn').addEventListener('click', tryEnter);
       document.getElementById('pw').addEventListener('keydown', function (e) {
         if (e.key === 'Enter') tryEnter();
+      });
+
+      // Subscribe form
+      var ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
+      var subBtn = document.getElementById('sub-btn');
+      var subEmail = document.getElementById('sub-email');
+      var subStatus = document.getElementById('sub-status');
+
+      function setStatus(msg, kind) {
+        subStatus.textContent = msg;
+        subStatus.className = 'gate__subscribe-status ' + (kind || '');
+      }
+
+      async function handleSubscribe() {
+        var email = subEmail.value.trim();
+        if (!email || !email.includes('@')) {
+          setStatus('Please enter a valid email.', 'error');
+          return;
+        }
+        subBtn.disabled = true;
+        setStatus('Saving…', '');
+        try {
+          var res = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: 'access-gate' })
+          });
+          if (res.ok) {
+            setStatus('You're on the list. We'll be in touch.', 'success');
+            subEmail.value = '';
+          } else {
+            setStatus('Something went wrong — try again.', 'error');
+            subBtn.disabled = false;
+          }
+        } catch (e) {
+          setStatus('Something went wrong — try again.', 'error');
+          subBtn.disabled = false;
+        }
+      }
+
+      subBtn.addEventListener('click', handleSubscribe);
+      subEmail.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleSubscribe();
       });
     })();
   </script>

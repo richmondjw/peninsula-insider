@@ -476,7 +476,7 @@ export const v4Pillars: V4Pillar[] = [
 export const v4Utility = {
   search:    { key: 'search',    label: 'Search',                href: '/search/' },
   ask:       { key: 'ask',       label: 'Ask PI',                href: '/ask/' },
-  subscribe: { key: 'subscribe', label: 'Join', href: '/newsletter/' },
+  subscribe: { key: 'subscribe', label: 'Join the Dispatch', href: '/dispatch/' },
   account:   { key: 'account',   label: 'Saved Places & Trips',   href: '/account/' },
   pass:      { key: 'pass',      label: 'The Pass',              href: '/preview-insider-plans/' },
 };
