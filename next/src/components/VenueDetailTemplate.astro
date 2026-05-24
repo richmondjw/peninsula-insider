@@ -23,6 +23,15 @@ const { venue, section, related = [], articles = [], itineraries = [] } = Astro.
 const data = venue.data;
 const liveStatusUrl = resolveLiveStatusUrl(data);
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
+
+// New planning/recommendation layer
+const hasWorthKnowing = data.worthKnowing && Object.values(data.worthKnowing).some(Boolean);
+const hasSeasonalNotes = data.seasonalNotes && Object.values(data.seasonalNotes).some(Boolean);
+const seasonalNoteEntries: [string, string][] = data.seasonalNotes
+  ? (Object.entries(data.seasonalNotes) as [string, string][]).filter(([, v]) => v)
+  : [];
+// Ask PI query: pre-built prompt connecting this venue to broader planning
+const askPiQuery = encodeURIComponent(`What else is worth doing near ${data.name} on the Mornington Peninsula?`);
 const sectionLabel = section === 'stay' ? 'Stay' : section === 'wine' ? 'Wine Country' : 'Eat & Drink';
 const sectionHref = `/${section}`;
 const hats = data.authority?.hats ?? 0;
@@ -201,6 +210,57 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           ))}
         </div>
 
+        {/* ── WORTH KNOWING — quick-scan trust layer ── */}
+        {hasWorthKnowing && (
+          <div class="worth-knowing">
+            <p class="worth-knowing__heading">Worth knowing</p>
+            <dl class="worth-knowing__grid">
+              {data.bestFor && data.bestFor.length > 0 && (
+                <>
+                  <dt>Best for</dt>
+                  <dd>{data.bestFor.join(' · ')}</dd>
+                </>
+              )}
+              {data.worthKnowing?.bestSeason && (
+                <>
+                  <dt>Best season</dt>
+                  <dd>{data.worthKnowing.bestSeason}</dd>
+                </>
+              )}
+              {data.worthKnowing?.timing && (
+                <>
+                  <dt>Timing</dt>
+                  <dd>{data.worthKnowing.timing}</dd>
+                </>
+              )}
+              {data.worthKnowing?.atmosphere && (
+                <>
+                  <dt>Atmosphere</dt>
+                  <dd>{data.worthKnowing.atmosphere}</dd>
+                </>
+              )}
+              {data.worthKnowing?.worksWellWith && data.worthKnowing.worksWellWith.length > 0 && (
+                <>
+                  <dt>Works well with</dt>
+                  <dd>{data.worthKnowing.worksWellWith.join(' · ')}</dd>
+                </>
+              )}
+              {data.worthKnowing?.goodFor && data.worthKnowing.goodFor.length > 0 && (
+                <>
+                  <dt>Good for</dt>
+                  <dd>{data.worthKnowing.goodFor.join(' · ')}</dd>
+                </>
+              )}
+              {data.worthKnowing?.lessIdealFor && (
+                <>
+                  <dt>Less ideal for</dt>
+                  <dd>{data.worthKnowing.lessIdealFor}</dd>
+                </>
+              )}
+            </dl>
+          </div>
+        )}
+
         {/* ── INSIDER ACTIONS strip ── */}
         {(data.ifOnlyOneThing || data.pairWith) && (
           <div class="venue-actions-strip">
@@ -212,7 +272,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             )}
             {data.pairWith && (
               <div class="venue-actions-strip__item">
-                <p class="venue-actions-strip__label">Pair it with</p>
+                <p class="venue-actions-strip__label">Works well with</p>
                 <p class="venue-actions-strip__value">{Array.isArray(data.pairWith) ? data.pairWith.join(' · ') : data.pairWith}</p>
               </div>
             )}
@@ -486,6 +546,39 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
+{/* ── SEASONAL INTELLIGENCE — optional per-season guidance ── */}
+{hasSeasonalNotes && (
+  <section class="venue-seasonal">
+    <div class="container">
+      <p class="label label--accent">Seasonal intelligence</p>
+      <h2 class="venue-seasonal__title">When to visit {data.name}</h2>
+      <div class="venue-seasonal__grid">
+        {seasonalNoteEntries.map(([season, note]) => (
+          <div class="venue-seasonal__block">
+            <p class="venue-seasonal__season">{season.charAt(0).toUpperCase() + season.slice(1)}</p>
+            <p class="venue-seasonal__note">{note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{/* ── ASK PI — light planning integration ── */}
+<section class="venue-ask-pi">
+  <div class="container">
+    <div class="venue-ask-pi__inner">
+      <p class="venue-ask-pi__prompt">Not sure how to build a day around {data.name}?</p>
+      <a href={`/ask/?q=${askPiQuery}`} class="venue-ask-pi__cta" data-pi-trigger="true">
+        Ask The Insider
+        <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 10h10M11 5l5 5-5 5" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 {articles.length > 0 && (
   <section class="venues venues--plain">
     <div class="container">
@@ -493,7 +586,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         <div>
           <p class="label label--accent">In the journal</p>
           <h2 class="venues__title">Stories that mention {data.name}</h2>
-          <p class="venues__sub">These pieces give you the context a listing page never does  -  the when, the why, and the who-it's-for.</p>
+          <p class="venues__sub">These pieces give you the context a listing page never does — the when, the why, and the who-it’s-for.</p>
         </div>
         <a href="/journal/" class="venues__link">Journal →</a>
       </div>
@@ -539,41 +632,45 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* Contextual guide links — connect venue pages into the editorial mesh */}
+{/* Planning pathways — connect this venue into broader Peninsula experiences */}
 <section class="venues venues--plain">
   <div class="container">
     <div class="venues__header">
       <div>
-        <p class="label label--accent">Plan around this</p>
-        <h2 class="venues__title">Guides that help you use {data.name} properly</h2>
-        <p class="venues__sub">Service pieces that put a single venue into the context of a whole weekend.</p>
+        <p class="label label--accent">Build a day around this</p>
+        <h2 class="venues__title">Planning guides that include {data.name}</h2>
+        <p class="venues__sub">Peninsula Insider guides that put this stop into the context of a full day or weekend.</p>
       </div>
     </div>
     <div class="venues__grid venues__grid--links">
-      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
+      <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">Peninsula weekend itinerary →</a>
       {(section === 'eat') && (
         <>
-          <a href="/journal/best-brunch-mornington-peninsula/" class="venue-card__cta">Best Brunch Guide →</a>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Winery Tour Route →</a>
+          <a href="/journal/the-long-lunch/" class="venue-card__cta">The long lunch guide →</a>
+          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Winery tour route →</a>
+          <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="venue-card__cta">Rainy-day Peninsula →</a>
         </>
       )}
       {(section === 'wine') && (
         <>
-          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
-          <a href="/eat/best-restaurants/" class="venue-card__cta">Best Restaurants →</a>
+          <a href="/journal/the-cellar-door-short-list/" class="venue-card__cta">Cellar door shortlist →</a>
+          <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-drive winery tour →</a>
+          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter on the Peninsula →</a>
         </>
       )}
       {(section === 'stay') && (
         <>
-          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter Peninsula Guide →</a>
-          <a href="/journal/free-things-to-do-mornington-peninsula/" class="venue-card__cta">Free Things to Do →</a>
-          <a href="/plans/" class="venue-card__cta">Weekend Plans →</a>
+          <a href="/journal/the-one-night-escape/" class="venue-card__cta">The one-night escape →</a>
+          <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter on the Peninsula →</a>
+          <a href="/plans/" class="venue-card__cta">Weekend plans →</a>
         </>
       )}
       {data.dogFriendly && (
-        <a href="/dog-friendly/" class="venue-card__cta">Dog-Friendly Peninsula →</a>
+        <a href="/dog-friendly/" class="venue-card__cta">Dog-friendly Peninsula →</a>
       )}
-      <a href="/journal/mornington-peninsula-hot-springs-guide/" class="venue-card__cta">Hot Springs Guide →</a>
+      {(moodTags.includes('rainy-day') || seasonTags.includes('winter')) && (
+        <a href="/journal/the-rainy-day-peninsula-without-a-booking/" class="venue-card__cta">Rainy-day Peninsula →</a>
+      )}
     </div>
   </div>
 </section>
@@ -606,6 +703,122 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 <NewsletterBlock />
 
 <style>
+  /* ── Worth Knowing panel ── */
+  .worth-knowing {
+    margin: 2rem 0 1.5rem;
+    padding: 1.5rem;
+    background: var(--surface, #f9f7f4);
+    border-left: 3px solid var(--ochre, #A0541F);
+    border-radius: 2px;
+  }
+  .worth-knowing__heading {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ochre, #A0541F);
+    margin: 0 0 1rem;
+  }
+  .worth-knowing__grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.55rem 1.2rem;
+    margin: 0;
+  }
+  .worth-knowing__grid dt {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--soft, #6b6560);
+    white-space: nowrap;
+    padding-top: 0.05rem;
+  }
+  .worth-knowing__grid dd {
+    font-size: 0.85rem;
+    color: var(--ink, #1a1714);
+    margin: 0;
+    line-height: 1.5;
+  }
+  @media (max-width: 480px) {
+    .worth-knowing__grid {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+    .worth-knowing__grid dt {
+      margin-top: 0.5rem;
+    }
+  }
+
+  /* ── Seasonal intelligence section ── */
+  .venue-seasonal {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .venue-seasonal__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.4rem 0 1.5rem;
+    color: var(--ink);
+  }
+  .venue-seasonal__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+  .venue-seasonal__block {
+    padding: 1.2rem;
+    background: var(--surface, #f9f7f4);
+    border-radius: 2px;
+  }
+  .venue-seasonal__season {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ochre, #A0541F);
+    margin: 0 0 0.5rem;
+  }
+  .venue-seasonal__note {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Ask PI light strip ── */
+  .venue-ask-pi {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .venue-ask-pi__inner {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .venue-ask-pi__prompt {
+    font-size: 0.9rem;
+    color: var(--soft, #6b6560);
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
+  }
+  .venue-ask-pi__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ochre, #A0541F);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 0.1rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+  .venue-ask-pi__cta:hover {
+    opacity: 0.75;
+  }
+
   /* ── Destination hierarchy return link ── */
   .venue-place-link {
     padding: 1.1rem 0;
