@@ -6,13 +6,12 @@
  * elements marked with `data-pi-edit` to be edited in place:
  *
  *   - text  → click element → contenteditable → save on blur / Enter
- *   - image → right-click → Sanity media replacement panel
+ *   - image → right-click → upload panel → file upload → Supabase image slot
  *
- * Text writes still go direct to Supabase via the user's JWT and RLS.
- * Image writes are intentionally Sanity-only: uploads create Sanity assets,
- * then `/api/admin/sanity-patch` patches the source document field and
- * triggers revalidation. The old Supabase image-slot override path is gone
- * from the client to avoid split-brain persistence.
+ * Text writes go direct to Supabase via the user's JWT and RLS.
+ * Image writes upload the file to Sanity CDN (for the URL) then save the
+ * resulting public URL into Supabase cms_image_slots via /api/admin/sanity-patch.
+ * Client-side hydration on each page swaps image src immediately on next load.
  */
 
 import { getSupabase, isAuthEnabled } from '../auth';
@@ -81,21 +80,6 @@ export async function bootInlineEditor(): Promise<void> {
     isAdmin = !!allowlistRow && ['editor', 'publisher', 'admin'].includes(allowlistRow.role);
   }
   if (!isAdmin) return;
-
-  // Warm the editor-supplied bindings cache for this page so the right-
-  // click handler can resolve "Bind to a Sanity doc…" results synchronously.
-  // Once loaded, patch matching <img> / bg-image elements with data-pi-edit
-  // attrs so the existing tagged-image flow lights up for previously-bound
-  // images on this URL. Admin-gated — anon visitors never reach this code.
-  void (async () => {
-    try {
-      const mod = await import('./sanity-image-overlay');
-      await mod.loadBindingsForPage();
-      applyBindingsToDom();
-    } catch (err) {
-      console.warn('[pi-edit] failed to warm bindings cache', err);
-    }
-  })();
 
   // Mount/restore the floating toggle. Astro's <ClientRouter /> swaps
   // <body> on soft navigations, so any DOM we appended is gone — we
@@ -578,12 +562,12 @@ function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
 }
 
 /**
- * Sanity-only image edit popover.
+ * Image upload panel — right-click any image in edit mode to replace it.
  *
- * This deliberately avoids the legacy Supabase image-slot path. Image
- * replacement must resolve a Sanity document + image field before any upload
- * or library selection can run, so a visible swap always corresponds to a
- * persistent Sanity patch.
+ * Shows a compact panel with a file-picker button. On file selection the
+ * image is uploaded to the Sanity CDN (for a fast, permanent URL) then the
+ * URL is saved to Supabase cms_image_slots via /api/admin/sanity-patch.
+ * The visible <img> src is swapped immediately; no rebuild needed.
  */
 function openImagePanel(el: HTMLElement, x: number, y: number) {
   closeMenu();
@@ -595,8 +579,7 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
 
   menuEl = document.createElement('div');
   menuEl.className = 'pi-edit-panel';
-  // Position the panel near the click but clamp into viewport.
-  const PANEL_W = 340, PANEL_H = 330;
+  const PANEL_W = 320, PANEL_H = 160;
   menuEl.style.left = `${Math.max(8, Math.min(x, window.innerWidth - PANEL_W - 8))}px`;
   menuEl.style.top  = `${Math.max(8, Math.min(y, window.innerHeight - PANEL_H - 8))}px`;
 
@@ -605,24 +588,16 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
       <div class="pi-edit-panel__thumb" style="background-image: url(${cssUrl(thumbSrc)})"></div>
       <div class="pi-edit-panel__title">
         <div class="pi-edit-panel__label">${escapeHtml(desc.label)}</div>
-        <div class="pi-edit-panel__sub">Sanity image field</div>
+        <div class="pi-edit-panel__sub">${escapeHtml(srcBasename(cleanThumbSrc))}</div>
       </div>
       <button type="button" class="pi-edit-panel__close" aria-label="Close">×</button>
     </div>
     <div class="pi-edit-panel__body">
-      <div class="pi-edit-panel__source" data-role="source">Checking Sanity binding…</div>
-      <div class="pi-edit-panel__filename">${escapeHtml(srcBasename(cleanThumbSrc))}</div>
-      <div class="pi-edit-panel__actions">
-        <button type="button" class="pi-edit-panel__replace" data-action="replace-sanity" disabled>
-          <span aria-hidden="true">□</span> Media library
-        </button>
-        <button type="button" class="pi-edit-panel__replace pi-edit-panel__replace--secondary" data-action="open-sanity" disabled>
-          <span aria-hidden="true">↗</span> Edit in Sanity
-        </button>
-        <button type="button" class="pi-edit-panel__replace pi-edit-panel__replace--secondary" data-action="bind-sanity" hidden>
-          <span aria-hidden="true">+</span> Bind image
-        </button>
-      </div>
+      <label class="pi-edit-panel__replace" data-role="upload-label" style="cursor:pointer;display:block;text-align:center;">
+        <span aria-hidden="true">↑</span> Replace image…
+        <input type="file" accept="image/jpeg,image/png,image/webp,image/avif" hidden data-role="file-input" />
+      </label>
+      <div class="pi-edit-panel__source" data-role="status" style="display:none;text-align:center;margin-top:8px;font-size:12px;color:#666;"></div>
     </div>
     <div class="pi-edit-panel__foot">
       <button type="button" class="pi-edit-panel__btn pi-edit-panel__btn--ghost" data-action="cancel">Cancel</button>
@@ -630,47 +605,79 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
   `;
   document.body.appendChild(menuEl);
 
-  // Wire the action buttons.
-  menuEl.addEventListener('click', (e) => {
-    const action = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-action]')?.dataset.action;
-    if (!action) return;
-    if (action === 'replace-sanity') void triggerSanityReplace(el, desc);
-    if (action === 'open-sanity') void triggerOpenInSanity(el, desc);
-    if (action === 'bind-sanity') void triggerSanityBind(el, desc);
-    if (action === 'cancel')  closeMenu();
-  });
   menuEl.querySelector('.pi-edit-panel__close')?.addEventListener('click', closeMenu);
+  menuEl.querySelector('[data-action="cancel"]')?.addEventListener('click', closeMenu);
 
-  // Async probe: enable write actions only after a real Sanity source is known.
-  void (async () => {
-    try {
-      const mod = await import('./sanity-image-overlay');
-      const source = mod.resolveSanitySource(el, desc);
-      if (!menuEl) return;
-      const sourceEl = menuEl.querySelector<HTMLElement>('[data-role="source"]');
-      const bindBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="bind-sanity"]');
-      const replaceBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="replace-sanity"]');
-      const sanityBtn = menuEl.querySelector<HTMLButtonElement>('[data-action="open-sanity"]');
-      if (!source) {
-        if (sourceEl) sourceEl.textContent = 'Not bound to Sanity yet.';
-        if (bindBtn) bindBtn.hidden = false;
-        if (replaceBtn) replaceBtn.disabled = true;
-        if (sanityBtn) sanityBtn.disabled = true;
-      } else {
-        const target = source.docId
-          ? `${source.docId} · ${source.fieldPath}`
-          : `${source.entityType}/${source.entitySlug} · ${source.fieldPath}`;
-        if (sourceEl) sourceEl.textContent = target;
-        if (bindBtn) bindBtn.hidden = true;
-        if (replaceBtn) replaceBtn.disabled = false;
-        if (sanityBtn) sanityBtn.disabled = false;
-      }
-    } catch {
-      if (!menuEl) return;
-      const sourceEl = menuEl.querySelector<HTMLElement>('[data-role="source"]');
-      if (sourceEl) sourceEl.textContent = 'Could not check Sanity binding.';
+  const fileInput = menuEl.querySelector<HTMLInputElement>('[data-role="file-input"]');
+  fileInput?.addEventListener('change', () => {
+    const file = fileInput.files?.[0];
+    if (file) void uploadAndPatch(el, desc, file);
+  });
+}
+
+/**
+ * Upload a file to the Sanity CDN asset store, then save the resulting URL
+ * into Supabase cms_image_slots via /api/admin/sanity-patch. Swaps the
+ * visible image src immediately on success.
+ */
+async function uploadAndPatch(el: HTMLElement, desc: ImageDescriptor, file: File) {
+  const statusEl = menuEl?.querySelector<HTMLElement>('[data-role="status"]');
+  const uploadLabel = menuEl?.querySelector<HTMLElement>('[data-role="upload-label"]');
+  if (statusEl) { statusEl.textContent = `Uploading "${file.name}"…`; statusEl.style.display = ''; }
+  if (uploadLabel) (uploadLabel as HTMLElement).style.opacity = '0.4';
+
+  try {
+    // 1. Upload to Sanity CDN (gives us a permanent, fast CDN URL).
+    const fd = new FormData();
+    fd.append('file', file);
+    const upRes = await fetch('/api/admin/sanity-asset-upload', {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: fd,
+    });
+    const upBody = await upRes.json().catch(() => ({}));
+    if (!upRes.ok || !upBody.ok) {
+      toast(`Upload failed: ${upBody?.error || upRes.statusText}`, 'err');
+      closeMenu();
+      return;
     }
-  })();
+    const assetId = upBody.data?._id as string | undefined;
+    if (!assetId) { toast('Upload returned no asset id.', 'err'); closeMenu(); return; }
+
+    if (statusEl) statusEl.textContent = 'Saving…';
+
+    // 2. Save the URL into Supabase cms_image_slots.
+    const patchRes = await fetch('/api/admin/sanity-patch', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        entityType: desc.entityType,
+        entitySlug: desc.entitySlug,
+        fieldPath: desc.fieldPath,
+        newAssetRef: assetId,
+      }),
+    });
+    const patchBody = await patchRes.json().catch(() => ({}));
+    if (!patchRes.ok || !patchBody.ok) {
+      toast(`Save failed: ${patchBody?.error || patchRes.statusText}`, 'err');
+      closeMenu();
+      return;
+    }
+
+    // 3. Swap the visible image src immediately.
+    const newUrl = patchBody.data?.newUrl as string | undefined;
+    if (newUrl) {
+      const bust = `${newUrl}${newUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
+      setImageSrc(el, bust);
+    }
+
+    closeMenu();
+    toast('Image saved — visible on next page load too.', 'ok');
+  } catch (err) {
+    toast(`Error: ${(err as Error).message}`, 'err');
+    closeMenu();
+  }
 }
 
 function cssUrl(src: string): string {
@@ -686,123 +693,6 @@ function closeMenu() {
   menuEl = null;
 }
 
-async function triggerOpenInSanity(el: HTMLElement, desc: ImageDescriptor) {
-  try {
-    const mod = await import('./sanity-image-overlay');
-    const source = mod.resolveSanitySource(el, desc);
-    if (!source) {
-      toast('This image is not bound to a Sanity document yet.', 'info');
-      return;
-    }
-    await mod.openSourceInStudio(source, toast);
-  } catch (err) {
-    console.error('[pi-edit] failed to open Sanity Studio', err);
-    toast(`Couldn't open Sanity: ${(err as Error).message}`, 'err');
-  }
-}
-
-/**
- * Replace via Sanity media library. Lazy-loads the modal module so anon
- * visitors (and admins who never click this button) never download it.
- * Resolution priority:
- *   1. explicit data-pi-edit attrs → entitySlug → Sanity doc lookup
- *   2. stega payload decoded from the rendered image src
- *   3. neither → toast a hint and bail
- */
-/**
- * Open the "Bind to a Sanity doc…" modal for an image that has no existing
- * Sanity binding. On save, the new pi.image_bindings row is cached, the
- * data-pi-edit attrs are injected onto matching elements, and a toast
- * prompts the editor to right-click again.
- */
-async function triggerSanityBind(el: HTMLElement, _desc: ImageDescriptor) {
-  try {
-    const overlay = await import('./sanity-image-overlay');
-    const bindMod = await import('./sanity-bind-modal');
-    const src = currentImageSrc(el);
-    const basename = overlay.srcBasenameFor(src);
-    const pattern = overlay.currentPageUrlPattern();
-    closeMenu();
-    bindMod.openBindModal({
-      imageBasename: basename,
-      pageUrlPattern: pattern,
-      toast,
-      onClose: () => { /* nothing extra */ },
-      onBound: (binding) => {
-        overlay.invalidateBindingsCache();
-        void (async () => {
-          await overlay.loadBindingsForPage();
-          applyBindingsToDom();
-        })();
-        // Tag this specific element immediately so an instant right-click
-        // works without waiting for the cache reload.
-        el.setAttribute('data-pi-edit', 'image');
-        el.setAttribute('data-pi-entity-type', binding.sanity_doc_type);
-        el.setAttribute('data-pi-entity-slug', binding.sanity_doc_id);
-        el.setAttribute('data-pi-field-path', binding.sanity_field_path);
-        el.setAttribute('data-pi-sanity-singleton-id', binding.sanity_doc_id);
-        el.setAttribute('data-pi-sanity-singleton-path', binding.sanity_field_path);
-      },
-    });
-  } catch (err) {
-    console.error('[pi-edit] bind modal failed to load', err);
-    toast(`Couldn't open bind modal: ${(err as Error).message}`, 'err');
-  }
-}
-
-/**
- * Walk the DOM and add `data-pi-edit="image"` + sanity-binding attrs to
- * every `<img>` / background-image element whose filename basename matches
- * a row in pi.image_bindings for the current page. Idempotent — re-runs
- * after each bind save. Admin-gated.
- */
-function applyBindingsToDom(): void {
-  void import('./sanity-image-overlay').then((mod) => {
-    const rows = mod.getCachedBindings();
-    if (!rows.length) return;
-    const byBasename = new Map<string, typeof rows[number]>();
-    for (const r of rows) byBasename.set(r.image_basename, r);
-
-    const candidates = document.querySelectorAll<HTMLElement>('img, [style*="background-image"], [data-pi-edit="image"]');
-    for (const el of candidates) {
-      if (el.dataset.piEdit === 'image' && el.dataset.piEntityType) continue;
-      const src = currentImageSrc(el);
-      const basename = mod.srcBasenameFor(src);
-      const row = byBasename.get(basename);
-      if (!row) continue;
-      el.setAttribute('data-pi-edit', 'image');
-      if (!el.dataset.piEntityType) el.setAttribute('data-pi-entity-type', row.sanity_doc_type);
-      if (!el.dataset.piEntitySlug) el.setAttribute('data-pi-entity-slug', row.sanity_doc_id);
-      if (!el.dataset.piFieldPath)  el.setAttribute('data-pi-field-path', row.sanity_field_path);
-      el.setAttribute('data-pi-sanity-singleton-id', row.sanity_doc_id);
-      el.setAttribute('data-pi-sanity-singleton-path', row.sanity_field_path);
-    }
-  }).catch(() => { /* ignore */ });
-}
-
-async function triggerSanityReplace(el: HTMLElement, desc: ImageDescriptor) {
-  try {
-    const mod = await import('./sanity-image-overlay');
-    const source = mod.resolveSanitySource(el, desc);
-    if (!source) {
-      toast(
-        "This image isn't bound to a Sanity field yet. Add a data-pi-edit attribute or wire it through a stega-enabled query to enable replacement.",
-        'info',
-      );
-      return;
-    }
-    mod.openMediaLibraryModal({
-      el,
-      source,
-      toast,
-      setImageSrc,
-      onClose: () => closeMenu(),
-    });
-  } catch (err) {
-    console.error('[pi-edit] sanity overlay failed to load', err);
-    toast(`Couldn't open media library: ${(err as Error).message}`, 'err');
-  }
-}
 
 // --------------------------------------------------------------------------
 // Revision log
