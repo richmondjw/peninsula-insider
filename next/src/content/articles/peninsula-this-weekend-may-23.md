@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "may-planning", "autumn", "food-wine", "rainy-day", "flinders", "mushrooms"]
 relatedVenues: []
 readingTimeMinutes: 3
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-05-17
 clusterLinks:
