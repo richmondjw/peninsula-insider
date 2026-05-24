@@ -25,7 +25,9 @@ const liveStatusUrl = resolveLiveStatusUrl(data);
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 
 // New planning/recommendation layer
-const hasWorthKnowing = data.worthKnowing && Object.values(data.worthKnowing).some(Boolean);
+// Worth Knowing panel renders if worthKnowing object has any values, OR if bestFor tags are present
+const hasWorthKnowing = (data.bestFor && data.bestFor.length > 0) ||
+  (data.worthKnowing && Object.values(data.worthKnowing).some(Boolean));
 const hasSeasonalNotes = data.seasonalNotes && Object.values(data.seasonalNotes).some(Boolean);
 const seasonalNoteEntries: [string, string][] = data.seasonalNotes
   ? (Object.entries(data.seasonalNotes) as [string, string][]).filter(([, v]) => v)
