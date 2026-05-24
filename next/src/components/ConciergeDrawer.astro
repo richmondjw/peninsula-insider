@@ -59,7 +59,6 @@ try {
     aria-label="Ask PI, your local Peninsula concierge"
   >
     <span class="pi-drawer__bubble-avatar" aria-hidden="true">
-      <span class="pi-drawer__bubble-fallback">PI</span>
       <img src={conciergeIcon} alt="" width="40" height="40" onerror="this.remove()" {...conciergeAvatarAttrs} />
     </span>
     <span class="pi-drawer__bubble-label">Ask <em>The Insider</em></span>
@@ -81,7 +80,6 @@ try {
     <div class="pi-drawer__header">
       <div class="pi-drawer__id">
         <span class="pi-avatar pi-avatar--md" aria-hidden="true">
-          <span class="pi-avatar__fallback">PI</span>
           <img src={conciergeIcon} alt="" width="42" height="42" onerror="this.remove()" {...conciergeAvatarAttrs} />
         </span>
         <div>
@@ -130,7 +128,6 @@ try {
       <article class="ask-msg ask-msg--pi" id="pi-drawer-greeting">
         <div class="ask-msg__byline">
           <span class="pi-avatar pi-avatar--sm" aria-hidden="true">
-            <span class="pi-avatar__fallback">PI</span>
             <img src={conciergeIcon} alt="" width="22" height="22" onerror="this.remove()" {...conciergeAvatarAttrs} />
           </span>
           <span class="ask-msg__byline-name">The Insider</span>
@@ -613,14 +610,6 @@ try {
     object-fit: cover;
     z-index: 1;
   }
-  .pi-drawer__bubble-fallback {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-weight: 600;
-    color: var(--pi-terra);
-    font-size: 0.78rem;
-    line-height: 1;
-  }
   .pi-drawer__bubble-label {
     font-family: 'Outfit', sans-serif;
     text-transform: uppercase;
@@ -831,7 +820,6 @@ try {
       const px = AVATAR_PX[size] || 22;
       return ''
         + '<span class="pi-avatar pi-avatar--' + size + '" aria-hidden="true">'
-        +   '<span class="pi-avatar__fallback">PI</span>'
         +   '<img src="' + (window.__PI_CONCIERGE_ICON || '/images/pi-concierge.svg') + '" alt="" width="' + px + '" height="' + px + '" onerror="this.remove()" />'
         + '</span>';
     }

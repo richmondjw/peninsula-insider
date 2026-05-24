@@ -181,3 +181,218 @@ table {
   overflow-x: auto;
   max-width: 100%;
 }
+
+
+/* ------------------------------------------------------------------
+   7. MOBILE CARD COMPRESSION (≤ 640px)
+
+   Venue cards, event cards, and article cards on mobile carry too
+   much vertical bulk: oversized hero ratios, generous padding, and
+   full-size headings. This section compresses all three to reduce
+   thumb-scroll fatigue without altering desktop presentation.
+
+   Strategy:
+   - Shorten hero aspect ratio (less height per card)
+   - Tighten side padding (more reading room, less chrome)
+   - Scale down serif headings to ~1.25rem (still premium, less bulk)
+   - Clamp signature / summary text to 2 lines (expand on detail page)
+   - Reduce bottom save-pill zone (pills sit closer to actions row)
+   ------------------------------------------------------------------ */
+
+@media (max-width: 640px) {
+
+  /* ── Venue card ────────────────────────────────────────────────── */
+  .venue-card {
+    border-radius: 1rem;
+    padding-bottom: 2.75rem;  /* was 3.25rem — tighter save-pill zone */
+  }
+
+  .venue-card__hero {
+    aspect-ratio: 3 / 2;      /* was 16/10 — ~37% less image height */
+  }
+
+  .venue-card > .venue-card__top,
+  .venue-card > .venue-card__name,
+  .venue-card > .venue-card__place,
+  .venue-card > .venue-card__hats,
+  .venue-card > .venue-card__signature,
+  .venue-card > .venue-card__tags,
+  .venue-card > .venue-card__actions {
+    padding-left: 1.25rem;    /* was 1.75rem */
+    padding-right: 1.25rem;
+  }
+
+  .venue-card > .venue-card__top {
+    padding-top: 1rem;        /* was 1.5rem */
+    margin-bottom: 0.5rem;    /* tighten gap below type/place row */
+  }
+
+  .venue-card__name {
+    font-size: 1.3rem;        /* was 1.55rem */
+    margin-bottom: 0.2rem;
+  }
+
+  .venue-card__signature {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;         /* 2-line max — full text on detail page */
+    font-size: 0.9rem;
+  }
+
+  .venue-card__tags {
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;   /* tighter before the actions row */
+  }
+
+  /* ── Event card ────────────────────────────────────────────────── */
+  .event-card {
+    gap: 0.6rem;              /* was 0.85rem between sections */
+  }
+
+  .event-card__hero {
+    aspect-ratio: 3 / 2;      /* was 16/9 — shorter per card */
+  }
+
+  .event-card__top,
+  .event-card__name,
+  .event-card__place,
+  .event-card__summary,
+  .event-card__verdict,
+  .event-card__cta,
+  .event-badges {
+    padding-left: 1.25rem;    /* was 1.6rem */
+    padding-right: 1.25rem;
+  }
+
+  .event-card__top {
+    padding-top: 1rem;        /* was 1.4rem */
+  }
+
+  .event-card__cta {
+    padding-bottom: 2.75rem;  /* was 3.25rem */
+  }
+
+  .event-card__name {
+    font-size: 1.3rem;        /* was 1.55rem */
+    line-height: 1.2;
+  }
+
+  .event-card__summary {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;         /* 2-line max on mobile */
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  /* Featured event card — on mobile it already stacks, just tighten */
+  .event-card--featured .event-card__name {
+    font-size: 1.4rem;        /* was 1.65rem on mobile */
+  }
+
+  /* ── Article card ──────────────────────────────────────────────── */
+  .article-card__title {
+    font-size: 1.2rem;
+  }
+
+  .article-card__dek {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 0.88rem;
+  }
+
+  /* ── Place card ────────────────────────────────────────────────── */
+  .place-card__name {
+    font-size: 1.2rem;
+  }
+
+  .place-card__body {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 0.88rem;
+  }
+
+}
+
+/* Venue grid — on mobile switch to single column so each compressed
+   card gets full width rather than trying to fit two per row */
+@media (max-width: 540px) {
+  .venues__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   8. HUB AREA QUICK-NAV (mobile-only)
+
+   Horizontally scrollable chip strip beneath the hub hero on eat +
+   wine pages. Gives geographic orientation before the editorial
+   grids begin. Hidden on desktop — the CompareBlock does this job
+   there. Each chip is a large tap target linking to a place hub.
+   ------------------------------------------------------------------ */
+
+.hub-area-nav {
+  display: none;        /* hidden by default — shown on mobile below */
+  border-top: 1px solid var(--border, rgba(121,92,58,0.12));
+  border-bottom: 1px solid var(--border, rgba(121,92,58,0.12));
+  background: var(--bg-alt, #f7f3ec);
+  padding: 0.75rem 0;
+}
+
+@media (max-width: 768px) {
+  .hub-area-nav {
+    display: block;
+  }
+
+  .hub-area-nav .container {
+    overflow-x: clip;   /* safety — chips shouldn't overflow */
+  }
+
+  .hub-area-nav__label {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft, #78624c);
+    margin: 0 0 0.5rem;
+  }
+
+  .hub-area-nav__chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hub-area-nav__chip {
+    display: inline-block;
+    padding: 0.45rem 0.95rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--dark, #201B17);
+    background: #fff;
+    border: 1px solid var(--border, rgba(121,92,58,0.18));
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .hub-area-nav__chip:hover,
+  .hub-area-nav__chip:active {
+    background: var(--accent, #A0541F);
+    color: #fff;
+    border-color: var(--accent, #A0541F);
+  }
+}

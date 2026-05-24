@@ -1,0 +1,134 @@
+eninsula Insider — Sanity Data Architecture Report
+Overview
+Sanity is the CMS backend for the editorial core of the site. It sits alongside — not above — a second data layer: 20 Astro content collections stored as JSON/Markdown files in next/src/content/. The two systems share the same field vocabulary and the same {slug, data: {...}} envelope, but they serve different stages of the content lifecycle. Sanity wins when a document has been promoted there; the file system is the fallback and the staging area.
+
+Document Types (14)
+Core Content (6 editorial document types)
+Document	_type	Primary purpose
+Place	place	Geographic anchor — towns, villages, ridges, beaches, capes
+Venue	venue	Commercial/hospitality entity — restaurants, wineries, stays, etc.
+Experience	experience	Non-commercial activity — walks, beaches, galleries, lookouts
+Event	event	Dated or recurring Peninsula event
+Itinerary	itinerary	Multi-stop escape plan
+Article	article	Editorial journal pieces
+Supporting Documents (5)
+Document	_type	Primary purpose
+Author	author	Byline entity — name, bio, avatar
+Tour operator	tourOperator	Guided tour companies
+Tour	tour	Individual tour products
+Tour package	tourPackage	Bundled tour combinations
+Page	page	Flexible CMS-driven pages (newest addition, page builder)
+Singletons / Global Config (3)
+Document	_id	Controls
+Homepage cover	homepageCover	Active cover scene + scene array (image, headline, dispatch, CTA)
+Mega-rail	megaRail	5-entry hub rail (whats-on, escape, eat, wine, stay)
+Site settings	siteSettings	Masthead, tagline, edition label, footer links, social handles, brand imagery
+Progressive heroes (1)
+pageHero — one document per page path slug (e.g. whats-on, places, eat-cafes). Progressively created on first admin image replacement. Replaces the previous Supabase override layer.
+
+Object Types (13)
+Registered globally; used as field types across multiple documents.
+
+Object	Purpose
+imageRef	Sanity image asset + attribution: alt, credit, license (9 values), caption. Hotspot enabled for smart cropping. The credit field uses the "jem" sentinel for James/Emma photos.
+coordinates	lat, lng pair
+authority	Editorial authority signals: Good Food Guide hats (0–3), Halliday score (0–100), awards[], pressMentions[]. Venues only.
+tags	Three-axis editorial taxonomy: mood[] (22 values), season[] (5 values), audience[] (6 values). Closed vocabularies for hub filtering.
+openingHourEntry	Structured opening hours
+visiting	Cellar door fields: hours, tasting fee, booking requirements
+wines	Wine variety and style data for wineries
+onSiteFood	On-site restaurant or accommodation attached to a winery
+faqItem	Single FAQ question + answer; used in venue and itinerary arrays
+sameAs	External identity links (schema.org sameAs)
+itineraryStop	One stop in an itinerary: day, order, venue reference, experienceSlug (string for now — see migration note), timeOfDay, timeRange, drive time
+alertBlock, practicalCallout	Structured Portable Text embeds for article bodies
+cellarDoorList, dogPolicyTable, subregionGrid, varietyGuide	JSON-body embeds migrated from MDX. Stored as raw JSON strings; editors refine after cutover.
+Reference Graph
+article ──────────────────► author
+         ├──────────────── ► venue (weak, array)
+         ├──────────────── ► experience (weak, array)
+         ├──────────────── ► place (weak, array)
+         ├──────────────── ► article (weak, array — related)
+         └──────────────── ► itinerary (weak, array)
+venue ─────────────────────► place (required)
+experience ────────────────► place (required)
+event ─────────────────────► venue (weak, optional)
+       └──────────────────► place (weak, optional)
+itinerary ─────────────────► venue (anchorStay, altStays[])
+           ├──────────────► place (anchorTown, baseTowns[])
+           └── stops[] ──► venue (per-stop reference)
+                           experienceSlug: string (not yet a reference — Phase 5 pending)
+homepageCover ─ scenes[] ─► imageRef (asset only, no doc reference)
+pageHero ──────────────── ► imageRef
+megaRail ──── entries[] ─► imageRef
+Weak references are used on articles and events so that deleting a venue doesn't break those documents.
+
+Field Group Patterns
+Every document uses Sanity's groups API to organise the editing form. The consistent pattern across all types:
+
+Editorial / Content (default tab — shown first): name, slug, editorial copy, hero image, tags
+Location (venues, experiences): place reference, zone, coordinates, address, phone, website
+Commerce / Booking (venues, events): price band, booking URL, provider, affiliate flags
+Audience (events, experiences): suitable for, audience tags, kids grade, dog friendly
+Authority (venues only): hats, Halliday score, awards, press
+Admin (all): publishedAt, lastVerified, sitemapExclude
+sitemapExclude: boolean appears on every document type — the sitemap generator filters by it.
+
+Event Document — Special Architecture
+Events have a deliberate three-tier field ownership model, annotated in the Astro schema:
+
+Tier	Fields	Owner
+Identity + facts	title, slug, summary, startDate, category, venueName, etc.	Import script (can overwrite)
+Derived	nextOccurrence	Cron job (recomputed for recurring events)
+Editorial overlay	editorNote, editorVerdict, kidsGrade, lens[], worthTheDrive, firstTimer, heroImage	Human editors (never overwritten by import)
+The lens[] field (10 values: weekend-pick, date-idea, family-saturday, rainy-day, etc.) drives filtering on the what's-on page and the homepage weekend picks rail.
+
+Venue — Type Vocabulary
+15 types: restaurant, winery, cafe, bakery, pub, brewery, distillery, producer, market, hotel, villa, cottage, glamping, farm-stay, spa.
+
+Wineries get three extra field groups not shown on other types: wines (variety/style data), visiting (cellar door hours/tasting fee), and restaurant/accommodation objects for on-site offerings.
+
+Article — Body Content
+Article bodies are Portable Text arrays. Beyond standard blocks (h2, h3, blockquote, bullet, numbered), the schema registers six custom embed types:
+
+alertBlock — danger/warning/info callouts
+practicalCallout — eyebrow + heading + body panels
+cellarDoorList — cellar door list (JSON body, migrated from MDX)
+dogPolicyTable — dog policy comparison (JSON body)
+subregionGrid — subregion tiles (JSON body)
+varietyGuide — grape variety guide (JSON body)
+Dual-Source Architecture
+The most important architectural point: Sanity and the file system coexist. The adapters in next/src/lib/sanity/ fetch from Sanity at build/request time using GROQ queries. If a document exists in Sanity, it wins over the JSON file. If not, the JSON file serves as the fallback.
+
+Astro content collections with no Sanity counterpart (file system only):
+
+Collection	File format	Notes
+quickNotes	Markdown	Daily editorial briefs, expire after 7 days
+editorial_blocks	Markdown	Hub intros, framing copy, formerly hard-coded
+localSecrets	Markdown	Reader-submitted, exported from Supabase
+insidersThirty	JSON	Annual ranked list
+weekend-picks	JSON	Weekly editorial picks shortlist
+signature-events	JSON	Evergreen anchor event pages
+species, fishingLocations, fishingCharters, boatRamps, boatHire	Markdown	Fishing/boating vertical, all in draft status
+The fetch pattern in adapters:
+
+fetchAllVenuesFromSanity() → lightweight list (slug + publishedAt + sitemapExclude) for build-time static path generation
+fetchVenueFromSanity(slug) → full document for detail page rendering
+fetchAllExperiencesFromSanity() → lightweight only — no editorNote, no seasonBest (this is the root cause of the orphan image issue described earlier)
+Known Technical Debt / Open Migration Items
+itineraryStop.experienceSlug is a string, not a reference. Comments in the schema say "Phase 5 will convert these to proper Sanity references." The conversion hasn't landed.
+Events, experiences, venues, and places all have Sanity schemas but the primary data for most still lives in JSON. The auto-create pattern (createPlaceFromLocalJson in sanity-patch.ts) progressively creates Sanity documents when editors first touch an image — only places have this wired up today.
+Events have no Sanity image write path. The sanity-patch.ts handler has no createEventFromLocalJson fallback, so event hero images are orphaned in the admin overlay (the issue raised before this report).
+Embed blocks stored as raw JSON strings (cellarDoorList, dogPolicyTable, etc.) are a migration shortcut. The comments note "editors can refine the props after cutover" — structured fields haven't been built for those types yet.
+fetchAllExperiencesFromSanity() returns a sitemap-only stub. Any page that calls this function and then accesses full experience fields (like editorNote) will crash during prerender — as seen this morning.
+Data Flow Summary
+Build time:
+  Sanity GROQ API → fetch*FromSanity() adapters → Astro pages (static HTML)
+  src/content/*.json → getCollection() → Astro pages (static HTML)
+Admin edit (runtime):
+  Editor right-clicks image → admin overlay → /api/admin/image-binding (Supabase lookup)
+    → /api/admin/sanity-patch → Sanity write client → patch doc → triggerRevalidate()
+    → Vercel deploy hook → new build
+Event data:
+  Import script (JSON spreadsheet) → src/content/events/*.json → committed to Git
+  Cron (nextOccurrence, lens recompute) → updates JSON in place → commits
