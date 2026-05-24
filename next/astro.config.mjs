@@ -42,6 +42,9 @@ export default defineConfig({
   site: 'https://peninsulainsider.com.au',
   base,
   trailingSlash: 'always',
+  // Move content-layer cache out of node_modules so Vercel's build cache
+  // doesn't serve stale data-store.json between deploys.
+  cacheDir: './.astro-build-cache',
   build: {
     format: 'directory',
   },
