@@ -204,7 +204,9 @@ export const POST: APIRoute = async ({ request }) => {
   // Reject any field path that looks like a GROQ injection attempt. Sanity
   // patch helpers escape the value, but dot-notation is interpreted by the
   // patch builder, so we still want to validate the shape.
-  if (!/^[a-zA-Z_][a-zA-Z0-9_.[\]]*$/.test(fieldPath)) {
+  // Allow `:` and `-` for auto-detected image paths (e.g. img:filename.webp)
+  // that route to Supabase — neither character is special in GROQ or SQL.
+  if (!/^[a-zA-Z_][a-zA-Z0-9_.:[\]-]*$/.test(fieldPath)) {
     return badRequest('Invalid fieldPath');
   }
 
