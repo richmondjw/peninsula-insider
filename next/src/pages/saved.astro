@@ -61,14 +61,14 @@ const eventLookup = Object.fromEntries(
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
-  { label: 'My shortlist' },
+  { label: 'Saved Trips' },
 ];
 export const prerender = true;
 ---
 
 <BaseLayout
-  title="My shortlist · Peninsula Insider"
-  description="Your saved Peninsula venues and events. Saved on this device, sharable as a single link."
+  title="Saved Trips · Peninsula Insider"
+  description="Your saved Peninsula places, events, and plans. Build your Peninsula over time and share with co-travellers."
   section="home"
   noindex={true}
   searchExclude={true}
@@ -76,12 +76,12 @@ export const prerender = true;
   <Breadcrumbs items={breadcrumbItems} />
 
   <SectionHero
-    eyebrow="My shortlist"
-    subEyebrow="Saved on this device"
-    title="Your <em>Peninsula</em> shortlist"
-    dek="Venues and events you've saved across the site, ready to share or come back to. Saved locally, no account needed. Share the link to send the whole list to a co-traveller."
+    eyebrow="Saved Trips"
+    subEyebrow="Your Peninsula, collected"
+    title="Places and plans <em>worth coming back to.</em>"
+    dek="Save venues, events, and recommendations as you explore the site. Return when you're planning, share with a co-traveller, or build your next Peninsula weekend from what you've collected."
     gradient="journal"
-    visualLabel="Peninsula Insider · saved"
+    visualLabel="Peninsula Insider · saved trips"
   />
 
   <section class="saved-page">
