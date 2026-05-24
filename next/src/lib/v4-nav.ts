@@ -465,7 +465,7 @@ export const v4Pillars: V4Pillar[] = [
         eyebrow: 'By the read',
         items: [
           { key: 'all-journal',        label: 'Every issue, every piece', href: '/journal/' },
-          { key: 'editorial-approach', label: 'Editorial approach',       href: '/editorial-approach/' },
+          { key: 'our-approach', label: 'Our approach',       href: '/our-approach/' },
         ],
       },
     ],
@@ -508,7 +508,8 @@ export const v4FooterNiche: V4NavItem[] = [
 ];
 
 export const v4FooterAbout: V4NavItem[] = [
-  { key: 'editorial-approach', label: 'Editorial Approach', href: '/editorial-approach/' },
+  { key: 'about',              label: 'About Peninsula Insider', href: '/about/' },
+  { key: 'our-approach',       label: 'Our Approach',       href: '/our-approach/' },
   { key: 'partners',           label: 'Partner With Us',    href: '/partners/' },
   { key: 'contact',            label: 'Contact',            href: '/contact/' },
 ];
