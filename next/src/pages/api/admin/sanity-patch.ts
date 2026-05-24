@@ -223,39 +223,50 @@ export const POST: APIRoute = async ({ request }) => {
   // the Sanity document write path below.
   if (entityType && entitySlug) {
     if (!access.client) return internalError('No Supabase client available');
-    // Build the public CDN URL from the Sanity asset ref so we still get fast
-    // image delivery without adding another storage dependency.
+    // Build the public CDN URL from the Sanity asset ref.
     const sanityBuilder = imageUrlBuilder({ projectId: 'a062b30n', dataset: 'production' });
     const newUrl = sanityBuilder.image(newAssetRef).auto('format').url();
     const actorId = access.access?.identity?.userId ?? null;
-    const slot = await upsertImageSlot(
-      access.client,
-      {
-        entityType: 'page',
-        entitySlug,
-        fieldPath,
-        label: fieldPath,
-        purpose: 'hero',
-        storageBucket: 'sanity-cdn',
-        storagePath: null,
-        publicUrl: newUrl,
-        mimeType: null,
-        status: 'published',
-      },
-      actorId,
-    );
-    if (!slot) return internalError('Failed to save image slot to Supabase');
+
+    // Write directly so we can log the actual Supabase error.
+    // Note: we don't .select() after upsert — if the SELECT RLS policy differs
+    // from the INSERT policy, a successful write still returns data=null, which
+    // upsertImageSlot() mistakenly treats as a failure.
+    const { error: slotErr } = await access.client
+      .from('cms_image_slots')
+      .upsert(
+        {
+          entity_type: entityType,
+          entity_slug: entitySlug,
+          field_path: fieldPath,
+          label: fieldPath,
+          purpose: 'hero',
+          storage_bucket: 'sanity-cdn',
+          storage_path: null,
+          public_url: newUrl,
+          mime_type: null,
+          status: 'published',
+          updated_by: actorId,
+        },
+        { onConflict: 'entity_type,entity_slug,field_path' },
+      );
+
+    if (slotErr) {
+      console.error('[sanity-patch] Supabase upsert error:', slotErr.message, slotErr);
+      return internalError(`Failed to save image slot: ${slotErr.message}`);
+    }
+
     // Fire deploy hook so the static build picks up the new URL.
     const deployHookUrl = process.env.VERCEL_DEPLOY_HOOK_URL;
     if (deployHookUrl) {
       fetch(deployHookUrl, { method: 'POST' }).catch((err) => {
-        console.error('[sanity-patch] page-entity deploy hook failed:', err);
+        console.error('[sanity-patch] deploy hook failed:', err);
       });
     }
     return jsonResponse({
       ok: true,
       data: {
-        entityType: 'page',
+        entityType,
         entitySlug,
         fieldPath,
         newUrl,
