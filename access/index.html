@@ -47,7 +47,7 @@
             body: JSON.stringify({ email: email, source: 'access-gate' })
           });
           if (res.ok) {
-            setStatus('You're on the list. We'll be in touch.', 'success');
+            setStatus("You're on the list. We'll be in touch.", 'success');
             subEmail.value = '';
           } else {
             setStatus('Something went wrong — try again.', 'error');
