@@ -23,16 +23,27 @@ export interface LegalPageData {
 }
 
 export async function fetchLegalPageFromSanity(slug: string): Promise<LegalPageData | null> {
+  // Skip if no read token — avoids DNS failure crashing the build when
+  // the token isn't configured locally (Sanity CDN still requires a token
+  // even for public reads in some project configurations).
+  if (!process.env.SANITY_READ_TOKEN) return null
+
+  const timeout = new Promise<null>((resolve) => setTimeout(() => resolve(null), 5000))
   try {
-    const d: any = await sanityClient.fetch(legalPageQuery, {slug})
-    if (!d) return null
-    return {
-      title: d.title ?? '',
-      eyebrow: d.eyebrow ?? undefined,
-      seoDescription: d.seoDescription ?? undefined,
-      lastUpdated: d.lastUpdated ?? undefined,
-      body: Array.isArray(d.body) ? d.body : [],
-    }
+    const result = await Promise.race([
+      sanityClient.fetch(legalPageQuery, {slug}).then((d: any) => {
+        if (!d) return null
+        return {
+          title: d.title ?? '',
+          eyebrow: d.eyebrow ?? undefined,
+          seoDescription: d.seoDescription ?? undefined,
+          lastUpdated: d.lastUpdated ?? undefined,
+          body: Array.isArray(d.body) ? d.body : [],
+        } as LegalPageData
+      }).catch(() => null),
+      timeout,
+    ])
+    return result
   } catch {
     return null
   }

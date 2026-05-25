@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en" data-astro-cid-du7fittg> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Peninsula Insider</title><meta name="robots" content="noindex, nofollow"><style>[data-astro-cid-du7fittg],[data-astro-cid-du7fittg]:before,[data-astro-cid-du7fittg]:after{box-sizing:border-box;margin:0;padding:0}body{font-family:Georgia,serif;background:#f7f5f0;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem}.gate[data-astro-cid-du7fittg]{width:100%;max-width:380px;text-align:center}.gate__logo[data-astro-cid-du7fittg]{font-size:1.5rem;font-weight:400;letter-spacing:.04em;color:#1a1a1a;margin-bottom:.25rem}.gate__logo[data-astro-cid-du7fittg] em[data-astro-cid-du7fittg]{font-style:italic;color:#a0541f}.gate__sub[data-astro-cid-du7fittg]{font-family:Outfit,system-ui,sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#888;margin-bottom:2.5rem}.gate__label[data-astro-cid-du7fittg]{font-family:Outfit,system-ui,sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#555;display:block;margin-bottom:.6rem;text-align:left}.gate__input[data-astro-cid-du7fittg]{width:100%;padding:.85rem 1rem;font-family:Georgia,serif;font-size:1rem;border:1.5px solid #d0ccc4;background:#fff;color:#1a1a1a;border-radius:4px;outline:none;margin-bottom:1rem;transition:border-color .2s}.gate__input[data-astro-cid-du7fittg]:focus{border-color:#a0541f}.gate__btn[data-astro-cid-du7fittg]{width:100%;padding:.85rem 1rem;background:#1a1a1a;color:#fff;font-family:Outfit,system-ui,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:background .2s}.gate__btn[data-astro-cid-du7fittg]:hover{background:#a0541f}.gate__error[data-astro-cid-du7fittg]{font-family:Outfit,system-ui,sans-serif;font-size:.8rem;color:#c0392b;margin-top:.75rem;display:none}.gate__error[data-astro-cid-du7fittg].visible{display:block}
-</style></head> <body data-astro-cid-du7fittg> <div class="gate" data-astro-cid-du7fittg> <p class="gate__logo" data-astro-cid-du7fittg>Peninsula <em data-astro-cid-du7fittg>Insider</em></p> <p class="gate__sub" data-astro-cid-du7fittg>An editorial guide</p> <label class="gate__label" for="pw" data-astro-cid-du7fittg>Access</label> <input id="pw" class="gate__input" type="password" placeholder="Enter password" autocomplete="current-password" autofocus data-astro-cid-du7fittg> <button class="gate__btn" id="btn" data-astro-cid-du7fittg>Enter →</button> <p class="gate__error" id="err" data-astro-cid-du7fittg>Incorrect password</p> </div> <script>
+<!DOCTYPE html><html lang="en" data-astro-cid-du7fittg> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Peninsula Insider — Coming Soon</title><meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="/_astro/index.CXGDyqm-.css"></head> <body data-astro-cid-du7fittg> <div class="gate" data-astro-cid-du7fittg> <img class="gate__logo-img" src="/images/pi-logo-new.svg" alt="Peninsula Insider" data-astro-cid-du7fittg> <p class="gate__logo-text" data-astro-cid-du7fittg>Peninsula <em data-astro-cid-du7fittg>Insider</em></p> <label class="gate__label" for="pw" data-astro-cid-du7fittg>Access</label> <input id="pw" class="gate__input" type="password" placeholder="Enter password" autocomplete="current-password" autofocus data-astro-cid-du7fittg> <button class="gate__btn" id="btn" data-astro-cid-du7fittg>Enter →</button> <p class="gate__error" id="err" data-astro-cid-du7fittg>Incorrect password</p> <div class="gate__divider" data-astro-cid-du7fittg><span data-astro-cid-du7fittg>Not yet an insider?</span></div> <!-- Teaser + subscribe --> <div class="gate__teaser" data-astro-cid-du7fittg> <span class="gate__teaser-eyebrow" data-astro-cid-du7fittg>Coming soon</span> <h1 class="gate__teaser-heading" data-astro-cid-du7fittg>Something good is coming <em data-astro-cid-du7fittg>to the Peninsula.</em></h1> <p class="gate__teaser-body" data-astro-cid-du7fittg>We're putting together the guide this place deserves. Be the first to know.</p> <div class="gate__subscribe-row" data-astro-cid-du7fittg> <input id="sub-email" class="gate__subscribe-input" type="email" placeholder="your@email.com" autocomplete="email" aria-label="Email address" data-astro-cid-du7fittg> <button class="gate__subscribe-btn" id="sub-btn" data-astro-cid-du7fittg>Notify me</button> </div> <p class="gate__subscribe-status" id="sub-status" data-astro-cid-du7fittg></p> </div> </div> <script>
     (function () {
       var KEY  = 'pi-access-v1';
       var PASS = 'peninsula';
@@ -9,7 +8,7 @@
       function tryEnter() {
         var val = document.getElementById('pw').value.trim().toLowerCase();
         if (val === PASS) {
-          sessionStorage.setItem(KEY, '1');
+          localStorage.setItem(KEY, '1');
           window.location.replace(redirect);
         } else {
           document.getElementById('err').classList.add('visible');
@@ -20,6 +19,49 @@
       document.getElementById('btn').addEventListener('click', tryEnter);
       document.getElementById('pw').addEventListener('keydown', function (e) {
         if (e.key === 'Enter') tryEnter();
+      });
+
+      // Subscribe form
+      var ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
+      var subBtn = document.getElementById('sub-btn');
+      var subEmail = document.getElementById('sub-email');
+      var subStatus = document.getElementById('sub-status');
+
+      function setStatus(msg, kind) {
+        subStatus.textContent = msg;
+        subStatus.className = 'gate__subscribe-status ' + (kind || '');
+      }
+
+      async function handleSubscribe() {
+        var email = subEmail.value.trim();
+        if (!email || !email.includes('@')) {
+          setStatus('Please enter a valid email.', 'error');
+          return;
+        }
+        subBtn.disabled = true;
+        setStatus('Saving…', '');
+        try {
+          var res = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: 'access-gate' })
+          });
+          if (res.ok) {
+            setStatus('You're on the list. We'll be in touch.', 'success');
+            subEmail.value = '';
+          } else {
+            setStatus('Something went wrong — try again.', 'error');
+            subBtn.disabled = false;
+          }
+        } catch (e) {
+          setStatus('Something went wrong — try again.', 'error');
+          subBtn.disabled = false;
+        }
+      }
+
+      subBtn.addEventListener('click', handleSubscribe);
+      subEmail.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleSubscribe();
       });
     })();
   </script> </body> </html>

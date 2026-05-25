@@ -256,7 +256,7 @@
       function tryEnter() {
         var val = document.getElementById('pw').value.trim().toLowerCase();
         if (val === PASS) {
-          sessionStorage.setItem(KEY, '1');
+          localStorage.setItem(KEY, '1');
           window.location.replace(redirect);
         } else {
           document.getElementById('err').classList.add('visible');
