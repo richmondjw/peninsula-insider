@@ -15,7 +15,6 @@
  * singleton (conciergeAvatar field). Falls back to /images/pi-concierge.svg
  * if the singleton hasn't been seeded or the fetch fails.
  */
-import {fetchSiteSettingsFromSanity, SITE_SETTINGS_IMAGE_FALLBACKS} from '../lib/sanity/singletons-adapter';
 import {editableImage} from '../lib/inline-edit/attrs';
 
 const conciergeAvatarAttrs = editableImage({
@@ -28,13 +27,8 @@ const conciergeAvatarAttrs = editableImage({
   sanitySingletonPath: 'conciergeAvatar',
 });
 
-let conciergeIcon = SITE_SETTINGS_IMAGE_FALLBACKS.conciergeAvatar.src;
-try {
-  const s = await fetchSiteSettingsFromSanity();
-  if (s?.conciergeAvatar?.src) conciergeIcon = s.conciergeAvatar.src;
-} catch {
-  // soft-fail to the hardcoded fallback
-}
+// Always use the local PI mark — update via Sanity once the new SVG is uploaded
+const conciergeIcon = '/images/pi-logo-new.svg';
 ---
 
 <script is:inline define:vars={{ conciergeIcon }}>

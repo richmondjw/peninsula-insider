@@ -134,13 +134,15 @@
     font-weight: 600;
   }
   .ask-hero__sub {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.18rem;
-    line-height: 1.55;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-style: normal;
+    font-size: 1.05rem;
+    line-height: 1.6;
     color: var(--pi-ink-soft);
     margin: 0 auto;
     max-width: 460px;
-    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.01em;
   }
 
   /* ----------------------------------------------------------
@@ -346,10 +348,9 @@
     color: var(--pi-ink);
     padding: 0.85rem 1.15rem 0.9rem 1.3rem;
     border-radius: 14px 14px 2px 14px;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 1.08rem;
-    line-height: 1.55;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
     max-width: 85%;
     word-wrap: break-word;
     border: 1px solid rgba(139, 78, 59, 0.16);
@@ -423,9 +424,11 @@
   }
 
   .ask-msg__prose p {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.13rem;
-    line-height: 1.68;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.65;
     color: var(--pi-ink);
     margin: 0;
     text-rendering: optimizeLegibility;
@@ -469,9 +472,9 @@
     color: inherit;
   }
   .ask-msg__prose--greeting p {
-    font-style: italic;
+    font-style: normal;
     color: var(--pi-ink-soft);
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   /* ----------------------------------------------------------
@@ -652,10 +655,10 @@
     transform: translateY(-50%);
   }
   .ask-tile__name {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.22rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 1rem;
     font-weight: 600;
-    line-height: 1.12;
+    line-height: 1.2;
     color: var(--pi-ink);
     margin: 0.05rem 0 0;
     letter-spacing: -0.01em;
@@ -666,10 +669,10 @@
   }
   /* PI's pull-quote — clamped to 2 lines */
   .ask-tile__why {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 0.92rem;
-    line-height: 1.42;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: max(0.82rem, 13px);
+    font-weight: 400;
+    line-height: 1.5;
     color: var(--pi-ink-soft);
     margin: 0.18rem 0 0;
     padding: 0;
@@ -737,7 +740,7 @@
     gap: 0.5rem;
   }
 
-  /* PI Chip — terracotta diamond + italic Cormorant */
+  /* PI Chip */
   .pi-chip {
     display: inline-flex;
     align-items: baseline;
@@ -746,9 +749,9 @@
     background: var(--pi-paper-warm);
     border: 1px solid rgba(139, 78, 59, 0.22);
     border-radius: 100px;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 0.96rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-style: normal;
+    font-size: max(0.88rem, 14px);
     color: var(--pi-ink-soft);
     line-height: 1.2;
     cursor: pointer;
@@ -808,9 +811,10 @@
 
   .ask-composer__input {
     flex: 1;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 1.02rem;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
     line-height: 1.5;
     color: var(--pi-ink);
     background: var(--pi-paper);
@@ -832,7 +836,6 @@
   }
   .ask-composer__input::placeholder {
     color: var(--pi-ink-muted);
-    font-style: italic;
   }
 
   .ask-composer__send {
@@ -924,13 +927,13 @@
     .ask-dialog { border-radius: 4px; height: 580px; }
     .ask-dialog__body { padding: 1.25rem 1.1rem 1rem; }
     .ask-msg__prose { padding: 1.15rem 1.2rem 1.2rem; }
-    .ask-msg__prose p { font-size: 1.06rem; }
+    .ask-msg__prose p { font-size: 0.97rem; }
     .ask-msg__prose p:first-of-type::first-letter { font-size: 3.1em; }
     .ask-rail { margin: 1.25rem 0 0; padding: 0; }
     .ask-tile__hero { flex: 0 0 80px; width: 80px; }
     .ask-tile__body { padding: 0.6rem 0.85rem 0.65rem 0.9rem; }
-    .ask-tile__name { font-size: 1.1rem; }
-    .ask-tile__why { font-size: 0.86rem; line-height: 1.38; }
+    .ask-tile__name { font-size: 0.95rem; }
+    .ask-tile__why { font-size: max(0.78rem, 12px); line-height: 1.45; }
   }
 
 
@@ -994,11 +997,10 @@
   margin: 0;
 }
 .ask-itinerary-cta__title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  line-height: 1.2;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
   color: #1a1a1a;
   margin: 0;
 }
@@ -1037,10 +1039,9 @@
   border-bottom-color: #8B4E3B;
 }
 .ask-banner__title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--text);
   margin: 0 0 0.4rem;
 }

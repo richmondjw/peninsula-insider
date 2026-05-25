@@ -1,0 +1,78 @@
+---
+/**
+ * MelbourneEntryStrip — single-line contextual strip for Melbourne visitors.
+ *
+ * Placed between the section nav and the weekend dispatch. A quiet but
+ * direct entry point for the primary visitor profile: coming from Melbourne
+ * for the weekend with no plan yet. Deliberately understated — it should
+ * read as an editorial aside, not a banner ad.
+ */
+
+export interface Props {
+  /** Override the default CTA link. Defaults to plans with day-trip intent. */
+  href?: string;
+}
+
+const { href = '/plans/?intent=melbourne-weekend' } = Astro.props;
+---
+
+<div class="melb-strip" role="complementary" aria-label="Coming from Melbourne">
+  <div class="container">
+    <div class="melb-strip__inner">
+      <p class="melb-strip__text">
+        Coming from Melbourne this weekend?
+        <span class="melb-strip__detail"> 90 minutes to the tip of the Peninsula.</span>
+      </p>
+      <a class="melb-strip__link" href={href}>
+        Here's where to start <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .melb-strip {
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+    padding: 0.85rem 0;
+  }
+
+  .melb-strip__inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .melb-strip__text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .melb-strip__detail {
+    color: var(--soft);
+  }
+
+  .melb-strip__link {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+  }
+  .melb-strip__link:hover { color: var(--text); }
+
+  @media (max-width: 640px) {
+    .melb-strip__detail { display: none; }
+    .melb-strip__inner { gap: 0.75rem; }
+  }
+</style>

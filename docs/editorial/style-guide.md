@@ -1,16 +1,17 @@
 # Peninsula Insider Editorial Style Guide
-**Version:** 1.1  
-**Established:** 2026-05-11 (v1.0); structural-flow rules added 2026-05-15 (v1.1)  
+**Version:** 1.2  
+**Established:** 2026-05-11 (v1.0); structural-flow rules added 2026-05-15 (v1.1); reparented under BOS 2026-05-25 (v1.2)  
 **Owner:** Peninsula Insider Editorial  
-**Enforced by:** `ops/scripts/editorial-quality-check.py` (weekly CRON + PR gate)
+**Enforced by:** `ops/scripts/editorial-quality-check.py` (weekly CRON + PR gate)  
+**Parent document:** [`docs/peninsula-insider-brand-operating-system.md`](../peninsula-insider-brand-operating-system.md) (strategic source of truth)
 
 ---
 
 ## What This Document Is
 
-This is the canonical source of truth for Peninsula Insider's editorial voice, copy standards, and publishing rules. It exists to keep the corpus consistent as articles are added, updated, and contributed by multiple editors and AI-assisted processes.
+This is the canonical **operational** style guide for Peninsula Insider editorial. It is the auto-enforced implementation of the strategic decisions in the [Brand Operating System](../peninsula-insider-brand-operating-system.md). Use the BOS when commissioning, briefing, or auditing brand fit. Use this style guide when writing, reviewing, or shipping copy.
 
-**The automated quality checker (`editorial-quality-check.py`) enforces this document mechanically. When a check fails, this document is why.**
+**The automated quality checker (`editorial-quality-check.py`) enforces this document mechanically. When a check fails, this document is why. When this document and the BOS disagree, the BOS is correct and this document must be updated to match.**
 
 ---
 

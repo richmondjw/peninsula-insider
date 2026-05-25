@@ -1,0 +1,526 @@
+---
+/**
+ * ThreeMissionBar — three-panel utility bar placed immediately after the
+ * editorial cover on the homepage.
+ *
+ * Makes three core platform jobs visible before the fold:
+ *   1. Ask The Insider  — natural-language concierge
+ *   2. This Weekend     — live weekend dispatch + upcoming events
+ *   3. Plan Your Trip   — intent-routed plan builder entry points
+ *
+ * Strategy context: per the 2026 platform review, Ask was the most
+ * differentiated feature on the site but was buried as a ghost link.
+ * This bar brings it (and the other two core jobs) above the fold
+ * without dismantling the editorial cover above it.
+ */
+
+import type { CollectionEntry } from 'astro:content';
+import { eventDateLabel, routeSlug } from '../lib/editorial';
+
+type Event = CollectionEntry<'events'>;
+
+export interface Props {
+  /** Date range label, e.g. "31 May – 1 June". From dispatchWeekend(). */
+  weekendLabel: string;
+  /** href to the current weekend dispatch article. */
+  dispatchHref: string;
+  /** Up to 3 upcoming events to list in the "This Weekend" panel. */
+  events: Event[];
+}
+
+const { weekendLabel, dispatchHref, events } = Astro.props;
+const visible = events.slice(0, 3);
+
+const askPrompts = [
+  'Romantic winery lunch',
+  'Dog-friendly beaches',
+  'Rainy day with kids',
+  'Best wine by the glass',
+];
+
+const planLinks = [
+  { label: 'Day trip from Melbourne', href: '/plans/?intent=day-trip' },
+  { label: 'One night away',          href: '/plans/?intent=one-night' },
+  { label: 'Full long weekend',       href: '/plans/?intent=full-weekend' },
+];
+---
+
+<section class="tmb" aria-label="Discover the Peninsula">
+  <div class="container">
+    <div class="tmb__grid">
+
+      {/* ── Panel 1: Ask The Insider ─────────────────────────────────────── */}
+      <div class="tmb__panel tmb__panel--ask">
+        <p class="tmb__eyebrow">Ask The Insider</p>
+        <h2 class="tmb__heading">What are you looking for?</h2>
+
+        <form class="tmb__form" id="tmb-form" autocomplete="off">
+          <label for="tmb-input" class="tmb__visually-hidden">Ask The Insider</label>
+          <input
+            id="tmb-input"
+            class="tmb__input"
+            type="text"
+            placeholder="Dog-friendly beach, wine lunch, rainy plan..."
+            maxlength="200"
+            data-pi-trigger="true"
+          />
+          <button type="submit" class="tmb__ask-btn" aria-label="Ask The Insider">
+            Ask
+          </button>
+        </form>
+
+        <ul class="tmb__chips" aria-label="Try one of these">
+          {askPrompts.map((p) => (
+            <li>
+              <button type="button" class="tmb__chip" data-insider-prompt={p}>{p}</button>
+            </li>
+          ))}
+        </ul>
+
+        <a class="tmb__ask-full" href="/ask/">
+          Open Ask The Insider <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      {/* ── Panel 2: This Weekend ────────────────────────────────────────── */}
+      <div class="tmb__panel tmb__panel--weekend">
+        <p class="tmb__eyebrow">This Weekend</p>
+        <h2 class="tmb__heading">{weekendLabel}</h2>
+
+        {visible.length > 0 ? (
+          <ul class="tmb__events" role="list">
+            {visible.map((event) => {
+              const slug = routeSlug(event);
+              const hasEnd = Boolean(event.data.endDate);
+              const dateStr = hasEnd
+                ? eventDateLabel(event.data.startDate, event.data.endDate)
+                : eventDateLabel(event.data.startDate);
+              return (
+                <li class="tmb__event">
+                  <a href={`/whats-on/${slug}/`} class="tmb__event-link">
+                    <span class="tmb__event-date">{dateStr}</span>
+                    <span class="tmb__event-name">
+                      {event.data.editorVerdict && (
+                        <span class="tmb__event-pick" aria-label="Editor's pick">✦</span>
+                      )}
+                      {event.data.title}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p class="tmb__empty">Check the full guide for what's on this weekend.</p>
+        )}
+
+        <div class="tmb__weekend-ctas">
+          <a class="tmb__more" href={dispatchHref}>This weekend's dispatch →</a>
+          <a class="tmb__secondary-link" href="/whats-on/">All events</a>
+        </div>
+      </div>
+
+      {/* ── Panel 3: Plan Your Trip ──────────────────────────────────────── */}
+      <div class="tmb__panel tmb__panel--plan">
+        <p class="tmb__eyebrow">Plans</p>
+        <h2 class="tmb__heading">Build your weekend.</h2>
+        <p class="tmb__plan-sub">
+          Three editors have already done it. Start with one of theirs, or build your own.
+        </p>
+
+        <ul class="tmb__plan-links" role="list">
+          {planLinks.map(({ label, href }) => (
+            <li>
+              <a class="tmb__plan-link" href={href}>
+                <span class="tmb__plan-link-label">{label}</span>
+                <span class="tmb__plan-link-arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a class="tmb__more" href="/plans/">All editorial plans →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const form  = document.getElementById('tmb-form') as HTMLFormElement | null;
+    const input = document.getElementById('tmb-input') as HTMLInputElement | null;
+    if (!form || !input) return;
+
+    const open = (q: string) => {
+      const fn = (window as any).openConcierge;
+      if (typeof fn === 'function') {
+        fn(q || undefined);
+      } else {
+        const enc = encodeURIComponent(q);
+        window.location.href = q ? `/ask/#q=${enc}` : '/ask/';
+      }
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      open(q);
+    });
+
+    input.addEventListener('focus', () => {
+      if (!input.value) open('');
+    });
+
+    document.querySelectorAll<HTMLElement>('.tmb__chip').forEach((el) => {
+      el.addEventListener('click', () => {
+        const q = el.dataset.insiderPrompt || el.textContent?.trim() || '';
+        if (q) open(q);
+      });
+    });
+  })();
+</script>
+
+<style>
+  /* ── Wrapper ─────────────────────────────────────────────────────────────── */
+  .tmb {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+  }
+
+  /* ── Three-column grid ───────────────────────────────────────────────────── */
+  .tmb__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tmb__panel {
+    padding: 0 clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .tmb__panel:first-child {
+    padding-left: 0;
+    border-right: 1px solid var(--border);
+  }
+  .tmb__panel:last-child {
+    padding-right: 0;
+  }
+  .tmb__panel--weekend {
+    border-right: 1px solid var(--border);
+  }
+
+  /* ── Shared panel typography ─────────────────────────────────────────────── */
+  .tmb__eyebrow {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.6rem;
+  }
+
+  .tmb__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    margin: 0 0 1.25rem;
+  }
+
+  /* ── Panel 1: Ask ────────────────────────────────────────────────────────── */
+  .tmb__form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tmb__input {
+    flex: 1;
+    min-width: 0;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.7rem 1.1rem;
+    line-height: 1.4;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .tmb__input::placeholder { color: var(--soft); }
+  .tmb__input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(139, 78, 59, 0.1);
+  }
+
+  .tmb__ask-btn {
+    flex-shrink: 0;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    background: var(--accent);
+    border: none;
+    border-radius: 999px;
+    padding: 0 1.25rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    min-height: 40px;
+  }
+  .tmb__ask-btn:hover { background: var(--text); }
+
+  .tmb__chips {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tmb__chip {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+  }
+  .tmb__chip:hover {
+    border-color: var(--accent);
+    background: #fff;
+  }
+  .tmb__chip::before {
+    content: '✦';
+    color: var(--accent);
+    margin-right: 0.35rem;
+    font-size: 0.68rem;
+    opacity: 0.8;
+  }
+
+  .tmb__ask-full {
+    display: inline-block;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .tmb__ask-full:hover { color: var(--text); border-color: var(--text); }
+
+  /* ── Panel 2: This Weekend ───────────────────────────────────────────────── */
+  .tmb__events {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tmb__event {
+    border-top: 1px solid var(--border);
+  }
+  .tmb__event:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tmb__event-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.75rem 0;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.15s ease;
+  }
+  .tmb__event-link:hover .tmb__event-name { color: var(--accent); }
+
+  .tmb__event-date {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .tmb__event-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--text);
+    transition: color 0.15s ease;
+  }
+
+  .tmb__event-pick {
+    font-size: 0.8em;
+    color: var(--accent);
+    margin-right: 0.3rem;
+  }
+
+  .tmb__empty {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.88rem;
+    color: var(--soft);
+    margin: 0 0 1.25rem;
+    line-height: 1.55;
+  }
+
+  .tmb__weekend-ctas {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .tmb__secondary-link {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: var(--soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: color 0.15s ease;
+  }
+  .tmb__secondary-link:hover { color: var(--text); }
+
+  /* ── Panel 3: Plan ───────────────────────────────────────────────────────── */
+  .tmb__plan-sub {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--soft);
+    margin: 0 0 1.25rem;
+  }
+
+  .tmb__plan-links {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tmb__plan-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.15s ease;
+  }
+  .tmb__plan-links li:last-child .tmb__plan-link {
+    border-bottom: 1px solid var(--border);
+  }
+  .tmb__plan-link:hover { color: var(--accent); }
+
+  .tmb__plan-link-label {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .tmb__plan-link-arrow {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    color: var(--soft);
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .tmb__plan-link:hover .tmb__plan-link-arrow {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+
+  /* ── Shared "more" link ──────────────────────────────────────────────────── */
+  .tmb__more {
+    display: inline-block;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .tmb__more:hover { color: var(--text); }
+
+  /* ── Accessibility ───────────────────────────────────────────────────────── */
+  .tmb__visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ── Mobile: stack panels, replace vertical dividers with horizontal ─────── */
+  @media (max-width: 900px) {
+    .tmb__grid {
+      grid-template-columns: 1fr;
+    }
+    .tmb__panel {
+      padding: clamp(1.75rem, 4vw, 2.5rem) 0;
+    }
+    .tmb__panel:first-child {
+      padding-left: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .tmb__panel--weekend {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .tmb__panel:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  /* ── Tablet: 2 + 1 layout ────────────────────────────────────────────────── */
+  @media (min-width: 600px) and (max-width: 900px) {
+    .tmb__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .tmb__panel:first-child {
+      border-right: 1px solid var(--border);
+      border-bottom: none;
+      padding-left: 0;
+    }
+    .tmb__panel--weekend {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .tmb__panel--plan {
+      grid-column: 1 / -1;
+      padding-top: clamp(1.75rem, 4vw, 2.5rem);
+    }
+    .tmb__plan-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0 1.5rem;
+    }
+    .tmb__plan-links li:last-child .tmb__plan-link {
+      border-bottom: none;
+    }
+  }
+</style>

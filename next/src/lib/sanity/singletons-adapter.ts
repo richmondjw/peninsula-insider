@@ -183,7 +183,7 @@ const siteSettingsQuery = `*[_id == "siteSettings"][0]{
 // Hardcoded paths preserved so any consumer that lands before the doc is
 // seeded renders byte-identically to the current static markup.
 const LOGO_FALLBACK = '/images/pi-logo-new.svg'
-const CONCIERGE_FALLBACK = '/images/pi-concierge.svg'
+const CONCIERGE_FALLBACK = '/images/pi-logo-new.svg'
 const OG_FALLBACK = '/images/sourced/home-cover.webp'
 const NOT_FOUND_FALLBACK = '/images/pi-concierge.svg'
 

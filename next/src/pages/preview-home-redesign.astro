@@ -1,14 +1,19 @@
 ---
 /**
- * Homepage — Editorial magazine cover for the Mornington Peninsula guide.
+ * preview-home-redesign — staged homepage redesign for editorial review.
  *
- * Cover carousel: full article rotates (text + image together).
- * Below the fold: ThreeMissionBar → Section nav → Melbourne strip →
- *   Weekend Dispatch → Places rail → Plans → Shortlist → Editor's Letter
- *   → Notebook → Newsletter.
+ * Accessible at /preview-home-redesign/ — not linked from nav, noindexed.
+ * The live homepage at / is completely unchanged.
  *
- * Promoted from /preview-home-redesign/ on 2026-05-25, replacing the
- * cinematic fullbleed cover that lives in git history.
+ * Layout changes vs live index.astro:
+ *   + ThreeMissionBar   replaces "Also in this issue" at position 2
+ *   + MelbourneEntryStrip  added above the weekend dispatch (position 4)
+ *   + "Also in this issue" strip moved to position 8 (below Plans)
+ *   + Section nav now includes "Ask" as the first chip
+ *   + Cover CTAs: Ask button elevated to equal weight alongside Read
+ *
+ * Data fetching is identical to index.astro. All components are existing
+ * or the two newly added ones above.
  */
 
 import { getCollection } from 'astro:content';
@@ -28,7 +33,16 @@ import { sanityReadEnabled } from '../lib/sanity/client';
 import { fetchPlaceFromSanity } from '../lib/sanity/place-adapter';
 import { fetchItineraryFromSanity } from '../lib/sanity/itinerary-adapter';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
-// ── CMS overrides ─────────────────────────────────────────────────────────
+import { readFileSync } from 'node:fs';
+
+// ── Masthead logo SVG experiment ──────────────────────────────────────────
+let piLogoSvg = '';
+try {
+  const _svgRaw = readFileSync('C:/Users/James/Downloads/pi-logo-new.svg', 'utf-8');
+  piLogoSvg = _svgRaw.replace('fill: #191919;', 'fill: currentColor;');
+} catch (_) { /* file not found — experiment disabled */ }
+
+// ── CMS overrides (same as live homepage) ─────────────────────────────────
 const cmsOverrides = await loadPublishedHomepageOverrides();
 const cmsText  = cmsOverrides.textFieldsByPath;
 const cmsImage = cmsOverrides.imageSlotsByPath;
@@ -142,7 +156,7 @@ try {
   hydratedFeaturedPlaces = hPlaces as typeof featuredPlaces;
   hydratedPlanCards      = hPlans as typeof planCards;
 } catch (err) {
-  console.error('[index] Sanity hydration failed, using static data:', err);
+  console.error('[preview-home-redesign] Sanity hydration failed, using static data:', err);
 }
 
 // ── Cover scenes ───────────────────────────────────────────────────────────
@@ -229,11 +243,27 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Peninsula Insider, The Mornington Peninsula Guide"
-  description="An editorial guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated May 2026."
+  title="[PREVIEW] Peninsula Insider Homepage Redesign"
+  description="Staged homepage redesign preview. Not the live site."
   section="home"
   canonical="https://peninsulainsider.com.au"
 >
+  {/* Noindex — preview only */}
+  <meta name="robots" content="noindex, nofollow" slot="head" />
+
+  {/* ── PREVIEW BANNER ───────────────────────────────────────────────────── */}
+  <div class="preview-banner" role="banner" aria-label="Preview notice">
+    <div class="container">
+      <div class="preview-banner__inner">
+        <span class="preview-banner__badge">PREVIEW</span>
+        <p class="preview-banner__msg">
+          Staged homepage redesign for editorial review.
+          Changes are visible here before going live.
+        </p>
+        <a class="preview-banner__live" href="/">View live homepage →</a>
+      </div>
+    </div>
+  </div>
 
   {/* ── ZONE 1: Cover carousel — full article rotates (text + image together) */}
   <section class="cover" aria-label="Cover stories">
@@ -520,14 +550,47 @@ export const prerender = true;
     })();
   </script>
 
+  {/* ── Logo icon experiment — injects SVG mark to left of masthead wordmark */}
+  {piLogoSvg && (
+    <div id="pi-logo-tpl" style="display:none" aria-hidden="true" set:html={piLogoSvg} />
+  )}
+  {piLogoSvg && (
+    <script is:inline>
+      (function () {
+        function injectLogo() {
+          var tpl = document.getElementById('pi-logo-tpl');
+          if (!tpl) return;
+          var logo = document.querySelector('[data-v4-masthead] .masthead__logo');
+          if (!logo || logo.querySelector('.pi-logo-icon')) return;
+          var svgEl = tpl.querySelector('svg');
+          if (!svgEl) return;
+          var icon = document.createElement('span');
+          icon.className = 'pi-logo-icon';
+          icon.setAttribute('aria-hidden', 'true');
+          icon.appendChild(svgEl.cloneNode(true));
+          logo.insertBefore(icon, logo.firstChild);
+          logo.classList.add('has-pi-icon');
+        }
+        document.addEventListener('astro:page-load', injectLogo);
+        injectLogo();
+      })();
+    </script>
+  )}
 
 </BaseLayout>
 
 <style is:global>
   /* ═══════════════════════════════════════════════════════════════════════════
-     Option A typography — applied site-wide.
-     Outfit + Cormorant Garamond, fixed across all sizes.
-     Cormorant italic stripped below 28px where hairlines disappear.
+     OPTION A TYPOGRAPHY — preview only
+     Strategy: same two fonts (Outfit + Cormorant Garamond), fixed everywhere.
+     No new typeface — just fix the weights, sizes, and strip Cormorant italic
+     from any context below 28px where its hairlines disappear.
+       · body weight 300 → 400
+       · body size 0.95rem → 1rem
+       · body line-height 1.75 → 1.6
+       · labels 0.65rem → 0.72rem
+       · Cormorant italic removed from tagline, dispatch, strip — plain Outfit instead
+       · heading minimum sizes enforced via clamp
   ═══════════════════════════════════════════════════════════════════════════ */
 
   /* 1 ── Body: Outfit stays, but weight and size fixed */
@@ -584,7 +647,54 @@ export const prerender = true;
     font-size: clamp(0.95rem, 1.6vw, 1.1rem);
   }
 
-  /* ── Cover ──────────────────────────────────────────────────────────────── */
+  /* ── Preview banner ──────────────────────────────────────────────────────── */
+  .preview-banner {
+    background: #1E1B18;
+    color: #F6F1E8;
+    padding: 0.65rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+  .preview-banner__inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .preview-banner__badge {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: #A0541F;
+    color: #fff;
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .preview-banner__msg {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(246, 241, 232, 0.75);
+    margin: 0;
+    flex: 1;
+  }
+  .preview-banner__live {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #F6F1E8;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(246,241,232,0.3);
+    padding-bottom: 1px;
+    white-space: nowrap;
+    transition: border-color 0.15s ease;
+  }
+  .preview-banner__live:hover { border-color: #F6F1E8; }
+
+  /* ── Cover (copied from index.astro) ────────────────────────────────────── */
   .cover {
     background: #FFFFFF;
     color: #171413;
@@ -898,4 +1008,23 @@ export const prerender = true;
     .hp-notebook__link  { padding-top: 0.25rem; }
   }
 
+  /* ── Masthead logo icon experiment (preview only) ────────────────────── */
+  .masthead__logo.has-pi-icon {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .pi-logo-icon {
+    display: block;
+    height: 1.75em;
+    width: auto;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+  .pi-logo-icon svg {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
+  .pi-logo-icon .st1 { fill: currentColor; }
 </style>
