@@ -105,3 +105,5 @@ Closes 7 June. Free entry, open most days 10am–4pm (closed Tuesdays)
 2 hats, set menu, book ahead at tedescasteria.com.au
 
 _Prices and availability may change. Confirm current details directly with each operator before booking._
+
+_Prices may change. Confirm current rates directly with the venue or operator before booking._
