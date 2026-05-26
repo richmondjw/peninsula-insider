@@ -28,6 +28,7 @@ import {homepageCover} from './documents/homepageCover'
 import {megaRail} from './documents/megaRail'
 import {pageHero} from './documents/pageHero'
 import {legalPage} from './documents/legalPage'
+import {landingPage} from './documents/landingPage'
 
 export const schemaTypes = [
   // Reusable object types — registered first so documents can reference them.
@@ -65,4 +66,5 @@ export const schemaTypes = [
   megaRail,
   pageHero,
   legalPage,
+  landingPage,
 ]
