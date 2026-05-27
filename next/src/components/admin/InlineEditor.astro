@@ -14,19 +14,28 @@
 ---
 
 <script>
-  import { bootInlineEditor } from '../../lib/inline-edit/client';
+  import { bootInlineEditor, applyOverridesOnLoad } from '../../lib/inline-edit/client';
 
-  // Initial boot — fires on cold page loads.
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => void bootInlineEditor());
-  } else {
+  // Always-on image sync (ALL visitors): pull the latest published image
+  // overrides from Supabase on every page load and swap them in, so inline
+  // edits go live immediately without waiting for a redeploy. The static HTML
+  // still carries the last-baked image for an instant first paint; this only
+  // swaps images whose URL actually changed, so unchanged images don't
+  // flicker. Reads via the published-read RLS policy (anon-safe).
+  function init() {
+    void applyOverridesOnLoad();
     void bootInlineEditor();
   }
 
-  // Re-boot after every Astro <ClientRouter /> navigation. Soft transitions
-  // swap <body> and any DOM we appended (the floating toggle) gets wiped, so
-  // we need to re-mount it. `bootInlineEditor()` is idempotent.
-  document.addEventListener('astro:page-load', () => {
-    void bootInlineEditor();
-  });
+  // Initial boot — fires on cold page loads.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // Re-run after every Astro <ClientRouter /> navigation. Soft transitions
+  // swap <body>, so both the override sync and the admin chrome must re-run.
+  // Both functions are idempotent.
+  document.addEventListener('astro:page-load', init);
 </script>

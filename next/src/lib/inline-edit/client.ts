@@ -829,7 +829,7 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
  * source of post-paint flicker for anon visitors and is no longer needed
  * now that SSR owns override resolution.
  */
-async function applyOverridesOnLoad() {
+export async function applyOverridesOnLoad() {
   const supa = getSupabase();
   if (!supa) return;
 
