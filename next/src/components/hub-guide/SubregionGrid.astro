@@ -22,7 +22,7 @@
  *     …
  *   ]} />
  */
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 
 export interface SubregionItem {
   title: string;
@@ -48,7 +48,7 @@ const { items, eyebrow = 'By sub-region', heading } = Astro.props;
 // Resolve winery slugs to venues so we can render real links with proper
 // labels. Unknown slugs are dropped from the chip row (writer sees only
 // the bare slug in the dev preview which makes the typo obvious).
-const allVenues = await fetchAllVenuesFromSanity();
+const allVenues = await getCollection('venues');
 const venueBySlug = new Map<string, any>();
 for (const v of allVenues) {
   venueBySlug.set(v.data.slug ?? v.id, v);

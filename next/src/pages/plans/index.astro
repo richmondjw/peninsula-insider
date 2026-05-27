@@ -10,32 +10,12 @@ import VenueCard from '../../components/VenueCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, stayTypes } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchItineraryFromSanity } from '../../lib/sanity/itinerary-adapter';
 import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-const itinerariesRaw = (await getCollection('itineraries')).sort(
+const itineraries = (await getCollection('itineraries')).sort(
   (a, b) => b.data.lengthNights - a.data.lengthNights,
 );
-
-// Dual-read itineraries through Sanity so admin overlay heroImage edits
-// persist on the hub. Same PR #211 pattern. Small set (~6) - trivial cost.
-const itineraryReadOn = sanityReadEnabled('itineraries');
-const itineraries = itineraryReadOn
-  ? await Promise.all(
-      itinerariesRaw.map(async (it) => {
-        try {
-          const doc = await fetchItineraryFromSanity(routeSlug(it));
-          const sanitySrc = doc?.data?.heroImage?.src;
-          if (!sanitySrc) return it;
-          return { ...it, data: { ...it.data, heroImage: { ...it.data.heroImage, src: sanitySrc } } };
-        } catch {
-          return it;
-        }
-      }),
-    )
-  : itinerariesRaw;
 const allVenues = await getCollection('venues');
 const stays = allVenues.filter((venue) => stayTypes.includes(venue.data.type));
 const places = await getCollection('places');

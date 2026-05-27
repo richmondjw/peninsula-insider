@@ -9,7 +9,7 @@
  */
 import type { V4MegaRail } from '../../lib/v4-nav';
 import { editableImage } from '../../lib/inline-edit/attrs';
-import { fetchMegaRailFromSanity } from '../../lib/sanity/singletons-adapter';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
 
 export interface Props {
   rail: V4MegaRail;
@@ -21,37 +21,14 @@ export interface Props {
 }
 const { rail, pillarKey } = Astro.props;
 
-// Image resolution: Sanity singleton (when flag on) → legacy Supabase
-// override (when off) → component default.
-let imageSrc = rail.image;
-let imageAlt = rail.imageAlt;
-
-// Canonical entry order matches the megaRail schema's `key` enum. We use
-// this as the fallback index when the Sanity dual-read hasn't fired, so
-// the admin overlay's patch path (entries[idx].image) still resolves.
-const canonicalOrder = ['whats-on', 'escape', 'eat', 'wine', 'stay'];
-let sanityEntryIndex: number | null = null;
-
-// Build-time read: bake megaRail singleton from Sanity into static HTML.
-const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-try {
-  const entries = await fetchMegaRailFromSanity({preview: isPreview});
-  const idx = entries?.findIndex((e) => e.key === pillarKey) ?? -1;
-  if (entries && idx >= 0) {
-    sanityEntryIndex = idx;
-    const entry = entries[idx];
-    if (entry?.imageSrc) {
-      imageSrc = entry.imageSrc;
-      imageAlt = entry.imageAlt ?? rail.imageAlt;
-    }
-  }
-} catch (err) {
-  console.error(`[V4MegaRail] Sanity fetch failed for pillar ${pillarKey}, using static fallback:`, err);
-}
-if (sanityEntryIndex === null) {
-  const fallbackIdx = canonicalOrder.indexOf(pillarKey);
-  if (fallbackIdx >= 0) sanityEntryIndex = fallbackIdx;
-}
+// Build-time override consult — fetch any published mega-menu image
+// overrides at build, so the static HTML ships with the editor's choice
+// already in place. Eliminates the flash where the default image paints
+// before the client-side patcher swaps it.
+const globalOverrides = await loadOverrides('page', '_global');
+const overrideImage = globalOverrides.image[`mega-rail.${pillarKey}`];
+const imageSrc = overrideImage?.src ?? rail.image;
+const imageAlt = overrideImage?.alt ?? rail.imageAlt;
 ---
 
 <a class="v4-mega__rail" href={rail.href}>
@@ -64,14 +41,8 @@ if (sanityEntryIndex === null) {
         entityType: 'page',
         entitySlug: '_global',
         fieldPath: `mega-rail.${pillarKey}`,
-        label: `Mega rail: ${rail.title ?? pillarKey}`,
+        label: `Mega menu — ${pillarKey} rail image`,
         purpose: 'inline',
-        ...(sanityEntryIndex !== null
-          ? {
-              sanitySingletonId: 'megaRail',
-              sanitySingletonPath: `entries[${sanityEntryIndex}].image`,
-            }
-          : {}),
       })}
     />
   </div>
