@@ -12,14 +12,14 @@
  * v1: editor approves claims manually in Supabase Studio. v1.x:
  * automated email-domain match against the venue's website.
  */
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
 
-const venuesAll = await fetchAllVenuesFromSanity();
+const venuesAll = await getCollection('venues');
 // Build a slug → summary lookup that the client controller uses to
 // hydrate claimed venues without an extra round trip.
 const venueIndex = Object.fromEntries(

@@ -1,5 +1,5 @@
 ---
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WineHubTemplate from '../../components/WineHubTemplate.astro';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
@@ -14,7 +14,7 @@ const chardonnaySlugs = [
   'ocean-eight', 'scorpo-wines', 'red-hill-estate', 'pt-leo-estate',
 ];
 
-const allVenues = await fetchAllVenuesFromSanity();
+const allVenues = await getCollection('venues');
 const venues = chardonnaySlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
   .filter(Boolean) as typeof allVenues;

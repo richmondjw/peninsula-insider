@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import { fetchAllToursFromSanity } from '../../lib/sanity/phase5-adapters';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
@@ -23,7 +22,7 @@ const allCharters = await getCollection('fishingCharters', ({ data }) => data.st
 
 // Existing /tour/ entries with cruise-sailing, surf-water, or wildlife-nature
 // experience type that touch fishing intent — surfaced here as adjacent options.
-const allTours = await fetchAllToursFromSanity();
+const allTours = await getCollection('tours');
 const adjacentTours = allTours.filter((t) =>
   ['cruise-sailing', 'surf-water'].includes(t.data.experienceType),
 );
@@ -80,8 +79,6 @@ export const prerender = true;
     dek="Operator-led fishing as a bookable experience. Snapper-season charters, Western Port whiting and flathead, mid-size group bookings, and Bass Strait offshore. The booking-first view; the editorial comparison lives at /fishing/charters/."
     gradient="vineyard"
     heroImage="/images/sourced/explore-portsea-front-beach-01.webp"
-    entitySlug="tour/fishing-tours"
-    entityType="page"
   />
 
   <section class="experience-index" data-bf-article>

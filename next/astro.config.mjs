@@ -12,39 +12,37 @@ import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 //   • Content-first: zero-JS by default on content pages
 //   • Islands are added per-need (map, search, wizard, admin)
 //
-// Phase 3 (2026-05-21): always output: 'static' + Vercel adapter.
-// Previously output switched between 'server' (PI_ADMIN_HYBRID=1) and 'static'.
-// Static (with adapter) gives us the best of both: pages prerender at build
-// time (baking Sanity data in), while /api/admin/* and /api/preview/* remain
-// serverless SSR functions via `export const prerender = false`. PI_ADMIN_HYBRID
-// is no longer needed and has been removed from Vercel env.
-// Note: output: 'hybrid' was removed in Astro 5 — 'static' now has the same
-// hybrid behaviour (opt-out of prerendering per-route with prerender=false).
-// See next/docs/HANDOVER-SANITY-STATIC-MIGRATION.md Phase 3.
+// Admin hybrid cutover (see next/docs/pi-cms-hybrid-cutover-2026-05-10.md):
+// when PI_ADMIN_HYBRID=1, switch to server output and load a Vercel adapter so
+// `src/middleware.ts` runs at request time and `/admin/api/*` becomes real
+// serverless. Without that env var, behaviour is unchanged. The adapter is
+// loaded dynamically so the static build does not need it installed.
 
 // Preview builds to /V2/ on GitHub Pages set ASTRO_BASE=/V2/.
 // Production (root-served) builds leave it unset.
 const base = process.env.ASTRO_BASE || undefined;
 
+const adminHybrid = process.env.PI_ADMIN_HYBRID === '1';
+
 let adapter;
-try {
-  const mod = await import('@astrojs/vercel');
-  adapter = mod.default({});
-} catch (err) {
-  throw new Error(
-    '@astrojs/vercel is not installed. Run `npm install @astrojs/vercel` in next/ and retry.'
-  );
+if (adminHybrid) {
+  try {
+    const mod = await import('@astrojs/vercel');
+    adapter = mod.default({});
+  } catch (err) {
+    // The adapter is intentionally optional. If hybrid mode is requested but
+    // the adapter is not installed, fail loud rather than silently producing a
+    // static build that cannot run middleware or admin endpoints.
+    throw new Error(
+      'PI_ADMIN_HYBRID=1 but @astrojs/vercel is not installed. Run `npm install @astrojs/vercel` in next/ and retry.'
+    );
+  }
 }
-
-
 
 export default defineConfig({
   site: 'https://peninsulainsider.com.au',
   base,
   trailingSlash: 'always',
-  // Move content-layer cache out of node_modules so Vercel's build cache
-  // doesn't serve stale data-store.json between deploys.
-  cacheDir: './.astro-build-cache',
   build: {
     format: 'directory',
   },
@@ -69,7 +67,7 @@ export default defineConfig({
                               // global design system. Used only inside files
                               // that explicitly @import 'tailwind.css'.
   },
-  output: 'static',
+  output: adminHybrid ? 'server' : 'static',
   adapter,
   // Redirects are handled by custom src/pages/*.astro files using the
   // Redirect component (src/components/Redirect.astro). This gives flash-free

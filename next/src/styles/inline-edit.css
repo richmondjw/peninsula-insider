@@ -241,54 +241,41 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 .pi-edit-panel__replace:active { transform: scale(0.98); }
 .pi-edit-panel__replace span { font-size: 1.05rem; }
 
-.pi-edit-panel__replace--secondary {
-  background: #f2eadc;
-  color: #1a1a1a;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+.pi-edit-panel__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0.85rem 0.75rem 0.25rem;
 }
 
-.pi-edit-panel__replace--secondary:hover {
-  background: #e6dac7;
+.pi-edit-panel__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.pi-edit-panel__replace:disabled {
-  cursor: not-allowed;
-  opacity: 0.48;
-  transform: none;
-}
-
-.pi-edit-panel__body {
-  padding: 0.8rem 0.75rem 0.25rem;
-}
-
-.pi-edit-panel__source {
-  padding: 0.55rem 0.65rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 0.45rem;
-  background: #fff;
-  color: #5d5146;
-  font-size: 0.72rem;
-  line-height: 1.35;
-  overflow-wrap: anywhere;
-}
-
-.pi-edit-panel__filename {
-  margin-top: 0.45rem;
+.pi-edit-panel__field > span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: #8b7560;
-  font-size: 0.68rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-weight: 600;
 }
 
-.pi-edit-panel__actions {
-  display: grid;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
+.pi-edit-panel__field input {
+  font: 400 0.85rem/1.3 'Outfit', system-ui, sans-serif;
+  padding: 0.55rem 0.7rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.4rem;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.pi-edit-panel__actions .pi-edit-panel__replace {
-  margin: 0;
+.pi-edit-panel__field input:focus {
+  border-color: #8b4e3b;
+  box-shadow: 0 0 0 3px rgba(139, 78, 59, 0.15);
 }
 
 .pi-edit-panel__foot {
@@ -615,308 +602,3 @@ body[data-pi-edit-mode="on"] [data-pi-prose-root] [data-pi-block-id].pi-block-ed
     width: auto;
   }
 }
-
-/* ───────────── Sanity media library modal ─────────────
-   Opened from the inline-edit image panel's "Replace from media library"
-   button. Loaded lazily — only an admin who clicks the button downloads
-   the JS, but the CSS rides with the rest of inline-edit since it's tiny
-   and styled to match. */
-.pi-sanity-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 2147483600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.pi-sanity-modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 18, 24, 0.66);
-  backdrop-filter: blur(4px);
-}
-.pi-sanity-modal__panel {
-  position: relative;
-  width: min(960px, 92vw);
-  max-height: 86vh;
-  background: #fff;
-  color: #1a1d24;
-  border-radius: 12px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-}
-.pi-sanity-modal__head {
-  padding: 16px 18px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.pi-sanity-modal__head-main {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-.pi-sanity-modal__current {
-  display: block;
-  width: 48px;
-  height: 48px;
-  border-radius: 6px;
-  background: #e8eaef center / cover no-repeat;
-  flex: 0 0 48px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-.pi-sanity-modal__title {
-  font-weight: 600;
-  font-size: 16px;
-}
-.pi-sanity-modal__sub {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.55);
-  margin-top: 2px;
-  word-break: break-all;
-}
-.pi-sanity-modal__close {
-  border: 0;
-  background: transparent;
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.55);
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-.pi-sanity-modal__close:hover { background: rgba(0, 0, 0, 0.06); color: #000; }
-.pi-sanity-modal__toolbar {
-  display: flex;
-  gap: 10px;
-  padding: 12px 18px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  align-items: center;
-}
-.pi-sanity-modal__search {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  font: inherit;
-}
-.pi-sanity-modal__upload {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: #1d4ed8;
-  color: #fff;
-  font-weight: 600;
-  font-size: 13px;
-  cursor: pointer;
-}
-.pi-sanity-modal__upload:hover { background: #1e40af; }
-.pi-sanity-modal__toolbar {
-  flex-wrap: wrap;
-}
-.pi-sanity-modal__chips,
-.pi-sanity-modal__sort {
-  display: inline-flex;
-  gap: 4px;
-  flex-wrap: wrap;
-}
-.pi-sanity-modal__chip {
-  appearance: none;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #fff;
-  color: #1a1d24;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font: inherit;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
-}
-.pi-sanity-modal__chip:hover { background: #f3f4f7; }
-.pi-sanity-modal__chip[aria-pressed="true"] {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-  color: #fff;
-}
-.pi-sanity-modal__chip:focus-visible {
-  outline: 2px solid #1d4ed8;
-  outline-offset: 2px;
-}
-.pi-sanity-modal__grid {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  padding: 14px 18px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 14px;
-  align-content: start;
-}
-.pi-sanity-modal__grid:focus { outline: none; }
-.pi-sanity-modal__asset {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #fff;
-  border-radius: 10px;
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-align: left;
-  transition: border-color 0.12s, transform 0.12s;
-}
-.pi-sanity-modal__asset:hover { border-color: #1d4ed8; transform: translateY(-1px); }
-.pi-sanity-modal__asset:focus-visible {
-  outline: none;
-  border-color: #1d4ed8;
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.25);
-}
-.pi-sanity-modal__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-.pi-sanity-modal__dims {
-  font-size: 11px;
-  color: rgba(0, 0, 0, 0.45);
-}
-.pi-sanity-modal__thumb {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background: #e8eaef center / cover no-repeat;
-  border-radius: 6px;
-}
-.pi-sanity-modal__name {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.78);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: 500;
-}
-.pi-sanity-modal__status {
-  grid-column: 1 / -1;
-  padding: 24px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.55);
-}
-.pi-sanity-modal__status--err { color: #b91c1c; }
-.pi-sanity-modal__foot {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 10px 18px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-}
-.pi-sanity-modal__page { font-size: 12px; color: rgba(0, 0, 0, 0.55); margin: 0 6px; }
-.pi-sanity-modal__btn {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #f8f9fb;
-  font: inherit;
-  font-size: 13px;
-  cursor: pointer;
-}
-.pi-sanity-modal__btn:hover { background: #eef0f4; }
-
-/* Disabled state on the replace button inside the existing image panel
-   when an image isn't bound to any Sanity-resolvable source. */
-.pi-edit-panel__replace[disabled],
-.pi-edit-panel__replace[aria-disabled="true"] {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-
-/* Drag-and-drop overlay — sits on top of the modal panel when a file is
-   being dragged over the modal. */
-.pi-sanity-modal__drop {
-  position: absolute;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: rgba(29, 78, 216, 0.86);
-  color: #fff;
-  z-index: 5;
-  pointer-events: none;
-}
-.pi-sanity-modal--drag .pi-sanity-modal__drop { display: flex; }
-.pi-sanity-modal__drop-inner {
-  font-size: 22px;
-  font-weight: 600;
-  padding: 18px 28px;
-  border: 2px dashed rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  letter-spacing: 0.02em;
-}
-
-/* Error state action row inside the grid. */
-.pi-sanity-modal__err-actions {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
-}
-.pi-sanity-modal__err-actions a.pi-sanity-modal__btn {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
-
-/* Sticky banner — used for Undo and "Try again" prompts. */
-.pi-sanity-banner {
-  position: fixed;
-  bottom: 1.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2147483700;
-  background: #1a1a1a;
-  color: #faf7f0;
-  border-radius: 999px;
-  padding: 0.5rem 0.75rem 0.5rem 1.1rem;
-  font: 500 0.82rem/1 'Outfit', system-ui, sans-serif;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: piSanityBannerIn 0.2s ease-out both;
-}
-@keyframes piSanityBannerIn {
-  from { opacity: 0; transform: translate(-50%, 8px); }
-  to   { opacity: 1; transform: translate(-50%, 0); }
-}
-.pi-sanity-banner__btn {
-  appearance: none;
-  border: 0;
-  background: #8b4e3b;
-  color: #faf7f0;
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-}
-.pi-sanity-banner__btn:hover { background: #6f3d2e; }
-.pi-sanity-banner__close {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: rgba(250, 247, 240, 0.55);
-  font-size: 1.1rem;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0 0.3rem;
-}
-.pi-sanity-banner__close:hover { color: #fff; }

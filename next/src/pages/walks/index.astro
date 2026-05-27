@@ -7,9 +7,8 @@ import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import { routeSlug } from '../../lib/editorial';
-import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
 
-const experiences = await fetchAllExperiencesFromSanity();
+const experiences = await getCollection('experiences');
 const walks = experiences
   .filter((e) => e.data.type === 'walk')
   .sort((a, b) => (b.data.durationMinutes ?? 0) - (a.data.durationMinutes ?? 0));

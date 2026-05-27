@@ -6,18 +6,28 @@
  * elements marked with `data-pi-edit` to be edited in place:
  *
  *   - text  → click element → contenteditable → save on blur / Enter
- *   - image → right-click → upload panel → file upload → Supabase image slot
+ *   - image → right-click → custom menu (Replace / Edit alt / Edit caption)
  *
- * Text writes go direct to Supabase via the user's JWT and RLS.
- * Image writes upload the file to Sanity CDN (for the URL) then save the
- * resulting public URL into Supabase cms_image_slots via /api/admin/sanity-patch.
- * Client-side hydration on each page swaps image src immediately on next load.
+ * Writes go direct to Supabase via the user's JWT — RLS in the pi schema is
+ * the security boundary. This means inline editing works on both static
+ * (GitHub Pages) and hybrid (Vercel) deploys; the admin API at
+ * /admin/api/content/* is unused by this client.
+ *
+ * Image override resolution is the *server's* job. Components that own
+ * editable images call `loadOverrides()` at render time and bake the
+ * published `public_url` into the SSR'd markup. For anon visitors the
+ * client-side patcher does nothing. Admins running the editor get a
+ * lightweight client-side pass so newly-replaced images appear without
+ * waiting for a rebuild, but it's gated to authenticated admin sessions
+ * to avoid the build-time → Supabase swap that caused visible flicker
+ * on first paint.
  */
 
 import { getSupabase, isAuthEnabled } from '../auth';
 
 type Tone = 'ok' | 'err' | 'info';
 
+const STORAGE_BUCKET = 'cms-assets';
 const EDIT_MODE_FLAG = 'pi.editMode';
 
 let editMode = false;
@@ -59,15 +69,6 @@ export async function bootInlineEditor(): Promise<void> {
   const { data: { session } } = await supa.auth.getSession();
   if (!session) { ensureToggleRemoved(); return; }
 
-  // Mirror the Supabase session into the cookies the server-side admin
-  // gate reads (pi-sb-access-token / pi-sb-refresh-token). The /admin/login
-  // page does this once at sign-in, but the access token expires after
-  // ~1 hour while the JS-side session keeps refreshing in the background.
-  // Without this mirror, admins get silent 401s from /api/admin/* even
-  // though their session is healthy. Idempotent — overwrites with current
-  // tokens on every boot.
-  syncSessionCookies(session.access_token, session.refresh_token, session.expires_in);
-
   // Check allowlist membership for UX. RLS will also reject writes from
   // non-allowlisted users, but verifying upfront lets us not render UI
   // affordances that will fail.
@@ -95,54 +96,13 @@ export async function bootInlineEditor(): Promise<void> {
   setEditMode(stored === '1');
 
   // If the session ends mid-page, hide the chrome.
-  supa.auth.onAuthStateChange((event, session) => {
+  supa.auth.onAuthStateChange((event) => {
     if (event === 'SIGNED_OUT') {
       isAdmin = false;
       setEditMode(false);
       ensureToggleRemoved();
-      clearSessionCookies();
-      return;
-    }
-    // Supabase auto-refreshes the access token in the background. Keep
-    // the cookies in sync so server-side admin gates don't see a stale
-    // (or missing) token.
-    if (session && (event === 'TOKEN_REFRESHED' || event === 'SIGNED_IN' || event === 'INITIAL_SESSION' || event === 'USER_UPDATED')) {
-      syncSessionCookies(session.access_token, session.refresh_token, session.expires_in);
     }
   });
-}
-
-const PI_SB_ACCESS_COOKIE = 'pi-sb-access-token';
-const PI_SB_REFRESH_COOKIE = 'pi-sb-refresh-token';
-
-function setRawCookie(name: string, value: string, maxAgeSeconds: number): void {
-  const secure = location.protocol === 'https:' ? '; Secure' : '';
-  document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${Math.max(60, Math.floor(maxAgeSeconds))}; SameSite=Lax${secure}`;
-}
-
-function clearRawCookie(name: string): void {
-  document.cookie = `${name}=; Path=/; Max-Age=0; SameSite=Lax`;
-}
-
-/**
- * Mirror a Supabase session into the cookies the server-side admin gate
- * reads. Called on every boot when an authenticated session exists, plus
- * on every TOKEN_REFRESHED event from the Supabase auth listener.
- */
-function syncSessionCookies(accessToken: string | undefined | null, refreshToken: string | undefined | null, expiresInSeconds: number | undefined | null): void {
-  if (accessToken) {
-    setRawCookie(PI_SB_ACCESS_COOKIE, accessToken, expiresInSeconds ?? 3600);
-  }
-  if (refreshToken) {
-    // Refresh tokens are long-lived (Supabase default is unbounded until use);
-    // give the cookie 30 days so a returning admin's automatic refresh works.
-    setRawCookie(PI_SB_REFRESH_COOKIE, refreshToken, 60 * 60 * 24 * 30);
-  }
-}
-
-function clearSessionCookies(): void {
-  clearRawCookie(PI_SB_ACCESS_COOKIE);
-  clearRawCookie(PI_SB_REFRESH_COOKIE);
 }
 
 function ensureToggleRemoved() {
@@ -173,7 +133,14 @@ function setEditMode(on: boolean, source: 'click' | 'restore' = 'restore') {
   document.body.dataset.piEditMode = on ? 'on' : 'off';
   sessionStorage.setItem(EDIT_MODE_FLAG, on ? '1' : '0');
   if (!on) closeMenu();
-  void source; // kept for callsite parity with click/restore callers.
+  // Only fetch and apply published overrides when the admin *explicitly*
+  // turns edit mode on (clicks the toggle). Restoring from sessionStorage
+  // on a fresh page load does NOT re-fire the pass — that would cause
+  // visible flicker as the post-paint swap clobbers SSR output. Editors
+  // who want to pick up changes published since the last build can either
+  // reload (rebuild-deployed pages will already have them in SSR) or
+  // toggle edit mode off and on again.
+  if (on && source === 'click') void applyOverridesOnLoad();
 }
 
 // --------------------------------------------------------------------------
@@ -465,10 +432,6 @@ interface ImageDescriptor {
   purpose: 'hero' | 'card' | 'gallery' | 'inline' | 'seo';
   /** True when the element was auto-detected rather than explicitly tagged. */
   autoDetected: boolean;
-  /** Sanity singleton _id, when the source is a singleton doc. */
-  sanitySingletonId?: string;
-  /** Dot-notation path inside the singleton doc to the image field. */
-  sanitySingletonPath?: string;
 }
 
 /**
@@ -538,8 +501,6 @@ function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
       label: explicitLabel || explicitPath,
       purpose,
       autoDetected: false,
-      sanitySingletonId: el.dataset.piSanitySingletonId || undefined,
-      sanitySingletonPath: el.dataset.piSanitySingletonPath || undefined,
     };
   }
 
@@ -562,12 +523,9 @@ function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
 }
 
 /**
- * Image upload panel — right-click any image in edit mode to replace it.
- *
- * Shows a compact panel with a file-picker button. On file selection the
- * image is uploaded to the Sanity CDN (for a fast, permanent URL) then the
- * URL is saved to Supabase cms_image_slots via /api/admin/sanity-patch.
- * The visible <img> src is swapped immediately; no rebuild needed.
+ * Floating image-edit popover. Replaces the old context-menu list with a
+ * proper editor panel: thumbnail preview, replace button, and inline
+ * fields for alt / caption / credit. Save commits all dirty fields at once.
  */
 function openImagePanel(el: HTMLElement, x: number, y: number) {
   closeMenu();
@@ -575,11 +533,11 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
   if (!desc) return;
 
   const thumbSrc = currentImageSrc(el) || '';
-  const cleanThumbSrc = thumbSrc.split('?')[0] || thumbSrc;
 
   menuEl = document.createElement('div');
   menuEl.className = 'pi-edit-panel';
-  const PANEL_W = 320, PANEL_H = 160;
+  // Position the panel near the click but clamp into viewport.
+  const PANEL_W = 320, PANEL_H = 420;
   menuEl.style.left = `${Math.max(8, Math.min(x, window.innerWidth - PANEL_W - 8))}px`;
   menuEl.style.top  = `${Math.max(8, Math.min(y, window.innerHeight - PANEL_H - 8))}px`;
 
@@ -588,96 +546,46 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
       <div class="pi-edit-panel__thumb" style="background-image: url(${cssUrl(thumbSrc)})"></div>
       <div class="pi-edit-panel__title">
         <div class="pi-edit-panel__label">${escapeHtml(desc.label)}</div>
-        <div class="pi-edit-panel__sub">${escapeHtml(srcBasename(cleanThumbSrc))}</div>
+        <div class="pi-edit-panel__sub">${desc.autoDetected ? 'Auto-detected image' : 'Tagged image slot'}</div>
       </div>
       <button type="button" class="pi-edit-panel__close" aria-label="Close">×</button>
     </div>
-    <div class="pi-edit-panel__body">
-      <label class="pi-edit-panel__replace" data-role="upload-label" style="cursor:pointer;display:block;text-align:center;">
-        <span aria-hidden="true">↑</span> Replace image…
-        <input type="file" accept="image/jpeg,image/png,image/webp,image/avif" hidden data-role="file-input" />
+    <button type="button" class="pi-edit-panel__replace" data-action="replace">
+      <span aria-hidden="true">⇪</span> Replace image…
+    </button>
+    <div class="pi-edit-panel__fields">
+      <label class="pi-edit-panel__field">
+        <span>Alt text</span>
+        <input type="text" data-field="alt" />
       </label>
-      <div class="pi-edit-panel__source" data-role="status" style="display:none;text-align:center;margin-top:8px;font-size:12px;color:#666;"></div>
+      <label class="pi-edit-panel__field">
+        <span>Caption</span>
+        <input type="text" data-field="caption" />
+      </label>
+      <label class="pi-edit-panel__field">
+        <span>Credit</span>
+        <input type="text" data-field="credit" />
+      </label>
     </div>
     <div class="pi-edit-panel__foot">
       <button type="button" class="pi-edit-panel__btn pi-edit-panel__btn--ghost" data-action="cancel">Cancel</button>
+      <button type="button" class="pi-edit-panel__btn pi-edit-panel__btn--primary" data-action="save">Save changes</button>
     </div>
   `;
   document.body.appendChild(menuEl);
 
-  menuEl.querySelector('.pi-edit-panel__close')?.addEventListener('click', closeMenu);
-  menuEl.querySelector('[data-action="cancel"]')?.addEventListener('click', closeMenu);
+  // Hydrate the inputs with the current row, if one exists.
+  void hydratePanel(menuEl, desc);
 
-  const fileInput = menuEl.querySelector<HTMLInputElement>('[data-role="file-input"]');
-  fileInput?.addEventListener('change', () => {
-    const file = fileInput.files?.[0];
-    if (file) void uploadAndPatch(el, desc, file);
+  // Wire the action buttons.
+  menuEl.addEventListener('click', (e) => {
+    const action = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-action]')?.dataset.action;
+    if (!action) return;
+    if (action === 'replace') triggerImageReplace(el, desc);
+    if (action === 'cancel')  closeMenu();
+    if (action === 'save')    void savePanelMeta(menuEl!, el, desc);
   });
-}
-
-/**
- * Upload a file to the Sanity CDN asset store, then save the resulting URL
- * into Supabase cms_image_slots via /api/admin/sanity-patch. Swaps the
- * visible image src immediately on success.
- */
-async function uploadAndPatch(el: HTMLElement, desc: ImageDescriptor, file: File) {
-  const statusEl = menuEl?.querySelector<HTMLElement>('[data-role="status"]');
-  const uploadLabel = menuEl?.querySelector<HTMLElement>('[data-role="upload-label"]');
-  if (statusEl) { statusEl.textContent = `Uploading "${file.name}"…`; statusEl.style.display = ''; }
-  if (uploadLabel) (uploadLabel as HTMLElement).style.opacity = '0.4';
-
-  try {
-    // 1. Upload to Sanity CDN (gives us a permanent, fast CDN URL).
-    const fd = new FormData();
-    fd.append('file', file);
-    const upRes = await fetch('/api/admin/sanity-asset-upload', {
-      method: 'POST',
-      credentials: 'same-origin',
-      body: fd,
-    });
-    const upBody = await upRes.json().catch(() => ({}));
-    if (!upRes.ok || !upBody.ok) {
-      toast(`Upload failed: ${upBody?.error || upRes.statusText}`, 'err');
-      closeMenu();
-      return;
-    }
-    const assetId = upBody.data?._id as string | undefined;
-    if (!assetId) { toast('Upload returned no asset id.', 'err'); closeMenu(); return; }
-
-    if (statusEl) statusEl.textContent = 'Saving…';
-
-    // 2. Save the URL into Supabase cms_image_slots.
-    const patchRes = await fetch('/api/admin/sanity-patch', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        entityType: desc.entityType,
-        entitySlug: desc.entitySlug,
-        fieldPath: desc.fieldPath,
-        newAssetRef: assetId,
-      }),
-    });
-    const patchBody = await patchRes.json().catch(() => ({}));
-    if (!patchRes.ok || !patchBody.ok) {
-      toast(`Save failed: ${patchBody?.error || patchRes.statusText}`, 'err');
-      closeMenu();
-      return;
-    }
-
-    // 3. Swap the visible image src immediately.
-    const newUrl = patchBody.data?.newUrl as string | undefined;
-    if (newUrl) {
-      const bust = `${newUrl}${newUrl.includes('?') ? '&' : '?'}v=${Date.now()}`;
-      setImageSrc(el, bust);
-    }
-
-    closeMenu();
-    toast('Image saved — visible on next page load too.', 'ok');
-  } catch (err) {
-    toast(`Error: ${(err as Error).message}`, 'err');
-    closeMenu();
-  }
+  menuEl.querySelector('.pi-edit-panel__close')?.addEventListener('click', closeMenu);
 }
 
 function cssUrl(src: string): string {
@@ -688,11 +596,287 @@ function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
 }
 
+async function hydratePanel(panel: HTMLElement, desc: ImageDescriptor) {
+  const supa = getSupabase();
+  if (!supa) return;
+
+  const { data } = await supa
+    .from('cms_image_slots')
+    .select('alt_text, caption, credit')
+    .eq('entity_type', desc.entityType)
+    .eq('entity_slug', desc.entitySlug)
+    .eq('field_path', desc.fieldPath)
+    .maybeSingle();
+
+  const row = data as { alt_text: string | null; caption: string | null; credit: string | null } | null;
+  if (!row) return;
+
+  const altInput     = panel.querySelector<HTMLInputElement>('input[data-field="alt"]');
+  const captionInput = panel.querySelector<HTMLInputElement>('input[data-field="caption"]');
+  const creditInput  = panel.querySelector<HTMLInputElement>('input[data-field="credit"]');
+  if (altInput && row.alt_text)    altInput.value     = row.alt_text;
+  if (captionInput && row.caption) captionInput.value = row.caption;
+  if (creditInput && row.credit)   creditInput.value  = row.credit;
+}
+
+async function savePanelMeta(panel: HTMLElement, el: HTMLElement, desc: ImageDescriptor) {
+  const supa = getSupabase();
+  if (!supa) return toast('Supabase not configured.', 'err');
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) return toast('Signed out.', 'err');
+
+  const altText = panel.querySelector<HTMLInputElement>('input[data-field="alt"]')?.value ?? null;
+  const caption = panel.querySelector<HTMLInputElement>('input[data-field="caption"]')?.value ?? null;
+  const credit  = panel.querySelector<HTMLInputElement>('input[data-field="credit"]')?.value ?? null;
+
+  const { data: existing } = await supa
+    .from('cms_image_slots')
+    .select('id, public_url, storage_path')
+    .eq('entity_type', desc.entityType)
+    .eq('entity_slug', desc.entitySlug)
+    .eq('field_path', desc.fieldPath)
+    .maybeSingle();
+
+  const patch: Record<string, unknown> = {
+    alt_text: altText || null,
+    caption:  caption || null,
+    credit:   credit || null,
+    status:   'published',
+    updated_by: session.user.id,
+  };
+
+  if (existing?.id) {
+    const { error } = await supa.from('cms_image_slots').update(patch).eq('id', existing.id);
+    if (error) return toast(`Save failed: ${error.message}`, 'err');
+  } else {
+    // Create a slot row carrying metadata only (no upload yet).
+    const row = {
+      entity_type: desc.entityType,
+      entity_slug: desc.entitySlug,
+      field_path:  desc.fieldPath,
+      label:       desc.label,
+      purpose:     desc.purpose,
+      storage_bucket: STORAGE_BUCKET,
+      storage_path:   null,
+      public_url:     currentImageSrc(el) || null,
+      ...patch,
+    };
+    const { error } = await supa.from('cms_image_slots').insert(row);
+    if (error) return toast(`Save failed: ${error.message}`, 'err');
+  }
+
+  // Reflect alt in the DOM (only meaningful for <img>).
+  if (altText && el instanceof HTMLImageElement) el.alt = altText;
+  if (altText && !(el instanceof HTMLImageElement)) el.setAttribute('aria-label', altText);
+
+  await recordRevision(supa, session.user.id, {
+    entity_type: desc.entityType,
+    entity_slug: desc.entitySlug,
+    action: 'update',
+    status: 'published',
+    summary: `Edited metadata for "${desc.label}"`,
+    patch: [{ op: 'set', target: `${desc.fieldPath}.meta`, value: { altText, caption, credit } }],
+  });
+
+  toast(`Saved "${desc.label}".`, 'ok');
+  closeMenu();
+}
+
 function closeMenu() {
   menuEl?.remove();
   menuEl = null;
 }
 
+function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
+  const d = desc ?? readImageDescriptor(el);
+  if (!d) return;
+
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/jpeg,image/png,image/webp,image/avif';
+  input.style.position = 'fixed';
+  input.style.left = '-9999px';
+  input.addEventListener('change', async () => {
+    const file = input.files?.[0];
+    input.remove();
+    if (!file) return;
+    closeMenu();
+    await replaceImage(el, d, file);
+  }, { once: true });
+  document.body.appendChild(input);
+  input.click();
+}
+
+async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) {
+  console.log('[pi-edit] replaceImage start', { desc, file: file.name, size: file.size, type: file.type });
+
+  const supa = getSupabase();
+  if (!supa) { console.warn('[pi-edit] supabase client not configured'); return toast('Supabase not configured.', 'err'); }
+
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) { console.warn('[pi-edit] no session'); return toast('Signed out — please sign in again.', 'err'); }
+
+  toast(`Uploading "${file.name}"…`, 'info');
+  el.dataset.piUploading = '1';
+  try {
+    const ext = file.name.match(/\.([a-z0-9]+)$/i)?.[1]?.toLowerCase() ?? 'jpg';
+    const ts = Date.now();
+    const safeSlug = desc.entitySlug.replace(/[^a-z0-9-]/gi, '-');
+    const safeField = desc.fieldPath.replace(/[^a-z0-9._-]/gi, '-');
+    const storagePath = `${desc.entityType}/${safeSlug}/${safeField}-${ts}.${ext}`;
+    console.log('[pi-edit] uploading to storage', { bucket: STORAGE_BUCKET, storagePath });
+
+    const { data: uploadData, error: uploadErr } = await supa.storage
+      .from(STORAGE_BUCKET)
+      .upload(storagePath, file, {
+        upsert: false,
+        contentType: file.type || `image/${ext}`,
+        cacheControl: '31536000',
+      });
+    console.log('[pi-edit] storage upload result', { uploadData, uploadErr });
+    if (uploadErr) throw new Error(`Storage upload failed: ${uploadErr.message}`);
+
+    const { data: pub } = supa.storage.from(STORAGE_BUCKET).getPublicUrl(storagePath);
+    const publicUrl = pub.publicUrl;
+    console.log('[pi-edit] storage publicUrl', publicUrl);
+
+    // Find or create the cms_image_slots row.
+    const { data: existing } = await supa
+      .from('cms_image_slots')
+      .select('id')
+      .eq('entity_type', desc.entityType)
+      .eq('entity_slug', desc.entitySlug)
+      .eq('field_path', desc.fieldPath)
+      .maybeSingle();
+
+    const row = {
+      entity_type: desc.entityType,
+      entity_slug: desc.entitySlug,
+      field_path: desc.fieldPath,
+      label: desc.label,
+      purpose: desc.purpose,
+      storage_bucket: STORAGE_BUCKET,
+      storage_path: storagePath,
+      public_url: publicUrl,
+      mime_type: file.type || `image/${ext}`,
+      status: 'published' as const,
+      updated_by: session.user.id,
+    };
+
+    if (existing?.id) {
+      console.log('[pi-edit] updating existing cms_image_slots row', existing.id);
+      const { error } = await supa.from('cms_image_slots').update(row).eq('id', existing.id);
+      if (error) throw new Error(`DB update failed: ${error.message}`);
+    } else {
+      console.log('[pi-edit] inserting new cms_image_slots row');
+      const { error } = await supa.from('cms_image_slots').insert(row);
+      if (error) throw new Error(`DB insert failed: ${error.message}`);
+    }
+
+    // Update the visible image so the change is immediate (handles both
+    // <img> and background-image divs).
+    const bustUrl = publicUrl + (publicUrl.includes('?') ? '&' : '?') + 'v=' + ts;
+    console.log('[pi-edit] setting visible image src', bustUrl);
+    setImageSrc(el, bustUrl);
+    // Clear placeholder chrome — strip any `*__hero--placeholder` class so the
+    // "Add photo" overlay and camera icon disappear now that a real image has
+    // been assigned. Covers venue, event, and any future card variant that
+    // follows the same convention.
+    el.className = el.className
+      .split(/\s+/)
+      .filter((c) => !/__hero--placeholder$/.test(c))
+      .join(' ');
+
+    await recordRevision(supa, session.user.id, {
+      entity_type: desc.entityType,
+      entity_slug: desc.entitySlug,
+      action: 'update',
+      status: 'published',
+      summary: `Replaced image "${desc.label}" inline`,
+      patch: [{ op: 'set', target: desc.fieldPath, value: publicUrl }],
+    });
+
+    toast(`Replaced "${desc.label}".`, 'ok');
+  } catch (err) {
+    console.error('[pi-edit] replaceImage failed:', err);
+    toast(`Upload failed: ${(err as Error).message || err}`, 'err');
+  } finally {
+    delete el.dataset.piUploading;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Client-side override patcher
+// --------------------------------------------------------------------------
+
+/**
+ * Admin-only: after every page load, fetch any published image overrides
+ * for the tagged slots on this page and patch their srcs in place. Only
+ * runs for authenticated admins so editors see their replacements without
+ * waiting for a rebuild.
+ *
+ * Anon visitors never call this — they see SSR-rendered output verbatim.
+ * Components that own editable images are responsible for resolving
+ * overrides server-side via `loadOverrides()` and baking the published
+ * `public_url` into the markup at render time. That guarantees the first
+ * paint already shows the correct image and there's no swap flicker.
+ *
+ * Only the explicit pass remains: every `[data-pi-edit="image"]` element
+ * declares its identity via `data-pi-entity-type` / `data-pi-entity-slug` /
+ * `data-pi-field-path`. Groups are queried in parallel and matched by
+ * exact field_path. The basename-keyed implicit pass that previously
+ * swept every `<img>` and bg-image element was removed — it was the main
+ * source of post-paint flicker for anon visitors and is no longer needed
+ * now that SSR owns override resolution.
+ */
+async function applyOverridesOnLoad() {
+  const supa = getSupabase();
+  if (!supa) return;
+
+  const taggedEls = document.querySelectorAll<HTMLElement>('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]');
+  const groups = new Map<string, { entityType: string; entitySlug: string; els: HTMLElement[] }>();
+  taggedEls.forEach((el) => {
+    const entityType = el.dataset.piEntityType;
+    const entitySlug = el.dataset.piEntitySlug;
+    if (!entityType || !entitySlug) return;
+    const key = `${entityType}/${entitySlug}`;
+    const group = groups.get(key) ?? { entityType, entitySlug, els: [] };
+    group.els.push(el);
+    groups.set(key, group);
+  });
+
+  await Promise.all(Array.from(groups.values()).map(async (group) => {
+    const { data } = await supa
+      .from('cms_image_slots')
+      .select('field_path, public_url, alt_text')
+      .eq('entity_type', group.entityType)
+      .eq('entity_slug', group.entitySlug)
+      .eq('status', 'published');
+    const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
+    const byPath = new Map(rows.map((r) => [r.field_path, r]));
+    for (const el of group.els) {
+      const fieldPath = el.dataset.piFieldPath;
+      if (!fieldPath) continue;
+      const row = byPath.get(fieldPath);
+      if (!row?.public_url) continue;
+      if (currentImageSrc(el) === row.public_url) continue;
+      setImageSrc(el, row.public_url);
+      // A placeholder card has no inline bg-image at build time; once a real
+      // image is applied via Supabase, remove the placeholder chrome so the
+      // "Add photo" state gives way to the actual image. Cover every card
+      // type that uses the same pattern — venue, event, and any future card
+      // — by stripping all `--placeholder` modifiers via the className.
+      el.className = el.className
+        .split(/\s+/)
+        .filter((c) => !/__hero--placeholder$/.test(c))
+        .join(' ');
+      if (row.alt_text) {
+        if (el instanceof HTMLImageElement) el.alt = row.alt_text;
+        else el.setAttribute('aria-label', row.alt_text);
+      }
+    }
+  }));
+}
 
 // --------------------------------------------------------------------------
 // Revision log

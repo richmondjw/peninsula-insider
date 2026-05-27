@@ -1,6 +1,5 @@
 ---
-import { fetchAllItinerariesFromSanity } from '../../lib/sanity/itinerary-adapter';
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
@@ -8,12 +7,10 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, stayTypes } from '../../lib/editorial';
 
-const [allItineraries, allVenues] = await Promise.all([
-  fetchAllItinerariesFromSanity(),
-  fetchAllVenuesFromSanity(),
-]);
-const itineraries = allItineraries
+const itineraries = (await getCollection('itineraries'))
   .sort((a, b) => b.data.lengthNights - a.data.lengthNights);
+
+const allVenues = await getCollection('venues');
 const stays = allVenues.filter((v) => stayTypes.includes(v.data.type));
 const anchorStays = stays.filter((v) =>
   ['jackalope', 'hotel-sorrento', 'flinders-hotel', 'lindenderry-at-red-hill'].includes(routeSlug(v))

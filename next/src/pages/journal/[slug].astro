@@ -17,9 +17,6 @@ import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchArticleFromSanity, extractHeadingsFromPT } from '../../lib/sanity/article-adapter';
-import PortableTextBody from '../../components/PortableTextBody.astro';
 
 export async function getStaticPaths() {
   const STATIC_JOURNAL_OVERRIDES = new Set([
@@ -44,19 +41,7 @@ export async function getStaticPaths() {
     }));
 }
 
-let { article } = Astro.props;
-
-// Dual-read. When the flag is on AND the article exists in Sanity, swap
-// it in. Body becomes Portable Text (rendered by <PortableTextBody />
-// below instead of Astro's render()).
-let sanityBody: Array<Record<string, unknown>> | null = null;
-if (sanityReadEnabled('articles')) {
-  const sanityArt = await fetchArticleFromSanity(routeSlug(article));
-  if (sanityArt) {
-    article = sanityArt as any;
-    sanityBody = sanityArt.body;
-  }
-}
+const { article } = Astro.props;
 
 // Plans articles live at /plans/[slug] — redirect with 301 so inbound
 // /journal/ URLs resolve cleanly without serving duplicate content.
@@ -72,15 +57,9 @@ if (article.data.section === 'plans') {
 // URL rather than the article content. See lib/peninsula-this-weekend.ts.
 const ptwRedirectTo = isPeninsulaThisWeekend(article) ? ptwArchivePath(article) : null;
 
-// Astro's render() can't be called on a Sanity-sourced article. When
-// sanityBody is set we render the body via <PortableTextBody> further
-// down; Content stays null here. Headings are extracted from the
-// Portable Text body so hub-guide TOC keeps working on Sanity articles.
 const { Content, headings } = ptwRedirectTo
   ? { Content: null as any, headings: [] as Array<{ slug: string; text: string; depth: number }> }
-  : sanityBody
-    ? { Content: null as any, headings: extractHeadingsFromPT(sanityBody) }
-    : await render(article);
+  : await render(article);
 
 // Hub-guide treatment: planning-utility articles (regional reference, hub
 // guides, trail guides, venue guides) read as scan-first reference rather
@@ -104,7 +83,7 @@ const EDITORIAL_FORMATS = new Set([
 const isEditorialFormat = EDITORIAL_FORMATS.has(String(article.data.format ?? ''));
 
 const allArticles = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const currentIndex = allArticles.findIndex((a) => routeSlug(a) === routeSlug(article));
 const prevArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null;
@@ -311,10 +290,8 @@ export const prerender = true;
           </div>
           <figure class="article-hero__figure">
             <div class="article-hero__image" role="img" aria-label={heroAlt} style={articleHeroStyle} {...editableImage({
-              entityType: 'page', entitySlug: `journal/${slug}`, fieldPath: 'hero',
+              entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
-              sanitySingletonId: `pageHero-journal--${slug}`,
-              sanitySingletonPath: 'image',
             })}></div>
             {article.data.heroImage.credit && (
               <figcaption class="article-hero__credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>
@@ -338,7 +315,7 @@ export const prerender = true;
         )}
 
         <div class="prose has-drop-cap" data-pi-prose-root data-pi-entity-type="article" data-pi-entity-slug={slug}>
-          {sanityBody ? <PortableTextBody blocks={sanityBody} /> : <Content />}
+          <Content />
         </div>
 
         {/* Pre-paint block-override patcher. Reads the JSON blob below and

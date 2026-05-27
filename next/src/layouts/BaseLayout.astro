@@ -27,8 +27,6 @@ import CookieBanner from '../components/CookieBanner.astro';
 import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
 import InlineEditor from '../components/admin/InlineEditor.astro';
-import SanityVisualEditing from '../components/admin/SanityVisualEditing.astro';
-import {fetchSiteSettingsFromSanity, SITE_SETTINGS_IMAGE_FALLBACKS} from '../lib/sanity/singletons-adapter';
 
 export interface Props {
   title: string;
@@ -55,7 +53,7 @@ const {
   section = 'home',
   preview = false,
   canonical,
-  ogImage,
+  ogImage = '/images/sourced/home-cover.webp',
   ogType = 'website',
   noindex = false,
   publishedTime,
@@ -87,23 +85,10 @@ const normalizedPath = rawPathname === '/' ? '/' : rawPathname.replace(/\/?$/, '
 const rawCanonical = canonical ?? `${SITE_URL}${normalizedPath}`;
 const canonicalUrl = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 
-// OG image fallback: if no per-page ogImage prop was supplied, resolve from
-// the siteSettings.ogFallback Sanity field; that in turn falls back to the
-// previous hardcoded path, so render is byte-equivalent pre-seed.
-let resolvedOgImage = ogImage;
-if (!resolvedOgImage) {
-  try {
-    const s = await fetchSiteSettingsFromSanity();
-    resolvedOgImage = s?.ogFallback?.src ?? SITE_SETTINGS_IMAGE_FALLBACKS.ogFallback.src;
-  } catch {
-    resolvedOgImage = SITE_SETTINGS_IMAGE_FALLBACKS.ogFallback.src;
-  }
-}
-
 // OG image must be an absolute URL.
-const ogImageAbsolute = resolvedOgImage.startsWith('http')
-  ? resolvedOgImage
-  : `${SITE_URL}${resolvedOgImage.startsWith('/') ? resolvedOgImage : '/' + resolvedOgImage}`;
+const ogImageAbsolute = ogImage.startsWith('http')
+  ? ogImage
+  : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
 
 // Don't render the floating drawer when the visitor is on /ask itself.
 // /ask IS the full-screen chat, the drawer would be a duplicate.
@@ -267,8 +252,8 @@ const isAskPage = rawPathname.startsWith('/ask');
         display:none elements as invisible and skips them during indexing,
         which means `data-pagefind-meta` attributes on hidden elements are
         ignored. Empty <span> has zero visual impact regardless. */}
-    {!searchExclude && resolvedOgImage && (
-      <span data-pagefind-meta={`image:${resolvedOgImage}`}></span>
+    {!searchExclude && ogImage && (
+      <span data-pagefind-meta={`image:${ogImageAbsolute}`}></span>
     )}
     <slot />
   </main>
@@ -369,9 +354,6 @@ const isAskPage = rawPathname.startsWith('/ask');
       document.addEventListener('astro:page-load', applySlots);
     })();
   </script>
-
-  <!-- Sanity Visual Editing overlay (renders only when Astro.locals.sanityPreview is true). -->
-  <SanityVisualEditing />
 
   <script is:inline>
     (function () {

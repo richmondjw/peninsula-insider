@@ -1,5 +1,5 @@
 ---
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
@@ -10,7 +10,7 @@ const SITE = 'https://peninsulainsider.com.au';
 const canonical = `${SITE}/wine/wine-region/`;
 
 const wineTypes = ['winery', 'producer'];
-const venues = (await fetchAllVenuesFromSanity())
+const venues = (await getCollection('venues'))
   .filter((v) => wineTypes.includes(v.data.type))
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 

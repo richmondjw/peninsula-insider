@@ -40,8 +40,6 @@ import {
 } from '../../lib/escape';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchItineraryFromSanity } from '../../lib/sanity/itinerary-adapter';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -77,13 +75,7 @@ export async function getStaticPaths() {
   return [...itineraryPaths, ...articlePaths];
 }
 
-let { itinerary, articleData } = Astro.props;
-
-// Dual-read for itinerary branch (article branch handled in journal flow).
-if (articleData == null && itinerary && sanityReadEnabled('itineraries')) {
-  const sanityItn = await fetchItineraryFromSanity(routeSlug(itinerary));
-  if (sanityItn) itinerary = sanityItn as any;
-}
+const { itinerary, articleData } = Astro.props;
 
 // ─── Plans-article branch data ─────────────────────────────────────────────
 const isArticle = articleData != null;

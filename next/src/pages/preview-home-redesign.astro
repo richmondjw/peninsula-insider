@@ -29,9 +29,6 @@ import MelbourneEntryStrip from '../components/MelbourneEntryStrip.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
-import { sanityReadEnabled } from '../lib/sanity/client';
-import { fetchPlaceFromSanity } from '../lib/sanity/place-adapter';
-import { fetchItineraryFromSanity } from '../lib/sanity/itinerary-adapter';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 import { readFileSync } from 'node:fs';
 
@@ -126,38 +123,8 @@ const placesTitle = placesTitleRaw === 'The Peninsula, place by place'
   ? 'Explore the Peninsula'
   : placesTitleRaw ?? 'Explore the Peninsula';
 
-// ── Sanity card hydration (same as live homepage) ──────────────────────────
-async function applySanityHero<T extends { data: any }>(
-  entity: T,
-  slug: string,
-  fetcher: (s: string) => Promise<any | null>,
-): Promise<T> {
-  const doc = await fetcher(slug);
-  const sanitySrc = doc?.data?.heroImage?.src;
-  if (!sanitySrc) return entity;
-  return {
-    ...entity,
-    data: { ...entity.data, heroImage: { ...entity.data.heroImage, src: sanitySrc } },
-  };
-}
-const placeReadOn     = sanityReadEnabled('places');
-const itineraryReadOn = sanityReadEnabled('itineraries');
-let hydratedFeaturedPlaces = featuredPlaces as typeof featuredPlaces;
-let hydratedPlanCards      = planCards as typeof planCards;
-try {
-  const [hPlaces, hPlans] = await Promise.all([
-    Promise.all(featuredPlaces.map((p) =>
-      placeReadOn ? applySanityHero(p, routeSlug(p), fetchPlaceFromSanity) : p,
-    )),
-    Promise.all(planCards.map((it) =>
-      itineraryReadOn ? applySanityHero(it, routeSlug(it), fetchItineraryFromSanity) : it,
-    )),
-  ]);
-  hydratedFeaturedPlaces = hPlaces as typeof featuredPlaces;
-  hydratedPlanCards      = hPlans as typeof planCards;
-} catch (err) {
-  console.error('[preview-home-redesign] Sanity hydration failed, using static data:', err);
-}
+const hydratedFeaturedPlaces = featuredPlaces;
+const hydratedPlanCards      = planCards;
 
 // ── Cover scenes ───────────────────────────────────────────────────────────
 const coverImageOverride = cmsImage['cover.image'];

@@ -1,6 +1,5 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
-import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
@@ -20,7 +19,7 @@ const { entry } = Astro.props;
 const data = entry.data;
 const slug = routeSlug(entry);
 
-const allPlaces = await fetchAllPlacesFromSanity();
+const allPlaces = await getCollection('places');
 
 const placeRefIds = (data.relatedPlaces ?? []).map((ref: any) => String(ref.id ?? ref));
 const relatedPlaces = allPlaces.filter((p) => placeRefIds.includes(routeSlug(p)));

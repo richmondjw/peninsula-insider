@@ -1,13 +1,13 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { fetchAllTourPackagesFromSanity } from '../../lib/sanity/phase5-adapters';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import TourPackageCard from '../../components/TourPackageCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 
-const allPackages = (await fetchAllTourPackagesFromSanity())
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+const allPackages = (await getCollection('tourPackages'))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },

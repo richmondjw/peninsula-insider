@@ -9,11 +9,11 @@
  * "Easter long-weekend" rather than "Easter" per locked decision Q1 —
  * the framing is practical (four-day weekend timing) not religious.
  */
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import PrintLayout from '../../layouts/PrintLayout.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const venues = await fetchAllVenuesFromSanity();
+const venues = await getCollection('venues');
 
 // Easter shortlist: vintage + family + the Friday-to-Monday pacing.
 const SHORTLIST_SLUGS = [

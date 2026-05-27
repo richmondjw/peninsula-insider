@@ -1,12 +1,12 @@
 ---
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const allVenues = await fetchAllVenuesFromSanity();
+const allVenues = await getCollection('venues');
 const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 
 // Coastal stays: tip, ocean-coast, back-beaches zones

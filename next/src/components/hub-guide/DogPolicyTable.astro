@@ -25,7 +25,7 @@
  *     ]}
  *   />
  */
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 
 export interface PolicyEntry {
   /** Slug into venues collection. */
@@ -62,7 +62,7 @@ const {
   hrefPrefix = '/wine',
 } = Astro.props;
 
-const allVenues = await fetchAllVenuesFromSanity();
+const allVenues = await getCollection('venues');
 const venueBySlug = new Map<string, any>();
 for (const v of allVenues) {
   venueBySlug.set(v.data.slug ?? v.id, v);

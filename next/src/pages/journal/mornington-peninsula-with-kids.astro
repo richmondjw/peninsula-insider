@@ -2,15 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchPageHeroFromSanity } from '../../lib/sanity/singletons-adapter';
-
-const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-let heroImage = '/images/sourced/place-mornington-01.webp';
-if (isPreview || sanityReadEnabled('page-level')) {
-  const ph = await fetchPageHeroFromSanity('journal/mornington-peninsula-with-kids', {preview: isPreview});
-  if (ph?.imageSrc) heroImage = ph.imageSrc;
-}
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -112,7 +103,7 @@ export const prerender = true;
       <h1 class="article__title">Mornington Peninsula with Kids — The Honest Family Guide</h1>
       <p class="article__dek">A day that punishes no one. Which beaches are actually safe for children, what activities work across age ranges, and the things the brochures suggest that aren't worth the detour.</p>
 
-      <div class="article__hero feature__image-block feature__image-block--bay" aria-hidden="true" style={`background-image: url(${heroImage}); background-size: cover; background-position: center;`}>
+      <div class="article__hero feature__image-block feature__image-block--bay" aria-hidden="true" style="background-image: url(/images/sourced/place-mornington-01.webp); background-size: cover; background-position: center;">
         <div class="article__hero-fog"></div>
         <span class="article__hero-caption">Mornington foreshore — Port Phillip Bay</span>
       </div>

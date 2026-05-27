@@ -2,15 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchPageHeroFromSanity } from '../../lib/sanity/singletons-adapter';
-
-const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-let heroImage = '/images/sourced/place-red-hill-01.webp';
-if (isPreview || sanityReadEnabled('page-level')) {
-  const ph = await fetchPageHeroFromSanity('journal/mornington-peninsula-itinerary', {preview: isPreview});
-  if (ph?.imageSrc) heroImage = ph.imageSrc;
-}
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -96,7 +87,7 @@ export const prerender = true;
       <h1 class="article__title">Mornington Peninsula 3-Day Itinerary — The Best Weekend Plan</h1>
       <p class="article__dek">Three days is the sweet spot. Enough time to eat properly, drink without rushing, walk a stretch of coast, and actually relax — which is the whole point.</p>
 
-      <div class="article__hero feature__image-block feature__image-block--vineyard" aria-hidden="true" style={`background-image: url(${heroImage}); background-size: cover; background-position: center;`}>
+      <div class="article__hero feature__image-block feature__image-block--vineyard" aria-hidden="true" style="background-image: url(/images/sourced/place-red-hill-01.webp); background-size: cover; background-position: center;">
         <div class="article__hero-fog"></div>
         <span class="article__hero-caption">Red Hill plateau, Mornington Peninsula</span>
       </div>

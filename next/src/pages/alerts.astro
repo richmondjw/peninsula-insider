@@ -10,14 +10,14 @@
  * granted). Email digest delivery handled by an out-of-repo cron worker
  * that joins pi.event_alerts against pi.events weekly.
  */
-import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
 
-const places = await fetchAllPlacesFromSanity();
+const places = await getCollection('places');
 const placeOptions = places
   .filter((p) => !p.data.sitemapExclude)
   .map((p) => ({ slug: p.id ?? p.data.slug, name: p.data.name }))

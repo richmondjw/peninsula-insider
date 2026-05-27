@@ -1,5 +1,5 @@
 ---
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
@@ -7,7 +7,7 @@ import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const allVenues = await fetchAllVenuesFromSanity();
+const allVenues = await getCollection('venues');
 const slugs = ['tedesca-osteria','polperro','doot-doot-doot','bistro-elba','barragunda-dining','laura-pt-leo','the-baths-sorrento','montalto'];
 const venues = slugs.map(s=>allVenues.find(v=>routeSlug(v)===s)).filter((v):v is NonNullable<typeof v>=>Boolean(v)).sort((a,b)=>Number(b.data.authority?.hats??0)-Number(a.data.authority?.hats??0));
 

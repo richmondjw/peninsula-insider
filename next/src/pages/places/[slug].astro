@@ -5,30 +5,24 @@ import PlaceDetailTemplate from '../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../components/PlaceMap.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../lib/editorial';
-import { fetchAllPlacesFromSanity, type AdaptedPlace } from '../../lib/sanity/place-adapter';
 
 export async function getStaticPaths() {
-  const allPlaces = await fetchAllPlacesFromSanity();
-  return allPlaces.map((place) => ({
-    params: { slug: place.slug },
-    props: { place, allPlaces },
+  const places = await getCollection('places');
+  return places.map((place) => ({
+    params: { slug: routeSlug(place) },
+    props: { place },
   }));
 }
 
-export const prerender = true;
-
-const { place, allPlaces } = Astro.props as { place: AdaptedPlace; allPlaces: AdaptedPlace[] };
-
+const { place } = Astro.props;
 const allVenues = await getCollection('venues');
-// allPlaces is passed as a prop from getStaticPaths — no extra fetch needed.
-const places = allPlaces;
+const places = await getCollection('places');
 const allExperiences = await getCollection('experiences');
 const allItineraries = await getCollection('itineraries');
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 const allEvents = await getCollection('events');
 
-// AdaptedPlace has slug directly; no routeSlug() wrapper needed.
-const placeSlug = place.slug;
+const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();
 
 const venuesForPlace = allVenues
@@ -73,8 +67,7 @@ const stayVenues = venuesForPlace
   .slice(0, 3);
 
 const relatedSlugs = (place.data.relatedPlaces ?? []).map((entry: any) => String(entry.id ?? entry));
-// places is AdaptedPlace[] — use entry.slug directly (no routeSlug wrapper).
-const relatedPlaces = places.filter((entry) => relatedSlugs.includes(entry.slug));
+const relatedPlaces = places.filter((entry) => relatedSlugs.includes(routeSlug(entry)));
 
 const itineraries = allItineraries
   .filter((itinerary) =>
@@ -326,7 +319,7 @@ const placeSchema = {
   },
   url: canonical,
 };
-// prerender = true is set at the top of the frontmatter block.
+export const prerender = true;
 ---
 
 <BaseLayout
