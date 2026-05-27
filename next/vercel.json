@@ -1,6 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "node -e \"const fs=require('fs');['node_modules/.astro','.astro-build-cache','.astro'].forEach(p=>{try{fs.rmSync(p,{recursive:true,force:true});console.log('Cleared '+p)}catch(e){}});\" && npm run build",
-  "outputDirectory": "dist",
-  "framework": "astro"
-}
