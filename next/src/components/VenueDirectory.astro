@@ -13,7 +13,7 @@
  * directories ever appear together.
  */
 import VenueCard from './VenueCard.astro';
-import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
+import { getCollection } from 'astro:content';
 
 export interface Props {
   /** Stable id; used to scope the filter form to its grid. */
@@ -53,7 +53,7 @@ const {
 
 // Build the place options from the venue list itself so the dropdown only
 // ever shows towns that have at least one venue in this directory.
-const placesAll = await fetchAllPlacesFromSanity();
+const placesAll = await getCollection('places');
 const placeNameBySlug = new Map<string, string>(
   placesAll.map((p) => [p.id ?? p.data.slug, p.data.name]),
 );

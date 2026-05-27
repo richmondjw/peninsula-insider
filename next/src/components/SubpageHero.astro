@@ -11,7 +11,7 @@
  * so call sites read uniformly across the codebase.
  */
 import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
-import { fetchPageHeroFromSanity } from '../lib/sanity/singletons-adapter';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   /** Section label shown in accent colour before the rule — e.g. "Eat & Drink" */
@@ -50,47 +50,22 @@ const {
 
 const editable = !!entitySlug;
 
-// Override resolution: Sanity pageHero singleton (when page-level flag is
-// on AND entityType is 'page') wins. Otherwise legacy Supabase override.
-let resolvedTitle = title;
-let resolvedImageSrc = heroImage;
-let resolvedImageAlt = imageAlt;
+// Build-time override consult — apply published title / hero overrides
+// to the initial markup so there's no flash where the default paints
+// before the client-side patcher runs.
+const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;
+const titleOverride = overrides?.text['hero.title'];
+const imageOverride = overrides?.image['hero'];
 
-const isPageEntity = entityType === 'page' && !!entitySlug;
-const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-// Build-time read: bake pageHero singleton from Sanity into static HTML.
-if (isPageEntity) {
-  try {
-    const ph = await fetchPageHeroFromSanity(entitySlug!, {preview: isPreview});
-    if (ph) {
-      if (ph.title) resolvedTitle = ph.title;
-      if (ph.imageSrc) {
-        resolvedImageSrc = ph.imageSrc;
-        resolvedImageAlt = ph.imageAlt ?? imageAlt;
-      }
-    }
-  } catch (err) {
-    console.error(`[SubpageHero] Sanity pageHero fetch failed for ${entitySlug}, using static fallback:`, err);
-  }
-}
+const resolvedTitle = titleOverride ?? title;
+const resolvedImageSrc = imageOverride?.src ?? heroImage;
+const resolvedImageAlt = imageOverride?.alt ?? imageAlt;
 
 const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
   : {};
 const imageAttrs = editable
-  ? editableImage({
-      entityType,
-      entitySlug: entitySlug!,
-      fieldPath: isPageEntity ? 'hero' : 'heroImage',
-      label: `${entitySlug} hero image`,
-      purpose: 'hero',
-      ...(isPageEntity
-        ? {
-            sanitySingletonId: `pageHero-${entitySlug!.replace(/\//g, '--')}`,
-            sanitySingletonPath: 'image',
-          }
-        : {}),
-    })
+  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero image`, purpose: 'hero' })
   : {};
 ---
 

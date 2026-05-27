@@ -2,15 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchPageHeroFromSanity } from '../../lib/sanity/singletons-adapter';
-
-const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-let heroImage = '/images/sourced/place-rye-01.webp';
-if (isPreview || sanityReadEnabled('page-level')) {
-  const ph = await fetchPageHeroFromSanity('journal/dog-friendly-mornington-peninsula', {preview: isPreview});
-  if (ph?.imageSrc) heroImage = ph.imageSrc;
-}
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -112,7 +103,7 @@ export const prerender = true;
       <h1 class="article__title">Dog-Friendly Mornington Peninsula — Where to Go with Your Dog</h1>
       <p class="article__dek">The Mornington Peninsula is one of Victoria's better destinations for dogs, provided you know which beaches allow them, which cafés will actually welcome them, and where you can stay without the awkward conversation at check-in.</p>
 
-      <div class="article__hero feature__image-block feature__image-block--sand" aria-hidden="true" style={`background-image: url(${heroImage}); background-size: cover; background-position: center;`}>
+      <div class="article__hero feature__image-block feature__image-block--sand" aria-hidden="true" style="background-image: url(/images/sourced/place-rye-01.webp); background-size: cover; background-position: center;">
         <div class="article__hero-fog"></div>
         <span class="article__hero-caption">Rye foreshore, Mornington Peninsula</span>
       </div>

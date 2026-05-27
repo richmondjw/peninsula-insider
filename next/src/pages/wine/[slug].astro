@@ -11,8 +11,6 @@ import {
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchVenueFromSanity } from '../../lib/sanity/venue-adapter';
 
 export async function getStaticPaths() {
   const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
@@ -26,15 +24,8 @@ export async function getStaticPaths() {
 }
 
 const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
-let { venue } = Astro.props;
+const { venue } = Astro.props;
 const slug = routeSlug(venue);
-
-// Dual-read: swap focused venue for Sanity when flag is on.
-const previewMode = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (sanityReadEnabled('venues')) {
-  const sanityVenue = await fetchVenueFromSanity(slug, {preview: previewMode});
-  if (sanityVenue) venue = sanityVenue as any;
-}
 
 const allVenues = await getCollection('venues');
 const related = allVenues

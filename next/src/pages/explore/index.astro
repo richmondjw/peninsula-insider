@@ -13,8 +13,6 @@ import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, currentSeason, seasonBlurb, experienceInSeason, isUpcoming } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchExperienceFromSanity } from '../../lib/sanity/phase5-adapters';
 import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -24,25 +22,7 @@ const _eNotes = (await getCollection('quickNotes', ({ data }) => data.status ===
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const notebookNote = _eNotes.find((n) => ['explore', 'weather', 'spa'].includes(n.data.section)) ?? _eNotes[0] ?? null;
 
-const experiencesRaw = (await getCollection('experiences')).sort((a, b) => a.data.name.localeCompare(b.data.name));
-
-// Dual-read experiences through Sanity so admin overlay heroImage edits
-// persist on the hub. Same PR #211 pattern. ~45 experiences in parallel.
-const experienceReadOn = sanityReadEnabled('experiences');
-const experiences = experienceReadOn
-  ? await Promise.all(
-      experiencesRaw.map(async (e) => {
-        try {
-          const doc = await fetchExperienceFromSanity(routeSlug(e));
-          const sanitySrc = doc?.data?.heroImage?.src;
-          if (!sanitySrc) return e;
-          return { ...e, data: { ...e.data, heroImage: { ...e.data.heroImage, src: sanitySrc } } };
-        } catch {
-          return e;
-        }
-      }),
-    )
-  : experiencesRaw;
+const experiences = (await getCollection('experiences')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 
 // Family + arts + nature events surfacing from /whats-on/.
 const exploreEventCategories = ['nature', 'family-programs', 'arts', 'exhibition', 'community', 'wellness'];

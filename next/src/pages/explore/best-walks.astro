@@ -1,12 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { fetchAllExperiencesFromSanity } from '../../lib/sanity/phase5-adapters';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ExperienceCard from '../../components/ExperienceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, placeLabel, titleize } from '../../lib/editorial';
 
-const experiences = await fetchAllExperiencesFromSanity();
+const experiences = await getCollection('experiences');
 const walks = experiences
   .filter((e) => e.data.type === 'walk')
   .sort((a, b) => {

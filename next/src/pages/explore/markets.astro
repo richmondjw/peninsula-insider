@@ -12,23 +12,14 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 import { routeSlug } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
-import { fetchPlaceFromSanity } from '../../lib/sanity/place-adapter';
-import { fetchPageHeroFromSanity } from '../../lib/sanity/singletons-adapter';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 6 ("Markets editorial") that link to a journal article bind
 // their background image to that article's heroImage so an editor changing the
-// hero in Sanity (or the article frontmatter) updates the explore-page card.
-// Cards that link to hubs or place guides have no article doc to bind to and
-// keep their hardcoded image until a parent doc exists.
+// hero in the article frontmatter updates the explore-page card. Cards that
+// link to hubs or place guides keep their hardcoded image.
 const allArticlesForCards = await getCollection('articles', ({ data }) => data.status === 'published');
 async function resolveArticleHero(slug: string, fallback: string): Promise<string> {
-  if (sanityReadEnabled('articles')) {
-    const sanityArt = await fetchArticleFromSanity(slug);
-    if (sanityArt?.data.heroImage?.src) return sanityArt.data.heroImage.src;
-  }
   const local = allArticlesForCards.find((a) => routeSlug(a) === slug);
   return (local?.data as any)?.heroImage?.src ?? fallback;
 }
@@ -37,23 +28,14 @@ const heroRedHillSaturday = await resolveArticleHero(
   '/images/sourced/article-red-hill-saturday-01.webp',
 );
 
-// Cards that link to a /places/<slug>/ guide bind to that place's heroImage in
-// Sanity. Cards that link to a hub (/wine/) bind to that hub's pageHero
-// singleton image. Same "edit-once, propagate" model as the article cards.
+// Cards that link to a /places/<slug>/ guide bind to that place's heroImage.
+// Cards that link to a hub (/wine/) keep their hardcoded image.
 const allPlacesForCards = await getCollection('places');
 async function resolvePlaceHero(slug: string, fallback: string): Promise<string> {
-  if (sanityReadEnabled('places')) {
-    const sanityPlace = await fetchPlaceFromSanity(slug);
-    if (sanityPlace?.data.heroImage?.src) return sanityPlace.data.heroImage.src;
-  }
   const local = allPlacesForCards.find((p) => routeSlug(p) === slug);
   return (local?.data as any)?.heroImage?.src ?? fallback;
 }
-async function resolveHubHero(pathSlug: string, fallback: string): Promise<string> {
-  if (sanityReadEnabled('page-level')) {
-    const ph = await fetchPageHeroFromSanity(pathSlug);
-    if (ph?.imageSrc) return ph.imageSrc;
-  }
+async function resolveHubHero(_pathSlug: string, fallback: string): Promise<string> {
   return fallback;
 }
 const heroWineHub = await resolveHubHero('wine', '/images/sourced/category-cottage-01.webp');

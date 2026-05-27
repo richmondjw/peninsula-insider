@@ -1,6 +1,5 @@
 ---
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
-import { fetchAllPlacesFromSanity } from '../../lib/sanity/place-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WineSubregionTemplate from '../../components/WineSubregionTemplate.astro';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
@@ -10,7 +9,7 @@ const SITE = 'https://peninsulainsider.com.au';
 const canonical = `${SITE}/wine/balnarring/`;
 
 const wineTypes = ['winery', 'producer'];
-const allVenues = await fetchAllVenuesFromSanity();
+const allVenues = await getCollection('venues');
 const venues = allVenues
   .filter((v) => {
     if (!wineTypes.includes(v.data.type)) return false;
@@ -20,7 +19,7 @@ const venues = allVenues
   })
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 
-const places = await fetchAllPlacesFromSanity();
+const places = await getCollection('places');
 const place = places.find((p) => routeSlug(p) === 'balnarring') ?? null;
 
 const itemListSchema = buildItemListSchema({

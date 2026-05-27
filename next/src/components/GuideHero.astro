@@ -16,8 +16,6 @@ export interface MetaItem {
 }
 
 import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
-import { sanityReadEnabled } from '../lib/sanity/client';
-import { fetchPageHeroFromSanity } from '../lib/sanity/singletons-adapter';
 
 export interface Props {
   /** Small caps eyebrow, e.g. "EAT & DRINK · 101 VENUES MAPPED · LAST VERIFIED 30 APR 2026". */
@@ -56,24 +54,6 @@ const {
 } = Astro.props;
 
 const editable = !!entitySlug;
-
-// Dual-read: when the Sanity flag is on OR preview cookie is set, prefer
-// the pageHero singleton's title/dek/image over the call-site fallbacks.
-let resolvedTitle = title;
-let resolvedDek = dek;
-let resolvedHeroImage = heroImage;
-
-const isPageEntity = entityType === 'page' && !!entitySlug;
-const isPreview = (Astro.locals as Record<string, unknown>).sanityPreview === true;
-if (isPageEntity && (isPreview || sanityReadEnabled('page-level'))) {
-  const ph = await fetchPageHeroFromSanity(entitySlug!, {preview: isPreview});
-  if (ph) {
-    if (ph.title) resolvedTitle = ph.title;
-    if (ph.dek) resolvedDek = ph.dek;
-    if (ph.imageSrc) resolvedHeroImage = ph.imageSrc;
-  }
-}
-
 const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
   : {};
@@ -81,31 +61,17 @@ const dekAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.dek', label: `${entitySlug} hero dek` })
   : {};
 const imageAttrs = editable
-  ? editableImage({
-      entityType,
-      entitySlug: entitySlug!,
-      fieldPath: isPageEntity ? 'hero' : 'heroImage',
-      label: `${entitySlug} hero image`,
-      purpose: 'hero',
-      // When the page-level singleton is in play, point the admin overlay
-      // at the pageHero doc keyed by slug (slashes → double-dash).
-      ...(isPageEntity
-        ? {
-            sanitySingletonId: `pageHero-${entitySlug!.replace(/\//g, '--')}`,
-            sanitySingletonPath: 'image',
-          }
-        : {}),
-    })
+  ? editableImage({ entityType, entitySlug: entitySlug!, fieldPath: 'hero', label: `${entitySlug} hero image`, purpose: 'hero' })
   : {};
 ---
 
-<section class="guide-hero" aria-label={resolvedTitle}>
+<section class="guide-hero" aria-label={title}>
   <div class="container">
     <div class="guide-hero__inner">
       <div class="guide-hero__content">
         {eyebrow && <p class="guide-hero__eyebrow">{eyebrow}</p>}
-        <h1 class="guide-hero__title" set:html={resolvedTitle} {...titleAttrs} />
-        {resolvedDek && <p class="guide-hero__dek" {...dekAttrs}>{resolvedDek}</p>}
+        <h1 class="guide-hero__title" set:html={title} {...titleAttrs} />
+        {dek && <p class="guide-hero__dek" {...dekAttrs}>{dek}</p>}
         {meta && meta.length > 0 && (
           <div class="guide-hero__meta">
             {meta.map((item) => (
@@ -114,13 +80,13 @@ const imageAttrs = editable
           </div>
         )}
       </div>
-      {resolvedHeroImage && (
+      {heroImage && (
         <figure class="guide-hero__figure">
           <div
             class="guide-hero__image"
             role="img"
             aria-label={imageAlt}
-            style={`background-image: url(${resolvedHeroImage})`}
+            style={`background-image: url(${heroImage})`}
             {...imageAttrs}
           ></div>
           {imageCredit && <figcaption class="guide-hero__credit">Photo · {imageCredit}</figcaption>}

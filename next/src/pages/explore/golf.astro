@@ -12,20 +12,14 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 import { routeSlug } from '../../lib/editorial';
-import { sanityReadEnabled } from '../../lib/sanity/client';
-import { fetchArticleFromSanity } from '../../lib/sanity/article-adapter';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 8 ("Golf editorial") all link to journal articles. Their
 // background image is bound to each article's heroImage so editors can change
-// the card art by editing the article in Sanity (or its frontmatter), with the
-// hardcoded path retained as a build-time fallback.
+// the card art by editing the article's frontmatter, with the hardcoded path
+// retained as a build-time fallback.
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 async function resolveArticleHero(slug: string, fallback: string): Promise<string> {
-  if (sanityReadEnabled('articles')) {
-    const sanityArt = await fetchArticleFromSanity(slug);
-    if (sanityArt?.data.heroImage?.src) return sanityArt.data.heroImage.src;
-  }
   const local = allArticles.find((a) => routeSlug(a) === slug);
   return (local?.data as any)?.heroImage?.src ?? fallback;
 }
