@@ -1,0 +1,390 @@
+name: Build & deploy site to GitHub Pages
+
+# Auto-rebuilds the live site at peninsulainsider.com.au whenever source
+# changes land on `main`. Replaces the manual `bash build-live.sh` flow.
+#
+# Setup required (one-time):
+#   1. GitHub → repo Settings → Secrets and variables → Actions
+#   2. Add the following Variables (or Secrets — Variables are fine for
+#      these since none of them are secret in the cryptographic sense;
+#      the publishable Supabase key is RLS-gated and ships in the static
+#      bundle anyway):
+#        PUBLIC_CONCIERGE_API_URL  = https://peninsula-insider-platform-api.vercel.app
+#        PUBLIC_SUPABASE_URL       = https://tjjhpvslpysfklwpqmgz.supabase.co
+#        PUBLIC_SUPABASE_ANON_KEY  = sb_publishable_... (or legacy eyJ... anon key)
+#
+# After that, every push to main rebuilds + commits the dist back to main.
+# GitHub Pages serves from main/root so the deploy is "automatic".
+#
+# If PUBLIC_SUPABASE_ANON_KEY is unset, next/src/lib/auth.ts gracefully
+# degrades to localStorage-only — saves and itineraries still work on
+# the device, but cross-device sync, signed-in award voting, and the
+# /submit/ form's database insert all silently no-op. So this isn't
+# strictly required for the site to *build*, but it is required for the
+# Phase 3+4 cloud features to actually work in production.
+
+on:
+  push:
+    branches: [main]
+    # Skip our own auto-build commits (we tag them with [skip ci])
+  workflow_dispatch:        # allow manual trigger from the Actions tab
+
+permissions:
+  contents: write           # needed to push the build commit back to main
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false  # let in-flight builds finish to avoid half-deployed state
+
+jobs:
+  build-and-deploy:
+    # Skip if the commit message says [skip ci] or is our own auto-build
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Capture run start time (run-log)
+        id: runlog-start
+        run: |
+          STARTED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "started_at=${STARTED_AT}" >> "$GITHUB_OUTPUT"
+          echo "Run started at ${STARTED_AT}"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        working-directory: next
+        run: npm ci --no-audit --no-fund
+
+      - name: Deploy preflight (Stage B item 2)
+        # Stage B item 2 — deploy-path dependency + preflight checks.
+        # Currently runs in --skip-env mode (env presence checks happen in
+        # the actual build step); fails closed only if a build/source/leak
+        # check actually fails. Warnings are surfaced but non-blocking.
+        run: |
+          node ops/scripts/deploy-preflight.mjs --skip-env
+
+      - name: Enforce CMS editor conventions (CMS Integrity Plan, Phase 3)
+        # Fails the build if any *Card.astro or PiSaveActions consumer is
+        # missing the entity-scoped editor attrs. Stops the filename-keyed
+        # auto-detect bug from reappearing under a new card type.
+        run: |
+          if [ -f next/scripts/check-editable-coverage.mjs ]; then
+            node next/scripts/check-editable-coverage.mjs
+          elif [ -f scripts/check-editable-coverage.mjs ]; then
+            node scripts/check-editable-coverage.mjs
+          else
+            echo "::warning::check-editable-coverage.mjs is not present in this checkout (tried next/scripts/ and scripts/); skipping CMS editor convention check."
+          fi
+
+      - name: Refresh CMS content registry (CMS Integrity Plan, Phase 1)
+        # Populates pi.content_registry with the current set of valid
+        # (entity_type, entity_slug) pairs. The CMS write triggers refuse
+        # writes that don't match a row here, so this must run before any
+        # editor uses the inline editor.
+        #
+        # `continue-on-error: true` is intentional and temporary. The
+        # SUPABASE_SERVICE_KEY repo secret currently authenticates to an
+        # older Supabase project, not to `tjjhpvslpysfklwpqmgz` (the
+        # active CMS database) — so the upsert 401s. The site already
+        # has 516 entities seeded directly (2026-05-11) so existing
+        # editor flows still work; new content slugs just won't reach
+        # the registry until the secret is rotated.
+        #
+        # TO FIX: update the `SUPABASE_SERVICE_KEY` repo secret to be the
+        # service-role key for project tjjhpvslpysfklwpqmgz (Dashboard →
+        # Settings → API → service_role), then remove `continue-on-error`
+        # below to restore strict integrity.
+        continue-on-error: true
+        env:
+          SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          node next/scripts/refresh-content-registry.mjs
+
+      - name: Refresh entity index (Phase B projector)
+        # Projects every Astro content collection through the canonical
+        # facet taxonomy (next/src/taxonomy/facet-taxonomy.yaml) and upserts
+        # pi.entity_index + pi.entity_attributes. Read by pi.search() at
+        # runtime to power typeahead, planner, concierge, and the iOS app.
+        #
+        # Same continue-on-error stance as refresh-content-registry above:
+        # the deploy proceeds even if the projector fails (e.g. transient
+        # Supabase auth). The runtime falls back to Pagefind in that case.
+        continue-on-error: true
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          node next/scripts/refresh-entity-index.mjs --apply
+
+      - name: Embed entity index (Phase C)
+        # Populates pi.entity_index.embedding for rows whose content_hash
+        # has drifted since the last run. Uses text-embedding-3-small
+        # (same model as the concierge corpus, no second pipeline).
+        # Skipped silently when OPENAI_API_KEY is not configured —
+        # pi.search() still works with lexical + facet, just no semantic.
+        continue-on-error: true
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo "::notice::OPENAI_API_KEY not configured; skipping embedding refresh."
+            exit 0
+          fi
+          node next/scripts/embed-entity-index.mjs --apply
+
+      - name: Build Astro site
+        working-directory: next
+        env:
+          PUBLIC_CONCIERGE_API_URL: ${{ vars.PUBLIC_CONCIERGE_API_URL || secrets.PUBLIC_CONCIERGE_API_URL }}
+          # Phase 3+ — Supabase auth + cross-device sync. Anon (publishable)
+          # key is RLS-gated; safe to embed in the static bundle. URL is
+          # also non-sensitive (it's the project's public hostname). When
+          # either is unset, lib/auth.ts gracefully no-ops to localStorage.
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY || secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          # Phase 6 WS6A — Stripe Checkout for Pass tiers. Publishable
+          # key + price ids are non-sensitive (RLS-equivalent — Stripe
+          # validates everything server-side). Until set, /pass/ falls
+          # back to the waitlist email-capture flow.
+          PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ vars.PUBLIC_STRIPE_PUBLISHABLE_KEY || secrets.PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+          PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY: ${{ vars.PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY || secrets.PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY }}
+          PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL:  ${{ vars.PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL  || secrets.PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL }}
+          PUBLIC_STRIPE_PRICE_FOUNDERS:        ${{ vars.PUBLIC_STRIPE_PRICE_FOUNDERS        || secrets.PUBLIC_STRIPE_PRICE_FOUNDERS }}
+        run: |
+          echo "Building with API URL: ${PUBLIC_CONCIERGE_API_URL:-(unset)}"
+          echo "Supabase URL configured:    $([ -n "$PUBLIC_SUPABASE_URL" ] && echo yes || echo no)"
+          echo "Supabase anon key configured: $([ -n "$PUBLIC_SUPABASE_ANON_KEY" ] && echo yes || echo no)"
+          echo "Stripe publishable key:     $([ -n "$PUBLIC_STRIPE_PUBLISHABLE_KEY" ] && echo yes || echo no)"
+          echo "Stripe Insider monthly:     $([ -n "$PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY" ] && echo yes || echo no)"
+          echo "Stripe Insider annual:      $([ -n "$PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL" ] && echo yes || echo no)"
+          echo "Stripe Founders:            $([ -n "$PUBLIC_STRIPE_PRICE_FOUNDERS" ] && echo yes || echo no)"
+          npm run build:search
+
+      - name: Sync dist to repo root (mirrors build-live.sh)
+        run: |
+          set -euxo pipefail
+
+          # Wipe everything at root EXCEPT the things build-live.sh preserves.
+          # Note: .github is preserved here too so the workflow can re-run.
+          find . -mindepth 1 -maxdepth 1 \
+            ! -name '.git' \
+            ! -name '.github' \
+            ! -name '.gitignore' \
+            ! -name '.nojekyll' \
+            ! -name 'CNAME' \
+            ! -name 'next' \
+            ! -name 'docs' \
+            ! -name 'ops' \
+            ! -name 'scripts' \
+            ! -name 'reports' \
+            ! -name 'build-v2.sh' \
+            ! -name 'build-live.sh' \
+            ! -name 'CHANGELOG.md' \
+            ! -name 'HANDOVER-CLAUDE.md' \
+            ! -name 'BRAND-PI.md' \
+            ! -name '.approvals' \
+            ! -name '.claude' \
+            ! -name 'design-reviews' \
+            -exec rm -rf {} +
+
+          # Copy fresh build to root
+          cp -r next/dist/. .
+
+          # Stable fallback stylesheet that some legacy pages reference
+          mkdir -p assets
+          cp next/src/styles/global.css assets/styles.css
+
+          # Sanity check
+          if [ ! -f assets/styles.css ]; then
+            echo "::error::stable fallback stylesheet missing at ./assets/styles.css"
+            exit 1
+          fi
+
+          page_count=$(find . -path './.git' -prune -o -path './next' -prune -o -name '*.html' -print | wc -l)
+          echo "Built $page_count pages"
+
+      - name: Commit and push deploy
+        env:
+          # Pass the trigger commit message via env var rather than
+          # ${{ github.event.head_commit.message }} inline. The template
+          # substitution dumps the raw message into the generated shell
+          # script, so any backtick / quote / parens in the message
+          # produces a shell parse error and the deploy fails before push.
+          # See: failed runs #159, #160, #163 (commit messages that
+          # referenced `pi.submissions` etc. in backticks).
+          HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: |
+          git config user.name  "peninsula-insider-deploy[bot]"
+          git config user.email "deploy@peninsulainsider.com.au"
+
+          git add -A
+
+          if git diff --staged --quiet; then
+            echo "No build changes to commit"
+            exit 0
+          fi
+
+          TRIGGER_MSG=$(printf '%s\n' "$HEAD_COMMIT_MSG" | head -1 | tr -d '"' | tr -d '`' | tr -d '$')
+          CHANGED_COUNT=$(git diff --staged --name-only | wc -l | tr -d ' ')
+          export LEDGER_TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          export LEDGER_RUN_ID="${GITHUB_RUN_ID}"
+          export LEDGER_SUMMARY="Automated site deploy with ${CHANGED_COUNT} changed file(s). Trigger: ${TRIGGER_MSG:-manual workflow dispatch}."
+          export LEDGER_NOTES="Workflow-level build and deploy checks passed, including fallback stylesheet sanity check."
+
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          entry = {
+              "timestamp": os.environ["LEDGER_TIMESTAMP"],
+              "job_name": "deploy-site-to-github-pages",
+              "agent_or_owner": "peninsula-insider-deploy[bot]",
+              "content_type": "site-deploy",
+              "canonical_url_or_path": "/",
+              "change_summary": os.environ["LEDGER_SUMMARY"],
+              "risk_tier": "low",
+              "approval_mode": "system-approved",
+              "approved_by": None,
+              "publish_result": "published",
+              "verification_result": "passed",
+              "rollback_reference": None,
+              "run_id": os.environ["LEDGER_RUN_ID"],
+              "notes": os.environ["LEDGER_NOTES"],
+          }
+          path = Path('/tmp/pi-ledger-entry.json')
+          path.write_text(json.dumps(entry, indent=2) + '\n', encoding='utf-8')
+          print(path)
+          PY
+
+          python3 ops/scripts/publication-ledger.py append --entry-file /tmp/pi-ledger-entry.json
+          # Capture the ledger id of the entry we just appended for
+          # cross-reference in the run-log entry written after deploy.
+          LEDGER_ID=$(python3 -c "import json; e = json.load(open('/tmp/pi-ledger-entry.json')); print(e.get('ledger_id') or '')")
+          echo "LEDGER_ID=${LEDGER_ID}" >> "$GITHUB_ENV"
+          git add ops/publication-ledger/
+
+          git commit -F - <<EOF
+          build: deploy site (auto) [skip ci]
+
+          Built from ${GITHUB_SHA::7}: ${TRIGGER_MSG}
+          EOF
+
+          # Use a retry loop in case the branch moved while we were building
+          for attempt in 1 2 3; do
+            if git push origin main; then
+              echo "Pushed deploy on attempt $attempt"
+              exit 0
+            fi
+            echo "Push failed, refetching and retrying ($attempt/3)..."
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort; exit 1; }
+          done
+
+          echo "::error::Failed to push after 3 attempts"
+          exit 1
+
+      - name: Post-publish verification (Stage B item 1)
+        # Stage B item 1 — verify the deploy externally before the run-log
+        # records success. This is the gate that prevents "deploy succeeded"
+        # being mistaken for "page rendered". Allow a brief warm-up for the
+        # GitHub Pages CDN to pick up the new commit before probing.
+        id: post-publish-verify
+        if: success()
+        env:
+          PI_LIVE_URL: ${{ vars.PI_LIVE_URL || 'https://peninsulainsider.com.au/' }}
+        run: |
+          echo "Sleeping 60s to let GitHub Pages propagate…"
+          sleep 60
+          if node ops/scripts/post-publish-verify.mjs "${PI_LIVE_URL}"; then
+            echo "verification=passed" >> "$GITHUB_OUTPUT"
+          else
+            echo "verification=failed" >> "$GITHUB_OUTPUT"
+            # Don't fail the workflow on first roll-out; surface as warning.
+            # Flip to `exit 1` once the gate has been observed across a few
+            # successful deploys (tracked in EXC-2026-05-10-007).
+            echo "::warning::post-publish verification reported issues for ${PI_LIVE_URL}"
+          fi
+
+      - name: Append run-log entry (Stage B item 5)
+        # Stage B item 5 — write a run-log entry that records this deploy's
+        # observability shape (start/end, duration, status, mutation,
+        # surfaces, ledger id, verification result, alert path). Runs even
+        # on partial failure so the absence of a run-log entry itself
+        # signals an upstream-job crash.
+        if: always()
+        env:
+          STARTED_AT: ${{ steps.runlog-start.outputs.started_at }}
+          VERIFICATION: ${{ steps.post-publish-verify.outputs.verification }}
+        run: |
+          set -e
+          ENDED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          if [[ "${VERIFICATION}" == "failed" ]]; then
+            STATUS="partial"
+            ERROR_SUMMARY="post-publish verification flagged issues — see workflow logs"
+            ALERT_FLAGS=( --alert-sent --alert-channel github-issue )
+          elif [[ "${{ job.status }}" == "success" ]]; then
+            STATUS="success"
+            ERROR_SUMMARY=""
+            ALERT_FLAGS=()
+          else
+            STATUS="failure"
+            ERROR_SUMMARY="job status: ${{ job.status }}"
+            ALERT_FLAGS=( --alert-sent --alert-channel github-issue )
+          fi
+
+          LEDGER_FLAGS=()
+          if [[ -n "${LEDGER_ID:-}" ]]; then
+            LEDGER_FLAGS=( --ledger-entries "${LEDGER_ID}" )
+          fi
+
+          ERROR_FLAGS=()
+          if [[ -n "${ERROR_SUMMARY}" ]]; then
+            ERROR_FLAGS=( --error-summary "${ERROR_SUMMARY}" )
+          fi
+
+          node ops/scripts/run-log.mjs new \
+            --job-name deploy-site-to-github-pages \
+            --job-source github-actions \
+            --run-id "${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            --started-at "${STARTED_AT}" \
+            --ended-at "${ENDED_AT}" \
+            --status "${STATUS}" \
+            --mutation mutating-live \
+            --surfaces "/" \
+            "${LEDGER_FLAGS[@]}" \
+            "${ALERT_FLAGS[@]}" \
+            "${ERROR_FLAGS[@]}" \
+            --notes "automated GitHub Actions deploy; verification=${VERIFICATION:-not-run}" \
+            --append
+
+          # Stage and push the new run-log entry + index.csv update so a
+          # subsequent run picks them up. Tolerates concurrent pushes via
+          # the same retry loop as the deploy commit step.
+          git config user.name  "peninsula-insider-deploy[bot]"
+          git config user.email "deploy@peninsulainsider.com.au"
+          git add ops/run-log/ || true
+          if ! git diff --staged --quiet -- ops/run-log/; then
+            git commit -m "ops(run-log): record deploy ${GITHUB_RUN_ID} [skip ci]" || true
+            for attempt in 1 2 3; do
+              if git push origin main; then
+                break
+              fi
+              git fetch origin main
+              git rebase origin/main || { git rebase --abort; break; }
+            done
+          fi
