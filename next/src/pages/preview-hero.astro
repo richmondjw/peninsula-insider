@@ -5,11 +5,6 @@
  * NOT linked from anywhere. For James's review only.
  */
 import { getCollection } from 'astro:content';
-import { fetchAllVenuesFromSanity } from '../lib/sanity/venue-adapter';
-import { fetchAllPlacesFromSanity } from '../lib/sanity/place-adapter';
-import { fetchAllExperiencesFromSanity } from '../lib/sanity/phase5-adapters';
-import { fetchAllItinerariesFromSanity } from '../lib/sanity/itinerary-adapter';
-import { fetchAllEventsFromSanity } from '../lib/sanity/event-adapter';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PillarNav from '../components/PillarNav.astro';
 import FeatureArticle from '../components/FeatureArticle.astro';
@@ -24,11 +19,11 @@ import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { isUpcoming, routeSlug, stayTypes, currentSeason, seasonBlurb, inSeason, experienceInSeason, dispatchWeekend } from '../lib/editorial';
 
 const [venues, places, experiences, itineraries, eventsRaw] = await Promise.all([
-  fetchAllVenuesFromSanity(),
-  fetchAllPlacesFromSanity(),
-  fetchAllExperiencesFromSanity(),
-  fetchAllItinerariesFromSanity(),
-  fetchAllEventsFromSanity(),
+  getCollection('venues'),
+  getCollection('places'),
+  getCollection('experiences'),
+  getCollection('itineraries'),
+  getCollection('events'),
 ]);
 const articles = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));

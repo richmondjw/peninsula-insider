@@ -252,8 +252,8 @@ const isAskPage = rawPathname.startsWith('/ask');
         display:none elements as invisible and skips them during indexing,
         which means `data-pagefind-meta` attributes on hidden elements are
         ignored. Empty <span> has zero visual impact regardless. */}
-    {!searchExclude && resolvedOgImage && (
-      <span data-pagefind-meta={`image:${resolvedOgImage}`}></span>
+    {!searchExclude && ogImage && (
+      <span data-pagefind-meta={`image:${ogImageAbsolute}`}></span>
     )}
     <slot />
   </main>
