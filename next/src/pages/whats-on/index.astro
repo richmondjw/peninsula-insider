@@ -80,6 +80,12 @@ const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: "What's On" },
 ];
+
+// Freshness signal: wire to the latest dispatch's publishedAt rather than a
+// hardcoded date so the SEO modifiedTime tracks the live weekend dispatch.
+const whatsOnModifiedTime = (currentDispatch?.data.publishedAt ?? now)
+  .toISOString()
+  .slice(0, 10);
 export const prerender = true;
 ---
 
@@ -88,7 +94,7 @@ export const prerender = true;
   description="A curated edit of what's happening across the Mornington Peninsula - organised by season, signature events, and markets."
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
-  modifiedTime="2026-05-13"
+  modifiedTime={whatsOnModifiedTime}
   ogImage="/images/sourced/whats-on-winter-wine.webp"
 >
   <Breadcrumbs items={breadcrumbItems} />
