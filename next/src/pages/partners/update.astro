@@ -11,14 +11,14 @@
  * we'll auth-gate this and link change requests to the operator's
  * profile.
  */
-import { fetchAllVenuesFromSanity } from '../../lib/sanity/venue-adapter';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug } from '../../lib/editorial';
 
-const venues = await fetchAllVenuesFromSanity();
+const venues = await getCollection('venues');
 // Build a sorted lightweight list for the autocomplete datalist.
 const venueOptions = venues
   .filter((v) => !v.data.sitemapExclude)
