@@ -377,3 +377,32 @@ The Friday Performance Council cron should additionally surface:
 - all articles published in the past 7 days that did not pass governance gates at time of publish
 - any outstanding correction or removal requests logged in `docs/site-changelog.md`
 - count of `needs-verification` articles still unpublished (from the 84-winery batch and others)
+
+---
+
+## Working tree safety (MANDATORY)
+
+The autofix run touches files in the repo and commits them. It MUST NOT
+silently shelve unrelated working-tree changes belonging to a human session
+or another agent. On 2026-05-28 an autofix run did exactly that: it created
+`stash@{0}: pi-autofix-temp-stash 2026-05-28` containing a 117-file Kids
+Grade taxonomy removal, then the stash was lost. Recovery was impossible.
+
+**Rule:** the autofix MUST gate its run through
+`ops/scripts/pi-autofix-safe-stash.sh`. The script has three subcommands:
+
+1. `pi-autofix-safe-stash.sh check` — call this first. Exit 0 means safe to
+   proceed. Exit 2 means the working tree has changes outside the autofix
+   allowlist (see the script for the current list). On exit 2 the autofix
+   MUST abort the run entirely and write a deferral note. It will retry on
+   the next hourly tick.
+2. `pi-autofix-safe-stash.sh stash` — only call if a stash is genuinely
+   needed (autofix-owned files were already dirty before the run). Creates
+   a labelled stash and records its ref so `restore` can verify.
+3. `pi-autofix-safe-stash.sh restore` — pops the stash. If the pop fails
+   for ANY reason (conflict, ref mismatch), the stash is left in place and
+   a conflict sentinel is written under `.pi-autofix/`. The autofix MUST
+   NOT call `git stash drop` under any circumstances.
+
+The autofix is FORBIDDEN from calling `git stash` directly. All stash
+handling goes through this script.
