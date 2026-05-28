@@ -59,24 +59,35 @@ const dateLabel: string | null =
     ? shortDate(event.data.startDate)
     : null;
 
-// CTA label varies by category — editorial voice, not generic "Read more".
-const ctaByCategory: Record<string, string> = {
-  market: 'Market detail \u2192',
-  'food-wine': 'Plan this \u2192',
-  'cellar-door': 'Plan this \u2192',
-  wellness: 'Plan this \u2192',
-  'family-programs': 'Plan this \u2192',
-  nature: 'Plan this \u2192',
-  festival: 'Read the guide \u2192',
-  'live-music': 'Read the guide \u2192',
-  exhibition: 'Read the guide \u2192',
-  arts: 'Read the guide \u2192',
-  'writers-ideas': 'Read the guide \u2192',
-  'racing-sport': 'Read the guide \u2192',
-  community: 'See the detail \u2192',
-  civic: 'See the detail \u2192',
+// Standardised CTA across What's On cards: review #2 calls for one consistent
+// "Plan this" CTA so the discovery surface reads as a single system rather
+// than a hodgepodge of "Read the guide / Market detail / See the detail".
+const ctaLabel = 'Plan this \u2192';
+
+// Day-of-week badge for weekly/monthly recurrences. Parsed from
+// recurrenceNote ("Weekly - every Thursday year-round" -> "THU").
+// Surfaces the "when" at a glance for repeat-engagement content (markets,
+// classes, ongoing sessions). Falls back to "MONTHLY" when the note has
+// no specific weekday.
+const DAY_PATTERN = /\b(mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?|sun)(?:day)?\b/i;
+const DAY_ABBREV: Record<string, string> = {
+  mon: 'MON', tue: 'TUE', tues: 'TUE',
+  wed: 'WED', wednes: 'WED',
+  thu: 'THU', thur: 'THU', thurs: 'THU',
+  fri: 'FRI', sat: 'SAT', satur: 'SAT', sun: 'SUN',
 };
-const ctaLabel = ctaByCategory[category] ?? 'See the detail \u2192';
+function recurrenceBadge(): string | null {
+  const recur = event.data.recurrence;
+  if (!['weekly', 'monthly'].includes(recur)) return null;
+  const note = String(event.data.recurrenceNote ?? '');
+  const match = note.match(DAY_PATTERN);
+  if (match) {
+    const key = match[1].toLowerCase();
+    return DAY_ABBREV[key] ?? null;
+  }
+  return recur === 'monthly' ? 'MONTHLY' : null;
+}
+const weekdayBadge = recurrenceBadge();
 
 const fallbackHeroByCategory: Record<string, string> = {
   'food-wine': '/images/sourced/category-winery-01.webp',
@@ -102,9 +113,88 @@ const heroImageSrc = eventHeroOverride?.src
   ?? event.data.heroImage?.src
   ?? fallbackHeroByCategory[category]
   ?? '/images/sourced/category-market-02.webp';
+
+// Filter data-attributes — consumed by the hub's client-side filter engine.
+// Each event encodes its location region(s), category bucket, recurrence,
+// price tier, and date range so the engine can match against URL params
+// without a server round-trip.
+const REGION_MAP: Record<string, 'northern' | 'southern' | 'wine' | 'hotsprings'> = {
+  mornington: 'northern',
+  'mount eliza': 'northern',
+  'mt eliza': 'northern',
+  'mount martha': 'northern',
+  'mt martha': 'northern',
+  hastings: 'northern',
+  pearcedale: 'northern',
+  'crib point': 'northern',
+  somerville: 'northern',
+  sorrento: 'southern',
+  portsea: 'southern',
+  rye: 'southern',
+  blairgowrie: 'southern',
+  tootgarook: 'southern',
+  'capel sound': 'southern',
+  rosebud: 'southern',
+  dromana: 'southern',
+  boneo: 'southern',
+  'red hill': 'wine',
+  'red hill south': 'wine',
+  'main ridge': 'wine',
+  merricks: 'wine',
+  balnarring: 'wine',
+  tuerong: 'wine',
+  bittern: 'wine',
+  moorooduc: 'wine',
+  shoreham: 'wine',
+  flinders: 'wine',
+  fingal: 'hotsprings',
+  'cape schanck': 'hotsprings',
+};
+function regionsFor(suburb: string | undefined): string {
+  if (!suburb) return '';
+  const tokens = String(suburb).toLowerCase().split(/[\/,]| and /).map((s) => s.trim()).filter(Boolean);
+  const regions = new Set<string>();
+  for (const t of tokens) {
+    const r = REGION_MAP[t];
+    if (r) regions.add(r);
+  }
+  return Array.from(regions).join(' ');
+}
+const FILTER_CATEGORY_MAP: Record<string, string> = {
+  'food-wine': 'food-wine',
+  'cellar-door': 'food-wine',
+  'live-music': 'music',
+  arts: 'arts',
+  exhibition: 'arts',
+  'family-programs': 'family',
+  nature: 'outdoors',
+  market: 'market',
+};
+const filterCategory = FILTER_CATEGORY_MAP[category] ?? category;
+const filterRegions = regionsFor(event.data.suburb ?? event.data.venueRegion);
+const isFree = event.data.priceTier === 'free';
+const isoStart = event.data.startDate instanceof Date ? event.data.startDate.toISOString().slice(0, 10) : '';
+const isoEnd = event.data.endDate instanceof Date
+  ? event.data.endDate.toISOString().slice(0, 10)
+  : isoStart;
+const recurDayMatch = String(event.data.recurrenceNote ?? '').toLowerCase()
+  .match(/\b(mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?|sun)(?:day)?\b/);
+const recurrenceDay = recurDayMatch
+  ? ({ mon: 'mon', tue: 'tue', tues: 'tue', wed: 'wed', wednes: 'wed', thu: 'thu', thur: 'thu', thurs: 'thu', fri: 'fri', sat: 'sat', satur: 'sat', sun: 'sun' } as Record<string, string>)[recurDayMatch[1]] ?? ''
+  : '';
 ---
 
-<article class={`event-card ${featured ? 'event-card--featured' : ''}`}>
+<article
+  class={`event-card ${featured ? 'event-card--featured' : ''}`}
+  data-event-slug={slug}
+  data-category={filterCategory}
+  data-regions={filterRegions}
+  data-recurrence={event.data.recurrence ?? ''}
+  data-recurrence-day={recurrenceDay}
+  data-date-start={isoStart}
+  data-date-end={isoEnd}
+  data-free={isFree ? '1' : '0'}
+>
   <a
     href={`/whats-on/${slug}`}
     class="event-card__hero"
@@ -118,29 +208,35 @@ const heroImageSrc = eventHeroOverride?.src
       label: `${event.data.title} hero`,
       purpose: 'hero',
     })}
-  ></a>
-  <div class="event-card__top">
-    <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
-    {dateLabel && <span class="event-card__date">{dateLabel}</span>}
+  >
+    {weekdayBadge && (
+      <span class="event-card__hero-badge" aria-label={`Runs every ${weekdayBadge}`}>{weekdayBadge}</span>
+    )}
+  </a>
+  <div class="event-card__body">
+    <div class="event-card__top">
+      <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
+      {dateLabel && <span class="event-card__date">{dateLabel}</span>}
+    </div>
+    <h3 class="event-card__name">
+      <a href={`/whats-on/${slug}`}>{event.data.title}</a>
+    </h3>
+    {placeLabel && (
+      <p class="event-card__place">
+        {placeHref ? <a href={placeHref}>{placeLabel}</a> : placeLabel}
+      </p>
+    )}
+    {summary && (<p class="event-card__summary">{summary}</p>)}
+    <div class="event-card__actions">
+      <a href={`/whats-on/${slug}`} class="event-card__cta">{ctaLabel}</a>
+    </div>
+    <PiSaveActions
+      kind="event"
+      slug={slug}
+      title={event.data.title}
+      href={`/whats-on/${slug}/`}
+      dek={event.data.summary}
+      imageUrl={event.data.heroImage?.src}
+    />
   </div>
-  <h3 class="event-card__name">
-    <a href={`/whats-on/${slug}`}>{event.data.title}</a>
-  </h3>
-  {placeLabel && (
-    <p class="event-card__place">
-      {placeHref ? <a href={placeHref}>{placeLabel}</a> : placeLabel}
-    </p>
-  )}
-  {summary && (<p class="event-card__summary">{summary}</p>)}
-  <div class="event-card__actions">
-    <a href={`/whats-on/${slug}`} class="event-card__cta">{ctaLabel}</a>
-  </div>
-  <PiSaveActions
-    kind="event"
-    slug={slug}
-    title={event.data.title}
-    href={`/whats-on/${slug}/`}
-    dek={event.data.summary}
-    imageUrl={event.data.heroImage?.src}
-  />
 </article>

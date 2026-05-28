@@ -1,0 +1,117 @@
+---
+/**
+ * PartnerSlot — single labelled commercial card.
+ *
+ * Renders only when the data file's `enabled` flag is true AND the title,
+ * url, and image fields are populated. Returns null otherwise so the
+ * page collapses gracefully when no partner is active.
+ *
+ * Labelling is mandatory and prominent (top-left chip) — Peninsula
+ * Insider's advertising stance is "firewall via labelling, not absence."
+ * Never ship this component without the partner label visible.
+ */
+import data from '../data/whats-on-partner.json';
+
+const enabled = data.enabled === true
+  && typeof data.title === 'string' && data.title.length > 0
+  && typeof data.url === 'string' && data.url.length > 0
+  && typeof data.image === 'string' && data.image.length > 0;
+---
+
+{enabled && (
+  <section class="partner-slot" aria-label="Partner content">
+    <div class="container">
+      <a class="partner-slot__card" href={data.url} rel="sponsored">
+        <span class="partner-slot__label">{data.label ?? 'Partner'}</span>
+        <div class="partner-slot__media" aria-hidden="true">
+          <img src={data.image} alt={data.imageAlt ?? data.title} loading="lazy" decoding="async" />
+        </div>
+        <div class="partner-slot__body">
+          <h3 class="partner-slot__title">{data.title}</h3>
+          {data.dek && <p class="partner-slot__dek">{data.dek}</p>}
+          <span class="partner-slot__cta">{data.cta ?? 'Learn more'} →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+)}
+
+<style>
+  .partner-slot {
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  }
+  .partner-slot__card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 0;
+    border: 1px dashed rgba(139, 78, 59, 0.5);
+    background: var(--surface, #fdfbf6);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+  }
+  .partner-slot__card:hover {
+    border-color: var(--accent, #8a6a3b);
+    border-style: solid;
+  }
+  .partner-slot__label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 1;
+    background: var(--accent, #8a6a3b);
+    color: var(--white, #ffffff);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.32rem 0.6rem;
+    border-radius: 2px;
+  }
+  .partner-slot__media {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+  .partner-slot__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .partner-slot__body {
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+  .partner-slot__title {
+    margin: 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+    line-height: 1.2;
+  }
+  .partner-slot__dek {
+    margin: 0;
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .partner-slot__cta {
+    margin-top: 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent, #8a6a3b);
+  }
+  @media (max-width: 760px) {
+    .partner-slot__card {
+      grid-template-columns: 1fr;
+    }
+    .partner-slot__media {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

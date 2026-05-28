@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "peninsula-insider",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["--prefix", "next", "run", "dev", "--", "--host", "0.0.0.0"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["next/node_modules/astro/bin/astro.mjs", "dev", "--host", "0.0.0.0", "--root", "next"],
       "port": 4321
     }
   ]

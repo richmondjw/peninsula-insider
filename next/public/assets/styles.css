@@ -5693,11 +5693,27 @@ p.has-drop-cap::first-letter {
 }
 .event-card__hero {
   display: block;
+  position: relative;
   aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
+}
+/* Day-of-week badge for weekly/monthly recurrences. */
+.event-card__hero-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(30, 27, 24, 0.82);
+  color: #fdfbf6;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.32rem 0.55rem;
+  border-radius: 2px;
+  z-index: 1;
+  backdrop-filter: blur(2px);
 }
 @media (prefers-reduced-motion: no-preference) {
   .event-card__hero {
@@ -5759,9 +5775,53 @@ p.has-drop-cap::first-letter {
   border-color: rgba(139, 78, 59, 0.45);
   box-shadow: 0 14px 32px rgba(30, 27, 24, 0.07);
 }
+/* Body wrapper: holds everything below the hero. Flex column so __cta's
+   margin-top:auto pins it to the bottom of the card. */
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+  min-width: 0;
+}
 .event-card--featured {
+  grid-column: 1 / -1;
   background: var(--bg-alt);
   border-color: rgba(139, 78, 59, 0.35);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 0;
+}
+.event-card--featured .event-card__hero {
+  /* Drop aspect-ratio: in the 2-col grid it was computing width from the
+     stretched row height and overflowing the col-1 track. Let the grid
+     drive the box; background-image covers regardless of ratio. */
+  aspect-ratio: auto;
+  border-bottom: none;
+  border-right: 1px solid var(--border);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 320px;
+}
+.event-card--featured .event-card__body {
+  justify-content: center;
+  gap: 1rem;
+  padding: clamp(0.5rem, 1.5vw, 1.25rem) 0;
+}
+.event-card--featured .event-card__name { font-size: 1.85rem; }
+.event-card--featured .event-card__summary { font-size: 1rem; line-height: 1.65; }
+@media (max-width: 600px) {
+  .event-card--featured { grid-template-columns: 1fr; }
+  .event-card--featured .event-card__hero {
+    aspect-ratio: 16 / 9;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    height: auto;
+    min-height: 0;
+  }
+  .event-card--featured .event-card__body { justify-content: flex-start; padding: 0; }
+  .event-card--featured .event-card__name { font-size: 1.65rem; }
 }
 .event-card__top {
   display: flex;

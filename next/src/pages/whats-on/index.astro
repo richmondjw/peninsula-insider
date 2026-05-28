@@ -5,7 +5,9 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
 import SectionDivider from '../../components/SectionDivider.astro';
 import EventCard from '../../components/EventCard.astro';
+import EventChipBar from '../../components/EventChipBar.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
+import PartnerSlot from '../../components/PartnerSlot.astro';
 import { isUpcoming, routeSlug } from '../../lib/editorial';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -24,30 +26,28 @@ const dispatches = (await getCollection('articles', ({ data }) => data.status ==
   .filter((a) => a.data.format === 'weekend-picker')
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 const currentDispatch = dispatches[0];
-const allSignatureEvents = await getCollection('signature-events');
+// Signature events: sorted by the `hubOrder` field on the collection
+// (review #9). Entries without a value sort to the end, then alphabetically
+// by name — so adding a new signature event without specifying hubOrder
+// simply appends rather than crashing the build.
+const allSignatureEvents = (await getCollection('signature-events')).sort((a, b) => {
+  const ao = a.data.hubOrder ?? Number.POSITIVE_INFINITY;
+  const bo = b.data.hubOrder ?? Number.POSITIVE_INFINITY;
+  if (ao !== bo) return ao - bo;
+  return a.data.name.localeCompare(b.data.name);
+});
 
-// The Notebook — one contextual note surfaced on What’s On.
-// Prefers whats-on or weather section; falls back to most recent.
+// The Notebook — up to 3 most recent contextual notes surfaced as a
+// horizontal rail directly under the Weekend briefing. Notebook is the
+// page's freshness proof, so it now sits high in the hub (was previously
+// buried below Markets). Prefers whats-on / weather / explore sections;
+// fills with most recent notes if those don't yield 3.
 const _wonow = new Date();
 const _woNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _wonow))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
-const notebookNote = _woNotes.find((n) => ['whats-on', 'weather', 'explore'].includes(n.data.section)) ?? _woNotes[0] ?? null;
-const signatureOrder = [
-  'portsea-polo',
-  'sorrento-writers-festival',
-  'winter-wine-weekend',
-  'portsea-swim-classic',
-  'peninsula-film-festival',
-  'portsea-twilight',
-  'main-street-mornington-festival',
-  'mornington-winter-music-festival',
-  'sailing-regattas',
-  'wine-weekends',
-  'annual-festivals',
-];
-const signatureEvents = signatureOrder
-  .map((slug) => allSignatureEvents.find((entry) => routeSlug(entry) === slug))
-  .filter(Boolean);
+const _woPreferred = _woNotes.filter((n) => ['whats-on', 'weather', 'explore'].includes(n.data.section));
+const notebookNotes = [..._woPreferred, ..._woNotes.filter((n) => !_woPreferred.includes(n))].slice(0, 3);
+const signatureEvents = allSignatureEvents;
 
 const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) => {
   const ap = a.data.visitorAppealScore ?? 0;
@@ -76,6 +76,67 @@ const marketEvents = events
   .sort(sortAppealThenDate)
   .slice(0, 6);
 
+// Filter pool — every upcoming/recurring event capped at 30 by appeal,
+// rendered into a hidden results grid that the client filter engine shows
+// when Where/What chips are active. Deliberately capped to keep DOM weight
+// and Supabase-override fetches reasonable; deeper queries route to
+// /whats-on/by-mood/ or per-category landing pages.
+const filterPool = [...events]
+  .sort(sortAppealThenDate)
+  .slice(0, 30);
+
+// ── 7-day agenda strip ───────────────────────────────────────────────────────
+// For each of the next 7 days, pick up to 2 highest-appeal events that
+// actually occur that day. Covers dated events (startDate..endDate range)
+// and weekly recurrences (matching day-of-week). Monthly recurrences are
+// out of scope here — they need date arithmetic the recurrence note doesn't
+// reliably expose. "Nothing notable" days stay in the row as honest gaps.
+const DAY_ABBREV_RX: Record<string, number> = {
+  sun: 0, sunday: 0,
+  mon: 1, monday: 1,
+  tue: 2, tues: 2, tuesday: 2,
+  wed: 3, wednes: 3, wednesday: 3,
+  thu: 4, thur: 4, thurs: 4, thursday: 4,
+  fri: 5, friday: 5,
+  sat: 6, satur: 6, saturday: 6,
+};
+function eventOccursOn(event: any, day: Date): boolean {
+  const recur = event.data.recurrence;
+  if (recur === 'weekly') {
+    const note = String(event.data.recurrenceNote ?? '').toLowerCase();
+    const match = note.match(/\b(mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?|sun)(?:day)?\b/);
+    if (!match) return false;
+    return DAY_ABBREV_RX[match[1]] === day.getDay();
+  }
+  if (recur === 'ongoing') {
+    const start = event.data.startDate as Date | undefined;
+    const end = (event.data.endDate ?? event.data.startDate) as Date | undefined;
+    if (!start || !end) return false;
+    return day >= start && day <= end;
+  }
+  const start = event.data.startDate as Date | undefined;
+  if (!start) return false;
+  const end = (event.data.endDate ?? start) as Date;
+  const dayStart = new Date(day.getFullYear(), day.getMonth(), day.getDate());
+  const dayEnd = new Date(day.getFullYear(), day.getMonth(), day.getDate(), 23, 59, 59);
+  return start <= dayEnd && end >= dayStart;
+}
+const agendaDays = Array.from({ length: 7 }, (_, i) => {
+  const day = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
+  const matched = events
+    .filter((e) => eventOccursOn(e, day))
+    .sort(sortAppealThenDate)
+    .slice(0, 2);
+  return {
+    iso: day.toISOString().slice(0, 10),
+    weekday: day.toLocaleDateString('en-AU', { weekday: 'short', timeZone: 'Australia/Melbourne' }),
+    dayNum: day.getDate(),
+    month: day.toLocaleDateString('en-AU', { month: 'short', timeZone: 'Australia/Melbourne' }),
+    isToday: i === 0,
+    events: matched,
+  };
+});
+
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: "What's On" },
@@ -86,6 +147,61 @@ const breadcrumbItems = [
 const whatsOnModifiedTime = (currentDispatch?.data.publishedAt ?? now)
   .toISOString()
   .slice(0, 10);
+
+// JSON-LD ItemList: emit every dated event card on the hub as schema.org
+// Event nodes so the page can earn rich results for "events Mornington
+// Peninsula" without the per-event guides needing their own structured data
+// duplicated. Signature events are excluded — they're editorial anchors
+// without firm dates (monthAnchor is a label, not a date).
+const SITE_ORIGIN = 'https://peninsulainsider.com.au';
+const toIsoDate = (d: Date | undefined | null): string | null =>
+  d instanceof Date && !Number.isNaN(d.getTime()) ? d.toISOString().slice(0, 10) : null;
+const truncate = (text: unknown, n = 200): string => {
+  const s = String(text ?? '').replace(/\s+/g, ' ').trim();
+  return s.length <= n ? s : `${s.slice(0, n - 1).trimEnd()}…`;
+};
+const datedHubEvents = [...seasonalEvents, ...marketEvents].filter((e) => e.data.startDate instanceof Date);
+const ldEvents = datedHubEvents.map((e) => {
+  const slug = routeSlug(e);
+  const heroSrc = e.data.heroImage?.src;
+  const imageUrl = heroSrc
+    ? (heroSrc.startsWith('http') ? heroSrc : `${SITE_ORIGIN}${heroSrc}`)
+    : undefined;
+  return {
+    '@type': 'Event',
+    name: e.data.title,
+    startDate: toIsoDate(e.data.startDate),
+    ...(e.data.endDate ? { endDate: toIsoDate(e.data.endDate) } : {}),
+    url: `${SITE_ORIGIN}/whats-on/${slug}/`,
+    ...(imageUrl ? { image: imageUrl } : {}),
+    description: truncate(e.data.summary),
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'Place',
+      name: e.data.venueName || e.data.suburb || 'Mornington Peninsula',
+      address: {
+        '@type': 'PostalAddress',
+        ...(e.data.streetAddress ? { streetAddress: e.data.streetAddress } : {}),
+        addressLocality: e.data.suburb || e.data.venueRegion || 'Mornington Peninsula',
+        addressRegion: 'VIC',
+        addressCountry: 'AU',
+      },
+    },
+  };
+});
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: "What's On Mornington Peninsula",
+  url: `${SITE_ORIGIN}/whats-on/`,
+  numberOfItems: ldEvents.length,
+  itemListElement: ldEvents.map((ev, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: ev,
+  })),
+};
 export const prerender = true;
 ---
 
@@ -97,6 +213,8 @@ export const prerender = true;
   modifiedTime={whatsOnModifiedTime}
   ogImage="/images/sourced/whats-on-winter-wine.webp"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+
   <Breadcrumbs items={breadcrumbItems} />
 
   <GuideHero
@@ -107,6 +225,82 @@ export const prerender = true;
     imageAlt="Bittern Estate wines lined up at a Mornington Peninsula winter cellar door — part of the Peninsula's winter events calendar"
     entitySlug="whats-on"
   />
+
+  <nav class="whatson-filterbar" aria-label="Filter events" data-filter-bar>
+    <div class="container">
+      <div class="whatson-filterbar__row">
+        <button
+          type="button"
+          class="whatson-filterbar__toggle"
+          data-filter-toggle
+          aria-expanded="false"
+          aria-controls="whatson-filter-panel"
+        >
+          <span class="whatson-filterbar__toggle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M6 12h12M10 18h4" /></svg>
+          </span>
+          <span class="whatson-filterbar__toggle-label">Filters</span>
+          <span class="whatson-filterbar__badge" data-filter-badge hidden>0</span>
+        </button>
+
+        <div class="whatson-filterbar__active" data-filter-active-strip aria-live="polite">
+          <span class="whatson-filterbar__hint" data-filter-hint>Find events by date, place, or category</span>
+        </div>
+
+        <button type="button" class="whatson-filterbar__clear" data-filter-clear hidden>Clear all</button>
+      </div>
+
+      <div class="whatson-filterbar__panel" id="whatson-filter-panel" data-filter-panel hidden>
+        <fieldset class="whatson-filterbar__group">
+          <legend class="whatson-filterbar__group-label">When</legend>
+          <div class="whatson-filterbar__chips">
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="date" data-filter-val="weekend" aria-pressed="false">This weekend</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="date" data-filter-val="week" aria-pressed="false">Next 7 days</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="date" data-filter-val="month" aria-pressed="false">This month</button>
+          </div>
+        </fieldset>
+        <fieldset class="whatson-filterbar__group">
+          <legend class="whatson-filterbar__group-label">Where</legend>
+          <div class="whatson-filterbar__chips">
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="loc" data-filter-val="northern" aria-pressed="false">Northern</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="loc" data-filter-val="southern" aria-pressed="false">Southern</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="loc" data-filter-val="wine" aria-pressed="false">Wine country</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="loc" data-filter-val="hotsprings" aria-pressed="false">Hot Springs</button>
+          </div>
+        </fieldset>
+        <fieldset class="whatson-filterbar__group">
+          <legend class="whatson-filterbar__group-label">What</legend>
+          <div class="whatson-filterbar__chips">
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="cat" data-filter-val="food-wine" aria-pressed="false">Food &amp; Wine</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="cat" data-filter-val="music" aria-pressed="false">Music</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="cat" data-filter-val="arts" aria-pressed="false">Arts</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="cat" data-filter-val="family" aria-pressed="false">Family</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="cat" data-filter-val="outdoors" aria-pressed="false">Outdoors</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="cat" data-filter-val="market" aria-pressed="false">Markets</button>
+            <button type="button" class="whatson-filterbar__chip" data-filter-key="cat" data-filter-val="free" aria-pressed="false">Free</button>
+          </div>
+        </fieldset>
+        <div class="whatson-filterbar__panel-footer">
+          <span class="whatson-filterbar__panel-count" data-filter-panel-count>Showing all events</span>
+          <button type="button" class="whatson-filterbar__clear" data-filter-clear hidden>Clear all</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="whatson-filtered" id="filtered" aria-label="Filtered events" data-filter-results hidden>
+    <div class="container">
+      <div class="whatson-filtered__header">
+        <p class="label label--accent">Filtered</p>
+        <h2 class="whatson-filtered__title" data-filter-title>Matching events</h2>
+        <p class="whatson-filtered__dek" data-filter-count>Showing 0 events.</p>
+      </div>
+      <div class="event-grid">
+        {filterPool.map((event) => <EventCard event={event} />)}
+      </div>
+      <p class="whatson-filtered__empty" data-filter-empty hidden>No events match those filters. Try clearing a chip or browsing the editorial picks below.</p>
+    </div>
+  </section>
 
   {currentDispatch && (
     <section class="whatson-briefing" aria-label="Peninsula This Weekend editorial lead">
@@ -127,26 +321,68 @@ export const prerender = true;
     </section>
   )}
 
-  <section class="whatson-section" aria-label="Seasonal events">
-    <div class="container">
-      <div class="whatson-section__header">
-        <p class="label label--accent">Seasonal</p>
-        <h2 class="whatson-section__title">Seasonal events and recurring reasons to go</h2>
-        <p class="whatson-section__dek">The dates and programs that shape the Peninsula calendar beyond a single weekend.</p>
-      </div>
-      {seasonalEvents.length > 0 ? (
-        <div class="event-grid">
-          {seasonalEvents.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+  {notebookNotes.length > 0 && (
+    <section class="whatson-notebook-rail" data-filter-section aria-label="From The Notebook">
+      <div class="container">
+        <div class="whatson-notebook-rail__header">
+          <p class="label label--accent">From The Notebook</p>
+          <a class="whatson-notebook-rail__all" href="/quick-note/">All notes →</a>
         </div>
-      ) : (
-        <p class="whatson-section__empty">Seasonal events are being refreshed.</p>
-      )}
+        <ul class="whatson-notebook-rail__list" role="list">
+          {notebookNotes.map((note) => (
+            <li class="whatson-notebook-rail__item">
+              <a class="whatson-notebook-rail__link" href={`/quick-note/${note.id.replace(/\.md$/, '')}/`}>
+                <p class="whatson-notebook-rail__meta">{note.data.section}</p>
+                <p class="whatson-notebook-rail__headline">{note.data.headline}</p>
+                {note.data.verdict && (
+                  <p class="whatson-notebook-rail__verdict">{note.data.verdict}</p>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="whatson-agenda" id="agenda" data-filter-section aria-label="Next 7 days">
+    <div class="container">
+      <div class="whatson-agenda__header">
+        <p class="label label--accent">Next 7 days</p>
+        <h2 class="whatson-agenda__title">A week at a glance</h2>
+        <p class="whatson-agenda__dek">Dated picks for each of the next seven days. Quiet days stay quiet — we don't manufacture options to fill a row.</p>
+      </div>
+      <ol class="whatson-agenda__list" role="list">
+        {agendaDays.map((day) => (
+          <li class={`whatson-agenda__day ${day.isToday ? 'whatson-agenda__day--today' : ''}`}>
+            <div class="whatson-agenda__datebox" aria-hidden="true">
+              <span class="whatson-agenda__weekday">{day.weekday}</span>
+              <span class="whatson-agenda__daynum">{day.dayNum}</span>
+              <span class="whatson-agenda__month">{day.month}</span>
+            </div>
+            {day.events.length > 0 ? (
+              <ul class="whatson-agenda__events" role="list">
+                {day.events.map((event) => (
+                  <li class="whatson-agenda__event">
+                    <a href={`/whats-on/${routeSlug(event)}/`} class="whatson-agenda__event-link">
+                      <span class="whatson-agenda__event-name">{event.data.title}</span>
+                      {event.data.suburb && (
+                        <span class="whatson-agenda__event-place">{event.data.suburb}</span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="whatson-agenda__empty">Nothing notable</p>
+            )}
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 
-  <SectionDivider />
-
-  <section class="whatson-section" aria-label="Signature Events">
+  <section class="whatson-section" id="signature" data-filter-section aria-label="Signature Events">
     <div class="container">
       <div class="whatson-section__header whatson-section__header--split">
         <div>
@@ -178,9 +414,30 @@ export const prerender = true;
     </div>
   </section>
 
+  <PartnerSlot />
+
   <SectionDivider />
 
-  <section class="whatson-section" aria-label="Markets">
+  <section class="whatson-section" id="seasonal" data-filter-section aria-label="Seasonal and annual events">
+    <div class="container">
+      <div class="whatson-section__header">
+        <p class="label label--accent">Seasonal &amp; Annual</p>
+        <h2 class="whatson-section__title">Dates and programs shaping the calendar</h2>
+        <p class="whatson-section__dek">Recurring reasons to go that aren't tied to one weekend — winter festivals, summer programs, ongoing exhibitions.</p>
+      </div>
+      {seasonalEvents.length > 0 ? (
+        <div class="event-grid">
+          {seasonalEvents.map((event, i) => <EventCard event={event} featured={i === 0} />)}
+        </div>
+      ) : (
+        <p class="whatson-section__empty">Seasonal events are being refreshed.</p>
+      )}
+    </div>
+  </section>
+
+  <SectionDivider />
+
+  <section class="whatson-section" id="markets" data-filter-section aria-label="Markets">
     <div class="container">
       <div class="whatson-section__header">
         <p class="label label--accent">Markets</p>
@@ -197,27 +454,571 @@ export const prerender = true;
     </div>
   </section>
 
-  {notebookNote && (
-    <section class="hub-notebook" aria-label="From The Notebook">
-      <div class="container">
-        <div class="hub-notebook__inner">
-          <p class="label label--accent">From The Notebook</p>
-          <a class="hub-notebook__headline" href={`/quick-note/${notebookNote.id.replace(/\.md$/, '')}/`}>
-            {notebookNote.data.headline}
-          </a>
-          {notebookNote.data.verdict && (
-            <p class="hub-notebook__verdict">{notebookNote.data.verdict}</p>
-          )}
-          <a href="/quick-note/" class="hub-notebook__link">All notes →</a>
-        </div>
+  <section class="whatson-moods" id="moods" data-filter-section aria-label="Browse by mood">
+    <div class="container">
+      <div class="whatson-moods__header">
+        <p class="label label--accent">Browse by mood</p>
+        <h2 class="whatson-moods__title">Find a fit, not a list</h2>
+        <p class="whatson-moods__dek">Editor-curated entry points into the events registry — each chip answers a real question a visitor asks.</p>
       </div>
-    </section>
-  )}
+      <EventChipBar active="hub" />
+    </div>
+  </section>
 
   <NewsletterBlock />
 </BaseLayout>
 
+<script>
+  // ── /whats-on/ client filter engine ─────────────────────────────────────
+  // Reads loc / cat / date params from the URL, mirrors them onto the
+  // filter chips, hides the editorial sections, and shows the filtered
+  // results grid populated server-side with the top 30 events by appeal.
+  //
+  // URL shape: ?loc=northern,wine&cat=food-wine&date=weekend
+  // Multi-value within a key is OR; across keys is AND.
+  //
+  // Body class `whatson-filter-active` is the single source of truth for
+  // "filters are on" — CSS hides every [data-filter-section] under it.
+
+  type FilterKey = 'loc' | 'cat' | 'date';
+  const KEYS: FilterKey[] = ['loc', 'cat', 'date'];
+
+  const root = document.querySelector<HTMLElement>('[data-filter-bar]');
+  const resultsSection = document.querySelector<HTMLElement>('[data-filter-results]');
+  if (!root || !resultsSection) {
+    // Nothing to wire — bail without throwing.
+  } else {
+    const cards = Array.from(resultsSection.querySelectorAll<HTMLElement>('.event-card'));
+    const countEl = document.querySelector<HTMLElement>('[data-filter-count]');
+    const emptyEl = document.querySelector<HTMLElement>('[data-filter-empty]');
+    const clearBtns = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter-clear]'));
+    const titleEl = document.querySelector<HTMLElement>('[data-filter-title]');
+    const toggleBtn = document.querySelector<HTMLButtonElement>('[data-filter-toggle]');
+    const panel = document.querySelector<HTMLElement>('[data-filter-panel]');
+    const badge = document.querySelector<HTMLElement>('[data-filter-badge]');
+    const activeStrip = document.querySelector<HTMLElement>('[data-filter-active-strip]');
+    const hint = document.querySelector<HTMLElement>('[data-filter-hint]');
+    const panelCount = document.querySelector<HTMLElement>('[data-filter-panel-count]');
+
+    function readState(): Record<FilterKey, Set<string>> {
+      const params = new URLSearchParams(window.location.search);
+      const out: Record<FilterKey, Set<string>> = {
+        loc: new Set(),
+        cat: new Set(),
+        date: new Set(),
+      };
+      for (const k of KEYS) {
+        const v = params.get(k);
+        if (v) for (const tok of v.split(',').map((s) => s.trim()).filter(Boolean)) out[k].add(tok);
+      }
+      return out;
+    }
+
+    function writeState(state: Record<FilterKey, Set<string>>) {
+      const params = new URLSearchParams(window.location.search);
+      for (const k of KEYS) {
+        if (state[k].size === 0) params.delete(k);
+        else params.set(k, Array.from(state[k]).join(','));
+      }
+      const qs = params.toString();
+      const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+      history.replaceState(null, '', url + window.location.hash);
+    }
+
+    // ── Date scope predicates ─────────────────────────────────────────
+    function startOfDay(d: Date): Date {
+      return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    }
+    function dateScope(scope: string): { start: Date; end: Date } | null {
+      const now = startOfDay(new Date());
+      if (scope === 'weekend') {
+        // Next Sat 00:00 → next Sun 23:59
+        const dow = now.getDay();
+        const daysToSat = dow === 6 ? 0 : (6 - dow + 7) % 7;
+        const sat = new Date(now);
+        sat.setDate(now.getDate() + daysToSat);
+        const sun = new Date(sat);
+        sun.setDate(sat.getDate() + 1);
+        sun.setHours(23, 59, 59, 999);
+        return { start: sat, end: sun };
+      }
+      if (scope === 'week') {
+        const end = new Date(now);
+        end.setDate(now.getDate() + 6);
+        end.setHours(23, 59, 59, 999);
+        return { start: now, end };
+      }
+      if (scope === 'month') {
+        const end = new Date(now);
+        end.setDate(now.getDate() + 30);
+        end.setHours(23, 59, 59, 999);
+        return { start: now, end };
+      }
+      return null;
+    }
+    const DAY_ORDER: Record<string, number> = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
+    function cardMatchesDate(card: HTMLElement, scopes: Set<string>): boolean {
+      if (scopes.size === 0) return true;
+      const recur = card.dataset.recurrence ?? '';
+      const day = card.dataset.recurrenceDay ?? '';
+      const startStr = card.dataset.dateStart ?? '';
+      const endStr = card.dataset.dateEnd ?? startStr;
+      const start = startStr ? new Date(startStr) : null;
+      const end = endStr ? new Date(endStr) : start;
+      if (end) end.setHours(23, 59, 59, 999);
+      for (const scope of scopes) {
+        const window = dateScope(scope);
+        if (!window) continue;
+        // Weekly recurrences: match if the weekday falls in the window.
+        if (recur === 'weekly' && day) {
+          const dayNum = DAY_ORDER[day];
+          if (dayNum === undefined) continue;
+          for (let t = new Date(window.start); t <= window.end; t.setDate(t.getDate() + 1)) {
+            if (t.getDay() === dayNum) return true;
+          }
+          continue;
+        }
+        // Ongoing / dated: overlap test.
+        if (start && end) {
+          if (start <= window.end && end >= window.start) return true;
+        }
+      }
+      return false;
+    }
+
+    function cardMatches(card: HTMLElement, state: Record<FilterKey, Set<string>>): boolean {
+      // loc: OR within the chip set, against space-separated region tags
+      if (state.loc.size > 0) {
+        const regions = (card.dataset.regions ?? '').split(/\s+/).filter(Boolean);
+        let hit = false;
+        for (const r of regions) if (state.loc.has(r)) { hit = true; break; }
+        if (!hit) return false;
+      }
+      // cat: OR within the chip set, with "free" as a cross-cutting special case
+      if (state.cat.size > 0) {
+        const cat = card.dataset.category ?? '';
+        const isFree = card.dataset.free === '1';
+        let hit = false;
+        for (const c of state.cat) {
+          if (c === 'free' && isFree) { hit = true; break; }
+          if (c === cat) { hit = true; break; }
+        }
+        if (!hit) return false;
+      }
+      // date: OR within the chip set
+      if (state.date.size > 0 && !cardMatchesDate(card, state.date)) return false;
+      return true;
+    }
+
+    function activeCount(state: Record<FilterKey, Set<string>>): number {
+      return state.loc.size + state.cat.size + state.date.size;
+    }
+
+    function summary(state: Record<FilterKey, Set<string>>): string {
+      const labels: string[] = [];
+      for (const k of KEYS) for (const v of state[k]) {
+        const chip = root!.querySelector<HTMLButtonElement>(`[data-filter-key="${k}"][data-filter-val="${v}"]`);
+        if (chip) labels.push(chip.textContent?.trim() ?? v);
+      }
+      return labels.join(' · ');
+    }
+
+    function renderActiveStrip(state: Record<FilterKey, Set<string>>) {
+      if (!activeStrip) return;
+      // Remove all existing active chips (preserve the hint element).
+      activeStrip.querySelectorAll('[data-active-chip]').forEach((el) => el.remove());
+      const total = activeCount(state);
+      if (hint) hint.hidden = total > 0;
+      if (total === 0) return;
+      for (const k of KEYS) {
+        for (const v of state[k]) {
+          const source = root!.querySelector<HTMLButtonElement>(`[data-filter-key="${k}"][data-filter-val="${v}"]`);
+          const label = source?.textContent?.trim() ?? v;
+          const chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'whatson-filterbar__active-chip';
+          chip.setAttribute('data-active-chip', '');
+          chip.setAttribute('data-filter-key', k);
+          chip.setAttribute('data-filter-val', v);
+          chip.setAttribute('aria-label', `Remove ${label} filter`);
+          chip.innerHTML = `<span>${label}</span><span class="whatson-filterbar__active-chip-x" aria-hidden="true">×</span>`;
+          activeStrip.appendChild(chip);
+        }
+      }
+    }
+
+    function apply(state: Record<FilterKey, Set<string>>) {
+      const active = activeCount(state) > 0;
+      document.body.classList.toggle('whatson-filter-active', active);
+      // Sync panel chip pressed state.
+      for (const btn of root!.querySelectorAll<HTMLButtonElement>('[data-filter-key]')) {
+        const k = btn.dataset.filterKey as FilterKey;
+        const v = btn.dataset.filterVal ?? '';
+        btn.setAttribute('aria-pressed', state[k]?.has(v) ? 'true' : 'false');
+      }
+      // Active count badge on the toggle.
+      const count = activeCount(state);
+      if (badge) {
+        badge.hidden = count === 0;
+        badge.textContent = String(count);
+      }
+      // Show/hide all Clear buttons (toolbar + panel footer).
+      for (const btn of clearBtns) btn.hidden = !active;
+      // Render the inline active-chip strip.
+      renderActiveStrip(state);
+      resultsSection!.hidden = !active;
+      if (!active) {
+        if (panelCount) panelCount.textContent = 'Showing all events';
+        return;
+      }
+      let matchedCount = 0;
+      for (const card of cards) {
+        const ok = cardMatches(card, state);
+        card.hidden = !ok;
+        if (ok) matchedCount += 1;
+      }
+      if (countEl) {
+        const label = summary(state);
+        countEl.textContent = matchedCount === 1
+          ? `Showing 1 event matching ${label}.`
+          : `Showing ${matchedCount} events matching ${label}.`;
+      }
+      if (panelCount) {
+        panelCount.textContent = matchedCount === 1
+          ? 'Showing 1 event'
+          : `Showing ${matchedCount} events`;
+      }
+      if (titleEl) titleEl.textContent = `Matching events`;
+      if (emptyEl) emptyEl.hidden = matchedCount > 0;
+    }
+
+    function setPanelOpen(open: boolean) {
+      if (!panel || !toggleBtn) return;
+      panel.hidden = !open;
+      toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // ── Event handlers ────────────────────────────────────────────────
+    let state = readState();
+    apply(state);
+
+    root.addEventListener('click', (ev) => {
+      const target = ev.target as HTMLElement;
+
+      // Toggle the filter panel.
+      if (target.closest('[data-filter-toggle]')) {
+        const open = toggleBtn?.getAttribute('aria-expanded') !== 'true';
+        setPanelOpen(open);
+        return;
+      }
+
+      // Clear all (works for both the toolbar and the panel-footer button).
+      if (target.closest('[data-filter-clear]')) {
+        state = { loc: new Set(), cat: new Set(), date: new Set() };
+        writeState(state);
+        apply(state);
+        return;
+      }
+
+      // Toggle individual filter chip (panel chip or active-strip chip).
+      const chip = target.closest<HTMLButtonElement>('[data-filter-key]');
+      if (chip) {
+        const k = chip.dataset.filterKey as FilterKey;
+        const v = chip.dataset.filterVal ?? '';
+        if (state[k].has(v)) state[k].delete(v);
+        else state[k].add(v);
+        writeState(state);
+        apply(state);
+      }
+    });
+
+    // Close the panel when the user clicks outside the filterbar.
+    document.addEventListener('click', (ev) => {
+      if (!panel || panel.hidden) return;
+      if (!(ev.target as HTMLElement).closest('[data-filter-bar]')) {
+        setPanelOpen(false);
+      }
+    });
+    // Esc closes the panel.
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape' && panel && !panel.hidden) {
+        setPanelOpen(false);
+        toggleBtn?.focus();
+      }
+    });
+
+    window.addEventListener('popstate', () => {
+      state = readState();
+      apply(state);
+    });
+  }
+</script>
+
+<style is:global>
+  /* When filters are active, hide every editorial section flagged with
+     data-filter-section, plus the inter-section dividers, leaving the
+     briefing and the filtered results visible. */
+  body.whatson-filter-active [data-filter-section],
+  body.whatson-filter-active .section-divider {
+    display: none !important;
+  }
+</style>
+
 <style>
+  /* Filter bar — sticky single-line bar with an expandable filter panel.
+     At rest: just a quiet "Filters" toggle, with active filter chips
+     shown inline when present. Panel opens on click and contains the
+     full When / Where / What chip groups, wrapping naturally so the bar
+     never needs horizontal scroll. */
+  .whatson-filterbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: color-mix(in srgb, var(--bg, #f7f5f0) 94%, transparent);
+    backdrop-filter: saturate(140%) blur(6px);
+    -webkit-backdrop-filter: saturate(140%) blur(6px);
+    border-top: 1px solid var(--border, #d8d3c8);
+    border-bottom: 1px solid var(--border, #d8d3c8);
+    margin-top: clamp(0.75rem, 2vw, 1.5rem);
+  }
+  .whatson-filterbar__row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 0;
+    min-height: 52px;
+  }
+  .whatson-filterbar__toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--border, #d8d3c8);
+    background: var(--surface, #fdfbf6);
+    color: var(--dark, #1e1b18);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .whatson-filterbar__toggle:hover,
+  .whatson-filterbar__toggle[aria-expanded="true"] {
+    border-color: var(--accent, #8a6a3b);
+    color: var(--accent, #8a6a3b);
+  }
+  .whatson-filterbar__toggle-icon {
+    display: inline-flex;
+    align-items: center;
+  }
+  .whatson-filterbar__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    padding: 0 0.35rem;
+    background: var(--accent, #8a6a3b);
+    color: var(--white, #ffffff);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 999px;
+    margin-left: 0.15rem;
+  }
+  .whatson-filterbar__badge[hidden] { display: none; }
+  /* Active filter strip: between toggle and clear button. Shows the
+     currently applied chips with × to dismiss. Wraps if needed; no
+     horizontal scrollbar by design. */
+  .whatson-filterbar__active {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+  .whatson-filterbar__hint {
+    color: var(--text-muted, #5f5a50);
+    font-size: 0.82rem;
+    font-style: italic;
+  }
+  .whatson-filterbar__active-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.28rem 0.4rem 0.28rem 0.7rem;
+    background: var(--accent, #8a6a3b);
+    color: var(--white, #ffffff);
+    font-size: 0.76rem;
+    font-weight: 500;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .whatson-filterbar__active-chip:hover {
+    background: color-mix(in srgb, var(--accent, #8a6a3b) 88%, #000);
+  }
+  .whatson-filterbar__active-chip-x {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+  .whatson-filterbar__clear {
+    flex: 0 0 auto;
+    padding: 0.3rem 0.55rem;
+    border: 0;
+    background: transparent;
+    color: var(--text-muted, #5f5a50);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-family: inherit;
+    transition: color 0.15s ease;
+  }
+  .whatson-filterbar__clear:hover { color: var(--accent, #8a6a3b); }
+  .whatson-filterbar__clear[hidden] { display: none; }
+  /* Expanded panel: bordered band below the sticky row. Groups are
+     stacked vertically with clear labels; chips wrap on narrow widths. */
+  .whatson-filterbar__panel {
+    border-top: 1px solid var(--border, #d8d3c8);
+    padding: clamp(1rem, 2vw, 1.5rem) 0 clamp(1rem, 2vw, 1.25rem);
+    background: var(--bg, #f7f5f0);
+  }
+  .whatson-filterbar__panel[hidden] { display: none; }
+  .whatson-filterbar__group {
+    border: 0;
+    margin: 0 0 1.1rem;
+    padding: 0;
+  }
+  .whatson-filterbar__group:last-of-type { margin-bottom: 1.2rem; }
+  .whatson-filterbar__group-label {
+    display: block;
+    margin: 0 0 0.55rem;
+    padding: 0;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent, #8a6a3b);
+  }
+  .whatson-filterbar__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  /* Panel chips: outline-by-default, accent-fill when pressed. Same
+     visual treatment across all three groups so the user sees one
+     consistent control type. */
+  .whatson-filterbar__chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 0.95rem;
+    border: 1px solid var(--border, #d8d3c8);
+    background: transparent;
+    color: var(--dark, #1e1b18);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .whatson-filterbar__chip:hover {
+    border-color: var(--accent, #8a6a3b);
+    color: var(--accent, #8a6a3b);
+  }
+  .whatson-filterbar__chip[aria-pressed="true"] {
+    background: var(--accent, #8a6a3b);
+    color: var(--white, #ffffff);
+    border-color: var(--accent, #8a6a3b);
+  }
+  .whatson-filterbar__panel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border, #d8d3c8);
+    font-size: 0.82rem;
+    color: var(--text-muted, #5f5a50);
+  }
+  .whatson-filterbar__panel-count { font-weight: 500; }
+  @media (max-width: 760px) {
+    .whatson-filterbar__row {
+      padding: 0.55rem 0;
+      min-height: 48px;
+    }
+    .whatson-filterbar__hint { display: none; }
+    .whatson-filterbar__active {
+      gap: 0.3rem;
+    }
+    .whatson-filterbar__chip {
+      padding: 0.42rem 0.85rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Filtered results section — appears below the utility bar when any
+     filter chip is active. The body-level class `whatson-filter-active`
+     (set by the client script) handles section hiding via global CSS. */
+  .whatson-filtered {
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  }
+  .whatson-filtered__header {
+    max-width: 48rem;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+  .whatson-filtered__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.15;
+    margin: 0.35rem 0;
+  }
+  .whatson-filtered__dek {
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .whatson-filtered__empty {
+    margin: 1.5rem 0 0;
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .whatson-filtered .event-card[hidden] { display: none; }
+  /* Scroll-margin-top on every section so anchor jumps land below the
+     sticky bar instead of being hidden under it. */
+  :target,
+  #agenda, #signature, #seasonal, #markets, #moods {
+    scroll-margin-top: 72px;
+  }
+  @media (max-width: 760px) {
+    .whatson-utility__row {
+      padding: 0.45rem 0;
+    }
+    .whatson-utility__group-label {
+      display: none;
+    }
+    .whatson-utility__sep {
+      height: 1.2rem;
+      margin: 0 0.1rem;
+    }
+  }
+
   /* Peninsula This Weekend — editorial lead section
      Text-only strip. GuideHero above already provides the visual.
      Strong typography carries the editorial weight. */
@@ -387,6 +1188,222 @@ export const prerender = true;
       display: inline-block;
       margin-top: 0.9rem;
       white-space: normal;
+    }
+  }
+
+  /* 7-day agenda strip — dated picks for each of the next 7 days. Sits
+     between the Notebook rail (today's signals) and Seasonal/Signature
+     (longer horizon). Grid on desktop, horizontal scroll on mobile. */
+  .whatson-agenda {
+    padding: clamp(2rem, 4vw, 3rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .whatson-agenda__header {
+    max-width: 48rem;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+  .whatson-agenda__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 1.15;
+    margin: 0.35rem 0;
+  }
+  .whatson-agenda__dek {
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .whatson-agenda__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+  .whatson-agenda__day {
+    border: 1px solid var(--border, #d8d3c8);
+    background: var(--surface, #fdfbf6);
+    padding: 0.7rem 0.7rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    min-height: 130px;
+  }
+  .whatson-agenda__day--today {
+    border-color: rgba(139, 78, 59, 0.55);
+    background: var(--bg-alt, #f3eee2);
+  }
+  .whatson-agenda__datebox {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .whatson-agenda__weekday {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent, #8a6a3b);
+  }
+  .whatson-agenda__daynum {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-top: 0.1rem;
+  }
+  .whatson-agenda__month {
+    font-size: 0.7rem;
+    color: var(--text-muted, #5f5a50);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .whatson-agenda__events {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .whatson-agenda__event-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--border, #d8d3c8);
+    padding-top: 0.4rem;
+  }
+  .whatson-agenda__event-link:hover .whatson-agenda__event-name {
+    color: var(--accent, #8a6a3b);
+  }
+  .whatson-agenda__event-name {
+    font-size: 0.78rem;
+    line-height: 1.3;
+    color: var(--dark, #1e1b18);
+    transition: color 0.18s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .whatson-agenda__event-place {
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted, #5f5a50);
+  }
+  .whatson-agenda__empty {
+    margin: 0;
+    color: var(--text-muted, #5f5a50);
+    font-size: 0.78rem;
+    font-style: italic;
+    line-height: 1.4;
+    padding-top: 0.3rem;
+  }
+  @media (max-width: 980px) {
+    .whatson-agenda__list {
+      grid-template-columns: repeat(7, minmax(140px, 1fr));
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 0.5rem;
+    }
+    .whatson-agenda__day {
+      scroll-snap-align: start;
+    }
+  }
+
+  /* Browse by mood — chip row giving access to the existing /by-mood/
+     landing pages. Sits above Dispatch as a softer secondary path. */
+  .whatson-moods {
+    padding: clamp(2rem, 4vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem);
+  }
+  .whatson-moods__header {
+    max-width: 48rem;
+    margin-bottom: 1rem;
+  }
+  .whatson-moods__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    line-height: 1.15;
+    margin: 0.35rem 0;
+  }
+  .whatson-moods__dek {
+    color: var(--text-muted, #5f5a50);
+    line-height: 1.6;
+    margin: 0 0 0.5rem;
+  }
+
+  /* Notebook rail — freshness proof, promoted from page bottom to right
+     under the Weekend briefing. Horizontal scroll on mobile, equal-width
+     cards on desktop. Quiet visual weight: this is texture, not a feature. */
+  .whatson-notebook-rail {
+    padding: clamp(1.25rem, 2.5vw, 2rem) 0 0;
+  }
+  .whatson-notebook-rail__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+  .whatson-notebook-rail__all {
+    font-size: 0.78rem;
+    color: var(--accent, #8a6a3b);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+  .whatson-notebook-rail__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .whatson-notebook-rail__item {
+    border: 1px solid var(--border, #d8d3c8);
+    background: var(--surface, #fdfbf6);
+    transition: border-color 0.18s ease;
+  }
+  .whatson-notebook-rail__item:hover {
+    border-color: rgba(139, 78, 59, 0.45);
+  }
+  .whatson-notebook-rail__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.9rem 1rem 1rem;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+  }
+  .whatson-notebook-rail__meta {
+    margin: 0;
+    color: var(--accent, #8a6a3b);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  .whatson-notebook-rail__headline {
+    margin: 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+  .whatson-notebook-rail__verdict {
+    margin: 0;
+    color: var(--text-muted, #5f5a50);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  @media (max-width: 760px) {
+    .whatson-notebook-rail__list {
+      grid-template-columns: 1fr;
     }
   }
 </style>

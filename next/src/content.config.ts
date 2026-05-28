@@ -1312,6 +1312,13 @@ const signatureEvents = defineCollection({
     name: z.string(),
     tagline: z.string().optional(),
     summary: z.string(),
+    /**
+     * Editorial sort order on the What's On hub mini-grid. Lower numbers
+     * surface first. Optional — entries without a value fall to the end,
+     * then sort alphabetically by name. Moved out of the page .astro
+     * (review #9) so editors can re-rank without touching code.
+     */
+    hubOrder: z.number().int().positive().optional(),
     monthAnchor: z.string(),
     season: season,
     location: z.string(),
