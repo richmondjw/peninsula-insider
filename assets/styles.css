@@ -5850,11 +5850,30 @@ p.has-drop-cap::first-letter {
 }
 .event-card__hero {
   display: block;
+  position: relative;
   aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
+}
+/* Day-of-week badge for weekly/monthly recurrences. Sits on the hero
+   top-left to surface the "when" at a glance for repeat-engagement cards
+   (markets, classes). Decorative chip; the underlying CTA still links
+   through to the event guide. */
+.event-card__hero-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(30, 27, 24, 0.82);
+  color: #fdfbf6;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.32rem 0.55rem;
+  border-radius: 2px;
+  z-index: 1;
+  backdrop-filter: blur(2px);
 }
 @media (prefers-reduced-motion: no-preference) {
   .event-card__hero {
@@ -5920,6 +5939,16 @@ p.has-drop-cap::first-letter {
   border-color: rgba(139, 78, 59, 0.45);
   box-shadow: 0 14px 32px rgba(30, 27, 24, 0.07);
 }
+/* Body wrapper: holds everything below the hero. Flex column so __cta's
+   margin-top:auto still pins it to the bottom of the card after the body
+   wrapper was introduced. */
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+  min-width: 0;
+}
 /* Featured (lead) card — first in each What's On section.
    Spans full grid width with a larger hero and stronger typographic scale.
    Signals editorial hierarchy: this is the recommended pick. */
@@ -5928,17 +5957,36 @@ p.has-drop-cap::first-letter {
   background: var(--bg-alt);
   border-color: rgba(139, 78, 59, 0.35);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: 0;
 }
 .event-card--featured .event-card__hero {
-  aspect-ratio: 4 / 3;
+  /* Drop aspect-ratio: in a 2-col grid it was computing width from the
+     stretched row height (550px) and overflowing the col-1 track. Let the
+     grid track + stretched row drive the hero box; background-image covers
+     regardless of the resulting ratio. */
+  aspect-ratio: auto;
   border-bottom: none;
   border-right: 1px solid var(--border);
+  width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 320px;
+}
+/* Featured body fills the right column. justify-content:center vertically
+   centres short editorial content so the column never reads as empty;
+   margin-top:auto on __cta still pins the CTA to the bottom edge. */
+.event-card--featured .event-card__body {
+  justify-content: center;
+  gap: 1rem;
+  padding: clamp(0.5rem, 1.5vw, 1.25rem) 0;
 }
 .event-card--featured .event-card__name {
   font-size: 1.85rem;
+}
+.event-card--featured .event-card__summary {
+  font-size: 1rem;
+  line-height: 1.65;
 }
 /* On mobile the featured card stacks vertically like a normal card */
 @media (max-width: 600px) {
@@ -5950,6 +5998,11 @@ p.has-drop-cap::first-letter {
     border-right: none;
     border-bottom: 1px solid var(--border);
     height: auto;
+    min-height: 0;
+  }
+  .event-card--featured .event-card__body {
+    justify-content: flex-start;
+    padding: 0;
   }
   .event-card--featured .event-card__name {
     font-size: 1.65rem;
