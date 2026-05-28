@@ -67,10 +67,16 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   process.exit(1);
 }
 
+// CMS tables live in the `pi` schema. PostgREST exposes non-public schemas
+// via Accept-Profile (reads) and Content-Profile (writes) headers; without
+// them PostgREST defaults to `public` and the request 404s.
+const SCHEMA = "pi";
 const headers = {
   apikey: SUPABASE_SERVICE_KEY,
   Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
   "Content-Type": "application/json",
+  "Accept-Profile": SCHEMA,
+  "Content-Profile": SCHEMA,
 };
 
 async function sb(path, init = {}) {
@@ -80,7 +86,12 @@ async function sb(path, init = {}) {
     const body = await res.text();
     throw new Error(`${init.method ?? "GET"} ${path} → ${res.status}: ${body}`);
   }
-  return res.status === 204 ? null : res.json();
+  // PostgREST returns 204 No Content for DELETE and an empty 201 body for
+  // INSERT/PATCH unless Prefer: return=representation is set. Read the body
+  // as text first so empty responses don't crash JSON.parse, then parse only
+  // if there's actually content.
+  const text = await res.text();
+  return text ? JSON.parse(text) : null;
 }
 
 // ─── Load orphan rows ─────────────────────────────────────────
