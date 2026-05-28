@@ -14,7 +14,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, venueHrefPrefix, resolveHeroSrc } from '../../lib/editorial';
+import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 const lists = (await getCollection('insidersThirty'))
   .filter((entry) => !entry.data.sitemapExclude)
@@ -79,14 +80,18 @@ for (const pick of sortedPicks) {
 
   if (!entry) continue;
 
+  const hero = (kind === 'venue' || kind === 'experience' || kind === 'place')
+    ? (await resolveHero(kind, routeSlug(entry), entry.data)).src
+    : '';
+
   hydrated.push({
     rank: pick.rank,
     blurb: pick.blurb,
     category: pick.category,
     kind,
     href,
-    name: kind === 'place' ? entry.data.name : entry.data.name,
-    hero: kind === 'venue' || kind === 'experience' || kind === 'place' ? resolveHeroSrc(entry.data) : '',
+    name: entry.data.name,
+    hero,
     meta,
   });
 }

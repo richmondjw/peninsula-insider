@@ -34,7 +34,8 @@ import {
   sortPtwLatestFirst,
 } from '../../../lib/peninsula-this-weekend';
 import { isPeninsulaThisWeekend } from '../../../lib/peninsula-this-weekend';
-import { heroBackgroundStyle, formatHeroCredit, routeSlug } from '../../../lib/editorial';
+import { formatHeroCredit, routeSlug } from '../../../lib/editorial';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 
 const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
 const ptwArticles = sortPtwLatestFirst(allArticles.filter(isPeninsulaThisWeekend));
@@ -57,7 +58,8 @@ const breadcrumbItems = [
   { label: 'This Weekend' },
 ];
 
-const heroStyle = heroBackgroundStyle(latest.data);
+const latestHero = await resolveHero('article', routeSlug(latest), latest.data, 'hero');
+const heroStyle = latestHero.style;
 const ogImage = latest.data.heroImage?.src && !latest.data.heroImage.src.includes('placeholder')
   ? latest.data.heroImage.src
   : '/images/sourced/home-cover.webp';

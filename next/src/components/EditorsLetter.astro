@@ -11,6 +11,7 @@
  * homepage already reads at build time.
  */
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   eyebrow?: string;
@@ -38,6 +39,13 @@ const {
   imageAlt = '',
   imageCaption: _imageCaption,
 } = Astro.props;
+
+// Resolve the CMS override for the Editor's Letter image so an editor's
+// replacement (saved to page/home/editors-letter.image) survives rebuilds
+// instead of reverting to the prop passed by the homepage.
+const letterImageOverride = (await loadOverrides('page', 'home')).image['editors-letter.image'];
+const letterImage = letterImageOverride?.src ?? image;
+const letterImageAlt = letterImageOverride?.alt ?? imageAlt;
 ---
 
 <section class="letter" aria-labelledby="letter-title">
@@ -87,13 +95,13 @@ const {
           </div>
         </div>
       </div>
-      {image && (
+      {letterImage && (
         <figure class="letter__side">
           <div
             class="letter__image"
             role="img"
-            aria-label={imageAlt}
-            style={`background-image: url(${image})`}
+            aria-label={letterImageAlt}
+            style={`background-image: url(${letterImage})`}
             {...editableImage({ entityType: 'page', entitySlug: 'home', fieldPath: 'editors-letter.image', label: 'Editor’s Letter image' })}
           ></div>
         </figure>

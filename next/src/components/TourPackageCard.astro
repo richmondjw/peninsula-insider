@@ -6,6 +6,7 @@
 
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 export interface Props {
   pkg: any;
@@ -15,6 +16,8 @@ const { pkg } = Astro.props;
 const data = pkg.data;
 const slug = pkg.id ?? data.slug;
 const href = `/tour-packages/${slug}/`;
+const hero = await resolveHero('tour-package', slug, data);
+const showHero = Boolean(hero.override) || Boolean(data.heroImage?.src);
 
 const occasionLabel: Record<string, string> = {
   'anniversary': 'Anniversary',
@@ -49,12 +52,12 @@ const excerpt = data.intro
 ---
 
 <article class="tour-card">
-  {data.heroImage?.src && (
+  {showHero && (
     <div class="tour-card__image">
       <a href={href} tabindex="-1" aria-hidden="true">
         <img
-          src={data.heroImage.src}
-          alt={data.heroImage.alt ?? data.name}
+          src={hero.src}
+          alt={hero.alt}
           loading="lazy"
           decoding="async"
           {...editableImage({
@@ -94,6 +97,6 @@ const excerpt = data.intro
     title={data.name}
     href={href}
     dek={excerpt}
-    imageUrl={data.heroImage?.src}
+    imageUrl={hero.src}
   />
 </article>

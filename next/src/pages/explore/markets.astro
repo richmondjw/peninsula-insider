@@ -12,6 +12,8 @@ import {
   buildBreadcrumbSchema,
 } from '../../lib/schema';
 import { routeSlug } from '../../lib/editorial';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { editableImage } from '../../lib/inline-edit/attrs';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 6 ("Markets editorial") that link to a journal article bind
@@ -55,6 +57,17 @@ const allMarkets = allExperiences.filter((e) => e.data.type === 'market');
 const markets = marketOrder
   .map((slug) => allMarkets.find((m) => (m.data.slug ?? m.id) === slug))
   .filter(Boolean) as typeof allMarkets;
+
+// Resolve CMS hero overrides for the market cards so an editor's replacement
+// (saved to experience/<slug>/heroImage) survives rebuilds instead of
+// reverting to the content file.
+const marketHeroBySlug = new Map<string, Awaited<ReturnType<typeof resolveHero>>>();
+await Promise.all(
+  markets.map(async (market) => {
+    const s = market.data.slug ?? market.id;
+    marketHeroBySlug.set(s, await resolveHero('experience', s, market.data));
+  }),
+);
 
 // ── Editorial overlay (page-only attributes not yet in the experience schema) ──
 type MarketMeta = {
@@ -316,7 +329,13 @@ export const prerender = true;
           return (
             <article class="market-card">
               <div class="market-card__rank">{String(idx + 1).padStart(2, '0')}</div>
-              <div class="market-card__media" style={`background-image: url('${d.heroImage.src}')`} role="img" aria-label={d.heroImage.alt}></div>
+              <div
+                class="market-card__media"
+                style={marketHeroBySlug.get(slug)?.style ?? `background-image: url('${d.heroImage.src}')`}
+                role="img"
+                aria-label={marketHeroBySlug.get(slug)?.alt ?? d.heroImage.alt}
+                {...editableImage({ entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage', label: `${d.name} hero`, purpose: 'hero' })}
+              ></div>
               <div class="market-card__body">
                 <div class="market-card__badges">
                   <span class={`market-badge ${focusBadgeClass(meta.focusMod)}`}>{meta.focus}</span>

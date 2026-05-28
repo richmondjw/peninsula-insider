@@ -1,7 +1,8 @@
 ---
-import { routeSlug, heroBackgroundStyle } from '../lib/editorial';
+import { routeSlug } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 export interface Props {
   itinerary: any;
@@ -10,6 +11,7 @@ export interface Props {
 const { itinerary } = Astro.props;
 const data = itinerary.data;
 const slug = routeSlug(itinerary);
+const hero = await resolveHero('itinerary', slug, data);
 const regionLabel = (() => {
   const source = `${slug} ${data.title ?? ''}`.toLowerCase();
   if (/red-hill|ridge|vineyard/.test(source)) return 'Red Hill';
@@ -26,11 +28,11 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
 ---
 
 <article class="itinerary-card">
-  {data.heroImage && (
+  {(hero.override || data.heroImage) && (
     <a
       href={`/plans/${slug}`}
       class="itinerary-card__hero"
-      style={heroBackgroundStyle(data)}
+      style={hero.style}
       aria-hidden="true"
       tabindex="-1"
       {...editableImage({
@@ -61,7 +63,7 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
       title={data.title}
       href={`/plans/${slug}/`}
       dek={data.dek}
-      imageUrl={data.heroImage?.src}
+      imageUrl={hero.src}
       floating={false}
     />
   </div>

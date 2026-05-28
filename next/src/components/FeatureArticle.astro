@@ -2,7 +2,9 @@
 /**
  * FeatureArticle  -  homepage hero article block.
  */
-import { formatLabel, routeSlug, heroBackgroundStyle } from '../lib/editorial';
+import { formatLabel, routeSlug } from '../lib/editorial';
+import { editableImage } from '../lib/inline-edit/attrs';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 export interface Props {
   article: any;
@@ -13,14 +15,28 @@ const slug = routeSlug(article);
 const authorLabel = article.data.houseByline
   ? 'By The Peninsula Insider'
   : `By ${String(article.data.author?.id ?? article.data.author)}`;
-const featureImgStyle = heroBackgroundStyle(article.data);
+// Articles store their hero under the `hero` slot (the key the
+// /journal/<slug> detail page reads). Resolve the override so an editor's
+// replacement shows on the homepage feature too.
+const hero = await resolveHero('article', slug, article.data, 'hero');
+const featureImgStyle = hero.style;
 ---
 
 <section class="feature">
   <div class="container">
     <div class="feature__inner">
       <div class="feature__image-block" aria-hidden="true">
-        <div class="feature__image-bg" style={featureImgStyle}></div>
+        <div
+          class="feature__image-bg"
+          style={featureImgStyle}
+          {...editableImage({
+            entityType: 'article',
+            entitySlug: slug,
+            fieldPath: 'hero',
+            label: `${article.data.title} hero`,
+            purpose: 'hero',
+          })}
+        ></div>
         <div class="feature__image-overlay"></div>
         <span class="feature__image-tag">
           {formatLabel[article.data.format] ?? article.data.format}

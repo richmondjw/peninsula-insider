@@ -12,6 +12,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, venueHrefPrefix, resolveHeroSrc } from '../../lib/editorial';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const lists = await getCollection('insidersThirty');
@@ -70,6 +71,10 @@ for (const pick of sortedPicks) {
 
   if (!entry) continue;
 
+  const hero = (kind === 'venue' || kind === 'experience' || kind === 'place')
+    ? (await resolveHero(kind, routeSlug(entry), entry.data)).src
+    : resolveHeroSrc(entry.data);
+
   hydrated.push({
     rank: pick.rank,
     blurb: pick.blurb,
@@ -77,7 +82,7 @@ for (const pick of sortedPicks) {
     kind,
     href,
     name: entry.data.name,
-    hero: resolveHeroSrc(entry.data),
+    hero,
     meta,
   });
 }

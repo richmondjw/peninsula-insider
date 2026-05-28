@@ -1,7 +1,8 @@
 ---
-import { placeLabel, titleize, routeSlug, heroBackgroundStyle } from '../lib/editorial';
+import { placeLabel, titleize, routeSlug } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -31,7 +32,8 @@ const data = experience.data;
 const slug = routeSlug(experience);
 const duration = data.durationMinutes ? `${data.durationMinutes} min` : null;
 const difficulty = data.difficulty ? difficultyLabel[data.difficulty] ?? titleize(data.difficulty) : null;
-const imgStyle = heroBackgroundStyle(data);
+const hero = await resolveHero('experience', slug, data);
+const imgStyle = hero.style;
 ---
 
 <article class="experience-card">
@@ -71,6 +73,6 @@ const imgStyle = heroBackgroundStyle(data);
     title={data.name}
     href={`/explore/${slug}/`}
     dek={data.editorNote}
-    imageUrl={data.heroImage?.src}
+    imageUrl={hero.src}
   />
 </article>

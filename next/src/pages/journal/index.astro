@@ -5,13 +5,16 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SectionHero from '../../components/SectionHero.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { formatLabel, routeSlug, heroBackgroundStyle } from '../../lib/editorial';
+import { formatLabel, routeSlug } from '../../lib/editorial';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { editableImage } from '../../lib/inline-edit/attrs';
 
 const articles = (await getCollection('articles', ({ data }) =>
   data.status === 'published' && (data.section ?? 'journal') !== 'plans'
 )).sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const featured = articles.find((article) => article.data.featured) ?? articles[0];
 const featuredSlug = featured ? routeSlug(featured) : null;
+const featuredHero = featured ? await resolveHero('article', featuredSlug!, featured.data, 'hero') : null;
 const latest = articles.filter((article) => routeSlug(article) !== featuredSlug);
 
 // Everything except the lead is available for grouping.
@@ -159,7 +162,7 @@ export const prerender = true;
     <section class="feature feature--compact">
       <div class="container">
         <div class="feature__inner">
-          <div class="feature__image-block feature__image-block--bay" aria-hidden="true" style={heroBackgroundStyle(featured.data)}>
+          <div class="feature__image-block feature__image-block--bay" aria-hidden="true" style={featuredHero!.style} {...editableImage({ entityType: 'article', entitySlug: featuredSlug!, fieldPath: 'hero', label: `${featured.data.title} hero`, purpose: 'hero' })}>
             <div class="feature__image-overlay"></div>
             <span class="feature__image-tag">Lead story</span>
           </div>
