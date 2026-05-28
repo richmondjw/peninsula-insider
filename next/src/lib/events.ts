@@ -176,26 +176,6 @@ export const chips: ChipDefinition[] = [
     limit: 20,
   },
   {
-    slug: 'free-family',
-    label: 'Free family',
-    hubLabel: 'Free family',
-    eyebrow: 'Free, kid-shaped',
-    heading: 'Free events with kids actually in mind',
-    framing:
-      'Free entry plus an honest kids grade. We use a three-band scale: A means kids will love it, B means tolerable for them, C means technically family-friendly but actually exhausting. These are A and B only.',
-    filter: (event) => {
-      const isFree = event.data.priceTier === 'free' || (event.data.freePaid?.toLowerCase().includes('free') ?? false);
-      const isKidFriendly =
-        event.data.kidsGrade === 'A' ||
-        event.data.kidsGrade === 'B' ||
-        (event.data.kidsGrade == null && event.data.kidsGradeAuto === 'B') ||
-        Boolean(event.data.familyFriendly);
-      return isFree && isKidFriendly;
-    },
-    defaultSort: sortByDateAscending,
-    limit: 20,
-  },
-  {
     slug: 'after-dark',
     label: 'After dark',
     hubLabel: 'After dark',
@@ -485,21 +465,3 @@ export function eventRecurrenceLabel(data: Event['data']): string {
   }
 }
 
-/**
- * Compact family-grade summary for the at-a-glance row. The longer narrative
- * note still renders as its own callout where present.
- */
-export function eventFamilyGradeShort(data: Event['data']): string | null {
-  switch (data.kidsGrade) {
-    case 'A':
-      return 'A — Fully kid-friendly';
-    case 'B':
-      return 'B — Family-suitable with care';
-    case 'C':
-      return 'C — Older kids only';
-    case 'not-for-kids':
-      return 'Adults only';
-    default:
-      return null;
-  }
-}

@@ -65,12 +65,11 @@ MACHINE_OWNED_FIELDS = {
 }
 
 DERIVED_FIELDS = {
-    'priceTier', 'weatherShape', 'audienceTags', 'kidsGradeAuto',
+    'priceTier', 'weatherShape', 'audienceTags',
     'category', 'place', 'venue', 'nearestVenues', 'nextOccurrence',
 }
 
 EDITORIAL_OWNED_FIELDS = {
-    'kidsGrade', 'kidsGradeNote',
     'worthTheDrive', 'firstTimer',
     'skipThis', 'skipReason', 'skipInstead',
     'editorVerdict', 'whyWeCare', 'standoutOfMonth', 'pairingProse',
@@ -246,7 +245,7 @@ def derive_audience_tags(suitable_for: str | None,
 
 def derive_lens_auto(visitor_appeal: int | None,
                      weather_shape: str,
-                     kids_grade_auto: str | None,
+                     family_friendly: bool | None,
                      price_tier: str,
                      booking_required: str | None,
                      ticketing_url: str | None,
@@ -262,7 +261,7 @@ def derive_lens_auto(visitor_appeal: int | None,
         tags.append('worth-the-drive')
     if weather_shape == 'all-weather':
         tags.append('rainy-day')
-    if kids_grade_auto in ('A', 'B'):
+    if family_friendly:
         tags.append('family-saturday')
     if price_tier == 'free':
         tags.append('free')
@@ -272,21 +271,6 @@ def derive_lens_auto(visitor_appeal: int | None,
     elif 'yes' in booking_lower and ticketing_url:
         tags.append('ticketed')
     return tags
-
-
-def derive_kids_grade_auto(family_friendly: str | None,
-                           accessibility: str | None,
-                           weather_shape: str) -> str | None:
-    """Conservative auto-grade. Editor's kidsGrade always wins."""
-    if not isinstance(family_friendly, str):
-        return None
-    ff = family_friendly.lower()
-    if not ff.startswith('y'):
-        return 'not-for-kids'
-    # Family-friendly = Yes; differentiate by weather + accessibility
-    if weather_shape == 'all-weather':
-        return 'B'
-    return 'C'  # outdoor + family-friendly is C until editor reviews
 
 
 def normalise_bool(v: Any) -> bool:
@@ -437,11 +421,6 @@ def row_to_event(row: dict, existing: dict | None) -> dict | None:
         'suggestedItineraryPairing': clean(row.get('Suggested Itinerary Pairing')),
         'internalNotes': clean(row.get('Issues / Notes')),
         'manualFollowUpRequired': normalise_bool(row.get('Manual Follow-up Required')),
-        'kidsGradeAuto': derive_kids_grade_auto(
-            clean(row.get('Family Friendly')),
-            clean(row.get('Accessibility Notes')),
-            derive_weather_shape(indoor_outdoor, weather_dependency),
-        ),
         'status': 'published',
         'publishedAt': start_date,  # initial publish, editor can override
     }
@@ -461,7 +440,7 @@ def row_to_event(row: dict, existing: dict | None) -> dict | None:
     event['lens'] = derive_lens_auto(
         visitor_appeal_int,
         event.get('weatherShape', 'unknown'),
-        event.get('kidsGradeAuto'),
+        event.get('familyFriendly'),
         event.get('priceTier', 'unknown'),
         event.get('bookingRequired'),
         event.get('ticketingUrl'),

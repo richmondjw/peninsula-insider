@@ -4,7 +4,7 @@
  *
  * Interactive planner that runs pi.search against the canonical
  * facet taxonomy. The user picks any combination of audience, mood,
- * theme, season, weather, dog-friendly, kids-grade, price band, zone
+ * theme, season, weather, dog-friendly, price band, zone
  * — plus a free-text query — and gets a live ranked result set powered
  * by the hybrid lexical + semantic + facet RPC.
  *
@@ -66,11 +66,6 @@ const FACETS = [
     key: 'dog-friendly',
     label: 'Dog-friendly',
     values: ['yes', 'outdoors-only'],
-  },
-  {
-    key: 'kids-grade',
-    label: 'Kids',
-    values: ['A', 'B', 'C'],
   },
   {
     key: 'zone',

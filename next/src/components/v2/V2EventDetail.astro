@@ -3,7 +3,6 @@ import {
   eventCategoryLabel,
   eventDateLabel,
   eventLensLabel,
-  kidsGradeCopy,
   routeSlug,
   stayTypes,
   wineTypes,
@@ -109,14 +108,6 @@ const slug = routeSlug(event);
           {editorParas.map((p: string) => <p>{p}</p>)}
           {editorParas.length === 0 && !data.editorVerdict && (
             <p>{data.summary}</p>
-          )}
-
-          {data.kidsGrade && data.kidsGradeNote && (
-            <div style="margin-top:1.5rem;padding:1.25rem;border-left:3px solid var(--ochre,#a0612d);background:rgba(0,0,0,0.02);">
-              <p style="margin:0 0 .35rem;font-family:var(--sans,'Inter'),sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ochre,#a0612d);">{kidsGradeCopy[data.kidsGrade]?.label ?? 'Kids Grade'}</p>
-              <p style="margin:0 0 .5rem;">{data.kidsGradeNote}</p>
-              <p style="margin:0;font-size:.88rem;opacity:.75;">{kidsGradeCopy[data.kidsGrade]?.blurb}</p>
-            </div>
           )}
 
           {lensList.length > 0 && (

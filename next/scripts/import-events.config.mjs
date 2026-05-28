@@ -85,7 +85,6 @@ export const derivedFields = [
   'priceTier',
   'weatherShape',
   'audienceTags',
-  'kidsGradeAuto',
   'category', // mapped from spreadsheet Primary Category + Subcategory
   'place', // mapped from suburb match against places collection
   'venue', // mapped from venueName match against venues collection
@@ -95,8 +94,6 @@ export const derivedFields = [
 
 export const editorialOwnedFields = [
   // Hand-written, preserved across re-imports
-  'kidsGrade', // editor override of kidsGradeAuto
-  'kidsGradeNote',
   'worthTheDrive',
   'firstTimer',
   'skipThis',

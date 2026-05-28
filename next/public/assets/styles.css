@@ -5869,15 +5869,6 @@ p.has-drop-cap::first-letter {
   border-color: #c89e74;
   color: #1E1B18;
 }
-.event-badge--kids {
-  border-color: rgba(139, 78, 59, 0.35);
-  color: var(--accent);
-  background: var(--bg);
-}
-.event-badge--kids-a { background: #E4EFD9; border-color: #A8C58F; color: #2C5530; }
-.event-badge--kids-b { background: #F0E5D2; border-color: #C9A872; color: #6B4F1E; }
-.event-badge--kids-c { background: #F1DCD2; border-color: #C58E76; color: #6B3A1F; }
-.event-badge--kids-not-for-kids { background: #2A2622; border-color: #2A2622; color: #DDB68C; }
 .event-badge--weather {
   background: var(--bg-alt);
   color: var(--soft);
@@ -6015,37 +6006,6 @@ p.has-drop-cap::first-letter {
   font-size: 1.2rem;
   line-height: 1.5;
   color: var(--dark);
-}
-.kids-grade-note {
-  margin-top: 2rem;
-  padding: 1.2rem 1.4rem;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-left-width: 4px;
-  border-radius: 0 2px 2px 0;
-}
-.kids-grade-note--a { border-left-color: #2C5530; }
-.kids-grade-note--b { border-left-color: #C9A872; }
-.kids-grade-note--c { border-left-color: #C58E76; }
-.kids-grade-note--not-for-kids { border-left-color: #1E1B18; }
-.kids-grade-note__label {
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--dark);
-  margin-bottom: 0.45rem;
-}
-.kids-grade-note__body {
-  font-size: 0.94rem;
-  line-height: 1.55;
-  color: var(--dark);
-  margin-bottom: 0.4rem;
-}
-.kids-grade-note__baseline {
-  font-size: 0.78rem;
-  color: var(--soft);
-  font-style: italic;
 }
 .skip-callout {
   margin-top: 2rem;

@@ -9,7 +9,6 @@ import {
   eventCalendarUrl,
   eventBookingTarget,
   eventRecurrenceLabel,
-  eventFamilyGradeShort,
 } from '../../lib/events';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
@@ -19,7 +18,6 @@ import {
   eventCategoryLabel,
   eventDateLabel,
   eventLensLabel,
-  kidsGradeCopy,
   routeSlug,
   venueHrefPrefix,
   weatherCopy,
@@ -63,7 +61,6 @@ const timeLabel = eventTimeLabel(event.data);
 const calendarUrl = eventCalendarUrl(event.data, canonical);
 const bookingTarget = eventBookingTarget(event.data);
 const recurrenceLabel = eventRecurrenceLabel(event.data);
-const familyGradeShort = eventFamilyGradeShort(event.data);
 
 // Rich Event JSON-LD: includes geo coordinates, organiser, attendance mode,
 // offers with currency, and image. Falls through gracefully when fields are
@@ -110,7 +107,6 @@ export const prerender = true;
         <EventBadges
           worthTheDrive={event.data.worthTheDrive}
           firstTimer={event.data.firstTimer}
-          kidsGrade={event.data.kidsGrade}
           weather={event.data.weather}
           skipThis={event.data.skipThis}
           size="md"
@@ -130,14 +126,6 @@ export const prerender = true;
             <div class="prose">
               {event.data.editorNote.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
             </div>
-          )}
-
-          {event.data.kidsGrade && event.data.kidsGradeNote && (
-            <aside class={`kids-grade-note kids-grade-note--${event.data.kidsGrade.toLowerCase()}`}>
-              <p class="kids-grade-note__label">{kidsGradeCopy[event.data.kidsGrade]?.label ?? 'Kids Grade'}</p>
-              <p class="kids-grade-note__body">{event.data.kidsGradeNote}</p>
-              <p class="kids-grade-note__baseline">{kidsGradeCopy[event.data.kidsGrade]?.blurb}</p>
-            </aside>
           )}
 
           {event.data.skipThis && event.data.skipReason && (
@@ -226,12 +214,6 @@ export const prerender = true;
                 <dt>Weather</dt>
                 <dd>{weatherCopy[event.data.weather] ?? 'Weather flexible'}</dd>
               </div>
-              {familyGradeShort && (
-                <div>
-                  <dt>Family grade</dt>
-                  <dd>{familyGradeShort}</dd>
-                </div>
-              )}
               {event.data.worthTheDrive && (
                 <div>
                   <dt>Worth the drive</dt>

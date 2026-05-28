@@ -4,7 +4,7 @@ rederive-lenses.py — daily safety-net cron job.
 
 Walks every event JSON file and recomputes the auto-derived `lens` array
 from the data already in the file (visitorAppealScore, weatherShape,
-kidsGradeAuto, priceTier, bookingRequired, ticketingUrl).
+priceTier, bookingRequired, ticketingUrl).
 
 Editor's lens tags are preserved when the editor has hand-curated. The
 auto-derive only fires when the array is empty or absent. This prevents
@@ -37,9 +37,7 @@ def derive_lens(data: dict) -> list[str]:
         tags.append('worth-the-drive')
     if data.get('weatherShape') == 'all-weather':
         tags.append('rainy-day')
-    kg_auto = data.get('kidsGradeAuto')
-    kg = data.get('kidsGrade')
-    if (kg in ('A', 'B')) or (kg is None and kg_auto in ('A', 'B')):
+    if data.get('familyFriendly'):
         tags.append('family-saturday')
     if data.get('priceTier') == 'free':
         tags.append('free')

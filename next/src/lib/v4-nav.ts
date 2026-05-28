@@ -84,7 +84,7 @@ export const v4Pillars: V4Pillar[] = [
     key: 'whats-on',
     label: "What's On",
     href: '/whats-on/',
-    intro: 'The events calendar with an opinion attached, kids-graded, weather-flagged, worth-the-drive labelled.',
+    intro: 'The events calendar with an opinion attached, weather-flagged, worth-the-drive labelled.',
     topBanner: {
       text: "This weekend's calendar",
       ctaLabel: "Read this weekend's letter →",

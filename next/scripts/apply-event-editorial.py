@@ -42,7 +42,6 @@ from pathlib import Path
 # Machine-imported fields (title, venue, dates, etc.) are NEVER touched.
 EDITORIAL_FIELDS = {
     'whyWeCare', 'editorVerdict', 'editorNote', 'pairingProse',
-    'kidsGrade', 'kidsGradeNote',
     'worthTheDrive', 'firstTimer', 'editorVisited',
     'lens',
     'skipThis', 'skipReason', 'skipInstead',
@@ -55,7 +54,6 @@ WORD_RANGES = {
     'editorVerdict': (25, 90),
     'editorNote': (200, 500),
     'pairingProse': (5, 25),
-    'kidsGradeNote': (5, 60),
 }
 
 

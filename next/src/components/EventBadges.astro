@@ -4,15 +4,14 @@
  * badge strip on event cards and event detail pages.
  *
  * These are the Peninsula Insider wedge against the DMO:
- * Worth The Drive, Kids Grade, First Timer, Weather flag,
- * and an explicit planning note when set.
+ * Worth The Drive, First Timer, Weather flag, and an explicit
+ * planning note when set.
  */
-import { kidsGradeCopy, weatherCopy } from '../lib/editorial';
+import { weatherCopy } from '../lib/editorial';
 
 export interface Props {
   worthTheDrive?: boolean;
   firstTimer?: boolean;
-  kidsGrade?: 'A' | 'B' | 'C' | 'not-for-kids';
   weather?: 'all-weather' | 'sunny-only' | 'rainy-day-rescue' | 'weather-proof' | 'mixed';
   skipThis?: boolean;
   size?: 'sm' | 'md';
@@ -21,13 +20,11 @@ export interface Props {
 const {
   worthTheDrive = false,
   firstTimer = false,
-  kidsGrade,
   weather,
   skipThis = false,
   size = 'sm',
 } = Astro.props;
 
-const kidsLabel = kidsGrade ? kidsGradeCopy[kidsGrade]?.label : undefined;
 const weatherLabel = weather && weather !== 'mixed' ? weatherCopy[weather] : undefined;
 ---
 
@@ -40,9 +37,6 @@ const weatherLabel = weather && weather !== 'mixed' ? weatherCopy[weather] : und
   )}
   {firstTimer && (
     <span class="event-badge event-badge--first" title="If you've never been  -  start here">First timer</span>
-  )}
-  {kidsLabel && (
-    <span class={`event-badge event-badge--kids event-badge--kids-${(kidsGrade ?? 'B').toLowerCase()}`}>{kidsLabel}</span>
   )}
   {weatherLabel && (
     <span class="event-badge event-badge--weather">{weatherLabel}</span>

@@ -774,9 +774,6 @@ const events = defineCollection({
     nextOccurrence: z.coerce.date().optional(),
 
     // ─── Editorial overlay (human-written, never overwritten) ─────────────
-    kidsGrade: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
-    kidsGradeNote: z.string().optional(),
-    kidsGradeAuto: z.enum(['A', 'B', 'C', 'not-for-kids']).optional(),
     worthTheDrive: z.boolean().default(false),
     firstTimer: z.boolean().default(false),
     skipThis: z.boolean().default(false),

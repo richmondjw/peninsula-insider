@@ -67,8 +67,8 @@ Marked `TBD` throughout the YAML — these need Emma + Daisy sign-off:
 - Whether to constrain `articles.tags` (currently free text)
 - Whether `mood.educational` and `theme.eco` should be added (used by tours)
 - Whether `theme: drink` should exist alongside `food` and `wine`
-- Whether `kids-grade`, `accessibility`, `weather`, `indoor-outdoor` should
-  be backfilled onto venues + experiences in Phase B (the assessment says yes)
+- Whether `accessibility`, `weather`, `indoor-outdoor` should be backfilled
+  onto venues + experiences in Phase B (the assessment says yes)
 
 ## Editorial owner
 

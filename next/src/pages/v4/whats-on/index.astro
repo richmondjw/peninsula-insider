@@ -135,8 +135,6 @@ const faqSchema = {
   mainEntity: [
     { '@type': 'Question', name: 'When does the Peninsula This Weekend dispatch publish?',
       acceptedAnswer: { '@type': 'Answer', text: 'Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.' } },
-    { '@type': 'Question', name: 'Are the kids-grade A/B/C ratings genuine?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. We attend or have attended every family programme we grade. A means we\'d return without hesitation. B means it works but has a flaw. C means we wouldn\'t go back. Grades are visible on every event with the family-saturday or school-holidays lens.' } },
     { '@type': 'Question', name: 'Why do some events carry a planning note?',
       acceptedAnswer: { '@type': 'Answer', text: 'Because the rest of the Peninsula press won\'t name them. We pick one or two events a month that are over-marketed, badly run, or not what their copy claims. One short paragraph explaining why. The word "Insider" doing actual work.' } },
     { '@type': 'Question', name: 'Do you cover events outside the Peninsula?',
@@ -148,7 +146,7 @@ export const prerender = true;
 
 <V4BaseLayout
   title="What's On Mornington Peninsula · Peninsula Insider"
-  description="The Peninsula's events page with an editorial point of view. Weekend picks, kids-graded school holidays, worth-the-drive badges, and useful planning notes."
+  description="The Peninsula's events page with an editorial point of view. Weekend picks, worth-the-drive badges, and useful planning notes."
   section="whats-on"
   modifiedTime="2026-04-30"
   ogImage="/images/sourced/category-market-02.webp"
@@ -163,7 +161,7 @@ export const prerender = true;
   <GuideHero
     eyebrow={`What's On · ${totalEvents} curated events · Reviewed weekly`}
     title="Peninsula events, with an <em>opinion</em> for a change"
-    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody adds much context. This page does: weekend picks, kids-grade A/B/C on every family event, and useful planning notes when the logistics matter."
+    dek="The Peninsula event web is a list-and-walk-away zone. Every other site publishes the calendar; nobody adds much context. This page does: weekend picks, worth-the-drive flags, and useful planning notes when the logistics matter."
     meta={[
       { label: `${totalEvents} curated events` },
       { label: `${totalGroups} categories` },
@@ -456,10 +454,6 @@ export const prerender = true;
         <details class="hub-faq__item">
           <summary class="hub-faq__q">When does the Peninsula This Weekend dispatch publish?</summary>
           <div class="hub-faq__a"><p>Weekly, for the upcoming weekend (Saturday and Sunday). One pick, one weather-proof backup, and one useful planning note. Subscribers receive it by email; the latest is always pinned at the top of this page.</p></div>
-        </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Are the kids-grade A/B/C ratings genuine?</summary>
-          <div class="hub-faq__a"><p>Yes. We attend or have attended every family programme we grade. A means we'd return without hesitation. B means it works but has a flaw. C means we wouldn't go back. Grades are visible on every event with the family-saturday or school-holidays lens.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Why do some events carry a planning note?</summary>

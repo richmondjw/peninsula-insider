@@ -58,25 +58,6 @@ export const eventLensLabel: Record<string, string> = {
   'locals-know': 'Locals Know',
 };
 
-export const kidsGradeCopy: Record<string, { label: string; blurb: string }> = {
-  A: {
-    label: 'Kids Grade A',
-    blurb: 'Bring a pram, bring a toddler, bring a teen  -  everyone will be happy.',
-  },
-  B: {
-    label: 'Kids Grade B',
-    blurb: 'One age range event  -  good if you\'ve got 5-to-10s, risky otherwise.',
-  },
-  C: {
-    label: 'Kids Grade C',
-    blurb: 'Marketed as family but it\'s really for adults with tolerant kids.',
-  },
-  'not-for-kids': {
-    label: 'Adults only',
-    blurb: 'Leave them at home. This is not the outing.',
-  },
-};
-
 export const weatherCopy: Record<string, string> = {
   'all-weather': 'All weather',
   'sunny-only': 'Sunny only',

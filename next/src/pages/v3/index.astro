@@ -220,7 +220,6 @@ export const prerender = true;
       venue: (e.data as any).venueName ?? (e.data as any).place ?? undefined,
       flags: [
         (e.data as any).worthTheDrive ? { label: 'Worth the drive', tone: 'vine' as const } : null,
-        (e.data as any).kidsGrade ? { label: `Kids: ${String((e.data as any).kidsGrade)}`, tone: 'ridge' as const } : null,
         (e.data as any).weatherProof ? { label: 'Weather-proof', tone: 'default' as const } : null,
       ].filter((x): x is NonNullable<typeof x> => Boolean(x)),
     }))}

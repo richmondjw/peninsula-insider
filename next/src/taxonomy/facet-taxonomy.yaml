@@ -46,7 +46,6 @@
 # ------------------------------------------------------------------------
 #   - article.tags: currently free-text; do we constrain to canonical?
 #   - mood vs occasion overlap (e.g. "anniversary" — both?)
-#   - kids-grade scale on venues + experiences (currently only on events)
 #   - accessibility facet rollout across venues + experiences (currently absent)
 #   - weather facet rollout across venues + experiences (currently only on events)
 
@@ -265,19 +264,6 @@ facets:
       50-150:    { synonyms: [mid] }
       over-150:  { synonyms: [premium, expensive] }
       unknown:   { synonyms: [tbd] }
-
-  # ─── kids-grade ───────────────────────────────────────────────────────────
-  # PI house grade. Currently only on events; Phase B plan is to project
-  # this onto venues + experiences too. TBD with Emma.
-  kids-grade:
-    description: PI house grade for child suitability.
-    applies_to: [event, experience, venue]
-    multi: false
-    values:
-      A:             { synonyms: [excellent-for-kids] }
-      B:             { synonyms: [good-for-kids] }
-      C:             { synonyms: [tolerable-with-kids] }
-      not-for-kids:  { synonyms: [adults-only] }
 
   # ─── dog-friendly ─────────────────────────────────────────────────────────
   # Reconciles venue.dogFriendly + variants and event.petFriendly.
@@ -519,9 +505,6 @@ mappings:
       values:
         true:  families
         false: drop
-    kidsGrade:
-      facet: kids-grade
-      values: { A: pass, B: pass, C: pass, not-for-kids: pass }
     priceTier:
       facet: price-tier
       values:
@@ -812,9 +795,7 @@ policy:
   # (Phase B work — these become content_audit warnings.)
   coverage_targets:
     venue.accessibility:    "Roll accessibility facet onto venues (Phase B)."
-    venue.kids-grade:       "Roll kids-grade onto venues (Phase B)."
     venue.weather:          "Roll weather facet onto venues (Phase B)."
     venue.indoor-outdoor:   "Roll indoor-outdoor onto venues (Phase B)."
-    experience.kids-grade:  "Roll kids-grade onto experiences (Phase B)."
     experience.accessibility: "Roll accessibility onto experiences (Phase B)."
     experience.weather:     "Roll weather onto experiences (Phase B)."

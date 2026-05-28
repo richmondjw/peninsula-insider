@@ -29,7 +29,7 @@ const experiences = await getCollection('experiences');
 const itineraries = await getCollection('itineraries');
 
 // What's On hooks  -  the events differentiator surfaces here so the
-// Weekend Picker / Worth The Drive / Kids Grade language is visible
+// Weekend Picker / Worth The Drive language is visible
 // without a click into /whats-on.
 const eventsAll = (await getCollection('events'))
   .filter((event) => {
@@ -295,7 +295,7 @@ export const prerender = true;
           <div>
             <p class="label label--accent">This weekend · editor's picks</p>
             <h2 class="venues__title">{weekendPicks.length === 1 ? 'One event' : weekendPicks.length === 2 ? 'Two events' : 'Three events'} with an opinion attached</h2>
-            <p class="venues__sub">Every entry is kids-graded, weather-flagged, and labelled worth-the-drive or not  -  because nobody else on the Peninsula event web is brave enough to.</p>
+            <p class="venues__sub">Every entry is weather-flagged and labelled worth-the-drive or not  -  because nobody else on the Peninsula event web is brave enough to.</p>
           </div>
           <a href="/whats-on/" class="venues__link">All What’s On →</a>
         </div>

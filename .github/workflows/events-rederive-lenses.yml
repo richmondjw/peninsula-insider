@@ -4,7 +4,7 @@ name: Events rederive lenses
 #
 # Walks every event JSON file and recomputes the auto-derived `lens`
 # array from the data in the file (visitorAppealScore, weatherShape,
-# kidsGradeAuto, priceTier, bookingRequired, ticketingUrl).
+# priceTier, bookingRequired, ticketingUrl).
 #
 # Lens tags drive what surfaces in the editorial sections of /whats-on/.
 # If an editor adjusts visitorAppealScore on an event, the lens tags
