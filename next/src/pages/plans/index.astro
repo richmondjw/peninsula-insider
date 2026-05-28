@@ -11,6 +11,8 @@ import PlaceCard from '../../components/PlaceCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import { routeSlug, stayTypes } from '../../lib/editorial';
 import EditorialSurface from '../../components/EditorialSurface.astro';
+import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { editableImage } from '../../lib/inline-edit/attrs';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const itineraries = (await getCollection('itineraries')).sort(
@@ -86,6 +88,29 @@ const guideGroups = planShapeGroups
       .slice(0, 6),
   }))
   .filter((group) => group.articles.length > 0);
+
+// Resolve CMS hero overrides for the planning-guide cards. These cards used
+// to read `article.data.heroImage.src` straight from frontmatter, so an
+// editor's uploaded hero (saved to the `article/<slug>/hero` slot, the same
+// key the /journal/<slug> detail page reads) was ignored here — the card
+// reverted to the frontmatter image on every refresh. We now consult the
+// override at SSR so the editor's choice ships in the static HTML, and we
+// tag the <img> as editable with the matching key so it can be changed from
+// this page too. `hero` is the canonical slot; `heroImage` is checked as a
+// fallback for any record edited via the /plans/<slug> route.
+const guideHeroBySlug = new Map<string, { src: string | undefined; alt: string }>();
+await Promise.all(
+  guideGroups.flatMap((g) => g.articles).map(async (article) => {
+    const s = routeSlug(article);
+    if (guideHeroBySlug.has(s)) return;
+    const ov = await loadOverrides('article', s);
+    const o = ov.image['hero'] ?? ov.image['heroImage'];
+    guideHeroBySlug.set(s, {
+      src: o?.src ?? article.data.heroImage?.src,
+      alt: o?.alt ?? article.data.heroImage?.alt ?? article.data.title,
+    });
+  }),
+);
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -231,17 +256,34 @@ export const prerender = true;
                 <p>{group.dek}</p>
               </div>
               <div class="planning-collection__grid">
-                {group.articles.map((article) => (
-                  <a class="planning-guide-card" href={`/journal/${routeSlug(article)}/`}>
-                    {article.data.heroImage?.src && (
-                      <img class="planning-guide-card__image" src={article.data.heroImage.src} alt={article.data.heroImage.alt ?? article.data.title} loading="lazy" decoding="async" />
+                {group.articles.map((article) => {
+                  const guideSlug = routeSlug(article);
+                  const guideHero = guideHeroBySlug.get(guideSlug);
+                  return (
+                  <a class="planning-guide-card" href={`/journal/${guideSlug}/`}>
+                    {guideHero?.src && (
+                      <img
+                        class="planning-guide-card__image"
+                        src={guideHero.src}
+                        alt={guideHero.alt}
+                        loading="lazy"
+                        decoding="async"
+                        {...editableImage({
+                          entityType: 'article',
+                          entitySlug: guideSlug,
+                          fieldPath: 'hero',
+                          label: `${article.data.title} hero`,
+                          purpose: 'card',
+                        })}
+                      />
                     )}
                     <span class="planning-guide-card__kicker">Guide</span>
                     <strong>{article.data.title}</strong>
                     <span>{article.data.dek}</span>
                     <em>{[article.data.readingTimeMinutes ? `${article.data.readingTimeMinutes} min` : null, (article.data.tags ?? []).slice(0, 1)[0]?.replace(/-/g, ' ')].filter(Boolean).join(' · ')}</em>
                   </a>
-                ))}
+                  );
+                })}
               </div>
             </section>
           ))}
