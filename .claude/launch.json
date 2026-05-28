@@ -6,6 +6,12 @@
       "runtimeExecutable": "node",
       "runtimeArgs": ["next/node_modules/astro/bin/astro.mjs", "dev", "--host", "0.0.0.0", "--root", "next"],
       "port": 4321
+    },
+    {
+      "name": "pi-built-static",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4399"],
+      "port": 4399
     }
   ]
 }
