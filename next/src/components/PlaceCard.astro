@@ -16,6 +16,7 @@ export interface Props {
 import { heroBackgroundStyle } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 const { place, variant = 'vineyard', showDetails = true, showMeta = true, showActions = true, introMaxLength } = Astro.props;
 const data = place.data;
@@ -31,7 +32,13 @@ const imgClass = variant === 'bay'
   ? 'place-card__image place-card__image--sand'
   : 'place-card__image';
 
-const imgStyle = heroBackgroundStyle(data);
+// Resolve CMS image override at SSR — editor replacements survive refresh
+// without waiting for a rebuild on tagged slots.
+const placeOverrides = await loadOverrides('place', slug);
+const placeHeroOverride = placeOverrides.image['heroImage'];
+const imgStyle = placeHeroOverride
+  ? `background-image: url(${placeHeroOverride.src}); background-size: cover; background-position: center;`
+  : heroBackgroundStyle(data);
 
 const intro = String(data.intro ?? '');
 const displayIntro = introMaxLength && intro.length > introMaxLength

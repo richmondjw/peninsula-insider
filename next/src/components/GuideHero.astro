@@ -16,6 +16,7 @@ export interface MetaItem {
 }
 
 import { editableText, editableImage, type CmsEntityType } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   /** Small caps eyebrow, e.g. "EAT & DRINK · 101 VENUES MAPPED · LAST VERIFIED 30 APR 2026". */
@@ -54,6 +55,20 @@ const {
 } = Astro.props;
 
 const editable = !!entitySlug;
+
+// Build-time override consult — apply published title / dek / hero overrides
+// to the SSR'd markup so the static HTML ships pre-patched. Matches the
+// SubpageHero / SectionHero pattern.
+const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;
+const titleOverride = overrides?.text['hero.title'];
+const dekOverride = overrides?.text['hero.dek'];
+const imageOverride = overrides?.image['hero'];
+
+const resolvedTitle = titleOverride ?? title;
+const resolvedDek = dekOverride ?? dek;
+const resolvedHeroImage = imageOverride?.src ?? heroImage;
+const resolvedImageAlt = imageOverride?.alt ?? imageAlt;
+
 const titleAttrs = editable
   ? editableText({ entityType, entitySlug: entitySlug!, fieldPath: 'hero.title', label: `${entitySlug} hero title` })
   : {};
@@ -70,8 +85,8 @@ const imageAttrs = editable
     <div class="guide-hero__inner">
       <div class="guide-hero__content">
         {eyebrow && <p class="guide-hero__eyebrow">{eyebrow}</p>}
-        <h1 class="guide-hero__title" set:html={title} {...titleAttrs} />
-        {dek && <p class="guide-hero__dek" {...dekAttrs}>{dek}</p>}
+        <h1 class="guide-hero__title" set:html={resolvedTitle} {...titleAttrs} />
+        {resolvedDek && <p class="guide-hero__dek" {...dekAttrs}>{resolvedDek}</p>}
         {meta && meta.length > 0 && (
           <div class="guide-hero__meta">
             {meta.map((item) => (
@@ -80,13 +95,13 @@ const imageAttrs = editable
           </div>
         )}
       </div>
-      {heroImage && (
+      {resolvedHeroImage && (
         <figure class="guide-hero__figure">
           <div
             class="guide-hero__image"
             role="img"
-            aria-label={imageAlt}
-            style={`background-image: url(${heroImage})`}
+            aria-label={resolvedImageAlt}
+            style={`background-image: url(${resolvedHeroImage})`}
             {...imageAttrs}
           ></div>
           {imageCredit && <figcaption class="guide-hero__credit">Photo · {imageCredit}</figcaption>}

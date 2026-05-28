@@ -95,6 +95,14 @@ export async function bootInlineEditor(): Promise<void> {
   const stored = sessionStorage.getItem(EDIT_MODE_FLAG);
   setEditMode(stored === '1');
 
+  // Admin-only: always re-apply published overrides on every page load so
+  // that auto-detected and tagged image replacements survive a refresh
+  // without waiting for a rebuild. This is the safety net for slots that
+  // aren't yet resolved server-side via `loadOverrides()`. Gated on the
+  // admin check above, so anon visitors are unaffected — SSR output is
+  // still the source of truth for them.
+  void applyOverridesOnLoad();
+
   // If the session ends mid-page, hide the chrome.
   supa.auth.onAuthStateChange((event) => {
     if (event === 'SIGNED_OUT') {
@@ -523,9 +531,35 @@ function readImageDescriptor(el: HTMLElement): ImageDescriptor | null {
 }
 
 /**
+ * Walk up from an image element looking for an ancestor that declares a
+ * CMS entity (any element with data-pi-entity-type + data-pi-entity-slug).
+ * Used by the auto-detect promote flow to suggest a stable slot identity
+ * when a bare <img> sits inside a tagged card / hero / section.
+ *
+ * Skips the image element itself (already known to be auto-detected).
+ */
+function findAncestorEntity(el: HTMLElement): { entityType: string; entitySlug: string } | null {
+  let node: HTMLElement | null = el.parentElement;
+  while (node) {
+    const entityType = node.dataset.piEntityType;
+    const entitySlug = node.dataset.piEntitySlug;
+    if (entityType && entitySlug) return { entityType, entitySlug };
+    node = node.parentElement;
+  }
+  return null;
+}
+
+/**
  * Floating image-edit popover. Replaces the old context-menu list with a
  * proper editor panel: thumbnail preview, replace button, and inline
  * fields for alt / caption / credit. Save commits all dirty fields at once.
+ *
+ * When the image is auto-detected and an ancestor declares a CMS entity,
+ * a "Promote to <entity>" button appears. It re-keys the saved row from
+ * `page/<slug>#img:<basename>` to `<entity>/<slug>#heroImage`, deleting
+ * the orphaned page-scoped row. Future page renders pick up the new
+ * identity via SSR (provided the rendering component is wired to call
+ * loadOverrides() — see VenueCard, PlaceCard, etc.).
  */
 function openImagePanel(el: HTMLElement, x: number, y: number) {
   closeMenu();
@@ -533,6 +567,8 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
   if (!desc) return;
 
   const thumbSrc = currentImageSrc(el) || '';
+  const promoteTarget = desc.autoDetected ? findAncestorEntity(el) : null;
+  const promoteFieldPath = 'heroImage';
 
   menuEl = document.createElement('div');
   menuEl.className = 'pi-edit-panel';
@@ -540,6 +576,16 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
   const PANEL_W = 320, PANEL_H = 420;
   menuEl.style.left = `${Math.max(8, Math.min(x, window.innerWidth - PANEL_W - 8))}px`;
   menuEl.style.top  = `${Math.max(8, Math.min(y, window.innerHeight - PANEL_H - 8))}px`;
+
+  const promoteRow = promoteTarget
+    ? `
+      <button type="button" class="pi-edit-panel__promote" data-action="promote"
+        title="Move this auto-detected image to a stable CMS slot so it survives every rebuild">
+        <span aria-hidden="true">⇲</span>
+        Promote to <strong>${escapeHtml(promoteTarget.entityType)}/${escapeHtml(promoteTarget.entitySlug)}</strong> · ${escapeHtml(promoteFieldPath)}
+      </button>
+    `
+    : '';
 
   menuEl.innerHTML = `
     <div class="pi-edit-panel__head">
@@ -553,6 +599,7 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     <button type="button" class="pi-edit-panel__replace" data-action="replace">
       <span aria-hidden="true">⇪</span> Replace image…
     </button>
+    ${promoteRow}
     <div class="pi-edit-panel__fields">
       <label class="pi-edit-panel__field">
         <span>Alt text</span>
@@ -584,8 +631,114 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     if (action === 'replace') triggerImageReplace(el, desc);
     if (action === 'cancel')  closeMenu();
     if (action === 'save')    void savePanelMeta(menuEl!, el, desc);
+    if (action === 'promote' && promoteTarget) {
+      void promoteAutoDetectedSlot(el, desc, promoteTarget, promoteFieldPath);
+    }
   });
   menuEl.querySelector('.pi-edit-panel__close')?.addEventListener('click', closeMenu);
+}
+
+/**
+ * Re-key an auto-detected `cms_image_slots` row onto an inferred entity.
+ *
+ *   old: { entity_type='page', entity_slug=<currentPageSlug>, field_path='img:foo.webp' }
+ *   new: { entity_type=<promoteTarget.entityType>, entity_slug=<promoteTarget.entitySlug>, field_path=<targetFieldPath> }
+ *
+ * The new row carries forward the storage path, public URL, mime type,
+ * and metadata. The old row is then deleted so it can't shadow the new
+ * one on subsequent loads. Saves a revision log entry summarising the
+ * promotion for audit visibility.
+ */
+async function promoteAutoDetectedSlot(
+  el: HTMLElement,
+  desc: ImageDescriptor,
+  target: { entityType: string; entitySlug: string },
+  targetFieldPath: string,
+) {
+  const supa = getSupabase();
+  if (!supa) return toast('Supabase not configured.', 'err');
+
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) return toast('Signed out — please sign in again.', 'err');
+
+  // 1. Fetch the source (auto-detected) row in full so we can copy storage
+  //    + metadata forward. Bail out cleanly if there's nothing to promote.
+  const { data: source } = await supa
+    .from('cms_image_slots')
+    .select('id, storage_bucket, storage_path, public_url, mime_type, alt_text, caption, credit, purpose, label')
+    .eq('entity_type', desc.entityType)
+    .eq('entity_slug', desc.entitySlug)
+    .eq('field_path', desc.fieldPath)
+    .maybeSingle();
+  if (!source) {
+    toast('Nothing to promote — save a replacement first, then promote.', 'info');
+    return;
+  }
+
+  // 2. Find or create the destination row under the inferred entity.
+  const { data: existing } = await supa
+    .from('cms_image_slots')
+    .select('id')
+    .eq('entity_type', target.entityType)
+    .eq('entity_slug', target.entitySlug)
+    .eq('field_path', targetFieldPath)
+    .maybeSingle();
+
+  const newRow = {
+    entity_type: target.entityType,
+    entity_slug: target.entitySlug,
+    field_path: targetFieldPath,
+    label: source.label ?? `${target.entityType}/${target.entitySlug} ${targetFieldPath}`,
+    purpose: source.purpose ?? 'hero',
+    storage_bucket: source.storage_bucket,
+    storage_path: source.storage_path,
+    public_url: source.public_url,
+    mime_type: source.mime_type,
+    alt_text: source.alt_text,
+    caption: source.caption,
+    credit: source.credit,
+    status: 'published' as const,
+    updated_by: session.user.id,
+  };
+
+  if (existing?.id) {
+    const { error } = await supa.from('cms_image_slots').update(newRow).eq('id', existing.id);
+    if (error) return toast(`Promote failed: ${error.message}`, 'err');
+  } else {
+    const { error } = await supa.from('cms_image_slots').insert(newRow);
+    if (error) return toast(`Promote failed: ${error.message}`, 'err');
+  }
+
+  // 3. Delete the orphaned page-scoped row so it can't shadow the new
+  //    identity on the implicit-pass patcher.
+  if (source.id) {
+    await supa.from('cms_image_slots').delete().eq('id', source.id);
+  }
+
+  // 4. Log the move for the revision feed.
+  await recordRevision(supa, session.user.id, {
+    entity_type: target.entityType,
+    entity_slug: target.entitySlug,
+    action: 'update',
+    status: 'published',
+    summary: `Promoted auto-detected image to ${target.entityType}/${target.entitySlug}#${targetFieldPath}`,
+    patch: [{
+      op: 'set',
+      target: targetFieldPath,
+      value: { from: `${desc.entityType}/${desc.entitySlug}#${desc.fieldPath}`, public_url: source.public_url },
+    }],
+  });
+
+  // 5. Tag the live DOM element so subsequent right-clicks treat it as
+  //    explicit. The next full rebuild will SSR the override directly via
+  //    loadOverrides() in the relevant component.
+  el.dataset.piEdit = 'image';
+  el.dataset.piEntityType = target.entityType;
+  el.dataset.piEntitySlug = target.entitySlug;
+  el.dataset.piFieldPath = targetFieldPath;
+
+  toast(`Promoted to ${target.entityType}/${target.entitySlug}.`, 'ok');
+  closeMenu();
 }
 
 function cssUrl(src: string): string {
@@ -821,18 +974,32 @@ async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) 
  * `public_url` into the markup at render time. That guarantees the first
  * paint already shows the correct image and there's no swap flicker.
  *
- * Only the explicit pass remains: every `[data-pi-edit="image"]` element
- * declares its identity via `data-pi-entity-type` / `data-pi-entity-slug` /
- * `data-pi-field-path`. Groups are queried in parallel and matched by
- * exact field_path. The basename-keyed implicit pass that previously
- * swept every `<img>` and bg-image element was removed — it was the main
- * source of post-paint flicker for anon visitors and is no longer needed
- * now that SSR owns override resolution.
+ * Two passes:
+ *
+ *   1. Explicit pass: every `[data-pi-edit="image"]` element declares its
+ *      identity via `data-pi-entity-type` / `data-pi-entity-slug` /
+ *      `data-pi-field-path`. Groups are queried in parallel and matched by
+ *      exact field_path.
+ *
+ *   2. Implicit (basename) pass: any image the editor replaced via the
+ *      auto-detect right-click flow is stored under `entity_type='page'`,
+ *      `entity_slug=<currentPageSlug>`, `field_path='img:<basename>'`. We
+ *      query every published row for this page slug and match each row's
+ *      basename against the basename of every `<img>` and background-image
+ *      element on the page, swapping when they line up.
+ *
+ * Both passes are admin-only — this function is only reachable from
+ * `bootInlineEditor` after the allowlist check, so anon visitors never
+ * see post-paint swaps. The implicit pass intentionally re-introduces
+ * the flicker that the SSR-resolved tagged path avoids, but it's gated
+ * to admins and is the only thing keeping auto-detected replacements
+ * alive between site rebuilds.
  */
 async function applyOverridesOnLoad() {
   const supa = getSupabase();
   if (!supa) return;
 
+  // ── Pass 1: explicit slots ───────────────────────────────────────────
   const taggedEls = document.querySelectorAll<HTMLElement>('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]');
   const groups = new Map<string, { entityType: string; entitySlug: string; els: HTMLElement[] }>();
   taggedEls.forEach((el) => {
@@ -876,6 +1043,66 @@ async function applyOverridesOnLoad() {
       }
     }
   }));
+
+  // ── Pass 2: implicit (basename-keyed) slots for this page ────────────
+  await applyImplicitPageOverrides(supa);
+}
+
+/**
+ * Match every auto-detected `cms_image_slots` row saved against this page
+ * (entity_type='page', entity_slug=<currentPageSlug>, field_path='img:…')
+ * to any `<img>` or background-image element whose displayed basename
+ * lines up, and swap the src. Admin-only safety net so editor replacements
+ * survive a refresh without a rebuild.
+ */
+async function applyImplicitPageOverrides(supa: NonNullable<ReturnType<typeof getSupabase>>) {
+  const pageSlug = currentPageSlug();
+  const { data } = await supa
+    .from('cms_image_slots')
+    .select('field_path, public_url, alt_text')
+    .eq('entity_type', 'page')
+    .eq('entity_slug', pageSlug)
+    .eq('status', 'published')
+    .like('field_path', 'img:%');
+  const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null }> | null) ?? [];
+  if (rows.length === 0) return;
+
+  // Index by the basename embedded in field_path ("img:foo.webp" → "foo.webp").
+  const byBasename = new Map<string, { public_url: string; alt_text: string | null }>();
+  for (const row of rows) {
+    if (!row.public_url) continue;
+    const basename = row.field_path.replace(/^img:/, '').toLowerCase();
+    byBasename.set(basename, { public_url: row.public_url, alt_text: row.alt_text });
+  }
+  if (byBasename.size === 0) return;
+
+  // Walk every image-like element on the page and apply a matching override.
+  // We skip elements already handled by the explicit pass — those carry a
+  // resolved data-pi-field-path and have just been patched above.
+  const candidates: HTMLElement[] = [];
+  document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
+    if (img.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
+    candidates.push(img);
+  });
+  document.querySelectorAll<HTMLElement>('[style*="background-image"]').forEach((el) => {
+    if (el.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
+    if (!isImageLike(el)) return;
+    candidates.push(el);
+  });
+
+  for (const el of candidates) {
+    const src = currentImageSrc(el);
+    if (!src) continue;
+    const key = srcBasename(src);
+    const override = byBasename.get(key);
+    if (!override) continue;
+    if (src === override.public_url) continue;
+    setImageSrc(el, override.public_url);
+    if (override.alt_text) {
+      if (el instanceof HTMLImageElement) el.alt = override.alt_text;
+      else el.setAttribute('aria-label', override.alt_text);
+    }
+  }
 }
 
 // --------------------------------------------------------------------------

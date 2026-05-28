@@ -9,6 +9,7 @@
 import PiSaveActions from './PiSaveActions.astro';
 import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
   event: any;
@@ -93,7 +94,14 @@ const fallbackHeroByCategory: Record<string, string> = {
   nature: '/images/sourced/explore-greens-bush-01.webp',
   'writers-ideas': '/images/sourced/article-sorrento-weekend-01.webp',
 };
-const heroImageSrc = event.data.heroImage?.src ?? fallbackHeroByCategory[category] ?? '/images/sourced/category-market-02.webp';
+// Resolve CMS image override at SSR — editor replacements survive refresh
+// without waiting for a rebuild on tagged slots.
+const eventOverrides = await loadOverrides('event', slug);
+const eventHeroOverride = eventOverrides.image['heroImage'];
+const heroImageSrc = eventHeroOverride?.src
+  ?? event.data.heroImage?.src
+  ?? fallbackHeroByCategory[category]
+  ?? '/images/sourced/category-market-02.webp';
 ---
 
 <article class={`event-card ${featured ? 'event-card--featured' : ''}`}>

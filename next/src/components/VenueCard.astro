@@ -10,6 +10,7 @@ import { resolveHeroSrc, hasOwnHeroImage } from '../lib/editorial';
 import { verifiedFreshnessLabel, verificationFreshness } from '../lib/venues';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
+import { loadOverrides } from '../lib/inline-edit/overrides';
 
 const typeLabel: Record<string, string> = {
   restaurant:  'Restaurant',
@@ -48,9 +49,15 @@ const shortAddress = data.address?.split(',').slice(-2).join(',').trim() ?? '';
 const hats = data.authority?.hats ?? 0;
 const moodTags = Array.isArray(data.tags?.mood) ? data.tags.mood.slice(0, 2) : [];
 const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
-const heroSrc = resolveHeroSrc(data);
-const heroAlt = data.heroImage?.alt ?? data.name ?? '';
-const hasPhoto = hasOwnHeroImage(data);
+
+// Resolve CMS image override at SSR. When an editor has replaced this venue's
+// hero via the inline editor, the published row overrides whatever the content
+// file specifies — so the rebuilt page renders the new image directly.
+const overrides = await loadOverrides('venue', slug);
+const heroOverride = overrides.image['heroImage'];
+const heroSrc = heroOverride?.src ?? resolveHeroSrc(data);
+const heroAlt = heroOverride?.alt ?? data.heroImage?.alt ?? data.name ?? '';
+const hasPhoto = !!heroOverride || hasOwnHeroImage(data);
 const verifiedLabel = verifiedFreshnessLabel(data.lastVerified);
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---

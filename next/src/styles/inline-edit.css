@@ -241,6 +241,35 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 .pi-edit-panel__replace:active { transform: scale(0.98); }
 .pi-edit-panel__replace span { font-size: 1.05rem; }
 
+/* Promote-to-explicit affordance — appears only when an auto-detected image
+   sits inside an ancestor that declares a CMS entity. Visually quieter than
+   the primary Replace button so it reads as a secondary, advanced action. */
+.pi-edit-panel__promote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0.5rem 0.75rem 0;
+  padding: 0.55rem 0.85rem;
+  background: transparent;
+  color: #1a1a1a;
+  border: 1px dashed rgba(139, 78, 59, 0.5);
+  border-radius: 0.45rem;
+  font: 400 0.75rem/1.25 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  text-align: center;
+}
+.pi-edit-panel__promote:hover {
+  background: rgba(139, 78, 59, 0.07);
+  border-color: rgba(139, 78, 59, 0.85);
+}
+.pi-edit-panel__promote strong {
+  font-weight: 600;
+  color: #8b4e3b;
+}
+
 .pi-edit-panel__fields {
   display: flex;
   flex-direction: column;
