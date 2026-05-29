@@ -23,6 +23,7 @@ import {
   weatherCopy,
 } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -52,6 +53,13 @@ const slug = routeSlug(event);
 const placeName = place?.data?.name ?? 'Mornington Peninsula';
 const canonical = `https://peninsulainsider.com.au/whats-on/${slug}/`;
 
+// Social-card image must honour a CMS hero replacement, not just frontmatter,
+// otherwise an editor's swap reverts on rebuild. Keep the placeholder-exclusion
+// behaviour (fall back to the raw frontmatter src, which is undefined when the
+// event has no real photo) by only using the override when one exists.
+const eventHero = await resolveHero('event', slug, event.data);
+const ogImage = eventHero.override?.src ?? event.data.heroImage?.src;
+
 // Standardised event fields (Discovery Phase 1, workstream 4): every event
 // page always renders price, time (when known), recurrence, and family grade
 // in the at-a-glance block, plus an add-to-calendar action.
@@ -80,7 +88,7 @@ export const prerender = true;
   description={event.data.summary}
   section="whats-on"
   canonical={canonical}
-  ogImage={event.data.heroImage?.src}
+  ogImage={ogImage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
