@@ -97,12 +97,12 @@ const subregionLabel = h1.replace(/\s+Wineries\s*$/i, '');
 // pattern on /places/[slug]/. Falls back to a generic vineyard gradient
 // when the place is unset or its zone is unknown.
 const zoneGradient: Record<string, string> = {
-  'red-hill-plateau': 'hero-grad--hinterland',
+  'red-hill': 'hero-grad--hinterland',
   hinterland: 'hero-grad--hinterland',
-  bayside: 'hero-grad--bay',
+  mornington: 'hero-grad--bay',
+  'bay-coast': 'hero-grad--bay',
   'ocean-coast': 'hero-grad--sand',
-  'back-beaches': 'hero-grad--sand',
-  tip: 'hero-grad--stay',
+  'peninsula-tip': 'hero-grad--sand',
 };
 const heroGradientClass = (place && zoneGradient[place.data.zone]) ?? 'hero-grad--vineyard';
 

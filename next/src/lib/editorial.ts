@@ -133,7 +133,8 @@ export const typeLabel: Record<string, string> = {
   pub: 'Pub',
   brewery: 'Brewery',
   distillery: 'Distillery',
-  producer: 'Producer',
+  producer: 'Producer',    // keep during migration
+  providore: 'Providore',  // NEW
   market: 'Market',
   hotel: 'Hotel',
   villa: 'Villa',
@@ -144,8 +145,22 @@ export const typeLabel: Record<string, string> = {
 };
 
 export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
-export const wineTypes = ['winery', 'producer', 'brewery', 'distillery'];
-export const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
+export const wineTypes = ['winery'];
+export const eatTypes = [
+  'restaurant', 'cafe', 'bakery', 'pub', 'market',
+  'brewery', 'distillery', 'providore',
+];
+// Note: 'producer' removed from all arrays — handled as deprecated in PR-3.
+
+export const zoneLabel: Record<string, string> = {
+  mornington: 'Mornington',
+  'bay-coast': 'Bay Coast',
+  'red-hill': 'Red Hill',
+  hinterland: 'Hinterland',
+  'peninsula-tip': 'Peninsula Tip',
+  'ocean-coast': 'Ocean Coast',
+  'western-port': 'Western Port',
+};
 
 export function titleize(value: string) {
   return value.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());

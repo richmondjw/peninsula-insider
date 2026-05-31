@@ -9,13 +9,13 @@ import { glob } from 'astro/loaders';
 // is new.
 
 const zone = z.enum([
-  'bayside',
-  'hinterland',
-  'red-hill-plateau',
-  'ocean-coast',
-  'back-beaches',
-  'tip',
-  'western-port',
+  'mornington',      // was 'bayside'
+  'bay-coast',       // new — covers Dromana–Rye coastal strip
+  'red-hill',        // was 'red-hill-plateau'
+  'hinterland',      // unchanged
+  'peninsula-tip',   // was 'tip' and 'back-beaches' (consolidated)
+  'ocean-coast',     // unchanged
+  'western-port',    // unchanged
 ]);
 
 const season = z.enum(['spring', 'summer', 'autumn', 'winter', 'all-year']);
@@ -114,7 +114,8 @@ const venues = defineCollection({
       'pub',
       'brewery',
       'distillery',
-      'producer',
+      'producer',      // deprecated — keep during migration, remove after PR-3
+      'providore',     // NEW — farmgate, cheesemonger, fishmonger, produce store
       'market',
       'hotel',
       'villa',
@@ -126,6 +127,27 @@ const venues = defineCollection({
       'beach',
       'activity',
     ]),
+    /**
+     * Optional free-text sub-classification within a type.
+     * Examples: type=cafe + subtype=roaster, type=providore + subtype=fishmonger.
+     * Surfaced as a secondary chip on venue cards and detail pages.
+     */
+    subtype: z.string().optional(),
+    /**
+     * Estate grouping — links this venue to a parent multi-venue estate.
+     * When set, VenueDetailTemplate renders an EstateCluster block showing
+     * sibling venues. Value matches an estateSlug from the confirmed
+     * multi-venue estate list (see PR-7 spec).
+     */
+    estateSlug: z.string().optional(),
+    estateLabel: z.string().optional(),
+    /**
+     * Editorial tier — drives verdict block visibility and listing sort order.
+     *   destination  full editorial treatment, verdict block shown
+     *   recommended  listed and linked, no verdict block
+     *   directory    directory-only entry, minimal page
+     */
+    venueTier: z.enum(['destination', 'recommended', 'directory']).default('destination'),
     place: reference('places'),
     zone,
     coordinates,
@@ -259,6 +281,12 @@ const experiences = defineCollection({
       'workshop',
       'golf-course',
     ]),
+    /**
+     * Optional link to a parent venue when the experience is venue-owned
+     * (e.g. a winery tour, a restaurant garden experience). Used by
+     * VenueDetailTemplate to surface owned experiences inline.
+     */
+    venueSlug: z.string().optional(),
     place: reference('places'),
     zone,
     coordinates,
@@ -293,6 +321,12 @@ const places = defineCollection({
     name: z.string(),
     kind: z.enum(['town', 'village', 'zone', 'ridge', 'beach', 'cape']),
     zone,
+    /**
+     * Region this place belongs to. Set on all 37 place JSONs in PR-2.
+     * Used by RegionDetailTemplate (PR-6) to build the places strip.
+     */
+    regionSlug: z.string().optional(),
+    regionLabel: z.string().optional(),
     coordinates,
     /**
      * One-sentence factual lede — schema-friendly, sits above the editorial intro

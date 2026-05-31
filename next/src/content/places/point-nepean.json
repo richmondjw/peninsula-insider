@@ -2,7 +2,9 @@
   "slug": "point-nepean",
   "name": "Point Nepean",
   "kind": "zone",
-  "zone": "tip",
+  "zone": "peninsula-tip",
+  "regionSlug": "peninsula-tip",
+  "regionLabel": "Sorrento & Portsea",
   "coordinates": {
     "lat": -38.3081,
     "lng": 144.6647

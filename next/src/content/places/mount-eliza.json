@@ -2,7 +2,9 @@
   "slug": "mount-eliza",
   "name": "Mount Eliza",
   "kind": "town",
-  "zone": "bayside",
+  "zone": "mornington",
+  "regionSlug": "mornington-bay-coast",
+  "regionLabel": "Mornington & the Bay",
   "coordinates": {
     "lat": -38.1875,
     "lng": 145.0875
