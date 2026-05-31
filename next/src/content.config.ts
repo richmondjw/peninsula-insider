@@ -188,6 +188,14 @@ const venues = defineCollection({
      */
     liveStatusUrl: z.string().url().optional(),
     /**
+     * Entity signals — 3–5 short noun phrases (2–4 words each) naming what
+     * the venue is distinctively known for. Renders as a chip row below the
+     * signature line (see VenueDetailTemplate.astro) and is emitted as
+     * schema.org additionalProperty for entity recognition (Google) and
+     * structured extraction (AI). Specific named facts, not promotional copy.
+     */
+    knownFor: z.array(z.string()).min(3).max(5).optional(),
+    /**
      * Editorial recommendation layer — replaces thin directory-style copy.
      * whyWeGo:     One-line insider positioning statement (leads the page).
      * bestFor:     Short audience/mood tags for the Worth Knowing panel.

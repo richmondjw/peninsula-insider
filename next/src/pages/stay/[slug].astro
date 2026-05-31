@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
+import { buildKnownForProperties } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
@@ -78,6 +79,7 @@ const venueSchema = {
   },
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
+  ...buildKnownForProperties(venue.data.knownFor),
   // priceRange intentionally omitted (BRAND-PI 2026-05-15: no pricing on site).
 };
 export const prerender = true;

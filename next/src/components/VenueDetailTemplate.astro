@@ -7,7 +7,6 @@ import VenueCard from './VenueCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import PiArticleActions from './PiArticleActions.astro';
-import CorrectionNote from './CorrectionNote.astro';
 import { loadOverrides } from '../lib/inline-edit/overrides';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 
@@ -123,6 +122,19 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       label: `${data.name} — signature`,
     })}>{data.signature}</p>
 
+    {/* ── KNOWN FOR — entity-signal line (editorial highlights, not buttons).
+        Also emitted as schema.org additionalProperty in the page JSON-LD. ── */}
+    {data.knownFor && data.knownFor.length > 0 && (
+      <p class="venue-known-for" aria-label="Known for">
+        <span class="venue-known-for__label">Known for</span>
+        <span class="venue-known-for__items">
+          {data.knownFor.map((item: string, i: number) => (
+            <>{i > 0 && <span class="venue-known-for__sep" aria-hidden="true">·</span>}{item}</>
+          ))}
+        </span>
+      </p>
+    )}
+
     {(data.bookingUrl || data.phone) && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
@@ -183,25 +195,14 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 
     <div class="venue-detail__grid">
       <div>
-        {/* ── INSIDER VERDICT — leads the page ── */}
-        {(data.whyWeGo || data.bestFor) && (
+        {/* ── INSIDER VERDICT — the editorial hook, leads the page.
+            "Best for" lives once, in Worth Knowing below — not duplicated here. ── */}
+        {data.whyWeGo && (
           <div class="venue-verdict">
-            {data.whyWeGo && (
-              <blockquote class="venue-verdict__why">
-                <span class="venue-verdict__label">Why we&rsquo;d go</span>
-                <p class="venue-verdict__text">{data.whyWeGo}</p>
-              </blockquote>
-            )}
-            {data.bestFor && (
-              <div class="venue-verdict__best-for">
-                <span class="venue-verdict__best-for-label">Best for</span>
-                <ul class="venue-verdict__tags" role="list">
-                  {(Array.isArray(data.bestFor) ? data.bestFor : [data.bestFor]).map((tag: string) => (
-                    <li class="venue-verdict__tag">{tag}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <blockquote class="venue-verdict__why">
+              <span class="venue-verdict__label">Why we&rsquo;d go</span>
+              <p class="venue-verdict__text">{data.whyWeGo}</p>
+            </blockquote>
           </div>
         )}
 
@@ -282,11 +283,14 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         )}
 
         {allTags.length > 0 && (
-          <div class="venue-detail__tags">
-            {allTags.map((tag: string) => (
-              <span class="venue-detail__tag">{titleize(tag)}</span>
-            ))}
-          </div>
+          <p class="venue-detail__filed">
+            <span class="venue-detail__filed-label">Filed under</span>
+            <span class="venue-detail__filed-items">
+              {allTags.map((tag: string, i: number) => (
+                <>{i > 0 && <span class="venue-detail__filed-sep" aria-hidden="true">·</span>}{titleize(tag)}</>
+              ))}
+            </span>
+          </p>
         )}
 
         {/* Wine identity panel — surfaces schema-rich wine signals with
@@ -326,8 +330,6 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             )}
           </div>
         )}
-
-        <CorrectionNote compact={true} />
       </div>
 
       <aside class="facts">
@@ -936,6 +938,54 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     .wine-identity__label {
       font-size: 0.6rem;
     }
+  }
+
+  /* ── Known For — entity-signal line (editorial highlights, not buttons) ── */
+  .venue-known-for {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 0.7rem;
+    margin: 0.85rem 0 1.3rem;
+    padding-top: 0.95rem;
+    border-top: 1px solid var(--border);
+  }
+  .venue-known-for__label {
+    flex: none;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent, #8B4E3B);
+  }
+  .venue-known-for__items {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text, #2B2520);
+  }
+  .venue-known-for__sep {
+    color: var(--gold, #B69A6B);
+    margin: 0 0.55rem;
+  }
+
+  /* ── Filed under — demoted discovery tags (quiet, not pills) ── */
+  .venue-detail__filed {
+    margin: 1.5rem 0 0;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--soft, #7A726A);
+  }
+  .venue-detail__filed-label {
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft, #7A726A);
+    margin-right: 0.7rem;
+  }
+  .venue-detail__filed-sep {
+    color: var(--border, #E5E0D6);
+    margin: 0 0.4rem;
   }
 
   /* ── Insider Verdict block ── */

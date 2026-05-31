@@ -22,6 +22,20 @@ const PENINSULA_PLACE = {
   },
 } as const;
 
+// knownFor entity signals → schema.org additionalProperty (PropertyValue).
+// Spread into every venue LocalBusiness schema; returns {} when knownFor is
+// absent, so venues without the field emit identical markup to before.
+export const buildKnownForProperties = (knownFor?: string[]) =>
+  knownFor && knownFor.length
+    ? {
+        additionalProperty: knownFor.map((value) => ({
+          '@type': 'PropertyValue',
+          name: 'knownFor',
+          value,
+        })),
+      }
+    : {};
+
 export function buildWinerySchema(data: any, slug: string, section = 'wine') {
   const sameAs = [
     data.website,
@@ -70,6 +84,7 @@ export function buildWinerySchema(data: any, slug: string, section = 'wine') {
       'Cool-climate winemaking',
       ...(data.wines?.keyVarieties ?? []),
     ],
+    ...buildKnownForProperties(data.knownFor),
   };
 
   if (data.visiting?.openingHours?.length) {
