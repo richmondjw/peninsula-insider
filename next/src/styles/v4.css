@@ -12,10 +12,10 @@
 
 :root {
   --v4-mega-w:           1240px;
-  --v4-mega-rail-w:      280px;
-  --v4-mega-col-gap:     40px;
+  --v4-mega-pin-w:       200px;
+  --v4-mega-col-gap:     48px;
   --v4-mega-row-h:       56px;
-  --v4-mega-pad-y:       40px;
+  --v4-mega-pad-y:       44px;
   --v4-mega-open-delay:  70ms;
   --v4-mega-close-delay: 220ms;
 
@@ -338,100 +338,104 @@ body[data-v4="true"] .masthead {
   padding-right: clamp(20px, 4vw, 56px);
 }
 
-.v4-mega__intro {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 16px;
-  line-height: 1.45;
-  color: var(--soft);
-  margin: 0 0 24px 0;
-  max-width: 80ch;
-}
-
 .v4-mega__grid {
   display: grid;
-  grid-template-columns: var(--v4-mega-rail-w) repeat(var(--v4-cols, 3), 1fr);
+  grid-template-columns: var(--v4-mega-pin-w) repeat(var(--v4-cols, 3), 1fr);
   gap: var(--v4-mega-col-gap);
   align-items: start;
 }
 .v4-mega--cols-2 { --v4-cols: 2; }
 .v4-mega--cols-3 { --v4-cols: 3; }
-.v4-mega--rail-wide { --v4-mega-rail-w-effective: 360px; }
-.v4-mega--rail-wide .v4-mega__grid { grid-template-columns: 360px repeat(var(--v4-cols, 2), 1fr); }
 
 @media (max-width: 1080px) {
-  .v4-mega__grid { grid-template-columns: 220px repeat(var(--v4-cols, 3), 1fr); gap: 28px; }
+  .v4-mega__grid { grid-template-columns: 180px repeat(var(--v4-cols, 3), 1fr); gap: 28px; }
 }
 @media (max-width: 920px) {
   .v4-mega__grid { grid-template-columns: 1fr 1fr; }
-  .v4-mega__rail { display: none; }
+  .v4-pin { display: none; }
 }
 
 /* =========================================================
-   MEGA RAIL (image + verdict)
+   MEGA PIN (typographic editorial block, replaces image rail)
+   ---------------------------------------------------------
+   Tate Modern reference: compressed grotesque at hierarchy-
+   defining scale. No card. No border. No image. Weight and
+   proportion carry the full visual argument.
    ========================================================= */
-.v4-mega__rail {
-  display: block;
+
+.v4-pin {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   text-decoration: none;
   color: var(--text);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  transition: transform var(--v4-mega-close-delay) var(--v4-ease),
-              border-color var(--v4-mega-close-delay) var(--v4-ease),
-              box-shadow var(--v4-mega-close-delay) var(--v4-ease);
+  padding: 0;
+  /* Vertical alignment: pin top aligns with first column eyebrow */
+  padding-top: 0;
 }
-.v4-mega__rail:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: var(--v4-shadow-mega-soft);
-}
-.v4-mega__rail-image {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: var(--bg-alt);
-  overflow: hidden;
-}
-.v4-mega__rail-image img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 600ms var(--v4-ease);
-}
-.v4-mega__rail:hover .v4-mega__rail-image img { transform: scale(1.04); }
-.v4-mega__rail-body { padding: 16px 18px 18px; }
-.v4-mega__rail-eyebrow {
-  font-family: 'Outfit', sans-serif;
+
+.v4-pin__eyebrow {
+  font-family: 'Outfit', system-ui, sans-serif;
   font-size: 10px;
+  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin: 0 0 6px 0;
+  margin: 0 0 10px 0;
+  /* Match the eyebrow baseline of adjacent columns */
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--v4-hairline-mega);
 }
-.v4-mega__rail-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 1.15;
-  margin: 0 0 6px 0;
+
+.v4-pin__title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: var(--text);
+  margin: 14px 0 12px 0;
+  /* No text-transform. The title carries the weight through mass, not case. */
 }
-.v4-mega__rail-verdict {
+
+.v4-pin__verdict {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--soft);
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
+  /* Max 2 lines at pin width. Title must be <=3 words for this to hold. */
 }
-.v4-mega__rail-cta {
-  font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+
+.v4-pin__cta {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  /* No arrow. No uppercase. The underline is the whole signal. */
+  margin-top: auto;
+}
+
+/* Hover state: title colour only, no transform, no shadow, no border */
+.v4-pin:hover .v4-pin__title { color: var(--accent); }
+.v4-pin:hover .v4-pin__cta {
   color: var(--accent);
-  text-transform: uppercase;
+  text-decoration-color: var(--accent);
 }
+
+/* Focus state */
+.v4-pin:focus-visible {
+  outline: none;
+  box-shadow: var(--v4-focus-ring);
+  border-radius: 2px;
+}
+
+/* Reduced motion: no transition needed; there are no animated properties on pin */
 
 /* =========================================================
    MEGA COLUMN
@@ -456,16 +460,16 @@ body[data-v4="true"] .masthead {
   gap: 9px;
 }
 .v4-mega__col-list a {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 19px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.3;
   color: var(--text);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 1px 0;
+  padding: 2px 0;
   border-bottom: 1px solid transparent;
   transition: color var(--v4-mega-open-delay) var(--v4-ease),
               border-color var(--v4-mega-open-delay) var(--v4-ease);
@@ -473,6 +477,7 @@ body[data-v4="true"] .masthead {
 .v4-mega__col-list a:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
+  font-weight: 500;
 }
 .v4-mega__col-list a:focus-visible {
   outline: none;

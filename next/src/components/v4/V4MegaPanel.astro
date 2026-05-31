@@ -16,7 +16,8 @@
  */
 import type { V4Pillar } from '../../lib/v4-nav';
 import V4MegaColumn from './V4MegaColumn.astro';
-import V4MegaRail from './V4MegaRail.astro';
+import V4MegaPin from './V4MegaPin.astro';  // ← replaces V4MegaRail
+import V4PillarTopBanner from './V4PillarTopBanner.astro';
 
 export interface Props {
   pillar: V4Pillar;
@@ -27,12 +28,11 @@ export interface Props {
 const { pillar, triggerId } = Astro.props;
 // Notebook (and any future link-only pillars) carry no columns — no panel rendered.
 const cols = pillar.columns.length;          // 2 or 3
-const wideRail = cols === 2;                 // Journal pattern, give the rail extra width
 const panelClass = [
   'v4-mega',
   cols === 2 ? 'v4-mega--cols-2' : 'v4-mega--cols-3',
-  wideRail ? 'v4-mega--rail-wide' : '',
 ].filter(Boolean).join(' ');
+// Note: v4-mega--rail-wide class removed; the pin has no wide variant.
 ---
 
 {pillar.columns?.length > 0 && (
@@ -43,8 +43,9 @@ const panelClass = [
   data-v4-mega
 >
   <div class="v4-mega__container">
+    {pillar.topBanner && <V4PillarTopBanner banner={pillar.topBanner} />}
     <div class="v4-mega__grid">
-      <V4MegaRail rail={pillar.rail} pillarKey={pillar.key} />
+      <V4MegaPin rail={pillar.rail} />
       {pillar.columns.map((col) => <V4MegaColumn column={col} />)}
     </div>
   </div>
