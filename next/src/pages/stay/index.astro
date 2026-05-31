@@ -24,9 +24,9 @@ const blurb = seasonBlurb[season];
 // Update venue JSON files to change what surfaces here; no source code edit needed.
 const featuredStays = venues.filter((v) => v.data.editorPick);
 
-const ridgeZones = ['red-hill-plateau', 'hinterland'];
-const coastZones = ['ocean-coast', 'back-beaches', 'tip'];
-const bayZones = ['bayside'];
+const ridgeZones = ['red-hill', 'hinterland'];
+const coastZones = ['ocean-coast', 'peninsula-tip'];
+const bayZones = ['mornington', 'bay-coast'];
 const ridgeStays = venues.filter((v) => ridgeZones.includes(v.data.zone));
 const coastStays = venues.filter((v) => coastZones.includes(v.data.zone));
 const bayStays = venues.filter((v) => bayZones.includes(v.data.zone));

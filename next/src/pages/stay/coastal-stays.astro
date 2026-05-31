@@ -9,8 +9,8 @@ import { routeSlug } from '../../lib/editorial';
 const allVenues = await getCollection('venues');
 const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 
-// Coastal stays: tip, ocean-coast, back-beaches zones
-const coastalZones = ['tip', 'ocean-coast', 'back-beaches'];
+// Coastal stays: peninsula-tip, ocean-coast, bay-coast zones
+const coastalZones = ['peninsula-tip', 'ocean-coast', 'bay-coast'];
 const coastalStays = allVenues.filter((v) =>
   stayTypes.includes(v.data.type) &&
   coastalZones.includes(v.data.zone)

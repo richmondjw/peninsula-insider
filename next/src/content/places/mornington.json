@@ -2,7 +2,9 @@
   "slug": "mornington",
   "name": "Mornington",
   "kind": "town",
-  "zone": "bayside",
+  "zone": "mornington",
+  "regionSlug": "mornington-bay-coast",
+  "regionLabel": "Mornington & the Bay",
   "coordinates": {
     "lat": -38.2173,
     "lng": 145.0378

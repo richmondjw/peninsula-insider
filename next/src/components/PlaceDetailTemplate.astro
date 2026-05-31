@@ -564,10 +564,10 @@ const factual = place.data.factualLede ?? '';
     <div class="venues__grid venues__grid--links">
       <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
       <a href="/plans/" class="venue-card__cta">Weekend Plans →</a>
-      {(place.data.zone === 'red-hill-plateau' || place.data.zone === 'hinterland') && (
+      {(place.data.zone === 'red-hill' || place.data.zone === 'hinterland') && (
         <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
       )}
-      {(place.data.zone === 'tip' || place.data.zone === 'back-beaches' || place.data.zone === 'bayside') && (
+      {(place.data.zone === 'peninsula-tip' || place.data.zone === 'bay-coast' || place.data.zone === 'mornington') && (
         <a href="/journal/free-things-to-do-mornington-peninsula/" class="venue-card__cta">Free Things to Do →</a>
       )}
       <a href="/journal/best-brunch-mornington-peninsula/" class="venue-card__cta">Best Brunch Guide →</a>
@@ -577,7 +577,7 @@ const factual = place.data.factualLede ?? '';
       {place.data.kind === 'town' && (
         <a href="/journal/mornington-peninsula-wedding-venues/" class="venue-card__cta">Wedding Venues →</a>
       )}
-      {(place.data.zone === 'ocean-coast' || place.data.zone === 'back-beaches' || place.data.zone === 'tip') && (
+      {(place.data.zone === 'ocean-coast' || place.data.zone === 'peninsula-tip') && (
         <a href="/golf/" class="venue-card__cta">Best Golf Courses →</a>
       )}
     </div>
