@@ -100,7 +100,9 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'breakfast',    label: 'Breakfast',        href: '/journal/breakfast-before-the-crowds/' },
           { key: 'cellar-door',  label: 'Cellar door',      href: '/journal/the-cellar-door-short-list/' },
           { key: 'cafe',         label: 'Cafes',            href: '/eat/cafes/' },
-          { key: 'pantry',       label: 'Pantry & produce', href: '/journal/the-peninsula-pantry/' },
+          { key: 'brewery',      label: 'Breweries',        href: '/eat/breweries/' },
+          { key: 'distillery',   label: 'Distilleries',     href: '/eat/distilleries/' },
+          { key: 'providore',    label: 'Providores',       href: '/eat/providores/' },
         ],
       },
       {
@@ -192,8 +194,6 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'cellar-door',  label: 'Cellar door',         href: '/wine/cellar-doors/' },
           { key: 'producer',     label: 'Appointment producers', href: '/wine/appointment-producers/' },
           { key: 'best-cellar',  label: 'Best cellar doors',   href: '/wine/best-cellar-doors/' },
-          { key: 'brewery',      label: 'Breweries',           href: '/wine/#breweries' },
-          { key: 'distillery',   label: 'Distilleries',        href: '/wine/#distilleries' },
         ],
       },
       {
