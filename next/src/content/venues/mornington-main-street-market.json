@@ -4,16 +4,33 @@
   "type": "market",
   "place": "mornington",
   "zone": "mornington",
-  "coordinates": { "lat": -38.2178, "lng": 145.0386 },
+  "coordinates": {
+    "lat": -38.2178,
+    "lng": 145.0386
+  },
   "address": "Main St, Mornington VIC 3931",
-  "durationMinutes": 60,
-  "difficulty": "easy",
-  "seasonBest": ["all-year"],
+  "priceBand": "$",
+  "venueTier": "recommended",
+  "signature": "The northern Peninsula's midweek town market, a broad mix that folds easily into a Mornington visit.",
   "editorNote": "The town market for the northern Peninsula and the easiest market to fold into a midweek visit. The mix is broader than Red Hill or Balnarring: some produce, some craft, some street food, a strong rotation of prepared-food vendors using Main Street's restaurant tenancies. Most useful as a Mornington-day add-on rather than a destination in its own right, but for visitors based in the bayside corridor it removes the need to drive to the hinterland for a market morning.",
   "tags": {
-    "mood": ["slow", "quick-bite", "waterfront"],
-    "season": ["spring", "summer", "autumn", "winter"],
-    "audience": ["locals", "families", "first-timers", "couples"]
+    "mood": [
+      "slow",
+      "quick-bite",
+      "waterfront"
+    ],
+    "season": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "audience": [
+      "locals",
+      "families",
+      "first-timers",
+      "couples"
+    ]
   },
   "heroImage": {
     "src": "/images/sourced/place-mornington-01.webp",
@@ -23,5 +40,6 @@
   },
   "gallery": [],
   "lastVerified": "2026-04-23",
-  "publishedAt": "2026-04-23"
+  "publishedAt": "2026-04-23",
+  "sitemapExclude": false
 }
