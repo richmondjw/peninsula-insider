@@ -59,6 +59,7 @@ const COLLECTIONS = [
   // venues get hrefPrefix=null — derived per-row via venueHrefPrefix(d.type)
   { folder: 'venues',         entityType: 'venue',         hrefPrefix: null },
   { folder: 'places',         entityType: 'place',         hrefPrefix: '/places/' },
+  { folder: 'regions',        entityType: 'region',        hrefPrefix: '/explore/regions/' },
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/' },
   { folder: 'experiences',    entityType: 'experience',    hrefPrefix: '/explore/' },

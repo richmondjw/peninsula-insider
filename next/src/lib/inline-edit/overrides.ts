@@ -23,6 +23,7 @@ export type CmsEntityType =
   | 'page'
   | 'event'
   | 'place'
+  | 'region'
   | 'venue'
   | 'experience'
   | 'itinerary'

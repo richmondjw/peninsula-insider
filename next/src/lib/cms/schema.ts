@@ -1,4 +1,4 @@
-export const CMS_EDITABLE_ENTITY_TYPES = ['article', 'page', 'event', 'place', 'venue', 'experience', 'itinerary'] as const;
+export const CMS_EDITABLE_ENTITY_TYPES = ['article', 'page', 'event', 'place', 'region', 'venue', 'experience', 'itinerary'] as const;
 
 export type CmsEditableEntityType = (typeof CMS_EDITABLE_ENTITY_TYPES)[number];
 

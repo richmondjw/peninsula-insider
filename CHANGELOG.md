@@ -14,6 +14,57 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-01 — Codex
+
+### Footer advertising link removed
+
+**Summary**
+Removed the `Advertise` link to `/partners/advertising-kit/` from the global footer's "Work with Us" link list.
+
+**Files changed**
+- `next/src/components/Footer.astro`
+
+**Pages affected**
+- Site-wide footer
+
+**Why it matters**
+The public footer no longer promotes the advertising kit route.
+
+**Verification**
+- `npm run build` passes.
+- Generated `next/dist/**/*.html` contains no `/partners/advertising-kit/` footer link and no `>Advertise<` footer label.
+
+### Region hero image references repaired
+
+**Summary**
+Investigated the disappearing hero on `/explore/regions/red-hill-wine-country/`. The region data referenced `/images/sourced/region-red-hill-01.webp`, but that file was not present in `next/public/images/sourced/` or the deployed root. The same missing `region-*.webp` pattern affected all five region pages. Repointed region hero images to existing source assets and added a build-time lint for region hero asset existence.
+
+**Files changed**
+- `next/src/content/regions/red-hill-wine-country.json`
+- `next/src/content/regions/mornington-bay-coast.json`
+- `next/src/content/regions/ocean-coast.json`
+- `next/src/content/regions/peninsula-tip.json`
+- `next/src/content/regions/western-port.json`
+- `next/scripts/lint-region-images.mjs`
+- `next/package.json`
+
+**Pages affected**
+- `/explore/regions/red-hill-wine-country/`
+- `/explore/regions/mornington-bay-coast/`
+- `/explore/regions/ocean-coast/`
+- `/explore/regions/peninsula-tip/`
+- `/explore/regions/western-port/`
+
+**Why it matters**
+The page could appear correct while a browser still had the old asset cached, then lose the hero on refresh when the browser requested the missing file again. The new lint stops region pages from shipping with missing hero assets.
+
+**Verification**
+- `npm run lint:region-images` passes.
+- `npm run build` passes.
+
+**Follow-up**
+- Replace the fallback region hero choices with dedicated region photography when final assets are ready.
+
 ## 2026-05-05 — Remy (mobile app — Sprint 0 paperwork pack)
 
 ### Summary

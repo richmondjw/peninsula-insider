@@ -16,6 +16,8 @@ import ExperienceCard from './ExperienceCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import { venueHrefPrefix, routeSlug } from '../lib/editorial';
+import { editableImage } from '../lib/inline-edit/attrs';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 interface Props {
   region: CollectionEntry<'regions'>;
@@ -29,7 +31,10 @@ const { region, places, venues, experiences, articles, adjacentRegionData } = As
 const d = region.data;
 const SITE = 'https://peninsulainsider.com.au';
 const url = `${SITE}/explore/regions/${d.slug}/`;
-const heroAbs = d.heroImage.src.startsWith('http') ? d.heroImage.src : `${SITE}${d.heroImage.src}`;
+const hero = await resolveHero('region', d.slug, d);
+const regionHeroSrc = hero.src;
+const regionHeroStyle = `background-image:linear-gradient(rgba(20,18,16,0.45) 0%,rgba(20,18,16,0.35) 40%,rgba(20,18,16,0.65) 100%),url('${regionHeroSrc}')`;
+const heroAbs = regionHeroSrc.startsWith('http') ? regionHeroSrc : `${SITE}${regionHeroSrc}`;
 
 const pillarOf = (type: string) => venueHrefPrefix(type).replace(/\//g, '');
 
@@ -63,13 +68,23 @@ const touristDestination = {
   description={d.tagline ?? d.intro.slice(0, 155)}
   section="explore"
   canonical={url}
-  ogImage={d.heroImage.src}
+  ogImage={regionHeroSrc}
 >
   <script type="application/ld+json" set:html={JSON.stringify(touristDestination)} />
   <meta data-pagefind-filter="region_slug" content={d.slug} />
   <meta data-pagefind-filter="entity_type" content="region" />
 
-  <section class="region-hero" style={`background-image:linear-gradient(rgba(20,18,16,0.45) 0%,rgba(20,18,16,0.35) 40%,rgba(20,18,16,0.65) 100%),url('${d.heroImage.src}')`}>
+  <section
+    class="region-hero"
+    style={regionHeroStyle}
+    {...editableImage({
+      entityType: 'region',
+      entitySlug: d.slug,
+      fieldPath: 'heroImage',
+      label: `${d.name} hero`,
+      purpose: 'hero',
+    })}
+  >
     <div class="container">
       <p class="region-hero__eyebrow">Explore · Regions</p>
       <h1 class="region-hero__title">{d.name}</h1>

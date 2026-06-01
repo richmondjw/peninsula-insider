@@ -94,6 +94,7 @@ const COLLECTIONS = [
   { folder: 'venues',         entityType: 'venue',         hrefPrefix: null,         titleField: 'name'  },
   { folder: 'experiences',    entityType: 'experience',    hrefPrefix: '/explore/',  titleField: 'name'  },
   { folder: 'places',         entityType: 'place',         hrefPrefix: '/places/',   titleField: 'name'  },
+  { folder: 'regions',        entityType: 'region',        hrefPrefix: '/explore/regions/', titleField: 'name' },
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/',  titleField: 'title' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/', titleField: 'title' },
   { folder: 'itineraries',    entityType: 'itinerary',     hrefPrefix: '/plans/',    titleField: 'title' },
