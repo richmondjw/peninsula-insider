@@ -127,3 +127,5 @@ The four-hour Peninsula visit works because of what it leaves out. Three honest 
 The region is often written about as somewhere you need forty-eight hours to understand. That is true if you want to stay. For the Tuesday morning when you have to be back at your desk by five, the Peninsula is one of the better half-day escapes in Australia, as long as the four-hour plan is honest about what four hours can hold.
 
 The general rule across this publication: pick the version that fits the time you have, and do that version well.
+
+*Prices may change. Confirm current rates directly with the venue or operator before booking.*
