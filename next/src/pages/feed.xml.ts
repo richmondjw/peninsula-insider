@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { routeSlug } from '../lib/editorial';
 
 const SITE_URL = 'https://peninsulainsider.com.au';
 const FEED_TITLE = 'Peninsula Insider';
@@ -27,11 +28,12 @@ export const GET: APIRoute = async () => {
 
   const items = articles
     .map((a) => ({
-      slug: a.slug,
+      slug: routeSlug(a),
       title: a.data.title as string,
       description: (a.data.dek ?? '') as string,
       pubDate: (a.data.publishedAt as Date | undefined) ?? new Date(),
     }))
+    .filter((a) => Boolean(a.slug))
     .sort((x, y) => y.pubDate.getTime() - x.pubDate.getTime())
     .slice(0, 40);
 

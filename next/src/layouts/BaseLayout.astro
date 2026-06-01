@@ -83,6 +83,10 @@ const normalizedPath = rawPathname === '/' ? '/' : rawPathname.replace(/\/?$/, '
 const rawCanonical = canonical ?? `${SITE_URL}${normalizedPath}`;
 const canonicalUrl = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + '/';
 
+// Emit the site-level WebSite + SearchAction graph only on the homepage,
+// so the SearchAction sitelinks box resolves to one canonical source.
+const isHome = normalizedPath === '/';
+
 // OG image must be an absolute URL.
 const ogImageAbsolute = ogImage.startsWith('http')
   ? ogImage
@@ -130,11 +134,66 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'NewsMediaOrganization',
+    '@id': `${SITE_URL}/#organization`,
     name: 'Peninsula Insider',
+    legalName: 'Peninsula Insider',
     url: SITE_URL,
-    logo: `${SITE_URL}/images/sourced/home-cover.webp`,
+    logo: {
+      '@type': 'ImageObject',
+      // PI-EXP-045: interim publisher logo. Replace with a dedicated square
+      // (≥112×112px) /logo.png once the asset is created.
+      url: `${SITE_URL}/images/sourced/home-cover.webp`,
+    },
+    description:
+      'The independent editorial guide to the Mornington Peninsula: honest, opinionated, first-hand coverage of eating, drinking, staying, and exploring. Every recommendation is earned by visiting.',
+    foundingDate: '2024',
+    areaServed: {
+      '@type': 'Place',
+      name: 'Mornington Peninsula, Victoria, Australia',
+    },
+    sameAs: [
+      'https://www.instagram.com/peninsula_insider/',
+      'https://www.facebook.com/profile.php?id=61568754749670',
+      'https://www.linkedin.com/company/peninsula-insider',
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'editorial',
+        email: 'hello@peninsulainsider.com.au',
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'corrections',
+        email: 'corrections@peninsulainsider.com.au',
+      },
+    ],
+    publishingPrinciples: `${SITE_URL}/about/`,
+    correctionsPolicy: `${SITE_URL}/corrections/`,
+    diversityPolicy: `${SITE_URL}/about/`,
+    ethicsPolicy: `${SITE_URL}/about/`,
   })} />
+
+  {isHome && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: 'Peninsula Insider',
+      url: `${SITE_URL}/`,
+      inLanguage: 'en-AU',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE_URL}/search/?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    })} />
+  )}
 
   <!-- View transitions: client-side routing with page fade -->
   <ClientRouter />

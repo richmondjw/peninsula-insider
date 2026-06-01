@@ -5,5 +5,8 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_astro/
+# Deployed source tree and preview routes — duplicate of production, keep out of the index.
+Disallow: /next/
+Disallow: /preview/
 
 Sitemap: https://peninsulainsider.com.au/sitemap.xml
