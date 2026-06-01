@@ -1,0 +1,18 @@
+{
+  "slug": "ocean-coast",
+  "name": "Flinders & the Ocean Coast",
+  "tagline": "Wild surf beaches, the best pub on the Peninsula, and a rural quiet that feels hard-won.",
+  "intro": "The ocean coast runs along the Peninsula's south-facing edge, where Bass Strait swells arrive unimpeded and the light has a particular quality in the afternoon. Flinders is the anchor, an extraordinary village that manages to be a serious food-and-wine destination while remaining genuinely unspoiled. Cape Schanck marks the south-west corner with its lighthouse and coastal boardwalk. The ocean beach walking here is among the best in Victoria. Fewer people come this way, which remains one of the coast's distinguishing features.",
+  "heroImage": {
+    "src": "/images/sourced/region-ocean-coast-01.webp",
+    "alt": "Surf breaking on the ocean beach near Flinders, Mornington Peninsula",
+    "credit": "Peninsula Insider",
+    "license": "tmp-unsplash"
+  },
+  "zones": ["ocean-coast"],
+  "places": ["flinders", "cape-schanck", "rye", "fingal"],
+  "adjacentRegions": ["red-hill-wine-country", "peninsula-tip"],
+  "coordinates": { "lat": -38.49, "lng": 144.97 },
+  "publishedAt": "2026-06-01",
+  "sitemapExclude": false
+}

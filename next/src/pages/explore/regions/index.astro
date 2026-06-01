@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+
+const regions = (await getCollection('regions', (r) => !r.data.sitemapExclude))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const SITE = 'https://peninsulainsider.com.au';
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Explore by Region · Peninsula Insider"
+  description="The Mornington Peninsula's five regions: Red Hill & Merricks, Sorrento & Portsea, Mornington & the Bay, Western Port, and Flinders & the Ocean Coast."
+  section="explore"
+  canonical={`${SITE}/explore/regions/`}
+>
+  <div class="container">
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Explore', href: '/explore/' }, { label: 'Regions' }]} />
+
+    <header class="regions-index__header">
+      <p class="regions-index__eyebrow">Explore</p>
+      <h1 class="regions-index__title">The Peninsula by region</h1>
+      <p class="regions-index__lead">Five distinct regions, each with its own character. Start here to find the part of the Peninsula that fits the trip.</p>
+    </header>
+
+    <div class="regions-index__grid">
+      {regions.map((r) => (
+        <a class="region-card" href={`/explore/regions/${r.data.slug}/`}>
+          <div class="region-card__image" style={`background-image:url('${r.data.heroImage.src}')`}></div>
+          <div class="region-card__body">
+            <h2 class="region-card__name">{r.data.name}</h2>
+            {r.data.tagline && <p class="region-card__tagline">{r.data.tagline}</p>}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <NewsletterBlock />
+
+  <style>
+    .regions-index__header { margin: 32px 0 28px; }
+    .regions-index__eyebrow { font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; color: var(--accent); margin: 0 0 8px; }
+    .regions-index__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(32px, 5vw, 56px); margin: 0 0 10px; }
+    .regions-index__lead { max-width: 60ch; color: var(--soft); font-size: 1.05rem; }
+    .regions-index__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin: 0 0 48px; }
+    .region-card { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; text-decoration: none; color: var(--text); transition: transform 0.15s, border-color 0.15s; }
+    .region-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .region-card__image { aspect-ratio: 16 / 10; background-size: cover; background-position: center; background-color: var(--bg-alt); }
+    .region-card__body { padding: 18px 20px 22px; }
+    .region-card__name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; margin: 0 0 6px; }
+    .region-card__tagline { font-size: 0.92rem; color: var(--soft); margin: 0; }
+  </style>
+</BaseLayout>
