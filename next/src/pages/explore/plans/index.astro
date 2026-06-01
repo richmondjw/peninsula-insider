@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PlanCard from '../../../components/PlanCard.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import GuideHero from '../../../components/GuideHero.astro';
 import CompareBlock from '../../../components/CompareBlock.astro';
@@ -39,6 +40,44 @@ const articlesAll = (await getCollection('articles', ({ data }) => data.status =
 const plansArticles = articlesAll
   .filter((a) => (a.data.section ?? 'journal') === 'plans')
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+
+// ── Plans browse: four-axis client-side filter (PR-8) ──────────────────────
+const regionsForFilter = await getCollection('regions');
+const placeToRegion = new Map<string, string>();
+const regionLabelMap = new Map<string, string>();
+for (const r of regionsForFilter) {
+  regionLabelMap.set(r.data.slug, r.data.name);
+  for (const pref of r.data.places) placeToRegion.set(pref.id, r.data.slug);
+}
+const OCCASION_MAP: Record<string, string[]> = {
+  romantic: ['anniversary', 'romance', 'first-date', 'sunset', 'couples'],
+  family: ['family'],
+  'long-lunch': ['long-lunch', 'slow'],
+  wellness: ['wellness'],
+  adventure: ['walk', 'beach', 'outdoor', 'surf'],
+  'weekend-escape': ['weekend-escape', 'cellar-door'],
+};
+const SEASON_SET = new Set(['summer', 'autumn', 'winter', 'spring', 'all-year']);
+const planBrowse = plansArticles.map((a) => {
+  const tags: string[] = ((a.data.tags ?? []) as string[]).map((t) => String(t).toLowerCase());
+  const occasion = Object.entries(OCCASION_MAP)
+    .filter(([, keys]) => keys.some((k) => tags.includes(k)))
+    .map(([k]) => k);
+  const season = tags.filter((t) => SEASON_SET.has(t));
+  const duration = a.data.planShape ? [String(a.data.planShape)] : [];
+  const regionSet = new Set<string>();
+  for (const pref of ((a.data.relatedPlaces ?? []) as any[])) {
+    const rg = placeToRegion.get(pref.id);
+    if (rg) regionSet.add(rg);
+  }
+  for (const t of tags) {
+    const rg = placeToRegion.get(t);
+    if (rg) regionSet.add(rg);
+  }
+  const region = [...regionSet];
+  return { article: a, axes: { occasion, duration, season, region }, regionLabel: region.length ? regionLabelMap.get(region[0]) : undefined };
+});
+const filterRegions = [...regionLabelMap.entries()];
 
 // Editorial curation via schema flag (featured: true on place JSON).
 // No hardcoded slugs - editors update the JSON to change what surfaces here.
@@ -523,6 +562,112 @@ export const prerender = true;
       </div>
     </section>
   )}
+
+  <section class="plans-browse" id="plans-browse">
+    <div class="container">
+      <header class="plans-browse__header">
+        <h2 class="plans-browse__title">Browse all plans</h2>
+        <p class="plans-browse__sub">Filter by occasion, duration, season, or where you want to be.</p>
+        <p class="plans-browse__count" id="plans-count" aria-live="polite">{planBrowse.length} plans</p>
+      </header>
+
+      <div class="plans-browse__layout">
+        <button type="button" class="plans-browse__toggle" id="plans-filter-toggle" aria-expanded="false">Filter plans</button>
+
+        <form class="plans-filter" role="search" aria-label="Filter plans">
+          <fieldset class="plans-filter__group">
+            <legend>Occasion</legend>
+            {[['romantic', 'Romantic'], ['family', 'Family'], ['long-lunch', 'Long Lunch'], ['wellness', 'Wellness'], ['adventure', 'Adventure'], ['weekend-escape', 'Weekend Escape']].map(([v, l]) => (
+              <label class="plans-filter__opt"><input type="checkbox" name="occasion" value={v} /> {l}</label>
+            ))}
+          </fieldset>
+          <fieldset class="plans-filter__group">
+            <legend>Duration</legend>
+            {[['day-trip', 'Day trip'], ['one-night', 'One night'], ['two-night', 'Weekend'], ['seasonal', 'Seasonal']].map(([v, l]) => (
+              <label class="plans-filter__opt"><input type="checkbox" name="duration" value={v} /> {l}</label>
+            ))}
+          </fieldset>
+          <fieldset class="plans-filter__group">
+            <legend>Season</legend>
+            {[['summer', 'Summer'], ['autumn', 'Autumn'], ['winter', 'Winter'], ['spring', 'Spring'], ['all-year', 'Any time']].map(([v, l]) => (
+              <label class="plans-filter__opt"><input type="checkbox" name="season" value={v} /> {l}</label>
+            ))}
+          </fieldset>
+          <fieldset class="plans-filter__group">
+            <legend>Peninsula Area</legend>
+            {filterRegions.map(([v, l]) => (
+              <label class="plans-filter__opt"><input type="checkbox" name="region" value={v} /> {l}</label>
+            ))}
+          </fieldset>
+          <button type="button" id="clear-filters" class="plans-filter__clear">Clear all</button>
+        </form>
+
+        <div class="plans-grid" id="plans-grid">
+          {planBrowse.map((p) => <PlanCard plan={p.article} axes={p.axes} regionLabel={p.regionLabel} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      function initPlansFilter() {
+        var bar = document.querySelector('.plans-filter');
+        var grid = document.getElementById('plans-grid');
+        if (!bar || !grid) return;
+        var cards = Array.prototype.slice.call(grid.querySelectorAll('.plan-card'));
+        var countEl = document.getElementById('plans-count');
+        function active() {
+          var f = { occasion: [], duration: [], season: [], region: [] };
+          bar.querySelectorAll('input[type=checkbox]:checked').forEach(function (i) { if (f[i.name]) f[i.name].push(i.value); });
+          return f;
+        }
+        function matches(card, f) {
+          return ['occasion', 'duration', 'season', 'region'].every(function (ax) {
+            if (!f[ax].length) return true;
+            var vals = (card.getAttribute('data-' + ax) || '').split(' ');
+            return f[ax].some(function (v) { return vals.indexOf(v) !== -1; });
+          });
+        }
+        function apply() {
+          var f = active(), n = 0;
+          cards.forEach(function (c) { var s = matches(c, f); c.hidden = !s; if (s) n++; });
+          if (countEl) countEl.textContent = n + (n === 1 ? ' plan' : ' plans');
+        }
+        bar.addEventListener('change', apply);
+        var clear = document.getElementById('clear-filters');
+        if (clear) clear.addEventListener('click', function () { bar.querySelectorAll('input[type=checkbox]').forEach(function (i) { i.checked = false; }); apply(); });
+        var toggle = document.getElementById('plans-filter-toggle');
+        if (toggle) toggle.addEventListener('click', function () { var open = bar.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', String(open)); });
+        apply();
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPlansFilter, { once: true });
+      else initPlansFilter();
+      document.addEventListener('astro:page-load', initPlansFilter);
+    })();
+  </script>
+
+  <style>
+    .plans-browse { padding: 28px 0 8px; }
+    .plans-browse__header { margin-bottom: 18px; }
+    .plans-browse__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(26px, 3.6vw, 38px); margin: 0 0 6px; }
+    .plans-browse__sub { color: var(--soft); margin: 0 0 6px; }
+    .plans-browse__count { font-family: 'Outfit', sans-serif; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0; }
+    .plans-browse__layout { display: grid; grid-template-columns: 240px 1fr; gap: 28px; align-items: start; }
+    .plans-browse__toggle { display: none; }
+    .plans-filter { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 84px; }
+    .plans-filter__group { border: 0; padding: 0; margin: 0; }
+    .plans-filter__group legend { font-family: 'Outfit', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); padding: 0; margin: 0 0 8px; }
+    .plans-filter__opt { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; padding: 3px 0; cursor: pointer; }
+    .plans-filter__clear { font-family: 'Outfit', sans-serif; font-size: 0.82rem; align-self: flex-start; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; background: transparent; cursor: pointer; }
+    .plans-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+    @media (max-width: 820px) {
+      .plans-browse__layout { grid-template-columns: 1fr; }
+      .plans-browse__toggle { display: inline-block; font-family: 'Outfit', sans-serif; font-size: 0.9rem; padding: 9px 18px; border: 1px solid var(--border); border-radius: 999px; background: var(--bg); cursor: pointer; margin-bottom: 16px; }
+      .plans-filter { display: none; position: static; }
+      .plans-filter.is-open { display: flex; padding: 16px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 18px; }
+    }
+  </style>
 
   <NewsletterBlock />
 </BaseLayout>
