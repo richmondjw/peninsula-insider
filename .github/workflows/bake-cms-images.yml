@@ -1,0 +1,51 @@
+name: Bake CMS image overrides
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bake-cms-image-overrides
+  cancel-in-progress: true
+
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        working-directory: next
+        run: npm ci --no-audit --no-fund
+
+      - name: Export published image slots
+        working-directory: next
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY || secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: npm run cms:export-images
+
+      - name: Commit baked image snapshot
+        run: |
+          set -euxo pipefail
+          git config user.name  "peninsula-insider-deploy[bot]"
+          git config user.email "deploy@peninsulainsider.com.au"
+          git add next/src/data/cms-image-overrides.json
+          if git diff --staged --quiet; then
+            echo "No CMS image snapshot changes."
+            exit 0
+          fi
+          git commit -m "chore(cms): bake current image overrides"
+          git push origin HEAD:main

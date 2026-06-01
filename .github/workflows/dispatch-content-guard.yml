@@ -1,0 +1,41 @@
+name: Dispatch content guard
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'next/src/content/articles/peninsula-this-weekend-*.md'
+      - 'next/src/content/events/*.json'
+      - 'reports/peninsula-this-weekend-*.md'
+  push:
+    branches: [main]
+    paths:
+      - 'next/src/content/articles/peninsula-this-weekend-*.md'
+      - 'next/src/content/events/*.json'
+      - 'reports/peninsula-this-weekend-*.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate dispatch-only diff
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+            HEAD="${{ github.event.pull_request.head.sha }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            BASE="${{ github.event.before }}"
+            HEAD="${{ github.sha }}"
+          else
+            BASE="$(git rev-parse origin/main~1)"
+            HEAD="$(git rev-parse origin/main)"
+          fi
+          node ops/scripts/guard-dispatch-diff.mjs --base "$BASE" --head "$HEAD"

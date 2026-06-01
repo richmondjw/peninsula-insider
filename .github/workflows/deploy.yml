@@ -13,8 +13,9 @@ name: Build & deploy site to GitHub Pages
 #        PUBLIC_SUPABASE_URL       = https://tjjhpvslpysfklwpqmgz.supabase.co
 #        PUBLIC_SUPABASE_ANON_KEY  = sb_publishable_... (or legacy eyJ... anon key)
 #
-# After that, every push to main rebuilds + commits the dist back to main.
-# GitHub Pages serves from main/root so the deploy is "automatic".
+# After that, every push to main rebuilds and publishes the generated site to
+# the gh-pages branch. main stays source-only, so content pushes cannot drag a
+# stale generated root snapshot across the repo.
 #
 # If PUBLIC_SUPABASE_ANON_KEY is unset, next/src/lib/auth.ts gracefully
 # degrades to localStorage-only — saves and itineraries still work on
@@ -30,11 +31,11 @@ on:
   workflow_dispatch:        # allow manual trigger from the Actions tab
 
 permissions:
-  contents: write           # needed to push the build commit back to main
+  contents: write           # needed to publish the build artifact branch
 
 concurrency:
   group: pages-deploy
-  cancel-in-progress: false  # let in-flight builds finish to avoid half-deployed state
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -175,127 +176,52 @@ jobs:
           echo "Stripe Founders:            $([ -n "$PUBLIC_STRIPE_PRICE_FOUNDERS" ] && echo yes || echo no)"
           npm run build:search
 
-      - name: Sync dist to repo root (mirrors build-live.sh)
+      - name: Prepare GitHub Pages artifact
         run: |
           set -euxo pipefail
 
-          # Wipe everything at root EXCEPT the things build-live.sh preserves.
-          # Note: .github is preserved here too so the workflow can re-run.
-          find . -mindepth 1 -maxdepth 1 \
-            ! -name '.git' \
-            ! -name '.github' \
-            ! -name '.gitignore' \
-            ! -name '.nojekyll' \
-            ! -name 'CNAME' \
-            ! -name 'next' \
-            ! -name 'docs' \
-            ! -name 'ops' \
-            ! -name 'scripts' \
-            ! -name 'reports' \
-            ! -name 'build-v2.sh' \
-            ! -name 'build-live.sh' \
-            ! -name 'CHANGELOG.md' \
-            ! -name 'HANDOVER-CLAUDE.md' \
-            ! -name 'BRAND-PI.md' \
-            ! -name '.approvals' \
-            ! -name '.claude' \
-            ! -name 'design-reviews' \
-            -exec rm -rf {} +
-
-          # Copy fresh build to root
-          cp -r next/dist/. .
+          rm -rf /tmp/pi-pages
+          mkdir -p /tmp/pi-pages
+          cp -R next/dist/. /tmp/pi-pages/
 
           # Stable fallback stylesheet that some legacy pages reference
-          mkdir -p assets
-          cp next/src/styles/global.css assets/styles.css
+          mkdir -p /tmp/pi-pages/assets
+          cp next/src/styles/global.css /tmp/pi-pages/assets/styles.css
+
+          # GitHub Pages root metadata
+          touch /tmp/pi-pages/.nojekyll
+          if [ -f CNAME ]; then
+            cp CNAME /tmp/pi-pages/CNAME
+          fi
 
           # Sanity check
-          if [ ! -f assets/styles.css ]; then
+          if [ ! -f /tmp/pi-pages/assets/styles.css ]; then
             echo "::error::stable fallback stylesheet missing at ./assets/styles.css"
             exit 1
           fi
 
-          page_count=$(find . -path './.git' -prune -o -path './next' -prune -o -name '*.html' -print | wc -l)
+          page_count=$(find /tmp/pi-pages -name '*.html' -print | wc -l)
           echo "Built $page_count pages"
 
-      - name: Commit and push deploy
+      - name: Publish artifact to gh-pages
         env:
-          # Pass the trigger commit message via env var rather than
-          # ${{ github.event.head_commit.message }} inline. The template
-          # substitution dumps the raw message into the generated shell
-          # script, so any backtick / quote / parens in the message
-          # produces a shell parse error and the deploy fails before push.
-          # See: failed runs #159, #160, #163 (commit messages that
-          # referenced `pi.submissions` etc. in backticks).
           HEAD_COMMIT_MSG: ${{ github.event.head_commit.message }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euxo pipefail
+          TRIGGER_MSG=$(printf '%s\n' "$HEAD_COMMIT_MSG" | head -1 | tr -d '"' | tr -d '`' | tr -d '$')
+          cd /tmp/pi-pages
+          git init
+          git checkout -b gh-pages
           git config user.name  "peninsula-insider-deploy[bot]"
           git config user.email "deploy@peninsulainsider.com.au"
-
           git add -A
-
-          if git diff --staged --quiet; then
-            echo "No build changes to commit"
-            exit 0
-          fi
-
-          TRIGGER_MSG=$(printf '%s\n' "$HEAD_COMMIT_MSG" | head -1 | tr -d '"' | tr -d '`' | tr -d '$')
-          CHANGED_COUNT=$(git diff --staged --name-only | wc -l | tr -d ' ')
-          export LEDGER_TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          export LEDGER_RUN_ID="${GITHUB_RUN_ID}"
-          export LEDGER_SUMMARY="Automated site deploy with ${CHANGED_COUNT} changed file(s). Trigger: ${TRIGGER_MSG:-manual workflow dispatch}."
-          export LEDGER_NOTES="Workflow-level build and deploy checks passed, including fallback stylesheet sanity check."
-
-          python3 - <<'PY'
-          import json, os
-          from pathlib import Path
-          entry = {
-              "timestamp": os.environ["LEDGER_TIMESTAMP"],
-              "job_name": "deploy-site-to-github-pages",
-              "agent_or_owner": "peninsula-insider-deploy[bot]",
-              "content_type": "site-deploy",
-              "canonical_url_or_path": "/",
-              "change_summary": os.environ["LEDGER_SUMMARY"],
-              "risk_tier": "low",
-              "approval_mode": "system-approved",
-              "approved_by": None,
-              "publish_result": "published",
-              "verification_result": "passed",
-              "rollback_reference": None,
-              "run_id": os.environ["LEDGER_RUN_ID"],
-              "notes": os.environ["LEDGER_NOTES"],
-          }
-          path = Path('/tmp/pi-ledger-entry.json')
-          path.write_text(json.dumps(entry, indent=2) + '\n', encoding='utf-8')
-          print(path)
-          PY
-
-          python3 ops/scripts/publication-ledger.py append --entry-file /tmp/pi-ledger-entry.json
-          # Capture the ledger id of the entry we just appended for
-          # cross-reference in the run-log entry written after deploy.
-          LEDGER_ID=$(python3 -c "import json; e = json.load(open('/tmp/pi-ledger-entry.json')); print(e.get('ledger_id') or '')")
-          echo "LEDGER_ID=${LEDGER_ID}" >> "$GITHUB_ENV"
-          git add ops/publication-ledger/
-
           git commit -F - <<EOF
-          build: deploy site (auto) [skip ci]
+          build: deploy site from ${GITHUB_SHA::7} [skip ci]
 
-          Built from ${GITHUB_SHA::7}: ${TRIGGER_MSG}
+          Trigger: ${TRIGGER_MSG:-manual workflow dispatch}
           EOF
-
-          # Use a retry loop in case the branch moved while we were building
-          for attempt in 1 2 3; do
-            if git push origin main; then
-              echo "Pushed deploy on attempt $attempt"
-              exit 0
-            fi
-            echo "Push failed, refetching and retrying ($attempt/3)..."
-            git fetch origin main
-            git rebase origin/main || { git rebase --abort; exit 1; }
-          done
-
-          echo "::error::Failed to push after 3 attempts"
-          exit 1
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
 
       - name: Post-publish verification (Stage B item 1)
         # Stage B item 1 — verify the deploy externally before the run-log
@@ -319,12 +245,9 @@ jobs:
             echo "::warning::post-publish verification reported issues for ${PI_LIVE_URL}"
           fi
 
-      - name: Append run-log entry (Stage B item 5)
-        # Stage B item 5 — write a run-log entry that records this deploy's
-        # observability shape (start/end, duration, status, mutation,
-        # surfaces, ledger id, verification result, alert path). Runs even
-        # on partial failure so the absence of a run-log entry itself
-        # signals an upstream-job crash.
+      - name: Append run-log entry (local only)
+        # Keep run metadata visible in workflow logs without committing
+        # generated run-log churn back to main. main is source-only now.
         if: always()
         env:
           STARTED_AT: ${{ steps.runlog-start.outputs.started_at }}
@@ -347,11 +270,6 @@ jobs:
             ALERT_FLAGS=( --alert-sent --alert-channel github-issue )
           fi
 
-          LEDGER_FLAGS=()
-          if [[ -n "${LEDGER_ID:-}" ]]; then
-            LEDGER_FLAGS=( --ledger-entries "${LEDGER_ID}" )
-          fi
-
           ERROR_FLAGS=()
           if [[ -n "${ERROR_SUMMARY}" ]]; then
             ERROR_FLAGS=( --error-summary "${ERROR_SUMMARY}" )
@@ -364,27 +282,11 @@ jobs:
             --started-at "${STARTED_AT}" \
             --ended-at "${ENDED_AT}" \
             --status "${STATUS}" \
-            --mutation mutating-live \
+            --mutation deploy-artifact \
             --surfaces "/" \
-            "${LEDGER_FLAGS[@]}" \
             "${ALERT_FLAGS[@]}" \
             "${ERROR_FLAGS[@]}" \
             --notes "automated GitHub Actions deploy; verification=${VERIFICATION:-not-run}" \
             --append
 
-          # Stage and push the new run-log entry + index.csv update so a
-          # subsequent run picks them up. Tolerates concurrent pushes via
-          # the same retry loop as the deploy commit step.
-          git config user.name  "peninsula-insider-deploy[bot]"
-          git config user.email "deploy@peninsulainsider.com.au"
-          git add ops/run-log/ || true
-          if ! git diff --staged --quiet -- ops/run-log/; then
-            git commit -m "ops(run-log): record deploy ${GITHUB_RUN_ID} [skip ci]" || true
-            for attempt in 1 2 3; do
-              if git push origin main; then
-                break
-              fi
-              git fetch origin main
-              git rebase origin/main || { git rebase --abort; break; }
-            done
-          fi
+          git diff -- ops/run-log/ || true

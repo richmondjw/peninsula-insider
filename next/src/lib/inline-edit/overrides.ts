@@ -17,6 +17,7 @@
  */
 
 import { createCmsAnonClient } from '../cms/server';
+import bakedImageOverrides from '../../data/cms-image-overrides.json';
 
 export type CmsEntityType =
   | 'article'
@@ -47,6 +48,18 @@ export interface CmsOverrides {
 const EMPTY: CmsOverrides = { text: {}, image: {} };
 const cache = new Map<string, Promise<CmsOverrides>>();
 
+type BakedImageSlot = {
+  src?: string | null;
+  alt?: string | null;
+  caption?: string | null;
+  credit?: string | null;
+  storagePath?: string | null;
+};
+
+type BakedImageOverrides = {
+  images?: Record<string, Record<string, BakedImageSlot>>;
+};
+
 export async function loadOverrides(
   entityType: CmsEntityType,
   entitySlug: string,
@@ -63,8 +76,9 @@ async function fetchOverrides(
   entityType: CmsEntityType,
   entitySlug: string,
 ): Promise<CmsOverrides> {
+  const baked = loadBakedImages(entityType, entitySlug);
   const client = createCmsAnonClient();
-  if (!client) return EMPTY;
+  if (!client) return { text: {}, image: baked };
 
   try {
     const [textResp, imageResp] = await Promise.all([
@@ -108,8 +122,29 @@ async function fetchOverrides(
       };
     }
 
-    return { text, image };
+    return { text, image: { ...baked, ...image } };
   } catch {
-    return EMPTY;
+    return { text: {}, image: baked };
   }
+}
+
+function loadBakedImages(entityType: CmsEntityType, entitySlug: string): Record<string, CmsOverrideImage> {
+  const key = `${entityType}/${entitySlug}`;
+  const source = bakedImageOverrides as BakedImageOverrides;
+  const slots = source.images?.[key];
+  if (!slots) return {};
+
+  const image: Record<string, CmsOverrideImage> = {};
+  for (const [fieldPath, row] of Object.entries(slots)) {
+    const src = row.src ?? row.storagePath;
+    if (!src) continue;
+    image[fieldPath] = {
+      src,
+      alt: row.alt ?? null,
+      caption: row.caption ?? null,
+      credit: row.credit ?? null,
+      storagePath: row.storagePath ?? null,
+    };
+  }
+  return image;
 }
