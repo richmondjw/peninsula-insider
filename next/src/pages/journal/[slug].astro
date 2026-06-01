@@ -143,11 +143,24 @@ const ogImage = overrideHero?.src
       ? article.data.heroImage.src
       : '/images/sourced/home-cover.webp');
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Journal', href: '/journal' },
-  { label: article.data.title },
-];
+// Region-aware breadcrumb for planning-utility formats with a single related
+// place that carries a regionSlug: Home -> Region -> Place -> Title. Otherwise
+// the standard Home -> Journal -> Title.
+const breadcrumbItems = (() => {
+  const base = [{ label: 'Home', href: '/' }];
+  if (isHubGuide && relatedPlaces.length === 1) {
+    const p: any = relatedPlaces[0];
+    if (p?.data?.regionSlug) {
+      return [
+        ...base,
+        { label: p.data.regionLabel ?? p.data.regionSlug, href: `/explore/regions/${p.data.regionSlug}/` },
+        { label: p.data.name, href: `/explore/places/${routeSlug(p)}/` },
+        { label: article.data.title },
+      ];
+    }
+  }
+  return [...base, { label: 'Journal', href: '/journal/' }, { label: article.data.title }];
+})();
 
 // Map internal format tag → human-readable articleSection for JSON-LD.
 // Per Operational Definitions v1.2 (Journal section): format must be exposed

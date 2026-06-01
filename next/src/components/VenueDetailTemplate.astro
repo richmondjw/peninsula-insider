@@ -7,8 +7,10 @@ import VenueCard from './VenueCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import ItineraryCard from './ItineraryCard.astro';
 import PiArticleActions from './PiArticleActions.astro';
+import { getCollection } from 'astro:content';
 import { loadOverrides } from '../lib/inline-edit/overrides';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
+import EstateCluster from './EstateCluster.astro';
 
 export interface Props {
   venue: any;
@@ -50,9 +52,19 @@ const heroStyle = overrideHero?.src
   : heroBackgroundStyle(data);
 const heroAlt = overrideHero?.alt ?? data.heroImage?.alt ?? heroLabel;
 
+// Sibling venues within a multi-venue estate (EstateCluster block).
+const estateSlug = data.estateSlug as string | undefined;
+let estateVenues: any[] = [];
+if (estateSlug) {
+  const allEstateVenues = await getCollection('venues');
+  estateVenues = allEstateVenues.filter((v) => v.data.estateSlug === estateSlug);
+}
+
+const placeId = data.place?.id ?? data.place;
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: sectionLabel, href: sectionHref },
+  { label: placeLabel(data.place), href: `/explore/places/${placeId}/` },
   { label: data.name },
 ];
 
@@ -197,7 +209,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       <div>
         {/* ── INSIDER VERDICT — the editorial hook, leads the page.
             "Best for" lives once, in Worth Knowing below — not duplicated here. ── */}
-        {data.whyWeGo && (
+        {venue.data.venueTier === 'destination' && data.whyWeGo && (
           <div class="venue-verdict">
             <blockquote class="venue-verdict__why">
               <span class="venue-verdict__label">Why we&rsquo;d go</span>
@@ -212,6 +224,15 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             <p>{paragraph}</p>
           ))}
         </div>
+
+        {estateSlug && (
+          <EstateCluster
+            estateSlug={estateSlug}
+            estateLabel={data.estateLabel ?? estateSlug}
+            currentVenueSlug={venueSlug}
+            siblingVenues={estateVenues}
+          />
+        )}
 
         {/* ── WORTH KNOWING — quick-scan trust layer ── */}
         {hasWorthKnowing && (
