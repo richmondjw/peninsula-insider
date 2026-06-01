@@ -25,10 +25,10 @@ name: Build & deploy site to GitHub Pages
 # Phase 3+4 cloud features to actually work in production.
 
 on:
-  push:
-    branches: [main]
-    # Skip our own auto-build commits (we tag them with [skip ci])
-  workflow_dispatch:        # allow manual trigger from the Actions tab
+  # Manual only while main/source is being reconciled with the recovered live
+  # Pages baseline. This prevents a small content push from rebuilding the
+  # whole site and overwriting gh-pages with stale or preview output.
+  workflow_dispatch:
 
 permissions:
   contents: write           # needed to publish the build artifact branch
@@ -282,7 +282,7 @@ jobs:
             --started-at "${STARTED_AT}" \
             --ended-at "${ENDED_AT}" \
             --status "${STATUS}" \
-            --mutation deploy-artifact \
+            --mutation mutating-live \
             --surfaces "/" \
             "${ALERT_FLAGS[@]}" \
             "${ERROR_FLAGS[@]}" \
