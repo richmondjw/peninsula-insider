@@ -1,6 +1,6 @@
 /**
- * /plans/ — itinerary helpers (file kept named escape.ts for git history;
- * URL section migrated from /escape/ to /plans/ on 2026-05-10).
+ * /explore/plans/ — itinerary helpers (file kept named escape.ts for git history;
+ * URL section migrated from /explore/plans/ to /explore/plans/ on 2026-05-10).
  *
  * Implements the conversion-vertical specs from peninsula_insider_escape_v1:
  *   - 7-axis taxonomy labels
@@ -133,7 +133,7 @@ interface SchemaItineraryDay {
 }
 
 export interface ItinerarySchemaInput {
-  /** Page slug under /plans/ — drives canonical URL. */
+  /** Page slug under /explore/plans/ — drives canonical URL. */
   slug: string;
   title: string;
   description: string;
@@ -159,7 +159,7 @@ export interface ItinerarySchemaInput {
  * matches the existing convention elsewhere in the codebase.
  */
 export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
-  const path = `/plans/${input.slug}/`;
+  const path = `/explore/plans/${input.slug}/`;
 
   const tripSchema = buildTouristTripSchema({
     name: input.title,
@@ -185,7 +185,7 @@ export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', url: absUrl('/') },
-    { name: 'Plans', url: absUrl('/plans/') },
+    { name: 'Plans', url: absUrl('/explore/plans/') },
     { name: input.title },
   ]);
 
@@ -197,14 +197,14 @@ export function buildEscapeItinerarySchema(input: ItinerarySchemaInput) {
 }
 
 export interface EscapeHubSchemaInput {
-  /** Hub path under /plans/ — e.g. /plans/the-weekend-peninsula/ */
+  /** Hub path under /explore/plans/ — e.g. /explore/plans/the-weekend-peninsula/ */
   path: string;
   name: string;
   description: string;
   dateModified: string;
   /** Itineraries surfaced on the hub, ordered from best to worst. */
   itineraries: Array<{
-    slug: string;       // /plans/{slug}/
+    slug: string;       // /explore/plans/{slug}/
     title: string;
     description?: string;
   }>;
@@ -225,7 +225,7 @@ export function buildEscapeHubSchema(input: EscapeHubSchemaInput) {
     listPath: input.path,
     items: input.itineraries.map((it) => ({
       name: it.title,
-      path: `/plans/${it.slug}/`,
+      path: `/explore/plans/${it.slug}/`,
       description: it.description,
       itemType: 'TouristTrip',
     })),

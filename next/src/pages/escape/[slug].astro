@@ -1,13 +1,13 @@
 ---
 /**
- * /escape/[slug] → /plans/[slug] redirect
+ * /explore/plans/[slug] → /explore/plans/[slug] redirect
  *
- * Section rename: /escape/ → /plans/. This dynamic page emits a redirect
- * for every existing /escape/[slug]/ URL so that inbound links from
+ * Section rename: /explore/plans/ → /explore/plans/. This dynamic page emits a redirect
+ * for every existing /explore/plans/[slug]/ URL so that inbound links from
  * search engines, social shares, and external sites continue to resolve.
  *
- * Each redirect preserves the slug (e.g. /escape/wellness-weekend/ →
- * /plans/wellness-weekend/) and uses the custom Redirect component for
+ * Each redirect preserves the slug (e.g. /explore/plans/wellness-weekend/ →
+ * /explore/plans/wellness-weekend/) and uses the custom Redirect component for
  * a flash-free JS redirect with meta-refresh fallback.
  */
 import { getCollection } from 'astro:content';
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.props;
-const to = `/plans/${slug}/`;
+const to = `/explore/plans/${slug}/`;
 const canonical = `https://peninsulainsider.com.au${to}`;
 export const prerender = true;
 ---

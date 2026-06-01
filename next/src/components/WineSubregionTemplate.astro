@@ -6,7 +6,7 @@
  * top-nav "By the place" column under Wine: Red Hill, Main Ridge, Merricks,
  * Balnarring, Flinders.
  *
- * Modelled on the depth of /places/<slug>/ but kept wine-first: terroir,
+ * Modelled on the depth of /explore/places/<slug>/ but kept wine-first: terroir,
  * anchor producers, the full grid, signature varietals, pair-with-the-village,
  * logistics, a scoped map, journal cross-links, related sub-regions, FAQ.
  *
@@ -94,7 +94,7 @@ const topAuthority = venues
 const subregionLabel = h1.replace(/\s+Wineries\s*$/i, '');
 
 // Map the linked place's zone to a hero gradient class, matching the
-// pattern on /places/[slug]/. Falls back to a generic vineyard gradient
+// pattern on /explore/places/[slug]/. Falls back to a generic vineyard gradient
 // when the place is unset or its zone is unknown.
 const zoneGradient: Record<string, string> = {
   'red-hill': 'hero-grad--hinterland',
@@ -119,7 +119,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 
 {/* ═══════════════════════════════════════════════════════════════════════
     WAVE 1 — Magazine hero, designed factsheet, scoreboard
-    Mirrors the visual treatment shipped on /places/[slug]/ so the wine
+    Mirrors the visual treatment shipped on /explore/places/[slug]/ so the wine
     sub-region pages stop reading as directory headers. Inherits the
     matching place's heroImage + signature line; Wave 2 will allow
     per-page overrides via additional props.
@@ -141,7 +141,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
         </div>
         {place && (
           <a
-            href={`/places/${routeSlug(place)}/`}
+            href={`/explore/places/${routeSlug(place)}/`}
             class="wine-hero__parent-link"
             aria-label={`View the full ${place.data.name} destination guide`}
           >
@@ -253,7 +253,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 )}
 
 <!-- AT-A-GLANCE SCOREBOARD — dark-ink anchor strip showing what's on the
-     page. Matches the equivalent strip on /places/[slug]/. -->
+     page. Matches the equivalent strip on /explore/places/[slug]/. -->
 <section class="wine-scoreboard" aria-label={`${subregionLabel} sub-region contents`}>
   <div class="container">
     <p class="wine-scoreboard__label label label--accent">What's mapped here</p>
@@ -336,7 +336,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
           <h2 class="venues__title">Eat and sleep in {pairWith.placeName}</h2>
           <p class="venues__sub">{pairWith.body}</p>
         </div>
-        <a href={`/places/${pairWith.placeSlug}/`} class="venues__link">Open the {pairWith.placeName} hub →</a>
+        <a href={`/explore/places/${pairWith.placeSlug}/`} class="venues__link">Open the {pairWith.placeName} hub →</a>
       </div>
     </div>
   </section>
@@ -438,7 +438,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
      WINE SUBREGION TEMPLATE — Wave 1 visual lift (2026-05-13)
 
      Three new top-of-page sections (.wine-hero, .wine-factsheet,
-     .wine-scoreboard) mirror the equivalent patterns on /places/[slug]/.
+     .wine-scoreboard) mirror the equivalent patterns on /explore/places/[slug]/.
      Rest of the template (terroir, anchors, venue grid, Chardonnay/Pinot,
      pair-with-village, logistics, map, journal, nearby, FAQ) keeps its
      existing classes — those sections are untouched.

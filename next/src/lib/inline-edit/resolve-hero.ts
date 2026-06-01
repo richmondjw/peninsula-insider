@@ -12,7 +12,7 @@
  * slot keyed by (entity_type, entity_slug, field_path). A surface that
  * reads frontmatter alone never consults that slot, so the replacement is
  * ignored and the image reverts to the content file on the next rebuild.
- * That was the /plans/ regression (2026-05-29): the guide cards rendered
+ * That was the /explore/plans/ regression (2026-05-29): the guide cards rendered
  * `article.data.heroImage.src` straight from frontmatter, so the editor's
  * uploaded hero kept reverting. Routing every hero through one resolver
  * means the override is always applied and the bug cannot recur.

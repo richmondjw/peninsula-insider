@@ -48,8 +48,8 @@ export const audiencePersonas: AudiencePersona[] = [
       stay: '/stay/couples/',
       wine: '/wine/best-cellar-doors/',
       explore: '/explore/spas-and-wellness/',
-      escape: '/plans/mornington-peninsula-itinerary/',
-      default: '/plans/mornington-peninsula-itinerary/',
+      escape: '/explore/plans/mornington-peninsula-itinerary/',
+      default: '/explore/plans/mornington-peninsula-itinerary/',
     },
   },
   {
@@ -145,9 +145,9 @@ export const audiencePersonas: AudiencePersona[] = [
       eat: '/eat/best-restaurants/',
       stay: '/stay/where-to-stay-mornington-peninsula/',
       wine: '/wine/best-wineries-mornington-peninsula/',
-      explore: '/plans/mornington-peninsula-itinerary/',
-      escape: '/plans/mornington-peninsula-itinerary/',
-      default: '/plans/mornington-peninsula-itinerary/',
+      explore: '/explore/plans/mornington-peninsula-itinerary/',
+      escape: '/explore/plans/mornington-peninsula-itinerary/',
+      default: '/explore/plans/mornington-peninsula-itinerary/',
     },
   },
 ];

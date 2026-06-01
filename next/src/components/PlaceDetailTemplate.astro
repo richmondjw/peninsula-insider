@@ -521,7 +521,7 @@ const factual = place.data.factualLede ?? '';
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
           <p class="venues__sub">These plans have been written around the landscape here — not bolted on after.</p>
         </div>
-        <a href="/plans/" class="venues__link">Plan a {place.data.name} weekend →</a>
+        <a href="/explore/plans/" class="venues__link">Plan a {place.data.name} weekend →</a>
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -563,7 +563,7 @@ const factual = place.data.factualLede ?? '';
     </div>
     <div class="venues__grid venues__grid--links">
       <a href="/journal/mornington-peninsula-itinerary/" class="venue-card__cta">3-Day Peninsula Itinerary →</a>
-      <a href="/plans/" class="venue-card__cta">Weekend Plans →</a>
+      <a href="/explore/plans/" class="venue-card__cta">Weekend Plans →</a>
       {(place.data.zone === 'red-hill' || place.data.zone === 'hinterland') && (
         <a href="/journal/mornington-peninsula-winery-tour/" class="venue-card__cta">Self-Drive Winery Tour →</a>
       )}
@@ -669,7 +669,7 @@ const factual = place.data.factualLede ?? '';
      Positioned before the reader submission CTA, after all content. -->
 <div class="place-ecosystem-link">
   <div class="container">
-    <a href="/places/" class="place-ecosystem-link__anchor">
+    <a href="/explore/places/" class="place-ecosystem-link__anchor">
       ← Explore more Peninsula destinations
     </a>
   </div>

@@ -43,10 +43,10 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 
-// Plans articles live at /plans/[slug] — redirect with 301 so inbound
+// Plans articles live at /explore/plans/[slug] — redirect with 301 so inbound
 // /journal/ URLs resolve cleanly without serving duplicate content.
 if (article.data.section === 'plans') {
-  return Astro.redirect(`/plans/${routeSlug(article)}/`, 301);
+  return Astro.redirect(`/explore/plans/${routeSlug(article)}/`, 301);
 }
 
 // Peninsula This Weekend dispatches were migrated to a stable rolling URL
@@ -444,7 +444,7 @@ export const prerender = true;
             <p class="label label--accent">Places anchored in this piece</p>
             <h2 class="venues__title">Where on the Peninsula this lands</h2>
           </div>
-          <a href="/places/" class="venues__link">All places →</a>
+          <a href="/explore/places/" class="venues__link">All places →</a>
         </div>
         <div class="venues__grid">
           {relatedPlaces.map((place) => <PlaceCard place={place} />)}
@@ -461,7 +461,7 @@ export const prerender = true;
             <p class="label label--accent">Make this a weekend</p>
             <h2 class="venues__title">Itineraries that pick up where this piece leaves off</h2>
           </div>
-          <a href="/plans/" class="venues__link">All itineraries →</a>
+          <a href="/explore/plans/" class="venues__link">All itineraries →</a>
         </div>
         <div class="venues__grid">
           {relatedItineraries.map((it) => <ItineraryCard itinerary={it} />)}

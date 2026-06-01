@@ -302,11 +302,11 @@ export const prerender = true;
     <div class="hp-section-nav__track">
       <a class="hp-section-nav__chip hp-section-nav__chip--ask" href="/ask/" data-pi-trigger="true">Ask</a>
       <a class="hp-section-nav__chip" href="/whats-on/">What&rsquo;s On</a>
-      <a class="hp-section-nav__chip" href="/plans/">Plans</a>
+      <a class="hp-section-nav__chip" href="/explore/plans/">Plans</a>
       <a class="hp-section-nav__chip" href="/eat/">Eat &amp; Drink</a>
       <a class="hp-section-nav__chip" href="/wine/">Wine</a>
       <a class="hp-section-nav__chip" href="/stay/">Stay</a>
-      <a class="hp-section-nav__chip" href="/places/">Places</a>
+      <a class="hp-section-nav__chip" href="/explore/places/">Places</a>
       <a class="hp-section-nav__chip" href="/explore/">Explore</a>
       <a class="hp-section-nav__chip" href="/journal/">Journal</a>
     </div>
@@ -345,7 +345,7 @@ export const prerender = true;
           ))}
         </div>
         <div class="places__footer">
-          <a href="/places/" class="venues__link">Explore all places →</a>
+          <a href="/explore/places/" class="venues__link">Explore all places →</a>
         </div>
       </div>
     </section>
@@ -366,7 +366,7 @@ export const prerender = true;
           {hydratedPlanCards.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
         </div>
         <div class="hp-plans__footer">
-          <a href="/plans/" class="venues__link">View Plans →</a>
+          <a href="/explore/plans/" class="venues__link">View Plans →</a>
         </div>
       </div>
     </section>

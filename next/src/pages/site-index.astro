@@ -45,10 +45,10 @@ export const prerender = true;
           <li><a href="/stay/">Stay</a></li>
           <li><a href="/wine/">Wine</a></li>
           <li><a href="/explore/">Explore</a></li>
-          <li><a href="/plans/">Plans</a></li>
+          <li><a href="/explore/plans/">Plans</a></li>
           <li><a href="/whats-on/">What's On</a></li>
           <li><a href="/journal/">Journal</a></li>
-          <li><a href="/places/">Places</a></li>
+          <li><a href="/explore/places/">Places</a></li>
         </ul>
 
         <h2>Priority planning pages</h2>
@@ -66,7 +66,7 @@ export const prerender = true;
         <h2>Places</h2>
         <ul>
           {places.map((place) => (
-            <li><a href={`/places/${routeSlug(place)}`}>{place.data.name}</a></li>
+            <li><a href={`/explore/places/${routeSlug(place)}`}>{place.data.name}</a></li>
           ))}
         </ul>
 
@@ -101,7 +101,7 @@ export const prerender = true;
         <h2>Plans</h2>
         <ul>
           {itineraries.map((entry) => (
-            <li><a href={`/plans/${routeSlug(entry)}`}>{entry.data.title}</a></li>
+            <li><a href={`/explore/plans/${routeSlug(entry)}`}>{entry.data.title}</a></li>
           ))}
         </ul>
 

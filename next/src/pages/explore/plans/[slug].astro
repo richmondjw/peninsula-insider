@@ -1,0 +1,1263 @@
+---
+/**
+ * /explore/plans/[slug] — itinerary detail page + section:plans article pages
+ *
+ * Handles two entry types:
+ *   - itineraries collection: renders the full 11-section anatomy
+ *   - articles with section:plans: renders a simpler article layout
+ *
+ * The conversion architecture (anchor stay 3-placement rule) lives here:
+ *   1. Hero CTA above the fold — "Stay at {anchor}"
+ *   2. Day-N "where you sleep tonight" block at end of each day except last
+ *   3. Footer rail — anchor + alt stays
+ */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import VenueCard from '../../../components/VenueCard.astro';
+import ExperienceCard from '../../../components/ExperienceCard.astro';
+import ItineraryCard from '../../../components/ItineraryCard.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import PiForkPlanButton from '../../../components/PiForkPlanButton.astro';
+import {
+  routeSlug,
+  stayTypes,
+  titleize,
+  venueHrefPrefix,
+  heroBackgroundStyle,
+  formatLabel,
+} from '../../../lib/editorial';
+import {
+  audienceDisplay,
+  budgetLabel,
+  buildEscapeItinerarySchema,
+  deriveDuration,
+  durationLabel,
+  occasionLabel,
+  seasonLabel,
+  themeLabel,
+} from '../../../lib/escape';
+import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
+import { loadOverrides } from '../../../lib/inline-edit/overrides';
+
+const timeOfDayLabel: Record<string, string> = {
+  morning: 'Morning',
+  midday: 'Midday',
+  afternoon: 'Afternoon',
+  evening: 'Evening',
+  night: 'Night',
+};
+
+const moodLabel: Record<string, string> = {
+  slow: 'Slow',
+  indulgent: 'Indulgent',
+  wellness: 'Wellness',
+  adventure: 'Adventure',
+  'food-wine': 'Food & Wine',
+  mixed: 'Mixed',
+  quick: 'Quick',
+};
+
+export async function getStaticPaths() {
+  const itineraries = await getCollection('itineraries');
+  const plansArticles = await getCollection('articles', ({ data }) =>
+    data.section === 'plans' && data.status === 'published'
+  );
+  const itineraryPaths = itineraries.map((itinerary) => ({
+    params: { slug: routeSlug(itinerary) },
+    props: { itinerary, articleData: null as any },
+  }));
+  const articlePaths = plansArticles.map((article) => ({
+    params: { slug: routeSlug(article) },
+    props: { itinerary: null as any, articleData: article },
+  }));
+  return [...itineraryPaths, ...articlePaths];
+}
+
+const { itinerary, articleData } = Astro.props;
+
+// ─── Plans-article branch data ─────────────────────────────────────────────
+const isArticle = articleData != null;
+const ArticleContent = isArticle ? (await render(articleData)).Content : (null as any);
+
+const ad = isArticle ? articleData.data : null;
+const articleSlug = isArticle ? routeSlug(articleData) : null;
+
+// Resolve related venues/experiences for article branch
+const allVenuesRaw = await getCollection('venues');
+const allExperiencesRaw = await getCollection('experiences');
+const venueMapBase = new Map(allVenuesRaw.map((v: any) => [routeSlug(v), v]));
+const expMapBase = new Map(allExperiencesRaw.map((e: any) => [routeSlug(e), e]));
+
+const articleRelatedVenues = isArticle
+  ? (ad.relatedVenues ?? [])
+      .map((r: any) => venueMapBase.get(String(r?.id ?? r ?? '')))
+      .filter(Boolean)
+      .slice(0, 3)
+  : [];
+
+const articleFaqSchema = isArticle && ad.faq && ad.faq.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: ad.faq.map(({ question, answer }: any) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
+} : null;
+
+const aCanonical = isArticle ? `https://peninsulainsider.com.au/explore/plans/${articleSlug}/` : '';
+const aOgImage = isArticle
+  ? (ad.heroImage?.src && !ad.heroImage.src.includes('placeholder') ? ad.heroImage.src : '/images/sourced/home-cover.webp')
+  : '';
+const aBreadcrumbs = isArticle
+  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans' }, { label: ad.title }]
+  : [];
+
+// ─── Itinerary branch data ─────────────────────────────────────────────────
+const data = isArticle ? null : itinerary.data;
+const slug = isArticle ? '' : routeSlug(itinerary);
+
+// CMS override consult for the itinerary hero — baked at SSR so the
+// editor's uploaded image ships in the static HTML.
+const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
+const itineraryHeroOverride = itineraryOverrides?.image['hero'];
+
+const allItineraries = isArticle ? [] : await getCollection('itineraries');
+const allVenues = isArticle ? allVenuesRaw : allVenuesRaw;
+const allExperiences = isArticle ? allExperiencesRaw : allExperiencesRaw;
+const allPlaces = isArticle ? [] : await getCollection('places');
+const articles = isArticle ? [] : await getCollection('articles', ({ data: a }) => a.status === 'published');
+
+const venueMap = new Map(allVenues.map((venue: any) => [routeSlug(venue), venue]));
+const experienceMap = new Map(allExperiences.map((experience: any) => [routeSlug(experience), experience]));
+const placeMap = new Map(allPlaces.map((place: any) => [routeSlug(place), place]));
+
+// ─── Resolve venue/experience references on stops ─────────────────────────
+const venueSlugs = data
+  ? data.stops.map((stop: any) => String(stop.venue?.id ?? stop.venue ?? '')).filter(Boolean)
+  : [];
+const experienceSlugs = data
+  ? data.stops.map((stop: any) => String(stop.experience?.id ?? stop.experience ?? '')).filter(Boolean)
+  : [];
+const highlightedVenues = Array.from(new Set(venueSlugs))
+  .map((key) => venueMap.get(key))
+  .filter(Boolean);
+const highlightedExperiences = Array.from(new Set(experienceSlugs))
+  .map((key) => experienceMap.get(key))
+  .filter(Boolean);
+
+// ─── Anchor stay (conversion architecture) ────────────────────────────────
+const anchorStaySlug = data ? String((data as any).anchorStay?.id ?? (data as any).anchorStay ?? '') : '';
+const anchorStay = anchorStaySlug ? venueMap.get(anchorStaySlug) : undefined;
+const fallbackStay = highlightedVenues.find((v: any) => stayTypes.includes(v.data.type));
+const effectiveStay: any = anchorStay ?? fallbackStay;
+const effectiveStayHref = effectiveStay
+  ? `${venueHrefPrefix(effectiveStay.data.type)}/${routeSlug(effectiveStay)}`
+  : undefined;
+
+const altStaySlugs: string[] = data
+  ? ((data as any).altStays ?? []).map((entry: any) => String(entry?.id ?? entry ?? '')).filter(Boolean)
+  : [];
+const altStays = altStaySlugs.map((s) => venueMap.get(s)).filter(Boolean) as any[];
+const inferredAltStays = altStays.length === 0
+  ? highlightedVenues
+      .filter((v: any) => stayTypes.includes(v.data.type) && routeSlug(v) !== routeSlug(effectiveStay ?? { data: {}, id: '' }))
+      .slice(0, 2)
+  : [];
+const stayRail = [...altStays, ...inferredAltStays].slice(0, 2);
+
+// ─── Anchor town label ─────────────────────────────────────────────────────
+const anchorTownSlug = data ? String((data as any).anchorTown?.id ?? (data as any).anchorTown ?? '') : '';
+const anchorTown = anchorTownSlug ? placeMap.get(anchorTownSlug) : undefined;
+
+// ─── Day-by-day grouping ──────────────────────────────────────────────────
+const dayNumbers = data
+  ? Array.from(new Set(data.stops.map((stop: any) => stop.day))).sort((a, b) => a - b)
+  : [];
+const groupedStops = dayNumbers.map((day) => {
+  const stops = data!.stops
+    .filter((stop: any) => stop.day === day)
+    .sort((a: any, b: any) => a.order - b.order)
+    .map((stop: any) => {
+      const vSlug = String(stop.venue?.id ?? stop.venue ?? '');
+      const eSlug = String(stop.experience?.id ?? stop.experience ?? '');
+      const venue = vSlug ? venueMap.get(vSlug) : null;
+      const experience = eSlug ? experienceMap.get(eSlug) : null;
+      const entry = venue ?? experience;
+      const href = venue
+        ? `${venueHrefPrefix(venue.data.type)}/${routeSlug(venue)}`
+        : experience
+        ? `/explore/${routeSlug(experience)}`
+        : undefined;
+      const label = (venue as any)?.data?.name ?? (experience as any)?.data?.name ?? 'Stop';
+      return { ...stop, entry, href, label };
+    });
+  return { day, stops };
+});
+
+// ─── Related content ──────────────────────────────────────────────────────
+const relatedArticles = articles
+  .filter(
+    (article: any) =>
+      article.data.relatedVenues.some((entry: any) => venueSlugs.includes(String(entry.id ?? entry))) ||
+      article.data.relatedExperiences.some((entry: any) => experienceSlugs.includes(String(entry.id ?? entry)))
+  )
+  .slice(0, 2);
+const relatedItineraries = allItineraries
+  .filter((entry: any) => routeSlug(entry) !== slug)
+  .slice(0, 4);
+
+// ─── Fork-plan items (Wave 5) ─────────────────────────────────────────────
+// Editorial itineraries become templates: a single tap merges the itinerary
+// itself plus every referenced venue and experience into the reader's
+// pi:saves:v2 store. They can then edit, share, or print as their own plan.
+type ForkItem = {
+  kind: 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
+  slug: string;
+  section?: string;
+  title: string;
+  dek?: string;
+  image_url?: string;
+  href: string;
+};
+const forkItems: ForkItem[] = [];
+if (data) {
+  forkItems.push({
+    kind: 'itinerary',
+    slug,
+    title: data.title,
+    dek: data.dek,
+    image_url: data.heroImage?.src,
+    href: `/explore/plans/${slug}/`,
+  });
+  for (const v of highlightedVenues) {
+    const vSlug = routeSlug(v as any);
+    forkItems.push({
+      kind: 'venue',
+      slug: vSlug,
+      title: (v as any).data.name,
+      dek: (v as any).data.signature || (v as any).data.editorNote,
+      image_url: (v as any).data.heroImage?.src,
+      href: `${venueHrefPrefix((v as any).data.type)}/${vSlug}/`,
+    });
+  }
+  for (const e of highlightedExperiences) {
+    const eSlug = routeSlug(e as any);
+    forkItems.push({
+      kind: 'experience',
+      slug: eSlug,
+      title: (e as any).data.name,
+      dek: (e as any).data.editorNote,
+      image_url: (e as any).data.heroImage?.src,
+      href: `/explore/${eSlug}/`,
+    });
+  }
+}
+
+// ─── Display labels ───────────────────────────────────────────────────────
+const duration = data ? deriveDuration(data) : null;
+const audienceText = data ? (audienceDisplay[data.audience] ?? titleize(data.audience)) : '';
+const themeText = data
+  ? ((data as any).theme ?? []).map((t: string) => themeLabel[t] ?? t).filter(Boolean).join(' · ')
+  : '';
+const occasionText = data ? (occasionLabel[(data as any).occasion ?? 'none'] || '') : '';
+const seasonText = data ? (seasonLabel[(data as any).season ?? 'year-round'] || '') : '';
+const budgetText = data ? (budgetLabel[(data as any).budget ?? 'mixed'] || '') : '';
+const nightsLabel = data ? `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}` : '';
+const durationText = duration ? durationLabel[duration] ?? duration : nightsLabel;
+
+// ─── Anatomy gates (only render the section if data exists) ───────────────
+const showEditorialFrame = data ? Boolean((data as any).editorialFrame) : false;
+const showVariations = data ? Array.isArray((data as any).variations) && (data as any).variations.length > 0 : false;
+const showSkipThese = data ? Boolean((data as any).skipThese) : false;
+const showCostBreakdown = data ? Boolean((data as any).costBreakdown) : false;
+const showChecklist = data ? Array.isArray((data as any).bookingChecklist) && (data as any).bookingChecklist.length > 0 : false;
+const showFaq = data ? Array.isArray((data as any).faq) && (data as any).faq.length > 0 : false;
+
+// ─── Schema (TouristTrip + FAQPage + BreadcrumbList) ──────────────────────
+const schemaDays = groupedStops.map((g) => ({
+  name: `Day ${g.day}`,
+  stops: g.stops
+    .filter((s) => s.label && s.href)
+    .map((s) => ({
+      name: s.label,
+      path: s.href!,
+      stopType: s.entry && stayTypes.includes(((s.entry as any).data?.type) ?? '')
+        ? 'LodgingBusiness'
+        : (s.entry as any)?.data?.type === 'restaurant' || (s.entry as any)?.data?.type === 'cafe'
+        ? 'FoodEstablishment'
+        : 'TouristAttraction',
+    })),
+}));
+
+const lastVerified = data
+  ? ((data as any).lastVerified instanceof Date
+      ? (data as any).lastVerified.toISOString().slice(0, 10)
+      : data.publishedAt instanceof Date
+      ? data.publishedAt.toISOString().slice(0, 10)
+      : undefined)
+  : undefined;
+
+const { tripSchema, breadcrumbSchema, faqSchema } = data
+  ? buildEscapeItinerarySchema({
+      slug,
+      title: data.title,
+      description: data.dek,
+      audienceLabels: [audienceText],
+      days: schemaDays,
+      anchorStayPath: effectiveStayHref,
+      datePublished: data.publishedAt instanceof Date ? data.publishedAt.toISOString().slice(0, 10) : undefined,
+      dateModified: lastVerified,
+      faq: showFaq ? (data as any).faq : undefined,
+    })
+  : { tripSchema: null, breadcrumbSchema: null, faqSchema: null };
+
+const lastVerifiedLabel = lastVerified
+  ? new Date(lastVerified).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
+  : null;
+
+// ─── Misc ─────────────────────────────────────────────────────────────────
+const breadcrumbItems = data
+  ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/plans' }, { label: data.title }]
+  : [];
+const canonical = data ? `https://peninsulainsider.com.au/explore/plans/${slug}/` : '';
+const ogImage = data
+  ? (data.heroImage?.src && !data.heroImage.src.includes('placeholder') ? data.heroImage.src : '/images/sourced/home-cover.webp')
+  : '';
+export const prerender = true;
+---
+
+{isArticle ? (
+<BaseLayout
+  title={`${ad.title} · Peninsula Insider`}
+  description={ad.dek}
+  section="explore"
+  canonical={aCanonical}
+  ogImage={aOgImage}
+>
+  {articleFaqSchema && <script type="application/ld+json" set:html={JSON.stringify(articleFaqSchema)} />}
+
+  {/* ── 2026-05-17: Sunday-magazine redesign for section=plans articles.
+       Replaces the generic .article-hero / .article-summary / .article-faq
+       chrome (and an undefined .article-faq / .article-summary CSS class
+       that was rendering near-default browser styles) with a quieter,
+       editorial register: split-grid cover, numbered "at a glance" card,
+       hairline-separated FAQ, "read alongside" cluster rail, and a venue
+       grid below. All inline-edit hooks and JSON-LD schema preserved.
+       Lifts ~20 plans articles, not just /explore/plans/the-thermal-springs-weekend/. */}
+
+  <div class="pl-breadcrumbs">
+    <Breadcrumbs items={aBreadcrumbs} />
+  </div>
+
+  <article class="pl-article">
+    {/* ── Cover spread ──────────────────────────────────────────────── */}
+    <header class="pl-cover" aria-label="Cover">
+      <div class="pl-container pl-cover__inner">
+        <div class="pl-cover__type">
+          <p class="pl-eyebrow">{formatLabel[ad.format] ?? 'A Peninsula plan'}</p>
+          <h1
+            class="pl-cover__headline"
+            {...editableText({
+              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'title',
+              label: `${ad.title} — title`,
+            })}
+          >{ad.title}</h1>
+          <p
+            class="pl-cover__dek"
+            {...editableText({
+              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'dek',
+              label: `${ad.title} — dek`,
+            })}
+          >{ad.dek}</p>
+          <p class="pl-cover__byline">
+            <span>Peninsula Insider</span>
+            <span class="pl-cover__sep" aria-hidden="true">·</span>
+            <span>{ad.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+          </p>
+        </div>
+        <figure class="pl-cover__visual">
+          <div
+            class="pl-cover__image"
+            role="img"
+            aria-label={ad.heroImage.alt}
+            style={heroBackgroundStyle(ad)}
+            {...editableImage({
+              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'heroImage',
+              label: `${ad.title} hero`, purpose: 'hero',
+            })}
+          ></div>
+        </figure>
+      </div>
+    </header>
+
+    {/* ── At-a-glance card — replaces "The short version" block ──────── */}
+    {ad.aiSummary && ad.aiSummary.length > 0 && (
+      <section class="pl-glance" aria-label="At a glance">
+        <div class="pl-container pl-glance__inner">
+          <p class="pl-eyebrow pl-glance__eyebrow">At a glance</p>
+          <ol class="pl-glance__list">
+            {ad.aiSummary.slice(0, 5).map((item: string, i: number) => (
+              <li class="pl-glance__item">
+                <span class="pl-glance__num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="pl-glance__text">{item}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )}
+
+    {/* ── Long-form essay — markdown content rendered in the prose
+         container, with .pl-prose scoping the typography upgrades
+         without touching the global .prose used by other surfaces. */}
+    <section class="pl-essay">
+      <div class="pl-container pl-essay__inner">
+        <div class="prose pl-prose has-drop-cap">
+          <ArticleContent />
+        </div>
+      </div>
+    </section>
+
+    {/* ── FAQ — hairline-separated open Q/A. No <details> by default;
+         every question is visible because they are short and answer
+         intent that brought the reader here. */}
+    {ad.faq && ad.faq.length > 0 && (
+      <section class="pl-faq" aria-labelledby="pl-faq-title">
+        <div class="pl-container pl-faq__inner">
+          <header class="pl-faq__header">
+            <p class="pl-eyebrow">Questions readers actually ask</p>
+            <h2 id="pl-faq-title" class="pl-faq__title">A few practical answers.</h2>
+          </header>
+          <dl class="pl-faq__list">
+            {ad.faq.map((item: any) => (
+              <div class="pl-faq__item">
+                <dt class="pl-faq__q">{item.question}</dt>
+                <dd class="pl-faq__a">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+    )}
+
+    {/* ── Read alongside — cluster links rail, quiet serif list ────── */}
+    {ad.clusterLinks && ad.clusterLinks.length > 0 && (
+      <section class="pl-cluster" aria-label="Read alongside">
+        <div class="pl-container pl-cluster__inner">
+          <p class="pl-eyebrow">Read alongside</p>
+          <ul class="pl-cluster__list">
+            {ad.clusterLinks.map((link: any) => (
+              <li class="pl-cluster__item">
+                <a class="pl-cluster__link" href={link.href}>
+                  <span class="pl-cluster__label">{link.label}</span>
+                  <span class="pl-cluster__arrow" aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+  </article>
+
+  {/* ── Places in this plan — venue grid, kept but re-scoped so it
+       reads as a continuation of the editorial, not a fresh band. */}
+  {articleRelatedVenues.length > 0 && (
+    <section class="pl-venues">
+      <div class="pl-container">
+        <header class="pl-venues__head">
+          <p class="pl-eyebrow">Places in this plan</p>
+          <h2 class="pl-venues__title">Worth knowing before you go.</h2>
+        </header>
+        <div class="pl-venues__grid">
+          {articleRelatedVenues.map((venue: any) => (
+            <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>
+) : (
+<BaseLayout
+  title={`${data!.title} — Mornington Peninsula Weekend Escape · Peninsula Insider`}
+  description={data!.dek}
+  section="explore"
+  canonical={canonical}
+  ogImage={ogImage}
+  noindex={(data as any).sitemapExclude === true}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(tripSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <Breadcrumbs items={breadcrumbItems} />
+
+  {/* ─── 1. Hero ──────────────────────────────────────────────────────── */}
+  <section class="itinerary-detail">
+    <div class="container">
+      <div class="itinerary-detail__meta">
+        <a href="/explore/plans/" class="itinerary-detail__back">Plans</a>
+        <span class="itinerary-detail__dot" aria-hidden="true"></span>
+        <span class="itinerary-detail__nights">{durationText}</span>
+        {anchorTown && (
+          <>
+            <span class="itinerary-detail__dot" aria-hidden="true"></span>
+            <a href={`/explore/places/${routeSlug(anchorTown)}`} class="itinerary-detail__back">{(anchorTown as any).data.name}</a>
+          </>
+        )}
+      </div>
+
+      <h1 class="itinerary-detail__title" {...editableText({
+        entityType: 'itinerary', entitySlug: slug, fieldPath: 'title',
+        label: `${data!.title} — title`,
+      })}>{data!.title}</h1>
+      <p class="itinerary-detail__dek" {...editableText({
+        entityType: 'itinerary', entitySlug: slug, fieldPath: 'dek',
+        label: `${data!.title} — dek`,
+      })}>{data!.dek}</p>
+
+      <div class="itinerary-detail__chips">
+        <span>{audienceText}</span>
+        {themeText && <span>{themeText}</span>}
+        {!themeText && <span>{moodLabel[data!.mood] ?? data!.mood}</span>}
+        {occasionText && <span>{occasionText}</span>}
+        {seasonText && seasonText !== 'Year-round' && <span>{seasonText}</span>}
+        {data!.totalDriveMinutes && <span>{data!.totalDriveMinutes} min driving</span>}
+      </div>
+
+      {/* Hero CTA row — anchor-stay (filled, primary) + fork-to-saves (ghost,
+          secondary). One row so the two reader actions read as a pair, not
+          a stacked pile. The utility caption that used to sit beside the
+          anchor CTA and the hint paragraph that used to sit under the fork
+          button were removed 2026-05-14 — both buttons are self-evident. */}
+      <div class="itinerary-detail__cta-row">
+        {effectiveStay && effectiveStayHref && (
+          <a
+            href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=hero`}
+            class="itinerary-detail__cta"
+            data-event="escape_hero_anchor_stay_cta_click"
+            data-itinerary={slug}
+          >
+            Stay at {(effectiveStay as any).data.name} →
+          </a>
+        )}
+        <PiForkPlanButton items={forkItems} variant="ghost" />
+      </div>
+
+      <div
+        class="itinerary-detail__hero feature__image-block feature__image-block--sand"
+        aria-hidden="true"
+        style={itineraryHeroOverride?.src
+          ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
+          : heroBackgroundStyle(data!)}
+        {...editableImage({
+          entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage',
+          label: `${data!.title} hero`, purpose: 'hero',
+        })}
+      >
+        <div class="itinerary-detail__hero-fog"></div>
+        <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
+      </div>
+
+      <div class="itinerary-detail__grid">
+        <div>
+          {/* ─── 3. Editorial frame ──────────────────────────────────── */}
+          {showEditorialFrame && (
+            <div class="prose itinerary-detail__editor-note">
+              {(data as any).editorialFrame.split(/\n\n+/).map((paragraph: string) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          )}
+
+          {/* Editor's note (legacy field — treat as supporting paragraphs) */}
+          <div class="prose itinerary-detail__editor-note">
+            {data!.editorNote.split(/\n\n+/).map((paragraph: string) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+
+          {/* ─── 5–6. Day-by-day plan ────────────────────────────────── */}
+          <div class="stop-list">
+            {groupedStops.map((group, idx) => {
+              const isLastDay = idx === groupedStops.length - 1;
+              return (
+                <section class="stop-day">
+                  <h2 class="stop-day__heading">Day {group.day}</h2>
+                  <ol class="stop-day__stops">
+                    {group.stops.map((stop) => (
+                      <li class="stop-item">
+                        <div class="stop-item__time">
+                          {stop.timeRange ?? (timeOfDayLabel[stop.timeOfDay] ?? titleize(stop.timeOfDay))}
+                        </div>
+                        <div>
+                          <h3 class="stop-item__name">
+                            {stop.href ? <a href={stop.href}>{stop.label}</a> : stop.label}
+                          </h3>
+                          {stop.note && <p class="stop-item__note">{stop.note}</p>}
+                          {stop.practical && (
+                            <p class="stop-item__practical"><em>{stop.practical}</em></p>
+                          )}
+                          {stop.driveMinutesToNext && (
+                            <p class="stop-item__drive">{stop.driveMinutesToNext} min drive to next stop</p>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+
+                  {/* Anchor-stay 3-placement rule, slot 2: where you sleep */}
+                  {!isLastDay && effectiveStay && effectiveStayHref && (
+                    <aside class="where-you-sleep">
+                      <p class="where-you-sleep__label">Where you sleep tonight</p>
+                      <p class="where-you-sleep__body">
+                        {(data as any).anchorStayBlurb ??
+                          `Settle into ${(effectiveStay as any).data.name} for the night. Check the room before dinner so you can step straight into the next morning without admin.`}
+                      </p>
+                      <a
+                        href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=inflow`}
+                        class="where-you-sleep__cta"
+                        data-event="escape_inflow_anchor_stay_click"
+                        data-itinerary={slug}
+                      >
+                        See {(effectiveStay as any).data.name} →
+                      </a>
+                    </aside>
+                  )}
+                </section>
+              );
+            })}
+          </div>
+
+          {/* ─── 6. Variations ───────────────────────────────────────── */}
+          {showVariations && (
+            <section class="variations">
+              <h2 class="variations__heading">Variations</h2>
+              <div class="variations__grid">
+                {(data as any).variations.map((variation: any) => (
+                  <article class="variation">
+                    <h3 class="variation__label">{variation.label}</h3>
+                    <p class="variation__body">{variation.body}</p>
+                    {variation.relatedItinerary && (
+                      <a class="variation__link" href={`/explore/plans/${variation.relatedItinerary}/`}>
+                        See the full version →
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* ─── 7. Worth knowing before you plan ─────────────────────── */}
+          {showSkipThese && (
+            <section class="skip-these">
+              <h2 class="skip-these__heading">Worth knowing before you plan</h2>
+              <p class="skip-these__body">{(data as any).skipThese}</p>
+            </section>
+          )}
+
+          {/* ─── 8. Cost band ────────────────────────────────────────── */}
+          {showCostBreakdown && (
+            <section class="cost-band">
+              <h2 class="cost-band__heading">What this costs</h2>
+              <dl class="cost-band__grid">
+                {Object.entries((data as any).costBreakdown).map(([k, v]) =>
+                  v ? (
+                    <>
+                      <dt>{k.charAt(0).toUpperCase() + k.slice(1)}</dt>
+                      <dd>{v as string}</dd>
+                    </>
+                  ) : null
+                )}
+              </dl>
+              {(data as any).budgetRangeAud && (
+                <p class="cost-band__total">{(data as any).budgetRangeAud}</p>
+              )}
+            </section>
+          )}
+
+          {/* ─── 9. Booking checklist ────────────────────────────────── */}
+          {showChecklist && (
+            <section class="checklist">
+              <h2 class="checklist__heading">Booking checklist</h2>
+              <ol class="checklist__list">
+                {(data as any).bookingChecklist.map((row: any) => (
+                  <li class={`checklist__item checklist__item--${row.priority}`}>
+                    <span class="checklist__priority">{row.priority}</span>
+                    <span class="checklist__text">{row.item}</span>
+                    {row.windowWeeksAhead && (
+                      <span class="checklist__window">{row.windowWeeksAhead} weeks ahead</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+
+          {/* ─── 10. FAQ ─────────────────────────────────────────────── */}
+          {showFaq && (
+            <section class="faq">
+              <h2 class="faq__heading">Common questions</h2>
+              <dl class="faq__list">
+                {(data as any).faq.map((entry: any) => (
+                  <div class="faq__item">
+                    <dt class="faq__question">{entry.question}</dt>
+                    <dd class="faq__answer">{entry.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+        </div>
+
+        {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
+        <aside class="facts">
+          <p class="facts__title">At a glance</p>
+          <dl>
+            <dt>Duration</dt>
+            <dd>{durationText}</dd>
+
+            <dt>Best for</dt>
+            <dd>{audienceText}{occasionText ? ` · ${occasionText}` : ''}</dd>
+
+            {themeText && (
+              <>
+                <dt>Theme</dt>
+                <dd>{themeText}</dd>
+              </>
+            )}
+
+            {anchorTown && (
+              <>
+                <dt>Base town</dt>
+                <dd>{(anchorTown as any).data.name}</dd>
+              </>
+            )}
+
+            <dt>Best season</dt>
+            <dd>{seasonText}</dd>
+
+            {(data as any).walkingIntensity && (
+              <>
+                <dt>Walking</dt>
+                <dd>{titleize((data as any).walkingIntensity)}</dd>
+              </>
+            )}
+
+            {(data as any).drivingDistanceKm && (
+              <>
+                <dt>Driving</dt>
+                <dd>{(data as any).drivingDistanceKm} km on-Peninsula</dd>
+              </>
+            )}
+
+            {!(data as any).drivingDistanceKm && data!.totalDriveMinutes && (
+              <>
+                <dt>Driving</dt>
+                <dd>{data!.totalDriveMinutes} min total</dd>
+              </>
+            )}
+
+            {effectiveStay && effectiveStayHref && (
+              <>
+                <dt>Anchor stay</dt>
+                <dd><a href={effectiveStayHref}>{(effectiveStay as any).data.name}</a></dd>
+              </>
+            )}
+
+            {(data as any).budgetRangeAud && (
+              <>
+                <dt>Budget</dt>
+                <dd>{(data as any).budgetRangeAud}</dd>
+              </>
+            )}
+
+            {!((data as any).budgetRangeAud) && budgetText && (
+              <>
+                <dt>Budget</dt>
+                <dd>{budgetText}</dd>
+              </>
+            )}
+
+            <dt>Stops</dt>
+            <dd>{data!.stops.length} sequenced stops</dd>
+          </dl>
+
+          {effectiveStayHref ? (
+            <a
+              class="facts__cta"
+              href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=facts`}
+              data-event="escape_facts_anchor_stay_click"
+              data-itinerary={slug}
+            >
+              Stay here →
+            </a>
+          ) : (
+            <a class="facts__cta" href="/stay/">Choose the stay</a>
+          )}
+
+          {lastVerifiedLabel && (
+            <p class="facts__verified">Last fact-verified {lastVerifiedLabel}</p>
+          )}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {/* ─── 9b. Where to stay (anchor + alts) — also slot 3 of the 3-placement rule */}
+  {(effectiveStay || stayRail.length > 0) && (
+    <section class="venues">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Sleep here</p>
+            <h2 class="venues__title">Stays that anchor this escape properly</h2>
+          </div>
+          <a href="/stay/" class="venues__link">All stays →</a>
+        </div>
+        <div class="venues__grid">
+          {effectiveStay && <VenueCard venue={effectiveStay} hrefPrefix={venueHrefPrefix((effectiveStay as any).data.type)} />}
+          {stayRail.map((venue: any) => (
+            <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {highlightedExperiences.length > 0 && (
+    <section class="experience-index">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Move the trip outside</p>
+            <h2 class="venues__title">Explore stops inside this plan</h2>
+          </div>
+          <a href="/explore/" class="venues__link">Explore →</a>
+        </div>
+        <div class="experience-grid">
+          {highlightedExperiences.slice(0, 3).map((experience: any) => <ExperienceCard experience={experience} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {relatedArticles.length > 0 && (
+    <section class="venues venues--plain">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Further reading</p>
+            <h2 class="venues__title">Journal pieces that sharpen this version of the Peninsula</h2>
+          </div>
+          <a href="/journal/" class="venues__link">Journal →</a>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {relatedArticles.map((article: any) => <ArticleCard article={article} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* ─── 11. Related itineraries ─────────────────────────────────── */}
+  {relatedItineraries.length > 0 && (
+    <section class="escape-callout">
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">Try another shape</p>
+            <h2 class="venues__title">More escape plans from the rebuild</h2>
+          </div>
+          <a href="/explore/plans/" class="venues__link">All plans →</a>
+        </div>
+        <div class="itinerary-grid">
+          {relatedItineraries.map((entry: any) => <ItineraryCard itinerary={entry} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <NewsletterBlock />
+</BaseLayout>
+)}
+
+{/* ─────────────────────────────────────────────────────────────────────────
+   Plans-article (Sunday-magazine) scoped styles. All selectors prefixed
+   with .pl- so they cannot leak into the itinerary branch above or other
+   global surfaces. .pl-prose overrides only happen within .pl-essay so
+   the global .prose used by /journal/ etc remains untouched.
+   ───────────────────────────────────────────────────────────────────── */}
+<style is:global>
+  .pl-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: clamp(1.5rem, 5vw, 4.5rem);
+  }
+
+  /* Breadcrumbs sit on cream, quiet */
+  .pl-breadcrumbs {
+    background: var(--bg, #FFFFFF);
+    padding-top: clamp(0.75rem, 2vw, 1.25rem);
+  }
+  .pl-breadcrumbs .breadcrumbs,
+  .pl-breadcrumbs > div { max-width: 1180px; margin: 0 auto; padding-inline: clamp(1.5rem, 5vw, 4.5rem); }
+
+  /* Type primitives shared across the plans-article */
+  .pl-eyebrow {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(23, 20, 19, 0.7);
+    margin: 0 0 1.5rem;
+  }
+
+  /* ── Cover spread ─────────────────────────────────────────────── */
+  .pl-cover {
+    background: #FFFFFF;
+    padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(4rem, 8vw, 7.5rem);
+  }
+  .pl-cover__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: start;
+  }
+  .pl-cover__type { padding-top: clamp(0.5rem, 2vw, 2rem); }
+  .pl-cover__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.018em;
+    color: #171413;
+    margin: 0 0 1.75rem;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  .pl-cover__headline em { font-style: italic; font-weight: 500; }
+  .pl-cover__dek {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+    line-height: 1.55;
+    color: rgba(23, 20, 19, 0.78);
+    margin: 0 0 2rem;
+    max-width: 42ch;
+  }
+  .pl-cover__byline {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(23, 20, 19, 0.55);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .pl-cover__sep { color: rgba(23, 20, 19, 0.3); }
+  .pl-cover__visual {
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .pl-cover__image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #ECE5D8;
+    transform: scale(1.01);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pl-cover__visual:hover .pl-cover__image { transform: scale(1.04); }
+
+  /* ── At-a-glance card ────────────────────────────────────────── */
+  .pl-glance {
+    background: #F6F1E8;
+    padding: clamp(3rem, 6vw, 5.5rem) 0;
+    border-top: 1px solid rgba(23, 20, 19, 0.08);
+    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
+  }
+  .pl-glance__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  .pl-glance__eyebrow { margin: 0; padding-top: 0.4rem; }
+  .pl-glance__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 3.5rem);
+  }
+  .pl-glance__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: baseline;
+  }
+  .pl-glance__num {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: #A0541F;
+  }
+  .pl-glance__text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.02rem, 1.15vw, 1.12rem);
+    line-height: 1.55;
+    color: rgba(23, 20, 19, 0.82);
+  }
+
+  /* ── Essay typography ────────────────────────────────────────── */
+  .pl-essay {
+    background: #FFFFFF;
+    padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+  .pl-essay__inner { display: block; }
+  .pl-prose {
+    max-width: 36rem;
+    margin: 0 auto;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.15rem, 1.25vw, 1.22rem);
+    line-height: 1.7;
+    color: #2A211B;
+    font-weight: 400;
+  }
+  .pl-prose p { margin: 0 0 1.25rem; }
+  .pl-prose h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: #171413;
+    letter-spacing: -0.012em;
+    margin: clamp(3rem, 5vw, 4.5rem) 0 1.25rem;
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+  .pl-prose h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.4rem, 1.8vw, 1.6rem);
+    font-weight: 500;
+    color: #171413;
+    margin: 2.5rem 0 1rem;
+  }
+  .pl-prose strong { font-weight: 600; color: #171413; }
+  .pl-prose em { font-style: italic; }
+  .pl-prose a {
+    color: #171413;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .pl-prose a:hover {
+    color: #A0541F;
+    border-bottom-color: #A0541F;
+  }
+  .pl-prose blockquote {
+    border-left: none;
+    margin: 2.5rem 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 2vw, 1.65rem);
+    line-height: 1.45;
+    color: rgba(23, 20, 19, 0.78);
+    text-align: center;
+    max-width: 28ch;
+    margin-inline: auto;
+  }
+  .pl-prose ul,
+  .pl-prose ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.4rem;
+  }
+  .pl-prose li {
+    margin: 0 0 0.65rem;
+    line-height: 1.6;
+  }
+  /* Drop cap upgrade — slightly larger to match the heavier serif body */
+  .pl-prose.has-drop-cap > p:first-of-type::first-letter {
+    font-size: 5.4em;
+    color: #171413;
+    font-weight: 500;
+    padding: 0.14em 0.18em 0 0;
+  }
+  /* Tables inside plans articles inherit the global treatment which
+     already looks clean — keep them on a sans face for tabular legibility. */
+  .pl-prose table {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #2A211B;
+    margin: 2rem 0 2.75rem;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .pl-prose table thead th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(23, 20, 19, 0.65);
+    padding: 0.4rem 1rem 0.85rem;
+    border-bottom: 1.5px solid #171413;
+  }
+  .pl-prose table tbody td {
+    padding: 0.95rem 1rem;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.1);
+    vertical-align: top;
+  }
+  .pl-prose table thead th:first-child,
+  .pl-prose table tbody td:first-child { padding-left: 0; }
+  .pl-prose table thead th:last-child,
+  .pl-prose table tbody td:last-child { padding-right: 0; }
+
+  /* ── FAQ ─────────────────────────────────────────────────────── */
+  .pl-faq {
+    background: #FFFFFF;
+    padding: clamp(3.5rem, 7vw, 6.5rem) 0 clamp(4rem, 8vw, 7rem);
+    border-top: 1px solid rgba(23, 20, 19, 0.08);
+  }
+  .pl-faq__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  .pl-faq__header { padding-top: 0.4rem; }
+  .pl-faq__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.85rem, 2.6vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: #171413;
+    letter-spacing: -0.012em;
+    margin: 0;
+    max-width: 14ch;
+  }
+  .pl-faq__list { margin: 0; padding: 0; }
+  .pl-faq__item {
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0;
+    border-bottom: 1px solid rgba(23, 20, 19, 0.1);
+  }
+  .pl-faq__item:first-child { border-top: 1px solid rgba(23, 20, 19, 0.1); }
+  .pl-faq__q {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.25;
+    color: #171413;
+    margin: 0 0 0.85rem;
+  }
+  .pl-faq__a {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.05rem, 1.15vw, 1.12rem);
+    line-height: 1.6;
+    color: rgba(23, 20, 19, 0.78);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  /* ── Cluster rail ────────────────────────────────────────────── */
+  .pl-cluster {
+    background: #F6F1E8;
+    padding: clamp(3rem, 6vw, 5.5rem) 0;
+    border-top: 1px solid rgba(23, 20, 19, 0.08);
+  }
+  .pl-cluster__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  .pl-cluster__list { margin: 0; padding: 0; list-style: none; }
+  .pl-cluster__item {
+    padding: 0;
+    border-top: 1px solid rgba(23, 20, 19, 0.12);
+  }
+  .pl-cluster__item:last-child { border-bottom: 1px solid rgba(23, 20, 19, 0.12); }
+  .pl-cluster__link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.2rem 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.15rem, 1.4vw, 1.3rem);
+    font-weight: 500;
+    color: #171413;
+    text-decoration: none;
+    transition: color 0.2s ease, padding-left 0.25s ease;
+  }
+  .pl-cluster__link:hover { color: #A0541F; padding-left: 0.4rem; }
+  .pl-cluster__arrow {
+    font-family: 'Outfit', system-ui, sans-serif;
+    color: rgba(23, 20, 19, 0.45);
+    transition: color 0.2s ease, transform 0.25s ease;
+  }
+  .pl-cluster__link:hover .pl-cluster__arrow { color: #A0541F; transform: translateX(3px); }
+
+  /* ── Venues ──────────────────────────────────────────────────── */
+  .pl-venues {
+    background: #FFFFFF;
+    padding: clamp(4rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
+    border-top: 1px solid rgba(23, 20, 19, 0.08);
+  }
+  .pl-venues__head {
+    text-align: center;
+    margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  }
+  .pl-venues__head .pl-eyebrow { margin-bottom: 0.85rem; }
+  .pl-venues__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.85rem, 2.6vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: #171413;
+    letter-spacing: -0.012em;
+    margin: 0 auto;
+    max-width: 22ch;
+  }
+  .pl-venues__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .pl-glance__inner,
+    .pl-faq__inner,
+    .pl-cluster__inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .pl-glance__list { grid-template-columns: 1fr; }
+    .pl-venues__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .pl-cover__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .pl-cover__visual { aspect-ratio: 4 / 3; }
+    .pl-cover__headline { font-size: clamp(2rem, 7.5vw, 2.6rem); max-width: none; }
+  }
+  @media (max-width: 600px) {
+    .pl-venues__grid { grid-template-columns: 1fr; }
+    .pl-prose { font-size: 1.08rem; line-height: 1.65; }
+  }
+</style>
