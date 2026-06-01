@@ -59,12 +59,12 @@ export const v3Pillars: V3Pillar[] = [
       {
         eyebrow: 'By the place',
         items: [
-          { key: 'red-hill',   label: 'Red Hill',     href: '/places/red-hill/' },
-          { key: 'sorrento',   label: 'Sorrento',     href: '/places/sorrento/' },
-          { key: 'flinders',   label: 'Flinders',     href: '/places/flinders/' },
-          { key: 'mornington', label: 'Mornington',   href: '/places/mornington/' },
-          { key: 'main-ridge', label: 'Main Ridge',   href: '/places/main-ridge/' },
-          { key: 'merricks',   label: 'Merricks',     href: '/places/merricks/' },
+          { key: 'red-hill',   label: 'Red Hill',     href: '/explore/places/red-hill/' },
+          { key: 'sorrento',   label: 'Sorrento',     href: '/explore/places/sorrento/' },
+          { key: 'flinders',   label: 'Flinders',     href: '/explore/places/flinders/' },
+          { key: 'mornington', label: 'Mornington',   href: '/explore/places/mornington/' },
+          { key: 'main-ridge', label: 'Main Ridge',   href: '/explore/places/main-ridge/' },
+          { key: 'merricks',   label: 'Merricks',     href: '/explore/places/merricks/' },
         ],
       },
       {
@@ -92,7 +92,7 @@ export const v3Pillars: V3Pillar[] = [
         eyebrow: 'By the trip',
         items: [
           { key: 'one-night',   label: 'One night',           href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',     label: 'A weekend',           href: '/plans/' },
+          { key: 'weekend',     label: 'A weekend',           href: '/explore/plans/' },
           { key: 'family',      label: 'With kids',           href: '/journal/the-peninsula-with-kids/' },
           { key: 'romantic',    label: 'Two of you',          href: '/journal/the-couples-weekend/' },
           { key: 'wellness',    label: 'Wellness weekend',    href: '/journal/the-thermal-springs-weekend/' },
@@ -141,12 +141,12 @@ export const v3Pillars: V3Pillar[] = [
       {
         eyebrow: 'By the place',
         items: [
-          { key: 'red-hill',     label: 'Red Hill & ridge',     href: '/places/red-hill/' },
-          { key: 'sorrento',     label: 'Sorrento & cape',      href: '/places/sorrento/' },
-          { key: 'mornington',   label: 'Mornington & bay',     href: '/places/mornington/' },
-          { key: 'point-nepean', label: 'Point Nepean',         href: '/places/point-nepean/' },
-          { key: 'flinders',     label: 'Flinders & coast',     href: '/places/flinders/' },
-          { key: 'all-places',   label: 'Every town we cover',  href: '/places/' },
+          { key: 'red-hill',     label: 'Red Hill & ridge',     href: '/explore/places/red-hill/' },
+          { key: 'sorrento',     label: 'Sorrento & cape',      href: '/explore/places/sorrento/' },
+          { key: 'mornington',   label: 'Mornington & bay',     href: '/explore/places/mornington/' },
+          { key: 'point-nepean', label: 'Point Nepean',         href: '/explore/places/point-nepean/' },
+          { key: 'flinders',     label: 'Flinders & coast',     href: '/explore/places/flinders/' },
+          { key: 'all-places',   label: 'Every town we cover',  href: '/explore/places/' },
         ],
       },
       {
@@ -162,7 +162,7 @@ export const v3Pillars: V3Pillar[] = [
   {
     key: 'plans',
     label: 'Plans',
-    href: '/plans/',
+    href: '/explore/plans/',
     dek: 'Pre-shaped weekends, itineraries, and guide-led days.',
     panelImage: {
       src: '/images/sourced/article-flinders-weekend-01.webp',
@@ -173,8 +173,8 @@ export const v3Pillars: V3Pillar[] = [
         eyebrow: 'By the shape',
         items: [
           { key: 'one-night', label: 'One night',         href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',   label: 'Two-day weekend',   href: '/plans/?length=weekend' },
-          { key: 'long',      label: 'Long weekend',      href: '/plans/?length=long' },
+          { key: 'weekend',   label: 'Two-day weekend',   href: '/explore/plans/?length=weekend' },
+          { key: 'long',      label: 'Long weekend',      href: '/explore/plans/?length=long' },
           { key: 'kids',      label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
           { key: 'wellness',  label: 'Wellness weekend',  href: '/journal/the-thermal-springs-weekend/' },
         ],
@@ -191,7 +191,7 @@ export const v3Pillars: V3Pillar[] = [
       {
         eyebrow: 'In voice',
         items: [
-          { key: 'all-plans', label: 'Every plan we publish', href: '/plans/' },
+          { key: 'all-plans', label: 'Every plan we publish', href: '/explore/plans/' },
           { key: 'all-tours', label: 'Every operator we trust', href: '/tour/' },
         ],
       },
@@ -243,7 +243,7 @@ export const v3FooterDepartments: V3NavItem[] = [
   { key: 'eat',      label: 'Eat & Drink',  href: '/eat/' },
   { key: 'stay',     label: 'Stay',         href: '/stay/' },
   { key: 'explore',  label: 'Explore',      href: '/explore/' },
-  { key: 'plans',    label: 'Plans',        href: '/plans/' },
+  { key: 'plans',    label: 'Plans',        href: '/explore/plans/' },
   { key: 'journal',  label: 'Journal',      href: '/journal/' },
   { key: 'whats-on', label: "What's On",    href: '/whats-on/' },
   { key: 'ask',      label: 'Ask PI',       href: '/ask/' },

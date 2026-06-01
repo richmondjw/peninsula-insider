@@ -111,7 +111,7 @@ const placePins: MapEntry[] = placesAll
       category: 'place' as const,
       type: p.data.kind,
       name: p.data.name,
-      href: `/places/${slug}/`,
+      href: `/explore/places/${slug}/`,
       lat: p.data.coordinates!.lat,
       lng: p.data.coordinates!.lng,
       hero: p.data.heroImage?.src ?? '',

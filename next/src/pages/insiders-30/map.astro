@@ -53,7 +53,7 @@ for (const pick of [...current.data.picks].sort((a, b) => a.rank - b.rank)) {
   let href = '#';
   if (kind === 'venue')      href = `${venueHrefPrefix(entry.data.type)}/${slug}/`;
   else if (kind === 'experience') href = `/explore/${slug}/`;
-  else                              href = `/places/${slug}/`;
+  else                              href = `/explore/places/${slug}/`;
 
   pins.push({
     rank: pick.rank,

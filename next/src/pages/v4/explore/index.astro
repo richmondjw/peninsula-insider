@@ -399,7 +399,7 @@ export const prerender = true;
             <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} />
           ))}
         </div>
-        <p style="margin-top: 1.5rem;"><a href="/places/">Browse all towns →</a></p>
+        <p style="margin-top: 1.5rem;"><a href="/explore/places/">Browse all towns →</a></p>
       </div>
     </section>
   )}
@@ -416,7 +416,7 @@ export const prerender = true;
             <h2 class="venues__title">These explore notes feed directly into our escape plans</h2>
             <p class="venues__sub">Walks and lookouts matter most when they are sequenced with the right lunch and the right bed.</p>
           </div>
-          <a href="/plans/" class="venues__link">See all plans →</a>
+          <a href="/explore/plans/" class="venues__link">See all plans →</a>
         </div>
         <div class="itinerary-grid">
           {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}

@@ -30,7 +30,7 @@ const placeId =
 const placeLabel = placeId
   ? String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())
   : null;
-const placeHref = placeId ? `/places/${placeId}/` : null;
+const placeHref = placeId ? `/explore/places/${placeId}/` : null;
 
 function conciseSummary(value: unknown, maxWords = 22): string {
   const text = String(value ?? '').replace(/\s+/g, ' ').trim();

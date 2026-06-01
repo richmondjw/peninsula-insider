@@ -146,7 +146,7 @@ export const v4Pillars: V4Pillar[] = [
         eyebrow: 'By the trip',
         items: [
           { key: 'one-night',  label: 'One night',         href: '/journal/the-one-night-escape/' },
-          { key: 'weekend',    label: 'A weekend',         href: '/plans/' },
+          { key: 'weekend',    label: 'A weekend',         href: '/explore/plans/' },
           { key: 'kids',       label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
           { key: 'romantic',   label: 'Two of you',        href: '/journal/the-couples-weekend/' },
           { key: 'wellness',   label: 'Wellness weekend',  href: '/spa/' },

@@ -210,7 +210,7 @@ export const footerSectionLinks: NavItem[] = [
   { key: 'spa',              label: 'Spa & Wellness',  href: '/spa/' },
   { key: 'fishing',          label: 'Fishing',         href: '/fishing/' },
   { key: 'boating',          label: 'Boating',         href: '/boating/' },
-  { key: 'escape',           label: 'Plans',           href: '/plans/' },
+  { key: 'escape',           label: 'Plans',           href: '/explore/plans/' },
   { key: 'tour',             label: 'Tours',           href: '/tour/' },
   { key: 'tour-packages',    label: 'Tour Packages',   href: '/tour-packages/' },
   { key: 'whats-on',         label: "What's On",       href: '/whats-on/' },
@@ -289,7 +289,7 @@ export function buildFooterPlaceLinks(
   for (const slug of footerPlaceFeatured) {
     const place = bySlug.get(slug);
     if (!place) continue;
-    ordered.push({ key: slug, label: place.name, href: `/places/${slug}/` });
+    ordered.push({ key: slug, label: place.name, href: `/explore/places/${slug}/` });
     seen.add(slug);
     if (ordered.length >= cap) break;
   }
@@ -298,7 +298,7 @@ export function buildFooterPlaceLinks(
     const extras: NavItem[] = [];
     for (const [slug, place] of bySlug) {
       if (seen.has(slug)) continue;
-      extras.push({ key: slug, label: place.name, href: `/places/${slug}/` });
+      extras.push({ key: slug, label: place.name, href: `/explore/places/${slug}/` });
     }
     extras.sort((a, b) => a.label.localeCompare(b.label));
     for (const extra of extras) {
@@ -307,6 +307,6 @@ export function buildFooterPlaceLinks(
     }
   }
 
-  ordered.push({ key: 'all-places', label: 'All places', href: '/places/' });
+  ordered.push({ key: 'all-places', label: 'All places', href: '/explore/places/' });
   return ordered;
 }

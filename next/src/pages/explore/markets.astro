@@ -30,7 +30,7 @@ const heroRedHillSaturday = await resolveArticleHero(
   '/images/sourced/article-red-hill-saturday-01.webp',
 );
 
-// Cards that link to a /places/<slug>/ guide bind to that place's heroImage.
+// Cards that link to a /explore/places/<slug>/ guide bind to that place's heroImage.
 // Cards that link to a hub (/wine/) keep their hardcoded image.
 const allPlacesForCards = await getCollection('places');
 async function resolvePlaceHero(slug: string, fallback: string): Promise<string> {
@@ -391,8 +391,8 @@ export const prerender = true;
           <h3 class="pairing-card__heading">Balnarring Saturday</h3>
           <p class="pairing-card__sub">Market 8–11am. Wine corridor, coastal lunch.</p>
           <ul class="pairing-card__list">
-            <li><a href="/places/shoreham/">Shoreham</a> — quiet coastal village 10 minutes south.</li>
-            <li><a href="/places/merricks/">Merricks General Wine Store</a> — the natural lunch continuation.</li>
+            <li><a href="/explore/places/shoreham/">Shoreham</a> — quiet coastal village 10 minutes south.</li>
+            <li><a href="/explore/places/merricks/">Merricks General Wine Store</a> — the natural lunch continuation.</li>
             <li><a href="/explore/balnarring-beach/">Balnarring Beach</a> — Western Port swim or a long walk on the racecourse side.</li>
           </ul>
         </div>
@@ -400,7 +400,7 @@ export const prerender = true;
           <h3 class="pairing-card__heading">Mornington Wednesday</h3>
           <p class="pairing-card__sub">Market 9am–2pm. Town day, bay-side coffee.</p>
           <ul class="pairing-card__list">
-            <li><a href="/places/mornington/">Mornington town</a> — Main Street rolls straight into the market on market Wednesdays.</li>
+            <li><a href="/explore/places/mornington/">Mornington town</a> — Main Street rolls straight into the market on market Wednesdays.</li>
             <li><a href="/explore/mornington-foreshore-walk/">Mornington foreshore walk</a> — pram-friendly, a clean way to finish the morning.</li>
             <li><a href="/eat/">Eat &amp; Drink in Mornington</a> — lunch options once the stalls pack up.</li>
           </ul>
@@ -432,8 +432,8 @@ export const prerender = true;
         {/*
           The three cards below bind to their destination's hero image:
           /wine/ → pageHero singleton with pathSlug "wine"
-          /places/red-hill/ → red-hill place doc heroImage
-          /places/balnarring/ → balnarring place doc heroImage
+          /explore/places/red-hill/ → red-hill place doc heroImage
+          /explore/places/balnarring/ → balnarring place doc heroImage
           Editing any of those propagates here automatically.
         */}
         <a href="/wine/" class="market-article-card">
@@ -445,7 +445,7 @@ export const prerender = true;
             <span class="market-article-card__cta">Read →</span>
           </div>
         </a>
-        <a href="/places/red-hill/" class="market-article-card">
+        <a href="/explore/places/red-hill/" class="market-article-card">
           <div class="market-article-card__img" style={`background-image: url('${heroPlaceRedHill}')`} aria-hidden="true"></div>
           <div class="market-article-card__body">
             <p class="market-article-card__tag">Place guide</p>
@@ -454,7 +454,7 @@ export const prerender = true;
             <span class="market-article-card__cta">Read →</span>
           </div>
         </a>
-        <a href="/places/balnarring/" class="market-article-card">
+        <a href="/explore/places/balnarring/" class="market-article-card">
           <div class="market-article-card__img" style={`background-image: url('${heroPlaceBalnarring}')`} aria-hidden="true"></div>
           <div class="market-article-card__body">
             <p class="market-article-card__tag">Place guide</p>

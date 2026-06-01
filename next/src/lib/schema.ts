@@ -251,7 +251,7 @@ export const buildCollectionPageSchema = ({
   dateModified,
 });
 
-// ─── TouristDestination (for /places/[slug]/) ─────────────────────────────────
+// ─── TouristDestination (for /explore/places/[slug]/) ─────────────────────────────────
 
 interface BuildTouristDestinationInput {
   name: string;
@@ -368,7 +368,7 @@ export const buildTouristAttractionSchema = ({
     : {}),
 });
 
-// ─── TouristTrip (for /plans/[package]/ and itinerary articles) ───────────────
+// ─── TouristTrip (for /explore/plans/[package]/ and itinerary articles) ───────────────
 
 interface TripStop {
   name: string;

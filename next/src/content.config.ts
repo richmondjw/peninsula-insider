@@ -343,7 +343,7 @@ const places = defineCollection({
     tldr: z.array(z.string()).optional(),
     driveTime: z.string().optional(),
     /**
-     * Editorial trip-planning fields. Surface on /places/[slug] pages — the
+     * Editorial trip-planning fields. Surface on /explore/places/[slug] pages — the
      * place-detail template renders each conditionally so partially-filled
      * places (e.g. arthurs-seat) still render cleanly.
      *
@@ -419,13 +419,13 @@ const articles = defineCollection({
     /**
      * Editorial section this article belongs to. Articles tagged "plans" are
      * suppressed from the Journal index and surfaced in the Plans index instead.
-     * The URL stays at /journal/[slug] until the full /plans/[slug] routing
+     * The URL stays at /journal/[slug] until the full /explore/plans/[slug] routing
      * sprint lands; this flag is the lightweight first step.
      */
     section: z.enum(['journal', 'plans']).default('journal'),
     /**
      * Shape of the trip a plans article describes. Drives the four-group
-     * editorial layout on /plans/. Optional at the schema level because
+     * editorial layout on /explore/plans/. Optional at the schema level because
      * journal-section articles don't need it; required (editorially) for
      * any article with section: plans that wants to appear in the
      * grouped "Peninsula planning guides" section.
@@ -508,7 +508,7 @@ const articles = defineCollection({
   }),
 });
 
-// /escape/ taxonomy — 7 axes from peninsula_insider_escape_v1 pack.
+// /explore/plans/ taxonomy — 7 axes from peninsula_insider_escape_v1 pack.
 // All seven axes are optional with sensible defaults so legacy itineraries
 // (which only carried `audience` + `mood` + `lengthNights`) continue to validate.
 // Pre-publish gate (lib/escape.ts) enforces non-default values for new commissions.
@@ -597,7 +597,7 @@ const itineraries = defineCollection({
     ]),
     lengthNights: z.number().int().nonnegative(),
 
-    // 7-axis taxonomy from /escape/ pack. Optional during the migration window
+    // 7-axis taxonomy from /explore/plans/ pack. Optional during the migration window
     // so legacy entries don't fail validation; new commissions must populate.
     duration: escapeDuration.optional(),
     theme: z.array(escapeTheme).max(2).default([]),

@@ -149,10 +149,10 @@ const lateralColumns = [
   placeAnchor && {
     eyebrow: 'Know the terrain',
     title: 'Place by <em>place</em>',
-    href: '/places/',
+    href: '/explore/places/',
     hrefLabel: 'See all six towns',
     card: {
-      href: `/places/${routeSlug(placeAnchor)}/`,
+      href: `/explore/places/${routeSlug(placeAnchor)}/`,
       image: (placeAnchor.data as any).image ?? '/images/sourced/place-red-hill-01.webp',
       imageAlt: placeAnchor.data.name,
       kind: 'Town',

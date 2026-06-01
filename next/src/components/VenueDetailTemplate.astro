@@ -101,7 +101,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       <span class="venue-detail__dot" aria-hidden="true"></span>
       <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
       <span class="venue-detail__dot" aria-hidden="true"></span>
-      <a href={`/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
+      <a href={`/explore/places/${data.place?.id ?? data.place}`} class="venue-detail__place">{placeLabel(data.place)}</a>
       {subregionLabel && (
         <><span class="venue-detail__dot" aria-hidden="true"></span>
         <span class="venue-detail__subregion">{subregionLabel}</span></>
@@ -610,7 +610,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           <h2 class="venues__title">Weekend plans that already include {data.name}</h2>
           <p class="venues__sub">Skip the planning  -  these itineraries sequence this venue into a proper Peninsula weekend.</p>
         </div>
-        <a href="/plans/" class="venues__link">All plans →</a>
+        <a href="/explore/plans/" class="venues__link">All plans →</a>
       </div>
       <div class="itinerary-grid">
         {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
@@ -666,7 +666,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         <>
           <a href="/journal/the-one-night-escape/" class="venue-card__cta">The one-night escape →</a>
           <a href="/journal/mornington-peninsula-in-winter/" class="venue-card__cta">Winter on the Peninsula →</a>
-          <a href="/plans/" class="venue-card__cta">Weekend plans →</a>
+          <a href="/explore/plans/" class="venue-card__cta">Weekend plans →</a>
         </>
       )}
       {data.dogFriendly && (
@@ -695,7 +695,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   <div class="venue-place-link">
     <div class="container">
       <a
-        href={`/places/${data.place?.id ?? data.place}/`}
+        href={`/explore/places/${data.place?.id ?? data.place}/`}
         class="venue-place-link__anchor"
       >
         ← Part of {placeLabel(data.place)} — view the destination guide

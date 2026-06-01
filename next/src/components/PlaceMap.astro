@@ -1,6 +1,6 @@
 ---
 /**
- * PlaceMap — scoped Leaflet map for /places/<slug>/ (Phase 3 WS3B).
+ * PlaceMap — scoped Leaflet map for /explore/places/<slug>/ (Phase 3 WS3B).
  *
  * Reuses the /map/ infrastructure: same DivIcon palette, same popup
  * pattern, same OSM tiles. The two differences from /map/:
@@ -51,7 +51,7 @@ if (place.data.coordinates && Number.isFinite(place.data.coordinates.lat)) {
     category: 'place',
     type: place.data.kind,
     name: place.data.name,
-    href: `/places/${place.id ?? place.data.slug}/`,
+    href: `/explore/places/${place.id ?? place.data.slug}/`,
     lat: place.data.coordinates.lat,
     lng: place.data.coordinates.lng,
     hero: place.data.heroImage?.src ?? '',

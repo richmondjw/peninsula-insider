@@ -31,7 +31,7 @@ import InlineEditor from '../components/admin/InlineEditor.astro';
 export interface Props {
   title: string;
   description?: string;
-  section?: 'home' | 'eat' | 'stay' | 'wine' | 'explore' | 'journal' | 'places' | 'escape' | 'whats-on';
+  section?: 'home' | 'eat' | 'stay' | 'wine' | 'explore' | 'journal' | 'whats-on';
   preview?: boolean;
   canonical?: string;
   ogImage?: string;
@@ -71,8 +71,6 @@ const SECTION_TO_SEARCH_KIND: Record<string, string> = {
   wine: 'Wine',
   explore: 'Explore',
   journal: 'Journal',
-  places: 'Places',
-  escape: 'Plans',
   'whats-on': "What's On",
 };
 const resolvedSearchKind = searchKind ?? SECTION_TO_SEARCH_KIND[section] ?? 'Guide';
@@ -417,7 +415,7 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <!-- V4 mega-menu + mobile drawer behaviour.
        Replaces V2's #mobileNav burger script. Three responsibilities:
-       1. Hover/focus open + leave/escape/click-outside close on desktop pillars.
+       1. Hover/focus open + leave/explore/plans/click-outside close on desktop pillars.
        2. Burger opens the V4 drawer; accordion pillars expand inline.
        3. data-pi-trigger="true" intercepts clicks and opens the concierge
           drawer via window.openConcierge() (was previously inside V2 Masthead). -->

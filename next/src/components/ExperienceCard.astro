@@ -56,7 +56,7 @@ const imgStyle = hero.style;
   </a>
   <div class="experience-card__body">
     <div class="experience-card__meta">
-      <a href={`/places/${data.place?.id ?? data.place}`} class="experience-card__place-link">{placeLabel(data.place)}</a>
+      <a href={`/explore/places/${data.place?.id ?? data.place}`} class="experience-card__place-link">{placeLabel(data.place)}</a>
       {(duration || difficulty) && (
         <span>{[duration, difficulty].filter(Boolean).join(' · ')}</span>
       )}

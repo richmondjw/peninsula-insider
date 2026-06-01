@@ -186,7 +186,7 @@ export const prerender = true;
                 <dt>Where</dt>
                 <dd>
                   {primaryPlace ? (
-                    <a href={`/places/${routeSlug(primaryPlace)}/`}>{primaryPlace.data.name}</a>
+                    <a href={`/explore/places/${routeSlug(primaryPlace)}/`}>{primaryPlace.data.name}</a>
                   ) : (
                     <span>{data.location}</span>
                   )}
