@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Peninsula Insider — PI avatar (placeholder)">
+  
+  <defs>
+    <radialGradient id="paper" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#f6f1e8"></stop>
+      <stop offset="100%" stop-color="#e6dcc5"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#paper)"></circle>
+  
+  <path d="M30 200c0-30 25-54 70-54s70 24 70 54H30z" fill="#1c1a14"></path>
+  <path d="M64 200l-6-48c8-6 18-9 28-9l-6 57H64zm72 0l6-48c-8-6-18-9-28-9l6 57h16z" fill="#1c1a14"></path>
+  
+  <path d="M70 120c0-22 14-38 30-38s30 16 30 38v18c0 14-13 26-30 26s-30-12-30-26v-18z" fill="#1c1a14"></path>
+  
+  <path d="M40 92c0-4 3-7 7-7h106c4 0 7 3 7 7v5H40v-5z" fill="#1c1a14"></path>
+  
+  <path d="M54 60c0-12 10-22 22-22h48c12 0 22 10 22 22v32H54V60z" fill="#1c1a14"></path>
+  
+  <rect x="40" y="88" width="120" height="6" fill="#c45838"></rect>
+  
+  <rect x="120" y="160" width="14" height="20" rx="1" fill="#f6f1e8" transform="rotate(-8 127 170)"></rect>
+</svg>
