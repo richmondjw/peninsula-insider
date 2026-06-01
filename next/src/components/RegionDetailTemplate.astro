@@ -177,13 +177,16 @@ const touristDestination = {
 
   <style>
     .region-hero { background-size: cover; background-position: center; color: #fff; padding: clamp(64px, 12vw, 160px) 0 clamp(40px, 7vw, 90px); }
-    .region-hero__eyebrow { font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; opacity: 0.92; margin: 0 0 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
-    .region-hero__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(36px, 6vw, 72px); line-height: 1.02; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3); }
-    .region-hero__tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.4vw, 24px); max-width: 60ch; margin: 14px 0 0; text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3); }
+    .region-hero__eyebrow { font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; opacity: 0.92; margin: 0 0 12px; text-shadow: 0 1px 4px rgba(0,0,0,0.5); color: #fff; }
+    .region-hero__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(36px, 6vw, 72px); line-height: 1.02; margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3); color: #fff; }
+    .region-hero__tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.4vw, 24px); max-width: 60ch; margin: 14px 0 0; text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3); color: #fff; }
     .region-intro { margin: 36px 0; max-width: 70ch; font-size: 1.05rem; line-height: 1.6; }
     .region-section__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(24px, 3.5vw, 34px); margin: 40px 0 18px; }
     .region-places__rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 1fr); gap: 20px; overflow-x: auto; padding-bottom: 8px; }
-    @media (max-width: 760px) { .region-places__rail { grid-auto-columns: minmax(220px, 80%); } }
+    @media (max-width: 760px) {
+      .region-places__rail { grid-auto-columns: minmax(220px, 80%); }
+      .region-places__rail .place-card__image { aspect-ratio: 4 / 3; }
+    }
     .region-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
     .region-tab { font-family: 'Outfit', sans-serif; font-size: 13px; padding: 7px 16px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text); cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
     .region-tab.is-active, .region-tab:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
