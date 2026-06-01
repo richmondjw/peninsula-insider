@@ -10,7 +10,7 @@ heroImage:
   credit: "Wikimedia Commons"
   license: "tmp-wikimedia"
 format: "service"
-tags: ["red-hill", "wine", "long-lunch", "weekend"]
+tags: ["red-hill", "wine", "long-lunch", "weekend", "all-year"]
 relatedVenues: ["montalto", "polperro", "ten-minutes-by-tractor", "lindenderry", "red-hill-market", "red-hill-bakery", "johnny-ripe", "red-hill-cheese", "foxeys-hangout", "paringa-estate", "main-ridge-estate"]
 relatedExperiences: ["red-hill-market"]
 readingTimeMinutes: 6

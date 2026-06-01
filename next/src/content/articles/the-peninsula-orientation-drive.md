@@ -10,7 +10,7 @@ heroImage:
   credit: "Victor Lu on Unsplash"
   license: "tmp-unsplash"
 format: "service"
-tags: ["explore", "drive", "first-timers", "red-hill", "sorrento", "day-trip"]
+tags: ["explore", "drive", "first-timers", "red-hill", "sorrento", "day-trip", "all-year"]
 relatedVenues: ["commonfolk-coffee", "merricks-general-wine-store", "red-hill-brewery", "flinders-sourdough", "georgie-bass", "dromana-hotel", "balnarring-pub", "crittenden-estate", "yabby-lake", "red-hill-bakery", "somers-general"]
 relatedExperiences: ["arthurs-seat-lookout", "red-hill-market", "cape-schanck-boardwalk", "sorrento-back-beach", "mount-martha-beach"]
 readingTimeMinutes: 8

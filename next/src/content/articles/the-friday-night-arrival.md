@@ -10,7 +10,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
-tags: ["weekend", "eat", "arrival", "mornington", "red-hill", "flinders", "sorrento", "practical"]
+tags: ["weekend", "eat", "arrival", "mornington", "red-hill", "flinders", "sorrento", "practical", "all-year"]
 relatedVenues:
   - "red-hill-bakery"
   - "epicurean-red-hill"

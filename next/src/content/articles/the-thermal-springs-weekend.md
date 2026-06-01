@@ -10,7 +10,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
-tags: ["wellness", "thermal-springs", "weekend", "fingal", "red-hill", "autumn"]
+tags: ["wellness", "thermal-springs", "weekend", "fingal", "red-hill", "autumn", "winter"]
 relatedVenues:
   - "alba-thermal-springs"
   - "peninsula-hot-springs"

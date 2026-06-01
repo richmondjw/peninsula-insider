@@ -10,7 +10,7 @@ heroImage:
   credit: "Wikimedia Commons"
   license: "tmp-wikimedia"
 format: "service"
-tags: ["markets", "mornington", "red-hill", "balnarring", "weekend", "producers"]
+tags: ["markets", "mornington", "red-hill", "balnarring", "weekend", "producers", "all-year"]
 relatedVenues: ["mornington-farmers-market", "red-hill-market", "balnarring-market", "red-hill-brewery", "red-hill-bakery", "merricks-general-wine-store", "commonfolk-coffee", "red-hill-cheese", "main-ridge-dairy", "sunny-ridge-strawberry-farm", "peninsula-fresh-organics", "somers-general", "balnarring-bakehouse", "johnny-ripe", "mornington-peninsula-chocolates"]
 relatedExperiences: ["red-hill-market", "mornington-foreshore-walk", "balnarring-beach"]
 readingTimeMinutes: 8

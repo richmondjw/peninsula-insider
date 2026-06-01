@@ -9,10 +9,25 @@
     "credit": "Peninsula Insider",
     "license": "tmp-unsplash"
   },
-  "zones": ["peninsula-tip"],
-  "places": ["sorrento", "portsea", "blairgowrie", "rye", "fingal"],
-  "adjacentRegions": ["ocean-coast", "mornington-bay-coast"],
-  "coordinates": { "lat": -38.34, "lng": 144.74 },
+  "zones": [
+    "peninsula-tip"
+  ],
+  "places": [
+    "sorrento",
+    "portsea",
+    "blairgowrie",
+    "rye",
+    "tootgarook",
+    "point-nepean"
+  ],
+  "adjacentRegions": [
+    "ocean-coast",
+    "mornington-bay-coast"
+  ],
+  "coordinates": {
+    "lat": -38.34,
+    "lng": 144.74
+  },
   "publishedAt": "2026-06-01",
   "sitemapExclude": false
 }

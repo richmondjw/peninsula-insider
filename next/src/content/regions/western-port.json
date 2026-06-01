@@ -9,10 +9,24 @@
     "credit": "Peninsula Insider",
     "license": "tmp-unsplash"
   },
-  "zones": ["western-port"],
-  "places": ["hastings", "bittern", "crib-point", "boneo"],
-  "adjacentRegions": ["mornington-bay-coast"],
-  "coordinates": { "lat": -38.30, "lng": 145.20 },
+  "zones": [
+    "western-port"
+  ],
+  "places": [
+    "hastings",
+    "bittern",
+    "crib-point",
+    "somers",
+    "stony-point",
+    "tyabb"
+  ],
+  "adjacentRegions": [
+    "mornington-bay-coast"
+  ],
+  "coordinates": {
+    "lat": -38.3,
+    "lng": 145.2
+  },
   "publishedAt": "2026-06-01",
   "sitemapExclude": false
 }

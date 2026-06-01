@@ -10,7 +10,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
-tags: ["pubs", "beer", "dining", "walk-in", "locals", "groups", "casual"]
+tags: ["pubs", "beer", "dining", "walk-in", "locals", "groups", "casual", "all-year"]
 relatedVenues: ["flinders-hotel", "dromana-hotel", "rye-hotel", "balnarring-pub", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "hotel-sorrento", "the-bay-hotel-mornington", "red-hill-brewery", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "mornington-peninsula-brewery"]
 relatedExperiences: ["mornington-foreshore-walk", "sorrento-back-beach", "portsea-front-beach"]
 readingTimeMinutes: 7

@@ -10,7 +10,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
-tags: ["day-trip", "quick", "red-hill", "mornington", "first-timers", "explore"]
+tags: ["day-trip", "quick", "red-hill", "mornington", "first-timers", "explore", "all-year"]
 relatedVenues: ["merricks-general-wine-store", "red-hill-brewery", "commonfolk-coffee", "montalto", "main-ridge-dairy", "red-hill-cheese", "mornington-peninsula-chocolates", "flinders-sourdough", "red-hill-bakery", "johnny-ripe", "somers-general", "allis-wine-bar", "many-little", "bistro-elba"]
 relatedExperiences: ["arthurs-seat-lookout", "mornington-foreshore-walk", "mornington-peninsula-gallery", "red-hill-market"]
 readingTimeMinutes: 6

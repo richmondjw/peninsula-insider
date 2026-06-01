@@ -9,10 +9,31 @@
     "credit": "Peninsula Insider",
     "license": "tmp-unsplash"
   },
-  "zones": ["red-hill", "hinterland"],
-  "places": ["red-hill", "main-ridge", "merricks", "merricks-beach", "merricks-north", "balnarring"],
-  "adjacentRegions": ["mornington-bay-coast", "ocean-coast"],
-  "coordinates": { "lat": -38.385, "lng": 145.015 },
+  "zones": [
+    "red-hill",
+    "hinterland"
+  ],
+  "places": [
+    "red-hill",
+    "main-ridge",
+    "merricks",
+    "merricks-beach",
+    "merricks-north",
+    "balnarring",
+    "tuerong",
+    "moorooduc",
+    "arthurs-seat",
+    "red-hill-south",
+    "point-leo"
+  ],
+  "adjacentRegions": [
+    "mornington-bay-coast",
+    "ocean-coast"
+  ],
+  "coordinates": {
+    "lat": -38.385,
+    "lng": 145.015
+  },
   "publishedAt": "2026-06-01",
   "sitemapExclude": false
 }

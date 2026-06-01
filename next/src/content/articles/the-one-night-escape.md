@@ -10,7 +10,7 @@ heroImage:
   credit: "Wikimedia Commons"
   license: "tmp-wikimedia"
 format: "service"
-tags: ["weekend", "stay", "overnight", "wellness", "sorrento", "red-hill", "flinders"]
+tags: ["weekend", "stay", "overnight", "wellness", "sorrento", "red-hill", "flinders", "all-year"]
 relatedVenues:
   - "the-continental-sorrento"
   - "lindenderry"

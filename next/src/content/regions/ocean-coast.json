@@ -9,10 +9,25 @@
     "credit": "Peninsula Insider",
     "license": "tmp-unsplash"
   },
-  "zones": ["ocean-coast"],
-  "places": ["flinders", "cape-schanck", "rye", "fingal"],
-  "adjacentRegions": ["red-hill-wine-country", "peninsula-tip"],
-  "coordinates": { "lat": -38.49, "lng": 144.97 },
+  "zones": [
+    "ocean-coast"
+  ],
+  "places": [
+    "flinders",
+    "cape-schanck",
+    "fingal",
+    "boneo",
+    "shoreham",
+    "st-andrews-beach"
+  ],
+  "adjacentRegions": [
+    "red-hill-wine-country",
+    "peninsula-tip"
+  ],
+  "coordinates": {
+    "lat": -38.49,
+    "lng": 144.97
+  },
   "publishedAt": "2026-06-01",
   "sitemapExclude": false
 }

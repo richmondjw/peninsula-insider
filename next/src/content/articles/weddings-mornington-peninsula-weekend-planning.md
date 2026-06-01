@@ -11,7 +11,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "service"
-tags: ["weddings", "weekend", "planning", "stay", "wine", "peninsula"]
+tags: ["weddings", "weekend", "planning", "stay", "wine", "peninsula", "all-year"]
 readingTimeMinutes: 8
 featured: true
 status: "published"

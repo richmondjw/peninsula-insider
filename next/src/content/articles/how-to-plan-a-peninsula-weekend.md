@@ -10,7 +10,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
-tags: ["planning", "weekend", "guide", "accommodation", "booking", "first-timers", "couples", "family", "groups"]
+tags: ["planning", "weekend", "guide", "accommodation", "booking", "first-timers", "couples", "family", "groups", "all-year"]
 relatedVenues: ["ten-minutes-by-tractor", "montalto", "tedesca-osteria", "merricks-general-wine-store", "lindenderry", "jackalope", "polperro-villas", "crittenden-villas", "hotel-sorrento", "flinders-hotel", "pt-leo-estate", "commonfolk-coffee", "alba-thermal-springs", "peninsula-hot-springs", "the-continental-sorrento", "rare-hare", "paringa-estate", "port-phillip-estate-restaurant", "doot-doot-doot"]
 relatedExperiences: ["arthurs-seat-lookout", "point-nepean-national-park", "sorrento-back-beach", "mornington-foreshore-walk", "bushrangers-bay-walk", "pt-leo-sculpture-park", "montalto-sculpture-trail", "red-hill-market", "cape-schanck-lighthouse-walk"]
 readingTimeMinutes: 8

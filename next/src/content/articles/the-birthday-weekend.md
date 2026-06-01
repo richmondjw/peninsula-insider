@@ -10,7 +10,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
-tags: ["celebration", "birthday", "anniversary", "romance", "stay", "weekend"]
+tags: ["celebration", "birthday", "anniversary", "romance", "stay", "weekend", "all-year"]
 relatedVenues: ["jackalope", "lindenderry", "polperro-villas", "crittenden-villas", "point-leo-estate-villas", "hotel-sorrento", "the-continental-sorrento", "tedesca-osteria", "laura-pt-leo", "pt-leo-estate", "doot-doot-doot", "ten-minutes-by-tractor", "polperro", "montalto", "alba-thermal-springs", "peninsula-hot-springs", "peninsula-hot-springs-glamping", "barragunda-dining", "port-phillip-estate-restaurant"]
 relatedExperiences: ["bushrangers-bay-walk", "cape-schanck-boardwalk", "red-hill-market", "pt-leo-sculpture-park"]
 readingTimeMinutes: 7

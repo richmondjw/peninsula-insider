@@ -11,7 +11,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-wikimedia"
 format: "service"
-tags: ["spa", "hot-springs", "stay", "wellness", "mornington-peninsula", "packages", "weekend-escape"]
+tags: ["spa", "hot-springs", "stay", "wellness", "mornington-peninsula", "packages", "weekend-escape", "autumn", "winter"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope"]
 readingTimeMinutes: 8
 status: "published"

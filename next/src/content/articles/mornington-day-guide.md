@@ -10,7 +10,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
-tags: ["mornington", "bayside", "day-trip", "coffee", "markets"]
+tags: ["mornington", "bayside", "day-trip", "coffee", "markets", "all-year"]
 relatedVenues: ["commonfolk-coffee", "mornington-farmers-market", "bass-and-flinders", "sourdough-kitchen", "mr-vincenzos", "the-bay-hotel-mornington", "the-rocks-mornington"]
 relatedExperiences: ["mornington-peninsula-gallery", "mount-martha-beach"]
 readingTimeMinutes: 5

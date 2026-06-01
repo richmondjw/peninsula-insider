@@ -11,7 +11,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "tmp-wikimedia"
 format: "service"
-tags: ["golf", "stay", "mornington-peninsula", "packages", "weekend-escape"]
+tags: ["golf", "stay", "mornington-peninsula", "packages", "weekend-escape", "all-year"]
 relatedExperiences: ["st-andrews-beach-golf-course", "moonah-links", "the-dunes-golf-links", "racv-cape-schanck-golf-course"]
 readingTimeMinutes: 9
 status: "published"

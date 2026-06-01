@@ -12,7 +12,7 @@ heroImage:
 format: "slow-peninsula"
 section: plans
 planShape: "two-night"
-tags: ["couples", "weekend", "stay", "wine", "romance", "red-hill", "sorrento", "flinders"]
+tags: ["couples", "weekend", "stay", "wine", "romance", "red-hill", "sorrento", "flinders", "all-year"]
 relatedVenues:
   - "jackalope"
   - "lindenderry"

@@ -11,7 +11,7 @@ heroImage:
   credit: "Peninsula Insider"
   license: "other-licensed"
 format: "service"
-tags: ["corporate-events", "retreats", "offsites", "stay", "red-hill", "sorrento"]
+tags: ["corporate-events", "retreats", "offsites", "stay", "red-hill", "sorrento", "all-year"]
 readingTimeMinutes: 7
 featured: true
 status: "published"
