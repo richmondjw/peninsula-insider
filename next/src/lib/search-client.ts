@@ -21,6 +21,11 @@ export interface SearchHit {
   facets:         Record<string, string[]>;
   zone:           string | null;
   place_slug:     string | null;
+  // PR-9 search sync: region/estate/tier context returned by the search RPC
+  // (populated for venue, place, and region hits where available).
+  region_slug:    string | null;
+  estate_slug:    string | null;
+  venue_tier:     string | null;
   hero_image:     { src: string; alt: string; credit?: string; license?: string } | null;
   starts_at:      string | null;
   ends_at:        string | null;
