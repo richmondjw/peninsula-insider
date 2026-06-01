@@ -376,6 +376,29 @@ const places = defineCollection({
   }),
 });
 
+const regions = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/regions' }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    /** One-line editorial tagline. Used as SEO meta description. */
+    tagline: z.string().optional(),
+    /** Editorial introduction paragraph. 80 to 120 words. */
+    intro: z.string(),
+    heroImage: imageRef,
+    /** The zone enum values that fall within this region. */
+    zones: z.array(zone),
+    /** Place slugs within this region. */
+    places: z.array(reference('places')),
+    /** Slugs of adjacent regions for cross-linking in the template footer. */
+    adjacentRegions: z.array(z.string()).default([]),
+    /** Geographic centroid for map rendering and JSON-LD. */
+    coordinates: coordinates.optional(),
+    publishedAt: z.coerce.date(),
+    sitemapExclude: z.boolean().default(false),
+  }),
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z.object({
@@ -1387,6 +1410,7 @@ export const collections = {
   venues,
   experiences,
   places,
+  regions,
   articles,
   itineraries,
   events,
