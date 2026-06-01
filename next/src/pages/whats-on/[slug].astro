@@ -154,6 +154,9 @@ export const prerender = true;
               <p class="event-detail__hosted-name">
                 {venue ? venue.data.name : event.data.venueName}
               </p>
+              {venue?.data.estateLabel && (
+                <p class="event-detail__hosted-estate" style="font-size:0.82rem;color:var(--soft);margin:2px 0 0;">Part of {venue.data.estateLabel}</p>
+              )}
               {(event.data.streetAddress || event.data.suburb) && (
                 <p class="event-detail__hosted-address">
                   {event.data.streetAddress && <span>{event.data.streetAddress}</span>}
