@@ -180,6 +180,7 @@ const placeGuides = categoryGuides[placeSlug] ?? [];
 const factual = place.data.factualLede ?? '';
 ---
 
+{place.data.regionSlug && <meta data-pagefind-filter="region_slug" content={place.data.regionSlug} />}
 <Breadcrumbs items={breadcrumbItems} />
 
 <!-- ═══════════════════════════════════════════════════════════════════════

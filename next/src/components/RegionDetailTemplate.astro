@@ -66,6 +66,8 @@ const touristDestination = {
   ogImage={d.heroImage.src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(touristDestination)} />
+  <meta data-pagefind-filter="region_slug" content={d.slug} />
+  <meta data-pagefind-filter="entity_type" content="region" />
 
   <section class="region-hero" style={`background-image:linear-gradient(rgba(20,18,16,0.25),rgba(20,18,16,0.6)),url('${d.heroImage.src}')`}>
     <div class="container">
