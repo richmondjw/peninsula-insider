@@ -318,12 +318,21 @@ export const prerender = true;
           .map((key) => groups.get(key))
           .filter((group) => group && group.items.length > 0)
           .map((group) => {
-            const cards = group.items.slice(0, 4).map((item) => renderCard(item)).join('');
+            const collapsedCount = Math.max(0, group.items.length - 4);
+            const cards = group.items.map((item, index) =>
+              renderCard(item, index >= 4 ? 'search-card--extra' : '')
+            ).join('');
+            const toggle = collapsedCount > 0
+              ? `<button type="button" class="search-result-group__toggle" data-search-group-toggle aria-expanded="false">Show ${collapsedCount} more</button>`
+              : '';
             return `
               <section class="search-result-group">
                 <div class="search-result-group__header">
                   <h2 class="search-result-group__title">${escapeHtml(group.label)}</h2>
-                  <span class="search-result-group__count">${group.items.length}</span>
+                  <div class="search-result-group__actions">
+                    <span class="search-result-group__count">${group.items.length}</span>
+                    ${toggle}
+                  </div>
                 </div>
                 <div class="search-result-group__grid">${cards}</div>
               </section>
@@ -609,6 +618,22 @@ export const prerender = true;
           e.preventDefault();
           const p = parseInt(pageBtn.dataset.page, 10) || 1;
           showPage(p);
+        }
+      });
+
+      list?.addEventListener('click', (e) => {
+        const toggle = e.target.closest('[data-search-group-toggle]');
+        if (!toggle) return;
+        e.preventDefault();
+        const group = toggle.closest('.search-result-group');
+        if (!group) return;
+        const isExpanded = group.classList.toggle('is-expanded');
+        toggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        if (isExpanded) {
+          toggle.textContent = 'Show fewer';
+        } else {
+          const hiddenCount = group.querySelectorAll('.search-card--extra').length;
+          toggle.textContent = `Show ${hiddenCount} more`;
         }
       });
 

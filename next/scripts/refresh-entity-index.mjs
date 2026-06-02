@@ -88,6 +88,7 @@ const EAT_TYPES = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const STAY_TYPES = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
 const ROUTABLE_VENUE_TYPES = [...new Set([...EAT_TYPES, ...STAY_TYPES, ...WINE_TYPES])];
+const NON_PUBLIC_STATUSES = new Set(['draft', 'review', 'archived']);
 
 function venueHrefPrefix(type) {
   if (STAY_TYPES.includes(type)) return '/stay/';
@@ -201,11 +202,11 @@ function projectFacets(entry, collection) {
 function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, facets }) {
   const slug = entry.slug || entry.eventId || null;
   if (!slug) return null;
+  if (NON_PUBLIC_STATUSES.has(entry.status)) return null;
   if (entityType === 'venue') {
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
     if (entry.status === 'permanently_closed') return null;
   }
-  if (entityType === 'quick-note' && entry.status !== 'published') return null;
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
   const bodyParts = (BODY_FIELDS[folder] || [])
