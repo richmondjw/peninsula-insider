@@ -231,33 +231,128 @@ export const prerender = true;
         if (fallback) fallback.hidden = true;
       }
 
+      function normalizeText(value) {
+        return String(value || '')
+          .toLowerCase()
+          .replace(/&/g, 'and')
+          .replace(/[^a-z0-9]+/g, ' ')
+          .trim();
+      }
+
+      function resultGroup(item) {
+        const type = item.entity_type || '';
+        const kind = item.meta?.kind || item.filters?.kind?.[0] || 'Guide';
+        if (type === 'place' || kind === 'Places') return { key: 'places', label: 'Places' };
+        if (type === 'region') return { key: 'regions', label: 'Regions' };
+        if (type === 'event') return { key: 'events', label: "What's On" };
+        if (type === 'experience') return { key: 'explore', label: 'Explore' };
+        if (type === 'itinerary' || type === 'tour' || type === 'tour-package') return { key: 'plans', label: 'Plans & Tours' };
+        if (type === 'article' || type === 'quick-note' || type === 'local-secret') return { key: 'journal', label: 'Journal & Guides' };
+        if (type === 'venue') {
+          const href = item.url || '';
+          if (href.startsWith('/stay/')) return { key: 'stay', label: 'Stay' };
+          if (href.startsWith('/wine/')) return { key: 'wine', label: 'Wine' };
+          return { key: 'eat', label: 'Eat & Drink' };
+        }
+        return { key: 'other', label: kind };
+      }
+
+      function renderCard(item, extraClass) {
+        const kind = item.meta?.kind || item.filters?.kind?.[0] || 'Guide';
+        const title = item.meta?.title || 'Untitled';
+        const url = item.url || '#';
+        const excerpt = item.excerpt || '';
+        const image = item.meta?.image || '';
+        const heroStyle = image ? `background-image: url('${image.replace(/'/g, "%27")}')` : '';
+        const heroClass = image
+          ? 'search-card__hero'
+          : 'search-card__hero search-card__hero--placeholder';
+        const className = extraClass ? `search-card ${extraClass}` : 'search-card';
+        return `
+          <a href="${escapeHtml(url)}" class="${className}">
+            <span class="${heroClass}" style="${heroStyle}" aria-hidden="true"></span>
+            <span class="search-card__body">
+              <span class="search-card__kind">${escapeHtml(kind)}</span>
+              <span class="search-card__title">${escapeHtml(title)}</span>
+              <span class="search-card__excerpt">${excerpt}</span>
+            </span>
+          </a>
+        `;
+      }
+
+      function pickLeadResult(data) {
+        const q = normalizeText(currentQuery);
+        const exactPlace = data.find((item) =>
+          item.entity_type === 'place' && normalizeText(item.meta?.title) === q
+        );
+        if (exactPlace) return exactPlace;
+        const exactTitle = data.find((item) => normalizeText(item.meta?.title) === q);
+        if (exactTitle) return exactTitle;
+        const priority = ['place', 'region', 'article', 'itinerary', 'experience', 'event', 'venue'];
+        return data.slice().sort((a, b) => {
+          const ai = priority.indexOf(a.entity_type || '');
+          const bi = priority.indexOf(b.entity_type || '');
+          return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
+        })[0] || data[0];
+      }
+
+      function renderGroupedResults(data, total) {
+        if (!list) return;
+        if (data.length === 0) {
+          renderEmpty(currentQuery);
+          return;
+        }
+
+        const lead = pickLeadResult(data);
+        const leadUrl = lead?.url || '';
+        const groups = new Map();
+        data.forEach((item) => {
+          if (item === lead || item.url === leadUrl) return;
+          const group = resultGroup(item);
+          if (!groups.has(group.key)) groups.set(group.key, { label: group.label, items: [] });
+          groups.get(group.key).items.push(item);
+        });
+
+        const order = ['places', 'regions', 'eat', 'wine', 'stay', 'explore', 'events', 'plans', 'journal', 'other'];
+        const sections = order
+          .map((key) => groups.get(key))
+          .filter((group) => group && group.items.length > 0)
+          .map((group) => {
+            const cards = group.items.slice(0, 4).map((item) => renderCard(item)).join('');
+            return `
+              <section class="search-result-group">
+                <div class="search-result-group__header">
+                  <h2 class="search-result-group__title">${escapeHtml(group.label)}</h2>
+                  <span class="search-result-group__count">${group.items.length}</span>
+                </div>
+                <div class="search-result-group__grid">${cards}</div>
+              </section>
+            `;
+          }).join('');
+
+        list.innerHTML = `
+          <div class="search-results-curated">
+            <section class="search-result-lead" aria-label="Top result">
+              <div class="search-result-lead__header">
+                <p class="search-result-lead__eyebrow">Top result</p>
+              </div>
+              ${renderCard(lead, 'search-card--lead')}
+            </section>
+            ${sections}
+          </div>
+        `;
+        if (fallback) fallback.hidden = false;
+        if (fallbackCTA) fallbackCTA.dataset.query = currentQuery;
+        setMeta(`Showing grouped results from ${total} match${total === 1 ? '' : 'es'}.`);
+      }
+
       function renderResults(data, total, page) {
         if (!list) return;
         if (data.length === 0) {
           renderEmpty(currentQuery);
           return;
         }
-        const cards = data.map((item) => {
-          const kind = item.meta?.kind || item.filters?.kind?.[0] || 'Guide';
-          const title = item.meta?.title || 'Untitled';
-          const url = item.url || '#';
-          const excerpt = item.excerpt || '';
-          const image = item.meta?.image || '';
-          const heroStyle = image ? `background-image: url('${image.replace(/'/g, "%27")}')` : '';
-          const heroClass = image
-            ? 'search-card__hero'
-            : 'search-card__hero search-card__hero--placeholder';
-          return `
-            <a href="${escapeHtml(url)}" class="search-card">
-              <span class="${heroClass}" style="${heroStyle}" aria-hidden="true"></span>
-              <span class="search-card__body">
-                <span class="search-card__kind">${escapeHtml(kind)}</span>
-                <span class="search-card__title">${escapeHtml(title)}</span>
-                <span class="search-card__excerpt">${excerpt}</span>
-              </span>
-            </a>
-          `;
-        }).join('');
+        const cards = data.map((item) => renderCard(item)).join('');
         list.innerHTML = `<div class="search-page-v2__grid">${cards}</div>`;
         if (fallback) fallback.hidden = false;
         if (fallbackCTA) fallbackCTA.dataset.query = currentQuery;
@@ -306,6 +401,15 @@ export const prerender = true;
       async function showPage(page) {
         if (page < 1) page = 1;
         currentPage = page;
+        const shouldGroup = page === 1 && currentKind === 'all' && currentResults.some((r) => r._rpc);
+        if (shouldGroup) {
+          const cached = currentDataPage.get('grouped');
+          const data = cached || await Promise.all(currentResults.map((r) => r.data()));
+          if (!cached) currentDataPage.set('grouped', data);
+          renderGroupedResults(data, currentResults.length);
+          if (pagination) pagination.hidden = true;
+          return;
+        }
         const start = (page - 1) * PER_PAGE;
         const end = start + PER_PAGE;
         const slice = currentResults.slice(start, end);
@@ -347,6 +451,16 @@ export const prerender = true;
         return m[entityType] || 'Guide';
       }
 
+      async function waitForSearchRpc() {
+        const started = Date.now();
+        while (Date.now() - started < 1000) {
+          const rpc = window.PISearchRpc;
+          if (rpc && rpc.available) return rpc;
+          await new Promise((resolve) => setTimeout(resolve, 50));
+        }
+        return window.PISearchRpc || null;
+      }
+
       // Shape a SearchHit into the Pagefind-result shape `renderResults`
       // expects. We wrap in a shim with a `.data()` method so the
       // pagination path (which lazily resolves each handle) works
@@ -361,6 +475,8 @@ export const prerender = true;
         }
         const data = {
           url:     hit.href,
+          entity_type: hit.entity_type,
+          entity_slug: hit.entity_slug,
           meta:    {
             title: hit.title,
             kind:  rpcKindLabel(hit.entity_type),
@@ -387,7 +503,7 @@ export const prerender = true;
         const myToken = ++searchToken;
 
         // ── Path 1: pi.search RPC (Phase D wave 1) ──────────────────────
-        const rpc = window.PISearchRpc;
+        const rpc = await waitForSearchRpc();
         if (rpc && rpc.available) {
           try {
             const preds = kindToRpcPredicates(currentKind);
