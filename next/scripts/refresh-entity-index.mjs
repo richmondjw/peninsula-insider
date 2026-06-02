@@ -202,10 +202,11 @@ function projectFacets(entry, collection) {
 function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, facets }) {
   const slug = entry.slug || entry.eventId || null;
   if (!slug) return null;
-  if (NON_PUBLIC_STATUSES.has(entry.status)) return null;
+  const status = typeof entry.status === 'string' ? entry.status.trim() : entry.status;
+  if (NON_PUBLIC_STATUSES.has(status)) return null;
   if (entityType === 'venue') {
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
-    if (entry.status === 'permanently_closed') return null;
+    if (status === 'permanently_closed') return null;
   }
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
