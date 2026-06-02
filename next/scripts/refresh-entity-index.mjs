@@ -18,6 +18,8 @@
  *   --dry-run     (default)   Print counts + sample rows. No DB writes.
  *   --apply                   Upsert rows to Supabase.
  *   --report                  Print coverage markdown to stdout.
+ *   --prune                   With --apply, delete projected entity rows
+ *                             that no longer exist in source content.
  *   --limit=N                 Restrict to first N entities per collection
  *                             (useful for smoke tests).
  *
@@ -43,11 +45,12 @@ const CONTENT_ROOT = resolve(NEXT_ROOT, 'src/content');
 const TAXONOMY_PATH = resolve(NEXT_ROOT, 'src/taxonomy/facet-taxonomy.yaml');
 
 const args = process.argv.slice(2);
-const opts = { apply: false, report: false, sql: false, limit: null };
+const opts = { apply: false, report: false, sql: false, prune: false, limit: null };
 for (const a of args) {
   if (a === '--apply') opts.apply = true;
   else if (a === '--report') opts.report = true;
   else if (a === '--sql') opts.sql = true;
+  else if (a === '--prune') opts.prune = true;
   else if (a === '--dry-run') opts.apply = false;
   else if (a.startsWith('--limit=')) opts.limit = parseInt(a.slice('--limit='.length), 10);
 }
@@ -417,9 +420,65 @@ async function upsert(table, rows, conflictKeys) {
   }
 }
 
+async function fetchExistingEntityKeys() {
+  const entityTypes = [...new Set(indexRows.map((r) => r.entity_type))].sort();
+  if (entityTypes.length === 0) return [];
+  const inList = entityTypes.map((t) => `"${String(t).replaceAll('"', '\\"')}"`).join(',');
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/entity_index?select=entity_type,entity_slug&entity_type=in.(${inList})`, {
+    headers: {
+      'apikey':          SUPABASE_KEY,
+      'Authorization':   `Bearer ${SUPABASE_KEY}`,
+      'Accept-Profile':  'pi',
+      'Content-Profile': 'pi',
+    },
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Fetch existing entity_index (${res.status}): ${text}`);
+  }
+  return await res.json();
+}
+
+async function deleteEntity(table, row) {
+  const path = `${table}?entity_type=eq.${encodeURIComponent(row.entity_type)}&entity_slug=eq.${encodeURIComponent(row.entity_slug)}`;
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+    method: 'DELETE',
+    headers: {
+      'apikey':          SUPABASE_KEY,
+      'Authorization':   `Bearer ${SUPABASE_KEY}`,
+      'Accept-Profile':  'pi',
+      'Content-Profile': 'pi',
+    },
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Delete ${table} ${row.entity_type}/${row.entity_slug} (${res.status}): ${text}`);
+  }
+}
+
+async function pruneStaleEntities() {
+  if (opts.limit) {
+    console.log('[entity-index] prune skipped because --limit is active.');
+    return;
+  }
+  const sourceKeys = new Set(indexRows.map((r) => `${r.entity_type}/${r.entity_slug}`));
+  const existing = await fetchExistingEntityKeys();
+  const stale = existing.filter((r) => !sourceKeys.has(`${r.entity_type}/${r.entity_slug}`));
+  if (stale.length === 0) {
+    console.log('[entity-index] prune complete: no stale rows.');
+    return;
+  }
+  for (const row of stale) {
+    await deleteEntity('entity_attributes', row);
+    await deleteEntity('entity_index', row);
+  }
+  console.log(`[entity-index] pruned ${stale.length} stale entities from pi.entity_index.`);
+}
+
 try {
   await upsert('entity_index', indexRows, 'entity_type,entity_slug');
   await upsert('entity_attributes', attributeRows, 'entity_type,entity_slug,facet_key,facet_value');
+  if (opts.prune) await pruneStaleEntities();
   console.log(`[entity-index] apply complete.`);
 } catch (err) {
   console.error(`[FATAL] ${err.message}`);

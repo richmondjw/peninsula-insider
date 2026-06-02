@@ -128,7 +128,7 @@ jobs:
           PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: |
-          node next/scripts/refresh-entity-index.mjs --apply
+          node next/scripts/refresh-entity-index.mjs --apply --prune
 
       - name: Embed entity index (Phase C)
         # Populates pi.entity_index.embedding for rows whose content_hash

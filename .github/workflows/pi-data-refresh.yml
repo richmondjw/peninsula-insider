@@ -66,7 +66,7 @@ jobs:
         env:
           PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-        run: node next/scripts/refresh-entity-index.mjs --apply
+        run: node next/scripts/refresh-entity-index.mjs --apply --prune
 
       - name: Embed entity index
         if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.embed != 'false' }}
