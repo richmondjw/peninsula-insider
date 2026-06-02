@@ -79,14 +79,14 @@
         <p class="typeahead__suggestions-label">Try one of these</p>
         <div class="typeahead__chips">
           {[
-            { q: 'long lunch',     label: 'Long lunch' },
-            { q: 'cellar door',    label: 'Cellar doors' },
-            { q: 'rainy day',      label: 'Rainy day' },
-            { q: 'Sorrento',       label: 'Sorrento' },
-            { q: 'Red Hill',       label: 'Red Hill' },
-            { q: 'family beach',   label: 'Family beach' },
+            { q: 'rainy day',               label: 'Rainy day' },
+            { q: 'long lunch',              label: 'Long lunch' },
+            { q: 'winter wineries',         label: 'Winter wineries' },
+            { q: 'coming from Melbourne',   label: 'Coming from Melbourne' },
+            { q: 'weekend escape',          label: 'Weekend escape' },
+            { q: 'dog friendly',            label: 'Dog friendly' },
           ].map((c) => (
-            <button type="button" class="typeahead__chip" data-typeahead-chip={c.q}>
+            <button type="button" class="typeahead__chip" data-typeahead-chip={c.q} data-typeahead-href={`/search/?q=${encodeURIComponent(c.q)}`}>
               <span class="typeahead__chip-bullet" aria-hidden="true">♦</span>
               <span>{c.label}</span>
             </button>
@@ -390,6 +390,11 @@
       chips.forEach(function (chip) {
         chip.addEventListener('click', function () {
           var q = chip.getAttribute('data-typeahead-chip') || '';
+          var href = chip.getAttribute('data-typeahead-href') || '';
+          if (href) {
+            window.location.href = href;
+            return;
+          }
           input.value = q;
           query = q;
           runQuery(q);
