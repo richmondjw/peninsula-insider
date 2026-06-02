@@ -20,6 +20,7 @@
     "entity-index": "node scripts/refresh-entity-index.mjs",
     "entity-index:apply": "node scripts/refresh-entity-index.mjs --apply",
     "entity-index:report": "node scripts/refresh-entity-index.mjs --report",
+    "search:audit": "node scripts/audit-search-links.mjs",
     "bf:lint": "node ../scripts/bf-import/verify-lint.mjs",
     "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",

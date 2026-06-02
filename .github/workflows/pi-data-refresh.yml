@@ -81,6 +81,13 @@ jobs:
           fi
           node next/scripts/embed-entity-index.mjs --apply
 
+      - name: Audit live search links
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY || secrets.PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          node next/scripts/audit-search-links.mjs --limit=10 --fail-on-broken
+
       - name: Summary
         if: always()
         run: |

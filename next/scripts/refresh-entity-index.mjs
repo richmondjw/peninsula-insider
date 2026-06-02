@@ -104,8 +104,8 @@ const COLLECTIONS = [
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/',  titleField: 'title' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/', titleField: 'title' },
   { folder: 'itineraries',    entityType: 'itinerary',     hrefPrefix: '/plans/',    titleField: 'title' },
-  { folder: 'tours',          entityType: 'tour',          hrefPrefix: '/tours/',    titleField: 'name'  },
-  { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/plans/',    titleField: 'name'  },
+  { folder: 'tours',          entityType: 'tour',          hrefPrefix: '/tour/',     titleField: 'name'  },
+  { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/tour-packages/', titleField: 'name' },
   { folder: 'quick-notes',    entityType: 'quick-note',    hrefPrefix: '/quick-note/', titleField: 'headline' },
   { folder: 'local-secrets',  entityType: 'local-secret',  hrefPrefix: '/journal/local-secrets/', titleField: 'title' },
 ];
@@ -205,6 +205,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
     if (entry.status === 'permanently_closed') return null;
   }
+  if (entityType === 'quick-note' && entry.status !== 'published') return null;
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
   const bodyParts = (BODY_FIELDS[folder] || [])
