@@ -245,6 +245,19 @@ jobs:
             echo "::warning::post-publish verification reported issues for ${PI_LIVE_URL}"
           fi
 
+      - name: Audit live search links
+        # Guardrail for the Supabase-backed search path. PageFind can be
+        # correct while pi.search still serves stale entity_index rows, so
+        # verify representative live result URLs after each publish.
+        if: success()
+        working-directory: next
+        env:
+          PI_SITE_ORIGIN: ${{ vars.PI_LIVE_URL || 'https://peninsulainsider.com.au/' }}
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY || secrets.PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          npm run search:audit -- --limit=10 --fail-on-broken
+
       - name: Append run-log entry (local only)
         # Keep run metadata visible in workflow logs without committing
         # generated run-log churn back to main. main is source-only now.
