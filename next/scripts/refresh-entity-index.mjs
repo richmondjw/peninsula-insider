@@ -79,12 +79,15 @@ for (const fields of Object.values(taxonomy.mappings)) {
 // entityType, folder, hrefPrefix mirror refresh-content-registry.mjs.
 // titleField names the JSON field that holds the display title (varies
 // between `name` and `title`).
-// Per-venue routing — venues live at /stay/, /eat/, or /wine/ depending on
-// type. Mirrors next/src/lib/editorial.ts venueHrefPrefix(). Hardcoding
-// '/stay/' for all venues produces 404 links from search, planner, and
-// concierge tiles for restaurants/cafes/wineries.
+// Per-venue routing — only project venues that have a generated detail route.
+// Mirrors getStaticPaths() in next/src/pages/{eat,wine,stay}/[slug].astro.
+// Broader source records such as providores or permanently closed restaurants
+// can appear in collection/list pages, but do not have /{section}/{slug}/
+// detail pages and must not enter pi.search as direct hits.
+const EAT_TYPES = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const STAY_TYPES = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
+const ROUTABLE_VENUE_TYPES = [...new Set([...EAT_TYPES, ...STAY_TYPES, ...WINE_TYPES])];
 
 function venueHrefPrefix(type) {
   if (STAY_TYPES.includes(type)) return '/stay/';
@@ -198,6 +201,10 @@ function projectFacets(entry, collection) {
 function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, facets }) {
   const slug = entry.slug || entry.eventId || null;
   if (!slug) return null;
+  if (entityType === 'venue') {
+    if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
+    if (entry.status === 'permanently_closed') return null;
+  }
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
   const bodyParts = (BODY_FIELDS[folder] || [])
