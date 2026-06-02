@@ -69,6 +69,31 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Preflight Supabase credentials
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SUPABASE_URL:-}" ]; then
+            echo "::error::SUPABASE_URL repository variable is missing."
+            exit 1
+          fi
+          if [ -z "${SUPABASE_SERVICE_KEY:-}" ]; then
+            echo "::error::SUPABASE_SERVICE_KEY repository secret is missing."
+            exit 1
+          fi
+          status="$(curl -sS -o /tmp/concierge-preflight.json -w '%{http_code}' \
+            -H "apikey: $SUPABASE_SERVICE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_SERVICE_KEY" \
+            "$SUPABASE_URL/rest/v1/concierge_chunks?select=chunk_id&limit=1")"
+          if [ "$status" != "200" ]; then
+            body="$(head -c 500 /tmp/concierge-preflight.json | tr '\n' ' ')"
+            echo "::error::Supabase concierge preflight failed with HTTP $status. Check that SUPABASE_URL points at the concierge project and SUPABASE_SERVICE_KEY is that project's service_role key. Response: $body"
+            exit 1
+          fi
+          echo "Supabase concierge preflight passed."
+
       - name: Run corpus refresh
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }}
