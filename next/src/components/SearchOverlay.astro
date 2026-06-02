@@ -67,12 +67,12 @@
       <div class="site-search-overlay__suggestions" data-default-suggestions>
         <p class="site-search-overlay__suggestions-label">Try one of these</p>
         <div class="site-search-overlay__chips">
-          <a href="/search/?q=rainy+day" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Rainy day</span></a>
-          <a href="/search/?q=long+lunch" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Long lunch</span></a>
-          <a href="/search/?q=winter+wineries" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Winter wineries</span></a>
-          <a href="/search/?q=coming+from+melbourne" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Coming from Melbourne</span></a>
-          <a href="/search/?q=weekend+escape" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Weekend escape</span></a>
-          <a href="/search/?q=dog+friendly" class="pi-chip"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Dog friendly</span></a>
+          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=rainy+day"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Rainy day</span></button>
+          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=long+lunch"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Long lunch</span></button>
+          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=winter+wineries"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Winter wineries</span></button>
+          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=coming+from+melbourne"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Coming from Melbourne</span></button>
+          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=weekend+escape"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Weekend escape</span></button>
+          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=dog+friendly"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Dog friendly</span></button>
         </div>
       </div>
 
@@ -378,6 +378,13 @@
         if (trigger) {
           e.preventDefault();
           openOverlay();
+          return;
+        }
+        const suggestion = e.target && e.target.closest && e.target.closest('[data-search-suggestion-href]');
+        if (suggestion) {
+          e.preventDefault();
+          const href = suggestion.getAttribute('data-search-suggestion-href');
+          if (href) window.location.href = href;
           return;
         }
         const closer = e.target && e.target.closest && e.target.closest('[data-close-search]');
