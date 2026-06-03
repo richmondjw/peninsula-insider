@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T10:51:52.459Z",
+  "generatedAt": "2026-06-03T11:07:43.045Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 141,
   "assets": [
@@ -746,6 +746,18 @@
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "peninsula-fresh-organics"
+        },
+        {
+          "file": "src/pages/explore/rainy-day.astro",
+          "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/explore/rainy-day.astro",
+          "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
         },
         {
           "file": "src/pages/search.astro",
