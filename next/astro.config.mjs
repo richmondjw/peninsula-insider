@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 import cacheBustImages from './src/lib/cache-bust-integration.mjs';
+import keystatic from '@keystatic/astro';
 
 // Peninsula Insider — Astro config.
 // Decisions locked in roadmap-2026-04-09.md § 4 and § 9:
@@ -61,6 +62,9 @@ export default defineConfig({
       remarkPlugins: [remarkBlockIds],
     }),
     react(), // scoped React islands for motion polish (ScrollReveal etc); not used on content pages
+    // Keystatic CMS — spike/keystatic branch only. Requires hybrid output.
+    // Remove or gate behind env var before merging to main.
+    ...(process.env.KEYSTATIC !== '0' ? [keystatic()] : []),
     cacheBustImages(), // append ?v=<contenthash> to /images/* refs in built HTML
                        // so editor byte-swaps invalidate stale CDN/browser caches.
                        // Build-only (astro:build:done); no effect on dev.
@@ -71,7 +75,12 @@ export default defineConfig({
                               // global design system. Used only inside files
                               // that explicitly @import 'tailwind.css'.
   },
-  output: adminHybrid ? 'server' : 'static',
+  // Note: Astro 6 removed 'hybrid' mode — it merged into 'static'.
+  // For local Keystatic dev, 'server' mode is required so the injected
+  // /keystatic/* and /api/keystatic/* routes (prerender:false) can render.
+  // In CI/production builds, set KEYSTATIC=0 to skip the integration and
+  // keep the default static output with the existing adapter logic.
+  output: adminHybrid ? 'server' : (process.env.KEYSTATIC !== '0' ? 'server' : 'static'),
   adapter,
   // Redirects are handled by custom src/pages/*.astro files using the
   // Redirect component (src/components/Redirect.astro). This gives flash-free
