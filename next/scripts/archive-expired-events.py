@@ -2,8 +2,8 @@
 """
 archive-expired-events.py — daily cron job 2 from the events registry design.
 
-For each event where endDate (or startDate if no endDate) + 14 days is before
-today, set status to "archived". Editor can flag `keepLive: true` on a JSON
+For each event where endDate (or startDate if no endDate) + 1 day is before
+today (i.e. the event ended yesterday or earlier), set status to "archived". Editor can flag `keepLive: true` on a JSON
 file to opt out of auto-archive (handy for post-mortem windows).
 
 Auto-archive rule: only one-off and annual recurring events are eligible.
@@ -19,7 +19,7 @@ import json
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-GRACE_DAYS = 14
+GRACE_DAYS = 1  # archive events the day after they end (was 14)
 EVENT_DIR = Path(__file__).resolve().parent.parent / 'src' / 'content' / 'events'
 ARCHIVE_ELIGIBLE_RECURRENCES = {'one-off', 'annual', 'seasonal'}
 
