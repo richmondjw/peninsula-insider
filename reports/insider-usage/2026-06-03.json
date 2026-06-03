@@ -1,0 +1,66 @@
+{
+  "window_hours": 24,
+  "window_since": "2026-06-02T20:43:44.235Z",
+  "window_until": "2026-06-03T20:43:44.235Z",
+  "generated_at": "2026-06-03T20:43:44.235Z",
+  "summary": {
+    "total_queries": 2,
+    "test_queries_excluded": 0,
+    "distinct_sessions": 2,
+    "queries_per_session": 1,
+    "median_latency_ms": 40226,
+    "p95_latency_ms": 46285,
+    "median_ttft_ms": 45410,
+    "slow_queries_over_15s": 2,
+    "gaps_detected": 0,
+    "refusals": 0,
+    "total_cost_aud_estimate": 0.0065,
+    "cost_source": "telemetry",
+    "rolling_7d_avg_queries": 0,
+    "volume_delta_vs_7d_avg": 2
+  },
+  "clusters": [
+    {
+      "label": "best / free / things",
+      "count": 2,
+      "examples": [
+        "What are the best free things to do on the Mornington Peninsula?",
+        "What are the best free things to do on the Mornington Peninsula?"
+      ]
+    }
+  ],
+  "model_usage": {
+    "gpt-5-nano": 2
+  },
+  "page_origin": {
+    "(unknown)": 2
+  },
+  "gaps": [],
+  "refusals": [],
+  "slow_queries": [
+    {
+      "query": "What are the best free things to do on the Mornington Peninsula?",
+      "latency_ms": 46285,
+      "timestamp": "2026-06-02T23:25:47.202+00:00"
+    },
+    {
+      "query": "What are the best free things to do on the Mornington Peninsula?",
+      "latency_ms": 34167,
+      "timestamp": "2026-06-02T23:23:32.487+00:00"
+    }
+  ],
+  "samples": [
+    {
+      "timestamp": "2026-06-02T23:25:47.202+00:00",
+      "query": "What are the best free things to do on the Mornington Peninsula?",
+      "latency_ms": 46285,
+      "gap": false
+    },
+    {
+      "timestamp": "2026-06-02T23:23:32.487+00:00",
+      "query": "What are the best free things to do on the Mornington Peninsula?",
+      "latency_ms": 34167,
+      "gap": false
+    }
+  ]
+}
