@@ -154,7 +154,9 @@ export const prerender = true;
           title: 'Rainy Day Peninsula',
           href: '/explore/rainy-day/',
           kind: 'Explore',
-          entityType: 'experience',
+          entityType: 'page',
+          entitySlug: 'explore-rainy-day',
+          image: '/images/sourced/article-rainy-day-01.webp',
           excerpt: 'Weather-proof Peninsula plans: hot springs, galleries, pub lunches, cellar doors, and indoor options that still feel like a proper day out.',
         },
         {
@@ -162,7 +164,9 @@ export const prerender = true;
           title: 'Long Lunch Peninsula',
           href: '/eat/long-lunch/',
           kind: 'Eat',
-          entityType: 'article',
+          entityType: 'page',
+          entitySlug: 'eat-long-lunch',
+          image: '/images/sourced/article-long-lunch-01.webp',
           excerpt: 'The Peninsula long-lunch shortlist: estate restaurants, cellar-door dining, and the places built for a slow afternoon.',
         },
         {
@@ -171,6 +175,8 @@ export const prerender = true;
           href: '/journal/mornington-peninsula-in-winter/',
           kind: 'Journal',
           entityType: 'article',
+          entitySlug: 'mornington-peninsula-in-winter',
+          image: '/images/sourced/article-cellar-door-01.webp',
           excerpt: 'The winter version of the Peninsula: cellar doors, fires, hot springs, winter wine events, and weekends that work better cold.',
         },
         {
@@ -179,6 +185,8 @@ export const prerender = true;
           href: '/journal/mornington-peninsula-day-trip/',
           kind: 'Journal',
           entityType: 'article',
+          entitySlug: 'mornington-peninsula-day-trip',
+          image: '/images/sourced/place-red-hill-01.webp',
           excerpt: 'The cleanest one-day Peninsula plan from Melbourne: drive times, route logic, lunch structure, and the stops worth the trip.',
         },
         {
@@ -187,6 +195,8 @@ export const prerender = true;
           href: '/journal/where-to-stay-for-a-two-night-escape/',
           kind: 'Journal',
           entityType: 'article',
+          entitySlug: 'where-to-stay-for-a-two-night-escape',
+          image: '/images/sourced/article-vineyard-villa-01.webp',
           excerpt: 'A practical two-night escape guide: where to base yourself, what to book, and how to make the weekend feel properly away.',
         },
         {
@@ -194,7 +204,9 @@ export const prerender = true;
           title: 'Dog-Friendly Mornington Peninsula',
           href: '/dog-friendly/',
           kind: 'Guide',
-          entityType: 'article',
+          entityType: 'page',
+          entitySlug: 'dog-friendly',
+          image: '/images/sourced/dog-beach-emma-01.webp',
           excerpt: 'The dog-friendly hub: beaches, stays, cafes, pubs, wineries, walks, and wet-weather options that actually work with the dog.',
         },
       ];
@@ -319,6 +331,88 @@ export const prerender = true;
         return { key: 'other', label: kind };
       }
 
+      function pathFromUrl(value) {
+        try {
+          return new URL(value || '/', window.location.origin).pathname;
+        } catch (_e) {
+          return String(value || '/').split('?')[0].split('#')[0];
+        }
+      }
+
+      function slugFromPath(value) {
+        const path = pathFromUrl(value);
+        return path.replace(/^\/|\/$/g, '').replaceAll('/', '-') || 'search-result';
+      }
+
+      function entityTypeFromPath(value, fallback) {
+        const path = pathFromUrl(value);
+        if (fallback) return fallback;
+        if (path.startsWith('/journal/')) return 'article';
+        if (path.startsWith('/whats-on/')) return 'event';
+        if (path.startsWith('/explore/places/')) return 'place';
+        if (path.startsWith('/explore/regions/')) return 'region';
+        if (path.startsWith('/explore/')) return 'page';
+        if (path.startsWith('/eat/') || path.startsWith('/stay/') || path.startsWith('/wine/')) return 'venue';
+        return 'page';
+      }
+
+      function imageSlotAttrs(item, title) {
+        const url = item.url || '#';
+        const entityType = entityTypeFromPath(url, item.entity_type || '');
+        const entitySlug = item.entity_slug || slugFromPath(url);
+        const label = `${title || entitySlug} search image`;
+        return [
+          'data-pi-edit="image"',
+          `data-pi-entity-type="${escapeHtml(entityType)}"`,
+          `data-pi-entity-slug="${escapeHtml(entitySlug)}"`,
+          'data-pi-field-path="heroImage"',
+          'data-pi-purpose="card"',
+          `data-pi-label="${escapeHtml(label)}"`,
+          'role="img"',
+          `aria-label="${escapeHtml(label)}"`,
+        ].join(' ');
+      }
+
+      let imageSlotCachePromise = null;
+      function fetchImageSlotCache() {
+        if (imageSlotCachePromise) return imageSlotCachePromise;
+        imageSlotCachePromise = (async function () {
+          const sb = window.__PI_SB;
+          if (!sb || !sb.url || !sb.key) return new Map();
+          const url = new URL('/rest/v1/cms_image_slots', sb.url);
+          url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url');
+          url.searchParams.set('status', 'eq.published');
+          const res = await fetch(url.toString(), {
+            headers: {
+              apikey: sb.key,
+              Authorization: 'Bearer ' + sb.key,
+              'Accept-Profile': 'pi',
+            },
+          });
+          if (!res.ok) return new Map();
+          const rows = await res.json();
+          const map = new Map();
+          (Array.isArray(rows) ? rows : []).forEach((row) => {
+            if (!row.public_url) return;
+            map.set(`${row.entity_type}/${row.entity_slug}/${row.field_path}`, row.public_url);
+          });
+          return map;
+        })().catch(function () { return new Map(); });
+        return imageSlotCachePromise;
+      }
+
+      async function hydrateSearchResultImages() {
+        const slots = await fetchImageSlotCache();
+        if (!(slots instanceof Map) || slots.size === 0 || !list) return;
+        list.querySelectorAll('[data-pi-edit="image"][data-pi-entity-type][data-pi-entity-slug][data-pi-field-path]').forEach((el) => {
+          const key = `${el.dataset.piEntityType}/${el.dataset.piEntitySlug}/${el.dataset.piFieldPath}`;
+          const src = slots.get(key);
+          if (!src) return;
+          el.style.backgroundImage = `url("${src.replace(/"/g, '\\"')}")`;
+          el.classList.remove('search-card__hero--placeholder');
+        });
+      }
+
       function renderCard(item, extraClass) {
         const kind = item.meta?.kind || item.filters?.kind?.[0] || 'Guide';
         const title = item.meta?.title || 'Untitled';
@@ -332,7 +426,7 @@ export const prerender = true;
         const className = extraClass ? `search-card ${extraClass}` : 'search-card';
         return `
           <a href="${escapeHtml(url)}" class="${className}">
-            <span class="${heroClass}" style="${heroStyle}" aria-hidden="true"></span>
+            <span class="${heroClass}" style="${heroStyle}" ${imageSlotAttrs(item, title)}></span>
             <span class="search-card__body">
               <span class="search-card__kind">${escapeHtml(kind)}</span>
               <span class="search-card__title">${escapeHtml(title)}</span>
@@ -414,6 +508,7 @@ export const prerender = true;
             ${sections}
           </div>
         `;
+        hydrateSearchResultImages();
         if (fallback) fallback.hidden = false;
         if (fallbackCTA) fallbackCTA.dataset.query = currentQuery;
         setMeta(`Showing grouped results from ${total} match${total === 1 ? '' : 'es'}.`);
@@ -427,6 +522,7 @@ export const prerender = true;
         }
         const cards = data.map((item) => renderCard(item)).join('');
         list.innerHTML = `<div class="search-page-v2__grid">${cards}</div>`;
+        hydrateSearchResultImages();
         if (fallback) fallback.hidden = false;
         if (fallbackCTA) fallbackCTA.dataset.query = currentQuery;
         setMeta(`Showing ${(page - 1) * PER_PAGE + 1}–${Math.min(page * PER_PAGE, total)} of ${total} result${total === 1 ? '' : 's'}.`);
@@ -564,11 +660,11 @@ export const prerender = true;
         const data = {
           url: intent.href,
           entity_type: intent.entityType,
-          entity_slug: intent.href.replace(/^\/|\/$/g, '').replaceAll('/', '-'),
+          entity_slug: intent.entitySlug || intent.href.replace(/^\/|\/$/g, '').replaceAll('/', '-'),
           meta: {
             title: intent.title,
             kind: intent.kind,
-            image: '',
+            image: intent.image || '',
           },
           excerpt: escapeHtml(intent.excerpt),
           _bestBet: true,

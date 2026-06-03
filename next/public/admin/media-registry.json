@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T03:34:27.455Z",
+  "generatedAt": "2026-06-03T10:51:52.459Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 141,
   "assets": [
@@ -126,6 +126,12 @@
         {
           "file": "src/pages/partners/founders-prospectus/index.astro",
           "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/search.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -486,6 +492,12 @@
           "entitySlug": null
         },
         {
+          "file": "src/pages/search.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
           "file": "src/pages/v3/index.astro",
           "purpose": "inline",
           "entityType": null,
@@ -734,6 +746,12 @@
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "peninsula-fresh-organics"
+        },
+        {
+          "file": "src/pages/search.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
         },
         {
           "file": "src/pages/v3/index.astro",
@@ -1088,6 +1106,12 @@
         {
           "file": "src/pages/partners/index.astro",
           "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/search.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -1954,6 +1978,12 @@
         {
           "file": "src/pages/dog-friendly/index.astro",
           "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/search.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
@@ -4552,6 +4582,12 @@
         {
           "file": "src/pages/partners/founders-prospectus/index.astro",
           "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/search.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
