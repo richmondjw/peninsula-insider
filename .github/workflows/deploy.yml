@@ -153,6 +153,10 @@ jobs:
           PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY: ${{ vars.PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY || secrets.PUBLIC_STRIPE_PRICE_INSIDER_MONTHLY }}
           PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL:  ${{ vars.PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL  || secrets.PUBLIC_STRIPE_PRICE_INSIDER_ANNUAL }}
           PUBLIC_STRIPE_PRICE_FOUNDERS:        ${{ vars.PUBLIC_STRIPE_PRICE_FOUNDERS        || secrets.PUBLIC_STRIPE_PRICE_FOUNDERS }}
+          # Keystatic CMS — disable in CI so the static build is not affected
+          # when the spike/keystatic branch is merged. The Keystatic admin UI
+          # is hosted separately on Cloudflare Pages with KEYSTATIC=1.
+          KEYSTATIC: '0'
         run: |
           echo "Building with API URL: ${PUBLIC_CONCIERGE_API_URL:-(unset)}"
           echo "Supabase URL configured:    $([ -n "$PUBLIC_SUPABASE_URL" ] && echo yes || echo no)"
