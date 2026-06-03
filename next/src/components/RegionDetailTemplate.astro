@@ -227,20 +227,107 @@ const touristDestination = {
       .region-places__rail { grid-auto-columns: minmax(220px, 80%); }
       .region-places__rail .place-card__image { aspect-ratio: 4 / 3; }
     }
-    .region-venues .experience-card {
+    :global(.region-venues .venue-card),
+    :global(.region-venues .experience-card),
+    :global(.region-journal .venue-card--editorial) {
       height: 100%;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--bg);
+      border: 0;
+      border-radius: 0;
+      overflow: visible;
+      background: transparent;
       box-shadow: none;
     }
-    .region-venues .experience-card__visual { border-radius: 0; }
-    .region-venues .experience-card__body {
-      padding: 22px 24px 58px;
-      min-height: 300px;
+    :global(.region-venues .venue-card::before),
+    :global(.region-journal .venue-card--editorial::before),
+    :global(.region-venues .venue-card__wash),
+    :global(.region-journal .venue-card__wash) {
+      display: none;
     }
-    .region-venues .experience-card__cta { margin-top: 18px; }
+    :global(.region-venues .venue-card:hover),
+    :global(.region-venues .experience-card:hover),
+    :global(.region-journal .venue-card--editorial:hover) {
+      transform: none;
+      box-shadow: none;
+      border-color: transparent;
+    }
+    :global(.region-venues .venue-card__hero),
+    :global(.region-venues .experience-card__visual) {
+      aspect-ratio: 4 / 3;
+      border-radius: var(--tile-image-radius, 10px);
+      border: 0;
+      overflow: hidden;
+    }
+    :global(.region-venues .venue-card__hero) {
+      margin-bottom: 0;
+    }
+    :global(.region-venues .venue-card > .venue-card__top),
+    :global(.region-venues .venue-card > .venue-card__name),
+    :global(.region-venues .venue-card > .venue-card__place),
+    :global(.region-venues .venue-card > .venue-card__hats),
+    :global(.region-venues .venue-card > .venue-card__signature),
+    :global(.region-venues .venue-card > .venue-card__tags),
+    :global(.region-venues .venue-card > .venue-card__actions),
+    :global(.region-journal .venue-card--editorial > .venue-card__top),
+    :global(.region-journal .venue-card--editorial > .venue-card__name),
+    :global(.region-journal .venue-card--editorial > .venue-card__place),
+    :global(.region-journal .venue-card--editorial > .venue-card__signature) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    :global(.region-venues .venue-card > .venue-card__top),
+    :global(.region-venues .experience-card__body) {
+      padding: 1.25rem 0 3.25rem;
+      min-height: 0;
+    }
+    :global(.region-journal .venue-card--editorial) {
+      padding: 1.35rem 0 3.25rem;
+    }
+    :global(.region-venues .venue-card__top),
+    :global(.region-venues .experience-card__meta),
+    :global(.region-journal .venue-card__top) {
+      align-items: baseline;
+      min-height: 1rem;
+      margin-bottom: 0.72rem;
+      font-size: 0.64rem;
+      line-height: 1.35;
+    }
+    :global(.region-venues .venue-card__type),
+    :global(.region-venues .venue-card__place-link),
+    :global(.region-venues .experience-card__meta),
+    :global(.region-journal .venue-card__type) {
+      color: var(--accent);
+    }
+    :global(.region-venues .venue-card__name),
+    :global(.region-venues .experience-card__title),
+    :global(.region-journal .venue-card__name) {
+      font-size: clamp(1.34rem, 1.65vw, 1.55rem);
+      line-height: 1.08;
+      margin-bottom: 0.62rem;
+      letter-spacing: 0;
+    }
+    :global(.region-venues .venue-card__place) {
+      margin-bottom: 0.7rem;
+    }
+    :global(.region-venues .venue-card__signature),
+    :global(.region-venues .experience-card__summary),
+    :global(.region-journal .venue-card__signature) {
+      border-top: 0;
+      padding-top: 0;
+      color: var(--soft);
+      font-size: 0.9rem;
+      line-height: 1.62;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    :global(.region-venues .venue-card__tags) {
+      margin-top: 0.2rem;
+    }
+    :global(.region-venues .venue-card__actions) {
+      margin-top: 1rem;
+    }
+    :global(.region-venues .experience-card__cta) { margin-top: 18px; }
     .region-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
     .region-tab { font-family: 'Outfit', sans-serif; font-size: 13px; padding: 7px 16px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text); cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
     .region-tab.is-active, .region-tab:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
