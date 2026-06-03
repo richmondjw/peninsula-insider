@@ -76,10 +76,19 @@ export default defineConfig({
                               // that explicitly @import 'tailwind.css'.
   },
   // Note: Astro 6 removed 'hybrid' mode — it merged into 'static'.
-  // For local Keystatic dev, 'server' mode is required so the injected
-  // /keystatic/* and /api/keystatic/* routes (prerender:false) can render.
-  // In CI/production builds, set KEYSTATIC=0 to skip the integration and
-  // keep the default static output with the existing adapter logic.
+  // For Keystatic GitHub-backed mode, 'server' output is required so the
+  // injected /keystatic/* and /api/keystatic/* routes (prerender:false) can
+  // render. These routes handle GitHub OAuth callbacks and the editor UI.
+  //
+  // Env var gate:
+  //   KEYSTATIC=0        → skip keystatic() integration, static output (prod build)
+  //   KEYSTATIC=1        → include keystatic() integration, server output (CMS deploy)
+  //   (unset)            → include keystatic() integration, server output (local dev)
+  //
+  // GitHub OAuth env vars required when KEYSTATIC != '0':
+  //   KEYSTATIC_GITHUB_CLIENT_ID      — from GitHub OAuth App settings
+  //   KEYSTATIC_GITHUB_CLIENT_SECRET  — from GitHub OAuth App settings
+  //   KEYSTATIC_SECRET                — random 32-char secret (openssl rand -hex 32)
   output: adminHybrid ? 'server' : (process.env.KEYSTATIC !== '0' ? 'server' : 'static'),
   adapter,
   // Redirects are handled by custom src/pages/*.astro files using the
