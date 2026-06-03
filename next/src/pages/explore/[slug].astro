@@ -7,9 +7,9 @@ import ExperienceCard from '../../components/ExperienceCard.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { placeLabel, routeSlug, titleize, venueHrefPrefix, heroBackgroundStyle } from '../../lib/editorial';
+import { placeLabel, routeSlug, titleize, venueHrefPrefix } from '../../lib/editorial';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
-import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -89,18 +89,11 @@ const duration = experience.data.durationMinutes ? `${experience.data.durationMi
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
 
-// CMS override consult at SSR — bake the editor's uploaded hero into
-// the static HTML if there's a published override for this experience.
-const experienceOverrides = await loadOverrides('experience', slug);
-const overrideHero = experienceOverrides.image['hero'];
-const heroStyle = overrideHero?.src
-  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-  : heroBackgroundStyle(experience.data);
+const hero = await resolveHero('experience', slug, experience.data);
+const heroStyle = hero.style;
 
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
-const ogImage = experience.data.heroImage?.src && !experience.data.heroImage.src.includes('placeholder')
-  ? experience.data.heroImage.src
-  : '/images/sourced/home-cover.webp';
+const ogImage = hero.src;
 
 // Truncate editor note to ~155 chars
 const description = experience.data.editorNote
@@ -163,6 +156,7 @@ export const prerender = true;
   section="explore"
   canonical={canonical}
   ogImage={ogImage}
+  searchImage={ogImage}
   noindex={experience.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(experienceSchema)} />

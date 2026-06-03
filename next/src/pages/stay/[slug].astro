@@ -5,6 +5,7 @@ import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
 import { buildKnownForProperties } from '../../lib/schema';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
@@ -57,9 +58,8 @@ const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 const canonical = `https://peninsulainsider.com.au/stay/${slug}/`;
-const ogImage = venue.data.heroImage?.src && !venue.data.heroImage.src.includes('placeholder')
-  ? venue.data.heroImage.src
-  : '/images/sourced/home-cover.webp';
+const hero = await resolveHero('venue', slug, venue.data);
+const ogImage = hero.src;
 
 const venueSchema = {
   '@context': 'https://schema.org',
@@ -91,6 +91,7 @@ export const prerender = true;
   section="stay"
   canonical={canonical}
   ogImage={ogImage}
+  searchImage={ogImage}
   noindex={venue.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />

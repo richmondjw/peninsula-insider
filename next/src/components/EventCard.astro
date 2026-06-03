@@ -9,7 +9,7 @@
 import PiSaveActions from './PiSaveActions.astro';
 import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
-import { loadOverrides } from '../lib/inline-edit/overrides';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 export interface Props {
   event: any;
@@ -105,12 +105,11 @@ const fallbackHeroByCategory: Record<string, string> = {
   nature: '/images/sourced/explore-greens-bush-01.webp',
   'writers-ideas': '/images/sourced/article-sorrento-weekend-01.webp',
 };
-// Resolve CMS image override at SSR — editor replacements survive refresh
-// without waiting for a rebuild on tagged slots.
-const eventOverrides = await loadOverrides('event', slug);
-const eventHeroOverride = eventOverrides.image['heroImage'];
-const heroImageSrc = eventHeroOverride?.src
-  ?? event.data.heroImage?.src
+// Resolve CMS image override at SSR so right-click uploads stay live on
+// every card and search/listing surface that renders this event.
+const eventHero = await resolveHero('event', slug, event.data);
+const heroImageSrc = eventHero.override?.src
+  ?? eventHero.src
   ?? fallbackHeroByCategory[category]
   ?? '/images/sourced/category-market-02.webp';
 
@@ -236,7 +235,7 @@ const recurrenceDay = recurDayMatch
       title={event.data.title}
       href={`/whats-on/${slug}/`}
       dek={event.data.summary}
-      imageUrl={event.data.heroImage?.src}
+      imageUrl={heroImageSrc}
     />
   </div>
 </article>

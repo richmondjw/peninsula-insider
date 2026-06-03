@@ -241,6 +241,50 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 .pi-edit-panel__replace:active { transform: scale(0.98); }
 .pi-edit-panel__replace span { font-size: 1.05rem; }
 
+.pi-edit-panel__media-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+  align-items: center;
+  margin: 0.5rem 0.75rem 0;
+}
+
+.pi-edit-panel__library {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: #fff;
+  color: #1a1a1a;
+  border: 1px solid rgba(139, 78, 59, 0.24);
+  border-radius: 0.5rem;
+  font: 600 0.78rem/1 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.pi-edit-panel__library-link {
+  color: #8b4e3b;
+  font: 600 0.68rem/1 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pi-edit-panel__library-link:hover {
+  text-decoration: underline;
+}
+
+.pi-edit-panel__library:hover {
+  background: rgba(139, 78, 59, 0.06);
+  border-color: rgba(139, 78, 59, 0.55);
+}
+
+.pi-edit-panel__library span { font-size: 1rem; }
+
 /* Promote-to-explicit affordance — appears only when an auto-detected image
    sits inside an ancestor that declares a CMS entity. Visually quieter than
    the primary Replace button so it reads as a secondary, advanced action. */
@@ -268,6 +312,149 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
 .pi-edit-panel__promote strong {
   font-weight: 600;
   color: #8b4e3b;
+}
+
+.pi-edit-panel__registry {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.65rem 0.75rem 0;
+  padding: 0.65rem 0.7rem;
+  background: rgba(250, 247, 240, 0.72);
+  border: 1px solid rgba(139, 78, 59, 0.16);
+  border-radius: 0.5rem;
+}
+
+.pi-edit-panel__registry-title {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8b4e3b;
+}
+
+.pi-edit-panel__registry-row {
+  display: grid;
+  grid-template-columns: 4.1rem minmax(0, 1fr);
+  gap: 0.45rem;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.pi-edit-panel__registry-row span {
+  font-size: 0.65rem;
+  color: #8b7560;
+}
+
+.pi-edit-panel__registry-row code {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #1a1a1a;
+  font: 500 0.68rem/1.25 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.pi-edit-panel__picker {
+  margin: 0.65rem 0.75rem 0;
+  padding: 0.65rem;
+  max-height: 20rem;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid rgba(139, 78, 59, 0.18);
+  border-radius: 0.55rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.pi-edit-panel__picker-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.55rem;
+}
+
+.pi-edit-panel__picker-search {
+  min-width: 0;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 0.4rem;
+  font: 400 0.78rem/1.2 'Outfit', system-ui, sans-serif;
+}
+
+.pi-edit-panel__picker-count {
+  color: #8b7560;
+  font-size: 0.65rem;
+  white-space: nowrap;
+}
+
+.pi-edit-panel__picker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.pi-edit-panel__media-card {
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #faf7f0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.45rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, transform 0.08s ease;
+}
+
+.pi-edit-panel__media-card:hover {
+  border-color: rgba(139, 78, 59, 0.58);
+}
+
+.pi-edit-panel__media-card:active {
+  transform: scale(0.985);
+}
+
+.pi-edit-panel__media-card.is-current {
+  border-color: #8b4e3b;
+  box-shadow: 0 0 0 2px rgba(139, 78, 59, 0.13);
+}
+
+.pi-edit-panel__media-thumb {
+  display: block;
+  aspect-ratio: 4 / 3;
+  background: #e6dec8 center / cover no-repeat;
+}
+
+.pi-edit-panel__media-name,
+.pi-edit-panel__media-meta {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0.45rem;
+}
+
+.pi-edit-panel__media-name {
+  margin-top: 0.4rem;
+  color: #1a1a1a;
+  font: 600 0.68rem/1.2 'Outfit', system-ui, sans-serif;
+}
+
+.pi-edit-panel__media-meta {
+  margin: 0.18rem 0 0.45rem;
+  color: #8b7560;
+  font-size: 0.62rem;
+}
+
+.pi-edit-panel__picker-status {
+  padding: 0.85rem 0.65rem;
+  color: #8b7560;
+  font-size: 0.75rem;
+}
+
+.pi-edit-panel__picker-status--err {
+  color: #a03434;
 }
 
 .pi-edit-panel__fields {

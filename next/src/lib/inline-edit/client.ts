@@ -442,6 +442,25 @@ interface ImageDescriptor {
   autoDetected: boolean;
 }
 
+interface MediaLibraryAsset {
+  src: string;
+  source: 'static' | 'cms';
+  filename: string;
+  storagePath: string | null;
+  usages: Array<{ entityType: string | null; entitySlug: string | null; purpose: string; file: string }>;
+  slots: Array<{
+    entity_type: string;
+    entity_slug: string;
+    field_path: string;
+    label: string | null;
+    purpose: string | null;
+    public_url: string | null;
+    storage_path: string | null;
+    status: string | null;
+    updated_at: string | null;
+  }>;
+}
+
 /**
  * Slugify the current URL path into an entity_slug. Drops leading/trailing
  * slashes, replaces `/` with `-`, lowercases. The root `/` becomes 'home'.
@@ -569,11 +588,12 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
   const thumbSrc = currentImageSrc(el) || '';
   const promoteTarget = desc.autoDetected ? findAncestorEntity(el) : null;
   const promoteFieldPath = 'heroImage';
+  const libraryHref = mediaLibraryHref(desc, thumbSrc);
 
   menuEl = document.createElement('div');
   menuEl.className = 'pi-edit-panel';
   // Position the panel near the click but clamp into viewport.
-  const PANEL_W = 320, PANEL_H = 420;
+  const PANEL_W = 340, PANEL_H = 560;
   menuEl.style.left = `${Math.max(8, Math.min(x, window.innerWidth - PANEL_W - 8))}px`;
   menuEl.style.top  = `${Math.max(8, Math.min(y, window.innerHeight - PANEL_H - 8))}px`;
 
@@ -599,7 +619,37 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     <button type="button" class="pi-edit-panel__replace" data-action="replace">
       <span aria-hidden="true">⇪</span> Replace image…
     </button>
+    <div class="pi-edit-panel__media-actions">
+      <button type="button" class="pi-edit-panel__library" data-action="choose-library">
+        <span aria-hidden="true">▦</span> Choose from library
+      </button>
+      <a class="pi-edit-panel__library-link" href="${escapeHtml(libraryHref)}" target="_blank" rel="noopener">Open full library</a>
+    </div>
     ${promoteRow}
+    <div class="pi-edit-panel__picker" data-media-picker hidden></div>
+    <div class="pi-edit-panel__registry" data-registry>
+      <div class="pi-edit-panel__registry-title">Linked registry</div>
+      <div class="pi-edit-panel__registry-row">
+        <span>Entity</span>
+        <code>${escapeHtml(desc.entityType)} / ${escapeHtml(desc.entitySlug)}</code>
+      </div>
+      <div class="pi-edit-panel__registry-row">
+        <span>Field</span>
+        <code>${escapeHtml(desc.fieldPath)}</code>
+      </div>
+      <div class="pi-edit-panel__registry-row">
+        <span>Purpose</span>
+        <code>${escapeHtml(desc.purpose)}</code>
+      </div>
+      <div class="pi-edit-panel__registry-row">
+        <span>Current</span>
+        <code title="${escapeHtml(thumbSrc)}">${escapeHtml(srcBasename(thumbSrc))}</code>
+      </div>
+      <div class="pi-edit-panel__registry-row" data-slot-status-row hidden>
+        <span>Slot row</span>
+        <code data-slot-status></code>
+      </div>
+    </div>
     <div class="pi-edit-panel__fields">
       <label class="pi-edit-panel__field">
         <span>Alt text</span>
@@ -629,6 +679,7 @@ function openImagePanel(el: HTMLElement, x: number, y: number) {
     const action = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-action]')?.dataset.action;
     if (!action) return;
     if (action === 'replace') triggerImageReplace(el, desc);
+    if (action === 'choose-library') void openInlineMediaPicker(menuEl!, el, desc);
     if (action === 'cancel')  closeMenu();
     if (action === 'save')    void savePanelMeta(menuEl!, el, desc);
     if (action === 'promote' && promoteTarget) {
@@ -749,19 +800,48 @@ function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
 }
 
+function mediaLibraryHref(desc: ImageDescriptor, currentSrc: string): string {
+  const params = new URLSearchParams({
+    entityType: desc.entityType,
+    entitySlug: desc.entitySlug,
+    fieldPath: desc.fieldPath,
+    label: desc.label,
+    currentSrc,
+  });
+  return `/admin/media/?${params.toString()}`;
+}
+
 async function hydratePanel(panel: HTMLElement, desc: ImageDescriptor) {
   const supa = getSupabase();
   if (!supa) return;
 
   const { data } = await supa
     .from('cms_image_slots')
-    .select('alt_text, caption, credit')
+    .select('alt_text, caption, credit, public_url, storage_path, status, updated_at')
     .eq('entity_type', desc.entityType)
     .eq('entity_slug', desc.entitySlug)
     .eq('field_path', desc.fieldPath)
     .maybeSingle();
 
-  const row = data as { alt_text: string | null; caption: string | null; credit: string | null } | null;
+  const row = data as {
+    alt_text: string | null;
+    caption: string | null;
+    credit: string | null;
+    public_url: string | null;
+    storage_path: string | null;
+    status: string | null;
+    updated_at: string | null;
+  } | null;
+
+  const statusRow = panel.querySelector<HTMLElement>('[data-slot-status-row]');
+  const statusEl = panel.querySelector<HTMLElement>('[data-slot-status]');
+  if (statusRow && statusEl) {
+    statusRow.hidden = false;
+    statusEl.textContent = row
+      ? `${row.status ?? 'saved'} · ${srcBasename(row.public_url || row.storage_path)}`
+      : 'No saved row yet';
+  }
+
   if (!row) return;
 
   const altInput     = panel.querySelector<HTMLInputElement>('input[data-field="alt"]');
@@ -858,6 +938,225 @@ function triggerImageReplace(el: HTMLElement, desc?: ImageDescriptor) {
   }, { once: true });
   document.body.appendChild(input);
   input.click();
+}
+
+async function openInlineMediaPicker(panel: HTMLElement, el: HTMLElement, desc: ImageDescriptor) {
+  const picker = panel.querySelector<HTMLElement>('[data-media-picker]');
+  if (!picker) return;
+
+  if (!picker.hidden) {
+    picker.hidden = true;
+    return;
+  }
+
+  picker.hidden = false;
+  picker.innerHTML = '<div class="pi-edit-panel__picker-status">Loading media library...</div>';
+
+  try {
+    const assets = await fetchMediaLibraryAssets();
+    renderInlineMediaPicker(picker, el, desc, assets);
+  } catch (err) {
+    picker.innerHTML = `<div class="pi-edit-panel__picker-status pi-edit-panel__picker-status--err">${escapeHtml((err as Error).message || 'Could not load media library.')}</div>`;
+  }
+}
+
+async function fetchMediaLibraryAssets(): Promise<MediaLibraryAsset[]> {
+  const [staticAssets, slots] = await Promise.all([fetchStaticMediaRegistry(), fetchCmsMediaSlots()]);
+  const bySrc = new Map<string, MediaLibraryAsset>();
+
+  for (const asset of staticAssets) {
+    bySrc.set(asset.src, {
+      src: asset.src,
+      source: 'static',
+      filename: asset.filename || srcBasename(asset.src),
+      storagePath: null,
+      usages: asset.usages ?? [],
+      slots: [],
+    });
+  }
+
+  for (const slot of slots) {
+    const src = slot.public_url || slot.storage_path;
+    if (!src) continue;
+    let asset = bySrc.get(src);
+    if (!asset) {
+      asset = {
+        src,
+        source: 'cms',
+        filename: srcBasename(src),
+        storagePath: slot.storage_path ?? null,
+        usages: [],
+        slots: [],
+      };
+      bySrc.set(src, asset);
+    }
+    asset.slots.push(slot);
+    if (slot.storage_path && !asset.storagePath) asset.storagePath = slot.storage_path;
+  }
+
+  return Array.from(bySrc.values()).sort((a, b) => {
+    const aUse = a.usages.length + a.slots.length;
+    const bUse = b.usages.length + b.slots.length;
+    if (aUse !== bUse) return bUse - aUse;
+    return a.filename.localeCompare(b.filename);
+  });
+}
+
+async function fetchStaticMediaRegistry(): Promise<MediaLibraryAsset[]> {
+  const res = await fetch('/admin/media-registry.json', { cache: 'no-store' });
+  if (!res.ok) throw new Error(`Media registry unavailable (${res.status}). Run a fresh build.`);
+  const data = await res.json();
+  return (data.assets ?? []) as MediaLibraryAsset[];
+}
+
+async function fetchCmsMediaSlots(): Promise<MediaLibraryAsset['slots']> {
+  const supa = getSupabase();
+  if (!supa) return [];
+
+  const { data, error } = await supa
+    .from('cms_image_slots')
+    .select('entity_type, entity_slug, field_path, label, purpose, public_url, storage_path, status, updated_at')
+    .order('updated_at', { ascending: false });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as MediaLibraryAsset['slots'];
+}
+
+function renderInlineMediaPicker(
+  picker: HTMLElement,
+  el: HTMLElement,
+  desc: ImageDescriptor,
+  assets: MediaLibraryAsset[],
+) {
+  const currentSrc = currentImageSrc(el);
+  picker.innerHTML = `
+    <div class="pi-edit-panel__picker-head">
+      <input type="search" class="pi-edit-panel__picker-search" data-media-search placeholder="Search media..." aria-label="Search media library" />
+      <span class="pi-edit-panel__picker-count" data-media-count></span>
+    </div>
+    <div class="pi-edit-panel__picker-grid" data-media-grid></div>
+  `;
+
+  const search = picker.querySelector<HTMLInputElement>('[data-media-search]');
+  const grid = picker.querySelector<HTMLElement>('[data-media-grid]');
+  const count = picker.querySelector<HTMLElement>('[data-media-count]');
+  if (!grid || !count) return;
+
+  const render = () => {
+    const query = (search?.value || '').trim().toLowerCase();
+    const filtered = assets
+      .filter((asset) => {
+        if (!query) return true;
+        const haystack = [
+          asset.src,
+          asset.filename,
+          asset.source,
+          ...asset.usages.map((u) => `${u.entityType ?? ''} ${u.entitySlug ?? ''} ${u.purpose} ${u.file}`),
+          ...asset.slots.map((s) => `${s.entity_type} ${s.entity_slug} ${s.field_path} ${s.label ?? ''}`),
+        ].join(' ').toLowerCase();
+        return haystack.includes(query);
+      })
+      .slice(0, 24);
+
+    count.textContent = `${filtered.length} shown`;
+    if (filtered.length === 0) {
+      grid.innerHTML = '<div class="pi-edit-panel__picker-status">No matching images.</div>';
+      return;
+    }
+
+    grid.innerHTML = filtered.map((asset) => {
+      const used = asset.usages.length + asset.slots.length;
+      const selected = currentSrc && srcBasename(currentSrc) === srcBasename(asset.src);
+      return `
+        <button type="button" class="pi-edit-panel__media-card${selected ? ' is-current' : ''}" data-media-src="${escapeHtml(asset.src)}">
+          <span class="pi-edit-panel__media-thumb" style="background-image:url(${cssUrl(asset.src)})"></span>
+          <span class="pi-edit-panel__media-name">${escapeHtml(asset.filename)}</span>
+          <span class="pi-edit-panel__media-meta">${escapeHtml(asset.source)} · ${used} use${used === 1 ? '' : 's'}</span>
+        </button>
+      `;
+    }).join('');
+
+    grid.querySelectorAll<HTMLButtonElement>('[data-media-src]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const asset = assets.find((item) => item.src === btn.dataset.mediaSrc);
+        if (asset) void assignMediaLibraryAsset(el, desc, asset);
+      });
+    });
+  };
+
+  search?.addEventListener('input', render);
+  render();
+}
+
+async function assignMediaLibraryAsset(el: HTMLElement, desc: ImageDescriptor, asset: MediaLibraryAsset) {
+  const supa = getSupabase();
+  if (!supa) return toast('Supabase not configured.', 'err');
+
+  const { data: { session } } = await supa.auth.getSession();
+  if (!session) return toast('Signed out — please sign in again.', 'err');
+
+  const { data: existing } = await supa
+    .from('cms_image_slots')
+    .select('id')
+    .eq('entity_type', desc.entityType)
+    .eq('entity_slug', desc.entitySlug)
+    .eq('field_path', desc.fieldPath)
+    .maybeSingle();
+
+  const row = {
+    entity_type: desc.entityType,
+    entity_slug: desc.entitySlug,
+    field_path: desc.fieldPath,
+    label: desc.label,
+    purpose: desc.purpose,
+    storage_bucket: STORAGE_BUCKET,
+    storage_path: asset.source === 'cms' ? asset.storagePath : null,
+    public_url: asset.src,
+    mime_type: mimeTypeFromSrc(asset.src),
+    status: 'published' as const,
+    updated_by: session.user.id,
+  };
+
+  if (existing?.id) {
+    const { error } = await supa.from('cms_image_slots').update(row).eq('id', existing.id);
+    if (error) return toast(`Media assignment failed: ${error.message}`, 'err');
+  } else {
+    const { error } = await supa.from('cms_image_slots').insert(row);
+    if (error) return toast(`Media assignment failed: ${error.message}`, 'err');
+  }
+
+  setImageSrc(el, cacheBust(asset.src));
+  el.className = el.className
+    .split(/\s+/)
+    .filter((c) => !/__hero--placeholder$/.test(c))
+    .join(' ');
+
+  await recordRevision(supa, session.user.id, {
+    entity_type: desc.entityType,
+    entity_slug: desc.entitySlug,
+    action: 'update',
+    status: 'published',
+    summary: `Assigned media-library image "${asset.filename}"`,
+    patch: [{ op: 'set', target: desc.fieldPath, value: asset.src }],
+  });
+
+  toast(`Assigned "${asset.filename}".`, 'ok');
+  closeMenu();
+}
+
+function mimeTypeFromSrc(src: string): string | null {
+  const ext = srcBasename(src).split('.').pop();
+  if (!ext) return null;
+  if (ext === 'jpg' || ext === 'jpeg') return 'image/jpeg';
+  if (ext === 'png') return 'image/png';
+  if (ext === 'webp') return 'image/webp';
+  if (ext === 'avif') return 'image/avif';
+  if (ext === 'gif') return 'image/gif';
+  if (ext === 'svg') return 'image/svg+xml';
+  return null;
+}
+
+function cacheBust(src: string): string {
+  return src + (src.includes('?') ? '&' : '?') + 'v=' + Date.now();
 }
 
 async function replaceImage(el: HTMLElement, desc: ImageDescriptor, file: File) {

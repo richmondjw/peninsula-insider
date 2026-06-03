@@ -1,0 +1,572 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Admin', href: '/admin/' },
+  { label: 'Media library' },
+];
+---
+
+<BaseLayout
+  title="Media library · Peninsula Insider"
+  description="Browse and assign Peninsula Insider media assets."
+  section="home"
+  noindex={true}
+  searchExclude={true}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <section class="media-admin" data-media-root>
+    <div class="container media-admin__container">
+      <header class="media-admin__header">
+        <p class="media-admin__eyebrow">Editorial admin</p>
+        <h1 class="media-admin__title">Media library</h1>
+        <p class="media-admin__subtitle">Browse static images, CMS uploads, and image-slot usage from one place.</p>
+      </header>
+
+      <div class="media-admin__slot" data-slot-panel hidden>
+        <div>
+          <p class="media-admin__slot-label">Editing slot</p>
+          <p class="media-admin__slot-value" data-slot-label></p>
+        </div>
+        <label class="media-admin__upload">
+          <input type="file" accept="image/jpeg,image/png,image/webp,image/avif" data-upload-input />
+          <span>Upload to this slot</span>
+        </label>
+      </div>
+
+      <div class="media-admin__toolbar">
+        <input class="media-admin__search" type="search" data-media-search placeholder="Search filename, path, entity…" aria-label="Search media" />
+        <select class="media-admin__select" data-source-filter aria-label="Source filter">
+          <option value="all">All sources</option>
+          <option value="static">Static repo images</option>
+          <option value="cms">CMS uploads</option>
+          <option value="used">Used</option>
+          <option value="unused">Unused static</option>
+        </select>
+        <select class="media-admin__select" data-entity-filter aria-label="Entity type filter">
+          <option value="all">All entity types</option>
+          <option value="article">Article</option>
+          <option value="boating">Boating</option>
+          <option value="event">Event</option>
+          <option value="experience">Experience</option>
+          <option value="fishing">Fishing</option>
+          <option value="itinerary">Itinerary</option>
+          <option value="place">Place</option>
+          <option value="region">Region</option>
+          <option value="tour">Tour</option>
+          <option value="venue">Venue</option>
+          <option value="page">Page</option>
+        </select>
+        <button type="button" class="media-admin__refresh" data-action="refresh">Refresh</button>
+      </div>
+
+      <div class="media-admin__status" data-media-status>Loading media…</div>
+
+      <div class="media-admin__layout">
+        <main class="media-admin__grid" data-media-grid></main>
+        <aside class="media-admin__detail" data-media-detail>
+          <p class="media-admin__hint">Select an image to inspect registry and usage details.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { getSupabase, isAuthEnabled, signOut } from '../../lib/auth';
+
+  const LOGIN_PATH = '/admin/login/';
+  const STORAGE_BUCKET = 'cms-assets';
+  const COOKIE_ACCESS = 'pi-sb-access-token';
+  const COOKIE_REFRESH = 'pi-sb-refresh-token';
+
+  type StaticUsage = {
+    file: string;
+    purpose: string;
+    entityType: string | null;
+    entitySlug: string | null;
+  };
+  type MediaAsset = {
+    src: string;
+    source: 'static' | 'cms';
+    filename: string;
+    extension?: string;
+    bytes?: number | null;
+    updatedAt?: string | null;
+    storagePath?: string | null;
+    usages: StaticUsage[];
+    slots: ImageSlot[];
+  };
+  type ImageSlot = {
+    id: string;
+    entity_type: string;
+    entity_slug: string;
+    field_path: string;
+    label: string | null;
+    purpose: string | null;
+    public_url: string | null;
+    storage_path: string | null;
+    alt_text: string | null;
+    caption: string | null;
+    credit: string | null;
+    status: 'draft' | 'published';
+    updated_at: string;
+  };
+
+  let allAssets: MediaAsset[] = [];
+  let activeAsset: MediaAsset | null = null;
+  let slotContext: { entityType: string; entitySlug: string; fieldPath: string; label?: string | null; currentSrc?: string | null } | null = null;
+
+  function setCookie(name: string, value: string, maxAgeSeconds: number) {
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${Math.max(60, Math.floor(maxAgeSeconds))}; SameSite=Lax${secure}`;
+  }
+  function clearCookie(name: string) {
+    document.cookie = `${name}=; Path=/; Max-Age=0; SameSite=Lax`;
+  }
+  async function syncCookies() {
+    const c = getSupabase();
+    if (!c) return null;
+    const { data } = await c.auth.getSession();
+    const session = data.session;
+    if (!session) {
+      clearCookie(COOKIE_ACCESS);
+      clearCookie(COOKIE_REFRESH);
+      return null;
+    }
+    const expiresIn = (session.expires_in as number | undefined) ?? 3600;
+    setCookie(COOKIE_ACCESS, session.access_token, expiresIn);
+    if (session.refresh_token) setCookie(COOKIE_REFRESH, session.refresh_token, 60 * 60 * 24 * 30);
+    return session;
+  }
+  function escapeHtml(value: unknown) {
+    return String(value ?? '').replace(/[&<>"']/g, (c) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c] as string));
+  }
+  function filenameFrom(src: string) {
+    try {
+      const url = src.startsWith('http') ? new URL(src) : null;
+      const path = url ? url.pathname : src.split('?')[0];
+      return decodeURIComponent(path.split('/').filter(Boolean).pop() || src);
+    } catch {
+      return src.split('/').filter(Boolean).pop() || src;
+    }
+  }
+  function setStatus(message: string, tone: 'idle' | 'ok' | 'err' = 'idle') {
+    const el = document.querySelector<HTMLElement>('[data-media-status]');
+    if (!el) return;
+    el.textContent = message;
+    el.dataset.tone = tone;
+  }
+  function readSlotContext() {
+    const params = new URLSearchParams(location.search);
+    const entityType = params.get('entityType');
+    const entitySlug = params.get('entitySlug');
+    const fieldPath = params.get('fieldPath');
+    if (!entityType || !entitySlug || !fieldPath) return null;
+    return {
+      entityType,
+      entitySlug,
+      fieldPath,
+      label: params.get('label'),
+      currentSrc: params.get('currentSrc'),
+    };
+  }
+  function renderSlotContext() {
+    const panel = document.querySelector<HTMLElement>('[data-slot-panel]');
+    const label = document.querySelector<HTMLElement>('[data-slot-label]');
+    if (!panel || !label || !slotContext) return;
+    panel.hidden = false;
+    label.textContent = `${slotContext.entityType} / ${slotContext.entitySlug} / ${slotContext.fieldPath}`;
+  }
+  async function fetchStaticRegistry(): Promise<MediaAsset[]> {
+    const res = await fetch('/admin/media-registry.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Media registry not found (${res.status}). Run npm run media:registry.`);
+    const data = await res.json();
+    return (data.assets ?? []).map((asset: any) => ({
+      ...asset,
+      source: 'static',
+      usages: asset.usages ?? [],
+      slots: [],
+    }));
+  }
+  async function fetchCmsSlots(): Promise<ImageSlot[]> {
+    const c = getSupabase();
+    if (!c) return [];
+    const { data, error } = await c
+      .from('cms_image_slots')
+      .select('id, entity_type, entity_slug, field_path, label, purpose, public_url, storage_path, alt_text, caption, credit, status, updated_at')
+      .order('updated_at', { ascending: false });
+    if (error) throw new Error(error.message);
+    return (data ?? []) as ImageSlot[];
+  }
+  function combineAssets(staticAssets: MediaAsset[], slots: ImageSlot[]): MediaAsset[] {
+    const bySrc = new Map<string, MediaAsset>();
+    for (const asset of staticAssets) bySrc.set(asset.src, asset);
+    for (const slot of slots) {
+      const src = slot.public_url || slot.storage_path;
+      if (!src) continue;
+      let asset = bySrc.get(src);
+      if (!asset) {
+        asset = {
+          src,
+          source: 'cms',
+          filename: filenameFrom(src),
+          extension: filenameFrom(src).split('.').pop()?.toLowerCase(),
+          bytes: null,
+          updatedAt: slot.updated_at,
+          storagePath: slot.storage_path,
+          usages: [],
+          slots: [],
+        };
+        bySrc.set(src, asset);
+      }
+      asset.slots.push(slot);
+      if (!asset.updatedAt || slot.updated_at > asset.updatedAt) asset.updatedAt = slot.updated_at;
+    }
+    return Array.from(bySrc.values()).sort((a, b) => {
+      const au = a.slots.length + a.usages.length;
+      const bu = b.slots.length + b.usages.length;
+      if (au !== bu) return bu - au;
+      return a.filename.localeCompare(b.filename);
+    });
+  }
+  function assetMatches(asset: MediaAsset, query: string, source: string, entity: string) {
+    const used = asset.usages.length > 0 || asset.slots.length > 0;
+    if (source === 'static' && asset.source !== 'static') return false;
+    if (source === 'cms' && asset.source !== 'cms') return false;
+    if (source === 'used' && !used) return false;
+    if (source === 'unused' && (asset.source !== 'static' || used)) return false;
+    if (entity !== 'all') {
+      const hasEntity =
+        asset.slots.some((s) => s.entity_type === entity) ||
+        asset.usages.some((u) => u.entityType === entity);
+      if (!hasEntity) return false;
+    }
+    if (!query) return true;
+    const haystack = [
+      asset.src,
+      asset.filename,
+      ...asset.usages.map((u) => `${u.file} ${u.entityType ?? ''} ${u.entitySlug ?? ''}`),
+      ...asset.slots.map((s) => `${s.entity_type} ${s.entity_slug} ${s.field_path} ${s.label ?? ''}`),
+    ].join(' ').toLowerCase();
+    return haystack.includes(query);
+  }
+  function renderGrid() {
+    const host = document.querySelector<HTMLElement>('[data-media-grid]');
+    if (!host) return;
+    const query = (document.querySelector<HTMLInputElement>('[data-media-search]')?.value || '').toLowerCase().trim();
+    const source = document.querySelector<HTMLSelectElement>('[data-source-filter]')?.value || 'all';
+    const entity = document.querySelector<HTMLSelectElement>('[data-entity-filter]')?.value || 'all';
+    const rows = allAssets.filter((asset) => assetMatches(asset, query, source, entity));
+    if (rows.length === 0) {
+      host.innerHTML = '<p class="media-admin__hint">No matching images.</p>';
+      return;
+    }
+    host.innerHTML = rows.map((asset, index) => {
+      const used = asset.usages.length + asset.slots.length;
+      return `
+        <button type="button" class="media-card" data-index="${index}" data-src="${escapeHtml(asset.src)}">
+          <span class="media-card__image" style="background-image:url('${escapeHtml(asset.src)}')" aria-hidden="true"></span>
+          <span class="media-card__body">
+            <span class="media-card__name">${escapeHtml(asset.filename)}</span>
+            <span class="media-card__meta">${asset.source} · ${used} use${used === 1 ? '' : 's'}</span>
+          </span>
+        </button>
+      `;
+    }).join('');
+    host.querySelectorAll<HTMLElement>('[data-src]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const src = btn.dataset.src;
+        const asset = allAssets.find((item) => item.src === src);
+        if (asset) renderDetail(asset);
+      });
+    });
+  }
+  function renderDetail(asset: MediaAsset) {
+    activeAsset = asset;
+    const host = document.querySelector<HTMLElement>('[data-media-detail]');
+    if (!host) return;
+    const usageRows = [
+      ...asset.slots.map((s) => ({
+        label: `${s.entity_type} / ${s.entity_slug}`,
+        detail: `${s.field_path} · ${s.status}`,
+        href: `/admin/entry/?type=${encodeURIComponent(s.entity_type)}&slug=${encodeURIComponent(s.entity_slug)}`,
+      })),
+      ...asset.usages.map((u) => ({
+        label: u.entityType && u.entitySlug ? `${u.entityType} / ${u.entitySlug}` : u.file,
+        detail: `${u.purpose} · ${u.file}`,
+        href: null,
+      })),
+    ];
+    host.innerHTML = `
+      <div class="media-detail__preview" style="background-image:url('${escapeHtml(asset.src)}')"></div>
+      <h2 class="media-detail__title">${escapeHtml(asset.filename)}</h2>
+      <dl class="media-detail__facts">
+        <div><dt>Source</dt><dd>${escapeHtml(asset.source)}</dd></div>
+        <div><dt>Path</dt><dd><code>${escapeHtml(asset.src)}</code></dd></div>
+        ${asset.bytes ? `<div><dt>Size</dt><dd>${Math.round(asset.bytes / 1024)} KB</dd></div>` : ''}
+        ${asset.updatedAt ? `<div><dt>Updated</dt><dd>${new Date(asset.updatedAt).toLocaleString()}</dd></div>` : ''}
+      </dl>
+      <div class="media-detail__actions">
+        ${slotContext ? '<button type="button" class="media-admin__primary" data-action="assign">Use for current slot</button>' : ''}
+        <button type="button" class="media-admin__secondary" data-action="copy">Copy path</button>
+      </div>
+      <h3 class="media-detail__subhead">Linked slots and usage</h3>
+      ${
+        usageRows.length
+          ? `<ul class="media-detail__usage">${usageRows.map((u) => `<li><span>${escapeHtml(u.label)}</span><small>${escapeHtml(u.detail)}</small>${u.href ? `<a href="${u.href}">Open</a>` : ''}</li>`).join('')}</ul>`
+          : '<p class="media-admin__hint">No known usage yet.</p>'
+      }
+    `;
+    host.querySelector<HTMLElement>('[data-action="assign"]')?.addEventListener('click', () => assignAsset(asset));
+    host.querySelector<HTMLElement>('[data-action="copy"]')?.addEventListener('click', async () => {
+      await navigator.clipboard?.writeText(asset.src);
+      setStatus('Copied image path.', 'ok');
+    });
+  }
+  async function getActorId() {
+    const c = getSupabase();
+    if (!c) return null;
+    const { data } = await c.auth.getUser();
+    return data.user?.id ?? null;
+  }
+  async function assignAsset(asset: MediaAsset) {
+    if (!slotContext) return;
+    const c = getSupabase();
+    if (!c) return setStatus('Supabase is not configured.', 'err');
+    const actorId = await getActorId();
+    const payload = {
+      entity_type: slotContext.entityType,
+      entity_slug: slotContext.entitySlug,
+      field_path: slotContext.fieldPath,
+      label: slotContext.label || `${slotContext.entitySlug} ${slotContext.fieldPath}`,
+      purpose: slotContext.fieldPath.includes('hero') ? 'hero' : 'inline',
+      storage_bucket: STORAGE_BUCKET,
+      storage_path: asset.source === 'cms' ? asset.storagePath : null,
+      public_url: asset.src,
+      status: 'published',
+      updated_by: actorId,
+    };
+    const { error } = await c
+      .from('cms_image_slots')
+      .upsert(payload, { onConflict: 'entity_type,entity_slug,field_path' });
+    if (error) return setStatus(`Could not assign image: ${error.message}`, 'err');
+    await c.from('cms_revisions').insert({
+      entity_type: slotContext.entityType,
+      entity_slug: slotContext.entitySlug,
+      action: 'update',
+      status: 'published',
+      summary: `Assigned media library image to ${slotContext.fieldPath}`,
+      patch: [{ op: 'set', target: slotContext.fieldPath, value: asset.src }],
+      created_by: actorId,
+    });
+    setStatus(`Assigned ${asset.filename} to ${slotContext.entitySlug}.`, 'ok');
+    await loadAll();
+    const fresh = allAssets.find((item) => item.src === asset.src);
+    if (fresh) renderDetail(fresh);
+  }
+  async function uploadToSlot(file: File) {
+    if (!slotContext) return;
+    const c = getSupabase();
+    if (!c) return setStatus('Supabase is not configured.', 'err');
+    const actorId = await getActorId();
+    const ext = file.name.match(/\.([a-z0-9]+)$/i)?.[1]?.toLowerCase() || 'jpg';
+    const safeSlug = slotContext.entitySlug.replace(/[^a-z0-9-]/gi, '-');
+    const safeField = slotContext.fieldPath.replace(/[^a-z0-9._-]/gi, '-');
+    const storagePath = `${slotContext.entityType}/${safeSlug}/${safeField}-${Date.now()}.${ext}`;
+    setStatus(`Uploading ${file.name}…`);
+    const { error: uploadError } = await c.storage
+      .from(STORAGE_BUCKET)
+      .upload(storagePath, file, {
+        upsert: false,
+        contentType: file.type || `image/${ext}`,
+        cacheControl: '31536000',
+      });
+    if (uploadError) return setStatus(`Upload failed: ${uploadError.message}`, 'err');
+    const { data: pub } = c.storage.from(STORAGE_BUCKET).getPublicUrl(storagePath);
+    const src = pub.publicUrl;
+    const payload = {
+      entity_type: slotContext.entityType,
+      entity_slug: slotContext.entitySlug,
+      field_path: slotContext.fieldPath,
+      label: slotContext.label || `${slotContext.entitySlug} ${slotContext.fieldPath}`,
+      purpose: slotContext.fieldPath.includes('hero') ? 'hero' : 'inline',
+      storage_bucket: STORAGE_BUCKET,
+      storage_path: storagePath,
+      public_url: src,
+      mime_type: file.type || `image/${ext}`,
+      status: 'published',
+      updated_by: actorId,
+    };
+    const { error } = await c.from('cms_image_slots').upsert(payload, { onConflict: 'entity_type,entity_slug,field_path' });
+    if (error) return setStatus(`Upload saved, but slot update failed: ${error.message}`, 'err');
+    await c.from('cms_revisions').insert({
+      entity_type: slotContext.entityType,
+      entity_slug: slotContext.entitySlug,
+      action: 'update',
+      status: 'published',
+      summary: `Uploaded media library image to ${slotContext.fieldPath}`,
+      patch: [{ op: 'set', target: slotContext.fieldPath, value: src }],
+      created_by: actorId,
+    });
+    setStatus(`Uploaded ${file.name}.`, 'ok');
+    await loadAll();
+    const fresh = allAssets.find((item) => item.src === src);
+    if (fresh) renderDetail(fresh);
+  }
+  async function loadAll() {
+    const [staticAssets, slots] = await Promise.all([fetchStaticRegistry(), fetchCmsSlots()]);
+    allAssets = combineAssets(staticAssets, slots);
+    renderGrid();
+    const current = slotContext?.currentSrc ? allAssets.find((asset) => asset.src === slotContext?.currentSrc) : null;
+    if (current) renderDetail(current);
+    setStatus(`${allAssets.length} images · ${slots.length} CMS slot${slots.length === 1 ? '' : 's'}`, 'ok');
+  }
+  async function init() {
+    if (!isAuthEnabled()) return setStatus('Auth is not configured in this environment.', 'err');
+    const session = await syncCookies();
+    if (!session) {
+      location.replace(`${LOGIN_PATH}?next=${encodeURIComponent(location.pathname + location.search)}`);
+      return;
+    }
+    const c = getSupabase();
+    if (!c) return setStatus('Supabase is not configured.', 'err');
+    const { data: profile } = await c
+      .from('profiles')
+      .select('is_editor')
+      .eq('id', session.user.id)
+      .maybeSingle();
+    if (!profile?.is_editor) return setStatus('This account does not have editor rights.', 'err');
+    slotContext = readSlotContext();
+    renderSlotContext();
+    await loadAll();
+    document.querySelector('[data-action="refresh"]')?.addEventListener('click', () => void loadAll());
+    document.querySelector<HTMLInputElement>('[data-media-search]')?.addEventListener('input', renderGrid);
+    document.querySelector<HTMLSelectElement>('[data-source-filter]')?.addEventListener('change', renderGrid);
+    document.querySelector<HTMLSelectElement>('[data-entity-filter]')?.addEventListener('change', renderGrid);
+    document.querySelector<HTMLInputElement>('[data-upload-input]')?.addEventListener('change', (event) => {
+      const file = (event.target as HTMLInputElement).files?.[0];
+      if (file) void uploadToSlot(file);
+    });
+    c.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_OUT') {
+        clearCookie(COOKIE_ACCESS);
+        clearCookie(COOKIE_REFRESH);
+        location.replace(LOGIN_PATH);
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => void init());
+</script>
+
+<style is:global>
+  .media-admin { padding: clamp(2rem, 6vw, 4rem) 0 clamp(4rem, 8vw, 6rem); color: var(--ink, #171413); }
+  .media-admin__container { display: grid; gap: 1.25rem; }
+  .media-admin__header { max-width: 54rem; }
+  .media-admin__eyebrow,
+  .media-admin__slot-label {
+    margin: 0 0 0.4rem;
+    font: 700 0.68rem/1 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ochre, #A0541F);
+  }
+  .media-admin__title { margin: 0 0 0.3rem; font-family: var(--serif, 'Newsreader', Georgia, serif); font-size: clamp(2rem, 5vw, 3rem); line-height: 1; }
+  .media-admin__subtitle { margin: 0; color: var(--ink-soft, #3A3531); }
+  .media-admin__slot,
+  .media-admin__toolbar,
+  .media-admin__status,
+  .media-admin__detail {
+    background: var(--paper, #FAF7F0);
+    border: 1px solid rgba(23, 20, 19, 0.08);
+    border-radius: 0.5rem;
+  }
+  .media-admin__slot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+  }
+  .media-admin__slot[hidden] { display: none; }
+  .media-admin__slot-value { margin: 0; font-weight: 700; }
+  .media-admin__upload input { display: none; }
+  .media-admin__upload span,
+  .media-admin__refresh,
+  .media-admin__primary,
+  .media-admin__secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.55rem 0.9rem;
+    font: 700 0.7rem/1 var(--sans, 'Inter', system-ui, sans-serif);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid rgba(23, 20, 19, 0.16);
+    background: transparent;
+    color: inherit;
+  }
+  .media-admin__primary,
+  .media-admin__upload span {
+    background: #8b4e3b;
+    border-color: #8b4e3b;
+    color: #fffaf2;
+  }
+  .media-admin__toolbar { display: flex; flex-wrap: wrap; gap: 0.65rem; padding: 0.85rem; }
+  .media-admin__search,
+  .media-admin__select {
+    min-height: 2.45rem;
+    border: 1px solid rgba(23, 20, 19, 0.16);
+    border-radius: 0.4rem;
+    background: rgba(255,255,255,0.65);
+    padding: 0.45rem 0.65rem;
+    font: 500 0.9rem/1 var(--sans, 'Inter', system-ui, sans-serif);
+  }
+  .media-admin__search { flex: 1 1 18rem; }
+  .media-admin__status { padding: 0.7rem 0.9rem; color: var(--ink-soft, #3A3531); }
+  .media-admin__status[data-tone="ok"] { color: #2e7d32; }
+  .media-admin__status[data-tone="err"] { color: #a03434; }
+  .media-admin__layout { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 68rem) { .media-admin__layout { grid-template-columns: minmax(0, 2fr) minmax(22rem, 0.9fr); } }
+  .media-admin__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.8rem; align-content: start; }
+  .media-card {
+    appearance: none;
+    display: grid;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: left;
+    border: 1px solid rgba(23, 20, 19, 0.08);
+    border-radius: 0.5rem;
+    background: #fff;
+    cursor: pointer;
+  }
+  .media-card:hover { border-color: rgba(160, 84, 31, 0.65); }
+  .media-card__image { display: block; aspect-ratio: 4 / 3; background-size: cover; background-position: center; background-color: #eadfce; }
+  .media-card__body { display: grid; gap: 0.25rem; padding: 0.7rem; }
+  .media-card__name { font-weight: 700; font-size: 0.82rem; word-break: break-word; }
+  .media-card__meta { color: var(--ink-soft, #3A3531); font-size: 0.74rem; }
+  .media-admin__detail { padding: 1rem; align-self: start; position: sticky; top: calc(var(--masthead-h, 96px) + 1rem); }
+  .media-admin__hint { margin: 0; color: var(--ink-soft, #3A3531); }
+  .media-detail__preview { aspect-ratio: 4 / 3; border-radius: 0.45rem; background-size: cover; background-position: center; background-color: #eadfce; margin-bottom: 1rem; }
+  .media-detail__title { margin: 0 0 0.8rem; font: 700 1rem/1.25 var(--sans, 'Inter', system-ui, sans-serif); word-break: break-word; }
+  .media-detail__facts { display: grid; gap: 0.55rem; margin: 0 0 1rem; }
+  .media-detail__facts div { display: grid; gap: 0.15rem; }
+  .media-detail__facts dt,
+  .media-detail__subhead { font: 700 0.65rem/1 var(--sans, 'Inter', system-ui, sans-serif); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ochre, #A0541F); }
+  .media-detail__facts dd { margin: 0; color: var(--ink-soft, #3A3531); word-break: break-word; }
+  .media-detail__facts code { font-size: 0.78rem; }
+  .media-detail__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .media-detail__subhead { margin: 1rem 0 0.6rem; }
+  .media-detail__usage { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+  .media-detail__usage li { display: grid; gap: 0.2rem; padding: 0.55rem 0; border-top: 1px solid rgba(23, 20, 19, 0.08); }
+  .media-detail__usage span { font-weight: 700; }
+  .media-detail__usage small { color: var(--ink-soft, #3A3531); word-break: break-word; }
+</style>

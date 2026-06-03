@@ -35,6 +35,7 @@ export interface Props {
   preview?: boolean;
   canonical?: string;
   ogImage?: string;
+  searchImage?: string;
   ogType?: string;
   noindex?: boolean;
   publishedTime?: string;
@@ -54,6 +55,7 @@ const {
   preview = false,
   canonical,
   ogImage = '/images/sourced/home-cover.webp',
+  searchImage,
   ogType = 'website',
   noindex = false,
   publishedTime,
@@ -91,6 +93,10 @@ const isHome = normalizedPath === '/';
 const ogImageAbsolute = ogImage.startsWith('http')
   ? ogImage
   : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
+const searchImageSource = searchImage ?? ogImage;
+const searchImageAbsolute = searchImageSource.startsWith('http')
+  ? searchImageSource
+  : `${SITE_URL}${searchImageSource.startsWith('/') ? searchImageSource : '/' + searchImageSource}`;
 
 // Don't render the floating drawer when the visitor is on /ask itself.
 // /ask IS the full-screen chat, the drawer would be a duplicate.
@@ -309,8 +315,8 @@ const isAskPage = rawPathname.startsWith('/ask');
         display:none elements as invisible and skips them during indexing,
         which means `data-pagefind-meta` attributes on hidden elements are
         ignored. Empty <span> has zero visual impact regardless. */}
-    {!searchExclude && ogImage && (
-      <span data-pagefind-meta={`image:${ogImageAbsolute}`}></span>
+    {!searchExclude && searchImageSource && (
+      <span data-pagefind-meta={`image:${searchImageAbsolute}`}></span>
     )}
     <slot />
   </main>

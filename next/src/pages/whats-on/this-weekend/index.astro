@@ -60,9 +60,7 @@ const breadcrumbItems = [
 
 const latestHero = await resolveHero('article', routeSlug(latest), latest.data, 'hero');
 const heroStyle = latestHero.style;
-const ogImage = latest.data.heroImage?.src && !latest.data.heroImage.src.includes('placeholder')
-  ? latest.data.heroImage.src
-  : '/images/sourced/home-cover.webp';
+const ogImage = latestHero.src;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -152,6 +150,7 @@ export const prerender = true;
   section="whats-on"
   canonical={canonical}
   ogImage={ogImage}
+  searchImage={ogImage}
   ogType="article"
   publishedTime={latest.data.publishedAt.toISOString()}
   modifiedTime={(latest.data.updatedAt ?? latest.data.publishedAt).toISOString()}

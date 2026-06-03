@@ -5,6 +5,7 @@ import PlaceDetailTemplate from '../../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../../components/PlaceMap.astro';
 import EventStrip from '../../../components/EventStrip.astro';
 import { routeSlug, stayTypes, wineTypes, isUpcoming } from '../../../lib/editorial';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const places = await getCollection('places');
@@ -139,9 +140,8 @@ const snapshotCards = [
 ];
 
 const canonical = `https://peninsulainsider.com.au/explore/places/${placeSlug}/`;
-const ogImage = place.data.heroImage?.src && !place.data.heroImage.src.includes('placeholder')
-  ? place.data.heroImage.src
-  : `/images/sourced/place-${placeSlug}-01.webp`;
+const hero = await resolveHero('place', placeSlug, place.data);
+const ogImage = hero.src || `/images/sourced/place-${placeSlug}-01.webp`;
 
 // --- SEO: Per-town title overrides and meta descriptions ---
 const titleOverrides: Record<string, string> = {
@@ -328,6 +328,7 @@ export const prerender = true;
   section="explore"
   canonical={canonical}
   ogImage={ogImage}
+  searchImage={ogImage}
   noindex={place.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(placeSchema)} />

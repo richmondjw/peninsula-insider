@@ -53,12 +53,10 @@ const slug = routeSlug(event);
 const placeName = place?.data?.name ?? 'Mornington Peninsula';
 const canonical = `https://peninsulainsider.com.au/whats-on/${slug}/`;
 
-// Social-card image must honour a CMS hero replacement, not just frontmatter,
-// otherwise an editor's swap reverts on rebuild. Keep the placeholder-exclusion
-// behaviour (fall back to the raw frontmatter src, which is undefined when the
-// event has no real photo) by only using the override when one exists.
+// Social/search-card image must honour the same CMS-aware hero resolver as
+// event cards, otherwise the detail page and listing/search cards drift.
 const eventHero = await resolveHero('event', slug, event.data);
-const ogImage = eventHero.override?.src ?? event.data.heroImage?.src;
+const ogImage = eventHero.src;
 
 // Standardised event fields (Discovery Phase 1, workstream 4): every event
 // page always renders price, time (when known), recurrence, and family grade
@@ -89,6 +87,7 @@ export const prerender = true;
   section="whats-on"
   canonical={canonical}
   ogImage={ogImage}
+  searchImage={ogImage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
   <Breadcrumbs items={breadcrumbItems} />

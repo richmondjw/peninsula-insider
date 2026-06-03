@@ -24,7 +24,8 @@ import {
   buildPtwEventSchema,
   sortPtwLatestFirst,
 } from '../../../../lib/peninsula-this-weekend';
-import { heroBackgroundStyle, formatHeroCredit } from '../../../../lib/editorial';
+import { formatHeroCredit, routeSlug } from '../../../../lib/editorial';
+import { resolveHero } from '../../../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => data.status === 'published');
@@ -51,10 +52,9 @@ const breadcrumbItems = [
   { label: weekendLabel },
 ];
 
-const heroStyle = heroBackgroundStyle(article.data);
-const ogImage = article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
-  ? article.data.heroImage.src
-  : '/images/sourced/home-cover.webp';
+const articleHero = await resolveHero('article', routeSlug(article), article.data, 'hero');
+const heroStyle = articleHero.style;
+const ogImage = articleHero.src;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -82,6 +82,7 @@ export const prerender = true;
   section="whats-on"
   canonical={canonical}
   ogImage={ogImage}
+  searchImage={ogImage}
   ogType="article"
   publishedTime={article.data.publishedAt.toISOString()}
   modifiedTime={(article.data.updatedAt ?? article.data.publishedAt).toISOString()}

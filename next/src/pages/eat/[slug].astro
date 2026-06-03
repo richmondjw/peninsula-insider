@@ -5,6 +5,7 @@ import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
 import EventStrip from '../../components/EventStrip.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming } from '../../lib/editorial';
 import { buildKnownForProperties } from '../../lib/schema';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const STATIC_EAT_OVERRIDES = new Set(['barmah-park-vineyard', 'port-phillip-estate-restaurant']);
@@ -74,9 +75,8 @@ const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).sli
 const canonical = venue.data.type === 'winery'
   ? `https://peninsulainsider.com.au/wine/${slug}/`
   : `https://peninsulainsider.com.au/eat/${slug}/`;
-const ogImage = venue.data.heroImage?.src && !venue.data.heroImage.src.includes('placeholder')
-  ? venue.data.heroImage.src
-  : '/images/sourced/home-cover.webp';
+const hero = await resolveHero('venue', slug, venue.data);
+const ogImage = hero.src;
 
 // JSON-LD: map venue type to schema.org type
 const schemaTypeMap: Record<string, string> = {
@@ -119,6 +119,7 @@ export const prerender = true;
   section="eat"
   canonical={canonical}
   ogImage={ogImage}
+  searchImage={ogImage}
   noindex={venue.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
