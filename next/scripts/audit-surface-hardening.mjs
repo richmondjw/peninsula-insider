@@ -7,6 +7,7 @@
  * - mixed card systems in one grid without an explicit normalisation skin
  * - entity detail/search images bypassing the CMS-aware hero resolver
  * - hero/card image surfaces missing inline-CMS edit attributes
+ * - indexed pages falling back to the generic homepage image in Pagefind
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -168,11 +169,60 @@ function auditStaticJournalSearchImages() {
   }
 }
 
+function auditSearchImageDefaults() {
+  const file = path.join(src, 'layouts', 'BaseLayout.astro');
+  const text = fs.readFileSync(file, 'utf8');
+
+  const requiredSnippets = [
+    'const DEFAULT_SITE_IMAGE',
+    'const SECTION_DEFAULT_IMAGES',
+    'function inferImageSection',
+    'function isGenericSiteImage',
+    'const fallbackImageSection = inferImageSection(normalizedPath, section);',
+    'const usableOgImage = !isHome && isGenericSiteImage(ogImage) ? undefined : ogImage;',
+    'const usableSearchImage = !isHome && isGenericSiteImage(searchImage) ? undefined : searchImage;',
+    'const resolvedOgImage = usableOgImage ?? SECTION_DEFAULT_IMAGES[fallbackImageSection] ?? DEFAULT_SITE_IMAGE;',
+    'const searchImageSource = usableSearchImage ?? resolvedOgImage;',
+  ];
+
+  for (const snippet of requiredSnippets) {
+    if (!text.includes(snippet)) {
+      issues.push(`${rel(file)}:1 BaseLayout must keep section-aware image fallbacks for indexed Pagefind surfaces`);
+      break;
+    }
+  }
+
+  if (/ogImage\s*=\s*['"]\/images\/sourced\/home-cover\.webp['"]/.test(text)) {
+    const idx = text.search(/ogImage\s*=\s*['"]\/images\/sourced\/home-cover\.webp['"]/);
+    add(file, idx, 'ogImage must not default every indexed page to the homepage cover');
+  }
+}
+
+function auditSearchResultImageEditor() {
+  const file = path.join(src, 'pages', 'search.astro');
+  const text = fs.readFileSync(file, 'utf8');
+  const requiredSnippets = [
+    'function imageSlotAttrs',
+    'data-pi-edit="image"',
+    'hydrateSearchResultImages()',
+    'fetchImageSlotCache()',
+  ];
+
+  for (const snippet of requiredSnippets) {
+    if (!text.includes(snippet)) {
+      issues.push(`${rel(file)}:1 search result image tiles must remain editable and hydrated from the CMS image registry`);
+      break;
+    }
+  }
+}
+
 auditHorizontalRails();
 auditMixedCardGrids();
 auditEntityHeroResolvers();
 auditEditableImageCoverage();
 auditStaticJournalSearchImages();
+auditSearchImageDefaults();
+auditSearchResultImageEditor();
 
 if (issues.length) {
   console.error('Surface hardening audit failed:');

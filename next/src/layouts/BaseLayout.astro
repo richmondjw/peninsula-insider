@@ -47,6 +47,32 @@ export interface Props {
 }
 
 const SITE_URL = 'https://peninsulainsider.com.au';
+const DEFAULT_SITE_IMAGE = '/images/sourced/home-cover.webp';
+const SECTION_DEFAULT_IMAGES: Record<NonNullable<Props['section']>, string> = {
+  home: DEFAULT_SITE_IMAGE,
+  eat: '/images/sourced/venue-italian-dining-01.webp',
+  stay: '/images/sourced/article-vineyard-villa-01.webp',
+  wine: '/images/sourced/wine-hub-hero-01.webp',
+  explore: '/images/sourced/explore-hub-hero-01.webp',
+  journal: '/images/sourced/article-cellar-door-01.webp',
+  'whats-on': '/images/sourced/place-mornington-01.webp',
+};
+function inferImageSection(pathname: string, explicitSection: NonNullable<Props['section']>) {
+  if (explicitSection !== 'home' && explicitSection in SECTION_DEFAULT_IMAGES) return explicitSection;
+  if (/^\/(eat|eat-drink)(\/|$)/.test(pathname)) return 'eat';
+  if (/^\/stay(\/|$)/.test(pathname)) return 'stay';
+  if (/^\/wine(\/|$)/.test(pathname)) return 'wine';
+  if (/^\/(whats-on|events)(\/|$)/.test(pathname)) return 'whats-on';
+  if (/^\/(journal|dispatch|corporate-events|awards|escape)(\/|$)/.test(pathname)) return 'journal';
+  if (/^\/(explore|do|dog-friendly|boating|fishing|tour|tour-packages|guides|insiders-30)(\/|$)/.test(pathname)) {
+    return 'explore';
+  }
+  return pathname === '/' ? 'home' : 'explore';
+}
+function isGenericSiteImage(image?: string) {
+  if (!image) return false;
+  return image === DEFAULT_SITE_IMAGE || image.endsWith(DEFAULT_SITE_IMAGE);
+}
 
 const {
   title,
@@ -54,7 +80,7 @@ const {
   section = 'home',
   preview = false,
   canonical,
-  ogImage = '/images/sourced/home-cover.webp',
+  ogImage,
   searchImage,
   ogType = 'website',
   noindex = false,
@@ -88,12 +114,16 @@ const canonicalUrl = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + 
 // Emit the site-level WebSite + SearchAction graph only on the homepage,
 // so the SearchAction sitelinks box resolves to one canonical source.
 const isHome = normalizedPath === '/';
+const fallbackImageSection = inferImageSection(normalizedPath, section);
+const usableOgImage = !isHome && isGenericSiteImage(ogImage) ? undefined : ogImage;
+const usableSearchImage = !isHome && isGenericSiteImage(searchImage) ? undefined : searchImage;
 
 // OG image must be an absolute URL.
-const ogImageAbsolute = ogImage.startsWith('http')
-  ? ogImage
-  : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
-const searchImageSource = searchImage ?? ogImage;
+const resolvedOgImage = usableOgImage ?? SECTION_DEFAULT_IMAGES[fallbackImageSection] ?? DEFAULT_SITE_IMAGE;
+const ogImageAbsolute = resolvedOgImage.startsWith('http')
+  ? resolvedOgImage
+  : `${SITE_URL}${resolvedOgImage.startsWith('/') ? resolvedOgImage : '/' + resolvedOgImage}`;
+const searchImageSource = usableSearchImage ?? resolvedOgImage;
 const searchImageAbsolute = searchImageSource.startsWith('http')
   ? searchImageSource
   : `${SITE_URL}${searchImageSource.startsWith('/') ? searchImageSource : '/' + searchImageSource}`;
