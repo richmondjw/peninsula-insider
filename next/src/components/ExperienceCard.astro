@@ -33,7 +33,6 @@ const slug = routeSlug(experience);
 const duration = data.durationMinutes ? `${data.durationMinutes} min` : null;
 const difficulty = data.difficulty ? difficultyLabel[data.difficulty] ?? titleize(data.difficulty) : null;
 const hero = await resolveHero('experience', slug, data);
-const imgStyle = hero.style;
 ---
 
 <article class="experience-card">
@@ -42,15 +41,20 @@ const imgStyle = hero.style;
     class={`experience-card__visual experience-card__visual--${data.type}`}
     aria-hidden="true"
     tabindex="-1"
-    style={imgStyle}
-    {...editableImage({
-      entityType: 'experience',
-      entitySlug: slug,
-      fieldPath: 'heroImage',
-      label: `${data.name} hero`,
-      purpose: 'hero',
-    })}
   >
+    <img
+      src={hero.src}
+      alt=""
+      loading="lazy"
+      decoding="async"
+      {...editableImage({
+        entityType: 'experience',
+        entitySlug: slug,
+        fieldPath: 'heroImage',
+        label: `${data.name} hero`,
+        purpose: 'hero',
+      })}
+    />
     <div class="experience-card__fog"></div>
     <span class="experience-card__tag">{typeLabel[data.type] ?? titleize(data.type)}</span>
   </a>
