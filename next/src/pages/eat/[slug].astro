@@ -75,8 +75,8 @@ const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).sli
 const canonical = venue.data.type === 'winery'
   ? `https://peninsulainsider.com.au/wine/${slug}/`
   : `https://peninsulainsider.com.au/eat/${slug}/`;
-const hero = await resolveHero('venue', slug, venue.data);
-const ogImage = hero.src;
+const venueHero = await resolveHero('venue', slug, venue.data);
+const ogImage = venueHero.src;
 
 // JSON-LD: map venue type to schema.org type
 const schemaTypeMap: Record<string, string> = {
@@ -119,7 +119,7 @@ export const prerender = true;
   section="eat"
   canonical={canonical}
   ogImage={ogImage}
-  searchImage={ogImage}
+  searchImage={venueHero.src}
   noindex={venue.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />

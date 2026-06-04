@@ -89,11 +89,11 @@ const duration = experience.data.durationMinutes ? `${experience.data.durationMi
 const difficulty = experience.data.difficulty ? difficultyLabel[experience.data.difficulty] ?? titleize(experience.data.difficulty) : null;
 const heroClass = heroVariant[experience.data.type] ?? 'feature__image-block--hinterland';
 
-const hero = await resolveHero('experience', slug, experience.data);
-const heroStyle = hero.style;
+const experienceHero = await resolveHero('experience', slug, experience.data);
+const heroStyle = experienceHero.style;
 
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
-const ogImage = hero.src;
+const ogImage = experienceHero.src;
 
 // Truncate editor note to ~155 chars
 const description = experience.data.editorNote
@@ -156,7 +156,7 @@ export const prerender = true;
   section="explore"
   canonical={canonical}
   ogImage={ogImage}
-  searchImage={ogImage}
+  searchImage={experienceHero.src}
   noindex={experience.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(experienceSchema)} />
@@ -186,7 +186,7 @@ export const prerender = true;
         label: `${experience.data.name} hero`, purpose: 'hero',
       })}>
         <div class="experience-detail__hero-fog"></div>
-        <span class="experience-detail__hero-label">{experience.data.heroImage.alt}</span>
+        <span class="experience-detail__hero-label">{experienceHero.alt}</span>
       </div>
 
       <div class="experience-detail__grid">

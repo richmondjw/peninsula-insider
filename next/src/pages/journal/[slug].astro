@@ -12,11 +12,12 @@ import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize, heroBackgroundStyle, formatHeroCredit } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const STATIC_JOURNAL_OVERRIDES = new Set([
@@ -121,7 +122,7 @@ const slug = routeSlug(article);
 // crucially, it ships in the static HTML so there's no client-side flash
 // where the default paints first and gets swapped after hydration.
 const articleOverrides = await loadOverrides('article', slug);
-const overrideHero = articleOverrides.image['hero'];
+const articleHero = await resolveHero('article', slug, article.data, 'hero');
 
 // Body-block text overrides — one entry per paragraph/heading/list/blockquote
 // the editor has rewritten via the inline editor. Field path format:
@@ -132,16 +133,11 @@ const blockOverridesEntries = Object.entries(articleOverrides.text)
   .filter(([k]) => k.startsWith('body.block:'))
   .map(([k, v]) => [k.slice('body.block:'.length), v] as const);
 const blockOverrides = Object.fromEntries(blockOverridesEntries);
-const articleHeroStyle = overrideHero?.src
-  ? `background-image: url('${overrideHero.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-  : heroBackgroundStyle(article.data);
-const heroAlt = overrideHero?.alt ?? article.data.heroImage?.alt ?? article.data.title;
+const articleHeroStyle = articleHero.style;
+const heroAlt = articleHero.alt;
 
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
-const ogImage = overrideHero?.src
-  ?? (article.data.heroImage?.src && !article.data.heroImage.src.includes('placeholder')
-      ? article.data.heroImage.src
-      : '/images/sourced/home-cover.webp');
+const ogImage = articleHero.src;
 
 // Region-aware breadcrumb for planning-utility formats with a single related
 // place that carries a regionSlug: Home -> Region -> Place -> Title. Otherwise
@@ -249,7 +245,7 @@ export const prerender = true;
   section="journal"
   canonical={canonical}
   ogImage={ogImage}
-  searchImage={ogImage}
+  searchImage={articleHero.src}
   ogType="article"
   publishedTime={article.data.publishedAt.toISOString()}
   modifiedTime={(article.data.updatedAt ?? article.data.publishedAt).toISOString()}

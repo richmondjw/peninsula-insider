@@ -89,29 +89,7 @@ function recurrenceBadge(): string | null {
 }
 const weekdayBadge = recurrenceBadge();
 
-const fallbackHeroByCategory: Record<string, string> = {
-  'food-wine': '/images/sourced/category-winery-01.webp',
-  market: '/images/sourced/category-market-02.webp',
-  festival: '/images/sourced/category-market-01.webp',
-  'cellar-door': '/images/sourced/category-winery-02.webp',
-  community: '/images/sourced/place-mornington-01.webp',
-  arts: '/images/sourced/explore-mprg-01.webp',
-  wellness: '/images/sourced/spa-coastal-pool-01.webp',
-  'live-music': '/images/sourced/article-sunset-01.webp',
-  'racing-sport': '/images/sourced/golf-rye-sunrise-01.webp',
-  'family-programs': '/images/sourced/article-kids-peninsula-01.webp',
-  exhibition: '/images/sourced/explore-mprg-01.webp',
-  civic: '/images/sourced/place-mornington-01.webp',
-  nature: '/images/sourced/explore-greens-bush-01.webp',
-  'writers-ideas': '/images/sourced/article-sorrento-weekend-01.webp',
-};
-// Resolve CMS image override at SSR so right-click uploads stay live on
-// every card and search/listing surface that renders this event.
-const eventHero = await resolveHero('event', slug, event.data);
-const heroImageSrc = eventHero.override?.src
-  ?? eventHero.src
-  ?? fallbackHeroByCategory[category]
-  ?? '/images/sourced/category-market-02.webp';
+const hero = await resolveHero('event', slug, event.data);
 
 // Filter data-attributes — consumed by the hub's client-side filter engine.
 // Each event encodes its location region(s), category bucket, recurrence,
@@ -197,7 +175,7 @@ const recurrenceDay = recurDayMatch
   <a
     href={`/whats-on/${slug}`}
     class="event-card__hero"
-    style={`background-image: url(${heroImageSrc});`}
+    style={`background-image: url(${hero.src});`}
     aria-hidden="true"
     tabindex="-1"
     {...editableImage({
@@ -235,7 +213,7 @@ const recurrenceDay = recurDayMatch
       title={event.data.title}
       href={`/whats-on/${slug}/`}
       dek={event.data.summary}
-      imageUrl={heroImageSrc}
+      imageUrl={hero.src}
     />
   </div>
 </article>

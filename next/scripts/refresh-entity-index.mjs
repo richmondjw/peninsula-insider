@@ -43,6 +43,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const NEXT_ROOT = resolve(__dirname, '..');
 const CONTENT_ROOT = resolve(NEXT_ROOT, 'src/content');
 const TAXONOMY_PATH = resolve(NEXT_ROOT, 'src/taxonomy/facet-taxonomy.yaml');
+const IMAGE_REGISTRY_PATH = resolve(NEXT_ROOT, 'src/data/image-registry.json');
 
 const args = process.argv.slice(2);
 const opts = { apply: false, report: false, sql: false, prune: false, limit: null };
@@ -62,6 +63,13 @@ try {
 } catch (err) {
   console.error(`[FATAL] Cannot load taxonomy: ${err.message}`);
   process.exit(1);
+}
+
+let imageRegistry = { entities: {} };
+try {
+  imageRegistry = JSON.parse(await readFile(IMAGE_REGISTRY_PATH, 'utf8'));
+} catch {
+  imageRegistry = { entities: {} };
 }
 
 // Resolve values_from references.
@@ -88,7 +96,6 @@ const EAT_TYPES = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 const STAY_TYPES = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
 const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
 const ROUTABLE_VENUE_TYPES = [...new Set([...EAT_TYPES, ...STAY_TYPES, ...WINE_TYPES])];
-const NON_PUBLIC_STATUSES = new Set(['draft', 'review', 'archived']);
 
 function venueHrefPrefix(type) {
   if (STAY_TYPES.includes(type)) return '/stay/';
@@ -105,8 +112,8 @@ const COLLECTIONS = [
   { folder: 'articles',       entityType: 'article',       hrefPrefix: '/journal/',  titleField: 'title' },
   { folder: 'events',         entityType: 'event',         hrefPrefix: '/whats-on/', titleField: 'title' },
   { folder: 'itineraries',    entityType: 'itinerary',     hrefPrefix: '/plans/',    titleField: 'title' },
-  { folder: 'tours',          entityType: 'tour',          hrefPrefix: '/tour/',     titleField: 'name'  },
-  { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/tour-packages/', titleField: 'name' },
+  { folder: 'tours',          entityType: 'tour',          hrefPrefix: '/tours/',    titleField: 'name'  },
+  { folder: 'tour-packages',  entityType: 'tour-package',  hrefPrefix: '/plans/',    titleField: 'name'  },
   { folder: 'quick-notes',    entityType: 'quick-note',    hrefPrefix: '/quick-note/', titleField: 'headline' },
   { folder: 'local-secrets',  entityType: 'local-secret',  hrefPrefix: '/journal/local-secrets/', titleField: 'title' },
 ];
@@ -199,14 +206,23 @@ function projectFacets(entry, collection) {
 }
 
 // Build entity_index row from entry.
+function registryHeroImage(entityType, slug) {
+  const hero = imageRegistry.entities?.[`${entityType}/${slug}`]?.canonicalHero;
+  if (!hero?.src) return null;
+  return {
+    src: hero.src,
+    alt: hero.alt ?? '',
+    credit: hero.credit ?? null,
+    license: hero.license ?? null,
+  };
+}
+
 function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, facets }) {
   const slug = entry.slug || entry.eventId || null;
   if (!slug) return null;
-  const status = typeof entry.status === 'string' ? entry.status.trim() : entry.status;
-  if (NON_PUBLIC_STATUSES.has(status)) return null;
   if (entityType === 'venue') {
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
-    if (status === 'permanently_closed') return null;
+    if (entry.status === 'permanently_closed') return null;
   }
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
@@ -237,7 +253,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
     starts_at:    startsAt ? new Date(startsAt).toISOString() : null,
     ends_at:      endsAt ? new Date(endsAt).toISOString() : null,
     href:         (hrefPrefix ?? venueHrefPrefix(entry.type)) + slug + '/',
-    hero_image:   entry.heroImage || null,
+    hero_image:   registryHeroImage(entityType, slug) || entry.heroImage || null,
     taxonomy_version: String(taxonomy.version || '0'),
     refreshed_at: new Date().toISOString(),
   };

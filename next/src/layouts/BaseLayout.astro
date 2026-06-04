@@ -35,44 +35,19 @@ export interface Props {
   preview?: boolean;
   canonical?: string;
   ogImage?: string;
-  searchImage?: string;
   ogType?: string;
   noindex?: boolean;
   publishedTime?: string;
   modifiedTime?: string;
   /** Override the search-result chip label. Defaults to a label derived from section. */
   searchKind?: string;
+  /** Override the Pagefind result image. Defaults to ogImage. */
+  searchImage?: string;
   /** Exclude this page from the Pagefind index entirely (e.g. /search itself). */
   searchExclude?: boolean;
 }
 
 const SITE_URL = 'https://peninsulainsider.com.au';
-const DEFAULT_SITE_IMAGE = '/images/sourced/home-cover.webp';
-const SECTION_DEFAULT_IMAGES: Record<NonNullable<Props['section']>, string> = {
-  home: DEFAULT_SITE_IMAGE,
-  eat: '/images/sourced/venue-italian-dining-01.webp',
-  stay: '/images/sourced/article-vineyard-villa-01.webp',
-  wine: '/images/sourced/wine-hub-hero-01.webp',
-  explore: '/images/sourced/explore-hub-hero-01.webp',
-  journal: '/images/sourced/article-cellar-door-01.webp',
-  'whats-on': '/images/sourced/place-mornington-01.webp',
-};
-function inferImageSection(pathname: string, explicitSection: NonNullable<Props['section']>) {
-  if (explicitSection !== 'home' && explicitSection in SECTION_DEFAULT_IMAGES) return explicitSection;
-  if (/^\/(eat|eat-drink)(\/|$)/.test(pathname)) return 'eat';
-  if (/^\/stay(\/|$)/.test(pathname)) return 'stay';
-  if (/^\/wine(\/|$)/.test(pathname)) return 'wine';
-  if (/^\/(whats-on|events)(\/|$)/.test(pathname)) return 'whats-on';
-  if (/^\/(journal|dispatch|corporate-events|awards|escape)(\/|$)/.test(pathname)) return 'journal';
-  if (/^\/(explore|do|dog-friendly|boating|fishing|tour|tour-packages|guides|insiders-30)(\/|$)/.test(pathname)) {
-    return 'explore';
-  }
-  return pathname === '/' ? 'home' : 'explore';
-}
-function isGenericSiteImage(image?: string) {
-  if (!image) return false;
-  return image === DEFAULT_SITE_IMAGE || image.endsWith(DEFAULT_SITE_IMAGE);
-}
 
 const {
   title,
@@ -80,13 +55,13 @@ const {
   section = 'home',
   preview = false,
   canonical,
-  ogImage,
-  searchImage,
+  ogImage = '/images/sourced/home-cover.webp',
   ogType = 'website',
   noindex = false,
   publishedTime,
   modifiedTime,
   searchKind,
+  searchImage,
   searchExclude = false,
 } = Astro.props;
 
@@ -114,16 +89,12 @@ const canonicalUrl = rawCanonical.endsWith('/') ? rawCanonical : rawCanonical + 
 // Emit the site-level WebSite + SearchAction graph only on the homepage,
 // so the SearchAction sitelinks box resolves to one canonical source.
 const isHome = normalizedPath === '/';
-const fallbackImageSection = inferImageSection(normalizedPath, section);
-const usableOgImage = !isHome && isGenericSiteImage(ogImage) ? undefined : ogImage;
-const usableSearchImage = !isHome && isGenericSiteImage(searchImage) ? undefined : searchImage;
 
 // OG image must be an absolute URL.
-const resolvedOgImage = usableOgImage ?? SECTION_DEFAULT_IMAGES[fallbackImageSection] ?? DEFAULT_SITE_IMAGE;
-const ogImageAbsolute = resolvedOgImage.startsWith('http')
-  ? resolvedOgImage
-  : `${SITE_URL}${resolvedOgImage.startsWith('/') ? resolvedOgImage : '/' + resolvedOgImage}`;
-const searchImageSource = usableSearchImage ?? resolvedOgImage;
+const ogImageAbsolute = ogImage.startsWith('http')
+  ? ogImage
+  : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
+const searchImageSource = searchImage ?? ogImage;
 const searchImageAbsolute = searchImageSource.startsWith('http')
   ? searchImageSource
   : `${SITE_URL}${searchImageSource.startsWith('/') ? searchImageSource : '/' + searchImageSource}`;
@@ -334,12 +305,11 @@ const isAskPage = rawPathname.startsWith('/ask');
     data-pagefind-meta={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
     data-pagefind-ignore={searchExclude ? '' : undefined}
   >
-    {/* Pagefind search-result image source. Mirrors the page's ogImage
-        (which every page already sets for social sharing) into the search
-        index as `meta.image`. Without this, Pagefind tries to auto-detect
-        an image from the first <img> tag in the body — which fails for
-        most page types here because heroes use CSS background-image, not
-        real img elements. Single source of truth: ogImage.
+    {/* Pagefind search-result image source. Entity pages should pass
+        searchImage from the image registry; other pages fall back to ogImage.
+        Without this, Pagefind tries to auto-detect an image from the first
+        <img> tag in the body — which fails for most page types here because
+        heroes use CSS background-image, not real img elements.
 
         IMPORTANT: no `hidden` attribute. Pagefind treats `hidden` and
         display:none elements as invisible and skips them during indexing,
@@ -738,5 +708,3 @@ const isAskPage = rawPathname.startsWith('/ask');
 
 </body>
 </html>
-
-

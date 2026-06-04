@@ -7,12 +7,25 @@
  * contribution lands; the empty state is a CTA to /submit/.
  */
 import { getCollection } from 'astro:content';
+import { existsSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SectionHero from '../../../components/SectionHero.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 
-const secrets = (await getCollection('localSecrets'))
+async function getLocalSecrets() {
+  const dir = join(process.cwd(), 'src', 'content', 'local-secrets');
+  const hasEntries = existsSync(dir) && readdirSync(dir).some((name) => /\.(md|mdx)$/i.test(name));
+  if (!hasEntries) return [];
+  try {
+    return await getCollection('localSecrets');
+  } catch {
+    return [];
+  }
+}
+
+const secrets = (await getLocalSecrets())
   .filter((s) => !s.data.sitemapExclude)
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 

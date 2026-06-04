@@ -28,9 +28,9 @@
 >
   <div class="cookie-banner__inner">
     <div class="cookie-banner__copy">
-      <p class="cookie-banner__title">A note on cookies</p>
+      <p class="cookie-banner__title">Cookies</p>
       <p class="cookie-banner__body">
-        Essential cookies keep features like Ask PI and saved places working during your visit. Analytics cookies (optional) tell us which pages are most useful, anonymously — so we can write more of what works. Nothing personal is sold or shared.
+        Essential cookies keep Ask and saved places working. Optional analytics tells us which pages are useful.
         <a href="/privacy/">Privacy policy.</a>
       </p>
     </div>
@@ -40,7 +40,7 @@
         Accept all
       </button>
       <button type="button" class="cookie-banner__btn cookie-banner__btn--ghost" id="cookie-manage">
-        Manage preferences
+        Manage
       </button>
     </div>
 
@@ -108,6 +108,7 @@
 
     function show() {
       banner.setAttribute('data-state', 'visible');
+      document.body.classList.add('pi-cookie-visible');
       var manage = document.getElementById('cookie-banner-manage');
       var actions = document.getElementById('cookie-banner-actions');
       if (manage) manage.hidden = true;
@@ -116,6 +117,7 @@
 
     function hide() {
       banner.setAttribute('data-state', 'hidden');
+      document.body.classList.remove('pi-cookie-visible');
     }
 
     function expandManage() {
@@ -169,6 +171,7 @@
       // Defer slightly to avoid layout jank on first paint.
       setTimeout(show, 350);
     } else {
+      document.body.classList.remove('pi-cookie-visible');
       // Re-broadcast so any late-bound listeners (e.g. GA loader) see state.
       window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: read() }));
     }
@@ -184,7 +187,7 @@
     z-index: 9000;
     background: var(--white);
     border-top: 1px solid var(--border);
-    box-shadow: 0 -8px 28px -16px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 -8px 22px -18px rgba(0, 0, 0, 0.18);
     transform: translateY(110%);
     transition: transform 0.3s ease;
     font-family: 'Outfit', sans-serif;
@@ -194,10 +197,19 @@
     transform: translateY(0);
   }
 
+  :global(body.pi-cookie-visible .pi-drawer),
+  :global(body.pi-cookie-visible .pi-drawer__bubble),
+  :global(body.pi-cookie-visible .subscribe-pill) {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    transform: translateY(8px) scale(0.96) !important;
+  }
+
   .cookie-banner__inner {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 1.1rem clamp(1rem, 4vw, 2rem);
+    padding: 0.82rem clamp(1rem, 4vw, 2rem);
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1.25rem;
@@ -206,15 +218,15 @@
 
   .cookie-banner__title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     font-weight: 500;
     margin: 0 0 0.25rem;
     letter-spacing: -0.01em;
   }
 
   .cookie-banner__body {
-    font-size: 0.88rem;
-    line-height: 1.5;
+    font-size: 0.84rem;
+    line-height: 1.42;
     color: var(--soft);
     margin: 0;
     max-width: 70ch;
@@ -239,7 +251,7 @@
     font-weight: 500;
     letter-spacing: 0.02em;
     border-radius: 999px;
-    padding: 0.65rem 1.25rem;
+    padding: 0.55rem 1.05rem;
     border: 1px solid var(--border);
     background: var(--white);
     color: var(--text);
@@ -352,23 +364,18 @@
   /* ── Mobile: slim bottom bar ──────────────────────────────────────────── */
   @media (max-width: 720px) {
     .cookie-banner__inner {
-      grid-template-columns: 1fr auto;
-      gap: 0.6rem 0.75rem;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
       padding: 0.65rem clamp(1rem, 4vw, 1.5rem);
       align-items: center;
     }
-    /* Hide title and long body on mobile — replaced by compact copy below */
     .cookie-banner__title { display: none; }
     .cookie-banner__body {
       font-size: 0.8rem;
       line-height: 1.35;
-      /* Truncate to one line on mobile */
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .cookie-banner__actions {
-      justify-content: flex-end;
+      justify-content: stretch;
       flex-wrap: nowrap;
       gap: 0.4rem;
     }
@@ -376,7 +383,7 @@
       padding: 0.45rem 0.85rem;
       font-size: 0.8rem;
       white-space: nowrap;
-      flex: none;
+      flex: 1;
     }
     /* Manage panel still expands full-width when opened */
     .cookie-banner__manage {

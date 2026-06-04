@@ -69,7 +69,6 @@ const touristDestination = {
   section="explore"
   canonical={url}
   ogImage={regionHeroSrc}
-  searchImage={regionHeroSrc}
 >
   <script type="application/ld+json" set:html={JSON.stringify(touristDestination)} />
   <meta data-pagefind-filter="region_slug" content={d.slug} />
@@ -198,16 +197,18 @@ const touristDestination = {
     .region-hero__tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: clamp(17px, 2.4vw, 24px); max-width: 60ch; margin: 14px 0 0; text-shadow: 0 1px 6px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3); color: #fff; }
     .region-intro { margin: 36px 0; max-width: 70ch; font-size: 1.05rem; line-height: 1.6; }
     .region-section__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(24px, 3.5vw, 34px); margin: 40px 0 18px; }
-    .region-places { position: relative; }
+    .region-places {
+      position: relative;
+    }
     .region-places::after {
       content: "";
       position: absolute;
       right: 0;
-      bottom: 8px;
-      width: 54px;
-      height: calc(100% - 66px);
+      bottom: 0;
+      width: clamp(36px, 8vw, 92px);
+      height: calc(100% - 72px);
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(255,255,255,0), var(--bg, #fff));
+      background: linear-gradient(90deg, rgba(250, 247, 242, 0), var(--bg) 82%);
     }
     .region-places__rail {
       display: grid;
@@ -215,122 +216,78 @@ const touristDestination = {
       grid-auto-columns: minmax(260px, 1fr);
       gap: 20px;
       overflow-x: auto;
-      overscroll-behavior-x: contain;
-      -webkit-overflow-scrolling: touch;
       scroll-snap-type: x proximity;
+      scroll-padding-inline: 1px;
+      -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      -ms-overflow-style: none;
       padding-bottom: 8px;
     }
-    .region-places__rail::-webkit-scrollbar { display: none; }
-    .region-places__rail > * { scroll-snap-align: start; }
+    .region-places__rail::-webkit-scrollbar {
+      display: none;
+    }
+    .region-places__rail > * {
+      scroll-snap-align: start;
+    }
     @media (max-width: 760px) {
       .region-places__rail { grid-auto-columns: minmax(220px, 80%); }
       .region-places__rail .place-card__image { aspect-ratio: 4 / 3; }
     }
-    :global(.region-venues .venue-card),
-    :global(.region-venues .experience-card),
-    :global(.region-journal .venue-card--editorial) {
-      height: 100%;
-      border: 0;
-      border-radius: 0;
-      overflow: visible;
-      background: transparent;
-      box-shadow: none;
-    }
-    :global(.region-venues .venue-card::before),
-    :global(.region-journal .venue-card--editorial::before),
-    :global(.region-venues .venue-card__wash),
-    :global(.region-journal .venue-card__wash) {
-      display: none;
-    }
-    :global(.region-venues .venue-card:hover),
-    :global(.region-venues .experience-card:hover),
-    :global(.region-journal .venue-card--editorial:hover) {
-      transform: none;
-      box-shadow: none;
-      border-color: transparent;
-    }
-    :global(.region-venues .venue-card__hero),
-    :global(.region-venues .experience-card__visual) {
-      aspect-ratio: 4 / 3;
-      border-radius: var(--tile-image-radius, 10px);
-      border: 0;
-      overflow: hidden;
-    }
-    :global(.region-venues .venue-card__hero) {
-      margin-bottom: 0;
-    }
-    :global(.region-venues .venue-card > .venue-card__top),
-    :global(.region-venues .venue-card > .venue-card__name),
-    :global(.region-venues .venue-card > .venue-card__place),
-    :global(.region-venues .venue-card > .venue-card__hats),
-    :global(.region-venues .venue-card > .venue-card__signature),
-    :global(.region-venues .venue-card > .venue-card__tags),
-    :global(.region-venues .venue-card > .venue-card__actions),
-    :global(.region-journal .venue-card--editorial > .venue-card__top),
-    :global(.region-journal .venue-card--editorial > .venue-card__name),
-    :global(.region-journal .venue-card--editorial > .venue-card__place),
-    :global(.region-journal .venue-card--editorial > .venue-card__signature) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    :global(.region-venues .venue-card > .venue-card__top),
-    :global(.region-venues .experience-card__body) {
-      padding: 1.25rem 0 3.25rem;
-      min-height: 0;
-    }
-    :global(.region-journal .venue-card--editorial) {
-      padding: 1.35rem 0 3.25rem;
-    }
-    :global(.region-venues .venue-card__top),
-    :global(.region-venues .experience-card__meta),
-    :global(.region-journal .venue-card__top) {
-      align-items: baseline;
-      min-height: 1rem;
-      margin-bottom: 0.72rem;
-      font-size: 0.64rem;
-      line-height: 1.35;
-    }
-    :global(.region-venues .venue-card__type),
-    :global(.region-venues .venue-card__place-link),
-    :global(.region-venues .experience-card__meta),
-    :global(.region-journal .venue-card__type) {
-      color: var(--accent);
-    }
-    :global(.region-venues .venue-card__name),
-    :global(.region-venues .experience-card__title),
-    :global(.region-journal .venue-card__name) {
-      font-size: clamp(1.34rem, 1.65vw, 1.55rem);
-      line-height: 1.08;
-      margin-bottom: 0.62rem;
-      letter-spacing: 0;
-    }
-    :global(.region-venues .venue-card__place) {
-      margin-bottom: 0.7rem;
-    }
-    :global(.region-venues .venue-card__signature),
-    :global(.region-venues .experience-card__summary),
-    :global(.region-journal .venue-card__signature) {
-      border-top: 0;
-      padding-top: 0;
-      color: var(--soft);
-      font-size: 0.9rem;
-      line-height: 1.62;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    :global(.region-venues .venue-card__tags) {
-      margin-top: 0.2rem;
-    }
-    :global(.region-venues .venue-card__actions) {
-      margin-top: 1rem;
-    }
-    :global(.region-venues .experience-card__cta) { margin-top: 18px; }
     .region-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
     .region-tab { font-family: 'Outfit', sans-serif; font-size: 13px; padding: 7px 16px; border: 1px solid var(--border); border-radius: 999px; background: transparent; color: var(--text); cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
     .region-tab.is-active, .region-tab:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .region-venues .venues__grid {
+      align-items: stretch;
+    }
+    .region-grid__item {
+      display: flex;
+      min-width: 0;
+    }
+    .region-grid__item > .venue-card,
+    .region-grid__item > .experience-card {
+      width: 100%;
+    }
+    .region-venues .experience-card {
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(121, 92, 58, 0.14);
+      box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
+      transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s var(--ease);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .region-venues .experience-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 28px 56px rgba(34, 24, 16, 0.1);
+        border-color: rgba(121, 92, 58, 0.24);
+      }
+    }
+    .region-venues .experience-card__visual {
+      aspect-ratio: 16 / 10;
+      border-bottom: 1px solid rgba(121, 92, 58, 0.12);
+    }
+    .region-venues .experience-card__body {
+      padding: 1.5rem 1.75rem 3.25rem;
+    }
+    .region-venues .experience-card__summary {
+      color: #44372b;
+      font-size: 0.96rem;
+      line-height: 1.62;
+    }
+    .region-venues .experience-card__cta {
+      justify-content: center;
+      width: fit-content;
+      color: #f7f1e9;
+      background: #201711;
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .region-venues .experience-card__cta:hover {
+      gap: 0.4rem;
+      color: #f7f1e9;
+      background: #3a2819;
+    }
     .region-grid__item[hidden] { display: none; }
     .region-adjacent__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 44px; }
     .region-adjacent__card { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: var(--text); transition: border-color 0.15s; }

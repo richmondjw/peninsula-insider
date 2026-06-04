@@ -31,9 +31,9 @@ import {
 } from './overrides';
 import {
   resolveHeroSrc,
-  heroBackgroundStyle,
   hasOwnHeroImage,
 } from '../editorial';
+import { getRegisteredHero } from '../image-registry';
 
 export interface ResolvedHero {
   /** Best hero src: CMS override → content frontmatter → fallback chain. */
@@ -65,23 +65,25 @@ export async function resolveHero(
   // an override saved from any surface for this entity is always applied.
   const override =
     images[fieldPath] ?? images.hero ?? images.heroImage ?? undefined;
+  const registered = getRegisteredHero(entityType, slug);
 
-  const src = override?.src ?? resolveHeroSrc(data);
+  const src = override?.src ?? registered?.src ?? resolveHeroSrc(data);
   const alt =
     override?.alt ??
+    registered?.alt ??
     data?.heroImage?.alt ??
     data?.name ??
     data?.title ??
     '';
   const style = override?.src
     ? `background-image: url(${override.src}); background-size: cover; background-position: center;`
-    : heroBackgroundStyle(data);
+    : `background-image: url(${src}); background-size: cover; background-position: center;`;
 
   return {
     src,
     alt,
     style,
-    hasPhoto: Boolean(override) || hasOwnHeroImage(data),
+    hasPhoto: Boolean(override) || Boolean(registered?.hasOwnPhoto) || hasOwnHeroImage(data),
     override,
   };
 }

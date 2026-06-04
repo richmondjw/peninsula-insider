@@ -140,8 +140,8 @@ const snapshotCards = [
 ];
 
 const canonical = `https://peninsulainsider.com.au/explore/places/${placeSlug}/`;
-const hero = await resolveHero('place', placeSlug, place.data);
-const ogImage = hero.src || `/images/sourced/place-${placeSlug}-01.webp`;
+const placeHero = await resolveHero('place', placeSlug, place.data);
+const ogImage = placeHero.src;
 
 // --- SEO: Per-town title overrides and meta descriptions ---
 const titleOverrides: Record<string, string> = {
@@ -328,7 +328,7 @@ export const prerender = true;
   section="explore"
   canonical={canonical}
   ogImage={ogImage}
-  searchImage={ogImage}
+  searchImage={placeHero.src}
   noindex={place.data.sitemapExclude === true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(placeSchema)} />

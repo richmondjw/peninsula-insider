@@ -13,12 +13,6 @@ import keystatic from '@keystatic/astro';
 //   • Static output by default — the public site is fully prerendered
 //   • Content-first: zero-JS by default on content pages
 //   • Islands are added per-need (map, search, wizard, admin)
-//
-// Admin hybrid cutover (see next/docs/pi-cms-hybrid-cutover-2026-05-10.md):
-// when PI_ADMIN_HYBRID=1, switch to server output and load a Vercel adapter so
-// `src/middleware.ts` runs at request time and `/admin/api/*` becomes real
-// serverless. Without that env var, behaviour is unchanged. The adapter is
-// loaded dynamically so the static build does not need it installed.
 
 // Preview builds to /V2/ on GitHub Pages set ASTRO_BASE=/V2/.
 // Production (root-served) builds leave it unset.
@@ -26,11 +20,29 @@ const base = process.env.ASTRO_BASE || undefined;
 
 const adminHybrid = process.env.PI_ADMIN_HYBRID === '1';
 
-let adapter;
+// Keystatic CMS on Railway — needs @astrojs/node adapter for server mode
+let keystaticAdapter;
+if (process.env.KEYSTATIC !== '0') {
+  try {
+    const mod = await import('@astrojs/node');
+    keystaticAdapter = mod.default({ mode: 'standalone' });
+  } catch (err) {
+    throw new Error(
+      'KEYSTATIC is active but @astrojs/node is not installed. Run `pnpm add @astrojs/node` and retry.'
+    );
+  }
+}
+
+// Admin hybrid cutover (see next/docs/pi-cms-hybrid-cutover-2026-05-10.md):
+// when PI_ADMIN_HYBRID=1, switch to server output and load a Vercel adapter so
+// `src/middleware.ts` runs at request time and `/admin/api/*` becomes real
+// serverless. Without that env var, behaviour is unchanged. The adapter is
+// loaded dynamically so the static build does not need it installed.
+let adminAdapter;
 if (adminHybrid) {
   try {
     const mod = await import('@astrojs/vercel');
-    adapter = mod.default({});
+    adminAdapter = mod.default({});
   } catch (err) {
     // The adapter is intentionally optional. If hybrid mode is requested but
     // the adapter is not installed, fail loud rather than silently producing a
@@ -40,6 +52,9 @@ if (adminHybrid) {
     );
   }
 }
+
+// Use the right adapter: Keystatic (Railway) takes priority, then admin, then none
+const adapter = keystaticAdapter || adminAdapter || undefined;
 
 export default defineConfig({
   site: 'https://peninsulainsider.com.au',
@@ -62,7 +77,7 @@ export default defineConfig({
       remarkPlugins: [remarkBlockIds],
     }),
     react(), // scoped React islands for motion polish (ScrollReveal etc); not used on content pages
-    // Keystatic CMS — spike/keystatic branch only. Requires hybrid output.
+    // Keystatic CMS — spike/keystatic branch only. Requires server output.
     // Remove or gate behind env var before merging to main.
     ...(process.env.KEYSTATIC !== '0' ? [keystatic()] : []),
     cacheBustImages(), // append ?v=<contenthash> to /images/* refs in built HTML
@@ -84,6 +99,10 @@ export default defineConfig({
   //   KEYSTATIC=0        → skip keystatic() integration, static output (prod build)
   //   KEYSTATIC=1        → include keystatic() integration, server output (CMS deploy)
   //   (unset)            → include keystatic() integration, server output (local dev)
+  //
+  // Adapter priority:
+  //   @astrojs/node      → when KEYSTATIC is active (Railway hosting)
+  //   @astrojs/vercel     → when PI_ADMIN_HYBRID=1
   //
   // GitHub OAuth env vars required when KEYSTATIC != '0':
   //   KEYSTATIC_GITHUB_CLIENT_ID      — from GitHub OAuth App settings

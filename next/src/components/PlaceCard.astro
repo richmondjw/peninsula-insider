@@ -13,10 +13,9 @@ export interface Props {
   introMaxLength?: number;
 }
 
-import { heroBackgroundStyle } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
-import { loadOverrides } from '../lib/inline-edit/overrides';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
 const { place, variant = 'vineyard', showDetails = true, showMeta = true, showActions = true, introMaxLength } = Astro.props;
 const data = place.data;
@@ -32,22 +31,14 @@ const imgClass = variant === 'bay'
   ? 'place-card__image place-card__image--sand'
   : 'place-card__image';
 
-// Resolve CMS image override at SSR — editor replacements survive refresh
-// without waiting for a rebuild on tagged slots.
-const placeOverrides = await loadOverrides('place', slug);
-const placeHeroOverride = placeOverrides.image['heroImage'];
-const imgStyle = placeHeroOverride
-  ? `background-image: url(${placeHeroOverride.src}); background-size: cover; background-position: center;`
-  : heroBackgroundStyle(data);
+const hero = await resolveHero('place', slug, data);
+const imgStyle = hero.style;
 
 const intro = String(data.intro ?? '');
 const displayIntro = introMaxLength && intro.length > introMaxLength
   ? `${intro.slice(0, introMaxLength).replace(/\s+\S*$/, '')}…`
   : intro;
 
-// Capture the inline background-image URL for the saved-view preview.
-const heroMatch = imgStyle.match(/url\(([^)]+)\)/);
-const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined;
 ---
 
 <article class="place-card">
@@ -78,6 +69,6 @@ const heroSrc = heroMatch ? heroMatch[1].replace(/^['"]|['"]$/g, '') : undefined
     title={data.name}
     href={`/explore/places/${slug}/`}
     dek={data.intro}
-    imageUrl={heroSrc}
+    imageUrl={hero.src}
   />)}
 </article>
