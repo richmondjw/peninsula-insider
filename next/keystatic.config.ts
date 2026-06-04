@@ -39,7 +39,7 @@ export default config({
     venues: collection({
       label: 'Venues',
       slugField: 'name',
-      path: 'src/content/venues/*',
+      path: 'next/src/content/venues/*',
       format: { data: 'json' },
       schema: {
         name: fields.text({
@@ -146,7 +146,7 @@ export default config({
     articles: collection({
       label: 'Articles',
       slugField: 'title',
-      path: 'src/content/articles/*',
+      path: 'next/src/content/articles/*',
       format: { contentField: 'body' },
       schema: {
         title: fields.text({
