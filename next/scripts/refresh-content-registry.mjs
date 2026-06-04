@@ -26,6 +26,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const CONTENT_ROOT = resolve(__dirname, '../src/content');
+const PAGES_ROOT = resolve(__dirname, '../src/pages');
 
 const SUPABASE_URL =
   process.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co';
@@ -90,6 +91,90 @@ function pageSlugFromPath(path) {
   const trimmed = String(path).replace(/^\/+|\/+$/g, '');
   if (trimmed.length === 0) return 'home';
   return trimmed.toLowerCase().replace(/[^a-z0-9/_-]/g, '-').replace(/\//g, '-');
+}
+
+function routeFromPageFile(file) {
+  let rel = file
+    .replace(PAGES_ROOT, '')
+    .replace(/^[\\/]+/, '')
+    .replace(/\\/g, '/')
+    .replace(/\.astro$/i, '');
+  if (rel === 'index') return '/';
+  if (rel.endsWith('/index')) rel = rel.slice(0, -'/index'.length);
+  return `/${rel}/`;
+}
+
+async function walkAstroFiles(dir = PAGES_ROOT) {
+  let entries;
+  try {
+    entries = await readdir(dir, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  const files = [];
+  for (const entry of entries) {
+    if (entry.name === 'node_modules' || entry.name === 'dist') continue;
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...await walkAstroFiles(full));
+    } else if (entry.isFile() && entry.name.endsWith('.astro')) {
+      files.push(full);
+    }
+  }
+  return files;
+}
+
+function attrValue(tag, attrName) {
+  const match = new RegExp(`${attrName}\\s*=\\s*"([^"]+)"`).exec(tag);
+  return match?.[1] ?? null;
+}
+
+function titleFromHeroTag(tag, fallback) {
+  const title = attrValue(tag, 'title');
+  if (title) return title.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  return fallback;
+}
+
+/**
+ * Static Astro pages often render editable heroes via SectionHero, GuideHero,
+ * or SubpageHero with entityType='page' and a literal entitySlug. These pages
+ * are not content collections, so collection-only registry refreshes leave the
+ * CMS integrity trigger rejecting uploads like:
+ *   "CMS override for (page, eat/cafes) refused: no matching row"
+ *
+ * Discover those literal page identities from source so every editable static
+ * page is accepted by pi.content_registry before editors try to upload.
+ */
+async function discoverEditableStaticPages() {
+  const files = await walkAstroFiles();
+  const byKey = new Map();
+  const heroTag = /<(SectionHero|GuideHero|SubpageHero)\b[\s\S]*?>/g;
+
+  for (const file of files) {
+    const source = await readFile(file, 'utf8');
+    if (!source.includes('entitySlug=')) continue;
+
+    for (const match of source.matchAll(heroTag)) {
+      const tag = match[0];
+      const entitySlug = attrValue(tag, 'entitySlug');
+      if (!entitySlug) continue;
+      const entityType = attrValue(tag, 'entityType') ?? 'page';
+      if (entityType !== 'page') continue;
+
+      const href = routeFromPageFile(file);
+      const key = `page/${entitySlug}`;
+      byKey.set(key, {
+        entity_type: 'page',
+        entity_slug: entitySlug,
+        title: titleFromHeroTag(tag, entitySlug),
+        href,
+        refreshed_at: new Date().toISOString(),
+      });
+    }
+  }
+
+  return Array.from(byKey.values());
 }
 
 async function loadJsonFiles(folder) {
@@ -194,6 +279,13 @@ async function main() {
     await upsertBatch(rows);
     console.log(`[refresh-registry] page (${folder}): ${rows.length} rows upserted`);
     total += rows.length;
+  }
+
+  const staticPageRows = await discoverEditableStaticPages();
+  if (staticPageRows.length > 0) {
+    await upsertBatch(staticPageRows);
+    console.log(`[refresh-registry] page (static astro): ${staticPageRows.length} rows upserted`);
+    total += staticPageRows.length;
   }
 
   console.log(`[refresh-registry] Done — ${total} entities refreshed in pi.content_registry`);
