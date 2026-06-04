@@ -29,8 +29,21 @@ http.createServer = function patchedCreateServer(...args) {
       const before = req.headers['x-forwarded-proto'];
       req.headers['x-forwarded-proto'] = 'https';
       req.headers['x-forwarded-host'] = req.headers.host;
+      // security.allowedDomains isn't being honored at runtime, so the
+      // forwarded headers aren't trusted. Force Astro down its "encrypted
+      // socket" fallback path instead — that path defaults to https without
+      // needing allowedDomains.
+      if (req.socket && !req.socket.encrypted) {
+        try {
+          Object.defineProperty(req.socket, 'encrypted', {
+            value: true,
+            configurable: true,
+            writable: true,
+          });
+        } catch {}
+      }
       if (!patchedListenerInstalled) {
-        console.log('[server.mjs] first request — xfp before:', before, 'host:', req.headers.host, 'url:', req.url);
+        console.log('[server.mjs] first request — xfp before:', before, 'host:', req.headers.host, 'encrypted now:', req.socket?.encrypted, 'url:', req.url);
         patchedListenerInstalled = true;
       }
       return originalHandler.call(this, req, res);
