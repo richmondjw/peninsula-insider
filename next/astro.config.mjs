@@ -110,6 +110,18 @@ export default defineConfig({
   //   KEYSTATIC_SECRET                — random 32-char secret (openssl rand -hex 32)
   output: adminHybrid ? 'server' : (process.env.KEYSTATIC !== '0' ? 'server' : 'static'),
   adapter,
+  // Railway terminates TLS at the edge and forwards plain HTTP to the
+  // container. Astro 6 only honors X-Forwarded-Proto when allowedDomains
+  // is set, otherwise it falls back to "http" — which breaks Keystatic's
+  // GitHub OAuth (redirect_uri ends up http://, GitHub has https://).
+  // Listing the Railway host (and the future custom domain) here lets
+  // Astro trust the proxy and reconstruct the request URL with https.
+  security: {
+    allowedDomains: [
+      { hostname: 'pi-keystatic-cms-production.up.railway.app', protocol: 'https' },
+      { hostname: 'cms.peninsulainsider.com.au', protocol: 'https' },
+    ],
+  },
   // Redirects are handled by custom src/pages/*.astro files using the
   // Redirect component (src/components/Redirect.astro). This gives flash-free
   // JS redirects instead of Astro's meta-refresh HTML which flashes body content.
