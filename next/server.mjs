@@ -10,7 +10,11 @@
 
 import http from 'node:http';
 
+console.log('[server.mjs] wrapper booting — patching http.createServer');
+
 const originalCreateServer = http.createServer;
+let patchedListenerInstalled = false;
+
 http.createServer = function patchedCreateServer(...args) {
   let handlerIdx = -1;
   for (let i = args.length - 1; i >= 0; i--) {
@@ -22,13 +26,21 @@ http.createServer = function patchedCreateServer(...args) {
   if (handlerIdx >= 0) {
     const originalHandler = args[handlerIdx];
     args[handlerIdx] = function wrappedHandler(req, res) {
-      if (!req.headers['x-forwarded-proto']) {
-        req.headers['x-forwarded-proto'] = 'https';
+      const before = req.headers['x-forwarded-proto'];
+      req.headers['x-forwarded-proto'] = 'https';
+      req.headers['x-forwarded-host'] = req.headers.host;
+      if (!patchedListenerInstalled) {
+        console.log('[server.mjs] first request — xfp before:', before, 'host:', req.headers.host, 'url:', req.url);
+        patchedListenerInstalled = true;
       }
       return originalHandler.call(this, req, res);
     };
+    console.log('[server.mjs] wrapped createServer listener');
+  } else {
+    console.log('[server.mjs] createServer called with no listener arg — passing through');
   }
   return originalCreateServer.apply(this, args);
 };
 
 await import('./dist/server/entry.mjs');
+console.log('[server.mjs] entry.mjs imported');
