@@ -1,10 +1,10 @@
 {
-  "run_id": "2026-06-05T09:10:00.417Z",
-  "trigger": "workflow_dispatch",
+  "run_id": "2026-06-05T13:46:56.268Z",
+  "trigger": "schedule",
   "mode": "delta",
   "prune_enabled": true,
-  "duration_seconds": 2.7,
-  "git_sha": "6199605",
+  "duration_seconds": 2.9,
+  "git_sha": "a53b222",
   "embedding_model": "text-embedding-3-small",
   "embedding_dims": 1024,
   "source_counts": {
