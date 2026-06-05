@@ -15,7 +15,7 @@ tags: ["winter", "seasonal", "red-hill", "flinders", "truffle", "peninsula-notes
 readingTimeMinutes: 3
 featured: false
 status: "published"
-lastVerified: 2026-05-19
+lastVerified: 2026-06-05
 ---
 
 **The ridge in the morning.** Fog sits on the Red Hill plateau from about June onward in the kind of dense, directional way that makes the vineyard rows disappear fifty metres from the road. It burns off by ten. The hour before it does is the reason people who live up here choose it over the coast.
