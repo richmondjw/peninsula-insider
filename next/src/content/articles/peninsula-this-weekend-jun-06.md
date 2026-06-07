@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "june-planning", "winter", "kings-birthday", "wine", "food-wine", "red-hill", "merricks", "moorooduc"]
 relatedVenues: []
 readingTimeMinutes: 3
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-05-31
 clusterLinks:
