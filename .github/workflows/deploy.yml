@@ -95,6 +95,9 @@ jobs:
         # writes that don't match a row here, so this must run before any
         # editor uses the inline editor.
         #
+        # Non-blocking: deploy proceeds even if Supabase auth fails
+        # (e.g. rotated key). Inline editor degrades gracefully.
+        continue-on-error: true
         env:
           SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL || secrets.PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
