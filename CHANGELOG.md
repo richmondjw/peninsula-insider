@@ -16,6 +16,41 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Mobile/site-wide readability + reader-utility pass
+
+**Summary**
+Readability and accessibility upgrade requested by James (benchmarked against The Age Good Food mobile experience), plus three reader-utility features:
+
+1. **Typography weight/size** — body text `0.95rem`/weight 300 → `1rem`/weight 400; `.prose` to `1.0625rem`/400; cover/section-hero deks, place-detail intro, and newsletter input from 300 → 400. The light 300 weight was the main cause of low-contrast "grey" reading texture.
+2. **Contrast tokens** — `--soft` darkened `#7A726A` → `#5F574E` (4.7:1 → 7.1:1 on white; was failing AA on `--bg-alt`). New `--gold-text: #7A6340` token for gold-as-text on light surfaces (`--gold` is 2.7:1, decorative only); applied to editors-desk label and share-button copied state.
+3. **Italic cull** — 15 multi-line body-copy italic rules (article/news/home/guide deks, shortlist/insider-stripe/event-verdict bodies, prose blockquote, standfirsts) converted to roman, Cormorant blocks bumped to weight 500. Italics retained for display headline `em` accents, brand taglines, signatures, and semantic `.prose em`.
+4. **Browser font-size preference respected** — `html { font-size: 16px }` → `100%`.
+5. **Three-step text-size control (A/A/A)** — new `TextScaleControl.astro` in the `PiArticleActions` byline row (journal articles, weekend pages, venue detail). Sets `data-text-scale` on `<html>` (steps map to 108.75% / 118% root size), persists in localStorage, re-applied pre-paint by an inline BaseLayout script.
+6. **Saved shortcut in masthead** — bookmark icon (`v4-iconbtn`) next to search in both V4 masthead action clusters (desktop + mobile), linking to `/saved/`.
+7. **Google preferred-source button** — footer contact column, deeplink `https://google.com/preferences/source?q=peninsularinsider.com.au` per Google Search Central guidance.
+
+**Files changed**
+- `next/src/styles/global.css`
+- `next/src/components/TextScaleControl.astro` (new)
+- `next/src/components/PiArticleActions.astro`
+- `next/src/components/v4/V4Masthead.astro`
+- `next/src/components/Footer.astro`
+- `next/src/layouts/BaseLayout.astro`
+
+**Pages affected**
+Site-wide.
+
+**Why it matters**
+Body text was the single biggest readability complaint (weight-300 Outfit at 15.2px reads grey, especially on mobile). Secondary text was failing WCAG AA on cream sections. Multi-line Cormorant italic deks were hard to read at small sizes. The control and buttons match reader-utility patterns from major mastheads.
+
+**Verification**
+- `npm run build` passes (1485 pages); new rules confirmed in bundled output, which cascades after the legacy `/assets/styles.css`.
+
+**Follow-up**
+- `public/assets/styles.css` is a stale pre-Astro copy still linked first in `BaseLayout` — consider retiring it; it currently re-states the old typography (overridden by cascade order, but a drift risk).
+- Verify the site appears in Google's source-preferences tool for AU users (feature is region-gated).
+- Backlog: `--text-*` font-size token scale (70+ distinct sizes, tail below 12px).
+
 ### Card radius tokens (design review 2026-W22)
 
 **Summary**

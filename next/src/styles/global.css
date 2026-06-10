@@ -21,10 +21,14 @@
   --bg-alt:     #F6F2EA;
   --bg-dark:    #1E1B18;
   --text:       #2B2520;
-  --soft:       #7A726A;
+  --soft:       #5F574E;
   --accent:     #8B4E3B;
   --acc-h:      #6D3A2B;
   --gold:       #B69A6B;
+  /* Gold as READABLE text on light surfaces — --gold itself is 2.7:1 on
+     white, decorative use only. This darker cut passes WCAG AA (5.7:1 on
+     white, 5.1:1 on bg-alt). */
+  --gold-text:  #7A6340;
   --dark:       #1E1B18;
   --white:      #FDFCFA;
   --border:     #E5E0D6;
@@ -57,7 +61,13 @@
    RESET
    ========================================================= */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: auto; font-size: 16px; }
+/* 100% (not a fixed px value) so the reader's browser font-size
+   preference is respected. The whole sheet is rem-based, so everything
+   scales with it — including the three-step reader text-size control,
+   which sets data-text-scale on <html> (see TextScaleControl.astro). */
+html { scroll-behavior: auto; font-size: 100%; }
+html[data-text-scale="2"] { font-size: 108.75%; }
+html[data-text-scale="3"] { font-size: 118%; }
 
 /* =========================================================
    VIEW TRANSITIONS — page fade between routes
@@ -85,8 +95,8 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.75;
-  font-size: 0.95rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -556,7 +566,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--bg);
   border-color: var(--accent);
 }
-
 /* Mobile-only wordmark — sits in the centre of the merged mobile nav
    row. Hidden on desktop, where the dedicated brand row carries the
    full wordmark + tagline. */
@@ -654,7 +663,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.65;
   color: var(--soft);
   max-width: 42ch;
-  font-weight: 300;
+  font-weight: 400;
 }
 .cover__visual {
   position: relative;
@@ -720,7 +729,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   line-height: 1.7;
   color: var(--soft);
   max-width: 50ch;
-  font-weight: 300;
+  font-weight: 400;
 }
 .section-hero__visual {
   position: relative;
@@ -905,7 +914,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .pillar-row__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(0.95rem, 1.05vw, 1.05rem);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   color: var(--soft);
   line-height: 1.35;
 }
@@ -1688,7 +1698,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .article-hero__title em { color: var(--accent); font-style: italic; font-weight: 600; }
 .article-hero__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.1rem, 1.6vw, 1.32rem);
   line-height: 1.55;
   color: #44372b;
@@ -1858,10 +1869,10 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .prose {
   max-width: var(--prose-w);
   margin: 0 auto;
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   line-height: 1.85;
   color: var(--text);
-  font-weight: 300;
+  font-weight: 400;
 }
 .prose p {
   margin-bottom: 1.5rem;
@@ -1893,7 +1904,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .prose blockquote {
   border-left: 2px solid var(--accent);
   padding-left: 1.25rem;
-  font-style: italic;
+  font-style: normal;
   color: var(--soft);
   margin: 2rem 0;
 }
@@ -2171,7 +2182,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--soft);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2.5rem;
 }
 .place-detail__hero {
@@ -2351,7 +2362,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-hero__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.15rem, 1.6vw, 1.35rem);
   line-height: 1.5;
   color: var(--soft);
@@ -2490,7 +2502,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-sample__sub {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: #6b4f33;
@@ -2586,7 +2599,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .news-editions__note {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 0.95rem;
   color: var(--soft);
   line-height: 1.5;
@@ -2735,7 +2749,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .news-close__title em { color: rgba(245, 220, 178, 0.95); font-style: italic; }
 .news-close__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: rgba(253, 252, 250, 0.78);
@@ -2891,7 +2906,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   color: var(--white);
   font-family: 'Outfit', sans-serif;
   font-size: 0.9rem;
-  font-weight: 300;
+  font-weight: 400;
   outline: none;
   transition: background .2s var(--ease), border-color .2s var(--ease);
 }
@@ -4032,7 +4047,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .editors-desk__formats .label {
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 1.25rem;
 }
 .editors-desk__format-list {
@@ -4543,7 +4558,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .insider-stripe__body {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.05rem;
   line-height: 1.55;
   color: rgba(253, 252, 250, 0.78);
@@ -4686,7 +4702,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .shortlist__body {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: #44372b;
@@ -5014,7 +5031,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .home-cover__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   line-height: 1.55;
   color: #44372b;
@@ -5156,7 +5174,8 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 }
 .guide-hero__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: clamp(1.05rem, 1.5vw, 1.28rem);
   line-height: 1.55;
   color: #44372b;
@@ -5507,7 +5526,7 @@ p.has-drop-cap::first-letter {
 .section-standfirst,
 .venues__sub--standfirst {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
   font-size: clamp(1.1rem, 1.55vw, 1.32rem);
   line-height: 1.5;
   color: #6b4f33;
@@ -5544,7 +5563,8 @@ p.has-drop-cap::first-letter {
 }
 .hub-formats__dek {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.55;
   color: #6b4f33;
@@ -6080,7 +6100,8 @@ p.has-drop-cap::first-letter {
 }
 .event-card__verdict p {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.45;
   color: var(--dark);
@@ -6260,7 +6281,8 @@ p.has-drop-cap::first-letter {
 }
 .event-verdict__body {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
   font-size: 1.2rem;
   line-height: 1.5;
   color: var(--dark);
@@ -6852,8 +6874,8 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
 }
 .article__share-btn.is-copied {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--gold-text);
+  color: var(--gold-text);
   background: rgba(182,154,107,0.06);
 }
 @media (max-width: 600px) {
