@@ -16,6 +16,19 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Vivid-style homepage uplift — Phase 2: full-screen hero slider
+
+**Summary**
+Homepage cover rebuilt as a Vivid-Sydney-style full-screen slider: edge-to-edge photo filling the viewport below the masthead (`svh`-based with a JS measure of the hero's real offset — chrome height is observed via ResizeObserver plus a re-measure cascade), warm-dark gradient scrim, overlay bottom-left (label chip, white Cormorant headline with gold italic `em`, CTA button), and a centred control cluster (‹ dash pager ›). Mobile drops the arrows (swipe is the gesture; the bottom corners are owned by the Ask FAB and first-visit cookie banner) and left-aligns the pager; the dispatch standfirst is desktop-only. Swipe support and prev/next arrows added to the carousel script; autoplay (10s) restarts on interaction and is disabled under reduced motion. H1 remains in the first slide's overlay.
+
+Two bugs found by in-browser testing and fixed: the legacy `/assets/styles.css` still injects `.cover` padding (neutralised with explicit `padding: 0`), and corner-pinned arrows were unreachable beneath the Ask FAB / cookie banner (Playwright's pre-click auto-scroll exposed it — real users would hit the same).
+
+**Verification (headless Chromium)**
+390×844 and 1280×900: slide bottom lands exactly on the viewport edge; swipe advances slides; dash and arrow clicks switch stories with zero scroll-jump; arrows hidden on mobile. Screenshots shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+
 ### Vivid-style homepage uplift — Phase 1: mobile header
 
 **Summary**

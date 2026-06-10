@@ -189,52 +189,58 @@ export const prerender = true;
   canonical="https://peninsulainsider.com.au"
 >
 
-  {/* ── ZONE 1: Cover carousel — full article rotates (text + image together) */}
+  {/* ── ZONE 1: Cover carousel — Vivid-style full-screen slides (Phase 2 of
+      the 2026-06-10 homepage uplift). Full-bleed photo, warm-dark scrim,
+      headline + CTA overlaid bottom-left, arrows + dash pager in a control
+      strip along the hero's bottom edge. The dispatch standfirst shows on
+      desktop only — mobile keeps the Vivid headline + CTA economy. */}
   <section class="cover" aria-label="Cover stories">
     <div class="cover__carousel" id="cover-carousel">
       {scenes.map((scene, i) => (
         <div class={`cover__slide${i === 0 ? ' is-active' : ''}`} data-slide-index={i}>
-          <div class="container cover__slide-inner">
-            <div class="cover__type">
-              <p class="cover__meta">
-                <span class="cover__chip">{scene.label}</span>
-                <span class="cover__dot" aria-hidden="true">·</span>
-                <span class="cover__hours">{scene.hours}</span>
-              </p>
-              <a href={scene.primaryHref} class="cover__headline-link">
-                {i === 0
-                  ? <h1 class="cover__headline" set:html={scene.headline} />
-                  : <p class="cover__headline" set:html={scene.headline} />
-                }
-              </a>
-              <p class="cover__dispatch">{scene.dispatch}</p>
-            </div>
-            <a href={scene.primaryHref} class="cover__visual-link" tabindex="-1" aria-hidden="true">
-              <figure class="cover__visual">
-                <div class="cover__visual-frame">
-                  <img
-                    src={scene.image}
-                    alt={scene.imageAlt}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                    fetchpriority={i === 0 ? 'high' : undefined}
-                  />
-                </div>
-                {scene.caption && (
-                  <figcaption class="cover__caption">{scene.caption}</figcaption>
-                )}
-              </figure>
+          <figure class="cover__media">
+            <img
+              src={scene.image}
+              alt={scene.imageAlt}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchpriority={i === 0 ? 'high' : undefined}
+            />
+          </figure>
+          <div class="cover__scrim" aria-hidden="true"></div>
+          <div class="container cover__overlay">
+            <p class="cover__meta">
+              <span class="cover__chip">{scene.label}</span>
+              <span class="cover__dot" aria-hidden="true">·</span>
+              <span class="cover__hours">{scene.hours}</span>
+            </p>
+            <a href={scene.primaryHref} class="cover__headline-link">
+              {i === 0
+                ? <h1 class="cover__headline" set:html={scene.headline} />
+                : <p class="cover__headline" set:html={scene.headline} />
+              }
+            </a>
+            <p class="cover__dispatch">{scene.dispatch}</p>
+            <a href={scene.primaryHref} class="cover__cta">
+              {scene.primaryLabel}
+              <svg viewBox="0 0 16 12" width="15" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 6h13M10 1.5 14.5 6 10 10.5" />
+              </svg>
             </a>
           </div>
         </div>
       ))}
     </div>
 
-    {/* Story navigation — quiet progress bars, one per story. Labels were
-        removed 2026-06-10: tiny uppercase tags ("SLOW PENINSULA", "WALK")
-        read as content filters and meant nothing before the stories were
-        seen. Accessible names carry the story headline instead. */}
-    <nav class="cover__nav" aria-label="Switch story">
-      <div class="container cover__nav-inner">
+    {/* Control strip — prev/next arrows at the edges, dash pager centred,
+        all overlaid on the hero's bottom edge like Vivid Sydney. Accessible
+        names carry the story headlines. */}
+    <div class="container cover__controls">
+      <button class="cover__arrow" type="button" data-cover-prev aria-label="Previous story">
+        <svg viewBox="0 0 10 16" width="9" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 1.5 2 8l6 6.5" />
+        </svg>
+      </button>
+      <nav class="cover__nav" aria-label="Switch story">
         {scenes.map((scene, i) => (
           <button
             class={`cover__nav-btn${i === 0 ? ' is-active' : ''}`}
@@ -245,8 +251,13 @@ export const prerender = true;
             <span class="cover__nav-bar" aria-hidden="true"></span>
           </button>
         ))}
-      </div>
-    </nav>
+      </nav>
+      <button class="cover__arrow" type="button" data-cover-next aria-label="Next story">
+        <svg viewBox="0 0 10 16" width="9" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 1.5 8 8l-6 6.5" />
+        </svg>
+      </button>
+    </div>
   </section>
 
   {/* ── ZONE 2: Section navigation strip ─────────────────────────────────── */}
@@ -443,13 +454,58 @@ export const prerender = true;
         slides.forEach(function (s, i) { if (i !== current) setInert(s, true); });
         el.dataset.carouselReady = '1';
 
+        /* Size slides to exactly fill the viewport below the (sticky)
+           masthead — measure the hero's real offset rather than guessing
+           chrome height. CSS defaults cover the no-JS case. */
+        var coverEl = el.closest('.cover');
+        function sizeCover() {
+          var top = Math.max(0, Math.round(coverEl.getBoundingClientRect().top + window.scrollY));
+          coverEl.style.setProperty('--masthead-h', top + 'px');
+        }
+        sizeCover();
+        window.addEventListener('resize', sizeCover);
+        window.addEventListener('load', sizeCover);
+        /* The chrome above the hero reflows late (webfonts, utility row) —
+           watch the masthead and also re-measure on a short cascade so a
+           missed observer tick can't leave a stale height behind. */
+        var mastheadEl = document.querySelector('.masthead');
+        if (window.ResizeObserver && mastheadEl) {
+          new ResizeObserver(sizeCover).observe(mastheadEl);
+        }
+        [120, 400, 900, 1800, 3200].forEach(function (ms) { setTimeout(sizeCover, ms); });
+
+        function restartTimer() {
+          clearInterval(timer);
+          if (!reducedMotion) timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
+        }
+
         navBtns.forEach(function (btn, i) {
           btn.addEventListener('click', function () {
-            clearInterval(timer);
             goTo(i);
-            if (!reducedMotion) timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
+            restartTimer();
           });
         });
+
+        /* Prev/next arrows (Vivid-style control strip) */
+        var prevBtn = document.querySelector('[data-cover-prev]');
+        var nextBtn = document.querySelector('[data-cover-next]');
+        if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); restartTimer(); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); restartTimer(); });
+
+        /* Swipe — horizontal drags switch stories; vertical scrolls pass through. */
+        var touchX = null, touchY = null;
+        el.addEventListener('touchstart', function (e) {
+          touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+        }, { passive: true });
+        el.addEventListener('touchend', function (e) {
+          if (touchX === null) return;
+          var dx = e.changedTouches[0].clientX - touchX;
+          var dy = e.changedTouches[0].clientY - touchY;
+          touchX = touchY = null;
+          if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+          goTo(dx < 0 ? current + 1 : current - 1);
+          restartTimer();
+        }, { passive: true });
 
         if (!reducedMotion) {
           timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
@@ -529,78 +585,33 @@ export const prerender = true;
     font-size: clamp(0.95rem, 1.6vw, 1.1rem);
   }
 
-  /* ── Cover ──────────────────────────────────────────────────────────────── */
+  /* ── Cover — Vivid-style full-screen slider ─────────────────────────────
+     Full-bleed photo, warm-dark scrim, overlay bottom-left, control strip
+     along the bottom edge. Height fills the viewport under the masthead;
+     svh keeps iOS URL-bar collapse from causing jumps. --masthead-h is
+     tuned per breakpoint below. */
   .cover {
-    background: #FFFFFF;
-    color: #171413;
-    padding: clamp(2rem, 4vw, 4rem) 0 clamp(0.75rem, 1.25vw, 1.25rem);
-    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
+    position: relative;
+    /* Neutralise the legacy /assets/styles.css .cover rules (editorial
+       padding + border) — that stylesheet still loads first sitewide. */
+    padding: 0;
+    border: 0;
+    background: var(--bg-dark);
+    --masthead-h: 150px;          /* desktop: utility + brand + nav rows */
+    --cover-h: calc(100svh - var(--masthead-h));
   }
-  .cover__slide-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(2.5rem, 5vw, 5rem);
-    align-items: center;
+  @supports not (height: 100svh) {
+    .cover { --cover-h: calc(100vh - var(--masthead-h)); }
   }
-  .cover__type { min-width: 0; }
-  .cover__meta {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    margin: 0 0 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.16);
-    max-width: 26rem;
-  }
-  .cover__chip {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.26em; text-transform: uppercase;
-    color: #A0541F;
-  }
-  .cover__date, .cover__hours {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.66rem; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.55);
-  }
-  .cover__dot { color: rgba(23, 20, 19, 0.3); font-size: 0.62rem; }
-  .cover__headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2.8rem, 6.2vw, 5.6rem);
-    font-weight: 500; line-height: 0.96;
-    letter-spacing: -0.025em; color: #171413;
-    margin: 0 0 1.5rem; max-width: 14ch;
-  }
-  .cover__headline em { font-style: italic; font-weight: 500; color: #A0541F; }
-  .cover__dispatch {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(1.15rem, 1.5vw, 1.4rem);
-    line-height: 1.55; color: rgba(23, 20, 19, 0.75);
-    margin: 0 0 2rem; max-width: 42ch;
-  }
-  /* Headline is the primary click target */
-  .cover__headline-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  .cover__headline-link:hover .cover__headline { opacity: 0.78; }
-  /* Image link — decorative duplicate of headline link */
-  .cover__visual-link {
-    display: contents;
-  }
-  .cover__visual-link:hover .cover__visual-frame img { opacity: 0.88; }
-  /* ── Cover carousel slides ────────────────────────────────────────────────── */
-  .cover__carousel {
-    display: grid;
-  }
+  .cover__carousel { display: grid; }
   .cover__slide {
     grid-area: 1 / 1;
     position: relative;
     z-index: 0;
-    background: #ffffff;
+    height: var(--cover-h);
+    min-height: 430px;
+    max-height: 960px;
+    overflow: hidden;
     pointer-events: none;
   }
   .cover__slide.is-active {
@@ -620,40 +631,131 @@ export const prerender = true;
     .cover__slide.is-active { animation: none; }
   }
 
-  .cover__visual {
-    margin: 0; min-width: 0;
-    aspect-ratio: 4 / 5;
+  .cover__media, .cover__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
-  .cover__visual-frame {
-    overflow: hidden; width: 100%; height: 100%;
-    aspect-ratio: 4 / 5;
-  }
-  .cover__visual-frame img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-  }
-  .cover__caption {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.4);
-    margin: 0.6rem 0 0;
+  .cover__media img { object-fit: cover; display: block; }
+  /* Warm-dark scrim — guarantees headline contrast on any photo. The
+     bottom band reaches ~78% black-equivalent where the text sits. */
+  .cover__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(24, 18, 12, 0.10) 0%,
+      rgba(24, 18, 12, 0.16) 40%,
+      rgba(24, 18, 12, 0.46) 68%,
+      rgba(24, 18, 12, 0.80) 100%);
   }
 
-  /* ── Cover story nav strip ─────────────────────────────────────────────────── */
-  /* Carousel pager: short, fixed-width rounded segments, centred. Fixed
-     widths (not flex: 1) so the row reads as a deliberate control rather
-     than stray dashes; the active segment fills with the story timer. */
-  .cover__nav {
-    background: #FFFFFF;
-    padding: 0 0 0.5rem;
+  .cover__overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    margin: 0 auto;               /* .container handles max-width + padding */
+    padding-bottom: 5.25rem;      /* clears the control strip */
+    color: #FDFCFA;
   }
-  .cover__nav-inner {
+  .cover__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0 0 1rem;
+  }
+  .cover__chip {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    color: #F5DCB2;
+  }
+  .cover__hours {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.66rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(253, 252, 250, 0.75);
+  }
+  .cover__dot { color: rgba(253, 252, 250, 0.45); font-size: 0.62rem; }
+  .cover__headline-link { text-decoration: none; color: inherit; display: block; }
+  .cover__headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.5rem, 8.5vw, 4.6rem);
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: #FDFCFA;
+    margin: 0 0 1.1rem;
+    max-width: 16ch;
+    text-wrap: balance;
+    text-shadow: 0 1px 24px rgba(20, 15, 10, 0.35);
+  }
+  .cover__headline em { font-style: italic; font-weight: 500; color: #F5DCB2; }
+  .cover__headline-link:hover .cover__headline { opacity: 0.85; }
+  .cover__dispatch {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.6;
+    color: rgba(253, 252, 250, 0.88);
+    margin: 0 0 1.4rem;
+    max-width: 52ch;
+  }
+  .cover__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--accent);
+    color: #FDFCFA;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 1.3rem;
+    border-radius: 2px;
+    transition: background 0.18s var(--ease), transform 0.18s var(--ease);
+  }
+  .cover__cta:hover { background: var(--acc-h); transform: translateY(-1px); }
+  .cover__cta:focus-visible { outline: 2px solid #FDFCFA; outline-offset: 2px; }
+
+  /* ── Control strip — arrows at the edges, dash pager centred ──────────── */
+  .cover__controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    /* Centred cluster (‹ dashes ›) — corner-pinned arrows sit under the
+       Ask FAB (right) and the first-visit cookie banner (full width). */
+    justify-content: center;
+    gap: 1.4rem;
+    padding-bottom: 1.15rem;
+  }
+  .cover__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background: rgba(24, 18, 12, 0.25);
+    border: 1px solid rgba(253, 252, 250, 0.45);
+    border-radius: 999px;
+    color: #FDFCFA;
+    cursor: pointer;
+    transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+  }
+  .cover__arrow:hover { background: rgba(24, 18, 12, 0.5); border-color: #FDFCFA; }
+  .cover__arrow:focus-visible { outline: 2px solid #FDFCFA; outline-offset: 2px; }
+  .cover__nav {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    min-width: 0;
   }
   .cover__nav-btn {
     display: block;
@@ -664,17 +766,17 @@ export const prerender = true;
   }
   .cover__nav-bar {
     display: block;
-    height: 4px;
+    height: 3px;
     width: 2.1rem;
     border-radius: 999px;
-    background: rgba(23, 20, 19, 0.14);
+    background: rgba(253, 252, 250, 0.35);
     position: relative;
     overflow: hidden;
     transition: background 0.2s ease;
   }
-  .cover__nav-btn:hover .cover__nav-bar { background: rgba(23, 20, 19, 0.32); }
+  .cover__nav-btn:hover .cover__nav-bar { background: rgba(253, 252, 250, 0.6); }
   .cover__nav-btn:focus-visible {
-    outline: 2px solid #A0541F;
+    outline: 2px solid #FDFCFA;
     outline-offset: 2px;
     border-radius: 999px;
   }
@@ -682,7 +784,7 @@ export const prerender = true;
     content: '';
     position: absolute;
     top: 0; left: 0; bottom: 0;
-    background: #A0541F;
+    background: #F5DCB2;
     width: 0%;
     animation: nav-progress 10s linear forwards;
   }
@@ -694,36 +796,31 @@ export const prerender = true;
     .cover__nav-btn.is-active .cover__nav-bar::after { animation: none; width: 100%; }
   }
 
-  /* Cover entrance animation */
+  /* Overlay entrance — one quiet rise, not the old per-element stagger. */
   @keyframes cover-enter {
-    from { opacity: 0; transform: translateY(12px); }
+    from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .cover__slide:first-child .cover__meta,
-  .cover__slide:first-child .cover__headline,
-  .cover__slide:first-child .cover__dispatch,
-  .cover__slide:first-child .cover__visual {
-    animation: cover-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  .cover__slide:first-child .cover__overlay {
+    animation: cover-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both 0.15s;
   }
-  .cover__slide:first-child .cover__visual   { animation-delay: 0.10s; }
-  .cover__slide:first-child .cover__meta     { animation-delay: 0.18s; }
-  .cover__slide:first-child .cover__headline { animation-delay: 0.32s; }
-  .cover__slide:first-child .cover__dispatch { animation-delay: 0.52s; }
   @media (prefers-reduced-motion: reduce) {
-    .cover__slide:first-child .cover__meta,
-    .cover__slide:first-child .cover__headline,
-    .cover__slide:first-child .cover__dispatch,
-    .cover__slide:first-child .cover__visual { animation: none; }
+    .cover__slide:first-child .cover__overlay { animation: none; }
   }
 
-  /* ── Cover mobile ────────────────────────────────────────────────────────── */
-  @media (max-width: 900px) {
-    .cover__slide-inner { grid-template-columns: 1fr; gap: 1.75rem; }
-    .cover__visual { order: 1; aspect-ratio: 16 / 9; }
-    .cover__type   { order: 2; }
-    .cover__visual-frame { aspect-ratio: 16 / 9; }
-    .cover__headline { font-size: clamp(2.625rem, 11vw, 3.6rem); line-height: 0.98; max-width: none; }
-    .cover__dispatch { margin-bottom: 1.5rem; }
+  /* ── Cover mobile ──────────────────────────────────────────────────────── */
+  @media (max-width: 760px) {
+    .cover { --masthead-h: 59px; }   /* single compact brand row */
+    .cover__slide { max-height: 850px; }
+    .cover__dispatch { display: none; }  /* Vivid economy: headline + CTA only */
+    .cover__overlay { padding-bottom: 4.6rem; }
+    .cover__headline { margin-bottom: 1.25rem; }
+    /* No arrow buttons on touch widths — swipe is the gesture, and the
+       bottom corners are owned by the Ask FAB and (first visit) the
+       cookie banner, which obscure corner buttons. Dash pager remains,
+       left-aligned with the overlay text, clear of the bottom-right FAB. */
+    .cover__arrow { display: none; }
+    .cover__controls { justify-content: flex-start; }
   }
 
   /* ── Section nav ─────────────────────────────────────────────────────────── */
