@@ -16,6 +16,20 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Hero pager polish (post-deploy fix)
+
+**Summary**
+The story-switcher bars shipped earlier today read as stray dashes on mobile (full-width 2px lines, left-aligned, stranded between two hairline borders). Reworked as a conventional carousel pager: fixed-width 4px rounded segments, centred under the hero, with a visible focus ring. Removed the doubled hairline where the cover's border-bottom met the section-nav's border-top.
+
+**Files changed**
+- `next/src/pages/index.astro`
+
+**Pages affected**
+- `/` (homepage)
+
+**Verification**
+- `npm run build` passes (1485 pages); 5 pager segments in built homepage.
+
 ### Homepage top-section simplification (cognitive-load pass)
 
 **Summary**
