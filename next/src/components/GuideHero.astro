@@ -19,7 +19,9 @@ import { editableText, editableImage, type CmsEntityType } from '../lib/inline-e
 import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
-  /** Small caps eyebrow, e.g. "EAT & DRINK · 101 VENUES MAPPED · LAST VERIFIED 30 APR 2026". */
+  /** Small caps eyebrow, e.g. "EAT & DRINK". Keep it to the section name —
+      inventory counts and "last verified" stamps were removed site-wide
+      2026-06-10 (reader-facing noise; verification belongs in /methodology). */
   eyebrow?: string;
   /** Main headline. Italic <em> tags inside render in accent. */
   title: string;

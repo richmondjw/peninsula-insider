@@ -192,15 +192,10 @@ export const prerender = true;
        1. CINEMATIC HERO
        ═══════════════════════════════════════════════════════════════ -->
   <GuideHero
-    eyebrow={`Explore guide · ${golfCourses.length} courses · Last verified 30 Apr 2026`}
+    eyebrow="Explore guide"
     title="Mornington Peninsula <em>Golf</em>"
     dek="Australia's most concentrated cluster of serious public-access golf. Three world-ranked courses within 10 minutes of each other, all within 90 minutes of Melbourne."
-    meta={[
-      { label: `${golfCourses.length} courses assessed` },
-      { label: '3 world-ranked' },
-      { label: `${golfCourses.filter(e => e.data.golf?.access === 'public').length} with public green fees` },
-      { label: '12 min read' },
-    ]}
+    meta={[{ label: '3 world-ranked' }, { label: '12 min read' }]}
     heroImage="/images/sourced/golf-rye-sunrise-01.webp"
     imageAlt="Coastal golf landscape on the Mornington Peninsula at sunrise"
     imageCredit="Peninsula Insider"

@@ -118,14 +118,10 @@ export const prerender = true;
   <Breadcrumbs items={breadcrumbItems} />
 
   <GuideHero
-    eyebrow={`Explore guide · ${beaches.length} beaches · Last verified 23 Apr 2026`}
+    eyebrow="Explore guide"
     title="Mornington Peninsula <em>Beaches</em>"
     dek="Two coasts, one peninsula. The bay side is calm, warm, and family-safe. The ocean side is wild, rip-heavy, and worth visiting only if you know which side you're on."
-    meta={[
-      { label: `${bayBeaches.length} bay beaches` },
-      { label: `${oceanBeaches.length} ocean beaches` },
-      { label: '8 min read' },
-    ]}
+    meta={[{ label: '8 min read' }]}
     heroImage="/images/sourced/explore-gunnamatta-01.webp"
     imageAlt="Gunnamatta Ocean Beach — Bass Strait surf and dune ridges at the Peninsula's southern edge"
     imageCredit="Peninsula Insider"

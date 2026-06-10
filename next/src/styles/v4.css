@@ -242,10 +242,14 @@ body[data-v4="true"] .masthead {
   }
   body[data-v4="true"] .masthead__brand .container {
     display: grid;
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    /* Side cells sized for the widest cluster (two 36px icon buttons +
+       6px gap = 78px) and kept symmetric so the wordmark stays truly
+       centred. The wordmark scales down via clamp() to fit the
+       narrower middle cell. */
+    grid-template-columns: 84px minmax(0, 1fr) 84px;
     grid-template-rows: 56px;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     padding-top: 14px;
     padding-bottom: 14px;
     min-height: 56px;
@@ -261,7 +265,7 @@ body[data-v4="true"] .masthead {
     min-width: 0;
   }
   body[data-v4="true"] .masthead__brand .masthead__logo {
-    font-size: 33px;     /* 22px base × 1.5 = 33px */
+    font-size: clamp(21px, 6vw, 33px);   /* fits beside two icon buttons */
     line-height: 1.1;
     text-decoration: none;
     white-space: nowrap;
@@ -271,11 +275,13 @@ body[data-v4="true"] .masthead {
   /* Hide the desktop tagline on mobile — too long for the bar. */
   body[data-v4="true"] .masthead__brand .masthead__tagline { display: none; }
 
-  /* Mobile order: burger left, wordmark centred, search right. */
+  /* Mobile order: burger left, wordmark centred, saved + search right.
+     The cluster is one grid item laid out as a flex row — previously
+     display: contents put every icon in the same 44px cell, stacking
+     the saved and search buttons on top of each other. */
   body[data-v4="true"] .v4-mobile-actions {
-    display: contents;
-  }
-  body[data-v4="true"] .v4-mobile-actions .v4-iconbtn {
+    display: inline-flex;
+    gap: 6px;
     grid-column: 3;
     grid-row: 1;
     justify-self: end;
@@ -298,7 +304,7 @@ body[data-v4="true"] .masthead {
     padding-bottom: 12px;
     min-height: 52px;
   }
-  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: 30px; }  /* 20px base × 1.5 = 30px */
+  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(20px, 6vw, 30px); }
 }
 
 /* =========================================================
