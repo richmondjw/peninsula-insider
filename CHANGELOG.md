@@ -16,6 +16,22 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Mobile masthead rebuilt and browser-verified (burger · wordmark · bookmark · search)
+
+**Summary**
+The previous masthead icon fix regressed the layout: the burger button lives inside `.v4-mobile-actions`, so turning that container into a right-aligned flex item dragged the burger to the right and the three-wide cluster overflowed into the wordmark. Rebuilt properly:
+
+- Burger moved out of the cluster in `V4Masthead.astro` markup — now a direct grid child in column 1 (left). Cluster is exactly bookmark + search (that order), column 3.
+- Added a `display: none !important` guard on `.v4-burger` outside the mobile block — the legacy `global.css` shows `.masthead__burger` at ≤768px but the v4 grid only exists at ≤760px, so the burger floated loose in the 761–768px window.
+- Wordmark stays truly centred: symmetric 78px side columns, `max-width: 100%` on both the logo and `.masthead__brand-inner` (whose `justify-self: center` sized it to fit-content, letting nowrap text escape the grid track — the actual cause of the original overlap), font on a `clamp(…, 5.6vw, …)` curve, and a ≤340px step that shrinks the icon circles to 70px columns.
+
+**Verification (headless Chromium, real rendering)**
+Geometry audit at 320/340/360/375/390/414/430/600/760/765/1280px: element order burger | wordmark | saved | search, wordmark off-centre 0px at every mobile width, zero overlaps, no wordmark ellipsis, no horizontal overflow; burger and cluster hidden ≥761px. Screenshots shared with James. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/components/v4/V4Masthead.astro`
+- `next/src/styles/v4.css`
+
 ### Masthead icon overlap fix + count/verified tag removal
 
 **Summary**

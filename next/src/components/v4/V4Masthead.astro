@@ -76,35 +76,41 @@ const {
        parent for both children). -->
   <div class="masthead__brand">
     <div class="container">
+      <!-- Mobile order (left to right): burger · wordmark · bookmark + search.
+           The burger is a direct grid child so it can sit in column 1 —
+           it must NOT live inside .v4-mobile-actions (column 3) or it
+           drags the whole cluster layout sideways. Hidden on desktop by
+           the .masthead__burger base rule + v4 guard. V4 chrome rebinds
+           it to open V4MobileDrawer (see BaseLayout script). -->
+      <button
+        class="masthead__burger v4-burger"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="v4Drawer"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
       <div class="masthead__brand-inner">
         <a href="/" class="masthead__logo" aria-label="Peninsula Insider, home">
           Peninsula <span>Insider</span>
         </a>
       </div>
 
-      <!-- Mobile action cluster: search + Ask PI + burger.
-           Hidden on desktop (display: none in v4.css). V4 chrome rebinds the
-           burger to open V4MobileDrawer (see BaseLayout script). -->
+      <!-- Mobile action cluster: saved (bookmark) + search.
+           Hidden on desktop (display: none in v4.css). -->
       <div class="v4-mobile-actions">
+        <a href="/saved/" class="v4-iconbtn" aria-label="Saved — your shortlist">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" />
+          </svg>
+        </a>
         <a href={v4Utility.search.href} class="v4-iconbtn" aria-label="Explore Peninsula Insider" data-open-search>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="7" />
             <line x1="21" y1="21" x2="16.5" y2="16.5" />
           </svg>
         </a>
-        <a href="/saved/" class="v4-iconbtn" aria-label="Saved — your shortlist">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" />
-          </svg>
-        </a>
-        <button
-          class="masthead__burger v4-burger"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="v4Drawer"
-        >
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </div>
   </div>

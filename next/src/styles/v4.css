@@ -121,10 +121,20 @@ body[data-v4="true"] .masthead {
   gap: 8px;
 }
 
-/* Mobile brand-row action cluster (search + Ask PI + burger).
+/* Mobile brand-row action cluster (saved bookmark + search).
    Hidden on desktop; shown inside the mobile breakpoint block below. */
 .v4-mobile-actions {
   display: none;
+}
+/* The v4 burger is a direct child of the brand-row container (it must
+   not live inside .v4-mobile-actions — see V4Masthead.astro). Keep it
+   hidden outside the v4 mobile block: the legacy global.css rule
+   `.masthead__burger { display: flex !important }` kicks in at 768px
+   but the v4 grid only exists at 760px, so without this guard the
+   burger floats loose in the 761–768px window. !important + higher
+   specificity beats the legacy rule; the mobile block below re-shows it. */
+body[data-v4="true"] .v4-burger {
+  display: none !important;
 }
 .v4-iconbtn {
   display: inline-flex;
@@ -246,10 +256,10 @@ body[data-v4="true"] .masthead {
        6px gap = 78px) and kept symmetric so the wordmark stays truly
        centred. The wordmark scales down via clamp() to fit the
        narrower middle cell. */
-    grid-template-columns: 84px minmax(0, 1fr) 84px;
+    grid-template-columns: 78px minmax(0, 1fr) 78px;
     grid-template-rows: 56px;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding-top: 14px;
     padding-bottom: 14px;
     min-height: 56px;
@@ -263,14 +273,23 @@ body[data-v4="true"] .masthead {
     justify-self: center;
     gap: 0;
     min-width: 0;
+    /* justify-self: center sizes the item to fit-content, which lets
+       nowrap text overflow the track and collide with the icon cluster
+       on narrow screens — cap it at the track width so the logo's
+       ellipsis can engage. */
+    max-width: 100%;
   }
   body[data-v4="true"] .masthead__brand .masthead__logo {
-    font-size: clamp(21px, 6vw, 33px);   /* fits beside two icon buttons */
+    font-size: clamp(17px, 5.6vw, 33px); /* fits beside two icon buttons */
     line-height: 1.1;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    /* The flex-column parent centres the logo at fit-content width, so
+       without this cap the nowrap text can overflow the grid cell and
+       collide with the icon cluster on very narrow screens (320px). */
+    max-width: 100%;
   }
   /* Hide the desktop tagline on mobile — too long for the bar. */
   body[data-v4="true"] .masthead__brand .masthead__tagline { display: none; }
@@ -290,6 +309,7 @@ body[data-v4="true"] .masthead {
     display: none !important;
   }
   body[data-v4="true"] .v4-burger {
+    display: flex !important;
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
@@ -304,7 +324,15 @@ body[data-v4="true"] .masthead {
     padding-bottom: 12px;
     min-height: 52px;
   }
-  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(20px, 6vw, 30px); }
+  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(16px, 5.6vw, 30px); }
+}
+
+/* Very narrow screens (<=340px): shrink the icon circles and side
+   columns so the centred wordmark keeps enough room to render without
+   an ellipsis. */
+@media (max-width: 340px) {
+  body[data-v4="true"] .v4-mobile-actions .v4-iconbtn { width: 32px; height: 32px; }
+  body[data-v4="true"] .masthead__brand .container { grid-template-columns: 70px minmax(0, 1fr) 70px; }
 }
 
 /* =========================================================
