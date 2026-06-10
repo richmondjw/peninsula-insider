@@ -220,21 +220,6 @@ body[data-v4="true"] .v4-burger {
 
 /* Hide V4 nav on mobile — mobile drawer handles it. */
 @media (max-width: 760px) {
-  .v4-masthead-nav { display: none; }
-}
-
-/* =========================================================
-   V4 MOBILE MASTHEAD
-   ---------------------------------------------------------
-   V2's global.css hides .masthead__utility AND .masthead__brand
-   on mobile to make room for V2's third nav row. V4 doesn't use
-   that nav row, so we re-show the brand row in a compacted form
-   (logo left, burger right) and keep utility hidden.
-
-   Scoped to body[data-v4="true"] so V2 staging pages or the
-   /v3/ surface aren't affected.
-   ========================================================= */
-@media (max-width: 760px) {
   /* Hide the utility row entirely on mobile (2026-05-13). The ribbon
      previously held a thin Login link, but Login is also reachable from the
      drawer's account row, so the 20px of fixed chrome was not earning its
@@ -243,78 +228,86 @@ body[data-v4="true"] .v4-burger {
     display: none !important;
   }
 
-  /* Re-show the brand row (V2 hides it on mobile to make room for V2's nav row,
-     which V4 doesn't use). Make it a flex bar with the container as the flex
-     wrapper. */
+  /* Re-show the brand row (V2 hides it on mobile). Vivid-style layout
+     (2026-06-10, James): wordmark left, edition stamp beside it, icon
+     cluster (search · map · saved · burger) pushed right with auto margin. */
   body[data-v4="true"] .masthead__brand {
     display: block !important;
     padding: 0;
   }
   body[data-v4="true"] .masthead__brand .container {
-    display: grid;
-    /* Side cells sized for the widest cluster (two 36px icon buttons +
-       6px gap = 78px) and kept symmetric so the wordmark stays truly
-       centred. The wordmark scales down via clamp() to fit the
-       narrower middle cell. */
-    grid-template-columns: 78px minmax(0, 1fr) 78px;
-    grid-template-rows: 56px;
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     min-height: 56px;
   }
   body[data-v4="true"] .masthead__brand-inner {
-    grid-column: 2;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-self: center;
-    gap: 0;
+    flex: 0 1 auto;
     min-width: 0;
-    /* justify-self: center sizes the item to fit-content, which lets
-       nowrap text overflow the track and collide with the icon cluster
-       on narrow screens — cap it at the track width so the logo's
-       ellipsis can engage. */
-    max-width: 100%;
   }
   body[data-v4="true"] .masthead__brand .masthead__logo {
-    font-size: clamp(17px, 5.6vw, 33px); /* fits beside two icon buttons */
+    font-size: clamp(18px, 5vw, 24px);
     line-height: 1.1;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* The flex-column parent centres the logo at fit-content width, so
-       without this cap the nowrap text can overflow the grid cell and
-       collide with the icon cluster on very narrow screens (320px). */
     max-width: 100%;
+    display: block;
   }
   /* Hide the desktop tagline on mobile — too long for the bar. */
   body[data-v4="true"] .masthead__brand .masthead__tagline { display: none; }
 
-  /* Mobile order: burger left, wordmark centred, saved + search right.
-     The cluster is one grid item laid out as a flex row — previously
-     display: contents put every icon in the same 44px cell, stacking
-     the saved and search buttons on top of each other. */
+  /* Edition stamp — two tiny stacked lines next to the wordmark, like a
+     festival date block. Desktop keeps the edition in the utility row. */
+  .v4-edition-stamp {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding-left: 10px;
+    border-left: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .v4-edition-stamp__line {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--soft);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  /* Icon cluster — borderless icons on mobile (Vivid-style) so four
+     controls fit beside the wordmark; circles stay on desktop. */
   body[data-v4="true"] .v4-mobile-actions {
     display: inline-flex;
-    gap: 6px;
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: end;
+    align-items: center;
+    gap: 0;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  body[data-v4="true"] .v4-mobile-actions .v4-iconbtn {
+    width: 34px;
+    height: 34px;
+    border: none;
   }
   body[data-v4="true"] .v4-mobile-actions .v4-ask-pill {
     display: none !important;
   }
   body[data-v4="true"] .v4-burger {
     display: flex !important;
-    grid-column: 1;
-    grid-row: 1;
-    justify-self: start;
     flex-shrink: 0;
+    padding: 8px 0 8px 6px;
   }
+}
+
+/* Edition stamp exists for the mobile bar only. */
+@media (min-width: 761px) {
+  .v4-edition-stamp { display: none; }
 }
 
 /* Extra-small screens: tighten the bar height. */
@@ -327,12 +320,10 @@ body[data-v4="true"] .v4-burger {
   body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(16px, 5.6vw, 30px); }
 }
 
-/* Very narrow screens (<=340px): shrink the icon circles and side
-   columns so the centred wordmark keeps enough room to render without
-   an ellipsis. */
-@media (max-width: 340px) {
-  body[data-v4="true"] .v4-mobile-actions .v4-iconbtn { width: 32px; height: 32px; }
-  body[data-v4="true"] .masthead__brand .container { grid-template-columns: 70px minmax(0, 1fr) 70px; }
+/* Narrow screens: drop the edition stamp so the wordmark and four icons
+   keep comfortable room (the wordmark starts clipping below ~405px). */
+@media (max-width: 404px) {
+  .v4-edition-stamp { display: none; }
 }
 
 /* =========================================================

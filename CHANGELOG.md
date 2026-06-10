@@ -16,6 +16,21 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Vivid-style homepage uplift — Phase 1: mobile header
+
+**Summary**
+First phase of the homepage redesign benchmarked on vividsydney.com mobile (James's brief). Mobile masthead re-laid out Vivid-style: wordmark left, a two-line edition stamp beside it ("Winter / June 2026", shown ≥405px where it fits), then a right icon cluster — search · map (`/map/`) · saved bookmark · burger. Icons are borderless on mobile (circles stay on desktop nav). Replaces this morning's burger-left layout per the approved plan.
+
+**Verification**
+Headless-Chromium geometry sweep at 320/360/375/390/414/430/600/760/765/1280px: correct order, no overlaps, no wordmark clipping, no horizontal overflow, mobile controls hidden ≥761px. Screenshots shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/components/v4/V4Masthead.astro`
+- `next/src/styles/v4.css`
+
+**Follow-up**
+- Phase 2: full-screen hero slider with text overlay; Phase 3: big-four section rows; Phase 4: horizontal card rails; Phase 5: final audit.
+
 ### Mobile masthead rebuilt and browser-verified (burger · wordmark · bookmark · search)
 
 **Summary**
