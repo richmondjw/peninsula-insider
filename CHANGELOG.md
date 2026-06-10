@@ -16,6 +16,25 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Masthead icon overlap fix + count/verified tag removal
+
+**Summary**
+Two fixes from James's live-site review:
+
+1. **Mobile masthead overlap** — the saved and search icons stacked on top of each other: the mobile brand row's `display: contents` rule placed every `.v4-iconbtn` in the same 44px grid cell. The action cluster is now a single flex grid item, side cells widened to a symmetric 84px so the wordmark stays truly centred, and the wordmark scales via `clamp(21px, 6vw, 33px)` to fit the narrower middle.
+2. **Inventory counts + "Last verified" stamps removed site-wide** — hero eyebrows on 13 section/guide pages (eat, stay, wine, explore, escape, what's-on, golf, beaches, markets + v4 variants) reduced to the section name; dynamic count items removed from GuideHero meta rows (read-times and editorial facts like "3 world-ranked" kept); "Last verified:" sub-lines removed from the three tour detail templates. Kept: the fishing species "Verified stamp" block (regulatory disclaimer citing the Victorian Fisheries Authority) and preview/staging pages.
+
+**Files changed**
+- `next/src/styles/v4.css`
+- `next/src/components/GuideHero.astro` (doc comment)
+- 13 section index pages + 3 tour templates under `next/src/pages/`
+
+**Why it matters**
+The icon overlap was a visible bug on every mobile page. The count/verified tags ("41 wineries · 6 other producers · Last verified 30 Apr 2026", "0 producers") were reader-facing database noise; verification methodology lives at /methodology.
+
+**Verification**
+- `npm run build` passes (1485 pages); built eat/stay/wine/explore pages contain no count or verified strings.
+
 ### Hero pager polish (post-deploy fix)
 
 **Summary**
