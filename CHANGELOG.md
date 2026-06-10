@@ -16,6 +16,17 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Vivid-style homepage uplift — Phase 3: big-four section rows
+
+**Summary**
+The mobile chip strip under the hero is replaced by Vivid-style "navigation as content": four giant Cormorant display rows (Eat & Drink / Wine / Stay / Explore) with trailing arrows and hairline separators on cream, then a quiet uppercase secondary line (What's On · Plans · Journal). Mobile only — desktop keeps the mega-menu pillars. Same single-router role as the chips, far lower cognitive load.
+
+**Verification**
+Headless Chromium: four rows render in order at 390px, block hidden at 1280px. Screenshot shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+
 ### Vivid-style homepage uplift — Phase 2: full-screen hero slider
 
 **Summary**
