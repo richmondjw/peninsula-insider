@@ -10,7 +10,7 @@ applied to content JSON; anything ambiguous is flagged in `report.md`.
 
 | Collection | Slug | Status | Notes |
 |---|---|---|---|
-| venues | alba-thermal-springs | pending |  |
+| venues | alba-thermal-springs | updated | address 890 Mornington-Flinders Rd -> 282 Browns Rd Fingal; phone -> +61 3 5985 0900; coords fixed to Fingal |
 | venues | allis-wine-bar | pending |  |
 | venues | arthurs-views | pending |  |
 | venues | avani-wines | pending |  |

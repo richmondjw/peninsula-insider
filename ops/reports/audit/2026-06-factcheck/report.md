@@ -133,3 +133,22 @@ $189); Bass & Flinders masterclass possibly $89/2hr vs file's $175/3hr —
 conflicting snippets, verify directly. Crittenden/Stonier archived files
 carry a wrong `nextOccurrence: 2027-06-06` (King's Birthday 2027 is 12–14
 June) — irrelevant while archived, relevant if cloned for 2027.
+
+---
+
+## Interim note — agent capacity interruption (2026-06-10 ~18:30 UTC)
+
+Venue batches 1–4 and the Jul 2026–Jan 2027 events batch were interrupted by
+a session usage limit (resets 22:40 UTC). Partial Jul–Dec event work was
+kept (Bloody Long Walk date conflict resolved to 25 Oct 2026 per official
+site; Main Street Festival 2026 record URL cleanup). Batches relaunch after
+reset.
+
+Verified inline meanwhile:
+
+- `venues/alba-thermal-springs` — **address was wrong** ("890
+  Mornington-Flinders Rd, Fingal" → **282 Browns Rd, Fingal VIC 3939**),
+  **phone was wrong** (+61 3 5911 2100 → **+61 3 5985 0900**), and
+  coordinates pointed ~8 km away near Red Hill (fixed to Browns Rd,
+  Fingal). Sources: albathermalsprings.com.au/get-in-touch, Visit
+  Victoria, Fresha listing.
