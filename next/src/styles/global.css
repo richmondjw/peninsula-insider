@@ -4421,10 +4421,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   border-radius: var(--radius-card-lg);
   box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
   padding: clamp(2rem, 4vw, 3rem);
-  display: grid;
-  grid-template-columns: 1fr 2.2fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
   overflow: hidden;
 }
 .weekend-picker__inner::before {
@@ -4433,15 +4429,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   inset: 0 0 auto 0;
   height: 5px;
   background: linear-gradient(90deg, rgba(167,118,55,0.95), rgba(223,197,158,0.65), rgba(167,118,55,0.14));
-}
-.weekend-picker__label-block .label--accent { color: var(--accent); }
-.weekend-picker__cadence {
-  margin-top: 0.9rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  color: var(--soft);
-  line-height: 1.5;
-  max-width: 28ch;
 }
 .weekend-picker__kicker {
   font-size: 0.68rem;
@@ -4500,6 +4487,24 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: rgba(121, 92, 58, 0.08);
   color: var(--dark);
   border-color: rgba(121, 92, 58, 0.4);
+}
+/* Quiet Melbourne entry line — absorbed the former MelbourneEntryStrip
+   (2026-06-10) so weekend intent has a single surface on the homepage. */
+.weekend-picker__melb {
+  margin-top: 1.4rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--soft);
+}
+.weekend-picker__melb a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 78, 59, 0.35);
+  transition: color .18s var(--ease), border-color .18s var(--ease);
+}
+.weekend-picker__melb a:hover {
+  color: var(--acc-h);
+  border-color: var(--acc-h);
 }
 
 /* =========================================================

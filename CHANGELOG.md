@@ -16,6 +16,37 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Homepage top-section simplification (cognitive-load pass)
+
+**Summary**
+Reviewed by James against mobile screenshots: the first four viewports routed the same three intents repeatedly (Ask ×3, weekend ×4, plans ×3), each repeat with its own eyebrow/heading/microcopy. Changes:
+
+- **Removed `ThreeMissionBar`** from the homepage — its Ask panel duplicated the floating Ask button, its This Weekend panel duplicated the Weekend Dispatch card (and listed long-running events like "1 April – 30 June" under a "This Weekend" heading), and its Plans panel duplicated the `hp-plans` grid below.
+- **Removed `MelbourneEntryStrip`** — its single link now lives as a quiet line inside the Weekend Dispatch card ("Coming from Melbourne? Here's where to start →").
+- **Removed the Ask chip** from `hp-section-nav` (the floating Ask button is the one Ask surface).
+- **`WeekendPickerBlock` simplified** — dropped the eyebrow + cadence label column ("Peninsula This Weekend" / "Published for the weekend ahead · one pick, one backup…"), which repeated the kicker and the dispatch title. Now: one date kicker, title, dek, two CTAs, Melbourne line. Single-column card (also renders on `/v4/whats-on/`).
+- **Hero story-switcher** — replaced the uppercase label tabs ("SLOW PENINSULA / FEATURE / WALK"), which read as content filters, with quiet equal-width progress bars; accessible names now carry "Story n of 5: {headline}".
+
+Net effect on mobile: hero → section chips → one weekend card → editorial content. Background rhythm now alternates white/cream naturally (the big cream routing zone is gone).
+
+**Files changed**
+- `next/src/pages/index.astro`
+- `next/src/components/WeekendPickerBlock.astro`
+- `next/src/styles/global.css`
+
+**Pages affected**
+- `/` (homepage), `/v4/whats-on/` (shared weekend block)
+
+**Why it matters**
+Cuts ~3 viewports of duplicated routing to one; every intent now has exactly one surface above the fold.
+
+**Verification**
+- `npm run build` passes (1485 pages). TMB/strip markup confirmed absent from built homepage; Melbourne link present in weekend card on both consumers; 5 story-nav buttons with descriptive aria-labels.
+
+**Follow-up**
+- `ThreeMissionBar.astro` and `MelbourneEntryStrip.astro` are now only used by `/preview-home-redesign/`; retire with that preview when it goes.
+- CMS text fields `weekend.eyebrow` / `weekend.cadence` no longer have a rendering surface.
+
 ### Mobile/site-wide readability + reader-utility pass
 
 **Summary**
