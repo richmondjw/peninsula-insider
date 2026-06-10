@@ -82,3 +82,54 @@ via Humanitix), boneo-community-market (3rd Sat, 8am–1pm).
   theme), but the exact dates (file: 30 Jun–2 Jul; a camps-association
   listing suggests 29 Jun–3 Jul) and the $675 price could not be
   authoritatively confirmed. Check theranchmp.com.au/winter-camp/.
+
+---
+
+## Batch 1c — Stale "published" events triage (24/24 complete, 2026-06-10)
+
+**Archived (6):** the King's Birthday weekend one-offs ended 8 June:
+`winter-wine-weekend-june`, `crittenden-wines-king-s-birthday-wine-weekend-events`,
+`mornington-peninsula-winter-wine-weekend-winter-wine-festival`,
+`stonier-pies-pinot-king-s-birthday-weekend`,
+`winter-wine-weekend-full-3-day-peninsula-program`,
+`winter-wine-weekend-winter-wine-festival-red-hill-showgrounds`.
+Plus `red-hill-market-first-saturday` — the original Red Hill Community
+Market is **closed** (per craftmarkets.com.au) and superseded by the Hill &
+Ridge Community Market, which the site already covers separately.
+
+**Updated (2):**
+
+- `bass-flinders-gin-masterclass` — street address fixed: "166 Tucks Road"
+  → "40 Collins Road" (official site + Visit Victoria).
+- `flinders-truffles-winter-truffle-hunt-season` — 2026 season verified as
+  13 June–30 August, Sat & Sun 10:30am–1:30pm; dates and recurrenceNote
+  corrected.
+
+**Verified still running (13):** MPRG autumn exhibition (to 30 Jun), the
+five Peninsula Hot Springs recurring offerings, Pt Leo Estate sculpture
+park (hours/prices confirmed exactly), Polperro Restore & Pamper retreat,
+Ten Minutes by Tractor terroir masterclass, Mornington Wednesday market,
+Hastings Thursday market, Red Hill Truffles hunts, PHS Sunday Sessions.
+
+**Flagged for human review (2):**
+
+- `foxeys-hangout-vegetable-feast-morning-sun-vineyard` — no evidence the
+  Vegetable Feast series still runs in 2026; dates were only ever announced
+  via Instagram. Check @foxeyshangout.
+- `polperro-cellar-table-private-dining-experience` — no current source for
+  the $295 Cellar Table offering; officialEventUrl is an old blog post.
+  Also: Tripadvisor lists Polperro's phone as 03 5989 2471 vs our 5989 2871.
+
+**Duplicate cluster (editor action before the 2027 edition):** five files
+covered the same 6–8 June Winter Wine Weekend alongside the canonical
+`mornington-peninsula-winter-wine-weekend-2026` (MP-EVT-0044). MP-EVT-0045
+and MP-EVT-0048 are near-identical records of the same Saturday festival
+(they disagree on 35 vs 38 wineries and 185 vs 184 Arthurs Seat Rd). All
+now archived; consolidate to one canonical record before 2027.
+
+**Price-drift notes (non-blocking):** Red Hill Truffles packages now ~$195
+pizza hunt / $125 standard / $199 hunt+lunch / $179 hunt+brunch (file:
+$189); Bass & Flinders masterclass possibly $89/2hr vs file's $175/3hr —
+conflicting snippets, verify directly. Crittenden/Stonier archived files
+carry a wrong `nextOccurrence: 2027-06-06` (King's Birthday 2027 is 12–14
+June) — irrelevant while archived, relevant if cloned for 2027.

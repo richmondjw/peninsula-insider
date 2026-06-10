@@ -190,21 +190,21 @@ applied to content JSON; anything ambiguous is flagged in `report.md`.
 | events | alba-fire-and-ice-sessions | archived-skip | auto-archived; low priority |
 | events | anzac-day-sorrento-dawn | archived-skip | auto-archived; low priority |
 | events | autumn-winery-walk-2026 | archived-skip | auto-archived; low priority |
-| events | bass-flinders-gin-masterclass | pending |  |
+| events | bass-flinders-gin-masterclass | updated | streetAddress fixed 166 Tucks Rd -> 40 Collins Rd; price $89 vs $175 conflict flagged |
 | events | boneo-community-market | verified-ok |  |
 | events | briars-eco-explorers-autumn | archived-skip | auto-archived; low priority |
 | events | chocolaterie-junior-chocolatier | archived-skip | auto-archived; low priority |
 | events | coastrek-mornington-peninsula-2026 | archived-skip | auto-archived; low priority |
 | events | crib-point-community-market | archived-skip | auto-archived; low priority |
-| events | crittenden-wines-king-s-birthday-wine-weekend-events | pending |  |
+| events | crittenden-wines-king-s-birthday-wine-weekend-events | updated | archived (ended 8 Jun) |
 | events | dromana-community-market | updated | corrected to Sat 27 Jun 8:00-13:30, Dromana Community Park; aggregator URL -> dromanamarket.org.au |
 | events | emu-plains-market-balnarring | updated | market does not run in winter; rolled to 17 Oct 2026, recurrenceNote fixed |
 | events | emu-plains-market | pending |  |
 | events | flinders-hotel-mothers-day-2026 | archived-skip | auto-archived; low priority |
-| events | flinders-truffles-winter-truffle-hunt-season | pending |  |
-| events | foxeys-hangout-vegetable-feast-morning-sun-vineyard | pending |  |
+| events | flinders-truffles-winter-truffle-hunt-season | updated | 2026 season verified 13 Jun-30 Aug weekends; dates/recurrenceNote fixed |
+| events | foxeys-hangout-vegetable-feast-morning-sun-vineyard | flag-human-review | no evidence series still running in 2026; check @foxeyshangout Instagram |
 | events | harry-baker-2k-sailing-regatta | archived-skip | auto-archived; low priority |
-| events | hastings-thursday-street-market | pending |  |
+| events | hastings-thursday-street-market | verified-ok |  |
 | events | heart-of-the-community-market-rosebud | archived-skip | auto-archived; low priority |
 | events | hill-ridge-community-market-september-2026-restart | pending |  |
 | events | jetty-road-brewery-mothers-day-2026 | archived-skip | auto-archived; low priority |
@@ -216,16 +216,16 @@ applied to content JSON; anything ambiguous is flagged in `report.md`.
 | events | mornington-king-s-birthday-race-day | archived-skip | auto-archived; low priority |
 | events | mornington-peninsula-regional-gallery-school-holiday-workshops | pending |  |
 | events | mornington-peninsula-winter-wine-weekend-2026 | archived-skip | auto-archived; low priority |
-| events | mornington-peninsula-winter-wine-weekend-winter-wine-festival | pending |  |
+| events | mornington-peninsula-winter-wine-weekend-winter-wine-festival | updated | archived; duplicate cluster |
 | events | mornington-racecourse-market-may-2026 | archived-skip | auto-archived; low priority |
 | events | mornington-racecourse-market | updated | season/month fields corrected (autumn/May -> winter/June) |
 | events | mornington-racecourse-monthly-market-june-2026 | verified-ok | 14 Jun confirmed |
 | events | mornington-tourist-railway-santa-specials | pending |  |
 | events | mornington-tourist-railway-school-holiday-special-runs | pending |  |
-| events | mornington-wednesday-market-main-street-market | pending |  |
+| events | mornington-wednesday-market-main-street-market | verified-ok | stall count/close time vary across sources |
 | events | mornington-winter-music-festival-2026 | archived-skip | auto-archived; low priority |
 | events | mothers-day-classic-moonah-links-2026 | archived-skip | auto-archived; low priority |
-| events | mprg-autumn-exhibition | pending |  |
+| events | mprg-autumn-exhibition | verified-ok | valid through 30 Jun; archive/refresh after |
 | events | mt-eliza-farmers-market | updated | date was a Wednesday; corrected to 4th Sunday 28 Jun; officialEventUrl -> official site |
 | events | mt-martha-south-beach-market | archived-skip | auto-archived; low priority |
 | events | national-works-on-paper-2026-nwop | pending |  |
@@ -233,22 +233,22 @@ applied to content JSON; anything ambiguous is flagged in `report.md`.
 | events | ninch-nabs-samples-seconds-makers-market | flag-human-review | no source confirms June 2026 date; only Nov 2025 documented — confirm with organiser or archive |
 | events | pearcedale-community-market | flag-human-review | opening hours conflict across sources (8-12 vs 9-1); check market Facebook |
 | events | peninsula-hot-springs-allara-briggs-pattison | archived-skip | auto-archived; low priority |
-| events | peninsula-hot-springs-bathe-in-cinema-thursdays | pending |  |
-| events | peninsula-hot-springs-daily-studio-yoga | pending |  |
-| events | peninsula-hot-springs-hot-springs-yoga-complimentary | pending |  |
+| events | peninsula-hot-springs-bathe-in-cinema-thursdays | verified-ok |  |
+| events | peninsula-hot-springs-daily-studio-yoga | verified-ok |  |
+| events | peninsula-hot-springs-hot-springs-yoga-complimentary | verified-ok |  |
 | events | peninsula-hot-springs-kodomo-no-hi | archived-skip | auto-archived; low priority |
-| events | peninsula-hot-springs-sound-healing-sessions | pending |  |
-| events | peninsula-hot-springs-sunday-sessions | pending |  |
+| events | peninsula-hot-springs-sound-healing-sessions | verified-ok | nextOccurrence 1 Jul unverified |
+| events | peninsula-hot-springs-sunday-sessions | verified-ok | window ends 28 Jun |
 | events | peninsula-summer-music-festival-2027-save-the-date | pending |  |
 | events | peninsula-summer-music-festival-2027 | pending |  |
 | events | pier-10-mothers-day-lunch-2026 | archived-skip | auto-archived; low priority |
 | events | point-nepean-portsea-market | archived-skip | auto-archived; low priority |
-| events | polperro-cellar-table-private-dining-experience | pending |  |
-| events | pt-leo-estate-sculpture-park | pending |  |
+| events | polperro-cellar-table-private-dining-experience | flag-human-review | no current source for $295 Cellar Table; phone may be 5989 2471 not 2871 |
+| events | pt-leo-estate-sculpture-park | verified-ok | hours/prices confirmed exactly |
 | events | red-hill-brewery-secret-stash-weekend | pending |  |
-| events | red-hill-market-first-saturday | pending |  |
-| events | red-hill-truffles-winter-truffle-hunt-season | pending |  |
-| events | restore-pamper-retreat-at-polperro-farmhouse | pending |  |
+| events | red-hill-market-first-saturday | updated | archived: original market closed, superseded by Hill & Ridge restart |
+| events | red-hill-truffles-winter-truffle-hunt-season | verified-ok | pricing drift noted; refresh priceRange |
+| events | restore-pamper-retreat-at-polperro-farmhouse | verified-ok |  |
 | events | rocky-road-festival-mornington-peninsula-chocolaterie | archived-skip | auto-archived; low priority |
 | events | rocky-road-festival-tasting-sessions | archived-skip | auto-archived; low priority |
 | events | shoreham-community-market | archived-skip | auto-archived; low priority |
@@ -259,14 +259,14 @@ applied to content JSON; anything ambiguous is flagged in `report.md`.
 | events | sorrento-writers-festival-2026 | archived-skip | auto-archived; low priority |
 | events | soul-night-market-mornington | verified-ok | 12 Jun 2026 confirmed |
 | events | soul-night-market-sorrento-beach | archived-skip | auto-archived; low priority |
-| events | sound-circle-full-moon-sound-journey-at-peninsula-hot-springs | pending |  |
+| events | sound-circle-full-moon-sound-journey-at-peninsula-hot-springs | verified-ok | nextOccurrence 1 Jul not a full moon (Jul ~29); editorial pass |
 | events | stonier-fire-wine-winter-lunch | pending |  |
-| events | stonier-pies-pinot-king-s-birthday-weekend | pending |  |
+| events | stonier-pies-pinot-king-s-birthday-weekend | updated | archived (ended 8 Jun) |
 | events | stonier-vineyard-tours-new-release-pinot-tasting | archived-skip | auto-archived; low priority |
 | events | sunny-ridge-strawberry-picking | archived-skip | auto-archived; low priority |
 | events | sustainable-house-day-2026 | archived-skip | auto-archived; low priority |
 | events | tall-poppy-melbourne-design-week-exhibition | archived-skip | auto-archived; low priority |
-| events | ten-minutes-by-tractor-terroir-masterclass | pending |  |
+| events | ten-minutes-by-tractor-terroir-masterclass | verified-ok |  |
 | events | the-bloody-long-walk-mornington-peninsula-2026 | pending |  |
 | events | the-enchanted-market-at-the-briars | archived-skip | auto-archived; low priority |
 | events | tootgarook-primary-school-market | archived-skip | auto-archived; low priority |
@@ -274,9 +274,9 @@ applied to content JSON; anything ambiguous is flagged in `report.md`.
 | events | trace-duo-exhibition | archived-skip | auto-archived; low priority |
 | events | wild-mushroom-forage-lunch-with-the-kitchen | archived-skip | auto-archived; low priority |
 | events | winter-camp-2026-the-ranch | flag-human-review | camp exists but 2026 dates/$675 price unconfirmed; check theranchmp.com.au/winter-camp |
-| events | winter-wine-weekend-full-3-day-peninsula-program | pending |  |
-| events | winter-wine-weekend-june | pending |  |
-| events | winter-wine-weekend-winter-wine-festival-red-hill-showgrounds | pending |  |
+| events | winter-wine-weekend-full-3-day-peninsula-program | updated | archived; duplicate cluster |
+| events | winter-wine-weekend-june | updated | archived (ended 8 Jun); duplicate of MP-EVT-0044 |
+| events | winter-wine-weekend-winter-wine-festival-red-hill-showgrounds | updated | archived; duplicate cluster |
 | events | youth-services-school-holiday-program | pending |  |
 | signature-events | annual-festivals | pending |  |
 | signature-events | main-street-mornington-festival | pending |  |

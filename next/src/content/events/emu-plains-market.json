@@ -2,7 +2,7 @@
   "slug": "emu-plains-market",
   "eventId": "MP-EVT-0067",
   "title": "Emu Plains Market",
-  "summary": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
+  "summary": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule, third Saturday October–April (day market 9am–2pm) plus a January twilight market. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
   "startDate": "2026-10-17",
   "endDate": "2026-10-17",
   "startTime": "09:00",
@@ -18,7 +18,7 @@
     "lng": 145.1417
   },
   "indoorOutdoor": "Outdoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
+  "officialEventUrl": "https://www.emuplainsmarket.com.au/",
   "bookingRequired": "No",
   "freePaid": "Free",
   "priceRange": "Free entry",
@@ -26,7 +26,7 @@
   "category": "market",
   "subcategory": "Artisan & Community Market",
   "recurrence": "monthly",
-  "recurrenceNote": "Monthly October–April (day market); June and August also listed; no July, May or September",
+  "recurrenceNote": "Monthly, third Saturday October–April (day market 9am–2pm); January twilight market 3pm–8pm; no markets May–September",
   "suitableFor": "Families; craft lovers; day trippers",
   "audienceTags": [
     "families"
@@ -38,12 +38,13 @@
   "weatherDependency": "Outdoor – seasonal schedule; weather dependent",
   "weatherShape": "fair-weather-only",
   "organiser": {
-    "name": "Emu Plains Market Committee"
+    "name": "Emu Plains Market Committee",
+    "website": "https://www.emuplainsmarket.com.au/"
   },
   "primarySourceUrl": "https://www.mornpen.vic.gov.au/Events-Activities/Emu-Plains-Market-3",
   "secondarySourceUrl": "https://www.australiantraveller.com/vic/mornington-peninsula/mornington-peninsula-markets/",
   "verificationStatus": "Tentative",
-  "lastCheckedDate": "2026-05-04",
+  "lastCheckedDate": "2026-06-10",
   "editorialPriority": 3,
   "nearbyAttractions": "Balnarring Village; Balnarring Beach; Merricks wineries",
   "suggestedItineraryPairing": "Market + Balnarring beach + winery lunch",
@@ -52,7 +53,7 @@
   "worthTheDrive": true,
   "firstTimer": true,
   "editorVerdict": "Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.",
-  "editorNote": "Emu Plains runs monthly at Balnarring's Coolart Road reserve, with a seasonal schedule that skips most of winter (October through April plus June and August). It is volunteer-run, craft-and-design heavy, and the kind of market where the food trucks are worth queueing for.\n\nThe move: get there by 9:30am for the food and coffee before queues set in, do a full lap, then walk over to Coolart Wetlands next door (it's right there) or push on to Balnarring Beach. Skip in midsummer if you can't handle heat: minimal shade once the sun is up.",
+  "editorNote": "Emu Plains runs monthly at Balnarring's Coolart Road reserve, with a seasonal schedule that skips winter entirely (third Saturday, October through April, plus a January twilight market). It is volunteer-run, craft-and-design heavy, and the kind of market where the food trucks are worth queueing for.\n\nThe move: get there by 9:30am for the food and coffee before queues set in, do a full lap, then walk over to Coolart Wetlands next door (it's right there) or push on to Balnarring Beach. Skip in midsummer if you can't handle heat: minimal shade once the sun is up.",
   "lens": [
     "family-saturday",
     "free",
@@ -60,5 +61,5 @@
     "locals-know"
   ],
   "place": "balnarring",
-  "nextOccurrence": "2026-06-17"
+  "nextOccurrence": "2026-10-17"
 }
