@@ -1085,8 +1085,27 @@ const conciergeIcon = '/images/pi-concierge.svg';
     replayHistory();
 
     // ── Drawer controls ──────────────────────────────
+    // Warm the concierge API the moment intent appears (drawer opened),
+    // so the serverless function + DB connection are hot before the reader
+    // finishes typing. Fire-and-forget; throttled so repeated opens within
+    // a session don't spam the API. See docs/insider-tech-stack-review (P1.3).
+    const WARM_KEY = 'pi-drawer-warmed-at';
+    function warmApi() {
+      try {
+        const last = Number(sessionStorage.getItem(WARM_KEY) || 0);
+        if (Date.now() - last < 4 * 60 * 1000) return;
+        sessionStorage.setItem(WARM_KEY, String(Date.now()));
+        // GET against the real route: guaranteed to invoke the function
+        // whatever the API's routing style. The 404/405 reply (and any CORS
+        // rejection) is irrelevant — the function is warm either way.
+        fetch(apiUrl() + '/concierge/ask/stream', { mode: 'cors', credentials: 'omit' })
+          .catch(() => {});
+      } catch {}
+    }
+
     function open() {
       setState('open');
+      warmApi();
       setTimeout(() => input.focus(), 320);
       scrollToBottom();
     }
