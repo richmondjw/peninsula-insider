@@ -16,6 +16,23 @@ For each meaningful change, include:
 
 ## 2026-06-10 — Claude (design)
 
+### Vivid-style homepage uplift — Phase 4: horizontal card rails
+
+**Summary**
+Two scroll-snap card rails on the homepage, Vivid-style with the next card peeking at the viewport edge:
+
+1. **"On this weekend"** — events whose date range overlaps the dispatch weekend or whose `nextOccurrence` falls inside it (max 8), rendered with the existing `EventCard`. New `dateLabelOverride` prop on EventCard so long-running events read "On this weekend" instead of their historical start date (the earlier "1 April under a weekend heading" failure mode). Restores events to the homepage for the first time since the ThreeMissionBar removal, with correct filtering.
+2. **"From the Journal"** — editor picks via `ArticleCard`, mobile-only (the desktop Shortlist remains; `hp-shortlist-wrap` was already hidden ≤767px).
+
+Track aligns its first card with the container edge (`scroll-padding-inline` matches the inline padding — without it the initial snap dragged the first card to x=0).
+
+**Verification**
+Headless Chromium at 390px: both rails render (8 + 3 cards), track scrolls and snaps, first card aligned at the container inset, no page-level horizontal overflow, all weekend date labels honest. `node scripts/check-editable-coverage.mjs` passes (no new card components; existing CMS-bound cards reused). `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+- `next/src/components/EventCard.astro` (additive `dateLabelOverride` prop)
+
 ### Vivid-style homepage uplift — Phase 3: big-four section rows
 
 **Summary**

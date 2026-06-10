@@ -24,6 +24,8 @@ import PlaceCard from '../components/PlaceCard.astro';
 import ItineraryCard from '../components/ItineraryCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
+import EventCard from '../components/EventCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
@@ -72,6 +74,29 @@ const weekendDispatch = articles
 const dispatchWindow = weekendDispatch
   ? dispatchWeekend(weekendDispatch.data.publishedAt)
   : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
+
+// ── Events on this weekend (Vivid-style rail, Phase 4) ─────────────────────
+// Only events genuinely on during the dispatch weekend: date range overlaps
+// Sat–Sun, or a computed nextOccurrence falls inside it. Avoids the old
+// "1 April – 30 June under a weekend heading" failure.
+const wkStart = dispatchWindow.sat;
+const wkEnd = new Date(dispatchWindow.sun.getTime() + 86399999);
+const weekendEvents = (await getCollection('events'))
+  .filter((e) => e.data.status !== 'archived' && e.data.status !== 'draft')
+  .filter((e) => {
+    const start = e.data.startDate;
+    const end = (e.data as any).endDate ?? e.data.startDate;
+    const occ = (e.data as any).nextOccurrence;
+    const rangeOverlaps = start && start <= wkEnd && end >= wkStart;
+    const occurrenceIn = occ && occ >= wkStart && occ <= wkEnd;
+    return rangeOverlaps || occurrenceIn;
+  })
+  .sort((a, b) => {
+    const ka = ((a.data as any).nextOccurrence ?? a.data.startDate)?.getTime() ?? 0;
+    const kb = ((b.data as any).nextOccurrence ?? b.data.startDate)?.getTime() ?? 0;
+    return ka - kb;
+  })
+  .slice(0, 8);
 
 const editorPicks = articles
   .filter((a) => routeSlug(a) !== routeSlug(featured))
@@ -299,6 +324,31 @@ export const prerender = true;
     </ScrollReveal>
   )}
 
+  {/* ── ZONE 3.5: "On this weekend" rail (Vivid-style, Phase 4) ──────────── */}
+  {weekendEvents.length > 0 && (
+    <section class="hp-rail" aria-label="On this weekend">
+      <div class="container">
+        <div class="hp-rail__head">
+          <h2 class="hp-rail__title">On this weekend</h2>
+          <a class="hp-rail__more" href="/whats-on/">More What&rsquo;s On <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="hp-rail__track">
+        {weekendEvents.map((event) => {
+          const occ = (event.data as any).nextOccurrence;
+          const start = event.data.startDate;
+          const fmt = (d: Date) => d.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'Australia/Melbourne' });
+          const label = occ && occ >= wkStart && occ <= wkEnd
+            ? fmt(occ)
+            : start && start >= wkStart
+            ? fmt(start)
+            : 'On this weekend';
+          return <EventCard event={event} dateLabelOverride={label} />;
+        })}
+      </div>
+    </section>
+  )}
+
   {/* ── ZONE 6: Places rail ──────────────────────────────────────────────── */}
   {featuredPlaces.length > 0 && (
     <ScrollReveal client:visible>
@@ -345,6 +395,22 @@ export const prerender = true;
       </div>
     </section>
     </ScrollReveal>
+  )}
+
+  {/* ── ZONE 7.5: "From the Journal" rail — mobile counterpart of the
+      desktop Shortlist below (hp-shortlist-wrap is hidden ≤767px). */}
+  {editorPicks.length > 0 && (
+    <section class="hp-rail hp-rail--journal" aria-label="From the Journal">
+      <div class="container">
+        <div class="hp-rail__head">
+          <h2 class="hp-rail__title">From the Journal</h2>
+          <a class="hp-rail__more" href="/journal/">View Journal <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="hp-rail__track">
+        {editorPicks.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </section>
   )}
 
   {/* ── ZONE 8: Shortlist ────────────────────────────────────────────────── */}
@@ -898,6 +964,64 @@ export const prerender = true;
   .hp-big4__dot { color: var(--border); }
   @media (min-width: 768px) {
     .hp-big4 { display: none; }
+  }
+
+  /* ── Horizontal card rails (Vivid-style, Phase 4) ────────────────────────
+     Scroll-snap track, next card peeking at the edge. Cards are the
+     existing EventCard / ArticleCard components, width-capped here. */
+  .hp-rail {
+    padding: 2.4rem 0 2.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hp-rail__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .hp-rail__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    color: var(--dark);
+    margin: 0;
+  }
+  .hp-rail__more {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .hp-rail__more:hover { color: var(--acc-h); }
+  .hp-rail__track {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    /* align first card with the container edge; let the track bleed
+       full-width so the next card peeks at the viewport edge */
+    padding: 0 max(clamp(1rem, 4vw, 2rem), calc((100vw - var(--max-w)) / 2)) 0.5rem;
+    /* keep the snapport aligned with the padded edge, or the initial snap
+       drags the first card to x=0 */
+    scroll-padding-inline: max(clamp(1rem, 4vw, 2rem), calc((100vw - var(--max-w)) / 2));
+  }
+  .hp-rail__track::-webkit-scrollbar { display: none; }
+  .hp-rail__track > * {
+    flex: 0 0 auto;
+    width: min(78vw, 320px);
+    scroll-snap-align: start;
+  }
+  /* Journal rail is the mobile counterpart of the desktop Shortlist */
+  @media (min-width: 768px) {
+    .hp-rail--journal { display: none; }
   }
 
   /* ── Shortlist, Plans, Notebook — copied from index.astro ────────────────── */
