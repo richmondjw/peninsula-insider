@@ -260,17 +260,32 @@ export const prerender = true;
     </div>
   </section>
 
-  {/* ── ZONE 2: Section navigation strip ─────────────────────────────────── */}
-  <nav class="hp-section-nav" aria-label="Browse sections">
-    <div class="hp-section-nav__track">
-      <a class="hp-section-nav__chip" href="/whats-on/">What&rsquo;s On</a>
-      <a class="hp-section-nav__chip" href="/explore/plans/">Plans</a>
-      <a class="hp-section-nav__chip" href="/eat/">Eat &amp; Drink</a>
-      <a class="hp-section-nav__chip" href="/wine/">Wine</a>
-      <a class="hp-section-nav__chip" href="/stay/">Stay</a>
-      <a class="hp-section-nav__chip" href="/explore/places/">Places</a>
-      <a class="hp-section-nav__chip" href="/explore/">Explore</a>
-      <a class="hp-section-nav__chip" href="/journal/">Journal</a>
+  {/* ── ZONE 2: Big-four section rows (Vivid-style, Phase 3) — navigation
+      presented as content: four giant display rows with trailing arrows,
+      then a quiet secondary line for the journey sections. Mobile only;
+      desktop has the mega-menu pillars. */}
+  <nav class="hp-big4" aria-label="Browse sections">
+    <div class="container">
+      {[
+        { label: 'Eat & Drink', href: '/eat/' },
+        { label: 'Wine', href: '/wine/' },
+        { label: 'Stay', href: '/stay/' },
+        { label: 'Explore', href: '/explore/' },
+      ].map((item) => (
+        <a class="hp-big4__row" href={item.href}>
+          <span class="hp-big4__name">{item.label}</span>
+          <svg class="hp-big4__arrow" viewBox="0 0 18 14" width="20" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1 7h15M11 1.5 16.5 7 11 12.5" />
+          </svg>
+        </a>
+      ))}
+      <div class="hp-big4__secondary">
+        <a href="/whats-on/">What&rsquo;s On</a>
+        <span class="hp-big4__dot" aria-hidden="true">·</span>
+        <a href="/explore/plans/">Plans</a>
+        <span class="hp-big4__dot" aria-hidden="true">·</span>
+        <a href="/journal/">Journal</a>
+      </div>
     </div>
   </nav>
 
@@ -823,39 +838,66 @@ export const prerender = true;
     .cover__controls { justify-content: flex-start; }
   }
 
-  /* ── Section nav ─────────────────────────────────────────────────────────── */
-  .hp-section-nav {
-    /* No border-top: the cover section above already closes with its own
-       hairline; two adjacent 1px lines read as a glitch. */
-    border-bottom: 1px solid var(--line, #D9D1BE);
-    background: var(--paper-warm, #F3EDDE);
-    overflow: hidden;
+  /* ── Big-four section rows (Vivid-style, mobile only) ───────────────────
+     Replaces the chip strip: same single-router role, presented as four
+     giant display rows. Desktop keeps the mega-menu pillars. */
+  .hp-big4 {
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 0 1.4rem;
   }
-  .hp-section-nav__track {
-    display: flex; gap: 0; overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 0 clamp(1rem, 4vw, 2rem);
+  .hp-big4__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--dark);
   }
-  .hp-section-nav__track::-webkit-scrollbar { display: none; }
-  .hp-section-nav__chip {
-    display: inline-flex; align-items: center;
-    white-space: nowrap; padding: 0.75rem 1rem;
-    font-family: var(--sans, 'Inter', system-ui, sans-serif);
-    font-size: 0.78rem; font-weight: 500;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--ink-soft, #3A3531); text-decoration: none;
-    border-right: 1px solid var(--line, #D9D1BE);
-    transition: color 0.15s ease, background 0.15s ease;
+  .hp-big4__name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.9rem, 7.4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .hp-big4__arrow {
     flex-shrink: 0;
+    color: var(--soft);
+    transition: color 0.18s var(--ease), transform 0.18s var(--ease);
   }
-  .hp-section-nav__chip:first-child { padding-left: 0; }
-  .hp-section-nav__chip:last-child  { border-right: none; }
-  .hp-section-nav__chip:hover, .hp-section-nav__chip:focus-visible {
-    color: var(--ochre, #A0541F); background: transparent;
+  .hp-big4__row:hover .hp-big4__arrow,
+  .hp-big4__row:active .hp-big4__arrow {
+    color: var(--accent);
+    transform: translateX(4px);
   }
+  .hp-big4__row:hover .hp-big4__name,
+  .hp-big4__row:active .hp-big4__name { color: var(--accent); }
+  .hp-big4__row:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .hp-big4__secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-top: 1.1rem;
+  }
+  .hp-big4__secondary a {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+    text-decoration: none;
+  }
+  .hp-big4__secondary a:hover { color: var(--accent); }
+  .hp-big4__dot { color: var(--border); }
   @media (min-width: 768px) {
-    .hp-section-nav { display: none; }
+    .hp-big4 { display: none; }
   }
 
   /* ── Shortlist, Plans, Notebook — copied from index.astro ────────────────── */
