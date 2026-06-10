@@ -14,6 +14,31 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-10 — Claude remote agent
+
+### AI-agent readiness review + llms.txt shipped
+
+**Summary**
+Full assessment of the site from an AI-agent-first perspective (AI readability, entity clarity, structured data, citation worthiness, agent actions, search/concierge UX), delivered as a strategy doc with a 30/60/90 roadmap. Shipped the top quick win alongside it: an `llms.txt` curated site map for LLM assistants, plus an AI-crawler welcome note in robots.txt pointing to it.
+
+**Files changed**
+- `docs/ai-agent-readiness-review-2026-06-10.md` (new)
+- `next/public/llms.txt` (new) and root `llms.txt` copy (live immediately, survives next build)
+- `next/public/robots.txt` and root `robots.txt` (comment block only; no directive changes)
+
+**Pages affected**
+- `/llms.txt` (new), `/robots.txt`
+
+**Why it matters**
+The site is strong at the content/schema layer (static HTML, deep JSON-LD, rich entity model) but had no agent-access layer. `llms.txt` gives ChatGPT/Claude/Perplexity-class assistants a canonical statement of what the publication is, how to cite it, and that the no-pricing omission is deliberate (routing agents to operator booking links instead of letting them infer stale prices from third parties).
+
+**Follow-up / open issues**
+- 30-day items in the review: Organization schema `sameAs`/`contactPoint`, about/methodology consolidation, last-reviewed rendering, feed.xml enrichment, schema CI lint
+- 60/90-day: `/data/*.json` build-time exports, comparison pages, documented concierge API + MCP server
+- robots.txt note: named per-bot User-agent groups override the `*` group; repeat all Disallows if ever adding them
+
+---
+
 ## 2026-06-01 — Codex
 
 ### Footer advertising link removed
