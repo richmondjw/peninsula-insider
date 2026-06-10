@@ -43,3 +43,42 @@ ran 6–8 June at Red Hill Showgrounds; Portsea Twilight 2027 announced for
 - `mornington-winter-music-festival` — official site still titles itself
   "Queen's Birthday"; our "King's Birthday" wording is the current correct
   name. No action needed.
+
+---
+
+## Batch 1b — June 2026 events (12/12 complete, 2026-06-10)
+
+**Updated (4):**
+
+- `emu-plains-market-balnarring` — listed for 20 June, but the market does
+  **not run in winter** (official season is October–April; 2026 dates: 17
+  Jan, 21 Feb, 21 Mar, 18 Apr, 17 Oct, 21 Nov, 19 Dec). Rolled to 17 Oct
+  2026, season/month corrected, recurrenceNote now states the Oct–Apr
+  season. Sources: emuplainsmarket.com.au, visitmorningtonpeninsula.org.
+- `mt-eliza-farmers-market` — startDate 2026-06-24 was a **Wednesday**; the
+  market runs 4th Sundays, corrected to 28 June. officialEventUrl switched
+  from a peninsulakids.com.au listing to mtelizafarmersmarket.com.au.
+- `dromana-community-market` — file had Sunday 28 June 9am–1pm at "Dromana
+  Park"; official site says **Saturday 27 June, 8am–1:30pm at Dromana
+  Community Park**, Point Nepean Rd. Corrected date/time/venue/address and
+  replaced the vicfomo.com aggregator URL with dromanamarket.org.au.
+- `mornington-racecourse-market` — date correct but season/month fields
+  said autumn/May against a 14 June date; corrected to winter/June.
+
+**Verified accurate (5):** soul-night-market-mornington (12 Jun, Peninsula
+Community Theatre), mornington-racecourse-monthly-market-june-2026 (14 Jun),
+sorrento-solstice-festival-2026 and -fire-night (20–21 Jun, free ticketed
+via Humanitix), boneo-community-market (3rd Sat, 8am–1pm).
+
+**Flagged for human review (3):**
+
+- `ninch-nabs-samples-seconds-makers-market` — no source anywhere confirms a
+  June 2026 market; only a documented Nov 2025 event (which ran 8am–2pm,
+  not the listed 9am). Confirm with organiser or archive.
+- `pearcedale-community-market` — date/venue verified, but opening hours
+  conflict across sources (8am–12pm vs 9am–1pm). Check the market's
+  Facebook page.
+- `winter-camp-2026-the-ranch` — Winter Camp 2026 exists ("Hit the Switch"
+  theme), but the exact dates (file: 30 Jun–2 Jul; a camps-association
+  listing suggests 29 Jun–3 Jul) and the $675 price could not be
+  authoritatively confirmed. Check theranchmp.com.au/winter-camp/.
