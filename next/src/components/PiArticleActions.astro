@@ -17,6 +17,7 @@
  * v2/SaveButton. Wave 3 of the Save & Share rebuild.
  */
 import PiSaveActions from './PiSaveActions.astro';
+import TextScaleControl from './TextScaleControl.astro';
 
 export interface Props {
   /** Save kind — defaults to 'article' for journal pieces. */
@@ -45,6 +46,7 @@ const resolvedHref = href ?? `/${section}/${slug}/`;
     imageUrl={imageUrl}
     floating={false}
   />
+  <TextScaleControl />
 </div>
 
 <aside

@@ -3,12 +3,17 @@
  * Homepage — Editorial magazine cover for the Mornington Peninsula guide.
  *
  * Cover carousel: full article rotates (text + image together).
- * Below the fold: ThreeMissionBar → Section nav → Melbourne strip →
- *   Weekend Dispatch → Places rail → Plans → Shortlist → Editor's Letter
- *   → Notebook → Newsletter.
+ * Below the fold: Section nav → Weekend Dispatch → Places rail → Plans
+ *   → Shortlist → Editor's Letter → Notebook → Newsletter.
  *
  * Promoted from /preview-home-redesign/ on 2026-05-25, replacing the
  * cinematic fullbleed cover that lives in git history.
+ *
+ * Simplified 2026-06-10: ThreeMissionBar and MelbourneEntryStrip removed —
+ * each routed intents (Ask / weekend / plans) that already have exactly one
+ * surface elsewhere on this screen (Ask floating button, the Weekend
+ * Dispatch card, the Plans grid). The Melbourne entry link now lives
+ * inside WeekendPickerBlock.
  */
 
 import { getCollection } from 'astro:content';
@@ -19,8 +24,6 @@ import PlaceCard from '../components/PlaceCard.astro';
 import ItineraryCard from '../components/ItineraryCard.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
-import ThreeMissionBar from '../components/ThreeMissionBar.astro';
-import MelbourneEntryStrip from '../components/MelbourneEntryStrip.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
@@ -36,16 +39,7 @@ const articles    = (await getCollection('articles', ({ data }) => data.status =
 const places      = await getCollection('places');
 const itineraries = await getCollection('itineraries');
 
-// ── Upcoming events for the ThreeMissionBar "This Weekend" panel ───────────
 const now = new Date();
-const upcomingEvents = (await getCollection('events'))
-  .filter((e) => {
-    if (e.data.status === 'archived' || e.data.status === 'draft') return false;
-    const end = (e.data as any).endDate ?? e.data.startDate;
-    return end >= now;
-  })
-  .sort((a, b) => a.data.startDate.getTime() - b.data.startDate.getTime())
-  .slice(0, 3);
 
 // ── Quick notes (The Notebook) ─────────────────────────────────────────────
 const notebookNote = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > now))
@@ -78,10 +72,6 @@ const weekendDispatch = articles
 const dispatchWindow = weekendDispatch
   ? dispatchWeekend(weekendDispatch.data.publishedAt)
   : { start: new Date(0), end: new Date(0), sat: new Date(), sun: new Date(), label: 'This weekend' };
-
-const dispatchHref = weekendDispatch
-  ? `/journal/${routeSlug(weekendDispatch)}/`
-  : '/whats-on/this-weekend/';
 
 const editorPicks = articles
   .filter((a) => routeSlug(a) !== routeSlug(featured))
@@ -239,7 +229,10 @@ export const prerender = true;
       ))}
     </div>
 
-    {/* Story navigation strip */}
+    {/* Story navigation — quiet progress bars, one per story. Labels were
+        removed 2026-06-10: tiny uppercase tags ("SLOW PENINSULA", "WALK")
+        read as content filters and meant nothing before the stories were
+        seen. Accessible names carry the story headline instead. */}
     <nav class="cover__nav" aria-label="Switch story">
       <div class="container cover__nav-inner">
         {scenes.map((scene, i) => (
@@ -247,9 +240,8 @@ export const prerender = true;
             class={`cover__nav-btn${i === 0 ? ' is-active' : ''}`}
             data-target={i}
             type="button"
-            aria-label={`View: ${scene.label}`}
+            aria-label={`Story ${i + 1} of ${scenes.length}: ${scene.headline.replace(/<[^>]+>/g, '')}`}
           >
-            <span class="cover__nav-label">{scene.label}</span>
             <span class="cover__nav-bar" aria-hidden="true"></span>
           </button>
         ))}
@@ -257,17 +249,9 @@ export const prerender = true;
     </nav>
   </section>
 
-  {/* ── ZONE 2: Three-Mission Bar (REDESIGN — replaces "Also in this issue") */}
-  <ThreeMissionBar
-    weekendLabel={dispatchWindow.label}
-    dispatchHref={dispatchHref}
-    events={upcomingEvents}
-  />
-
-  {/* ── ZONE 3: Section navigation strip (Ask added as first chip) ───────── */}
+  {/* ── ZONE 2: Section navigation strip ─────────────────────────────────── */}
   <nav class="hp-section-nav" aria-label="Browse sections">
     <div class="hp-section-nav__track">
-      <a class="hp-section-nav__chip hp-section-nav__chip--ask" href="/ask/" data-pi-trigger="true">Ask</a>
       <a class="hp-section-nav__chip" href="/whats-on/">What&rsquo;s On</a>
       <a class="hp-section-nav__chip" href="/explore/plans/">Plans</a>
       <a class="hp-section-nav__chip" href="/eat/">Eat &amp; Drink</a>
@@ -279,10 +263,7 @@ export const prerender = true;
     </div>
   </nav>
 
-  {/* ── ZONE 4: Melbourne entry strip (REDESIGN — new) ───────────────────── */}
-  {weekendDispatch && <MelbourneEntryStrip />}
-
-  {/* ── ZONE 5: Weekend Dispatch ─────────────────────────────────────────── */}
+  {/* ── ZONE 3: Weekend Dispatch ─────────────────────────────────────────── */}
   {weekendDispatch && (
     <ScrollReveal client:visible>
       <WeekendPickerBlock
@@ -669,45 +650,27 @@ export const prerender = true;
   }
   .cover__nav-inner {
     display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
+    gap: 0.6rem;
+    max-width: 24rem;
   }
-  .cover__nav-inner::-webkit-scrollbar { display: none; }
   .cover__nav-btn {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.45rem;
-    padding: 0.35rem 1.5rem 0.35rem 0;
+    display: block;
+    flex: 1;
+    padding: 0.55rem 0;
     background: none;
     border: none;
     cursor: pointer;
-    flex-shrink: 0;
   }
-  .cover__nav-btn:first-child { padding-left: 0; }
-  .cover__nav-label {
-    font-family: 'Outfit', system-ui, sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.35);
-    transition: color 0.2s ease;
-    white-space: nowrap;
-  }
-  .cover__nav-btn.is-active .cover__nav-label { color: #A0541F; }
-  .cover__nav-btn:hover .cover__nav-label { color: rgba(23, 20, 19, 0.65); }
-  .cover__nav-btn.is-active:hover .cover__nav-label { color: #A0541F; }
   .cover__nav-bar {
     display: block;
     height: 2px;
     width: 100%;
-    min-width: 3.5rem;
-    background: rgba(23, 20, 19, 0.1);
+    background: rgba(23, 20, 19, 0.12);
     position: relative;
     overflow: hidden;
+    transition: background 0.2s ease;
   }
+  .cover__nav-btn:hover .cover__nav-bar { background: rgba(23, 20, 19, 0.3); }
   .cover__nav-btn.is-active .cover__nav-bar::after {
     content: '';
     position: absolute;
@@ -787,8 +750,6 @@ export const prerender = true;
   .hp-section-nav__chip:hover, .hp-section-nav__chip:focus-visible {
     color: var(--ochre, #A0541F); background: transparent;
   }
-  /* Ask chip is visually accented */
-  .hp-section-nav__chip--ask { color: var(--ochre, #A0541F); font-weight: 600; }
   @media (min-width: 768px) {
     .hp-section-nav { display: none; }
   }
