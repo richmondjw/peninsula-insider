@@ -1,0 +1,40 @@
+{
+  "run_id": "2026-06-10T14:14:18.801Z",
+  "trigger": "schedule",
+  "mode": "delta",
+  "prune_enabled": true,
+  "duration_seconds": 2.5,
+  "git_sha": "4b13ea4",
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dims": 1024,
+  "source_counts": {
+    "venue": 138,
+    "article": 181,
+    "place": 37,
+    "itinerary": 6,
+    "experience": 44,
+    "event": 44,
+    "editorial_block": 10
+  },
+  "database": {
+    "chunks_before": 1635,
+    "chunks_after": 1635
+  },
+  "delta": {
+    "added": 0,
+    "updated": 0,
+    "metadata_only": 0,
+    "unchanged": 1635,
+    "pruned": 0,
+    "errors": 0,
+    "stale_remaining": 0
+  },
+  "added_chunk_ids": [],
+  "updated_chunk_ids": [],
+  "metadata_only_chunk_ids": [],
+  "pruned_chunk_ids": [],
+  "stale_chunk_ids": [],
+  "expired_event_entity_ids": [],
+  "embedding_cost_usd_estimate": 0,
+  "errors": []
+}
