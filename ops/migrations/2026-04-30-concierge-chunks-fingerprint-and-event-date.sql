@@ -1,5 +1,7 @@
 -- Migration: add metadata_fingerprint and event_date columns to concierge_chunks
 -- Date: 2026-04-30
+-- APPLIED to live concierge project (mvdtkgsfuhmkioygxgge) on 2026-06-10 as
+-- part of migration concierge_chunks_fingerprint_event_date_and_perf_indexes.
 -- Required by: ops/scripts/refresh-corpus.mjs (post 2026-04-30 update)
 --
 -- Run once against the live Supabase project before the next scheduled

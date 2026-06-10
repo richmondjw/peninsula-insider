@@ -1,0 +1,54 @@
+name: Insider latency alert
+
+# Hourly guard on concierge latency. Posts a Telegram alert the hour a
+# regression appears, instead of waiting for the next morning's daily usage
+# report. Uses the same secrets as insider-usage-report.yml.
+# See docs/insider-tech-stack-review-2026-06-10.md (P0.6).
+
+on:
+  schedule:
+    - cron: '12 * * * *'   # hourly, offset to dodge top-of-hour congestion
+  workflow_dispatch:
+    inputs:
+      window_minutes:
+        description: 'Lookback window in minutes (default 70)'
+        required: false
+        default: '70'
+      dry:
+        description: 'Dry run — compute, do not post'
+        required: false
+        default: false
+        type: boolean
+
+permissions: {}
+
+concurrency:
+  group: insider-latency-alert
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check latency thresholds
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          TELEGRAM_TOPIC_ID: ${{ vars.TELEGRAM_TOPIC_ID }}
+        run: |
+          WINDOW="${{ inputs.window_minutes }}"
+          WINDOW="${WINDOW:-70}"
+          FLAGS="--window=$WINDOW"
+          if [ "${{ inputs.dry }}" = "true" ]; then
+            FLAGS="$FLAGS --dry"
+          fi
+          node ops/scripts/insider-latency-alert.mjs $FLAGS

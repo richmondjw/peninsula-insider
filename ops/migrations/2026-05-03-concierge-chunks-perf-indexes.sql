@@ -1,5 +1,11 @@
 -- Migration: performance indexes on concierge_chunks
 -- Date: 2026-05-03
+-- APPLIED to live concierge project (mvdtkgsfuhmkioygxgge) on 2026-06-10 as
+-- part of migration concierge_chunks_fingerprint_event_date_and_perf_indexes.
+-- Deviations at apply time: the GIN tsvector index already existed under the
+-- name concierge_chunks_text_tsv (statement skipped), and the redundant
+-- IVFFlat index concierge_chunks_embedding_ivfflat was dropped after the
+-- HNSW build.
 -- Purpose: drop retrieval latency from O(n) sequential scans to O(log n)
 --          index lookups. Expected speedup at current corpus size (~2,000
 --          rows) is modest (~50-100ms) but compounds dramatically as the

@@ -14,6 +14,33 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-10 — Claude (remote session)
+
+### Insider concierge: Phase 0 latency work — DB migration applied, keep-alive + latency alerting added
+
+**Summary**
+First implementation pass on the tech-stack review (`docs/insider-tech-stack-review-2026-06-10.md`). Applied the two pending `concierge_chunks` migrations to the live concierge Supabase project (`mvdtkgsfuhmkioygxgge`): `metadata_fingerprint` + `event_date` columns, HNSW embedding index, filter/chunk-purpose/extracted-at btrees. The pre-existing GIN tsvector index was kept (migration statement skipped) and the now-redundant IVFFlat embedding index was dropped. Added two new scheduled workflows: an API keep-alive ping (cold starts dominate TTFT at current traffic) and an hourly latency guard that posts a Telegram alert when latency breaches thresholds — the June 2 model-drift regression (34–46s queries on gpt-5-nano) went unnoticed for a week under daily-only reporting.
+
+**Files changed**
+- `ops/migrations/2026-04-30-concierge-chunks-fingerprint-and-event-date.sql` (marked applied)
+- `ops/migrations/2026-05-03-concierge-chunks-perf-indexes.sql` (marked applied, deviations noted)
+- `.github/workflows/insider-keepalive.yml` (new)
+- `.github/workflows/insider-latency-alert.yml` (new)
+- `ops/scripts/insider-latency-alert.mjs` (new)
+- `docs/insider-tech-stack-review-2026-06-10.md` (new, separate commit)
+
+**Pages affected**
+- None (ops/API-side only)
+
+**Why it matters**
+Removes ~50–150ms from retrieval, unblocks metadata-only corpus diffs and event-date filtering, keeps the Vercel function warm so readers stop paying cold-start latency, and turns latency regressions into same-hour Telegram alerts instead of next-week discoveries.
+
+**Follow-up / open issues**
+- **P0.1 (critical, not possible from this repo): revert the generation model off `gpt-5-nano`** in the `peninsula-insider-platform` Vercel project — live TTFT is ~45s on that model.
+- P0.2: pin the Vercel function region to `syd1` (platform repo).
+- Replace the Actions keep-alive with a native Vercel Cron in the platform repo, then delete `insider-keepalive.yml`.
+- Latency-alert script dry-run requires repo secrets; verify first scheduled run in Actions.
+
 ## 2026-06-01 — Codex
 
 ### Footer advertising link removed

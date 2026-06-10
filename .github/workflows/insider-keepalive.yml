@@ -1,0 +1,46 @@
+name: Insider API keep-alive
+
+# Pings the concierge API so the Vercel serverless function (and its Supabase
+# connection) stays warm. At current traffic (~0–2 reader queries/day) nearly
+# every real query lands on a cold start, which adds 0.5–3s before the first
+# token. See docs/insider-tech-stack-review-2026-06-10.md (P0.5).
+#
+# The OPTIONS request is the same CORS preflight a reader's browser sends
+# before POSTing to /concierge/ask/stream — it invokes the function without
+# triggering retrieval or an LLM call, so each ping is effectively free.
+#
+# Schedule: every 10 minutes, 06:00–24:00 Melbourne (AEST = UTC+10), to keep
+# Actions usage modest. NOTE: this is a stopgap — the durable home for this
+# is a Vercel Cron job inside the peninsula-insider-platform repo (free,
+# native, not subject to Actions schedule jitter). Remove this workflow once
+# that exists.
+
+on:
+  schedule:
+    - cron: '*/10 20-23 * * *'  # 06:00–09:59 Melbourne (AEST)
+    - cron: '*/10 0-13 * * *'   # 10:00–23:59 Melbourne (AEST)
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: insider-keepalive
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ping concierge API
+        run: |
+          API="https://peninsula-insider-platform-api.vercel.app"
+          # CORS preflight against the streaming endpoint — warms the function.
+          curl -s -o /dev/null -w "preflight %{http_code} %{time_total}s\n" -m 20 \
+            -X OPTIONS "$API/concierge/ask/stream" \
+            -H "Origin: https://peninsularinsider.com.au" \
+            -H "Access-Control-Request-Method: POST" \
+            -H "Access-Control-Request-Headers: content-type,x-session-id" || true
+          # Health route if/when the platform repo adds one; harmless 404 today.
+          curl -s -o /dev/null -w "health    %{http_code} %{time_total}s\n" -m 20 \
+            "$API/health" || true
