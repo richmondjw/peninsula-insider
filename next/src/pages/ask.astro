@@ -163,6 +163,16 @@ export const prerender = true;
   const sessionId = `pi-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
   let askInFlight = false;
 
+  // Anyone landing on /ask intends to ask — warm the concierge API now so
+  // the serverless function + DB connection are hot before they finish
+  // typing. Fire-and-forget GET at the real route (invokes the function
+  // whatever the API's routing style; the 404/405 reply is irrelevant).
+  // See docs/insider-tech-stack-review (P1.3).
+  try {
+    fetch(`${API_URL}/concierge/ask/stream`, { mode: 'cors', credentials: 'omit' })
+      .catch(() => {});
+  } catch {}
+
   // ---------- Helpers ----------
   const escapeHtml = (s) => String(s ?? '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
