@@ -240,6 +240,19 @@ const isAskPage = rawPathname.startsWith('/ask');
   <link rel="stylesheet" href="/assets/mobile-fixes.css" />
   <link rel="stylesheet" href="/assets/scroll-animations.css" />
 
+  <!-- Reader text-size preference — applied before first paint so pages
+       don't flash at the default size. The control itself lives in
+       TextScaleControl.astro (rendered on article surfaces); steps are
+       mapped to root font-size in global.css. -->
+  <script is:inline>
+    (function () {
+      try {
+        var s = localStorage.getItem('pi-text-scale');
+        if (s === '2' || s === '3') document.documentElement.dataset.textScale = s;
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Google tag (gtag.js) — gated on user consent.
        The loader checks localStorage 'pi-consent-v1' and only injects
        gtag if analytics consent is true. CookieBanner dispatches

@@ -41,6 +41,129 @@ Removes ~50–150ms from retrieval, unblocks metadata-only corpus diffs and even
 - Replace the Actions keep-alive with a native Vercel Cron in the platform repo, then delete `insider-keepalive.yml`.
 - Latency-alert script dry-run requires repo secrets; verify first scheduled run in Actions.
 
+## 2026-06-10 — Claude (design)
+
+### Masthead icon overlap fix + count/verified tag removal
+
+**Summary**
+Two fixes from James's live-site review:
+
+1. **Mobile masthead overlap** — the saved and search icons stacked on top of each other: the mobile brand row's `display: contents` rule placed every `.v4-iconbtn` in the same 44px grid cell. The action cluster is now a single flex grid item, side cells widened to a symmetric 84px so the wordmark stays truly centred, and the wordmark scales via `clamp(21px, 6vw, 33px)` to fit the narrower middle.
+2. **Inventory counts + "Last verified" stamps removed site-wide** — hero eyebrows on 13 section/guide pages (eat, stay, wine, explore, escape, what's-on, golf, beaches, markets + v4 variants) reduced to the section name; dynamic count items removed from GuideHero meta rows (read-times and editorial facts like "3 world-ranked" kept); "Last verified:" sub-lines removed from the three tour detail templates. Kept: the fishing species "Verified stamp" block (regulatory disclaimer citing the Victorian Fisheries Authority) and preview/staging pages.
+
+**Files changed**
+- `next/src/styles/v4.css`
+- `next/src/components/GuideHero.astro` (doc comment)
+- 13 section index pages + 3 tour templates under `next/src/pages/`
+
+**Why it matters**
+The icon overlap was a visible bug on every mobile page. The count/verified tags ("41 wineries · 6 other producers · Last verified 30 Apr 2026", "0 producers") were reader-facing database noise; verification methodology lives at /methodology.
+
+**Verification**
+- `npm run build` passes (1485 pages); built eat/stay/wine/explore pages contain no count or verified strings.
+
+### Hero pager polish (post-deploy fix)
+
+**Summary**
+The story-switcher bars shipped earlier today read as stray dashes on mobile (full-width 2px lines, left-aligned, stranded between two hairline borders). Reworked as a conventional carousel pager: fixed-width 4px rounded segments, centred under the hero, with a visible focus ring. Removed the doubled hairline where the cover's border-bottom met the section-nav's border-top.
+
+**Files changed**
+- `next/src/pages/index.astro`
+
+**Pages affected**
+- `/` (homepage)
+
+**Verification**
+- `npm run build` passes (1485 pages); 5 pager segments in built homepage.
+
+### Homepage top-section simplification (cognitive-load pass)
+
+**Summary**
+Reviewed by James against mobile screenshots: the first four viewports routed the same three intents repeatedly (Ask ×3, weekend ×4, plans ×3), each repeat with its own eyebrow/heading/microcopy. Changes:
+
+- **Removed `ThreeMissionBar`** from the homepage — its Ask panel duplicated the floating Ask button, its This Weekend panel duplicated the Weekend Dispatch card (and listed long-running events like "1 April – 30 June" under a "This Weekend" heading), and its Plans panel duplicated the `hp-plans` grid below.
+- **Removed `MelbourneEntryStrip`** — its single link now lives as a quiet line inside the Weekend Dispatch card ("Coming from Melbourne? Here's where to start →").
+- **Removed the Ask chip** from `hp-section-nav` (the floating Ask button is the one Ask surface).
+- **`WeekendPickerBlock` simplified** — dropped the eyebrow + cadence label column ("Peninsula This Weekend" / "Published for the weekend ahead · one pick, one backup…"), which repeated the kicker and the dispatch title. Now: one date kicker, title, dek, two CTAs, Melbourne line. Single-column card (also renders on `/v4/whats-on/`).
+- **Hero story-switcher** — replaced the uppercase label tabs ("SLOW PENINSULA / FEATURE / WALK"), which read as content filters, with quiet equal-width progress bars; accessible names now carry "Story n of 5: {headline}".
+
+Net effect on mobile: hero → section chips → one weekend card → editorial content. Background rhythm now alternates white/cream naturally (the big cream routing zone is gone).
+
+**Files changed**
+- `next/src/pages/index.astro`
+- `next/src/components/WeekendPickerBlock.astro`
+- `next/src/styles/global.css`
+
+**Pages affected**
+- `/` (homepage), `/v4/whats-on/` (shared weekend block)
+
+**Why it matters**
+Cuts ~3 viewports of duplicated routing to one; every intent now has exactly one surface above the fold.
+
+**Verification**
+- `npm run build` passes (1485 pages). TMB/strip markup confirmed absent from built homepage; Melbourne link present in weekend card on both consumers; 5 story-nav buttons with descriptive aria-labels.
+
+**Follow-up**
+- `ThreeMissionBar.astro` and `MelbourneEntryStrip.astro` are now only used by `/preview-home-redesign/`; retire with that preview when it goes.
+- CMS text fields `weekend.eyebrow` / `weekend.cadence` no longer have a rendering surface.
+
+### Mobile/site-wide readability + reader-utility pass
+
+**Summary**
+Readability and accessibility upgrade requested by James (benchmarked against The Age Good Food mobile experience), plus three reader-utility features:
+
+1. **Typography weight/size** — body text `0.95rem`/weight 300 → `1rem`/weight 400; `.prose` to `1.0625rem`/400; cover/section-hero deks, place-detail intro, and newsletter input from 300 → 400. The light 300 weight was the main cause of low-contrast "grey" reading texture.
+2. **Contrast tokens** — `--soft` darkened `#7A726A` → `#5F574E` (4.7:1 → 7.1:1 on white; was failing AA on `--bg-alt`). New `--gold-text: #7A6340` token for gold-as-text on light surfaces (`--gold` is 2.7:1, decorative only); applied to editors-desk label and share-button copied state.
+3. **Italic cull** — 15 multi-line body-copy italic rules (article/news/home/guide deks, shortlist/insider-stripe/event-verdict bodies, prose blockquote, standfirsts) converted to roman, Cormorant blocks bumped to weight 500. Italics retained for display headline `em` accents, brand taglines, signatures, and semantic `.prose em`.
+4. **Browser font-size preference respected** — `html { font-size: 16px }` → `100%`.
+5. **Three-step text-size control (A/A/A)** — new `TextScaleControl.astro` in the `PiArticleActions` byline row (journal articles, weekend pages, venue detail). Sets `data-text-scale` on `<html>` (steps map to 108.75% / 118% root size), persists in localStorage, re-applied pre-paint by an inline BaseLayout script.
+6. **Saved shortcut in masthead** — bookmark icon (`v4-iconbtn`) next to search in both V4 masthead action clusters (desktop + mobile), linking to `/saved/`.
+7. **Google preferred-source button** — footer contact column, deeplink `https://google.com/preferences/source?q=peninsularinsider.com.au` per Google Search Central guidance.
+
+**Files changed**
+- `next/src/styles/global.css`
+- `next/src/components/TextScaleControl.astro` (new)
+- `next/src/components/PiArticleActions.astro`
+- `next/src/components/v4/V4Masthead.astro`
+- `next/src/components/Footer.astro`
+- `next/src/layouts/BaseLayout.astro`
+
+**Pages affected**
+Site-wide.
+
+**Why it matters**
+Body text was the single biggest readability complaint (weight-300 Outfit at 15.2px reads grey, especially on mobile). Secondary text was failing WCAG AA on cream sections. Multi-line Cormorant italic deks were hard to read at small sizes. The control and buttons match reader-utility patterns from major mastheads.
+
+**Verification**
+- `npm run build` passes (1485 pages); new rules confirmed in bundled output, which cascades after the legacy `/assets/styles.css`.
+
+**Follow-up**
+- `public/assets/styles.css` is a stale pre-Astro copy still linked first in `BaseLayout` — consider retiring it; it currently re-states the old typography (overridden by cascade order, but a drift risk).
+- Verify the site appears in Google's source-preferences tool for AU users (feature is region-gated).
+- Backlog: `--text-*` font-size token scale (70+ distinct sizes, tail below 12px).
+
+### Card radius tokens (design review 2026-W22)
+
+**Summary**
+Implemented the 2026-W22 design review recommendation: added `--radius-card-sm/md/lg` tokens to `:root` and collapsed the nine bespoke card `border-radius` values in `global.css` onto them (Weekend Picker, CompareBlock columns, newsletter frames/embed, place-typeahead grid, stay card panel).
+
+One deviation from the memo: `.newsletter__embed` at desktop (was `0.9rem`) maps to `--radius-card-sm`, not `md` as the memo listed — it is the same nested embed slot the memo maps to `sm` at mobile, and `sm` is the closest token (0.8px shift vs 5.6px).
+
+**Files changed**
+- `next/src/styles/global.css`
+
+**Pages affected**
+- Site-wide (any page using Weekend Picker, CompareBlock, newsletter blocks, typeahead grid)
+
+**Why it matters**
+Removes radius drift across visually-peer card surfaces and makes future radius changes one-line edits. Visual shifts are 1–4px on three surfaces (newsletter frames 1.35→1.5rem, mobile form-frame 1.05→1.25rem).
+
+**Verification**
+- `npm run build` passes (1485 pages).
+
+**Follow-up**
+- Backlog from the same memo: `--shadow-*` tokens (17 distinct values), a `--text-*` font-size scale (70+ values), and 30+ ad-hoc hex colours outside `:root`.
+
 ## 2026-06-01 — Codex
 
 ### Footer advertising link removed
