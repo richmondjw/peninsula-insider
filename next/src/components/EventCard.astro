@@ -19,9 +19,13 @@ export interface Props {
    * What's On surfaces cleaner and less review-site driven.
    */
   showVerdict?: boolean;
+  /** Override the computed date label — used by the homepage weekend rail
+      so long-running events read "On this weekend" instead of their
+      historical start date. */
+  dateLabelOverride?: string;
 }
 
-const { event, featured = false } = Astro.props;
+const { event, featured = false, dateLabelOverride } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
 
@@ -51,7 +55,9 @@ function shortDate(d: Date): string {
   return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Melbourne' });
 }
 const dateLabel: string | null =
-  event.data.recurrenceNote
+  dateLabelOverride
+    ? dateLabelOverride
+    : event.data.recurrenceNote
     ? event.data.recurrenceNote
     : event.data.nextOccurrence
     ? shortDate(event.data.nextOccurrence)
