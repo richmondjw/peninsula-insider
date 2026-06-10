@@ -14,6 +14,30 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-10 — Claude (design)
+
+### Card radius tokens (design review 2026-W22)
+
+**Summary**
+Implemented the 2026-W22 design review recommendation: added `--radius-card-sm/md/lg` tokens to `:root` and collapsed the nine bespoke card `border-radius` values in `global.css` onto them (Weekend Picker, CompareBlock columns, newsletter frames/embed, place-typeahead grid, stay card panel).
+
+One deviation from the memo: `.newsletter__embed` at desktop (was `0.9rem`) maps to `--radius-card-sm`, not `md` as the memo listed — it is the same nested embed slot the memo maps to `sm` at mobile, and `sm` is the closest token (0.8px shift vs 5.6px).
+
+**Files changed**
+- `next/src/styles/global.css`
+
+**Pages affected**
+- Site-wide (any page using Weekend Picker, CompareBlock, newsletter blocks, typeahead grid)
+
+**Why it matters**
+Removes radius drift across visually-peer card surfaces and makes future radius changes one-line edits. Visual shifts are 1–4px on three surfaces (newsletter frames 1.35→1.5rem, mobile form-frame 1.05→1.25rem).
+
+**Verification**
+- `npm run build` passes (1485 pages).
+
+**Follow-up**
+- Backlog from the same memo: `--shadow-*` tokens (17 distinct values), a `--text-*` font-size scale (70+ values), and 30+ ad-hoc hex colours outside `:root`.
+
 ## 2026-06-01 — Codex
 
 ### Footer advertising link removed
