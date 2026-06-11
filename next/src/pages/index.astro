@@ -701,12 +701,14 @@ export const prerender = true;
     border: 0;
     background: var(--bg-dark);
     --masthead-h: 150px;          /* desktop: utility + brand + nav rows */
-    /* 75% of the viewport below the masthead (James, 2026-06-11) — the
-       next section peeks above the fold as a scroll affordance. */
-    --cover-h: calc((100svh - var(--masthead-h)) * 0.75);
+    /* Desktop 90% / mobile 75% of the viewport below the masthead
+       (James, 2026-06-11) — the next section peeks above the fold as a
+       scroll affordance. The mobile ratio is set in the mobile block. */
+    --cover-ratio: 0.9;
+    --cover-h: calc((100svh - var(--masthead-h)) * var(--cover-ratio));
   }
   @supports not (height: 100svh) {
-    .cover { --cover-h: calc((100vh - var(--masthead-h)) * 0.75); }
+    .cover { --cover-h: calc((100vh - var(--masthead-h)) * var(--cover-ratio)); }
   }
   .cover__carousel { display: grid; }
   .cover__slide {
@@ -744,16 +746,24 @@ export const prerender = true;
     margin: 0;
   }
   .cover__media img { object-fit: cover; display: block; }
-  /* Warm-dark scrim — guarantees headline contrast on any photo. The
-     bottom band reaches ~78% black-equivalent where the text sits. */
+  /* Warm-dark scrim — guarantees headline contrast on any photo.
+     Two layers (James, 2026-06-11): a vertical gradient that deepens
+     toward the bottom edge, plus a soft radial pool anchored bottom-left
+     directly behind the text column, so the centre of the photo keeps
+     its brightness while the type zone reads cleanly on bright images. */
   .cover__scrim {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg,
-      rgba(24, 18, 12, 0.10) 0%,
-      rgba(24, 18, 12, 0.16) 40%,
-      rgba(24, 18, 12, 0.46) 68%,
-      rgba(24, 18, 12, 0.80) 100%);
+    background:
+      radial-gradient(110% 85% at 16% 92%,
+        rgba(24, 18, 12, 0.42) 0%,
+        rgba(24, 18, 12, 0.20) 38%,
+        rgba(24, 18, 12, 0) 66%),
+      linear-gradient(180deg,
+        rgba(24, 18, 12, 0.08) 0%,
+        rgba(24, 18, 12, 0.14) 42%,
+        rgba(24, 18, 12, 0.50) 70%,
+        rgba(24, 18, 12, 0.82) 100%);
   }
 
   .cover__overlay {
@@ -915,7 +925,7 @@ export const prerender = true;
 
   /* ── Cover mobile ──────────────────────────────────────────────────────── */
   @media (max-width: 760px) {
-    .cover { --masthead-h: 59px; }   /* single compact brand row */
+    .cover { --masthead-h: 59px; --cover-ratio: 0.75; }   /* compact brand row; 75% hero */
     .cover__slide { max-height: 850px; }
     .cover__dispatch { display: none; }  /* Vivid economy: headline + CTA only */
     .cover__overlay { padding-bottom: 4.6rem; }

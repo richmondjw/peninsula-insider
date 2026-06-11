@@ -16,6 +16,17 @@ For each meaningful change, include:
 
 ## 2026-06-11 — Claude (design)
 
+### Hero: 90% desktop / 75% mobile + refined text scrim
+
+**Summary**
+Hero height is now ratio-tokened (`--cover-ratio`): 0.9 on desktop, 0.75 on mobile. The scrim gains a second layer — a soft radial pool anchored bottom-left directly behind the text column (peaks at 0.42 warm-black, fades out by 66%), over the slightly deepened vertical gradient — so headlines and deks read cleanly on bright images while the photo's centre keeps its brightness.
+
+**Verification**
+Headless Chromium: slide occupies exactly 90% of available height at 1280×900 and 75% at 390×844; overlay and controls inside the slide. Screenshots shared. `npm run build` passes (1485 pages).
+
+**Files changed**
+- `next/src/pages/index.astro`
+
 ### Hero at 75% height; /map/ mobile is map-only
 
 **Summary**
