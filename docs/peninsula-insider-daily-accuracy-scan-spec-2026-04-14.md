@@ -377,3 +377,23 @@ The Friday Performance Council cron should additionally surface:
 - all articles published in the past 7 days that did not pass governance gates at time of publish
 - any outstanding correction or removal requests logged in `docs/site-changelog.md`
 - count of `needs-verification` articles still unpublished (from the 84-winery batch and others)
+
+---
+
+## Working Tree Safety (added 2026-06-11, MANDATORY for all autofix runs)
+
+The autofix runs against a repo that interactive Claude Code sessions also edit. Two incidents (2026-05-28: a 117-file Kids Grade removal swept into a stash and lost; 2026-06-11: in-progress interactive edits stashed twice mid-task and never re-applied) make this rule non-negotiable.
+
+**Every autofix run (accuracy and image relevance) MUST, as its very first action:**
+
+```bash
+cd /home/node/.openclaw/workspace/peninsula-insider
+bash ops/scripts/pi-autofix-safe-stash.sh check
+```
+
+- **Exit 0** — tree is clean or contains only autofix-owned files (allowlist at the top of the script: events, quick-notes, weekend-picks content, ops/reports, .pi-autofix). Proceed.
+- **Exit 2** — foreign changes are present. **Abort the entire run.** Do not edit, stash, commit, or push. Report a one-line deferral in the Telegram summary and exit; the next scheduled run retries. The foreign file list is written to `.pi-autofix/deferred`.
+
+**Raw `git stash` (any invocation) is forbidden in autofix sessions.** If autofix-owned residue must be cleared, use `pi-autofix-safe-stash.sh stash`, and after the push run `pi-autofix-safe-stash.sh restore` and confirm exit 0. Restore failures keep the stash intact and append details to `.pi-autofix/stash-conflict.log`; any restore failure must be reported in the run summary. The script never drops a stash entry, even after a successful restore.
+
+Sentinels under `.pi-autofix/` (gitignored) are how the autofix communicates deferrals and conflicts to subsequent sessions. Interactive sessions that notice files reverting unexpectedly should check `git stash list` and `.pi-autofix/` first.
