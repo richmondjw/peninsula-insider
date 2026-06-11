@@ -16,6 +16,18 @@ For each meaningful change, include:
 
 ## 2026-06-11 — Claude (design)
 
+### Password gate removed
+
+**Summary**
+Removed the temporary password gate: the localStorage redirect script (`pi-access-v1` → `/access/`) in `BaseLayout.astro` and the `/access/` Coming Soon page itself. The site is fully public; first-time visitors land directly on content.
+
+**Files changed**
+- `next/src/layouts/BaseLayout.astro`
+- `next/src/pages/access/index.astro` (deleted)
+
+**Verification**
+- `npm run build` passes (1484 pages — one fewer with /access/ gone); no `pi-access-v1` references in built output.
+
 ### Hero: 90% desktop / 75% mobile + refined text scrim
 
 **Summary**
