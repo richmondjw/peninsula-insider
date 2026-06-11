@@ -14,6 +14,24 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-11 — Claude (design)
+
+### Three live-site fixes: mobile ribbon leak, map pins, hero slider stale images
+
+**1. Desktop pillar ribbon leaking onto mobile (regression, mine).** The Phase-1 v4.css rewrite replaced the wrong `@media (max-width: 760px)` block and dropped `.v4-masthead-nav { display: none; }` — the desktop pillar nav then rendered (wrapped, squished) on phones, which also inflated the sticky masthead and made the /map/ heading appear clipped under the sticky breadcrumb. Rule restored; verified hidden ≤760px and visible ≥765px at six widths.
+
+**2. /map/ pins never rendering after client-side navigation.** The map controller waited for `L` (Leaflet) but not for `L.markerClusterGroup`. Under Astro's ClientRouter, re-injected CDN scripts execute async, so Leaflet could land while markercluster was still in flight — the map initialised (tiles visible) and then threw at `markerClusterGroup`, leaving zero pins. Now waits for both (up to ~8s) and degrades to an unclustered `L.layerGroup()` rather than no pins. Also removed the "{n} editorially verified entries across the region — places, dining rooms…" line from the map intro per James; the how-to sentence remains.
+
+**3. Hero slider showing stale images outside edit mode.** The homepage cover scenes hard-coded image paths, bypassing `resolveHero` — exactly the bug class the resolver's "THE RULE" comment documents (the 2026-05-29 /explore/plans/ regression). Edit mode showed the current CMS images; the static build kept rendering the old hard-coded files. Each journal-linked scene now resolves through `resolveHero('article', slug, …)`: published CMS override → article frontmatter hero → hard-coded fallback. The homepage's own `cover.image` override still wins for the cover scene. Build output confirms scenes now pick up the articles' real heroes (e.g. flinders scene: `explore-bushrangers-bay-walk-01` → `article-flinders-weekend-01`).
+
+**Files changed**
+- `next/src/styles/v4.css`
+- `next/src/pages/map.astro`
+- `next/src/pages/index.astro`
+
+**Verification**
+- Pillar nav sweep at 390/430/600/760/765/1280px (hidden ≤760, visible ≥765). Map sub-text absent from built output; cluster guard present. Hero scene srcs in built homepage now match article heroes. `check-editable-coverage` passes. `npm run build` passes (1485 pages).
+
 ## 2026-06-10 — Claude (design)
 
 ### Vivid-style homepage uplift — Phase 4: horizontal card rails
