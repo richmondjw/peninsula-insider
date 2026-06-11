@@ -54,13 +54,25 @@ for (const v of allVenues) {
   venueBySlug.set(v.data.slug ?? v.id, v);
 }
 
+const EAT_TYPES = new Set(['restaurant', 'cafe', 'bakery', 'pub', 'market', 'providore']);
+const STAY_TYPES = new Set(['hotel', 'cottage', 'glamping', 'resort', 'apartment', 'bnb']);
+const EXPLORE_TYPES = new Set(['experience', 'attraction', 'park', 'beach', 'market']);
+
+function venueHrefPrefix(type: string | undefined): string {
+  if (!type) return '/wine';
+  if (EAT_TYPES.has(type)) return '/eat';
+  if (STAY_TYPES.has(type)) return '/stay';
+  if (EXPLORE_TYPES.has(type)) return '/explore';
+  return '/wine';
+}
+
 const resolved = items.map((item) => ({
   ...item,
   wineryChips: (item.wineries ?? []).map((slug) => {
     const v = venueBySlug.get(slug);
-    return v
-      ? { slug, label: v.data.name, href: `/wine/${slug}/` }
-      : { slug, label: slug, href: null };
+    if (!v) return { slug, label: slug, href: null };
+    const prefix = venueHrefPrefix(v.data.type);
+    return { slug, label: v.data.name, href: `${prefix}/${slug}/` };
   }),
 }));
 ---
