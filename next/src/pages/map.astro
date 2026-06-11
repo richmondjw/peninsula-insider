@@ -167,7 +167,7 @@ export const prerender = true;
       <div class="container">
         <p class="label label--accent">The Insider Map</p>
         <h1 class="map-page__title">The whole Peninsula, on one screen.</h1>
-        <p class="map-page__sub">{allPins.length} editorially verified entries across the region — places, dining rooms, cellar doors, stays, and the experiences worth the drive. Filter by category, click a pin for the editor's note, or open any entry in full.</p>
+        <p class="map-page__sub">Filter by category, click a pin for the editor's note, or open any entry in full.</p>
       </div>
     </div>
 
@@ -240,11 +240,18 @@ export const prerender = true;
       function init() {
         var container = document.getElementById('theInsiderMap');
         if (!container || container._piMapBound) return;
-        if (typeof L === 'undefined') {
-          // Leaflet hasn't finished loading yet — retry once on next tick.
+        // Under the ClientRouter, the re-injected CDN scripts execute
+        // async — L can exist while markercluster is still in flight,
+        // which used to throw at L.markerClusterGroup and leave a tile
+        // map with zero pins. Wait for both (up to ~8s), then degrade
+        // to an uncluster ed layer group rather than no pins at all.
+        container._piMapTries = (container._piMapTries || 0) + 1;
+        var pluginReady = typeof L !== 'undefined' && typeof L.markerClusterGroup === 'function';
+        if (!pluginReady && container._piMapTries < 80) {
           setTimeout(init, 100);
           return;
         }
+        if (typeof L === 'undefined') return; // Leaflet truly unavailable
         container._piMapBound = true;
 
         var map = L.map(container, {
@@ -303,10 +310,12 @@ export const prerender = true;
             + '</div>';
         }
 
-        var clusterGroup = L.markerClusterGroup({
-          showCoverageOnHover: false,
-          maxClusterRadius: 45,
-        });
+        var clusterGroup = typeof L.markerClusterGroup === 'function'
+          ? L.markerClusterGroup({
+              showCoverageOnHover: false,
+              maxClusterRadius: 45,
+            })
+          : L.layerGroup();
 
         var markersById = {};
         var entriesById = {};

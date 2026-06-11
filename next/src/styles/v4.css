@@ -218,8 +218,15 @@ body[data-v4="true"] .v4-burger {
 }
 .v4-subscribe-cta:focus-visible { outline: none; box-shadow: var(--v4-focus-ring); }
 
-/* Hide V4 nav on mobile — mobile drawer handles it. */
+/* =========================================================
+   V4 MOBILE MASTHEAD (≤760px)
+   ========================================================= */
 @media (max-width: 760px) {
+  /* Hide the V4 pillar nav row on mobile — the drawer handles it.
+     (This rule was accidentally dropped in the 2026-06-10 Phase-1
+     rewrite, which let the desktop ribbon leak onto phones.) */
+  .v4-masthead-nav { display: none; }
+
   /* Hide the utility row entirely on mobile (2026-05-13). The ribbon
      previously held a thin Login link, but Login is also reachable from the
      drawer's account row, so the 20px of fixed chrome was not earning its
