@@ -16,6 +16,30 @@ For each meaningful change, include:
 
 ## 2026-06-11 — Claude (design)
 
+### Sitewide responsive audit — mobile overflow fixes
+
+**Summary**
+James reported clipped content on /stay/hotel-sorrento/ (mobile). Audited all 1,483 built pages headlessly at 390px with a clipped-text detector (text protruding past non-scrollable clip boundaries). One bug family dominated: **grid `1fr` tracks whose min-content floor lets unbreakable content blow the column past the viewport**, plus separator runs rendered with no whitespace (one giant unbreakable "word").
+
+Fixes:
+- **Venue detail pages (~600 pages)** — "Filed under" and "Known for" tag runs rendered `·` separators with no surrounding whitespace; the unbreakable run forced the mobile grid track to 477px and the page clipped. Separators now include real spaces; `.venue-detail__grid` mobile collapse hardened to `minmax(0, 1fr)`.
+- **Cookie banner (every page)** — `1fr auto` grid let the nowrap mobile body force the banner to 498px, defeating its one-line ellipsis. Now `minmax(0, 1fr) auto`.
+- **`.letter__frame`** mobile collapses (two breakpoints) hardened to `minmax(0, 1fr)` — same family, defensive.
+- **Partner print sheets** (/partners/founders-prospectus/, /partners/advertising-kit/) — A4 sheets (794px) clipped on phones. PrintLayout screen-preview now zooms sheets to viewport width ≤830px with a hidden-scrollbar pan fallback. Print output unaffected.
+
+**Out of scope**: remaining flags are all under /v2-staging/ (noindexed design sandbox, 71 prototype pages).
+
+**Verification**
+Final full sweep at 390px: zero clipped-text flags on production pages. Hotel Sorrento, Montalto, Rare Hare, region explorers, homepage rails, plans all verified; cookie banner exactly 390px with intended one-line truncation; partner sheets scale (zoom 0.48). `npm run build` passes (1484 pages, surface-hardening audit green).
+
+**Files changed**
+- `next/src/components/VenueDetailTemplate.astro`
+- `next/src/components/CookieBanner.astro`
+- `next/src/layouts/PrintLayout.astro`
+- `next/src/styles/global.css`
+
+
+
 ### /journal/peninsula-hot-springs-vs-alba/ — modular redesign of the top SEO page
 
 **Summary**

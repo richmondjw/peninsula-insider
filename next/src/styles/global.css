@@ -4849,7 +4849,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: start;
 }
 @media (max-width: 840px) {
-  .letter__frame { grid-template-columns: 1fr; gap: 2rem; }
+  .letter__frame { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
 .letter__body-col {
   max-width: 42ch;
@@ -8497,7 +8497,7 @@ body[data-path^="/ask"] .concierge-fab {
     font-weight: inherit;
     font-style: inherit;
   }
-  .letter__frame { grid-template-columns: 1fr; gap: 1.2rem; }
+  .letter__frame { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
   .letter__side { order: -1; max-width: 280px; }
   .letter__image { aspect-ratio: 16 / 10; }
   .letter__image-cap { font-size: 0.82rem; }

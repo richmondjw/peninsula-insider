@@ -981,6 +981,19 @@ const { title, description = 'Peninsula Insider partnership document.' } = Astro
         box-shadow: 0 4mm 16mm rgba(0, 0, 0, 0.45);
       }
     }
+    /* Phones: scale each A4 sheet to the viewport so the document is
+       readable without clipping. `zoom` keeps layout size in sync
+       (unlike transform). Where calc-division zoom is unsupported the
+       scrollable body still lets readers pan the full sheet. */
+    @media screen and (max-width: 830px) {
+      body {
+        padding: 4mm 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      body::-webkit-scrollbar { display: none; }
+      .pi-page { zoom: calc((100vw - 8px) / 794px); margin: 0 auto 4mm; }
+    }
   </style>
 </head>
 <body>
