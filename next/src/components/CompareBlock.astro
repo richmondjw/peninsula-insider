@@ -25,7 +25,9 @@ export interface CompareColumn {
 
 export interface Props {
   eyebrow?: string;
-  heading: string;
+  /** Optional — omit when the surrounding prose already carries the
+      section heading (e.g. an MDX article H2 right above the block). */
+  heading?: string;
   dek?: string;
   left: CompareColumn;
   right: CompareColumn;
@@ -35,13 +37,15 @@ const { eyebrow, heading, dek, left, right } = Astro.props;
 const cols = [left, right];
 ---
 
-<section class="compare-block" aria-label={heading}>
+<section class="compare-block" aria-label={heading ?? `${left.label} vs ${right.label}`}>
   <div class="container">
-    <div class="compare-block__intro">
-      {eyebrow && <p class="label label--accent">{eyebrow}</p>}
-      <h2 class="compare-block__heading">{heading}</h2>
-      {dek && <p class="compare-block__dek">{dek}</p>}
-    </div>
+    {(eyebrow || heading || dek) && (
+      <div class="compare-block__intro">
+        {eyebrow && <p class="label label--accent">{eyebrow}</p>}
+        {heading && <h2 class="compare-block__heading">{heading}</h2>}
+        {dek && <p class="compare-block__dek">{dek}</p>}
+      </div>
+    )}
     <div class="compare-block__grid">
       {cols.map((col) => (
         <article class="compare-block__col">
