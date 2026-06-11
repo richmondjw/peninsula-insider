@@ -141,7 +141,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         <span class="venue-known-for__label">Known for</span>
         <span class="venue-known-for__items">
           {data.knownFor.map((item: string, i: number) => (
-            <>{i > 0 && <span class="venue-known-for__sep" aria-hidden="true">·</span>}{item}</>
+            <>{i > 0 && <span class="venue-known-for__sep" aria-hidden="true"> · </span>}{item}</>
           ))}
         </span>
       </p>
@@ -308,7 +308,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             <span class="venue-detail__filed-label">Filed under</span>
             <span class="venue-detail__filed-items">
               {allTags.map((tag: string, i: number) => (
-                <>{i > 0 && <span class="venue-detail__filed-sep" aria-hidden="true">·</span>}{titleize(tag)}</>
+                <>{i > 0 && <span class="venue-detail__filed-sep" aria-hidden="true"> · </span>}{titleize(tag)}</>
               ))}
             </span>
           </p>
@@ -986,7 +986,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   }
   .venue-known-for__sep {
     color: var(--gold, #B69A6B);
-    margin: 0 0.55rem;
+    margin: 0 0.4rem;
   }
 
   /* ── Filed under — demoted discovery tags (quiet, not pills) ── */
@@ -1006,7 +1006,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   }
   .venue-detail__filed-sep {
     color: var(--border, #E5E0D6);
-    margin: 0 0.4rem;
+    margin: 0 0.25rem;
   }
 
   /* ── Insider Verdict block ── */
