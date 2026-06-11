@@ -45,6 +45,7 @@ const mood = z.enum([
   'golf',
   'outdoor',
   'surf',
+  'worth-the-drive',
 ]);
 
 const audience = z.enum([
