@@ -255,7 +255,7 @@ body[data-v4="true"] .v4-burger {
     min-width: 0;
   }
   body[data-v4="true"] .masthead__brand .masthead__logo {
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(19px, 6vw, 29px);   /* +20% per James 2026-06-11 */
     line-height: 1.1;
     text-decoration: none;
     white-space: nowrap;
@@ -308,8 +308,14 @@ body[data-v4="true"] .v4-burger {
   body[data-v4="true"] .v4-burger {
     display: flex !important;
     flex-shrink: 0;
-    padding: 8px 0 8px 6px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
   }
+  body[data-v4="true"] .v4-burger span { width: 18px; }
 }
 
 /* Edition stamp exists for the mobile bar only. */
@@ -324,12 +330,12 @@ body[data-v4="true"] .v4-burger {
     padding-bottom: 12px;
     min-height: 52px;
   }
-  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(16px, 5.6vw, 30px); }
+  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(19px, 6vw, 30px); }
 }
 
 /* Narrow screens: drop the edition stamp so the wordmark and four icons
    keep comfortable room (the wordmark starts clipping below ~405px). */
-@media (max-width: 404px) {
+@media (max-width: 459px) {
   .v4-edition-stamp { display: none; }
 }
 
