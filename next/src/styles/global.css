@@ -9225,9 +9225,12 @@ body.menu-open .subscribe-pill {
   padding-left: 0.2rem;
 }
 
-/* Mobile List/Map tab bar — hidden on desktop */
+/* List/Map tab bar — retired 2026-06-11: mobile is map-only (the list
+   is hidden on phones per James), desktop always shows both panels, so
+   the bar has no remaining job. Markup + controller kept for an easy
+   revert. */
 .map-page__tabs {
-  display: flex;
+  display: none;
   border-bottom: 2px solid var(--border);
   background: var(--paper, #fbf7f0);
 }
@@ -9270,6 +9273,10 @@ body.menu-open .subscribe-pill {
   }
 }
 
+@media (max-width: 879px) {
+  /* Mobile is map-only — hide the list panel (James 2026-06-11). */
+  .map-page__list { display: none !important; }
+}
 .map-page__list {
   border-bottom: 1px solid var(--border);
   display: flex;

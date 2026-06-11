@@ -189,8 +189,8 @@ export const prerender = true;
 
       <!-- Mobile tab bar: List / Map. Desktop hides this. -->
       <div class="map-page__tabs" role="tablist" aria-label="Map view" data-map-tabs>
-        <button type="button" class="map-page__tab map-page__tab--active" role="tab" aria-selected="true" data-map-tab="list">List</button>
-        <button type="button" class="map-page__tab" role="tab" aria-selected="false" data-map-tab="map">Map</button>
+        <button type="button" class="map-page__tab" role="tab" aria-selected="false" data-map-tab="list">List</button>
+        <button type="button" class="map-page__tab map-page__tab--active" role="tab" aria-selected="true" data-map-tab="map">Map</button>
       </div>
 
       <div class="map-page__layout">
@@ -537,15 +537,17 @@ export const prerender = true;
       // On desktop breakpoint, always show both panels regardless of tab state
       var mq = window.matchMedia('(min-width: 880px)');
       function onBreakpoint(e) {
-        panels.forEach(function (p) { p.hidden = !e.matches && p.dataset.mapPanel !== 'list'; });
+        panels.forEach(function (p) { p.hidden = !e.matches && p.dataset.mapPanel !== 'map'; });
         if (e.matches) {
           panels.forEach(function (p) { p.hidden = false; });
         }
       }
       mq.addEventListener ? mq.addEventListener('change', onBreakpoint) : mq.addListener(onBreakpoint);
 
-      // Default state: list visible on mobile
-      activateTab('list');
+      // Default state: map visible on mobile (the list is hidden on
+      // phones per James 2026-06-11 — desktop shows both side by side).
+      // Going through activateTab('map') also runs the lazy Leaflet init.
+      activateTab('map');
 
       // Expose globally so the map marker-click handler can switch tabs
       window.piMapActivateTab = activateTab;

@@ -701,10 +701,12 @@ export const prerender = true;
     border: 0;
     background: var(--bg-dark);
     --masthead-h: 150px;          /* desktop: utility + brand + nav rows */
-    --cover-h: calc(100svh - var(--masthead-h));
+    /* 75% of the viewport below the masthead (James, 2026-06-11) — the
+       next section peeks above the fold as a scroll affordance. */
+    --cover-h: calc((100svh - var(--masthead-h)) * 0.75);
   }
   @supports not (height: 100svh) {
-    .cover { --cover-h: calc(100vh - var(--masthead-h)); }
+    .cover { --cover-h: calc((100vh - var(--masthead-h)) * 0.75); }
   }
   .cover__carousel { display: grid; }
   .cover__slide {
