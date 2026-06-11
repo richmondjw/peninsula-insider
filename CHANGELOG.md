@@ -16,6 +16,20 @@ For each meaningful change, include:
 
 ## 2026-06-11 — Claude (design)
 
+### Hero at 75% height; /map/ mobile is map-only
+
+**Summary**
+1. **Homepage hero** now takes 75% of the viewport below the masthead (was 100%) — the next section peeks above the fold as a scroll affordance. Verified at exactly 75% on 390×844 and 1280×900 with overlay and controls still inside the slide.
+2. **/map/ on mobile** hides the entries list and the List/Map tab bar — the map is the single mobile view and Leaflet initialises through the existing lazy path. Desktop keeps the side-by-side list + map. Tab markup and controller retained for an easy revert.
+
+**Files changed**
+- `next/src/pages/index.astro`
+- `next/src/pages/map.astro`
+- `next/src/styles/global.css`
+
+**Verification**
+Headless Chromium: hero 75% at both form factors; map page at 390px shows map only (no list/tabs), at 1280px list renders beside the map. `npm run build` passes (1485 pages).
+
 ### Three live-site fixes: mobile ribbon leak, map pins, hero slider stale images
 
 **1. Desktop pillar ribbon leaking onto mobile (regression, mine).** The Phase-1 v4.css rewrite replaced the wrong `@media (max-width: 760px)` block and dropped `.v4-masthead-nav { display: none; }` — the desktop pillar nav then rendered (wrapped, squished) on phones, which also inflated the sticky masthead and made the /map/ heading appear clipped under the sticky breadcrumb. Rule restored; verified hidden ≤760px and visible ≥765px at six widths.
