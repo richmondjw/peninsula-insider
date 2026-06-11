@@ -1,0 +1,63 @@
+---
+/**
+ * ArticleJumpNav — "On this page" anchor chip row for long-form
+ * articles. Links target the auto-generated heading slugs from the
+ * markdown/MDX pipeline.
+ */
+export interface JumpItem {
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  items: JumpItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="jump-nav" aria-label="On this page">
+  <span class="jump-nav__label">On this page</span>
+  {items.map((item) => (
+    <a class="jump-nav__chip" href={item.href}>{item.label}</a>
+  ))}
+</nav>
+
+<style is:global>
+  .jump-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 1.5rem 0 2rem;
+    padding: 1rem 0 1.25rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .jump-nav__label {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-right: 0.35rem;
+  }
+  .jump-nav__chip {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.32rem 0.75rem;
+    transition: color .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+  }
+  .jump-nav__chip:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--bg-alt);
+  }
+</style>

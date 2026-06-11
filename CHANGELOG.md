@@ -16,6 +16,30 @@ For each meaningful change, include:
 
 ## 2026-06-11 — Claude (design)
 
+### /journal/peninsula-hot-springs-vs-alba/ — modular redesign of the top SEO page
+
+**Summary**
+Converted the top-ranking article from plain markdown to MDX with reusable comparison modules, per James's brief (visual + modular + copy):
+
+- **`VsVerdictDuo`** (new) — "The quick answer" as two verdict panels: linked venue, one-line stance, booking conditions.
+- **`CompareBlock`** (reused — it was designed for this exact page) — the at-a-glance markdown table becomes two definition-list columns; `heading` prop made optional so the article's own H2 carries the anchor/SEO. Prose-scoped styles let it sit flush in the 680px column.
+- **`VsScenarios`** (new) — the seven "which one for which day" H3 blocks become quoted scenario cards with accent verdicts and supporting notes.
+- **`ArticleJumpNav`** (new) — "On this page" anchor chips after the intro (six sections, auto-generated heading slugs).
+- **Photography** — Alba section gains its real photo (`spa-alba-thermal-springs-01`); hero already carries PHS Hilltop. No second PHS body image — the only other spa assets are unattributed and mislabeling venue photography isn't worth it.
+- **Copy fix** — body said Alba has "thirty-one" pools while the table/FAQ say 22; now "twenty-two" everywhere.
+- FAQ accordion + FAQPage schema and clusterLinks were already rendered by the journal template — untouched.
+
+All three new components are generic for future vs-articles (Bay vs Ocean, Red Hill vs Sorrento etc.).
+
+**Files changed**
+- `next/src/content/articles/peninsula-hot-springs-vs-alba.mdx` (was .md)
+- `next/src/components/VsVerdictDuo.astro`, `VsScenarios.astro`, `ArticleJumpNav.astro` (new)
+- `next/src/components/CompareBlock.astro` (heading optional)
+- `next/src/styles/global.css` (prose-embedded CompareBlock + article-figure styles)
+
+**Verification**
+Headless Chromium at 390px: 6 jump chips with all anchors resolving, 2 verdict cards, 2 compare columns, 7 scenario cards, figure rendered, 3 FAQ items, no horizontal overflow, no page errors, contradiction gone. `check-editable-coverage` passes. `npm run build` passes (1484 pages).
+
 ### Masthead: wordmark +20%, burger uniform with icons
 
 **Summary**

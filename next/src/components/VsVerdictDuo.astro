@@ -1,0 +1,111 @@
+---
+/**
+ * VsVerdictDuo — "the quick answer" panel pair for A-vs-B comparison
+ * articles. Two verdict cards, one per contender: linked venue name,
+ * a one-line stance, and the booking conditions as a compact list.
+ *
+ * Designed for the 680px prose column in MDX articles
+ * (first use: /journal/peninsula-hot-springs-vs-alba/).
+ */
+export interface VerdictItem {
+  /** Display name, e.g. "Alba Thermal Springs". */
+  name: string;
+  href: string;
+  /** One-line stance, e.g. "The newcomer — design, calm, adults-only pacing." */
+  stance: string;
+  /** "Book this one if…" conditions. */
+  points: string[];
+}
+
+export interface Props {
+  items: [VerdictItem, VerdictItem];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="vs-verdict">
+  {items.map((item) => (
+    <article class="vs-verdict__card">
+      <p class="vs-verdict__book">Book</p>
+      <h3 class="vs-verdict__name"><a href={item.href}>{item.name}</a></h3>
+      <p class="vs-verdict__stance">{item.stance}</p>
+      <ul class="vs-verdict__points">
+        {item.points.map((point) => <li>{point}</li>)}
+      </ul>
+    </article>
+  ))}
+</div>
+
+<style is:global>
+  .vs-verdict {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.75rem 0 2.25rem;
+  }
+  @media (max-width: 640px) {
+    .vs-verdict { grid-template-columns: 1fr; }
+  }
+  .vs-verdict__card {
+    background: linear-gradient(180deg, rgba(255,252,247,0.98) 0%, rgba(248,243,236,0.98) 100%);
+    border: 1px solid rgba(121, 92, 58, 0.16);
+    border-radius: var(--radius-card-md);
+    padding: 1.4rem 1.4rem 1.5rem;
+  }
+  .vs-verdict__book {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.45rem;
+  }
+  .vs-verdict__name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem;
+  }
+  .vs-verdict__name a {
+    color: var(--dark);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 78, 59, 0.35);
+    transition: color .18s var(--ease), border-color .18s var(--ease);
+  }
+  .vs-verdict__name a:hover { color: var(--accent); border-color: var(--accent); }
+  .vs-verdict__stance {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--soft);
+    margin: 0 0 0.9rem;
+  }
+  .vs-verdict__points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+  .vs-verdict__points li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin: 0;
+  }
+  .vs-verdict__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.52em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+</style>
