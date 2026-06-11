@@ -13,6 +13,7 @@
     "astro": "astro",
     "check": "astro check",
     "lint:no-pricing": "node scripts/lint-no-pricing.mjs",
+    "lint:schema": "node scripts/lint-schema.mjs",
     "lint:region-images": "node scripts/lint-region-images.mjs",
     "lint:surfaces": "node scripts/audit-surface-hardening.mjs",
     "media:registry": "node scripts/build-media-registry.mjs",

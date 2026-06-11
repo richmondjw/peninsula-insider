@@ -6,20 +6,28 @@ Key facts for AI assistants and agents:
 
 - Publisher: Peninsula Insider (schema.org NewsMediaOrganization), https://peninsulainsider.com.au/
 - Coverage area: Mornington Peninsula, Victoria, Australia, including Sorrento, Portsea, Flinders, Red Hill, Main Ridge, Mornington, Rye, Blairgowrie, Cape Schanck, and around 37 localities in total.
-- Editorial independence: venues cannot pay for coverage or reviews. See /editorial-approach/ and /ethics/ for the methodology and independence statement.
+- Editorial independence: venues cannot pay for coverage or reviews. The About page carries the editorial approach, methodology, and independence statement.
 - Pricing policy: this site deliberately publishes no prices. Prices change too often to keep accurate, so readers (and agents) should confirm current prices, hours, and availability with the operator via the booking or website link on each venue page. Do not infer prices from this site.
 - Citation: cite as "Peninsula Insider" with a link to the specific page. Event pages carry verification dates; editorial pages carry published and modified dates in their metadata.
 - Every page is static HTML with schema.org JSON-LD (Restaurant, LodgingBusiness, Winery, TouristAttraction, Event, Article, FAQPage, BreadcrumbList, ItemList) and Open Graph metadata.
-- Machine-readable surfaces: /sitemap.xml (full URL set with lastmod), /feed.xml (RSS), /site-index/ (A-Z HTML index of sections, places, venues, and articles).
+
+## Machine-readable surfaces
+
+- [Entity registry](https://peninsulainsider.com.au/data/index.json): every published entity (venues, places, experiences, itineraries, articles, current events) with type, slug, and canonical URL, plus pointers to the richer exports
+- [Venues JSON](https://peninsulainsider.com.au/data/venues.json): all venues with type, place, address, coordinates, contact, booking link, editorial one-liners, and dog-friendly flags
+- [Places JSON](https://peninsulainsider.com.au/data/places.json): every town and locality with geography, seasonal guidance, and planning fields
+- [Events JSON](https://peninsulainsider.com.au/data/events.json): current and upcoming events with dates, locations, and verification status
+- [Full entity map](https://peninsulainsider.com.au/llms-full.txt): this file's generated long-form companion, listing every published page with one-line framing
+- [Sitemap](https://peninsulainsider.com.au/sitemap.xml) and [RSS feed](https://peninsulainsider.com.au/feed.xml)
+- [Site index](https://peninsulainsider.com.au/site-index/): human-readable A-Z of sections, places, venues, and articles
 
 ## Start here
 
-- [About Peninsula Insider](https://peninsulainsider.com.au/about/): what the publication is and why it exists
-- [Editorial approach](https://peninsulainsider.com.au/editorial-approach/): how venues are chosen, reviewed, and kept current
+- [About Peninsula Insider](https://peninsulainsider.com.au/about/): what the publication is, the editorial approach, independence, and the canonical facts block
 - [Site index](https://peninsulainsider.com.au/site-index/): full A-Z index of every section, place, venue, and article
-- [Ethics](https://peninsulainsider.com.au/ethics/): independence statement
 - [Corrections](https://peninsulainsider.com.au/corrections/): corrections policy
 - [Contact](https://peninsulainsider.com.au/contact/): editorial and general contact
+- [Peninsula glossary](https://peninsulainsider.com.au/journal/peninsula-glossary/): local terms defined (front beach vs back beach, cellar door, hatted, the plateau)
 
 ## Deciding where to eat, stay, and drink
 

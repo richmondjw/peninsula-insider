@@ -14,6 +14,39 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-11 — Claude remote agent
+
+### AI-agent readiness: implementation pass
+
+**Summary**
+Implemented the in-repo items from the AI-agent readiness review: machine-readable data exports, generated llms-full.txt, venue JSON-LD enrichment (ReserveAction, dateModified, image, mainEntityOfPage), lastFactVerified field + rendered "Verified" row, feed.xml enrichment, Pagefind place/type/verdict facets, a Peninsula glossary page with DefinedTermSet schema, a canonical facts block on /about/, and a JSON-LD validation lint.
+
+**Files changed**
+- `next/src/pages/data/{index,venues,places,events}.json.ts` (new) + `next/src/lib/agent-data.ts` (new)
+- `next/src/pages/llms-full.txt.ts` (new)
+- `next/src/pages/journal/peninsula-glossary.astro` (new)
+- `next/scripts/lint-schema.mjs` (new) + `lint:schema` npm script
+- `next/src/pages/{eat,stay,wine}/[slug].astro`, `next/src/lib/schema.ts` (venue schema enrichment, searchMeta)
+- `next/src/layouts/BaseLayout.astro` (searchMeta prop for Pagefind facets)
+- `next/src/components/VenueDetailTemplate.astro` (Verified row)
+- `next/src/content.config.ts` (venues.lastFactVerified)
+- `next/src/pages/feed.xml.ts`, `next/src/pages/about.astro`
+- `next/public/llms.txt` + root mirrors (`llms.txt`, `llms-full.txt`, `data/`, `feed.xml`)
+
+**Pages affected**
+All venue detail pages (eat/stay/wine), /about/, /feed.xml, /llms.txt, /llms-full.txt (new), /data/*.json (new), /journal/peninsula-glossary/ (new).
+
+**Why it matters**
+Turns the JSON-first content layer into published machine-readable surfaces, adds the freshness and book-direct signals AI search engines weight, and gives Pagefind richer facets. Verified: full build passes (1,486 pages); `lint:schema` validates 2,502 JSON-LD blocks.
+
+**Follow-up / open issues**
+- DECISION NEEDED: BRAND-PI.md and INFORMATION-ARCHITECTURE.md say priceBand "is never rendered publicly", but it renders on ~20 live surfaces (venue Spend row, cards, guides, /eat/ price filter) and tasting fees render dollar figures. Amend the docs or remove the renders deliberately.
+- Editorial backlog: comparison pages, FAQ passes on town hubs (need the house voice, not an agent).
+- Platform repo: concierge API docs + CORS + keys + citations; MCP server.
+- Populate lastFactVerified across venues as editors re-verify details (21 already carry it).
+
+---
+
 ## 2026-06-10 — Claude remote agent
 
 ### AI-agent readiness review + llms.txt shipped

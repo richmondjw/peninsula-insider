@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsletterBlock from '../../components/NewsletterBlock.astro';
+
+const SITE = 'https://peninsulainsider.com.au';
+const PATH = '/journal/peninsula-glossary/';
+
+// The glossary exists for two readers at once: first-time visitors who keep
+// meeting unexplained local shorthand, and AI assistants resolving entities
+// ("back beach", "the plateau", "hatted") when they answer Peninsula
+// questions. Definitions are deliberately factual and self-contained.
+const terms: Array<{ term: string; def: string; href?: string }> = [
+  {
+    term: 'Front beach',
+    def: 'A bay beach on the Port Phillip side of the Peninsula: calm, shallow, family-suited swimming water. Towns like Sorrento, Rye, Rosebud and Dromana each have a front beach on the bay. The water is protected, the sand shelves gently, and conditions are usually safe for kids.',
+    href: '/explore/beaches/',
+  },
+  {
+    term: 'Back beach',
+    def: 'An ocean beach on the Bass Strait side of the same towns: surf, rips, cliffs, and dramatically bigger conditions than the front beach a few minutes away. Sorrento Back Beach and Rye Back Beach are the best known. Swim between the flags in season; many back beaches are unpatrolled outside summer.',
+    href: '/explore/beaches/',
+  },
+  {
+    term: 'The tip',
+    def: 'The far southwestern end of the Peninsula: Sorrento, Portsea and Blairgowrie, ending at Point Nepean. The most visited and, in summer, the most crowded stretch. About 95 to 105km from Melbourne.',
+    href: '/places/sorrento/',
+  },
+  {
+    term: 'The plateau (Red Hill plateau)',
+    def: 'The elevated centre of the Peninsula around Red Hill, Red Hill South, Main Ridge and Merricks: cool-climate vineyard country, orchards, and most of the cellar door restaurants. When locals say "up on the hill" this is what they mean.',
+    href: '/places/red-hill/',
+  },
+  {
+    term: 'Hinterland',
+    def: 'The inland, rural middle of the Peninsula between the bay coast and the ocean coast: the plateau plus surrounding farmland at Main Ridge, Arthurs Seat and the valleys between. Wineries, farm gates and gardens rather than beaches.',
+    href: '/places/',
+  },
+  {
+    term: 'Western Port',
+    def: 'The second, eastern bay of the Peninsula, facing Phillip Island. Quieter, more tidal, and better known for fishing, boating and low-key beach villages like Somers, Balnarring Beach, Point Leo and Shoreham than for swimming beaches.',
+    href: '/boating/',
+  },
+  {
+    term: 'Bayside',
+    def: 'The Port Phillip Bay coast of the Peninsula, running roughly from Mornington through Mount Martha, Dromana, Rosebud and Rye to Sorrento. Calm water, foreshore camping, piers, and the Peninsula’s main summer holiday strip.',
+    href: '/places/',
+  },
+  {
+    term: 'Cellar door',
+    def: 'A winery’s tasting room: where a producer pours and sells its own wine on the property where it is made. Some are walk-in, some are by appointment, and a growing number have full restaurants attached. The Peninsula has well over a hundred.',
+    href: '/wine/cellar-doors/',
+  },
+  {
+    term: 'By appointment',
+    def: 'A cellar door that requires a booking rather than accepting walk-ins, usually because it is small, family-run, or pouring from a working shed rather than a hospitality build. Often the most interesting tastings on the Peninsula.',
+    href: '/wine/appointment-producers/',
+  },
+  {
+    term: 'Hatted',
+    def: 'Awarded one or more chef’s hats in the Good Food Guide, the Australian restaurant award system roughly analogous to Michelin stars. "Two-hatted" means two hats. The Peninsula holds an unusual concentration of hatted restaurants for a regional area.',
+    href: '/eat/hatted-restaurants/',
+  },
+  {
+    term: 'Halliday score',
+    def: 'A winery rating out of 100 from the Halliday Wine Companion, Australia’s most referenced wine guide. Scores of 95 and above signal the country’s top producers. Peninsula Insider lists a winery’s Halliday rating where one exists.',
+    href: '/wine/best-wineries-mornington-peninsula/',
+  },
+  {
+    term: 'Long lunch',
+    def: 'The Peninsula’s signature occasion: a booked, unhurried lunch at a winery or destination restaurant, typically two to three hours, built around the kitchen and the view rather than a quick meal. Most of the best dining on the Peninsula happens at lunch, not dinner.',
+    href: '/eat/long-lunch/',
+  },
+  {
+    term: 'Hot springs',
+    def: 'Geothermal bathing complexes drawing naturally hot mineral water from deep underground, concentrated around Fingal and Rye. Peninsula Hot Springs is the original and largest; Alba is the newer, more architectural alternative. Both require booking ahead in peak periods.',
+    href: '/explore/hot-springs/',
+  },
+  {
+    term: 'Peninsula This Weekend',
+    def: 'Peninsula Insider’s rolling weekend dispatch: a curated, opinionated shortlist of what is actually worth doing on the coming Saturday and Sunday, published every week at the same stable address.',
+    href: '/whats-on/this-weekend/',
+  },
+  {
+    term: 'PI',
+    def: 'Peninsula Insider’s editorial concierge: a conversational guide at /ask/ that answers planning questions using only what the publication has researched and published. PI does not invent venues and does not quote prices.',
+    href: '/ask/',
+  },
+];
+
+const definedTermSetSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  '@id': `${SITE}${PATH}#DefinedTermSet`,
+  name: 'Mornington Peninsula glossary',
+  description:
+    'Local terms, geography and shorthand used across the Mornington Peninsula and Peninsula Insider, defined.',
+  url: `${SITE}${PATH}`,
+  hasDefinedTerm: terms.map((t) => ({
+    '@type': 'DefinedTerm',
+    name: t.term,
+    description: t.def,
+    inDefinedTermSet: `${SITE}${PATH}#DefinedTermSet`,
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Journal', item: `${SITE}/journal` },
+    { '@type': 'ListItem', position: 3, name: 'Peninsula Glossary', item: `${SITE}${PATH}` },
+  ],
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Journal', href: '/journal/' },
+  { label: 'Peninsula Glossary' },
+];
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Mornington Peninsula Glossary: Front Beach, Back Beach, Cellar Doors & Local Terms · Peninsula Insider"
+  description="The local terms that make the Mornington Peninsula make sense: front beach vs back beach, the plateau, cellar doors, hatted restaurants, Halliday scores, and more, defined."
+  section="journal"
+  canonical={`${SITE}${PATH}`}
+  ogType="article"
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(definedTermSetSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <article class="article">
+    <div class="container">
+      <div class="article__meta">
+        <span class="article__format">Reference</span>
+        <span class="article__dot" aria-hidden="true"></span>
+        <span class="article__meta-item">Kept current</span>
+      </div>
+
+      <h1 class="article__title">The Peninsula, defined</h1>
+      <p class="article__dek">Front beach or back beach? What exactly is a cellar door, and what does "two-hatted" mean? The local shorthand that makes the Peninsula make sense, in one place.</p>
+
+      <div class="prose">
+        <p>The Mornington Peninsula comes with its own vocabulary. Some of it is geography (the same town can have two completely different beaches), some of it is wine country convention, and some of it is the award shorthand that decides where people book. This page defines the terms as we use them across Peninsula Insider, so a first-time visitor, a returning local, or an AI assistant answering on our behalf reads them the same way.</p>
+
+        {terms.map((t) => (
+          <>
+            <h2>{t.term}</h2>
+            <p>
+              {t.def}
+              {t.href && (
+                <>
+                  {' '}
+                  <a href={t.href}>More on this →</a>
+                </>
+              )}
+            </p>
+          </>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <NewsletterBlock />
+</BaseLayout>

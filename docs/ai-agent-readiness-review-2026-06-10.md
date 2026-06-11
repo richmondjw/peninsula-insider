@@ -205,3 +205,31 @@ llms.txt (done) · robots comment (done) · Organization `sameAs`/contactPoint �
 ---
 
 *Follow-ups land in CHANGELOG.md per house rules. Source audit references: `docs/INFORMATION-ARCHITECTURE.md`, `docs/ecosystem-review-2026-05-16.md`, `docs/insider-concierge-review-and-roadmap-2026-05-02.md`, `BRAND-PI.md`, `HANDOVER-CLAUDE.md`.*
+
+---
+
+## Implementation status — 2026-06-11
+
+Implemented in the same PR (branch `claude/ai-agent-website-redesign-9aujzk`), verified with a full build (1,486 pages) and the new schema lint (2,502 JSON-LD blocks valid):
+
+| Item | Status |
+|---|---|
+| llms.txt + robots.txt AI note | Shipped (links corrected: editorial-approach/ethics/methodology all redirect to /about/, so /about/ is the canonical trust page) |
+| /data/venues.json, /data/places.json, /data/events.json, /data/index.json | Shipped — static build-time exports, public fields only, mirroring the sitemap's publish posture (sitemapExclude and permanently-closed entries omitted) |
+| /llms-full.txt | Shipped — generated at build from the content collections (283 entities) |
+| Venue JSON-LD enrichment | Shipped — mainEntityOfPage, image, addressLocality, ReserveAction on bookingUrl (the schema-legal "book direct" consistent with no-pricing), dateModified from lastFactVerified, across eat/stay/wine templates |
+| lastFactVerified field | Added to the venues schema (the wine template already referenced it; ~21 venue JSONs already carry data). Rendered as a "Verified" row in the At-a-glance panel |
+| feed.xml enrichment | Shipped — dc:creator, category from article format, body excerpts in descriptions, 60 items |
+| Pagefind facets | Shipped — BaseLayout searchMeta prop; venue pages emit place/type facets + verdict metadata |
+| Glossary | Shipped at /journal/peninsula-glossary/ with DefinedTermSet schema |
+| Canonical facts block | Shipped on /about/ ("The facts.") with citation guidance |
+| Schema CI lint | Shipped as `npm run lint:schema` (validates all JSON-LD in dist; run post-build) |
+
+Found already done since the audit (no action needed): Organization schema sameAs/contactPoint/foundingDate; Ask PI streaming front end; about/methodology/editorial-approach consolidation (all → /about/).
+
+Not done here, with reasons:
+
+- **Comparison pages and FAQ content passes** — require genuine editorial judgement in the house voice; fabricating venue comparisons would violate the no-invented-content principle. Backlog for the editor.
+- **Concierge API docs, CORS, keys, citations; MCP server** — live in the separate platform repo (Vercel API), not this one.
+- **Author entity pages** — needs a masthead decision (named people vs the three archetypes) before Person schema is honest.
+- **Flagged inconsistency for an owner decision:** BRAND-PI.md and INFORMATION-ARCHITECTURE.md §1 both state priceBand "is never rendered publicly", but it renders on ~20 live surfaces (venue At-a-glance "Spend" row, venue cards, guides, the /eat/ price filter) and tasting fees render with dollar figures. This review initially removed two of those renders, then reverted on finding the pattern is site-wide and clearly deliberate product behaviour. Either the docs should be amended to carve out relative bands ($–$$$$), or the renders should be removed in a deliberate pass. Decision needed; the lint currently allows it.

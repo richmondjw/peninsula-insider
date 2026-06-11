@@ -259,6 +259,14 @@ const venues = defineCollection({
      */
     status: z.enum(['active', 'closed', 'paused', 'seasonal', 'permanently_closed']).default('active'),
     publishedAt: z.coerce.date(),
+    /**
+     * Date an editor last confirmed the venue's practical details (hours
+     * note, contact, status) against the operator. Rendered in the
+     * At-a-glance panel and emitted as JSON-LD dateModified so AI search
+     * engines can weight freshness. The wine template already read this
+     * field; adding it to the schema makes it live for all venue types.
+     */
+    lastFactVerified: z.coerce.date().optional(),
     sitemapExclude: z.boolean().default(false),
   }),
 });

@@ -426,6 +426,15 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
             </dd>
           </>
 
+          {data.lastFactVerified && (
+            <>
+              <dt>Verified</dt>
+              <dd>
+                Details checked {data.lastFactVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </dd>
+            </>
+          )}
+
           {hasWines && data.wines.winemaker && (
             <>
               <dt>Winemaker</dt>

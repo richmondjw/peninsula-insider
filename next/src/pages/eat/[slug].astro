@@ -94,9 +94,11 @@ const venueSchema = {
   '@type': schemaType,
   name: venue.data.name,
   description: venue.data.signature,
+  mainEntityOfPage: canonical,
   address: {
     '@type': 'PostalAddress',
     streetAddress: venue.data.address,
+    addressLocality: venuePlaceName,
     addressRegion: 'VIC',
     addressCountry: 'AU',
   },
@@ -105,8 +107,25 @@ const venueSchema = {
     latitude: venue.data.coordinates?.lat,
     longitude: venue.data.coordinates?.lng,
   },
+  ...(ogImage && !ogImage.includes('placeholder')
+    ? { image: ogImage.startsWith('http') ? ogImage : `https://peninsulainsider.com.au${ogImage}` }
+    : {}),
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
+  // The schema-legal way to say "book direct with the operator" without
+  // publishing prices: a ReserveAction targeting the operator's live
+  // booking page. Agents follow this for current price and availability.
+  ...(venue.data.bookingUrl
+    ? {
+        potentialAction: {
+          '@type': 'ReserveAction',
+          target: { '@type': 'EntryPoint', urlTemplate: venue.data.bookingUrl },
+        },
+      }
+    : {}),
+  ...(venue.data.lastFactVerified
+    ? { dateModified: venue.data.lastFactVerified.toISOString().slice(0, 10) }
+    : {}),
   ...buildKnownForProperties(venue.data.knownFor),
   // priceRange intentionally omitted (BRAND-PI 2026-05-15: no pricing on site).
 };
@@ -121,6 +140,7 @@ export const prerender = true;
   ogImage={ogImage}
   searchImage={ogImage}
   noindex={venue.data.sitemapExclude === true}
+  searchMeta={{ place: venuePlaceName, type: venueTypeLabel, verdict: venue.data.signature ?? '' }}
 >
   <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />
   <VenueDetailTemplate venue={venue} section="eat" related={related} articles={articles} itineraries={itineraries} />

@@ -93,6 +93,7 @@ export const prerender = true;
   ogImage={ogImage}
   searchImage={ogImage}
   noindex={venue.data.sitemapExclude === true || venue.data.status === 'closed'}
+  searchMeta={{ place: venuePlaceName, type: venueTypeLabel, verdict: venue.data.signature ?? '' }}
 >
   {schemas.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
