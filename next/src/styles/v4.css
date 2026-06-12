@@ -333,10 +333,26 @@ body[data-v4="true"] .v4-burger {
   body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(19px, 6vw, 30px); }
 }
 
-/* Narrow screens: drop the edition stamp so the wordmark and four icons
-   keep comfortable room (the wordmark starts clipping below ~405px). */
+/* Narrow screens (2026-06-12, James): keep the edition stamp visible at every
+   mobile width. This block used to drop the stamp below 459px; instead we now
+   reclaim the space from the surrounding chrome — tighter container gap,
+   smaller icon buttons, and a leaner stamp — so the wordmark (kept at its
+   2026-06-11 +20% size), the stamp, and all four icons share the bar. */
 @media (max-width: 459px) {
-  .v4-edition-stamp { display: none; }
+  body[data-v4="true"] .masthead__brand .container { gap: 6px; }
+  body[data-v4="true"] .v4-mobile-actions .v4-iconbtn { width: 30px; height: 30px; }
+  body[data-v4="true"] .v4-burger { width: 30px; }
+  .v4-edition-stamp { padding-left: 7px; }
+  .v4-edition-stamp__line {
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* Extra-small phones: ease the wordmark just enough that it stays whole
+   beside the stamp and icons (no ellipsis) down to ~320px. */
+@media (max-width: 360px) {
+  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(17px, 5vw, 21px); }
 }
 
 /* =========================================================
