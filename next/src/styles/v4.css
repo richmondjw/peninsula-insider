@@ -317,20 +317,30 @@ body[data-v4="true"] .v4-burger {
   .v4-edition-stamp { display: none; }
 }
 
-/* Extra-small screens: tighten the bar height. */
-@media (max-width: 380px) {
+/* Narrow screens: keep the edition stamp visible at every mobile width
+   (2026-06-12, James). This block previously dropped the stamp below 405px to
+   stop the wordmark clipping; instead we now tighten the surrounding chrome
+   — smaller wordmark, gaps, and icon buttons — so the wordmark, the stamp,
+   and all four icons share the bar without the stamp ever disappearing. */
+@media (max-width: 404px) {
   body[data-v4="true"] .masthead__brand .container {
+    gap: 7px;
     padding-top: 12px;
     padding-bottom: 12px;
     min-height: 52px;
   }
-  body[data-v4="true"] .masthead__brand .masthead__logo { font-size: clamp(16px, 5.6vw, 30px); }
-}
-
-/* Narrow screens: drop the edition stamp so the wordmark and four icons
-   keep comfortable room (the wordmark starts clipping below ~405px). */
-@media (max-width: 404px) {
-  .v4-edition-stamp { display: none; }
+  body[data-v4="true"] .masthead__brand .masthead__logo {
+    font-size: clamp(15px, 4.4vw, 20px);
+  }
+  .v4-edition-stamp { padding-left: 7px; }
+  .v4-edition-stamp__line {
+    font-size: 0.54rem;
+    letter-spacing: 0.06em;
+  }
+  body[data-v4="true"] .v4-mobile-actions .v4-iconbtn {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 /* =========================================================
