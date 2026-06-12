@@ -1,0 +1,71 @@
+{
+  "_readme": [
+    "HOMEPAGE HERO CAROUSEL — PINNED MANUAL CONTROL (2026-06-12, James).",
+    "This file is the ONLY source for the homepage cover slides. The page",
+    "renders exactly what is written here. There is NO CMS override, NO",
+    "article-hero derivation, and NO automated rewriting of these slides:",
+    "the resolveHero loop and the page/home cover.image override that used",
+    "to reroute these images were removed from index.astro in this rebuild.",
+    "To change a slide image: put the file in next/public/images/sourced/,",
+    "update the image path here, commit, deploy. It will not move again.",
+    "AUTOMATION (autofix crons, image-relevance passes, accuracy scans):",
+    "this file is LOCKED. Do not modify it under any circumstances."
+  ],
+  "slides": [
+    {
+      "id": "flinders-weekend",
+      "label": "SLOW PENINSULA",
+      "hours": "7 MIN READ",
+      "image": "/images/sourced/article-flinders-weekend-01.webp",
+      "imageAlt": "Flinders Pier and Bass Strait at dusk, with the village behind",
+      "headline": "The <em>other</em> Peninsula weekend.",
+      "dispatch": "When Red Hill is booked out and Sorrento feels like a queue, Flinders offers another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.",
+      "primaryHref": "/journal/a-flinders-weekend/",
+      "primaryLabel": "Read"
+    },
+    {
+      "id": "winter-peninsula-weekend",
+      "label": "FEATURE",
+      "hours": "8 MIN READ",
+      "image": "/images/sourced/home-hero-winter-weekend.webp",
+      "imageAlt": "Winter solstice figure on the Sorrento foreshore at dusk, the ferry crossing behind",
+      "headline": "A <em>winter</em> Peninsula weekend.",
+      "dispatch": "Short days, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. The Peninsula in winter is its most underrated season.",
+      "primaryHref": "/journal/a-winter-peninsula-weekend/",
+      "primaryLabel": "Read"
+    },
+    {
+      "id": "late-walks",
+      "label": "WALK",
+      "hours": "7 MIN READ",
+      "image": "/images/sourced/journal-late-afternoon-walks-01.webp",
+      "imageAlt": "Coastal scrub along the Range Area Walk at Point Nepean",
+      "headline": "When the light <em>starts improving.</em>",
+      "dispatch": "Bushrangers Bay for a full reset. Cape Schanck boardwalk when time is short. Sorrento Back Beach for mood rather than route. The four walks that earn the second drink.",
+      "primaryHref": "/journal/the-peninsulas-best-late-afternoon-walks/",
+      "primaryLabel": "Read"
+    },
+    {
+      "id": "cover",
+      "label": "FEATURE",
+      "hours": "9 MIN READ",
+      "image": "/images/sourced/home-hero-cover-story.webp",
+      "imageAlt": "Surfers walking along an ocean beach below coastal scrub, Mornington Peninsula",
+      "headline": "The Hatted Restaurants of the <em>Peninsula.</em>",
+      "dispatch": "Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.",
+      "primaryHref": "/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "primaryLabel": "Read the cover story"
+    },
+    {
+      "id": "cape-schanck",
+      "label": "GUIDE",
+      "hours": "8 MIN READ",
+      "image": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
+      "imageAlt": "Cape Schanck lighthouse above the basalt clifftop coastline, Mornington Peninsula National Park",
+      "headline": "The lighthouse at the edge of <em>everything.</em>",
+      "dispatch": "The 1859 limestone lighthouse, the boardwalk to Pulpit Rock, and the walk to Bushrangers Bay. The grounds are free from 6am. Here is the full structure of the day.",
+      "primaryHref": "/journal/cape-schanck-guide/",
+      "primaryLabel": "Read the guide"
+    }
+  ]
+}
