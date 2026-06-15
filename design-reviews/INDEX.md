@@ -6,4 +6,5 @@ Playbook: `/home/node/.openclaw/workspace/peninsula-insider/docs/design-review-p
 
 ## Memos (newest first)
 
+- [2026-W23](2026-W23.md) — Make ExperienceCard fully clickable with stretched-link and remove redundant CTA
 - [2026-W22](2026-W22.md) — Introduce `--radius-card-sm/md/lg` tokens and collapse the nine bespoke card radii onto them
