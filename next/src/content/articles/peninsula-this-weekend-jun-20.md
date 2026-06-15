@@ -1,6 +1,6 @@
 ---
 title: "Peninsula This Weekend — 20 to 21 June"
-dek: "Sorrento Solstice Festival on Saturday: fire, music, and a six-metre effigy on the bay. Sunday is the reset — hot springs, truffles, and the winter the Peninsula does best."
+dek: "The solstice weekend moves from Sorrento's festival foreshore on Saturday to the stillness of the springs and the forest on Sunday."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-06-15
@@ -24,14 +24,14 @@ clusterLinks:
   - label: "Things to Do on the Mornington Peninsula"
     href: "/journal/things-to-do-mornington-peninsula/"
 dispatch:
-  editorLine: "The solstice is the Peninsula's biggest winter night. Saturday is the festival. Sunday is the recovery — and the better half of the weekend."
+  editorLine: "The solstice is the Peninsula's biggest winter night. Saturday is the festival. Sunday is the recovery, and the better half of the weekend."
   weather: "Mid-June Peninsula: 12–14°C, showers possible. Saturday forecast currently favourable for the outdoor festival. Sunday clearing to partly cloudy."
   lead:
     title: "Sorrento Solstice Festival, Sorrento Foreshore"
     when: "Saturday 20 June, 2:00pm–9:00pm"
     where: "Sorrento Foreshore, Sorrento"
     price: "Free, ticketed via Humanitix"
-    summary: "The Peninsula's biggest winter set-piece: two music stages, fire performers, lantern path through the village, food trucks, and the six-metre 'Bernie' effigy burn on the bay at 6:30pm. Free but ticketed — book now. The one winter night when the Peninsula is neither quiet nor crowded; it is exactly at capacity."
+    summary: "The Peninsula's biggest winter set-piece: two music stages, fire performers, lantern path through the village, food trucks, and the six-metre 'Bernie' effigy burn on the bay at 6:30pm. Free but ticketed — book now. The one winter night when the Peninsula is neither quiet nor crowded."
     bookingLabel: "Book free ticket via Humanitix"
     bookingUrl: "https://www.humanitix.com/au/event/sorrento-solstice-festival-2026"
   companion:
@@ -39,14 +39,14 @@ dispatch:
     when: "Sunday 21 June, 2:00pm–5:00pm"
     where: "Peninsula Hot Springs, Rye"
     price: "Included with afternoon bathing session"
-    summary: "Live music every Sunday afternoon from the amphitheatre pool stage. Included with bathing — no separate ticket. The post-solstice Sunday reset: warm water, live acoustic set, and the quiet that follows Saturday's noise. Runs through 28 June."
+    summary: "Live music every Sunday afternoon from the amphitheatre pool stage. Included with bathing, no separate ticket. The post-solstice Sunday reset: warm water, live acoustic set, and the quiet that follows Saturday's noise. Runs through 28 June."
     bookingLabel: "Book bathing session"
   localEdge:
     title: "Red Hill Truffles winter truffle hunt, Main Ridge"
     when: "Saturday 20 or Sunday 21 June, booking required"
     where: "Red Hill Truffles, Main Ridge"
     price: "From $189pp (pizza hunt), from $195pp (lunch bundle), from $120pp (private hunt, minimum party)"
-    summary: "Périgord black season is at peak. The solstice weekend booking window is still available, but the festival crowd means Saturday afternoon slots are tighter than usual. Book Sunday morning for the quietest hunt of the month."
+    summary: "Périgord black season is at peak. The solstice weekend booking window is still available, but the festival crowd makes Saturday afternoon slots tighter than usual. Book Sunday morning for the quietest hunt of the month."
     bookingLabel: "Book via Red Hill Truffles"
     bookingUrl: "https://redhilltruffles.com/hunts"
 faq:
@@ -54,45 +54,44 @@ faq:
     answer: "Saturday 20 June is the Sorrento Solstice Festival on the Sorrento foreshore: free, ticketed via Humanitix, running 2pm to 9pm with two music stages, fire performers, a lantern path, food trucks, and a six-metre effigy burn on the bay at 6:30pm. Sunday 21 June: Peninsula Hot Springs Sunday Sessions (live music 2–5pm, included with bathing), or Red Hill Truffles winter truffle hunts (booking required)."
   - question: "Is the Sorrento Solstice Festival free?"
     answer: "Yes, the festival is free, but tickets are required via Humanitix for crowd management. Book in advance — the festival reaches capacity."
-  - question: "What is the quieter alternative to the Solstice Festival?"
-    answer: "Sunday is the quieter day by design. Peninsula Hot Springs Sunday Sessions run 2–5pm with live music, included with a bathing session. For a land-based Sunday: Red Hill Truffles or Flinders Truffles both run winter hunts, with Sunday morning being the quietest slot of the week."
+  - question: "What is the quieter option for the solstice weekend?"
+    answer: "Sunday is the quieter day by design. Peninsula Hot Springs Sunday Sessions run 2–5pm with live music, included with a bathing session. For a land-based Sunday: Red Hill Truffles runs winter hunts, with Sunday morning being the quietest slot of the week."
 ---
 
-_Peninsula This Weekend is our weekly dispatch: the plan we'd actually make for the weekend ahead, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
+The longest night of the year falls on Saturday, and the Peninsula is not pretending it doesn't matter. The Sorrento Solstice Festival is the one winter weekend when the foreshore stops feeling empty and starts feeling purposeful: two music stages, fire performers on the promenade, a lantern walk through the village, and the six-metre effigy burn on the bay at 6:30pm. It is free, ticketed, and worth planning around.
 
-The winter solstice lands on Saturday and the Peninsula will not be quiet. The Sorrento Solstice Festival is the biggest winter set-piece on the Peninsula calendar — free, ticketed, and genuinely worth the trip. Two music stages, fire performers roaming the foreshore, a lantern path through the village, food trucks, and the six-metre effigy burn on the bay at 6:30pm. This is the one winter night when the Peninsula feels like it does in January, but with coats and fire.
-
-Sunday is the reset. The festival crowd has gone home. The hot springs Sunday Sessions run from 2pm with live music from the amphitheatre pool stage. The truffle hunts at Red Hill and Flinders are both in season, and Sunday morning is the quietest booking window of the week. If Saturday is the event, Sunday is the reason you stayed overnight.
+Sunday is quieter by design. The festival crowd has gone home. The hot springs are running their afternoon sessions with live music. The truffle season is at peak across the ridges, and Sunday morning slots at Main Ridge are the calmest of the solstice week.
 
 ## The booking worth locking in
 
-### Sorrento Solstice Festival, Saturday 20 June
+**Sorrento Solstice Festival, Sorrento Foreshore**
+Saturday 20 June, 2:00pm to 9:00pm. Free, ticketed via Humanitix.
 
-Free, ticketed via Humanitix, 2pm to 9pm on the Sorrento foreshore. Two music stages, fire performers, a lantern path through the village, food trucks, and the six-metre 'Bernie' effigy burn on the bay at 6:30pm. The Peninsula's most distinctive winter night.
+The festival is most rewarding if you arrive before the effigy burn. Aim to be on the foreshore by 5pm: walk the lantern path through the village while the light is flat, settle near the water, and let Saturday happen around you. Food trucks line the eastern foreshore. Two music stages run continuously from 2pm.
 
-Arrive by 5pm to walk the lantern path before the burn. The foreshore gets busy from 4pm; parking tightens by 3pm. If you are driving from Melbourne, aim to be through Mornington by 2:30pm.
+Parking through Sorrento tightens from 3pm. Driving from Melbourne, aim to be through Mornington by 2pm. The festival is all-ages; the 6:30pm burn is the centrepiece and runs late enough that families with young children should factor in an early arrival.
 
-For readers who want a table before the festival: Ten Minutes by Tractor runs lunch service Saturday, booking recommended. Polperro's Cellar Table is available Saturday evening for private groups of six to eight.
+Ten Minutes by Tractor runs Saturday lunch service in Wine Country if you want to eat well before heading to the coast.
 
 ## The slower companion move
 
-### Peninsula Hot Springs Sunday Sessions, Sunday 21 June
+**Peninsula Hot Springs Sunday Sessions, Rye**
+Sunday 21 June, 2:00pm to 5:00pm. Included with afternoon bathing session.
 
-Live music every Sunday afternoon from 2pm to 5pm at the amphitheatre pool stage. Included with an afternoon bathing session — no separate ticket required. The post-solstice Sunday reset: warm water, acoustic set, and the quiet that follows Saturday's noise. Runs through 28 June.
-
-Book the afternoon bathing session in advance — Sunday is the busiest day of the week at the springs, and the Sessions add to the draw.
+Live acoustic music from the amphitheatre pool stage, every Sunday through 28 June. No separate ticket: it comes with the bathing session. The post-solstice Sunday formula is warm water, still air, and an afternoon that earns the drive home. Book in advance. Sunday is the springs' busiest day, and the Sessions draw extra numbers in June.
 
 ## The local edge
 
-### Red Hill Truffles winter hunt, Sunday 21 June
+**Red Hill Truffles winter hunt, Main Ridge**
+Saturday 20 or Sunday 21 June. Booking required.
 
-Périgord black season is at peak. Pizza hunts from $189 per person, lunch bundles from $195 per person, private hunts from $120 per person minimum. The solstice weekend means Saturday afternoon slots are tighter than usual — book Sunday morning for the quietest hunt of the month. The forest is frosty, the dogs are working well, and the post-hunt soup by the fire is the winter Peninsula at its most honest.
+Périgord black season is at peak. Pizza hunts from $189 per person, lunch bundles from $195 per person. The solstice weekend makes Saturday afternoon slots tighter than usual. Sunday morning is the quietest slot of the week: the forest is frosty, the dogs are working well, and the hunt finishes before the lunch crowd arrives. A good thing to build a Sunday around rather than a quick stop on the way through.
 
 ---
 
-- Sorrento and Portsea accommodation is tighter than usual this weekend. If you have not booked, check Rye, Blairgowrie, or McCrae for last-minute availability.
-- The festival is all-ages but the evening programme — especially the fire performances and effigy burn — is most rewarding for adults and teenagers. Younger children may find the 6:30pm burn late and loud.
-- Forecast check: Saturday is currently showing low chance of rain. The festival is outdoors with limited covered areas — bring a coat and expect to stand.
+- Sorrento and Portsea accommodation runs tight on solstice weekend. Check Rye, Blairgowrie, or McCrae for last-minute availability.
+- The festival is outdoors with limited covered areas. Bring a coat. Current Saturday forecast shows low chance of rain; Sunday is clearing to partly cloudy.
+- The festival is all-ages, but the evening programme is most rewarding for adults and older children.
 
 **Sorrento Solstice Festival**
 Sat 20 June, 2pm–9pm, Sorrento Foreshore
