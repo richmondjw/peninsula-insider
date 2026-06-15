@@ -268,7 +268,7 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'Plans & moves',
         items: [
-          { key: 'one-night',   label: 'One night',          href: '/explore/plans/one-night-escape/' },
+          { key: 'one-night',   label: 'One night',          href: '/explore/plans/the-one-night-escape/' },
           { key: 'weekend',     label: 'Two-day weekend',    href: '/explore/plans/' },
           { key: 'wellness',    label: 'Wellness weekend',   href: '/explore/plans/wellness-weekend/' },
           { key: 'walks',       label: 'Walks & trails',     href: '/explore/walks/' },
