@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "Editorial desk, Sunday 24 May 2026. Weather from Bureau of Meteorology Main Ridge forecast issued 6:07 AM AEST — Sunday: cloudy, 90% showers most likely afternoon and evening, 1–5mm, 8–17°C, light winds. Peninsula Hot Springs Sunday Sessions with Kinematic confirmed for 24 May 12pm, verified from venue what's-on page checked 20:38 UTC Saturday 23 May. Editorial framing only."
     checkedAt: 2026-05-24T06:39:00+10:00
-status: published
+status: archived
 ---
 Yesterday earned the outdoor day. Today is the other kind.
 

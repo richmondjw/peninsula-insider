@@ -13,7 +13,7 @@ sources:
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
     note: "Editorial desk, Thursday 28 May 2026. Weather from BOM Main Ridge daily forecast retrieved 20:56 UTC 27 May. Thursday 28: 40%, 0–1mm, 10–16°C, easing late. Friday 29: 20%, 0mm, 8–15°C, light. Saturday 30: 80%, 2–4mm, 9–16°C. Sunday 31: 95%, 6–10mm, 7–14°C. Monday 1 June: 90%, 6–15mm. Peninsula Hot Springs what's-on verified 20:55 UTC 27 May 2026 — Sunday Sessions Paul Dillon 31 May 12pm confirmed, full weekday programme running."
     checkedAt: 2026-05-28T06:40:00+10:00
-status: published
+status: archived
 ---
 The week has a clear shape now, and it is worth reading before making plans. Thursday and Friday are the two open windows. Thursday sits at 40% and eases through the day. Friday is the drier of the two at 20% with light winds. Neither is a guaranteed clear sky, but both are materially workable, and they are the only days this week that are.
 

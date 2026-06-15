@@ -12,7 +12,7 @@ sources:
   - kind: gov
     note: "Editorial desk, Saturday 23 May 2026. Weather from Bureau of Meteorology Main Ridge forecast issued 4:54 AM AEST — Saturday: mostly sunny, 5% rain, 7–18°C, light winds. Sunday: 80% showers, afternoon and evening. Peninsula Hot Springs Showcase with Chloe Gill confirmed tonight 7pm from venue website checked 06:48 AEST. Editorial framing only."
     checkedAt: 2026-05-23T06:49:00+10:00
-status: published
+status: archived
 ---
 The BOM forecast issued at 4:54 AM confirms it without ambiguity: Saturday 23 May is mostly sunny, 18 degrees, light winds, 5% rain probability. Sunday reverses — 80% showers, most likely afternoon and evening. The two days of this weekend are not interchangeable.
 

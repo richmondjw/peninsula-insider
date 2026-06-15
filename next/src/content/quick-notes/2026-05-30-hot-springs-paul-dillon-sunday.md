@@ -14,7 +14,7 @@ sources:
     note: "Peninsula Hot Springs what's-on page checked 20:55 UTC 29 May 2026. Sunday Sessions with Paul Dillon listed for Sunday 31 May 2026, 12pm, Bath House Café, complimentary with bathing, status confirmed. Full daily wellness programme also running through the weekend: studio yoga 7:30am, hot springs yoga 9:15am (complimentary), fire and ice 10:30am/4pm/5pm, body clay 12pm/2pm, sauna infusion 5pm, each $20 except where noted. Looking ahead: Melissa Fist Sunday Sessions 7 June at 2pm (note: 2pm time, not the prior 12pm slot), King's Birthday weekend 8 June, Liana Perillo Quartet 13 June 7pm at the amphitheatre, then Amina, the back-to-you retreat, Ari Davis, the winter solstice sound healing journey, and World Bathing Day across the remainder of June."
     checkedAt: 2026-05-30T06:48:00+10:00
 relatedVenue: peninsula-hot-springs
-status: published
+status: archived
 ---
 Tomorrow's anchor is set. Paul Dillon plays the Bath House Café at noon for Sunday Sessions on Sunday 31 May, confirmed on the venue's what's-on page, complimentary with a bathing booking. With the Bureau giving Sunday eighty percent and the west-northwesterly running at twenty-five to forty kilometres per hour, this is the kind of session that reads better in winter than it does in summer: indoors, warm, unhurried, with the springs running alongside it.
 

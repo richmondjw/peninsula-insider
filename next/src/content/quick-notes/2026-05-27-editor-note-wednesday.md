@@ -12,7 +12,7 @@ sources:
   - kind: press
     note: "Editorial desk, Wednesday 27 May 2026. Weather from BOM Main Ridge forecast issued 6:18 AM AEST — Wednesday: 80%, 0–5mm, 12–17°C. Thursday: 40%, 0–1mm, 11–17°C. Friday: 40%, 0–1mm, 10–16°C. Saturday: 80%, 0–4mm, 9–16°C. Sunday: 80%, 1–6mm, 8–15°C. Monday 1 June: 95%, 3–10mm. Peninsula Hot Springs what's-on verified 20:40 UTC 26 May 2026 — Sunday Sessions Paul Dillon 31 May 12pm confirmed."
     checkedAt: 2026-05-27T06:40:00+10:00
-status: published
+status: archived
 ---
 The dry midweek window that existed on Tuesday has closed. Wednesday opens with drizzle at 80% probability — soft and persistent through the morning, easing this afternoon. The southerly at 15 to 20 kilometres per hour adds edge on exposed coastal sections.
 

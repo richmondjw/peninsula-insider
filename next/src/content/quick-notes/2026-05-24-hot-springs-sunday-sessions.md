@@ -17,7 +17,7 @@ sources:
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge forecast issued 6:07 AM AEST 24 May 2026. Sunday: cloudy, 90% showers most likely afternoon and evening, 1–5mm, 8–17°C."
     checkedAt: 2026-05-24T06:38:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs runs Sunday Sessions with Kinematic today at noon. The event is confirmed on the venue's what's-on page as of last night.
 

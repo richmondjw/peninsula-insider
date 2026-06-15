@@ -12,7 +12,7 @@ sources:
   - kind: press
     note: "Editorial desk, Tuesday 26 May 2026. Weather from Bureau of Meteorology Main Ridge forecast issued 6:06 AM AEST — Tuesday: cloudy, 50% showers most likely evening, 0–1mm, 11–18°C, E winds 20–30 km/h turning SE. Thursday: 20% slight chance of shower, 0mm. Saturday: 80% high chance showers. Sunday 31 May: 90% very high chance showers, 1–8mm. Peninsula Hot Springs daily programme verified from peninsulahotsprings.com/whats-on, checked 20:43 UTC 25 May 2026. Editorial framing only."
     checkedAt: 2026-05-26T06:44:00+10:00
-status: published
+status: archived
 ---
 The week has a shape worth understanding before committing to plans.
 

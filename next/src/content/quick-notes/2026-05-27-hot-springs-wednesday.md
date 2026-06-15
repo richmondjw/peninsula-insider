@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on"
     note: "Peninsula Hot Springs what's-on page checked 20:40 UTC 26 May 2026. Weekday programme confirmed: Studio Yoga 7:30am (daily), Hot Springs Yoga 9:15am (daily), Body Clay Ritual 12pm and 2pm (weekdays), Fire and Ice Workshop 10:30am, 4pm and 5pm (weekdays), Sauna Infusion 5pm (daily). No schedule changes or closures detected. Upcoming events: Sunday Sessions Paul Dillon 31 May 12pm, Sunday Sessions Melissa Fist 7 June 12pm, Showcase Performance Liana Perillo Quartet 13 June 7–8pm."
     checkedAt: 2026-05-27T06:41:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs runs its full weekday programme today. With Wednesday carrying 80% drizzle probability and a maximum of 17 degrees, the Springs' covered and heated circuit is the most weather-resilient Peninsula option in the day.
 

@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on"
     note: "Peninsula Hot Springs what's-on page checked 20:40 UTC 26 May 2026. Sunday Sessions with Paul Dillon listed at 31 May 12pm. Confirmed as scheduled. BOM Main Ridge forecast issued 6:18 AM AEST 27 May 2026 — Sunday 31 May: partly cloudy, 80% high chance of showers, 1–6mm, min 8°C, max 15°C, W 25–35 km/h."
     checkedAt: 2026-05-27T06:42:00+10:00
-status: published
+status: archived
 ---
 Sunday 31 May is forecast at 80% probability of showers, with 1 to 6 millimetres possible and westerly winds at 25 to 35 kilometres per hour. It is not a landscape day. Peninsula Hot Springs has Paul Dillon for Sunday Sessions at 12pm, which is the relevant planning consideration for Sunday on the Peninsula.
 

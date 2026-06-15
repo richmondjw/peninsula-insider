@@ -16,7 +16,7 @@ sources:
   - kind: gov
     note: "wttr.in Mornington Peninsula, checked 20 May 2026 06:42 AEST. Friday 22 May: min 9°C, max 14°C. Hourly: 6am 9°C Clear, 9am Sunny 0% rain, 12pm Overcast 0% rain, 3pm Overcast 0% rain, 6pm Overcast 0% rain. No rain probability across the day."
     checkedAt: 2026-05-20T06:42:00+10:00
-status: published
+status: archived
 ---
 Three days to the Showcase. The event itself — Chloe Gill performing at Peninsula Hot Springs, Saturday 23 May at 7pm — has not changed. What has changed is the weather picture around it, and the picture is favourable.
 

@@ -17,7 +17,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00"
     note: "Open-Meteo cross-check retrieved 20:50 UTC 30 May 2026 for Main Ridge coordinates. Monday 1 June: max 12.6°C, min 9.4°C, 100% probability, 6.4mm, max wind 41.6 km/h, dominant direction 346° (N). Sunday 31 May fell outside the returned forecast window in this run; Monday line matches BOM call within tolerance, so the Sunday BOM figures from yesterday's pull are treated as held."
     checkedAt: 2026-05-31T06:45:00+10:00
-status: published
+status: archived
 ---
 The first proper Sunday of winter on the Peninsula. Eighty percent chance, showers most likely from the afternoon and through the evening, zero to four millimetres on the model band. Fourteen degrees at the top, eight at the bottom. The wind sits west to northwesterly at twenty-five to forty kilometres per hour, harder than yesterday and louder on the exposed headlands.
 

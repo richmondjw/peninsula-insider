@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on"
     note: "Peninsula Hot Springs what's-on page checked 20:43 UTC 25 May 2026. Weekday daily activity times confirmed: Studio Yoga 7:30am (daily), Hot Springs Yoga 9:15am (daily), Body Clay Ritual 12pm and 2pm (weekdays), Fire and Ice Workshop 10:30am, 4pm and 5pm (weekdays), Sauna Infusion 5pm (daily). Bath House and Spa Dreaming Centre general bathing open for bookings — specific session availability and capacity not confirmed; verify at time of booking. No closures or schedule changes detected. Upcoming Sunday Sessions: 31 May with Paul Dillon at 12pm."
     checkedAt: 2026-05-26T06:45:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs runs its full weekday programme today. The bathing circuit — Bath House for families and groups, Spa Dreaming Centre for guests 16 and over — is supported by a structured activity schedule that runs regardless of weather, as most of it takes place in covered or heated environments.
 

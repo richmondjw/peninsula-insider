@@ -17,7 +17,7 @@ sources:
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge forecast issued 4:54 AM AEST 23 May 2026. Saturday: mostly sunny, light winds, 5% rain, 7–18°C."
     checkedAt: 2026-05-23T06:48:00+10:00
-status: published
+status: archived
 ---
 The Showcase with Chloe Gill runs tonight at Peninsula Hot Springs. Saturday 23 May, 7pm. The event remains confirmed on the venue's what's-on page as of 6:48 AM this morning.
 

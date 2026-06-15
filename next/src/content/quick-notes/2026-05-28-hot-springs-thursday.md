@@ -13,7 +13,7 @@ sources:
     url: "https://www.peninsulahotsprings.com/whats-on"
     note: "Peninsula Hot Springs what's-on page checked 20:55 UTC 27 May 2026. Weekday programme confirmed: Studio Yoga 7:30am (daily), Hot Springs Yoga 9:15am (daily, complimentary), Body Clay Ritual 12pm and 2pm (weekdays), Fire and Ice Workshop 10:30am, 4pm and 5pm (weekdays), Sauna Infusion 5pm (daily). No closures or schedule changes detected. Upcoming: Sunday Sessions Paul Dillon 31 May 12pm, Sunday Sessions Melissa Fist 7 June 2pm, King's Birthday weekend 8 June, Liana Perillo Quartet showcase 13 June 7–8pm, Sunday Sessions Amina 14 June 12pm, Winter Solstice Sound Healing 21 June 4–5:30pm, World Bathing Day 22 June, Sunday Sessions Salvador Peralta 28 June 12pm."
     checkedAt: 2026-05-28T06:41:00+10:00
-status: published
+status: archived
 ---
 Peninsula Hot Springs runs its full weekday programme today. On a Thursday that sits at 40% and a weekend forecast to reach 95%, the Springs is the one Peninsula option where the weather genuinely does not matter. The covered and heated circuit holds regardless.
 

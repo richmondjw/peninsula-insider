@@ -13,7 +13,7 @@ sources:
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
     note: "Editorial desk, Saturday 30 May 2026. Weather from BOM Main Ridge daily forecast retrieved 20:50 UTC 29 May 2026. Saturday 30: 90%, 1–5mm, 10–16°C, NW 20–30 turning W 25–35 late. Sunday 31: 80%, 0–4mm, 8–14°C, W to NW 25–40. Monday 1 June: 100%, 6–15mm, 7–14°C. Tuesday 2 June: 100%, 5–15mm. Wednesday 3 June: 95%, 2–10mm. Peninsula Hot Springs what's-on verified 20:55 UTC 29 May 2026 — Sunday Sessions Paul Dillon 31 May 12pm at the Bath House Café confirmed. Full weekday programme continues."
     checkedAt: 2026-05-30T06:46:00+10:00
-status: published
+status: archived
 ---
 The week's read held. The two open windows on Thursday and Friday were the only workable days, and the weekend has arrived exactly as the models said it would. Saturday at ninety percent with showers building into the late afternoon. Sunday at eighty with the west-northwesterly pushing harder. Monday opens June at one hundred percent and as much as fifteen millimetres. The pattern does not lift until later in the new week.
 

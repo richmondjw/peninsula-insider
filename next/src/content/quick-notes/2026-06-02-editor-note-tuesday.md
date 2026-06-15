@@ -13,7 +13,7 @@ sources:
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00"
     note: "Editorial desk, Tuesday 2 June 2026. Open-Meteo Main Ridge forecast retrieved 2026-06-01T20:47Z: Tuesday 78% / 1.7mm, Wednesday 98% / 1.6mm, Thursday 97% / 16.4mm. Peninsula Hot Springs what's-on page verified 2026-06-01T20:47Z: King's Birthday Weekend June 8 confirmed all-day, Sunday Sessions Melissa Fist June 7 at 2pm confirmed."
     checkedAt: 2026-06-02T06:47:00+10:00
-status: published
+status: archived
 ---
 Winter declared itself across the last week and there is no ambiguity in the forecast for the days ahead. Seventy-eight percent today, near-certainty on Wednesday, Thursday the heaviest day of the run with sixteen millimetres on the model. The pattern is set.
 

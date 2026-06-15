@@ -16,7 +16,7 @@ sources:
     note: "Confirmed Wed-Sun 11am, walk-ins accepted if not full"
     checkedAt: 2026-05-01T08:30:00+10:00
 relatedVenue: port-phillip-estate
-status: published
+status: archived
 ---
 
 The architecture is the experience. Wood Marsh designed the building to disappear into the hillside; Port Phillip Estate is the only Peninsula cellar door where the building is the second wine. Forty-five minutes is exactly the right length.

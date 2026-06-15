@@ -13,7 +13,7 @@ sources:
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
     note: "Bureau of Meteorology Main Ridge forecast issued 6:07 AM AEST Sunday 24 May 2026. Rest of Sunday: cloudy, very high chance of showers most likely afternoon and evening, 90% probability, 1–5mm, min 8°C, max 17°C, light winds. Morning window (pre-noon) is the usable outdoor period before the front arrives. Cape Schanck Coastal Walk and Sorrento back-beach walking tracks are public access — no specific venue check required. Arthurs Seat State Park general access confirmed. No specific closures checked; visitors should verify trail access with Parks Victoria before travel."
     checkedAt: 2026-05-24T06:41:00+10:00
-status: published
+status: archived
 ---
 BOM's 6:07 AM forecast gives the morning before the showers arrive. The Peninsula's outdoor walking and coastal options are at their accessible best in the early part of today, before the 90% shower probability settles over the afternoon and evening.
 
