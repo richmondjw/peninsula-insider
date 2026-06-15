@@ -29,8 +29,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
-import { resolveHero } from '../lib/inline-edit/resolve-hero';
-import { editableText, editableImage } from '../lib/inline-edit/attrs';
+import heroSlides from '../data/home-hero-slides.json';
 // ── CMS overrides ─────────────────────────────────────────────────────────
 const cmsOverrides = await loadPublishedHomepageOverrides();
 const cmsText  = cmsOverrides.textFieldsByPath;
@@ -125,106 +124,13 @@ const placesTitle = placesTitleRaw === 'The Peninsula, place by place'
   ? 'Explore the Peninsula'
   : placesTitleRaw ?? 'Explore the Peninsula';
 
-// ── Cover scenes ───────────────────────────────────────────────────────────
-const coverImageOverride = cmsImage['cover.image'];
-
-interface Scene {
-  id: string;
-  label: string;
-  hours: string;
-  image: string;
-  imageAlt: string;
-  caption: string;
-  headline: string;
-  dispatch: string;
-  primaryHref: string;
-  primaryLabel: string;
-}
-
-const scenes: Scene[] = [
-  {
-    id: 'flinders-weekend',
-    label: 'SLOW PENINSULA',
-    hours: '7 MIN READ',
-    image: '/images/sourced/explore-bushrangers-bay-walk-01.webp',
-    imageAlt: 'Bushrangers Bay headland and Bass Strait below Cape Schanck, on the slow southern coast of the Mornington Peninsula',
-    caption: 'Bushrangers Bay, south coast',
-    headline: 'The <em>other</em> Peninsula weekend.',
-    dispatch: 'When Red Hill is booked out and Sorrento feels like a queue, Flinders offers another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.',
-    primaryHref: '/journal/a-flinders-weekend/',
-    primaryLabel: 'Read',
-  },
-  {
-    id: 'winter-peninsula-weekend',
-    label: 'FEATURE',
-    hours: '8 MIN READ',
-    image: '/images/sourced/home-cover-cape-schanck-rainbow-01.webp',
-    imageAlt: 'Rain squall clearing over Cape Schanck bay in winter, rainbow arcing over mist-softened headland and steel-grey Bass Strait',
-    caption: 'Cape Schanck, winter clearing',
-    headline: 'A <em>winter</em> Peninsula weekend.',
-    dispatch: 'Short days, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. The Peninsula in winter is its most underrated season.',
-    primaryHref: '/journal/a-winter-peninsula-weekend/',
-    primaryLabel: 'Read',
-  },
-  {
-    id: 'late-walks',
-    label: 'WALK',
-    hours: '7 MIN READ',
-    image: '/images/sourced/home-cover-back-beach-horses-01.jpg',
-    imageAlt: 'Horses on a Peninsula ocean back beach, Bass Strait in the background',
-    caption: 'Back beach, Bass Strait side',
-    headline: 'When the light <em>starts improving.</em>',
-    dispatch: 'Bushrangers Bay for a full reset. Cape Schanck boardwalk when time is short. Sorrento Back Beach for mood rather than route. The four walks that earn the second drink.',
-    primaryHref: '/journal/the-peninsulas-best-late-afternoon-walks/',
-    primaryLabel: 'Read',
-  },
-  {
-    id: 'cover',
-    label: cmsText['cover.label'] ?? 'FEATURE',
-    hours: cmsText['cover.hours'] ?? '9 MIN READ',
-    image: coverImageOverride?.src ?? '/images/sourced/category-restaurant-01.webp',
-    imageAlt: coverImageOverride?.alt ?? 'Warm, polished restaurant interior with a marble bar, timber stools, and low lighting.',
-    caption: coverImageOverride?.caption ?? cmsText['cover.caption'] ?? 'Peninsula dining room',
-    headline: cmsText['cover.headline'] ?? 'The Hatted Restaurants of the <em>Peninsula.</em>',
-    dispatch: cmsText['cover.dispatch'] ?? 'Four two-hat restaurants. Seven one-hat tables. Barragunda is the debut, Tedesca took Regional Restaurant of the Year, and Laura is still where the long lunch happens. The complete list, with booking realities.',
-    primaryHref: cmsText['cover.primaryHref'] ?? '/journal/hatted-restaurants-mornington-peninsula-2025/',
-    primaryLabel: cmsText['cover.primaryLabel'] ?? 'Read the cover story',
-  },
-  {
-    id: 'cape-schanck',
-    label: 'GUIDE',
-    hours: '8 MIN READ',
-    image: '/images/sourced/explore-cape-schanck-lighthouse-01.webp',
-    imageAlt: 'Cape Schanck lighthouse above the basalt clifftop coastline, Mornington Peninsula National Park',
-    caption: 'Cape Schanck, Mornington Peninsula National Park',
-    headline: 'The lighthouse at the edge of <em>everything.</em>',
-    dispatch: 'The 1859 limestone lighthouse, the boardwalk to Pulpit Rock, and the walk to Bushrangers Bay. The grounds are free from 6am. Here is the full structure of the day.',
-    primaryHref: '/journal/cape-schanck-guide/',
-    primaryLabel: 'Read the guide',
-  },
-];
-
-
-// ── Scene heroes resolve through the CMS (THE RULE in resolve-hero.ts) ─────
-// The hard-coded image paths above are only the final fallback. Each scene
-// that points at a journal article takes that article's hero: published CMS
-// override first, then the article frontmatter. This is why edit mode used
-// to show different (current) images than the static page — the static
-// build was reading the stale hard-coded paths and never consulting the
-// override slot. The homepage's own cover.image override still wins for the
-// cover scene, since that's an explicit editor choice for this surface.
-for (const scene of scenes) {
-  if (scene.id === 'cover' && coverImageOverride?.src) continue;
-  const m = scene.primaryHref.match(/^\/journal\/([^/]+)\/?$/);
-  if (!m) continue;
-  const slug = m[1];
-  const article = articles.find((a) => routeSlug(a) === slug);
-  const hero = await resolveHero('article', slug, article?.data ?? {}, 'hero');
-  if (hero.hasPhoto && hero.src) {
-    scene.image = hero.src;
-    if (hero.alt) scene.imageAlt = hero.alt;
-  }
-}
+// ── Cover scenes — PINNED (2026-06-12, James) ──────────────────────────────
+// The carousel renders home-hero-slides.json verbatim. Deliberately exempt
+// from THE RULE in resolve-hero.ts: no resolveHero derivation from article
+// heroes, no page/home cover.image CMS override. Those layers let article
+// edits and the image-relevance autofix silently swap these slides, which is
+// exactly what this surface must never do. To change a slide, edit the JSON.
+const scenes = heroSlides.slides;
 
 export const prerender = true;
 ---

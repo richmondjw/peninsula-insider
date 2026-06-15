@@ -2983,7 +2983,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
    ========================================================= */
 @media (max-width: 900px) {
   .venues__grid { grid-template-columns: repeat(2, 1fr); }
-  .venue-detail__grid { grid-template-columns: 1fr; }
+  .venue-detail__grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 768px) {
   .cover__inner { grid-template-columns: 1fr; }
@@ -4849,7 +4849,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   align-items: start;
 }
 @media (max-width: 840px) {
-  .letter__frame { grid-template-columns: 1fr; gap: 2rem; }
+  .letter__frame { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
 .letter__body-col {
   max-width: 42ch;
@@ -5275,6 +5275,36 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+}
+/* CompareBlock embedded in article prose (MDX) — drop the full-bleed
+   section chrome and the nested container gutters so it sits flush in
+   the 680px column. */
+.prose .compare-block {
+  padding: 0.5rem 0 0;
+  border-bottom: none;
+  margin: 0 0 2.25rem;
+}
+.prose .compare-block .container {
+  padding: 0;
+  max-width: none;
+}
+/* Article body figures (MDX) */
+.prose .article-figure {
+  margin: 2rem 0;
+}
+.prose .article-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--tile-image-radius);
+}
+.prose .article-figure figcaption {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-top: 0.6rem;
 }
 .compare-block__intro {
   max-width: 60ch;
@@ -8467,7 +8497,7 @@ body[data-path^="/ask"] .concierge-fab {
     font-weight: inherit;
     font-style: inherit;
   }
-  .letter__frame { grid-template-columns: 1fr; gap: 1.2rem; }
+  .letter__frame { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
   .letter__side { order: -1; max-width: 280px; }
   .letter__image { aspect-ratio: 16 / 10; }
   .letter__image-cap { font-size: 0.82rem; }
