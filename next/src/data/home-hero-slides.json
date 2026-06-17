@@ -1,15 +1,27 @@
 {
   "_readme": [
-    "HOMEPAGE HERO CAROUSEL — PINNED MANUAL CONTROL (2026-06-12, James).",
-    "This file is the ONLY source for the homepage cover slides. The page",
-    "renders exactly what is written here. There is NO CMS override, NO",
-    "article-hero derivation, and NO automated rewriting of these slides:",
-    "the resolveHero loop and the page/home cover.image override that used",
-    "to reroute these images were removed from index.astro in this rebuild.",
-    "To change a slide image: put the file in next/public/images/sourced/,",
-    "update the image path here, commit, deploy. It will not move again.",
-    "AUTOMATION (autofix crons, image-relevance passes, accuracy scans):",
-    "this file is LOCKED. Do not modify it under any circumstances."
+    "HOMEPAGE HERO CAROUSEL — deck source for <HomeHeroCarousel /> (2026-06-18).",
+    "This file defines the DECK: slide order, links, and the DEFAULT image and",
+    "text for each slide. Each slide's `id` is its stable override key.",
+    "",
+    "RESOLUTION (single source, no flipping): the component resolves each slide",
+    "field as  published CMS override  ->  the default in this file. Overrides",
+    "live in pi.cms_image_slots / pi.cms_text_fields under entity_type='page',",
+    "entity_slug='home-hero', field_path='slide.<id>.image' (and .headline,",
+    ".dispatch, .label, .hours). There is NO article-hero derivation and NO",
+    "page/home cover.image involved.",
+    "",
+    "EDIT ON THE FLY: in edit mode, right-click a slide photo to replace it, or",
+    "click its headline/standfirst/tag to edit. Changes persist for all",
+    "visitors immediately (BaseLayout hydration) and bake into the static build",
+    "on the next deploy. Reordering or adding/removing slides here is safe —",
+    "overrides follow the slide `id`, never the position. Keep ids unique (the",
+    "build throws on duplicates). primaryHref/primaryLabel are deck-only (edit",
+    "them here, not in edit mode).",
+    "",
+    "To change a DEFAULT image: put the file in next/public/images/sourced/ and",
+    "update the `image` path here. AUTOMATION (autofix crons, image-relevance",
+    "passes, accuracy scans): this file is LOCKED. Do not modify it."
   ],
   "slides": [
     {
