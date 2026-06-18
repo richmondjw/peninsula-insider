@@ -76,7 +76,11 @@ const resolved = slides.map((slide) => {
 <section class="cover" aria-label="Cover stories">
   <div class="cover__carousel" id="cover-carousel">
     {resolved.map((scene, i) => (
-      <div class={`cover__slide${i === 0 ? ' is-active' : ''}`} data-slide-index={i}>
+      <div
+        class={`cover__slide${i === 0 ? ' is-active' : ''}`}
+        data-slide-index={i}
+        style={scene.scrim != null ? `--scrim: ${scene.scrim}` : undefined}
+      >
         <figure class="cover__media">
           <img
             src={scene.image}

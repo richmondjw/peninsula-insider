@@ -474,24 +474,34 @@ export const prerender = true;
     margin: 0;
   }
   .cover__media img { object-fit: cover; display: block; }
-  /* Warm-dark scrim — guarantees headline contrast on any photo.
-     Two layers (James, 2026-06-11): a vertical gradient that deepens
-     toward the bottom edge, plus a soft radial pool anchored bottom-left
-     directly behind the text column, so the centre of the photo keeps
-     its brightness while the type zone reads cleanly on bright images. */
+  /* Warm-dark scrim — guarantees headline + standfirst contrast on ANY
+     photo, including pale skies and bright sand (James, 2026-06-18).
+     Three layers, concentrated bottom-left where the type sits so the
+     centre of the photo keeps its brightness:
+       1. a strong radial pool behind the text column, large enough to
+          cover a 3-line headline;
+       2. a vertical floor that deepens toward the bottom edge (CTA +
+          control strip) and eases to a light wash up top;
+       3. a faint uniform veil so a blown-out photo still holds white type.
+     Per-slide control: --scrim multiplies the whole scrim (default 1).
+     Raise it for very bright photos, lower it for already-dark ones —
+     set `"scrim": <number>` on a slide in home-hero-slides.json. */
   .cover__scrim {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(110% 85% at 16% 92%,
-        rgba(24, 18, 12, 0.42) 0%,
-        rgba(24, 18, 12, 0.20) 38%,
-        rgba(24, 18, 12, 0) 66%),
+      radial-gradient(135% 125% at 6% 100%,
+        rgba(16, 12, 8, 0.80) 0%,
+        rgba(16, 12, 8, 0.52) 30%,
+        rgba(16, 12, 8, 0.22) 56%,
+        rgba(16, 12, 8, 0) 80%),
       linear-gradient(180deg,
-        rgba(24, 18, 12, 0.08) 0%,
-        rgba(24, 18, 12, 0.14) 42%,
-        rgba(24, 18, 12, 0.50) 70%,
-        rgba(24, 18, 12, 0.82) 100%);
+        rgba(16, 12, 8, 0.05) 0%,
+        rgba(16, 12, 8, 0.12) 42%,
+        rgba(16, 12, 8, 0.50) 72%,
+        rgba(16, 12, 8, 0.86) 100%),
+      linear-gradient(rgba(16, 12, 8, 0.07), rgba(16, 12, 8, 0.07));
+    opacity: var(--scrim, 1);
   }
 
   .cover__overlay {
@@ -506,6 +516,7 @@ export const prerender = true;
     align-items: center;
     gap: 0.65rem;
     margin: 0 0 1rem;
+    text-shadow: 0 1px 10px rgba(8, 6, 4, 0.5);
   }
   .cover__chip {
     font-family: 'Outfit', system-ui, sans-serif;
@@ -531,7 +542,9 @@ export const prerender = true;
     margin: 0 0 1.1rem;
     max-width: 16ch;
     text-wrap: balance;
-    text-shadow: 0 1px 24px rgba(20, 15, 10, 0.35);
+    /* Crisp close shadow for edge definition + soft wide shadow for a
+       legibility halo on bright photos (second line of defence to the scrim). */
+    text-shadow: 0 1px 2px rgba(8, 6, 4, 0.45), 0 2px 30px rgba(8, 6, 4, 0.5);
   }
   .cover__headline em { font-style: italic; font-weight: 500; color: #F5DCB2; }
   .cover__headline-link:hover .cover__headline { opacity: 0.85; }
@@ -539,9 +552,10 @@ export const prerender = true;
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: clamp(1rem, 1.3vw, 1.15rem);
     line-height: 1.6;
-    color: rgba(253, 252, 250, 0.88);
+    color: rgba(253, 252, 250, 0.92);
     margin: 0 0 1.4rem;
     max-width: 52ch;
+    text-shadow: 0 1px 14px rgba(8, 6, 4, 0.55);
   }
   .cover__cta {
     display: inline-flex;

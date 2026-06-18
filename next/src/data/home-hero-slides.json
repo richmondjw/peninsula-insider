@@ -20,8 +20,15 @@
     "them here, not in edit mode).",
     "",
     "To change a DEFAULT image: put the file in next/public/images/sourced/ and",
-    "update the `image` path here. AUTOMATION (autofix crons, image-relevance",
-    "passes, accuracy scans): this file is LOCKED. Do not modify it."
+    "update the `image` path here.",
+    "",
+    "LEGIBILITY: a warm-dark tint behind the text keeps the headline readable on",
+    "any photo. For an unusually bright/pale image, add an optional per-slide",
+    "`\"scrim\": <number>` (default 1) to dial the tint up (e.g. 1.25) or down for",
+    "an already-dark photo (e.g. 0.8).",
+    "",
+    "AUTOMATION (autofix crons, image-relevance passes, accuracy scans): this",
+    "file is LOCKED. Do not modify it."
   ],
   "slides": [
     {
