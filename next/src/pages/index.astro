@@ -429,10 +429,10 @@ export const prerender = true;
     border: 0;
     background: var(--bg-dark);
     --masthead-h: 150px;          /* desktop: utility + brand + nav rows */
-    /* Desktop 90% / mobile 75% of the viewport below the masthead
-       (James, 2026-06-11) — the next section peeks above the fold as a
-       scroll affordance. The mobile ratio is set in the mobile block. */
-    --cover-ratio: 0.9;
+    /* Desktop 60% / mobile 75% of the viewport below the masthead
+       (desktop set to 60% per James, 2026-06-18) — the next section peeks
+       above the fold as a scroll affordance. Mobile ratio is in the mobile block. */
+    --cover-ratio: 0.6;
     --cover-h: calc((100svh - var(--masthead-h)) * var(--cover-ratio));
   }
   @supports not (height: 100svh) {
