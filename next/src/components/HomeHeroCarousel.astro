@@ -2,83 +2,107 @@
 /**
  * HomeHeroCarousel — the homepage full-screen cover slider.
  *
- * SINGLE SOURCE OF TRUTH, per slide:
- *   image / text = published CMS override  ->  home-hero-slides.json default
- * Nothing else. No resolveHero, no article-hero derivation, no page/home
- * cover.image, no filename auto-detect. This is what finally stops the
- * "images flip back and forth" problem.
+ * SINGLE SOURCE OF TRUTH = the "deck": an ordered array of slides
+ * { id, image, imageAlt, label, hours, headline, dispatch, primaryHref,
+ *   primaryLabel, scrim? }.
  *
- * How it stays reliable AND editable on the fly:
- *  - Each slide's image + editorial text carry an EXPLICIT inline-edit binding
- *    under a DEDICATED entity slug `home-hero` (never `home`), keyed by the
- *    slide's STABLE id (slide.<id>.image, slide.<id>.headline, ...). Keying by
- *    id (not array index) means reordering / adding / removing slides in the
- *    JSON never re-targets an override onto the wrong slide.
- *  - Because the <img> carries data-pi-edit/-entity-slug/-field-path, the inline
- *    editor's basename auto-detect ("Pass 2" in lib/inline-edit/client.ts) skips
- *    it (`.closest('[data-pi-edit="image"]...')`). That auto-detect was the
- *    sole cause of the edit-mode flip. DO NOT remove the bindings, and there is
- *    NO need to touch client.ts.
- *  - Build-time `loadOverrides('page','home-hero')` bakes published overrides
- *    into the SSR HTML (no flash). For all visitors, BaseLayout's inline
- *    hydration also applies a freshly published slot live, so an edit goes out
- *    instantly and then bakes on the next rebuild.
+ * Resolution (build time, no flash):
+ *   1. Published CMS "deck" document — cms_text_fields (page, home-hero, 'deck')
+ *      holding the whole deck as JSON. This is what the Hero Editor writes.
+ *   2. Otherwise: home-hero-slides.json + any legacy per-field overrides
+ *      (slide.<id>.headline / .image …) for backward compatibility, until the
+ *      first Hero Editor save replaces them with a deck document.
+ *
+ * Editing: a dedicated, admin-only Hero Editor drawer (lib/hero-editor) is the
+ * single editing surface — reorder, edit text + link, add / remove slides, and
+ * replace photos. It writes the deck document and re-renders the carousel live;
+ * BaseLayout-style hydration applies the published deck for every visitor
+ * instantly, and the deck bakes into static HTML on the next build.
+ *
+ * The hero is deliberately ISOLATED from the generic inline editor: the section
+ * carries `data-pi-hero-managed`, which the generic right-click panel and the
+ * filename auto-detect ("Pass 2" in lib/inline-edit/client.ts) skip — so the
+ * old "images flip in edit mode" problem cannot recur and there is exactly one
+ * way to edit the hero.
  *
  * CSS: the `.cover*` rules live in the homepage `<style is:global>` in
- * src/pages/index.astro (kept there deliberately — they depend on load order
- * to neutralise the legacy sitewide /assets/styles.css `.cover` reset). This
- * component owns the markup + carousel script; index.astro owns the styling.
- *
- * To change a slide's DEFAULT image/text or the deck order/links: edit
- * src/data/home-hero-slides.json. To change an image/headline live: use edit
- * mode (right-click the photo / click the text). The JSON stays locked from
- * automation.
+ * src/pages/index.astro (they depend on load order to neutralise the legacy
+ * sitewide /assets/styles.css `.cover` reset).
  */
-import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import { loadOverrides } from '../lib/inline-edit/overrides';
 import heroSlides from '../data/home-hero-slides.json';
+import HeroEditorMount from '../lib/hero-editor/HeroEditorMount.astro';
 
 const ENTITY_TYPE = 'page' as const;
 const ENTITY_SLUG = 'home-hero';
 
-const slides = heroSlides.slides;
+type Slide = {
+  id: string;
+  image: string;
+  imageAlt: string;
+  label: string;
+  hours: string;
+  headline: string;
+  dispatch: string;
+  primaryHref: string;
+  primaryLabel: string;
+  scrim?: number;
+};
 
-// Stable ids are the override keys — a duplicate would silently collide two
-// slides' overrides, so fail the build loudly instead.
-const ids = slides.map((s) => s.id);
-if (new Set(ids).size !== ids.length) {
-  throw new Error('[HomeHeroCarousel] duplicate slide id in home-hero-slides.json');
-}
+const fileSlides = heroSlides.slides as Slide[];
 
 const overrides = await loadOverrides(ENTITY_TYPE, ENTITY_SLUG);
 
-const resolved = slides.map((slide) => {
-  const fp = (field: string) => `slide.${slide.id}.${field}`;
-  const img = overrides.image[fp('image')];
-  return {
-    ...slide,
-    fp,
-    image: img?.src ?? slide.image,
-    imageAlt: img?.alt ?? slide.imageAlt,
-    headline: overrides.text[fp('headline')] ?? slide.headline,
-    dispatch: overrides.text[fp('dispatch')] ?? slide.dispatch,
-    label: overrides.text[fp('label')] ?? slide.label,
-    hours: overrides.text[fp('hours')] ?? slide.hours,
-  };
-});
+// 1. Published deck document wins wholesale when present + valid.
+let deck: Slide[] | null = null;
+const deckRaw = overrides.text['deck'];
+if (deckRaw) {
+  try {
+    const parsed = JSON.parse(deckRaw);
+    if (Array.isArray(parsed) && parsed.length > 0 && parsed.every((s) => s && s.id)) {
+      deck = parsed as Slide[];
+    }
+  } catch {
+    /* malformed deck doc — fall through to the file default */
+  }
+}
+
+// 2. Fallback: file + legacy per-field overrides (pre-Hero-Editor behaviour).
+if (!deck) {
+  deck = fileSlides.map((slide) => {
+    const fp = (f: string) => `slide.${slide.id}.${f}`;
+    const img = overrides.image[fp('image')];
+    return {
+      ...slide,
+      image: img?.src ?? slide.image,
+      imageAlt: img?.alt ?? slide.imageAlt,
+      headline: overrides.text[fp('headline')] ?? slide.headline,
+      dispatch: overrides.text[fp('dispatch')] ?? slide.dispatch,
+      label: overrides.text[fp('label')] ?? slide.label,
+      hours: overrides.text[fp('hours')] ?? slide.hours,
+    };
+  });
+}
+
+// Stable ids are the reorder/override keys — fail the build on a duplicate.
+const ids = deck.map((s) => s.id);
+if (new Set(ids).size !== ids.length) {
+  throw new Error('[HomeHeroCarousel] duplicate slide id in the hero deck');
+}
 ---
 
-{/* ── ZONE 1: Cover carousel — Vivid-style full-screen slides. Full-bleed
-    photo, warm-dark scrim, headline + CTA overlaid bottom-left, arrows + dash
-    pager in a control strip along the hero's bottom edge. The dispatch
-    standfirst shows on desktop only — mobile keeps the headline + CTA economy.
-    Images and editorial text are editable in place (see file header). */}
-<section class="cover" aria-label="Cover stories">
+{/* ── ZONE 1: Cover carousel — full-screen slides, managed solely by the
+    Hero Editor drawer (data-pi-hero-managed isolates it from the generic
+    inline editor). The SSR deck is embedded as JSON so the client hydration
+    and editor share a baseline without re-reading the file. */}
+<section class="cover" aria-label="Cover stories" data-pi-hero-managed>
+  <script type="application/json" data-pi-hero-deck set:html={JSON.stringify(deck)} />
   <div class="cover__carousel" id="cover-carousel">
-    {resolved.map((scene, i) => (
+    {deck.map((scene, i) => (
       <div
         class={`cover__slide${i === 0 ? ' is-active' : ''}`}
         data-slide-index={i}
+        data-slide-id={scene.id}
         style={scene.scrim != null ? `--scrim: ${scene.scrim}` : undefined}
       >
         <figure class="cover__media">
@@ -87,73 +111,22 @@ const resolved = slides.map((slide) => {
             alt={scene.imageAlt}
             loading={i === 0 ? 'eager' : 'lazy'}
             fetchpriority={i === 0 ? 'high' : undefined}
-            {...editableImage({
-              entityType: ENTITY_TYPE,
-              entitySlug: ENTITY_SLUG,
-              fieldPath: scene.fp('image'),
-              purpose: 'hero',
-              label: `Hero slide image: ${scene.label}`,
-            })}
           />
         </figure>
         <div class="cover__scrim" aria-hidden="true"></div>
         <div class="container cover__overlay">
           <p class="cover__meta">
-            <span
-              class="cover__chip"
-              {...editableText({
-                entityType: ENTITY_TYPE,
-                entitySlug: ENTITY_SLUG,
-                fieldPath: scene.fp('label'),
-                label: 'Hero slide tag',
-              })}
-            >{scene.label}</span>
+            <span class="cover__chip">{scene.label}</span>
             <span class="cover__dot" aria-hidden="true">·</span>
-            <span
-              class="cover__hours"
-              {...editableText({
-                entityType: ENTITY_TYPE,
-                entitySlug: ENTITY_SLUG,
-                fieldPath: scene.fp('hours'),
-                label: 'Hero slide read time',
-              })}
-            >{scene.hours}</span>
+            <span class="cover__hours">{scene.hours}</span>
           </p>
           <a href={scene.primaryHref} class="cover__headline-link">
             {i === 0
-              ? <h1
-                  class="cover__headline"
-                  set:html={scene.headline}
-                  {...editableText({
-                    entityType: ENTITY_TYPE,
-                    entitySlug: ENTITY_SLUG,
-                    fieldPath: scene.fp('headline'),
-                    label: 'Hero slide headline',
-                    kind: 'richtext',
-                  })}
-                />
-              : <p
-                  class="cover__headline"
-                  set:html={scene.headline}
-                  {...editableText({
-                    entityType: ENTITY_TYPE,
-                    entitySlug: ENTITY_SLUG,
-                    fieldPath: scene.fp('headline'),
-                    label: 'Hero slide headline',
-                    kind: 'richtext',
-                  })}
-                />
+              ? <h1 class="cover__headline" set:html={scene.headline} />
+              : <p class="cover__headline" set:html={scene.headline} />
             }
           </a>
-          <p
-            class="cover__dispatch"
-            {...editableText({
-              entityType: ENTITY_TYPE,
-              entitySlug: ENTITY_SLUG,
-              fieldPath: scene.fp('dispatch'),
-              label: 'Hero slide standfirst',
-            })}
-          >{scene.dispatch}</p>
+          <p class="cover__dispatch">{scene.dispatch}</p>
           <a href={scene.primaryHref} class="cover__cta">
             {scene.primaryLabel}
             <svg viewBox="0 0 16 12" width="15" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -165,9 +138,7 @@ const resolved = slides.map((slide) => {
     ))}
   </div>
 
-  {/* Control strip — prev/next arrows at the edges, dash pager centred,
-      all overlaid on the hero's bottom edge like Vivid Sydney. Accessible
-      names carry the story headlines. */}
+  {/* Control strip — prev/next arrows + dash pager, overlaid bottom edge. */}
   <div class="container cover__controls">
     <button class="cover__arrow" type="button" data-cover-prev aria-label="Previous story">
       <svg viewBox="0 0 10 16" width="9" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -175,12 +146,12 @@ const resolved = slides.map((slide) => {
       </svg>
     </button>
     <nav class="cover__nav" aria-label="Switch story">
-      {resolved.map((scene, i) => (
+      {deck.map((scene, i) => (
         <button
           class={`cover__nav-btn${i === 0 ? ' is-active' : ''}`}
           data-target={i}
           type="button"
-          aria-label={`Story ${i + 1} of ${resolved.length}: ${scene.headline.replace(/<[^>]+>/g, '')}`}
+          aria-label={`Story ${i + 1} of ${deck.length}: ${scene.headline.replace(/<[^>]+>/g, '')}`}
         >
           <span class="cover__nav-bar" aria-hidden="true"></span>
         </button>
@@ -195,20 +166,24 @@ const resolved = slides.map((slide) => {
 </section>
 
 {/* Cover carousel controller. Scoped to #cover-carousel, self-guards via
-    el.dataset.carouselReady, idempotent across astro:page-load. Moved verbatim
-    from index.astro in the 2026-06-18 rebuild — behaviour unchanged. */}
+    el.dataset.carouselReady, idempotent across astro:page-load. Exposes
+    window.piHeroInitCarousel so the Hero Editor / deck hydration can re-init
+    after re-rendering slides. */}
 <script is:inline>
   (function () {
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var INTERVAL_MS = 10000;
 
-    function initCarousel(el) {
-      if (el.dataset.carouselReady) return; /* guard against double-init */
+    function initCarousel(el, force) {
+      /* Normal path guards against double-init (setup runs on load AND
+         astro:page-load). force=true tears down and rebuilds — used by the
+         deck hydration / Hero Editor after the slide DOM is replaced. */
+      if (el.dataset.carouselReady && !force) return;
+      if (el.__coverCleanup) { el.__coverCleanup(); el.__coverCleanup = null; }
       var slides = Array.from(el.querySelectorAll('.cover__slide'));
       var navBtns = Array.from(document.querySelectorAll('.cover__nav-btn'));
-      if (slides.length < 2) return;
+      if (slides.length < 2) { el.dataset.carouselReady = '1'; return; }
 
-      /* find initial active index from SSR class */
       var current = Math.max(0, slides.findIndex(function(s) { return s.classList.contains('is-active'); }));
       var timer;
 
@@ -221,27 +196,21 @@ const resolved = slides.map((slide) => {
         var prev = current;
         current = ((idx % slides.length) + slides.length) % slides.length;
         if (prev === current) return;
-
         slides[prev].classList.remove('is-active');
         setInert(slides[prev], true);
         if (navBtns[prev]) navBtns[prev].classList.remove('is-active');
-
         slides[current].classList.add('is-active');
         setInert(slides[current], false);
         if (navBtns[current]) {
           navBtns[current].classList.remove('is-active');
-          void navBtns[current].offsetWidth; /* force reflow to restart progress-bar animation */
+          void navBtns[current].offsetWidth;
           navBtns[current].classList.add('is-active');
         }
       }
 
-      /* initialise inert on non-active slides */
       slides.forEach(function (s, i) { if (i !== current) setInert(s, true); });
       el.dataset.carouselReady = '1';
 
-      /* Size slides to exactly fill the viewport below the (sticky)
-         masthead — measure the hero's real offset rather than guessing
-         chrome height. CSS defaults cover the no-JS case. */
       var coverEl = el.closest('.cover');
       function sizeCover() {
         var top = Math.max(0, Math.round(coverEl.getBoundingClientRect().top + window.scrollY));
@@ -250,13 +219,9 @@ const resolved = slides.map((slide) => {
       sizeCover();
       window.addEventListener('resize', sizeCover);
       window.addEventListener('load', sizeCover);
-      /* The chrome above the hero reflows late (webfonts, utility row) —
-         watch the masthead and also re-measure on a short cascade so a
-         missed observer tick can't leave a stale height behind. */
       var mastheadEl = document.querySelector('.masthead');
-      if (window.ResizeObserver && mastheadEl) {
-        new ResizeObserver(sizeCover).observe(mastheadEl);
-      }
+      var ro = null;
+      if (window.ResizeObserver && mastheadEl) { ro = new ResizeObserver(sizeCover); ro.observe(mastheadEl); }
       [120, 400, 900, 1800, 3200].forEach(function (ms) { setTimeout(sizeCover, ms); });
 
       function restartTimer() {
@@ -265,24 +230,16 @@ const resolved = slides.map((slide) => {
       }
 
       navBtns.forEach(function (btn, i) {
-        btn.addEventListener('click', function () {
-          goTo(i);
-          restartTimer();
-        });
+        btn.addEventListener('click', function () { goTo(i); restartTimer(); });
       });
-
-      /* Prev/next arrows (Vivid-style control strip) */
       var prevBtn = document.querySelector('[data-cover-prev]');
       var nextBtn = document.querySelector('[data-cover-next]');
       if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); restartTimer(); });
       if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); restartTimer(); });
 
-      /* Swipe — horizontal drags switch stories; vertical scrolls pass through. */
       var touchX = null, touchY = null;
-      el.addEventListener('touchstart', function (e) {
-        touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
-      }, { passive: true });
-      el.addEventListener('touchend', function (e) {
+      function onTouchStart(e) { touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }
+      function onTouchEnd(e) {
         if (touchX === null) return;
         var dx = e.changedTouches[0].clientX - touchX;
         var dy = e.changedTouches[0].clientY - touchY;
@@ -290,12 +247,27 @@ const resolved = slides.map((slide) => {
         if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
         goTo(dx < 0 ? current + 1 : current - 1);
         restartTimer();
-      }, { passive: true });
-
-      if (!reducedMotion) {
-        timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
       }
+      el.addEventListener('touchstart', onTouchStart, { passive: true });
+      el.addEventListener('touchend', onTouchEnd, { passive: true });
+
+      if (!reducedMotion) { timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS); }
+
+      /* Teardown for a forced re-init (deck hydration / Hero Editor): remove the
+         window/el/observer listeners + timer bound to persistent nodes. Slides,
+         nav, and arrows live in replaced DOM, so their listeners die with it. */
+      el.__coverCleanup = function () {
+        clearInterval(timer);
+        window.removeEventListener('resize', sizeCover);
+        window.removeEventListener('load', sizeCover);
+        if (ro) ro.disconnect();
+        el.removeEventListener('touchstart', onTouchStart);
+        el.removeEventListener('touchend', onTouchEnd);
+      };
     }
+
+    /* Expose so the Hero Editor / deck hydration can re-init after re-render. */
+    window.piHeroInitCarousel = initCarousel;
 
     function setup() {
       var el = document.getElementById('cover-carousel');
@@ -305,3 +277,6 @@ const resolved = slides.map((slide) => {
     setup();
   })();
 </script>
+
+{/* Deck hydration (all visitors) + Hero Editor drawer (admins, edit mode). */}
+<HeroEditorMount />
