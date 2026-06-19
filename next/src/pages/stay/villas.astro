@@ -57,6 +57,10 @@ export const prerender = true;
         </div>
         <a href="/stay/winery-accommodation/" class="venues__link">Wine-country stays →</a>
       </div>
+      <p class="decision-prompt">
+        <span class="decision-prompt__icon" aria-hidden="true">📸</span>
+        Planning with a group? <strong>Screenshot this list</strong> or tap Save on any villa to share it with the person booking.
+      </p>
       <div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
     </div>
   </section>

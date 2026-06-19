@@ -9,7 +9,7 @@ import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
   const STATIC_EAT_OVERRIDES = new Set(['barmah-park-vineyard', 'port-phillip-estate-restaurant']);
-  const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
+  const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery', 'brewery', 'distillery', 'providore'];
   const venues = await getCollection('venues');
   return venues
     .filter((venue) => eatTypes.includes(venue.data.type))
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
     }));
 }
 
-const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
+const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery', 'brewery', 'distillery', 'providore'];
 const { venue } = Astro.props;
 const slug = routeSlug(venue);
 

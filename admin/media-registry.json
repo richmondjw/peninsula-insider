@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T05:28:00.080Z",
+  "generatedAt": "2026-06-17T23:30:32.137Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -1367,6 +1367,12 @@
       "updatedAt": "2026-05-21T20:39:52.351Z",
       "usages": [
         {
+          "file": "src/content/events/archive/mornington-racecourse-monthly-market-june-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "mornington-racecourse-monthly-market-june-2026"
+        },
+        {
           "file": "src/content/events/emu-plains-market-balnarring.json",
           "purpose": "hero",
           "entityType": "event",
@@ -1389,12 +1395,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mornington-racecourse-market-may-2026"
-        },
-        {
-          "file": "src/content/events/mornington-racecourse-monthly-market-june-2026.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mornington-racecourse-monthly-market-june-2026"
         },
         {
           "file": "src/content/events/mornington-wednesday-market-main-street-market.json",
@@ -1437,6 +1437,12 @@
       "updatedAt": "2026-05-21T20:39:52.365Z",
       "usages": [
         {
+          "file": "src/content/events/archive/mornington-racecourse-market.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "mornington-racecourse-market"
+        },
+        {
           "file": "src/content/events/boneo-community-market.json",
           "purpose": "hero",
           "entityType": "event",
@@ -1447,12 +1453,6 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "hastings-thursday-street-market"
-        },
-        {
-          "file": "src/content/events/mornington-racecourse-market.json",
-          "purpose": "hero",
-          "entityType": "event",
-          "entitySlug": "mornington-racecourse-market"
         },
         {
           "file": "src/content/signature-events/annual-festivals.json",
