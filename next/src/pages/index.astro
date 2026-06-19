@@ -209,6 +209,35 @@ export const prerender = true;
     </section>
   )}
 
+  {/* Wheel-to-horizontal for the hidden-scrollbar rails: while the cursor is
+      over a rail, a vertical wheel scrolls it left/right. Releases to the page
+      at the ends (never traps the scroll) and lets native horizontal intent
+      (trackpads, shift+wheel) pass through. */}
+  <script is:inline>
+    (function () {
+      function bindRailWheel(track) {
+        if (track.__railWheelBound) return;
+        track.__railWheelBound = true;
+        track.addEventListener('wheel', function (e) {
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; /* already horizontal */
+          var max = track.scrollWidth - track.clientWidth;
+          if (max <= 1) return;                                /* nothing to scroll */
+          var atStart = track.scrollLeft <= 0;
+          var atEnd = track.scrollLeft >= max - 1;
+          if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return; /* let the page scroll at the ends */
+          var delta = e.deltaY;
+          if (e.deltaMode === 1) delta *= 16;                  /* line mode */
+          else if (e.deltaMode === 2) delta *= track.clientWidth; /* page mode */
+          e.preventDefault();
+          track.scrollLeft += delta;
+        }, { passive: false });
+      }
+      function setup() { document.querySelectorAll('.hp-rail__track').forEach(bindRailWheel); }
+      setup();
+      document.addEventListener('astro:page-load', setup);
+    })();
+  </script>
+
   {/* ── ZONE 6: Places rail ──────────────────────────────────────────────── */}
   {featuredPlaces.length > 0 && (
     <ScrollReveal client:visible>
