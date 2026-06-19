@@ -29,7 +29,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 import ScrollReveal from '../components/react/ScrollReveal.tsx';
 import { routeSlug, dispatchWeekend } from '../lib/editorial';
 import { loadPublishedHomepageOverrides, getHomepageAdminContent } from '../lib/content/homepage';
-import heroSlides from '../data/home-hero-slides.json';
+import HomeHeroCarousel from '../components/HomeHeroCarousel.astro';
 // ── CMS overrides ─────────────────────────────────────────────────────────
 const cmsOverrides = await loadPublishedHomepageOverrides();
 const cmsText  = cmsOverrides.textFieldsByPath;
@@ -124,13 +124,11 @@ const placesTitle = placesTitleRaw === 'The Peninsula, place by place'
   ? 'Explore the Peninsula'
   : placesTitleRaw ?? 'Explore the Peninsula';
 
-// ── Cover scenes — PINNED (2026-06-12, James) ──────────────────────────────
-// The carousel renders home-hero-slides.json verbatim. Deliberately exempt
-// from THE RULE in resolve-hero.ts: no resolveHero derivation from article
-// heroes, no page/home cover.image CMS override. Those layers let article
-// edits and the image-relevance autofix silently swap these slides, which is
-// exactly what this surface must never do. To change a slide, edit the JSON.
-const scenes = heroSlides.slides;
+// The cover carousel lives in <HomeHeroCarousel /> (src/components). It owns
+// its data resolution (single source: CMS override -> home-hero-slides.json),
+// inline-edit bindings, markup, and script. The `.cover*` CSS stays in this
+// page's <style is:global> below (it depends on load order to neutralise the
+// legacy sitewide /assets/styles.css `.cover` reset).
 
 export const prerender = true;
 ---
@@ -142,76 +140,10 @@ export const prerender = true;
   canonical="https://peninsulainsider.com.au"
 >
 
-  {/* ── ZONE 1: Cover carousel — Vivid-style full-screen slides (Phase 2 of
-      the 2026-06-10 homepage uplift). Full-bleed photo, warm-dark scrim,
-      headline + CTA overlaid bottom-left, arrows + dash pager in a control
-      strip along the hero's bottom edge. The dispatch standfirst shows on
-      desktop only — mobile keeps the Vivid headline + CTA economy. */}
-  <section class="cover" aria-label="Cover stories">
-    <div class="cover__carousel" id="cover-carousel">
-      {scenes.map((scene, i) => (
-        <div class={`cover__slide${i === 0 ? ' is-active' : ''}`} data-slide-index={i}>
-          <figure class="cover__media">
-            <img
-              src={scene.image}
-              alt={scene.imageAlt}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              fetchpriority={i === 0 ? 'high' : undefined}
-            />
-          </figure>
-          <div class="cover__scrim" aria-hidden="true"></div>
-          <div class="container cover__overlay">
-            <p class="cover__meta">
-              <span class="cover__chip">{scene.label}</span>
-              <span class="cover__dot" aria-hidden="true">·</span>
-              <span class="cover__hours">{scene.hours}</span>
-            </p>
-            <a href={scene.primaryHref} class="cover__headline-link">
-              {i === 0
-                ? <h1 class="cover__headline" set:html={scene.headline} />
-                : <p class="cover__headline" set:html={scene.headline} />
-              }
-            </a>
-            <p class="cover__dispatch">{scene.dispatch}</p>
-            <a href={scene.primaryHref} class="cover__cta">
-              {scene.primaryLabel}
-              <svg viewBox="0 0 16 12" width="15" height="11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M1 6h13M10 1.5 14.5 6 10 10.5" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    {/* Control strip — prev/next arrows at the edges, dash pager centred,
-        all overlaid on the hero's bottom edge like Vivid Sydney. Accessible
-        names carry the story headlines. */}
-    <div class="container cover__controls">
-      <button class="cover__arrow" type="button" data-cover-prev aria-label="Previous story">
-        <svg viewBox="0 0 10 16" width="9" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 1.5 2 8l6 6.5" />
-        </svg>
-      </button>
-      <nav class="cover__nav" aria-label="Switch story">
-        {scenes.map((scene, i) => (
-          <button
-            class={`cover__nav-btn${i === 0 ? ' is-active' : ''}`}
-            data-target={i}
-            type="button"
-            aria-label={`Story ${i + 1} of ${scenes.length}: ${scene.headline.replace(/<[^>]+>/g, '')}`}
-          >
-            <span class="cover__nav-bar" aria-hidden="true"></span>
-          </button>
-        ))}
-      </nav>
-      <button class="cover__arrow" type="button" data-cover-next aria-label="Next story">
-        <svg viewBox="0 0 10 16" width="9" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M2 1.5 8 8l-6 6.5" />
-        </svg>
-      </button>
-    </div>
-  </section>
+  {/* ── ZONE 1: Cover carousel — full-screen slides, images + text editable
+      in place. Self-contained component (data, markup, script). CSS lives in
+      this page's <style is:global> below. */}
+  <HomeHeroCarousel />
 
   {/* ── ZONE 2: Big-four section rows (Vivid-style, Phase 3) — navigation
       presented as content: four giant display rows with trailing arrows,
@@ -261,7 +193,7 @@ export const prerender = true;
           <a class="hp-rail__more" href="/whats-on/">More What&rsquo;s On <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <div class="hp-rail__track">
+      <div class="hp-rail__track" data-lenis-prevent>
         {weekendEvents.map((event) => {
           const occ = (event.data as any).nextOccurrence;
           const start = event.data.startDate;
@@ -276,6 +208,64 @@ export const prerender = true;
       </div>
     </section>
   )}
+
+  {/* Horizontal interaction for the hidden-scrollbar rails. The rail carries
+      data-lenis-prevent so the Lenis smooth-scroll (BaseLayout) stops hijacking
+      the wheel over it — otherwise Lenis swallows the wheel for page scroll and
+      the rail never moves. Two interactions:
+        • WHEEL — a vertical wheel scrolls the rail left/right; releases to the
+          page at the ends and lets native horizontal intent pass through.
+        • CLICK-AND-DRAG — grab anywhere and drag; the click that follows a real
+          drag is suppressed so card links don't fire by accident. */}
+  <script is:inline>
+    (function () {
+      function bindRail(track) {
+        if (track.__railBound) return;
+        track.__railBound = true;
+
+        track.addEventListener('wheel', function (e) {
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; /* already horizontal */
+          var max = track.scrollWidth - track.clientWidth;
+          if (max <= 1) return;
+          var atStart = track.scrollLeft <= 0;
+          var atEnd = track.scrollLeft >= max - 1;
+          if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return; /* release at ends */
+          var delta = e.deltaY;
+          if (e.deltaMode === 1) delta *= 16;                  /* line mode */
+          else if (e.deltaMode === 2) delta *= track.clientWidth; /* page mode */
+          e.preventDefault();
+          track.scrollLeft += delta;
+        }, { passive: false });
+
+        var down = false, startX = 0, startLeft = 0, moved = 0;
+        track.addEventListener('pointerdown', function (e) {
+          if (e.button !== 0) return;
+          down = true; moved = 0; startX = e.clientX; startLeft = track.scrollLeft;
+          track.classList.add('is-dragging');
+        });
+        window.addEventListener('pointermove', function (e) {
+          if (!down) return;
+          var dx = e.clientX - startX;
+          if (Math.abs(dx) > moved) moved = Math.abs(dx);
+          track.scrollLeft = startLeft - dx;
+        });
+        function endDrag() {
+          if (!down) return;
+          down = false;
+          track.classList.remove('is-dragging');
+        }
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
+        /* Suppress the click that ends a real drag so a card link doesn't fire. */
+        track.addEventListener('click', function (e) {
+          if (moved > 6) { e.preventDefault(); e.stopPropagation(); moved = 0; }
+        }, true);
+      }
+      function setup() { document.querySelectorAll('.hp-rail__track').forEach(bindRail); }
+      setup();
+      document.addEventListener('astro:page-load', setup);
+    })();
+  </script>
 
   {/* ── ZONE 6: Places rail ──────────────────────────────────────────────── */}
   {featuredPlaces.length > 0 && (
@@ -420,116 +410,6 @@ export const prerender = true;
     <NewsletterBlock />
   </ScrollReveal>
 
-  {/* ── Cover carousel script ────────────────────────────────────────────── */}
-  <script is:inline>
-    (function () {
-      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var INTERVAL_MS = 10000;
-
-      function initCarousel(el) {
-        if (el.dataset.carouselReady) return; /* guard against double-init */
-        var slides = Array.from(el.querySelectorAll('.cover__slide'));
-        var navBtns = Array.from(document.querySelectorAll('.cover__nav-btn'));
-        if (slides.length < 2) return;
-
-        /* find initial active index from SSR class */
-        var current = Math.max(0, slides.findIndex(function(s) { return s.classList.contains('is-active'); }));
-        var timer;
-
-        function setInert(slide, on) {
-          if (on) { slide.setAttribute('inert', ''); slide.setAttribute('aria-hidden', 'true'); }
-          else    { slide.removeAttribute('inert'); slide.removeAttribute('aria-hidden'); }
-        }
-
-        function goTo(idx) {
-          var prev = current;
-          current = ((idx % slides.length) + slides.length) % slides.length;
-          if (prev === current) return;
-
-          slides[prev].classList.remove('is-active');
-          setInert(slides[prev], true);
-          if (navBtns[prev]) navBtns[prev].classList.remove('is-active');
-
-          slides[current].classList.add('is-active');
-          setInert(slides[current], false);
-          if (navBtns[current]) {
-            navBtns[current].classList.remove('is-active');
-            void navBtns[current].offsetWidth; /* force reflow to restart progress-bar animation */
-            navBtns[current].classList.add('is-active');
-          }
-        }
-
-        /* initialise inert on non-active slides */
-        slides.forEach(function (s, i) { if (i !== current) setInert(s, true); });
-        el.dataset.carouselReady = '1';
-
-        /* Size slides to exactly fill the viewport below the (sticky)
-           masthead — measure the hero's real offset rather than guessing
-           chrome height. CSS defaults cover the no-JS case. */
-        var coverEl = el.closest('.cover');
-        function sizeCover() {
-          var top = Math.max(0, Math.round(coverEl.getBoundingClientRect().top + window.scrollY));
-          coverEl.style.setProperty('--masthead-h', top + 'px');
-        }
-        sizeCover();
-        window.addEventListener('resize', sizeCover);
-        window.addEventListener('load', sizeCover);
-        /* The chrome above the hero reflows late (webfonts, utility row) —
-           watch the masthead and also re-measure on a short cascade so a
-           missed observer tick can't leave a stale height behind. */
-        var mastheadEl = document.querySelector('.masthead');
-        if (window.ResizeObserver && mastheadEl) {
-          new ResizeObserver(sizeCover).observe(mastheadEl);
-        }
-        [120, 400, 900, 1800, 3200].forEach(function (ms) { setTimeout(sizeCover, ms); });
-
-        function restartTimer() {
-          clearInterval(timer);
-          if (!reducedMotion) timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
-        }
-
-        navBtns.forEach(function (btn, i) {
-          btn.addEventListener('click', function () {
-            goTo(i);
-            restartTimer();
-          });
-        });
-
-        /* Prev/next arrows (Vivid-style control strip) */
-        var prevBtn = document.querySelector('[data-cover-prev]');
-        var nextBtn = document.querySelector('[data-cover-next]');
-        if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); restartTimer(); });
-        if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); restartTimer(); });
-
-        /* Swipe — horizontal drags switch stories; vertical scrolls pass through. */
-        var touchX = null, touchY = null;
-        el.addEventListener('touchstart', function (e) {
-          touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
-        }, { passive: true });
-        el.addEventListener('touchend', function (e) {
-          if (touchX === null) return;
-          var dx = e.changedTouches[0].clientX - touchX;
-          var dy = e.changedTouches[0].clientY - touchY;
-          touchX = touchY = null;
-          if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
-          goTo(dx < 0 ? current + 1 : current - 1);
-          restartTimer();
-        }, { passive: true });
-
-        if (!reducedMotion) {
-          timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS);
-        }
-      }
-
-      function setup() {
-        var el = document.getElementById('cover-carousel');
-        if (el) initCarousel(el);
-      }
-      document.addEventListener('astro:page-load', setup);
-      setup();
-    })();
-  </script>
-
 
 </BaseLayout>
 
@@ -607,10 +487,10 @@ export const prerender = true;
     border: 0;
     background: var(--bg-dark);
     --masthead-h: 150px;          /* desktop: utility + brand + nav rows */
-    /* Desktop 90% / mobile 75% of the viewport below the masthead
-       (James, 2026-06-11) — the next section peeks above the fold as a
-       scroll affordance. The mobile ratio is set in the mobile block. */
-    --cover-ratio: 0.9;
+    /* Desktop 60% / mobile 75% of the viewport below the masthead
+       (desktop set to 60% per James, 2026-06-18) — the next section peeks
+       above the fold as a scroll affordance. Mobile ratio is in the mobile block. */
+    --cover-ratio: 0.6;
     --cover-h: calc((100svh - var(--masthead-h)) * var(--cover-ratio));
   }
   @supports not (height: 100svh) {
@@ -652,24 +532,34 @@ export const prerender = true;
     margin: 0;
   }
   .cover__media img { object-fit: cover; display: block; }
-  /* Warm-dark scrim — guarantees headline contrast on any photo.
-     Two layers (James, 2026-06-11): a vertical gradient that deepens
-     toward the bottom edge, plus a soft radial pool anchored bottom-left
-     directly behind the text column, so the centre of the photo keeps
-     its brightness while the type zone reads cleanly on bright images. */
+  /* Warm-dark scrim — guarantees headline + standfirst contrast on ANY
+     photo, including pale skies and bright sand (James, 2026-06-18).
+     Three layers, concentrated bottom-left where the type sits so the
+     centre of the photo keeps its brightness:
+       1. a strong radial pool behind the text column, large enough to
+          cover a 3-line headline;
+       2. a vertical floor that deepens toward the bottom edge (CTA +
+          control strip) and eases to a light wash up top;
+       3. a faint uniform veil so a blown-out photo still holds white type.
+     Per-slide control: --scrim multiplies the whole scrim (default 1).
+     Raise it for very bright photos, lower it for already-dark ones —
+     set `"scrim": <number>` on a slide in home-hero-slides.json. */
   .cover__scrim {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(110% 85% at 16% 92%,
-        rgba(24, 18, 12, 0.42) 0%,
-        rgba(24, 18, 12, 0.20) 38%,
-        rgba(24, 18, 12, 0) 66%),
+      radial-gradient(135% 125% at 6% 100%,
+        rgba(16, 12, 8, 0.80) 0%,
+        rgba(16, 12, 8, 0.52) 30%,
+        rgba(16, 12, 8, 0.22) 56%,
+        rgba(16, 12, 8, 0) 80%),
       linear-gradient(180deg,
-        rgba(24, 18, 12, 0.08) 0%,
-        rgba(24, 18, 12, 0.14) 42%,
-        rgba(24, 18, 12, 0.50) 70%,
-        rgba(24, 18, 12, 0.82) 100%);
+        rgba(16, 12, 8, 0.05) 0%,
+        rgba(16, 12, 8, 0.12) 42%,
+        rgba(16, 12, 8, 0.50) 72%,
+        rgba(16, 12, 8, 0.86) 100%),
+      linear-gradient(rgba(16, 12, 8, 0.07), rgba(16, 12, 8, 0.07));
+    opacity: var(--scrim, 1);
   }
 
   .cover__overlay {
@@ -684,6 +574,7 @@ export const prerender = true;
     align-items: center;
     gap: 0.65rem;
     margin: 0 0 1rem;
+    text-shadow: 0 1px 10px rgba(8, 6, 4, 0.5);
   }
   .cover__chip {
     font-family: 'Outfit', system-ui, sans-serif;
@@ -709,7 +600,9 @@ export const prerender = true;
     margin: 0 0 1.1rem;
     max-width: 16ch;
     text-wrap: balance;
-    text-shadow: 0 1px 24px rgba(20, 15, 10, 0.35);
+    /* Crisp close shadow for edge definition + soft wide shadow for a
+       legibility halo on bright photos (second line of defence to the scrim). */
+    text-shadow: 0 1px 2px rgba(8, 6, 4, 0.45), 0 2px 30px rgba(8, 6, 4, 0.5);
   }
   .cover__headline em { font-style: italic; font-weight: 500; color: #F5DCB2; }
   .cover__headline-link:hover .cover__headline { opacity: 0.85; }
@@ -717,9 +610,10 @@ export const prerender = true;
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: clamp(1rem, 1.3vw, 1.15rem);
     line-height: 1.6;
-    color: rgba(253, 252, 250, 0.88);
+    color: rgba(253, 252, 250, 0.92);
     margin: 0 0 1.4rem;
     max-width: 52ch;
+    text-shadow: 0 1px 14px rgba(8, 6, 4, 0.55);
   }
   .cover__cta {
     display: inline-flex;
@@ -946,6 +840,7 @@ export const prerender = true;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
+    cursor: grab;
     /* align first card with the container edge; let the track bleed
        full-width so the next card peeks at the viewport edge */
     padding: 0 max(clamp(1rem, 4vw, 2rem), calc((100vw - var(--max-w)) / 2)) 0.5rem;
@@ -954,6 +849,14 @@ export const prerender = true;
     scroll-padding-inline: max(clamp(1rem, 4vw, 2rem), calc((100vw - var(--max-w)) / 2));
   }
   .hp-rail__track::-webkit-scrollbar { display: none; }
+  /* While dragging: grabbing cursor, no text selection, and pause scroll-snap
+     so the drag tracks the pointer 1:1 (snap re-applies on release). */
+  .hp-rail__track.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+  .hp-rail__track.is-dragging a { pointer-events: none; }
   .hp-rail__track > * {
     flex: 0 0 auto;
     width: min(78vw, 320px);

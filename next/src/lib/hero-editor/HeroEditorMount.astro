@@ -1,0 +1,178 @@
+---
+/**
+ * HeroEditorMount — emitted once by HomeHeroCarousel. Loads the deck hydration
+ * (all visitors) and the admin Hero Editor drawer (edit mode), and ships their
+ * chrome CSS. The module bundles supabase-js lazily, so anonymous visitors only
+ * pay for the small hydration fetch.
+ */
+---
+
+<script>
+  import { boot } from './hero-editor';
+  boot();
+</script>
+
+<style is:global>
+  /* ── Trigger pill (admins, edit mode) ── */
+  .pi-hero-ed-trigger {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 10050;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    background: #1f1a16;
+    color: #fdfcfa;
+    font: 600 0.8rem/1 'Outfit', system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  }
+  .pi-hero-ed-trigger:hover { background: #2c241d; }
+
+  /* ── Drawer ── */
+  .pi-hero-ed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10060;
+    width: min(420px, 100vw);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: #f6f1ea;
+    color: #211e1c;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.25);
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+  .pi-hero-ed__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(33, 30, 28, 0.12);
+    font-size: 1rem;
+  }
+  .pi-hero-ed__close {
+    border: 0;
+    background: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #211e1c;
+  }
+  .pi-hero-ed__list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .pi-hero-ed__card {
+    border: 1px solid rgba(33, 30, 28, 0.14);
+    border-radius: 8px;
+    background: #fff;
+    padding: 0.75rem;
+  }
+  .pi-hero-ed__card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+  .pi-hero-ed__num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #211e1c;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pi-hero-ed__order { display: inline-flex; gap: 0.25rem; }
+  .pi-hero-ed__icon {
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(33, 30, 28, 0.2);
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .pi-hero-ed__icon:disabled { opacity: 0.35; cursor: default; }
+  .pi-hero-ed__icon--danger { margin-left: auto; color: #9a2b1f; border-color: rgba(154, 43, 31, 0.4); }
+  .pi-hero-ed__media { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
+  .pi-hero-ed__thumb {
+    width: 84px;
+    height: 56px;
+    border-radius: 6px;
+    background: #ddd center/cover no-repeat;
+    flex-shrink: 0;
+    border: 1px solid rgba(33, 30, 28, 0.12);
+  }
+  .pi-hero-ed__thumb.is-pending { outline: 2px solid #a77637; outline-offset: 1px; }
+  .pi-hero-ed__replace {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #7a5c3e;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .pi-hero-ed__field { display: block; margin-bottom: 0.5rem; }
+  .pi-hero-ed__field > span {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6b635c;
+    margin-bottom: 0.2rem;
+  }
+  .pi-hero-ed__field input,
+  .pi-hero-ed__field textarea {
+    width: 100%;
+    padding: 0.45rem 0.55rem;
+    border: 1px solid rgba(33, 30, 28, 0.22);
+    border-radius: 6px;
+    font: inherit;
+    font-size: 0.85rem;
+    background: #fff;
+    color: #211e1c;
+  }
+  .pi-hero-ed__field textarea { min-height: 3.2em; resize: vertical; line-height: 1.4; }
+  .pi-hero-ed__status {
+    margin: 0;
+    padding: 0 1rem;
+    min-height: 1.2em;
+    font-size: 0.8rem;
+    color: #6b635c;
+  }
+  .pi-hero-ed__foot {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1rem;
+    border-top: 1px solid rgba(33, 30, 28, 0.12);
+  }
+  .pi-hero-ed__spacer { flex: 1; }
+  .pi-hero-ed__btn {
+    padding: 0.5rem 0.85rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font: 600 0.82rem 'Outfit', system-ui, sans-serif;
+    cursor: pointer;
+  }
+  .pi-hero-ed__btn--add { background: #fff; border-color: rgba(33, 30, 28, 0.22); color: #211e1c; }
+  .pi-hero-ed__btn--ghost { background: transparent; color: #6b635c; }
+  .pi-hero-ed__btn--primary { background: #7a5c3e; color: #fff; }
+  .pi-hero-ed__btn--primary:disabled { opacity: 0.6; cursor: default; }
+</style>

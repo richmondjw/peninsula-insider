@@ -217,6 +217,11 @@ function onContextMenu(event: MouseEvent) {
   const target = event.target as HTMLElement | null;
   if (!target) return;
 
+  // The homepage hero is managed solely by the dedicated Hero Editor drawer
+  // (lib/hero-editor). Leave it entirely alone here so there is exactly one
+  // way to edit it and the generic image panel never opens on a hero slide.
+  if (target.closest('[data-pi-hero-managed]')) return;
+
   console.log('[pi-edit] contextmenu target:', target.tagName, target.className, target);
 
   let el: HTMLElement | null = null;
@@ -1381,10 +1386,12 @@ async function applyImplicitPageOverrides(supa: NonNullable<ReturnType<typeof ge
   const candidates: HTMLElement[] = [];
   document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
     if (img.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
+    if (img.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     candidates.push(img);
   });
   document.querySelectorAll<HTMLElement>('[style*="background-image"]').forEach((el) => {
     if (el.closest('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]')) return;
+    if (el.closest('[data-pi-hero-managed]')) return; // hero owns its own deck
     if (!isImageLike(el)) return;
     candidates.push(el);
   });
