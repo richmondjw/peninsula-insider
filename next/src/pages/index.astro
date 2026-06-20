@@ -501,9 +501,13 @@ export const prerender = true;
     grid-area: 1 / 1;
     position: relative;
     z-index: 0;
-    height: var(--cover-h);
-    min-height: 430px;
-    max-height: 960px;
+    /* Grow-to-fit (James, 2026-06-20): the slide is AT LEAST --cover-h tall
+       (clamped 430–960px), but it is no longer a fixed, clip-to-fit box. The
+       overlay flows in this grid and bottom-aligns, so a tall headline +
+       standfirst + CTA pushes the slide taller instead of being clipped off
+       the top edge under the masthead. min-height (not height) is the key. */
+    display: grid;
+    min-height: clamp(430px, var(--cover-h), 960px);
     overflow: hidden;
     pointer-events: none;
   }
@@ -563,9 +567,15 @@ export const prerender = true;
   }
 
   .cover__overlay {
-    position: absolute;
-    inset: auto 0 0 0;
+    /* In flow within the slide grid, pinned to the bottom — so the overlay's
+       own height sets the slide's floor and the top lines (meta + headline)
+       can never be clipped, however tall the type or short the viewport. */
+    position: relative;
+    grid-area: 1 / 1;
+    align-self: end;
+    z-index: 2;
     margin: 0 auto;               /* .container handles max-width + padding */
+    padding-top: 2rem;            /* breathing room when the overlay drives height */
     padding-bottom: 5.25rem;      /* clears the control strip */
     color: #FDFCFA;
   }
@@ -726,7 +736,7 @@ export const prerender = true;
   /* ── Cover mobile ──────────────────────────────────────────────────────── */
   @media (max-width: 760px) {
     .cover { --masthead-h: 59px; --cover-ratio: 0.75; }   /* compact brand row; 75% hero */
-    .cover__slide { max-height: 850px; }
+    .cover__slide { min-height: clamp(430px, var(--cover-h), 850px); }  /* cap the floor; still grows to fit text */
     .cover__dispatch { display: none; }  /* Vivid economy: headline + CTA only */
     .cover__overlay { padding-bottom: 4.6rem; }
     .cover__headline { margin-bottom: 1.25rem; }
