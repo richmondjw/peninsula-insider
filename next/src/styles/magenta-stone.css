@@ -1,0 +1,170 @@
+/* ════════════════════════════════════════════════════════════════════════
+   Magenta Stone — admin-previewable theme override layer.
+
+   A magenta-accented, cool-greystone redesign of the site. Everything here is
+   scoped under `html[data-theme="magenta-stone"]`, so this file is globally
+   imported but INERT until the admin theme toggle sets the attribute (see
+   src/lib/inline-edit/client.ts + the no-flash script in BaseLayout.astro).
+   With the attribute absent, the public site is byte-for-byte the classic
+   warm-editorial design.
+
+   Strategy: re-map the existing semantic CSS variables (so tokenised
+   components restyle automatically), define the component-level fallback vars
+   that Footer / NewsletterBlock / hp-plans consume (--ink, --ochre, --serif,
+   --deep, …), and re-map the hardcoded fonts that don't flow through tokens.
+
+   Source: design_handoff_magenta_stone (tokens.css / tokens.json).
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── A. Token value overrides ─────────────────────────────────────────────
+   `html[data-theme="magenta-stone"]` (specificity 0,1,1) out-specifies the
+   bare `:root` (0,1,0), so these win and cascade to every var() consumer. */
+html[data-theme="magenta-stone"] {
+  /* global.css :root semantic tokens (consumed via var(--accent) etc.) */
+  --bg:         #FFFFFF;   /* surface */
+  --bg-alt:     #EEF1ED;   /* surface-sunken (was warm cream #F6F2EA) */
+  --bg-dark:    #3E0820;   /* wine-900 dark surfaces (was #1E1B18) */
+  --text:       #1C201E;   /* ink */
+  --soft:       #5E6561;   /* ink-muted */
+  --accent:     #BE1E63;   /* magenta-500 */
+  --acc-h:      #9E1452;   /* magenta-600 pressed */
+  --gold:       #E4D08A;   /* amber-base — decorative + dark-banner CTA */
+  --gold-text:  #9E1452;   /* amber-deep fails AA as text → use magenta-600 */
+  --dark:       #1C201E;   /* ink (heading colour) */
+  --white:      #FFFFFF;
+  --border:     #D4D9D4;   /* grey-200 hairline */
+  --sage:       #7E72AE;   /* lilac-deep stand-in (no green analogue in MS) */
+
+  /* Component-level fallback vars (Footer / NewsletterBlock / hp-plans read
+     these via var(--name, <warm-default>); defining them here themes those
+     surfaces without touching the components). */
+  --ink:        #1C201E;
+  --ink-soft:   #444A47;
+  --ink-muted:  #5E6561;
+  --line:       #D4D9D4;
+  --ochre:      #BE1E63;   /* footer / newsletter-card accent → magenta */
+  --paper:      #FFFFFF;
+  --paper-warm: #EEF1ED;   /* footer background → surface-sunken */
+  --cream:      #EEF1ED;   /* hp-plans background */
+  --deep:       #3E0820;   /* newsletter band base → wine-900 */
+  --serif:      'Newsreader', Georgia, serif;
+  --sans:       'Hanken Grotesk', system-ui, sans-serif;
+
+  /* New Magenta Stone font tokens (scoped) */
+  --ms-font-display: 'Newsreader', Georgia, serif;       /* weight 300 */
+  --ms-font-text:    'Hanken Grotesk', system-ui, sans-serif;
+  --ms-font-mono:    'Space Mono', ui-monospace, monospace;
+
+  /* Radius → Magenta Stone scale */
+  --radius-card-sm: 5px;
+  --radius-card-md: 9px;
+  --radius-card-lg: 13px;
+  --tile-image-radius: 9px;
+}
+
+/* ── B. Font remaps (the hardcoded-font fix) ──────────────────────────────
+   MS type: Newsreader (display) for hero + section titles (h1/h2); Hanken
+   Grotesk for body, UI, and sub-headings (h3+, per the MS spec); Space Mono
+   for eyebrows/labels. */
+html[data-theme="magenta-stone"] body {
+  font-family: var(--ms-font-text);
+}
+html[data-theme="magenta-stone"] :is(h1, h2) {
+  font-family: var(--ms-font-display);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+html[data-theme="magenta-stone"] :is(h3, h4, h5, h6) {
+  font-family: var(--ms-font-text);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Large editorial titles that hardcode Cormorant on a class (and may not be
+   h1/h2 elements) — keep them Newsreader display. */
+html[data-theme="magenta-stone"] :is(
+  .cover__headline,
+  .hp-big4__name,
+  .hp-rail__title,
+  .hp-plans__title,
+  .places__title,
+  .hp-notebook__headline,
+  .v2-np__title
+) {
+  font-family: var(--ms-font-display);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+/* Eyebrows / labels → Space Mono, uppercase, tracked, magenta on light. */
+html[data-theme="magenta-stone"] :is(
+  .label,
+  [class*="__eyebrow"],
+  .cover__chip,
+  .cover__hours,
+  .hp-big4__secondary a,
+  .hp-rail__more,
+  .hp-notebook__section,
+  .v2-np__mark,
+  .v2-np__foot
+) {
+  font-family: var(--ms-font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+html[data-theme="magenta-stone"] :is(.label, .v2-newsletter__eyebrow) {
+  color: var(--accent);
+}
+
+/* ── C. The unconditional `!important` font swaps on the landing page ──────
+   index.astro's <style is:global> forces these to Outfit !important; match
+   with !important to re-point them at the MS families. */
+html[data-theme="magenta-stone"] :is(
+  .masthead__tagline,
+  .cover__dispatch,
+  .melb-strip__text
+) {
+  font-family: var(--ms-font-text) !important;
+}
+html[data-theme="magenta-stone"] .hp-notebook__headline {
+  font-family: var(--ms-font-display) !important;
+}
+
+/* ── D. Landing-surface restyles (where token remap is insufficient) ───────── */
+
+/* Cover hero: magenta CTA already flows via var(--accent); soften the warm
+   gold italic accent to amber, and round the CTA to the MS 9px. */
+html[data-theme="magenta-stone"] .cover__headline em {
+  color: #E4D08A;            /* amber-base on the dark scrim */
+}
+html[data-theme="magenta-stone"] .cover__chip {
+  color: #E4D08A;
+}
+html[data-theme="magenta-stone"] .cover__cta {
+  border-radius: 9px;
+}
+
+/* Big-four nav + rails: warm band → cool surface-sunken (handled by --bg-alt
+   token); hover accents already magenta via var(--accent). Nothing extra. */
+
+/* Newsletter → the signature Magenta Stone dark wine banner.
+   --deep/--gold/--serif/--sans/--ink/--ochre/--line are themed in block A, so
+   only the band's gradient and the amber CTA contrast need overriding. */
+html[data-theme="magenta-stone"] .v2-newsletter {
+  background: linear-gradient(100deg, #3E0820, #5C0B30 55%, #7C0F40);
+}
+html[data-theme="magenta-stone"] .v2-newsletter::before {
+  background: radial-gradient(circle at center, rgba(190, 30, 99, 0.18), transparent 65%);
+}
+html[data-theme="magenta-stone"] .v2-newsletter__submit {
+  color: #3E0820;            /* amber CTA, wine text (MS dark-banner spec) */
+}
+html[data-theme="magenta-stone"] .v2-newsletter__submit:hover {
+  background: #C2A857;       /* amber-deep */
+}
+
+/* ── E. Accessibility / containment notes ─────────────────────────────────
+   - prefers-reduced-motion and html[data-text-scale] live independently on
+     <html>; this theme adds no always-on motion and no font-size rules, so
+     both behaviours are preserved.
+   - When the attribute is absent every selector above is inert. */

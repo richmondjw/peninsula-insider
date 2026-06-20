@@ -12,6 +12,7 @@ import '../styles/concierge.css';   // chat & drawer styles, loaded on every pag
 import '../styles/search.css';      // site-search overlay + /search page styles
 import '../styles/v4.css';          // V4 mega-menu chrome, additive tokens scoped --v4-*
 import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
+import '../styles/magenta-stone.css'; // Magenta Stone theme — inert unless html[data-theme="magenta-stone"]
 import { ClientRouter } from 'astro:transitions';
 // V4 menu promotion (2026-05-06): the V2 Masthead is replaced by V4Masthead.
 // V2 Masthead.astro stays in the codebase as reference but is no longer
@@ -142,7 +143,7 @@ const isAskPage = rawPathname.startsWith('/ask');
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
   <title>{title}</title>
@@ -249,6 +250,20 @@ const isAskPage = rawPathname.startsWith('/ask');
       try {
         var s = localStorage.getItem('pi-text-scale');
         if (s === '2' || s === '3') document.documentElement.dataset.textScale = s;
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Admin theme preview — applied before first paint so a previewing admin
+       doesn't see a flash of the classic theme. Only the admin-gated toggle
+       (lib/inline-edit/client.ts) ever writes 'pi-theme', so general users
+       never have the key set and the override stylesheet stays inert. -->
+  <script is:inline>
+    (function () {
+      try {
+        if (localStorage.getItem('pi-theme') === 'magenta-stone') {
+          document.documentElement.dataset.theme = 'magenta-stone';
+        }
       } catch (e) {}
     })();
   </script>
