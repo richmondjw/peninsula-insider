@@ -50,6 +50,53 @@ body[data-pi-edit-mode="on"] .pi-edit-toggle__dot {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
+/* -- Theme toggle (admin-only Classic ↔ Magenta Stone preview) -------------- */
+/* Sits just below the Edit-mode button, top-right. Always rendered for a
+   signed-in admin; controls the html[data-theme] attribute. */
+
+.pi-theme-toggle {
+  position: fixed;
+  top: 3.4rem;
+  right: 1rem;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: #faf7f0;
+  color: #1a1a1a;
+  font: 600 0.75rem/1 'Outfit', system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.pi-theme-toggle:hover { background: #f4ead7; }
+.pi-theme-toggle:active { transform: scale(0.98); }
+
+.pi-theme-toggle__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #b0b0b0;
+  flex: none;
+}
+
+.pi-theme-toggle[data-theme-on="on"] {
+  background: #be1e63;
+  color: #ffffff;
+  border-color: #be1e63;
+}
+
+.pi-theme-toggle[data-theme-on="on"] .pi-theme-toggle__dot {
+  background: #e4d08a;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
 /* -- Editable affordances (only active when edit mode is on) --------------- */
 
 body[data-pi-edit-mode="on"] [data-pi-edit] {
@@ -563,6 +610,14 @@ body[data-pi-edit-mode="on"] [role="img"]:not([data-pi-edit]):not([data-pi-no-ed
   .pi-edit-toggle {
     top: auto;
     bottom: 1rem;
+    right: 1rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+  }
+  /* Stack the theme toggle directly above the edit-mode button. */
+  .pi-theme-toggle {
+    top: auto;
+    bottom: 3.9rem;
     right: 1rem;
     padding: 0.65rem 1rem;
     font-size: 0.8rem;

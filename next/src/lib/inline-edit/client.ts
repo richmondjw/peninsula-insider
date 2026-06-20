@@ -33,6 +33,7 @@ const EDIT_MODE_FLAG = 'pi.editMode';
 let editMode = false;
 let isAdmin = false;
 let toggleEl: HTMLButtonElement | null = null;
+let themeToggleEl: HTMLButtonElement | null = null;
 let menuEl: HTMLDivElement | null = null;
 let toastEl: HTMLDivElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | null = null;
@@ -67,7 +68,7 @@ export async function bootInlineEditor(): Promise<void> {
   if (!supa) { console.warn('[pi-edit] no supabase client at boot'); return; }
 
   const { data: { session } } = await supa.auth.getSession();
-  if (!session) { ensureToggleRemoved(); return; }
+  if (!session) { ensureToggleRemoved(); ensureThemeToggleRemoved(); return; }
 
   // Check allowlist membership for UX. RLS will also reject writes from
   // non-allowlisted users, but verifying upfront lets us not render UI
@@ -87,6 +88,7 @@ export async function bootInlineEditor(): Promise<void> {
   // re-render on every page-load event. Delegation is installed at module
   // load above, so no per-boot install needed here.
   mountToggle();
+  mountThemeToggle();
 
   // Restore previous edit-mode preference. Body class is page-scoped so we
   // re-apply it here every boot. Patching overrides is gated to edit-mode
@@ -109,6 +111,7 @@ export async function bootInlineEditor(): Promise<void> {
       isAdmin = false;
       setEditMode(false);
       ensureToggleRemoved();
+      ensureThemeToggleRemoved();
     }
   });
 }
@@ -116,6 +119,63 @@ export async function bootInlineEditor(): Promise<void> {
 function ensureToggleRemoved() {
   document.querySelectorAll('.pi-edit-toggle').forEach((n) => n.remove());
   toggleEl = null;
+}
+
+// --------------------------------------------------------------------------
+// Theme toggle (admin-only Classic ↔ Magenta Stone preview)
+// --------------------------------------------------------------------------
+//
+// Flips html[data-theme="magenta-stone"] and persists the choice in
+// localStorage('pi-theme'). The no-flash script in BaseLayout's <head> applies
+// it before first paint on subsequent loads. Only this admin-gated button ever
+// writes the key, so general users never see the theme. The override styles
+// live in src/styles/magenta-stone.css.
+
+const THEME_KEY = 'pi-theme';
+const MAGENTA_STONE = 'magenta-stone';
+
+function currentTheme(): string {
+  try { return localStorage.getItem(THEME_KEY) || 'classic'; } catch { return 'classic'; }
+}
+
+function applyTheme(theme: string) {
+  const on = theme === MAGENTA_STONE;
+  if (on) document.documentElement.dataset.theme = MAGENTA_STONE;
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem(THEME_KEY, on ? MAGENTA_STONE : 'classic'); } catch {}
+  updateThemeToggleLabel(on);
+}
+
+function updateThemeToggleLabel(on: boolean) {
+  if (!themeToggleEl) return;
+  themeToggleEl.dataset.themeOn = on ? 'on' : 'off';
+  themeToggleEl.setAttribute('aria-pressed', on ? 'true' : 'false');
+  const label = themeToggleEl.querySelector('.pi-theme-toggle__label');
+  if (label) label.textContent = on ? 'Magenta Stone' : 'Classic theme';
+}
+
+function mountThemeToggle() {
+  const existing = document.querySelector<HTMLButtonElement>('.pi-theme-toggle');
+  if (existing) {
+    themeToggleEl = existing;
+    updateThemeToggleLabel(currentTheme() === MAGENTA_STONE);
+    return;
+  }
+  themeToggleEl = document.createElement('button');
+  themeToggleEl.type = 'button';
+  themeToggleEl.className = 'pi-theme-toggle';
+  themeToggleEl.setAttribute('aria-label', 'Preview site theme (admin only)');
+  themeToggleEl.innerHTML = '<span class="pi-theme-toggle__dot" aria-hidden="true"></span><span class="pi-theme-toggle__label">Classic theme</span>';
+  themeToggleEl.addEventListener('click', () => {
+    applyTheme(currentTheme() === MAGENTA_STONE ? 'classic' : MAGENTA_STONE);
+  });
+  document.body.appendChild(themeToggleEl);
+  updateThemeToggleLabel(currentTheme() === MAGENTA_STONE);
+}
+
+function ensureThemeToggleRemoved() {
+  document.querySelectorAll('.pi-theme-toggle').forEach((n) => n.remove());
+  themeToggleEl = null;
 }
 
 // --------------------------------------------------------------------------
