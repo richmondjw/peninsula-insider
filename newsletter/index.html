@@ -1,1 +1,12 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=/dispatch/"><link rel="canonical" href="https://peninsulainsider.com.au/dispatch/"><title>Redirecting…</title></head> <body> <p>Redirecting to <a href="/dispatch/">Peninsula Dispatch</a>…</p> <script type="module">window.location.replace("/dispatch/");</script> </body> </html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=/dispatch/"><link rel="canonical" href="https://peninsulainsider.com.au/dispatch/"><title>Redirecting…</title>  <!-- TEMPORARY PASSWORD GATE -->
+  <script>
+    (function() {
+      var KEY  = 'pi-access-v1';
+      if (localStorage.getItem(KEY) === '1') return;
+      var path = window.location.pathname;
+      if (path === '/access/' || path === '/access') return;
+      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+    })();
+  </script>
+  <!-- END TEMPORARY PASSWORD GATE -->
+</head> <body> <p>Redirecting to <a href="/dispatch/">Peninsula Dispatch</a>…</p> <script type="module">window.location.replace("/dispatch/");</script> </body> </html>

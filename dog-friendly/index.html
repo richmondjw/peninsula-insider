@@ -62,7 +62,18 @@
 <style>.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card[data-astro-cid-jsmd4c7h]{padding:clamp(1.25rem,4vw,1.75rem)}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card[data-astro-cid-jsmd4c7h]>.venue-card__name[data-astro-cid-jsmd4c7h],.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card[data-astro-cid-jsmd4c7h]>.venue-card__signature[data-astro-cid-jsmd4c7h],.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card[data-astro-cid-jsmd4c7h]>.venue-card__cta[data-astro-cid-jsmd4c7h]{padding-left:0;padding-right:0}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card[data-astro-cid-jsmd4c7h]:before{display:none}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card__name[data-astro-cid-jsmd4c7h]{margin:0 0 .75rem;padding-top:.35rem;font-size:clamp(1.55rem,6.4vw,2rem);line-height:1.08;letter-spacing:-.012em}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card__signature[data-astro-cid-jsmd4c7h]{padding-top:.85rem;margin-bottom:1.15rem;border-top:1px solid rgba(121,92,58,.14)}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card__cta[data-astro-cid-jsmd4c7h]{width:100%;min-height:3.25rem;padding:.82rem 1rem}@media(max-width:760px){.dog-hub-cards[data-astro-cid-jsmd4c7h]{padding-top:2.75rem}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venues__grid[data-astro-cid-jsmd4c7h],.dog-hub-cards[data-astro-cid-jsmd4c7h] .venues__grid--two[data-astro-cid-jsmd4c7h]{gap:1.25rem}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card[data-astro-cid-jsmd4c7h]{border-radius:1.2rem}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card__name[data-astro-cid-jsmd4c7h]{font-size:clamp(1.5rem,6.2vw,1.85rem);line-height:1.1}.dog-hub-cards[data-astro-cid-jsmd4c7h] .venue-card__cta[data-astro-cid-jsmd4c7h]{min-height:3rem;padding:.78rem 1rem;font-size:.78rem}}
 </style>
 <link rel="stylesheet" href="/_astro/BaseLayout.BEJEjcfF.css">
-<link rel="stylesheet" href="/_astro/NewsletterBlock.DLed9Scp.css"></head> <body data-page="explore" data-path="/dog-friendly/" data-v4="true"> <header class="masthead" data-v4-masthead> <!-- Row 1 — Utility.
+<link rel="stylesheet" href="/_astro/NewsletterBlock.DLed9Scp.css">  <!-- TEMPORARY PASSWORD GATE -->
+  <script>
+    (function() {
+      var KEY  = 'pi-access-v1';
+      if (localStorage.getItem(KEY) === '1') return;
+      var path = window.location.pathname;
+      if (path === '/access/' || path === '/access') return;
+      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+    })();
+  </script>
+  <!-- END TEMPORARY PASSWORD GATE -->
+</head> <body data-page="explore" data-path="/dog-friendly/" data-v4="true"> <header class="masthead" data-v4-masthead> <!-- Row 1 — Utility.
        Layout (left to right): live conditions strip · edition marker · login.
        Conditions strip is the publication's "heartbeat" — see preview-hero-v2
        brief 2026-05-13. Hardcoded for the prototype; will be agent-written. --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__conditions" aria-label="Peninsula conditions"> <span class="masthead__conditions-item"><strong>Sorrento</strong> 16°C</span> <span class="masthead__conditions-sep" aria-hidden="true">·</span> <span class="masthead__conditions-item">Sunset 5:48 pm</span> <span class="masthead__conditions-sep" aria-hidden="true">·</span> <span class="masthead__conditions-item">Bay glassy, tide low</span> </span> <span class="masthead__utility-right"> <span class="masthead__edition"> <span class="masthead__edition-mark"></span> <span class="masthead__edition-label">Winter Insider · June 2026</span> </span> <button class="masthead__signin" type="button" data-open-auth data-auth-anonymous>Login</button> </span> </div> </div> </div> <!-- Row 2 — Brand (V2 carry-over).

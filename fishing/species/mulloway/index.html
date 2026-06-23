@@ -60,7 +60,18 @@
   </script><link rel="stylesheet" href="/_astro/CookieBanner.dOyiwR-m.css">
 <link rel="stylesheet" href="/_astro/ProfileDropdown.D5bSCKgb.css">
 <link rel="stylesheet" href="/_astro/BaseLayout.BEJEjcfF.css">
-<link rel="stylesheet" href="/_astro/NewsletterBlock.DLed9Scp.css"></head> <body data-page="fishing" data-path="/fishing/species/mulloway/" data-v4="true"> <header class="masthead" data-v4-masthead> <!-- Row 1 — Utility.
+<link rel="stylesheet" href="/_astro/NewsletterBlock.DLed9Scp.css">  <!-- TEMPORARY PASSWORD GATE -->
+  <script>
+    (function() {
+      var KEY  = 'pi-access-v1';
+      if (localStorage.getItem(KEY) === '1') return;
+      var path = window.location.pathname;
+      if (path === '/access/' || path === '/access') return;
+      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+    })();
+  </script>
+  <!-- END TEMPORARY PASSWORD GATE -->
+</head> <body data-page="fishing" data-path="/fishing/species/mulloway/" data-v4="true"> <header class="masthead" data-v4-masthead> <!-- Row 1 — Utility.
        Layout (left to right): live conditions strip · edition marker · login.
        Conditions strip is the publication's "heartbeat" — see preview-hero-v2
        brief 2026-05-13. Hardcoded for the prototype; will be agent-written. --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__conditions" aria-label="Peninsula conditions"> <span class="masthead__conditions-item"><strong>Sorrento</strong> 16°C</span> <span class="masthead__conditions-sep" aria-hidden="true">·</span> <span class="masthead__conditions-item">Sunset 5:48 pm</span> <span class="masthead__conditions-sep" aria-hidden="true">·</span> <span class="masthead__conditions-item">Bay glassy, tide low</span> </span> <span class="masthead__utility-right"> <span class="masthead__edition"> <span class="masthead__edition-mark"></span> <span class="masthead__edition-label">Winter Insider · June 2026</span> </span> <button class="masthead__signin" type="button" data-open-auth data-auth-anonymous>Login</button> </span> </div> </div> </div> <!-- Row 2 — Brand (V2 carry-over).

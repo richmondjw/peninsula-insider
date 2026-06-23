@@ -14,6 +14,31 @@ For each meaningful change, include:
 
 ---
 
+## 2026-06-23 — Claude (ops)
+
+### Reinstate the temporary "Coming Soon" password gate
+
+**Summary**
+James asked to bring back the sign-up / "Something good is coming to the Peninsula" gate that was removed in PR #249. Restored the gate exactly as it was: a client-side `pi-access-v1` localStorage check that redirects every page to `/access/`, where visitors either enter the password (`peninsula`) or join the newsletter waitlist. Applied to both the Astro source (so future rebuilds keep it) and the already-deployed tree (so it's live now without a full rebuild that would roll event dates).
+
+**Files changed**
+- `next/src/layouts/BaseLayout.astro` — re-added the redirect script before `</head>`
+- `next/src/pages/access/index.astro` — restored the Coming Soon / password page
+- `access/index.html` — recreated in the deployed tree
+- 1,455 deployed `*.html` pages — redirect snippet injected before `</head>`
+
+**Pages affected**
+Whole public site (redirects to `/access/` until unlocked).
+
+**Why it matters**
+Puts the site back behind the holding page while pre-launch work continues, and keeps capturing waitlist sign-ups.
+
+**Follow-up / open issues**
+- Remove again (reverse of PR #249) when ready to go fully public.
+- 26 meta-refresh redirect stubs and the v2-staging design-system stub were left ungated; they forward to canonical pages that are gated.
+
+---
+
 ## 2026-06-11 — Claude (design)
 
 ### Sitewide responsive audit — mobile overflow fixes

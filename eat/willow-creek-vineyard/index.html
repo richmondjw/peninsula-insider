@@ -67,7 +67,18 @@
 .venue-card__partner-note[data-astro-cid-fcs5fbld]{font-size:.7rem;color:var(--color-text-muted, #9a9a9a);letter-spacing:.04em;text-transform:uppercase;margin:.25rem 0 0}
 .text-scale{display:inline-flex;align-items:baseline;gap:.15rem}.text-scale__btn{appearance:none;background:none;border:0;padding:.2rem .3rem;cursor:pointer;font-family:Outfit,system-ui,sans-serif;font-weight:600;line-height:1;color:var(--soft);border-bottom:2px solid transparent;transition:color .2s var(--ease),border-color .2s var(--ease)}.text-scale__btn--1{font-size:.8rem}.text-scale__btn--2{font-size:.95rem}.text-scale__btn--3{font-size:1.1rem}.text-scale__btn:hover{color:var(--accent)}.text-scale__btn[aria-pressed=true]{color:var(--accent);border-bottom-color:var(--accent)}.pi-article-actions{display:inline-flex;align-items:center;gap:.85rem;padding:.45rem 0}.pi-article-actions__hint{font-family:Outfit,system-ui,sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted, #6E655C)}
 </style>
-<link rel="stylesheet" href="/_astro/VenueDetailTemplate.DdHoLk8L.css"></head> <body data-page="eat" data-path="/eat/willow-creek-vineyard/" data-v4="true"> <header class="masthead" data-v4-masthead> <!-- Row 1 — Utility.
+<link rel="stylesheet" href="/_astro/VenueDetailTemplate.DdHoLk8L.css">  <!-- TEMPORARY PASSWORD GATE -->
+  <script>
+    (function() {
+      var KEY  = 'pi-access-v1';
+      if (localStorage.getItem(KEY) === '1') return;
+      var path = window.location.pathname;
+      if (path === '/access/' || path === '/access') return;
+      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+    })();
+  </script>
+  <!-- END TEMPORARY PASSWORD GATE -->
+</head> <body data-page="eat" data-path="/eat/willow-creek-vineyard/" data-v4="true"> <header class="masthead" data-v4-masthead> <!-- Row 1 — Utility.
        Layout (left to right): live conditions strip · edition marker · login.
        Conditions strip is the publication's "heartbeat" — see preview-hero-v2
        brief 2026-05-13. Hardcoded for the prototype; will be agent-written. --> <div class="masthead__utility"> <div class="container"> <div class="masthead__utility-inner"> <span class="masthead__conditions" aria-label="Peninsula conditions"> <span class="masthead__conditions-item"><strong>Sorrento</strong> 16°C</span> <span class="masthead__conditions-sep" aria-hidden="true">·</span> <span class="masthead__conditions-item">Sunset 5:48 pm</span> <span class="masthead__conditions-sep" aria-hidden="true">·</span> <span class="masthead__conditions-item">Bay glassy, tide low</span> </span> <span class="masthead__utility-right"> <span class="masthead__edition"> <span class="masthead__edition-mark"></span> <span class="masthead__edition-label">Winter Insider · June 2026</span> </span> <button class="masthead__signin" type="button" data-open-auth data-auth-anonymous>Login</button> </span> </div> </div> </div> <!-- Row 2 — Brand (V2 carry-over).
