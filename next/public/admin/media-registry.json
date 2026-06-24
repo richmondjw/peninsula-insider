@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T05:41:09.056Z",
+  "generatedAt": "2026-06-24T21:05:17.891Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -940,6 +940,12 @@
           "entitySlug": "sorrento-bakery"
         },
         {
+          "file": "src/pages/_archive/newsletter-pre-emma-2026-05-15.astro",
+          "purpose": "seo",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
           "file": "src/pages/dispatch.astro",
           "purpose": "seo",
           "entityType": null,
@@ -948,12 +954,6 @@
         {
           "file": "src/pages/explore/golf.astro",
           "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/_archive/newsletter-pre-emma-2026-05-15.astro",
-          "purpose": "seo",
           "entityType": null,
           "entitySlug": null
         },
@@ -3279,6 +3279,12 @@
           "entitySlug": "the-four-hour-peninsula"
         },
         {
+          "file": "src/pages/_archive/editorial-approach-pre-emma-2026-05-15.astro",
+          "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
           "file": "src/pages/about.astro",
           "purpose": "hero",
           "entityType": null,
@@ -3293,12 +3299,6 @@
         {
           "file": "src/pages/test/index.astro",
           "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/_archive/editorial-approach-pre-emma-2026-05-15.astro",
-          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         }
@@ -3390,13 +3390,13 @@
       "updatedAt": "2026-05-21T20:39:52.977Z",
       "usages": [
         {
-          "file": "src/pages/contact.astro",
+          "file": "src/pages/_archive/contact-pre-emma-2026-05-15.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         },
         {
-          "file": "src/pages/_archive/contact-pre-emma-2026-05-15.astro",
+          "file": "src/pages/contact.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -3452,6 +3452,24 @@
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
+        },
+        {
+          "file": "src/pages/journal/[slug].astro",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "routeSlug"
+        },
+        {
+          "file": "src/pages/journal/[slug].astro",
+          "purpose": "inline",
+          "entityType": "article",
+          "entitySlug": "routeSlug"
+        },
+        {
+          "file": "src/pages/journal/[slug].astro",
+          "purpose": "seo",
+          "entityType": "article",
+          "entitySlug": "routeSlug"
         },
         {
           "file": "src/pages/journal/best-brunch-mornington-peninsula.astro",
@@ -3512,24 +3530,6 @@
           "purpose": "inline",
           "entityType": "article",
           "entitySlug": "mornington-peninsula-with-kids"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "hero",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "inline",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
-        },
-        {
-          "file": "src/pages/journal/[slug].astro",
-          "purpose": "seo",
-          "entityType": "article",
-          "entitySlug": "routeSlug"
         },
         {
           "file": "src/pages/partners/advertising-kit/index.astro",
