@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-du7fittg> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Peninsula Insider — Coming Soon</title><meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="/_astro/index.CXGDyqm-.css"></head> <body data-astro-cid-du7fittg> <div class="gate" data-astro-cid-du7fittg> <img class="gate__logo-img" src="/images/pi-logo-new.svg?v=ae4a72a0" alt="Peninsula Insider" data-astro-cid-du7fittg> <p class="gate__logo-text" data-astro-cid-du7fittg>Peninsula <em data-astro-cid-du7fittg>Insider</em></p> <label class="gate__label" for="pw" data-astro-cid-du7fittg>Access</label> <input id="pw" class="gate__input" type="password" placeholder="Enter password" autocomplete="current-password" autofocus data-astro-cid-du7fittg> <button class="gate__btn" id="btn" data-astro-cid-du7fittg>Enter →</button> <p class="gate__error" id="err" data-astro-cid-du7fittg>Incorrect password</p> <div class="gate__divider" data-astro-cid-du7fittg><span data-astro-cid-du7fittg>Not yet an insider?</span></div> <!-- Teaser + subscribe --> <div class="gate__teaser" data-astro-cid-du7fittg> <span class="gate__teaser-eyebrow" data-astro-cid-du7fittg>Coming soon</span> <h1 class="gate__teaser-heading" data-astro-cid-du7fittg>Something good is coming <em data-astro-cid-du7fittg>to the Peninsula.</em></h1> <p class="gate__teaser-body" data-astro-cid-du7fittg>We're putting together the guide this place deserves. Be the first to know.</p> <div class="gate__subscribe-row" data-astro-cid-du7fittg> <input id="sub-email" class="gate__subscribe-input" type="email" placeholder="your@email.com" autocomplete="email" aria-label="Email address" data-astro-cid-du7fittg> <button class="gate__subscribe-btn" id="sub-btn" data-astro-cid-du7fittg>Notify me</button> </div> <p class="gate__subscribe-status" id="sub-status" data-astro-cid-du7fittg></p> </div> </div> <script>
+    (function () {
+      var KEY  = 'pi-access-v1';
+      var PASS = 'peninsula';
+      var params = new URLSearchParams(window.location.search);
+      var redirect = params.get('r') || '/';
+
+      function tryEnter() {
+        var val = document.getElementById('pw').value.trim().toLowerCase();
+        if (val === PASS) {
+          localStorage.setItem(KEY, '1');
+          window.location.replace(redirect);
+        } else {
+          document.getElementById('err').classList.add('visible');
+          document.getElementById('pw').focus();
+        }
+      }
+
+      document.getElementById('btn').addEventListener('click', tryEnter);
+      document.getElementById('pw').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') tryEnter();
+      });
+
+      // Subscribe form
+      var ENDPOINT = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
+      var subBtn = document.getElementById('sub-btn');
+      var subEmail = document.getElementById('sub-email');
+      var subStatus = document.getElementById('sub-status');
+
+      function setStatus(msg, kind) {
+        subStatus.textContent = msg;
+        subStatus.className = 'gate__subscribe-status ' + (kind || '');
+      }
+
+      async function handleSubscribe() {
+        var email = subEmail.value.trim();
+        if (!email || !email.includes('@')) {
+          setStatus('Please enter a valid email.', 'error');
+          return;
+        }
+        subBtn.disabled = true;
+        setStatus('Saving…', '');
+        try {
+          var res = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: 'access-gate' })
+          });
+          if (res.ok) {
+            setStatus("You're on the list. We'll be in touch.", 'success');
+            subEmail.value = '';
+          } else {
+            setStatus('Something went wrong — try again.', 'error');
+            subBtn.disabled = false;
+          }
+        } catch (e) {
+          setStatus('Something went wrong — try again.', 'error');
+          subBtn.disabled = false;
+        }
+      }
+
+      subBtn.addEventListener('click', handleSubscribe);
+      subEmail.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleSubscribe();
+      });
+    })();
+  </script> </body> </html>

@@ -13,7 +13,7 @@ format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "june-planning", "winter", "solstice", "festival", "sorrento", "truffle", "wine", "hotsprings"]
 relatedVenues: []
 readingTimeMinutes: 3
-featured: true
+featured: false
 status: "published"
 lastVerified: 2026-06-15
 clusterLinks:
