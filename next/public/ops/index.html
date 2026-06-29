@@ -1775,16 +1775,47 @@ async function loadSlateSummaryForOverview() {
   }).join('');
 }
 
-// ═══ RUN HISTORY (simulated from known run dates) ═══════════════
-const KNOWN_RUNS = [
-  { id: 'weekly-2026-06-29', tempo: 'weekly', date: '2026-06-29', status: 'success', pieces: 4, stalls: 0, detail: 'Signal pull · slate · newsletter · lookahead' },
-  { id: 'daily-2026-06-29', tempo: 'daily', date: '2026-06-29', status: 'success', pieces: 1, stalls: 0, detail: 'Research → draft → style pass → verify pass' },
-  { id: 'daily-2026-06-28', tempo: 'daily', date: '2026-06-28', status: 'success', pieces: 1, stalls: 0, detail: 'Standard daily cycle completed' },
-  { id: 'daily-2026-06-27', tempo: 'daily', date: '2026-06-27', status: 'success', pieces: 1, stalls: 0, detail: 'Standard daily cycle completed' },
-  { id: 'weekly-2026-06-22', tempo: 'weekly', date: '2026-06-22', status: 'success', pieces: 5, stalls: 0, detail: 'Full weekly cycle · W26 seeded' },
-  { id: 'daily-2026-06-26', tempo: 'daily', date: '2026-06-26', status: 'warn', pieces: 0, stalls: 1, detail: 'Stall on content push — auto-recovered' },
-  { id: 'monthly-2026-06-01', tempo: 'monthly', date: '2026-06-01', status: 'success', pieces: 2, stalls: 0, detail: 'Seasonal long-form · SEO cluster' },
-];
+// ═══ RUN HISTORY — live from .claude/newsroom/runs/ ═════════════
+let KNOWN_RUNS = []; // populated by loadRunsFromGitHub()
+
+async function loadRunsFromGitHub() {
+  const files = await listDir('.claude/newsroom/runs');
+  if (!files || !files.length) return [];
+
+  // Sort newest first
+  const sorted = files
+    .filter(f => f.name.endsWith('.json'))
+    .sort((a, b) => b.name.localeCompare(a.name))
+    .slice(0, 30); // last 30 runs
+
+  const runs = [];
+  for (const f of sorted) {
+    try {
+      const raw = await fetchRaw(`.claude/newsroom/runs/${f.name}`);
+      if (!raw) continue;
+      const data = JSON.parse(raw);
+      // Normalise schema — orchestrator writes: tempo, date, status, pieces_shipped, stalls, steps
+      const run = {
+        id: f.name.replace('.json', ''),
+        tempo: data.tempo || f.name.match(/daily|weekly|monthly/)?.[0] || 'daily',
+        date: data.date || f.name.slice(0, 10),
+        status: data.status === 'complete' || data.status === 'success' ? 'success'
+               : data.status === 'stall' || data.status === 'warn' ? 'warn' : 'error',
+        pieces: data.pieces_shipped ?? data.pieces ?? 0,
+        stalls: data.stalls ?? 0,
+        detail: data.summary || data.detail || buildDetailFromSteps(data.steps),
+        raw: data,
+      };
+      runs.push(run);
+    } catch(e) { /* skip malformed */ }
+  }
+  return runs;
+}
+
+function buildDetailFromSteps(steps) {
+  if (!steps || !Array.isArray(steps)) return '—';
+  return steps.map(s => s.name || s).filter(Boolean).join(' · ').slice(0, 80);
+}
 
 function renderRunTimeline(runs, containerId) {
   const el = document.getElementById(containerId);
@@ -1814,7 +1845,7 @@ function renderRunTimeline(runs, containerId) {
 
 // ═══ ENGINE HEALTH ════════════════════════════════════════════
 async function loadEngineHealth() {
-  // Loop state
+  // 1 — Loop state (live)
   const ls = await fetchRaw('.claude/newsroom/loop-state/current.json');
   const lsEl = document.getElementById('loop-state-display');
   if (ls) {
@@ -1825,40 +1856,66 @@ async function loadEngineHealth() {
       ).join('\n');
     } catch { lsEl.textContent = ls; }
   } else {
-    lsEl.innerHTML = '<span class="dim">No loop state file found yet. Engine will create it on first run.</span>\n\n<span class="info">Expected path: .claude/newsroom/loop-state/current.json</span>';
+    lsEl.innerHTML = '<span class="dim">No loop state file yet — engine creates it on first run.</span>\n<span class="info">Path: .claude/newsroom/loop-state/current.json</span>';
   }
 
-  // Workflow status via GitHub Actions API
-  const workflows = [
-    { file: 'daily-content.yml', name: 'Daily Loop', next: nextCron(6, 0) + ' (AEST)' },
-    { file: 'weekly-content.yml', name: 'Weekly Editorial', next: 'Mon · ' + nextCron(7, 0, 1) + ' (AEST)' },
+  // 2 — GitHub Actions API — last run per workflow
+  const workflowDefs = [
+    { file: 'daily-content.yml',   name: 'Daily Loop',        next: nextCron(6,0) + ' (AEST)' },
+    { file: 'weekly-content.yml',  name: 'Weekly Editorial',  next: 'Mon · ' + nextCron(7,0,1) + ' (AEST)' },
     { file: 'monthly-content.yml', name: 'Monthly Deep Dive', next: '1st · ' + nextMonthlyRun() },
-    { file: 'build-and-deploy.yml', name: 'Build & Deploy', next: 'on push to main' },
+    { file: 'build-and-deploy.yml',name: 'Build & Deploy',    next: 'on push to main' },
   ];
 
-  document.getElementById('workflow-status').innerHTML = workflows.map(w => `
+  const workflowRows = await Promise.all(workflowDefs.map(async w => {
+    try {
+      const data = await fetchAPI(`actions/workflows/${w.file}/runs?per_page=1`);
+      const run = data?.workflow_runs?.[0];
+      if (!run) return { ...w, badge: 'ARMED', badgeClass: 'live', lastRun: null, lastTime: '—', duration: '—' };
+      const conclusion = run.conclusion; // success, failure, cancelled, null (in_progress)
+      const badgeClass = conclusion === 'success' ? 'ok'
+                       : conclusion === 'failure' ? 'err'
+                       : conclusion === null ? 'warn'
+                       : 'pending';
+      const badgeText = conclusion === 'success' ? 'PASS'
+                      : conclusion === 'failure' ? 'FAIL'
+                      : conclusion === null ? 'RUNNING'
+                      : conclusion ? conclusion.toUpperCase() : 'ARMED';
+      const lastTime = run.updated_at ? new Date(run.updated_at).toLocaleString('en-AU', {
+        timeZone: 'Australia/Sydney', day: '2-digit', month: 'short',
+        hour: '2-digit', minute: '2-digit'
+      }) : '—';
+      const dur = run.run_started_at && run.updated_at
+        ? Math.round((new Date(run.updated_at) - new Date(run.run_started_at)) / 60000) + 'm'
+        : '—';
+      return { ...w, badge: badgeText, badgeClass, lastTime, duration: dur, runUrl: run.html_url };
+    } catch { return { ...w, badge: 'ARMED', badgeClass: 'live', lastTime: '—', duration: '—' }; }
+  }));
+
+  document.getElementById('workflow-status').innerHTML = workflowRows.map(w => `
     <div class="tempo-row">
       <div class="tempo-info">
-        <div class="tempo-name">${w.name}</div>
-        <div class="tempo-detail">${w.file}</div>
+        <div class="tempo-name">${w.name}${w.runUrl ? ` <a href="${w.runUrl}" target="_blank" class="article-link" style="margin-left:8px;">↗ view run</a>` : ''}</div>
+        <div class="tempo-detail">${w.file} · Last: ${w.lastTime}${w.duration !== '—' ? ' · ' + w.duration : ''}</div>
       </div>
       <div class="tempo-right">
         <span class="tempo-next">${w.next}</span>
-        <span class="badge live">ARMED</span>
+        <span class="badge ${w.badgeClass}">${w.badge}</span>
       </div>
     </div>
   `).join('');
 
-  // Stats from known run data
+  // 3 — Stats from real run data
+  if (!KNOWN_RUNS.length) KNOWN_RUNS = await loadRunsFromGitHub();
   const totalRuns = KNOWN_RUNS.length;
   const successRuns = KNOWN_RUNS.filter(r => r.status === 'success').length;
   const totalStalls = KNOWN_RUNS.reduce((s, r) => s + r.stalls, 0);
   const totalPieces = KNOWN_RUNS.reduce((s, r) => s + r.pieces, 0);
 
-  document.getElementById('h-total-runs').textContent = totalRuns;
-  document.getElementById('h-success-rate').textContent = Math.round(successRuns/totalRuns*100) + '%';
-  document.getElementById('h-stalls').textContent = totalStalls;
-  document.getElementById('h-pieces').textContent = totalPieces;
+  document.getElementById('h-total-runs').textContent = totalRuns || '—';
+  document.getElementById('h-success-rate').textContent = totalRuns ? Math.round(successRuns/totalRuns*100) + '%' : '—';
+  document.getElementById('h-stalls').textContent = totalStalls || '0';
+  document.getElementById('h-pieces').textContent = totalPieces || '—';
 }
 
 // ═══ SIGNAL BRIEF ═════════════════════════════════════════════
@@ -2034,41 +2091,82 @@ function loadPipeline() {
 }
 
 // ═══ OVERVIEW BOOTSTRAP ═══════════════════════════════════════
-function loadOverview() {
-  // Cron next-run times
-  document.getElementById('next-daily').textContent = nextCron(6, 0);
-  document.getElementById('next-weekly').textContent = 'Mon · ' + nextCron(7, 0, 1);
-  document.getElementById('next-monthly').textContent = '1st · ' + nextMonthlyRun();
-  document.getElementById('badge-daily').className = 'badge ok';
-  document.getElementById('badge-daily').textContent = 'ARMED';
-  document.getElementById('badge-weekly').className = 'badge ok';
-  document.getElementById('badge-weekly').textContent = 'ARMED';
-  document.getElementById('badge-monthly').className = 'badge ok';
-  document.getElementById('badge-monthly').textContent = 'ARMED';
-
-  // Last run
-  const lastRun = KNOWN_RUNS[0];
-  const el = document.getElementById('stat-last-run');
-  el.textContent = lastRun.status === 'success' ? '✓ OK' : '⚠ STALL';
-  el.style.color = lastRun.status === 'success' ? '#5CB86A' : '#E09040';
-  document.getElementById('stat-last-run-sub').textContent = `${lastRun.date} · ${lastRun.tempo}`;
-
+async function loadOverview() {
   // Week chip
   const now = aestNow();
   const w = getWeekNumber(now);
-  const wLabel = (!w || isNaN(w)) ? '26' : w;
+  const wLabel = (!w || isNaN(w)) ? '27' : w;
   document.getElementById('week-chip').textContent = `W${wLabel} · 2026`;
-
-  // Engine status sidebar
-  document.getElementById('engine-status-text').textContent = 'Engine armed';
-  const dailyNext = nextCron(6, 0);
-  document.getElementById('next-run-sidebar').textContent = `Next daily: ${dailyNext}`;
-
-  // Run timeline in overview
-  renderRunTimeline(KNOWN_RUNS.slice(0, 5), 'recent-runs');
 
   // Last sync
   document.getElementById('last-sync-label').textContent = `Synced ${new Date().toLocaleTimeString('en-AU', { timeZone: 'Australia/Sydney', hour: '2-digit', minute: '2-digit' })} AEST`;
+
+  // Cron next-run countdowns (static schedule — always accurate)
+  document.getElementById('next-daily').textContent = nextCron(6, 0);
+  document.getElementById('next-weekly').textContent = 'Mon · ' + nextCron(7, 0, 1);
+  document.getElementById('next-monthly').textContent = '1st · ' + nextMonthlyRun();
+
+  // Pull last Actions run status per cron (live)
+  const cronDefs = [
+    { file: 'daily-content.yml',   badgeId: 'badge-daily',   nextId: 'next-daily' },
+    { file: 'weekly-content.yml',  badgeId: 'badge-weekly',  nextId: 'next-weekly' },
+    { file: 'monthly-content.yml', badgeId: 'badge-monthly', nextId: 'next-monthly' },
+  ];
+
+  cronDefs.forEach(d => {
+    document.getElementById(d.badgeId).className = 'badge live';
+    document.getElementById(d.badgeId).textContent = 'ARMED';
+  });
+
+  // Fetch Actions status in parallel
+  try {
+    await Promise.all(cronDefs.map(async d => {
+      const data = await fetchAPI(`actions/workflows/${d.file}/runs?per_page=1`);
+      const run = data?.workflow_runs?.[0];
+      if (!run) return;
+      const c = run.conclusion;
+      const badge = document.getElementById(d.badgeId);
+      if (c === 'success') { badge.className = 'badge ok'; badge.textContent = 'PASS'; }
+      else if (c === 'failure') { badge.className = 'badge err'; badge.textContent = 'FAIL'; }
+      else if (!c) { badge.className = 'badge warn'; badge.textContent = 'RUNNING'; }
+    }));
+  } catch(e) { /* API rate limit — badges stay ARMED */ }
+
+  // Load real run history
+  if (!KNOWN_RUNS.length) {
+    KNOWN_RUNS = await loadRunsFromGitHub();
+  }
+
+  // Last run stat card
+  const el = document.getElementById('stat-last-run');
+  if (KNOWN_RUNS.length) {
+    const lastRun = KNOWN_RUNS[0];
+    el.textContent = lastRun.status === 'success' ? '✓ OK' : lastRun.status === 'warn' ? '⚠ STALL' : '✗ ERR';
+    el.style.color = lastRun.status === 'success' ? '#5CB86A' : lastRun.status === 'warn' ? '#E09040' : '#D05050';
+    document.getElementById('stat-last-run-sub').textContent = `${lastRun.date} · ${lastRun.tempo}`;
+    // Engine sidebar
+    document.getElementById('engine-status-text').textContent = 'Engine running';
+  } else {
+    el.textContent = 'AWAITING';
+    el.style.color = 'var(--text-ghost)';
+    el.style.fontSize = '14px';
+    document.getElementById('stat-last-run-sub').textContent = 'No runs yet — add GitHub secrets';
+    document.getElementById('engine-status-text').textContent = 'Engine armed';
+  }
+
+  const dailyNext = nextCron(6, 0);
+  document.getElementById('next-run-sidebar').textContent = `Next daily: ${dailyNext}`;
+
+  // Run timeline (real or empty state)
+  if (KNOWN_RUNS.length) {
+    renderRunTimeline(KNOWN_RUNS.slice(0, 5), 'recent-runs');
+  } else {
+    document.getElementById('recent-runs').innerHTML = `
+      <div class="empty">
+        <div class="icon">▶</div>
+        No runs yet. Add GitHub secrets to activate the engine.
+      </div>`;
+  }
 }
 
 // ═══ SECTION LOADER ═══════════════════════════════════════════
@@ -2082,9 +2180,22 @@ async function loadSection(id) {
   try {
     if (id === 'overview') {
       await Promise.all([loadArticles(), loadSlateSummaryForOverview()]);
+      // Overview already called — no need to double-call
     }
     if (id === 'health') await loadEngineHealth();
-    if (id === 'runs') renderRunTimeline(KNOWN_RUNS, 'full-run-log');
+    if (id === 'runs') {
+      if (!KNOWN_RUNS.length) KNOWN_RUNS = await loadRunsFromGitHub();
+      if (KNOWN_RUNS.length) {
+        renderRunTimeline(KNOWN_RUNS, 'full-run-log');
+      } else {
+        document.getElementById('full-run-log').innerHTML = `
+          <div class="empty">
+            <div class="icon">▶</div>
+            No run logs yet.<br>
+            <span style="font-size:10px;">Engine writes to .claude/newsroom/runs/ on each cycle.</span>
+          </div>`;
+      }
+    }
     if (id === 'slate') await loadSlateData();
     if (id === 'pipeline') loadPipeline();
     if (id === 'articles') { if (!allArticles.length) await loadArticles(); else renderArticlesTable(allArticles.slice(0, 80)); }
@@ -2099,7 +2210,11 @@ function filterRuns(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   const runs = type === 'all' ? KNOWN_RUNS : KNOWN_RUNS.filter(r => r.tempo === type);
-  renderRunTimeline(runs, 'full-run-log');
+  if (runs.length) {
+    renderRunTimeline(runs, 'full-run-log');
+  } else {
+    document.getElementById('full-run-log').innerHTML = `<div class="empty"><div class="icon">▶</div>No ${type} runs yet.</div>`;
+  }
 }
 
 function showRefresh() {
@@ -2157,8 +2272,8 @@ document.querySelectorAll('.nav-item').forEach(item => {
 });
 
 // ═══ INIT ═════════════════════════════════════════════════════
-(function init() {
-  loadOverview();
+(async function init() {
+  await loadOverview();
   loadSection('overview');
 })();
 
