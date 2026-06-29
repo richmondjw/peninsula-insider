@@ -215,21 +215,28 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   const data = event.data;
   const slug = data.slug;
   const url = `${siteUrl}/whats-on/${slug}/`;
+  const nextOccurrence = (data as any).nextOccurrence
+    ? new Date((data as any).nextOccurrence)
+    : undefined;
+  const usesNextOccurrence =
+    ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
+    nextOccurrence;
+  const eventStartDate = usesNextOccurrence ? nextOccurrence : data.startDate;
+  const eventEndDate = usesNextOccurrence ? nextOccurrence : (data.endDate ?? data.startDate);
 
   const startISO = (() => {
     if (data.startTime) {
-      const d = data.startDate.toISOString().slice(0, 10);
+      const d = eventStartDate.toISOString().slice(0, 10);
       return `${d}T${data.startTime}:00+10:00`;
     }
-    return data.startDate.toISOString();
+    return eventStartDate.toISOString();
   })();
   const endISO = (() => {
-    const endDate = data.endDate ?? data.startDate;
     if (data.endTime) {
-      const d = endDate.toISOString().slice(0, 10);
+      const d = eventEndDate.toISOString().slice(0, 10);
       return `${d}T${data.endTime}:00+10:00`;
     }
-    return endDate.toISOString();
+    return eventEndDate.toISOString();
   })();
 
   const location: Record<string, unknown> = {
@@ -391,8 +398,16 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
   const fmtDateTime = (d: Date) =>
     `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
 
-  const start = new Date(data.startDate);
-  const end = data.endDate ? new Date(data.endDate) : new Date(start);
+  const nextOccurrence = (data as any).nextOccurrence
+    ? new Date((data as any).nextOccurrence)
+    : undefined;
+  const usesNextOccurrence =
+    ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
+    nextOccurrence;
+  const start = usesNextOccurrence ? new Date(nextOccurrence) : new Date(data.startDate);
+  const end = usesNextOccurrence
+    ? new Date(nextOccurrence)
+    : (data.endDate ? new Date(data.endDate) : new Date(start));
 
   let dates: string;
   if (data.startTime) {
