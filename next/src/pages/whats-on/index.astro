@@ -12,15 +12,26 @@ import { isUpcoming, routeSlug } from '../../lib/editorial';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const now = new Date();
+const liveDateKey = (event: any) =>
+  (((event.data as any).nextOccurrence ?? event.data.endDate ?? event.data.startDate)?.getTime() ?? 0);
 const events = (await getCollection('events', ({ data }) => data.status === 'published'))
   .filter((event) => {
     const cancelled = /cancelled/i.test(event.data.verificationStatus ?? '') || /^cancelled:/i.test(event.data.summary ?? '');
     if (cancelled) return false;
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
+
+    const recurrence = event.data.recurrence;
+    const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
     const end = event.data.endDate ?? event.data.startDate;
-    return isUpcoming(end, now);
+
+    if (['weekly', 'monthly', 'annual'].includes(recurrence)) {
+      return nextOccurrence ? isUpcoming(nextOccurrence, now) : Boolean(end && isUpcoming(end, now));
+    }
+    if (recurrence === 'ongoing') {
+      return Boolean(end && isUpcoming(end, now));
+    }
+    return Boolean(end && isUpcoming(end, now));
   })
-  .sort((a, b) => (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0));
+  .sort((a, b) => liveDateKey(a) - liveDateKey(b));
 
 const dispatches = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .filter((a) => a.data.format === 'weekend-picker')
@@ -53,7 +64,7 @@ const sortAppealThenDate = (a: typeof events[number], b: typeof events[number]) 
   const ap = a.data.visitorAppealScore ?? 0;
   const bp = b.data.visitorAppealScore ?? 0;
   if (ap !== bp) return bp - ap;
-  return (a.data.startDate?.getTime() ?? 0) - (b.data.startDate?.getTime() ?? 0);
+  return liveDateKey(a) - liveDateKey(b);
 };
 
 // Deduplicate: track slugs shown in signature section so they don't

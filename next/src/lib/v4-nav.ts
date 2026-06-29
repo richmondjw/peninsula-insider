@@ -86,7 +86,7 @@ export const v4Pillars: V4Pillar[] = [
     href: '/eat/',
     intro: 'Three ways into Eat & Drink, pick the meal, the place, or the editorial route.',
     rail: {
-      eyebrow: "Editor's pick · Autumn '26",
+      eyebrow: "Editor's pick · Winter '26",
       title: 'Laura at Pt Leo Estate',
       verdict: 'Sit at the bar, not the dining room. Better view, faster service. The kingfish is the order.',
       href: '/eat/laura-pt-leo/',
@@ -136,7 +136,7 @@ export const v4Pillars: V4Pillar[] = [
     href: '/stay/',
     intro: 'Rooms by what the trip needs, by what kind of bed, or by editorial pick.',
     rail: {
-      eyebrow: "Editor's pick · Autumn '26",
+      eyebrow: "Editor's pick · Winter '26",
       title: 'Jackalope',
       verdict: 'The architecture is doing the work. Book Doot Doot Doot for dinner the same night, the room rate justifies the splurge.',
       href: '/stay/jackalope/',
@@ -182,7 +182,7 @@ export const v4Pillars: V4Pillar[] = [
     href: '/wine/',
     intro: "The Peninsula's strongest editorial authority, by venue type, by place, or by the call.",
     rail: {
-      eyebrow: "Editor's pick · Autumn '26",
+      eyebrow: "Editor's pick · Winter '26",
       title: 'Ten Minutes by Tractor',
       verdict: 'Three vineyards, one table, and the Wallis Pinot is the pour. The architecture does the rest.',
       href: '/wine/ten-minutes-by-tractor/',
@@ -238,7 +238,7 @@ export const v4Pillars: V4Pillar[] = [
       icon: 'peninsula-map',
     },
     rail: {
-      eyebrow: "Editor's pick · Autumn '26",
+      eyebrow: "Editor's pick · Winter '26",
       title: 'Bushrangers Bay walk',
       verdict: 'Two hours, almost nobody on it after lunch, and the wildflowers come out late April. Park at Cape Schanck, not Boneo.',
       href: '/explore/bushrangers-bay-walk/',
@@ -292,10 +292,10 @@ export const v4Pillars: V4Pillar[] = [
       ctaHref: '/whats-on/',
     },
     rail: {
-      eyebrow: "Editor's pick · Autumn '26",
-      title: "Mt Eliza Farmers' Market",
-      verdict: "Sunday morning, Mt Eliza. Get there before 9 if you want a brunch table. Park at the village. Next occurrence: 4th Sunday of the month.",
-      href: '/whats-on/mt-eliza-farmers-market/',
+      eyebrow: "Editor's pick · Winter '26",
+      title: 'MPRG school holiday workshops',
+      verdict: 'Starts 1 July in Mornington, indoor, practical, and actually useful if the school-holiday weather turns. Book early.',
+      href: '/whats-on/mornington-peninsula-regional-gallery-school-holiday-workshops/',
       cta: 'Plan your visit →',
     },
     columns: [
@@ -303,7 +303,7 @@ export const v4Pillars: V4Pillar[] = [
         eyebrow: 'This weekend',
         items: [
           { key: 'all-weekend',     label: 'All this weekend',  href: '/whats-on/' },
-          { key: 'mt-eliza-market', label: "Mt Eliza Farmers'", href: '/whats-on/mt-eliza-farmers-market/' },
+          { key: 'mprg-workshops', label: 'MPRG workshops', href: '/whats-on/mornington-peninsula-regional-gallery-school-holiday-workshops/' },
         ],
       },
       {
@@ -318,7 +318,7 @@ export const v4Pillars: V4Pillar[] = [
       {
         eyebrow: 'By the mood',
         items: [
-          { key: 'weekend-edit', label: 'Autumn weekend edit', href: '/journal/autumn-weekend-edit/' },
+          { key: 'weekend-edit', label: 'Weekend edit', href: '/journal/autumn-weekend-edit/' },
           { key: 'long-lunch',   label: 'Long-lunch Sunday',   href: '/journal/the-long-lunch/' },
           { key: 'rainy',        label: 'When it rains',       href: '/journal/the-rainy-day-peninsula-without-a-booking/' },
           { key: 'kids',         label: 'With kids',           href: '/journal/the-peninsula-with-kids/' },
@@ -336,7 +336,7 @@ export const v4Pillars: V4Pillar[] = [
     href: '/journal/',
     intro: 'Long reads, dispatches, and the Shortlist, every issue, every piece.',
     rail: {
-      eyebrow: "Editor's pick · Autumn '26",
+      eyebrow: "Editor's pick · Winter '26",
       title: 'On the quiet authority of a good autumn',
       verdict: "The season the Peninsula stops performing. Vintage trucks finished, weekend crowds thinning, the producers finally with time.",
       href: '/journal/',
