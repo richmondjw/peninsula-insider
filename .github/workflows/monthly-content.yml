@@ -1,0 +1,76 @@
+name: Monthly Content Engine — Peninsula Insider
+
+on:
+  schedule:
+    # 1st of month at 6:00 AM AEST = 20:00 UTC previous day
+    # Actually: 1st at 20:00 UTC = 1st at 06:00 AEST next day
+    # Use: run on 1st at 20:00 UTC
+    - cron: '0 20 1 * *'
+  workflow_dispatch:
+    inputs:
+      month_override:
+        description: 'Override month (format: YYYY-MM)'
+        required: false
+        type: string
+
+jobs:
+  monthly-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_CONTENT_PUSH }}
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          pip install anthropic requests python-dateutil
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Peninsula Insider Engine"
+          git config user.email "engine@peninsulainsider.com.au"
+
+      - name: Run deep seasonal research
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/signal_engine.py \
+            --task monthly-thematic-gaps \
+            --output .claude/signals/thematic-gaps-$(date +%Y-%m).md
+
+      - name: Run monthly content engine
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/orchestrator.py --tempo monthly
+
+      - name: Upload monthly artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: monthly-run-log-${{ github.run_number }}
+          path: |
+            .claude/newsroom/runs/
+            .claude/newsroom/perf/
+            .claude/signals/
+            .claude/research/
+          retention-days: 365

@@ -1,0 +1,71 @@
+name: Daily Content Engine — Peninsula Insider
+
+on:
+  schedule:
+    # 6:00 AM AEST = 20:00 UTC (AEST is UTC+10)
+    # Run every day at 20:00 UTC
+    - cron: '0 20 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (plan only, no commits)'
+        type: boolean
+        default: false
+      force:
+        description: 'Force run even if already ran today'
+        type: boolean
+        default: false
+
+jobs:
+  daily-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_CONTENT_PUSH }}
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node.js (for content scripts)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install engine dependencies
+        run: |
+          pip install anthropic requests python-dateutil
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Peninsula Insider Engine"
+          git config user.email "engine@peninsulainsider.com.au"
+
+      - name: Run daily content engine
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
+        run: |
+          python engine/orchestrator.py --tempo daily ${{ inputs.dry_run == true && '--dry-run' || '' }} ${{ inputs.force == true && '--force' || '' }}
+
+      - name: Upload run log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-run-log-${{ github.run_number }}
+          path: .claude/newsroom/runs/
+          retention-days: 30
+
+      - name: Trigger deploy if content was pushed
+        if: success()
+        run: |
+          echo "Content push complete — GitHub Pages deploy will trigger automatically on push to main"

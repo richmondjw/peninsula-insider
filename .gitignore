@@ -38,3 +38,8 @@ ops/data/
 ops/logs/
 .vercel
 .pi-autofix/
+
+# Engine runtime files
+.claude/research/_brief_*
+.claude/newsroom/loop-state/current.json
+engine/__pycache__/
