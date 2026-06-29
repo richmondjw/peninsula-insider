@@ -420,7 +420,7 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
     let endLocal: Date;
     if (data.endTime) {
       const [eh, em] = data.endTime.split(':').map((n) => parseInt(n, 10) || 0);
-      const endDate = data.endDate ? new Date(data.endDate) : start;
+      const endDate = end;
       endLocal = new Date(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), eh - 10, em));
     } else {
       // Default to 2-hour event when no end-time given.
