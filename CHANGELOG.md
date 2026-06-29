@@ -1,3 +1,50 @@
+## 2026-06-29 — Agentic Content Engine v1.0
+
+### What changed
+Installed the Peninsula Insider Agentic Content Engine — a fully autonomous, loop-engineered publication system that ships content on daily, weekly, and monthly cron cycles without human approval.
+
+### Components added
+- `engine/orchestrator.py` — master loop runner (all three tempos, stall recovery, git commit + push)
+- `engine/content_generator.py` — PI-voice content generation with seasonal template library
+- `engine/signal_engine.py` — SEO keyword gap analysis + competitive site intelligence
+- `.github/workflows/daily-content.yml` — 6:00 AM AEST daily cron
+- `.github/workflows/weekly-content.yml` — Monday 7:00 AM AEST weekly cron
+- `.github/workflows/monthly-content.yml` — 1st of month 6:00 AM AEST monthly cron
+- `.github/workflows/build-and-deploy.yml` — auto-deploy on push to main
+- `.claude/agents/remy-orchestrator.md` — REMY orchestrator agent spec v2.0
+- `.claude/agents/commissioning-agent.md` — weekly slate + brief generation
+- `.claude/agents/signal-agent.md` — SEO + competitive intelligence agent
+- `.claude/agents/research-agent.md` — web research + event intel agent
+- `.claude/agents/dispatch-desk.md` — Insider Picks + newsletter writer spec
+- `.claude/agents/style-agent.md` — voice/brand QA gate spec
+- `.claude/agents/verify-agent.md` — factual accuracy gate spec
+- `docs/agentic-content-engine-architecture-2026-06-29.md` — full architecture
+- `docs/openclaw-agent-registry-2026-06-29.md` — OpenClaw deployment guide
+
+### What this enables
+- Daily Insider Picks column auto-published to peninsulainsider.com.au at 6am AEST
+- Weekly editorial slate + Weekend Picks + SEO target piece + newsletter auto-commissioned
+- Monthly deep research → 3 long-form pieces + 2 town hub refreshes auto-produced
+- Signal feedback loop: Semrush/competitive → commissioning decisions → targeted content
+- Loop engineering: every step completion-forced; stalls degrade gracefully, never stall completely
+- All content cleared through STYLE + VERIFY gates before push; no human approval required
+
+### SEO consequence
+- Daily freshness signal to Google from recurring article format
+- Weekly SEO-targeted pieces close keyword gaps identified by signal engine
+- Monthly town hub refreshes maintain ranking authority on priority pages
+- All articles include FAQ (PAA capture), clusterLinks (internal link equity), structured frontmatter
+
+### Required follow-up
+1. Add GitHub secrets: ANTHROPIC_API_KEY, PAT_CONTENT_PUSH, SUPABASE_SERVICE_ROLE_KEY
+2. Optionally add FIRECRAWL_API_KEY and SEMRUSH_API_KEY for enhanced signal pull
+3. Enable GitHub Actions in repo settings (if not already enabled)
+4. Run first manual trigger: Actions → daily-content → Run workflow
+5. Upgrade content_generator.py to use Claude API directly (currently uses seasonal template library)
+6. Wire real Semrush API calls into signal_engine.py once API key added
+
+
+
 # Peninsula Insider Change Log
 
 This changelog records meaningful structural, content, SEO, and operational changes to the Peninsula Insider site.
