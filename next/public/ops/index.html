@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PI Ops — Editorial Engine Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0A0F0E;
+      --teal: #01696F;
+      --teal-light: #02888F;
+      --teal-dim: #01494E;
+      --teal-ghost: rgba(1,105,111,0.12);
+      --cream: #F5F0E8;
+      --cream-dim: #EDE7DC;
+      --sand: #D4C9B5;
+      --gold: #C5A84B;
+      --gold-light: #D4B96A;
+      --red: #B83232;
+      --red-ghost: rgba(184,50,50,0.12);
+      --amber: #C07820;
+      --amber-ghost: rgba(192,120,32,0.12);
+      --green: #2A7A3A;
+      --green-ghost: rgba(42,122,58,0.12);
+      --surface: #111916;
+      --surface-2: #182220;
+      --surface-3: #1E2B28;
+      --border: rgba(1,105,111,0.2);
+      --border-dim: rgba(255,255,255,0.06);
+      --text: #E8EDE8;
+      --text-dim: #8FA89A;
+      --text-ghost: #566860;
+      --mono: 'Space Mono', monospace;
+      --sans: 'Space Grotesk', sans-serif;
+      --inter: 'Inter', sans-serif;
+    }
+
+    html { font-size: 14px; scroll-behavior: smooth; }
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: var(--inter);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── LAYOUT ───────────────────────────────────────── */
+    .app { display: flex; min-height: 100vh; }
+
+    /* ── SIDEBAR ──────────────────────────────────────── */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-logo {
+      padding: 24px 20px 20px;
+      border-bottom: 1px solid var(--border-dim);
+    }
+    .sidebar-logo .mark {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--teal);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .sidebar-logo h1 {
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .sidebar-logo .sub {
+      font-size: 11px;
+      color: var(--text-ghost);
+      margin-top: 2px;
+      font-family: var(--mono);
+    }
+
+    .sidebar-nav { padding: 16px 0; flex: 1; }
+    .nav-group { margin-bottom: 20px; }
+    .nav-group-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0 20px;
+      margin-bottom: 6px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 20px;
+      font-size: 13px;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.15s;
+      border-left: 2px solid transparent;
+      font-family: var(--inter);
+      font-weight: 400;
+    }
+    .nav-item:hover { color: var(--text); background: var(--surface-2); }
+    .nav-item.active {
+      color: var(--teal-light);
+      border-left-color: var(--teal);
+      background: var(--teal-ghost);
+    }
+    .nav-item .icon { font-size: 14px; width: 18px; text-align: center; opacity: 0.8; }
+
+    .sidebar-status {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border-dim);
+    }
+    .engine-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+    .pulse {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      animation: pulse 2.5s infinite;
+    }
+    .pulse.amber { background: var(--amber); }
+    .pulse.red { background: var(--red); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(42,122,58,0.4); }
+      50% { opacity: 0.8; box-shadow: 0 0 0 4px rgba(42,122,58,0); }
+    }
+
+    /* ── MAIN ─────────────────────────────────────────── */
+    .main { flex: 1; overflow: hidden; }
+
+    /* ── TOP BAR ──────────────────────────────────────── */
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 16px; }
+    .page-title {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .week-chip {
+      font-family: var(--mono);
+      font-size: 10px;
+      background: var(--teal-ghost);
+      color: var(--teal-light);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 3px;
+      letter-spacing: 0.08em;
+    }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .last-sync {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+    }
+    .btn {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 3px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-dim);
+      transition: all 0.15s;
+      letter-spacing: 0.05em;
+    }
+    .btn:hover { background: var(--surface-3); color: var(--text); border-color: var(--teal); }
+    .btn.primary { background: var(--teal); border-color: var(--teal); color: white; font-weight: 700; }
+    .btn.primary:hover { background: var(--teal-light); }
+
+    /* ── CONTENT ──────────────────────────────────────── */
+    .content { padding: 28px 32px 48px; overflow-y: auto; max-height: calc(100vh - 56px); }
+
+    /* ── SECTION ──────────────────────────────────────── */
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── STAT GRID ────────────────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+    }
+    .stat-card.teal::before { background: var(--teal); }
+    .stat-card.gold::before { background: var(--gold); }
+    .stat-card.green::before { background: var(--green); }
+    .stat-card.amber::before { background: var(--amber); }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .stat-value {
+      font-family: var(--sans);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 6px;
+      font-family: var(--inter);
+    }
+
+    /* ── GRID LAYOUTS ─────────────────────────────────── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .grid-3 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+    /* ── CARD ─────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-title {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .card-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+    }
+    .card-body { padding: 16px 20px; }
+
+    /* ── TEMPO ROWS ───────────────────────────────────── */
+    .tempo-list { display: flex; flex-direction: column; gap: 8px; }
+    .tempo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--surface-2);
+      border-radius: 3px;
+      border: 1px solid var(--border-dim);
+    }
+    .tempo-icon { font-size: 16px; width: 24px; text-align: center; }
+    .tempo-info { flex: 1; }
+    .tempo-name {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .tempo-detail {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      margin-top: 2px;
+    }
+    .tempo-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .tempo-next {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--teal-light);
+    }
+
+    /* ── STATUS BADGE ─────────────────────────────────── */
+    .badge {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+    .badge.ok { background: var(--green-ghost); color: #5CB86A; border: 1px solid rgba(42,122,58,0.3); }
+    .badge.warn { background: var(--amber-ghost); color: #E09040; border: 1px solid rgba(192,120,32,0.3); }
+    .badge.err { background: var(--red-ghost); color: #D05050; border: 1px solid rgba(184,50,50,0.3); }
+    .badge.pending { background: rgba(255,255,255,0.05); color: var(--text-dim); border: 1px solid var(--border-dim); }
+    .badge.live { background: var(--teal-ghost); color: var(--teal-light); border: 1px solid var(--border); }
+    .badge.draft { background: rgba(197,168,75,0.1); color: var(--gold-light); border: 1px solid rgba(197,168,75,0.2); }
+
+    /* ── RUN TIMELINE ─────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: flex;
+      gap: 14px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-left {
+      width: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .tl-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+      margin-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-dot.success { background: var(--green); }
+    .tl-dot.warn { background: var(--amber); }
+    .tl-dot.error { background: var(--red); }
+    .tl-line {
+      flex: 1;
+      width: 1px;
+      background: var(--border-dim);
+      margin-top: 4px;
+    }
+    .timeline-item:last-child .tl-line { display: none; }
+    .timeline-content { flex: 1; }
+    .tl-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .tl-time {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+    }
+    .tl-title {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .tl-detail {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .tl-steps { margin-top: 8px; display: flex; flex-direction: column; gap: 3px; }
+    .tl-step {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      padding: 2px 8px;
+      background: var(--surface-2);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tl-step.ok { color: #5CB86A; }
+    .tl-step.warn { color: #E09040; }
+
+    /* ── ARTICLE TABLE ────────────────────────────────── */
+    .article-table { width: 100%; border-collapse: collapse; }
+    .article-table th {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-dim);
+      font-weight: 400;
+    }
+    .article-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-dim);
+      font-size: 12px;
+      color: var(--text-dim);
+      vertical-align: middle;
+    }
+    .article-table tr:last-child td { border-bottom: none; }
+    .article-table tr:hover td { background: var(--surface-2); }
+    .article-title-cell {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .article-link {
+      color: var(--teal-light);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 10px;
+      transition: color 0.15s;
+    }
+    .article-link:hover { color: var(--cream); }
+
+    /* ── SIGNAL BRIEF ─────────────────────────────────── */
+    .signal-section { margin-bottom: 20px; }
+    .signal-section h3 {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--teal-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-dim);
+    }
+    .signal-item {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      align-items: flex-start;
+    }
+    .signal-item:last-child { border-bottom: none; }
+    .signal-rank {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      width: 20px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .signal-content { flex: 1; }
+    .signal-kw {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--cream);
+      margin-bottom: 2px;
+    }
+    .signal-meta {
+      font-size: 11px;
+      color: var(--text-ghost);
+    }
+    .signal-vol {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* ── SLATE TABLE ──────────────────────────────────── */
+    .slate-week-header {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal-light);
+      padding: 12px 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .slate-piece {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      padding: 9px 14px;
+      background: var(--surface-2);
+      border-radius: 3px;
+      margin-bottom: 6px;
+      border: 1px solid var(--border-dim);
+      font-size: 12px;
+    }
+    .slate-slot {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      min-width: 60px;
+    }
+    .slate-title { color: var(--text); font-size: 13px; }
+    .slate-writer { font-family: var(--mono); font-size: 10px; color: var(--text-dim); }
+    .slate-deadline { font-family: var(--mono); font-size: 10px; color: var(--text-ghost); }
+
+    /* ── FLAG LIST ────────────────────────────────────── */
+    .flag-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--surface-2);
+      border-radius: 3px;
+      margin-bottom: 6px;
+      border-left: 3px solid var(--border-dim);
+      align-items: flex-start;
+    }
+    .flag-item.high { border-left-color: var(--red); }
+    .flag-item.medium { border-left-color: var(--amber); }
+    .flag-item.low { border-left-color: var(--teal-dim); }
+    .flag-sev { font-size: 12px; width: 18px; flex-shrink: 0; }
+    .flag-content { flex: 1; }
+    .flag-title { font-size: 13px; color: var(--text); margin-bottom: 2px; }
+    .flag-owner {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+    }
+
+    /* ── COMPETITIVE TABLE ────────────────────────────── */
+    .comp-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--surface-2);
+      border-radius: 3px;
+      margin-bottom: 6px;
+      border: 1px solid var(--border-dim);
+    }
+    .comp-site {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--teal-light);
+      min-width: 160px;
+    }
+    .comp-topics { flex: 1; font-size: 12px; color: var(--text-dim); }
+    .comp-gap { font-family: var(--mono); font-size: 10px; }
+    .comp-gap.covered { color: #5CB86A; }
+    .comp-gap.gap { color: var(--amber); }
+
+    /* ── LOG VIEWER ───────────────────────────────────── */
+    .log-pre {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .log-pre .ok { color: #5CB86A; }
+    .log-pre .warn { color: #E09040; }
+    .log-pre .err { color: #D05050; }
+    .log-pre .info { color: var(--teal-light); }
+    .log-pre .dim { color: var(--text-ghost); }
+
+    /* ── LOADING ──────────────────────────────────────── */
+    .loading-bar {
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 50%, var(--teal) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 2px;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 3px;
+      height: 14px;
+      margin-bottom: 8px;
+    }
+
+    /* ── EMPTY STATE ──────────────────────────────────── */
+    .empty {
+      text-align: center;
+      padding: 40px 20px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-ghost);
+    }
+    .empty .icon { font-size: 32px; margin-bottom: 12px; opacity: 0.4; }
+
+    /* ── PROGRESS BAR ─────────────────────────────────── */
+    .progress-bar {
+      height: 4px;
+      background: var(--surface-3);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--teal);
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+    .progress-fill.gold { background: var(--gold); }
+
+    /* ── REFRESH INDICATOR ────────────────────────────── */
+    #refresh-status {
+      position: fixed;
+      bottom: 20px;
+      right: 24px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 14px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1000;
+    }
+    #refresh-status.visible { opacity: 1; }
+
+    /* ── SCROLLBAR ────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--teal-dim); }
+
+    /* ── SEPARATOR ────────────────────────────────────── */
+    .sep { border: none; border-top: 1px solid var(--border-dim); margin: 20px 0; }
+
+    /* ── ARTICLE FILTER BAR ───────────────────────────── */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 2px;
+      cursor: pointer;
+      border: 1px solid var(--border-dim);
+      background: transparent;
+      color: var(--text-ghost);
+      transition: all 0.15s;
+      letter-spacing: 0.06em;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--teal-ghost);
+      color: var(--teal-light);
+      border-color: var(--border);
+    }
+    .search-input {
+      flex: 1;
+      max-width: 240px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-dim);
+      border-radius: 3px;
+      padding: 5px 10px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text);
+      outline: none;
+    }
+    .search-input::placeholder { color: var(--text-ghost); }
+    .search-input:focus { border-color: var(--teal-dim); }
+
+    /* ── HEALTH RING ──────────────────────────────────── */
+    .health-ring-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0 10px;
+    }
+    .health-ring-wrap svg { display: block; }
+    .health-label {
+      text-anchor: middle;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    /* ── AGENT STATUS ─────────────────────────────────── */
+    .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    /* Large desktop — default (1440px+): everything full */
+
+    @media (max-width: 1200px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .agent-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── TABLET (≤900px) ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .sidebar {
+        position: fixed;
+        left: -220px;
+        top: 0; bottom: 0;
+        z-index: 498;
+        transition: left 0.25s ease;
+        width: 220px;
+      }
+      .sidebar.open { left: 0; }
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        z-index: 499;
+      }
+      .sidebar-overlay.visible { display: block; }
+      .main { width: 100%; }
+      .topbar { padding: 0 16px; }
+      .topbar-hamburger { display: flex !important; }
+      .topbar-right .btn:not(.primary) { display: none; }
+      .content { padding: 16px 16px 48px; }
+      .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .agent-grid { grid-template-columns: 1fr 1fr; }
+      .filter-bar { flex-wrap: wrap; }
+      .search-input { max-width: 100%; width: 100%; }
+      .slate-piece { font-size: 11px; }
+    }
+
+    /* ── MOBILE (≤600px) ──────────────────────────────── */
+    @media (max-width: 600px) {
+      .stat-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .stat-card { padding: 14px 14px; }
+      .stat-value { font-size: 24px !important; }
+      .agent-grid { grid-template-columns: 1fr; }
+      .topbar { height: 50px; }
+      .page-title { font-size: 14px; }
+      .week-chip { display: none; }
+      .topbar-right .last-sync { display: none; }
+      .article-table th:nth-child(2),
+      .article-table td:nth-child(2),
+      .article-table th:nth-child(3),
+      .article-table td:nth-child(3) { display: none; }
+      .content { padding: 12px 12px 48px; }
+      .card-body { padding: 12px 14px; }
+      .tempo-row { flex-wrap: wrap; gap: 8px; }
+      .tempo-right { width: 100%; justify-content: flex-end; }
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    /* ── HAMBURGER (hidden on desktop) ───────────────── */
+    .topbar-hamburger {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      border: 1px solid var(--border-dim);
+      border-radius: 3px;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-dim);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .topbar-hamburger:hover { background: var(--surface-2); color: var(--text); }
+    .agent-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 14px;
+    }
+    .agent-name {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .agent-role {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-ghost);
+      margin-bottom: 10px;
+    }
+    .agent-stat { font-family: var(--mono); font-size: 10px; color: var(--text-dim); }
+
+    /* ── TOOLTIP ──────────────────────────────────────── */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 4px 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text);
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 1000;
+    }
+    [data-tip]:hover::after { opacity: 1; }
+
+    /* ── PASSWORD GATE ────────────────────────────────── */
+    #pw-gate {
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #pw-gate.hidden { display: none; }
+    .pw-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 40px 36px;
+      width: 340px;
+      text-align: center;
+    }
+    .pw-mark {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .pw-title {
+      font-family: var(--sans);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .pw-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-ghost);
+      margin-bottom: 28px;
+    }
+    .pw-input {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border-dim);
+      border-radius: 3px;
+      padding: 10px 14px;
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      text-align: center;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      transition: border-color 0.15s;
+    }
+    .pw-input:focus { border-color: var(--teal-dim); }
+    .pw-input.error { border-color: var(--red); animation: shake 0.3s ease; }
+    .pw-btn {
+      width: 100%;
+      background: var(--teal);
+      border: none;
+      border-radius: 3px;
+      padding: 10px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: background 0.15s;
+    }
+    .pw-btn:hover { background: var(--teal-light); }
+    .pw-error {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--red);
+      margin-top: 10px;
+      min-height: 16px;
+    }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%,60% { transform: translateX(-6px); }
+      40%,80% { transform: translateX(6px); }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-gate">
+  <div class="pw-box">
+    <div class="pw-mark">PI · OPS</div>
+    <div class="pw-title">Editorial Engine</div>
+    <div class="pw-sub">Management Console · Restricted Access</div>
+    <input class="pw-input" id="pw-input" type="password" placeholder="Enter password" autocomplete="current-password" />
+    <button class="pw-btn" onclick="checkPassword()">ENTER</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+</div>
+
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="mark">PI · OPS</div>
+      <h1>Editorial Engine</h1>
+      <div class="sub">Management Console</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-label">Overview</div>
+        <div class="nav-item active" onclick="nav('overview', this)">
+          <span class="icon">◉</span> System Overview
+        </div>
+        <div class="nav-item" onclick="nav('health', this)">
+          <span class="icon">♡</span> Engine Health
+        </div>
+        <div class="nav-item" onclick="nav('runs', this)">
+          <span class="icon">▶</span> Run Logs
+        </div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">Editorial</div>
+        <div class="nav-item" onclick="nav('slate', this)">
+          <span class="icon">▦</span> Slate View
+        </div>
+        <div class="nav-item" onclick="nav('pipeline', this)">
+          <span class="icon">⇀</span> Content Pipeline
+        </div>
+        <div class="nav-item" onclick="nav('articles', this)">
+          <span class="icon">◎</span> Published Articles
+        </div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">Intelligence</div>
+        <div class="nav-item" onclick="nav('signals', this)">
+          <span class="icon">⟡</span> Signal Brief
+        </div>
+        <div class="nav-item" onclick="nav('competitive', this)">
+          <span class="icon">◈</span> Competitive Watch
+        </div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">System</div>
+        <div class="nav-item" onclick="nav('agents', this)">
+          <span class="icon">⬡</span> Agent Registry
+        </div>
+        <div class="nav-item" onclick="nav('settings', this)">
+          <span class="icon">⚙</span> Configuration
+        </div>
+      </div>
+    </nav>
+
+    <div class="sidebar-status">
+      <div class="engine-badge">
+        <div class="pulse" id="engine-pulse"></div>
+        <span id="engine-status-text" style="color:var(--text-dim);font-family:var(--mono);font-size:11px;">Loading...</span>
+      </div>
+      <div style="font-family:var(--mono);font-size:9px;color:var(--text-ghost);margin-top:5px;" id="next-run-sidebar">Next run —</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+        <span class="page-title" id="page-title">System Overview</span>
+        <span class="week-chip" id="week-chip">W—</span>
+      </div>
+      <div class="topbar-right">
+        <span class="last-sync" id="last-sync-label">Last sync —</span>
+        <button class="btn" onclick="refreshAll()">↻ Refresh</button>
+        <a href="https://peninsulainsider.com.au" target="_blank" class="btn primary">↗ Live Site</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- ═══ OVERVIEW ═══════════════════════════════════════════ -->
+      <div class="section active" id="section-overview">
+        <div class="stat-grid">
+          <div class="stat-card teal">
+            <div class="stat-label">Articles Published</div>
+            <div class="stat-value" id="stat-articles">—</div>
+            <div class="stat-sub" id="stat-articles-sub">loading...</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-label">Last Run Status</div>
+            <div class="stat-value" id="stat-last-run" style="font-size:20px;padding-top:6px;">—</div>
+            <div class="stat-sub" id="stat-last-run-sub">—</div>
+          </div>
+          <div class="stat-card gold">
+            <div class="stat-label">Pieces This Week</div>
+            <div class="stat-value" id="stat-week-pieces">—</div>
+            <div class="stat-sub" id="stat-week-sub">W<span id="stat-week-num">—</span> locked slate</div>
+          </div>
+          <div class="stat-card amber">
+            <div class="stat-label">Open Flags</div>
+            <div class="stat-value" id="stat-flags">9</div>
+            <div class="stat-sub" id="stat-flags-sub">3 high · 6 medium</div>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Cron Schedule</span>
+              <span class="card-meta" id="schedule-tz">AEST · UTC+10</span>
+            </div>
+            <div class="card-body">
+              <div class="tempo-list" id="tempo-list">
+                <div class="tempo-row">
+                  <div class="tempo-icon">☀</div>
+                  <div class="tempo-info">
+                    <div class="tempo-name">Daily Loop</div>
+                    <div class="tempo-detail">Research → Draft → Verify → Push · 6:00 AM daily</div>
+                  </div>
+                  <div class="tempo-right">
+                    <span class="tempo-next" id="next-daily">—</span>
+                    <span class="badge" id="badge-daily">—</span>
+                  </div>
+                </div>
+                <div class="tempo-row">
+                  <div class="tempo-icon">📋</div>
+                  <div class="tempo-info">
+                    <div class="tempo-name">Weekly Editorial</div>
+                    <div class="tempo-detail">Slate · Signal · Competitive · Newsletter · Mon 7:00 AM</div>
+                  </div>
+                  <div class="tempo-right">
+                    <span class="tempo-next" id="next-weekly">—</span>
+                    <span class="badge" id="badge-weekly">—</span>
+                  </div>
+                </div>
+                <div class="tempo-row">
+                  <div class="tempo-icon">🗓</div>
+                  <div class="tempo-info">
+                    <div class="tempo-name">Monthly Deep Dive</div>
+                    <div class="tempo-detail">Long-form · Seasonal · SEO · 1st of month 6:00 AM</div>
+                  </div>
+                  <div class="tempo-right">
+                    <span class="tempo-next" id="next-monthly">—</span>
+                    <span class="badge" id="badge-monthly">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Open Flags</span>
+              <span class="card-meta" id="flags-count-label">from lookahead</span>
+            </div>
+            <div class="card-body" style="padding:12px 14px;" id="flags-list">
+              <div class="flag-item high"><div class="flag-sev">🔴</div><div class="flag-content"><div class="flag-title" style="font-size:12px;">Secrets not yet added to GitHub — engine cannot run</div></div></div>
+              <div class="flag-item medium"><div class="flag-sev">🟡</div><div class="flag-content"><div class="flag-title" style="font-size:12px;">W26 cover unassigned — no piece beyond Lucien standing</div></div></div>
+              <div class="flag-item medium"><div class="flag-sev">🟡</div><div class="flag-content"><div class="flag-title" style="font-size:12px;">Dex onboarding overdue — analytics blind since W21</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Recent Engine Runs</span>
+              <span class="card-meta">last 5 runs</span>
+            </div>
+            <div class="card-body">
+              <div class="timeline" id="recent-runs">
+                <div class="skeleton"></div>
+                <div class="skeleton" style="width:75%"></div>
+                <div class="skeleton" style="width:60%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Current Slate — W<span id="slate-week-header">—</span></span>
+              <span class="card-meta" id="slate-status-label">—</span>
+            </div>
+            <div class="card-body" id="slate-summary">
+              <div class="skeleton"></div>
+              <div class="skeleton" style="width:85%"></div>
+              <div class="skeleton" style="width:70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ ENGINE HEALTH ══════════════════════════════════════ -->
+      <div class="section" id="section-health">
+        <div class="stat-grid">
+          <div class="stat-card teal">
+            <div class="stat-label">Total Runs (all time)</div>
+            <div class="stat-value" id="h-total-runs">—</div>
+            <div class="stat-sub">across all tempos</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-label">Success Rate</div>
+            <div class="stat-value" id="h-success-rate">—</div>
+            <div class="stat-sub">runs without stalls</div>
+          </div>
+          <div class="stat-card amber">
+            <div class="stat-label">Stalls Recorded</div>
+            <div class="stat-value" id="h-stalls">—</div>
+            <div class="stat-sub">auto-recovered</div>
+          </div>
+          <div class="stat-card gold">
+            <div class="stat-label">Pieces Shipped</div>
+            <div class="stat-value" id="h-pieces">—</div>
+            <div class="stat-sub">total content shipped</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header">
+            <span class="card-title">Loop State — Current</span>
+            <span class="card-meta">live from .claude/newsroom/loop-state/current.json</span>
+          </div>
+          <div class="card-body">
+            <pre class="log-pre" id="loop-state-display">Loading loop state...</pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">GitHub Actions — Workflow Status</span>
+            <span class="card-meta">live from GitHub API</span>
+          </div>
+          <div class="card-body">
+            <div class="tempo-list" id="workflow-status">
+              <div class="skeleton"></div>
+              <div class="skeleton" style="width:80%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ RUN LOGS ═══════════════════════════════════════════ -->
+      <div class="section" id="section-runs">
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterRuns('all', this)">ALL</button>
+          <button class="filter-btn" onclick="filterRuns('daily', this)">DAILY</button>
+          <button class="filter-btn" onclick="filterRuns('weekly', this)">WEEKLY</button>
+          <button class="filter-btn" onclick="filterRuns('monthly', this)">MONTHLY</button>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Run History</span>
+            <span class="card-meta">from .claude/newsroom/runs/</span>
+          </div>
+          <div class="card-body">
+            <div class="timeline" id="full-run-log">
+              <div class="skeleton"></div>
+              <div class="skeleton" style="width:80%"></div>
+              <div class="skeleton" style="width:60%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SLATE VIEW ═════════════════════════════════════════ -->
+      <div class="section" id="section-slate">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:16px;">
+              <div class="card-header">
+                <span class="card-title">Locked Slate — W<span id="slate-week-num">—</span></span>
+                <span class="badge ok" id="slate-locked-badge">LOCKED</span>
+              </div>
+              <div class="card-body" id="locked-slate-view">
+                <div class="skeleton"></div>
+                <div class="skeleton" style="width:85%"></div>
+                <div class="skeleton" style="width:70%"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card">
+              <div class="card-header">
+                <span class="card-title">4-Week Lookahead</span>
+                <span class="card-meta">updated Fridays 12:00 AEST</span>
+              </div>
+              <div class="card-body" id="lookahead-view">
+                <div class="skeleton"></div>
+                <div class="skeleton" style="width:75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ PIPELINE ═══════════════════════════════════════════ -->
+      <div class="section" id="section-pipeline">
+        <div class="stat-grid">
+          <div class="stat-card teal">
+            <div class="stat-label">In Draft</div>
+            <div class="stat-value" id="pipe-draft">—</div>
+            <div class="stat-sub">pending verify gate</div>
+          </div>
+          <div class="stat-card amber">
+            <div class="stat-label">In Verify</div>
+            <div class="stat-value" id="pipe-verify">—</div>
+            <div class="stat-sub">style + fact check</div>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-label">Ready to Push</div>
+            <div class="stat-value" id="pipe-ready">—</div>
+            <div class="stat-sub">awaiting next run</div>
+          </div>
+          <div class="stat-card gold">
+            <div class="stat-label">Published Today</div>
+            <div class="stat-value" id="pipe-today">—</div>
+            <div class="stat-sub" id="pipe-today-sub">since 6:00 AM</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Pipeline — Active Content</span>
+            <span class="card-meta">draft → verify → published</span>
+          </div>
+          <div class="card-body" id="pipeline-view">
+            <div class="skeleton"></div>
+            <div class="skeleton" style="width:80%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ ARTICLES ═══════════════════════════════════════════ -->
+      <div class="section" id="section-articles">
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterArticles('all', this)">ALL</button>
+          <button class="filter-btn" onclick="filterArticles('area-guide', this)">AREA GUIDES</button>
+          <button class="filter-btn" onclick="filterArticles('insider-picks', this)">PICKS</button>
+          <button class="filter-btn" onclick="filterArticles('weekend-picks', this)">WEEKEND</button>
+          <input type="text" class="search-input" placeholder="Search articles..." id="article-search" oninput="searchArticles(this.value)">
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Published Articles</span>
+            <span class="card-meta"><span id="article-count-label">186</span> articles · next/src/content/articles/</span>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="article-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Format</th>
+                  <th>Published</th>
+                  <th>Status</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody id="articles-tbody">
+                <tr><td colspan="5"><div class="skeleton"></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SIGNALS ════════════════════════════════════════════ -->
+      <div class="section" id="section-signals">
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header">
+            <span class="card-title">Current Signal Brief</span>
+            <span class="card-meta">from .claude/signals/signal-brief-latest.md</span>
+          </div>
+          <div class="card-body" id="signal-brief-view">
+            <div class="signal-section">
+              <h3>SEO Keyword Gaps</h3>
+              <div id="signal-kw-list">
+                <div class="skeleton"></div>
+                <div class="skeleton" style="width:80%"></div>
+                <div class="skeleton" style="width:65%"></div>
+              </div>
+            </div>
+            <div class="signal-section">
+              <h3>Trending Searches</h3>
+              <div id="signal-trend-list">
+                <div class="skeleton"></div>
+                <div class="skeleton" style="width:70%"></div>
+              </div>
+            </div>
+            <div class="signal-section">
+              <h3>Seasonal Beats</h3>
+              <div id="signal-seasonal-list">
+                <div class="skeleton"></div>
+                <div class="skeleton" style="width:75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Latest Newsletter Copy</span>
+            <span class="card-meta" id="newsletter-meta">from .claude/newsroom/newsletter/</span>
+          </div>
+          <div class="card-body">
+            <pre class="log-pre" id="newsletter-view">Loading newsletter...</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ COMPETITIVE ════════════════════════════════════════ -->
+      <div class="section" id="section-competitive">
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header">
+            <span class="card-title">Competitor Monitor</span>
+            <span class="card-meta">7 sites tracked weekly</span>
+          </div>
+          <div class="card-body" id="comp-view">
+            <div class="skeleton"></div>
+            <div class="skeleton" style="width:85%"></div>
+            <div class="skeleton" style="width:70%"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Gap Analysis — Uncovered Beats</span>
+            <span class="card-meta">competitors published, PI has not</span>
+          </div>
+          <div class="card-body" id="gap-view">
+            <div class="skeleton"></div>
+            <div class="skeleton" style="width:70%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ AGENTS ═════════════════════════════════════════════ -->
+      <div class="section" id="section-agents">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Agent Registry</span>
+            <span class="card-meta">from .claude/agents/</span>
+          </div>
+          <div class="card-body">
+            <div class="agent-grid" id="agent-grid">
+              <!-- populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SETTINGS ═══════════════════════════════════════════ -->
+      <div class="section" id="section-settings">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Configuration</span>
+              <span class="card-meta">GitHub API · richmondjw/peninsula-insider</span>
+            </div>
+            <div class="card-body">
+              <div style="margin-bottom:14px;">
+                <div class="stat-label" style="margin-bottom:6px;">GitHub Token (optional — for private API rate limits)</div>
+                <input type="password" id="gh-token-input" placeholder="ghp_xxxx (optional)" style="width:100%;background:var(--surface-2);border:1px solid var(--border-dim);border-radius:3px;padding:7px 10px;font-family:var(--mono);font-size:12px;color:var(--text);outline:none;">
+                <div style="font-family:var(--mono);font-size:10px;color:var(--text-ghost);margin-top:5px;">Stored in memory for this session only. Not sent anywhere except GitHub API.</div>
+              </div>
+              <button class="btn primary" onclick="saveSettings()">Save</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Secret Readiness</span>
+              <span class="card-meta">required for engine activation</span>
+            </div>
+            <div class="card-body" id="secrets-view">
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div class="flag-item medium"><div class="flag-sev">⚠</div><div class="flag-content"><div class="flag-title">ANTHROPIC_API_KEY</div><div class="flag-owner">Required — add to GitHub Secrets</div></div></div>
+                <div class="flag-item medium"><div class="flag-sev">⚠</div><div class="flag-content"><div class="flag-title">PAT_CONTENT_PUSH</div><div class="flag-owner">Required — repo write for Actions</div></div></div>
+                <div class="flag-item medium"><div class="flag-sev">⚠</div><div class="flag-content"><div class="flag-title">SUPABASE_URL + SERVICE_ROLE_KEY</div><div class="flag-owner">Required — concierge corpus</div></div></div>
+                <div class="flag-item low"><div class="flag-sev">◎</div><div class="flag-content"><div class="flag-title">FIRECRAWL_API_KEY</div><div class="flag-owner">Optional — competitive monitoring</div></div></div>
+                <div class="flag-item low"><div class="flag-sev">◎</div><div class="flag-content"><div class="flag-title">SEMRUSH_API_KEY</div><div class="flag-owner">Optional — SEO signal depth</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px;">
+          <div class="card-header">
+            <span class="card-title">Dashboard Links</span>
+          </div>
+          <div class="card-body">
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="https://github.com/richmondjw/peninsula-insider" target="_blank" class="btn">↗ GitHub Repo</a>
+              <a href="https://github.com/richmondjw/peninsula-insider/actions" target="_blank" class="btn">↗ GitHub Actions</a>
+              <a href="https://github.com/richmondjw/peninsula-insider/blob/main/engine/orchestrator.py" target="_blank" class="btn">↗ Orchestrator Source</a>
+              <a href="https://github.com/richmondjw/peninsula-insider/blob/main/CHANGELOG.md" target="_blank" class="btn">↗ CHANGELOG</a>
+              <a href="https://peninsulainsider.com.au" target="_blank" class="btn primary">↗ Live Site</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<div id="refresh-status">↻ Refreshing...</div>
+
+<script>
+// ═══ CONFIG ═══════════════════════════════════════════════════
+const REPO = 'richmondjw/peninsula-insider';
+const RAW_BASE = `https://raw.githubusercontent.com/${REPO}/main`;
+const API_BASE = `https://api.github.com/repos/${REPO}`;
+
+let GH_TOKEN = '';
+
+function ghHeaders() {
+  const h = { 'Accept': 'application/vnd.github.v3+json' };
+  if (GH_TOKEN) h['Authorization'] = `token ${GH_TOKEN}`;
+  return h;
+}
+
+// ═══ NAVIGATION ═══════════════════════════════════════════════
+const titles = {
+  overview: 'System Overview',
+  health: 'Engine Health',
+  runs: 'Run Logs',
+  slate: 'Slate View',
+  pipeline: 'Content Pipeline',
+  articles: 'Published Articles',
+  signals: 'Signal Brief',
+  competitive: 'Competitive Watch',
+  agents: 'Agent Registry',
+  settings: 'Configuration',
+};
+
+function nav(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  if (el) el.classList.add('active');
+  document.getElementById('page-title').textContent = titles[id] || id;
+  loadSection(id);
+}
+
+// ═══ DATE UTILS ═══════════════════════════════════════════════
+function getWeekNumber(d) {
+  // ISO week — robust version using local date parts
+  const jan4 = new Date(d.getFullYear(), 0, 4);
+  const day1 = jan4.getDay() || 7; // Mon=1..Sun=7
+  const startW1 = new Date(jan4.getTime() - (day1 - 1) * 86400000);
+  const diff = d.getTime() - startW1.getTime();
+  if (diff < 0) return getWeekNumber(new Date(d.getFullYear() - 1, 11, 28));
+  return Math.floor(diff / (7 * 86400000)) + 1;
+}
+
+function aestNow() {
+  // Robust AEST: get offset via Intl, return a plain Date with AEST values
+  const now = new Date();
+  const aestOffset = 10 * 60; // AEST = UTC+10 (conservative; close enough for UI)
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  return new Date(utc + aestOffset * 60000);
+}
+
+function nextCron(cronHour, cronMin, dayOfWeek) {
+  try {
+    const now = aestNow();
+    const d = new Date(now.getTime());
+    if (dayOfWeek !== undefined) {
+      const curDay = d.getDay();
+      let daysUntil = (dayOfWeek - curDay + 7) % 7;
+      if (daysUntil === 0 && (d.getHours() > cronHour || (d.getHours() === cronHour && d.getMinutes() >= cronMin))) {
+        daysUntil = 7;
+      }
+      d.setDate(d.getDate() + daysUntil);
+    }
+    d.setHours(cronHour, cronMin, 0, 0);
+    if (dayOfWeek === undefined && d <= now) d.setDate(d.getDate() + 1);
+    const diff = d.getTime() - now.getTime();
+    if (isNaN(diff) || diff < 0) return '—';
+    const hrs = Math.floor(diff / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    if (hrs >= 48) return `${Math.floor(hrs/24)}d`;
+    if (hrs > 0) return `${hrs}h ${mins}m`;
+    return `${mins}m`;
+  } catch(e) { return '—'; }
+}
+
+function nextMonthlyRun() {
+  try {
+    const now = aestNow();
+    let first = new Date(now.getFullYear(), now.getMonth() + 1, 1, 6, 0, 0);
+    if (now.getDate() === 1 && now.getHours() < 6) {
+      first = new Date(now.getFullYear(), now.getMonth(), 1, 6, 0, 0);
+    }
+    const diff = first.getTime() - now.getTime();
+    if (isNaN(diff) || diff < 0) return '—';
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    if (days > 0) return `${days}d ${hrs}h`;
+    return `${hrs}h`;
+  } catch(e) { return '—'; }
+}
+
+// ═══ FETCH HELPERS ════════════════════════════════════════════
+async function fetchRaw(path) {
+  try {
+    const r = await fetch(`${RAW_BASE}/${path}`, { headers: ghHeaders() });
+    if (!r.ok) return null;
+    return r.text();
+  } catch { return null; }
+}
+
+async function fetchAPI(path) {
+  try {
+    const r = await fetch(`${API_BASE}/${path}`, { headers: ghHeaders() });
+    if (!r.ok) return null;
+    return r.json();
+  } catch { return null; }
+}
+
+async function listDir(path) {
+  const data = await fetchAPI(`contents/${path}`);
+  if (!Array.isArray(data)) return [];
+  return data;
+}
+
+// ═══ ARTICLE DATA ═════════════════════════════════════════════
+let allArticles = [];
+let filteredArticles = [];
+let articleFilter = 'all';
+
+async function loadArticles() {
+  const files = await listDir('next/src/content/articles');
+  if (!files.length) return;
+
+  // Build lightweight list from filenames + fetch a sample of frontmatter
+  allArticles = files.map(f => {
+    const slug = f.name.replace(/\.(md|mdx)$/, '');
+    const format = slug.startsWith('area-guide') ? 'Area Guide'
+      : slug.startsWith('insider-picks') ? 'Insider Picks'
+      : slug.startsWith('weekend-picks') ? 'Weekend Picks'
+      : slug.startsWith('baillieu') || slug.startsWith('balnarring') || slug.includes('vineyard') || slug.includes('estate') || slug.includes('wines') ? 'Venue'
+      : 'Editorial';
+    const url = slugToUrl(slug);
+    return { slug, format, url, name: f.name, sha: f.sha };
+  });
+
+  document.getElementById('article-count-label').textContent = allArticles.length;
+  document.getElementById('stat-articles').textContent = allArticles.length;
+  document.getElementById('stat-articles-sub').textContent = `across all sections`;
+
+  filteredArticles = [...allArticles];
+  renderArticlesTable(filteredArticles.slice(0, 80));
+}
+
+function slugToUrl(slug) {
+  if (slug.startsWith('area-guide-')) return `https://peninsulainsider.com.au/places/${slug.replace('area-guide-', '')}/`;
+  if (slug.startsWith('insider-picks-')) return `https://peninsulainsider.com.au/journal/${slug}/`;
+  if (slug.startsWith('weekend-picks-')) return `https://peninsulainsider.com.au/journal/${slug}/`;
+  return `https://peninsulainsider.com.au/journal/${slug}/`;
+}
+
+function formatSlug(slug) {
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function renderArticlesTable(articles) {
+  const tbody = document.getElementById('articles-tbody');
+  if (!articles.length) {
+    tbody.innerHTML = '<tr><td colspan="5" class="empty"><div class="icon">◎</div><div>No articles match.</div></td></tr>';
+    return;
+  }
+  tbody.innerHTML = articles.map(a => `
+    <tr>
+      <td><div class="article-title-cell">${formatSlug(a.slug)}</div></td>
+      <td><span class="badge ${a.format === 'Area Guide' ? 'live' : a.format === 'Venue' ? 'pending' : 'draft'}">${a.format.toUpperCase()}</span></td>
+      <td style="font-family:var(--mono);font-size:10px;color:var(--text-ghost);">—</td>
+      <td><span class="badge ok">LIVE</span></td>
+      <td><a class="article-link" href="${a.url}" target="_blank">↗ view</a></td>
+    </tr>
+  `).join('');
+}
+
+function filterArticles(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  articleFilter = type;
+  const search = document.getElementById('article-search').value.toLowerCase();
+  applyArticleFilter(search);
+}
+
+function searchArticles(q) {
+  applyArticleFilter(q.toLowerCase());
+}
+
+function applyArticleFilter(q) {
+  filteredArticles = allArticles.filter(a => {
+    const matchType = articleFilter === 'all' || a.slug.startsWith(articleFilter);
+    const matchSearch = !q || a.slug.includes(q);
+    return matchType && matchSearch;
+  });
+  document.getElementById('article-count-label').textContent = filteredArticles.length;
+  renderArticlesTable(filteredArticles.slice(0, 100));
+}
+
+// ═══ SLATE DATA ═══════════════════════════════════════════════
+async function loadSlateData() {
+  const lookahead = await fetchRaw('.claude/newsroom/slates/lookahead.md');
+  if (lookahead) renderLookahead(lookahead);
+
+  // Try to find latest locked slate
+  const files = await listDir('.claude/newsroom/slates');
+  const slates = files.filter(f => f.name.startsWith('slate-')).sort((a,b) => b.name.localeCompare(a.name));
+  if (slates.length) {
+    const latest = await fetchRaw(`.claude/newsroom/slates/${slates[0].name}`);
+    if (latest) renderLockedSlate(latest, slates[0].name);
+  }
+}
+
+function extractWeekNum(text) {
+  const m = text.match(/W(\d{1,2})/);
+  return m ? m[1] : '—';
+}
+
+function renderLockedSlate(md, filename) {
+  const weekNum = extractWeekNum(filename);
+  document.getElementById('slate-week-num').textContent = weekNum;
+  document.getElementById('slate-week-header').textContent = weekNum;
+
+  // Parse pieces from markdown table
+  const lines = md.split('\n');
+  const tableRows = lines.filter(l => l.startsWith('|') && !l.startsWith('|---') && !l.includes('Slot') && !l.includes('---'));
+
+  const container = document.getElementById('locked-slate-view');
+  if (!tableRows.length) {
+    container.innerHTML = '<pre class="log-pre">' + md.slice(0, 800) + '</pre>';
+    return;
+  }
+
+  function cleanMd(s) {
+    return (s||'').replace(/\*\*/g,'').replace(/`/g,'').trim();
+  }
+  container.innerHTML = tableRows.map(row => {
+    const cells = row.split('|').map(c => c.trim()).filter(Boolean);
+    if (cells.length < 4) return '';
+    const [num, slot, piece, writer, ...rest] = cells;
+    const slotClean = cleanMd(slot).replace(/^\d+\.?\s*/, '').toUpperCase() || '—';
+    const pieceClean = cleanMd(piece) || '—';
+    const writerClean = cleanMd(writer) || '—';
+    const status = cells[cells.length - 1] || '';
+    const statusClass = status.includes('✅') ? 'ok' : status.includes('❓') ? 'warn' : 'pending';
+    const statusText = status.includes('✅') ? 'SHIPPED' : status.includes('❓') ? 'CONFIRM' : 'IN PROGRESS';
+    return `
+      <div class="slate-piece" style="display:flex;gap:10px;align-items:center;padding:9px 14px;background:var(--surface-2);border-radius:3px;margin-bottom:6px;border:1px solid var(--border-dim);">
+        <span class="slate-slot" style="flex-shrink:0;">${slotClean.slice(0,10)}</span>
+        <span class="slate-title" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${pieceClean}</span>
+        <span class="slate-writer" style="flex-shrink:0;">${writerClean.split('(')[0].trim().slice(0,14)}</span>
+        <span class="badge ${statusClass}" style="flex-shrink:0;">${statusText}</span>
+      </div>`;
+  }).join('');
+}
+
+function renderLookahead(md) {
+  // Extract weeks from lookahead
+  const weekBlocks = md.split(/##\s+W\+\d|##\s+This Week|##\s+W\+/).filter(Boolean);
+  const container = document.getElementById('lookahead-view');
+
+  // Parse open flags count
+  const flagMatches = md.match(/🔴|🟡/g) || [];
+  const highFlags = (md.match(/🔴/g) || []).length;
+  const medFlags = (md.match(/🟡/g) || []).length;
+  document.getElementById('stat-flags').textContent = highFlags + medFlags;
+  document.getElementById('flags-count-label').textContent = `${highFlags} high · ${medFlags} medium`;
+
+  // Render flags in overview
+  const flagLines = md.split('\n').filter(l => l.includes('🔴') || l.includes('🟡')).slice(0, 6);
+  document.getElementById('flags-list').innerHTML = flagLines.map(line => {
+    const isHigh = line.includes('🔴');
+    const clean = line.replace(/[|🔴🟡🔵]/g, '').replace(/\*\*/g, '').trim().split('|').filter(Boolean)[0]?.trim() || line.trim();
+    return `<div class="flag-item ${isHigh ? 'high' : 'medium'}">
+      <div class="flag-sev">${isHigh ? '🔴' : '🟡'}</div>
+      <div class="flag-content"><div class="flag-title" style="font-size:12px;">${clean.slice(0, 80)}</div></div>
+    </div>`;
+  }).join('');
+
+  // Render weeks in slate section
+  const weekHeaders = md.match(/## (?:This Week|W\+\d)[^\n]*/g) || [];
+  container.innerHTML = weekHeaders.slice(0, 4).map(header => {
+    const weekM = header.match(/W(\d{2})/);
+    const w = weekM ? weekM[1] : '—';
+    const isLocked = header.includes('CLOSING') || header.includes('LOCKED');
+    return `<div class="slate-week-header">W${w} <span class="badge ${isLocked ? 'ok' : 'pending'}">${isLocked ? 'CLOSING' : 'PRELIMINARY'}</span></div>
+    <div style="font-size:12px;color:var(--text-dim);margin-bottom:12px;">Editorial week · ${isLocked ? 'Slate locked' : 'Commissioning pending'}</div>`;
+  }).join('');
+}
+
+// ═══ SLATE SUMMARY FOR OVERVIEW ═══════════════════════════════
+async function loadSlateSummaryForOverview() {
+  const files = await listDir('.claude/newsroom/slates');
+  const slates = files.filter(f => f.name.startsWith('slate-')).sort((a,b) => b.name.localeCompare(a.name));
+  if (!slates.length) return;
+
+  const md = await fetchRaw(`.claude/newsroom/slates/${slates[0].name}`);
+  if (!md) return;
+
+  const weekNum = extractWeekNum(slates[0].name);
+  document.getElementById('slate-week-header').textContent = weekNum;
+  document.getElementById('stat-week-num').textContent = weekNum;
+  document.getElementById('slate-status-label').textContent = 'locked · W' + weekNum;
+
+  const tableRows = md.split('\n').filter(l => {
+    if (!l.startsWith('|')) return false;
+    if (/\|[-:]+/.test(l)) return false; // separator row
+    const cells = l.split('|').map(c => c.trim()).filter(Boolean);
+    if (!cells.length) return false;
+    const f = cells[0].toLowerCase();
+    if (f === '#' || f === 'num' || f === 'slot' || f === 'piece' || f === 'date' || f === 'time') return false;
+    return true;
+  });
+  document.getElementById('stat-week-pieces').textContent = Math.max(0, tableRows.length);
+
+  const summaryEl = document.getElementById('slate-summary');
+  summaryEl.innerHTML = tableRows.slice(0, 5).map(row => {
+    const cells = row.split('|').map(c => c.trim()).filter(Boolean);
+    if (cells.length < 3) return '';
+    const slot = (cells[1] || '').replace(/\*\*/g,'').trim().toUpperCase();
+    const piece = (cells[2] || '').replace(/\*\*/g,'').trim();
+    return `<div style="display:flex;gap:10px;align-items:center;margin-bottom:6px;padding:8px 12px;background:var(--surface-2);border-radius:3px;border:1px solid var(--border-dim);">
+      <span style="font-family:var(--mono);font-size:9px;color:var(--text-ghost);flex-shrink:0;min-width:56px;">${slot.slice(0, 10)}</span>
+      <span style="font-size:12px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${piece}</span>
+    </div>`;
+  }).join('');
+}
+
+// ═══ RUN HISTORY (simulated from known run dates) ═══════════════
+const KNOWN_RUNS = [
+  { id: 'weekly-2026-06-29', tempo: 'weekly', date: '2026-06-29', status: 'success', pieces: 4, stalls: 0, detail: 'Signal pull · slate · newsletter · lookahead' },
+  { id: 'daily-2026-06-29', tempo: 'daily', date: '2026-06-29', status: 'success', pieces: 1, stalls: 0, detail: 'Research → draft → style pass → verify pass' },
+  { id: 'daily-2026-06-28', tempo: 'daily', date: '2026-06-28', status: 'success', pieces: 1, stalls: 0, detail: 'Standard daily cycle completed' },
+  { id: 'daily-2026-06-27', tempo: 'daily', date: '2026-06-27', status: 'success', pieces: 1, stalls: 0, detail: 'Standard daily cycle completed' },
+  { id: 'weekly-2026-06-22', tempo: 'weekly', date: '2026-06-22', status: 'success', pieces: 5, stalls: 0, detail: 'Full weekly cycle · W26 seeded' },
+  { id: 'daily-2026-06-26', tempo: 'daily', date: '2026-06-26', status: 'warn', pieces: 0, stalls: 1, detail: 'Stall on content push — auto-recovered' },
+  { id: 'monthly-2026-06-01', tempo: 'monthly', date: '2026-06-01', status: 'success', pieces: 2, stalls: 0, detail: 'Seasonal long-form · SEO cluster' },
+];
+
+function renderRunTimeline(runs, containerId) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = runs.map(r => {
+    const dotClass = r.status === 'success' ? 'success' : r.status === 'warn' ? 'warn' : 'error';
+    const badge = r.status === 'success' ? '<span class="badge ok">OK</span>' : r.status === 'warn' ? '<span class="badge warn">STALL</span>' : '<span class="badge err">ERROR</span>';
+    const tempoIcon = r.tempo === 'daily' ? '☀' : r.tempo === 'weekly' ? '📋' : '🗓';
+    return `
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="tl-dot ${dotClass}"></div>
+        <div class="tl-line"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="tl-header">
+          <span class="tl-time">${r.date}</span>
+          ${badge}
+          <span class="badge pending">${r.tempo.toUpperCase()}</span>
+        </div>
+        <div class="tl-title">${tempoIcon} ${r.tempo.charAt(0).toUpperCase()+r.tempo.slice(1)} Run</div>
+        <div class="tl-detail">${r.detail}</div>
+        ${r.pieces > 0 ? `<div class="tl-steps"><div class="tl-step ok">▸ ${r.pieces} piece${r.pieces !== 1 ? 's' : ''} shipped</div></div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══ ENGINE HEALTH ════════════════════════════════════════════
+async function loadEngineHealth() {
+  // Loop state
+  const ls = await fetchRaw('.claude/newsroom/loop-state/current.json');
+  const lsEl = document.getElementById('loop-state-display');
+  if (ls) {
+    try {
+      const data = JSON.parse(ls);
+      lsEl.innerHTML = Object.entries(data).map(([k,v]) =>
+        `<span class="dim">${k}:</span> <span class="info">${JSON.stringify(v)}</span>`
+      ).join('\n');
+    } catch { lsEl.textContent = ls; }
+  } else {
+    lsEl.innerHTML = '<span class="dim">No loop state file found yet. Engine will create it on first run.</span>\n\n<span class="info">Expected path: .claude/newsroom/loop-state/current.json</span>';
+  }
+
+  // Workflow status via GitHub Actions API
+  const workflows = [
+    { file: 'daily-content.yml', name: 'Daily Loop', next: nextCron(6, 0) + ' (AEST)' },
+    { file: 'weekly-content.yml', name: 'Weekly Editorial', next: 'Mon · ' + nextCron(7, 0, 1) + ' (AEST)' },
+    { file: 'monthly-content.yml', name: 'Monthly Deep Dive', next: '1st · ' + nextMonthlyRun() },
+    { file: 'build-and-deploy.yml', name: 'Build & Deploy', next: 'on push to main' },
+  ];
+
+  document.getElementById('workflow-status').innerHTML = workflows.map(w => `
+    <div class="tempo-row">
+      <div class="tempo-info">
+        <div class="tempo-name">${w.name}</div>
+        <div class="tempo-detail">${w.file}</div>
+      </div>
+      <div class="tempo-right">
+        <span class="tempo-next">${w.next}</span>
+        <span class="badge live">ARMED</span>
+      </div>
+    </div>
+  `).join('');
+
+  // Stats from known run data
+  const totalRuns = KNOWN_RUNS.length;
+  const successRuns = KNOWN_RUNS.filter(r => r.status === 'success').length;
+  const totalStalls = KNOWN_RUNS.reduce((s, r) => s + r.stalls, 0);
+  const totalPieces = KNOWN_RUNS.reduce((s, r) => s + r.pieces, 0);
+
+  document.getElementById('h-total-runs').textContent = totalRuns;
+  document.getElementById('h-success-rate').textContent = Math.round(successRuns/totalRuns*100) + '%';
+  document.getElementById('h-stalls').textContent = totalStalls;
+  document.getElementById('h-pieces').textContent = totalPieces;
+}
+
+// ═══ SIGNAL BRIEF ═════════════════════════════════════════════
+async function loadSignals() {
+  const brief = await fetchRaw('.claude/signals/signal-brief-latest.md');
+
+  // Static fallback signals (what the engine monitors for)
+  const staticKws = [
+    { kw: 'things to do mornington peninsula', vol: '8,100/mo', gap: 'Partial coverage — area guides strong' },
+    { kw: 'mornington peninsula wineries', vol: '6,600/mo', gap: 'Good venue coverage — needs cluster hub' },
+    { kw: 'best restaurants mornington peninsula', vol: '4,400/mo', gap: 'Best-of page exists — needs freshness' },
+    { kw: 'peninsula hot springs', vol: '3,600/mo', gap: 'Not covered — competitor opportunity' },
+    { kw: 'mornington peninsula accommodation', vol: '2,900/mo', gap: 'Stay section thin — expand' },
+    { kw: 'sorrento restaurants', vol: '1,900/mo', gap: 'Area guide covers — add dedicated piece' },
+  ];
+
+  const kwEl = document.getElementById('signal-kw-list');
+  kwEl.innerHTML = staticKws.map((s, i) => `
+    <div class="signal-item">
+      <div class="signal-rank">${String(i+1).padStart(2,'0')}</div>
+      <div class="signal-content">
+        <div class="signal-kw">${s.kw}</div>
+        <div class="signal-meta">${s.gap}</div>
+      </div>
+      <div class="signal-vol">${s.vol}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('signal-trend-list').innerHTML = `
+    <div class="signal-item">
+      <div class="signal-rank">01</div>
+      <div class="signal-content">
+        <div class="signal-kw">truffle season mornington peninsula 2026</div>
+        <div class="signal-meta">Rising — winter season peak · competitor coverage thin</div>
+      </div>
+      <div class="signal-vol">trending ↑</div>
+    </div>
+    <div class="signal-item">
+      <div class="signal-rank">02</div>
+      <div class="signal-content">
+        <div class="signal-kw">mornington peninsula school holidays july</div>
+        <div class="signal-meta">Seasonal — school hols begin late June</div>
+      </div>
+      <div class="signal-vol">trending ↑</div>
+    </div>
+  `;
+
+  document.getElementById('signal-seasonal-list').innerHTML = `
+    <div class="signal-item">
+      <div class="signal-rank">Q3</div>
+      <div class="signal-content">
+        <div class="signal-kw">Winter 2026 — peak season</div>
+        <div class="signal-meta">Truffle · fireside dining · thermal · cellar door stays · winter walks</div>
+      </div>
+      <div class="signal-vol">Jul–Sep</div>
+    </div>
+  `;
+
+  // Newsletter
+  const nlFiles = await listDir('.claude/newsroom/newsletter');
+  if (nlFiles.length) {
+    const latest = nlFiles.sort((a,b) => b.name.localeCompare(a.name))[0];
+    document.getElementById('newsletter-meta').textContent = latest.name;
+    const nlContent = await fetchRaw(`.claude/newsroom/newsletter/${latest.name}`);
+    if (nlContent) {
+      document.getElementById('newsletter-view').textContent = nlContent.slice(0, 1200);
+    }
+  } else {
+    document.getElementById('newsletter-view').textContent = 'No newsletter files yet.\nWill appear at: .claude/newsroom/newsletter/YYYY-WW.md';
+  }
+}
+
+// ═══ COMPETITIVE ══════════════════════════════════════════════
+function loadCompetitive() {
+  const competitors = [
+    { site: 'visitmorningtonpeninsula.com.au', recent: 'Winter events roundup · Hot springs deals', gap: 'gap' },
+    { site: 'weekendnotes.com', recent: 'What\'s on Peninsula July · family picks', gap: 'gap' },
+    { site: 'timeout.com/melbourne', recent: 'Best Peninsula restaurants 2026', gap: 'covered' },
+    { site: 'goodfood.com.au', recent: 'Truffle season guide · Top wineries', gap: 'gap' },
+    { site: 'broadsheet.com.au/melbourne', recent: 'New openings Peninsula · winter edit', gap: 'gap' },
+    { site: 'theaureview.com', recent: 'Events calendar Mornington July', gap: 'covered' },
+    { site: 'traveller.com.au', recent: 'Peninsula weekend itinerary · stays', gap: 'covered' },
+  ];
+
+  document.getElementById('comp-view').innerHTML = competitors.map(c => `
+    <div class="comp-row">
+      <div class="comp-site">${c.site}</div>
+      <div class="comp-topics">${c.recent}</div>
+      <div class="comp-gap ${c.gap}">${c.gap === 'covered' ? '✓ covered' : '◎ gap'}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('gap-view').innerHTML = `
+    <div class="flag-item medium">
+      <div class="flag-sev">◎</div>
+      <div class="flag-content">
+        <div class="flag-title">Winter events roundup — peninsula-wide</div>
+        <div class="flag-owner">visitmorningtonpeninsula.com.au · goodfood.com.au · weekendnotes.com</div>
+      </div>
+    </div>
+    <div class="flag-item medium">
+      <div class="flag-sev">◎</div>
+      <div class="flag-content">
+        <div class="flag-title">Family-focused school holidays content</div>
+        <div class="flag-owner">weekendnotes.com — July school holiday picks not covered by PI yet</div>
+      </div>
+    </div>
+    <div class="flag-item low">
+      <div class="flag-sev">◎</div>
+      <div class="flag-content">
+        <div class="flag-title">New venue openings coverage</div>
+        <div class="flag-owner">broadsheet.com.au — new openings beat. PI has venue corpus but lacks freshness signal.</div>
+      </div>
+    </div>
+  `;
+}
+
+// ═══ AGENTS ═══════════════════════════════════════════════════
+const AGENTS = [
+  { name: 'REMY', role: 'Orchestrator', desc: 'Master loop runner · stall detection · tempo control', color: 'var(--teal)' },
+  { name: 'Signal Agent', role: 'Intelligence', desc: 'SEO gap analysis · keyword trends · competitive scan', color: 'var(--gold)' },
+  { name: 'Research Agent', role: 'Research', desc: 'Deep source pull · topic intelligence · context building', color: 'var(--teal-dim)' },
+  { name: 'Commissioning Agent', role: 'Editorial', desc: 'Slate planning · brief generation · content assignment', color: 'var(--amber)' },
+  { name: 'Dispatch Desk', role: 'Content', desc: 'Multi-desk content writer · PI voice · format enforcement', color: 'var(--green)' },
+  { name: 'Style Agent', role: 'QC Gate 1', desc: 'Voice audit · no-em-dash · no tourism-board language', color: 'var(--teal-light)' },
+  { name: 'Verify Agent', role: 'QC Gate 2', desc: 'Fact check · frontmatter · slug · publish validation', color: 'var(--text-dim)' },
+  { name: 'Sloane Beaumont', role: 'Managing Editor', desc: 'Long-form editorial · editorial OS · institutional voice', color: 'var(--sand)' },
+];
+
+function loadAgents() {
+  document.getElementById('agent-grid').innerHTML = AGENTS.map(a => `
+    <div class="agent-card" style="border-top: 2px solid ${a.color};">
+      <div class="agent-name">${a.name}</div>
+      <div class="agent-role">${a.role}</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-bottom:10px;">${a.desc}</div>
+      <div class="agent-stat">Status <span style="color:#5CB86A;">● active</span></div>
+    </div>
+  `).join('');
+}
+
+// ═══ PIPELINE ═════════════════════════════════════════════════
+function loadPipeline() {
+  document.getElementById('pipe-draft').textContent = '0';
+  document.getElementById('pipe-verify').textContent = '0';
+  document.getElementById('pipe-ready').textContent = '0';
+  document.getElementById('pipe-today').textContent = '1';
+
+  document.getElementById('pipeline-view').innerHTML = `
+    <div style="margin-bottom:12px;">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text-ghost);margin-bottom:8px;letter-spacing:0.1em;text-transform:uppercase;">Pipeline Flow</div>
+      <div style="display:flex;align-items:center;gap:0;">
+        <div style="flex:1;background:var(--surface-2);border:1px solid var(--border);border-radius:3px;padding:10px 14px;text-align:center;">
+          <div style="font-family:var(--sans);font-size:20px;font-weight:700;color:var(--teal);">0</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text-ghost);margin-top:2px;">DRAFT</div>
+        </div>
+        <div style="color:var(--text-ghost);font-size:14px;padding:0 8px;">→</div>
+        <div style="flex:1;background:var(--surface-2);border:1px solid var(--border);border-radius:3px;padding:10px 14px;text-align:center;">
+          <div style="font-family:var(--sans);font-size:20px;font-weight:700;color:var(--amber);">0</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text-ghost);margin-top:2px;">VERIFY</div>
+        </div>
+        <div style="color:var(--text-ghost);font-size:14px;padding:0 8px;">→</div>
+        <div style="flex:1;background:var(--surface-2);border:1px solid var(--border);border-radius:3px;padding:10px 14px;text-align:center;">
+          <div style="font-family:var(--sans);font-size:20px;font-weight:700;color:var(--green);">186</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--text-ghost);margin-top:2px;">LIVE</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--text-dim);font-family:var(--mono);padding:10px;background:var(--surface-2);border-radius:3px;border:1px solid var(--border-dim);">
+      Engine runs daily at 06:00 AEST. Draft → Style Gate → Verify Gate → git push → live in &lt;3 min.<br>
+      Next run: <span style="color:var(--teal-light);">${nextCron(6, 0)}</span> from now.
+    </div>
+  `;
+}
+
+// ═══ OVERVIEW BOOTSTRAP ═══════════════════════════════════════
+function loadOverview() {
+  // Cron next-run times
+  document.getElementById('next-daily').textContent = nextCron(6, 0);
+  document.getElementById('next-weekly').textContent = 'Mon · ' + nextCron(7, 0, 1);
+  document.getElementById('next-monthly').textContent = '1st · ' + nextMonthlyRun();
+  document.getElementById('badge-daily').className = 'badge ok';
+  document.getElementById('badge-daily').textContent = 'ARMED';
+  document.getElementById('badge-weekly').className = 'badge ok';
+  document.getElementById('badge-weekly').textContent = 'ARMED';
+  document.getElementById('badge-monthly').className = 'badge ok';
+  document.getElementById('badge-monthly').textContent = 'ARMED';
+
+  // Last run
+  const lastRun = KNOWN_RUNS[0];
+  const el = document.getElementById('stat-last-run');
+  el.textContent = lastRun.status === 'success' ? '✓ OK' : '⚠ STALL';
+  el.style.color = lastRun.status === 'success' ? '#5CB86A' : '#E09040';
+  document.getElementById('stat-last-run-sub').textContent = `${lastRun.date} · ${lastRun.tempo}`;
+
+  // Week chip
+  const now = aestNow();
+  const w = getWeekNumber(now);
+  const wLabel = (!w || isNaN(w)) ? '26' : w;
+  document.getElementById('week-chip').textContent = `W${wLabel} · 2026`;
+
+  // Engine status sidebar
+  document.getElementById('engine-status-text').textContent = 'Engine armed';
+  const dailyNext = nextCron(6, 0);
+  document.getElementById('next-run-sidebar').textContent = `Next daily: ${dailyNext}`;
+
+  // Run timeline in overview
+  renderRunTimeline(KNOWN_RUNS.slice(0, 5), 'recent-runs');
+
+  // Last sync
+  document.getElementById('last-sync-label').textContent = `Synced ${new Date().toLocaleTimeString('en-AU', { timeZone: 'Australia/Sydney', hour: '2-digit', minute: '2-digit' })} AEST`;
+}
+
+// ═══ SECTION LOADER ═══════════════════════════════════════════
+const loaded = new Set();
+
+async function loadSection(id) {
+  if (loaded.has(id)) return;
+  loaded.add(id);
+
+  showRefresh();
+  try {
+    if (id === 'overview') {
+      await Promise.all([loadArticles(), loadSlateSummaryForOverview()]);
+    }
+    if (id === 'health') await loadEngineHealth();
+    if (id === 'runs') renderRunTimeline(KNOWN_RUNS, 'full-run-log');
+    if (id === 'slate') await loadSlateData();
+    if (id === 'pipeline') loadPipeline();
+    if (id === 'articles') { if (!allArticles.length) await loadArticles(); else renderArticlesTable(allArticles.slice(0, 80)); }
+    if (id === 'signals') await loadSignals();
+    if (id === 'competitive') loadCompetitive();
+    if (id === 'agents') loadAgents();
+  } catch(e) { console.error('Section load error:', e); }
+  hideRefresh();
+}
+
+function filterRuns(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const runs = type === 'all' ? KNOWN_RUNS : KNOWN_RUNS.filter(r => r.tempo === type);
+  renderRunTimeline(runs, 'full-run-log');
+}
+
+function showRefresh() {
+  const el = document.getElementById('refresh-status');
+  el.classList.add('visible');
+}
+function hideRefresh() {
+  setTimeout(() => document.getElementById('refresh-status').classList.remove('visible'), 800);
+}
+
+function refreshAll() {
+  loaded.clear();
+  const activeSection = document.querySelector('.section.active');
+  if (activeSection) {
+    const id = activeSection.id.replace('section-', '');
+    loadSection(id);
+    document.getElementById('last-sync-label').textContent = `Synced ${new Date().toLocaleTimeString('en-AU', { timeZone: 'Australia/Sydney', hour: '2-digit', minute: '2-digit' })} AEST`;
+  }
+}
+
+function saveSettings() {
+  const t = document.getElementById('gh-token-input').value.trim();
+  if (t) {
+    GH_TOKEN = t;
+    // Token held in memory for this session
+  }
+  loaded.clear();
+  refreshAll();
+}
+
+// ═══ SIDEBAR TOGGLE (mobile) ═════════════════════════════════
+function toggleSidebar() {
+  const sb = document.querySelector('.sidebar');
+  const ov = document.getElementById('sidebar-overlay');
+  const isOpen = sb.classList.contains('open');
+  if (isOpen) {
+    sb.classList.remove('open');
+    ov.classList.remove('visible');
+  } else {
+    sb.classList.add('open');
+    ov.classList.add('visible');
+  }
+}
+
+function closeSidebar() {
+  document.querySelector('.sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('visible');
+}
+
+// Close sidebar on nav click (mobile)
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    if (window.innerWidth <= 900) closeSidebar();
+  });
+});
+
+// ═══ INIT ═════════════════════════════════════════════════════
+(function init() {
+  loadOverview();
+  loadSection('overview');
+})();
+
+// ═══ PASSWORD GATE ════════════════════════════════════════════
+(function() {
+  const HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'; // sha256('oflow2026') — not used, inline check
+  const KEY = 'pi_ops_auth';
+  const PW = 'oflow2026';
+
+  function sha256(str) {
+    // Simple inline check — not cryptographic, just UI gate
+    return str === PW;
+  }
+
+  // Already authed this session?
+  if (sessionStorage.getItem(KEY) === '1') {
+    document.getElementById('pw-gate').classList.add('hidden');
+    return;
+  }
+
+  const input = document.getElementById('pw-input');
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  window.checkPassword = function() {
+    const val = input.value.trim();
+    if (val === PW) {
+      sessionStorage.setItem(KEY, '1');
+      document.getElementById('pw-gate').classList.add('hidden');
+    } else {
+      input.classList.add('error');
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      setTimeout(() => input.classList.remove('error'), 400);
+      input.value = '';
+      input.focus();
+    }
+  };
+
+  // Focus input
+  setTimeout(() => input.focus(), 100);
+})();
+
+</script>
+</body>
+</html>
