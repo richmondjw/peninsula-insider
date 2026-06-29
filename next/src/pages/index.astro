@@ -190,10 +190,16 @@ export const prerender = true;
       <div class="container">
         <div class="hp-rail__head">
           <h2 class="hp-rail__title">On this weekend</h2>
-          <a class="hp-rail__more" href="/whats-on/">More What&rsquo;s On <span aria-hidden="true">→</span></a>
+          <div class="hp-rail__actions">
+            <div class="hp-rail__nav">
+              <button type="button" class="hp-rail__arrow" data-rail-prev aria-label="Scroll left">←</button>
+              <button type="button" class="hp-rail__arrow" data-rail-next aria-label="Scroll right">→</button>
+            </div>
+            <a class="hp-rail__more" href="/whats-on/">More What&rsquo;s On <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
-      <div class="hp-rail__track" data-lenis-prevent>
+      <div class="hp-rail__track">
         {weekendEvents.map((event) => {
           const occ = (event.data as any).nextOccurrence;
           const start = event.data.startDate;
@@ -209,59 +215,35 @@ export const prerender = true;
     </section>
   )}
 
-  {/* Horizontal interaction for the hidden-scrollbar rails. The rail carries
-      data-lenis-prevent so the Lenis smooth-scroll (BaseLayout) stops hijacking
-      the wheel over it — otherwise Lenis swallows the wheel for page scroll and
-      the rail never moves. Two interactions:
-        • WHEEL — a vertical wheel scrolls the rail left/right; releases to the
-          page at the ends and lets native horizontal intent pass through.
-        • CLICK-AND-DRAG — grab anywhere and drag; the click that follows a real
-          drag is suppressed so card links don't fire by accident. */}
+  {/* Arrow paging for the card rails. No wheel/drag capture — the page scrolls
+      normally over the rail; the desktop arrows just nudge the native
+      horizontally-scrollable track left/right and disable at the ends. */}
   <script is:inline>
     (function () {
-      function bindRail(track) {
-        if (track.__railBound) return;
-        track.__railBound = true;
+      function bindRail(rail) {
+        if (rail.__navBound) return;
+        var track = rail.querySelector('.hp-rail__track');
+        var prev = rail.querySelector('[data-rail-prev]');
+        var next = rail.querySelector('[data-rail-next]');
+        if (!track || !prev || !next) return;
+        rail.__navBound = true;
 
-        track.addEventListener('wheel', function (e) {
-          if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; /* already horizontal */
-          var max = track.scrollWidth - track.clientWidth;
-          if (max <= 1) return;
-          var atStart = track.scrollLeft <= 0;
-          var atEnd = track.scrollLeft >= max - 1;
-          if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return; /* release at ends */
-          var delta = e.deltaY;
-          if (e.deltaMode === 1) delta *= 16;                  /* line mode */
-          else if (e.deltaMode === 2) delta *= track.clientWidth; /* page mode */
-          e.preventDefault();
-          track.scrollLeft += delta;
-        }, { passive: false });
-
-        var down = false, startX = 0, startLeft = 0, moved = 0;
-        track.addEventListener('pointerdown', function (e) {
-          if (e.button !== 0) return;
-          down = true; moved = 0; startX = e.clientX; startLeft = track.scrollLeft;
-          track.classList.add('is-dragging');
-        });
-        window.addEventListener('pointermove', function (e) {
-          if (!down) return;
-          var dx = e.clientX - startX;
-          if (Math.abs(dx) > moved) moved = Math.abs(dx);
-          track.scrollLeft = startLeft - dx;
-        });
-        function endDrag() {
-          if (!down) return;
-          down = false;
-          track.classList.remove('is-dragging');
+        function page(dir) {
+          var amount = Math.max(track.clientWidth * 0.8, 280);
+          track.scrollBy({ left: dir * amount, behavior: 'smooth' });
         }
-        window.addEventListener('pointerup', endDrag);
-        window.addEventListener('pointercancel', endDrag);
-        /* Suppress the click that ends a real drag so a card link doesn't fire. */
-        track.addEventListener('click', function (e) {
-          if (moved > 6) { e.preventDefault(); e.stopPropagation(); moved = 0; }
-        }, true);
+        function update() {
+          var max = track.scrollWidth - track.clientWidth;
+          prev.disabled = track.scrollLeft <= 1;
+          next.disabled = track.scrollLeft >= max - 1;
+        }
+        prev.addEventListener('click', function () { page(-1); });
+        next.addEventListener('click', function () { page(1); });
+        track.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
       }
-      function setup() { document.querySelectorAll('.hp-rail__track').forEach(bindRail); }
+      function setup() { document.querySelectorAll('.hp-rail').forEach(bindRail); }
       setup();
       document.addEventListener('astro:page-load', setup);
     })();
@@ -850,7 +832,6 @@ export const prerender = true;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x proximity;
     scrollbar-width: none;
-    cursor: grab;
     /* align first card with the container edge; let the track bleed
        full-width so the next card peeks at the viewport edge */
     padding: 0 max(clamp(1rem, 4vw, 2rem), calc((100vw - var(--max-w)) / 2)) 0.5rem;
@@ -859,14 +840,34 @@ export const prerender = true;
     scroll-padding-inline: max(clamp(1rem, 4vw, 2rem), calc((100vw - var(--max-w)) / 2));
   }
   .hp-rail__track::-webkit-scrollbar { display: none; }
-  /* While dragging: grabbing cursor, no text selection, and pause scroll-snap
-     so the drag tracks the pointer 1:1 (snap re-applies on release). */
-  .hp-rail__track.is-dragging {
-    cursor: grabbing;
-    scroll-snap-type: none;
-    user-select: none;
+  /* Right-side cluster: arrow paging + the "more" link. */
+  .hp-rail__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    align-self: center;
   }
-  .hp-rail__track.is-dragging a { pointer-events: none; }
+  /* Arrows are a desktop affordance (mouse users); touch/trackpad swipe the
+     rail directly, so they stay hidden on small screens. */
+  .hp-rail__nav { display: none; gap: 0.4rem; }
+  @media (min-width: 768px) { .hp-rail__nav { display: inline-flex; } }
+  .hp-rail__arrow {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--dark);
+    font-size: 0.95rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+  }
+  .hp-rail__arrow:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .hp-rail__arrow:disabled { opacity: 0.3; cursor: default; }
   .hp-rail__track > * {
     flex: 0 0 auto;
     width: min(78vw, 320px);
