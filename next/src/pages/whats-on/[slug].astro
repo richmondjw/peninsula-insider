@@ -67,6 +67,11 @@ const timeLabel = eventTimeLabel(event.data);
 const calendarUrl = eventCalendarUrl(event.data, canonical);
 const bookingTarget = eventBookingTarget(event.data);
 const recurrenceLabel = eventRecurrenceLabel(event.data);
+const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
+const usesNextOccurrence = ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
+const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
+const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
+const whenLabel = eventDateLabel(whenStart, whenEnd);
 
 // Rich Event JSON-LD: includes geo coordinates, organiser, attendance mode,
 // offers with currency, and image. Falls through gracefully when fields are
@@ -97,7 +102,7 @@ export const prerender = true;
         <div class="event-detail__meta">
           <span class="label label--accent">{eventCategoryLabel[event.data.category] ?? event.data.category}</span>
           <span class="event-detail__dot" aria-hidden="true"></span>
-          <span class="event-detail__meta-item">{eventDateLabel(event.data.startDate, event.data.endDate)}</span>
+          <span class="event-detail__meta-item">{whenLabel}</span>
           <span class="event-detail__dot" aria-hidden="true"></span>
           <span class="event-detail__meta-item">{recurrenceLabel}</span>
         </div>
@@ -198,7 +203,7 @@ export const prerender = true;
             <dl class="event-detail__box-list">
               <div>
                 <dt>When</dt>
-                <dd>{eventDateLabel(event.data.startDate, event.data.endDate)}</dd>
+                <dd>{whenLabel}</dd>
               </div>
               {timeLabel && (
                 <div>
