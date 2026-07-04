@@ -1,6 +1,6 @@
 ---
 /**
- * /partners/claim/ — operator claim form (Phase 6 WS6B).
+ * /partners/claim/ - operator claim form (Phase 6 WS6B).
  *
  * Auth-gated. Lets a signed-in operator submit a "this is my venue"
  * claim against a slug from the venues collection. Editor approves
@@ -40,7 +40,7 @@ export const prerender = true;
     eyebrow="Claim your venue"
     subEyebrow="Verified-operator surface"
     title="Tell us this is <em>your</em> venue."
-    dek="Sign in, point us at the listing, and tell us how to verify you. Editorial approves claims manually in v1 — typically within a working day. Once approved, you can manage hours, photos, and event proposals from the operator dashboard."
+    dek="Sign in, point us at the listing, and tell us how to verify you. Editorial approves claims manually in v1 - typically within a working day. Once approved, you can manage hours, photos, and event proposals from the operator dashboard."
     gradient="journal"
     visualLabel="Peninsula Insider · operator claim"
   />
@@ -107,7 +107,7 @@ export const prerender = true;
 
         <div class="claim-form__submit">
           <button type="submit" class="claim-form__button">Submit claim</button>
-          <p class="claim-form__caveat">Claims are reviewed manually. You'll hear back via your account email — usually within a working day.</p>
+          <p class="claim-form__caveat">Claims are reviewed manually. You'll hear back via your account email - usually within a working day.</p>
         </div>
 
         <p class="claim-form__status" data-claim-status hidden></p>
@@ -221,7 +221,7 @@ export const prerender = true;
       }
 
       form.reset();
-      setStatus('success', "Claim received. The editor will verify and write back via your account email — usually within a working day.");
+      setStatus('success', "Claim received. The editor will verify and write back via your account email - usually within a working day.");
       if (button) button.disabled = false;
       // Re-load the page state so the existing-claims path takes over.
       setTimeout(init, 500);

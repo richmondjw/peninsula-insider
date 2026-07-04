@@ -39,7 +39,7 @@ const {
 
 const editable = !!entitySlug;
 
-// Build-time override consult — eliminate flash where the default
+// Build-time override consult - eliminate flash where the default
 // title / dek / hero paints before the client-side patcher swaps.
 const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;
 const titleOverride = overrides?.text['hero.title'];

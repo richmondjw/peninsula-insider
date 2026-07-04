@@ -6,7 +6,7 @@
  * `[data-pi-edit]` elements and lights them up when edit mode is on.
  *
  * Public site behaviour with these attributes present but edit mode off:
- * zero — they're inert data attributes.
+ * zero - they're inert data attributes.
  */
 
 export type CmsEntityType =
@@ -43,7 +43,7 @@ export interface EditableImageOpts {
 
 /**
  * Returns the attribute bag for a text field. Spread onto the element that
- * already renders the text — the inline editor edits whatever's inside it.
+ * already renders the text - the inline editor edits whatever's inside it.
  *
  *   <h1 {...editableText({ entityType: 'page', entitySlug: 'home',
  *                          fieldPath: 'cover.headline',

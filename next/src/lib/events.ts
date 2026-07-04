@@ -1,5 +1,5 @@
 /**
- * Events helpers — chip filters, weekend bucketing, JSON-LD shapers.
+ * Events helpers - chip filters, weekend bucketing, JSON-LD shapers.
  *
  * Kept separate from editorial.ts because that module is generic to all
  * collections; this is events-specific. Imported by /whats-on/ and the
@@ -47,7 +47,7 @@ function formatWeekendLabel(sat: Date, sun: Date): string {
 
 /**
  * True if the event runs at any point within the supplied window.
- * Recurring events (weekly, monthly, ongoing) always pass — they are
+ * Recurring events (weekly, monthly, ongoing) always pass - they are
  * assumed to occur in any given weekend window.
  */
 /**
@@ -57,7 +57,7 @@ function formatWeekendLabel(sat: Date, sun: Date): string {
  *  - one-off / annual / seasonal: single occurrence at startDate (or range
  *    if endDate is set). True if that range overlaps the window.
  *  - weekly: occurs every week on the same weekday. True if any day in
- *    the window shares that weekday — or trivially if the window is 7+
+ *    the window shares that weekday - or trivially if the window is 7+
  *    days long (every weekday is covered).
  *  - monthly: occurs once per month. We trust startDate to be the NEXT
  *    occurrence; true if startDate falls in the window.
@@ -303,7 +303,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     };
   }
 
-  // Schedule for recurring events — lets AI assistants and Google answer
+  // Schedule for recurring events - lets AI assistants and Google answer
   // "what happens every Thursday on the Mornington Peninsula?" reliably.
   // Per Operational Definitions v1.2 (What's On layer): recurring programmes
   // need stable Event schema with recurrence rules so they're discoverable

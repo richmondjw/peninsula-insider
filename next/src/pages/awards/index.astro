@@ -1,6 +1,6 @@
 ---
 /**
- * /awards/ — Peninsula Insider Awards landing page (Phase 4 WS4E).
+ * /awards/ - Peninsula Insider Awards landing page (Phase 4 WS4E).
  *
  * Annual editorial moment combining editor-selected categories and
  * reader-voted ones. v1 ships the *infrastructure*: voting, nomination,
@@ -9,9 +9,9 @@
  * up the year's slate via Supabase Studio without a code change.
  *
  * Annual cycle:
- *   August  — nominations open (visitors POST to pi.award_nominations)
- *   September — voting open (signed-in users POST to pi.award_votes)
- *   First weekend of October — results announced (published=true)
+ *   August - nominations open (visitors POST to pi.award_nominations)
+ *   September - voting open (signed-in users POST to pi.award_votes)
+ *   First weekend of October - results announced (published=true)
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -164,7 +164,7 @@ export const prerender = true;
         li.setAttribute('data-category-slug', row.slug);
         const state = votingState(row);
         const stateLabel =
-          state === 'open'      ? 'Voting open — cast yours' :
+          state === 'open'      ? 'Voting open - cast yours' :
           state === 'closed'    ? 'Voting closed' :
           state === 'published' ? 'Results published' :
                                   'Voting opens September';

@@ -3,8 +3,8 @@
  *
  * Goal: give templates a consistent way to pick a small set of related
  * entries when no explicit related-* references are populated, while always
- * letting explicit references win. Scoring is intentionally simple — tags,
- * place, and shared format — so the rails stay legible and predictable.
+ * letting explicit references win. Scoring is intentionally simple - tags,
+ * place, and shared format - so the rails stay legible and predictable.
  *
  * These helpers expect Astro `getCollection(...)` entries with a `data`
  * payload; they don't import the content runtime themselves so they're
@@ -98,7 +98,7 @@ export function pickRelatedArticles<T extends ContentEntry>(
     return [...explicit, ...tail].slice(0, limit);
   }
 
-  // Final fallback — most-recent articles, excluding anything already chosen.
+  // Final fallback - most-recent articles, excluding anything already chosen.
   const taken = new Set<string>([
     ...explicit.map((e) => routeSlug(e)),
     ...tail.map((e) => routeSlug(e)),

@@ -65,7 +65,7 @@ const slug = routeSlug(event);
         <h1 class="hero__headline">{data.title}</h1>
         <p class="hero__dek">{data.summary}</p>
         <div class="hero__byline">
-          <span>— {dateLabel}</span>
+          <span> - {dateLabel}</span>
           {data.bookingUrl && (
             <a href={data.bookingUrl} target="_blank" rel="noopener noreferrer" class="hero__byline-read">Book / info →</a>
           )}
@@ -74,7 +74,7 @@ const slug = routeSlug(event);
       <figure>
         <img class="hero__image" src={heroImage} alt={data.title} loading="eager" fetchpriority="high">
         <figcaption class="hero__image-cap">
-          <span>{data.title} <span class="ornament">—</span> {placeName}</span>
+          <span>{data.title} <span class="ornament"> - </span> {placeName}</span>
           <span>Peninsula Insider <span class="ornament">/</span> What's On</span>
         </figcaption>
       </figure>
@@ -86,7 +86,7 @@ const slug = routeSlug(event);
   <section class="letter">
     <div class="container">
       <div class="letter__frame" style="display:block;">
-        <blockquote class="pullquote">Worth knowing — {data.skipReason ?? data.editorVerdict ?? data.summary}</blockquote>
+        <blockquote class="pullquote">Worth knowing - {data.skipReason ?? data.editorVerdict ?? data.summary}</blockquote>
       </div>
     </div>
   </section>
@@ -145,7 +145,7 @@ const slug = routeSlug(event);
 
             {data.worthTheDrive && (<>
               <dt style="font-weight:500;">Worth the drive</dt>
-              <dd style="margin:0;">Yes — unprompted</dd>
+              <dd style="margin:0;">Yes - unprompted</dd>
             </>)}
 
             {data.firstTimer && (<>

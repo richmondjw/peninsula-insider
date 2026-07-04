@@ -1,12 +1,11 @@
 /**
  * Boating + Fishing vertical helpers.
  *
- * Source of truth: peninsula_insider_boating_fishing_v1 pack (30 Apr 2026) —
- * specifically bf_measurement_spec.md (events), bf_affiliate_economics.md
+ * Source of truth: peninsula_insider_boating_fishing_v1 pack (30 Apr 2026) - * specifically bf_measurement_spec.md (events), bf_affiliate_economics.md
  * (UTM scheme), bf_taxonomy_spec.md (region labels and slug rules).
  *
  * Imported by /fishing/ and /boating/ pages and components. Stays a pure
- * module — no Astro or component imports — so it can also be loaded from
+ * module - no Astro or component imports - so it can also be loaded from
  * scripts/bf-import/.
  */
 
@@ -22,7 +21,7 @@ export const REGION_LABEL: Record<BfRegion, string> = {
 /**
  * The 12 GA4 events fired by the /fishing/ and /boating/ surfaces. Each event
  * carries a stable name and a typed payload. The pack documents these in
- * bf_measurement_spec.md §3 — keep this list and that spec in sync.
+ * bf_measurement_spec.md §3 - keep this list and that spec in sync.
  */
 export const BF_GA4_EVENTS = [
   'bf_charter_click',
@@ -67,7 +66,7 @@ interface BuildUtmInput {
 
 /**
  * Append the Peninsula Insider UTM tag set to an outbound URL. Token order
- * matches bf_affiliate_economics.md §4 — affiliate platforms that parse by
+ * matches bf_affiliate_economics.md §4 - affiliate platforms that parse by
  * position need the affiliate token appended after these by the caller.
  */
 export function buildBfUtm({ destination, campaign, medium, content }: BuildUtmInput): string {
@@ -107,7 +106,7 @@ export const BF_RAMPS_P2 = [
 ] as const;
 
 /** Anchor + Featured tier charters for P5. The four [VERIFY] charters are
- *  intentionally absent — they require operator outreach before publish. */
+ *  intentionally absent - they require operator outreach before publish. */
 export const BF_CHARTERS_P5 = [
   'im-hooked-fishing-charters',
   'proline-charters',

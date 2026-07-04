@@ -1,7 +1,7 @@
 ---
-/* ProfileDropdown — replaces the Subscribe link in the masthead when
+/* ProfileDropdown - replaces the Subscribe link in the masthead when
    the user is signed in. Shows avatar, profile menu, sign-out.
-   When NOT signed in, renders nothing — caller controls fallback. */
+   When NOT signed in, renders nothing - caller controls fallback. */
 ---
 
 <div class="v2-profile" id="v2-profile" hidden>
@@ -22,7 +22,7 @@
 
   // Module-level state: outside-click and Escape listeners are installed
   // exactly once and operate on whatever menu element is in the DOM at the
-  // moment they fire. This survives Astro view transitions cleanly — the
+  // moment they fire. This survives Astro view transitions cleanly - the
   // listener doesn't hold a stale reference to a swapped-out element.
   function closeMenu() {
     const menu = document.querySelector<HTMLElement>('#v2-profile .v2-profile__menu');
@@ -37,7 +37,7 @@
     document.addEventListener('click', (e) => {
       const profile = document.getElementById('v2-profile');
       if (!profile) return;
-      if (profile.contains(e.target as Node)) return; // click was inside — let local handlers act
+      if (profile.contains(e.target as Node)) return; // click was inside - let local handlers act
       closeMenu();
     });
     document.addEventListener('keydown', (e) => {
@@ -96,7 +96,7 @@
       setOpen(false);
     });
 
-    // React to auth state changes — show/hide and update avatar/name
+    // React to auth state changes - show/hide and update avatar/name
     onAuthChange((user) => {
       if (!user) {
         el.hidden = true;
@@ -194,7 +194,7 @@
   .v2-profile__menu-item:hover { background: var(--paper-warm, #F3EDDE); color: var(--ochre, #A0541F); }
   .v2-profile__signout { color: var(--ink-muted, #6E655C); border-top: 1px solid var(--line-soft, #E8E2D1); margin-top: 0.2rem; padding-top: 0.55rem; }
 
-  /* Utility-row variant — matches the .masthead__signin treatment so the
+  /* Utility-row variant - matches the .masthead__signin treatment so the
      signed-in profile sits in the same slot as the anonymous Sign in
      link. Drops the pill chrome, shrinks the avatar, uppercases the name. */
   .masthead__utility-inner .v2-profile {

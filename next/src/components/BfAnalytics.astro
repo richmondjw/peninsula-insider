@@ -1,6 +1,6 @@
 ---
 /**
- * BfAnalytics — delegated GA4 event listener for /fishing/ and /boating/.
+ * BfAnalytics - delegated GA4 event listener for /fishing/ and /boating/.
  *
  * Drop this once on any /fishing/* or /boating/* page (typically inside the
  * hub or detail layout). It binds a single document-level click handler that
@@ -84,7 +84,7 @@
     emit(name, payloadFromEl(target as HTMLElement));
   });
 
-  // Scroll depth — fire once per page load at 50% and 80% of the article body.
+  // Scroll depth - fire once per page load at 50% and 80% of the article body.
   const fired = new Set<BfEventName>();
   const article = document.querySelector('main, article, [data-bf-article]');
   if (article) {

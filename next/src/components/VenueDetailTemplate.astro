@@ -124,17 +124,17 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 
     <h1 class="venue-detail__title" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'name',
-      label: `${data.name} — name`,
+      label: `${data.name} - name`,
     })}>{data.name}</h1>
     {isClosed && (
       <p class="venue-detail__closed-notice">This cellar door is permanently closed. The page is preserved for historical reference.</p>
     )}
     <p class="venue-detail__signature" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'signature',
-      label: `${data.name} — signature`,
+      label: `${data.name} - signature`,
     })}>{data.signature}</p>
 
-    {/* ── KNOWN FOR — entity-signal line (editorial highlights, not buttons).
+    {/* ── KNOWN FOR - entity-signal line (editorial highlights, not buttons).
         Also emitted as schema.org additionalProperty in the page JSON-LD. ── */}
     {data.knownFor && data.knownFor.length > 0 && (
       <p class="venue-known-for" aria-label="Known for">
@@ -168,12 +168,12 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
       </div>
     )}
 
-    {/* Appointment-only planning signal — wine venues only.
+    {/* Appointment-only planning signal - wine venues only.
         Positioned before the hero so it's seen before the reader
         commits to the page. Not a warning, a planning note. */}
     {isAppointmentOnly && (
       <div class="venue-appointment-note" role="note">
-        <span class="venue-appointment-note__icon" aria-hidden="true">—</span>
+        <span class="venue-appointment-note__icon" aria-hidden="true"> - </span>
         <span class="venue-appointment-note__text">
           <strong>By appointment.</strong> This producer doesn't take walk-ins.
           {data.phone
@@ -207,8 +207,8 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 
     <div class="venue-detail__grid">
       <div>
-        {/* ── INSIDER VERDICT — the editorial hook, leads the page.
-            "Best for" lives once, in Worth Knowing below — not duplicated here. ── */}
+        {/* ── INSIDER VERDICT - the editorial hook, leads the page.
+            "Best for" lives once, in Worth Knowing below - not duplicated here. ── */}
         {venue.data.venueTier === 'destination' && data.whyWeGo && (
           <div class="venue-verdict">
             <blockquote class="venue-verdict__why">
@@ -218,7 +218,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           </div>
         )}
 
-        {/* ── EDITOR NOTE — context and detail ── */}
+        {/* ── EDITOR NOTE - context and detail ── */}
         <div class="prose">
           {data.editorNote.split(/\n\n+/).map((paragraph: string) => (
             <p>{paragraph}</p>
@@ -234,7 +234,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           />
         )}
 
-        {/* ── WORTH KNOWING — quick-scan trust layer ── */}
+        {/* ── WORTH KNOWING - quick-scan trust layer ── */}
         {hasWorthKnowing && (
           <div class="worth-knowing">
             <p class="worth-knowing__heading">Worth knowing</p>
@@ -314,10 +314,10 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           </p>
         )}
 
-        {/* Wine identity panel — surfaces schema-rich wine signals with
+        {/* Wine identity panel - surfaces schema-rich wine signals with
             editorial weight. Winemaker, key varieties, signature label,
             seasonal context. Visible on wine pages only.
-            Design principle: structured but understated — no luxury-wine
+            Design principle: structured but understated - no luxury-wine
             clichés, no gold leaf, no overdesigned badges. */}
         {isWinery && (wineKeyVarieties.length > 0 || winemakerName || wineTopLabel || wineBestSeason) && (
           <div class="wine-identity">
@@ -360,7 +360,19 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           <dd>{typeLabel[data.type] ?? data.type}</dd>
 
           <dt>Location</dt>
-          <dd>{data.address}</dd>
+          <dd>
+            {data.address}
+            {data.address && (
+              <>
+                {' '}·{' '}
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${data.name}, ${data.address}`)}`}
+                  target="_blank"
+                  rel="noopener"
+                >Directions</a>
+              </>
+            )}
+          </dd>
 
           <dt>Spend</dt>
           <dd>{data.priceBand}</dd>
@@ -464,7 +476,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
           {data.featuredPartner && (
             <>
               <dt>Partnership</dt>
-              <dd>Featured partner — <a href="/about/">editorial standards</a></dd>
+              <dd>Featured partner - <a href="/about/">editorial standards</a></dd>
             </>
           )}
         </dl>
@@ -571,7 +583,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* ── SEASONAL INTELLIGENCE — optional per-season guidance ── */}
+{/* ── SEASONAL INTELLIGENCE - optional per-season guidance ── */}
 {hasSeasonalNotes && (
   <section class="venue-seasonal">
     <div class="container">
@@ -589,7 +601,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* ── ASK PI — light planning integration ── */}
+{/* ── ASK PI - light planning integration ── */}
 <section class="venue-ask-pi">
   <div class="container">
     <div class="venue-ask-pi__inner">
@@ -611,7 +623,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         <div>
           <p class="label label--accent">In the journal</p>
           <h2 class="venues__title">Stories that mention {data.name}</h2>
-          <p class="venues__sub">These pieces give you the context a listing page never does — the when, the why, and the who-it’s-for.</p>
+          <p class="venues__sub">These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.</p>
         </div>
         <a href="/journal/" class="venues__link">Journal →</a>
       </div>
@@ -657,7 +669,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   </section>
 )}
 
-{/* Planning pathways — connect this venue into broader Peninsula experiences */}
+{/* Planning pathways - connect this venue into broader Peninsula experiences */}
 <section class="venues venues--plain">
   <div class="container">
     <div class="venues__header">
@@ -709,7 +721,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
   dek={data.editorNote}
   imageUrl={data.heroImage?.src}
 />
-{/* Destination hierarchy link — editorial return path to the parent place guide.
+{/* Destination hierarchy link - editorial return path to the parent place guide.
     Venue pages are the deepest layer of the ecosystem; this closes the loop.
     Renders only when place data is available (true for all 141 tagged venues). */}
 {(data.place?.id ?? data.place) && (
@@ -719,7 +731,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
         href={`/explore/places/${data.place?.id ?? data.place}/`}
         class="venue-place-link__anchor"
       >
-        ← Part of {placeLabel(data.place)} — view the destination guide
+        ← Part of {placeLabel(data.place)} - view the destination guide
       </a>
     </div>
   </div>
@@ -961,7 +973,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     }
   }
 
-  /* ── Known For — entity-signal line (editorial highlights, not buttons) ── */
+  /* ── Known For - entity-signal line (editorial highlights, not buttons) ── */
   .venue-known-for {
     display: flex;
     flex-wrap: wrap;
@@ -989,7 +1001,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
     margin: 0 0.4rem;
   }
 
-  /* ── Filed under — demoted discovery tags (quiet, not pills) ── */
+  /* ── Filed under - demoted discovery tags (quiet, not pills) ── */
   .venue-detail__filed {
     margin: 1.5rem 0 0;
     font-size: 0.82rem;

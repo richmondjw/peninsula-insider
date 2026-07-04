@@ -1,6 +1,6 @@
 ---
 /**
- * SubpageHero — editorial split hero for category subpages
+ * SubpageHero - editorial split hero for category subpages
  * (eat/cafes, eat/bakeries, eat/pubs, etc.)
  *
  * Left column: eyebrow → H1 → prose slot
@@ -14,9 +14,9 @@ import { editableText, editableImage, type CmsEntityType } from '../lib/inline-e
 import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
-  /** Section label shown in accent colour before the rule — e.g. "Eat & Drink" */
+  /** Section label shown in accent colour before the rule - e.g. "Eat & Drink" */
   eyebrow?: string;
-  /** Category label shown after the rule — e.g. "Bakeries" */
+  /** Category label shown after the rule - e.g. "Bakeries" */
   category?: string;
   /** H1 text; supports inline <em> for italic accent */
   title: string;
@@ -50,7 +50,7 @@ const {
 
 const editable = !!entitySlug;
 
-// Build-time override consult — apply published title / hero overrides
+// Build-time override consult - apply published title / hero overrides
 // to the initial markup so there's no flash where the default paints
 // before the client-side patcher runs.
 const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;

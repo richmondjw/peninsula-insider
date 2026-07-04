@@ -21,7 +21,7 @@ const path = '/tour/fishing-tours/';
 const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
 
 // Existing /tour/ entries with cruise-sailing, surf-water, or wildlife-nature
-// experience type that touch fishing intent — surfaced here as adjacent options.
+// experience type that touch fishing intent - surfaced here as adjacent options.
 const allTours = await getCollection('tours');
 const adjacentTours = allTours.filter((t) =>
   ['cruise-sailing', 'surf-water'].includes(t.data.experienceType),

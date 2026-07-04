@@ -1,6 +1,6 @@
 ---
 /**
- * V4 PillarLink — top-row pillar trigger.
+ * V4 PillarLink - top-row pillar trigger.
  *
  * Renders the pillar label, optional chevron, with aria-haspopup wired up
  * for the mega panel. Journal gets italic Cormorant; the others get
@@ -15,7 +15,7 @@ export interface Props {
 }
 
 const { pillar, current = false, triggerId } = Astro.props;
-// Journal and Notebook both render as calm direct links — no chevron, no mega trigger.
+// Journal and Notebook both render as calm direct links - no chevron, no mega trigger.
 const isJournal = pillar.key === 'journal' || pillar.key === 'notebook';
 const linkClass = [
   'v4-pillars__link',

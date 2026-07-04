@@ -12,7 +12,7 @@ const lastVerifiedISO = '2026-04-30';
 const lastVerifiedStamp = formatVerifiedStamp(lastVerifiedISO);
 
 const allSpecies = await getCollection('species', ({ data }) => data.status === 'published');
-// Editorial order from the pack — flagship species first, secondary later.
+// Editorial order from the pack - flagship species first, secondary later.
 const orderIdx = (slug: string) => {
   const i = (BF_SPECIES_ORDER as readonly string[]).indexOf(slug);
   return i === -1 ? 999 : i;
@@ -76,7 +76,7 @@ export const prerender = true;
   <p class="affiliate-disclosure container">
     Bag and size limits sourced from the
     <a href={BF_EXTERNAL.vfa} rel="external">Victorian Fisheries Authority</a>.
-    Last fact-verified {lastVerifiedStamp}. Regulations change — confirm with
+    Last fact-verified {lastVerifiedStamp}. Regulations change - confirm with
     VFA before fishing.
   </p>
 

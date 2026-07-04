@@ -1,11 +1,11 @@
 ---
 /**
- * Masthead — Peninsula Insider
+ * Masthead - Peninsula Insider
  *
  * Three-row editorial flag, all sticky:
- *   1. utility — issue stamp · Peninsula conditions · subscribe / about
- *   2. brand   — wordmark + italic tagline
- *   3. nav     — section pillars (Journal in italic) + Subscribe pill
+ *   1. utility - issue stamp · Peninsula conditions · subscribe / about
+ *   2. brand - wordmark + italic tagline
+ *   3. nav - section pillars (Journal in italic) + Subscribe pill
  *
  * Replaces the previous UtilityBar+Masthead two-component pattern with a
  * single unified header zone. UtilityBar component is no longer rendered
@@ -36,7 +36,7 @@ const {
 ---
 
 <header class="masthead">
-  <!-- Row 1 — Utility -->
+  <!-- Row 1 - Utility -->
   <div class="masthead__utility">
     <div class="container">
       <div class="masthead__utility-inner">
@@ -62,7 +62,7 @@ const {
     </div>
   </div>
 
-  <!-- Row 2 — Brand -->
+  <!-- Row 2 - Brand -->
   <div class="masthead__brand">
     <div class="container">
       <div class="masthead__brand-inner">
@@ -73,8 +73,8 @@ const {
     </div>
   </div>
 
-  <!-- Row 3 — Nav (on mobile this row absorbs the wordmark too: burger
-       left, wordmark centred, subscribe right — single-row magazine
+  <!-- Row 3 - Nav (on mobile this row absorbs the wordmark too: burger
+       left, wordmark centred, subscribe right - single-row magazine
        pattern used by NYT, Atlantic, Monocle, etc.) -->
   <div class="masthead__nav-row">
     <div class="container">
@@ -155,7 +155,7 @@ const {
           </ul>
         </nav>
         <!-- Visual order: typeahead (instant search), then Subscribe.
-             Phase 3 WS3A — replaces the prior search-icon button which
+             Phase 3 WS3A - replaces the prior search-icon button which
              opened the SearchOverlay. The overlay component is still
              mounted by BaseLayout as a fallback path; the typeahead's
              "View all results" footer link routes there if needed. -->
@@ -167,7 +167,7 @@ const {
   </div>
 </header>
 
-<!-- Mobile-nav full-screen overlay — opened by the burger toggle in BaseLayout -->
+<!-- Mobile-nav full-screen overlay - opened by the burger toggle in BaseLayout -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
   <div class="mobile-nav__inner">
     <div class="mobile-nav__brand">
@@ -206,7 +206,7 @@ const {
           </ul>
         </div>
       ) : (
-        /* Simple link item — no submenu */
+        /* Simple link item - no submenu */
         <a
           href={item.href}
           class={`mobile-nav__link${item.key === 'journal' ? ' mobile-nav__link--journal' : ''}`}
@@ -366,8 +366,8 @@ const {
 
 <!-- Mobile nav split-button controller.
      Each [data-split-root] has:
-       [data-split-toggle] — the chevron button
-       [data-split-panel]  — the hidden submenu <ul>
+       [data-split-toggle] - the chevron button
+       [data-split-panel] - the hidden submenu <ul>
      Tap text = navigate (default <a> behaviour).
      Tap chevron = toggle submenu.
      Idempotent across astro:page-load. -->

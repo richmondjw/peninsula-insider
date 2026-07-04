@@ -36,7 +36,7 @@ const producers = venues.filter((v) => v.data.type === 'producer');
 const breweries = venues.filter((v) => v.data.type === 'brewery');
 const distilleries = venues.filter((v) => v.data.type === 'distillery');
 
-// Editorial benchmark wineries — driven by editorPick: true on venue JSON.
+// Editorial benchmark wineries - driven by editorPick: true on venue JSON.
 // To change the benchmark set, update the venue JSON file; no source code edit needed.
 const benchmarks = venues.filter((venue) => venue.data.editorPick);
 
@@ -59,7 +59,7 @@ const companionReads = companionSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
   .filter((a): a is NonNullable<typeof a> => Boolean(a));
 
-// Cellar door dispatches — the 86 editorial visits surfaced on the Wine hub
+// Cellar door dispatches - the 86 editorial visits surfaced on the Wine hub
 // as a dedicated "From the cellar door" section. Shows 6 most recent;
 // full archive lives in the Journal.
 const cellarDoorDispatches = articlesAll
@@ -126,7 +126,7 @@ export const prerender = true;
   </nav>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       EDITORIAL SURFACE — Featured Cellar Door (Level 1)
+       EDITORIAL SURFACE - Featured Cellar Door (Level 1)
        ═══════════════════════════════════════════════════════════════ -->
   <div class="wine-surface-wrap container">
     <EditorialSurface
@@ -295,7 +295,7 @@ export const prerender = true;
       hrefPrefix="/wine"
       eyebrow="Complete wine-country directory"
       heading={`All ${venues.length} cellar doors, breweries, and producers`}
-      sub="Sorted by Halliday authority. Filter by town, format, price, or mood — pinot rooms, brewery yards, distillery cellars, ridge benchmarks, and producers all live in the same list."
+      sub="Sorted by Halliday authority. Filter by town, format, price, or mood - pinot rooms, brewery yards, distillery cellars, ridge benchmarks, and producers all live in the same list."
       typeOptions={[
         { value: 'winery',     label: 'Wineries' },
         { value: 'brewery',    label: 'Breweries' },
@@ -354,7 +354,7 @@ export const prerender = true;
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8b. FROM THE CELLAR DOOR — editorial dispatch archive
+       8b. FROM THE CELLAR DOOR - editorial dispatch archive
        86 cellar-door visit notes surfaced on the Wine hub.
        Addresses the structural gap identified in ecosystem-review-2026-05-16:
        dispatches living only in the Journal aren’t strengthening Wine hub
@@ -367,7 +367,7 @@ export const prerender = true;
           <div>
             <p class="label label--accent">From the cellar door</p>
             <h2 class="venues__title">The rooms we’ve visited, in our own words</h2>
-            <p class="venues__sub venues__sub--standfirst">86 cellar-door visits written to a single standard — what the room is for, who it suits, what to order, and what to leave for another time. Each one is a standalone editorial note, not a listing.</p>
+            <p class="venues__sub venues__sub--standfirst">86 cellar-door visits written to a single standard - what the room is for, who it suits, what to order, and what to leave for another time. Each one is a standalone editorial note, not a listing.</p>
           </div>
           <a href="/journal/" class="venues__link">All dispatches in the Journal →</a>
         </div>

@@ -39,7 +39,7 @@ const dispatches = (await getCollection('articles', ({ data }) => data.status ==
 const currentDispatch = dispatches[0];
 // Signature events: sorted by the `hubOrder` field on the collection
 // (review #9). Entries without a value sort to the end, then alphabetically
-// by name — so adding a new signature event without specifying hubOrder
+// by name - so adding a new signature event without specifying hubOrder
 // simply appends rather than crashing the build.
 const allSignatureEvents = (await getCollection('signature-events')).sort((a, b) => {
   const ao = a.data.hubOrder ?? Number.POSITIVE_INFINITY;
@@ -48,7 +48,7 @@ const allSignatureEvents = (await getCollection('signature-events')).sort((a, b)
   return a.data.name.localeCompare(b.data.name);
 });
 
-// The Notebook — up to 3 most recent contextual notes surfaced as a
+// The Notebook - up to 3 most recent contextual notes surfaced as a
 // horizontal rail directly under the Weekend briefing. Notebook is the
 // page's freshness proof, so it now sits high in the hub (was previously
 // buried below Markets). Prefers whats-on / weather / explore sections;
@@ -87,7 +87,7 @@ const marketEvents = events
   .sort(sortAppealThenDate)
   .slice(0, 6);
 
-// Filter pool — every upcoming/recurring event capped at 30 by appeal,
+// Filter pool - every upcoming/recurring event capped at 30 by appeal,
 // rendered into a hidden results grid that the client filter engine shows
 // when Where/What chips are active. Deliberately capped to keep DOM weight
 // and Supabase-override fetches reasonable; deeper queries route to
@@ -100,7 +100,7 @@ const filterPool = [...events]
 // For each of the next 7 days, pick up to 2 highest-appeal events that
 // actually occur that day. Covers dated events (startDate..endDate range)
 // and weekly recurrences (matching day-of-week). Monthly recurrences are
-// out of scope here — they need date arithmetic the recurrence note doesn't
+// out of scope here - they need date arithmetic the recurrence note doesn't
 // reliably expose. "Nothing notable" days stay in the row as honest gaps.
 const DAY_ABBREV_RX: Record<string, number> = {
   sun: 0, sunday: 0,
@@ -162,7 +162,7 @@ const whatsOnModifiedTime = (currentDispatch?.data.publishedAt ?? now)
 // JSON-LD ItemList: emit every dated event card on the hub as schema.org
 // Event nodes so the page can earn rich results for "events Mornington
 // Peninsula" without the per-event guides needing their own structured data
-// duplicated. Signature events are excluded — they're editorial anchors
+// duplicated. Signature events are excluded - they're editorial anchors
 // without firm dates (monthAnchor is a label, not a date).
 const SITE_ORIGIN = 'https://peninsulainsider.com.au';
 const toIsoDate = (d: Date | undefined | null): string | null =>
@@ -233,7 +233,7 @@ export const prerender = true;
     title="What's on, <em>worth your time</em>"
     dek="A curated edit of what's happening across the Peninsula - organised by season and signature events."
     heroImage="/images/sourced/whats-on-winter-wine.webp"
-    imageAlt="Bittern Estate wines lined up at a Mornington Peninsula winter cellar door — part of the Peninsula's winter events calendar"
+    imageAlt="Bittern Estate wines lined up at a Mornington Peninsula winter cellar door - part of the Peninsula's winter events calendar"
     entitySlug="whats-on"
   />
 
@@ -361,7 +361,7 @@ export const prerender = true;
       <div class="whatson-agenda__header">
         <p class="label label--accent">Next 7 days</p>
         <h2 class="whatson-agenda__title">A week at a glance</h2>
-        <p class="whatson-agenda__dek">Dated picks for each of the next seven days. Quiet days stay quiet — we don't manufacture options to fill a row.</p>
+        <p class="whatson-agenda__dek">Dated picks for each of the next seven days. Quiet days stay quiet - we don't manufacture options to fill a row.</p>
       </div>
       <ol class="whatson-agenda__list" role="list">
         {agendaDays.map((day) => (
@@ -434,7 +434,7 @@ export const prerender = true;
       <div class="whatson-section__header">
         <p class="label label--accent">Seasonal &amp; Annual</p>
         <h2 class="whatson-section__title">Dates and programs shaping the calendar</h2>
-        <p class="whatson-section__dek">Recurring reasons to go that aren't tied to one weekend — winter festivals, summer programs, ongoing exhibitions.</p>
+        <p class="whatson-section__dek">Recurring reasons to go that aren't tied to one weekend - winter festivals, summer programs, ongoing exhibitions.</p>
       </div>
       {seasonalEvents.length > 0 ? (
         <div class="event-grid">
@@ -470,7 +470,7 @@ export const prerender = true;
       <div class="whatson-moods__header">
         <p class="label label--accent">Browse by mood</p>
         <h2 class="whatson-moods__title">Find a fit, not a list</h2>
-        <p class="whatson-moods__dek">Editor-curated entry points into the events registry — each chip answers a real question a visitor asks.</p>
+        <p class="whatson-moods__dek">Editor-curated entry points into the events registry - each chip answers a real question a visitor asks.</p>
       </div>
       <EventChipBar active="hub" />
     </div>
@@ -489,7 +489,7 @@ export const prerender = true;
   // Multi-value within a key is OR; across keys is AND.
   //
   // Body class `whatson-filter-active` is the single source of truth for
-  // "filters are on" — CSS hides every [data-filter-section] under it.
+  // "filters are on" - CSS hides every [data-filter-section] under it.
 
   type FilterKey = 'loc' | 'cat' | 'date';
   const KEYS: FilterKey[] = ['loc', 'cat', 'date'];
@@ -497,7 +497,7 @@ export const prerender = true;
   const root = document.querySelector<HTMLElement>('[data-filter-bar]');
   const resultsSection = document.querySelector<HTMLElement>('[data-filter-results]');
   if (!root || !resultsSection) {
-    // Nothing to wire — bail without throwing.
+    // Nothing to wire - bail without throwing.
   } else {
     const cards = Array.from(resultsSection.querySelectorAll<HTMLElement>('.event-card'));
     const countEl = document.querySelector<HTMLElement>('[data-filter-count]');
@@ -776,7 +776,7 @@ export const prerender = true;
 </style>
 
 <style>
-  /* Filter bar — sticky single-line bar with an expandable filter panel.
+  /* Filter bar - sticky single-line bar with an expandable filter panel.
      At rest: just a quiet "Filters" toggle, with active filter chips
      shown inline when present. Panel opens on click and contains the
      full When / Where / What chip groups, wrapping naturally so the bar
@@ -983,7 +983,7 @@ export const prerender = true;
     }
   }
 
-  /* Filtered results section — appears below the utility bar when any
+  /* Filtered results section - appears below the utility bar when any
      filter chip is active. The body-level class `whatson-filter-active`
      (set by the client script) handles section hiding via global CSS. */
   .whatson-filtered {
@@ -1030,7 +1030,7 @@ export const prerender = true;
     }
   }
 
-  /* Peninsula This Weekend — editorial lead section
+  /* Peninsula This Weekend - editorial lead section
      Text-only strip. GuideHero above already provides the visual.
      Strong typography carries the editorial weight. */
   .whatson-briefing {
@@ -1202,7 +1202,7 @@ export const prerender = true;
     }
   }
 
-  /* 7-day agenda strip — dated picks for each of the next 7 days. Sits
+  /* 7-day agenda strip - dated picks for each of the next 7 days. Sits
      between the Notebook rail (today's signals) and Seasonal/Signature
      (longer horizon). Grid on desktop, horizontal scroll on mobile. */
   .whatson-agenda {
@@ -1330,7 +1330,7 @@ export const prerender = true;
     }
   }
 
-  /* Browse by mood — chip row giving access to the existing /by-mood/
+  /* Browse by mood - chip row giving access to the existing /by-mood/
      landing pages. Sits above Dispatch as a softer secondary path. */
   .whatson-moods {
     padding: clamp(2rem, 4vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem);
@@ -1351,7 +1351,7 @@ export const prerender = true;
     margin: 0 0 0.5rem;
   }
 
-  /* Notebook rail — freshness proof, promoted from page bottom to right
+  /* Notebook rail - freshness proof, promoted from page bottom to right
      under the Weekend briefing. Horizontal scroll on mobile, equal-width
      cards on desktop. Quiet visual weight: this is texture, not a feature. */
   .whatson-notebook-rail {

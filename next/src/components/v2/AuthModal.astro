@@ -1,5 +1,5 @@
 ---
-/* AuthModal — sign in via Google or magic link.
+/* AuthModal - sign in via Google or magic link.
    Hidden by default; opened by any element with [data-open-auth].
    Inline CSS + JS so the component is self-contained. */
 ---
@@ -63,7 +63,7 @@
       modal.hidden = false;
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      // focus the email input by default — magic link is the lower-friction path
+      // focus the email input by default - magic link is the lower-friction path
       requestAnimationFrame(() => {
         (document.getElementById('v2-auth-email') as HTMLInputElement | null)?.focus();
       });
@@ -124,7 +124,7 @@
       status.className = 'v2-auth__status';
       const r = await signInWithMagicLink(email);
       if (r.ok) {
-        status.textContent = 'Check your inbox — the sign-in link is on its way.';
+        status.textContent = 'Check your inbox - the sign-in link is on its way.';
         status.className = 'v2-auth__status v2-auth__status--ok';
         btn.textContent = 'Link sent';
         input.disabled = true;

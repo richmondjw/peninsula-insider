@@ -1,5 +1,5 @@
 /**
- * Venue helpers — opening-hours freshness, live-status URL fallback, and
+ * Venue helpers - opening-hours freshness, live-status URL fallback, and
  * verification chip copy. Discovery Layer Phase 1, workstream 3.
  *
  * Kept separate from editorial.ts because that module is generic across all
@@ -57,7 +57,7 @@ export function verifiedFreshnessLabel(lastVerified: Date | string | undefined):
 }
 
 /**
- * "How fresh" tier — used to colour the verification chip on cards.
+ * "How fresh" tier - used to colour the verification chip on cards.
  *   - 'fresh': verified in the last 35 days
  *   - 'recent': 36–120 days
  *   - 'stale': 121+ days (or unknown)

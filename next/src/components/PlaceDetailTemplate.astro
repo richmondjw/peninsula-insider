@@ -1,6 +1,6 @@
 ---
 /**
- * PlaceDetailTemplate — canonical place page template (consolidated May 2026).
+ * PlaceDetailTemplate - canonical place page template (consolidated May 2026).
  *
  * Merges PlaceDetailTemplateV2 (upper structure) with PlaceDetailTemplate v1
  * (mature downstream substance). Resolves the two-template situation into one
@@ -8,16 +8,16 @@
  *
  * Structure:
  *   1. Full-bleed cinematic hero (V2)
- *   2. Editorial lede — 2-col factual prose + At a glance card (V2)
+ *   2. Editorial lede - 2-col factual prose + At a glance card (V2)
  *   3. Signature pull-quote band (V2)
- *   4. Who this place rewards — fit panel, bestFor/notFor/skip (V1)
- *   5. TL;DR — numbered editorial summary (V1)
- *   6. A Perfect Day — signature PI feature (V1)
- *   7. Chapter navigation — numbered, links to downstream (V2)
- *   8. Scoreboard — what's mapped, with anchor links (V1)
+ *   4. Who this place rewards - fit panel, bestFor/notFor/skip (V1)
+ *   5. TL;DR - numbered editorial summary (V1)
+ *   6. A Perfect Day - signature PI feature (V1)
+ *   7. Chapter navigation - numbered, links to downstream (V2)
+ *   8. Scoreboard - what's mapped, with anchor links (V1)
  *   9. Downstream sections: eat, wine, stay, explore, escapes, journal (V1 copy)
- *  10. Service guide links — internal linking + SEO (V1)
- *  11. Location map — lazy Leaflet (V1)
+ *  10. Service guide links - internal linking + SEO (V1)
+ *  11. Location map - lazy Leaflet (V1)
  *  12. Related places (both)
  *  13. Reader submission CTA (V1)
  *  14. Newsletter block
@@ -60,7 +60,7 @@ const zoneLabel = titleize(place.data.zone);
 const kindLabel = titleize(place.data.kind);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 
-// CMS override consult at SSR — if an editor uploaded a place-specific
+// CMS override consult at SSR - if an editor uploaded a place-specific
 // hero via the inline editor, it wins over the content-JSON default and
 // ships in the static HTML. No client-side swap, no flicker. Restores the
 // override propagation the client-side patcher used to provide before
@@ -70,7 +70,7 @@ const overrideHero = placeOverrides?.image['hero'];
 const heroSrc = overrideHero?.src ?? resolveHeroSrc(place.data);
 const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
 
-// Category sub-page lookup — editorial, not file-system-driven.
+// Category sub-page lookup - editorial, not file-system-driven.
 // Extend this map as new place-specific sub-pages are created.
 type SubpageLink = { label: string; href: string; desc: string };
 const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
@@ -114,11 +114,11 @@ const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
 };
 const placeSubpages: SubpageLink[] = PLACE_SUBPAGES[placeSlug] ?? [];
 
-// Wine sub-page exists for these places — link directly rather than to the hub
+// Wine sub-page exists for these places - link directly rather than to the hub
 const WINE_SUBPAGE_SLUGS = new Set([
   'red-hill', 'main-ridge', 'merricks', 'balnarring', 'flinders', 'moorooduc',
 ]);
-// Stay sub-page exists for these places — link directly
+// Stay sub-page exists for these places - link directly
 const STAY_SUBPAGE_SLUGS = new Set([
   'red-hill', 'flinders', 'mornington', 'sorrento', 'cape-schanck',
 ]);
@@ -136,7 +136,7 @@ const breadcrumbItems = [
   { label: place.data.name },
 ];
 
-// Chapter navigation — built from what data exists.
+// Chapter navigation - built from what data exists.
 // "A perfect day" chapter only added when bestDay is present.
 const chapters: { href: string; label: string }[] = [];
 if (place.data.bestDay)     chapters.push({ href: '#perfect-day', label: 'A perfect day' });
@@ -147,12 +147,12 @@ if (experiences.length > 0) chapters.push({ href: '#explore',     label: 'Explor
 if (itineraries.length > 0) chapters.push({ href: '#escapes',     label: 'Escape plans' });
 if (articles.length > 0)    chapters.push({ href: '#journal',     label: 'From the journal' });
 
-// Scoreboard gate — only shown when at least one downstream section has content.
+// Scoreboard gate - only shown when at least one downstream section has content.
 const hasContent = eatVenues.length > 0 || wineVenues.length > 0 || stayVenues.length > 0
   || experiences.length > 0 || itineraries.length > 0 || articles.length > 0;
 
 // Category-specific local guides linked from this place page.
-// Only surfaces guides that actually exist — no placeholder links.
+// Only surfaces guides that actually exist - no placeholder links.
 // Maintained here as a data mapping rather than a data field to keep it
 // lightweight and easy to extend when new category sub-pages are built.
 const categoryGuides: Record<string, Array<{ label: string; href: string; desc: string }>> = {
@@ -160,7 +160,7 @@ const categoryGuides: Record<string, Array<{ label: string; href: string; desc: 
     { label: 'Red Hill Wine', href: '/wine/red-hill/', desc: 'Cellar doors, terroir, tasting routes and producers on the plateau.' },
   ],
   'main-ridge': [
-    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'The highest, coolest sub-region — small producers, serious pinot.' },
+    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'The highest, coolest sub-region - small producers, serious pinot.' },
   ],
   'merricks': [
     { label: 'Merricks Wine', href: '/wine/merricks/', desc: 'Pt. Leo Estate, Stonier, Scorpo and the eastern slope producers.' },
@@ -169,10 +169,10 @@ const categoryGuides: Record<string, Array<{ label: string; href: string; desc: 
     { label: 'Flinders Wine', href: '/wine/flinders/', desc: 'Southern-edge producers with a cooler, ocean-facing character.' },
   ],
   'balnarring': [
-    { label: 'Balnarring Wine', href: '/wine/balnarring/', desc: 'The Western Port edge — Quealy, Hurley and a quieter wine scene.' },
+    { label: 'Balnarring Wine', href: '/wine/balnarring/', desc: 'The Western Port edge - Quealy, Hurley and a quieter wine scene.' },
   ],
   'moorooduc': [
-    { label: 'Moorooduc & Tuerong Wine', href: '/wine/moorooduc-tuerong/', desc: 'Bay-facing slopes — warmer, more approachable, Yabby Lake country.' },
+    { label: 'Moorooduc & Tuerong Wine', href: '/wine/moorooduc-tuerong/', desc: 'Bay-facing slopes - warmer, more approachable, Yabby Lake country.' },
   ],
 };
 const placeGuides = categoryGuides[placeSlug] ?? [];
@@ -202,7 +202,7 @@ const factual = place.data.factualLede ?? '';
       >{place.data.regionLabel ?? place.data.regionSlug}</a>
     )}
     <h1 class="pdv2-hero__title"
-      {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} — name` })}
+      {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}
     >{place.data.name}</h1>
     {place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
@@ -212,20 +212,20 @@ const factual = place.data.factualLede ?? '';
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     2. EDITORIAL LEDE — factual prose + at-a-glance sidebar card
+     2. EDITORIAL LEDE - factual prose + at-a-glance sidebar card
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="pdv2-lede">
   <div class="container pdv2-lede__grid">
     <div class="pdv2-lede__main">
       {factual && (
         <p class="pdv2-lede__factual"
-          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede', label: `${place.data.name} — factual lede` })}>
+          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'factualLede', label: `${place.data.name} - factual lede` })}>
           {factual}
         </p>
       )}
       {place.data.intro && (
         <p class="pdv2-lede__intro"
-          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro', label: `${place.data.name} — intro` })}>
+          {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'intro', label: `${place.data.name} - intro` })}>
           {place.data.intro}
         </p>
       )}
@@ -264,17 +264,17 @@ const factual = place.data.factualLede ?? '';
   <section class="pdv2-quote">
     <div class="container">
       <blockquote class="pdv2-quote__text"
-        {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'signature', label: `${place.data.name} — signature` })}>
+        {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'signature', label: `${place.data.name} - signature` })}>
         <span class="pdv2-quote__mark" aria-hidden="true">&ldquo;</span>
         {place.data.signature}
       </blockquote>
-      <p class="pdv2-quote__byline">Peninsula Insider — editor's note</p>
+      <p class="pdv2-quote__byline">Peninsula Insider - editor's note</p>
     </div>
   </section>
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     4. WHO THIS PLACE REWARDS — editorial fit panel
+     4. WHO THIS PLACE REWARDS - editorial fit panel
      bestFor / notFor / skip: the most differentiated editorial layer.
      ═══════════════════════════════════════════════════════════════════════ -->
 {(place.data.bestFor?.length || place.data.notFor?.length || place.data.skip) && (
@@ -282,7 +282,7 @@ const factual = place.data.factualLede ?? '';
     <div class="container">
       <div class="place-fit__intro">
         <p class="label label--accent">Is {place.data.name} the right base?</p>
-        <h2 class="place-fit__title">Who this place rewards — and who should keep driving</h2>
+        <h2 class="place-fit__title">Who this place rewards - and who should keep driving</h2>
       </div>
       <div class="place-fit__grid">
         {place.data.bestFor?.length > 0 && (
@@ -314,7 +314,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     5. TL;DR — numbered editorial summary
+     5. TL;DR - numbered editorial summary
      ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.tldr?.length > 0 && (
   <section class="place-tldr">
@@ -336,7 +336,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     6. A PERFECT DAY — the signature Peninsula Insider planning feature
+     6. A PERFECT DAY - the signature Peninsula Insider planning feature
      ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.bestDay && (
   <section class="place-day" id="perfect-day">
@@ -349,7 +349,7 @@ const factual = place.data.factualLede ?? '';
       {place.data.insiderNote && (
         <blockquote class="place-day__note">
           <p>{place.data.insiderNote}</p>
-          <cite>— Editor's note</cite>
+          <cite> - Editor's note</cite>
         </blockquote>
       )}
     </div>
@@ -357,7 +357,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     7. CHAPTER NAVIGATION — numbered, links to each downstream section
+     7. CHAPTER NAVIGATION - numbered, links to each downstream section
      ═══════════════════════════════════════════════════════════════════════ -->
 {chapters.length > 0 && (
   <nav class="pdv2-chapters" aria-label={`${place.data.name} guide contents`}>
@@ -378,7 +378,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     8. SCOREBOARD — what's mapped, counts with anchor links
+     8. SCOREBOARD - what's mapped, counts with anchor links
      ═══════════════════════════════════════════════════════════════════════ -->
 {hasContent && (
   <section class="place-scoreboard" aria-label={`${place.data.name} contents`}>
@@ -409,9 +409,9 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     8b. EXPLORE BY EXPERIENCE — category-specific local guides
+     8b. EXPLORE BY EXPERIENCE - category-specific local guides
      Connects destination overview to deeper category guides that exist.
-     Only renders when placeGuides has entries — no placeholder links.
+     Only renders when placeGuides has entries - no placeholder links.
      ═══════════════════════════════════════════════════════════════════════ -->
 {placeGuides.length > 0 && (
   <section class="place-category-guides" aria-label={`${place.data.name} category guides`}>
@@ -447,7 +447,7 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Eat & drink</p>
           <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
-          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs — each with an editor note, not a star rating.</p>
+          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.</p>
         </div>
         <a href="/eat/" class="venues__link">More to eat in {place.data.name} →</a>
       </div>
@@ -468,7 +468,7 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Wine & producers</p>
           <h2 class="venues__title">Cellar doors and makers around {place.data.name}</h2>
-          <p class="venues__sub">The producers worth the appointment — and the ones already shaping the region's vintage conversation.</p>
+          <p class="venues__sub">The producers worth the appointment - and the ones already shaping the region's vintage conversation.</p>
         </div>
         <a href={wineHref} class="venues__link">{WINE_SUBPAGE_SLUGS.has(placeSlug) ? `${place.data.name} wine guide` : "All cellar doors"} →</a>
       </div>
@@ -528,7 +528,7 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Use it in sequence</p>
           <h2 class="venues__title">Escapes that already route through {place.data.name}</h2>
-          <p class="venues__sub">These plans have been written around the landscape here — not bolted on after.</p>
+          <p class="venues__sub">These plans have been written around the landscape here - not bolted on after.</p>
         </div>
         <a href="/explore/plans/" class="venues__link">Plan a {place.data.name} weekend →</a>
       </div>
@@ -558,7 +558,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     10. SERVICE GUIDE LINKS — internal linking + SEO
+     10. SERVICE GUIDE LINKS - internal linking + SEO
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="venues venues--plain">
   <div class="container">
@@ -594,7 +594,7 @@ const factual = place.data.factualLede ?? '';
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     11. LOCATION MAP — lazy Leaflet
+     11. LOCATION MAP - lazy Leaflet
      ═══════════════════════════════════════════════════════════════════════ -->
 {place.data.coordinates && (
   <section class="place-map" aria-label={`${place.data.name} location`}>
@@ -624,7 +624,7 @@ const factual = place.data.factualLede ?? '';
 )}
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     12. EXPLORE BY EXPERIENCE — category sub-pages
+     12. EXPLORE BY EXPERIENCE - category sub-pages
      Surfaces category-specific local guides when they exist for this place.
      Strengthens hierarchy, internal linking, and SEO clustering.
      ═══════════════════════════════════════════════════════════════════════ -->
@@ -634,7 +634,7 @@ const factual = place.data.factualLede ?? '';
       <div class="place-subpages__header">
         <p class="label label--accent">Go deeper</p>
         <h2 class="place-subpages__title">Explore {place.data.name} by experience</h2>
-        <p class="place-subpages__dek">Each guide focuses on one experience category — useful when you already know what you’re here for.</p>
+        <p class="place-subpages__dek">Each guide focuses on one experience category - useful when you already know what you’re here for.</p>
       </div>
       <ul class="place-subpages__grid" role="list">
         {placeSubpages.map((sub: SubpageLink) => (
@@ -673,7 +673,7 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      13. READER SUBMISSION CTA
      ═══════════════════════════════════════════════════════════════════════ -->
-<!-- Places ecosystem back-link — reinforces hierarchy, completes the loop
+<!-- Places ecosystem back-link - reinforces hierarchy, completes the loop
      Peninsula Insider → Places hub → Destination → Category guide
      Positioned before the reader submission CTA, after all content. -->
 <div class="place-ecosystem-link">
@@ -687,7 +687,7 @@ const factual = place.data.factualLede ?? '';
 <aside class="place-submit-cta">
   <div class="container place-submit-cta__inner">
     <p class="place-submit-cta__label">Got a {place.data.name} secret?</p>
-    <p class="place-submit-cta__body">If there's a {place.data.name} corner you think we'd cover better with your help — a back-bay swimming hole, a producer's farm-gate, a local pub that hits — send it through. Editorial review, named credit if we publish it.</p>
+    <p class="place-submit-cta__body">If there's a {place.data.name} corner you think we'd cover better with your help - a back-bay swimming hole, a producer's farm-gate, a local pub that hits - send it through. Editorial review, named credit if we publish it.</p>
     <a href="/submit/" class="place-submit-cta__link">Tell us about {place.data.name} →</a>
   </div>
 </aside>
@@ -752,7 +752,7 @@ const factual = place.data.factualLede ?? '';
 
 <style>
   /* ═══════════════════════════════════════════════════════════════════════
-     PlaceDetailTemplate — consolidated canonical styles (May 2026)
+     PlaceDetailTemplate - consolidated canonical styles (May 2026)
      Upper sections use pdv2- prefix (from V2).
      Lower sections use place- prefix (from V1, unchanged).
      ═══════════════════════════════════════════════════════════════════════ */
@@ -1252,7 +1252,7 @@ const factual = place.data.factualLede ?? '';
   }
 
   /* ── SUBMIT CTA ─────────────────────────────────────────────────────── */
-  /* ── Explore by experience — category sub-pages ── */
+  /* ── Explore by experience - category sub-pages ── */
   .place-subpages {
     padding: 3.5rem 0;
     background: var(--bg-alt);

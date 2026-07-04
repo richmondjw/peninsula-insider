@@ -1,5 +1,5 @@
 /**
- * Stripe Checkout helpers — Phase 6 WS6A.
+ * Stripe Checkout helpers - Phase 6 WS6A.
  *
  * Front-end side of the Pass tier purchase flow. Calls the
  * `create-checkout-session` Supabase Edge Function (deployed via
@@ -54,7 +54,7 @@ export function isStripeEnabled(): boolean {
 
 /**
  * Resolve the price ID for a tier + interval combination. Returns
- * undefined if not configured — caller should fall back to the
+ * undefined if not configured - caller should fall back to the
  * waitlist UI. */
 export function priceIdFor(tier: PassTier, interval: BillingInterval = 'month'): string | undefined {
   if (tier === 'insider' && interval === 'month') return PRICES.insider_monthly;

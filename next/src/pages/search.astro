@@ -1,6 +1,6 @@
 ---
 /**
- * /search — Peninsula Insider site search
+ * /search - Peninsula Insider site search
  *
  * Pagefind-powered search results page. Supports:
  *   - ?q=<query> deep-link (auto-focus + auto-run on load)
@@ -40,7 +40,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Explore · Peninsula Insider"
-  description="Explore Peninsula Insider — discover places, stays, long lunches, beaches, itineraries, events, and local seasonal intelligence across the Mornington Peninsula."
+  description="Explore Peninsula Insider - discover places, stays, long lunches, beaches, itineraries, events, and local seasonal intelligence across the Mornington Peninsula."
   section="home"
   noindex={true}
   searchExclude={true}
@@ -274,7 +274,7 @@ export const prerender = true;
         if (list) {
           list.innerHTML = `
             <div class="search-page-v2__idle">
-              <p>Try a place, a mood, or a season — "Rainy day", "Long lunch", "Winter wineries", "Coming from Melbourne", "Weekend escape", "Dog friendly".</p>
+              <p>Try a place, a mood, or a season - "Rainy day", "Long lunch", "Winter wineries", "Coming from Melbourne", "Weekend escape", "Dog friendly".</p>
             </div>
           `;
         }
@@ -767,7 +767,7 @@ export const prerender = true;
         runSearch();
       });
 
-      // Debounced live search as the user types — Pagefind is fast enough
+      // Debounced live search as the user types - Pagefind is fast enough
       // that this feels instant.
       let inputDebounce = null;
       input?.addEventListener('input', () => {
@@ -825,7 +825,7 @@ export const prerender = true;
         }
       });
 
-      // "Ask The Insider" fallback button — pre-fill the concierge with the
+      // "Ask The Insider" fallback button - pre-fill the concierge with the
       // failed query and open the masthead drawer.
       fallbackCTA?.addEventListener('click', (e) => {
         e.preventDefault();
@@ -865,7 +865,7 @@ export const prerender = true;
 
   <!--
     Phase D wave 1: expose pi.search RPC to the inline script.
-    Same pattern as SearchOverlay — module script bundled by Astro,
+    Same pattern as SearchOverlay - module script bundled by Astro,
     imports search-client which carries supabase-js. `available` is
     false when window.__PI_SB is missing, so the inline runSearch
     falls through to Pagefind without any visible regression.

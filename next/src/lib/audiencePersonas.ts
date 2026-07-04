@@ -1,5 +1,5 @@
 /**
- * Audience persona registry — drives the AudiencePicker component.
+ * Audience persona registry - drives the AudiencePicker component.
  *
  * Each persona maps to a section-specific destination URL when one exists,
  * and falls back to a cross-section default when it does not. Section keys
@@ -23,7 +23,7 @@ export type SectionKey =
 export interface AudiencePersona {
   /** Stable id used in URLs and analytics. */
   slug: string;
-  /** Tile title — short noun phrase, two words ideal. */
+  /** Tile title - short noun phrase, two words ideal. */
   label: string;
   /** Editorial dek under the label. One line. */
   dek: string;

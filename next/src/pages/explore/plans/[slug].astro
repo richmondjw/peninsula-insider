@@ -1,15 +1,15 @@
 ---
 /**
- * /explore/plans/[slug] — itinerary detail page + section:plans article pages
+ * /explore/plans/[slug] - itinerary detail page + section:plans article pages
  *
  * Handles two entry types:
  *   - itineraries collection: renders the full 11-section anatomy
  *   - articles with section:plans: renders a simpler article layout
  *
  * The conversion architecture (anchor stay 3-placement rule) lives here:
- *   1. Hero CTA above the fold — "Stay at {anchor}"
+ *   1. Hero CTA above the fold - "Stay at {anchor}"
  *   2. Day-N "where you sleep tonight" block at end of each day except last
- *   3. Footer rail — anchor + alt stays
+ *   3. Footer rail - anchor + alt stays
  */
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
@@ -119,7 +119,7 @@ const aBreadcrumbs = isArticle
 const data = isArticle ? null : itinerary.data;
 const slug = isArticle ? '' : routeSlug(itinerary);
 
-// CMS override consult for the itinerary hero — baked at SSR so the
+// CMS override consult for the itinerary hero - baked at SSR so the
 // editor's uploaded image ships in the static HTML.
 const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
 const itineraryHeroOverride = itineraryOverrides?.image['hero'];
@@ -362,14 +362,14 @@ export const prerender = true;
             class="pl-cover__headline"
             {...editableText({
               entityType: 'article', entitySlug: articleSlug!, fieldPath: 'title',
-              label: `${ad.title} — title`,
+              label: `${ad.title} - title`,
             })}
           >{ad.title}</h1>
           <p
             class="pl-cover__dek"
             {...editableText({
               entityType: 'article', entitySlug: articleSlug!, fieldPath: 'dek',
-              label: `${ad.title} — dek`,
+              label: `${ad.title} - dek`,
             })}
           >{ad.dek}</p>
           <p class="pl-cover__byline">
@@ -393,7 +393,7 @@ export const prerender = true;
       </div>
     </header>
 
-    {/* ── At-a-glance card — replaces "The short version" block ──────── */}
+    {/* ── At-a-glance card - replaces "The short version" block ──────── */}
     {ad.aiSummary && ad.aiSummary.length > 0 && (
       <section class="pl-glance" aria-label="At a glance">
         <div class="pl-container pl-glance__inner">
@@ -410,7 +410,7 @@ export const prerender = true;
       </section>
     )}
 
-    {/* ── Long-form essay — markdown content rendered in the prose
+    {/* ── Long-form essay - markdown content rendered in the prose
          container, with .pl-prose scoping the typography upgrades
          without touching the global .prose used by other surfaces. */}
     <section class="pl-essay">
@@ -421,7 +421,7 @@ export const prerender = true;
       </div>
     </section>
 
-    {/* ── FAQ — hairline-separated open Q/A. No <details> by default;
+    {/* ── FAQ - hairline-separated open Q/A. No <details> by default;
          every question is visible because they are short and answer
          intent that brought the reader here. */}
     {ad.faq && ad.faq.length > 0 && (
@@ -443,7 +443,7 @@ export const prerender = true;
       </section>
     )}
 
-    {/* ── Read alongside — cluster links rail, quiet serif list ────── */}
+    {/* ── Read alongside - cluster links rail, quiet serif list ────── */}
     {ad.clusterLinks && ad.clusterLinks.length > 0 && (
       <section class="pl-cluster" aria-label="Read alongside">
         <div class="pl-container pl-cluster__inner">
@@ -463,7 +463,7 @@ export const prerender = true;
     )}
   </article>
 
-  {/* ── Places in this plan — venue grid, kept but re-scoped so it
+  {/* ── Places in this plan - venue grid, kept but re-scoped so it
        reads as a continuation of the editorial, not a fresh band. */}
   {articleRelatedVenues.length > 0 && (
     <section class="pl-venues">
@@ -485,7 +485,7 @@ export const prerender = true;
 </BaseLayout>
 ) : (
 <BaseLayout
-  title={`${data!.title} — Mornington Peninsula Weekend Escape · Peninsula Insider`}
+  title={`${data!.title} - Mornington Peninsula Weekend Escape · Peninsula Insider`}
   description={data!.dek}
   section="explore"
   canonical={canonical}
@@ -515,11 +515,11 @@ export const prerender = true;
 
       <h1 class="itinerary-detail__title" {...editableText({
         entityType: 'itinerary', entitySlug: slug, fieldPath: 'title',
-        label: `${data!.title} — title`,
+        label: `${data!.title} - title`,
       })}>{data!.title}</h1>
       <p class="itinerary-detail__dek" {...editableText({
         entityType: 'itinerary', entitySlug: slug, fieldPath: 'dek',
-        label: `${data!.title} — dek`,
+        label: `${data!.title} - dek`,
       })}>{data!.dek}</p>
 
       <div class="itinerary-detail__chips">
@@ -531,11 +531,11 @@ export const prerender = true;
         {data!.totalDriveMinutes && <span>{data!.totalDriveMinutes} min driving</span>}
       </div>
 
-      {/* Hero CTA row — anchor-stay (filled, primary) + fork-to-saves (ghost,
+      {/* Hero CTA row - anchor-stay (filled, primary) + fork-to-saves (ghost,
           secondary). One row so the two reader actions read as a pair, not
           a stacked pile. The utility caption that used to sit beside the
           anchor CTA and the hint paragraph that used to sit under the fork
-          button were removed 2026-05-14 — both buttons are self-evident. */}
+          button were removed 2026-05-14 - both buttons are self-evident. */}
       <div class="itinerary-detail__cta-row">
         {effectiveStay && effectiveStayHref && (
           <a
@@ -576,7 +576,7 @@ export const prerender = true;
             </div>
           )}
 
-          {/* Editor's note (legacy field — treat as supporting paragraphs) */}
+          {/* Editor's note (legacy field - treat as supporting paragraphs) */}
           <div class="prose itinerary-detail__editor-note">
             {data!.editorNote.split(/\n\n+/).map((paragraph: string) => (
               <p>{paragraph}</p>
@@ -811,7 +811,7 @@ export const prerender = true;
     </div>
   </section>
 
-  {/* ─── 9b. Where to stay (anchor + alts) — also slot 3 of the 3-placement rule */}
+  {/* ─── 9b. Where to stay (anchor + alts) - also slot 3 of the 3-placement rule */}
   {(effectiveStay || stayRail.length > 0) && (
     <section class="venues">
       <div class="container">
@@ -1093,7 +1093,7 @@ export const prerender = true;
     margin: 0 0 0.65rem;
     line-height: 1.6;
   }
-  /* Drop cap upgrade — slightly larger to match the heavier serif body */
+  /* Drop cap upgrade - slightly larger to match the heavier serif body */
   .pl-prose.has-drop-cap > p:first-of-type::first-letter {
     font-size: 5.4em;
     color: #171413;
@@ -1101,7 +1101,7 @@ export const prerender = true;
     padding: 0.14em 0.18em 0 0;
   }
   /* Tables inside plans articles inherit the global treatment which
-     already looks clean — keep them on a sans face for tabular legibility. */
+     already looks clean - keep them on a sans face for tabular legibility. */
   .pl-prose table {
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.95rem;

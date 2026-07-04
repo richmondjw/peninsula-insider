@@ -1,6 +1,6 @@
 ---
 /**
- * /partners/dashboard/ — operator dashboard (Phase 6 WS6B).
+ * /partners/dashboard/ - operator dashboard (Phase 6 WS6B).
  *
  * Auth-gated. When signed in, shows:
  *   - Each claimed venue as a card with the live listing summary,
@@ -52,7 +52,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Operator Dashboard · Peninsula Insider"
-  description="Manage your Peninsula Insider venue listing — submit hours / photo / event changes, see recent change-request history, claim a new venue."
+  description="Manage your Peninsula Insider venue listing - submit hours / photo / event changes, see recent change-request history, claim a new venue."
   section="home"
   noindex={true}
   searchExclude={true}
@@ -71,13 +71,13 @@ export const prerender = true;
   <section class="dashboard-page">
     <div class="container">
 
-      <!-- Auth state — anonymous user prompt -->
+      <!-- Auth state - anonymous user prompt -->
       <div class="dashboard-anonymous" data-dashboard-anonymous>
         <p class="dashboard-anonymous__title">Sign in to your operator account.</p>
         <p class="dashboard-anonymous__body">The dashboard is auth-gated. Sign in (or create an account, free) to claim your venue and start managing your listing.</p>
         <button type="button" class="dashboard-anonymous__cta" data-open-auth>Sign in</button>
         <p class="dashboard-anonymous__alt">
-          Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> — that path stays open.
+          Just want to send a quick update without signing in? You can still <a href="/partners/update/">submit anonymously</a> - that path stays open.
         </p>
       </div>
 
@@ -86,10 +86,10 @@ export const prerender = true;
         <p>Loading your dashboard…</p>
       </div>
 
-      <!-- Empty state — signed in, no claims -->
+      <!-- Empty state - signed in, no claims -->
       <div class="dashboard-empty" data-dashboard-empty hidden>
         <p class="dashboard-empty__title">No venues claimed yet.</p>
-        <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually — usually within a working day.</p>
+        <p class="dashboard-empty__body">Claim your venue to manage hours, photos, and events from one place. Editor approves the claim manually - usually within a working day.</p>
         <a href="/partners/claim/" class="dashboard-empty__cta">Claim your venue →</a>
       </div>
 
@@ -226,7 +226,7 @@ export const prerender = true;
       }
     }
 
-    // History panel — show always when signed in (lets the operator
+    // History panel - show always when signed in (lets the operator
     // confirm that anonymous-then-claimed change requests still attach).
     setVisible('[data-dashboard-history]', true);
     const histList = document.querySelector('[data-dashboard-history-list]');
@@ -242,7 +242,7 @@ export const prerender = true;
 
   async function init() {
     if (!isAuthEnabled()) {
-      // Auth not configured — show the anonymous prompt with a note.
+      // Auth not configured - show the anonymous prompt with a note.
       setVisible('[data-dashboard-anonymous]', true);
       const anon = document.querySelector('[data-dashboard-anonymous] .dashboard-anonymous__body');
       if (anon) anon.textContent = "Operator accounts aren't currently configured. The anonymous /partners/update/ form still works for ad-hoc updates.";

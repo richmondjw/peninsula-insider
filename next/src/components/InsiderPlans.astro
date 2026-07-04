@@ -1,6 +1,6 @@
 ---
 /**
- * InsiderPlans — homepage conversion block
+ * InsiderPlans - homepage conversion block
  * "Start with an Insider Plan"
  *
  * Keep the strongest five first, then continue the rest
@@ -257,7 +257,7 @@ const orderedPlans = allPlanSpecs
             class="plan-card"
             role="listitem"
             style={`--plan-accent: ${plan.accent};`}
-            aria-label={`${plan.title} — ${plan.duration}. ${plan.dek}`}
+            aria-label={`${plan.title} - ${plan.duration}. ${plan.dek}`}
           >
             <div class="plan-card__image" style={`background-image: url('${plan.image}');`} role="img" aria-label={plan.imageAlt}></div>
             <div class="plan-card__overlay"></div>
@@ -318,7 +318,7 @@ const orderedPlans = allPlanSpecs
     overflow-x: auto;
     overflow-y: hidden;
     /* iOS native inertia. Combined with no touch-action override the
-       browser handles axis-locking, momentum, and edge bounce — which
+       browser handles axis-locking, momentum, and edge bounce - which
        is faster and smoother than any JS we could write. */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -386,7 +386,7 @@ const orderedPlans = allPlanSpecs
 
   .plan-card:hover {
     /* `translate3d` keeps the card on the same compositor layer as
-       the scroll-time transform — no relayout, no jank. */
+       the scroll-time transform - no relayout, no jank. */
     transform: translate3d(0, -4px, 0);
     box-shadow: 0 18px 40px rgba(0,0,0,0.22);
   }
@@ -471,7 +471,7 @@ const orderedPlans = allPlanSpecs
           horizontal motion while hovering the rail.
        3. Drag-vs-click discrimination so a deliberate tap on a card
           still navigates.
-     On TOUCH devices we skip this entirely — the browser's native
+     On TOUCH devices we skip this entirely - the browser's native
      -webkit-overflow-scrolling momentum is faster, lower-latency,
      and indistinguishable from a native app carousel. Any JS we
      add on touch can only make it worse. The hover + fine-pointer
@@ -565,7 +565,7 @@ const orderedPlans = allPlanSpecs
         el.classList.remove('is-dragging');
         try { el.releasePointerCapture(e.pointerId); } catch (_e) {}
         if (wasDragging) {
-          // Don't fire the click that follows — user was scrolling.
+          // Don't fire the click that follows - user was scrolling.
           const swallowClick = (ev: MouseEvent) => {
             ev.stopPropagation();
             ev.preventDefault();
@@ -585,7 +585,7 @@ const orderedPlans = allPlanSpecs
       el.addEventListener('wheel', (e) => {
         const absX = Math.abs(e.deltaX);
         const absY = Math.abs(e.deltaY);
-        if (absX > absY) return;        // already horizontal — let it run
+        if (absX > absY) return;        // already horizontal - let it run
         if (absY < 1) return;
         e.preventDefault();
         cancelInertia();

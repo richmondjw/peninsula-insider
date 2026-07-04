@@ -1,17 +1,17 @@
 /**
- * Hero Editor — the single editing surface for the homepage hero carousel,
+ * Hero Editor - the single editing surface for the homepage hero carousel,
  * plus the deck hydration that makes saved decks appear for every visitor.
  *
  * Two responsibilities, both client-side, loaded only on the homepage by
  * HeroEditorMount.astro:
  *
- *   1. hydrate()  — runs for ALL visitors. Fetches the published "deck"
+ *   1. hydrate() - runs for ALL visitors. Fetches the published "deck"
  *      document (cms_text_fields page/home-hero/'deck'); if it differs from the
  *      server-rendered deck, re-renders the carousel from it. This is why an
  *      edit goes live for everyone immediately (and bakes into static HTML on
  *      the next deploy, after which hydration is a no-op).
  *
- *   2. mountEditor() — runs only for signed-in admins in edit mode. Adds an
+ *   2. mountEditor() - runs only for signed-in admins in edit mode. Adds an
  *      "Edit hero" button and a drawer to reorder slides, edit text + link, add
  *      / remove slides, and replace photos. Saving writes the deck document and
  *      re-renders the carousel live.
@@ -21,7 +21,7 @@
  * markup exactly, then force-re-inits the carousel.
  *
  * The Supabase client (supabase-js) is imported LAZILY, only inside the admin
- * save/upload paths, so anonymous visitors pull none of it — hydration uses a
+ * save/upload paths, so anonymous visitors pull none of it - hydration uses a
  * plain anon-key fetch.
  */
 

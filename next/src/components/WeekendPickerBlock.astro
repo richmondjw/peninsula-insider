@@ -1,6 +1,6 @@
 ---
 /**
- * WeekendPickerBlock — prominent "Peninsula This Weekend" dispatch block
+ * WeekendPickerBlock - prominent "Peninsula This Weekend" dispatch block
  * rendered at the top of the What's On index and the homepage.
  *
  * Pulls the newest published article with format=weekend-picker and
@@ -23,7 +23,7 @@ export interface Props {
 const { dispatch, weekend } = Astro.props;
 const target = '/whats-on/this-weekend/';
 
-// Astro 6 glob-loader collections use `id` as the unique key — no separate
+// Astro 6 glob-loader collections use `id` as the unique key - no separate
 // `slug` property. Falls back to the file id (filename without extension).
 const dispatchSlug: string | undefined = dispatch?.slug ?? dispatch?.id;
 

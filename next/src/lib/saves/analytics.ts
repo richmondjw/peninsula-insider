@@ -1,5 +1,5 @@
 /**
- * Saves analytics — thin shim over `window.gtag`.
+ * Saves analytics - thin shim over `window.gtag`.
  *
  * All save / share / fork / print events on Peninsula Insider go through
  * `track()` so we have a single place to add buffering, debouncing, or
@@ -8,7 +8,7 @@
  * no-ops silently (CookieBanner gates the gtag loader so events fire
  * only after consent).
  *
- * Event naming convention: `pi_<noun>_<verb>` — flat, lowercase,
+ * Event naming convention: `pi_<noun>_<verb>` - flat, lowercase,
  * snake_case. Keeps the GA4 explorer readable and groups all PI
  * events together in any reporting view.
  */

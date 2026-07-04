@@ -1,17 +1,17 @@
 ---
 /**
- * Breadcrumbs — visible navigation + BreadcrumbList JSON-LD.
+ * Breadcrumbs - visible navigation + BreadcrumbList JSON-LD.
  *
  * Single source of truth for breadcrumbs on Peninsula Insider. Emits both:
  *   1. Visible <nav> element (styled as before)
  *   2. BreadcrumbList schema.org JSON-LD (for SERP rich results)
  *
- * Pages should not emit a separate BreadcrumbList JSON-LD — this component
+ * Pages should not emit a separate BreadcrumbList JSON-LD - this component
  * handles it. Pass the same `items` array you'd use for the visible nav.
  *
  * Each item:
- *   - `label` — visible text + schema `name`
- *   - `href`  — optional. Omit on the final (current) item. Relative paths are
+ *   - `label` - visible text + schema `name`
+ *   - `href` - optional. Omit on the final (current) item. Relative paths are
  *               resolved against SITE_URL; absolute URLs (http(s)://) pass through.
  *               For the final item, if `href` is omitted, the current page URL
  *               is used in the schema (visible rendering shows it as non-link text).

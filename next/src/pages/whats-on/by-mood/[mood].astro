@@ -1,6 +1,6 @@
 ---
 /**
- * /whats-on/by-mood/[mood]/ — chip landing pages.
+ * /whats-on/by-mood/[mood]/ - chip landing pages.
  *
  * One template renders all five mood pages by reading the chip definition
  * from src/lib/events.ts. Each chip has its own filter, sort, eyebrow,
@@ -51,7 +51,7 @@ const SITE_URL = 'https://peninsulainsider.com.au';
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: `${chip.label} — Peninsula Insider events`,
+  name: `${chip.label} - Peninsula Insider events`,
   description: chip.framing,
   itemListElement: events.map((event, i) => ({
     '@type': 'ListItem',
@@ -64,7 +64,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`${chip.label} — Peninsula Insider events`}
+  title={`${chip.label} - Peninsula Insider events`}
   description={chip.framing}
   section="whats-on"
   canonical={`${SITE_URL}/whats-on/by-mood/${chip.slug}/`}

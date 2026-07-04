@@ -131,7 +131,7 @@ const guideGroups = planShapeGroups
 // Resolve CMS hero overrides for the planning-guide cards. These cards used
 // to read `article.data.heroImage.src` straight from frontmatter, so an
 // editor's uploaded hero (saved to the `article/<slug>/hero` slot, the same
-// key the /journal/<slug> detail page reads) was ignored here — the card
+// key the /journal/<slug> detail page reads) was ignored here - the card
 // reverted to the frontmatter image on every refresh. We now consult the
 // override at SSR so the editor's choice ships in the static HTML, and we
 // tag the <img> as editable with the matching key so it can be changed from
@@ -228,7 +228,7 @@ export const prerender = true;
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       1b. PLAN BY MOOD — occasion-led entry points
+       1b. PLAN BY MOOD - occasion-led entry points
        Four moods, each linking to the relevant planning article or itinerary.
        Keeps the trip-length grid from being the only way in.
        ═══════════════════════════════════════════════════════════════ -->
@@ -267,7 +267,7 @@ export const prerender = true;
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. PLANNING GUIDES — planShape groups as hero
+       2. PLANNING GUIDES - planShape groups as hero
        The editorial planning articles, grouped by trip length.
        Readers choose a shape before they choose specific venues.
        Replaces the 16-link mood grid (removed 2026-05-16 per UX review:
@@ -745,7 +745,7 @@ export const prerender = true;
     font-style: normal;
   }
 
-  /* ── Mood grid ——————————————————————————─ */
+  /* ── Mood grid -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - ─ */
   .plans-mood { padding: 3rem 0; }
   .mood-grid {
     display: grid;

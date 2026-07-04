@@ -4,12 +4,12 @@
  * Helpers for the rolling "Peninsula This Weekend" surface
  * (Brief 2 / Wave 2 staging push, 2026-05-10).
  *
- * The dispatch lived at /journal/peninsula-this-weekend-{date}/ — a
+ * The dispatch lived at /journal/peninsula-this-weekend-{date}/ - a
  * weekly-changing URL that AI assistants and external sources could
  * not reliably link to as "this weekend on the Peninsula". The new
  * pattern:
  *
- *   /whats-on/this-weekend/                       (rolling — always latest)
+ *   /whats-on/this-weekend/                       (rolling - always latest)
  *   /whats-on/this-weekend/archive/YYYY-MM-DD/    (per-week archive)
  *
  * The journal URL emits a redirect into the dated archive so inbound
@@ -32,7 +32,7 @@ export function isPeninsulaThisWeekend(article: any): boolean {
 }
 
 /**
- * Stable archive slug for a PTW article — ISO date string (YYYY-MM-DD)
+ * Stable archive slug for a PTW article - ISO date string (YYYY-MM-DD)
  * derived from publishedAt. Stable, sortable, and machine-readable so
  * AI assistants can resolve "Peninsula This Weekend for May 9" cleanly.
  */

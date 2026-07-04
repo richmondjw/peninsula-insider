@@ -9,6 +9,24 @@
 /* =========================================================
    TOKENS  -  matched to live site (css/styles.css)
    ========================================================= */
+/* Skip link: first focusable element, revealed on keyboard focus. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  background: var(--text, #2B2520);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
 :root {
   /* White base for legibility, with a subtle warm tint on alternating
      sections so editorial section breaks still read. Borders nudged
@@ -29,6 +47,7 @@
      white, decorative use only. This darker cut passes WCAG AA (5.7:1 on
      white, 5.1:1 on bg-alt). */
   --gold-text:  #7A6340;
+  --sage-text:  #5C6B52; /* AA-safe sage for text on light surfaces */
   --dark:       #1E1B18;
   --white:      #FDFCFA;
   --border:     #E5E0D6;
@@ -6664,7 +6683,7 @@ p.has-drop-cap::first-letter {
   margin: 0;
 }
 .about-masthead__credits dd a {
-  color: var(--sage);
+  color: var(--sage-text);
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
@@ -7848,8 +7867,11 @@ p.has-drop-cap::first-letter {
   min-height: 1.2em;
 }
 .newsletter__status--ok {
-  color: var(--sage);
+  color: var(--sage-text);
   font-weight: 500;
+}
+.newsletter .newsletter__status--ok {
+  color: #A9BA9C; /* light sage: AA on the dark newsletter band */
 }
 .newsletter__status--err {
   color: #c0392b;
@@ -7927,7 +7949,7 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
 }
 .newsletter__form--standalone .newsletter__status--ok {
-  color: var(--sage);
+  color: var(--sage-text);
 }
 .newsletter__form--standalone .newsletter__status--err {
   color: #c0392b;

@@ -20,7 +20,7 @@ const places = await getCollection('places');
 const season = currentSeason();
 const blurb = seasonBlurb[season];
 
-// Editorial curation via schema flag — editorPick: true on venue JSON.
+// Editorial curation via schema flag - editorPick: true on venue JSON.
 // Update venue JSON files to change what surfaces here; no source code edit needed.
 const featuredStays = venues.filter((v) => v.data.editorPick);
 
@@ -89,7 +89,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'Where is the best area to stay on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge for cellar door weekends, vineyard restaurants are walkable from many stays. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.' } },
     { '@type': 'Question', name: 'How much does accommodation cost on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Budget $250–400/night for a good mid-range self-contained villa or cottage. Luxury vineyard stays (Jackalope, Lindenderry) run $450–800/night. Budget options in Rosebud, Dromana, and Rye start from $150/night. Prices peak in summer and over long weekends, autumn midweek offers the best value.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.' } },
     { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape, arrive Friday evening, spend Saturday on the ridge (cellar doors + lunch), and drive home Sunday after a morning walk. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
   ],
@@ -377,7 +377,7 @@ export const prerender = true;
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">How much does accommodation cost?</summary>
-          <div class="hub-faq__a"><p>Budget $250–400/night for a good mid-range self-contained villa or cottage. Luxury vineyard stays (Jackalope, Lindenderry) run $450–800/night. Budget options in Rosebud, Dromana, and Rye start from $150/night. Prices peak in summer and over long weekends, autumn midweek offers the best value.</p></div>
+          <div class="hub-faq__a"><p>A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.</p></div>
         </details>
         <details class="hub-faq__item">
           <summary class="hub-faq__q">Is one night enough on the Peninsula?</summary>

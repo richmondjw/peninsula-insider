@@ -1,5 +1,5 @@
 /**
- * Peninsula Insider — saves cloud sync.
+ * Peninsula Insider - saves cloud sync.
  *
  * Mirrors the local `pi:saves:v2` store to `pi.user_saves` for signed-in
  * users. The local store remains the source of truth for the UI; cloud
@@ -93,7 +93,7 @@ export async function pushToServer(userId: string): Promise<void> {
 
 /**
  * Install a listener that mirrors every local save-change up to the
- * server. Idempotent — calling more than once is a no-op.
+ * server. Idempotent - calling more than once is a no-op.
  */
 export function installCloudSync(userId: string): void {
   if (installed) return;

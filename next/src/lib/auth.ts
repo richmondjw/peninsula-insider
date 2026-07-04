@@ -1,11 +1,11 @@
 /**
- * Peninsula Insider — V2 auth (client-side).
+ * Peninsula Insider - V2 auth (client-side).
  *
  * Single Supabase JS client for the whole app, plus thin wrappers for
  * the operations our UI needs: sign in, sign out, get profile, like an
  * article, save an article.
  *
- * Auth state is cached in localStorage by Supabase JS — no extra work
+ * Auth state is cached in localStorage by Supabase JS - no extra work
  * needed across page navigations or view transitions.
  *
  * All queries are scoped via Row-Level Security on the database side, so

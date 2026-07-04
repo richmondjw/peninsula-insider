@@ -11,10 +11,12 @@
 //   - Renders of `priceLow` / `priceHigh` / `priceFrom` template variables
 //   - `priceCurrency` / `priceSpecification` in JSON-LD blocks in schema.ts
 //
+//   - Prose dollar figures in content (.md) and data (.json) files. The
+//     BOS §5.3 hard rule covers ALL reader-facing surfaces, and the 2026-07
+//     audit found 680+ dollar figures that reached production through this
+//     gap. Exemptions are listed in PROSE_ALLOW (B2B rate cards).
+//
 // What this does NOT catch (intentional):
-//   - Editorial copy in MD/MDX content that references prices as part of
-//     prose criticism ("the $40 lunch was overcooked"). Those are author
-//     judgement calls. The rule targets structured price displays.
 //   - Content-collection JSON `priceLow`/`priceHigh` data fields. The
 //     fields can stay in the schema so historical data is preserved; this
 //     guard only blocks them from being RENDERED.
@@ -41,6 +43,16 @@ const ALLOW = new Set([
   'lib/sanity/phase5-adapters.ts',
   'lib/sanity/queries.ts', // GROQ query definitions — data-layer field selection only, not rendered
 ]);
+
+// Reader-facing prose surfaces that may carry dollar figures. These sell
+// advertising and partnership inventory (B2B rate cards), not venues; the
+// trust rationale for the no-pricing rule does not apply to our own rates.
+const PROSE_ALLOW = [
+  'pages/partners/advertising-kit/',
+  'pages/partners/founders-prospectus/',
+  'pages/_archive/',
+  'pages-drafts/',
+];
 
 const violations = [];
 
@@ -78,13 +90,28 @@ const PATTERNS = [
   },
 ];
 
+// Prose pattern: any literal dollar figure in reader-facing content.
+const PROSE_PRICE = /\$\s?\d/;
+
 walk(ROOT, (file) => {
   const ext = path.extname(file);
-  // Only scan rendered surfaces and JSON-LD emitters.
-  if (!['.astro', '.ts', '.tsx', '.js', '.mjs'].includes(ext)) return;
-  // Allow the lint script itself + the schema test fixtures.
-  if (file.endsWith('lint-no-pricing.mjs')) return;
   const rel = path.relative(ROOT, file).replace(/\\/g, '/');
+  if (file.endsWith('lint-no-pricing.mjs')) return;
+  if (PROSE_ALLOW.some((p) => rel.startsWith(p))) return;
+
+  // Prose scan: content and data files plus page templates.
+  if (['.md', '.mdx', '.json', '.astro'].includes(ext)) {
+    const lines = fs.readFileSync(file, 'utf8').split('\n');
+    lines.forEach((line, i) => {
+      if (/^\s*(\/\/|\*|<!--)/.test(line)) return;
+      if (PROSE_PRICE.test(line)) {
+        violations.push({ file: rel, line: i + 1, pattern: 'Dollar figure in reader-facing copy', text: line.trim().slice(0, 120) });
+      }
+    });
+  }
+
+  // Renderer scan (original behaviour).
+  if (!['.astro', '.ts', '.tsx', '.js', '.mjs'].includes(ext)) return;
   if (ALLOW.has(rel)) return;
 
   const lines = fs.readFileSync(file, 'utf8').split('\n');

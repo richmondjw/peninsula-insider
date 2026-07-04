@@ -1,6 +1,6 @@
 ---
 /**
- * V3 HomeCover — cinematic full-bleed cover.
+ * V3 HomeCover - cinematic full-bleed cover.
  *
  * Renders a poster image immediately, with an optional silent looped video
  * layered on top. Video is muted, plays inline, autoplays on capable
@@ -91,15 +91,14 @@ const {
         v.pause(); v.removeAttribute('autoplay'); v.style.display = 'none';
         return;
       }
-      // Honour explicit Save-Data only (don't second-guess connection type —
-      // Chrome reports lots of wifi as '3g' which was killing the video).
+      // Honour explicit Save-Data only (don't second-guess connection type - // Chrome reports lots of wifi as '3g' which was killing the video).
       var conn = navigator.connection;
       if (conn && conn.saveData === true) {
         v.pause(); v.removeAttribute('autoplay'); v.style.display = 'none';
         return;
       }
       // Try to play (some browsers need a kick even with autoplay).
-      v.play().catch(function () { /* autoplay blocked — poster carries it */ });
+      v.play().catch(function () { /* autoplay blocked - poster carries it */ });
       // Pause when scrolled out of view to save battery.
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {

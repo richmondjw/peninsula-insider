@@ -1,9 +1,9 @@
 ---
 /**
- * /partners/update/ — operator change-request form (Phase 5 WS5C).
+ * /partners/update/ - operator change-request form (Phase 5 WS5C).
  *
  * Operators submit a structured request to update their venue's
- * listing — hours, photos, closures, events, factual corrections.
+ * listing - hours, photos, closures, events, factual corrections.
  * Posts to pi.venue_change_requests; editor reviews in Studio and
  * applies the change to next/src/content/venues/<slug>.json.
  *
@@ -55,7 +55,7 @@ export const prerender = true;
     eyebrow="Update your listing"
     subEyebrow="Operator change request"
     title="Tell us what's <em>changed</em>."
-    dek="If your venue's hours have moved, your hero photo is dated, or you've got an event that should be on the calendar — submit it here. The editor reviews every request and applies the ones that hold up to verification. No charge, no commercial relationship required, no AI moderation. Just a working desk."
+    dek="If your venue's hours have moved, your hero photo is dated, or you've got an event that should be on the calendar - submit it here. The editor reviews every request and applies the ones that hold up to verification. No charge, no commercial relationship required, no AI moderation. Just a working desk."
     gradient="journal"
     visualLabel="Peninsula Insider · operator update"
   />
@@ -75,10 +75,10 @@ export const prerender = true;
 
           <p class="partner-update-rules-label">A few notes</p>
           <ul class="partner-update-rules">
-            <li>This is for <strong>your venue</strong> — not for nominating other places. Use <a href="/submit/">/submit/</a> for those.</li>
+            <li>This is for <strong>your venue</strong> - not for nominating other places. Use <a href="/submit/">/submit/</a> for those.</li>
             <li>Hours updates apply to the next build, typically same-day.</li>
             <li>Photo updates need a URL (Drive, Dropbox, Cloudinary, your own site). Direct file upload follows once we ship operator accounts.</li>
-            <li>Event proposals get treated as event submissions — editorial discretion applies. We won't list everything.</li>
+            <li>Event proposals get treated as event submissions - editorial discretion applies. We won't list everything.</li>
             <li>Factual corrections are taken seriously and acted on fast. Always include the source.</li>
             <li>One request per submission. If you've got three changes, send three.</li>
           </ul>
@@ -105,7 +105,7 @@ export const prerender = true;
                 <datalist id="pu-venue-list">
                   {venueOptions.map((v) => <option value={v.name} data-slug={v.slug}>{v.name}</option>)}
                 </datalist>
-                <p class="partner-update-form__hint">Pick from the list — the autocomplete shows the full venue corpus. If your venue isn't listed yet, type it in and the editor will pick it up.</p>
+                <p class="partner-update-form__hint">Pick from the list - the autocomplete shows the full venue corpus. If your venue isn't listed yet, type it in and the editor will pick it up.</p>
               </div>
 
               <div class="partner-update-form__field">

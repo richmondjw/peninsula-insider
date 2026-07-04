@@ -101,7 +101,7 @@ const editorParas = String(data.editorNote ?? '').split(/\n\n+/).filter(Boolean)
         <h1 class="hero__headline">{data.title}</h1>
         <p class="hero__dek">{data.dek}</p>
         <div class="hero__byline">
-          <span>— For <strong>{audienceLabel[data.audience] ?? titleize(data.audience)}</strong></span>
+          <span> - For <strong>{audienceLabel[data.audience] ?? titleize(data.audience)}</strong></span>
           {data.totalDriveMinutes && (
             <span class="hero__byline-read">{data.totalDriveMinutes} min driving</span>
           )}

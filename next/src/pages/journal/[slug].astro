@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 
-// Plans articles live at /explore/plans/[slug] — redirect with 301 so inbound
+// Plans articles live at /explore/plans/[slug] - redirect with 301 so inbound
 // /journal/ URLs resolve cleanly without serving duplicate content.
 if (article.data.section === 'plans') {
   return Astro.redirect(`/explore/plans/${routeSlug(article)}/`, 301);
@@ -53,7 +53,7 @@ if (article.data.section === 'plans') {
 // (/whats-on/this-weekend/) with per-week archive (Wave 2 Brief 2,
 // 2026-05-10). The journal URL pattern still emits a static page so
 // inbound search traffic, social shares, and external backlinks resolve
-// cleanly — but the body is a flash-free redirect to the dated archive
+// cleanly - but the body is a flash-free redirect to the dated archive
 // URL rather than the article content. See lib/peninsula-this-weekend.ts.
 const ptwRedirectTo = isPeninsulaThisWeekend(article) ? ptwArchivePath(article) : null;
 
@@ -70,7 +70,7 @@ const isHubGuide = HUB_GUIDE_FORMATS.has(String(article.data.format ?? ''));
 
 // Editorial-only formats: immersive reading pieces that should end cleanly
 // at the newsletter block. No downstream venue/experience/place/itinerary
-// card sections — those are reference/planning surface patterns, not editorial
+// card sections - those are reference/planning surface patterns, not editorial
 // ones. Venues referenced within the prose appear as inline links only.
 // Applies to: editors-letter, slow-peninsula, interview, investigation, insider-edit.
 const EDITORIAL_FORMATS = new Set([
@@ -117,13 +117,13 @@ const authorLabel = article.data.houseByline
 const slug = routeSlug(article);
 
 // Build-time CMS override consult. If an editor has uploaded a new hero
-// via the inline editor, it wins over the content-MDX default — and
+// via the inline editor, it wins over the content-MDX default - and
 // crucially, it ships in the static HTML so there's no client-side flash
 // where the default paints first and gets swapped after hydration.
 const articleOverrides = await loadOverrides('article', slug);
 const overrideHero = articleOverrides.image['hero'];
 
-// Body-block text overrides — one entry per paragraph/heading/list/blockquote
+// Body-block text overrides - one entry per paragraph/heading/list/blockquote
 // the editor has rewritten via the inline editor. Field path format:
 // `body.block:<deterministic-hash>`. Inlined as a JSON blob below so the
 // pre-paint patcher in client.ts can apply them before the body becomes
@@ -268,7 +268,7 @@ export const prerender = true;
             <div class="article-hero__meta">
               <span class="article-hero__format">{formatLabel[article.data.format] ?? article.data.format}</span>
               <span class="article-hero__sep" aria-hidden="true"></span>
-              <span class="article-hero__date">{article.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              <time class="article-hero__date" datetime={article.data.publishedAt.toISOString().split('T')[0]}>{article.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</time>
               {article.data.readingTimeMinutes && (
                 <>
                   <span class="article-hero__sep" aria-hidden="true"></span>
@@ -278,11 +278,11 @@ export const prerender = true;
             </div>
             <h1 class="article-hero__title" {...editableText({
               entityType: 'article', entitySlug: slug, fieldPath: 'title',
-              label: `${article.data.title} — title`,
+              label: `${article.data.title} - title`,
             })}>{article.data.title}</h1>
             <p class="article-hero__dek" {...editableText({
               entityType: 'article', entitySlug: slug, fieldPath: 'dek',
-              label: `${article.data.title} — dek`,
+              label: `${article.data.title} - dek`,
             })}>{article.data.dek}</p>
             <PiArticleActions
               slug={article.id}
@@ -292,7 +292,7 @@ export const prerender = true;
               imageUrl={article.data.heroImage?.src}
             />
             <div class="article-hero__byline">
-              <span class="article-hero__byline-name">— By <strong>{authorLabel}</strong></span>
+              <span class="article-hero__byline-name"> - By <strong>{authorLabel}</strong></span>
             </div>
             {article.data.tags.length > 0 && (
               <div class="article-hero__tags">
@@ -335,7 +335,7 @@ export const prerender = true;
         {/* Pre-paint block-override patcher. Reads the JSON blob below and
             swaps the innerHTML of each matching [data-pi-block-id] element
             BEFORE the browser paints the body. Ships only when there are
-            overrides to apply — saves a script roundtrip on uncustomised
+            overrides to apply - saves a script roundtrip on uncustomised
             articles. is:inline ensures the script runs synchronously in
             document order. */}
         {Object.keys(blockOverrides).length > 0 && (
@@ -356,7 +356,7 @@ export const prerender = true;
                     var id = els[i].getAttribute('data-pi-block-id');
                     if (o[id] != null) els[i].innerHTML = o[id];
                   }
-                } catch (e) { /* fail silent — the default content stays visible */ }
+                } catch (e) { /* fail silent - the default content stays visible */ }
               })();`}
             </script>
           </>
@@ -409,7 +409,7 @@ export const prerender = true;
 
   {/* Venue cards: reference/guide formats only. Editorial formats (editors-letter,
       slow-peninsula, interview, investigation, insider-edit) reference venues as
-      inline prose links — card sections break reading immersion on those formats. */}
+      inline prose links - card sections break reading immersion on those formats. */}
   {!isEditorialFormat && relatedVenues.length > 0 && (
     <section class="venues">
       <div class="container">
@@ -431,7 +431,7 @@ export const prerender = true;
       (editors-letter, slow-peninsula, interview, investigation, insider-edit).
       Reference and guide formats (hub-guide, service, trail-guide, venue-guide,
       lists, dispatches) show these panels as useful downstream context.
-      Previously gated on !isHubGuide which had the logic inverted — these
+      Previously gated on !isHubGuide which had the logic inverted - these
       panels are appropriate for guides, not for pure editorial pieces. */}
   {!isEditorialFormat && relatedExperiences.length > 0 && (
     <section class="experience-index">

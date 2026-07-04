@@ -1,6 +1,6 @@
 const SITE = 'https://peninsulainsider.com.au';
 
-// PI-EXP-045: interim publisher logo — same asset BaseLayout uses for Organization schema.
+// PI-EXP-045: interim publisher logo - same asset BaseLayout uses for Organization schema.
 // Replace with /logo.png (≥112×112px square) once a proper logo asset is created.
 export const PUBLISHER_LOGO_URL = `${SITE}/images/sourced/home-cover.webp`;
 
@@ -377,7 +377,7 @@ interface TripStop {
 }
 
 interface TripDay {
-  name: string;      // e.g. 'Day 1 — Red Hill'
+  name: string;      // e.g. 'Day 1 - Red Hill'
   stops: TripStop[];
 }
 
@@ -409,7 +409,7 @@ export const buildTouristTripSchema = ({
   itinerary: days.map((day) => ({
     '@type': 'ItemList',
     name: day.name,
-    // Days are chronological, not ranked — Ascending is correct here.
+    // Days are chronological, not ranked - Ascending is correct here.
     itemListOrder: 'https://schema.org/ItemListOrderAscending',
     itemListElement: day.stops.map((stop, idx) => ({
       '@type': 'ListItem',
@@ -422,7 +422,7 @@ export const buildTouristTripSchema = ({
     })),
   })),
   // Offer/price emission intentionally removed. BRAND-PI rule (2026-05-15):
-  // "No pricing on site. Ever." Including structured data — stale prices in
+  // "No pricing on site. Ever." Including structured data - stale prices in
   // JSON-LD get scraped and re-presented as out-of-date listings.
 });
 
@@ -451,7 +451,7 @@ export function buildTourSchema(tour: any, operatorData: any) {
         url: operatorData?.website || undefined,
       },
       // Offer block intentionally removed. BRAND-PI rule (2026-05-15):
-      // "No pricing on site. Ever." — including JSON-LD price emission.
+      // "No pricing on site. Ever." - including JSON-LD price emission.
       areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
     },
   ];
@@ -502,7 +502,7 @@ export function buildTourPackageSchema(pkg: any, componentToursData: any[]) {
         url: absUrl(`/tour/${slug}`),
       })),
       // AggregateOffer block intentionally removed. BRAND-PI rule (2026-05-15):
-      // "No pricing on site. Ever." — including JSON-LD price emission.
+      // "No pricing on site. Ever." - including JSON-LD price emission.
     },
   ];
   if (pkg.faq?.length) {
@@ -577,7 +577,7 @@ interface BuildArticleInput {
   description: string;
   path: string;
   datePublished: string;    // ISO 8601
-  dateModified: string;     // ISO 8601 — match the on-page "Last fact-verified" stamp
+  dateModified: string;     // ISO 8601 - match the on-page "Last fact-verified" stamp
   imageUrl: string;         // absolute URL to hero image
   publisherLogoUrl: string; // absolute URL; see PI-EXP-045 for logo asset decision
   articleSection?: string;  // e.g. 'Planning', 'Seasonal'
@@ -618,7 +618,7 @@ export const buildArticleSchema = ({
 
 // ─── Boating + Fishing vertical schema builders ──────────────────────────────
 //
-// Source: peninsula_insider_boating_fishing_v1 — bf_schema_blocks.md.
+// Source: peninsula_insider_boating_fishing_v1 - bf_schema_blocks.md.
 // Six builders: species, fishing-location, charter-operator, boat-hire,
 // boat-ramp, hub. All emit @graph nodes with stable @id = {url}#{Type}.
 // No Review or AggregateRating (ACCC + authorship integrity).

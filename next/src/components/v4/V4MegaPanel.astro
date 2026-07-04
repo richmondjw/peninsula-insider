@@ -1,13 +1,13 @@
 ---
 /**
- * V4 MegaPanel — full-width editorial panel anchored to the nav row.
+ * V4 MegaPanel - full-width editorial panel anchored to the nav row.
  *
  * Anatomy:
  *   1. Grid: image rail (280px) + 2 or 3 columns
  *
  * The intro line, top banner ("This weekend's calendar · Read this
  * weekend's letter"), and Ask-PI footer were removed on 2026-05-13 per
- * James's nav simplification pass — the rail and columns now carry the
+ * James's nav simplification pass - the rail and columns now carry the
  * panel on their own. The data fields (intro, topBanner, askLine) are
  * preserved in v4-nav.ts in case they're wanted again.
  *
@@ -26,7 +26,7 @@ export interface Props {
 }
 
 const { pillar, triggerId } = Astro.props;
-// Notebook (and any future link-only pillars) carry no columns — no panel rendered.
+// Notebook (and any future link-only pillars) carry no columns - no panel rendered.
 const cols = pillar.columns.length;          // 2 or 3
 const panelClass = [
   'v4-mega',
