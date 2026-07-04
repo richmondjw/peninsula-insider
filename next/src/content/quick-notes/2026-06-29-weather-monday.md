@@ -1,5 +1,5 @@
 ---
-headline: "Weather — a mild Monday afternoon, then the wet stretch starts on Tuesday."
+headline: "Weather - a mild Monday afternoon, then the wet stretch starts on Tuesday."
 dek: "Fifteen degrees and overcast at 3:30pm in Main Ridge. Today stays mostly manageable, but Tuesday is the day to keep indoors: rain is forecast with a full one-hundred percent precipitation signal."
 section: weather
 tag: weather

@@ -23,7 +23,7 @@ seasonalityNote: Year-round. Snapper focus October to December; mixed-bag sessio
 licenceCovered: covered
 cancellationPolicy: Confirm at booking. Standard Peninsula practice is full refund or session transfer if weather prevents departure.
 intro: 'Skipper Mal and a 2024 24-foot Devil Cat catamaran out of multiple Peninsula ramps. Calendar built around the Oct to Dec snapper run; mixed-bag sessions through the rest of the year. Wheelchair-accessible vessel, family-friendly without sacrificing the technical fishing. Licence covered for the day.'
-metaDescription: 'I''m Hooked Fishing Charters — 2024 Devil Cat catamaran, multi-ramp departure (Hastings, Rye, Mornington), Oct–Dec snapper specialist, licence covered, capacity 8. From $200pp.'
+metaDescription: 'I''m Hooked Fishing Charters - 2024 Devil Cat catamaran, multi-ramp departure (Hastings, Rye, Mornington), Oct–Dec snapper specialist, licence covered, capacity 8. Mid-band pricing; current rates with the operator.'
 whoSuits: 'Groups of two to eight wanting a genuinely skilled snapper session in October through December, families needing the stability and accessibility of a catamaran platform, anglers based in Melbourne''s south-east who want flexibility on which ramp they board from. Skipper Mal''s 40-plus years of Peninsula experience is the differentiator.'
 whoDoesnt: 'Corporate groups of 15-plus or large event bookings; capacity caps at 8. Anglers wanting a fixed Sorrento-departure experience or a guaranteed Western Port-only session; the multi-ramp model adapts to conditions, which means departure point can change. Anyone who wants a budget-tier session at the lower price brackets; this is a mid-band operator.'
 faq:
@@ -35,7 +35,7 @@ faq:
     answer: 'Licence is covered for the day when fishing with I''m Hooked on their licensed charter vessel. Guests do not need to purchase a separate Victorian Recreational Fishing Licence for the day. Confirm at booking.'
   - question: What level of fishing experience do I need?
     answer: 'None. The crew provides instruction on technique, baiting, and rod handling. Children are welcome. The catamaran platform offers more stability than most comparable vessels, making it a practical choice for guests who are new to offshore fishing or prone to seasickness.'
-  - question: How does the multi-ramp model work — where will I actually board?
+  - question: How does the multi-ramp model work - where will I actually board?
     answer: 'The departure ramp is confirmed by the operator in advance based on conditions, tidal windows, and the day''s target ground. At booking you nominate preferred locations, but the skipper may adjust based on the forecast. Confirm the final departure point the evening before your session.'
   - question: What if snapper season is over, can I still book?
     answer: 'Yes. Outside the October to December run, the operator shifts to mixed-bag sessions targeting whiting, squid, gummy shark, and flathead depending on conditions. These sessions are not inferior; they are a different experience. A January whiting session over southern bay sand flats is a technically interesting and productive day; it is simply not snapper.'
@@ -71,7 +71,7 @@ Skipper Mal has operated Peninsula fishing charters for over 40 years. The opera
 
 ## What's included
 
-Rods, reels, bait, and tackle are all provided. The Victorian Recreational Fishing Licence is covered for the day. Guests do not need to bring their own gear or a licence. Confirm the fish-cleaning policy at booking. A tip of $10 to $20 per person for a productive session is customary but never expected.
+Rods, reels, bait, and tackle are all provided. The Victorian Recreational Fishing Licence is covered for the day. Guests do not need to bring their own gear or a licence. Confirm the fish-cleaning policy at booking. A modest cash tip per person for a productive session is customary but never expected.
 
 > Prices may change. Confirm current rates directly with the venue or operator before booking.
 

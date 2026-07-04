@@ -1,5 +1,5 @@
 ---
-headline: "Weather — cool start, light drizzle possible, then a dry run to the weekend."
+headline: "Weather - cool start, light drizzle possible, then a dry run to the weekend."
 dek: "Ten degrees and mainly clear at dawn. A weak front may bring patchy drizzle this afternoon, but the week’s real story is the clear window from Wednesday to Saturday."
 section: weather
 tag: weather

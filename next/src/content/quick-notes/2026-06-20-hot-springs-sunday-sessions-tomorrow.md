@@ -1,5 +1,5 @@
 ---
-headline: "Hot Springs Sunday Sessions — tomorrow from noon, acoustic music complimentary with bathing."
+headline: "Hot Springs Sunday Sessions - tomorrow from noon, acoustic music complimentary with bathing."
 dek: "The natural recovery from a wet Saturday festival. Peninsula Hot Springs runs its Sunday Sessions from 12pm each week: live acoustic music at the Bath House Cafe, included with any bathing booking. Sunday's forecast is significantly cleaner than today."
 section: spa
 tag: opening-window

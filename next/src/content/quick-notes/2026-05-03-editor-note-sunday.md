@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — this is a shoulder-season Sunday, not a sprint"
+headline: "Editor's note - this is a shoulder-season Sunday, not a sprint"
 dek: "The right Peninsula move today is fewer stops, one proper booking, and a weather-proof second act ready before lunch."
 section: note
 tag: editor-note

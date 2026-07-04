@@ -1,5 +1,5 @@
 ---
-headline: "Tuesday — 78% chance of showers, 15°C, northerly 39 km/h. Best of a wet three-day run before the week closes in."
+headline: "Tuesday - 78% chance of showers, 15°C, northerly 39 km/h. Best of a wet three-day run before the week closes in."
 dek: "Tuesday 2 June: min 11°C, max 15°C. High chance of showers, 78%, 1–2mm, northerly 39 km/h. Wednesday sharpens to 98%. Thursday is the heavy day: 16mm model, 97% probability."
 section: weather
 tag: weather

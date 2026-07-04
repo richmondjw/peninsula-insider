@@ -16,6 +16,6 @@ relatedVenue: jackalope-hotel
 status: archived
 ---
 
-The midweek slot is the smart booking — same room, half the noise, and Doot Doot Doot's Tuesday and Wednesday menus are where the kitchen is most experimental. The treatment quality is unchanged from the weekend tariff; only the surrounding crowd thins out.
+The midweek slot is the smart booking - same room, half the noise, and Doot Doot Doot's Tuesday and Wednesday menus are where the kitchen is most experimental. The treatment quality is unchanged from the weekend tariff; only the surrounding crowd thins out.
 
 > Prices may change. Confirm current rates directly with the venue or operator before booking.

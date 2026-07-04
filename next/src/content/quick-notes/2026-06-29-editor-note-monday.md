@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — this is the handover from the weekend to the proper winter week."
+headline: "Editor's note - this is the handover from the weekend to the proper winter week."
 dek: "The school-holiday traffic is still moving, but the Peninsula has shifted back into its quieter weekday shape. Monday afternoon is the transition point; Tuesday is for slower, indoor plans."
 section: note
 tag: editor-note

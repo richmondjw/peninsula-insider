@@ -1,6 +1,6 @@
 ---
 headline: "Laura adds three Sunday lunch sittings for autumn"
-dek: "Hatted Pt Leo dining room releases windows for 4, 5 and 6 May. Booking opens online Monday at 10am — typically gone by 11."
+dek: "Hatted Pt Leo dining room releases windows for 4, 5 and 6 May. Booking opens online Monday at 10am - typically gone by 11."
 section: eat
 tag: opening-window
 publishedAt: 2026-05-01T07:42:00+10:00
@@ -16,4 +16,4 @@ relatedVenue: laura-pt-leo
 status: archived
 ---
 
-Three extra Sunday sittings for the first weekend of autumn. The kitchen's pace stays the same — three hours, no rush — but the booking window itself is competitive, so the alarm matters more than the menu.
+Three extra Sunday sittings for the first weekend of autumn. The kitchen's pace stays the same - three hours, no rush - but the booking window itself is competitive, so the alarm matters more than the menu.

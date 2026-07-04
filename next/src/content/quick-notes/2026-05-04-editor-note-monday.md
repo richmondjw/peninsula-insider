@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — Monday on the Peninsula runs quieter, and that's the point"
+headline: "Editor's note - Monday on the Peninsula runs quieter, and that's the point"
 dek: "Most top-tier restaurants are dark on Mondays. Cellars, trails, and the Hot Springs are open. The crowd has cleared. This is the day to move at the Peninsula's pace, not the weekend's."
 section: note
 tag: editor-note
@@ -14,4 +14,4 @@ sources:
     checkedAt: 2026-05-04T06:45:00+10:00
 status: archived
 ---
-The Peninsula resets on Monday. The long tables are empty, the cellar doors have room, and the walking tracks are back to being walked rather than queued. If you're here mid-week, resist the instinct to compress the whole weekend into a single day. The architecture tour at Port Phillip Estate runs Wednesday to Sunday — it's not today — but a morning at the Hot Springs or a solo wander at Bushrangers Bay is better on a Tuesday anyway. Use the morning window. The forecast gives you until about 3pm.
+The Peninsula resets on Monday. The long tables are empty, the cellar doors have room, and the walking tracks are back to being walked rather than queued. If you're here mid-week, resist the instinct to compress the whole weekend into a single day. The architecture tour at Port Phillip Estate runs Wednesday to Sunday - it's not today - but a morning at the Hot Springs or a solo wander at Bushrangers Bay is better on a Tuesday anyway. Use the morning window. The forecast gives you until about 3pm.

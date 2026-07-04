@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — Paul Dillon at the Bath House Café today, noon, complimentary with bathing."
+headline: "Peninsula Hot Springs - Paul Dillon at the Bath House Café today, noon, complimentary with bathing."
 dek: "Sunday Sessions on 31 May, 12pm at the Bath House Café. Confirmed on the venue what's-on page and complimentary with a bathing booking. The weatherproof anchor for an 80% Sunday with the westerly pushing 25 to 40 km/h."
 section: spa
 tag: event
@@ -22,4 +22,4 @@ The daily wellness programme is also running through the day. Studio yoga at 7:3
 
 For the wet-Sunday planner the read is simple. Book the bathe, arrive in time to settle, sit through Dillon at noon, and let Monday's heavier system declare itself tomorrow rather than today. The Peninsula has a proper answer for a Sunday like this one, and this is it.
 
-Looking ahead, Melissa Fist takes the 7 June Sunday Session at 2pm — worth noting that the time has moved from the earlier noon slot if planning the King's Birthday long weekend — and the King's Birthday Monday on 8 June runs as usual, complimentary with bathing.
+Looking ahead, Melissa Fist takes the 7 June Sunday Session at 2pm - worth noting that the time has moved from the earlier noon slot if planning the King's Birthday long weekend - and the King's Birthday Monday on 8 June runs as usual, complimentary with bathing.

@@ -4,7 +4,7 @@
     {
       "entity": "Stillwater at Crittenden",
       "alert": "CLOSED from 18 May 2025 for renovation. Crittenden Estate reclaiming and relaunching under a new name (TBD). Reopening planned late Oct/Nov 2025. Do NOT list as open under 'Stillwater at Crittenden'.",
-      "risk": "HIGH — will misdirect visitors",
+      "risk": "HIGH - will misdirect visitors",
       "confidence": "High",
       "source": "lakesidevillas.com.au announcement Jun 2025",
       "needsVerify": true
@@ -20,7 +20,7 @@
         "name": "Barragunda Dining",
         "town": "Cape Schanck",
         "chef": "Simone Watts",
-        "note": "Debut Feb 2025; GFG Trailblazer Award; degustation $145pp; 40-seat converted farmhouse on 1000-acre estate",
+        "note": "Debut Feb 2025; GFG Trailblazer Award; set-price degustation; 40-seat converted farmhouse on 1000-acre estate",
         "award": "GFG Trailblazer Award 2025"
       },
       {
@@ -39,7 +39,7 @@
         "name": "Ten Minutes by Tractor",
         "town": "Main Ridge",
         "chef": "Craig Lunn (appointed late 2025; ex-Michelin kitchens UK/Europe)",
-        "note": "Essence Menu $145pp; Signature Menu $290pp; first certified organic vineyard on Peninsula"
+        "note": "Essence Menu and the longer Signature Menu (the premium option); first certified organic vineyard on Peninsula"
       }
     ],
     "oneHat": [
@@ -102,7 +102,7 @@
       "bookingRequired": true,
       "dogFriendly": false,
       "views": "180° panoramic vineyard + bay",
-      "hours": "Open daily (seasonal hours — check website)",
+      "hours": "Open daily (seasonal hours - check website)",
       "hoursConfidence": "low",
       "bestFor": ["winery dining", "casual fine dining", "sculpture park visit"],
       "operatingStatus": "open",
@@ -129,7 +129,7 @@
       "statusConfidence": "high",
       "lastVerified": "2026-01",
       "website": "https://jackalopehotels.com/drink-dine/",
-      "notes": "80 seats. Iconic 10,000-globe chandelier. Part of Jackalope Hotel — open to non-guests."
+      "notes": "80 seats. Iconic 10,000-globe chandelier. Part of Jackalope Hotel - open to non-guests."
     },
     {
       "id": 4,
@@ -147,7 +147,7 @@
       "views": "Vineyard + Jackalope hotel silhouette",
       "hours": "Mon–Fri from 5pm; Sat–Sun from 2pm",
       "hoursConfidence": "medium",
-      "mustOrder": "Classic Hare Share $85pp (feast); charred broccoli with cheese custard",
+      "mustOrder": "Classic Hare Share (set-price feast); charred broccoli with cheese custard",
       "bestFor": ["long lunch", "groups", "casual fine dining", "wood-fired dishes"],
       "operatingStatus": "open",
       "statusConfidence": "high",
@@ -163,13 +163,13 @@
       "address": "1333 Mornington-Flinders Road, Main Ridge",
       "priceTier": "$$$$",
       "gfgHats": 2,
-      "chef": "Craig Lunn (Head Chef — ex-Michelin kitchens UK/Europe)",
+      "chef": "Craig Lunn (Head Chef - ex-Michelin kitchens UK/Europe)",
       "bookingRequired": true,
       "dogFriendly": false,
       "views": "Vines and rolling hills",
       "hours": "Wed–Sun lunch from 12pm; Fri–Sat dinner from 6pm; Mon–Tue closed",
       "hoursConfidence": "high",
-      "mustOrder": "Essence Menu $145pp; Signature Menu $290pp",
+      "mustOrder": "Essence Menu; Signature Menu is the premium option of the two",
       "bestFor": ["winery fine dining", "destination restaurant", "sommelier-guided pairing"],
       "operatingStatus": "open",
       "statusConfidence": "high",
@@ -210,14 +210,14 @@
       "priceTier": "$$$$",
       "gfgHats": 2,
       "award": "GFG Trailblazer Award 2025",
-      "chef": "Simone Watts (Executive Chef — ex-Coda, Pearl Melbourne)",
+      "chef": "Simone Watts (Executive Chef - ex-Coda, Pearl Melbourne)",
       "bookingRequired": true,
-      "bookingNote": "Essential — very hard to get",
+      "bookingNote": "Essential - very hard to get",
       "dogFriendly": false,
       "views": "Native grasses + kitchen garden (floor-to-ceiling windows)",
       "hours": "Fri–Mon (lunch); 4 days/week",
       "hoursConfidence": "high",
-      "mustOrder": "$145 degustation; hibachi-charred silverside with preserved fennel; estate organic vegetables",
+      "mustOrder": "Set-price degustation; hibachi-charred silverside with preserved fennel; estate organic vegetables",
       "bestFor": ["destination fine dining", "farm experience", "sustainability", "garden walk"],
       "operatingStatus": "open",
       "statusConfidence": "high",
@@ -240,7 +240,7 @@
       "views": "Sweeping vineyard + sculpture trail + Western Port on horizon",
       "hours": "Cellar door open daily 11am–5pm; Restaurant Fri–Mon for lunch; Piazza daily 11am–5pm (kitchen to 4pm)",
       "hoursConfidence": "high",
-      "mustOrder": "3-4 course set menu from $130pp; Chef's Table $195pp (groups 6–12)",
+      "mustOrder": "3-4 course set menu; Chef's Table for groups 6–12 (the premium option)",
       "bestFor": ["long lunch", "winery dining", "sculpture trail walk", "groups"],
       "operatingStatus": "open",
       "statusConfidence": "high",
@@ -280,7 +280,7 @@
       "bookingRequired": true,
       "dogFriendly": false,
       "views": "Spectacular vineyard + Port Phillip Bay panorama",
-      "hours": "Lunch daily; Fri–Sat dinner — check website",
+      "hours": "Lunch daily; Fri–Sat dinner - check website",
       "hoursConfidence": "medium",
       "mustOrder": "Caught-that-day Flinders mussels; farm-fresh lamb; house chocolate tart",
       "bestFor": ["views + fine dining", "winery dining", "architecture", "couples"],
@@ -303,7 +303,7 @@
       "views": "Vineyard views",
       "hours": "Lunch Wed–Sun from 12pm; Dinner Saturday from 6:30pm; Closed Mon–Tue",
       "hoursConfidence": "high",
-      "mustOrder": "Autumn Four: 4-course $139; Garden Dining shared plates",
+      "mustOrder": "Autumn Four: 4-course set menu; Garden Dining shared plates",
       "bestFor": ["winery fine dining", "long lunch", "seasonal menus"],
       "operatingStatus": "open",
       "statusConfidence": "high",
@@ -321,7 +321,7 @@
       "gfgHats": 1,
       "bookingRequired": false,
       "dogFriendly": true,
-      "dogNote": "Outdoor seating — enquire",
+      "dogNote": "Outdoor seating - enquire",
       "hours": "Thu–Sun from 4pm; Sat–Sun from 12pm",
       "hoursConfidence": "medium",
       "bestFor": ["local bar", "casual dining", "Sri Lankan-inspired", "community vibe"],
@@ -390,7 +390,7 @@
       "operatingStatus": "open",
       "statusConfidence": "high",
       "website": "https://www.thebaths.com.au",
-      "notes": "2-course $75 / 3-course $89. Menu changes daily. Open 7 days in January."
+      "notes": "2-course and 3-course set menus. Menu changes daily. Open 7 days in January."
     },
     {
       "id": 16,
@@ -421,7 +421,7 @@
       "town": "Sorrento",
       "address": "5–15 Hotham Road, Sorrento",
       "priceTier": "$$$",
-      "chef": "Junlin Yi (Head Chef — ex-Red Spice Road)",
+      "chef": "Junlin Yi (Head Chef - ex-Red Spice Road)",
       "bookingRequired": true,
       "dogFriendly": false,
       "hours": "Dinner Wed–Sat; Lunch Thu–Sun (verify current)",
@@ -454,7 +454,7 @@
       "statusConfidence": "high",
       "lastVerified": "2025-08",
       "website": "https://www.therocksmornington.com.au",
-      "notes": "A Taste of the Rocks $85pp / Seafood Experience $119pp. Weekly changing menu."
+      "notes": "A Taste of the Rocks and Seafood Experience set menus; the Seafood Experience is the premium option. Weekly changing menu."
     },
     {
       "id": 19,
@@ -543,7 +543,7 @@
       "bookingNote": "Booking essential",
       "dogFriendly": false,
       "views": "Vineyard + garden views",
-      "hours": "Breakfast + lunch (Wed–Sun typical — check website)",
+      "hours": "Breakfast + lunch (Wed–Sun typical - check website)",
       "hoursConfidence": "medium",
       "mustOrder": "Mushroom fazzoletti; crusted hazeldene chicken; daily specials",
       "bestFor": ["long lunch", "local produce showcase", "Elgee Park cellar door"],
@@ -581,7 +581,7 @@
       "bookingRequired": false,
       "dogFriendly": true,
       "dogNote": "Outdoor seating",
-      "hours": "Open daily (morning + lunch hours — check website)",
+      "hours": "Open daily (morning + lunch hours - check website)",
       "hoursConfidence": "low",
       "bestFor": ["brunch", "dog-friendly", "Flinders village", "cooking classes"],
       "operatingStatus": "open",
@@ -599,7 +599,7 @@
       "priceTier": "$$",
       "bookingRequired": false,
       "dogFriendly": false,
-      "dogNote": "NO DOGS — explicitly stated",
+      "dogNote": "NO DOGS - explicitly stated",
       "hours": "Fri–Mon + public holidays 11am–5pm",
       "hoursConfidence": "high",
       "bestFor": ["wine tasting + lunch", "organic/biodynamic wine", "tapas", "casual winery"],
@@ -618,13 +618,13 @@
       "bookingRequired": true,
       "bookingNote": "90–120 min time slots",
       "dogFriendly": false,
-      "hours": "Dinner-focused; seasonal hours — check",
+      "hours": "Dinner-focused; seasonal hours - check",
       "hoursConfidence": "low",
       "mustOrder": "Huîtres; Tourte au poulet (chicken/tarragon/leek pot pie); Moules Rockefeller",
       "bestFor": ["dinner", "special occasion", "French cuisine", "intimate"],
       "operatingStatus": "open",
       "statusConfidence": "high",
-      "notes": "Uses Harry Harris Flinders mussels. 2-course $65pp. Small intimate bistro."
+      "notes": "Uses Harry Harris Flinders mussels. 2-course set menu. Small intimate bistro."
     },
     {
       "id": 28,
@@ -637,11 +637,11 @@
       "dogFriendly": false,
       "hours": "Open daily for lunch + dinner; Taco Tuesday nights",
       "hoursConfidence": "medium",
-      "mustOrder": "Burrito (crispy chicken/wagyu/pork belly); churros; $5 tacos on Tuesdays",
+      "mustOrder": "Burrito (crispy chicken/wagyu/pork belly); churros; Taco Tuesday specials",
       "bestFor": ["casual groups", "tacos", "cocktails", "taco Tuesday"],
       "operatingStatus": "open",
       "statusConfidence": "high",
-      "notes": "Taco Tuesday: $5 tacos + $10 margaritas. Tasting Menu $79pp. Beachfront Rosebud."
+      "notes": "Taco Tuesday taco and margarita specials. Set tasting menu. Beachfront Rosebud."
     }
   ],
   "doNotInclude": [

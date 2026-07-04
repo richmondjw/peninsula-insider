@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — a wet Sunday with a confirmed anchor, and a week that does not lift."
+headline: "Editor's note - a wet Sunday with a confirmed anchor, and a week that does not lift."
 dek: "Sunday at 80%, Monday opens June at 100% with up to 15mm, Tuesday and Wednesday near a hundred. The Peninsula has a settled answer: cellar doors, winery restaurants, the springs, and noon at the Bath House Café."
 section: note
 tag: editor-note
@@ -19,6 +19,6 @@ The forecast called it and the forecast holds. Sunday at eighty percent, the sho
 
 This is not a difficult read. It is the first proper week of winter on the Peninsula, doing what winter does. What matters editorially is that the Peninsula has a settled answer, and the answer is to stop measuring the day against a closed coastal walk and start measuring it against the kind of day that holds.
 
-That means the cellar doors at Red Hill, Main Ridge, and Merricks with their proper indoor tasting rooms and the fire on, where an hour passes without anyone checking the weather again. It means the winery restaurants that hold warmth across a long lunch. And it means Peninsula Hot Springs, where weather is a non-factor, and where today's Paul Dillon Sunday Session at noon at the Bath House Café is the simplest anchor on the page — confirmed, complimentary with bathing, indoors.
+That means the cellar doors at Red Hill, Main Ridge, and Merricks with their proper indoor tasting rooms and the fire on, where an hour passes without anyone checking the weather again. It means the winery restaurants that hold warmth across a long lunch. And it means Peninsula Hot Springs, where weather is a non-factor, and where today's Paul Dillon Sunday Session at noon at the Bath House Café is the simplest anchor on the page - confirmed, complimentary with bathing, indoors.
 
 A wet Sunday is not a lost Sunday here. It is a different kind of Peninsula day, slower, warmer indoors than out, and a reminder that this place has more than one season worth turning up for.

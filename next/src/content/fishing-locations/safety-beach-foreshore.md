@@ -19,7 +19,7 @@ nearestRampSlug: safety-beach-boat-ramp
 tideStation: Portsea (or Port Melbourne for northern bay)
 tideNotes: Rising tide; the two hours before high water is the optimal garfish and whiting window. The shallow-bay margin means low tide leaves much of the productive ground exposed.
 intro: 'Safety Beach foreshore is the bay-shore alternative to the busy piers. Shallow sandy water, accessible to children and beginners, productive for garfish and whiting on the rising tide, year-round squid potential. Lower crowd density than Mornington or Rye even on summer weekends. The least-pressured productive Peninsula bay-shore fishing spot. Pairs naturally with a family beach day.'
-metaDescription: 'Safety Beach foreshore fishing — garfish, KGW, squid from the shallow bay shore. Family-suitable, all-abilities access, low crowd pressure.'
+metaDescription: 'Safety Beach foreshore fishing - garfish, KGW, squid from the shallow bay shore. Family-suitable, all-abilities access, low crowd pressure.'
 faq:
   - question: Is Safety Beach a good family fishing spot?
     answer: 'Yes. The flat beach, shallow water, all-abilities access, public toilets, picnic facilities, and playground at the adjacent boat ramp precinct make this the friendliest land-based bay-shore location on the Peninsula. Less crowded than the piers; easier supervision of small children; productive enough that families come away with a feed when the tide is right.'

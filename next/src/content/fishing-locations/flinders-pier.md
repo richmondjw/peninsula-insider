@@ -18,7 +18,7 @@ primarySpecies:
 tideStation: Stony Point
 tideNotes: Western Port tidal range here is approximately 2.5 to 2.8m, significantly larger than Port Phillip Bay. Fish when the tide is running. The two hours after the turn in either direction are most productive. Slack water at high and low tide produces a noticeable drop in activity.
 intro: 'Flinders Pier does one thing better than almost any other public structure on the Peninsula: it concentrates calamari. The 327-metre heritage-listed pier on the Peninsula''s south coast points into Western Port Bay, sits over mixed reef and sand bottom, and holds southern calamari year-round. The squid population beneath and around this pier is exceptional, partly due to the weedy sea dragon habitat (a Parks Victoria-listed marine biodiversity site) and partly due to current patterns that push food past the structure on both flood and ebb. Come here for squid first.'
-metaDescription: 'Flinders Pier fishing — southern calamari mecca, KGW, snapper, parking, tides, and honest limitations. Heritage pier on Western Port. Last fact-verified Thu, 30 Apr 2026.'
+metaDescription: 'Flinders Pier fishing - southern calamari mecca, KGW, snapper, parking, tides, and honest limitations. Heritage pier on Western Port. Last fact-verified Thu, 30 Apr 2026.'
 faq:
   - question: When is the best time of year for squid at Flinders Pier?
     answer: 'April through July is the autumn-to-early-winter peak. The combination of Western Port current, mixed kelp and sand bottom, and weedy sea dragon habitat creates a concentration of squid that is difficult to replicate at bay-facing locations. On a productive autumn evening, multiple anglers landing 10 to 20 squid per session is common.'

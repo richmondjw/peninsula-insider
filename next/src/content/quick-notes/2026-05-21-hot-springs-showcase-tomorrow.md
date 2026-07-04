@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — Showcase with Chloe Gill is tomorrow. Friday confirmed mostly sunny."
+headline: "Peninsula Hot Springs - Showcase with Chloe Gill is tomorrow. Friday confirmed mostly sunny."
 dek: "Showcase with Chloe Gill: Saturday 23 May, 7pm. BOM Friday forecast: mostly sunny, 5% rain, 6–16°C. Daily thermal circuit and weekday activities running today. 24-hour booking window."
 section: spa
 tag: opening-window
@@ -7,11 +7,11 @@ publishedAt: 2026-05-21T06:48:00+10:00
 expiresAt: 2026-05-24T06:00:00+10:00
 verifiedAt: 2026-05-21T06:46:00+10:00
 verifiedBy: quick-note-desk
-verdict: "Tomorrow. Mostly sunny forecast confirmed. Book today if you have not already — Showcase events are limited capacity."
+verdict: "Tomorrow. Mostly sunny forecast confirmed. Book today if you have not already - Showcase events are limited capacity."
 sources:
   - kind: venue-site
     url: "https://www.peninsulahotsprings.com/whats-on/"
-    note: "Peninsula Hot Springs what's-on page, checked 21 May 2026 06:46 AEST. Showcase performance with Chloe Gill confirmed 23 May 7pm. Sunday Sessions with Kinematic 24 May 12pm confirmed. Sunday Sessions with Paul Dillon 31 May 12pm. Sunday Sessions with Melissa Fist 7 June 12pm. Daily activities confirmed: studio yoga 7:30am daily, hot springs yoga 9:15am daily, fire and ice workshop weekdays 10:30am, 4pm, 5pm; body clay ritual weekdays 12pm, 2pm; sauna infusion daily 5pm. Cacao circle weekends 12pm. Thermal circuit pricing and availability — verify with venue before travel."
+    note: "Peninsula Hot Springs what's-on page, checked 21 May 2026 06:46 AEST. Showcase performance with Chloe Gill confirmed 23 May 7pm. Sunday Sessions with Kinematic 24 May 12pm confirmed. Sunday Sessions with Paul Dillon 31 May 12pm. Sunday Sessions with Melissa Fist 7 June 12pm. Daily activities confirmed: studio yoga 7:30am daily, hot springs yoga 9:15am daily, fire and ice workshop weekdays 10:30am, 4pm, 5pm; body clay ritual weekdays 12pm, 2pm; sauna infusion daily 5pm. Cacao circle weekends 12pm. Thermal circuit pricing and availability - verify with venue before travel."
     checkedAt: 2026-05-21T06:46:00+10:00
   - kind: gov
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
@@ -27,6 +27,6 @@ Wednesday's wet conditions have passed. Thursday holds mostly dry at 20% shower 
 
 For today's thermal programme: the Springs is running its full Thursday schedule. Studio yoga at 7:30 AM, hot springs yoga at 9:15 AM, fire and ice workshop at 10:30 AM, 4 PM, and 5 PM, body clay ritual at noon and 2 PM, sauna infusion at 5 PM. The thermal circuit is available through the day. A cold cloudy Thursday in the Springs is an entirely workable day.
 
-The broader winter calendar builds from here. Sunday Sessions with Kinematic follows on 24 May at noon — the first of the Sunday season. Paul Dillon on 31 May, Melissa Fist on 7 June. The Winter Solstice programme continues into June. But Friday's Showcase is the immediate fixture.
+The broader winter calendar builds from here. Sunday Sessions with Kinematic follows on 24 May at noon - the first of the Sunday season. Paul Dillon on 31 May, Melissa Fist on 7 June. The Winter Solstice programme continues into June. But Friday's Showcase is the immediate fixture.
 
 Booking window is now. Thermal circuit pricing and availability: verify with Peninsula Hot Springs directly before travel.

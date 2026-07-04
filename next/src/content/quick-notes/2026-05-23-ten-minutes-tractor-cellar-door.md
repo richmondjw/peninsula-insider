@@ -1,5 +1,5 @@
 ---
-headline: "Ten Minutes by Tractor — cellar door open today, 11am to 5pm. Mostly sunny, 18°C."
+headline: "Ten Minutes by Tractor - cellar door open today, 11am to 5pm. Mostly sunny, 18°C."
 dek: "Ten Minutes by Tractor cellar door, Main Ridge: open Monday to Sunday, 11am to 5pm. Bookings available. Seasonal dishes and Mornington Peninsula Pinot Noir and Chardonnay tastings. Today's conditions are the Peninsula cellar door day."
 section: wine
 tag: opening-window
@@ -7,7 +7,7 @@ publishedAt: 2026-05-23T06:51:00+10:00
 expiresAt: 2026-05-24T00:00:00+10:00
 verifiedAt: 2026-05-23T06:49:00+10:00
 verifiedBy: quick-note-desk
-verdict: "Open today, 11am to 5pm. Clear and 18°C — the right conditions for Main Ridge. Sunday brings 80% showers."
+verdict: "Open today, 11am to 5pm. Clear and 18°C - the right conditions for Main Ridge. Sunday brings 80% showers."
 sources:
   - kind: venue-site
     url: "https://www.tenminutesbytractor.com.au/cellar-door"
@@ -25,6 +25,6 @@ The conditions make today the right day to use it. BOM has Saturday as mostly su
 
 The cellar door offers in-depth tastings of Ten Minutes by Tractor's Mornington Peninsula Pinot Noir and Chardonnay, with experienced staff across both ranges. A seasonal menu of small dishes is available alongside the tasting. Reservations can be made through the venue's cellar door bookings page.
 
-The broader context: Sunday carries 80% shower probability from the afternoon. If a cellar door visit is in the weekend's plan, Saturday is the day to execute it — not for any reason internal to the venue, but because the drive through the Red Hill and Main Ridge corridor and the views from the site are substantially better in clear conditions.
+The broader context: Sunday carries 80% shower probability from the afternoon. If a cellar door visit is in the weekend's plan, Saturday is the day to execute it - not for any reason internal to the venue, but because the drive through the Red Hill and Main Ridge corridor and the views from the site are substantially better in clear conditions.
 
 Opening hours confirmed from venue website 06:49 AEST. Verify directly before travel.

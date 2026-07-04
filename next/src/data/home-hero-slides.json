@@ -1,6 +1,6 @@
 {
   "_readme": [
-    "HOMEPAGE HERO CAROUSEL — DEFAULT deck for <HomeHeroCarousel /> (2026-06-18).",
+    "HOMEPAGE HERO CAROUSEL - DEFAULT deck for <HomeHeroCarousel /> (2026-06-18).",
     "This file is the DEFAULT deck: the slides shown until an editor saves a",
     "deck in the Hero Editor. Each slide's `id` is stable; keep ids unique (the",
     "build throws on duplicates).",
@@ -12,7 +12,7 @@
     "the deck document; the component reads it at build (baked, no flash) and the",
     "hero hydration applies it live for every visitor.",
     "",
-    "EDITING: use the Hero Editor — in edit mode an 'Edit hero' button (bottom",
+    "EDITING: use the Hero Editor - in edit mode an 'Edit hero' button (bottom",
     "left) opens a drawer to REORDER, edit TEXT + LINK, ADD / REMOVE slides, and",
     "REPLACE photos. Save publishes instantly for everyone and bakes on the next",
     "deploy. The hero is isolated from the generic inline editor (it carries",
@@ -49,7 +49,7 @@
       "image": "/images/sourced/article-flinders-weekend-01.webp",
       "imageAlt": "Flinders Pier and Bass Strait at dusk, with the village behind",
       "headline": "The <em>other</em> Peninsula weekend.",
-      "dispatch": "When Red Hill is booked out and Sorrento feels like a queue, Flinders offers another version of the Peninsula weekend — south of everything, closer to the ocean, and slower on purpose.",
+      "dispatch": "When Red Hill is booked out and Sorrento feels like a queue, Flinders offers another version of the Peninsula weekend - south of everything, closer to the ocean, and slower on purpose.",
       "primaryHref": "/journal/a-flinders-weekend/",
       "primaryLabel": "Read"
     },

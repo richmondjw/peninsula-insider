@@ -1,5 +1,5 @@
 ---
-headline: "The weekend weather window — clear, cool, low wind"
+headline: "The weekend weather window - clear, cool, low wind"
 dek: "Saturday: 18°C, light SW breeze, sunset 5:45 pm. Sunday: 17°C, calmer, possible morning fog clearing by 10. Best beach window: Saturday 1pm at Portsea front."
 section: weather
 tag: weather
@@ -15,4 +15,4 @@ sources:
 status: archived
 ---
 
-Quiet weekend after a wet April. Cool but bright — the kind of light Peninsula photographers wait all year for. The fog clearing on Sunday morning is the cinematic window for Two Bays or Cape Schanck.
+Quiet weekend after a wet April. Cool but bright - the kind of light Peninsula photographers wait all year for. The fog clearing on Sunday morning is the cinematic window for Two Bays or Cape Schanck.

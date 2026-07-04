@@ -25,7 +25,7 @@ accessibleSpecies:
   - yellowtail-kingfish
   - gummy-shark
 intro: Three-lane concrete ramp at Sorrento, the southern bay's all-tide launching point. Breakwater-sheltered approach, jetties either side, modern facilities, free to launch. Shortest transit on the bay side to the southern snapper grounds and the Heads.
-metaDescription: Sorrento Boat Ramp — three concrete lanes, all-tide, breakwater-sheltered, free to launch. Shortest bay-side run to the southern snapper grounds and the Heads.
+metaDescription: Sorrento Boat Ramp - three concrete lanes, all-tide, breakwater-sheltered, free to launch. Shortest bay-side run to the southern snapper grounds and the Heads.
 faq:
   - question: Can I launch at Sorrento Boat Ramp at any tide?
     answer: 'Yes. Sorrento is an all-tide ramp with a breakwater-sheltered approach. Documented depth of 0.3 to 0.8 metres across the tidal range supports launch at any tidal state for standard recreational trailer boats. Deep-keeled vessels should still check the tidal forecast at Willyweather (Portsea station).'

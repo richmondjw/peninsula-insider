@@ -1,5 +1,5 @@
 ---
-headline: "Sunday — cloudy and 17°C, with showers closing in from this afternoon."
+headline: "Sunday - cloudy and 17°C, with showers closing in from this afternoon."
 dek: "Sunday 24 May: min 8°C, max 17°C. Cloudy. Very high chance of showers, most likely this afternoon and evening, 90% probability, 1 to 5mm. Light winds. The morning window is real but short."
 section: weather
 tag: weather
@@ -17,7 +17,7 @@ status: archived
 ---
 The Bureau of Meteorology issued its Sunday forecast at 6:07 AM. Sunday 24 May: cloudy, a very high chance of showers with 90% probability, most likely arriving this afternoon and evening. One to five millimetres possible. Minimum of 8°C, maximum 17°C, light winds. UV index 2, low.
 
-The morning is the usable outdoor window before the front settles in. After midday the probability rises sharply; the afternoon and evening are when the showers most likely land. Anyone planning outdoor time on the Peninsula today should act in the first half of the day. Trail walking, a coastal stretch, a cellar door drive through Main Ridge — those all work before noon on this forecast. They do not work at 3pm.
+The morning is the usable outdoor window before the front settles in. After midday the probability rises sharply; the afternoon and evening are when the showers most likely land. Anyone planning outdoor time on the Peninsula today should act in the first half of the day. Trail walking, a coastal stretch, a cellar door drive through Main Ridge - those all work before noon on this forecast. They do not work at 3pm.
 
 The wet pattern extends through the week. Monday holds 60% shower probability, most likely in the morning. Tuesday and Wednesday carry 70% and 40% respectively, with easterly winds building on Tuesday. The Peninsula does not clear meaningfully until later in the week; Thursday and Friday are at 40-60% through the second half of the week.
 

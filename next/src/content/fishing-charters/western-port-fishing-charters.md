@@ -19,7 +19,7 @@ targetSpecies:
   - gummy-shark
   - pinkies
 intro: 'Captain Robin Gray''s 50-foot Westcoaster flybridge out of Westernport Marina, Hastings. Western Port-exclusive operation: tidal channels, estuary margins, the species mix that Port Phillip Bay operators do not consistently target. Capacity for 20, the largest charter platform serving Western Port. Wheelchair accessible.'
-metaDescription: 'Western Port Fishing Charters — 50-foot Westcoaster flybridge from Hastings, capacity 20, Captain Robin Gray''s 25 years of Western Port. Whiting, flathead, pink snapper, salmon, shark.'
+metaDescription: 'Western Port Fishing Charters - 50-foot Westcoaster flybridge from Hastings, capacity 20, Captain Robin Gray''s 25 years of Western Port. Whiting, flathead, pink snapper, salmon, shark.'
 whoSuits: 'Anglers targeting Western Port-specific species (King George whiting in the channel systems, leatherjacket on bay margins, the resident pink-snapper population). Large corporate groups, hens and bucks, club outings; capacity 20. Wheelchair guests; the vessel has a confirmed accessible configuration.'
 whoDoesnt: 'Anyone wanting the Port Phillip Bay snapper run (October to December). Western Port''s snapper population is a separate fishery; the experience is meaningfully different and a Sorrento or Mornington-departure operator is the right call. Anglers wanting offshore Bass Strait runs; this operator stays in Western Port.'
 faq:

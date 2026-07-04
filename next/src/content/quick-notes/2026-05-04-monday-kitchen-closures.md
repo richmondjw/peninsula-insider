@@ -1,5 +1,5 @@
 ---
-headline: "Monday kitchens — most Peninsula restaurants are dark today"
+headline: "Monday kitchens - most Peninsula restaurants are dark today"
 dek: "Tuesday through Sunday is the Peninsula's service week. Monday is the trade rest day. Tedesca, Laura, Montalto dining room, and most Red Hill-area restaurants do not trade Mondays. Check before you drive."
 section: eat
 tag: closure
@@ -19,4 +19,4 @@ sources:
     checkedAt: 2026-05-04T06:53:00+10:00
 status: archived
 ---
-The Peninsula's kitchen rhythm runs Tuesday through Sunday. Monday is when chefs take their rest and prep days begin — and it catches visitors off guard regularly. Tedesca, the Red Hill and Merricks corridor restaurants, and most of the serious dining rooms are not trading today. Your Monday options are Peninsula Hot Springs, Montalto's cellar door (wine, not restaurant), the bakeries in Mornington town, and a small number of cafes. If in doubt, call. The drive from Melbourne on a false lunch assumption is a long one.
+The Peninsula's kitchen rhythm runs Tuesday through Sunday. Monday is when chefs take their rest and prep days begin - and it catches visitors off guard regularly. Tedesca, the Red Hill and Merricks corridor restaurants, and most of the serious dining rooms are not trading today. Your Monday options are Peninsula Hot Springs, Montalto's cellar door (wine, not restaurant), the bakeries in Mornington town, and a small number of cafes. If in doubt, call. The drive from Melbourne on a false lunch assumption is a long one.

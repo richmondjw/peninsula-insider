@@ -1,6 +1,6 @@
 ---
-headline: "Peninsula Hot Springs — Monday is typically the easiest session to book"
-dek: "Fingal's thermal pools are open seven days. Monday sessions have historically been the path-of-least-resistance booking after a busy weekend — the site is showing availability for today's sessions as of this morning."
+headline: "Peninsula Hot Springs - Monday is typically the easiest session to book"
+dek: "Fingal's thermal pools are open seven days. Monday sessions have historically been the path-of-least-resistance booking after a busy weekend - the site is showing availability for today's sessions as of this morning."
 section: spa
 tag: opening-window
 publishedAt: 2026-05-04T06:52:00+10:00
@@ -16,4 +16,4 @@ sources:
 relatedVenue: peninsula-hot-springs
 status: archived
 ---
-Peninsula Hot Springs doesn't close on weekdays. Monday in particular tends to clear the weekend queue — and this morning the site is showing session availability. With the outdoor weather looking solid until early afternoon, the combination works: arrive at opening, soak while it's calm, and leave before the northerly and rain build after 3pm. Book directly through the venue site. Sessions fill faster than people expect even on weekdays.
+Peninsula Hot Springs doesn't close on weekdays. Monday in particular tends to clear the weekend queue - and this morning the site is showing session availability. With the outdoor weather looking solid until early afternoon, the combination works: arrive at opening, soak while it's calm, and leave before the northerly and rain build after 3pm. Book directly through the venue site. Sessions fill faster than people expect even on weekdays.

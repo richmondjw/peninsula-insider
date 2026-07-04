@@ -17,7 +17,7 @@ coordinates:
   lat: -38.214
   lng: 145.038
 intro: Self-drive boat hire at Schnapper Point Drive, Mornington. Tinnies and polycraft for protected bay water, no marine licence required, fishing tackle available. Operated from the Schnapper Point precinct since the 1990s, currently the only no-licence hire on Port Phillip Bay's mid-Peninsula shore.
-metaDescription: Mornington Boat Hire at Schnapper Point Drive — no-licence tinnies and polycraft for Port Phillip Bay, from $120 for two hours. Fishing tackle, family-friendly, the only operator at this part of the bay.
+metaDescription: Mornington Boat Hire at Schnapper Point Drive - no-licence tinnies and polycraft for Port Phillip Bay, from $120 for two hours. Fishing tackle, family-friendly, the only operator at this part of the bay.
 whoSuits: Visiting Melbourne anglers and families who want time on the water without the logistics of trailering a boat, beginners chasing flathead, calamari, or whiting in the protected mid-bay grounds, and parents wanting a low-stakes introduction for kids. The no-licence requirement and small protected vessels make this the easiest entry point on the Peninsula.
 whoDoesnt: Anyone needing offshore capability, anyone targeting the snapper grounds in the southern bay (Sorrento or Portsea ramps are closer), or anyone wanting a guided session. This is self-drive only. The vessels are bay-rated and not for Bass Strait or the Heads.
 faq:

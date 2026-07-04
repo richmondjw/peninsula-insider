@@ -1,5 +1,5 @@
 ---
-headline: "Thursday — a workable window opens, 40% easing through the day, 16°C."
+headline: "Thursday - a workable window opens, 40% easing through the day, 16°C."
 dek: "Thursday 28 May: min 10°C, max 16°C. Partly cloudy, a medium chance of showers becoming less likely late this afternoon and evening. 40% chance, 0–1mm. Westerly 15–20 km/h easing to light in the early morning. The drier end of the week before the weekend turns."
 section: weather
 tag: weather

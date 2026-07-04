@@ -1,5 +1,5 @@
 ---
-headline: "MPRG — New Wave 26 and Michael Vale exhibitions open today, 11am–4pm. Both close 31 May."
+headline: "MPRG - New Wave 26 and Michael Vale exhibitions open today, 11am–4pm. Both close 31 May."
 dek: "Mornington Peninsula Regional Gallery is open Tuesday to Sunday, 11am–4pm. Two exhibitions currently running: New Wave 26 (group show) and a Michael Vale solo. Free entry. Both close at the end of May."
 section: explore
 tag: event
@@ -16,7 +16,7 @@ status: archived
 ---
 Mornington Peninsula Regional Gallery is open today from 11am to 4pm. Two exhibitions are currently running: New Wave 26, a group show that opened in late February, and a solo exhibition of work by Michael Vale. Both close at the end of May.
 
-MPRG sits at 350 Dunns Road, Mornington — accessible from the Peninsula Freeway and easily combined with a Red Hill lunch or cellar door visit on the same day. Entry is free. The gallery is open Tuesday through Sunday; it closes on Mondays.
+MPRG sits at 350 Dunns Road, Mornington - accessible from the Peninsula Freeway and easily combined with a Red Hill lunch or cellar door visit on the same day. Entry is free. The gallery is open Tuesday through Sunday; it closes on Mondays.
 
 At 18°C and 0% rain today, the drive to the gallery and the Peninsula beyond it is as clear as it will be this season. Both exhibitions have three weeks left.
 

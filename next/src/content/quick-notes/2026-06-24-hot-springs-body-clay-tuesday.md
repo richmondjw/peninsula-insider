@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — Body Clay Ritual today at noon and 2pm."
+headline: "Peninsula Hot Springs - Body Clay Ritual today at noon and 2pm."
 dek: "A forty-five-minute guided clay session is included with bathing today. Weekday slots run at 12pm and 2pm, with extra weekend sessions returning from Friday."
 section: spa
 tag: opening-window

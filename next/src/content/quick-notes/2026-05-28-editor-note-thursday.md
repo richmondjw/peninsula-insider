@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — Thursday and Friday are the week's open windows. The weekend closes hard."
+headline: "Editor's note - Thursday and Friday are the week's open windows. The weekend closes hard."
 dek: "Thursday at 40% easing, Friday at 20%: the two clear-enough days. From Saturday the Peninsula runs 80% and up, reaching 95% on Sunday and 90% into Monday 1 June. If there is outdoor Peninsula business this week, the next two days are it."
 section: note
 tag: editor-note
@@ -11,7 +11,7 @@ verdict: "Two dry windows, Thursday and Friday. Then 80 to 95% Saturday through 
 sources:
   - kind: gov
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
-    note: "Editorial desk, Thursday 28 May 2026. Weather from BOM Main Ridge daily forecast retrieved 20:56 UTC 27 May. Thursday 28: 40%, 0–1mm, 10–16°C, easing late. Friday 29: 20%, 0mm, 8–15°C, light. Saturday 30: 80%, 2–4mm, 9–16°C. Sunday 31: 95%, 6–10mm, 7–14°C. Monday 1 June: 90%, 6–15mm. Peninsula Hot Springs what's-on verified 20:55 UTC 27 May 2026 — Sunday Sessions Paul Dillon 31 May 12pm confirmed, full weekday programme running."
+    note: "Editorial desk, Thursday 28 May 2026. Weather from BOM Main Ridge daily forecast retrieved 20:56 UTC 27 May. Thursday 28: 40%, 0–1mm, 10–16°C, easing late. Friday 29: 20%, 0mm, 8–15°C, light. Saturday 30: 80%, 2–4mm, 9–16°C. Sunday 31: 95%, 6–10mm, 7–14°C. Monday 1 June: 90%, 6–15mm. Peninsula Hot Springs what's-on verified 20:55 UTC 27 May 2026 - Sunday Sessions Paul Dillon 31 May 12pm confirmed, full weekday programme running."
     checkedAt: 2026-05-28T06:40:00+10:00
 status: archived
 ---

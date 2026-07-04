@@ -20,7 +20,7 @@ tideStation: Stony Point
 tideNotes: Running tide is the productive window. Western Port's 2.5 to 2.8m tidal range produces strong current at peak run.
 safetyNotes: Working-port environment with commercial vessel traffic. Stay clear of the shipping channel and oil terminal at Crib Point. Do not enter the water at any tidal state.
 intro: 'Hastings Jetty is the working-waterfront pier of Western Port. Adjacent to Hastings Boat Ramp (the busiest and best-equipped Western Port public ramp), the jetty fishes the same channel system that produces fish for the boat anglers launching nearby. Flathead is the bread-and-butter species year-round; snapper through summer, whiting on the running tide, bream around the pylons. Family-friendly with the working-port caveat: keep kids back from the channel edge given commercial traffic.'
-metaDescription: 'Hastings Jetty fishing — flathead, snapper, KGW, bream on Western Port''s working waterfront. Adjacent to Hastings Boat Ramp; running tide essential.'
+metaDescription: 'Hastings Jetty fishing - flathead, snapper, KGW, bream on Western Port''s working waterfront. Adjacent to Hastings Boat Ramp; running tide essential.'
 faq:
   - question: Is Hastings Jetty good for families?
     answer: 'Yes with caveats. Family-friendly inner sections, public toilets, picnic facilities at the foreshore. The working-port environment means commercial vessels operate close to the structure; supervise children at the channel edge. The 2024 ramp upgrade added all-abilities pontoon access at the adjacent Hastings Boat Ramp; the jetty itself has historic surface and railing variation.'

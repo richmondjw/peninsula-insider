@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — Paul Dillon at the Bath House Café tomorrow, noon, complimentary with bathing."
+headline: "Peninsula Hot Springs - Paul Dillon at the Bath House Café tomorrow, noon, complimentary with bathing."
 dek: "Sunday Sessions on 31 May, 12pm at the Bath House Café. Confirmed and complimentary with bathing. The weatherproof anchor for an 80% Sunday with a west-northwesterly running at 25 to 40 km/h."
 section: spa
 tag: event
