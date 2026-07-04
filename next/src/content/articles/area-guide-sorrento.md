@@ -1,6 +1,6 @@
 ---
 title: "Sorrento: The Peninsula Insider Guide"
-dek: "Sorrento is the Peninsula at its most legible — limestone, tide, old money, and a main street that still works once the holiday theatre clears. Come in the off-season, stay two nights, and use it as a real town rather than a summer errand."
+dek: "Sorrento is the Peninsula at its most legible - limestone, tide, old money, and a main street that still works once the holiday theatre clears. Come in the off-season, stay two nights, and use it as a real town rather than a summer errand."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
@@ -21,13 +21,13 @@ clusterLinks:
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Sorrento best known for?"
-    answer: "The combination matters more than any single sight — limestone village architecture, a dramatic back beach, the ocean baths, and the feeling that this is where the Peninsula ends properly rather than fades out."
+    answer: "The combination matters more than any single sight - limestone village architecture, a dramatic back beach, the ocean baths, and the feeling that this is where the Peninsula ends properly rather than fades out."
   - question: "When is the best time to visit Sorrento?"
     answer: "April, May, September, and October. You get the light, the sea, and the village without the January crowd that turns simple parking into a tactical exercise."
   - question: "How far is Sorrento from Melbourne?"
     answer: "Usually 90 minutes to two hours by car via EastLink and Peninsula Link, longer on a summer Friday and worth avoiding then entirely."
 aiSummary:
-  - "Sorrento is the Mornington Peninsula's most legible destination — a limestone village at the Peninsula's tip with both a bay beach and an ocean beach, a heritage main street, and the ferry crossing to Queenscliff."
+  - "Sorrento is the Mornington Peninsula's most legible destination - a limestone village at the Peninsula's tip with both a bay beach and an ocean beach, a heritage main street, and the ferry crossing to Queenscliff."
   - "Positioned as the Peninsula's social anchor, particularly in summer, Sorrento has the widest range of accommodation, dining and activity options of any single Peninsula town."
   - "Best visited: April, May, September and October when the light is good, the village functions at normal pace, and the dramatic back beach is best experienced without summer crowds."
   - "Suits: first-time visitors who want the full Peninsula experience in one base; couples; anyone crossing via ferry. Two-night minimum recommended."

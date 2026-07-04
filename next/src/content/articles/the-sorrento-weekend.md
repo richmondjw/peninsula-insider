@@ -26,11 +26,11 @@ clusterLinks:
     href: "/journal/waterfront-restaurants-mornington-peninsula/"
 faq:
   - question: "What is the best time to visit Sorrento on the Mornington Peninsula?"
-    answer: "April through October for the off-season version — tables are bookable, the back beach is walkable without crowds, and the village operates at its natural pace. January is the worst month: the town is overwhelmed with Melbourne weekenders and the car parks fill by 9am."
+    answer: "April through October for the off-season version - tables are bookable, the back beach is walkable without crowds, and the village operates at its natural pace. January is the worst month: the town is overwhelmed with Melbourne weekenders and the car parks fill by 9am."
   - question: "Is it worth staying in Sorrento rather than Red Hill for a Peninsula weekend?"
-    answer: "For a Sorrento-focused trip, yes — staying in the village eliminates the commute and turns the whole weekend walkable. The Continental Sorrento and Hotel Sorrento are the two main options. If you also want the wineries, Red Hill is the better base."
+    answer: "For a Sorrento-focused trip, yes - staying in the village eliminates the commute and turns the whole weekend walkable. The Continental Sorrento and Hotel Sorrento are the two main options. If you also want the wineries, Red Hill is the better base."
   - question: "What are the best things to do in Sorrento apart from the beach?"
-    answer: "The Sorrento Ocean Baths and their clifftop boardwalk, the ferry crossing to Queenscliff, and Point Nepean National Park (10 minutes west at Portsea) are the strongest non-beach moves. The main street is worth an unhurried hour — limestone buildings, a strong bakery, and walkable foreshore."
+    answer: "The Sorrento Ocean Baths and their clifftop boardwalk, the ferry crossing to Queenscliff, and Point Nepean National Park (10 minutes west at Portsea) are the strongest non-beach moves. The main street is worth an unhurried hour - limestone buildings, a strong bakery, and walkable foreshore."
 ---
 
 Sorrento has two problems, and they are the same problem at different volumes.

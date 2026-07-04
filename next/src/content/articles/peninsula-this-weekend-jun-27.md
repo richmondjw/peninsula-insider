@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend — 27 to 28 June"
+title: "Peninsula This Weekend - 27 to 28 June"
 dek: "The solstice crowd has gone home. This is the quiet winter weekend of truffle hunts, local markets, and the final Sunday Sessions at the springs."
 author: "editorial"
 houseByline: true
@@ -46,7 +46,7 @@ dispatch:
     title: "Red Hill Truffles winter hunt, Main Ridge"
     when: "Saturday 27 or Sunday 28 June, booking required"
     where: "Red Hill Truffles, Main Ridge"
-    price: "From $189pp (pizza hunt), from $195pp (lunch bundle), from $120pp (private hunt, minimum party)"
+    price: "Ticketed. Three formats: pizza hunt, lunch bundle, private hunt (minimum party). Current prices on redhilltruffles.com."
     summary: "Périgord black season is still at peak. Post-solstice weekend slots are generally easier to book than the festival weekend. Sunday morning remains the quietest hunt of the week."
     bookingLabel: "Book via Red Hill Truffles"
     bookingUrl: "https://redhilltruffles.com/hunts"
@@ -82,7 +82,7 @@ The 2026 Sunday Sessions run finishes this weekend. Live acoustic music from the
 **Red Hill Truffles winter hunt, Main Ridge**
 Saturday 27 or Sunday 28 June. Booking required.
 
-Périgord black season is still at peak. The solstice weekend has passed, so Saturday and Sunday slots are more available than they were a week ago. Sunday morning is the quietest hunt of the week: frosty forest, working dogs, and the hunt done before the lunch crowd arrives. Pizza hunts from $189 per person, lunch bundles from $195 per person.
+Périgord black season is still at peak. The solstice weekend has passed, so Saturday and Sunday slots are more available than they were a week ago. Sunday morning is the quietest hunt of the week: frosty forest, working dogs, and the hunt done before the lunch crowd arrives. Hunts run as a pizza hunt or a lunch bundle; current prices are on the operator's site.
 
 **Flinders Truffles winter hunt, Flinders**
 Saturday 27 or Sunday 28 June. Booking required for hunts; farmgate days run without booking.
@@ -105,7 +105,7 @@ Included with afternoon bathing session
 
 **Red Hill Truffles**
 Sat 27 or Sun 28 June, Main Ridge
-From $189pp (pizza hunt), from $195pp (lunch bundle), from $120pp (private hunt)
+Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator's site.
 Booking required: redhilltruffles.com/hunts
 
 **Flinders Truffles**

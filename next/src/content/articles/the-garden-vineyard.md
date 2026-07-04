@@ -25,9 +25,9 @@ faq:
   - question: "What is The Garden Vineyard known for?"
     answer: "A smaller-scale Peninsula wine identity that merits direct verification before planning a dedicated visit."
   - question: "Is The Garden Vineyard worth visiting?"
-    answer: "Potentially yes — especially if you prefer small producers to big estate theatre — but confirm current tasting access before building a day around it."
+    answer: "Potentially yes - especially if you prefer small producers to big estate theatre - but confirm current tasting access before building a day around it."
   - question: "Where is The Garden Vineyard?"
-    answer: "Mornington Peninsula, Mornington Peninsula — roughly 75 to 90 minutes from Melbourne depending on traffic."
+    answer: "Mornington Peninsula, Mornington Peninsula - roughly 75 to 90 minutes from Melbourne depending on traffic."
 ---
 
 Public information on The Garden Vineyard is thinner than it is for the Peninsula's headline estates, and that usually tells you something useful straight away. This is unlikely to be a polished all-day destination built for tour buses and long lunches. It is more likely to be a smaller-scale producer, a private tasting setup, or a venue whose best use is for readers who already know why they are going.

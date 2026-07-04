@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/article-cellar-door-01.webp"
-  alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs — representative image"
+  alt: "An Easter Sunday brunch table on a Peninsula garden terrace with hot cross buns and chocolate eggs - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -22,9 +22,9 @@ lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Two Bays Walking Track"
     href: "/journal/two-bays-walk-mornington-peninsula/"
-  - label: "Ashcombe Maze — Visitor Guide"
+  - label: "Ashcombe Maze - Visitor Guide"
     href: "/journal/ashcombe-maze-visitor-guide/"
-  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
     href: "/journal/best-spas-mornington-peninsula/"
 faq:
   - question: "Is the Mornington Peninsula worth visiting at Easter?"
@@ -34,11 +34,11 @@ faq:
   - question: "When is the best time to leave the Mornington Peninsula on Easter Monday?"
     answer: "Before 11.30am. The Mornington Peninsula Freeway typically slows significantly from about 1pm on Easter Monday. Leaving before midday puts you home well ahead of the worst of it."
 aiSummary:
-  - "A planning guide specific to Easter on the Mornington Peninsula — the Peninsula's busiest long weekend — covering timing, booking, and how to manage the crowds intelligently."
+  - "A planning guide specific to Easter on the Mornington Peninsula - the Peninsula's busiest long weekend - covering timing, booking, and how to manage the crowds intelligently."
   - "The editorial argument: Easter on the Peninsula is worth doing if you book correctly and choose the right activities. The piece sequences what to book first and which parts of the Peninsula are most congested."
   - "Covers: what is worth booking 6–8 weeks ahead for Easter; where to avoid (Sorrento foreshore on Saturday); where is quieter than expected (inland hinterland, Flinders, Balnarring)."
   - "Suits: anyone committed to visiting at Easter; visitors who have flexibility about which days they go and want to minimise crowd exposure."
-  - "Planning note: the cellar doors are quieter than restaurants on Good Friday. Monday is usually the best day on the Peninsula for food — fewer day-trippers, same quality."
+  - "Planning note: the cellar doors are quieter than restaurants on Good Friday. Monday is usually the best day on the Peninsula for food - fewer day-trippers, same quality."
 ---
 
 Easter on the Mornington Peninsula is its own weekend.

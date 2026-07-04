@@ -21,15 +21,15 @@ clusterLinks:
     href: "/journal/the-point-nepean-half-day/"
   - label: "The Sorrento Weekend"
     href: "/journal/the-sorrento-weekend/"
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
   - question: "What is the best thing to do on the Mornington Peninsula on ANZAC Day?"
-    answer: "The ANZAC Day dawn service in Sorrento is the clearest call — the foreshore setting, the early light, and the quiet arrival of locals gives the occasion the seriousness it deserves. After the service: coffee, breakfast, a foreshore walk, and a deliberately under-programmed day. Point Nepean on Sunday morning connects the landscape directly to the occasion — the fort, the Quarantine Station, and the military history carry particular weight on ANZAC weekend."
+    answer: "The ANZAC Day dawn service in Sorrento is the clearest call - the foreshore setting, the early light, and the quiet arrival of locals gives the occasion the seriousness it deserves. After the service: coffee, breakfast, a foreshore walk, and a deliberately under-programmed day. Point Nepean on Sunday morning connects the landscape directly to the occasion - the fort, the Quarantine Station, and the military history carry particular weight on ANZAC weekend."
   - question: "Is the Mornington Peninsula worth visiting over the ANZAC Day long weekend?"
-    answer: "Yes — especially if you base yourself in Sorrento for the full weekend. The dawn service, the Sorrento Writers Festival (held the same weekend), and Point Nepean are all within ten minutes of each other. The risk is over-programming: the weekend works better with one serious anchor and deliberate breathing room than with a packed itinerary."
+    answer: "Yes - especially if you base yourself in Sorrento for the full weekend. The dawn service, the Sorrento Writers Festival (held the same weekend), and Point Nepean are all within ten minutes of each other. The risk is over-programming: the weekend works better with one serious anchor and deliberate breathing room than with a packed itinerary."
   - question: "Is Alba Thermal Springs a good choice on the ANZAC Day long weekend?"
-    answer: "Yes — and it is the better long-weekend choice over Peninsula Hot Springs. Alba caps bather numbers more strictly and has a more considered atmosphere, which suits the reflective register of ANZAC weekend. Book a late afternoon slot and treat it as the period at the end of the weekend, not another item on the activity list. Book well in advance — long weekend sessions fill several weeks out."
+    answer: "Yes - and it is the better long-weekend choice over Peninsula Hot Springs. Alba caps bather numbers more strictly and has a more considered atmosphere, which suits the reflective register of ANZAC weekend. Book a late afternoon slot and treat it as the period at the end of the weekend, not another item on the activity list. Book well in advance - long weekend sessions fill several weeks out."
 ---
 
 _Peninsula This Weekend is our recurring Friday-useful dispatch: the plan we'd actually make, the booking worth locking in, and the bit of weekend thinking we'd happily do for you._
@@ -100,4 +100,4 @@ It absorbs mixed ages, uncertain weather, and a group whose patience is running 
 
 ## A note on rhythm
 
-The Peninsula is at its best this weekend when it is allowed to be thoughtful. Dawn in Sorrento, one second move chosen for the register you actually want — literary, restorative, or low-friction — and unclaimed space around both. That is enough for a very good April weekend here.
+The Peninsula is at its best this weekend when it is allowed to be thoughtful. Dawn in Sorrento, one second move chosen for the register you actually want - literary, restorative, or low-friction - and unclaimed space around both. That is enough for a very good April weekend here.

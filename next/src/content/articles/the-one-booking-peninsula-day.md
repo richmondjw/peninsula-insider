@@ -21,7 +21,7 @@ lastVerified: 2026-05-19
 
 The common failure mode for a Peninsula day trip is the schedule.
 
-Not the schedule itself — planning is reasonable — but the kind of schedule that treats the Peninsula like a checklist. Cellar door at eleven, lunch at one, second cellar door at three, beach stop at five. Everything fitting, nothing landing.
+Not the schedule itself - planning is reasonable - but the kind of schedule that treats the Peninsula like a checklist. Cellar door at eleven, lunch at one, second cellar door at three, beach stop at five. Everything fitting, nothing landing.
 
 The Peninsula is not a checklist destination. It is a slow one. The experiences that make it worth the drive are almost all time-dependent: a long lunch that settles into the room, a coastal walk that earns a second coffee, a cellar door where you end up talking to the winemaker because the afternoon had room in it. None of these happen on a schedule with six items.
 
@@ -39,7 +39,7 @@ This sounds obvious. It is not how most people plan a Peninsula day.
 
 The best Peninsula days follow this sequence: a walk, then a table.
 
-The walk does not need to be serious — a 40-minute circuit is enough. It gives the day a physical quality that makes the lunch feel earned rather than default. It makes the first glass of wine sit differently. It gives you something to talk about at the table that is not the car park.
+The walk does not need to be serious - a 40-minute circuit is enough. It gives the day a physical quality that makes the lunch feel earned rather than default. It makes the first glass of wine sit differently. It gives you something to talk about at the table that is not the car park.
 
 Bushrangers Bay before a Main Ridge lunch. The Mornington Peninsula National Park coastal track before Flinders. The Red Hill market loop before a cellar door at Merricks General Wine Store.
 
@@ -59,9 +59,9 @@ None of this is possible on a tight schedule. All of it is possible when you hav
 
 If you are making one booking for a Peninsula day, make it the meal.
 
-The cellar doors can accommodate walk-ins, especially mid-week and in the shoulder and winter seasons. The walks do not require booking. The bakeries, the markets, the coastal stops — all of these are available without advance planning.
+The cellar doors can accommodate walk-ins, especially mid-week and in the shoulder and winter seasons. The walks do not require booking. The bakeries, the markets, the coastal stops - all of these are available without advance planning.
 
-The one thing that genuinely benefits from a reservation is the dining room. The hatted rooms — Laura, Tedesca, Ten Minutes by Tractor, Barragunda — book weeks ahead. But the second tier — Montalto, Polperro, Paringa Estate, Foxeys Hangout — is bookable within a week or two for most weekend slots, and walk-in accessible on weekday lunches.
+The one thing that genuinely benefits from a reservation is the dining room. The hatted rooms - Laura, Tedesca, Ten Minutes by Tractor, Barragunda - book weeks ahead. But the second tier - Montalto, Polperro, Paringa Estate, Foxeys Hangout - is bookable within a week or two for most weekend slots, and walk-in accessible on weekday lunches.
 
 Book one of these. Leave the rest open.
 

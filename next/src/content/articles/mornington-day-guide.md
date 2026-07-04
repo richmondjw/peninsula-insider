@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-05
 heroImage:
   src: "/images/sourced/article-peninsula-pantry-01.webp"
-  alt: "Mornington main street with morning shoppers and cafes — representative image"
+  alt: "Mornington main street with morning shoppers and cafes - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -20,21 +20,21 @@ section: plans
 planShape: "day-trip"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "First Time on the Peninsula — The Honest Starter Guide"
+  - label: "First Time on the Peninsula - The Honest Starter Guide"
     href: "/journal/first-time-peninsula/"
-  - label: "The Four-Hour Peninsula — Compact Day Guide"
+  - label: "The Four-Hour Peninsula - Compact Day Guide"
     href: "/journal/the-four-hour-peninsula/"
   - label: "Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula"
     href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
 faq:
   - question: "What should I do on a day trip to Mornington?"
-    answer: "Coffee at Commonfolk, the main street loop (gallery, shops, foreshore), lunch at Bass and Flinders Distillery or a Main Street bistro, then Mount Martha Beach in the afternoon. Four stops in roughly six hours — no wasted driving, and walkable between most of them."
+    answer: "Coffee at Commonfolk, the main street loop (gallery, shops, foreshore), lunch at Bass and Flinders Distillery or a Main Street bistro, then Mount Martha Beach in the afternoon. Four stops in roughly six hours - no wasted driving, and walkable between most of them."
   - question: "When is the Mornington Farmers' Market?"
-    answer: "Second Saturday of each month on the Esplanade bayfront. It's the best monthly market on the Peninsula for produce, cheese, bread, and local goods — worth structuring a whole day around if you're coming in the morning."
+    answer: "Second Saturday of each month on the Esplanade bayfront. It's the best monthly market on the Peninsula for produce, cheese, bread, and local goods - worth structuring a whole day around if you're coming in the morning."
   - question: "Is Mornington worth visiting on its own, or should I continue to Red Hill?"
-    answer: "Worth a full day on its own — gallery, market, foreshore, good coffee, and Mount Martha Beach. If you want wineries and cellar doors, Red Hill is a separate day. Trying to combine both usually ends with rushing everything and enjoying neither."
+    answer: "Worth a full day on its own - gallery, market, foreshore, good coffee, and Mount Martha Beach. If you want wineries and cellar doors, Red Hill is a separate day. Trying to combine both usually ends with rushing everything and enjoying neither."
 aiSummary:
-  - "A complete day-trip guide to Mornington town — structured to make the most of the Peninsula's main hub in a single day without a car-heavy itinerary."
+  - "A complete day-trip guide to Mornington town - structured to make the most of the Peninsula's main hub in a single day without a car-heavy itinerary."
   - "Covers: the Wednesday market as the ideal starting point; the foreshore walk; the best café and lunch options; what the main street actually offers beyond coffee."
   - "The editorial argument: Mornington is consistently underused as a destination in its own right rather than a gateway town. This piece treats it as the destination."
   - "Suits: day-trippers from Melbourne; visitors staying in Mount Martha or nearby who want a full Mornington day; anyone who has dismissed Mornington as 'just a service town'."

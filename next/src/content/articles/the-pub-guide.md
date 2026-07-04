@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-pub-02.webp"
-  alt: "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables — representative image"
+  alt: "A beer garden at a Peninsula pub on a late autumn afternoon with locals at timber tables - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "insider-edit"
@@ -45,7 +45,7 @@ clusterLinks:
     href: "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
     href: "/journal/where-to-stay-mornington-peninsula/"
-  - label: "The Dog-Friendly Peninsula — Full Weekend Guide"
+  - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
     href: "/journal/the-dog-friendly-peninsula/"
 faq:
   - question: "Which is the best pub on the Mornington Peninsula?"
@@ -53,7 +53,7 @@ faq:
   - question: "Are Peninsula pubs dog-friendly?"
     answer: "Some are. Balnarring Pub beer garden and The Rocks at Mornington are confirmed dog-friendly. Portsea Hotel beer garden allows dogs on-leash outside peak season. Always confirm with the venue directly before bringing a dog."
   - question: "Which Peninsula pubs have accommodation?"
-    answer: "Flinders Hotel and Hotel Sorrento both have well-renovated rooms above the bar — Flinders from about $280, Hotel Sorrento slightly higher. Portsea Hotel also has renovated accommodation. All three are significantly better than a standard pub room."
+    answer: "Flinders Hotel and Hotel Sorrento both have well-renovated rooms above the bar; current rates are on each hotel's site. Portsea Hotel also has renovated accommodation. All three are significantly better than a standard pub room."
 ---
 
 There is a version of the Mornington Peninsula that has nothing to do with cellar doors, degustation menus, or hot springs, and it runs on pubs.
@@ -70,7 +70,7 @@ The pub runs as a full hotel with well-designed rooms upstairs, a dining room th
 
 The food has lifted over the past few years: Peninsula produce handled with pub confidence rather than fine-dining anxiety. The steak is excellent. The fish changes with what comes off the boats. The wine list runs heavily to local producers.
 
-Stay here if you want the ocean side of the Peninsula without giving up a good dinner. Rooms from about $280.
+Stay here if you want the ocean side of the Peninsula without giving up a good dinner. Room rates sit in the upper half of Peninsula pub accommodation; current prices are on the hotel's site.
 
 ## Hotel Sorrento, the one everyone knows
 

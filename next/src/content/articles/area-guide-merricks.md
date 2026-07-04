@@ -21,15 +21,15 @@ clusterLinks:
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Merricks best known for?"
-    answer: "Understated wine-country living — the General Wine Store, the pub, estate lunches and a softer, more local mood than Red Hill proper."
+    answer: "Understated wine-country living - the General Wine Store, the pub, estate lunches and a softer, more local mood than Red Hill proper."
   - question: "When is the best time to visit Merricks?"
     answer: "Autumn is the strongest all-round season, with spring close behind. Merricks also works beautifully on clear winter days because the pace naturally slows with the weather."
   - question: "How far is Merricks from Melbourne?"
     answer: "Usually about an hour to 80 minutes by car, depending on traffic and whether you approach via the bay road or straight into the hinterland."
 aiSummary:
-  - "Merricks is the Mornington Peninsula's quietest wine-country corridor — a farming and wine community with no town centre to speak of, known for benchmark producers and one of the Peninsula's most distinctive food destinations."
+  - "Merricks is the Mornington Peninsula's quietest wine-country corridor - a farming and wine community with no town centre to speak of, known for benchmark producers and one of the Peninsula's most distinctive food destinations."
   - "Known for: Merricks General Wine Store (cellar door, bakery, wine bar); Foxeys Hangout; Merricks General Wine Store; a concentration of high-quality producers in a deliberately low-profile setting."
-  - "The Merricks corridor is deliberately un-tourism-board — no signage, no visitor centre, no parade. The producers here prefer it that way."
+  - "The Merricks corridor is deliberately un-tourism-board - no signage, no visitor centre, no parade. The producers here prefer it that way."
   - "Suits: wine-focused visitors who know what they want; people returning to the Peninsula for a third or fourth visit who want to get off the main roads."
   - "Planning note: minimal driving signage and few walk-in opportunities. Research producers before arriving. The General Wine Store is the correct starting point."
 ---

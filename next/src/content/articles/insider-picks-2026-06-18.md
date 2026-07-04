@@ -1,5 +1,5 @@
 ---
-title: "Insider Picks — Week of 18 June: The Shortest Week"
+title: "Insider Picks - Week of 18 June: The Shortest Week"
 dek: "Three picks for the solstice week: a gallery show with twelve days of life left, a coastal walk at its most dramatic, and the farm dinner that winter was built for."
 author: "editorial"
 houseByline: true
@@ -18,7 +18,7 @@ featured: false
 status: "draft"
 lastVerified: 2026-06-18
 clusterLinks:
-  - label: "Peninsula This Weekend — 20 to 21 June"
+  - label: "Peninsula This Weekend - 20 to 21 June"
     href: "/journal/peninsula-this-weekend-jun-20/"
   - label: "Things to Do on the Mornington Peninsula"
     href: "/journal/things-to-do-mornington-peninsula/"
@@ -35,7 +35,7 @@ faq:
 
 The solstice falls on Saturday, and the Peninsula's editorial calendar is dominated by one big night on the Sorrento foreshore. This edition picks around it. Three things that feel strongest right now: one closing cultural window, one walk that winter actually improves, and one dinner that only makes sense in the cold months.
 
-## See it before it closes — MPRG Autumn Exhibition
+## See it before it closes - MPRG Autumn Exhibition
 
 **Mornington Peninsula Regional Gallery, Mornington. Closes Monday 30 June. Free entry, no booking.**
 

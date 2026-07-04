@@ -1,6 +1,6 @@
 ---
 slug: "mornington-peninsula-golf-stay-and-play"
-title: "Mornington Peninsula Stay and Play Golf — Where to Stay Near Every Course"
+title: "Mornington Peninsula Stay and Play Golf - Where to Stay Near Every Course"
 dek: "The accommodation that makes each Peninsula golf course walkable, driveable, or otherwise properly paired. Ten courses, stay recommendations for each, and the package combinations that actually work."
 author: "editorial"
 houseByline: true
@@ -19,9 +19,9 @@ section: plans
 planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Best Golf Courses on the Mornington Peninsula — Tier Guide"
+  - label: "Best Golf Courses on the Mornington Peninsula - Tier Guide"
     href: "/journal/best-golf-courses-mornington-peninsula/"
-  - label: "Mornington Peninsula Golf — Why It's Australia's Best Golf Region"
+  - label: "Mornington Peninsula Golf - Why It's Australia's Best Golf Region"
     href: "/journal/mornington-peninsula-golf-guide/"
   - label: "Where to Stay on the Mornington Peninsula"
     href: "/journal/where-to-stay-mornington-peninsula/"
@@ -29,11 +29,11 @@ faq:
   - question: "Where is the best place to stay for a Mornington Peninsula golf weekend?"
     answer: "Match the stay to the course. RACV Cape Schanck Resort for on-property golf (walk from room to first tee). Jackalope Hotel (15 min) for St Andrews Beach with a serious dinner at Doot Doot Doot. Peppers Moonah Links Resort for a 36-hole weekend. Staying within 10 minutes of the course is the single biggest improvement you can make to a golf trip."
   - question: "Are there stay-and-play golf packages on the Mornington Peninsula?"
-    answer: "Yes. RACV Cape Schanck and Peppers Moonah Links both offer bundled stay, golf, and dining packages. Jackalope paired with St Andrews Beach is commonly packaged separately. Check direct with the venue — bundled packages are often cheaper than separate bookings."
+    answer: "Yes. RACV Cape Schanck and Peppers Moonah Links both offer bundled stay, golf, and dining packages. Jackalope paired with St Andrews Beach is commonly packaged separately. Check direct with the venue - bundled packages are often cheaper than separate bookings."
   - question: "What is the best Peninsula golf weekend for a mixed group?"
-    answer: "Jackalope Hotel paired with St Andrews Beach — the golfer gets a world-class Tom Doak course while the non-golfer has Doot Doot Doot dinner, Spa by Jackalope, and the Red Hill cellar doors 15 minutes away. Both have a full day without needing to be in the same place."
+    answer: "Jackalope Hotel paired with St Andrews Beach - the golfer gets a world-class Tom Doak course while the non-golfer has Doot Doot Doot dinner, Spa by Jackalope, and the Red Hill cellar doors 15 minutes away. Both have a full day without needing to be in the same place."
 aiSummary:
-  - "A planning guide for combining a Peninsula golf course with overnight accommodation — covering which Peninsula courses suit different golfer types and how to sequence a stay-and-play weekend."
+  - "A planning guide for combining a Peninsula golf course with overnight accommodation - covering which Peninsula courses suit different golfer types and how to sequence a stay-and-play weekend."
   - "Key courses covered: Moonah Links (championship course, Fingal, the premium stay-and-play option), Flinders Golf Club (world-ranked, members guest days only on weekdays), RACV Cape Schanck (resort golf, easiest access)."
   - "The editorial distinction: Peninsula golf courses vary significantly in access, quality and atmosphere. The piece helps golfers choose correctly based on their handicap and the experience they want."
   - "Suits: golfers planning a dedicated Peninsula golf trip; couples where one partner golfs; anyone wanting to understand what makes the Peninsula a legitimate golf destination."
@@ -83,13 +83,13 @@ The simplest stay-and-play combo on the Peninsula. <a href="/explore/racv-cape-s
 ## The three stay-and-play packages worth treating as products
 
 ### 1. The "one serious round" weekend: two nights
-Jackalope or RACV Cape Schanck. One 18-hole round at St Andrews Beach. Long lunch on the Red Hill ridge the same day. Sunday morning hot springs. Drive home. ~$1,800-2,500 for two people all-in (depending on stay choice and peak season).
+Jackalope or RACV Cape Schanck. One 18-hole round at St Andrews Beach. Long lunch on the Red Hill ridge the same day. Sunday morning hot springs. Drive home. The stay and the lunch carry most of the cost; peak season and the Jackalope option push it higher.
 
 ### 2. The "full 36-hole weekend": two nights
-Peppers Moonah Links Resort. Saturday Open Course, Sunday Legends Course. Dinner on-property Saturday. Local breakfast Sunday. ~$1,500-2,200 for two people: typically cheaper than the Jackalope option because of bundled packages.
+Peppers Moonah Links Resort. Saturday Open Course, Sunday Legends Course. Dinner on-property Saturday. Local breakfast Sunday. Typically cheaper than the Jackalope option because of bundled packages; current rates are on the resort's site.
 
 ### 3. The "golf plus everything else": three nights
-Jackalope or Port Phillip Estate. One round at St Andrews Beach, one round at The Dunes. One cellar door day. One coastal walk day. Two serious dinners. This is the flagship Peninsula golf trip: high budget, maximum variety, 4-5 distinct experiences across three days. ~$3,500-5,000 for two people.
+Jackalope or Port Phillip Estate. One round at St Andrews Beach, one round at The Dunes. One cellar door day. One coastal walk day. Two serious dinners. This is the flagship Peninsula golf trip: high budget, maximum variety, 4-5 distinct experiences across three days. Expect it to cost roughly double either two-night version.
 
 ## Before you book
 

@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/category-restaurant-01.webp"
-  alt: "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon — representative image"
+  alt: "A couple studying a chalkboard menu outside a Peninsula pub on a Saturday afternoon - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -28,11 +28,11 @@ faq:
   - question: "Which Peninsula restaurants take walk-ins without a booking?"
     answer: "The pub network is the most reliable: Flinders Hotel (best for a walk-in lunch), Dromana Hotel (most reliably available), Rye Hotel, and Balnarring Pub. Breweries: Red Hill Brewery, St Andrews Beach Brewery, and Jetty Road Brewery all take walk-ins. Bakeries and cafés including Flinders Sourdough, Commonfolk Coffee, and Red Hill Bakery are counter service only, no booking required."
   - question: "What are the best walk-in towns on the Mornington Peninsula?"
-    answer: "Flinders — hotel, sourdough bakery, general store, pier takeaway, and pier walk, all walk-in. Mornington — Commonfolk, the hotel pub, dumplings, the foreshore, and the gallery. Red Hill — the bakery, Johnny Ripe, Red Hill Brewery, and Red Gum BBQ. Any of these three supports a full day without a reservation."
+    answer: "Flinders - hotel, sourdough bakery, general store, pier takeaway, and pier walk, all walk-in. Mornington - Commonfolk, the hotel pub, dumplings, the foreshore, and the gallery. Red Hill - the bakery, Johnny Ripe, Red Hill Brewery, and Red Gum BBQ. Any of these three supports a full day without a reservation."
   - question: "Can you eat well on the Mornington Peninsula without booking ahead?"
-    answer: "Yes — but you need to use the right circuit. The booked restaurants (hatted rooms, winery dining) are a separate system from the walk-in circuit (pubs, bakeries, breweries, fast-casual). A walk-in Peninsula day is not a compromise version; it is a different version that is cheaper, more spontaneous, and occasionally more memorable than the booked alternative."
+    answer: "Yes - but you need to use the right circuit. The booked restaurants (hatted rooms, winery dining) are a separate system from the walk-in circuit (pubs, bakeries, breweries, fast-casual). A walk-in Peninsula day is not a compromise version; it is a different version that is cheaper, more spontaneous, and occasionally more memorable than the booked alternative."
 aiSummary:
-  - "A practical guide to the Mornington Peninsula's best walk-in dining options — structured for visitors who either couldn't get a booking or prefer flexibility."
+  - "A practical guide to the Mornington Peninsula's best walk-in dining options - structured for visitors who either couldn't get a booking or prefer flexibility."
   - "Covers: which hatted restaurants accept walk-ins (Rare Hare and Many Little under specific conditions); the best pub dining on the Peninsula; which markets and bakeries to use as an alternative to restaurant lunch."
   - "The editorial distinction: a Peninsula trip without a booking is not a failed trip. There are a dozen genuinely good walk-in options that the booking-first narrative systematically undersells."
   - "Suits: spontaneous visitors; last-minute day-trippers; anyone who left booking too late but still wants to eat well."

@@ -1,6 +1,6 @@
 ---
 title: "Portsea: The Peninsula Insider Guide"
-dek: "Portsea is the Peninsula's quiet final note — more private than Sorrento, less immediately legible, and better for visitors who already know how to read the tip. Come for Point Nepean, the back beaches and one of the most withheld village atmospheres in Victoria."
+dek: "Portsea is the Peninsula's quiet final note - more private than Sorrento, less immediately legible, and better for visitors who already know how to read the tip. Come for Point Nepean, the back beaches and one of the most withheld village atmospheres in Victoria."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
@@ -27,9 +27,9 @@ faq:
   - question: "How far is Portsea from Melbourne?"
     answer: "Usually around 1 hour 40 minutes to two hours by car, longer in summer traffic."
 aiSummary:
-  - "Portsea is the Peninsula's most private destination — old-money, quiet, limited public accommodation, and oriented around its back beach and cliff walks rather than a commercial centre."
+  - "Portsea is the Peninsula's most private destination - old-money, quiet, limited public accommodation, and oriented around its back beach and cliff walks rather than a commercial centre."
   - "Known for: the back beach (dramatic Bass Strait surf, accessible cliff walks), the Portsea Hotel (bay views, reliable pub dining), and a location at the very end of the Peninsula adjacent to Point Nepean National Park."
-  - "Distinct from Sorrento: Portsea has almost no main street, less tourist infrastructure, and a quieter atmosphere — it is not a visiting town in the conventional sense but a destination in itself."
+  - "Distinct from Sorrento: Portsea has almost no main street, less tourist infrastructure, and a quieter atmosphere - it is not a visiting town in the conventional sense but a destination in itself."
   - "Suits: visitors who have done Sorrento and want the next level of quiet; beach walkers; Point Nepean day-trippers. The Portsea Hotel is the primary public anchor."
   - "Planning note: limited accommodation options in Portsea proper. Most visitors base in Sorrento and day-trip. Point Nepean National Park access is from the Portsea end."
 ---

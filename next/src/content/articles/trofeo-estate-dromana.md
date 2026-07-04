@@ -25,9 +25,9 @@ faq:
   - question: "What is Trofeo Estate known for?"
     answer: "A smaller-scale Peninsula wine identity that merits direct verification before planning a dedicated visit."
   - question: "Is Trofeo Estate worth visiting?"
-    answer: "Potentially yes — especially if you prefer small producers to big estate theatre — but confirm current tasting access before building a day around it."
+    answer: "Potentially yes - especially if you prefer small producers to big estate theatre - but confirm current tasting access before building a day around it."
   - question: "Where is Trofeo Estate?"
-    answer: "Dromana, Mornington Peninsula — roughly 75 to 90 minutes from Melbourne depending on traffic."
+    answer: "Dromana, Mornington Peninsula - roughly 75 to 90 minutes from Melbourne depending on traffic."
 ---
 
 Public information on Trofeo Estate is thinner than it is for the Peninsula's headline estates, and that usually tells you something useful straight away. This is likely a smaller-scale producer, a private tasting setup, or a venue whose best use is for readers who already know why they are going.

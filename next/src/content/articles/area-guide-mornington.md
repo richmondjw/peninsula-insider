@@ -1,6 +1,6 @@
 ---
 title: "Mornington: The Peninsula Insider Guide"
-dek: "Mornington is the Peninsula's commercial hub, but that undersells it badly. Done properly, it is the best entry point for first-timers — a town with enough main-street life, foreshore access and market culture to explain the region before you drive any further south."
+dek: "Mornington is the Peninsula's commercial hub, but that undersells it badly. Done properly, it is the best entry point for first-timers - a town with enough main-street life, foreshore access and market culture to explain the region before you drive any further south."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
@@ -27,7 +27,7 @@ faq:
   - question: "How far is Mornington from Melbourne?"
     answer: "Usually around an hour by car, which is part of why it works so well as a day-trip town and Peninsula entry point."
 aiSummary:
-  - "Mornington is the Mornington Peninsula's main town and the most practical entry point for first-time visitors — has a working main street, a weekly farmers' market, and foreshore access within easy walking distance."
+  - "Mornington is the Mornington Peninsula's main town and the most practical entry point for first-time visitors - has a working main street, a weekly farmers' market, and foreshore access within easy walking distance."
   - "Known for: the Wednesday farmers' market on the Esplanade (one of the best on the Peninsula), bathing boxes and a saltwater pool on the foreshore, a genuine café and restaurant scene."
   - "Best used as: a day-trip destination from Melbourne, a first night on a longer Peninsula trip, or a base for visitors who want proximity to both bay beaches and the hinterland without committing to one zone."
   - "Suits: first-time visitors; families; anyone arriving mid-week (the Wednesday market is its strongest version); day-trippers. Approximately one hour from Melbourne CBD."
