@@ -70,7 +70,7 @@ export interface V4Pillar extends V4NavItem {
 /** ----------------------------------------------------------------------
  *  PILLARS
  *
- *  Order: Eat & Drink → Stay → Wine → Explore → What's On → Journal.
+ *  Order: Eat & Drink → Stay → Wine → Explore → Plans → What's On → Journal.
  *  Category pillars (intent-driven discovery) lead. Explore is the umbrella
  *  for Places, Plans, and experiences. What's On and Journal trail as the
  *  editorial and temporal surfaces. Places and Plans are no longer top-level
@@ -149,7 +149,7 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'weekend',    label: 'A weekend',         href: '/explore/plans/' },
           { key: 'kids',       label: 'With kids',         href: '/journal/the-peninsula-with-kids/' },
           { key: 'romantic',   label: 'Two of you',        href: '/journal/the-couples-weekend/' },
-          { key: 'wellness',   label: 'Wellness weekend',  href: '/spa/' },
+          { key: 'wellness',   label: 'Wellness weekend',  href: '/explore/spas-and-wellness/' },
           { key: 'dog',        label: 'Dog friendly',      href: '/dog-friendly/' },
         ],
       },
@@ -160,7 +160,7 @@ export const v4Pillars: V4Pillar[] = [
           { key: 'villas',   label: 'Villas & houses', href: '/stay/villas/' },
           { key: 'bnb',      label: 'B&Bs & cottages', href: '/stay/cottages/' },
           { key: 'glamping', label: 'Glamping',        href: '/stay/glamping/' },
-          { key: 'spa',      label: 'Spa retreats',    href: '/spa/' },
+          { key: 'spa',      label: 'Spa retreats',    href: '/explore/spas-and-wellness/' },
         ],
       },
       {
@@ -266,21 +266,71 @@ export const v4Pillars: V4Pillar[] = [
         ],
       },
       {
-        eyebrow: 'Plans & moves',
+        eyebrow: 'Specialist guides',
         items: [
-          { key: 'one-night',   label: 'One night',          href: '/explore/plans/the-one-night-escape/' },
-          { key: 'weekend',     label: 'Two-day weekend',    href: '/explore/plans/' },
-          { key: 'wellness',    label: 'Wellness weekend',   href: '/explore/plans/wellness-weekend/' },
           { key: 'walks',       label: 'Walks & trails',     href: '/explore/walks/' },
-          { key: 'beaches',     label: 'Beaches',            href: '/explore/beaches/' },
-          { key: 'map',         label: 'Open the map →',     href: '/map/' },
+          { key: 'golf',        label: 'Golf',               href: '/explore/golf/' },
+          { key: 'fishing',     label: 'Fishing',            href: '/fishing/' },
+          { key: 'boating',     label: 'Boating',            href: '/boating/' },
+          { key: 'tours',       label: 'Tours & charters',   href: '/tour/' },
+          { key: 'dog',         label: 'Dog-friendly',       href: '/dog-friendly/' },
         ],
       },
     ],
     askLine: 'Not sure which part of the Peninsula fits? Ask PI →',
   },
 
-  // 5. WHAT'S ON ------------------------------------------------------------
+  // 5. PLANS ----------------------------------------------------------------
+  // Restored as a top-level pillar per docs/INFORMATION-ARCHITECTURE.md:
+  // 'the shape of the weekend' is the masthead's first thematic territory,
+  // and burying Plans inside Explore left it invisible from the nav.
+  {
+    key: 'plans',
+    label: 'Plans',
+    href: '/explore/plans/',
+    intro: 'The weekend, already shaped. Pick a plan, swap what you like, book the one table that matters.',
+    rail: {
+      eyebrow: "Editor's pick · Winter '26",
+      title: 'Ridge to Sea',
+      verdict: 'Two nights, Red Hill down to Flinders. The order matters: ridge first, coast second, and the Friday-night arrival makes the whole thing work.',
+      href: '/explore/plans/ridge-to-sea-two-night-escape/',
+      cta: 'Open the plan',
+    },
+    columns: [
+      {
+        eyebrow: 'Weekends',
+        items: [
+          { key: 'ridge-sea',   label: 'Ridge to Sea, two nights',  href: '/explore/plans/ridge-to-sea-two-night-escape/' },
+          { key: 'sorrento',    label: 'Sorrento, off-season',      href: '/explore/plans/sorrento-off-season-weekend/' },
+          { key: 'wellness',    label: 'The wellness reset',        href: '/explore/plans/wellness-weekend/' },
+          { key: 'golf',        label: 'The golf weekend',          href: '/explore/plans/the-peninsula-golf-weekend/' },
+          { key: 'couples',     label: 'The couples weekend',       href: '/explore/plans/the-couples-weekend/' },
+          { key: 'all-plans',   label: 'All plans →',               href: '/explore/plans/' },
+        ],
+      },
+      {
+        eyebrow: 'Shorter moves',
+        items: [
+          { key: 'one-night',   label: 'The one-night escape',      href: '/explore/plans/the-one-night-escape/' },
+          { key: 'family',      label: 'The family day out',        href: '/explore/plans/the-family-day-out/' },
+          { key: 'four-hour',   label: 'The four-hour Peninsula',   href: '/explore/plans/the-four-hour-peninsula/' },
+          { key: 'market-sat',  label: 'The market Saturday',       href: '/explore/plans/the-market-saturday/' },
+          { key: 'red-hill',    label: 'A Red Hill Saturday',       href: '/explore/plans/how-to-build-a-red-hill-saturday/' },
+        ],
+      },
+      {
+        eyebrow: 'Build your own',
+        items: [
+          { key: 'how-to',      label: 'How to plan a weekend',     href: '/explore/plans/how-to-plan-a-peninsula-weekend/' },
+          { key: 'builder',     label: 'Open the plan builder',     href: '/explore/plans/build/' },
+          { key: 'itinerary',   label: 'My itinerary',              href: '/itinerary/' },
+        ],
+      },
+    ],
+    askLine: 'Tell PI the weekend you want and she will shape it. Ask PI →',
+  },
+
+  // 6. WHAT'S ON ------------------------------------------------------------
   {
     key: 'whats-on',
     label: "What's On",
@@ -371,7 +421,7 @@ export const v4Utility = {
   ask:       { key: 'ask',       label: 'Ask PI',                href: '/ask/' },
   subscribe: { key: 'subscribe', label: 'Join the Dispatch', href: '/dispatch/' },
   account:   { key: 'account',   label: 'Saved Places & Trips',   href: '/account/' },
-  pass:      { key: 'pass',      label: 'The Pass',              href: '/preview-insider-plans/' },
+  pass:      { key: 'pass',      label: 'The Pass',              href: '/pass/' },
 };
 
 /** ----------------------------------------------------------------------
@@ -383,18 +433,22 @@ export const v4FooterDepartments: V4NavItem[] = [
   { key: 'stay',     label: 'Stay',        href: '/stay/' },
   { key: 'wine',     label: 'Wine',        href: '/wine/' },
   { key: 'explore',  label: 'Explore',     href: '/explore/' },
+  { key: 'plans',    label: 'Plans',       href: '/explore/plans/' },
   { key: 'whats-on', label: "What's On",   href: '/whats-on/' },
   { key: 'journal',  label: 'Journal',     href: '/journal/' },
 ];
 
 export const v4FooterNiche: V4NavItem[] = [
-  { key: 'golf',             label: 'Golf',         href: '/golf/' },
-  { key: 'spa',              label: 'Spa',          href: '/spa/' },
+  { key: 'golf',             label: 'Golf',         href: '/explore/golf/' },
+  { key: 'spa',              label: 'Spa',          href: '/explore/spas-and-wellness/' },
   { key: 'fishing',          label: 'Fishing',      href: '/fishing/' },
   { key: 'boating',          label: 'Boating',      href: '/boating/' },
   { key: 'dog-friendly',     label: 'Dog friendly', href: '/dog-friendly/' },
   { key: 'weddings',         label: 'Weddings',     href: '/weddings/' },
   { key: 'corporate-events', label: 'Corporate',    href: '/corporate-events/' },
+  { key: 'tours',            label: 'Tours',        href: '/tour/' },
+  { key: 'events',           label: 'Signature events', href: '/events/' },
+  { key: 'awards',           label: 'Awards',       href: '/awards/' },
 ];
 
 export const v4FooterAbout: V4NavItem[] = [

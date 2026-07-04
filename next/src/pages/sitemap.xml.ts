@@ -83,8 +83,14 @@ export const GET: APIRoute = async () => {
   const TOP_HUBS = new Set(['dog-friendly', 'whats-on', 'corporate-events', 'fishing', 'ask']);
   // Note: /explore/plans/ retired 2026-05-10 — section renamed to /explore/plans/. /explore/plans/* URLs
   // remain as redirect pages (noindex) so inbound links continue to resolve.
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'plans', 'journal', 'places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
+  // /plans and /places are redirect stubs; their canonical hubs live under
+  // /explore/. List the destinations, never the stubs.
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'explore/plans', 'journal', 'explore/places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
     entries.push(url(`/${section}`, TOP_HUBS.has(section) ? 1.0 : 0.9, 'weekly'));
+  }
+  // Specialist hubs that previously had no sitemap entry at all.
+  for (const hub of ['tour', 'events', 'awards', 'guides']) {
+    entries.push(url(`/${hub}`, 0.8, 'weekly'));
   }
   // /explore/golf/ — the canonical golf hub. /golf/ is a noindex redirect stub
   // that points here, so sitemap-list this destination directly.

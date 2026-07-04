@@ -102,7 +102,7 @@ Jackalope or Port Phillip Estate. One round at St Andrews Beach, one round at Th
 
 - <a href="/journal/best-golf-courses-mornington-peninsula">Best golf courses on the Mornington Peninsula, tier guide</a>
 - <a href="/journal/mornington-peninsula-golf-guide">Why the Mornington Peninsula is Australia's golf country</a>
-- <a href="/escape/the-peninsula-golf-weekend">The Peninsula Golf Weekend itinerary</a>
+- <a href="/explore/plans/the-peninsula-golf-weekend">The Peninsula Golf Weekend itinerary</a>
 - <a href="/stay/best-accommodation">Best accommodation on the Mornington Peninsula</a>
 
 

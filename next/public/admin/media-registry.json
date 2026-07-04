@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T23:20:04.262Z",
+  "generatedAt": "2026-07-04T23:25:44.044Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -4426,18 +4426,6 @@
         {
           "file": "src/pages/explore/hot-springs.astro",
           "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/spa/index.astro",
-          "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/spa/index.astro",
-          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         }
