@@ -210,7 +210,10 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
             if (btn) { btn.textContent = 'Join'; btn.disabled = false; }
             setStatus(form, msg || 'Something went wrong. Please try again.', 'err');
           }
-          if (!endpoint) { setTimeout(ok, 350); return; }
+          if (!endpoint) {
+            fail('Signups are briefly offline. Email hello@peninsulainsider.com.au and we will add you.');
+            return;
+          }
           fetch(endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

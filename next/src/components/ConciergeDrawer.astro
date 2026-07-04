@@ -735,7 +735,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
     // Resolved fresh on every request so a late-binding window.PI_API_URL
     // still works (defensive against script-load-order issues).
-    const apiUrl = () => window.PI_API_URL || 'http://localhost:8787';
+    const apiUrl = () => window.PI_API_URL || 'https://peninsula-insider-platform-api.vercel.app';
     const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
 
     // ── State ────────────────────────────────────────

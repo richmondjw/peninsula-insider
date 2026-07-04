@@ -101,6 +101,20 @@ export function ptwWeekendLabel(article: any): string {
 }
 
 /**
+ * ISO timestamp for the moment this dispatch's weekend closes
+ * (Sunday 23:59 AEST). Used by the rolling /whats-on/this-weekend/ page
+ * to detect at read time that a statically built dispatch has aged out,
+ * so the page can say so instead of presenting a past weekend as current.
+ */
+export function ptwWeekendEndIso(article: any): string {
+  const friday = ptwWeekendFriday(article);
+  const sunday = new Date(friday);
+  sunday.setUTCDate(friday.getUTCDate() + 2);
+  sunday.setUTCHours(13, 59, 0, 0); // 23:59 AEST
+  return sunday.toISOString();
+}
+
+/**
  * Build the Event JSON-LD schema for a PTW dispatch.
  *
  * Per Operational Definitions v1.2 (What's On layer): every What's On

@@ -34,7 +34,11 @@ const SUPABASE_URL =
   (import.meta.env.PUBLIC_SUPABASE_URL as string | undefined) ||
   'https://tjjhpvslpysfklwpqmgz.supabase.co';
 
-const SUPABASE_ANON_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined;
+const SUPABASE_ANON_KEY =
+  (import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined) ||
+  // Publishable key: safe to ship client-side by design; RLS is the gate.
+  // Fallback so a build without env vars still produces working auth.
+  'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp';
 
 let _client: SupabaseClient | null = null;
 

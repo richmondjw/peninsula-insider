@@ -45,6 +45,10 @@ jobs:
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          PUBLIC_CONCIERGE_API_URL: https://peninsula-insider-platform-api.vercel.app
+          # Set to 'off' to remove the temporary client-side password gate
+          # and launch the site publicly.
+          PUBLIC_ACCESS_GATE: 'on'
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

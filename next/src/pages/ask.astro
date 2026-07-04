@@ -6,7 +6,7 @@
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const API_URL = import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787';
+import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 export const prerender = true;
 ---
 

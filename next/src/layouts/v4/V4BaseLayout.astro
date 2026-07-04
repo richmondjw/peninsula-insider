@@ -1,4 +1,5 @@
 ---
+import { CONCIERGE_API_URL } from '../../lib/concierge-config';
 /**
  * V4 BaseLayout (staging only).
  *
@@ -123,7 +124,7 @@ const isAskPage = rawPath.startsWith('/ask');
   <ProfileDropdown />
   <AuthModal />
 
-  <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
+  <script is:inline define:vars={{ API_URL: CONCIERGE_API_URL }}>
     window.PI_API_URL = API_URL;
   </script>
 

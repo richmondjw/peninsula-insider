@@ -1,4 +1,5 @@
 ---
+import { CONCIERGE_API_URL } from '../lib/concierge-config';
 /**
  * Peninsula Insider  -  BaseLayout
  *
@@ -309,17 +310,23 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 
-  <!-- TEMPORARY PASSWORD GATE -->
-  <script is:inline>
-    (function() {
-      var KEY  = 'pi-access-v1';
-      if (localStorage.getItem(KEY) === '1') return;
-      var path = window.location.pathname;
-      if (path === '/access/' || path === '/access') return;
-      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
-    })();
-  </script>
-  <!-- END TEMPORARY PASSWORD GATE -->
+  {/* TEMPORARY PASSWORD GATE.
+      Client-side only, so it is a soft courtesy gate, not security: the
+      content ships in the HTML regardless and crawlers that run JS get
+      redirected (which is fatal for SEO while the gate is on). Controlled
+      by PUBLIC_ACCESS_GATE so launching is a one-line env change in
+      .github/workflows/build-and-deploy.yml: set PUBLIC_ACCESS_GATE=off. */}
+  {import.meta.env.PUBLIC_ACCESS_GATE !== 'off' && (
+    <script is:inline>
+      (function() {
+        var KEY  = 'pi-access-v1';
+        if (localStorage.getItem(KEY) === '1') return;
+        var path = window.location.pathname;
+        if (path === '/access/' || path === '/access') return;
+        window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+      })();
+    </script>
+  )}
 </head>
 <body data-page={section} data-path={rawPathname} data-v4="true">
 
@@ -393,13 +400,13 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <!-- Set API URL BEFORE the drawer renders, its boot script reads
        window.PI_API_URL at parse time, so this must come first. -->
-  <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
+  <script is:inline define:vars={{ API_URL: CONCIERGE_API_URL }}>
     window.PI_API_URL = API_URL;
   </script>
 
   <!-- Supabase config for browser-side analytics (search query logging etc).
        Anon key is safe to expose — RLS ensures anon can only INSERT, not read. -->
-  <script is:inline define:vars={{ SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', SB_ANON_KEY: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+  <script is:inline define:vars={{ SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', SB_ANON_KEY: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
     window.__PI_SB = { url: SB_URL, key: SB_ANON_KEY };
   </script>
 
@@ -433,7 +440,7 @@ const isAskPage = rawPathname.startsWith('/ask');
        so right-click image edits on any page (events, places, venues, home) are
        visible immediately on next load without waiting for a rebuild.
        Non-fatal: if Supabase is unreachable the static images remain. -->
-  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
