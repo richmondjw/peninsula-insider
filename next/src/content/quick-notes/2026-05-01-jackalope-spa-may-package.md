@@ -1,6 +1,6 @@
 ---
 headline: "Jackalope's Spa by Jackalope opens a May twilight package"
-dek: "90-minute treatment plus thermal soak plus dinner at Doot Doot Doot for $385. Tuesday-to-Thursday only. Bookings live, four windows per day."
+dek: "90-minute treatment plus thermal soak plus dinner at Doot Doot Doot, packaged at one price. Tuesday-to-Thursday only. Bookings live, four windows per day."
 section: stay
 tag: opening-window
 publishedAt: 2026-05-01T08:30:00+10:00

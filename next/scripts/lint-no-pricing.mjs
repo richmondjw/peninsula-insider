@@ -101,9 +101,12 @@ walk(ROOT, (file) => {
 
   // Prose scan: content and data files plus page templates.
   if (['.md', '.mdx', '.json', '.astro'].includes(ext)) {
+    const isProse = ext === '.md' || ext === '.mdx';
     const lines = fs.readFileSync(file, 'utf8').split('\n');
     lines.forEach((line, i) => {
-      if (/^\s*(\/\/|\*|<!--)/.test(line)) return;
+      // In markdown, a leading * is a list item or **bold**, not a comment —
+      // only skip HTML comments there. Code files also skip // and JSDoc *.
+      if (isProse ? /^\s*<!--/.test(line) : /^\s*(\/\/|\*|<!--)/.test(line)) return;
       if (PROSE_PRICE.test(line)) {
         violations.push({ file: rel, line: i + 1, pattern: 'Dollar figure in reader-facing copy', text: line.trim().slice(0, 120) });
       }
