@@ -4441,6 +4441,30 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   box-shadow: 0 18px 40px rgba(34, 24, 16, 0.06);
   padding: clamp(2rem, 4vw, 3rem);
   overflow: hidden;
+  /* Two intentional columns: dispatch copy left, actions right. */
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+.weekend-picker__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-self: stretch;
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  border-left: 1px solid rgba(121, 92, 58, 0.16);
+}
+.weekend-picker__actions .weekend-picker__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+}
+.weekend-picker__actions .weekend-picker__cta {
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
 }
 .weekend-picker__inner::before {
   content: '';
@@ -6515,6 +6539,7 @@ p.has-drop-cap::first-letter {
   .events-lens__chips { grid-template-columns: repeat(2, 1fr); }
   .event-grid { grid-template-columns: repeat(2, 1fr); }
   .weekend-picker__inner { grid-template-columns: 1fr; gap: 1.6rem; }
+  .weekend-picker__actions { padding-left: 0; border-left: 0; }
   .skip-block__inner { grid-template-columns: 1fr; gap: 1.6rem; }
   .event-detail__body { grid-template-columns: 1fr; }
 }
