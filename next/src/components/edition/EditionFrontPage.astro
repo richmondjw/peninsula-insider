@@ -1,0 +1,112 @@
+---
+/**
+ * EditionFrontPage - the newspaper package (the Atlantic move).
+ *
+ * Simultaneity with discipline: one lead story with image flanked by two
+ * columns of headline-only items, small-caps kickers, bylines, hairline
+ * rules. Draws the stories AFTER the four the cover already used, so the
+ * two acts never repeat each other. Renders nothing if the well runs dry
+ * (fewer than four stories left) rather than padding with filler.
+ */
+import { getCollection } from 'astro:content';
+import { formatLabel, routeSlug } from '../../lib/editorial';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+
+const authors = await getCollection('authors');
+const authorName = new Map(authors.map((a) => [a.id, a.data.name]));
+
+const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format !== 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// The cover consumes: featured (or newest) + next three.
+const coverLead = published.find((a) => a.data.featured) ?? published[0];
+const coverSet = new Set([coverLead, ...published.filter((a) => a !== coverLead).slice(0, 3)]);
+const pool = published.filter((a) => !coverSet.has(a));
+
+// Front pages die of monotony. Two guards:
+//  - the lead must actually have a hero image;
+//  - no format may take more than a third of the package (the hub-guide
+//    engine publishes in runs, and nine identical kickers reads as a
+//    content farm, which is the register this masthead refuses).
+const MAX_PER_FORMAT = 3;
+const counts: Record<string, number> = {};
+const diverse: typeof pool = [];
+const overflow: typeof pool = [];
+for (const a of pool) {
+  const fmt = a.data.format ?? 'feature';
+  if ((counts[fmt] ?? 0) < MAX_PER_FORMAT) {
+    counts[fmt] = (counts[fmt] ?? 0) + 1;
+    diverse.push(a);
+  } else {
+    overflow.push(a);
+  }
+}
+const selection = [...diverse, ...overflow].slice(0, 9);
+
+const leadIdx = selection.findIndex((a) => a.data.heroImage?.src);
+const lead = leadIdx >= 0 ? selection[leadIdx] : selection[0];
+const others = selection.filter((a) => a !== lead);
+const sideA = others.slice(0, 4);
+const sideB = others.slice(4, 8);
+
+const byline = (a: any) => {
+  if (a.data.houseByline) return 'Peninsula Insider editors';
+  const id = a.data.author?.id ?? a.data.author;
+  return authorName.get(id) ?? 'Peninsula Insider editors';
+};
+const kicker = (a: any) => formatLabel[a.data.format] ?? 'Feature';
+const href = (a: any) => `/journal/${routeSlug(a)}/`;
+
+const leadHero = lead ? await resolveHero('article', routeSlug(lead), lead.data, 'hero') : null;
+const enough = lead && sideA.length >= 2;
+---
+
+{enough && (
+  <section class="ed-front" aria-label="The front page">
+    <div class="container">
+      <div class="ed-front__rule" aria-hidden="true">
+        <span class="ed-front__rule-label">The front page</span>
+      </div>
+
+      <div class="ed-front__grid">
+        <div class="ed-front__col ed-front__col--side">
+          {sideA.map((a) => (
+            <article class="ed-front__item">
+              <a href={href(a)}>
+                <p class="ed-front__kicker">{kicker(a)}</p>
+                <h3 class="ed-front__headline">{a.data.title}</h3>
+                <p class="ed-front__byline">{byline(a)}</p>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <article class="ed-front__lead">
+          <a href={href(lead)}>
+            <figure class="ed-front__lead-media">
+              <img src={leadHero.src} alt={lead.data.heroImage?.alt ?? lead.data.title} loading="lazy" />
+            </figure>
+            <p class="ed-front__kicker">{kicker(lead)}</p>
+            <h2 class="ed-front__lead-headline">{lead.data.title}</h2>
+            <p class="ed-front__lead-dek">{lead.data.dek}</p>
+            <p class="ed-front__byline">{byline(lead)}</p>
+          </a>
+        </article>
+
+        <div class="ed-front__col ed-front__col--side">
+          {sideB.map((a) => (
+            <article class="ed-front__item">
+              <a href={href(a)}>
+                <p class="ed-front__kicker">{kicker(a)}</p>
+                <h3 class="ed-front__headline">{a.data.title}</h3>
+                <p class="ed-front__byline">{byline(a)}</p>
+              </a>
+            </article>
+          ))}
+          <p class="ed-front__more"><a href="/journal/">All journal stories →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
