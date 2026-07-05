@@ -1,9 +1,0 @@
-{
-  "_comment": "Maps auto-detected (entity_type=page) cms_image_slots rows to stable entity identities. Edit this when ops/scripts/promote-auto-detected-images.mjs reports unmapped rows. Re-run with --apply to execute the mapped promotions. The script will delete the original page-scoped row by default after a successful promote; pass --no-delete-orphans to skip the delete (debug only).",
-  "promotions": [
-    {
-      "from": { "entity_slug": "wine", "field_path": "img:article-cellar-door-01.webp" },
-      "to":   { "entity_type": "venue", "entity_slug": "montalto", "field_path": "editorialSurface.image" }
-    }
-  ]
-}
