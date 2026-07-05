@@ -2,108 +2,80 @@
 /**
  * HomeHeroCarousel - the homepage full-screen cover slider.
  *
- * SINGLE SOURCE OF TRUTH = the "deck": an ordered array of slides
- * { id, image, imageAlt, label, hours, headline, dispatch, primaryHref,
- *   primaryLabel, scrim? }.
+ * Rebuilt 2026-07-05 after the CMS-deck regression: the previous version's
+ * source of truth was a Supabase "deck" document written by the Hero Editor,
+ * with a committed JSON file as silent fallback. Any build without database
+ * access (CI, a fresh machine) quietly shipped the stale fallback deck - old
+ * stories, old images - with no error. That failure mode is designed out.
  *
- * Resolution (build time, no flash):
- *   1. Published CMS "deck" document - cms_text_fields (page, home-hero, 'deck')
- *      holding the whole deck as JSON. This is what the Hero Editor writes.
- *   2. Otherwise: home-hero-slides.json + any legacy per-field overrides
- *      (slide.<id>.headline / .image …) for backward compatibility, until the
- *      first Hero Editor save replaces them with a deck document.
+ * SINGLE SOURCE OF TRUTH = the articles collection, resolved at build time:
  *
- * Editing: a dedicated, admin-only Hero Editor drawer (lib/hero-editor) is the
- * single editing surface - reorder, edit text + link, add / remove slides, and
- * replace photos. It writes the deck document and re-renders the carousel live;
- * BaseLayout-style hydration applies the published deck for every visitor
- * instantly, and the deck bakes into static HTML on the next build.
+ *   1. The featured article (data.featured, newest first) leads if present.
+ *   2. The remaining slots fill with the latest published articles.
+ *   3. Weekend-picker dispatches are excluded (the What's On rail owns them).
+ *   4. SLIDE_COUNT slides total. No manual deck, no database dependency,
+ *      no hidden fallback: every build renders the same cover for the same
+ *      content, and the cover refreshes itself as articles publish.
  *
- * The hero is deliberately ISOLATED from the generic inline editor: the section
- * carries `data-pi-hero-managed`, which the generic right-click panel and the
- * filename auto-detect ("Pass 2" in lib/inline-edit/client.ts) skip - so the
- * old "images flip in edit mode" problem cannot recur and there is exactly one
- * way to edit the hero.
+ * Images resolve through resolveHero, so a published CMS image-slot override
+ * for an article still wins over its frontmatter image - image curation
+ * stays possible without reintroducing a second source of story truth.
  *
- * CSS: the `.cover*` rules live in the homepage `<style is:global>` in
+ * CSS: the `.cover*` rules live in the homepage <style is:global> in
  * src/pages/index.astro (they depend on load order to neutralise the legacy
  * sitewide /assets/styles.css `.cover` reset).
  */
-import { loadOverrides } from '../lib/inline-edit/overrides';
-import heroSlides from '../data/home-hero-slides.json';
-import HeroEditorMount from '../lib/hero-editor/HeroEditorMount.astro';
+import { getCollection } from 'astro:content';
+import { formatLabel, routeSlug } from '../lib/editorial';
+import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
-const ENTITY_TYPE = 'page' as const;
-const ENTITY_SLUG = 'home-hero';
+const SLIDE_COUNT = 4;
 
-type Slide = {
-  id: string;
-  image: string;
-  imageAlt: string;
-  label: string;
-  hours: string;
-  headline: string;
-  dispatch: string;
-  primaryHref: string;
-  primaryLabel: string;
-  scrim?: number;
-};
+const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format !== 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-const fileSlides = heroSlides.slides as Slide[];
+const lead = published.find((a) => a.data.featured);
+const rest = published.filter((a) => a !== lead);
+const coverArticles = [lead, ...rest].filter(Boolean).slice(0, SLIDE_COUNT);
 
-const overrides = await loadOverrides(ENTITY_TYPE, ENTITY_SLUG);
+const dateLabel = (d: Date) =>
+  d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', timeZone: 'Australia/Melbourne' });
 
-// 1. Published deck document wins wholesale when present + valid.
-let deck: Slide[] | null = null;
-const deckRaw = overrides.text['deck'];
-if (deckRaw) {
-  try {
-    const parsed = JSON.parse(deckRaw);
-    if (Array.isArray(parsed) && parsed.length > 0 && parsed.every((s) => s && s.id)) {
-      deck = parsed as Slide[];
-    }
-  } catch {
-    /* malformed deck doc - fall through to the file default */
-  }
-}
-
-// 2. Fallback: file + legacy per-field overrides (pre-Hero-Editor behaviour).
-if (!deck) {
-  deck = fileSlides.map((slide) => {
-    const fp = (f: string) => `slide.${slide.id}.${f}`;
-    const img = overrides.image[fp('image')];
+const deck = await Promise.all(
+  coverArticles.map(async (article) => {
+    const slug = routeSlug(article);
+    const hero = await resolveHero('article', slug, article.data, 'hero');
     return {
-      ...slide,
-      image: img?.src ?? slide.image,
-      imageAlt: img?.alt ?? slide.imageAlt,
-      headline: overrides.text[fp('headline')] ?? slide.headline,
-      dispatch: overrides.text[fp('dispatch')] ?? slide.dispatch,
-      label: overrides.text[fp('label')] ?? slide.label,
-      hours: overrides.text[fp('hours')] ?? slide.hours,
+      id: slug,
+      image: hero.src,
+      imageAlt: article.data.heroImage?.alt ?? article.data.title,
+      label: formatLabel[article.data.format] ?? 'Feature',
+      hours: dateLabel(article.data.publishedAt),
+      headline: article.data.title,
+      dispatch: article.data.dek ?? '',
+      primaryHref: `/journal/${slug}/`,
+      primaryLabel: 'Read the story',
     };
-  });
-}
+  }),
+);
 
-// Stable ids are the reorder/override keys - fail the build on a duplicate.
-const ids = deck.map((s) => s.id);
-if (new Set(ids).size !== ids.length) {
-  throw new Error('[HomeHeroCarousel] duplicate slide id in the hero deck');
+if (deck.length === 0) {
+  throw new Error('[HomeHeroCarousel] no published articles available for the cover');
 }
 ---
 
-{/* ── ZONE 1: Cover carousel - full-screen slides, managed solely by the
-    Hero Editor drawer (data-pi-hero-managed isolates it from the generic
-    inline editor). The SSR deck is embedded as JSON so the client hydration
-    and editor share a baseline without re-reading the file. */}
+{/* ── ZONE 1: Cover carousel. Static article-driven slides; the controller
+    script below owns rotation, arrows, pager, and swipe. */}
+{/* data-pi-hero-managed keeps the generic inline editor away from the cover:
+    the slides are article-driven, so the article page is where edits belong. */}
 <section class="cover" aria-label="Cover stories" data-pi-hero-managed>
-  <script type="application/json" data-pi-hero-deck set:html={JSON.stringify(deck)} />
   <div class="cover__carousel" id="cover-carousel">
     {deck.map((scene, i) => (
       <div
         class={`cover__slide${i === 0 ? ' is-active' : ''}`}
         data-slide-index={i}
         data-slide-id={scene.id}
-        style={scene.scrim != null ? `--scrim: ${scene.scrim}` : undefined}
       >
         <figure class="cover__media">
           <img
@@ -122,8 +94,8 @@ if (new Set(ids).size !== ids.length) {
           </p>
           <a href={scene.primaryHref} class="cover__headline-link">
             {i === 0
-              ? <h1 class="cover__headline" set:html={scene.headline} />
-              : <p class="cover__headline" set:html={scene.headline} />
+              ? <h1 class="cover__headline">{scene.headline}</h1>
+              : <p class="cover__headline">{scene.headline}</p>
             }
           </a>
           <p class="cover__dispatch">{scene.dispatch}</p>
@@ -151,7 +123,7 @@ if (new Set(ids).size !== ids.length) {
           class={`cover__nav-btn${i === 0 ? ' is-active' : ''}`}
           data-target={i}
           type="button"
-          aria-label={`Story ${i + 1} of ${deck.length}: ${scene.headline.replace(/<[^>]+>/g, '')}`}
+          aria-label={`Story ${i + 1} of ${deck.length}: ${scene.headline}`}
         >
           <span class="cover__nav-bar" aria-hidden="true"></span>
         </button>
@@ -166,18 +138,13 @@ if (new Set(ids).size !== ids.length) {
 </section>
 
 {/* Cover carousel controller. Scoped to #cover-carousel, self-guards via
-    el.dataset.carouselReady, idempotent across astro:page-load. Exposes
-    window.piHeroInitCarousel so the Hero Editor / deck hydration can re-init
-    after re-rendering slides. */}
+    el.dataset.carouselReady, idempotent across astro:page-load. */}
 <script is:inline>
   (function () {
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var INTERVAL_MS = 10000;
 
     function initCarousel(el, force) {
-      /* Normal path guards against double-init (setup runs on load AND
-         astro:page-load). force=true tears down and rebuilds - used by the
-         deck hydration / Hero Editor after the slide DOM is replaced. */
       if (el.dataset.carouselReady && !force) return;
       if (el.__coverCleanup) { el.__coverCleanup(); el.__coverCleanup = null; }
       var slides = Array.from(el.querySelectorAll('.cover__slide'));
@@ -253,9 +220,6 @@ if (new Set(ids).size !== ids.length) {
 
       if (!reducedMotion) { timer = setInterval(function () { goTo(current + 1); }, INTERVAL_MS); }
 
-      /* Teardown for a forced re-init (deck hydration / Hero Editor): remove the
-         window/el/observer listeners + timer bound to persistent nodes. Slides,
-         nav, and arrows live in replaced DOM, so their listeners die with it. */
       el.__coverCleanup = function () {
         clearInterval(timer);
         window.removeEventListener('resize', sizeCover);
@@ -266,7 +230,7 @@ if (new Set(ids).size !== ids.length) {
       };
     }
 
-    /* Expose so the Hero Editor / deck hydration can re-init after re-render. */
+    /* Kept for backwards compatibility with anything that re-inits the cover. */
     window.piHeroInitCarousel = initCarousel;
 
     function setup() {
@@ -277,6 +241,3 @@ if (new Set(ids).size !== ids.length) {
     setup();
   })();
 </script>
-
-{/* Deck hydration (all visitors) + Hero Editor drawer (admins, edit mode). */}
-<HeroEditorMount />
