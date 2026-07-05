@@ -26,7 +26,12 @@ const SUPABASE_URL =
 
 const SUPABASE_ANON_KEY =
   (import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string | undefined) ||
-  process.env.PUBLIC_SUPABASE_ANON_KEY;
+  process.env.PUBLIC_SUPABASE_ANON_KEY ||
+  // Publishable key: public by design, RLS is the gate. Without this
+  // fallback, a build on a machine without env vars silently skips ALL
+  // CMS text/image overrides and ships stale content - which is exactly
+  // how the July 2026 homepage regression happened.
+  'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp';
 
 export const PI_AUTH_COOKIE_PREFIX = 'sb-';
 export const PI_AUTH_TOKEN_COOKIE = 'pi-sb-access-token';
