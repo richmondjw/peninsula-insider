@@ -20,6 +20,9 @@ import EditionContents from '../components/edition/EditionContents.astro';
 import EditionAsk from '../components/edition/EditionAsk.astro';
 import EditionWeekendBuilder from '../components/edition/EditionWeekendBuilder.astro';
 import EditionNotebook from '../components/edition/EditionNotebook.astro';
+import EditionFrontPage from '../components/edition/EditionFrontPage.astro';
+import EditionArchive from '../components/edition/EditionArchive.astro';
+import EditionFooterIndex from '../components/edition/EditionFooterIndex.astro';
 import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import { dispatchWeekend } from '../lib/editorial';
@@ -49,11 +52,15 @@ export const prerender = true;
     <WeekendPickerBlock dispatch={weekendDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
   </div>
 
+  <div class="ed-reveal"><EditionFrontPage /></div>
+
   <div class="ed-reveal"><EditionAsk /></div>
 
   <div class="ed-reveal"><EditionWeekendBuilder /></div>
 
   <div class="ed-reveal"><EditionNotebook /></div>
+
+  <div class="ed-reveal"><EditionArchive /></div>
 
   <div class="ed-reveal">
     <NewsletterBlock
@@ -61,6 +68,8 @@ export const prerender = true;
       sub="Curated and sent weekly by Peninsula Insider."
     />
   </div>
+
+  <EditionFooterIndex />
 </BaseLayout>
 
 <script is:inline>
