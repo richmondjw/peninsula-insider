@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T03:23:32.276Z",
+  "generatedAt": "2026-07-05T05:56:09.688Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -750,6 +750,12 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "how-to-build-a-red-hill-saturday"
+        },
+        {
+          "file": "src/content/articles/peninsula-this-weekend-jul-04.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "peninsula-this-weekend-jul-04"
         },
         {
           "file": "src/content/articles/peninsula-this-weekend-jun-06.md",
@@ -2247,6 +2253,12 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "insider-picks-2026-06-18"
+        },
+        {
+          "file": "src/content/articles/insider-picks-2026-07-05.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-05"
         },
         {
           "file": "src/content/experiences/cape-schanck-lighthouse-walk.json",
