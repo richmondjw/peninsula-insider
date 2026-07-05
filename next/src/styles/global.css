@@ -8795,6 +8795,29 @@ body.menu-open .subscribe-pill {
 
 /* Filtering: hide cards whose wrappers carry the is-filtered-out class.
    Wrapper itself, not the inner VenueCard, so the layout reflows cleanly. */
+.venues__grid > [data-venue].is-paged-out {
+  display: none;
+}
+.venues__more {
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+.venues__more-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.6rem;
+  background: none;
+  border: 1px solid var(--border, #E5E0D6);
+  color: var(--text, #2B2520);
+  cursor: pointer;
+}
+.venues__more-btn:hover {
+  border-color: var(--accent, #8B4E3B);
+  color: var(--accent, #8B4E3B);
+}
 .venues__grid > [data-venue].is-filtered-out {
   display: none;
 }

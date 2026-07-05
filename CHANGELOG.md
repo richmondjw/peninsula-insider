@@ -1,3 +1,22 @@
+## 2026-07-05 — Site-wide overhaul: deployment hygiene, IA, brand compliance, UX (PRs #258-#261)
+
+### What changed
+Executed the full remediation plan from the 2026-07-04 UX/IA/brand review, then repaired the CI deploy pipeline (Node 22, contents:write, build:search) so gh-pages publishes cleanly from `next/dist` with no manual pushes.
+
+### Highlights
+- Removed staging sites, homepage drafts, source trees, and internal tooling from the public deploy; hardened robots.txt; `.nojekyll` at root
+- Concierge, auth, saves sync, and all submission forms revived (production API URL + publishable-key fallback); newsletter fake-success removed
+- Peninsula This Weekend now displays an honest staleness notice once its weekend passes
+- Plans restored as the 7th masthead pillar; Specialist guides column added to Explore; /spa/ migration finished (740 inbound links repointed)
+- About and the new /editorial-approach/ page carry the canonical positioning; tagline locked to "Every venue visited. Every opinion earned."
+- Em-dashes: 32,652 → 0 in built output; consumer prices: 686 → 0 (B2B rate cards exempt); lint-no-pricing extended to prose with the markdown blind spot closed
+- Skip link, AA-safe sage text token, <time> elements, per-venue directions, bylines + checked-dates on handwritten SEO pages
+- Venue directories on /eat/, /stay/, /wine/ now page at 30 cards with a filter-aware "Show more"
+
+### Follow-ups
+- `PUBLIC_ACCESS_GATE: 'off'` in build-and-deploy.yml launches the site publicly
+- Verify the concierge Vercel API is live; scrub em-dashes from Supabase cms_* rows; audit RLS on write tables
+
 ## 2026-06-29 — Agentic Content Engine v1.0
 
 ### What changed
