@@ -45,7 +45,7 @@ jobs:
       - name: Build
         run: |
           cd next
-          npm run build
+          npm run build:search
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
