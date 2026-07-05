@@ -13,6 +13,9 @@ on:
         required: false
         type: string
 
+permissions:
+  contents: write
+
 jobs:
   monthly-content:
     runs-on: ubuntu-latest
@@ -22,7 +25,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_CONTENT_PUSH }}
+          # Prefer the PAT (its pushes trigger build-and-deploy); fall back to
+          # the workflow token so the engine still runs when the secret is
+          # unset. GITHUB_TOKEN pushes do NOT trigger other workflows, so with
+          # the fallback a content commit needs a manual deploy dispatch.
+          token: ${{ secrets.PAT_CONTENT_PUSH || github.token }}
           fetch-depth: 1
 
       - name: Setup Python
