@@ -1,6 +1,6 @@
 ---
 /**
- * /map/ — The Insider Map (Phase 2 WS2D).
+ * /map/ - The Insider Map (Phase 2 WS2D).
  *
  * Map-led discovery across venues, experiences, and place hubs. Static-first
  * approach: every coordinate-bearing entry is serialised at build time into
@@ -8,7 +8,7 @@
  * plugin are pulled from a CDN at runtime.
  *
  * The Peninsula's geography is dense (lots of cellar doors clustered around
- * Red Hill and dining rooms in Sorrento), so clustering is essential — a
+ * Red Hill and dining rooms in Sorrento), so clustering is essential - a
  * raw pin map turns into a smear at default zoom.
  *
  * Layout: list panel + map. List is filterable by category; clicking a list
@@ -40,7 +40,7 @@ const placeNameBySlug = new Map<string, string>(
 type MapEntry = {
   id: string;
   category: 'eat' | 'wine' | 'stay' | 'experience' | 'place';
-  /** Sub-category — used for the popup chip and list meta line. */
+  /** Sub-category - used for the popup chip and list meta line. */
   type: string;
   name: string;
   href: string;
@@ -139,7 +139,7 @@ export const prerender = true;
 
 <BaseLayout
   title="The Insider Map · Peninsula Insider"
-  description="The whole Mornington Peninsula on one map. Cellar doors, restaurants, stays, walks, beaches, towns — every entry editorially verified, all on one screen."
+  description="The whole Mornington Peninsula on one map. Cellar doors, restaurants, stays, walks, beaches, towns - every entry editorially verified, all on one screen."
   section="map"
   canonical="https://peninsulainsider.com.au/map/"
 >
@@ -207,7 +207,7 @@ export const prerender = true;
           </div>
           <ul class="map-page__entries" data-map-entries></ul>
           <p class="map-page__list-empty" data-map-list-empty hidden>
-            No entries match — clear the search or re-enable a category above.
+            No entries match - clear the search or re-enable a category above.
           </p>
         </aside>
 
@@ -241,7 +241,7 @@ export const prerender = true;
         var container = document.getElementById('theInsiderMap');
         if (!container || container._piMapBound) return;
         // Under the ClientRouter, the re-injected CDN scripts execute
-        // async — L can exist while markercluster is still in flight,
+        // async - L can exist while markercluster is still in flight,
         // which used to throw at L.markerClusterGroup and leave a tile
         // map with zero pins. Wait for both (up to ~8s), then degrade
         // to an uncluster ed layer group rather than no pins at all.
@@ -273,7 +273,7 @@ export const prerender = true;
         }).addTo(map);
 
         // Per-category icon. We use Leaflet DivIcons so we don't need image
-        // assets — the colour comes from CSS classes keyed off category.
+        // assets - the colour comes from CSS classes keyed off category.
         function iconFor(cat) {
           return L.divIcon({
             className: 'map-pin map-pin--' + cat,
@@ -454,12 +454,12 @@ export const prerender = true;
         renderList();
       }
 
-      // Always init on page load — including mobile. The init function does
+      // Always init on page load - including mobile. The init function does
       // two things: (1) renderList() which needs no Leaflet container size,
       // and (2) Leaflet map setup. Previously init was deferred on mobile
       // until the Map tab was clicked, which left the List view stuck empty
       // because renderList() never ran. Leaflet in a hidden container is
-      // fine — the tab controller calls invalidateSize() when the map tab
+      // fine - the tab controller calls invalidateSize() when the map tab
       // becomes visible, which re-measures and re-renders tiles correctly.
       // (Bug fix 2026-05-16: list blank on mobile despite '202 entries' label.)
       init();
@@ -516,7 +516,7 @@ export const prerender = true;
               if (callback) callback();
             }, 250);
           } else {
-            // Already initialised — just invalidate size
+            // Already initialised - just invalidate size
             setTimeout(function () {
               var mapObj = window.piLeafletMap;
               if (mapObj) mapObj.invalidateSize();
@@ -545,7 +545,7 @@ export const prerender = true;
       mq.addEventListener ? mq.addEventListener('change', onBreakpoint) : mq.addListener(onBreakpoint);
 
       // Default state: map visible on mobile (the list is hidden on
-      // phones per James 2026-06-11 — desktop shows both side by side).
+      // phones per James 2026-06-11 - desktop shows both side by side).
       // Going through activateTab('map') also runs the lazy Leaflet init.
       activateTab('map');
 

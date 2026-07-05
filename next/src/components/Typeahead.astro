@@ -1,11 +1,10 @@
 ---
 /**
- * Typeahead — masthead-mounted instant search (Phase 3 WS3A).
+ * Typeahead - masthead-mounted instant search (Phase 3 WS3A).
  *
  * Replaces the search-icon button as the primary search affordance. The
  * existing SearchOverlay component is kept on disk and mounted in
- * BaseLayout so we have a one-line rollback if typeahead misbehaves —
- * see Phase 3 progress log for the rationale.
+ * BaseLayout so we have a one-line rollback if typeahead misbehaves - * see Phase 3 progress log for the rationale.
  *
  * Behaviour:
  *  - Click / focus / "/" key opens the input.
@@ -114,7 +113,7 @@
 </div>
 
 <script is:inline>
-  /* Typeahead controller — lazy-loads Pagefind on first focus, debounces
+  /* Typeahead controller - lazy-loads Pagefind on first focus, debounces
      search, groups results by kind, supports keyboard navigation, and
      falls back to /search/?q=… for the full results page.
      Idempotent across astro:page-load. */
@@ -353,7 +352,7 @@
         }
       });
 
-      // Input handling — debounced query
+      // Input handling - debounced query
       input.addEventListener('input', function () {
         query = input.value.trim();
         clearTimeout(debounceTimer);

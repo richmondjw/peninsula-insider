@@ -25,15 +25,15 @@ clusterLinks:
     href: "/journal/the-point-nepean-half-day/"
 faq:
   - question: "What is the best late-afternoon walk on the Mornington Peninsula?"
-    answer: "Bushrangers Bay Walk for a full reset — enough descent and coastline to feel like an event, best in autumn or winter when the light is slanting. Cape Schanck Boardwalk when time is short — basalt, lighthouse, crashing water in forty minutes. Sorrento Back Beach for mood rather than route — the surf side catches dusk better than the bay, and it works as a pre-dinner ritual."
+    answer: "Bushrangers Bay Walk for a full reset - enough descent and coastline to feel like an event, best in autumn or winter when the light is slanting. Cape Schanck Boardwalk when time is short - basalt, lighthouse, crashing water in forty minutes. Sorrento Back Beach for mood rather than route - the surf side catches dusk better than the bay, and it works as a pre-dinner ritual."
   - question: "How long does the Bushrangers Bay Walk take?"
-    answer: "Allow 90 minutes return at an unhurried pace. The walk descends through coastal scrub to a secluded bay, with a return climb that gives the outing a proper shape. Best in cooler months — autumn through spring — when the light is low and the air has some bite. Check conditions before attempting in strong wind or after heavy rain."
+    answer: "Allow 90 minutes return at an unhurried pace. The walk descends through coastal scrub to a secluded bay, with a return climb that gives the outing a proper shape. Best in cooler months - autumn through spring - when the light is low and the air has some bite. Check conditions before attempting in strong wind or after heavy rain."
   - question: "Is Cape Schanck worth visiting for a short walk?"
-    answer: "Yes — it has the best reward-to-effort ratio on the Peninsula. The boardwalk to the lighthouse and the basalt cliff edge takes about 40 minutes return and delivers dramatic ocean views without requiring a long warm-up. The right choice for first-timers, anyone who has already spent energy on a long lunch, or a late afternoon when you want something memorable without a full hike."
+    answer: "Yes - it has the best reward-to-effort ratio on the Peninsula. The boardwalk to the lighthouse and the basalt cliff edge takes about 40 minutes return and delivers dramatic ocean views without requiring a long warm-up. The right choice for first-timers, anyone who has already spent energy on a long lunch, or a late afternoon when you want something memorable without a full hike."
 aiSummary:
-  - "A curated list of Peninsula walks suited to the late afternoon window — structured around light quality, timing, and what makes each walk work as a day-closing experience."
+  - "A curated list of Peninsula walks suited to the late afternoon window - structured around light quality, timing, and what makes each walk work as a day-closing experience."
   - "Key walks: Sorrento back beach coastal path (west-facing, good sunset light), Bushrangers Bay (from Cape Schanck, off-peak, wild), Arthurs Seat fire road (hinterland view toward the bay)."
-  - "The editorial distinction: afternoon walks on the Peninsula require different choices than morning walks — the light direction, the crowd levels, and the proximity to dinner all change."
+  - "The editorial distinction: afternoon walks on the Peninsula require different choices than morning walks - the light direction, the crowd levels, and the proximity to dinner all change."
   - "Suits: visitors who want to end a Peninsula day with a walk rather than in a car or a bar. Pairs well with a post-walk sunset drink on the ridge."
   - "Planning note: the article includes estimated walking times for each option. Most are 45–90 minutes. Bushrangers Bay requires fitness and appropriate footwear."
 ---

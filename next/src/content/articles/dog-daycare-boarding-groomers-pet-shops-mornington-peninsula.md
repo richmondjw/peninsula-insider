@@ -1,19 +1,19 @@
 ---
 title: "Dog Daycare, Boarding, Groomers and Pet Shops on the Mornington Peninsula"
-dek: "The practical support layer for doing the Peninsula with a dog — when plans change, the day runs long, or the dog needs somewhere to be while you're at a restaurant that doesn't allow them."
+dek: "The practical support layer for doing the Peninsula with a dog - when plans change, the day runs long, or the dog needs somewhere to be while you're at a restaurant that doesn't allow them."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/dog-walk-hero-01.webp"
-  alt: "Dog-friendly Peninsula — practical support guide — representative image"
+  alt: "Dog-friendly Peninsula - practical support guide - representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"
 tags: ["dogs", "peninsula", "service", "boarding", "grooming", "pet-shops"]
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Dog-Friendly Peninsula — Full Weekend Guide"
+  - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
     href: "/journal/the-dog-friendly-peninsula/"
   - label: "Dog-Friendly Accommodation on the Mornington Peninsula"
     href: "/journal/dog-friendly-accommodation-mornington-peninsula/"
@@ -21,9 +21,9 @@ clusterLinks:
     href: "/journal/emergency-vet-pet-help-mornington-peninsula/"
 faq:
   - question: "Is there dog boarding or daycare on the Mornington Peninsula?"
-    answer: "Yes. Peninsula towns including Mornington, Rosebud, Dromana, and Frankston (gateway to the Peninsula) have dog daycare and boarding facilities. Search 'dog boarding Mornington Peninsula' or 'dog daycare [town name]' for current listings — we do not list specific businesses here because operator availability and phone numbers change. Book well ahead for peak season weekends."
+    answer: "Yes. Peninsula towns including Mornington, Rosebud, Dromana, and Frankston (gateway to the Peninsula) have dog daycare and boarding facilities. Search 'dog boarding Mornington Peninsula' or 'dog daycare [town name]' for current listings - we do not list specific businesses here because operator availability and phone numbers change. Book well ahead for peak season weekends."
   - question: "Are there dog groomers on the Mornington Peninsula?"
-    answer: "Yes — most Peninsula towns have at least one groomer. Mornington, Rosebud, Dromana, and Frankston have the most options. Search 'dog groomer [town name] Mornington Peninsula' for current listings with reviews."
+    answer: "Yes - most Peninsula towns have at least one groomer. Mornington, Rosebud, Dromana, and Frankston have the most options. Search 'dog groomer [town name] Mornington Peninsula' for current listings with reviews."
   - question: "Where can I buy pet supplies on the Mornington Peninsula?"
     answer: "Petstock and Petbarn both have stores in the Mornington Peninsula gateway area (Frankston, Mornington). Most Peninsula towns have at least one independent pet shop or stock pet basics at a general store or supermarket. If you need specialty supplies, plan to bring them from Melbourne."
 readingTimeMinutes: 4

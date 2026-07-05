@@ -23,7 +23,7 @@ const places = await getCollection('places');
 const place = places.find((p) => routeSlug(p) === 'red-hill') ?? null;
 
 const itemListSchema = buildItemListSchema({
-  name: 'Red Hill wineries — Mornington Peninsula',
+  name: 'Red Hill wineries - Mornington Peninsula',
   description: 'The cellar doors of the Red Hill sub-region on the Mornington Peninsula.',
   listPath: '/wine/red-hill',
   items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
@@ -39,7 +39,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Red Hill Wineries · Mornington Peninsula · Peninsula Insider"
-  description="The complete editorial guide to the Red Hill wine sub-region — Montalto, Paringa Estate, Polperro, Port Phillip Estate and the rest, with terroir, anchors and logistics."
+  description="The complete editorial guide to the Red Hill wine sub-region - Montalto, Paringa Estate, Polperro, Port Phillip Estate and the rest, with terroir, anchors and logistics."
   section="wine"
   canonical={canonical}
 >
@@ -50,16 +50,16 @@ export const prerender = true;
     h1="Red Hill Wineries"
     badgeLabel="Sub-region · Red Hill"
     subregionSlug="red-hill"
-    introText={`Red Hill is the plateau that defines Mornington Peninsula wine country. Sitting at 100–300m elevation inland from the coast, it catches cool afternoon breezes from both Port Phillip Bay and Western Port — a mesoclimate that lengthens the growing season and builds complexity slowly. The basalt and clay soils retain moisture without waterlogging.
+    introText={`Red Hill is the plateau that defines Mornington Peninsula wine country. Sitting at 100–300m elevation inland from the coast, it catches cool afternoon breezes from both Port Phillip Bay and Western Port - a mesoclimate that lengthens the growing season and builds complexity slowly. The basalt and clay soils retain moisture without waterlogging.
 
-Montalto, Ten Minutes by Tractor, and Paringa Estate are the anchors. The cluster of producers around Shoreham Road and Red Hill South Road contains some of the most consistent Pinot Noir and Chardonnay in Victoria. The restaurant cellar doors here — Montalto's hatted dining room, Ten Minutes by Tractor's three-restaurant estate — set a standard for wine country hospitality that the rest of Australia is still catching up to.
+Montalto, Ten Minutes by Tractor, and Paringa Estate are the anchors. The cluster of producers around Shoreham Road and Red Hill South Road contains some of the most consistent Pinot Noir and Chardonnay in Victoria. The restaurant cellar doors here - Montalto's hatted dining room, Ten Minutes by Tractor's three-restaurant estate - set a standard for wine country hospitality that the rest of Australia is still catching up to.
 
 Most cellar doors are open weekends. Several require bookings, particularly in winter. Driving the ridge roads between producers is itself part of the experience.`}
-    terroirText={`The Red Hill plateau is what happens when ancient basalt meets cool maritime air. Vineyards sit 150–250m above sea level on deep red volcanic soils that drain freely but hold moisture in the subsoil — the kind of profile that lets vines work hard without stress, slowing ripening just enough to build flavour without losing acidity.
+    terroirText={`The Red Hill plateau is what happens when ancient basalt meets cool maritime air. Vineyards sit 150–250m above sea level on deep red volcanic soils that drain freely but hold moisture in the subsoil - the kind of profile that lets vines work hard without stress, slowing ripening just enough to build flavour without losing acidity.
 
 Two bodies of water do most of the work: Port Phillip Bay to the north-west and Western Port to the south-east. The afternoon sea breeze that lifts off Bass Strait reaches Red Hill by mid-afternoon in summer, dropping temperatures and preserving the natural acidity that defines the sub-region's best Pinot Noir and Chardonnay.
 
-The result is wines with line and length rather than weight. Reds with red-fruited transparency rather than black-fruited density. Whites that taste like fruit before they taste like oak. Compared to Main Ridge — the higher, cooler plateau next door — Red Hill leans a touch warmer and rounder. Compared to Merricks — the gentler eastern slope — it leans more savoury and structured.`}
+The result is wines with line and length rather than weight. Reds with red-fruited transparency rather than black-fruited density. Whites that taste like fruit before they taste like oak. Compared to Main Ridge - the higher, cooler plateau next door - Red Hill leans a touch warmer and rounder. Compared to Merricks - the gentler eastern slope - it leans more savoury and structured.`}
     venues={venues}
     anchorPicks={[
       {
@@ -68,23 +68,23 @@ The result is wines with line and length rather than weight. Reds with red-fruit
       },
       {
         venueSlug: 'montalto',
-        verdict: "The full Red Hill experience — hatted restaurant, sculpture trail, olive grove and a cellar door that knows it's the day's centrepiece. Book the dining room early; the kitchen does the work that justifies the room.",
+        verdict: "The full Red Hill experience - hatted restaurant, sculpture trail, olive grove and a cellar door that knows it's the day's centrepiece. Book the dining room early; the kitchen does the work that justifies the room.",
       },
       {
         venueSlug: 'polperro',
         verdict: 'A more intimate cellar-door alternative to the estate-scale neighbours. Sam Coverdale makes some of the sub-region\'s most precise small-batch Pinot Noir; the casual bistro is built for a long lunch without a tie.',
       },
     ]}
-    signatureChardonnay="Red Hill Chardonnay is restrained, mineral, and Burgundy-influenced — flint, citrus oils, and a finish that ends clean rather than buttery. Producers here have largely moved past heavy oak; the best examples taste like fruit grown on volcanic ground."
+    signatureChardonnay="Red Hill Chardonnay is restrained, mineral, and Burgundy-influenced - flint, citrus oils, and a finish that ends clean rather than buttery. Producers here have largely moved past heavy oak; the best examples taste like fruit grown on volcanic ground."
     signaturePinot="The sub-region's Pinot Noir runs lighter and more red-fruited than Main Ridge, with a slightly riper, rounder mid-palate. Paringa, Polperro, Montalto and Port Phillip Estate all bottle distinct expressions; tasting two or three side-by-side teaches you more about the plateau than any tour would."
     pairWith={{
       placeSlug: 'red-hill',
       placeName: 'Red Hill',
-      body: 'The Red Hill village itself is small but the surrounding hamlets — Red Hill South, Shoreham, Main Ridge — give you Red Hill Cheese, the monthly market, Quail Run for a casual meal, and a handful of stays among the vines.',
+      body: 'The Red Hill village itself is small but the surrounding hamlets - Red Hill South, Shoreham, Main Ridge - give you Red Hill Cheese, the monthly market, Quail Run for a casual meal, and a handful of stays among the vines.',
     }}
-    logisticsText={`Most Red Hill cellar doors open from 11am to 5pm Friday to Sunday, with Monday and Tuesday by appointment. Winter weekdays can be quiet — call ahead. Summer weekends require a booking at any cellar door attached to a restaurant.
+    logisticsText={`Most Red Hill cellar doors open from 11am to 5pm Friday to Sunday, with Monday and Tuesday by appointment. Winter weekdays can be quiet - call ahead. Summer weekends require a booking at any cellar door attached to a restaurant.
 
-Plan to visit no more than three producers in an afternoon. The roads connecting them are narrow ridge roads, drink-driving limits are taken seriously, and most cellar doors are now a tasting experience rather than a tasting bar — expect 45 minutes per stop.
+Plan to visit no more than three producers in an afternoon. The roads connecting them are narrow ridge roads, drink-driving limits are taken seriously, and most cellar doors are now a tasting experience rather than a tasting bar - expect 45 minutes per stop.
 
 Designated drivers, organised peninsula tour operators, and Uber from Mornington all work. The car parks fill at hatted restaurants by midday on Saturdays.`}
     nearbySubregions={[
@@ -106,7 +106,7 @@ Designated drivers, organised peninsula tour operators, and Uber from Mornington
     faqItems={[
       {
         q: 'What is Red Hill known for in wine?',
-        a: 'Red Hill and its southern extension Red Hill South sit on elevated plateau country with basalt soils and cool maritime air. The sub-region produces Pinot Noir and Chardonnay with unusual precision — the cooling influence of nearby Bass Strait extends the growing season, allowing slow, complex ripening. Montalto, Ten Minutes by Tractor, and Paringa Estate are the benchmark names.',
+        a: 'Red Hill and its southern extension Red Hill South sit on elevated plateau country with basalt soils and cool maritime air. The sub-region produces Pinot Noir and Chardonnay with unusual precision - the cooling influence of nearby Bass Strait extends the growing season, allowing slow, complex ripening. Montalto, Ten Minutes by Tractor, and Paringa Estate are the benchmark names.',
       },
       {
         q: 'How far is Red Hill from Melbourne?',
@@ -114,11 +114,11 @@ Designated drivers, organised peninsula tour operators, and Uber from Mornington
       },
       {
         q: 'How many wineries can I visit in Red Hill in an afternoon?',
-        a: 'Two or three is the practical maximum if you want to taste properly and have lunch. Cellar doors here are now full experiences, not tasting bars — most take 45–60 minutes. Pick one anchor with food (Montalto, Paringa, Ten Minutes by Tractor) and one or two smaller producers for tastings either side.',
+        a: 'Two or three is the practical maximum if you want to taste properly and have lunch. Cellar doors here are now full experiences, not tasting bars - most take 45–60 minutes. Pick one anchor with food (Montalto, Paringa, Ten Minutes by Tractor) and one or two smaller producers for tastings either side.',
       },
       {
         q: 'Do I need to book Red Hill cellar doors?',
-        a: 'For the hatted restaurants and any cellar door attached to a restaurant, yes — book at least a week ahead in summer, longer in November and December. Casual cellar doors like Polperro and Foxeys Hangout walk-ins are usually fine outside peak periods. Call any cellar door if you are travelling with a group of six or more.',
+        a: 'For the hatted restaurants and any cellar door attached to a restaurant, yes - book at least a week ahead in summer, longer in November and December. Casual cellar doors like Polperro and Foxeys Hangout walk-ins are usually fine outside peak periods. Call any cellar door if you are travelling with a group of six or more.',
       },
     ]}
   />

@@ -1,6 +1,6 @@
 ---
 /**
- * /whats-on/this-weekend/ — rolling URL for Peninsula This Weekend.
+ * /whats-on/this-weekend/ - rolling URL for Peninsula This Weekend.
  *
  * Per Wave 2 Brief 2 (work/peninsula-insider/wave-2-build-briefs.md): the
  * dispatch lives at a stable URL so AI assistants and external sources can
@@ -30,6 +30,7 @@ import {
   ptwArchivePath,
   ptwWeekendLabel,
   ptwWeekendFriday,
+  ptwWeekendEndIso,
   buildPtwEventSchema,
   sortPtwLatestFirst,
 } from '../../../lib/peninsula-this-weekend';
@@ -49,6 +50,7 @@ const { Content } = await render(latest);
 
 const canonical = 'https://peninsulainsider.com.au/whats-on/this-weekend/';
 const weekendLabel = ptwWeekendLabel(latest);
+const weekendEndIso = ptwWeekendEndIso(latest);
 const eventSchema = buildPtwEventSchema(latest, canonical);
 const dispatch = latest.data.dispatch;
 
@@ -145,7 +147,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title={`Peninsula This Weekend — ${weekendLabel} · Peninsula Insider`}
+  title={`Peninsula This Weekend - ${weekendLabel} · Peninsula Insider`}
   description={latest.data.dek}
   section="whats-on"
   canonical={canonical}
@@ -172,6 +174,24 @@ export const prerender = true;
               <span class="ptw-hero__pill" aria-label="Section">Peninsula This Weekend</span>
               <span class="ptw-hero__pill ptw-hero__pill--accent">{weekendLabel}</span>
             </div>
+
+            {/* Staleness guard: a statically built "this weekend" ages the
+                moment the weekend closes. If the reader arrives after
+                Sunday night, say so honestly rather than presenting a past
+                weekend as current. */}
+            <p class="ptw-hero__stale" data-weekend-end={weekendEndIso} hidden>
+              This dispatch covered the weekend of {weekendLabel}. The next
+              edition lands Sunday. <a href="/whats-on/">Browse everything on
+              now instead</a>.
+            </p>
+            <script is:inline>
+              (function () {
+                var el = document.querySelector('.ptw-hero__stale');
+                if (!el) return;
+                var end = new Date(el.getAttribute('data-weekend-end'));
+                if (!isNaN(end) && Date.now() > end.getTime()) el.hidden = false;
+              })();
+            </script>
             <h1 class="ptw-hero__title">{latest.data.title}</h1>
             <p class="ptw-hero__dek">{latest.data.dek}</p>
 
@@ -403,6 +423,19 @@ export const prerender = true;
   .ptw-hero__pill--accent {
     background: var(--ink, #211e1c);
     color: #fff;
+  }
+  .ptw-hero__stale {
+    margin: 0.75rem 0 0;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    background: rgba(139, 78, 59, 0.08);
+    border-left: 2px solid var(--accent, #8b4e3b);
+    color: var(--ink, #211e1c);
+  }
+  .ptw-hero__stale a {
+    color: var(--accent, #8b4e3b);
+    text-decoration: underline;
   }
   .ptw-hero__title {
     margin: 0;

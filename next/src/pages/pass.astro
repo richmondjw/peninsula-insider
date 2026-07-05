@@ -1,17 +1,17 @@
 ---
 /**
- * /pass/ — Peninsula Insider Pass landing (Phase 4 WS4A).
+ * /pass/ - Peninsula Insider Pass landing (Phase 4 WS4A).
  *
  * v1: positioning, three-tier pricing scaffold, waitlist email-capture.
- * Stripe Checkout integration is deferred to a 4.x PR — when the Stripe
+ * Stripe Checkout integration is deferred to a 4.x PR - when the Stripe
  * account is ready, the "Become an Insider" / "Join the Founders" CTAs
  * point at Stripe Checkout sessions; until then they post to the
  * existing Beehiiv subscribe endpoint with a `pass-interest-<tier>` tag
  * so we capture leads now without losing them.
  *
  * Locked decisions:
- *   Q1 — Ship landing + waitlist now; Stripe wires up in 4.x.
- *   Q6 — Tier names: Reader (free), Insider (paid), Founders (limited).
+ *   Q1 - Ship landing + waitlist now; Stripe wires up in 4.x.
+ *   Q6 - Tier names: Reader (free), Insider (paid), Founders (limited).
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -27,7 +27,7 @@ export const prerender = true;
 
 <BaseLayout
   title="The Peninsula Insider Pass"
-  description="The membership that funds the editorial. Free, paid, or founders — pick the tier that fits."
+  description="The membership that funds the editorial. Free, paid, or founders - pick the tier that fits."
   section="explore"
   canonical="https://peninsulainsider.com.au/pass/"
 >
@@ -37,7 +37,7 @@ export const prerender = true;
     eyebrow="The Peninsula Insider Pass"
     subEyebrow="Membership"
     title="The membership that <em>funds</em> the editorial."
-    dek="Peninsula Insider is independent. The advertising firewall stays via clear labelling, not absence; the Pass is the second lever — reader-funded membership that keeps us honest, sharp, and able to publish weekly without leaning on the platforms that flatten editorial elsewhere."
+    dek="Peninsula Insider is independent. The advertising firewall stays via clear labelling, not absence; the Pass is the second lever - reader-funded membership that keeps us honest, sharp, and able to publish weekly without leaning on the platforms that flatten editorial elsewhere."
     gradient="journal"
     visualLabel="Peninsula Insider · The Pass"
   />
@@ -48,15 +48,15 @@ export const prerender = true;
       <div class="pass-pitch">
         <p class="label label--accent">Why a Pass</p>
         <h2 class="pass-pitch__title">The maths is honest.</h2>
-        <p class="pass-pitch__body">A regional editorial publication needs about three things to last: a desk that visits everything, a verification rhythm that holds up, and an income model that doesn't compromise the desk. Advertising covers some of it — visible, disclosed, every commercial relationship labelled. The Pass covers the rest, and lets us hold the line on what we'll never run.</p>
-        <p class="pass-pitch__body">If you read every weekly dispatch, save four venues a month, and would notice if we stopped publishing — the Pass is for you. If you don't, that's also fine; the editorial is open by default and stays that way.</p>
+        <p class="pass-pitch__body">A regional editorial publication needs about three things to last: a desk that visits everything, a verification rhythm that holds up, and an income model that doesn't compromise the desk. Advertising covers some of it - visible, disclosed, every commercial relationship labelled. The Pass covers the rest, and lets us hold the line on what we'll never run.</p>
+        <p class="pass-pitch__body">If you read every weekly dispatch, save four venues a month, and would notice if we stopped publishing - the Pass is for you. If you don't, that's also fine; the editorial is open by default and stays that way.</p>
       </div>
 
       <div class="pass-tiers">
         <article class="pass-tier pass-tier--reader">
           <p class="pass-tier__eyebrow">Reader</p>
           <h3 class="pass-tier__title">Free</h3>
-          <p class="pass-tier__price">$0</p>
+          <p class="pass-tier__price">Free</p>
           <p class="pass-tier__price-meta">No card needed</p>
 
           <ul class="pass-tier__list">
@@ -73,7 +73,7 @@ export const prerender = true;
         <article class="pass-tier pass-tier--insider pass-tier--featured">
           <p class="pass-tier__eyebrow">Insider</p>
           <h3 class="pass-tier__title">Paid</h3>
-          <p class="pass-tier__price">$<span data-pass-price-insider>—</span></p>
+          <p class="pass-tier__price">$<span data-pass-price-insider> - </span></p>
           <p class="pass-tier__price-meta" data-pass-price-meta-insider>Pricing announced ahead of launch</p>
 
           <ul class="pass-tier__list">
@@ -81,7 +81,7 @@ export const prerender = true;
             <li>Member-only itineraries: longer plans, niche shapes, the ones we can't put in front of every visitor.</li>
             <li>Early access to Awards voting and nomination shortlists.</li>
             <li>Member-priced reader events: dinners, tastings, walks.</li>
-            <li>The Pass-only quarterly dispatch — slower, longer, deeper.</li>
+            <li>The Pass-only quarterly dispatch - slower, longer, deeper.</li>
             <li>Comments closed; no discourse layer. Editorial is the product.</li>
           </ul>
 
@@ -93,7 +93,7 @@ export const prerender = true;
             </div>
             <p class="pass-tier__waitlist-note" data-pass-status hidden></p>
           </form>
-          <p class="pass-tier__line">No card today. We'll write when the door opens — you can decide then.</p>
+          <p class="pass-tier__line">No card today. We'll write when the door opens - you can decide then.</p>
         </article>
 
         <article class="pass-tier pass-tier--founders">
@@ -105,7 +105,7 @@ export const prerender = true;
           <ul class="pass-tier__list">
             <li>Everything in Insider.</li>
             <li>Founders' name plate on the masthead colophon (anonymous opt-out always available).</li>
-            <li>An annual editor-hosted Peninsula dinner — eight to ten Founders, one venue, one evening.</li>
+            <li>An annual editor-hosted Peninsula dinner - eight to ten Founders, one venue, one evening.</li>
             <li>Direct line to the editor for venue suggestions, corrections, and editorial feedback.</li>
             <li>Lifetime price-lock at the founding tier rate.</li>
           </ul>
@@ -151,7 +151,7 @@ export const prerender = true;
     document.querySelectorAll('[data-pass-form]').forEach((form) => {
       const tier = form.getAttribute('data-pass-tier') || 'insider';
       // Replace the form contents with a Buy button + small interval
-      // toggle (insider only — founders is annual-only).
+      // toggle (insider only - founders is annual-only).
       const isInsider = tier === 'insider';
       form.innerHTML = ''
         + '<p class="pass-tier__waitlist-label">Open the door</p>'
@@ -196,8 +196,8 @@ export const prerender = true;
         const result = await startPassCheckout({ tier, interval, userEmail });
         if (!result.ok) {
           const errMsg = ({
-            'stripe-not-configured': "The Pass isn't quite open yet — try the waitlist below.",
-            'price-not-configured':  "Pricing for this tier isn't loaded yet — refresh and try again.",
+            'stripe-not-configured': "The Pass isn't quite open yet - try the waitlist below.",
+            'price-not-configured':  "Pricing for this tier isn't loaded yet - refresh and try again.",
             'function-not-deployed': "The checkout endpoint isn't responding. Email hello@peninsulainsider.com.au and we'll set up your tier manually.",
           })[result.error] || "Couldn't open checkout. Try once more, or email hello@peninsulainsider.com.au.";
           setStatus('error', errMsg);

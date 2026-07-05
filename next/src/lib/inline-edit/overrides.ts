@@ -72,6 +72,16 @@ export async function loadOverrides(
   return promise;
 }
 
+/**
+ * House-style guard at the render boundary. CMS rows are written by
+ * editors (and predate some style rules), so em-dashes typed into the
+ * database would otherwise bypass the editorial linters and land in the
+ * built HTML. Normalise them here, per the BRAND-PI punctuation rule.
+ */
+function houseStyle(value: string): string {
+  return value.replace(/\s*—\s*/g, ' - ');
+}
+
 async function fetchOverrides(
   entityType: CmsEntityType,
   entitySlug: string,
@@ -98,7 +108,7 @@ async function fetchOverrides(
 
     const text: Record<string, string> = {};
     for (const row of (textResp.data as Array<{ field_path: string; value: string | null }> | null) ?? []) {
-      if (row.value && row.value.length > 0) text[row.field_path] = row.value;
+      if (row.value && row.value.length > 0) text[row.field_path] = houseStyle(row.value);
     }
 
     const image: Record<string, CmsOverrideImage> = {};
@@ -115,9 +125,9 @@ async function fetchOverrides(
       if (!src) continue;
       image[row.field_path] = {
         src,
-        alt: row.alt_text,
-        caption: row.caption,
-        credit: row.credit,
+        alt: row.alt_text ? houseStyle(row.alt_text) : row.alt_text,
+        caption: row.caption ? houseStyle(row.caption) : row.caption,
+        credit: row.credit ? houseStyle(row.credit) : row.credit,
         storagePath: row.storage_path,
       };
     }

@@ -39,21 +39,21 @@ clusterLinks:
     href: "/journal/the-couples-weekend/"
   - label: "Where to Stay Near the Hot Springs"
     href: "/journal/mornington-peninsula-stay-and-soak/"
-  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
     href: "/journal/best-spas-mornington-peninsula/"
 faq:
   - question: "Is a one-night trip to the Mornington Peninsula worth it?"
-    answer: "Yes — done with the right shape, a single overnight delivers real restoration. The key is choosing one base and staying inside it, booking everything in advance, and protecting the slow morning. A one-night trip that leaves at 8am is a round trip."
+    answer: "Yes - done with the right shape, a single overnight delivers real restoration. The key is choosing one base and staying inside it, booking everything in advance, and protecting the slow morning. A one-night trip that leaves at 8am is a round trip."
   - question: "What is the best base for a one-night Peninsula trip?"
-    answer: "Sorrento for town-life energy and a compressed main-street experience. Red Hill (Lindenderry) for a country-house reset. Flinders for a genuine recovery trip with ocean weather and quieter rhythm. Pick the zone that matches the mood — do not move between zones on a short trip."
+    answer: "Sorrento for town-life energy and a compressed main-street experience. Red Hill (Lindenderry) for a country-house reset. Flinders for a genuine recovery trip with ocean weather and quieter rhythm. Pick the zone that matches the mood - do not move between zones on a short trip."
   - question: "Should I include the hot springs on a one-night Peninsula trip?"
-    answer: "A 90-minute arrival session at Alba Thermal Springs between 2pm and 4pm pairs well with most one-night itineraries — it acts as an on-ramp to the weekend. Don't try to make the hot springs the centrepiece of a single overnight; that calls for a dedicated thermal weekend instead."
+    answer: "A 90-minute arrival session at Alba Thermal Springs between 2pm and 4pm pairs well with most one-night itineraries - it acts as an on-ramp to the weekend. Don't try to make the hot springs the centrepiece of a single overnight; that calls for a dedicated thermal weekend instead."
 aiSummary:
   - "A single overnight stay on the Mornington Peninsula, structured correctly, can reset as effectively as a three-day trip. This piece provides the exact shape for making 26 hours work."
   - "The framework: arrive Friday evening, pre-booked dinner as the anchor, one focused Saturday activity (a walk, a cellar door, hot springs), drive home Sunday afternoon."
   - "The editorial argument: most one-night Peninsula trips fail because they try to compress a full weekend itinerary. The piece argues for one anchor experience, not three."
   - "Suits: couples, solo visitors, anyone working with limited time who wants to actually feel like they have been away rather than rushed through a checklist."
-  - "Planning note: the article recommends booking dinner before accommodation — the restaurant is harder to get right last-minute than the bed. Sorrento, Flinders and Red Hill each have a different version of the correct one-night shape."
+  - "Planning note: the article recommends booking dinner before accommodation - the restaurant is harder to get right last-minute than the bed. Sorrento, Flinders and Red Hill each have a different version of the correct one-night shape."
 ---
 
 There is a kind of Peninsula weekend that nobody writes about, and it is the most useful one.

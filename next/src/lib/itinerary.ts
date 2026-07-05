@@ -1,5 +1,5 @@
 /**
- * Itinerary helpers — Phase 3 WS3C.
+ * Itinerary helpers - Phase 3 WS3C.
  *
  * Pure functions used by the /itinerary/ page. Kept here rather than
  * inlined into the page so the same logic can serve a future place-hub
@@ -117,7 +117,7 @@ export const EMPTY_ITINERARY: ItineraryStore = { version: 1, items: [], days: []
  * Encode an itinerary into a URL-safe query string. Items become a
  * pipe-delimited list of `kind:slug:dayId` triples; days become a
  * pipe-delimited list of `id:label` pairs. Notes are intentionally not
- * encoded into the share URL — they stay private to the user's local
+ * encoded into the share URL - they stay private to the user's local
  * store.
  */
 export function encodeItineraryToUrl(itinerary: ItineraryStore): URLSearchParams {

@@ -1,5 +1,5 @@
 ---
-headline: "Saturday — the wet pattern arrives, 90% with showers building late, 16°C."
+headline: "Saturday - the wet pattern arrives, 90% with showers building late, 16°C."
 dek: "Saturday 30 May: min 10°C, max 16°C. Partly cloudy with a very high chance of showers, most likely late this afternoon and evening, 1–5mm. Northwesterly 20–30 km/h turning westerly 25–35 km/h late evening. The dry windows have closed."
 section: weather
 tag: weather

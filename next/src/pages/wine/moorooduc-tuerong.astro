@@ -22,8 +22,8 @@ const venues = allVenues
   .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
 
 const itemListSchema = buildItemListSchema({
-  name: 'Moorooduc and Tuerong wineries — Mornington Peninsula',
-  description: 'The cellar doors of Moorooduc and Tuerong — the warmer, bay-side subregions of the Mornington Peninsula wine region.',
+  name: 'Moorooduc and Tuerong wineries - Mornington Peninsula',
+  description: 'The cellar doors of Moorooduc and Tuerong - the warmer, bay-side subregions of the Mornington Peninsula wine region.',
   listPath: '/wine/moorooduc-tuerong',
   items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
 });
@@ -48,11 +48,11 @@ export const prerender = true;
   <WineHubTemplate
     h1="Moorooduc & Tuerong Wineries"
     badgeLabel="Subregion · Moorooduc & Tuerong"
-    introText={`Moorooduc and Tuerong occupy the north-facing slopes above Port Phillip Bay — lower altitude than the Red Hill plateau and appreciably warmer. The bay moderates temperatures; the soils here are lighter and better-drained than the heavy clays of the interior.
+    introText={`Moorooduc and Tuerong occupy the north-facing slopes above Port Phillip Bay - lower altitude than the Red Hill plateau and appreciably warmer. The bay moderates temperatures; the soils here are lighter and better-drained than the heavy clays of the interior.
 
-The result is Pinot Noir and Chardonnay that's approachable earlier than the cooler subregions, with riper fruit expression and rounder textures. Yabby Lake is the prestige name — its single-vineyard Pinot Noirs attract serious collector interest. Dromana Estate and Moorooduc Estate represent the solid, consistent mid-tier.
+The result is Pinot Noir and Chardonnay that's approachable earlier than the cooler subregions, with riper fruit expression and rounder textures. Yabby Lake is the prestige name - its single-vineyard Pinot Noirs attract serious collector interest. Dromana Estate and Moorooduc Estate represent the solid, consistent mid-tier.
 
-Cellar doors in this corridor are generally more accessible from Melbourne and open more regularly than the plateau producers — a good entry point for first-time Peninsula visitors.`}
+Cellar doors in this corridor are generally more accessible from Melbourne and open more regularly than the plateau producers - a good entry point for first-time Peninsula visitors.`}
     venues={venues}
     breadcrumbs={[
       { label: 'Home', href: '/' },
@@ -62,7 +62,7 @@ Cellar doors in this corridor are generally more accessible from Melbourne and o
     faqItems={[
       {
         q: 'Is Yabby Lake worth visiting?',
-        a: 'Yes. Yabby Lake is one of the most consistently awarded estates on the Peninsula — the Block 1 and Block 6 single-vineyard Pinots appear regularly on lists of Victoria\'s finest. The cellar door is by appointment; book ahead. The tasting includes access to library vintages on request.',
+        a: 'Yes. Yabby Lake is one of the most consistently awarded estates on the Peninsula - the Block 1 and Block 6 single-vineyard Pinots appear regularly on lists of Victoria\'s finest. The cellar door is by appointment; book ahead. The tasting includes access to library vintages on request.',
       },
     ]}
   />

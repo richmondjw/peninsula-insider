@@ -1,5 +1,5 @@
 /**
- * Peninsula Insider — Hybrid search client.
+ * Peninsula Insider - Hybrid search client.
  *
  * Wraps the pi.search() RPC (Phase C of the data architecture plan).
  * SearchOverlay + /search.astro try this client first and fall back to
@@ -51,7 +51,7 @@ let _client: SupabaseClient | null = null;
 
 function getClient(): SupabaseClient | null {
   if (_client) return _client;
-  // Read from runtime config — set in BaseLayout via window.__PI_SUPABASE.
+  // Read from runtime config - set in BaseLayout via window.__PI_SUPABASE.
   // Falls back to null when neither URL nor key is present (caller must
   // handle and route to Pagefind).
   // BaseLayout sets `window.__PI_SB = { url, key }` (see layouts/BaseLayout.astro).

@@ -21,7 +21,7 @@ const breadcrumbItems = [
   <section class="entry-editor" data-entry-root>
     <div class="container entry-editor__container">
       <header class="entry-editor__head">
-        <p class="entry-editor__eyebrow" data-entry-type>—</p>
+        <p class="entry-editor__eyebrow" data-entry-type> - </p>
         <h1 class="entry-editor__title" data-entry-slug>Loading…</h1>
         <p class="entry-editor__status" data-entry-status>Loading…</p>
       </header>
@@ -326,7 +326,7 @@ const breadcrumbItems = [
 
   /**
    * RLS-gated CRUD against the pi schema. Returns { ok } regardless of whether
-   * the row was returned — Postgres errors are surfaced to the editor via
+   * the row was returned - Postgres errors are surfaced to the editor via
    * setStatus rather than thrown.
    */
   async function callApi(
@@ -548,7 +548,7 @@ const breadcrumbItems = [
     }
     const params = getParams();
     if (!params) {
-      setStatus('Missing or invalid ?type and ?slug — go back to /admin/.', 'err');
+      setStatus('Missing or invalid ?type and ?slug - go back to /admin/.', 'err');
       return;
     }
     renderHead(params.entityType, params.entitySlug);

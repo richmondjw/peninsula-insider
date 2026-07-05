@@ -1,6 +1,6 @@
 ---
 title: "Main Ridge: The Peninsula Insider Guide"
-dek: "Main Ridge is the Peninsula's highest, coolest and most wine-serious pocket — less a village than a plateau of good decisions. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions."
+dek: "Main Ridge is the Peninsula's highest, coolest and most wine-serious pocket - less a village than a plateau of good decisions. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
@@ -21,13 +21,13 @@ clusterLinks:
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Main Ridge best known for?"
-    answer: "The Peninsula's most concentrated serious wine country — cooler sites, benchmark pinot noir and chardonnay, and a food culture built around substance rather than show."
+    answer: "The Peninsula's most concentrated serious wine country - cooler sites, benchmark pinot noir and chardonnay, and a food culture built around substance rather than show."
   - question: "When is the best time to visit Main Ridge?"
     answer: "Autumn and winter into spring. Misty mornings, greener edges and the sense that the plateau is working exactly as its climate intended."
   - question: "How far is Main Ridge from Melbourne?"
     answer: "Usually around 75 to 90 minutes by car, depending on which side of the Peninsula you approach from."
 aiSummary:
-  - "Main Ridge is the Mornington Peninsula's highest sub-region — the narrowest and most elevated part of the ridge, producing small quantities of benchmark-quality Pinot Noir and Chardonnay from some of Victoria's most serious small producers."
+  - "Main Ridge is the Mornington Peninsula's highest sub-region - the narrowest and most elevated part of the ridge, producing small quantities of benchmark-quality Pinot Noir and Chardonnay from some of Victoria's most serious small producers."
   - "Known for: Ten Minutes by Tractor (three vineyard sites, one estate degustation restaurant), Main Ridge Estate (Peninsula's oldest planted vinery), appointment-only producers who are harder to find than their wine quality warrants."
   - "Different from Red Hill: Main Ridge is quieter, less commercial, and the producers are smaller and often appointment-focused. The experience is more private and wine-nerd oriented."
   - "Suits: serious wine visitors who have done Red Hill and want to go deeper; people booking a full cellar-door day structured around quality over convenience."

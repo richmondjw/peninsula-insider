@@ -1,5 +1,5 @@
 ---
-headline: "Sorrento Solstice Festival — today, 2pm to 9pm, effigy burn at 6:30pm on the bay."
+headline: "Sorrento Solstice Festival - today, 2pm to 9pm, effigy burn at 6:30pm on the bay."
 dek: "The largest winter event on the Peninsula calendar is tonight. Sorrento Foreshore, 2pm to 9pm. Free and ticketed; waitlist places available via Humanitix. Two music stages, fire installations, food trucks, lantern path, and the 6-metre effigy burn at 6:30pm."
 section: whats-on
 tag: event

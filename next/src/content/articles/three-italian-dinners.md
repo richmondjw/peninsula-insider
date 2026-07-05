@@ -19,13 +19,13 @@ lastVerified: 2026-04-22
 clusterLinks:
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
-  - label: "The Long Lunch — The Peninsula's Best Format"
+  - label: "The Long Lunch - The Peninsula's Best Format"
     href: "/journal/the-long-lunch/"
   - label: "How to Plan a Peninsula Weekend"
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is the difference between Tedesca Osteria, Ten Minutes by Tractor, and Laura at Pt Leo?"
-    answer: "Tedesca is the most honest room — one set menu, farmhouse atmosphere, wood oven, best for autumn lunches with small groups who want to be surprised. Ten Minutes by Tractor is technically ambitious fine dining with precise seasonal cooking and a strong estate wine program — best for anniversaries or when the meal should be the headline. Laura at Pt Leo is the smallest and most considered: ten courses, chef's counter, twenty seats, the top of the Peninsula's market."
+    answer: "Tedesca is the most honest room - one set menu, farmhouse atmosphere, wood oven, best for autumn lunches with small groups who want to be surprised. Ten Minutes by Tractor is technically ambitious fine dining with precise seasonal cooking and a strong estate wine program - best for anniversaries or when the meal should be the headline. Laura at Pt Leo is the smallest and most considered: ten courses, chef's counter, twenty seats, the top of the Peninsula's market."
   - question: "Which Peninsula restaurant should I book for a special occasion?"
     answer: "For a serious anniversary or birthday: Laura at Pt Leo (book 6–8 weeks ahead). For first-time visitors wanting to understand the Peninsula's ceiling: Tedesca Osteria for lunch. For a milestone with fine-dining ambition: Ten Minutes by Tractor for Saturday lunch. For a group dinner: Tedesca for Friday evening if you can get a booking, Tractor for Saturday lunch."
   - question: "How far in advance do I need to book Tedesca, Ten Minutes by Tractor, and Laura?"

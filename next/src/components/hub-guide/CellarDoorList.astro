@@ -1,6 +1,6 @@
 ---
 /**
- * CellarDoorList — designed list of cellar-door reviews inside a hub-guide
+ * CellarDoorList - designed list of cellar-door reviews inside a hub-guide
  * MDX article. Each item is one venue (by slug) plus a hand-written
  * editorial verdict that overlays the venue's canonical card data.
  *
@@ -8,7 +8,7 @@
  * review per venue under an H3, then the template rendered generic
  * "Mentioned in this piece" VenueCards below for the SAME venues with
  * no editorial detail. Reader got the same venue twice in two formats.
- * This component fuses the two — single rendered card with hero image,
+ * This component fuses the two - single rendered card with hero image,
  * canonical hours/location, AND the writer's specific verdict.
  *
  * Usage in MDX:
@@ -34,7 +34,7 @@ export interface CellarDoorItem {
   /** Optional small-caps eyebrow above the title (e.g. sub-region). */
   eyebrow?: string;
   /** Required hand-written editorial verdict. The whole point of the
-   *  component — the writer's specific opinion on this venue. */
+   *  component - the writer's specific opinion on this venue. */
   verdict: string;
   /** Optional list of small badge tags ("Dog-friendly", "Walk-in", etc).
    *  Render below the verdict as chip badges. */

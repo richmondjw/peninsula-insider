@@ -1,5 +1,5 @@
 /**
- * Override-aware hero resolver — the single entry point for rendering an
+ * Override-aware hero resolver - the single entry point for rendering an
  * entity's hero image anywhere on the site.
  *
  * THE RULE (do not bypass): any surface that renders an entity's hero
@@ -43,7 +43,7 @@ export interface ResolvedHero {
   /** Ready-to-use `background-image` style string for hero blocks. */
   style: string;
   /**
-   * True when there is a genuine photo to show — either a published CMS
+   * True when there is a genuine photo to show - either a published CMS
    * override or a real (non-placeholder, non-category-fallback) frontmatter
    * image. Use this to gate optional hero blocks so resolveHeroSrc's
    * fallback spread doesn't make an image appear where the content file

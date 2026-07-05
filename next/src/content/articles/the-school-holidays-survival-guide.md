@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-10
 heroImage:
   src: "/images/sourced/article-kids-peninsula-01.webp"
-  alt: "Children running along a bay beach on the Peninsula on a bright morning — representative image"
+  alt: "Children running along a bay beach on the Peninsula on a bright morning - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -20,25 +20,25 @@ section: plans
 planShape: "seasonal"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Peninsula with Kids — Family Day Guide"
+  - label: "The Peninsula with Kids - Family Day Guide"
     href: "/journal/the-peninsula-with-kids/"
-  - label: "The Four-Hour Peninsula — Compact Day Guide"
+  - label: "The Four-Hour Peninsula - Compact Day Guide"
     href: "/journal/the-four-hour-peninsula/"
   - label: "How to Plan a Peninsula Weekend"
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What are the best activities for children on the Mornington Peninsula during school holidays?"
-    answer: "Arthurs Seat Eagle gondola (book online during school holidays — walk-up queues can reach 45 minutes). Ashcombe Maze for 90 minutes of hedge maze and lavender garden. Point Nepean Fort Walk for children over eight — military tunnels and ocean views on both sides. Sunny Ridge Strawberry Farm for fruit picking in season. All four are morning activities; pair with a pub lunch and something low-key in the afternoon."
+    answer: "Arthurs Seat Eagle gondola (book online during school holidays - walk-up queues can reach 45 minutes). Ashcombe Maze for 90 minutes of hedge maze and lavender garden. Point Nepean Fort Walk for children over eight - military tunnels and ocean views on both sides. Sunny Ridge Strawberry Farm for fruit picking in season. All four are morning activities; pair with a pub lunch and something low-key in the afternoon."
   - question: "How do I avoid the crowds on the Mornington Peninsula in school holidays?"
-    answer: "Move east or uphill. Balnarring Beach instead of Rosebud. Flinders instead of Sorrento. Red Hill hinterland instead of the coastal strip. Somers instead of Mornington. The bay side between Dromana and Sorrento concentrates visitors — the western and southern parts of the Peninsula are significantly quieter and equally good."
+    answer: "Move east or uphill. Balnarring Beach instead of Rosebud. Flinders instead of Sorrento. Red Hill hinterland instead of the coastal strip. Somers instead of Mornington. The bay side between Dromana and Sorrento concentrates visitors - the western and southern parts of the Peninsula are significantly quieter and equally good."
   - question: "What is a good rainy day plan for families on the Mornington Peninsula?"
-    answer: "Morning: Ashcombe Maze in light rain (covered café) or Mornington Peninsula Gallery (free, warm, 45 minutes). Mornington Peninsula Chocolates for a fully indoor factory visit. Lunch: Flinders Hotel in poor weather — fire, large dining room, tolerant of wet families. Afternoon: the rental house. Alternatively, Peninsula Hot Springs or Alba in the rain is genuinely memorable — book online as school-holiday sessions fill."
+    answer: "Morning: Ashcombe Maze in light rain (covered café) or Mornington Peninsula Gallery (free, warm, 45 minutes). Mornington Peninsula Chocolates for a fully indoor factory visit. Lunch: Flinders Hotel in poor weather - fire, large dining room, tolerant of wet families. Afternoon: the rental house. Alternatively, Peninsula Hot Springs or Alba in the rain is genuinely memorable - book online as school-holiday sessions fill."
 aiSummary:
-  - "A practical guide to visiting the Mornington Peninsula during school holidays — structured around where to go, when to go, and which Peninsula activities scale well with family groups."
+  - "A practical guide to visiting the Mornington Peninsula during school holidays - structured around where to go, when to go, and which Peninsula activities scale well with family groups."
   - "Key insight: the Peninsula's geography means school holiday crowds concentrate in specific places (Sorrento foreshore, Red Hill Market). Moving 20 minutes in any direction usually reduces density significantly."
   - "Covers: best school holiday activities that book out early; where to find open beach space during peak periods; which restaurants can accommodate families without a booking."
   - "Suits: families with school-age children; visitors who couldn't get the off-peak dates they wanted."
-  - "Planning note: book Arthurs Seat Eagle and Peninsula Hot Springs (if included) before accommodation during school holidays — they are harder to secure than most beds."
+  - "Planning note: book Arthurs Seat Eagle and Peninsula Hot Springs (if included) before accommodation during school holidays - they are harder to secure than most beds."
 ---
 
 School holidays on the Peninsula follow a pattern, and recognising the pattern early saves you.
@@ -105,15 +105,15 @@ If you cannot face another hour indoors: **Peninsula Hot Springs** or **Alba The
 
 ## The budget reality
 
-School holidays on the Peninsula will cost a family of four roughly this much per day:
+For a family of four, the three day-types rank predictably on cost:
 
-- **Beach day:** $40–70 (lunch + incidentals)
-- **Adventure day:** $100–150 (activity entry + lunch + producer stop)
-- **Rainy day:** $60–100 (gallery is free, hot springs cost, pub lunch)
+- **Beach day:** the cheap one; lunch and incidentals are the only spend
+- **Adventure day:** the dear one; activity entry, lunch, and a producer stop all stack
+- **Rainy day:** sits between the two (gallery is free, hot springs cost, pub lunch)
 
-Over a week, that is $500–800 excluding accommodation. The money-saving moves are: pack lunches from the rental-house kitchen two days out of five, swim at free beaches instead of paying for activities, visit the gallery and sculpture parks (free), and eat at pubs instead of restaurants.
+Over a week, the adventure days set the budget. The money-saving moves are: pack lunches from the rental-house kitchen two days out of five, swim at free beaches instead of paying for activities, visit the gallery and sculpture parks (free), and eat at pubs instead of restaurants.
 
-The biggest budget leak in school holidays is the impulse cellar-door visit that turns into a $200 bottle purchase. Cellar doors land better without the children, or with the children and the tasting skipped.
+The biggest budget leak in school holidays is the impulse cellar-door visit that turns into a serious bottle purchase. Cellar doors land better without the children, or with the children and the tasting skipped.
 
 ## The crowd-avoidance map
 
@@ -132,7 +132,7 @@ The rule: move east or move uphill and the crowds halve.
 
 The most rewarding school-holiday evening on the Peninsula tends to be a barbecue at the rental house with produce bought from the farm gate that morning, a bottle of local wine for the adults, and children asleep by 7.30pm because you ran them hard all day.
 
-The parents sit on the deck in the quiet. They can hear the ocean, or the frogs, or nothing at all. Nobody is driving anywhere. Nobody is paying $35 for a children's menu item that arrives as three chicken nuggets and a handful of chips.
+The parents sit on the deck in the quiet. They can hear the ocean, or the frogs, or nothing at all. Nobody is driving anywhere. Nobody is paying restaurant prices for a children's menu item that arrives as three chicken nuggets and a handful of chips.
 
 The Peninsula's best evening, with or without children, is often the one spent at home.
 

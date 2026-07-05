@@ -1,4 +1,5 @@
 ---
+import { CONCIERGE_API_URL } from '../../lib/concierge-config';
 /**
  * V3 BaseLayout (staging only).
  *
@@ -83,7 +84,7 @@ const ogImageAbs = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}
 
   <V3Footer />
 
-  <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
+  <script is:inline define:vars={{ API_URL: CONCIERGE_API_URL }}>
     window.PI_API_URL = API_URL;
   </script>
 

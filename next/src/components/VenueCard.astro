@@ -52,7 +52,7 @@ const summaryLine = [shortAddress, data.priceBand].filter(Boolean).join(' · ');
 
 // Resolve CMS image override at SSR. When an editor has replaced this venue's
 // hero via the inline editor, the published row overrides whatever the content
-// file specifies — so the rebuilt page renders the new image directly.
+// file specifies - so the rebuilt page renders the new image directly.
 const overrides = await loadOverrides('venue', slug);
 const heroOverride = overrides.image['heroImage'];
 const heroSrc = heroOverride?.src ?? resolveHeroSrc(data);

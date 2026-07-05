@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — King's Birthday Weekend confirmed, 8 June, all day. Bookings now open."
+headline: "Peninsula Hot Springs - King's Birthday Weekend confirmed, 8 June, all day. Bookings now open."
 dek: "King's Birthday Weekend all-day event confirmed on venue page for Monday 8 June. Sunday Sessions with Melissa Fist the day prior (7 June, 2pm, Bath House Café), complimentary with bathing. The long weekend anchor for Peninsula planning."
 section: spa
 tag: opening-window
@@ -11,7 +11,7 @@ verdict: "Confirmed. King's Birthday Monday 8 June all day, Sunday Sessions Meli
 sources:
   - kind: venue-site
     url: "https://www.peninsulahotsprings.com/whats-on/"
-    note: "Peninsula Hot Springs what's-on page retrieved 2026-06-01T20:47:55Z. Upcoming events confirmed: Sunday Sessions with Melissa Fist — 7 June, 2pm (note: 2pm slot, not the usual noon); King's Birthday Weekend at Peninsula Hot Springs — 8 June, all day; Showcase Performance with Liana Perillo Quartet — 13 June, 7pm–8pm; Sunday Sessions with Amina — 14 June, 12pm. Daily wellness programme: Studio Yoga 7:30am (daily), Hot Springs Yoga 9:15am (daily), Fire and Ice Workshop weekdays 10:30am/4pm/5pm, Body Clay Ritual weekdays 12pm/2pm, Sauna Infusion 5pm (daily), Cacao Circle weekends 12pm. No closures or schedule changes flagged."
+    note: "Peninsula Hot Springs what's-on page retrieved 2026-06-01T20:47:55Z. Upcoming events confirmed: Sunday Sessions with Melissa Fist - 7 June, 2pm (note: 2pm slot, not the usual noon); King's Birthday Weekend at Peninsula Hot Springs - 8 June, all day; Showcase Performance with Liana Perillo Quartet - 13 June, 7pm–8pm; Sunday Sessions with Amina - 14 June, 12pm. Daily wellness programme: Studio Yoga 7:30am (daily), Hot Springs Yoga 9:15am (daily), Fire and Ice Workshop weekdays 10:30am/4pm/5pm, Body Clay Ritual weekdays 12pm/2pm, Sauna Infusion 5pm (daily), Cacao Circle weekends 12pm. No closures or schedule changes flagged."
     checkedAt: 2026-06-02T06:48:00+10:00
 relatedVenue: peninsula-hot-springs
 status: archived

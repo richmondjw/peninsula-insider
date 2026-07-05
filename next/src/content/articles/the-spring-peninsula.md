@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-16
 heroImage:
   src: "/images/sourced/article-vineyard-villa-01.webp"
-  alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines — representative image"
+  alt: "Red Hill vineyards bursting back into leaf in October with wildflowers along the fence lines - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "editors-letter"
@@ -20,7 +20,7 @@ lastVerified: 2026-04-22
 clusterLinks:
   - label: "The Bushrangers Bay Walk"
     href: "/journal/walks-bushrangers-bay-walk-guide/"
-  - label: "Arthurs Seat Eagle — Visitor Guide"
+  - label: "Arthurs Seat Eagle - Visitor Guide"
     href: "/journal/arthurs-seat-eagle-visitor-guide/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"

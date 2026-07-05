@@ -44,7 +44,7 @@ const heroStAndrews = await resolveArticleHero(
 const allExperiences = await getCollection('experiences');
 const golfCourses = allExperiences.filter(e => e.data.type === 'golf-course');
 
-// Cape Schanck / Fingal cluster — editorial order
+// Cape Schanck / Fingal cluster - editorial order
 const capeOrder = [
   'moonah-links',
   'st-andrews-beach-golf-course',
@@ -55,7 +55,7 @@ const capeCourses = capeOrder
   .map(s => golfCourses.find(e => (e.data.slug ?? e.id) === s))
   .filter(Boolean) as typeof golfCourses;
 
-// Bay Corridor — editorial order
+// Bay Corridor - editorial order
 const bayOrder = [
   'flinders-golf-club',
   'eagle-ridge-golf-course',
@@ -74,7 +74,7 @@ function accessLabel(access: string) {
   const map: Record<string, string> = {
     public: 'Public green fees',
     'semi-private': 'Semi-private',
-    private: 'Private — members',
+    private: 'Private - members',
   };
   return map[access] ?? access;
 }
@@ -115,7 +115,7 @@ function hasRanking(course: (typeof golfCourses)[0]): boolean {
 
 // ── JSON-LD schemas ───────────────────────────────────────────────────────────
 const collectionSchema = buildCollectionPageSchema({
-  name: 'Mornington Peninsula Golf Courses — Peninsula Insider',
+  name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
   description: 'All 11 Mornington Peninsula golf courses ranked. Public vs private, what to book, best value, best views.',
   path: '/explore/golf',
   dateModified: '2026-04-30',
@@ -141,11 +141,11 @@ const itemListSchema = buildItemListSchema({
 const faqSchema = buildFaqSchema([
   {
     q: 'What is the best golf course on the Mornington Peninsula?',
-    a: "Moonah Links Open Course for championship pedigree and public access. St Andrews Beach for Tom Doak architecture and world-ranking credentials at a public green fee. The National Ocean Course for prestige — the most cited, most photographed, and most expensive.",
+    a: "Moonah Links Open Course for championship pedigree and public access. St Andrews Beach for Tom Doak architecture and world-ranking credentials at a public green fee. The National Ocean Course for prestige - the most cited, most photographed, and most expensive.",
   },
   {
     q: 'Can you play golf on the Mornington Peninsula without a club membership?',
-    a: 'Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington, and Rosebud Country Club all accept visitor green fees. Flinders and Sorrento accept visitors on non-competition days — call ahead.',
+    a: 'Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington, and Rosebud Country Club all accept visitor green fees. Flinders and Sorrento accept visitors on non-competition days - call ahead.',
   },
   {
     q: 'How much does golf cost on the Mornington Peninsula?',
@@ -157,7 +157,7 @@ const faqSchema = buildFaqSchema([
   },
   {
     q: 'What is the difference between the Cape Schanck and bay corridor courses?',
-    a: 'The Cape Schanck / Fingal cluster contains the Peninsula\'s world-ranked courses — St Andrews Beach, Moonah Links, and The National. The bay corridor runs from Mornington to Portsea, with more accessible public clubs, different terrain, and generally lower green fees. Both are worth playing; they serve different trips.',
+    a: 'The Cape Schanck / Fingal cluster contains the Peninsula\'s world-ranked courses - St Andrews Beach, Moonah Links, and The National. The bay corridor runs from Mornington to Portsea, with more accessible public clubs, different terrain, and generally lower green fees. Both are worth playing; they serve different trips.',
   },
 ]);
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -174,8 +174,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Golf — 11 Courses Ranked · Peninsula Insider"
-  description="All 11 Mornington Peninsula golf courses assessed — Cape Schanck cluster, bay corridor, public green fees, stay-and-play options, and which course suits your game."
+  title="Mornington Peninsula Golf - 11 Courses Ranked · Peninsula Insider"
+  description="All 11 Mornington Peninsula golf courses assessed - Cape Schanck cluster, bay corridor, public green fees, stay-and-play options, and which course suits your game."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage="/images/sourced/golf-rye-sunrise-01.webp"
@@ -213,7 +213,7 @@ export const prerender = true;
       label: 'Cape Schanck / Fingal',
       title: 'World-ranked. Exposed. Worth the drive to the tip.',
       rows: [
-        { label: 'Flagship courses', value: 'St Andrews Beach (Tom Doak), Moonah Links (Peter Thomson), The National (Trent Jones Jr, Thomson, Greg Norman) — three of The National\'s four courses sit here; the fourth, Long Island, is at Frankston.' },
+        { label: 'Flagship courses', value: 'St Andrews Beach (Tom Doak), Moonah Links (Peter Thomson), The National (Trent Jones Jr, Thomson, Greg Norman) - three of The National\'s four courses sit here; the fourth, Long Island, is at Frankston.' },
         { label: 'Access', value: 'St Andrews Beach and Moonah Links are fully public. The National\'s four courses are private members-only across both the Cape Schanck and Long Island sites.' },
         { label: 'Conditions', value: 'Coastal duneland. Exposed to Bass Strait wind. The same course plays differently on every visit.' },
         { label: 'Best for', value: 'Serious golfers. Destination weekends. Groups who want the bucket-list round. Stay-and-play packages.' },
@@ -221,12 +221,12 @@ export const prerender = true;
       ],
     }}
     right={{
-      label: 'Bay Corridor — Mornington to Portsea',
+      label: 'Bay Corridor - Mornington to Portsea',
       title: 'Accessible. Views. A round without the expedition.',
       rows: [
-        { label: 'Standout courses', value: 'Flinders Golf Club (clifftop hidden gem), The Dunes (Tony Cashmore links design), Eagle Ridge (Red Hill hinterland)' },
+        { label: 'Standout courses', value: 'Flinders Golf Club (clifftop nine over Bass Strait, still under-visited), The Dunes (Tony Cashmore links design), Eagle Ridge (Red Hill hinterland)' },
         { label: 'Access', value: 'Mostly public or semi-private. Mornington, Eagle Ridge, The Dunes, and Rosebud all take visitor green fees without calling ahead.' },
-        { label: 'Conditions', value: 'Mixed terrain — clifftop views at Flinders, genuine links dunes at Rye, parkland at Merricks. More sheltered than the Cape.' },
+        { label: 'Conditions', value: 'Mixed terrain - clifftop views at Flinders, genuine links dunes at Rye, parkland at Merricks. More sheltered than the Cape.' },
         { label: 'Best for', value: 'Day trips from Melbourne. Pairing with a Red Hill winery lunch. Social and high-handicap groups who want a good day without a premium price.' },
         { label: 'Combine with', value: 'Red Hill and Main Ridge wineries. Flinders Hotel or the Mornington foreshore. Rosebud for affordable replay.' },
       ],
@@ -350,7 +350,7 @@ export const prerender = true;
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       5. FOR YOUR GAME — handicap-based decision guide
+       5. FOR YOUR GAME - handicap-based decision guide
        ═══════════════════════════════════════════════════════════════ -->
   <section class="experience-index" aria-label="Golf course selector">
     <div class="container">
@@ -375,11 +375,11 @@ export const prerender = true;
               <span>Tom Doak design. World-ranked. Best architecture on the Peninsula at a public green fee.</span>
             </li>
             <li>
-              <strong>Moonah Links — Open Course</strong>
+              <strong>Moonah Links - Open Course</strong>
               <span>Peter Thomson's championship layout. Hosted the Australian Open. Rewards intelligent play over power.</span>
             </li>
             <li>
-              <strong>The National — Ocean Course</strong>
+              <strong>The National - Ocean Course</strong>
               <span>The most prestigious public round on the Peninsula. Exposed clifftop holes over Bass Strait. Book well ahead.</span>
             </li>
             <li>
@@ -397,7 +397,7 @@ export const prerender = true;
           </div>
           <ul class="game-panel__list">
             <li>
-              <strong>Moonah Links — Legends Course</strong>
+              <strong>Moonah Links - Legends Course</strong>
               <span>The Open Course's more forgiving sibling. Still championship quality; much more enjoyable for the 14–22 handicap range.</span>
             </li>
             <li>
@@ -431,7 +431,7 @@ export const prerender = true;
               <span>27-hole mix-and-match format. Three nine-hole courses you can combine however suits the group. Most-played Peninsula course for a reason.</span>
             </li>
             <li>
-              <strong>The Dunes — midweek</strong>
+              <strong>The Dunes - midweek</strong>
               <span>Midweek pricing makes this one of the best-value rounds on the Peninsula. The links feel is genuine even if you're not attacking it.</span>
             </li>
             <li>
@@ -462,7 +462,7 @@ export const prerender = true;
         <article class="architect-card">
           <div class="architect-card__name">Tom Doak</div>
           <div class="architect-card__course">St Andrews Beach Golf Course</div>
-          <p class="architect-card__note">Regarded by most serious course architecture critics as one of the three or four best designers working today. Doak's philosophy — restore the land, resist the ornamental, reward strategic play — is fully present at St Andrews Beach. His only Australian design. The course improves on every visit because the design rewards you for understanding it.</p>
+          <p class="architect-card__note">Regarded by most serious course architecture critics as one of the three or four best designers working today. Doak's philosophy - restore the land, resist the ornamental, reward strategic play - is fully present at St Andrews Beach. His only Australian design. The course improves on every visit because the design rewards you for understanding it.</p>
         </article>
 
         <article class="architect-card">
@@ -474,7 +474,7 @@ export const prerender = true;
         <article class="architect-card">
           <div class="architect-card__name">Greg Norman</div>
           <div class="architect-card__course">The National Gunnamatta Course</div>
-          <p class="architect-card__note">The Shark's only Peninsula course. Dramatically exposed, with clifftop stretches above Bass Strait that have no equivalent in Australian public golf. Private access only — members and reciprocal guests. If you have the access, it is the most visually theatrical round on the Peninsula.</p>
+          <p class="architect-card__note">The Shark's only Peninsula course. Dramatically exposed, with clifftop stretches above Bass Strait that have no equivalent in Australian public golf. Private access only - members and reciprocal guests. If you have the access, it is the most visually theatrical round on the Peninsula.</p>
         </article>
 
         <article class="architect-card">
@@ -486,7 +486,7 @@ export const prerender = true;
         <article class="architect-card">
           <div class="architect-card__name">Tony Cashmore</div>
           <div class="architect-card__course">The Dunes Golf Links</div>
-          <p class="architect-card__note">Australian public golf specialist. The Dunes is his most discussed work, built into genuine sand dune country near Rye and consistently ranked among Australia's best public-access courses. Where Doak and Thomson work at the prestige end, Cashmore built the Peninsula's most accessible championship-quality public round — and it holds up.</p>
+          <p class="architect-card__note">Australian public golf specialist. The Dunes is his most discussed work, built into genuine sand dune country near Rye and consistently ranked among Australia's best public-access courses. Where Doak and Thomson work at the prestige end, Cashmore built the Peninsula's most accessible championship-quality public round - and it holds up.</p>
         </article>
 
       </div>
@@ -494,7 +494,7 @@ export const prerender = true;
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       7. GOLF + NON-GOLFERS — the pairing question
+       7. GOLF + NON-GOLFERS - the pairing question
        ═══════════════════════════════════════════════════════════════ -->
   <section class="experience-index" aria-label="Golf and non-golfer pairings">
     <div class="container">
@@ -502,7 +502,7 @@ export const prerender = true;
         <div>
           <p class="label label--accent">The mixed group question</p>
           <h2 class="venues__title">When one person plays, what does everyone else do?</h2>
-          <p class="venues__sub">The Peninsula solves this better than almost anywhere else in Australia. The non-golfer's day can be as good as the golfer's — if you plan it properly.</p>
+          <p class="venues__sub">The Peninsula solves this better than almost anywhere else in Australia. The non-golfer's day can be as good as the golfer's - if you plan it properly.</p>
         </div>
       </div>
       <div class="pairing-grid">
@@ -510,18 +510,18 @@ export const prerender = true;
           <h3 class="pairing-card__heading">Cape Schanck / Fingal golf</h3>
           <p class="pairing-card__sub">While the golfer plays Moonah Links, St Andrews Beach, or The National:</p>
           <ul class="pairing-card__list">
-            <li><a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs</a> — 15 minutes from the Cape cluster. A full morning or afternoon session fills the time of any golf round.</li>
-            <li><a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> — 45-minute clifftop walk to Pulpit Rock. The non-golfer gets the best scenery on the Peninsula.</li>
-            <li><a href="/explore/places/flinders/">Flinders town</a> — Coffee, the Flinders Hotel beer garden, and a proper lunch. 15 minutes from the course cluster.</li>
+            <li><a href="/journal/peninsula-hot-springs-vs-alba/">Peninsula Hot Springs</a> - 15 minutes from the Cape cluster. A full morning or afternoon session fills the time of any golf round.</li>
+            <li><a href="/explore/cape-schanck-boardwalk/">Cape Schanck boardwalk</a> - 45-minute clifftop walk to Pulpit Rock. The non-golfer gets the best scenery on the Peninsula.</li>
+            <li><a href="/explore/places/flinders/">Flinders town</a> - Coffee, the Flinders Hotel beer garden, and a proper lunch. 15 minutes from the course cluster.</li>
           </ul>
         </div>
         <div class="pairing-card">
           <h3 class="pairing-card__heading">Bay corridor golf</h3>
           <p class="pairing-card__sub">While the golfer plays Flinders, Eagle Ridge, The Dunes, or Mornington:</p>
           <ul class="pairing-card__list">
-            <li><a href="/wine/">Red Hill and Main Ridge wineries</a> — A self-guided cellar door morning within 20 minutes of Eagle Ridge. Pairs perfectly for a post-round lunch rendezvous.</li>
-            <li><a href="/explore/places/mornington/">Mornington town</a> — Main Street, the foreshore, and Mornington Racecourse if timing aligns. Full morning agenda for a non-golfer.</li>
-            <li><a href="/journal/mornington-peninsula-stay-and-soak/">Peninsula Hot Springs</a> — Also reachable from the mid-Peninsula corridor in 25 minutes.</li>
+            <li><a href="/wine/">Red Hill and Main Ridge wineries</a> - A self-guided cellar door morning within 20 minutes of Eagle Ridge. Pairs perfectly for a post-round lunch rendezvous.</li>
+            <li><a href="/explore/places/mornington/">Mornington town</a> - Main Street, the foreshore, and Mornington Racecourse if timing aligns. Full morning agenda for a non-golfer.</li>
+            <li><a href="/journal/mornington-peninsula-stay-and-soak/">Peninsula Hot Springs</a> - Also reachable from the mid-Peninsula corridor in 25 minutes.</li>
           </ul>
         </div>
       </div>
@@ -537,7 +537,7 @@ export const prerender = true;
         <div>
           <p class="label label--accent">Further reading</p>
           <h2 class="venues__title">Golf editorial</h2>
-          <p class="venues__sub">Four pieces from the PI archive — each one answering a question this page can't fully resolve in a single hub.</p>
+          <p class="venues__sub">Four pieces from the PI archive - each one answering a question this page can't fully resolve in a single hub.</p>
         </div>
       </div>
       <div class="golf-articles">
@@ -556,7 +556,7 @@ export const prerender = true;
           <div class="golf-article-card__img" style={`background-image: url('${heroGolfTier}')`} aria-hidden="true"></div>
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Tier guide</p>
-            <h3 class="golf-article-card__title">The best golf courses ranked — honest tier guide</h3>
+            <h3 class="golf-article-card__title">The best golf courses ranked - honest tier guide</h3>
             <p class="golf-article-card__dek">Not all Peninsula golf is equally useful to visitors. This guide separates the destination rounds from the club names and the public-access standouts from private mythology.</p>
             <span class="golf-article-card__cta">Read the tier guide →</span>
           </div>
@@ -566,7 +566,7 @@ export const prerender = true;
           <div class="golf-article-card__img" style={`background-image: url('${heroGolfStayPlay}')`} aria-hidden="true"></div>
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Stay and play</p>
-            <h3 class="golf-article-card__title">Stay and play — accommodation near every course</h3>
+            <h3 class="golf-article-card__title">Stay and play - accommodation near every course</h3>
             <p class="golf-article-card__dek">The accommodation that makes each Peninsula golf course walkable, driveable, or otherwise properly paired. Ten courses, stay recommendations for each.</p>
             <span class="golf-article-card__cta">Read the guide →</span>
           </div>
@@ -576,7 +576,7 @@ export const prerender = true;
           <div class="golf-article-card__img" style={`background-image: url('${heroStAndrews}')`} aria-hidden="true"></div>
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Course deep-dive</p>
-            <h3 class="golf-article-card__title">St Andrews Beach — the world-ranked course anyone can book</h3>
+            <h3 class="golf-article-card__title">St Andrews Beach - the world-ranked course anyone can book</h3>
             <p class="golf-article-card__dek">Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend. The one golf story that explains the Peninsula.</p>
             <span class="golf-article-card__cta">Read the deep-dive →</span>
           </div>
@@ -634,7 +634,7 @@ export const prerender = true;
         <details class="golf-faq__item">
           <summary class="golf-faq__q">What is the best golf course on the Mornington Peninsula?</summary>
           <div class="golf-faq__a">
-            <p>Moonah Links Open Course for championship pedigree and full public access. St Andrews Beach for Tom Doak architecture and world-ranking credentials at a public green fee. The National Ocean Course for prestige — the most cited, most photographed, and most expensive option, accepting public green fees on the Ocean Course only.</p>
+            <p>Moonah Links Open Course for championship pedigree and full public access. St Andrews Beach for Tom Doak architecture and world-ranking credentials at a public green fee. The National Ocean Course for prestige - the most cited, most photographed, and most expensive option, accepting public green fees on the Ocean Course only.</p>
             <p>For a mid-handicapper who wants the best round rather than the most famous address: Moonah Links Open Course is the correct answer. The challenge is real, the conditioning is excellent, and the round does not end with the score card as the main memory.</p>
           </div>
         </details>
@@ -642,14 +642,14 @@ export const prerender = true;
         <details class="golf-faq__item">
           <summary class="golf-faq__q">Can you play golf on the Mornington Peninsula without a club membership?</summary>
           <div class="golf-faq__a">
-            <p>Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington Golf Club, and Rosebud Country Club all accept visitor green fees without calling ahead. Flinders Golf Club and Sorrento Golf Club accept visitors on non-competition days — call ahead to confirm availability. Portsea Golf Club and The National's Moonah and Gunnamatta courses are private.</p>
+            <p>Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington Golf Club, and Rosebud Country Club all accept visitor green fees without calling ahead. Flinders Golf Club and Sorrento Golf Club accept visitors on non-competition days - call ahead to confirm availability. Portsea Golf Club and The National's Moonah and Gunnamatta courses are private.</p>
           </div>
         </details>
 
         <details class="golf-faq__item">
           <summary class="golf-faq__q">How much does golf cost on the Mornington Peninsula?</summary>
           <div class="golf-faq__a">
-            <p>Green fees vary significantly by course and season — always verify current rates directly before booking. Broadly: The National Ocean Course and St Andrews Beach are at the premium end. Moonah Links is premium but offers better value for what you get. Eagle Ridge, The Dunes, Mornington, and Rosebud are the most accessible options. Midweek rates at most courses are substantially lower than weekend rates.</p>
+            <p>Green fees vary significantly by course and season - always verify current rates directly before booking. Broadly: The National Ocean Course and St Andrews Beach are at the premium end. Moonah Links is premium but offers better value for what you get. Eagle Ridge, The Dunes, Mornington, and Rosebud are the most accessible options. Midweek rates at most courses are substantially lower than weekend rates.</p>
           </div>
         </details>
 
@@ -671,7 +671,7 @@ export const prerender = true;
         <details class="golf-faq__item">
           <summary class="golf-faq__q">How far is Mornington Peninsula golf from Melbourne?</summary>
           <div class="golf-faq__a">
-            <p>Most Peninsula golf courses are 75–105 minutes from Melbourne CBD via the Mornington Peninsula Freeway. The Cape Schanck / Fingal cluster — St Andrews Beach, Moonah Links, The National — is approximately 90–100 minutes. The Dunes (Rye) is in the same window. Mornington Golf Club is the closest course to Melbourne at around 60 minutes.</p>
+            <p>Most Peninsula golf courses are 75–105 minutes from Melbourne CBD via the Mornington Peninsula Freeway. The Cape Schanck / Fingal cluster - St Andrews Beach, Moonah Links, The National - is approximately 90–100 minutes. The Dunes (Rye) is in the same window. Mornington Golf Club is the closest course to Melbourne at around 60 minutes.</p>
             <p>Weekend traffic on the Mornington Peninsula Freeway can add 15–30 minutes during summer and school holiday periods. Plan for an early departure on Friday afternoons or Saturday mornings in peak season.</p>
           </div>
         </details>
@@ -679,14 +679,14 @@ export const prerender = true;
         <details class="golf-faq__item">
           <summary class="golf-faq__q">What is the best time of year for golf on the Mornington Peninsula?</summary>
           <div class="golf-faq__a">
-            <p>Autumn (March–May) and spring (September–November) are the strongest seasons — stable weather, firm course conditions, and shoulder-season pricing on green fees and accommodation. The coastal light in autumn is genuinely extraordinary on the Cape Schanck courses.</p>
+            <p>Autumn (March–May) and spring (September–November) are the strongest seasons - stable weather, firm course conditions, and shoulder-season pricing on green fees and accommodation. The coastal light in autumn is genuinely extraordinary on the Cape Schanck courses.</p>
             <p>Summer (December–February) is busy and can be windy at coastal courses. Winter is playable on dry days but expect some course closures after heavy rain. Links-style courses like St Andrews Beach and The Dunes drain faster than parkland courses and often stay open when inland layouts close.</p>
           </div>
         </details>
 
       </div>
 
-      <p class="golf-verified"><em>Last fact-verified 30 April 2026. Green fees, opening hours, and visitor access policies change — verify directly with each course before booking.</em></p>
+      <p class="golf-verified"><em>Last fact-verified 30 April 2026. Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.</em></p>
     </div>
   </section>
 
@@ -896,7 +896,7 @@ export const prerender = true;
   .golf-card__book:hover { color: var(--text); }
 
   /* ─────────────────────────────────────────────────────────────────
-     FOR YOUR GAME — 3-panel guide
+     FOR YOUR GAME - 3-panel guide
      ───────────────────────────────────────────────────────────────── */
   .game-guide {
     display: grid;
@@ -1219,7 +1219,7 @@ export const prerender = true;
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     FAQ — details/summary accordion
+     FAQ - details/summary accordion
      ───────────────────────────────────────────────────────────────── */
   .golf-faq {
     display: flex;

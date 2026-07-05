@@ -96,7 +96,7 @@ const longLunches = longLunchSlugs
 
 const casualStops = venues.filter((venue) => ['cafe', 'bakery'].includes(venue.data.type)).slice(0, 6);
 
-// Food + wine events coming up — surfaces from /whats-on/ on the section hub.
+// Food + wine events coming up - surfaces from /whats-on/ on the section hub.
 const eatEventCategories = ['food-wine', 'cellar-door', 'market'];
 const eatEvents = (await getCollection('events'))
   .filter((event) => eatEventCategories.includes(event.data.category))
@@ -209,7 +209,7 @@ export const prerender = true;
 
   <!-- ═══════════════════════════════════════════════════════════════
        1.5 AREA QUICK-NAV (mobile-only)
-       Geographic orientation strip — helps mobile users place themselves
+       Geographic orientation strip - helps mobile users place themselves
        before scrolling into venue grids. Hidden on desktop where the
        CompareBlock below already does this job.
        ═══════════════════════════════════════════════════════════════ -->
@@ -228,11 +228,11 @@ export const prerender = true;
   </nav>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       EDITORIAL SURFACE — Featured Long Lunch (Level 1)
+       EDITORIAL SURFACE - Featured Long Lunch (Level 1)
        Post-hero, pre-grid. One surface maximum per hub page.
        Placement principles: docs/editorial-surface-placement-principles-2026-05-16.md
        Phase 1: PI curatorial voice only. No partner language.
-       Phase 2: eyebrow line evolves — no redesign required.
+       Phase 2: eyebrow line evolves - no redesign required.
        ═══════════════════════════════════════════════════════════════ -->
   <div class="eat-surface-wrap container">
     <EditorialSurface
@@ -240,7 +240,7 @@ export const prerender = true;
       surface="Featured Long Lunch"
       season="Winter 2026"
       name="Ten Minutes by Tractor, Main Ridge"
-      verdict="The most serious room on the Peninsula in winter. Three single-vineyard labels, a kitchen that doesn't rush, and a dining room that earns the drive up the ridge. Book well ahead and give it the full afternoon — this is not a two-hour lunch."
+      verdict="The most serious room on the Peninsula in winter. Three single-vineyard labels, a kitchen that doesn't rush, and a dining room that earns the drive up the ridge. Book well ahead and give it the full afternoon - this is not a two-hour lunch."
       meta={["Main Ridge", "Bookings recommended", "Lunch Wed–Sun"]}
       href="/wine/ten-minutes-by-tractor/"
       image="/images/sourced/article-long-lunch-01.webp"
@@ -403,7 +403,7 @@ export const prerender = true;
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. FULL DIRECTORY (filterable, Phase 2 WS2A — uses VenueDirectory)
+       8. FULL DIRECTORY (filterable, Phase 2 WS2A - uses VenueDirectory)
        ═══════════════════════════════════════════════════════════════ -->
   <VenueDirectory
     id="eat-directory"
@@ -411,7 +411,7 @@ export const prerender = true;
     hrefPrefix="/eat"
     eyebrow="Complete dining directory"
     heading={`All ${venues.length} eat-and-drink venues`}
-    sub="Ordered by editorial weight. Filter by town, format, price, mood, or suitability — the list re-shapes itself as you go."
+    sub="Ordered by editorial weight. Filter by town, format, price, mood, or suitability - the list re-shapes itself as you go."
     topLink={{ label: 'Ranked top 15 →', href: '/eat/best-restaurants/' }}
     typeOptions={venueTypeOptions}
     moodOptions={moodFilterOptions}

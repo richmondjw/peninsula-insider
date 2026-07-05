@@ -25,9 +25,9 @@ faq:
   - question: "What is Karina Vineyard known for?"
     answer: "A smaller-scale Peninsula wine identity that merits direct verification before planning a dedicated visit."
   - question: "Is Karina Vineyard worth visiting?"
-    answer: "Potentially yes — especially if you prefer small producers to big estate theatre — but confirm current tasting access before building a day around it."
+    answer: "Potentially yes - especially if you prefer small producers to big estate theatre - but confirm current tasting access before building a day around it."
   - question: "Where is Karina Vineyard?"
-    answer: "Dromana, Mornington Peninsula — roughly 75 to 90 minutes from Melbourne depending on traffic."
+    answer: "Dromana, Mornington Peninsula - roughly 75 to 90 minutes from Melbourne depending on traffic."
 ---
 
 Public information on Karina Vineyard is thinner than it is for the Peninsula's headline estates, and that usually tells you something useful straight away. It reads as a smaller-scale producer, a private tasting setup, or a venue whose best use is for readers who already know why they are going.

@@ -20,7 +20,7 @@ lastVerified: 2026-05-01
 clusterLinks:
   - label: "What to Do in Red Hill This Weekend: The Saturday Plan"
     href: "/journal/how-to-build-a-red-hill-saturday/"
-  - label: "The Cellar Door Short List — Five Producers Worth the Appointment"
+  - label: "The Cellar Door Short List - Five Producers Worth the Appointment"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Plan a Peninsula Weekend"
     href: "/journal/how-to-plan-a-peninsula-weekend/"

@@ -23,8 +23,8 @@ const places = await getCollection('places');
 const place = places.find((p) => routeSlug(p) === 'merricks') ?? null;
 
 const itemListSchema = buildItemListSchema({
-  name: 'Merricks wineries — Mornington Peninsula',
-  description: 'The cellar doors of the Merricks sub-region — the Peninsula\'s gentler eastern slope toward Western Port Bay.',
+  name: 'Merricks wineries - Mornington Peninsula',
+  description: 'The cellar doors of the Merricks sub-region - the Peninsula\'s gentler eastern slope toward Western Port Bay.',
   listPath: '/wine/merricks',
   items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}`, itemType: 'Winery' })),
 });
@@ -39,7 +39,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Merricks Wineries · Mornington Peninsula · Peninsula Insider"
-  description="The complete editorial guide to the Merricks wine sub-region — Pt. Leo Estate, Stonier, Scorpo, Paradigm Hill, the General Wine Store and the eastern slope of the Peninsula."
+  description="The complete editorial guide to the Merricks wine sub-region - Pt. Leo Estate, Stonier, Scorpo, Paradigm Hill, the General Wine Store and the eastern slope of the Peninsula."
   section="wine"
   canonical={canonical}
 >
@@ -50,14 +50,14 @@ export const prerender = true;
     h1="Merricks Wineries"
     badgeLabel="Sub-region · Merricks"
     subregionSlug="merricks"
-    introText={`Merricks runs down the gentler eastern slope of the Peninsula ridge toward Western Port Bay. The land is rolling rather than plateau, the soils slightly warmer than Main Ridge, and the vibe — village store turned wine bar, sculpture in the paddocks — is more relaxed than its high-altitude neighbours.
+    introText={`Merricks runs down the gentler eastern slope of the Peninsula ridge toward Western Port Bay. The land is rolling rather than plateau, the soils slightly warmer than Main Ridge, and the vibe - village store turned wine bar, sculpture in the paddocks - is more relaxed than its high-altitude neighbours.
 
 Pt. Leo Estate is the most ambitious project on the Peninsula: a sculpture park, three restaurants, and a producer in its own right. Stonier is the oldest established estate. Scorpo, Paradigm Hill and Kerri Greens are the newer generation working with conviction.
 
-Merricks General Wine Store anchors the village — a casual lunch destination that doubles as the unofficial cellar door for several smaller producers without their own visitor space.`}
+Merricks General Wine Store anchors the village - a casual lunch destination that doubles as the unofficial cellar door for several smaller producers without their own visitor space.`}
     terroirText={`Merricks sits 50–200m above sea level on the eastern flank of the Peninsula ridge, falling away toward Western Port. The slope direction matters: vineyards here see more morning sun and slightly less of the afternoon sea breeze that cools Red Hill and Main Ridge from the Bass Strait side.
 
-The soils are a mix of red volcanic loam in the upper paddocks and grey-brown clay-loams lower down. Yields can be a touch higher than the ridge, ripening a few days earlier. The result is wines with a softer, more open mid-palate — generous on release, less austere than Main Ridge, less polished than Red Hill at its best.
+The soils are a mix of red volcanic loam in the upper paddocks and grey-brown clay-loams lower down. Yields can be a touch higher than the ridge, ripening a few days earlier. The result is wines with a softer, more open mid-palate - generous on release, less austere than Main Ridge, less polished than Red Hill at its best.
 
 Western Port Bay, calmer and warmer than Port Phillip, has its own moderating effect. Frost is rarer here. Vineyards on the gentle slopes above Balcombe Creek catch enough air movement to avoid disease pressure without losing flavour. Pt. Leo Estate and Merricks Estate sit close enough to the bay to feel its influence directly.`}
     venues={venues}
@@ -72,21 +72,21 @@ Western Port Bay, calmer and warmer than Port Phillip, has its own moderating ef
       },
       {
         venueSlug: 'scorpo-wines',
-        verdict: 'Paul and Caroline Scorpo work with restraint and conviction — single-vineyard Pinot Gris, Pinot Noir and Chardonnay with a textural confidence that has quietly made them a critic favourite.',
+        verdict: 'Paul and Caroline Scorpo work with restraint and conviction - single-vineyard Pinot Gris, Pinot Noir and Chardonnay with a textural confidence that has quietly made them a critic favourite.',
       },
     ]}
-    signatureChardonnay="Merricks Chardonnay tends to be the most approachable of the four serious sub-regions — rounder on the mid-palate, lower acid than Main Ridge, with stone fruit and toasted nut more than mineral flint. Stonier and Pt. Leo Estate set the standard."
+    signatureChardonnay="Merricks Chardonnay tends to be the most approachable of the four serious sub-regions - rounder on the mid-palate, lower acid than Main Ridge, with stone fruit and toasted nut more than mineral flint. Stonier and Pt. Leo Estate set the standard."
     signaturePinot="Pinot Noir from Merricks runs riper and more red-fruited than Main Ridge, with a generous mid-palate that drinks well young. Scorpo, Paradigm Hill and Kerri Greens make distinctly elegant examples; Pt. Leo Estate's single-vineyard bottlings show the upper end of what the slope can do."
     pairWith={{
       placeSlug: 'merricks',
       placeName: 'Merricks',
-      body: 'Merricks General Wine Store is the lunch anchor — a converted village store now serving one of the Peninsula\'s most popular casual restaurants. Beach access at Merricks is quieter than Pt. Leo, and the surrounding farm lanes make for an unhurried drive between cellar doors.',
+      body: 'Merricks General Wine Store is the lunch anchor - a converted village store now serving one of the Peninsula\'s most popular casual restaurants. Beach access at Merricks is quieter than Pt. Leo, and the surrounding farm lanes make for an unhurried drive between cellar doors.',
     }}
-    logisticsText={`Most Merricks cellar doors operate Friday to Sunday, with some opening Wednesday and Thursday in peak season. The bigger estates — Pt. Leo, Stonier, Willow Creek — open daily for most of the year; smaller producers are appointment-only mid-week.
+    logisticsText={`Most Merricks cellar doors operate Friday to Sunday, with some opening Wednesday and Thursday in peak season. The bigger estates - Pt. Leo, Stonier, Willow Creek - open daily for most of the year; smaller producers are appointment-only mid-week.
 
-The sub-region is more spread out than Red Hill. Allow more drive-time between stops. Three cellar doors plus lunch at the General Wine Store is a full Saturday — don't try to pack four.
+The sub-region is more spread out than Red Hill. Allow more drive-time between stops. Three cellar doors plus lunch at the General Wine Store is a full Saturday - don't try to pack four.
 
-Merricks Beach Road and Stanleys Road are the spine. Both are sealed but narrow. The roads east of Merricks Beach Road can be unsealed in places — fine for a careful drive, less fine after summer storms.`}
+Merricks Beach Road and Stanleys Road are the spine. Both are sealed but narrow. The roads east of Merricks Beach Road can be unsealed in places - fine for a careful drive, less fine after summer storms.`}
     nearbySubregions={[
       { slug: 'red-hill', label: 'Red Hill', hint: 'Up the ridge to the west. Paringa, Montalto, Polperro and the monthly market.' },
       { slug: 'main-ridge', label: 'Main Ridge', hint: 'The highest plateau. Kooyong, Ten Minutes by Tractor, Main Ridge Estate.' },

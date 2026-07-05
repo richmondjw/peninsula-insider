@@ -1,6 +1,6 @@
 ---
 headline: "Montalto's Saturday open day for the public grape pick"
-dek: "Final pick day on Saturday 3 May. Pick a kilo of Pinot for the Montalto co-op blend, lunch on the lawn, kids welcome. $35 entry, $15 for under-12s."
+dek: "Final pick day on Saturday 3 May. Pick a kilo of Pinot for the Montalto co-op blend, lunch on the lawn, kids welcome. Ticketed entry, with a cheaper under-12 rate - book direct."
 section: wine
 tag: event
 publishedAt: 2026-05-01T09:00:00+10:00

@@ -57,7 +57,7 @@ const breadcrumbItems = [
 
         <ul class="admin-login__notes">
           <li>Public site stays fast and static by default.</li>
-          <li>Write access is gated by Supabase RLS policies — only approved editors can save changes.</li>
+          <li>Write access is gated by Supabase RLS policies - only approved editors can save changes.</li>
           <li>Lost access? Ask another editor to add your account to <code>pi.admin_user_allowlist</code>.</li>
         </ul>
       </div>
@@ -148,7 +148,7 @@ const breadcrumbItems = [
       setStatus('Sending magic link…');
       const result = await signInWithMagicLink(email, `${location.origin}${readNextPath()}`);
       if (result.ok) {
-        setStatus('Check your inbox — the link expires in 60 minutes.', 'ok');
+        setStatus('Check your inbox - the link expires in 60 minutes.', 'ok');
       } else {
         setStatus(result.error || 'Could not send link.', 'err');
       }

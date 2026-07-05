@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — winter is in, the pattern holds, and the King's Birthday long weekend is seven days away."
+headline: "Editor's note - winter is in, the pattern holds, and the King's Birthday long weekend is seven days away."
 dek: "Tuesday opens the second week of the covered Peninsula. Seventy-eight percent today, near certainty Wednesday and Thursday. The short-range says plan inside. The long-range says start thinking about June 8."
 section: note
 tag: editor-note
@@ -7,7 +7,7 @@ publishedAt: 2026-06-02T06:47:00+10:00
 expiresAt: 2026-06-03T06:00:00+10:00
 verifiedAt: 2026-06-02T06:47:00+10:00
 verifiedBy: editor
-verdict: "The covered Peninsula is the editorial line for the week. King's Birthday weekend is next Monday — worth booking now."
+verdict: "The covered Peninsula is the editorial line for the week. King's Birthday weekend is next Monday - worth booking now."
 sources:
   - kind: gov
     url: "https://api.open-meteo.com/v1/forecast?latitude=-38.40&longitude=145.00"

@@ -1,6 +1,6 @@
 ---
 /**
- * Homepage — Editorial magazine cover for the Mornington Peninsula guide.
+ * Homepage - Editorial magazine cover for the Mornington Peninsula guide.
  *
  * Cover carousel: full article rotates (text + image together).
  * Below the fold: Section nav → Weekend Dispatch → Places rail → Plans
@@ -9,8 +9,7 @@
  * Promoted from /preview-home-redesign/ on 2026-05-25, replacing the
  * cinematic fullbleed cover that lives in git history.
  *
- * Simplified 2026-06-10: ThreeMissionBar and MelbourneEntryStrip removed —
- * each routed intents (Ask / weekend / plans) that already have exactly one
+ * Simplified 2026-06-10: ThreeMissionBar and MelbourneEntryStrip removed - * each routed intents (Ask / weekend / plans) that already have exactly one
  * surface elsewhere on this screen (Ask floating button, the Weekend
  * Dispatch card, the Plans grid). The Melbourne entry link now lives
  * inside WeekendPickerBlock.
@@ -135,17 +134,17 @@ export const prerender = true;
 
 <BaseLayout
   title="Peninsula Insider, The Mornington Peninsula Guide"
-  description="An editorial guide to the Mornington Peninsula — best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned. Updated May 2026."
+  description="An editorial guide to the Mornington Peninsula - best restaurants, cellar doors, beaches, walks, and places to stay. Every venue visited. Every opinion earned."
   section="home"
   canonical="https://peninsulainsider.com.au"
 >
 
-  {/* ── ZONE 1: Cover carousel — full-screen slides, images + text editable
+  {/* ── ZONE 1: Cover carousel - full-screen slides, images + text editable
       in place. Self-contained component (data, markup, script). CSS lives in
       this page's <style is:global> below. */}
   <HomeHeroCarousel />
 
-  {/* ── ZONE 2: Big-four section rows (Vivid-style, Phase 3) — navigation
+  {/* ── ZONE 2: Big-four section rows (Vivid-style, Phase 3) - navigation
       presented as content: four giant display rows with trailing arrows,
       then a quiet secondary line for the journey sections. Mobile only;
       desktop has the mega-menu pillars. */}
@@ -215,7 +214,7 @@ export const prerender = true;
     </section>
   )}
 
-  {/* Arrow paging for the card rails. No wheel/drag capture — the page scrolls
+  {/* Arrow paging for the card rails. No wheel/drag capture - the page scrolls
       normally over the rail; the desktop arrows just nudge the native
       horizontally-scrollable track left/right and disable at the ends. */}
   <script is:inline>
@@ -257,7 +256,7 @@ export const prerender = true;
         <div class="places__header">
           <p class="label label--accent places__label">{placesLabel}</p>
           <h2 class="places__title">{placesTitle}</h2>
-          <p class="places__sub">{cmsText['places.sub'] ?? 'Start with the Peninsula destinations people search for first — the towns, villages and landmarks that anchor most trips.'}</p>
+          <p class="places__sub">{cmsText['places.sub'] ?? 'Start with the Peninsula destinations people search for first - the towns, villages and landmarks that anchor most trips.'}</p>
         </div>
         <div class="places__grid">
           {featuredPlaces.map((place, index) => (
@@ -297,7 +296,7 @@ export const prerender = true;
     </ScrollReveal>
   )}
 
-  {/* ── ZONE 7.5: "From the Journal" rail — mobile counterpart of the
+  {/* ── ZONE 7.5: "From the Journal" rail - mobile counterpart of the
       desktop Shortlist below (hp-shortlist-wrap is hidden ≤767px). */}
   {editorPicks.length > 0 && (
     <section class="hp-rail hp-rail--journal" aria-label="From the Journal">
@@ -397,7 +396,7 @@ export const prerender = true;
 
 <style is:global>
   /* ═══════════════════════════════════════════════════════════════════════════
-     Option A typography — applied site-wide.
+     Option A typography - applied site-wide.
      Outfit + Cormorant Garamond, fixed across all sizes.
      Cormorant italic stripped below 28px where hairlines disappear.
   ═══════════════════════════════════════════════════════════════════════════ */
@@ -456,7 +455,7 @@ export const prerender = true;
     font-size: clamp(0.95rem, 1.6vw, 1.1rem);
   }
 
-  /* ── Cover — Vivid-style full-screen slider ─────────────────────────────
+  /* ── Cover - Vivid-style full-screen slider ─────────────────────────────
      Full-bleed photo, warm-dark scrim, overlay bottom-left, control strip
      along the bottom edge. Height fills the viewport under the masthead;
      svh keeps iOS URL-bar collapse from causing jumps. --masthead-h is
@@ -464,13 +463,13 @@ export const prerender = true;
   .cover {
     position: relative;
     /* Neutralise the legacy /assets/styles.css .cover rules (editorial
-       padding + border) — that stylesheet still loads first sitewide. */
+       padding + border) - that stylesheet still loads first sitewide. */
     padding: 0;
     border: 0;
     background: var(--bg-dark);
     --masthead-h: 150px;          /* desktop: utility + brand + nav rows */
     /* Desktop 60% / mobile 75% of the viewport below the masthead
-       (desktop set to 60% per James, 2026-06-18) — the next section peeks
+       (desktop set to 60% per James, 2026-06-18) - the next section peeks
        above the fold as a scroll affordance. Mobile ratio is in the mobile block. */
     --cover-ratio: 0.6;
     --cover-h: calc((100svh - var(--masthead-h)) * var(--cover-ratio));
@@ -518,7 +517,7 @@ export const prerender = true;
     margin: 0;
   }
   .cover__media img { object-fit: cover; display: block; }
-  /* Warm-dark scrim — guarantees headline + standfirst contrast on ANY
+  /* Warm-dark scrim - guarantees headline + standfirst contrast on ANY
      photo, including pale skies and bright sand (James, 2026-06-18).
      Three layers, concentrated bottom-left where the type sits so the
      centre of the photo keeps its brightness:
@@ -528,8 +527,7 @@ export const prerender = true;
           control strip) and eases to a light wash up top;
        3. a faint uniform veil so a blown-out photo still holds white type.
      Per-slide control: --scrim multiplies the whole scrim (default 1).
-     Raise it for very bright photos, lower it for already-dark ones —
-     set `"scrim": <number>` on a slide in home-hero-slides.json. */
+     Raise it for very bright photos, lower it for already-dark ones - set `"scrim": <number>` on a slide in home-hero-slides.json. */
   .cover__scrim {
     position: absolute;
     inset: 0;
@@ -549,7 +547,7 @@ export const prerender = true;
   }
 
   .cover__overlay {
-    /* In flow within the slide grid, pinned to the bottom — so the overlay's
+    /* In flow within the slide grid, pinned to the bottom - so the overlay's
        own height sets the slide's floor and the top lines (meta + headline)
        can never be clipped, however tall the type or short the viewport. */
     position: relative;
@@ -626,7 +624,7 @@ export const prerender = true;
   .cover__cta:hover { background: var(--acc-h); transform: translateY(-1px); }
   .cover__cta:focus-visible { outline: 2px solid #FDFCFA; outline-offset: 2px; }
 
-  /* ── Control strip — arrows at the edges, dash pager centred ──────────── */
+  /* ── Control strip - arrows at the edges, dash pager centred ──────────── */
   .cover__controls {
     position: absolute;
     bottom: 0;
@@ -636,7 +634,7 @@ export const prerender = true;
     z-index: 2;
     display: flex;
     align-items: center;
-    /* Centred cluster (‹ dashes ›) — corner-pinned arrows sit under the
+    /* Centred cluster (‹ dashes ›) - corner-pinned arrows sit under the
        Ask FAB (right) and the first-visit cookie banner (full width). */
     justify-content: center;
     gap: 1.4rem;
@@ -703,7 +701,7 @@ export const prerender = true;
     .cover__nav-btn.is-active .cover__nav-bar::after { animation: none; width: 100%; }
   }
 
-  /* Overlay entrance — one quiet rise, not the old per-element stagger. */
+  /* Overlay entrance - one quiet rise, not the old per-element stagger. */
   @keyframes cover-enter {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -722,7 +720,7 @@ export const prerender = true;
     .cover__dispatch { display: none; }  /* Vivid economy: headline + CTA only */
     .cover__overlay { padding-bottom: 4.6rem; }
     .cover__headline { margin-bottom: 1.25rem; }
-    /* No arrow buttons on touch widths — swipe is the gesture, and the
+    /* No arrow buttons on touch widths - swipe is the gesture, and the
        bottom corners are owned by the Ask FAB and (first visit) the
        cookie banner, which obscure corner buttons. Dash pager remains,
        left-aligned with the overlay text, clear of the bottom-right FAB. */
@@ -878,7 +876,7 @@ export const prerender = true;
     .hp-rail--journal { display: none; }
   }
 
-  /* ── Shortlist, Plans, Notebook — copied from index.astro ────────────────── */
+  /* ── Shortlist, Plans, Notebook - copied from index.astro ────────────────── */
   @media (max-width: 767px) { .hp-shortlist-wrap { display: none; } }
 
   .places--compact .place-card__body { padding: 1rem 0 0; }

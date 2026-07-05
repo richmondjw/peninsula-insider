@@ -1,13 +1,13 @@
 ---
 /**
- * HubGuideTOC — sticky in-page table of contents for hub-guide / service
+ * HubGuideTOC - sticky in-page table of contents for hub-guide / service
  * / trail-guide / venue-guide articles.
  *
  * Renders a list of anchor links to the article's H2 headings. At desktop
  * (≥1080px) the nav becomes a sticky left rail; at mobile/tablet it
  * collapses to a horizontal scroll bar at the top of the article body.
  *
- * Active-section tracking via IntersectionObserver — the heading currently
+ * Active-section tracking via IntersectionObserver - the heading currently
  * intersecting the top portion of the viewport gets `is-active` on its
  * TOC link, with a small lookahead so the active state changes just
  * before the heading scrolls past.
@@ -25,7 +25,7 @@ export interface Props {
   title?: string;
 }
 const { headings, title = 'On this page' } = Astro.props;
-// Only top-level (H2) entries — H3s/H4s would make the rail noisy at
+// Only top-level (H2) entries - H3s/H4s would make the rail noisy at
 // desktop and unscannable at mobile.
 const items = headings.filter((h) => h.depth === 2);
 ---
@@ -84,7 +84,7 @@ const items = headings.filter((h) => h.depth === 2);
 
       targets.forEach(function (t) { io.observe(t); });
 
-      // Smooth-scroll on click — overrides the default jump so the
+      // Smooth-scroll on click - overrides the default jump so the
       // sticky masthead doesn't cover the anchor target.
       links.forEach(function (l) {
         l.addEventListener('click', function (e) {
@@ -109,7 +109,7 @@ const items = headings.filter((h) => h.depth === 2);
 </script>
 
 <style>
-  /* Mobile / tablet — horizontal scroll bar above the article body. */
+  /* Mobile / tablet - horizontal scroll bar above the article body. */
   .hub-toc {
     overflow-x: auto;
     padding: 0.85rem 0;
@@ -147,7 +147,7 @@ const items = headings.filter((h) => h.depth === 2);
     border-bottom-color: var(--accent, #A0541F);
   }
 
-  /* Desktop — sticky left rail. */
+  /* Desktop - sticky left rail. */
   @media (min-width: 1080px) {
     .hub-toc {
       position: sticky;

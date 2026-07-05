@@ -18,7 +18,7 @@ tideStation: Stony Point (Bass Strait fringe; Stony Point is the closest referen
 tideNotes: Low to mid-rising tide for daytime salmon. Gutter structure most visible and fishable at low tide. Night sessions for gummy shark on any tidal state with a running phase.
 safetyNotes: Active surf beach with rip hazards. Fish from above the high-water mark during active swell. Surf Life Saving Victoria publishes rip identification guidance worth reading before any session.
 intro: 'Point Leo is the more accessible of the Peninsula''s south-coast surf beaches. Less exposed than Gunnamatta, less crowded with surfers, with productive gutter structure visible at low tide. Australian salmon during the winter run; opportunistic snapper and gummy shark on quieter days. The Peninsula''s introduction to surf-cast fishing for anglers not yet ready for Gunnamatta''s full Bass Strait exposure.'
-metaDescription: 'Point Leo Beach fishing — Australian salmon in Bass Strait gutters, snapper, surf-cast technique, gear requirements, surf safety.'
+metaDescription: 'Point Leo Beach fishing - Australian salmon in Bass Strait gutters, snapper, surf-cast technique, gear requirements, surf safety.'
 faq:
   - question: Is Point Leo less dangerous than Gunnamatta?
     answer: 'Less exposed, but still a Bass Strait surf beach with active rip currents and live swell. Do not wade into the surf zone to extend casting distance. Fish from above the high-water mark during active swell. Surf Life Saving Victoria publishes rip identification guidance; read it before any south-coast session.'

@@ -33,7 +33,7 @@ The site is organised as an **editorial destination**, not a directory. A few de
 - **Places are hubs**, not filters. `/places/sorrento/` aggregates all content for a town — venues, experiences, itineraries, articles, events — rather than venues having a "location" facet.
 - **The Journal carries authority**. Long-form editorial (think magazine feature, not blog post) sits under `/journal/`. SEO landing pages and service pieces live here too.
 - **What's On is a dispatch**, not a events calendar. It has an opinion about each event. It publishes like a newsletter, on a cadence.
-- **No pricing on the site**. The `priceBand` field exists on venues for internal editorial use but is never rendered publicly. This is a brand rule (BRAND-PI.md).
+- **No dollar figures on the site**. Prose prices are hard-blocked by `next/scripts/lint-no-pricing.mjs` (extended 2026-07-04 to cover md/json/astro copy; B2B rate cards exempt). The relative `priceBand` ($–$$$$) IS rendered (venue meta, directory filter chips) as a deliberate exception: relative bands don't go stale the way dollar figures do. This supersedes the earlier "priceBand is never rendered" note, which had drifted from the shipped product.
 
 ---
 
@@ -121,19 +121,19 @@ peninsulainsider.com.au/
 
 ### Masthead (7-slot row)
 
-The masthead carries 7 items by design. Order is deliberate: intent-led left (What's On, Plans), then the five content pillars.
+> Updated 2026-07-04 to match the shipped v4 nav (`next/src/lib/v4-nav.ts`), which is the source of truth. Category pillars lead; the temporal/editorial surfaces trail.
 
-| Position | Label | URL | Children (mobile submenu) |
-|---|---|---|---|
-| 1 | What's On | `/whats-on/` | — |
-| 2 | Plans | `/plans/` | — |
-| 3 | Eat & Drink | `/eat/` | Best Restaurants, Long Lunches, Cellar Door Lunch, Cafes, Fine Dining |
-| 4 | Wine | `/wine/` | Cellar Doors, Best Wineries, Pinot Noir, Chardonnay, By Appointment |
-| 5 | Stay | `/stay/` | Best Accommodation, Boutique Hotels, Villas, Glamping, Wellness Retreats |
-| 6 | Explore | `/explore/` | Walks, Beaches, Markets, Rainy Day, Things to Do |
-| 7 | Journal | `/journal/` | — |
+| Position | Label | URL |
+|---|---|---|
+| 1 | Eat & Drink | `/eat/` |
+| 2 | Stay | `/stay/` |
+| 3 | Wine | `/wine/` |
+| 4 | Explore | `/explore/` |
+| 5 | Plans | `/explore/plans/` |
+| 6 | What's On | `/whats-on/` |
+| 7 | Journal | `/journal/` |
 
-A trailing **"More" trigger** reveals a mega-panel with the specialist verticals: Tours, Boating, Golf, Spa, Fishing, Dog Friendly, Weddings, Corporate.
+Specialist verticals (Walks, Golf, Fishing, Boating, Tours, Dog Friendly) surface via the **Specialist guides** column inside the Explore mega-panel, and via the footer's niche column (which also carries Weddings, Corporate, Signature events, Awards, Spa).
 
 ### V4 Mega-navigation (desktop)
 

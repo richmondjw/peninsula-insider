@@ -5,7 +5,7 @@ import { routeSlug } from '../lib/editorial';
 const SITE_URL = 'https://peninsulainsider.com.au';
 const FEED_TITLE = 'Peninsula Insider';
 const FEED_DESC =
-  'Editorial coverage of the Mornington Peninsula — eat, stay, do, wine, and the weekend curated.';
+  'Editorial coverage of the Mornington Peninsula - eat, stay, do, wine, and the weekend curated.';
 
 function xmlEscape(s: string): string {
   return s

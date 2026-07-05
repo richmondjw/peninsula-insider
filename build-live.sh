@@ -42,6 +42,7 @@ find . -mindepth 1 -maxdepth 1 \
   ! -name 'next' \
   ! -name 'docs' \
   ! -name 'ops' \
+  ! -name 'engine' \
   ! -name 'reports' \
   ! -name 'design-reviews' \
   ! -name 'build-v2.sh' \

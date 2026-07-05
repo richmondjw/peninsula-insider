@@ -1,6 +1,6 @@
 ---
 /**
- * VarietyGuide — designed 2/3/4-up grid for "what to drink / eat / try"
+ * VarietyGuide - designed 2/3/4-up grid for "what to drink / eat / try"
  * sections inside a hub-guide MDX article. Replaces the bare H3 + para
  * pattern with a card per variety, with optional linked producer chips.
  *
@@ -25,7 +25,7 @@ export interface VarietyItem {
   name: string;
   /** Optional eyebrow above the name. */
   eyebrow?: string;
-  /** Body text — the editorial description. */
+  /** Body text - the editorial description. */
   body: string;
   /** Optional list of venue slugs to render as chip links. */
   producers?: string[];
@@ -116,7 +116,7 @@ const resolved = items.map((item) => ({
     margin: 0;
     color: var(--ink, #171413);
   }
-  /* Container queries — the grid responds to its OWN available width,
+  /* Container queries - the grid responds to its OWN available width,
      not the viewport. Hub-guide articles put a sticky ~250px TOC at the
      left of the content column on desktop, so the same grid has very
      different room to play with depending on which article it's inside.

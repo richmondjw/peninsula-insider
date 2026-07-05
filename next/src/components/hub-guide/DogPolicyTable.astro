@@ -1,6 +1,6 @@
 ---
 /**
- * DogPolicyTable — designed table for "what's confirmed / what's denied"
+ * DogPolicyTable - designed table for "what's confirmed / what's denied"
  * matrix data inside a hub-guide MDX article. Originally for dog
  * policies but generic enough to work for any boolean-matrix dataset
  * with source attribution (allergy-friendly, walk-in only, etc).
@@ -30,7 +30,7 @@ import { getCollection } from 'astro:content';
 export interface PolicyEntry {
   /** Slug into venues collection. */
   venue: string;
-  /** Policy text — what the rule actually is. */
+  /** Policy text - what the rule actually is. */
   policy: string;
   /** Where the verification came from. */
   source?: string;

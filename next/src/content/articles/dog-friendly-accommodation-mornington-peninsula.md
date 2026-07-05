@@ -1,19 +1,19 @@
 ---
 title: "Dog-Friendly Accommodation on the Mornington Peninsula"
-dek: "The stays that genuinely work with a dog on the Peninsula — where fencing, policy clarity, and beach proximity matter more than brochure charm. What the Peninsula's accommodation landscape actually looks like for dog owners."
+dek: "The stays that genuinely work with a dog on the Peninsula - where fencing, policy clarity, and beach proximity matter more than brochure charm. What the Peninsula's accommodation landscape actually looks like for dog owners."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
   src: "/images/sourced/dog-lifestyle-hero-01.webp"
-  alt: "Dog-friendly Peninsula cottage stay with outdoor space — representative image"
+  alt: "Dog-friendly Peninsula cottage stay with outdoor space - representative image"
   credit: "Unsplash"
   license: "tmp-unsplash"
 format: "service"
 tags: ["dogs", "accommodation", "peninsula", "service", "explore", "pet-friendly"]
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Dog-Friendly Peninsula — Full Weekend Guide"
+  - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
     href: "/journal/the-dog-friendly-peninsula/"
   - label: "Dog-Friendly Beaches on the Mornington Peninsula"
     href: "/journal/dog-friendly-beaches-mornington-peninsula/"
@@ -21,7 +21,7 @@ clusterLinks:
     href: "/journal/where-to-stay-mornington-peninsula/"
 faq:
   - question: "Are there dog-friendly hotels on the Mornington Peninsula?"
-    answer: "Most Peninsula luxury hotels (Jackalope, InterContinental Sorrento, Lancemore Lindenderry, RACV Cape Schanck) do not confirm dogs. Dog-friendly stays are predominantly holiday houses, cottages, and self-contained accommodation booked through platforms like Stayz, Airbnb, and pet-specific booking sites. Search specifically for 'pet-friendly' and 'fenced' as separate filters — both matter."
+    answer: "Most Peninsula luxury hotels (Jackalope, InterContinental Sorrento, Lancemore Lindenderry, RACV Cape Schanck) do not confirm dogs. Dog-friendly stays are predominantly holiday houses, cottages, and self-contained accommodation booked through platforms like Stayz, Airbnb, and pet-specific booking sites. Search specifically for 'pet-friendly' and 'fenced' as separate filters - both matter."
   - question: "What should I look for in a dog-friendly Peninsula stay?"
     answer: "Fenced yard or enclosed outdoor space (essential for off-leash safety at the property), proximity to a confirmed off-leash beach, ground-floor access (no stairs or lifts between the room and grass), and clear written confirmation of the pet policy including any fees. Self-catering properties work better than hotel rooms because the dog has more downtime space."
   - question: "Is there dog-friendly accommodation near Peninsula Hot Springs?"

@@ -19,7 +19,7 @@ nearestRampSlug: rye-boat-ramp
 tideStation: Portsea (or Port Melbourne)
 tideNotes: The pier fishes best on the rising tide. The two hours before high water are the prime whiting window. Squid are less tide-dependent and respond more strongly to light levels; dawn and dusk are reliable regardless of tidal state.
 intro: 'At 450 to 500 metres, Rye Pier is one of the longest land-based fishing structures on Port Phillip Bay and among the most genuinely family-appropriate. The 2022 to 2024 rebuild replaced ageing timber with a concrete-and-timber structure featuring all-abilities access, seagrass habitat beneath the boards, and consistent water depth at the outer end. Squid is reliable year-round; whiting run hard November to March; the pier is wide enough that families with young children do not compete with serious anglers for space.'
-metaDescription: 'Rye Pier fishing — squid, KGW, garfish, family suitability, all-abilities access, parking reality, and the pier''s honest limits as a snapper destination.'
+metaDescription: 'Rye Pier fishing - squid, KGW, garfish, family suitability, all-abilities access, parking reality, and the pier''s honest limits as a snapper destination.'
 faq:
   - question: Is Rye Pier suitable for families with young children?
     answer: 'Yes. Rye Pier is the most family-appropriate fishing pier on the Peninsula bay shore. The 2024-rebuilt structure has consistent surface width, low railings, the all-abilities access ramp, and shallower water at the outer end (4 to 5m versus 6 to 8m at Mornington). The pier is long enough that crowds spread out. Use the inner sections with young children and the outer end for serious squid or whiting.'

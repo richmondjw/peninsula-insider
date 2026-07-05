@@ -1,6 +1,6 @@
 ---
 title: "Quealy Winemakers: The Peninsula pioneer that still feels gloriously unpolished"
-dek: "If you care about how the Mornington Peninsula became more than a pinot monoculture, start here. Quealy is not glossy and that is exactly the point — this is one of the region's formative tasting rooms, built on curiosity, Italian varieties, and a refusal to behave like a tourist estate."
+dek: "If you care about how the Mornington Peninsula became more than a pinot monoculture, start here. Quealy is not glossy and that is exactly the point - this is one of the region's formative tasting rooms, built on curiosity, Italian varieties, and a refusal to behave like a tourist estate."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
@@ -25,9 +25,9 @@ faq:
   - question: "What is Quealy Winemakers known for?"
     answer: "Pinot Gris, Pinot Grigio, friulano, moscato giallo, and the broader argument for Italian varieties on the Peninsula."
   - question: "Is Quealy Winemakers worth visiting?"
-    answer: "Yes — particularly if you want a cellar door with genuine regional importance rather than a polished estate experience."
+    answer: "Yes - particularly if you want a cellar door with genuine regional importance rather than a polished estate experience."
   - question: "Where is Quealy Winemakers?"
-    answer: "62 Bittern-Dromana Road, Balnarring — roughly 75 to 90 minutes from Melbourne depending on traffic."
+    answer: "62 Bittern-Dromana Road, Balnarring - roughly 75 to 90 minutes from Melbourne depending on traffic."
 ---
 
 Quealy is one of those Peninsula addresses that matters more than the room first suggests. If you arrive expecting architectural theatre, a long driveway, or a restaurant built for anniversary lunches, you have come to the wrong place. If you arrive wanting to understand why the Peninsula drinks the way it does now, especially when it comes to pinot gris, pinot grigio, and the region's comfort with Italian varieties, this is still one of the essential stops.

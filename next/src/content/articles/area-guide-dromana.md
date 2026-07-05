@@ -1,6 +1,6 @@
 ---
 title: "Dromana: The Peninsula Insider Guide"
-dek: "Dromana is the Peninsula's practical gateway — a bay town at the foot of Arthurs Seat with easier edges than the famous villages further south. Come when you want a base that can do beach, ridge and family logistics without pretending to be something rarer than it is."
+dek: "Dromana is the Peninsula's practical gateway - a bay town at the foot of Arthurs Seat with easier edges than the famous villages further south. Come when you want a base that can do beach, ridge and family logistics without pretending to be something rarer than it is."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
@@ -21,7 +21,7 @@ clusterLinks:
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is Dromana best known for?"
-    answer: "Being the Peninsula's hinge town — bay beach below, Arthurs Seat above, and some of the region's earliest wine country immediately inland."
+    answer: "Being the Peninsula's hinge town - bay beach below, Arthurs Seat above, and some of the region's earliest wine country immediately inland."
   - question: "When is the best time to visit Dromana?"
     answer: "Spring through autumn, when the chairlift, beach and hill roads all align. Clear winter days also suit it if you are using Dromana as a base rather than a swim destination."
   - question: "How far is Dromana from Melbourne?"

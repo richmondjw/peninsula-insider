@@ -3,7 +3,7 @@
  * EventCard  -  the primary card for the What's On index.
  *
  * Standard card structure: category, title, location, short description,
- * and CTA. No plain directory rows — every event carries at least one
+ * and CTA. No plain directory rows - every event carries at least one
  * sentence of context.
  */
 import PiSaveActions from './PiSaveActions.astro';
@@ -19,7 +19,7 @@ export interface Props {
    * What's On surfaces cleaner and less review-site driven.
    */
   showVerdict?: boolean;
-  /** Override the computed date label — used by the homepage weekend rail
+  /** Override the computed date label - used by the homepage weekend rail
       so long-running events read "On this weekend" instead of their
       historical start date. */
   dateLabelOverride?: string;
@@ -70,6 +70,12 @@ const dateLabel: string | null =
 // than a hodgepodge of "Read the guide / Market detail / See the detail".
 const ctaLabel = 'Plan this \u2192';
 
+// ISO date for <time datetime> when the label represents a concrete date.
+const dateIso: string | null =
+  !dateLabelOverride && !event.data.recurrenceNote
+    ? (event.data.nextOccurrence ?? event.data.startDate)?.toISOString().split('T')[0] ?? null
+    : null;
+
 // Day-of-week badge for weekly/monthly recurrences. Parsed from
 // recurrenceNote ("Weekly - every Thursday year-round" -> "THU").
 // Surfaces the "when" at a glance for repeat-engagement content (markets,
@@ -119,7 +125,7 @@ const heroImageSrc = eventHero.override?.src
   ?? fallbackHeroByCategory[category]
   ?? '/images/sourced/category-market-02.webp';
 
-// Filter data-attributes — consumed by the hub's client-side filter engine.
+// Filter data-attributes - consumed by the hub's client-side filter engine.
 // Each event encodes its location region(s), category bucket, recurrence,
 // price tier, and date range so the engine can match against URL params
 // without a server round-trip.
@@ -221,7 +227,9 @@ const recurrenceDay = recurDayMatch
   <div class="event-card__body">
     <div class="event-card__top">
       <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
-      {dateLabel && <span class="event-card__date">{dateLabel}</span>}
+      {dateLabel && (dateIso
+        ? <time class="event-card__date" datetime={dateIso}>{dateLabel}</time>
+        : <span class="event-card__date">{dateLabel}</span>)}
     </div>
     <h3 class="event-card__name">
       <a href={`/whats-on/${slug}`}>{event.data.title}</a>

@@ -1,5 +1,5 @@
 ---
-headline: "Weather — showers through the afternoon, heavier by evening. Seventy-two hours of winter arriving today."
+headline: "Weather - showers through the afternoon, heavier by evening. Seventy-two hours of winter arriving today."
 dek: "Morning is still and cool at 11 degrees. The model shifts to rain showers through the afternoon, eighty-three percent chance of rain and seven millimetres by end of day. Wind from the south at 23 km/h. If you are heading to the Solstice Festival tonight, waterproofs and layers are not optional."
 section: weather
 tag: weather

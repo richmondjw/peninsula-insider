@@ -27,11 +27,11 @@ clusterLinks:
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:
   - question: "What makes the Mornington Peninsula good for a wedding weekend?"
-    answer: "The combination of winery settings, coastal landscape, boutique accommodation, and strong dining means every part of a wedding weekend — venue, guest stay, rehearsal dinner, recovery brunch — can happen within a coherent geography. The Peninsula rewards weekends that are shaped intentionally rather than just venue-led."
+    answer: "The combination of winery settings, coastal landscape, boutique accommodation, and strong dining means every part of a wedding weekend - venue, guest stay, rehearsal dinner, recovery brunch - can happen within a coherent geography. The Peninsula rewards weekends that are shaped intentionally rather than just venue-led."
   - question: "What is the most popular wedding zone on the Mornington Peninsula?"
-    answer: "Red Hill and Main Ridge for winery weddings; Sorrento and Portsea for coastal weddings. The right choice depends on whether the couple wants rural elegance or coastal polish — both are strong, but they create different weekends."
+    answer: "Red Hill and Main Ridge for winery weddings; Sorrento and Portsea for coastal weddings. The right choice depends on whether the couple wants rural elegance or coastal polish - both are strong, but they create different weekends."
   - question: "How much lead time do Mornington Peninsula weddings need?"
-    answer: "Popular venues — hatted wineries, boutique properties — book twelve to twenty-four months in advance. Guest accommodation, transport, and secondary dining should be locked six to nine months out."
+    answer: "Popular venues - hatted wineries, boutique properties - book twelve to twenty-four months in advance. Guest accommodation, transport, and secondary dining should be locked six to nine months out."
 ---
 
 The best Peninsula weddings feel like more than a ceremony and reception. They feel like a small destination experience with a clear centre of gravity. The region is built for that, and it tends to work best when the weekend is shaped intentionally.

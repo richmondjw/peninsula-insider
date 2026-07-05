@@ -1,10 +1,11 @@
 ---
+import { CONCIERGE_API_URL } from '../../lib/concierge-config';
 /**
  * V4 BaseLayout (staging only).
  *
  * Forks production BaseLayout. Mounts V4 chrome:
  *   - V4Masthead (V2 utility + brand rows + V4 nav row)
- *   - V2 Footer (kept — V4 only changes nav, not footer)
+ *   - V2 Footer (kept - V4 only changes nav, not footer)
  *   - V4MobileDrawer
  *   - Existing ConciergeDrawer + SearchOverlay + CookieBanner
  *
@@ -123,7 +124,7 @@ const isAskPage = rawPath.startsWith('/ask');
   <ProfileDropdown />
   <AuthModal />
 
-  <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
+  <script is:inline define:vars={{ API_URL: CONCIERGE_API_URL }}>
     window.PI_API_URL = API_URL;
   </script>
 

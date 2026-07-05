@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend — 9 to 10 May"
+title: "Peninsula This Weekend - 9 to 10 May"
 dek: "Mother's Day is the organising principle. Book lunch first, then let the rest of the weekend behave."
 author: "editorial"
 houseByline: true
@@ -17,7 +17,7 @@ featured: false
 status: "published"
 lastVerified: 2026-05-07
 clusterLinks:
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "Things to Do on the Mornington Peninsula"
     href: "/journal/things-to-do-mornington-peninsula/"
@@ -25,7 +25,7 @@ clusterLinks:
     href: "/journal/mornington-peninsula-beach-guide/"
 faq:
   - question: "What is the best thing to do on the Mornington Peninsula this weekend, 9–10 May?"
-    answer: "Treat Mother's Day as the lead story. If you want one clear booking, make it lunch — Flinders Hotel for a family-friendly version, Pier 10 for a vineyard-table version, or Jetty Road Brewery for an easier bayside one. Saturday can stay light unless you want Kodomo no Hi at Peninsula Hot Springs."
+    answer: "Treat Mother's Day as the lead story. If you want one clear booking, make it lunch - Flinders Hotel for a family-friendly version, Pier 10 for a vineyard-table version, or Jetty Road Brewery for an easier bayside one. Saturday can stay light unless you want Kodomo no Hi at Peninsula Hot Springs."
   - question: "What should you do on Sunday 10 May on the Mornington Peninsula?"
     answer: "Book one Mother's Day anchor and let the rest of the day taper around it. The Mother's Day Classic at Moonah Links is the active morning version. Flinders Hotel, Pier 10 and Jetty Road Brewery are the cleaner lunch-led versions. A settled base south or north works better than a three-stop loop."
 ---

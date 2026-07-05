@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — May on the Peninsula"
+headline: "Editor's note - May on the Peninsula"
 dek: "The five things on our planner this month: late-autumn walks, the wine releases, Hot Springs twilight bathing, the long-lunch piece, and one quiet hotel that's having its best month of the year."
 section: note
 tag: editor-note

@@ -17,14 +17,14 @@ coordinates:
   lat: -38.214
   lng: 145.038
 intro: Self-drive boat hire at Schnapper Point Drive, Mornington. Tinnies and polycraft for protected bay water, no marine licence required, fishing tackle available. Operated from the Schnapper Point precinct since the 1990s, currently the only no-licence hire on Port Phillip Bay's mid-Peninsula shore.
-metaDescription: Mornington Boat Hire at Schnapper Point Drive — no-licence tinnies and polycraft for Port Phillip Bay, from $120 for two hours. Fishing tackle, family-friendly, the only operator at this part of the bay.
+metaDescription: Mornington Boat Hire at Schnapper Point Drive - no-licence tinnies and polycraft for Port Phillip Bay, hired by the two-hour session. Fishing tackle, family-friendly, the only operator at this part of the bay.
 whoSuits: Visiting Melbourne anglers and families who want time on the water without the logistics of trailering a boat, beginners chasing flathead, calamari, or whiting in the protected mid-bay grounds, and parents wanting a low-stakes introduction for kids. The no-licence requirement and small protected vessels make this the easiest entry point on the Peninsula.
 whoDoesnt: Anyone needing offshore capability, anyone targeting the snapper grounds in the southern bay (Sorrento or Portsea ramps are closer), or anyone wanting a guided session. This is self-drive only. The vessels are bay-rated and not for Bass Strait or the Heads.
 faq:
   - question: Do I need a licence to hire a boat from Mornington Boat Hire?
     answer: No. The hire vessels are sized and powered to fall under the Victorian recreational vessel exemption, so no marine licence is required. A short briefing covers operation and safety. Confirm the current threshold with the operator at booking.
   - question: How much does it cost?
-    answer: From approximately $120 for a two-hour session, scaling up by duration and vessel size. Confirm current rates with the operator. Fishing tackle is available at additional cost. A Victorian Recreational Fishing Licence is required if you plan to fish and is not covered by the hire.
+    answer: Hire is charged by the session, starting at two hours and scaling up by duration and vessel size. Confirm current rates with the operator. Fishing tackle is available at additional cost. A Victorian Recreational Fishing Licence is required if you plan to fish and is not covered by the hire.
   - question: Is fishing tackle included?
     answer: Tackle is available to hire separately, not included in the boat-hire base rate. Bait is sometimes available on site, sometimes not. Confirm both at booking, and bring your own if you have specific preferences.
   - question: What boats do they hire?

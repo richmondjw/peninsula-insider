@@ -38,7 +38,7 @@ import {
  *
  * All requests are authorised by `resolveCmsAccess` against the request's
  * Supabase JWT cookie. Writes go through the per-request user-JWT client so
- * RLS evaluates as the editor — never the service-role key.
+ * RLS evaluates as the editor - never the service-role key.
  */
 
 // Hybrid-only route. When PI_ADMIN_HYBRID is unset, prerender = true and

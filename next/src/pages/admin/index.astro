@@ -34,11 +34,11 @@ const breadcrumbItems = [
         </div>
         <div class="admin-shell__topline-cell">
           <span class="admin-shell__topline-label">Publish rights</span>
-          <span class="admin-shell__topline-value" data-admin-publish>—</span>
+          <span class="admin-shell__topline-value" data-admin-publish> - </span>
         </div>
         <div class="admin-shell__topline-cell">
           <span class="admin-shell__topline-label">Entries</span>
-          <span class="admin-shell__topline-value" data-admin-entry-count>—</span>
+          <span class="admin-shell__topline-value" data-admin-entry-count> - </span>
         </div>
         <div class="admin-shell__topline-cell">
           <button type="button" class="admin-shell__signout" data-action="signout">Sign out</button>
@@ -180,7 +180,7 @@ const breadcrumbItems = [
     }
     host.innerHTML = filtered
       .map((row) => {
-        const updated = row.lastUpdatedAt ? new Date(row.lastUpdatedAt).toLocaleString() : '—';
+        const updated = row.lastUpdatedAt ? new Date(row.lastUpdatedAt).toLocaleString() : ' - ';
         const href = `/admin/entry/?type=${encodeURIComponent(row.entityType)}&slug=${encodeURIComponent(row.entitySlug)}`;
         return `
           <a class="admin-shell__entry" href="${href}">

@@ -1,13 +1,13 @@
 ---
 /**
- * ConciergeDrawer — right-edge slide-in panel for PI.
+ * ConciergeDrawer - right-edge slide-in panel for PI.
  *
  * Lives in BaseLayout so every page has access. Reuses the /ask
  * chat machinery (.ask-* classes, all global) inside a drawer chrome.
  *
  * State (persisted in sessionStorage):
  *   pi-drawer-state    : 'closed' | 'open' | 'minimised'
- *   pi-drawer-history  : array of {role, data} — conversation
+ *   pi-drawer-history  : array of {role, data} - conversation
  *
  * Trigger from anywhere: window.openConcierge() / window.openConcierge(prefill)
  */
@@ -23,12 +23,12 @@ const conciergeIcon = '/images/pi-concierge.svg';
   class="pi-drawer"
   id="pi-drawer"
   data-state="closed"
-  aria-label="Ask The Insider — Peninsula Insider concierge"
+  aria-label="Ask The Insider - Peninsula Insider concierge"
 >
   <!-- Backdrop (mobile only) -->
   <div class="pi-drawer__backdrop" id="pi-drawer-backdrop" aria-hidden="true"></div>
 
-  <!-- Floating "Ask The Insider" button — always visible on mobile, only when
+  <!-- Floating "Ask The Insider" button - always visible on mobile, only when
        minimised on desktop. Bottom-right corner. -->
   <button
     class="pi-drawer__bubble"
@@ -182,7 +182,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
 <style is:global>
   /* ===========================================================
-     CONCIERGE DRAWER — right-edge slide-in panel
+     CONCIERGE DRAWER - right-edge slide-in panel
      Sits above the page. Reuses the .ask-* / .pi-avatar / .pi-chip
      editorial styles from /ask, wrapped in drawer chrome.
   =========================================================== */
@@ -213,7 +213,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     --ease-soft:      cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  /* Mobile: full-screen — covers the whole viewport including the masthead.
+  /* Mobile: full-screen - covers the whole viewport including the masthead.
      The drawer becomes the primary surface; nothing else is visible. */
   @media (max-width: 640px) {
     .pi-drawer {
@@ -224,7 +224,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* Backdrop — mobile only when open */
+  /* Backdrop - mobile only when open */
   .pi-drawer__backdrop {
     position: fixed;
     inset: 0;
@@ -241,7 +241,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* ── PANEL — floating, bottom-right, rounded all-around ── */
+  /* ── PANEL - floating, bottom-right, rounded all-around ── */
   .pi-drawer__panel {
     position: fixed;
     bottom: var(--pi-drawer-margin);
@@ -271,7 +271,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     pointer-events: none;
   }
 
-  /* Gilt edge along top of panel — kept rounded */
+  /* Gilt edge along top of panel - kept rounded */
   .pi-drawer__panel::before {
     content: '';
     position: absolute;
@@ -287,7 +287,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     z-index: 5;
   }
 
-  /* Mobile: full-screen panel — covers viewport top to bottom.
+  /* Mobile: full-screen panel - covers viewport top to bottom.
      No rounded corners, no slide-from-bottom (that hid the top under the
      sticky masthead). Slides up from below into a flush full-screen surface. */
   @media (max-width: 640px) {
@@ -311,7 +311,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* OPEN — slides + fades into place */
+  /* OPEN - slides + fades into place */
   .pi-drawer[data-state="open"] .pi-drawer__panel {
     transform: translateY(0) scale(1);
     opacity: 1;
@@ -323,7 +323,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* CLOSED / MINIMISED — slide back down + fade */
+  /* CLOSED / MINIMISED - slide back down + fade */
   .pi-drawer[data-state="closed"] .pi-drawer__panel,
   .pi-drawer[data-state="minimised"] .pi-drawer__panel {
     transform: translateY(20px) scale(0.985);
@@ -438,7 +438,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
   }
 
-  /* Drag handle at the top of the mobile sheet — tells the user "I'm a sheet,
+  /* Drag handle at the top of the mobile sheet - tells the user "I'm a sheet,
      you can dismiss me." Tappable region triggers minimise. */
   .pi-drawer__handle {
     display: none;
@@ -528,7 +528,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     z-index: 9001;
     cursor: pointer;
     pointer-events: auto;
-    /* Pill shape — avatar left, label right */
+    /* Pill shape - avatar left, label right */
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
@@ -543,7 +543,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       0 1px 0 rgba(255, 252, 247, 0.85) inset,
       0 4px 14px rgba(34, 24, 16, 0.10),
       0 14px 36px rgba(34, 24, 16, 0.14);
-    /* Visible by default at every breakpoint — only concealed while the
+    /* Visible by default at every breakpoint - only concealed while the
        drawer panel is open (handled below). Animates in/out via transform. */
     transform: translateY(0);
     opacity: 1;
@@ -618,7 +618,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     animation: pi-drawer-pulse 3s ease-out infinite;
   }
 
-  /* ── MOBILE — tighter spacing for thumb reach.
+  /* ── MOBILE - tighter spacing for thumb reach.
      Visibility is the same as desktop: visible unless the drawer is open
      (handled by the generic rules above). ── */
   @media (max-width: 720px) {
@@ -666,7 +666,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
   .pi-drawer .ask-stream-prose {
     white-space: pre-line;
     /* Streaming text uses simpler treatment than the final paragraph;
-       no dropcap, no asterism — those would flicker mid-stream. */
+       no dropcap, no asterism - those would flicker mid-stream. */
   }
 
   /* Inline typing dots, sized to sit beside the thinking line */
@@ -690,7 +690,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     30%           { transform: translateY(-3px); opacity: 0.85; }
   }
 
-  /* ── LEGIBILITY OVERRIDE — force every readable word inside the drawer
+  /* ── LEGIBILITY OVERRIDE - force every readable word inside the drawer
         to pure black for maximum contrast against the paper background.
         Decorative glyphs (sparkle ✦, asterism ⁂, byline rule) stay terracotta. */
   .pi-drawer .ask-msg__prose p,
@@ -716,7 +716,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
 <script is:inline>
 (function () {
-  // Idempotent boot — handles Astro view transitions
+  // Idempotent boot - handles Astro view transitions
   function bootDrawer() {
     const drawer = document.getElementById('pi-drawer');
     if (!drawer || drawer._piBound) return;
@@ -735,7 +735,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
 
     // Resolved fresh on every request so a late-binding window.PI_API_URL
     // still works (defensive against script-load-order issues).
-    const apiUrl = () => window.PI_API_URL || 'http://localhost:8787';
+    const apiUrl = () => window.PI_API_URL || 'https://peninsula-insider-platform-api.vercel.app';
     const isMobile = () => window.matchMedia('(max-width: 640px)').matches;
 
     // ── State ────────────────────────────────────────
@@ -755,7 +755,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       drawer.setAttribute('data-state', s);
       sessionStorage.setItem(STATE_KEY, s);
       document.body.classList.toggle('pi-drawer-open-mobile', s === 'open' && isMobile());
-      // Global "concierge open" flag — used by site CSS to hide the masthead
+      // Global "concierge open" flag - used by site CSS to hide the masthead
       // and other sticky chrome while the drawer occupies the screen.
       document.body.classList.toggle('concierge-open', s === 'open');
     }
@@ -907,7 +907,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     }
 
     /**
-     * Phase 3 WS3D — concierge itinerary helpers.
+     * Phase 3 WS3D - concierge itinerary helpers.
      *
      * The backend can optionally include an `itinerary` field in the
      * meta payload of a response. When present, the drawer renders a
@@ -1111,7 +1111,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
     const handle = document.getElementById('pi-drawer-handle');
     if (handle) handle.addEventListener('click', minimiseDrawer);
 
-    // ESC key — minimises (preserves convo) when open
+    // ESC key - minimises (preserves convo) when open
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && getState() === 'open') minimiseDrawer();
     });
@@ -1124,7 +1124,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       if (getState() !== 'open') return;
       const link = e.target.closest('a[href]');
       if (!link) return;
-      if (drawer.contains(link)) return; // chip / link inside drawer — leave alone
+      if (drawer.contains(link)) return; // chip / link inside drawer - leave alone
       minimiseDrawer();
     }, true);
 
@@ -1156,7 +1156,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
       const placeholderEl = appendThinking(pickThinkingLine());
 
       // 60s overall timeout. With streaming, the user starts seeing tokens
-      // around 1.5-2s, so a long timeout is fine — we want the full reply.
+      // around 1.5-2s, so a long timeout is fine - we want the full reply.
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 60000);
 
@@ -1212,7 +1212,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
           proseContainer.insertAdjacentElement('afterend', rail);
         }
 
-        // Phase 3 WS3D — recognise structured itinerary payloads from the
+        // Phase 3 WS3D - recognise structured itinerary payloads from the
         // concierge backend and render a "Sequence in builder" CTA. The
         // backend doesn't speak this format yet; until it does, the
         // condition below is silently false and nothing renders.
@@ -1321,7 +1321,7 @@ const conciergeIcon = '/images/pi-concierge.svg';
         removeStreaming();
         let msg;
         if (err && err.name === 'AbortError') {
-          msg = "That took too long — your connection or the server. Try once more, the second go is usually faster.";
+          msg = "That took too long - your connection or the server. Try once more, the second go is usually faster.";
         } else if (err instanceof Error && err.message) {
           msg = err.message;
         } else {

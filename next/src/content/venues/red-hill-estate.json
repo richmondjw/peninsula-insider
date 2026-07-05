@@ -40,9 +40,9 @@
         "closes": "17:00"
       }
     ],
-    "tastingFee": "$10",
+    "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-ins welcome Thursday–Monday, 11am–5pm; bookings recommended via OpenTable. Standard Wine Experience $10/person (5 wines); Premium Wine Experience $15/person (4 single vineyard). Dogs welcome outdoors."
+    "tastingNote": "Walk-ins welcome Thursday–Monday, 11am–5pm; bookings recommended via OpenTable. Standard Wine Experience (5 wines); Premium Wine Experience (4 single vineyard wines) is the dearer tier. Dogs welcome outdoors."
   },
   "wines": {
     "winemaker": "Donna Stephens",
@@ -62,7 +62,7 @@
     "reservations": true,
     "description": "Italian-farmhouse direction under Head Chef Daniel Middleton (formerly of Luca). Gigi's Piazza for open-air dining."
   },
-  "editorVerdict": "Red Hill Estate has reinvented itself under the Fabrizio family ownership — the Italian-farmhouse concept is genuine, not cosmetic, and Gigi's Piazza adds an outdoor dimension that few Peninsula estates offer as effectively. The variety range is wider than most (Prosecco, Fiano, Merlot alongside the Peninsula standards), making the cellar door a discovery exercise rather than a variation-on-Pinot exercise.",
+  "editorVerdict": "Red Hill Estate has reinvented itself under the Fabrizio family ownership - the Italian-farmhouse concept is genuine, not cosmetic, and Gigi's Piazza adds an outdoor dimension that few Peninsula estates offer as effectively. The variety range is wider than most (Prosecco, Fiano, Merlot alongside the Peninsula standards), making the cellar door a discovery exercise rather than a variation-on-Pinot exercise.",
   "whyWeGo": "The view from the tasting room, vineyard slope dropping to Western Port, French Island in the middle distance, is the most dramatic cellar-door position on the plateau.",
   "bestFor": [
     "Cellar door visits",
@@ -81,11 +81,11 @@
     },
     {
       "q": "Does Red Hill Estate have a restaurant?",
-      "a": "Yes — Italian-farmhouse cuisine with Gigi's Piazza for outdoor dining."
+      "a": "Yes - Italian-farmhouse cuisine with Gigi's Piazza for outdoor dining."
     },
     {
       "q": "Are dogs allowed at Red Hill Estate?",
-      "a": "Confirmed yes — dog-friendly in outdoor areas including the Piazza and lawns."
+      "a": "Confirmed yes - dog-friendly in outdoor areas including the Piazza and lawns."
     }
   ],
   "sameAs": {
@@ -115,7 +115,7 @@
   },
   "heroImage": {
     "src": "/images/sourced/article-picnic-01.webp",
-    "alt": "Mornington Peninsula landscape — representative image for Red Hill Estate",
+    "alt": "Mornington Peninsula landscape - representative image for Red Hill Estate",
     "credit": "Peninsula Insider",
     "license": "other-licensed"
   },

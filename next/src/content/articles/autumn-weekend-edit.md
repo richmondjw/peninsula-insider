@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-09
 heroImage:
   src: "/images/sourced/article-red-hill-saturday-01.webp"
-  alt: "An autumn afternoon on the Red Hill plateau, vineyards turning gold before harvest — representative image"
+  alt: "An autumn afternoon on the Red Hill plateau, vineyards turning gold before harvest - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "editors-letter"
@@ -18,7 +18,7 @@ featured: true
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "First Time on the Peninsula — The Honest Starter Guide"
+  - label: "First Time on the Peninsula - The Honest Starter Guide"
     href: "/journal/first-time-peninsula/"
   - label: "Hatted Restaurants on the Mornington Peninsula 2025"
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
@@ -28,9 +28,9 @@ faq:
   - question: "Is April the best time to visit the Mornington Peninsula?"
     answer: "For most visitors, yes. Crowds thin after Easter, the vineyards are mid-harvest and at their most photogenic, the light is exceptional, and tables that were impossible in summer are bookable a week ahead. The weather is less reliable than summer but the experience is usually richer."
   - question: "What's on at the Mornington Peninsula in autumn?"
-    answer: "The Red Hill Market runs on the first Saturday of each month year-round. Autumn harvest is active at most vineyards through March and April. The walking season is at its best — the coastal paths are more dramatic in autumn light and the crowds are significantly lower."
+    answer: "The Red Hill Market runs on the first Saturday of each month year-round. Autumn harvest is active at most vineyards through March and April. The walking season is at its best - the coastal paths are more dramatic in autumn light and the crowds are significantly lower."
   - question: "Which Peninsula restaurants are best in autumn?"
-    answer: "Tedesca Osteria is the strongest autumn lunch — the set menu tilts into seasonal produce and the dining room suits cool weather. Montalto's cellar door and sculpture park are excellent through April. For the weekend, Lindenderry at Red Hill is the strongest autumn stay."
+    answer: "Tedesca Osteria is the strongest autumn lunch - the set menu tilts into seasonal produce and the dining room suits cool weather. Montalto's cellar door and sculpture park are excellent through April. For the weekend, Lindenderry at Red Hill is the strongest autumn stay."
 ---
 
 There is a case to be made that April is the Peninsula's secret month.

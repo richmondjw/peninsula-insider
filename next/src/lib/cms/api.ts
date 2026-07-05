@@ -1,5 +1,5 @@
 /**
- * Peninsula Insider — CMS data access.
+ * Peninsula Insider - CMS data access.
  *
  * Thin functional layer over Supabase that returns typed results in the shape
  * defined by `./schema.ts`. Both the admin server (with a per-request JWT
@@ -391,7 +391,7 @@ export interface CmsCollectionSummaryRow {
 
 /**
  * Aggregate summary across both text and image rows. Cheap enough for the
- * scale we expect in v1 — pulls all rows readable to the caller and groups in
+ * scale we expect in v1 - pulls all rows readable to the caller and groups in
  * memory. RLS already filters to admin-readable rows.
  */
 export async function listCmsEntries(

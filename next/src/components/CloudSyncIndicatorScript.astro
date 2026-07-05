@@ -1,6 +1,6 @@
 ---
 /**
- * CloudSyncIndicatorScript — tiny inline script that turns
+ * CloudSyncIndicatorScript - tiny inline script that turns
  * [data-cloud-sync-status] indicator nodes on /saved/ and /itinerary/
  * into a live "synced to your account" badge driven by the
  * CloudSync component's `pi:cloud-sync` events.
@@ -29,7 +29,7 @@
           var text = node.querySelector('.cloud-sync-indicator__text');
           if (text) text.textContent = COPY[state] || COPY.anonymous;
           // Hide the badge entirely when the user is anonymous and the
-          // page already says "Saved on this device" elsewhere — keeps
+          // page already says "Saved on this device" elsewhere - keeps
           // the surface uncluttered for the default case.
           if (state === 'anonymous') node.setAttribute('hidden', '');
           else node.removeAttribute('hidden');

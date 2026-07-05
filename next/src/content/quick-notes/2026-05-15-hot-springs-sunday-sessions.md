@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — Sunday Sessions with Mich McManus, two days out. Rain forecast Sunday morning."
+headline: "Peninsula Hot Springs - Sunday Sessions with Mich McManus, two days out. Rain forecast Sunday morning."
 dek: "Sunday 17 May: Mich McManus plays the noon Sunday Sessions set at the Springs, the first of the autumn series. Confirmed on site. Sunday morning carries 100% rain before noon, easing from midday. Book now: sessions fill and availability tightens from here."
 section: spa
 tag: opening-window
@@ -17,10 +17,10 @@ status: archived
 ---
 Peninsula Hot Springs runs its full Friday weekday programme today. Studio yoga opened at 7:30am. Hot springs yoga is from 9:15am. Fire and ice runs at 10:30am, 4pm, and 5pm; body clay at noon and 2pm; sauna infusion closes the activity day at 5pm. Friday's outdoor pools under 20°C autumn sun are the programme's best version this week.
 
-The immediate booking note is Sunday 17 May: Mich McManus plays the noon Sunday Sessions set — the first of the autumn series at the Springs. Confirmed on site. Two days out, weekend availability for the thermal circuit typically starts to move. Sessions require separate booking alongside the pool entry; do not leave it to Saturday.
+The immediate booking note is Sunday 17 May: Mich McManus plays the noon Sunday Sessions set - the first of the autumn series at the Springs. Confirmed on site. Two days out, weekend availability for the thermal circuit typically starts to move. Sessions require separate booking alongside the pool entry; do not leave it to Saturday.
 
-Weather caveat for Sunday: the forecast is significant. Sunday morning carries 100% rain probability from midnight through to around 9am, with patchy rain possible up to noon. The forecast clears from midday — 0% rain at noon and into the afternoon — before rain returns from 6pm. The Sunday Sessions set starts at noon, which sits at the edge of the clearing window. The outdoor springs in rain are a different and genuinely worthwhile experience, but it is a different experience. Go prepared either way.
+Weather caveat for Sunday: the forecast is significant. Sunday morning carries 100% rain probability from midnight through to around 9am, with patchy rain possible up to noon. The forecast clears from midday - 0% rain at noon and into the afternoon - before rain returns from 6pm. The Sunday Sessions set starts at noon, which sits at the edge of the clearing window. The outdoor springs in rain are a different and genuinely worthwhile experience, but it is a different experience. Go prepared either way.
 
-Friday and Saturday remain dry — the Springs on either day this weekend is unaffected by the Sunday forecast. Saturday adds the weekend programme: cacao circle and body clay at 10:30am, and expanded fire and ice sessions at noon, 2pm, 4pm, and 5pm.
+Friday and Saturday remain dry - the Springs on either day this weekend is unaffected by the Sunday forecast. Saturday adds the weekend programme: cacao circle and body clay at 10:30am, and expanded fire and ice sessions at noon, 2pm, 4pm, and 5pm.
 
 Upcoming: Showcase performance with Chloe Gill on Friday 23 May at 7pm, Kinematic Sunday Sessions on 24 May at noon, Paul Dillon on 31 May at noon.

@@ -78,7 +78,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   places: {
     label: 'Know the terrain',
     title: 'The Peninsula, place by place',
-    sub: 'Six towns that organise the region — ridge, coast, and bay.',
+    sub: 'Six towns that organise the region - ridge, coast, and bay.',
   },
   picks: {
     label: "This week's edit",
@@ -91,7 +91,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
       'Winter is the season the Peninsula stops performing for tourists. The weekend crowds go home, the dining rooms empty out, and the ridge settles into a quiet it only finds for about eight weeks a year.',
       "We've updated the cellar-door shortlist for fireside season and added the thermal springs guide for the weeks ahead. The long-lunch list is filtered to the rooms that earn their place when it's cold outside.",
     ],
-    pullQuote: 'This issue is built for the season where empty tables are a feature, not a failing — and the coast is at its most honest.',
+    pullQuote: 'This issue is built for the season where empty tables are a feature, not a failing - and the coast is at its most honest.',
     signatureName: 'The Editors',
     signatureRole: 'Peninsula Insider',
     image: '/images/sourced/home-cover-cape-schanck-rainbow-01.webp',
@@ -100,7 +100,7 @@ const DEFAULT_HOMEPAGE_ADMIN_CONTENT: HomepageAdminContent = {
   },
   newsletter: {
     title: 'Peninsula This Weekend',
-    body: "Curated Peninsula recommendations and stories from our editors — sent when there’s something worth sharing.",
+    body: "Curated Peninsula recommendations and stories from our editors - sent when there’s something worth sharing.",
     issueNumber: '',
     issueDate: '',
     previewHeadline: '',
@@ -136,7 +136,7 @@ export function getHomepageAdminContent(): HomepageAdminContent {
  * and return a fully merged HomepageAdminContent. Falls back to the
  * JSON-backed defaults when Supabase is not configured or returns no rows.
  *
- * Safe to call from `astro build` — uses the public anon key, gated by the
+ * Safe to call from `astro build` - uses the public anon key, gated by the
  * `cms_*_public_read_published` RLS policies in
  * ops/migrations/2026-05-10-pi-cms-public-read.sql.
  */
@@ -159,7 +159,7 @@ export interface HomepageOverrides {
 }
 
 /**
- * Lower-level companion to loadHomepageContentWithCmsOverrides — returns the
+ * Lower-level companion to loadHomepageContentWithCmsOverrides - returns the
  * raw published CMS rows keyed by fieldPath. Useful when a page wants
  * per-field "use override only if explicitly set" semantics, so dynamic
  * seasonal/runtime values aren't overwritten by the JSON defaults.

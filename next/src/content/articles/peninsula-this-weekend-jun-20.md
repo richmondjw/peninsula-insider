@@ -1,5 +1,5 @@
 ---
-title: "Peninsula This Weekend — 20 to 21 June"
+title: "Peninsula This Weekend - 20 to 21 June"
 dek: "The solstice weekend moves from Sorrento's festival foreshore on Saturday to the stillness of the springs and the forest on Sunday."
 author: "editorial"
 houseByline: true
@@ -31,7 +31,7 @@ dispatch:
     when: "Saturday 20 June, 2:00pm–9:00pm"
     where: "Sorrento Foreshore, Sorrento"
     price: "Free, ticketed via Humanitix"
-    summary: "The Peninsula's biggest winter set-piece: two music stages, fire performers, lantern path through the village, food trucks, and the six-metre 'Bernie' effigy burn on the bay at 6:30pm. Free but ticketed — book now. The one winter night when the Peninsula is neither quiet nor crowded."
+    summary: "The Peninsula's biggest winter set-piece: two music stages, fire performers, lantern path through the village, food trucks, and the six-metre 'Bernie' effigy burn on the bay at 6:30pm. Free but ticketed - book now. The one winter night when the Peninsula is neither quiet nor crowded."
     bookingLabel: "Book free ticket via Humanitix"
     bookingUrl: "https://www.humanitix.com/au/event/sorrento-solstice-festival-2026"
   companion:
@@ -45,7 +45,7 @@ dispatch:
     title: "Red Hill Truffles winter truffle hunt, Main Ridge"
     when: "Saturday 20 or Sunday 21 June, booking required"
     where: "Red Hill Truffles, Main Ridge"
-    price: "From $189pp (pizza hunt), from $195pp (lunch bundle), from $120pp (private hunt, minimum party)"
+    price: "Ticketed. Three formats: pizza hunt, lunch bundle, private hunt (minimum party). Current prices on redhilltruffles.com."
     summary: "Périgord black season is at peak. The solstice weekend booking window is still available, but the festival crowd makes Saturday afternoon slots tighter than usual. Book Sunday morning for the quietest hunt of the month."
     bookingLabel: "Book via Red Hill Truffles"
     bookingUrl: "https://redhilltruffles.com/hunts"
@@ -53,7 +53,7 @@ faq:
   - question: "What is on the Mornington Peninsula this weekend, 20–21 June 2026?"
     answer: "Saturday 20 June is the Sorrento Solstice Festival on the Sorrento foreshore: free, ticketed via Humanitix, running 2pm to 9pm with two music stages, fire performers, a lantern path, food trucks, and a six-metre effigy burn on the bay at 6:30pm. Sunday 21 June: Peninsula Hot Springs Sunday Sessions (live music 2–5pm, included with bathing), or Red Hill Truffles winter truffle hunts (booking required)."
   - question: "Is the Sorrento Solstice Festival free?"
-    answer: "Yes, the festival is free, but tickets are required via Humanitix for crowd management. Book in advance — the festival reaches capacity."
+    answer: "Yes, the festival is free, but tickets are required via Humanitix for crowd management. Book in advance - the festival reaches capacity."
   - question: "What is the quieter option for the solstice weekend?"
     answer: "Sunday is the quieter day by design. Peninsula Hot Springs Sunday Sessions run 2–5pm with live music, included with a bathing session. For a land-based Sunday: Red Hill Truffles runs winter hunts, with Sunday morning being the quietest slot of the week."
 ---
@@ -85,7 +85,7 @@ Live acoustic music from the amphitheatre pool stage, every Sunday through 28 Ju
 **Red Hill Truffles winter hunt, Main Ridge**
 Saturday 20 or Sunday 21 June. Booking required.
 
-Périgord black season is at peak. Pizza hunts from $189 per person, lunch bundles from $195 per person. The solstice weekend makes Saturday afternoon slots tighter than usual. Sunday morning is the quietest slot of the week: the forest is frosty, the dogs are working well, and the hunt finishes before the lunch crowd arrives. A good thing to build a Sunday around rather than a quick stop on the way through.
+Périgord black season is at peak. Hunts run as a pizza hunt, a lunch bundle, or a private hunt; current prices are on the operator's site. The solstice weekend makes Saturday afternoon slots tighter than usual. Sunday morning is the quietest slot of the week: the forest is frosty, the dogs are working well, and the hunt finishes before the lunch crowd arrives. A good thing to build a Sunday around rather than a quick stop on the way through.
 
 ---
 
@@ -103,7 +103,7 @@ Included with afternoon bathing session
 
 **Red Hill Truffles**
 Sat 20 or Sun 21 June, Main Ridge
-From $189pp (pizza hunt), from $195pp (lunch bundle), from $120pp (private hunt)
+Three formats: pizza hunt, lunch bundle, private hunt. Current prices on the operator's site.
 Booking required: redhilltruffles.com/hunts
 
 _Prices may change. Confirm current rates directly with each operator before booking._

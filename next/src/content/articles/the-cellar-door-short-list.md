@@ -45,7 +45,7 @@ clusterLinks:
     href: "/journal/best-wineries-red-hill/"
   - label: "How to Build a Red Hill Saturday"
     href: "/journal/how-to-build-a-red-hill-saturday/"
-  - label: "The Long Lunch — where to land after the tasting"
+  - label: "The Long Lunch - where to land after the tasting"
     href: "/journal/the-long-lunch/"
   - label: "The Chardonnay Case"
     href: "/journal/the-chardonnay-case/"
@@ -65,7 +65,7 @@ faq:
   - question: "Do Peninsula cellar doors require bookings?"
     answer: "Most of the better smaller cellar doors prefer or require bookings. Dexter Wines is appointment-only (book a week ahead minimum). Kooyong and Polperro accept walk-ins but can be busy on weekends. Midweek walk-in availability is more reliable."
   - question: "How many cellar doors should you visit in one day?"
-    answer: "Three is the maximum for a useful tasting experience. After three, the palate degrades and the wines blur together. Two is often better — one in the morning, one pre-lunch, then a long lunch. Three cellar doors in a day is wine country; eight is a different kind of trip."
+    answer: "Three is the maximum for a useful tasting experience. After three, the palate degrades and the wines blur together. Two is often better - one in the morning, one pre-lunch, then a long lunch. Three cellar doors in a day is wine country; eight is a different kind of trip."
 ---
 
 The big, beautiful estates with lawns and restaurants are excellent places to spend [a long lunch](/journal/the-long-lunch/). But the experience of understanding what the Peninsula actually grows, the structural pinot noir, the [tight chardonnay](/journal/the-chardonnay-case/), the lesser-known Italian varieties, tends to happen in smaller rooms, at smaller tables, with the people who actually made the wine doing the pouring. For the broader landscape of what's poured on the Peninsula, the [Mornington Peninsula winery guide](/journal/mornington-peninsula-winery-guide/) and [The Producer Trail](/journal/the-producer-trail/) are the wider companion pieces to this short list.

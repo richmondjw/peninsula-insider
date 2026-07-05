@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — the quietest Tuesday of winter so far."
+headline: "Editor's note - the quietest Tuesday of winter so far."
 dek: "School holidays are on, the solstice has passed, and the Peninsula has settled into a calm mid-week rhythm. The next four days are the best outdoor window in sight."
 section: note
 tag: editor-note

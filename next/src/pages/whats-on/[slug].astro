@@ -109,11 +109,11 @@ export const prerender = true;
 
         <h1 class="event-detail__title" {...editableText({
           entityType: 'event', entitySlug: slug, fieldPath: 'title',
-          label: `${event.data.title} — title`,
+          label: `${event.data.title} - title`,
         })}>{event.data.title}</h1>
         <p class="event-detail__summary" {...editableText({
           entityType: 'event', entitySlug: slug, fieldPath: 'summary',
-          label: `${event.data.title} — summary`,
+          label: `${event.data.title} - summary`,
         })}>{event.data.summary}</p>
 
         <EventBadges
@@ -232,7 +232,7 @@ export const prerender = true;
               {event.data.worthTheDrive && (
                 <div>
                   <dt>Worth the drive</dt>
-                  <dd>Yes — unprompted recommendation</dd>
+                  <dd>Yes - unprompted recommendation</dd>
                 </div>
               )}
               {event.data.firstTimer && (

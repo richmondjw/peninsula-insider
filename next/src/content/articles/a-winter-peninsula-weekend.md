@@ -18,11 +18,11 @@ featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
   - label: "The Bushrangers Bay Walk"
     href: "/journal/walks-bushrangers-bay-walk-guide/"
-  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
     href: "/journal/best-spas-mornington-peninsula/"
 faq:
   - question: "Why visit the Mornington Peninsula in winter?"

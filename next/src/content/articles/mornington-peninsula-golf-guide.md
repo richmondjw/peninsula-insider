@@ -1,6 +1,6 @@
 ---
 slug: "mornington-peninsula-golf-guide"
-title: "Mornington Peninsula Golf — Why It's Australia's Best Golf Region"
+title: "Mornington Peninsula Golf - Why It's Australia's Best Golf Region"
 dek: "World-ranked public access, serious course architecture, hot springs within fifteen minutes, and a weekend shape that works even if only one person in the group plays."
 author: "editorial"
 houseByline: true
@@ -16,19 +16,19 @@ readingTimeMinutes: 8
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Best Golf Courses on the Mornington Peninsula — Tier Guide"
+  - label: "Best Golf Courses on the Mornington Peninsula - Tier Guide"
     href: "/journal/best-golf-courses-mornington-peninsula/"
   - label: "St Andrews Beach Golf Course"
     href: "/journal/st-andrews-beach-golf-course/"
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
 faq:
   - question: "Is the Mornington Peninsula a good golf destination?"
-    answer: "Yes — it has the rarest combination in Australian golf: world-ranked public-access courses within 90 minutes of Melbourne, alongside serious food, wine, hot springs, and accommodation. You can build a real weekend around one round and have the region justify itself even to people who don't play."
+    answer: "Yes - it has the rarest combination in Australian golf: world-ranked public-access courses within 90 minutes of Melbourne, alongside serious food, wine, hot springs, and accommodation. You can build a real weekend around one round and have the region justify itself even to people who don't play."
   - question: "Can you play golf on the Mornington Peninsula without being a member?"
-    answer: "Yes. St Andrews Beach, The Dunes, Moonah Links, and Cape Schanck (RACV) all have public tee times bookable online. The National is private member-only. For a visitor's Peninsula golf trip, St Andrews Beach is the anchor — world-class Tom Doak architecture, publicly bookable."
+    answer: "Yes. St Andrews Beach, The Dunes, Moonah Links, and Cape Schanck (RACV) all have public tee times bookable online. The National is private member-only. For a visitor's Peninsula golf trip, St Andrews Beach is the anchor - world-class Tom Doak architecture, publicly bookable."
   - question: "What's the best structure for a Peninsula golf weekend?"
-    answer: "One strong morning round, a long lunch at a hatted winery restaurant, hot springs in the afternoon, slow Sunday morning. The region is too good to fill entirely with golf — the non-golfer gets an excellent day at cellar doors or the springs while the golfer plays."
+    answer: "One strong morning round, a long lunch at a hatted winery restaurant, hot springs in the afternoon, slow Sunday morning. The region is too good to fill entirely with golf - the non-golfer gets an excellent day at cellar doors or the springs while the golfer plays."
 ---
 
 The Mornington Peninsula is not the only place in Australia with good golf. It may, however, be the place where golf makes the most sense as part of an actual weekend.

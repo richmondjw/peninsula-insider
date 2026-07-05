@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-09
 heroImage:
   src: "/images/sourced/spa-alba-thermal-springs-01.webp"
-  alt: "A thermal bathing pool at dusk on the Mornington Peninsula, steam rising into cool autumn air — representative image"
+  alt: "A thermal bathing pool at dusk on the Mornington Peninsula, steam rising into cool autumn air - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "service"
@@ -29,13 +29,13 @@ section: plans
 planShape: "two-night"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Peninsula Hot Springs vs Alba — The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
     href: "/journal/peninsula-hot-springs-vs-alba/"
-  - label: "Best Spas on the Mornington Peninsula — The Tier Guide"
+  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
     href: "/journal/best-spas-mornington-peninsula/"
   - label: "Where to Stay Near the Hot Springs"
     href: "/journal/mornington-peninsula-stay-and-soak/"
-  - label: "Guided Hot Springs Tours — From Melbourne"
+  - label: "Guided Hot Springs Tours - From Melbourne"
     href: "/tour/hot-springs-tours/"
   - label: "Thermal Springs Wine Weekend Package"
     href: "/tour-packages/thermal-springs-wine-weekend/"
@@ -47,10 +47,10 @@ faq:
   - question: "Is a Peninsula thermal springs day better as a day trip or an overnight?"
     answer: "Overnight if possible. The decompression after the bath is half the value; you want a quiet room, a simple dinner, and an early night. Day trips usually end in a rushed lunch or long drive that cuts the rest short. The bath-sleep-Sunday lunch sequence is what the Peninsula wellness weekend is built for."
 aiSummary:
-  - "A planning guide for a Peninsula wellness weekend anchored around thermal bathing — Peninsula Hot Springs and Alba Thermal Springs — structured to avoid the common mistake of arriving with only a booking and no wider plan."
+  - "A planning guide for a Peninsula wellness weekend anchored around thermal bathing - Peninsula Hot Springs and Alba Thermal Springs - structured to avoid the common mistake of arriving with only a booking and no wider plan."
   - "The framework: book the spa visit first, then choose accommodation that minimises post-soak driving, then add one good meal and one coastal walk as the day's other anchors."
   - "Covers: the difference between Peninsula Hot Springs and Alba Thermal Springs; what to book and when (both sold out weeks ahead on weekends); how to sequence a two-night wellness trip."
-  - "Suits: couples; wellness-focused visitors; autumn and winter visitors — both springs are best in cooler weather when the contrast between air and water is sharpest."
+  - "Suits: couples; wellness-focused visitors; autumn and winter visitors - both springs are best in cooler weather when the contrast between air and water is sharpest."
   - "Planning note: weekday visits are significantly less crowded and cheaper. Both springs require advance booking for peak weekend sessions. Fingal is the natural stay base for Hot Springs; Red Hill for Alba."
 ---
 

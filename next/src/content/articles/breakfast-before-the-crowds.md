@@ -6,7 +6,7 @@ houseByline: true
 publishedAt: 2026-04-09
 heroImage:
   src: "/images/sourced/category-cafe-01.webp"
-  alt: "A plate of poached eggs on Peninsula sourdough with a flat white and a laminated pastry on a cafe bench at sunrise — representative image"
+  alt: "A plate of poached eggs on Peninsula sourdough with a flat white and a laminated pastry on a cafe bench at sunrise - representative image"
   credit: "Peninsula Insider"
   license: "tmp-unsplash"
 format: "insider-edit"
@@ -29,19 +29,19 @@ featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+  - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
-  - label: "The Market Saturday — Two Weekends Built Around the Markets"
+  - label: "The Market Saturday - Two Weekends Built Around the Markets"
     href: "/journal/the-market-saturday/"
-  - label: "The Four-Hour Peninsula — Compact Day Guide"
+  - label: "The Four-Hour Peninsula - Compact Day Guide"
     href: "/journal/the-four-hour-peninsula/"
 faq:
   - question: "Where do locals eat breakfast on the Mornington Peninsula?"
-    answer: "Commonfolk Coffee in Mornington for serious filter coffee (no smashed avo, no queues after nine). Flinders Sourdough on Cook Street for wood-fired croissants and country loaf — arrive before 9am before the pastries go. The Continental Sorrento for the most complete sit-down hotel breakfast on the Peninsula."
+    answer: "Commonfolk Coffee in Mornington for serious filter coffee (no smashed avo, no queues after nine). Flinders Sourdough on Cook Street for wood-fired croissants and country loaf - arrive before 9am before the pastries go. The Continental Sorrento for the most complete sit-down hotel breakfast on the Peninsula."
   - question: "What time should I arrive at Peninsula cafes to avoid crowds?"
-    answer: "Before nine, ideally by 7:30–8:00. At 8am you are in a working cafe serving locals. At 10:30am you are in a queue behind a family from South Yarra. Almost every good Peninsula breakfast spot is transformed by the early arrival — this applies to Flinders Sourdough especially, where the best pastries sell out by 10am."
+    answer: "Before nine, ideally by 7:30–8:00. At 8am you are in a working cafe serving locals. At 10:30am you are in a queue behind a family from South Yarra. Almost every good Peninsula breakfast spot is transformed by the early arrival - this applies to Flinders Sourdough especially, where the best pastries sell out by 10am."
   - question: "Is Flinders Sourdough worth the drive?"
-    answer: "Yes — especially for anyone staying on the southern Peninsula. The wood-fired oven runs Thursday to Sunday and produces some of the most serious croissants south of the city. Arrive by 8:15am when the pastries are still hot. It is also the correct start to the peninsula pantry shopping circuit — Flinders first, then inland toward Red Hill."
+    answer: "Yes - especially for anyone staying on the southern Peninsula. The wood-fired oven runs Thursday to Sunday and produces some of the most serious croissants south of the city. Arrive by 8:15am when the pastries are still hot. It is also the correct start to the peninsula pantry shopping circuit - Flinders first, then inland toward Red Hill."
 ---
 
 The Mornington Peninsula is a morning region. The light at 7:30am on the bay side is better than the light at midday. The cellar doors do not open until eleven. The hatted restaurants are still finishing their mise. And the cafes, if you know which ones and when to arrive, are doing the quieter, specific thing: serving breakfast to a local clientele before the day fills out.

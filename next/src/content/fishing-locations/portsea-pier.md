@@ -20,7 +20,7 @@ tideStation: Portsea (this location is the reference station for southern Port P
 tideNotes: Incoming tide from the Heads is the strongest period for kingfish; squid are productive across both tidal states with mild current. Slack water at the Heads is safer for vessel transit but less productive for fishing.
 safetyNotes: 'The pier is the deepest in the Peninsula network with no railings on outer sections. The Rip at Port Phillip Heads is 1km west; current and standing waves are real. Pier-edge supervision for children is essential.'
 intro: 'Portsea Pier is the deepest land-based fishing platform on the Peninsula and the only one that puts you within rod-cast of yellowtail kingfish in summer. Squid run year-round; snapper move through in spring and autumn; salmon push past the Heads on winter incursions. The pier sits adjacent to the Rip and the Heads channel, which means proximity to genuine tidal current and to one of Australia''s most dangerous tidal passages. Treat both with appropriate respect.'
-metaDescription: 'Portsea Pier fishing — yellowtail kingfish in summer, squid year-round, snapper, the Rip safety considerations, parking reality.'
+metaDescription: 'Portsea Pier fishing - yellowtail kingfish in summer, squid year-round, snapper, the Rip safety considerations, parking reality.'
 faq:
   - question: Can I really catch kingfish from Portsea Pier?
     answer: 'Yes, in the right window. Yellowtail kingfish push into the lower bay following baitfish during the December to March summer peak. Sessions on live slimy mackerel or yellowtail scad rigged on the pier produce kingfish in the right years. The bag limit is now 2 per person per day (reduced from 5 in October 2025); confirm with VFA before retaining.'

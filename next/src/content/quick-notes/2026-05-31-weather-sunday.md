@@ -1,5 +1,5 @@
 ---
-headline: "Sunday — 80% with showers building from late morning, 14°C, westerly pushing harder."
+headline: "Sunday - 80% with showers building from late morning, 14°C, westerly pushing harder."
 dek: "Sunday 31 May: min 8°C, max 14°C. High chance of showers most likely afternoon and evening, 80%, 0–4mm. West to northwesterly 25–40 km/h. Monday opens June at 100% and up to 15mm. The wet pattern is now in."
 section: weather
 tag: weather

@@ -16,7 +16,7 @@ import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from
 import EditorialSurface from '../../components/EditorialSurface.astro';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-// The Notebook — one contextual observation for the Explore hub.
+// The Notebook - one contextual observation for the Explore hub.
 const _enow = new Date();
 const _eNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _enow))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
@@ -191,7 +191,7 @@ export const prerender = true;
   />
 
   <!-- ═══════════════════════════════════════════════════════════════
-       EDITORIAL SURFACE — Rainy Day Rescue (Level 2)
+       EDITORIAL SURFACE - Rainy Day Rescue (Level 2)
        One surface per hub. Post-hero, pre-grid. Phase 1: PI curatorial voice.
        ═══════════════════════════════════════════════════════════════ -->
   <div class="explore-surface-wrap container">
@@ -200,10 +200,10 @@ export const prerender = true;
       surface="Rainy Day Rescue"
       season="Autumn 2026"
       name="Peninsula Hot Springs, Fingal"
-      verdict="When the forecast turns, the equation flips. Cold rain and 40°C thermal pools are not competing forces. The hot springs are the point. Book early for Saturday slots — they go faster on bad-weather weekends."
+      verdict="When the forecast turns, the equation flips. Cold rain and 40°C thermal pools are not competing forces. The hot springs are the point. Book early for Saturday slots - they go faster on bad-weather weekends."
       href="/explore/rainy-day/"
       image="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
-      imageAlt="A grey-sky Peninsula morning — the weather that makes the hot springs make sense"
+      imageAlt="A grey-sky Peninsula morning - the weather that makes the hot springs make sense"
     />
   </div>
 

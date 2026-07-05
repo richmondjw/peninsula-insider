@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — the forecast shifted, the festival is today, and the burn is worth the rain."
+headline: "Editor's note - the forecast shifted, the festival is today, and the burn is worth the rain."
 dek: "The solstice is tonight. The forecast moved from twenty percent rain a week ago to eighty-three percent this morning. The editorial recommendation has not changed: the effigy burn at 6:30pm on the Sorrento Foreshore is the best thing on the Peninsula calendar today, wet weather or not."
 section: note
 tag: editor-note

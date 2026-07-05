@@ -87,7 +87,7 @@ export const prerender = true;
             {data.vesselTypes.length > 0 ? <tr><td>Vessels</td><td>{data.vesselTypes.join(', ')}</td></tr> : null}
             {/* Price row intentionally omitted. BRAND-PI rule (2026-05-15):
                 "No pricing on site. Ever." Book direct with the operator. */}
-            <tr><td>Licence required</td><td>{data.licenceRequired ? 'Yes — confirm with operator' : 'No — no licence required for hire vessels under operator threshold'}</td></tr>
+            <tr><td>Licence required</td><td>{data.licenceRequired ? 'Yes - confirm with operator' : 'No - no licence required for hire vessels under operator threshold'}</td></tr>
             {data.seasonalityNote ? <tr><td>Seasonality</td><td>{data.seasonalityNote}</td></tr> : null}
             {data.nearestRampSlug ? <tr><td>Nearest ramp</td><td><a href={`/boating/ramps/${data.nearestRampSlug}/`}>{data.nearestRampSlug.replace(/-/g, ' ')}</a></td></tr> : null}
           </tbody>

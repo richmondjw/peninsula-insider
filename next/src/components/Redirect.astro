@@ -1,6 +1,6 @@
 ---
 /**
- * Redirect — flash-free redirect page for static hosting (GitHub Pages).
+ * Redirect - flash-free redirect page for static hosting (GitHub Pages).
  *
  * Fires window.location.replace() synchronously in <head> so the browser
  * navigates before it ever paints the body. The html/body are hidden via
@@ -29,7 +29,7 @@ const canonical = new URL(to, 'https://peninsulainsider.com.au').href;
     <title>Redirecting…</title>
     <!-- Hide everything before JS fires -->
     <style>html,body{display:none;visibility:hidden}</style>
-    <!-- JS redirect fires synchronously — browser navigates before first paint -->
+    <!-- JS redirect fires synchronously - browser navigates before first paint -->
     <script define:vars={{ to }}>window.location.replace(to);</script>
     <!-- No-JS fallback -->
     <meta http-equiv="refresh" content={`0;url=${to}`}>

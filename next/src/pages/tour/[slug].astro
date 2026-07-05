@@ -104,7 +104,7 @@ export const prerender = true;
     <div class="prose">
       <p {...editableText({
         entityType: 'tour', entitySlug: slug, fieldPath: 'intro',
-        label: `${data.name} — intro`,
+        label: `${data.name} - intro`,
       })}>{data.intro}</p>
     </div>
   </SubpageHero>
@@ -130,7 +130,7 @@ export const prerender = true;
           <div class="at-a-glance__label">Group size</div>
           <div class="at-a-glance__value">
             {groupSizeLabel[data.groupSize] ?? data.groupSize}
-            {data.maxGroupSize ? ` — max ${data.maxGroupSize} guests` : ''}
+            {data.maxGroupSize ? ` - max ${data.maxGroupSize} guests` : ''}
           </div>
         </div>
         <div class="at-a-glance__row">
@@ -164,7 +164,7 @@ export const prerender = true;
   {primaryBookingUrl && (
     <div class="container">
       <div class="tour-cta-block">
-        <h3 class="tour-cta-block__title">Check availability{operatorData?.name ? ` — ${operatorData.name}` : ''}</h3>
+        <h3 class="tour-cta-block__title">Check availability{operatorData?.name ? ` - ${operatorData.name}` : ''}</h3>
         <p>Pricing and availability are managed directly by the operator. Booking through the link below confirms your place directly with {operatorData?.name ?? 'the operator'}.</p>
         <a href={primaryBookingUrl} target="_blank" rel="noopener noreferrer" class="tour-cta-primary">
           Book this tour &rarr;

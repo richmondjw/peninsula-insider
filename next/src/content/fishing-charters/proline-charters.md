@@ -21,7 +21,7 @@ targetSpecies:
   - gummy-shark
   - yellowtail-kingfish
 intro: 'Operating from Berth 1 at Sorrento Pier since 1991. The two vessels (60-foot Due South and 41-foot Strait Shooter) are the largest fishing-charter platforms in Victoria. Standard product is a five-hour bay session for snapper, whiting, and squid. The differentiator is what becomes possible at scale: 15 to 20 passenger groups, Bass Strait shark expeditions, multi-day King Island and Portland tuna runs.'
-metaDescription: 'Proline Charters — Victoria''s largest charter vessels at Sorrento Pier. Group bookings to 20 passengers, Bass Strait shark trips, King Island and Portland multi-day itineraries. Family business since 1991.'
+metaDescription: 'Proline Charters - Victoria''s largest charter vessels at Sorrento Pier. Group bookings to 20 passengers, Bass Strait shark trips, King Island and Portland multi-day itineraries. Family business since 1991.'
 whoSuits: 'Groups of 10 or more wanting to fish together on a single platform; corporate bookings; serious offshore anglers chasing mako, blue shark, and tuna in Bass Strait; multi-day expedition fishing to King Island and Portland. The 60-foot Due South can hold position in conditions that push smaller charters off their marks.'
 whoDoesnt: 'Solo anglers or couples paying full per-person rates on an under-filled session; Proline''s pricing economics work best at high capacity. Anglers chasing the multi-ramp flexibility of an operator like I''m Hooked; Proline is anchored at Sorrento. Anyone needing a budget-tier session at the lower price brackets.'
 faq:
@@ -53,7 +53,7 @@ Fleet size means Proline operates in a segment no other Peninsula operator reach
 
 One specific reason: Proline is the only operator on the Peninsula that can put 15 or more people on the water together, on a vessel purpose-built for offshore work, with a three-decade track record. If your group exceeds 10 passengers or you want to fish Bass Strait for mako sharks, there is no comparable alternative at Sorrento.
 
-The caveat is cost structure. The group-booking model means solo anglers or couples are paying a premium unless the session fills. The per-person rate at capacity is competitive ($100 to $290 per person depending on session); at half-capacity it is not. For groups who can fill the boat or split the cost between an even number, the value proposition is clear.
+The caveat is cost structure. The group-booking model means solo anglers or couples are paying a premium unless the session fills. The per-person rate at capacity is competitive for the session type; at half-capacity it is not. For groups who can fill the boat or split the cost between an even number, the value proposition is clear. Current rates are with the operator.
 
 > Prices may change. Confirm current rates directly with the venue or operator before booking.
 
@@ -75,4 +75,4 @@ The specific strength is the offshore capability. Both vessels can cross Bass St
 
 ## What's included
 
-Rods, reels, bait, and tackle on standard sessions. On shark trips, heavy tackle and traces are provided. Food and drinks are not included on standard sessions; the operator can advise on what provisions to bring for longer offshore trips. A tip of $10 to $20 per person for a productive session is customary but never expected.
+Rods, reels, bait, and tackle on standard sessions. On shark trips, heavy tackle and traces are provided. Food and drinks are not included on standard sessions; the operator can advise on what provisions to bring for longer offshore trips. A modest cash tip per person for a productive session is customary but never expected.

@@ -1,6 +1,6 @@
 ---
 /**
- * PiArticleActions — article-level Save + Share.
+ * PiArticleActions - article-level Save + Share.
  *
  * Renders both placements the brief calls for:
  *   - An inline Save + Share pair near the byline (always visible).
@@ -20,7 +20,7 @@ import PiSaveActions from './PiSaveActions.astro';
 import TextScaleControl from './TextScaleControl.astro';
 
 export interface Props {
-  /** Save kind — defaults to 'article' for journal pieces. */
+  /** Save kind - defaults to 'article' for journal pieces. */
   kind?: 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
   slug: string;
   section: string;

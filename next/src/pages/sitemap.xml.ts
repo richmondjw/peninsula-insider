@@ -81,25 +81,31 @@ export const GET: APIRoute = async () => {
   // 1.0 alongside the canonical-home homepage signals "treat as top-tier hubs".
   // See ops/reports/seo/experiments.md experiment 2026-05-05-01.
   const TOP_HUBS = new Set(['dog-friendly', 'whats-on', 'corporate-events', 'fishing', 'ask']);
-  // Note: /explore/plans/ retired 2026-05-10 — section renamed to /explore/plans/. /explore/plans/* URLs
+  // Note: /explore/plans/ retired 2026-05-10 - section renamed to /explore/plans/. /explore/plans/* URLs
   // remain as redirect pages (noindex) so inbound links continue to resolve.
-  for (const section of ['eat', 'stay', 'wine', 'explore', 'plans', 'journal', 'places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
+  // /plans and /places are redirect stubs; their canonical hubs live under
+  // /explore/. List the destinations, never the stubs.
+  for (const section of ['eat', 'stay', 'wine', 'explore', 'explore/plans', 'journal', 'explore/places', 'whats-on', 'dog-friendly', 'weddings', 'corporate-events', 'fishing', 'boating']) {
     entries.push(url(`/${section}`, TOP_HUBS.has(section) ? 1.0 : 0.9, 'weekly'));
   }
-  // /explore/golf/ — the canonical golf hub. /golf/ is a noindex redirect stub
+  // Specialist hubs that previously had no sitemap entry at all.
+  for (const hub of ['tour', 'events', 'awards', 'guides']) {
+    entries.push(url(`/${hub}`, 0.8, 'weekly'));
+  }
+  // /explore/golf/ - the canonical golf hub. /golf/ is a noindex redirect stub
   // that points here, so sitemap-list this destination directly.
   entries.push(url('/explore/golf', 1.0, 'weekly'));
-  // /fishing/ and /boating/ sub-hubs — emit unconditionally so crawlers find
+  // /fishing/ and /boating/ sub-hubs - emit unconditionally so crawlers find
   // them once Phase 1 ships, even before all leaf entities are populated.
   for (const subhub of ['fishing/species', 'fishing/locations', 'fishing/charters', 'boating/ramps', 'boating/hire']) {
     entries.push(url(`/${subhub}`, 0.8, 'weekly'));
   }
-  // /fishing/ and /boating/ pillar pages — Article surfaces with their own
+  // /fishing/ and /boating/ pillar pages - Article surfaces with their own
   // FAQPage and BreadcrumbList JSON-LD.
   for (const pillar of ['fishing/seasons/snapper-run-oct-dec', 'fishing/charters/first-charter-guide', 'boating/tides-safety', 'tour/fishing-tours']) {
     entries.push(url(`/${pillar}`, 0.7, 'monthly'));
   }
-  // Concierge surfaces — chat front page + vendor intake. /ask bumped to 1.0
+  // Concierge surfaces - chat front page + vendor intake. /ask bumped to 1.0
   // alongside other top hubs (see TOP_HUBS comment above).
   entries.push(url('/ask', 1.0, 'weekly'));
   entries.push(url('/partners/apply', 0.5, 'monthly'));
@@ -162,7 +168,7 @@ export const GET: APIRoute = async () => {
   entries.push(url('/whats-on/this-weekend', 1.0, 'weekly'));
 
   // Journal articles. PTW dispatches (format=weekend-picker, slug starts
-  // with peninsula-this-weekend) are excluded — the journal URL is now a
+  // with peninsula-this-weekend) are excluded - the journal URL is now a
   // 301-equivalent redirect to /whats-on/this-weekend/archive/{date}/.
   // Listing the redirect URL would split crawl signal between the legacy
   // path and the canonical archive.
@@ -171,7 +177,7 @@ export const GET: APIRoute = async () => {
   for (const article of articles.filter((a) => !a.data.sitemapExclude && !isPtwSlug(a))) {
     entries.push(url(`/journal/${routeSlug(article)}`, 0.7, 'weekly', dateStr(article.data.publishedAt)));
   }
-  // PTW archive entries — sitemap-list each dated archive URL so the
+  // PTW archive entries - sitemap-list each dated archive URL so the
   // weekend dispatch corpus stays crawlable forever, with the rolling
   // /whats-on/this-weekend/ as the canonical "current" surface.
   for (const article of articles.filter(isPtwSlug)) {
@@ -186,7 +192,7 @@ export const GET: APIRoute = async () => {
     entries.push(url(`/explore/plans/${routeSlug(itinerary)}`, 0.7, 'weekly', dateStr(itinerary.data.publishedAt)));
   }
 
-  // /fishing/species/* — only published, non-excluded.
+  // /fishing/species/* - only published, non-excluded.
   for (const sp of species.filter((s) => !s.data.sitemapExclude)) {
     entries.push(url(`/fishing/species/${routeSlug(sp)}`, 0.8, 'weekly', dateStr(sp.data.publishedAt)));
   }
@@ -207,7 +213,7 @@ export const GET: APIRoute = async () => {
     entries.push(url(`/boating/hire/${routeSlug(h)}`, 0.7, 'weekly', dateStr(h.data.publishedAt)));
   }
 
-  // Event detail pages — emit each /whats-on/{slug}/. Events are a primary
+  // Event detail pages - emit each /whats-on/{slug}/. Events are a primary
   // editorial lane (the dispatch differentiator) so they belong in the sitemap.
   // Past one-off events stay in the index (the [slug] route generates a static
   // page for every event), but skip them in the sitemap to avoid signalling

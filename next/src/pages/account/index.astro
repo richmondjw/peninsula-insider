@@ -1,5 +1,5 @@
 ---
-/* /account/ — profile page.
+/* /account/ - profile page.
    Renders client-side; if no session, prompts sign-in.
    Server-side this is a static shell. */
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -9,7 +9,7 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Your account — Peninsula Insider"
+  title="Your account - Peninsula Insider"
   description="Your Peninsula Insider account: saved articles, profile settings."
   noindex={true}
 >
@@ -29,7 +29,7 @@ export const prerender = true;
         <h1 class="v2-account-page__title">Sign in to your account.</h1>
         <p class="v2-account-page__lead">
           Your saved articles and profile.
-          No password required — Google or magic link.
+          No password required - Google or magic link.
         </p>
         <button class="v2-account-page__cta" type="button" data-open-auth>Sign in</button>
       </div>

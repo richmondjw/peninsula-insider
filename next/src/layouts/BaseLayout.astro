@@ -1,4 +1,5 @@
 ---
+import { CONCIERGE_API_URL } from '../lib/concierge-config';
 /**
  * Peninsula Insider  -  BaseLayout
  *
@@ -12,7 +13,7 @@ import '../styles/concierge.css';   // chat & drawer styles, loaded on every pag
 import '../styles/search.css';      // site-search overlay + /search page styles
 import '../styles/v4.css';          // V4 mega-menu chrome, additive tokens scoped --v4-*
 import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
-import '../styles/magenta-stone.css'; // Magenta Stone theme — inert unless html[data-theme="magenta-stone"]
+import '../styles/magenta-stone.css'; // Magenta Stone theme - inert unless html[data-theme="magenta-stone"]
 import { ClientRouter } from 'astro:transitions';
 // V4 menu promotion (2026-05-06): the V2 Masthead is replaced by V4Masthead.
 // V2 Masthead.astro stays in the codebase as reference but is no longer
@@ -91,8 +92,7 @@ const {
   searchExclude = false,
 } = Astro.props;
 
-// Map the editorial section to a search-chip label. Reader-facing strings —
-// these populate the "kind" filter chips on /search.
+// Map the editorial section to a search-chip label. Reader-facing strings - // these populate the "kind" filter chips on /search.
 const SECTION_TO_SEARCH_KIND: Record<string, string> = {
   home: 'Home',
   eat: 'Eat',
@@ -241,7 +241,7 @@ const isAskPage = rawPathname.startsWith('/ask');
   <link rel="stylesheet" href="/assets/mobile-fixes.css" />
   <link rel="stylesheet" href="/assets/scroll-animations.css" />
 
-  <!-- Reader text-size preference — applied before first paint so pages
+  <!-- Reader text-size preference - applied before first paint so pages
        don't flash at the default size. The control itself lives in
        TextScaleControl.astro (rendered on article surfaces); steps are
        mapped to root font-size in global.css. -->
@@ -254,7 +254,7 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 
-  <!-- Admin theme preview — applied before first paint so a previewing admin
+  <!-- Admin theme preview - applied before first paint so a previewing admin
        doesn't see a flash of the classic theme. Only the admin-gated toggle
        (lib/inline-edit/client.ts) ever writes 'pi-theme', so general users
        never have the key set and the override stylesheet stays inert. -->
@@ -268,7 +268,7 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 
-  <!-- Google tag (gtag.js) — gated on user consent.
+  <!-- Google tag (gtag.js) - gated on user consent.
        The loader checks localStorage 'pi-consent-v1' and only injects
        gtag if analytics consent is true. CookieBanner dispatches
        'pi:consent-changed' when the user opts in/out, and we wire that
@@ -309,19 +309,27 @@ const isAskPage = rawPathname.startsWith('/ask');
     })();
   </script>
 
-  <!-- TEMPORARY PASSWORD GATE -->
-  <script is:inline>
-    (function() {
-      var KEY  = 'pi-access-v1';
-      if (localStorage.getItem(KEY) === '1') return;
-      var path = window.location.pathname;
-      if (path === '/access/' || path === '/access') return;
-      window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
-    })();
-  </script>
-  <!-- END TEMPORARY PASSWORD GATE -->
+  {/* TEMPORARY PASSWORD GATE.
+      Client-side only, so it is a soft courtesy gate, not security: the
+      content ships in the HTML regardless and crawlers that run JS get
+      redirected (which is fatal for SEO while the gate is on). Controlled
+      by PUBLIC_ACCESS_GATE so launching is a one-line env change in
+      .github/workflows/build-and-deploy.yml: set PUBLIC_ACCESS_GATE=off. */}
+  {import.meta.env.PUBLIC_ACCESS_GATE !== 'off' && (
+    <script is:inline>
+      (function() {
+        var KEY  = 'pi-access-v1';
+        if (localStorage.getItem(KEY) === '1') return;
+        var path = window.location.pathname;
+        if (path === '/access/' || path === '/access') return;
+        window.location.replace('/access/?r=' + encodeURIComponent(window.location.href));
+      })();
+    </script>
+  )}
 </head>
 <body data-page={section} data-path={rawPathname} data-v4="true">
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <V4Masthead section={section} />
 
@@ -357,6 +365,7 @@ const isAskPage = rawPathname.startsWith('/ask');
       so the UI can render the type eyebrow without a second lookup.
       data-pagefind-ignore opts the page out of the search index entirely. */}
   <main
+    id="main-content"
     data-pagefind-body={searchExclude ? undefined : ''}
     data-pagefind-filter={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
     data-pagefind-meta={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
@@ -365,7 +374,7 @@ const isAskPage = rawPathname.startsWith('/ask');
     {/* Pagefind search-result image source. Mirrors the page's ogImage
         (which every page already sets for social sharing) into the search
         index as `meta.image`. Without this, Pagefind tries to auto-detect
-        an image from the first <img> tag in the body — which fails for
+        an image from the first <img> tag in the body - which fails for
         most page types here because heroes use CSS background-image, not
         real img elements. Single source of truth: ogImage.
 
@@ -381,7 +390,7 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <Footer />
 
-  <!-- V4 mobile drawer — replaces the V2 #mobileNav overlay.
+  <!-- V4 mobile drawer - replaces the V2 #mobileNav overlay.
        Bound by the V4 mega+drawer script below. -->
   <V4MobileDrawer />
 
@@ -393,13 +402,13 @@ const isAskPage = rawPathname.startsWith('/ask');
 
   <!-- Set API URL BEFORE the drawer renders, its boot script reads
        window.PI_API_URL at parse time, so this must come first. -->
-  <script is:inline define:vars={{ API_URL: import.meta.env.PUBLIC_CONCIERGE_API_URL || 'http://localhost:8787' }}>
+  <script is:inline define:vars={{ API_URL: CONCIERGE_API_URL }}>
     window.PI_API_URL = API_URL;
   </script>
 
   <!-- Supabase config for browser-side analytics (search query logging etc).
-       Anon key is safe to expose — RLS ensures anon can only INSERT, not read. -->
-  <script is:inline define:vars={{ SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', SB_ANON_KEY: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+       Anon key is safe to expose - RLS ensures anon can only INSERT, not read. -->
+  <script is:inline define:vars={{ SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', SB_ANON_KEY: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
     window.__PI_SB = { url: SB_URL, key: SB_ANON_KEY };
   </script>
 
@@ -407,7 +416,7 @@ const isAskPage = rawPathname.startsWith('/ask');
        Suppressed on /ask itself (which is the full-page version). -->
   {!isAskPage && <ConciergeDrawer />}
 
-  <!-- Site search overlay — instant Pagefind dropdown, opened by any
+  <!-- Site search overlay - instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
 
@@ -428,12 +437,12 @@ const isAskPage = rawPathname.startsWith('/ask');
        and right-click-to-replace images. Inert for non-admin visitors. -->
   <InlineEditor />
 
-  <!-- Image slot hydration — reads all published cms_image_slots from Supabase
+  <!-- Image slot hydration - reads all published cms_image_slots from Supabase
        and swaps matching <img> src values on every page load. Covers every page
        so right-click image edits on any page (events, places, venues, home) are
        visible immediately on next load without waiting for a rebuild.
        Non-fatal: if Supabase is unreachable the static images remain. -->
-  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '' }}>
+  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {

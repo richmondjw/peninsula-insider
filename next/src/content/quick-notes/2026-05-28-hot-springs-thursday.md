@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — full weekday programme today, and the weatherproof anchor for the weekend ahead."
+headline: "Peninsula Hot Springs - full weekday programme today, and the weatherproof anchor for the weekend ahead."
 dek: "Thursday weekday schedule: studio yoga 7:30am, hot springs yoga 9:15am, fire and ice 10:30am, body clay 12pm and 2pm, fire and ice 4pm and 5pm, sauna infusion 5pm. Covered and heated throughout. Midweek runs quieter than the weekend. Bookings recommended."
 section: spa
 tag: opening-window

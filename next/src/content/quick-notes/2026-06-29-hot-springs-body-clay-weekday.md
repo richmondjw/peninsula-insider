@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — the Body Clay Ritual is on the weekday timetable this week."
+headline: "Peninsula Hot Springs - the Body Clay Ritual is on the weekday timetable this week."
 dek: "The guided clay session runs Monday to Friday at 12pm and 2pm, with extra sessions on the weekend. It remains one of the simplest winter booking upgrades on the Peninsula because it is included with bathing."
 section: spa
 tag: opening-window

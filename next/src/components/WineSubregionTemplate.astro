@@ -89,7 +89,7 @@ const topAuthority = venues
   .filter((n) => n > 0)
   .sort((a, b) => b - a)[0];
 
-// Sub-region label without the trailing " Wineries" — used in multiple
+// Sub-region label without the trailing " Wineries" - used in multiple
 // places below, so compute once.
 const subregionLabel = h1.replace(/\s+Wineries\s*$/i, '');
 
@@ -106,7 +106,7 @@ const zoneGradient: Record<string, string> = {
 };
 const heroGradientClass = (place && zoneGradient[place.data.zone]) ?? 'hero-grad--vineyard';
 
-// Wave 1 — Wine sub-region pages inherit editorial fields from the matching
+// Wave 1 - Wine sub-region pages inherit editorial fields from the matching
 // place entry (signature, factsheet text, etc.) when available. Wave 2 will
 // allow per-page overrides via additional props.
 const inheritedSignature = place?.data?.signature ?? null;
@@ -118,14 +118,14 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 <Breadcrumbs items={breadcrumbs} />
 
 {/* ═══════════════════════════════════════════════════════════════════════
-    WAVE 1 — Magazine hero, designed factsheet, scoreboard
+    WAVE 1 - Magazine hero, designed factsheet, scoreboard
     Mirrors the visual treatment shipped on /explore/places/[slug]/ so the wine
     sub-region pages stop reading as directory headers. Inherits the
     matching place's heroImage + signature line; Wave 2 will allow
     per-page overrides via additional props.
 ═══════════════════════════════════════════════════════════════════════ */}
 
-<!-- HERO — type column + cinematic image column. Stacks at mobile.
+<!-- HERO - type column + cinematic image column. Stacks at mobile.
      Falls back to a plain title block if no `place` entry was passed in. -->
 <section class="wine-hero">
   <div class="container">
@@ -166,7 +166,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
   </div>
 </section>
 
-<!-- FACTSHEET — 6-cell designed grid blending wine-specific numbers with
+<!-- FACTSHEET - 6-cell designed grid blending wine-specific numbers with
      place metadata. Renders only cells that have content. -->
 <section class="wine-factsheet">
   <div class="container">
@@ -252,7 +252,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
   </section>
 )}
 
-<!-- AT-A-GLANCE SCOREBOARD — dark-ink anchor strip showing what's on the
+<!-- AT-A-GLANCE SCOREBOARD - dark-ink anchor strip showing what's on the
      page. Matches the equivalent strip on /explore/places/[slug]/. -->
 <section class="wine-scoreboard" aria-label={`${subregionLabel} sub-region contents`}>
   <div class="container">
@@ -435,13 +435,13 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 
 <style>
   /* ═══════════════════════════════════════════════════════════════════════
-     WINE SUBREGION TEMPLATE — Wave 1 visual lift (2026-05-13)
+     WINE SUBREGION TEMPLATE - Wave 1 visual lift (2026-05-13)
 
      Three new top-of-page sections (.wine-hero, .wine-factsheet,
      .wine-scoreboard) mirror the equivalent patterns on /explore/places/[slug]/.
      Rest of the template (terroir, anchors, venue grid, Chardonnay/Pinot,
      pair-with-village, logistics, map, journal, nearby, FAQ) keeps its
-     existing classes — those sections are untouched.
+     existing classes - those sections are untouched.
   ═══════════════════════════════════════════════════════════════════════ */
 
   /* ── HERO ────────────────────────────────────────────────────────────── */

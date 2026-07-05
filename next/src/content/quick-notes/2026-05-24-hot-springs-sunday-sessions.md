@@ -1,5 +1,5 @@
 ---
-headline: "Peninsula Hot Springs — Sunday Sessions with Kinematic at noon. Rain-proof programme."
+headline: "Peninsula Hot Springs - Sunday Sessions with Kinematic at noon. Rain-proof programme."
 dek: "Sunday Sessions with Kinematic: today, Sunday 24 May, 12pm. Full Sunday activity programme running: body clay ritual, fire and ice, cacao circle, yoga, sauna infusion. Thermal circuit operates in any weather. 90% chance of showers from afternoon."
 section: spa
 tag: event
@@ -21,7 +21,7 @@ status: archived
 ---
 Peninsula Hot Springs runs Sunday Sessions with Kinematic today at noon. The event is confirmed on the venue's what's-on page as of last night.
 
-The weather context makes today's programme particularly well-suited. BOM's Sunday forecast calls for 90% showers most likely from the afternoon and evening. The thermal circuit at Peninsula Hot Springs operates in all conditions — the outdoor pools, the rock pool, the bathing areas and the cave pool all run rain or shine. If anything, the arriving weather sharpens the thermal contrast. The drive south on a cloudy Sunday morning, into warm water as the front closes in, is a familiar and reliable Peninsula pattern.
+The weather context makes today's programme particularly well-suited. BOM's Sunday forecast calls for 90% showers most likely from the afternoon and evening. The thermal circuit at Peninsula Hot Springs operates in all conditions - the outdoor pools, the rock pool, the bathing areas and the cave pool all run rain or shine. If anything, the arriving weather sharpens the thermal contrast. The drive south on a cloudy Sunday morning, into warm water as the front closes in, is a familiar and reliable Peninsula pattern.
 
 The full Sunday activity calendar surrounds the noon performance. Body clay ritual at 10:30 AM, noon, 1 PM, and 3 PM. Fire and ice workshop at noon, 2 PM, 4 PM, and 5 PM. Cacao circle at noon. Studio yoga from 7:30 AM, hot springs yoga at 9:15 AM, sauna infusion at 5 PM.
 

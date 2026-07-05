@@ -1,5 +1,5 @@
 ---
-headline: "Sunday weather note — mild start, wetter middle, clearer late"
+headline: "Sunday weather note - mild start, wetter middle, clearer late"
 dek: "Mornington Peninsula sits around 20°C before lunch, with rain most likely through the middle of the day and a cleaner evening window after 6pm."
 section: weather
 tag: weather

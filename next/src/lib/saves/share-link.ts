@@ -1,13 +1,13 @@
 /**
- * Peninsula Insider — share-by-link encoding.
+ * Peninsula Insider - share-by-link encoding.
  *
  * Shareable plans are encoded into the URL itself, no server-side storage
  * required. Format:
  *
  *   /plan/?p=<base64url-encoded JSON>
  *
- * The encoded payload is a minimal projection of each saved item — kind,
- * slug, section, title, href, image — enough to render a read-only plan
+ * The encoded payload is a minimal projection of each saved item - kind,
+ * slug, section, title, href, image - enough to render a read-only plan
  * card. A recipient can fork the plan into their own saves with one tap;
  * the recipient's local store stays the source of truth, and the
  * recipient does not need an account.
@@ -76,7 +76,7 @@ function base64UrlEncode(input: string): string {
     return Buffer.from(input, 'utf-8').toString('base64')
       .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   }
-  // Browser path — encode as UTF-8 first to handle multi-byte characters
+  // Browser path - encode as UTF-8 first to handle multi-byte characters
   const utf8 = unescape(encodeURIComponent(input));
   return btoa(utf8).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }

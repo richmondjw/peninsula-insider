@@ -1,6 +1,6 @@
 ---
 /**
- * PiSaveActions — card-level Save + Share affordance.
+ * PiSaveActions - card-level Save + Share affordance.
  *
  * Standardised across every card type on Peninsula Insider: positioned
  * bottom-right, icon-only, with a hover label on desktop. Save toggles
@@ -23,7 +23,7 @@
  */
 
 export interface Props {
-  /** Save kind — articles, venues, places, events, experiences, itineraries, tours, operators, packages. */
+  /** Save kind - articles, venues, places, events, experiences, itineraries, tours, operators, packages. */
   kind: 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
   slug: string;
   title: string;
@@ -113,7 +113,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
        transition smoothly between collapsed (circle) and expanded (pill).
        `width: auto` + `max-width: 2rem` starts as a circle; expanding
        max-width to a concrete value gives the browser a fully transitionable
-       range — unlike `width: 2rem → width: auto` which snaps and flickers. */
+       range - unlike `width: 2rem → width: auto` which snaps and flickers. */
     height: 2rem;
     min-width: 2rem;
     max-width: 2rem;
@@ -158,7 +158,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
 
   .pi-actions__btn:active { transform: scale(0.95); }
 
-  /* Hover label — desktop only. Fades in after the button has started
+  /* Hover label - desktop only. Fades in after the button has started
      expanding so text never appears clipped mid-animation.
      `max-width: 0` is critical: `opacity: 0` alone does not remove the
      element from the flex layout, so the label would still claim its
@@ -190,7 +190,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     }
   }
 
-  /* Saved state — solid ink fill, paper text */
+  /* Saved state - solid ink fill, paper text */
   .pi-actions__btn--save[aria-pressed="true"] {
     background: var(--ink, #171413);
     color: var(--paper, #FAF7F0);
@@ -205,7 +205,7 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
     color: var(--paper, #FAF7F0);
   }
 
-  /* Mid-flight share state — brief "Copied" or "Sharing…" feedback */
+  /* Mid-flight share state - brief "Copied" or "Sharing…" feedback */
   .pi-actions__btn--share[data-feedback] {
     background: var(--ochre, #A0541F);
     color: var(--paper, #FAF7F0);

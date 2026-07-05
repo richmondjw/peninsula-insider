@@ -1,6 +1,6 @@
 ---
 /**
- * /awards/<slug>/ — single category page (Phase 4 WS4E).
+ * /awards/<slug>/ - single category page (Phase 4 WS4E).
  *
  * Renders the nominees for a category and lets signed-in users cast a
  * vote. Empty state when categories aren't loaded yet (pre-migration).
@@ -222,7 +222,7 @@ export const prerender = true;
       resultsEl.removeAttribute('hidden');
       resultsNoteEl.textContent = totalVotes > 0
         ? `${totalVotes} reader vote${totalVotes === 1 ? '' : 's'} counted.`
-        : 'Editor selection — reader voting did not run for this category.';
+        : 'Editor selection - reader voting did not run for this category.';
     }
 
     if (listEl) {

@@ -54,7 +54,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   // /admin/login/ matches isAdminPath (it starts with /admin/) but must NOT
-  // be redirected to itself when access is denied — that produces an
+  // be redirected to itself when access is denied - that produces an
   // ERR_TOO_MANY_REDIRECTS loop with the `next` param recursively encoding.
   // Let the login page render so the user can sign in.
   if (isAdminRoute && !isLogin && !allowed) {

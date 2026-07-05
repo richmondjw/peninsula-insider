@@ -18,7 +18,7 @@ featured: true
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Four-Hour Peninsula — Compact Day Guide"
+  - label: "The Four-Hour Peninsula - Compact Day Guide"
     href: "/journal/the-four-hour-peninsula/"
   - label: "Where to Stay on the Mornington Peninsula"
     href: "/journal/where-to-stay-mornington-peninsula/"
@@ -26,13 +26,13 @@ clusterLinks:
     href: "/journal/hatted-restaurants-mornington-peninsula-2025/"
 faq:
   - question: "How far is the Mornington Peninsula from Melbourne?"
-    answer: "The top of the Peninsula (Mornington, Mount Martha) is about an hour from the Melbourne CBD. The tip (Sorrento, Portsea, Point Nepean) is closer to 90 minutes to two hours depending on traffic. Saturday mornings are the slowest — leave by 8am if you want to avoid the worst of it."
+    answer: "The top of the Peninsula (Mornington, Mount Martha) is about an hour from the Melbourne CBD. The tip (Sorrento, Portsea, Point Nepean) is closer to 90 minutes to two hours depending on traffic. Saturday mornings are the slowest - leave by 8am if you want to avoid the worst of it."
   - question: "What is the Mornington Peninsula best known for?"
     answer: "Wine and food (one of Victoria's strongest cool-climate regions), hot springs (Peninsula Hot Springs and Alba Thermal Springs), coastal scenery, and boutique accommodation. The Red Hill and Main Ridge hinterland is the culinary and wine heart; Sorrento and Portsea are the coastal destinations."
   - question: "What is the best season to visit the Mornington Peninsula for the first time?"
-    answer: "Autumn (March–May) is the best for a first visit — warm enough for outdoor activities, vineyard colour in the landscape, and significantly lower crowds after mid-March. Winter is excellent for value and quiet restaurants. Summer (December–February) is the busiest and the hardest to navigate for first-timers."
+    answer: "Autumn (March–May) is the best for a first visit - warm enough for outdoor activities, vineyard colour in the landscape, and significantly lower crowds after mid-March. Winter is excellent for value and quiet restaurants. Summer (December–February) is the busiest and the hardest to navigate for first-timers."
 aiSummary:
-  - "A candid orientation guide for first-time Peninsula visitors — designed to replace the ten Google tabs with one honest starting point."
+  - "A candid orientation guide for first-time Peninsula visitors - designed to replace the ten Google tabs with one honest starting point."
   - "Covers: how to choose which part of the Peninsula to visit (the most consequential decision for first-timers); what to book first; what to leave until a second trip."
   - "The editorial argument: most first-time Peninsula trips fail because visitors don't understand the Peninsula's geography before choosing where to stay. This piece addresses the geography first."
   - "Suits: genuine first-timers; anyone who has heard about the Peninsula from friends and doesn't know where to start; visitors from interstate or overseas."

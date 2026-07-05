@@ -1,5 +1,5 @@
 ---
-headline: "Weather — covered Peninsula, light rain, and the week's first proper winter push."
+headline: "Weather - covered Peninsula, light rain, and the week's first proper winter push."
 dek: "Monday opens with drizzle and low cloud. The short-range says indoor plans. The long-range says the solstice weekend is five days out and the festival forecast matters."
 section: weather
 tag: weather
@@ -17,8 +17,8 @@ status: published
 ---
 Monday is covered and light across the Peninsula. Sixty-five percent chance of rain, two millimetres on the model, low cloud holding through the morning. This is not a difficult read: the inside venues are the frame for the start of the week.
 
-The pattern shifts midweek. Tuesday and Wednesday clear to partly cloudy — the best window for any outdoor errands or coastal walks. Thursday brings a heavier band through with four millimetres and stronger northerly winds. That is the system to watch for the weekend ahead.
+The pattern shifts midweek. Tuesday and Wednesday clear to partly cloudy - the best window for any outdoor errands or coastal walks. Thursday brings a heavier band through with four millimetres and stronger northerly winds. That is the system to watch for the weekend ahead.
 
-The solstice forecast is what matters now. Saturday 20 June — Sorrento Solstice Festival day — is currently showing twenty percent chance of rain and zero millimetres. Sunday 21 is thirty-five percent and half a millimetre. Both are favourable for an outdoor winter event. The forecast will firm by Wednesday evening.
+The solstice forecast is what matters now. Saturday 20 June - Sorrento Solstice Festival day - is currently showing twenty percent chance of rain and zero millimetres. Sunday 21 is thirty-five percent and half a millimetre. Both are favourable for an outdoor winter event. The forecast will firm by Wednesday evening.
 
 For today: cellar doors, hot springs, or the long lunch you have been deferring. The Peninsula is at its quietest and its most available.

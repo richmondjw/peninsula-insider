@@ -1,12 +1,12 @@
 ---
 /**
- * GuideHero — split-layout editorial hero for hub pages.
+ * GuideHero - split-layout editorial hero for hub pages.
  *
  * Two columns on desktop: text on cream left (eyebrow, title, dek,
  * meta) and image right (defined image block, light desaturation, no
  * scrim). On mobile the columns stack: text first, image below.
  *
- * Replaces the previous full-bleed cinematic overlay variant — that
+ * Replaces the previous full-bleed cinematic overlay variant - that
  * worked for some images and broke on others. The split layout is the
  * bulletproof magazine-grade pattern (NYT Magazine, The Atlantic,
  * Monocle): text always perfectly legible, image always intact.
@@ -19,8 +19,7 @@ import { editableText, editableImage, type CmsEntityType } from '../lib/inline-e
 import { loadOverrides } from '../lib/inline-edit/overrides';
 
 export interface Props {
-  /** Small caps eyebrow, e.g. "EAT & DRINK". Keep it to the section name —
-      inventory counts and "last verified" stamps were removed site-wide
+  /** Small caps eyebrow, e.g. "EAT & DRINK". Keep it to the section name - inventory counts and "last verified" stamps were removed site-wide
       2026-06-10 (reader-facing noise; verification belongs in /methodology). */
   eyebrow?: string;
   /** Main headline. Italic <em> tags inside render in accent. */
@@ -58,7 +57,7 @@ const {
 
 const editable = !!entitySlug;
 
-// Build-time override consult — apply published title / dek / hero overrides
+// Build-time override consult - apply published title / dek / hero overrides
 // to the SSR'd markup so the static HTML ships pre-patched. Matches the
 // SubpageHero / SectionHero pattern.
 const overrides = editable ? await loadOverrides(entityType, entitySlug!) : null;

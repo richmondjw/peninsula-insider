@@ -27,7 +27,7 @@ const breadcrumbItems = [
   { label: data.commonName },
 ];
 
-// Charters that target this species — looked up by the species's
+// Charters that target this species - looked up by the species's
 // charterSlugs frontmatter array. The Section 9 "operators that target
 // this species" rail in the pack anatomy.
 const allCharters = await getCollection('fishingCharters', ({ data: d }) => d.status === 'published');

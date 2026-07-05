@@ -28,7 +28,7 @@ accessibleSpecies:
 nearestHireSlug: mornington-boat-hire
 safetyNotes: At low water, depth at the ramp drops to roughly 0.3 metres, insufficient for any practical recreational vessel. The usable launch window is approximately two hours either side of high water at the Portsea reference station.
 intro: Three-lane concrete ramp on the mid-Peninsula bay shore at Safety Beach. Tide-dependent (high-tide access only), free to launch, ample trailer parking, and one of the better-provisioned family-side ramps with picnic facilities adjacent. Not suitable for low-tide arrivals.
-metaDescription: Safety Beach Boat Ramp — three concrete lanes, free, tide-dependent (high-tide access only), ample trailer parking. Mid-Peninsula access to Port Phillip Bay.
+metaDescription: Safety Beach Boat Ramp - three concrete lanes, free, tide-dependent (high-tide access only), ample trailer parking. Mid-Peninsula access to Port Phillip Bay.
 faq:
   - question: Can I launch at Safety Beach Boat Ramp at any tide?
     answer: 'No. Safety Beach is tide-dependent. At low water, depth at the ramp is approximately one foot (0.3 metres), insufficient for launching any practical recreational vessel. The usable launch window is roughly two hours either side of high water. Check the tidal state at the Portsea reference station via Willyweather before departure.'

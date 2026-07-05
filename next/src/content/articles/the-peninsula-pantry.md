@@ -36,21 +36,21 @@ featured: false
 status: "published"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Market Saturday — Two Weekends Built Around the Markets"
+  - label: "The Market Saturday - Two Weekends Built Around the Markets"
     href: "/journal/the-market-saturday/"
-  - label: "Breakfast Before the Crowds — Where Locals Eat at 8am"
+  - label: "Breakfast Before the Crowds - Where Locals Eat at 8am"
     href: "/journal/breakfast-before-the-crowds/"
   - label: "How to Build a Red Hill Saturday"
     href: "/journal/how-to-build-a-red-hill-saturday/"
 faq:
   - question: "What is the best shopping route for Peninsula produce on a Saturday?"
-    answer: "In order: Mornington Farmers Market (second Saturday) for protein, eggs, cheese, and oil. Then Flinders Sourdough for bread. One cellar door — Quealy or Ocean Eight. Then Epicurean Red Hill or Merricks General Wine Store for pantry fill-in. Optional: Red Hill Brewery or Bass & Flinders for beer or gin. The full circuit runs about three hours and sets you up for a serious Saturday night dinner in the rental."
+    answer: "In order: Mornington Farmers Market (second Saturday) for protein, eggs, cheese, and oil. Then Flinders Sourdough for bread. One cellar door - Quealy or Ocean Eight. Then Epicurean Red Hill or Merricks General Wine Store for pantry fill-in. Optional: Red Hill Brewery or Bass & Flinders for beer or gin. The full circuit runs about three hours and sets you up for a serious Saturday night dinner in the rental."
   - question: "Where can I buy fresh seafood on the Mornington Peninsula?"
-    answer: "Pier Street Seafood in Flinders for fresh local catch. At the Mornington Farmers Market (second Saturday), oyster and seafood stalls carry excellent product — arrive by 9am before the best fish sells through, as chefs shop here too."
+    answer: "Pier Street Seafood in Flinders for fresh local catch. At the Mornington Farmers Market (second Saturday), oyster and seafood stalls carry excellent product - arrive by 9am before the best fish sells through, as chefs shop here too."
   - question: "Is it worth cooking in a Peninsula rental instead of eating out?"
-    answer: "Yes — once per trip at minimum. The region's producers are the same larder the hatted restaurants draw from, and you can access them directly for roughly a third of the restaurant cost. One weekend shopping the markets, cooking a whole chicken, and opening a bottle of pinot you bought from the winemaker is the version of the Peninsula experience the restaurants are filtering for you."
+    answer: "Yes - once per trip at minimum. The region's producers are the same larder the hatted restaurants draw from, and you can access them directly for roughly a third of the restaurant cost. One weekend shopping the markets, cooking a whole chicken, and opening a bottle of pinot you bought from the winemaker is the version of the Peninsula experience the restaurants are filtering for you."
 aiSummary:
-  - "A guide to the Mornington Peninsula's best food producers, farm gates, and specialty food shops — structured as a way to understand the Peninsula's agricultural identity."
+  - "A guide to the Mornington Peninsula's best food producers, farm gates, and specialty food shops - structured as a way to understand the Peninsula's agricultural identity."
   - "Key stops: Red Hill Cheese, the Red Hill Bakery, Balnarring Organic Farm, Boneo Plains Alpacas, the Merricks General Wine Store produce section, and the Flinders Sourdough."
   - "The editorial argument: the Peninsula's food culture is more interesting than its restaurant list suggests. The farm gates and produce shops tell a different, more specific story."
   - "Suits: food-focused visitors; anyone interested in provenance and regional food identity; visitors who want to take something home from the Peninsula."

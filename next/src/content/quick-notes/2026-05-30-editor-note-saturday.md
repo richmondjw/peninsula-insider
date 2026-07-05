@@ -1,5 +1,5 @@
 ---
-headline: "Editor's note — the weekend belongs to the covered Peninsula, and that is the season showing its hand."
+headline: "Editor's note - the weekend belongs to the covered Peninsula, and that is the season showing its hand."
 dek: "Saturday at 90%, Sunday at 80%, Monday opening June at 100% with up to 15mm. This is winter arriving on schedule, and the Peninsula has a settled answer for it: cellar doors, winery restaurants, and the springs."
 section: note
 tag: editor-note
@@ -11,7 +11,7 @@ verdict: "A wet weekend is not a lost one here. It is simply a different kind of
 sources:
   - kind: gov
     url: "https://www.bom.gov.au/places/vic/main-ridge/forecast/"
-    note: "Editorial desk, Saturday 30 May 2026. Weather from BOM Main Ridge daily forecast retrieved 20:50 UTC 29 May 2026. Saturday 30: 90%, 1–5mm, 10–16°C, NW 20–30 turning W 25–35 late. Sunday 31: 80%, 0–4mm, 8–14°C, W to NW 25–40. Monday 1 June: 100%, 6–15mm, 7–14°C. Tuesday 2 June: 100%, 5–15mm. Wednesday 3 June: 95%, 2–10mm. Peninsula Hot Springs what's-on verified 20:55 UTC 29 May 2026 — Sunday Sessions Paul Dillon 31 May 12pm at the Bath House Café confirmed. Full weekday programme continues."
+    note: "Editorial desk, Saturday 30 May 2026. Weather from BOM Main Ridge daily forecast retrieved 20:50 UTC 29 May 2026. Saturday 30: 90%, 1–5mm, 10–16°C, NW 20–30 turning W 25–35 late. Sunday 31: 80%, 0–4mm, 8–14°C, W to NW 25–40. Monday 1 June: 100%, 6–15mm, 7–14°C. Tuesday 2 June: 100%, 5–15mm. Wednesday 3 June: 95%, 2–10mm. Peninsula Hot Springs what's-on verified 20:55 UTC 29 May 2026 - Sunday Sessions Paul Dillon 31 May 12pm at the Bath House Café confirmed. Full weekday programme continues."
     checkedAt: 2026-05-30T06:46:00+10:00
 status: archived
 ---

@@ -32,7 +32,7 @@ clusterLinks:
     href: "/journal/where-to-stay-mornington-peninsula/"
   - label: "The One-Night Peninsula Escape"
     href: "/journal/the-one-night-escape/"
-  - label: "The Peninsula Pantry — Shopping the Region's Larder"
+  - label: "The Peninsula Pantry - Shopping the Region's Larder"
     href: "/journal/the-peninsula-pantry/"
 faq:
   - question: "What is a vineyard villa stay on the Mornington Peninsula?"

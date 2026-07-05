@@ -1,6 +1,6 @@
 ---
 /**
- * PiForkPlanButton — "Save this plan as mine" for editorial itineraries.
+ * PiForkPlanButton - "Save this plan as mine" for editorial itineraries.
  *
  * Wave 5 of the Save & Share rebuild. Editorial itineraries (Sorrento
  * Off-Season Weekend, Ridge-to-Sea, etc.) are the closest thing
@@ -17,7 +17,7 @@
 import type { SavedItem } from '../lib/saves/store';
 
 export interface Props {
-  /** Each fork target — typically the itinerary itself first, then every stop. */
+  /** Each fork target - typically the itinerary itself first, then every stop. */
   items: Array<Omit<SavedItem, 'savedAt'>>;
   /** Optional override for the button label. */
   label?: string;
@@ -55,7 +55,7 @@ const encoded = JSON.stringify(items);
   }
 
   /* When nested inside a CTA row (e.g. on the plan-detail page), the
-     parent row owns the spacing — drop the standalone top margin. */
+     parent row owns the spacing - drop the standalone top margin. */
   .itinerary-detail__cta-row .pi-fork-plan { margin: 0; }
 
   .pi-fork-plan__btn {

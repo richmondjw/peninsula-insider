@@ -8,7 +8,7 @@
  * CTA, and ingests into pi:itinerary:v1 when the user clicks.
  *
  * Until the backend speaks this format, the contract is documented but
- * unused — the recogniser quietly does nothing on responses that lack
+ * unused - the recogniser quietly does nothing on responses that lack
  * an `itinerary` field.
  *
  * BACKEND CONTRACT
@@ -134,7 +134,7 @@ export function encodeConciergeItinerary(it: ConciergeItinerary): string {
 
 /**
  * Decode a base64url payload back into a ConciergeItinerary. Returns
- * null on any parse failure — the front end falls back to a plain
+ * null on any parse failure - the front end falls back to a plain
  * empty itinerary in that case.
  */
 export function decodeConciergeItinerary(encoded: string): ConciergeItinerary | null {

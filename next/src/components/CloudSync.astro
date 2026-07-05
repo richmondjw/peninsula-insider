@@ -1,12 +1,12 @@
 ---
 /**
- * CloudSync — Phase 3 WS3E.
+ * CloudSync - Phase 3 WS3E.
  *
  * Mounted once by BaseLayout AFTER SaveSiteController. Bridges the
  * localStorage stores (`pi:saved:v1`, `pi:itinerary:v1`) and the user's
  * Supabase rows (`pi.user_saves`, `pi.user_itineraries`).
  *
- * Sync model — local is the optimistic cache, cloud is the source of
+ * Sync model - local is the optimistic cache, cloud is the source of
  * truth when authenticated:
  *
  *   1. On auth state change (sign-in or page load with existing session):
@@ -19,7 +19,7 @@
  *      sign-in.
  *
  * If Supabase auth isn't configured (e.g. no PUBLIC_SUPABASE_ANON_KEY),
- * this component does nothing — `pi:saved:v1` and `pi:itinerary:v1`
+ * this component does nothing - `pi:saved:v1` and `pi:itinerary:v1`
  * keep working locally without any change.
  */
 ---
@@ -117,7 +117,7 @@
         }
 
         const cloudAlerts = await listUserAlerts(userId);
-        // Replace local alerts with cloud — for alerts the cloud is the
+        // Replace local alerts with cloud - for alerts the cloud is the
         // canonical record (anonymous alerts pre-sign-in carry up via
         // the next push if local has more than cloud).
         const existingLocalAlerts = readAlerts();
@@ -136,7 +136,7 @@
           });
           window.dispatchEvent(new CustomEvent('pi:alerts-changed', { detail: { source: 'cloud-pull' } }));
         } else if (existingLocalAlerts.items.length > 0) {
-          // First sign-in with local alerts but empty cloud — push them up.
+          // First sign-in with local alerts but empty cloud - push them up.
           schedulealertsSync();
         }
 
