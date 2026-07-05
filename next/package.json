@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "description": "Astro rebuild of Peninsula Insider — atomic content layer, JSON-first authoring, editorial-grade design system. Phase 1 scaffold per roadmap-2026-04-09.md.",
+  "description": "Astro rebuild of Peninsula Insider \u2014 atomic content layer, JSON-first authoring, editorial-grade design system. Phase 1 scaffold per roadmap-2026-04-09.md.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "node scripts/clear-content-cache.mjs && npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && astro build",
-    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:region-images && npm run lint:surfaces && astro build && npx pagefind --site dist",
+    "build:search": "npm run media:registry && npm run lint:no-pricing && npm run lint:house-style && npm run lint:region-images && npm run lint:surfaces && astro build && npx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
@@ -27,7 +27,8 @@
     "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",
     "pdfs:rebuild": "npm run build && node scripts/render-pdfs.mjs",
-    "prebuild": "node scripts/clear-content-cache.mjs"
+    "prebuild": "node scripts/clear-content-cache.mjs",
+    "lint:house-style": "node scripts/lint-house-style.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
