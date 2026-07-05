@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T06:37:38.256Z",
+  "generatedAt": "2026-07-05T09:51:38.814Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -3345,7 +3345,14 @@
       "extension": "svg",
       "bytes": 1868,
       "updatedAt": "2026-06-29T20:12:29.728Z",
-      "usages": []
+      "usages": [
+        {
+          "file": "src/components/edition/EditionAsk.astro",
+          "purpose": "inline",
+          "entityType": null,
+          "entitySlug": null
+        }
+      ]
     },
     {
       "src": "/images/sourced/place-balnarring-01.webp",

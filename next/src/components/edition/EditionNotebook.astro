@@ -1,0 +1,40 @@
+---
+/**
+ * EditionNotebook - "From the notebook", the verdict stream.
+ *
+ * The latest quick-notes rendered as dated notebook entries: headline,
+ * then the verdict line in the Local's voice as the thing you actually
+ * read. Dated with real <time> elements because freshness is the claim.
+ * Falls back to nothing (section omits itself) if no notes exist.
+ */
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('quickNotes', ({ data }) => data.status === 'published'))
+  .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime())
+  .slice(0, 3);
+
+const fmt = (d: string | Date) =>
+  new Date(d).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', timeZone: 'Australia/Melbourne' });
+const iso = (d: string | Date) => new Date(d).toISOString().split('T')[0];
+---
+
+{notes.length > 0 && (
+  <section class="ed-notebook" aria-label="From the notebook">
+    <div class="container">
+      <div class="ed-notebook__head">
+        <h2 class="ed-notebook__title">From the <em>notebook.</em></h2>
+        <a class="ed-notebook__all" href="/quick-note/">All notes →</a>
+      </div>
+      <div class="ed-notebook__grid">
+        {notes.map((n) => (
+          <a class="ed-notebook__card" href={`/quick-note/${n.id}/`}>
+            <time class="ed-notebook__date" datetime={iso(n.data.publishedAt)}>{fmt(n.data.publishedAt)}</time>
+            <h3 class="ed-notebook__headline">{n.data.headline}</h3>
+            {n.data.verdict && <p class="ed-notebook__verdict">“{n.data.verdict}”</p>}
+            <span class="ed-notebook__cta" aria-hidden="true">Read the note →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
