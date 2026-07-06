@@ -164,9 +164,15 @@ The loop is live but early. Status of the ordered increments:
    [`ops/gsc-auth/README.md`](../gsc-auth/README.md).*
 2. **Real competitive scan.** Replace the signal engine's hardcoded gaps with a
    live Firecrawl/search-backed scan feeding `.claude/signals/competitive-*.json`.
-3. **Close the write side.** Have the orchestrator *act* on the top queue items
-   automatically (CTR rewrites are safe to automate first), not just log them.
-   Actions should call `record_action(...)` so they enter the learning loop.
+3. ✅ **Close the write side (human out of the loop).** `engine/auto_act.py`
+   autonomously executes the safest top items — CTR `title`/`dek` rewrites on
+   journal articles — with hard guardrails: capped (`PI_AUTO_ACT_LIMIT`, default
+   1/run), idempotent (never re-acts a target in the ledger), grounded (drafted
+   by Claude from the real page; skips rather than fabricates if unreachable),
+   gated (length + house-style + frontmatter-valid), and measured (records to
+   the learning loop, git-reversible). Venue/event pages derive meta from
+   templates and are left flagged, not blindly edited. Wired into `run_daily`
+   as step 0b; set `PI_AUTO_ACT=0` to disable.
 4. ✅ **Outcome attribution + self-tuning.** Actioned opportunities are logged to
    `actioned.jsonl` and re-measured against GSC each run (hit-rate by fix type).
    The model **automatically adapts its per-kind weights** toward what works

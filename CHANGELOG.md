@@ -1,3 +1,34 @@
+## 2026-07-06 — Human out of the loop: autonomous CTR execution
+
+### What changed
+The strategy brain now *acts*, not just recommends. `engine/auto_act.py` executes
+the safest, highest-ROI class of its own top queue items — CTR `title`/`dek`
+rewrites on journal articles — with no human in the loop.
+
+### Guardrails (why unattended is safe)
+- **Capped** — ≤ `PI_AUTO_ACT_LIMIT` edits/run (default 1); can't rewrite the site in one pass.
+- **Idempotent** — never re-acts a target already in `actioned.jsonl`.
+- **Grounded** — new copy drafted by Claude from the page's real title/dek; if the
+  model is unreachable it **skips, never fabricates**.
+- **Gated** — length limits + em-dash/house-style sanitizer + prohibited-word check
+  + frontmatter-still-parses check before commit.
+- **Scoped** — only `/journal/{slug}/` articles (title/dek are simple frontmatter).
+  Venue/event pages derive meta from templates and are logged, not blindly edited.
+- **Measured + reversible** — every action recorded to the learning loop and
+  re-measured next cycle; one-line git revert if it backfires.
+
+### Wiring
+- `engine/orchestrator.py`: new `run_daily` step 0b runs the executor on the fresh
+  strategy queue, sanitises + commits edits. Disable with `PI_AUTO_ACT=0`.
+- `engine/test_strategy_engine.py`: 3 tests guard the deterministic parts
+  (source resolution, frontmatter round-trip, validation) — 35 tests total.
+
+### Why it matters
+Completes the closed loop end to end — research → strategy → **action** →
+measured outcome → learning — with the human removed from the routine path.
+CTR fixes are the safe first class; broader auto-action expands as the learning
+loop proves what works.
+
 ## 2026-07-06 — Events research point ("what's on" awareness)
 
 ### What changed

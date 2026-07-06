@@ -355,6 +355,42 @@ class DeskRouting(unittest.TestCase):
         self.assertEqual(se.route_desk("/whats-on/mornington-cup-2026/"), "dispatch-desk")
 
 
+class AutoExecutor(unittest.TestCase):
+    """Guards the deterministic parts of the autonomous executor — a bug here
+    would let it edit the wrong file or write malformed frontmatter live."""
+
+    SAMPLE = ('---\ntitle: "Old Title"\ndek: "Old description here."\n'
+              'author: "editorial"\nformat: "service"\n---\n\nBody stays.\n')
+
+    def _aa(self):
+        import auto_act as aa
+        return aa
+
+    def test_resolves_only_journal_articles(self):
+        aa = self._aa()
+        self.assertIsNone(aa.resolve_article_source("/stay/hotel-sorrento/"))
+        self.assertIsNone(aa.resolve_article_source("/whats-on/x/"))
+        self.assertIsNone(aa.resolve_article_source("/journal/definitely-not-a-real-slug-xyz/"))
+
+    def test_frontmatter_roundtrip_preserves_body_and_other_keys(self):
+        aa = self._aa()
+        self.assertEqual(aa.get_fm_field(self.SAMPLE, "title"), "Old Title")
+        out = aa.set_fm_field(self.SAMPLE, "title", "New Title")
+        out = aa.set_fm_field(out, "dek", "A fresh, longer meta description.")
+        self.assertEqual(aa.get_fm_field(out, "title"), "New Title")
+        self.assertEqual(aa.get_fm_field(out, "dek"), "A fresh, longer meta description.")
+        self.assertIn('author: "editorial"', out)   # untouched
+        self.assertIn("Body stays.", out)            # body untouched
+
+    def test_validate_accepts_good_and_rejects_bad(self):
+        aa = self._aa()
+        good_dek = "A concrete, useful meta description about dog-friendly beaches on the Peninsula today."
+        self.assertIsNone(aa.validate("A Good Specific Title", good_dek))
+        self.assertIsNotNone(aa.validate("x" * 80, good_dek))            # title too long
+        self.assertIsNotNone(aa.validate("Title", "too short"))          # dek too short
+        self.assertIsNotNone(aa.validate("A stunning title here", good_dek))  # prohibited word
+
+
 class HouseStyleSanitizer(unittest.TestCase):
     """Guards the em-dash sanitizer in the orchestrator's style gate — an
     em-dash regression here silently breaks every content deploy."""
