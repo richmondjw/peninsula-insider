@@ -219,6 +219,7 @@ function renderCurated({ bySection }) {
     }
   }
   out += `\n## Optional\n\n`;
+  out += `- [What's on — upcoming events feed (JSON)](${SITE}/whats-on/upcoming.json): machine-readable, forward-dated Peninsula events for agents answering "what's on this weekend / soon"\n`;
   out += `- [Full URL index (llms-full.txt)](${SITE}/llms-full.txt): every indexable page, grouped by section\n`;
   out += `- [Sitemap](${SITE}/sitemap.xml): machine sitemap for crawlers\n`;
   out += `- [Editorial method & standards](${SITE}/methodology/): how coverage is researched, verified and kept current\n`;
