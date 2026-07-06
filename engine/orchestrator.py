@@ -246,6 +246,24 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     else:
         log.step("strategy-refresh", "WARN", "No strategy queue produced — using default cadence")
 
+    # 0b. Autonomous execution — act on the safest top strategy items (CTR
+    #     title/meta rewrites on journal articles) with no human in the loop.
+    #     Guardrailed, capped, idempotent, measured. See engine/auto_act.py.
+    log.step("auto-act", "START")
+    acted = run_auto_act(today)
+    if acted:
+        files = [a["file"] for a in acted]
+        for f in files:  # belt-and-braces: enforce house style on every edited file
+            sanitize_house_style(REPO_ROOT / f)
+        commit_msg = f"feat(seo): autonomous CTR fix {today} [agent-authored] [skip-review]"
+        if git_commit_and_push(commit_msg, files + ["ops/strategy/actioned.jsonl"]):
+            log.step("auto-act", "DONE", f"executed {len(files)} CTR fix(es): {', '.join(Path(f).name for f in files)}")
+            log.pieces_shipped += len(files)
+        else:
+            log.step("auto-act", "WARN", "changes staged but push failed")
+    else:
+        log.step("auto-act", "SKIP", "nothing safely actionable (or PI_AUTO_ACT=0)")
+
     # 1. Research
     log.step("research", "START")
     research_output = RESEARCH_DIR / f"daily-{today}.json"
@@ -677,6 +695,36 @@ def run_gsc_refresh() -> bool:
         except Exception as e:
             print(f"  GSC refresh ({script}) error: {e}")
     return ok
+
+
+def run_auto_act(today: str) -> list[dict]:
+    """Autonomously execute the safest top strategy items (CTR title/meta
+    rewrites on journal articles). Guardrailed inside auto_act.py: capped,
+    idempotent, grounded, gated, measured. Never raises — a failure here must
+    not stall the publish loop. Set PI_AUTO_ACT=0 to disable."""
+    if os.environ.get("PI_AUTO_ACT", "1") != "1":
+        return []
+    auto = Path(__file__).parent / "auto_act.py"
+    if not auto.exists():
+        return []
+    limit = os.environ.get("PI_AUTO_ACT_LIMIT", "1")
+    try:
+        subprocess.run(
+            [sys.executable, str(auto), "--limit", str(limit)],
+            cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=240
+        )
+    except Exception as e:
+        print(f"  auto-act error: {e}")
+        return []
+    # auto_act records to the ledger; report what changed via git.
+    try:
+        diff = subprocess.run(
+            ["git", "-C", str(REPO_ROOT), "diff", "--name-only", "--", "next/src/content/articles"],
+            capture_output=True, text=True
+        )
+        return [{"file": f} for f in diff.stdout.split() if f]
+    except Exception:
+        return []
 
 
 def run_strategy_engine(today: str) -> list[dict]:
