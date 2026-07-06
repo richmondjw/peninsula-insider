@@ -29,9 +29,14 @@ SLATES_DIR = REPO_ROOT / ".claude/newsroom/slates"
 LOOP_STATE_FILE = REPO_ROOT / ".claude/newsroom/loop-state/current.json"
 AGENTS_DIR = Path(__file__).parent.parent / "agents"
 
-# Ensure dirs exist
+# Ensure dirs exist. Guarded so importing this module (e.g. from the self-test
+# gate) never fails when REPO_ROOT points somewhere unwritable — the run itself
+# sets PI_REPO_ROOT to a writable workspace.
 for d in [SIGNALS_DIR, RESEARCH_DIR, RUNS_DIR, SLATES_DIR, LOOP_STATE_FILE.parent]:
-    d.mkdir(parents=True, exist_ok=True)
+    try:
+        d.mkdir(parents=True, exist_ok=True)
+    except OSError:
+        pass
 
 
 # ── Loop State ───────────────────────────────────────────────────────────
