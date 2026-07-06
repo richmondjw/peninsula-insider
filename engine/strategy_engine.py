@@ -65,6 +65,7 @@ STRATEGY_DIR = REPO_ROOT / "ops/strategy"
 SNAPSHOT_DIR = STRATEGY_DIR / "snapshots"
 STRATEGY_JSON = STRATEGY_DIR / "content-strategy.json"
 STRATEGY_MD = STRATEGY_DIR / "content-strategy.md"
+ACTIONED_LEDGER = STRATEGY_DIR / "actioned.jsonl"
 
 SITE = "https://peninsulainsider.com.au"
 
@@ -546,6 +547,101 @@ def _expected_ctr(position: float) -> float:
     return max(0.005, 0.02 - (p - 10) * 0.0005)
 
 
+# ── Attribution ledger (the "continually enhance / learns" mechanism) ────────
+# When an opportunity is acted on, we record it here with the page's metrics at
+# the time of action. On later runs we look up the page's current metrics and
+# measure whether the fix actually moved anything — turning the strategy from a
+# scorer into a learner. Append-only JSONL so history is never lost.
+
+def _metric_maps(gsc: dict):
+    """Build path->metrics and query->metrics lookups from GSC data."""
+    by_path, by_query = {}, {}
+    for p in gsc.get("top_pages", []):
+        by_path[p["path"]] = {"impressions": p["impressions"], "clicks": p["clicks"],
+                              "ctr": p["ctr"], "avg_position": p["avg_position"]}
+    for c in gsc.get("ctr_opportunities", []):
+        by_path.setdefault(c["path"], {"impressions": c["impressions"], "ctr": c["ctr"],
+                                       "avg_position": c["avg_position"]})
+    for q in gsc.get("top_queries", []):
+        by_query[q["query"].lower()] = {"impressions": q["impressions"], "clicks": q["clicks"],
+                                        "avg_position": q["avg_position"]}
+    for q in gsc.get("striking_distance", []):
+        by_query.setdefault(q["query"].lower(), {"impressions": q["impressions"],
+                                                 "avg_position": q["avg_position"]})
+    return by_path, by_query
+
+
+def record_action(target: str, kind: str, query: str, note: str,
+                  gsc: dict, today: date) -> dict:
+    """Append an actioned opportunity to the ledger with its current baseline."""
+    by_path, by_query = _metric_maps(gsc)
+    baseline = (by_query.get(query.lower()) if query else None) or by_path.get(
+        _norm_path(target), {})
+    entry = {
+        "recorded": _now_iso(), "date": today.isoformat(),
+        "kind": kind, "target": target, "query": query, "note": note,
+        "baseline": {k: baseline.get(k) for k in ("impressions", "ctr", "avg_position")},
+    }
+    STRATEGY_DIR.mkdir(parents=True, exist_ok=True)
+    with ACTIONED_LEDGER.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry) + "\n")
+    return entry
+
+
+def load_actioned() -> list[dict]:
+    if not ACTIONED_LEDGER.exists():
+        return []
+    out = []
+    for line in ACTIONED_LEDGER.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            out.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    return out
+
+
+def evaluate_actioned(actioned: list[dict], gsc: dict) -> dict:
+    """Measure movement on actioned pages/queries since they were recorded.
+    Position is better when lower; CTR/impressions better when higher."""
+    by_path, by_query = _metric_maps(gsc)
+    results, hits, measurable = [], {}, 0
+    for a in actioned:
+        cur = (by_query.get((a.get("query") or "").lower()) if a.get("query") else None) \
+            or by_path.get(_norm_path(a["target"]), {})
+        base = a.get("baseline", {})
+        row = {"target": a["target"], "kind": a.get("kind", ""), "query": a.get("query", ""),
+               "since": a.get("date"), "moved": None, "detail": "not yet re-measured"}
+        bpos, cpos = base.get("avg_position"), cur.get("avg_position")
+        bctr, cctr = base.get("ctr"), cur.get("ctr")
+        if cur and (cpos is not None or cctr is not None):
+            measurable += 1
+            parts, win = [], False
+            if bpos is not None and cpos is not None:
+                dp = round(cpos - bpos, 1)
+                parts.append(f"position {bpos}→{cpos} ({'▲' if dp < 0 else '▼' if dp > 0 else '–'}{abs(dp)})")
+                if dp < 0:
+                    win = True
+            if bctr is not None and cctr is not None:
+                dc = round(cctr - bctr, 2)
+                parts.append(f"CTR {bctr}%→{cctr}% ({'▲' if dc > 0 else '▼' if dc < 0 else '–'}{abs(dc)})")
+                if dc > 0:
+                    win = True
+            row["moved"] = win
+            row["detail"] = "; ".join(parts) or "metrics present, no comparable baseline"
+            k = a.get("kind", "?")
+            hits.setdefault(k, [0, 0])
+            hits[k][1] += 1
+            if win:
+                hits[k][0] += 1
+        results.append(row)
+    hit_rate = {k: {"wins": v[0], "measured": v[1]} for k, v in hits.items()}
+    return {"count": len(actioned), "measurable": measurable,
+            "results": results, "hit_rate_by_kind": hit_rate}
+
+
 # ── Snapshot + diff (the "improves each day" mechanism) ──────────────────────
 def load_prev_snapshot(snapshot_dir: Path, today: date) -> dict | None:
     if not snapshot_dir.exists():
@@ -627,6 +723,29 @@ def render_markdown(state: dict) -> str:
             md.append(f"- {note}")
     md.append("")
 
+    learn = state.get("learning", {})
+    md.append("## Did our fixes work? (learning loop)")
+    md.append("")
+    if not learn.get("count"):
+        md.append("_No actions recorded yet. As opportunities are actioned they're logged to "
+                  "`ops/strategy/actioned.jsonl` and their pages re-measured here each cycle._")
+    else:
+        hr = learn.get("hit_rate_by_kind", {})
+        if hr:
+            md.append("**Effectiveness by fix type** (pages that improved / measured):")
+            md.append("")
+            for kind, v in sorted(hr.items()):
+                md.append(f"- `{kind}` — {v['wins']}/{v['measured']} improved")
+            md.append("")
+        md.append(f"Tracking {learn['count']} actioned item(s), "
+                  f"{learn['measurable']} re-measured against GSC:")
+        md.append("")
+        for r in learn.get("results", [])[:12]:
+            flag = "✅" if r["moved"] else ("⏳" if r["moved"] is None else "➖")
+            label = r["query"] or r["target"]
+            md.append(f"- {flag} [{r['kind']}] {label} — {r['detail']} _(since {r['since']})_")
+    md.append("")
+
     md.append("## This cycle's commissioning queue (ranked)")
     md.append("")
     md.append("Ranked by the strategy model (performance + season + coverage + effort). "
@@ -690,6 +809,7 @@ def build_state(today: date) -> dict:
     }
 
     queue = [asdict(o) for o in opps]
+    learning = evaluate_actioned(load_actioned(), gsc)
     prev = load_prev_snapshot(SNAPSHOT_DIR, today)
     diff = compute_diff(prev, metrics, queue)
 
@@ -703,6 +823,7 @@ def build_state(today: date) -> dict:
         "metrics": metrics,
         "coverage": inv["sections"],
         "day_over_day": diff,
+        "learning": learning,
         "commissioning_queue": queue,
     }
     return state
@@ -731,10 +852,23 @@ def main():
     ap = argparse.ArgumentParser(description="Peninsula Insider Content Strategy Brain")
     ap.add_argument("--date", default=None, help="Override run date (YYYY-MM-DD)")
     ap.add_argument("--dry-run", action="store_true", help="Print summary, write nothing")
+    ap.add_argument("--record", metavar="TARGET",
+                    help="Record an actioned opportunity (page path or topic) to the "
+                         "attribution ledger, capturing its current metrics as baseline")
+    ap.add_argument("--kind", default="manual", help="Opportunity kind for --record")
+    ap.add_argument("--query", default="", help="Driving query for --record (for query-level tracking)")
+    ap.add_argument("--note", default="", help="Note for --record")
     args = ap.parse_args()
 
     today = date.fromisoformat(args.date) if args.date else (
         datetime.now(AEST).date() if AEST else date.today())
+
+    if args.record:
+        entry = record_action(args.record, args.kind, args.query, args.note,
+                              load_gsc(GSC_REPORT), today)
+        print(f"✓ Recorded action: [{entry['kind']}] {entry['target']} "
+              f"(baseline: {entry['baseline']})")
+        return
 
     state = build_state(today)
 

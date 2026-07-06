@@ -1,3 +1,29 @@
+## 2026-07-06 — Strategy learning loop + fresh-GSC wiring
+
+### What changed
+Made the strategy brain *learn*, not just score. It now measures whether acting
+on an opportunity actually moved the page, and pulls fresh performance data
+before each run.
+
+### Added
+- **Attribution / learning loop** in `engine/strategy_engine.py`. Actioned
+  opportunities are appended to `ops/strategy/actioned.jsonl` with the page's
+  metrics at action time (`--record` CLI). Each later run re-measures those
+  pages against current GSC data and reports movement (Δposition, ΔCTR) plus a
+  **hit-rate by fix type** in the "Did our fixes work?" section of the brief.
+  Seeded with this session's real indexation action (8 trust pages added to the
+  sitemap) so the loop is live.
+- **Fresh-GSC wiring** in `engine/orchestrator.py`: runs `gsc-search-analytics.py`
+  and `gsc-coverage-monitor.py` before the strategy step so performance data is
+  same-day. Guarded — no-ops cleanly without GSC credentials, using the last
+  committed report.
+
+### Why it matters
+Closes the last conceptual gap in "continually enhance a strategy that each day
+improves": the system can now tell which interventions work on *this* site and
+weight toward them, instead of assuming. Weight auto-tuning is deliberately held
+until enough outcome data accumulates (tuning on 14 clicks would be noise).
+
 ## 2026-07-06 — Content Strategy Brain + agent-discoverability layer
 
 ### What changed

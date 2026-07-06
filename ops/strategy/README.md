@@ -42,7 +42,27 @@ Each daily run the brain:
 3. **Diffs today vs yesterday** so "the strategy improves each day" is an
    observable fact — clicks, impressions, average position and the top-5
    priorities are compared against the last snapshot.
-4. **Writes** machine state the orchestrator consumes.
+4. **Measures whether past fixes worked** (the learning loop, see below).
+5. **Writes** machine state the orchestrator consumes.
+
+## The learning loop (does the strategy actually work?)
+
+Scoring what to do next is only half a strategy; the other half is knowing
+whether the last thing worked. When an opportunity is acted on it's appended to
+`actioned.jsonl` with the target page's metrics *at the time of action*:
+
+```bash
+python3 engine/strategy_engine.py --record /journal/dog-friendly-mornington-peninsula/ \
+  --kind ctr-fix --query "dog friendly guide mornington peninsula" \
+  --note "rewrote title + meta"
+```
+
+On every later run the brain looks up each actioned page's *current* metrics and
+measures movement (Δposition, ΔCTR), producing a **hit-rate by fix type** in the
+brief ("Did our fixes work?"). That is the signal that lets the model — and the
+operators — learn which interventions move the needle on this specific site,
+rather than assuming. As the hit-rate data accumulates, the `WEIGHTS` can be
+tuned toward the fix types that demonstrably work.
 
 ## Outputs
 
@@ -100,18 +120,21 @@ testable).
 
 ## Roadmap (toward number 1)
 
-The loop is live but early. Ordered next increments:
+The loop is live but early. Status of the ordered increments:
 
-1. **Fresh GSC on every run.** Today the brain reads the last committed GSC
-   report. Wire `ops/scripts/gsc-search-analytics.py` to refresh it immediately
-   before each strategy run so performance data is same-day.
+1. ✅ **Fresh GSC on every run.** `orchestrator.py` runs
+   `ops/scripts/gsc-search-analytics.py` + `gsc-coverage-monitor.py` before the
+   strategy step (guarded — no-ops without credentials). *Needs GSC credentials
+   in the run environment to actually pull.*
 2. **Real competitive scan.** Replace the signal engine's hardcoded gaps with a
    live Firecrawl/search-backed scan feeding `.claude/signals/competitive-*.json`.
 3. **Close the write side.** Have the orchestrator *act* on the top queue items
    automatically (CTR rewrites are safe to automate first), not just log them.
-4. **Outcome attribution.** Tag each commissioned piece with the opportunity it
-   came from, then in the next snapshot measure whether that page's position/CTR
-   actually moved — feeding a learning signal back into the weights.
+   Actions should call `record_action(...)` so they enter the learning loop.
+4. ✅ **Outcome attribution / learning loop.** Actioned opportunities are logged
+   to `actioned.jsonl` and re-measured against GSC each run, producing a hit-rate
+   by fix type. Weight-tuning from that signal is the remaining step (deliberately
+   held until enough data accumulates — tuning on 14 clicks would be noise).
 5. **Agent-answer coverage.** Track which Peninsula questions AI assistants
    answer *from* Peninsula Insider vs competitors, and treat gaps as a new
    research point alongside GSC.

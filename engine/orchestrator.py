@@ -232,6 +232,11 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     #    commissioning queue BEFORE anything is commissioned. This is the closed
     #    loop: yesterday's results shape today's work, and the strategy is
     #    diffed day-over-day so improvement is observable.
+    log.step("gsc-refresh", "START")
+    gsc_ok = run_gsc_refresh()
+    log.step("gsc-refresh", "DONE" if gsc_ok else "SKIP",
+             "fresh GSC pulled" if gsc_ok else "no GSC creds — using last committed report")
+
     log.step("strategy-refresh", "START")
     queue = run_strategy_engine(today)
     if queue:
@@ -627,6 +632,30 @@ def set_published(article_path: Path, today: str):
     if "lastVerified:" not in content:
         content = content.replace("status: \"published\"", f"status: \"published\"\nlastVerified: {today}")
     article_path.write_text(content)
+
+
+def run_gsc_refresh() -> bool:
+    """Pull fresh Google Search Console analytics + coverage before the strategy
+    run so performance data is same-day. No-ops gracefully when credentials or
+    google-api deps aren't present — the strategy engine then reads the last
+    committed report. Never stalls the loop."""
+    ok = False
+    for script in ("gsc-search-analytics.py", "gsc-coverage-monitor.py"):
+        path = REPO_ROOT / "ops/scripts" / script
+        if not path.exists():
+            continue
+        try:
+            result = subprocess.run(
+                [sys.executable, str(path)],
+                cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=180
+            )
+            if result.returncode == 0:
+                ok = True
+            else:
+                print(f"  GSC refresh ({script}) skipped: {result.stderr.strip()[:160]}")
+        except Exception as e:
+            print(f"  GSC refresh ({script}) error: {e}")
+    return ok
 
 
 def run_strategy_engine(today: str) -> list[dict]:
