@@ -156,19 +156,14 @@ heroImage src should be: {HERO_IMAGES.get(season, HERO_IMAGES['winter'])}
 
 Remember: no brochure language. Specific. Local. Opinionated. Start with the thing, not with "This week"."""
 
-    # Call Claude via subprocess (OpenClaw environment)
-    # In production: openclaw.run_prompt(prompt, system=PI_VOICE_SYSTEM_PROMPT)
-    # Here we try the claude CLI if available, otherwise produce a template
-    
-    try:
-        result = subprocess.run(
-            ["claude", "-p", prompt, "--system", PI_VOICE_SYSTEM_PROMPT],
-            capture_output=True, text=True, timeout=120
-        )
-        if result.returncode == 0 and result.stdout.strip():
-            return result.stdout.strip()
-    except (FileNotFoundError, subprocess.TimeoutExpired):
-        pass
+    # Generate via the shared LLM client (Anthropic SDK in CI, `claude` CLI
+    # locally). Returns None if neither backend is available -> template fallback.
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import llm
+    out = llm.complete(prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
+    if out:
+        return out
 
     # Fallback: structured template
     return generate_template_picks(date_str, season)
