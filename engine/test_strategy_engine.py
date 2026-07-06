@@ -355,6 +355,37 @@ class DeskRouting(unittest.TestCase):
         self.assertEqual(se.route_desk("/whats-on/mornington-cup-2026/"), "dispatch-desk")
 
 
+class HouseStyleSanitizer(unittest.TestCase):
+    """Guards the em-dash sanitizer in the orchestrator's style gate — an
+    em-dash regression here silently breaks every content deploy."""
+
+    def _sanitize(self, text: str) -> str:
+        import tempfile
+        import orchestrator as orch
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "a.md"
+            p.write_text(text)
+            orch.sanitize_house_style(p)
+            return p.read_text()
+
+    def test_replaces_spaced_em_dash(self):
+        self.assertEqual(self._sanitize("winter menu — and the tart"),
+                         "winter menu - and the tart")
+
+    def test_replaces_bare_and_tight_em_dash(self):
+        self.assertEqual(self._sanitize("A—B"), "A - B")
+
+    def test_leaves_hyphen_rule_and_en_dash(self):
+        # Markdown '---' rule and en-dashes (Thu–Sun) must survive untouched.
+        out = self._sanitize("---\nOpen Thu–Sun\n---")
+        self.assertIn("---", out)
+        self.assertIn("Thu–Sun", out)
+
+    def test_result_has_no_em_dashes(self):
+        out = self._sanitize("Title — sub — end. Days — see site.")
+        self.assertNotIn("—", out)
+
+
 if __name__ == "__main__":
     verbosity = 1 if "--quiet" in sys.argv else 2
     argv = [a for a in sys.argv if a != "--quiet"]

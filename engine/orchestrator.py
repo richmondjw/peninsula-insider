@@ -595,10 +595,31 @@ def get_season(month: int) -> str:
     return seasons.get(month, "summer")
 
 
+def sanitize_house_style(article_path: Path) -> int:
+    """Deterministically enforce the BRAND-PI em-dash hard rule that the build's
+    lint:house-style gate checks. Generated content routinely contains em-dashes,
+    which would fail the deploy — so we normalise them to ' - ' here, before the
+    file is ever committed, keeping the autonomous loop self-consistent with the
+    build. En-dashes and Markdown '---' rules are intentionally left untouched.
+    Returns the number of em-dashes replaced."""
+    if not article_path.exists():
+        return 0
+    import re as _re
+    content = article_path.read_text()
+    count = content.count("—")
+    if count:
+        content = _re.sub(r"\s*—\s*", " - ", content)
+        article_path.write_text(content)
+        print(f"    Sanitised {count} em-dash(es) in {article_path.name}")
+    return count
+
+
 def run_style_gate(article_path: Path) -> str:
     """Run style checks. Returns PASS or FAIL."""
     if not article_path.exists():
         return "FAIL"
+    # Normalise house-style violations the build enforces (em-dashes) before checks.
+    sanitize_house_style(article_path)
     content = article_path.read_text()
     prohibited = ["stunning", "vibrant", "nestled", "charming", "hidden gem",
                   "must-visit", "you won't be disappointed", "world-class"]
