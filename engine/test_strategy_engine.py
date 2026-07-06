@@ -422,6 +422,53 @@ class HouseStyleSanitizer(unittest.TestCase):
         self.assertNotIn("—", out)
 
 
+class VerifyGate(unittest.TestCase):
+    """Guards the real factual verify gate — it can BLOCK a live publish, so its
+    hard-fail logic must not silently regress."""
+
+    def _run(self, body: str, *, slugs=("real-venue",), paths=("/eat/real-venue",)):
+        import tempfile
+        import verify_gate as vg
+        with tempfile.TemporaryDirectory() as d:
+            content = Path(d) / "content"
+            (content / "venues").mkdir(parents=True)
+            for s in slugs:
+                (content / "venues" / f"{s}.json").write_text("{}")
+            sitemap = Path(d) / "sitemap.xml"
+            locs = "".join(f"<loc>https://peninsulainsider.com.au{p}/</loc>" for p in paths)
+            sitemap.write_text(f"<urlset>{locs}</urlset>")
+            f = Path(d) / "a.md"
+            f.write_text(body)
+            return vg.verify_content(f, content_dir=content, sitemap_path=sitemap)
+
+    def test_clean_passes(self):
+        body = ('---\ntitle: "x"\npublishedAt: 2026-07-06\nrelatedVenues: [real-venue]\n---\n'
+                "A calm note with no dates or risky claims.")
+        self.assertEqual(self._run(body)["result"], "PASS")
+
+    def test_missing_venue_fails(self):
+        body = ('---\npublishedAt: 2026-07-06\nrelatedVenues: [ghost-venue]\n---\nhi')
+        r = self._run(body)
+        self.assertEqual(r["result"], "FAIL")
+        self.assertTrue(any("ghost-venue" in f for f in r["fails"]))
+
+    def test_wrong_weekday_fails(self):
+        # 26 July 2026 is a Sunday, not a Saturday.
+        body = ('---\npublishedAt: 2026-07-06\n---\nJoin us Saturday 26 July.')
+        r = self._run(body)
+        self.assertEqual(r["result"], "FAIL")
+        self.assertTrue(any("26 Jul" in f for f in r["fails"]))
+
+    def test_correct_weekday_passes(self):
+        # 26 July 2026 is a Sunday.
+        body = ('---\npublishedAt: 2026-07-06\n---\nJoin us Sunday 26 July.')
+        self.assertNotEqual(self._run(body)["result"], "FAIL")
+
+    def test_unknown_section_link_fails(self):
+        body = ('---\npublishedAt: 2026-07-06\nclusterLinks:\n  - href: "/made-up/x/"\n---\nhi')
+        self.assertEqual(self._run(body)["result"], "FAIL")
+
+
 if __name__ == "__main__":
     verbosity = 1 if "--quiet" in sys.argv else 2
     argv = [a for a in sys.argv if a != "--quiet"]
