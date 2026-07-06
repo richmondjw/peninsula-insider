@@ -77,8 +77,30 @@ Every run produces:
 - `.claude/newsroom/runs/YYYY-MM-DD-[tempo].json` — machine log
 - `.claude/newsroom/runs/YYYY-MM-DD-[tempo].md` — human summary
 
-## Feedback loop
+## Feedback loop — the Strategy Brain
 
-Signal engine reads SEO and competitive data → feeds commissioning decisions → content targets gaps → performance data updates next cycle.
+`strategy_engine.py` is the closed loop. Each daily run it fuses five research
+points — GSC search performance, sitemap content inventory, competitive scan,
+seasonal intent calendar, and its own prior snapshot — into a single **scored,
+ranked commissioning queue** (`ops/strategy/content-strategy.json`), and diffs
+today vs yesterday so strategy improvement is observable, not assumed.
 
-Currently contextualised for new/early-stage site: competitive intelligence weighted over historical traffic.
+The orchestrator runs it as step 0 of the daily tempo (performance shapes
+commissioning *before* anything is written) and exposes
+`load_commissioning_queue(limit)` for desks. Full design, scoring model and
+roadmap: [`ops/strategy/README.md`](../ops/strategy/README.md).
+
+```bash
+python engine/strategy_engine.py            # regenerate strategy from current inputs
+python engine/strategy_engine.py --dry-run  # print the plan, write nothing
+```
+
+## Agent discoverability
+
+`ops/scripts/generate-llms-txt.mjs` generates root `llms.txt` / `llms-full.txt`
+(the llmstxt.org convention) from `sitemap.xml`, so AI agents get a curated,
+always-current map of the site. Run `node ops/scripts/generate-llms-txt.mjs`
+(or `--check` for a CI drift gate). Wired into the daily post-publish step.
+
+Currently contextualised for new/early-stage site: competitive intelligence and
+striking-distance/CTR wins weighted over historical traffic.

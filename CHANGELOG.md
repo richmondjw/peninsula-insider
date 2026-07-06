@@ -1,3 +1,135 @@
+## 2026-07-06 — Events research point ("what's on" awareness)
+
+### What changed
+The strategy brain was SEO/evergreen-focused and blind to the events calendar —
+yet "what's on" is the mission's first clause. Added a fifth research point:
+`load_events()` reads `next/src/content/events/`, keeps events inside a 90-day
+advance-coverage window, and surfaces `event-coverage` opportunities for the
+significant ones (ticketed / one-off draws; recurring community markets are
+evergreen and skipped). Scored by an urgency curve that peaks in the 14–45 day
+window — where a preview page has lead time to index and rank by event week —
+and boosted for ticketed events.
+
+Against live data (2026-07-06) it surfaced 4 major upcoming events (Soil &
+Cellar +19d, Stonier Fire & Wine +34d, Red Hill Brewery +40d in the prime
+window), ranked below proven-demand fixes but no longer ignored. +3 tests
+(25 total, all pass).
+
+## 2026-07-06 — Self-tuning model (strategy that improves itself daily)
+
+### What changed
+The strategy model now **adapts its own weights from measured outcomes** — the
+last piece of "continually enhance a strategy that each day improves", now
+automated rather than a manual TODO.
+
+Each run, after the learning loop measures which fix types actually moved pages,
+`adapt_weights()` nudges a per-kind multiplier toward the winners and away from
+the losers, persists it to `ops/strategy/model-weights.json`, and scores the next
+queue with it. So the model compounds a little each cycle (demonstrated:
+`ctr-fix` 1.040→1.068→1.088 over three winning cycles while a losing kind
+declines).
+
+Guarded so it can't chase noise: a kind is only adapted once it has
+≥`ADAPT_MIN_MEASURED` (4) measured outcomes; adjustments are EMA-smoothed (0.30)
+and clamped to ±30%. With today's single GSC snapshot every kind correctly sits
+at baseline — the mechanism is live and will move as outcome data accrues.
+
+Added a "Model self-tuning" section to the brief and 5 tests (22 total, all
+passing) covering the hold/reward/penalise/clamp/score paths.
+
+## 2026-07-06 — Strategy engine self-test gate
+
+### What changed
+Made the unattended strategy brain trustworthy. `engine/test_strategy_engine.py`
+(17 stdlib tests, ~0.01s) locks the behaviour the daily loop depends on: GSC/
+coverage table parsing (including the summary-row trap that once mis-parsed the
+CTR table), position-aware CTR classification, scoring monotonicity (more
+impressions / closer-to-page-1 / indexation hub > deep all score higher), the
+learning loop's win/loss/pending detection, day-over-day diffing, and graceful
+degradation on missing inputs. Wired as a **pre-flight gate** in
+`daily-content.yml` so a broken parser fails the run loudly instead of silently
+publishing bad strategy — directly addressing the operating-surface's "alert
+paths are mostly silent" gap for the strategy path.
+
+## 2026-07-06 — Strategy learning loop + fresh-GSC wiring
+
+### What changed
+Made the strategy brain *learn*, not just score. It now measures whether acting
+on an opportunity actually moved the page, and pulls fresh performance data
+before each run.
+
+### Added
+- **Attribution / learning loop** in `engine/strategy_engine.py`. Actioned
+  opportunities are appended to `ops/strategy/actioned.jsonl` with the page's
+  metrics at action time (`--record` CLI). Each later run re-measures those
+  pages against current GSC data and reports movement (Δposition, ΔCTR) plus a
+  **hit-rate by fix type** in the "Did our fixes work?" section of the brief.
+  Seeded with this session's real indexation action (8 trust pages added to the
+  sitemap) so the loop is live.
+- **Fresh-GSC wiring** in `engine/orchestrator.py`: runs `gsc-search-analytics.py`
+  and `gsc-coverage-monitor.py` before the strategy step so performance data is
+  same-day. Guarded — no-ops cleanly without GSC credentials, using the last
+  committed report.
+
+### Why it matters
+Closes the last conceptual gap in "continually enhance a strategy that each day
+improves": the system can now tell which interventions work on *this* site and
+weight toward them, instead of assuming. Weight auto-tuning is deliberately held
+until enough outcome data accumulates (tuning on 14 clicks would be noise).
+
+## 2026-07-06 — Content Strategy Brain + agent-discoverability layer
+
+### What changed
+Closed the missing feedback loop in the content engine and made the site legible
+to AI agents. The engine already *produced* on a fixed cadence but never *learned*
+— nothing read performance data back into what got commissioned next. It now does,
+and the strategy is diffed day-over-day so improvement is observable rather than
+assumed.
+
+### Components added
+- `engine/strategy_engine.py` — the Content Strategy Brain. Each run it fuses
+  multiple research points (GSC search performance, GSC coverage/indexation,
+  sitemap content inventory, competitive scan, seasonal intent calendar, and its
+  own prior snapshot) into a single scored, ranked commissioning queue, then
+  diffs today vs yesterday. Standard-library only, degrades gracefully on missing
+  inputs, deterministic. Opportunity kinds: indexation (highest leverage — an
+  unindexed page can't rank), ctr-fix, striking-distance, coverage-gap, freshness.
+- `ops/strategy/` — machine-owned evolving strategy state: `content-strategy.json`
+  (consumed by the orchestrator), `content-strategy.md` (human brief),
+  `snapshots/YYYY-MM-DD.json` (history + day-over-day basis), and a `README.md`
+  documenting the closed loop, scoring model, and roadmap.
+- `ops/scripts/generate-llms-txt.mjs` + root `llms.txt` / `llms-full.txt` —
+  agent-discoverability layer following the llmstxt.org convention, generated
+  deterministically from `sitemap.xml` so it can't drift. Curated map (405 URLs)
+  plus a full index; trust/editorial pages surfaced explicitly.
+
+### Wiring
+- `engine/orchestrator.py` now runs the strategy brain as step 0 of the daily
+  tempo (performance shapes commissioning before anything is written), refreshes
+  `llms.txt` post-publish, and commits the strategy + agent-index artifacts.
+  Exposes `load_commissioning_queue(limit)` for desks.
+- `robots.txt` points AI agents to `llms.txt` / `llms-full.txt`.
+
+### Why it matters
+This is the keystone for the north star — being the number-1 destination for
+people *and* agents. The first real run correctly ranked the highest-leverage
+fix from live data (`/whats-on/mornington-cup-2026`: 216 impressions at 0.46% CTR)
+above 22 other opportunities.
+
+### Follow-ups
+- Refresh the GSC report immediately before each strategy run (same-day perf)
+- Replace the signal engine's hardcoded competitive gaps with a live scan
+- Auto-act on safe top-queue items (CTR rewrites first), not just log them
+- Add outcome attribution: measure whether a commissioned fix actually moved the page
+
+### Acted on
+- **Indexation fix (loop closed → action):** the brain flagged that editorial/trust
+  pages (`/about/`, `/methodology/`, `/our-approach/`, `/editorial-approach/`,
+  `/ethics/`, `/corrections/`, `/accessibility/`, `/contact/`) were absent from
+  `sitemap.xml` — real routes, footer-linked, but uncrawlable via the sitemap.
+  Added them to `next/src/pages/sitemap.xml.ts` so Google can index the site's
+  E-E-A-T surface. First concrete action driven by a strategy-brain recommendation.
+
 ## 2026-07-05 — Site-wide overhaul: deployment hygiene, IA, brand compliance, UX (PRs #258-#261)
 
 ### What changed
