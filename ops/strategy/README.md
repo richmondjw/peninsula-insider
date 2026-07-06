@@ -118,6 +118,21 @@ runs), **degrades gracefully** (any missing input is skipped and noted, never
 fatal), and **deterministic** (same inputs + date → same strategy, so it is
 testable).
 
+### Trustworthiness (self-test gate)
+
+Because the loop runs unattended daily, `engine/test_strategy_engine.py` locks
+the behaviour it depends on — table parsing (incl. the summary-row trap),
+position-aware CTR classification, scoring monotonicity, learning-loop movement
+detection, day-over-day diffing, and graceful degradation:
+
+```bash
+python3 engine/test_strategy_engine.py          # 17 tests, ~0.01s, stdlib only
+```
+
+It runs as a **pre-flight gate** in `daily-content.yml` before the engine
+executes, so a broken parser fails the run loudly instead of silently publishing
+a bad strategy.
+
 ## Roadmap (toward number 1)
 
 The loop is live but early. Status of the ordered increments:

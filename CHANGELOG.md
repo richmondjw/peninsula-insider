@@ -1,3 +1,17 @@
+## 2026-07-06 — Strategy engine self-test gate
+
+### What changed
+Made the unattended strategy brain trustworthy. `engine/test_strategy_engine.py`
+(17 stdlib tests, ~0.01s) locks the behaviour the daily loop depends on: GSC/
+coverage table parsing (including the summary-row trap that once mis-parsed the
+CTR table), position-aware CTR classification, scoring monotonicity (more
+impressions / closer-to-page-1 / indexation hub > deep all score higher), the
+learning loop's win/loss/pending detection, day-over-day diffing, and graceful
+degradation on missing inputs. Wired as a **pre-flight gate** in
+`daily-content.yml` so a broken parser fails the run loudly instead of silently
+publishing bad strategy — directly addressing the operating-surface's "alert
+paths are mostly silent" gap for the strategy path.
+
 ## 2026-07-06 — Strategy learning loop + fresh-GSC wiring
 
 ### What changed

@@ -54,6 +54,12 @@ jobs:
           git config user.name "Peninsula Insider Engine"
           git config user.email "engine@peninsulainsider.com.au"
 
+      - name: Validate strategy engine (pre-flight gate)
+        # A broken parser or scoring path would silently publish bad strategy
+        # every day. Fail loudly here before the engine runs. Fast, no deps.
+        run: |
+          python engine/test_strategy_engine.py --quiet
+
       - name: Run daily content engine
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
