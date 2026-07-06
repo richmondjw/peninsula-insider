@@ -138,6 +138,20 @@ It runs as a **pre-flight gate** in `daily-content.yml` before the engine
 executes, so a broken parser fails the run loudly instead of silently publishing
 a bad strategy.
 
+### Self-monitoring (non-silent alert path)
+
+A fully-automated loop must notice when it stalls. Every run writes
+`health.json` (🟢 ok / 🟡 warning / 🔴 stalled) and a badge into the brief, based
+on cadence (days since last snapshot), input health (is GSC data flowing?), and
+learning health. For alerting, a monitoring cron can run:
+
+```bash
+python3 engine/strategy_engine.py --health   # exits 2 if the loop is stalled
+```
+
+This closes the operating-surface's "alert paths are mostly silent" gap for the
+strategy path — the first such job with a non-silent alert path.
+
 ## Roadmap (toward number 1)
 
 The loop is live but early. Status of the ordered increments:

@@ -2,7 +2,9 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Generated:** 2026-07-06 22:59 AEST  
+**Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
+
+**Generated:** 2026-07-06 23:02 AEST  
 **Season:** Winter  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:5-upcoming, seasonal-calendar:winter  
 

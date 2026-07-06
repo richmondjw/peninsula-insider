@@ -41,6 +41,14 @@ its own prior snapshot into `ops/strategy/content-strategy.json` (the ranked
 commissioning queue the orchestrator reads). It diffs day-over-day, so strategy
 improvement is observable. Deterministic and stdlib-only.
 
+**Self-monitoring note (addresses the Tier-1 "silent alert paths" gap for the
+strategy loop):** `strategy_engine.py --health` inspects the loop's own cadence
+(days since last snapshot), input health (is GSC performance data flowing?), and
+learning health, and **exits non-zero when the loop is stalled** — so a
+monitoring cron can alert instead of failures being invisible. Every run also
+writes `ops/strategy/health.json` and a 🟢/🟡/🔴 badge into the brief. This is
+the first strategy-path job with a non-silent alert path.
+
 **Agent-index note:** the *live* `/llms.txt` and `/llms-full.txt` are generated
 in the deploy workflow from the freshly-built `next/dist/sitemap.xml`, so they
 ship with the site and can never drift from what was published. The orchestrator

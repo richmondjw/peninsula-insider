@@ -45,6 +45,7 @@ import argparse
 import json
 import math
 import re
+import sys
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, date
 from pathlib import Path
@@ -68,6 +69,7 @@ STRATEGY_JSON = STRATEGY_DIR / "content-strategy.json"
 STRATEGY_MD = STRATEGY_DIR / "content-strategy.md"
 ACTIONED_LEDGER = STRATEGY_DIR / "actioned.jsonl"
 MODEL_WEIGHTS_FILE = STRATEGY_DIR / "model-weights.json"
+HEALTH_FILE = STRATEGY_DIR / "health.json"
 
 SITE = "https://peninsulainsider.com.au"
 
@@ -800,6 +802,59 @@ def save_model_weights(mult: dict, notes: list, today: date) -> None:
     MODEL_WEIGHTS_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
+# ── Self-monitoring (closes the "silent alert paths" gap for the loop) ───────
+# A fully-automated loop must notice when it stalls. This inspects the loop's own
+# cadence + inputs and emits a health status the daily workflow can alert on,
+# instead of failures being invisible until someone reads a report.
+
+def check_health(today: date, inputs_used: list, learning: dict) -> dict:
+    """Assess whether the automated strategy loop is running and fed. Returns
+    {status, notes} where status is ok | warning | stalled."""
+    notes, status = [], "ok"
+
+    # Cadence: how long since the loop last produced a snapshot?
+    snaps = sorted(SNAPSHOT_DIR.glob("*.json")) if SNAPSHOT_DIR.exists() else []
+    if not snaps:
+        notes.append("No prior snapshots — first run or history lost.")
+    else:
+        try:
+            last = date.fromisoformat(snaps[-1].stem)
+            gap = (today - last).days
+            if gap >= 3:
+                status = "stalled"
+                notes.append(f"Loop stalled: {gap} days since last snapshot ({last}).")
+            elif gap == 2:
+                status = "warning"
+                notes.append(f"Loop may be slipping: {gap} days since last snapshot.")
+        except ValueError:
+            pass
+        recent = sum(1 for s in snaps if s.stem >= (today - _days(7)).isoformat())
+        if recent < 3 and len(snaps) >= 3:
+            status = "warning" if status == "ok" else status
+            notes.append(f"Only {recent} snapshot(s) in the last 7 days — expected ~7.")
+
+    # Input health: is performance data actually flowing, or are we flying blind?
+    if not any(i.startswith("gsc-search") for i in inputs_used):
+        status = "warning" if status == "ok" else status
+        notes.append("No GSC search data this run — strategy is running without performance signal.")
+    if not any(i.startswith("gsc-coverage") for i in inputs_used):
+        notes.append("No GSC coverage data — indexation opportunities may be stale.")
+
+    # Learning health: is the loop accumulating measurable outcomes over time?
+    if learning.get("count", 0) > 0 and learning.get("measurable", 0) == 0:
+        notes.append("Actions recorded but none re-measured yet — learning signal not flowing "
+                     "(expected until GSC re-crawls the actioned pages).")
+
+    if not notes:
+        notes.append("Loop healthy: running on cadence with performance data flowing.")
+    return {"status": status, "checked": today.isoformat(), "notes": notes}
+
+
+def _days(n: int):
+    from datetime import timedelta
+    return timedelta(days=n)
+
+
 # ── Snapshot + diff (the "improves each day" mechanism) ──────────────────────
 def load_prev_snapshot(snapshot_dir: Path, today: date) -> dict | None:
     if not snapshot_dir.exists():
@@ -851,6 +906,12 @@ def render_markdown(state: dict) -> str:
     md = [f"# Peninsula Insider — Content Strategy", ""]
     md.append(f"**North star:** {NORTH_STAR}")
     md.append("")
+    h = state.get("health", {})
+    if h:
+        badge = {"ok": "🟢 healthy", "warning": "🟡 warning", "stalled": "🔴 stalled"}.get(
+            h.get("status"), h.get("status", "?"))
+        md.append(f"**Loop health:** {badge} — {h['notes'][0]}")
+        md.append("")
     md.append(f"**Generated:** {state['generated_at']}  ")
     md.append(f"**Season:** {state['season'].title()}  ")
     md.append(f"**Inputs used:** {', '.join(state['inputs_used']) or 'none available'}  ")
@@ -1012,6 +1073,7 @@ def build_state(today: date) -> dict:
         "learning": learning,
         "model": {"kind_multiplier": new_weights, "changes": weight_notes,
                   "adapt_min_measured": ADAPT_MIN_MEASURED},
+        "health": check_health(today, inputs_used, learning),
         "commissioning_queue": queue,
     }
     return state
@@ -1040,6 +1102,8 @@ def main():
     ap = argparse.ArgumentParser(description="Peninsula Insider Content Strategy Brain")
     ap.add_argument("--date", default=None, help="Override run date (YYYY-MM-DD)")
     ap.add_argument("--dry-run", action="store_true", help="Print summary, write nothing")
+    ap.add_argument("--health", action="store_true",
+                    help="Print loop health and exit non-zero if stalled (for a monitoring cron)")
     ap.add_argument("--record", metavar="TARGET",
                     help="Record an actioned opportunity (page path or topic) to the "
                          "attribution ledger, capturing its current metrics as baseline")
@@ -1050,6 +1114,19 @@ def main():
 
     today = date.fromisoformat(args.date) if args.date else (
         datetime.now(AEST).date() if AEST else date.today())
+
+    if args.health:
+        # Health gate for a monitoring cron: exit non-zero if the loop is stalled.
+        gsc = load_gsc(GSC_REPORT)
+        cov = load_coverage(GSC_COVERAGE)
+        used = (["gsc-search-analytics"] if gsc["available"] else []) + \
+               (["gsc-coverage"] if cov["available"] else [])
+        learning = evaluate_actioned(load_actioned(), gsc)
+        h = check_health(today, used, learning)
+        print(f"Loop health: {h['status'].upper()}")
+        for n in h["notes"]:
+            print(f"  - {n}")
+        sys.exit(2 if h["status"] == "stalled" else 0)
 
     if args.record:
         entry = record_action(args.record, args.kind, args.query, args.note,
@@ -1074,6 +1151,7 @@ def main():
     STRATEGY_DIR.mkdir(parents=True, exist_ok=True)
     SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
     save_model_weights(state["model"]["kind_multiplier"], state["model"]["changes"], today)
+    HEALTH_FILE.write_text(json.dumps(state["health"], indent=2), encoding="utf-8")
     STRATEGY_JSON.write_text(json.dumps(state, indent=2), encoding="utf-8")
     STRATEGY_MD.write_text(render_markdown(state), encoding="utf-8")
     (SNAPSHOT_DIR / f"{today.isoformat()}.json").write_text(

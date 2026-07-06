@@ -314,6 +314,38 @@ class EventCoverage(unittest.TestCase):
         self.assertIn("Gala", ev_opps[0].title)
 
 
+class Health(unittest.TestCase):
+    def _with_snaps(self, dates):
+        import tempfile
+        d = tempfile.mkdtemp()
+        for ds in dates:
+            (Path(d) / f"{ds}.json").write_text("{}")
+        return Path(d)
+
+    def setUp(self):
+        self._orig = se.SNAPSHOT_DIR
+
+    def tearDown(self):
+        se.SNAPSHOT_DIR = self._orig
+
+    def test_stalled_when_snapshot_old(self):
+        se.SNAPSHOT_DIR = self._with_snaps(["2026-07-01"])
+        h = se.check_health(date(2026, 7, 10), ["gsc-search-analytics", "gsc-coverage"], {})
+        self.assertEqual(h["status"], "stalled")
+
+    def test_ok_when_fresh_and_fed(self):
+        se.SNAPSHOT_DIR = self._with_snaps(
+            [f"2026-07-{d:02d}" for d in range(1, 8)])  # 7 consecutive days
+        h = se.check_health(date(2026, 7, 7), ["gsc-search-analytics", "gsc-coverage"], {})
+        self.assertEqual(h["status"], "ok")
+
+    def test_warning_without_performance_data(self):
+        se.SNAPSHOT_DIR = self._with_snaps([f"2026-07-{d:02d}" for d in range(1, 8)])
+        h = se.check_health(date(2026, 7, 7), [], {})  # no GSC input
+        self.assertEqual(h["status"], "warning")
+        self.assertTrue(any("without performance signal" in n for n in h["notes"]))
+
+
 class DeskRouting(unittest.TestCase):
     def test_routes(self):
         self.assertEqual(se.route_desk("/stay/hotel-sorrento/"), "escapes-desk")

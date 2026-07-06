@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 22:59 AEST",
+  "generated_at": "2026-07-06 23:02 AEST",
   "date": "2026-07-06",
   "north_star": "Become the number-1 destination \u2014 for people and AI agents \u2014 for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.",
   "season": "winter",
@@ -128,6 +128,13 @@
     },
     "changes": [],
     "adapt_min_measured": 4
+  },
+  "health": {
+    "status": "ok",
+    "checked": "2026-07-06",
+    "notes": [
+      "Actions recorded but none re-measured yet \u2014 learning signal not flowing (expected until GSC re-crawls the actioned pages)."
+    ]
   },
   "commissioning_queue": [
     {
