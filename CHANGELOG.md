@@ -1,3 +1,20 @@
+## 2026-07-06 — Events research point ("what's on" awareness)
+
+### What changed
+The strategy brain was SEO/evergreen-focused and blind to the events calendar —
+yet "what's on" is the mission's first clause. Added a fifth research point:
+`load_events()` reads `next/src/content/events/`, keeps events inside a 90-day
+advance-coverage window, and surfaces `event-coverage` opportunities for the
+significant ones (ticketed / one-off draws; recurring community markets are
+evergreen and skipped). Scored by an urgency curve that peaks in the 14–45 day
+window — where a preview page has lead time to index and rank by event week —
+and boosted for ticketed events.
+
+Against live data (2026-07-06) it surfaced 4 major upcoming events (Soil &
+Cellar +19d, Stonier Fire & Wine +34d, Red Hill Brewery +40d in the prime
+window), ranked below proven-demand fixes but no longer ignored. +3 tests
+(25 total, all pass).
+
 ## 2026-07-06 — Self-tuning model (strategy that improves itself daily)
 
 ### What changed

@@ -2,9 +2,9 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Generated:** 2026-07-06 22:47 AEST  
+**Generated:** 2026-07-06 22:59 AEST  
 **Season:** Winter  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, seasonal-calendar:winter  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:5-upcoming, seasonal-calendar:winter  
 
 ## Where we stand
 
@@ -17,7 +17,7 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 49 |
+| Open opportunities | 53 |
 
 ## Day-over-day (is the strategy improving?)
 
@@ -41,6 +41,7 @@ Tracking 8 actioned item(s), 0 re-measured against GSC:
 The scoring model nudges its per-fix-type weights toward what demonstrably works on this site (only after ≥4 measured outcomes, so early noise can't swing it):
 
 - `indexation` × 1.000 (at baseline)
+- `event-coverage` × 1.000 (at baseline)
 - `ctr-fix` × 1.000 (at baseline)
 - `striking-distance` × 1.000 (at baseline)
 - `coverage-gap` × 1.000 (at baseline)
@@ -82,37 +83,35 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
+### 7. [EVENT · score 2.992] Preview: Soil & Cellar: Flinders Truffles x Polperro Winery (19d out)
+- **Desk:** dispatch-desk
+- **Why:** Soil & Cellar: Flinders Truffles x Polperro Winery is 19 days out (2026-07-25, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 8. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (34d out)
+- **Desk:** dispatch-desk
+- **Why:** Stonier Fire & Wine Winter Lunch is 34 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 9. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (40d out)
+- **Desk:** dispatch-desk
+- **Why:** Red Hill Brewery Secret Stash Weekend is 40 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
+
+### 10. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
 - **Desk:** field-desk
 - **Query:** `dog friendly guide mornington peninsula`
 - **Why:** 'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 8. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
+### 11. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
 - **Desk:** dispatch-desk
 - **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
 - **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
 
-### 9. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
+### 12. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
 - **Desk:** table-desk
 - **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
-- **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
-
-### 10. [RANK · score 2.845] Push 'a dog-friendly guide mornington peninsula' onto page 1
-- **Desk:** field-desk
-- **Query:** `a dog-friendly guide mornington peninsula`
-- **Why:** 'a dog-friendly guide mornington peninsula' ranks avg position 8.3 on 10 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
-
-### 11. [RANK · score 2.689] Push 'mornington cup 2026' onto page 1
-- **Desk:** dispatch-desk
-- **Query:** `mornington cup 2026`
-- **Why:** 'mornington cup 2026' ranks avg position 10.2 on 12 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
-
-### 12. [INDEX · score 2.664] Get /explore/ indexed (hub page!)
-- **Desk:** field-desk
-- **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything — the single highest-leverage fix.
 - **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
 
 ## Coverage snapshot

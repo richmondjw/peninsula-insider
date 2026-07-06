@@ -60,6 +60,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SITEMAP = REPO_ROOT / "sitemap.xml"
 GSC_REPORT = REPO_ROOT / "ops/reports/gsc-search-analytics.md"
 GSC_COVERAGE = REPO_ROOT / "ops/reports/gsc-coverage-report.md"
+EVENTS_DIR = REPO_ROOT / "next/src/content/events"
 COMPETITIVE_DIR = REPO_ROOT / ".claude/signals"
 STRATEGY_DIR = REPO_ROOT / "ops/strategy"
 SNAPSHOT_DIR = STRATEGY_DIR / "snapshots"
@@ -82,6 +83,7 @@ NORTH_STAR = (
 # a mature site would lift coverage/freshness).
 WEIGHTS = {
     "indexation": 1.8,       # not indexed = can't rank at all — the upstream lever
+    "event_coverage": 1.5,   # timely "what's on" — the primary mission clause
     "impressions": 1.0,      # demand already proven by Google surfacing us
     "position_proximity": 1.4,  # how close to page 1 (fast to convert)
     "ctr_deficit": 1.2,      # surfaced but not clicked = title/meta fix, cheap
@@ -94,6 +96,7 @@ WEIGHTS = {
 # is dominated by things that move the needle this week, not moonshots.
 EFFORT_BONUS = {
     "indexation": 1.2,        # getting a page indexed is high-leverage and mostly mechanical
+    "event-coverage": 1.1,    # timely, but a net-new preview page is real work
     "ctr-fix": 1.25,          # rewrite title + meta on an existing page
     "striking-distance": 1.15,  # tighten an existing page to reach page 1
     "freshness": 1.0,
@@ -107,7 +110,13 @@ EFFORT_BONUS = {
 # compounds. Guarded: a kind is only adapted once it has enough measured
 # outcomes, so early noise (14 clicks) can't swing the model. Bounded + smoothed
 # so it drifts, never lurches.
-ALL_KINDS = ["indexation", "ctr-fix", "striking-distance", "coverage-gap", "freshness"]
+ALL_KINDS = ["indexation", "event-coverage", "ctr-fix", "striking-distance",
+             "coverage-gap", "freshness"]
+
+# Advance-coverage window for events: a preview page needs weeks of lead time to
+# be indexed and ranking by the time the event draws search interest. 14–45 days
+# out is prime; too-soon can't build fresh ranking, too-far isn't urgent yet.
+EVENT_WINDOW_MAX_DAYS = 90
 ADAPT_MIN_MEASURED = 4      # need this many measured outcomes before adapting a kind
 ADAPT_SMOOTHING = 0.30      # EMA weight on the new target (0=frozen, 1=jumpy)
 ADAPT_CLAMP = (0.7, 1.3)    # a kind's multiplier can never leave this band
@@ -149,6 +158,8 @@ class Opportunity:
     avg_position: float = 0.0
     ctr: float = 0.0
     seasonal: bool = False
+    days_until: int = None   # for event-coverage: days to the event
+    major: bool = False      # for event-coverage: significant/ticketed vs recurring market
     rationale: str = ""
     recommended_action: str = ""
     suggested_desk: str = ""
@@ -316,6 +327,42 @@ def load_inventory(sitemap_path: Path, today: date) -> dict:
     return inv
 
 
+def load_events(events_dir: Path, today: date) -> dict:
+    """Upcoming events from the events collection — the timely 'what's on' input.
+    Returns events within the advance-coverage window, most-imminent first, with
+    days-until and a significance flag (ticketed / one-off draws > recurring markets)."""
+    out = {"available": False, "upcoming": []}
+    if not events_dir.exists():
+        return out
+    out["available"] = True
+    for jf in events_dir.glob("*.json"):
+        try:
+            d = json.loads(jf.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        try:
+            start = date.fromisoformat(str(d.get("startDate", ""))[:10])
+        except ValueError:
+            continue
+        days = (start - today).days
+        if days < 0 or days > EVENT_WINDOW_MAX_DAYS:
+            continue
+        recurrence = (d.get("recurrence") or "one-off").lower()
+        paid = "paid" in (d.get("freePaid") or "").lower()
+        is_market = "market" in (d.get("category", "") + d.get("title", "")).lower()
+        # A significant event worth a dedicated advance preview: ticketed, or a
+        # one-off/annual non-market draw. Recurring community markets are evergreen.
+        major = (paid or recurrence in ("one-off", "annual")) and not is_market
+        out["upcoming"].append({
+            "slug": d.get("slug", jf.stem), "title": d.get("title", jf.stem),
+            "start": start.isoformat(), "days_until": days, "major": major,
+            "summary": d.get("summary", ""), "category": d.get("category", ""),
+            "region": d.get("venueRegion", d.get("suburb", "")),
+        })
+    out["upcoming"].sort(key=lambda e: e["days_until"])
+    return out
+
+
 def load_competitive(signals_dir: Path) -> dict:
     """Most recent competitive-scan JSON from the signal engine, if any."""
     out = {"available": False, "gaps": []}
@@ -352,9 +399,10 @@ def route_desk(target: str, query: str = "") -> str:
 
 # ── Opportunity generation ───────────────────────────────────────────────────
 def build_opportunities(gsc: dict, inv: dict, comp: dict, season: str,
-                        cov: dict | None = None) -> list[Opportunity]:
+                        cov: dict | None = None, events: dict | None = None) -> list[Opportunity]:
     themes = SEASONAL_THEMES.get(season, [])
     cov = cov or {"not_indexed": []}
+    events = events or {"upcoming": []}
     opps: list[Opportunity] = []
     seen_targets: set[str] = set()
 
@@ -387,6 +435,29 @@ def build_opportunities(gsc: dict, inv: dict, comp: dict, season: str,
                                 "links from already-indexed pages, confirm it isn't noindex, add "
                                 "unique above-the-fold content, then Request Indexing in GSC."),
             suggested_desk=route_desk(path),
+        ))
+
+    # 0b. Event coverage — timely "what's on". Ensure a preview ranks for major
+    #     upcoming events while there's lead time. This is the primary mission clause.
+    for ev in events.get("upcoming", []):
+        if not ev["major"]:
+            continue  # recurring markets are evergreen; skip the advance-preview push
+        window = "prime window" if 14 <= ev["days_until"] <= 45 else (
+            "closing fast" if ev["days_until"] < 14 else "on the horizon")
+        opps.append(Opportunity(
+            kind="event-coverage",
+            title=f"Preview: {ev['title']} ({ev['days_until']}d out)",
+            target=f"/whats-on/{ev['slug']}/",
+            days_until=ev["days_until"],
+            major=ev["major"],
+            seasonal=True,  # dated events are inherently timely
+            rationale=(f"{ev['title']} is {ev['days_until']} days out ({ev['start']}, "
+                       f"{ev['region']}) — {window}. Advance-planning searches build now; "
+                       f"a preview page needs lead time to index and rank by event week."),
+            recommended_action=("Ensure a dedicated, indexable preview page exists with dates, "
+                                "booking link, what-to-expect and internal links from the town "
+                                "hub and What's On — published now, not event week."),
+            suggested_desk="dispatch-desk",
         ))
 
     # 1. CTR fixes — surfaced with demand but not clicked. If the page ranks on
@@ -541,6 +612,13 @@ def score_opportunity(opp: Opportunity, gsc: dict) -> None:
         b["indexation"] = WEIGHTS["indexation"] * hub_boost
     else:
         b["indexation"] = 0.0
+    # Event coverage: urgency by how well the event sits in the advance-coverage
+    # window, boosted for significant (ticketed / one-off) events.
+    if opp.kind == "event-coverage":
+        b["event_coverage"] = WEIGHTS["event_coverage"] * _event_urgency(opp.days_until) \
+            * (1.0 if opp.major else 0.55)
+    else:
+        b["event_coverage"] = 0.0
 
     raw = sum(b.values())
     effort = EFFORT_BONUS.get(opp.kind, 1.0)
@@ -549,6 +627,23 @@ def score_opportunity(opp: Opportunity, gsc: dict) -> None:
     opp.score_breakdown = {k: round(v, 3) for k, v in b.items()}
     opp.score_breakdown["effort_multiplier"] = effort
     opp.score_breakdown["learned_multiplier"] = round(learned, 3)
+
+
+def _event_urgency(days: int) -> float:
+    """Advance-coverage urgency curve. Peaks in the 14–45 day window where a
+    preview page has lead time to rank; lower when too soon (can't build ranking)
+    or too far (not urgent yet)."""
+    if days is None or days < 0:
+        return 0.0
+    if days <= 7:
+        return 0.45          # too late to build fresh ranking, still worth a mention
+    if days <= 14:
+        return 0.8
+    if days <= 45:
+        return 1.0           # prime advance-coverage window
+    if days <= 90:
+        return max(0.2, 1.0 - (days - 45) / 45 * 0.8)
+    return 0.15
 
 
 def _expected_ctr(position: float) -> float:
@@ -831,8 +926,9 @@ def render_markdown(state: dict) -> str:
               "The orchestrator commissions from the top down.")
     md.append("")
     for i, o in enumerate(state["commissioning_queue"][:12], 1):
-        tag = {"indexation": "INDEX", "ctr-fix": "CTR", "striking-distance": "RANK",
-               "coverage-gap": "NEW", "freshness": "FRESH"}.get(o["kind"], o["kind"].upper())
+        tag = {"indexation": "INDEX", "event-coverage": "EVENT", "ctr-fix": "CTR",
+               "striking-distance": "RANK", "coverage-gap": "NEW",
+               "freshness": "FRESH"}.get(o["kind"], o["kind"].upper())
         md.append(f"### {i}. [{tag} · score {o['score']}] {o['title']}")
         md.append(f"- **Desk:** {o['suggested_desk']}")
         if o.get("query"):
@@ -860,6 +956,7 @@ def build_state(today: date) -> dict:
     cov = load_coverage(GSC_COVERAGE)
     inv = load_inventory(SITEMAP, today)
     comp = load_competitive(COMPETITIVE_DIR)
+    events = load_events(EVENTS_DIR, today)
 
     # Learning + self-tuning must happen BEFORE scoring so the queue reflects the
     # adapted model. Measure past outcomes, adapt the per-kind multipliers, then
@@ -878,9 +975,11 @@ def build_state(today: date) -> dict:
         inputs_used.append("sitemap-inventory")
     if comp["available"]:
         inputs_used.append("competitive-scan")
+    if events["available"]:
+        inputs_used.append(f"events-calendar:{len(events['upcoming'])}-upcoming")
     inputs_used.append(f"seasonal-calendar:{season}")
 
-    opps = build_opportunities(gsc, inv, comp, season, cov)
+    opps = build_opportunities(gsc, inv, comp, season, cov, events)
 
     total_clicks = int(_num(gsc["summary"].get("Total clicks", 0))) if gsc["available"] else 0
     total_impr = int(_num(gsc["summary"].get("Total impressions", 0))) if gsc["available"] else 0

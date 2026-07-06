@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 22:47 AEST",
+  "generated_at": "2026-07-06 22:59 AEST",
   "date": "2026-07-06",
   "north_star": "Become the number-1 destination \u2014 for people and AI agents \u2014 for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.",
   "season": "winter",
@@ -7,6 +7,7 @@
     "gsc-search-analytics",
     "gsc-coverage",
     "sitemap-inventory",
+    "events-calendar:5-upcoming",
     "seasonal-calendar:winter"
   ],
   "gsc_period": "2026-03-23 \u2192 2026-04-19",
@@ -17,7 +18,7 @@
     "pages_indexed": 0,
     "pages_not_indexed": 26,
     "pages_in_sitemap": 408,
-    "open_opportunities": 49
+    "open_opportunities": 53
   },
   "coverage": {
     "(home)": 1,
@@ -119,6 +120,7 @@
   "model": {
     "kind_multiplier": {
       "indexation": 1.0,
+      "event-coverage": 1.0,
       "ctr-fix": 1.0,
       "striking-distance": 1.0,
       "coverage-gap": 1.0,
@@ -137,6 +139,8 @@
       "avg_position": 7.5,
       "ctr": 0.46,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google surfaces this at avg position 8 on 216 impressions but CTR is 0.46% \u2014 a snippet problem, not a ranking problem.",
       "recommended_action": "Rewrite the <title> and meta description to match query intent and add a benefit/number; add a direct-answer first line under the H1.",
       "suggested_desk": "dispatch-desk",
@@ -149,6 +153,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.25,
         "learned_multiplier": 1.0
       }
@@ -162,6 +167,8 @@
       "avg_position": 8.8,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google surfaces this at avg position 9 on 73 impressions but CTR is 0.00% \u2014 a snippet problem, not a ranking problem.",
       "recommended_action": "Rewrite the <title> and meta description to match query intent and add a benefit/number; add a direct-answer first line under the H1.",
       "suggested_desk": "field-desk",
@@ -174,6 +181,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.25,
         "learned_multiplier": 1.0
       }
@@ -187,6 +195,8 @@
       "avg_position": 5.9,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google surfaces this at avg position 6 on 29 impressions but CTR is 0.00% \u2014 a snippet problem, not a ranking problem.",
       "recommended_action": "Rewrite the <title> and meta description to match query intent and add a benefit/number; add a direct-answer first line under the H1.",
       "suggested_desk": "table-desk",
@@ -199,6 +209,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.25,
         "learned_multiplier": 1.0
       }
@@ -212,6 +223,8 @@
       "avg_position": 8.1,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "'peninsula cup 2026' ranks avg position 8.1 on 34 impressions \u2014 small, targeted improvement could reach page 1 and start earning clicks.",
       "recommended_action": "Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.",
       "suggested_desk": "dispatch-desk",
@@ -224,6 +237,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.15,
         "learned_multiplier": 1.0
       }
@@ -237,6 +251,8 @@
       "avg_position": 54.3,
       "ctr": 0.0,
       "seasonal": true,
+      "days_until": null,
+      "major": false,
       "rationale": "Surfaced on 59 impressions but stuck at avg position 54 with 0.00% CTR \u2014 real demand, weak page. Needs to climb before the snippet matters.",
       "recommended_action": "Deepen the page (content, schema, internal links) to climb toward page 1, then sharpen the title/meta for the winning query.",
       "suggested_desk": "escapes-desk",
@@ -249,6 +265,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.25,
         "learned_multiplier": 1.0
       }
@@ -262,6 +279,8 @@
       "avg_position": 8.8,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions \u2014 small, targeted improvement could reach page 1 and start earning clicks.",
       "recommended_action": "Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.",
       "suggested_desk": "dispatch-desk",
@@ -274,7 +293,92 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
+      }
+    },
+    {
+      "kind": "event-coverage",
+      "title": "Preview: Soil & Cellar: Flinders Truffles x Polperro Winery (19d out)",
+      "target": "/whats-on/soil-cellar-flinders-truffles-x-polperro-winery/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": true,
+      "days_until": 19,
+      "major": true,
+      "rationale": "Soil & Cellar: Flinders Truffles x Polperro Winery is 19 days out (2026-07-25, Other Mornington Peninsula) \u2014 prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.",
+      "recommended_action": "Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On \u2014 published now, not event week.",
+      "suggested_desk": "dispatch-desk",
+      "score": 2.992,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.8,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 0.0,
+        "event_coverage": 1.5,
+        "effort_multiplier": 1.1,
+        "learned_multiplier": 1.0
+      }
+    },
+    {
+      "kind": "event-coverage",
+      "title": "Preview: Stonier Fire & Wine Winter Lunch (34d out)",
+      "target": "/whats-on/stonier-fire-wine-winter-lunch/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": true,
+      "days_until": 34,
+      "major": true,
+      "rationale": "Stonier Fire & Wine Winter Lunch is 34 days out (2026-08-09, Merricks) \u2014 prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.",
+      "recommended_action": "Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On \u2014 published now, not event week.",
+      "suggested_desk": "dispatch-desk",
+      "score": 2.992,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.8,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 0.0,
+        "event_coverage": 1.5,
+        "effort_multiplier": 1.1,
+        "learned_multiplier": 1.0
+      }
+    },
+    {
+      "kind": "event-coverage",
+      "title": "Preview: Red Hill Brewery Secret Stash Weekend (40d out)",
+      "target": "/whats-on/red-hill-brewery-secret-stash-weekend/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": true,
+      "days_until": 40,
+      "major": true,
+      "rationale": "Red Hill Brewery Secret Stash Weekend is 40 days out (2026-08-15, Other Mornington Peninsula) \u2014 prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.",
+      "recommended_action": "Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On \u2014 published now, not event week.",
+      "suggested_desk": "dispatch-desk",
+      "score": 2.992,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.8,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 0.0,
+        "event_coverage": 1.5,
+        "effort_multiplier": 1.1,
         "learned_multiplier": 1.0
       }
     },
@@ -287,6 +391,8 @@
       "avg_position": 9.6,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions \u2014 small, targeted improvement could reach page 1 and start earning clicks.",
       "recommended_action": "Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.",
       "suggested_desk": "field-desk",
@@ -299,6 +405,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.15,
         "learned_multiplier": 1.0
       }
@@ -312,6 +419,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": true,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "dispatch-desk",
@@ -324,6 +433,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -337,6 +447,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": true,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "table-desk",
@@ -349,6 +461,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -362,6 +475,8 @@
       "avg_position": 8.3,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "'a dog-friendly guide mornington peninsula' ranks avg position 8.3 on 10 impressions \u2014 small, targeted improvement could reach page 1 and start earning clicks.",
       "recommended_action": "Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.",
       "suggested_desk": "field-desk",
@@ -374,6 +489,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.15,
         "learned_multiplier": 1.0
       }
@@ -387,6 +503,8 @@
       "avg_position": 10.2,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "'mornington cup 2026' ranks avg position 10.2 on 12 impressions \u2014 small, targeted improvement could reach page 1 and start earning clicks.",
       "recommended_action": "Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.",
       "suggested_desk": "dispatch-desk",
@@ -399,6 +517,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.15,
         "learned_multiplier": 1.0
       }
@@ -412,6 +531,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -424,6 +545,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -437,6 +559,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -449,6 +573,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -462,6 +587,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "table-desk",
@@ -474,6 +601,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -487,6 +615,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -499,6 +629,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -512,6 +643,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "table-desk",
@@ -524,6 +657,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -537,6 +671,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "escapes-desk",
@@ -549,6 +685,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -562,6 +699,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -574,7 +713,36 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
+      }
+    },
+    {
+      "kind": "event-coverage",
+      "title": "Preview: National Works on Paper 2026 (NWOP) (61d out)",
+      "target": "/whats-on/national-works-on-paper-2026-nwop/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": true,
+      "days_until": 61,
+      "major": true,
+      "rationale": "National Works on Paper 2026 (NWOP) is 61 days out (2026-09-05, Mornington) \u2014 on the horizon. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.",
+      "recommended_action": "Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On \u2014 published now, not event week.",
+      "suggested_desk": "dispatch-desk",
+      "score": 2.523,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.8,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 0.0,
+        "event_coverage": 1.073,
+        "effort_multiplier": 1.1,
         "learned_multiplier": 1.0
       }
     },
@@ -587,6 +755,8 @@
       "avg_position": 9.7,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "'red hill cheese' ranks avg position 9.7 on 7 impressions \u2014 small, targeted improvement could reach page 1 and start earning clicks.",
       "recommended_action": "Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.",
       "suggested_desk": "table-desk",
@@ -599,6 +769,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.15,
         "learned_multiplier": 1.0
       }
@@ -612,6 +783,8 @@
       "avg_position": 12.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "'dog-friendly guide mornington peninsula' ranks avg position 12.0 on 5 impressions \u2014 small, targeted improvement could reach page 1 and start earning clicks.",
       "recommended_action": "Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.",
       "suggested_desk": "field-desk",
@@ -624,6 +797,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.15,
         "learned_multiplier": 1.0
       }
@@ -637,6 +811,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'URL is unknown to Google' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -649,6 +825,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -662,6 +839,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -674,6 +853,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -687,6 +867,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "dispatch-desk",
@@ -699,6 +881,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -712,6 +895,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "dispatch-desk",
@@ -724,6 +909,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -737,6 +923,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -749,6 +937,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -762,6 +951,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -774,6 +965,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -787,6 +979,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -799,6 +993,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -812,6 +1007,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -824,6 +1021,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -837,6 +1035,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -849,6 +1049,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -862,6 +1063,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "dispatch-desk",
@@ -874,6 +1077,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -887,6 +1091,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -899,6 +1105,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -912,6 +1119,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'URL is unknown to Google' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -924,6 +1133,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -937,6 +1147,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "table-desk",
@@ -949,6 +1161,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -962,6 +1175,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -974,6 +1189,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -987,6 +1203,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -999,6 +1217,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -1012,6 +1231,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -1024,6 +1245,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -1037,6 +1259,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
       "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
       "suggested_desk": "field-desk",
@@ -1049,6 +1273,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.2,
         "learned_multiplier": 1.0
       }
@@ -1062,6 +1287,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": true,
+      "days_until": null,
+      "major": false,
       "rationale": "'hot springs' is peak-intent for winter; own the seasonal query now.",
       "recommended_action": "Commission or refresh a definitive winter 'hot springs' guide with current venues, booking links and an FAQ block.",
       "suggested_desk": "field-desk",
@@ -1074,6 +1301,7 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 0.9,
         "learned_multiplier": 1.0
       }
@@ -1087,6 +1315,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": true,
+      "days_until": null,
+      "major": false,
       "rationale": "'cellar door fires' is peak-intent for winter; own the seasonal query now.",
       "recommended_action": "Commission or refresh a definitive winter 'cellar door fires' guide with current venues, booking links and an FAQ block.",
       "suggested_desk": "table-desk",
@@ -1099,6 +1329,7 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 0.9,
         "learned_multiplier": 1.0
       }
@@ -1112,6 +1343,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": true,
+      "days_until": null,
+      "major": false,
       "rationale": "'truffle season' is peak-intent for winter; own the seasonal query now.",
       "recommended_action": "Commission or refresh a definitive winter 'truffle season' guide with current venues, booking links and an FAQ block.",
       "suggested_desk": "field-desk",
@@ -1124,6 +1357,7 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 0.9,
         "learned_multiplier": 1.0
       }
@@ -1137,6 +1371,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": true,
+      "days_until": null,
+      "major": false,
       "rationale": "'winter menus' is peak-intent for winter; own the seasonal query now.",
       "recommended_action": "Commission or refresh a definitive winter 'winter menus' guide with current venues, booking links and an FAQ block.",
       "suggested_desk": "field-desk",
@@ -1149,6 +1385,7 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 0.9,
         "learned_multiplier": 1.0
       }
@@ -1162,6 +1399,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 113 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "field-desk",
@@ -1174,6 +1413,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }
@@ -1187,6 +1427,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 96 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "table-desk",
@@ -1199,6 +1441,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }
@@ -1212,6 +1455,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 96 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "table-desk",
@@ -1224,6 +1469,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }
@@ -1237,6 +1483,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 96 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "table-desk",
@@ -1249,6 +1497,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }
@@ -1262,6 +1511,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 96 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "table-desk",
@@ -1274,6 +1525,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }
@@ -1287,6 +1539,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 96 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "table-desk",
@@ -1299,6 +1553,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }
@@ -1312,6 +1567,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 96 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "table-desk",
@@ -1324,6 +1581,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }
@@ -1337,6 +1595,8 @@
       "avg_position": 0.0,
       "ctr": 0.0,
       "seasonal": false,
+      "days_until": null,
+      "major": false,
       "rationale": "Last updated 96 days ago \u2014 freshness signal decaying.",
       "recommended_action": "Verify venues/hours/prices, refresh seasonal framing, update lastVerified, add one new internal link.",
       "suggested_desk": "table-desk",
@@ -1349,6 +1609,7 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
+        "event_coverage": 0.0,
         "effort_multiplier": 1.0,
         "learned_multiplier": 1.0
       }

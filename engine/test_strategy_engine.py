@@ -266,6 +266,54 @@ class AdaptiveModel(unittest.TestCase):
             se._KIND_MULT = {}
 
 
+class EventCoverage(unittest.TestCase):
+    def test_urgency_peaks_in_window(self):
+        self.assertEqual(se._event_urgency(30), 1.0)          # prime window
+        self.assertLess(se._event_urgency(5), se._event_urgency(30))    # too soon
+        self.assertLess(se._event_urgency(80), se._event_urgency(30))   # too far
+        self.assertEqual(se._event_urgency(None), 0.0)
+        self.assertEqual(se._event_urgency(-3), 0.0)
+
+    def test_load_events_filters_window_and_significance(self):
+        import tempfile, json as _json
+        with tempfile.TemporaryDirectory() as d:
+            dd = Path(d)
+            (dd / "gala.json").write_text(_json.dumps({
+                "slug": "gala", "title": "Winter Wine Gala", "startDate": "2026-07-26",
+                "recurrence": "one-off", "freePaid": "Paid", "category": "food-wine"}))
+            (dd / "market.json").write_text(_json.dumps({
+                "slug": "mkt", "title": "Village Community Market", "startDate": "2026-07-20",
+                "recurrence": "monthly", "freePaid": "Free", "category": "market"}))
+            (dd / "past.json").write_text(_json.dumps({
+                "slug": "past", "title": "Old Event", "startDate": "2026-01-01",
+                "recurrence": "one-off", "freePaid": "Paid"}))
+            (dd / "faraway.json").write_text(_json.dumps({
+                "slug": "far", "title": "Next Year", "startDate": "2027-06-01",
+                "recurrence": "one-off", "freePaid": "Paid"}))
+            ev = se.load_events(dd, date(2026, 7, 6))
+        slugs = {e["slug"]: e for e in ev["upcoming"]}
+        self.assertIn("gala", slugs)          # upcoming, in window
+        self.assertIn("mkt", slugs)            # upcoming market (kept, but not "major")
+        self.assertNotIn("past", slugs)        # past — excluded
+        self.assertNotIn("far", slugs)         # beyond window — excluded
+        self.assertTrue(slugs["gala"]["major"])
+        self.assertFalse(slugs["mkt"]["major"])  # recurring market is evergreen
+
+    def test_only_major_events_become_opportunities(self):
+        events = {"upcoming": [
+            {"slug": "gala", "title": "Gala", "start": "2026-07-26", "days_until": 20,
+             "major": True, "region": "Red Hill", "summary": "", "category": "food-wine"},
+            {"slug": "mkt", "title": "Market", "start": "2026-07-20", "days_until": 14,
+             "major": False, "region": "", "summary": "", "category": "market"},
+        ]}
+        opps = se.build_opportunities(
+            {"ctr_opportunities": [], "striking_distance": [], "top_pages": [], "top_queries": []},
+            {"stale": []}, {"gaps": []}, "winter", {"not_indexed": []}, events)
+        ev_opps = [o for o in opps if o.kind == "event-coverage"]
+        self.assertEqual(len(ev_opps), 1)
+        self.assertIn("Gala", ev_opps[0].title)
+
+
 class DeskRouting(unittest.TestCase):
     def test_routes(self):
         self.assertEqual(se.route_desk("/stay/hotel-sorrento/"), "escapes-desk")
