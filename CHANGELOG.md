@@ -1,3 +1,48 @@
+## 2026-07-06 — Content Strategy Brain + agent-discoverability layer
+
+### What changed
+Closed the missing feedback loop in the content engine and made the site legible
+to AI agents. The engine already *produced* on a fixed cadence but never *learned*
+— nothing read performance data back into what got commissioned next. It now does,
+and the strategy is diffed day-over-day so improvement is observable rather than
+assumed.
+
+### Components added
+- `engine/strategy_engine.py` — the Content Strategy Brain. Each run it fuses
+  five research points (GSC search performance, sitemap content inventory,
+  competitive scan, seasonal intent calendar, and its own prior snapshot) into a
+  single scored, ranked commissioning queue, then diffs today vs yesterday.
+  Standard-library only, degrades gracefully on missing inputs, deterministic.
+- `ops/strategy/` — machine-owned evolving strategy state: `content-strategy.json`
+  (consumed by the orchestrator), `content-strategy.md` (human brief),
+  `snapshots/YYYY-MM-DD.json` (history + day-over-day basis), and a `README.md`
+  documenting the closed loop, scoring model, and roadmap.
+- `ops/scripts/generate-llms-txt.mjs` + root `llms.txt` / `llms-full.txt` —
+  agent-discoverability layer following the llmstxt.org convention, generated
+  deterministically from `sitemap.xml` so it can't drift. Curated map (405 URLs)
+  plus a full index; trust/editorial pages surfaced explicitly.
+
+### Wiring
+- `engine/orchestrator.py` now runs the strategy brain as step 0 of the daily
+  tempo (performance shapes commissioning before anything is written), refreshes
+  `llms.txt` post-publish, and commits the strategy + agent-index artifacts.
+  Exposes `load_commissioning_queue(limit)` for desks.
+- `robots.txt` points AI agents to `llms.txt` / `llms-full.txt`.
+
+### Why it matters
+This is the keystone for the north star — being the number-1 destination for
+people *and* agents. The first real run correctly ranked the highest-leverage
+fix from live data (`/whats-on/mornington-cup-2026`: 216 impressions at 0.46% CTR)
+above 22 other opportunities.
+
+### Follow-ups
+- Refresh the GSC report immediately before each strategy run (same-day perf)
+- Replace the signal engine's hardcoded competitive gaps with a live scan
+- Auto-act on safe top-queue items (CTR rewrites first), not just log them
+- Add outcome attribution: measure whether a commissioned fix actually moved the page
+- Editorial/trust pages (`/about/`, `/methodology/`, `/contact/`, …) are missing
+  from `sitemap.xml` — add them so crawlers see them too (llms.txt already does)
+
 ## 2026-07-05 — Site-wide overhaul: deployment hygiene, IA, brand compliance, UX (PRs #258-#261)
 
 ### What changed

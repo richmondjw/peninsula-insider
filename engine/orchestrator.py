@@ -228,6 +228,19 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     """
     print("\n=== DAILY TEMPO ===")
 
+    # 0. Strategy refresh — fuse performance + signals + inventory into a ranked
+    #    commissioning queue BEFORE anything is commissioned. This is the closed
+    #    loop: yesterday's results shape today's work, and the strategy is
+    #    diffed day-over-day so improvement is observable.
+    log.step("strategy-refresh", "START")
+    queue = run_strategy_engine(today)
+    if queue:
+        top = queue[0]
+        log.step("strategy-refresh", "DONE",
+                 f"top priority: [{top.get('kind')}] {top.get('title','')[:70]}")
+    else:
+        log.step("strategy-refresh", "WARN", "No strategy queue produced — using default cadence")
+
     # 1. Research
     log.step("research", "START")
     research_output = RESEARCH_DIR / f"daily-{today}.json"
@@ -305,6 +318,20 @@ def run_daily(log: RunLog, state: dict, today: str, now_aest: datetime):
     log.step("corpus-refresh", "START")
     refresh_result = run_corpus_refresh()
     log.step("corpus-refresh", "DONE" if refresh_result else "WARN", "Supabase concierge updated" if refresh_result else "Refresh script not found — skipping")
+
+    # 8. Agent-discoverability refresh (llms.txt) + strategy artifact commit.
+    log.step("llms-refresh", "START")
+    llms_ok = run_llms_refresh()
+    log.step("llms-refresh", "DONE" if llms_ok else "WARN",
+             "llms.txt regenerated from sitemap" if llms_ok else "generator not found — skipping")
+
+    log.step("strategy-commit", "START")
+    strat_ok = git_commit_and_push(
+        f"chore(strategy): daily strategy refresh + agent index {today} [skip-review]",
+        ["ops/strategy", "llms.txt", "llms-full.txt"]
+    )
+    log.step("strategy-commit", "DONE" if strat_ok else "WARN",
+             "strategy + llms.txt pushed" if strat_ok else "nothing to commit or push failed")
 
     state["last_daily"] = today
     log.step("daily-complete", "DONE", f"{log.pieces_shipped} piece(s) shipped")
@@ -600,6 +627,47 @@ def set_published(article_path: Path, today: str):
     if "lastVerified:" not in content:
         content = content.replace("status: \"published\"", f"status: \"published\"\nlastVerified: {today}")
     article_path.write_text(content)
+
+
+def run_strategy_engine(today: str) -> list[dict]:
+    """Run the Content Strategy Brain and return its ranked commissioning queue.
+    Never raises — a strategy failure must not stall the publish loop."""
+    strategy = Path(__file__).parent / "strategy_engine.py"
+    if not strategy.exists():
+        return []
+    try:
+        subprocess.run(
+            [sys.executable, str(strategy), "--date", today],
+            cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=90
+        )
+    except Exception as e:
+        print(f"  Strategy engine error: {e}")
+    # Read whatever it wrote (or the last good state) so commissioning still has input.
+    strategy_json = REPO_ROOT / "ops/strategy/content-strategy.json"
+    if strategy_json.exists():
+        try:
+            state = json.loads(strategy_json.read_text())
+            return state.get("commissioning_queue", [])
+        except (json.JSONDecodeError, OSError):
+            return []
+    return []
+
+
+def run_llms_refresh() -> bool:
+    """Regenerate llms.txt / llms-full.txt from the current sitemap so the
+    agent-discoverability layer never drifts from what's published."""
+    script = REPO_ROOT / "ops/scripts/generate-llms-txt.mjs"
+    if not script.exists():
+        return False
+    try:
+        result = subprocess.run(
+            ["node", str(script)],
+            cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=60
+        )
+        return result.returncode == 0
+    except Exception as e:
+        print(f"  llms.txt refresh error: {e}")
+        return False
 
 
 def run_corpus_refresh() -> bool:

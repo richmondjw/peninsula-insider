@@ -27,6 +27,21 @@
 
 **Daily publish-path note:** every job in this table can mutate either content files or live HTML in production. Five of them run autonomously without external review. The current alert path for nine of the ten is `silent` — operators only see failures by inspecting `ops/reports/` or live diff. **This is the highest-priority observability gap.**
 
+## Tier-1b — Daily strategy + agent-index (feeds the publish path)
+
+| Job | Source | Schedule (UTC) | Mutation | Status | Alert path |
+|---|---|---|---|---|---|
+| `pi-strategy-brain` (`engine/strategy_engine.py`) | orchestrator (daily step 0) | daily, pre-commission | mutating-content (`ops/strategy/`) | live | run-log |
+| `pi-llms-index-refresh` (`ops/scripts/generate-llms-txt.mjs`) | orchestrator (daily post-publish) | daily, post-publish | mutating-live (`llms.txt`, `llms-full.txt`) | live | run-log |
+
+**Strategy-brain note:** the strategy brain runs *before* commissioning and fuses
+GSC performance + sitemap inventory + competitive scan + seasonal calendar +
+its own prior snapshot into `ops/strategy/content-strategy.json` (the ranked
+commissioning queue the orchestrator reads). It diffs day-over-day, so strategy
+improvement is observable. `llms.txt` is regenerated from `sitemap.xml` so the
+agent-discoverability layer never drifts. Both are deterministic and stdlib/CLI-only.
+`generate-llms-txt.mjs --check` gives CI a drift gate. See `ops/strategy/README.md`.
+
 ## Tier-2 — Daily verification and cleanup (no live mutation)
 
 | Job | Source | Schedule (UTC) | Mutation | Status |
