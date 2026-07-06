@@ -32,14 +32,19 @@
 | Job | Source | Schedule (UTC) | Mutation | Status | Alert path |
 |---|---|---|---|---|---|
 | `pi-strategy-brain` (`engine/strategy_engine.py`) | orchestrator (daily step 0) | daily, pre-commission | mutating-content (`ops/strategy/`) | live | run-log |
-| `pi-llms-index-refresh` (`ops/scripts/generate-llms-txt.mjs`) | orchestrator (daily post-publish) | daily, post-publish | mutating-live (`llms.txt`, `llms-full.txt`) | live | run-log |
+| `pi-llms-index-live` (`ops/scripts/generate-llms-txt.mjs`) | github-actions (`build-and-deploy.yml`, post-build) | on deploy | mutating-live (`dist/llms.txt`, `dist/llms-full.txt`) | live | GitHub Actions UI |
+| `pi-llms-index-artifact` (same script) | orchestrator (daily post-publish) | daily, post-publish | mutating-content (repo-root `llms.txt`) | live | run-log |
 
 **Strategy-brain note:** the strategy brain runs *before* commissioning and fuses
 GSC performance + sitemap inventory + competitive scan + seasonal calendar +
 its own prior snapshot into `ops/strategy/content-strategy.json` (the ranked
 commissioning queue the orchestrator reads). It diffs day-over-day, so strategy
-improvement is observable. `llms.txt` is regenerated from `sitemap.xml` so the
-agent-discoverability layer never drifts. Both are deterministic and stdlib/CLI-only.
+improvement is observable. Deterministic and stdlib-only.
+
+**Agent-index note:** the *live* `/llms.txt` and `/llms-full.txt` are generated
+in the deploy workflow from the freshly-built `next/dist/sitemap.xml`, so they
+ship with the site and can never drift from what was published. The orchestrator
+also regenerates the repo-root copies (artifact parity with root `sitemap.xml`).
 `generate-llms-txt.mjs --check` gives CI a drift gate. See `ops/strategy/README.md`.
 
 ## Tier-2 — Daily verification and cleanup (no live mutation)

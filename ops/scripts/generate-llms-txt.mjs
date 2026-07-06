@@ -16,18 +16,31 @@
  * actually publishes. Run it after any content change (it is wired into the
  * daily content tempo — see engine/strategy_engine.py and ops/operating-surface.md).
  *
- * Usage:  node ops/scripts/generate-llms-txt.mjs [--check]
- *   --check  exit non-zero if the generated files differ from what's on disk
- *            (for CI drift detection); writes nothing.
+ * Usage:  node ops/scripts/generate-llms-txt.mjs [--check] [--sitemap PATH] [--out-dir DIR]
+ *   --check         exit non-zero if the generated files differ from what's on
+ *                   disk (for CI drift detection); writes nothing.
+ *   --sitemap PATH  sitemap.xml to read (default: repo-root sitemap.xml).
+ *   --out-dir DIR   directory to write llms.txt / llms-full.txt into
+ *                   (default: repo root). In CI this points at next/dist so the
+ *                   files ship with the built site read from the fresh sitemap.
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, isAbsolute, resolve } from 'node:path';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const SITEMAP = join(REPO_ROOT, 'sitemap.xml');
 const SITE = 'https://peninsulainsider.com.au';
+
+function argValue(flag) {
+  const i = process.argv.indexOf(flag);
+  return i !== -1 && i + 1 < process.argv.length ? process.argv[i + 1] : null;
+}
+const resolveArg = (p, fallback) =>
+  p ? (isAbsolute(p) ? p : resolve(process.cwd(), p)) : fallback;
+
+const SITEMAP = resolveArg(argValue('--sitemap'), join(REPO_ROOT, 'sitemap.xml'));
+const OUT_DIR = resolveArg(argValue('--out-dir'), REPO_ROOT);
 
 const ONE_LINER =
   'The insider guide to the Mornington Peninsula, Victoria — what\'s on, where to eat and drink, where to stay, cellar doors, walks, beaches and towns, written and kept current by a local editorial desk.';
@@ -236,8 +249,8 @@ function main() {
   const full = renderFull(model);
 
   const targets = [
-    { path: join(REPO_ROOT, 'llms.txt'), content: curated },
-    { path: join(REPO_ROOT, 'llms-full.txt'), content: full },
+    { path: join(OUT_DIR, 'llms.txt'), content: curated },
+    { path: join(OUT_DIR, 'llms-full.txt'), content: full },
   ];
 
   let drift = false;

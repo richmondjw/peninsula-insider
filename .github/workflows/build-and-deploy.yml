@@ -54,6 +54,15 @@ jobs:
           # and launch the site publicly.
           PUBLIC_ACCESS_GATE: 'on'
 
+      - name: Generate agent index (llms.txt)
+        # Build the agent-discoverability layer from the freshly-built sitemap so
+        # /llms.txt and /llms-full.txt ship in dist and can never drift from what
+        # was actually published. See ops/scripts/generate-llms-txt.mjs.
+        run: |
+          node ops/scripts/generate-llms-txt.mjs \
+            --sitemap next/dist/sitemap.xml \
+            --out-dir next/dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
