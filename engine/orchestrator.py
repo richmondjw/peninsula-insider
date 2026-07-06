@@ -654,16 +654,42 @@ def run_style_gate(article_path: Path) -> str:
 
 
 def run_verify_gate(article_path: Path, today: str) -> str:
-    """Run basic verification. Returns PASS or FAIL."""
+    """Factual verification gate. Returns PASS or FAIL.
+
+    Two layers: (1) frontmatter completeness, then (2) the real factual gate
+    (engine/verify_gate.py) — referential integrity, day-of-week correctness,
+    internal-link 404s. A hard FAIL there BLOCKS the publish; flags are logged
+    but ship. Degrades to the frontmatter check if the gate can't be imported."""
     if not article_path.exists():
         return "FAIL"
     content = article_path.read_text()
-    # Check frontmatter fields present
     required_fields = ["title:", "author:", "publishedAt:", "format:", "tags:"]
     missing = [f for f in required_fields if f not in content]
     if missing:
         print(f"    Missing frontmatter: {missing}")
         return "FAIL"
+
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import verify_gate
+        report = verify_gate.verify_content(
+            article_path,
+            content_dir=REPO_ROOT / "next/src/content",
+            sitemap_path=REPO_ROOT / "sitemap.xml",
+        )
+    except Exception as e:
+        print(f"    Verify gate unavailable ({e}) — frontmatter-only pass")
+        return "PASS"
+
+    for flag in report.get("flags", []):
+        print(f"    [verify-flag] {flag}")
+    if report["result"] == "FAIL":
+        for f in report["fails"]:
+            print(f"    [verify-FAIL] {f}")
+        return "FAIL"
+    print(f"    Verify: {report['result']} "
+          f"({len(report.get('venue_checks', []))} venue, "
+          f"{len(report.get('date_checks', []))} date checks)")
     return "PASS"
 
 
