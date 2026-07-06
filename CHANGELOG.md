@@ -1,3 +1,25 @@
+## 2026-07-06 — Self-tuning model (strategy that improves itself daily)
+
+### What changed
+The strategy model now **adapts its own weights from measured outcomes** — the
+last piece of "continually enhance a strategy that each day improves", now
+automated rather than a manual TODO.
+
+Each run, after the learning loop measures which fix types actually moved pages,
+`adapt_weights()` nudges a per-kind multiplier toward the winners and away from
+the losers, persists it to `ops/strategy/model-weights.json`, and scores the next
+queue with it. So the model compounds a little each cycle (demonstrated:
+`ctr-fix` 1.040→1.068→1.088 over three winning cycles while a losing kind
+declines).
+
+Guarded so it can't chase noise: a kind is only adapted once it has
+≥`ADAPT_MIN_MEASURED` (4) measured outcomes; adjustments are EMA-smoothed (0.30)
+and clamped to ±30%. With today's single GSC snapshot every kind correctly sits
+at baseline — the mechanism is live and will move as outcome data accrues.
+
+Added a "Model self-tuning" section to the brief and 5 tests (22 total, all
+passing) covering the hold/reward/penalise/clamp/score paths.
+
 ## 2026-07-06 — Strategy engine self-test gate
 
 ### What changed

@@ -71,6 +71,8 @@ tuned toward the fix types that demonstrably work.
 | `content-strategy.json` | Machine state. `orchestrator.py` reads `commissioning_queue` to decide what to work on. |
 | `content-strategy.md` | Human-readable strategy brief (where we stand, day-over-day, ranked queue). |
 | `snapshots/YYYY-MM-DD.json` | Immutable daily snapshot — history and the basis for day-over-day diffs. |
+| `actioned.jsonl` | Append-only ledger of actioned opportunities + their baseline metrics (learning loop). |
+| `model-weights.json` | The self-tuning per-fix-type multipliers, adapted from measured outcomes. |
 
 ## The scoring model
 
@@ -146,10 +148,12 @@ The loop is live but early. Status of the ordered increments:
 3. **Close the write side.** Have the orchestrator *act* on the top queue items
    automatically (CTR rewrites are safe to automate first), not just log them.
    Actions should call `record_action(...)` so they enter the learning loop.
-4. ✅ **Outcome attribution / learning loop.** Actioned opportunities are logged
-   to `actioned.jsonl` and re-measured against GSC each run, producing a hit-rate
-   by fix type. Weight-tuning from that signal is the remaining step (deliberately
-   held until enough data accumulates — tuning on 14 clicks would be noise).
+4. ✅ **Outcome attribution + self-tuning.** Actioned opportunities are logged to
+   `actioned.jsonl` and re-measured against GSC each run (hit-rate by fix type).
+   The model **automatically adapts its per-kind weights** toward what works
+   (`model-weights.json`), a little each cycle so it compounds — guarded to only
+   act once a kind has ≥`ADAPT_MIN_MEASURED` outcomes, so noise (14 clicks) can't
+   swing it, bounded to ±30% and EMA-smoothed so it drifts rather than lurches.
 5. **Agent-answer coverage.** Track which Peninsula questions AI assistants
    answer *from* Peninsula Insider vs competitors, and treat gaps as a new
    research point alongside GSC.

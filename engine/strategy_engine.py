@@ -66,6 +66,7 @@ SNAPSHOT_DIR = STRATEGY_DIR / "snapshots"
 STRATEGY_JSON = STRATEGY_DIR / "content-strategy.json"
 STRATEGY_MD = STRATEGY_DIR / "content-strategy.md"
 ACTIONED_LEDGER = STRATEGY_DIR / "actioned.jsonl"
+MODEL_WEIGHTS_FILE = STRATEGY_DIR / "model-weights.json"
 
 SITE = "https://peninsulainsider.com.au"
 
@@ -98,6 +99,21 @@ EFFORT_BONUS = {
     "freshness": 1.0,
     "coverage-gap": 0.9,      # net-new piece — higher value, slower payoff
 }
+
+# ── Adaptive model (the self-tuning that makes the strategy improve daily) ────
+# The learning loop measures which fix types actually move pages on THIS site.
+# The model then nudges a per-kind multiplier toward the fix types that work and
+# away from those that don't — automatically, a little each day, so the strategy
+# compounds. Guarded: a kind is only adapted once it has enough measured
+# outcomes, so early noise (14 clicks) can't swing the model. Bounded + smoothed
+# so it drifts, never lurches.
+ALL_KINDS = ["indexation", "ctr-fix", "striking-distance", "coverage-gap", "freshness"]
+ADAPT_MIN_MEASURED = 4      # need this many measured outcomes before adapting a kind
+ADAPT_SMOOTHING = 0.30      # EMA weight on the new target (0=frozen, 1=jumpy)
+ADAPT_CLAMP = (0.7, 1.3)    # a kind's multiplier can never leave this band
+
+# Set by build_state() from the persisted adaptive model, read by score_opportunity.
+_KIND_MULT: dict = {}
 
 SEASONAL_THEMES = {
     "summer": ["beaches", "swimming", "boat hire", "outdoor dining", "coastal walks",
@@ -528,9 +544,11 @@ def score_opportunity(opp: Opportunity, gsc: dict) -> None:
 
     raw = sum(b.values())
     effort = EFFORT_BONUS.get(opp.kind, 1.0)
-    opp.score = round(raw * effort, 3)
+    learned = _KIND_MULT.get(opp.kind, 1.0)  # adaptive multiplier from measured outcomes
+    opp.score = round(raw * effort * learned, 3)
     opp.score_breakdown = {k: round(v, 3) for k, v in b.items()}
     opp.score_breakdown["effort_multiplier"] = effort
+    opp.score_breakdown["learned_multiplier"] = round(learned, 3)
 
 
 def _expected_ctr(position: float) -> float:
@@ -642,6 +660,51 @@ def evaluate_actioned(actioned: list[dict], gsc: dict) -> dict:
             "results": results, "hit_rate_by_kind": hit_rate}
 
 
+def load_model_weights() -> dict:
+    """Load the persisted adaptive per-kind multipliers (defaults to 1.0)."""
+    base = {k: 1.0 for k in ALL_KINDS}
+    if MODEL_WEIGHTS_FILE.exists():
+        try:
+            saved = json.loads(MODEL_WEIGHTS_FILE.read_text(encoding="utf-8"))
+            for k, v in (saved.get("kind_multiplier") or {}).items():
+                if k in base and isinstance(v, (int, float)):
+                    base[k] = float(v)
+        except (json.JSONDecodeError, OSError):
+            pass
+    return base
+
+
+def adapt_weights(prev: dict, hit_rate: dict, today: date) -> tuple[dict, list]:
+    """Nudge per-kind multipliers toward fix types that demonstrably work.
+    Only adapts a kind with >= ADAPT_MIN_MEASURED outcomes; otherwise holds.
+    Returns (new_multipliers, change_notes)."""
+    lo, hi = ADAPT_CLAMP
+    new = dict(prev)
+    notes = []
+    for kind in ALL_KINDS:
+        stats = hit_rate.get(kind)
+        if not stats or stats.get("measured", 0) < ADAPT_MIN_MEASURED:
+            continue  # not enough evidence — hold steady (anti-noise guard)
+        win_rate = stats["wins"] / stats["measured"]
+        # target in [0.8, 1.2]: 0% wins -> 0.8, 100% wins -> 1.2
+        target = 0.8 + 0.4 * win_rate
+        cur = prev.get(kind, 1.0)
+        adjusted = cur * (1 - ADAPT_SMOOTHING) + target * ADAPT_SMOOTHING
+        adjusted = round(max(lo, min(hi, adjusted)), 4)
+        if abs(adjusted - cur) >= 0.001:
+            notes.append(f"{kind}: {cur:.3f} → {adjusted:.3f} "
+                         f"({stats['wins']}/{stats['measured']} wins)")
+        new[kind] = adjusted
+    return new, notes
+
+
+def save_model_weights(mult: dict, notes: list, today: date) -> None:
+    STRATEGY_DIR.mkdir(parents=True, exist_ok=True)
+    payload = {"updated": today.isoformat(), "kind_multiplier": mult,
+               "last_change": notes}
+    MODEL_WEIGHTS_FILE.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
 # ── Snapshot + diff (the "improves each day" mechanism) ──────────────────────
 def load_prev_snapshot(snapshot_dir: Path, today: date) -> dict | None:
     if not snapshot_dir.exists():
@@ -746,6 +809,22 @@ def render_markdown(state: dict) -> str:
             md.append(f"- {flag} [{r['kind']}] {label} — {r['detail']} _(since {r['since']})_")
     md.append("")
 
+    model = state.get("model", {})
+    md.append("## Model self-tuning")
+    md.append("")
+    md.append("The scoring model nudges its per-fix-type weights toward what "
+              f"demonstrably works on this site (only after ≥{model.get('adapt_min_measured', 4)} "
+              "measured outcomes, so early noise can't swing it):")
+    md.append("")
+    for kind, mult in model.get("kind_multiplier", {}).items():
+        bar = "at baseline" if abs(mult - 1.0) < 0.001 else (
+            f"**+{(mult-1)*100:.0f}%**" if mult > 1 else f"**{(mult-1)*100:.0f}%**")
+        md.append(f"- `{kind}` × {mult:.3f} ({bar})")
+    if model.get("changes"):
+        md.append("")
+        md.append("**Adjusted this cycle:** " + "; ".join(model["changes"]))
+    md.append("")
+
     md.append("## This cycle's commissioning queue (ranked)")
     md.append("")
     md.append("Ranked by the strategy model (performance + season + coverage + effort). "
@@ -775,11 +854,20 @@ def render_markdown(state: dict) -> str:
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 def build_state(today: date) -> dict:
+    global _KIND_MULT
     season = get_season(today.month)
     gsc = load_gsc(GSC_REPORT)
     cov = load_coverage(GSC_COVERAGE)
     inv = load_inventory(SITEMAP, today)
     comp = load_competitive(COMPETITIVE_DIR)
+
+    # Learning + self-tuning must happen BEFORE scoring so the queue reflects the
+    # adapted model. Measure past outcomes, adapt the per-kind multipliers, then
+    # score everything with them.
+    learning = evaluate_actioned(load_actioned(), gsc)
+    prev_weights = load_model_weights()
+    new_weights, weight_notes = adapt_weights(prev_weights, learning["hit_rate_by_kind"], today)
+    _KIND_MULT = new_weights
 
     inputs_used = []
     if gsc["available"]:
@@ -809,7 +897,6 @@ def build_state(today: date) -> dict:
     }
 
     queue = [asdict(o) for o in opps]
-    learning = evaluate_actioned(load_actioned(), gsc)
     prev = load_prev_snapshot(SNAPSHOT_DIR, today)
     diff = compute_diff(prev, metrics, queue)
 
@@ -824,6 +911,8 @@ def build_state(today: date) -> dict:
         "coverage": inv["sections"],
         "day_over_day": diff,
         "learning": learning,
+        "model": {"kind_multiplier": new_weights, "changes": weight_notes,
+                  "adapt_min_measured": ADAPT_MIN_MEASURED},
         "commissioning_queue": queue,
     }
     return state
@@ -885,6 +974,7 @@ def main():
 
     STRATEGY_DIR.mkdir(parents=True, exist_ok=True)
     SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    save_model_weights(state["model"]["kind_multiplier"], state["model"]["changes"], today)
     STRATEGY_JSON.write_text(json.dumps(state, indent=2), encoding="utf-8")
     STRATEGY_MD.write_text(render_markdown(state), encoding="utf-8")
     (SNAPSHOT_DIR / f"{today.isoformat()}.json").write_text(

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06 22:10 AEST",
+  "generated_at": "2026-07-06 22:47 AEST",
   "date": "2026-07-06",
   "north_star": "Become the number-1 destination \u2014 for people and AI agents \u2014 for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.",
   "season": "winter",
@@ -116,6 +116,17 @@
     ],
     "hit_rate_by_kind": {}
   },
+  "model": {
+    "kind_multiplier": {
+      "indexation": 1.0,
+      "ctr-fix": 1.0,
+      "striking-distance": 1.0,
+      "coverage-gap": 1.0,
+      "freshness": 1.0
+    },
+    "changes": [],
+    "adapt_min_measured": 4
+  },
   "commissioning_queue": [
     {
       "kind": "ctr-fix",
@@ -138,7 +149,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.25
+        "effort_multiplier": 1.25,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -162,7 +174,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.25
+        "effort_multiplier": 1.25,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -186,7 +199,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.25
+        "effort_multiplier": 1.25,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -210,7 +224,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.15
+        "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -234,7 +249,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.25
+        "effort_multiplier": 1.25,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -258,7 +274,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.15
+        "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -282,7 +299,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.15
+        "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -306,7 +324,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -330,7 +349,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -354,7 +374,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.15
+        "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -378,7 +399,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.15
+        "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -402,7 +424,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -426,7 +449,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -450,7 +474,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -474,7 +499,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -498,7 +524,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -522,7 +549,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -546,7 +574,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.8,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -570,7 +599,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.15
+        "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -594,7 +624,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 1.15
+        "effort_multiplier": 1.15,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -618,7 +649,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -642,7 +674,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -666,7 +699,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -690,7 +724,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -714,7 +749,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -738,7 +774,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -762,7 +799,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -786,7 +824,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -810,7 +849,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -834,7 +874,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -858,7 +899,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -882,7 +924,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -906,7 +949,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -930,7 +974,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -954,7 +999,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -978,7 +1024,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1002,7 +1049,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.0,
         "indexation": 1.17,
-        "effort_multiplier": 1.2
+        "effort_multiplier": 1.2,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1026,7 +1074,8 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 0.9
+        "effort_multiplier": 0.9,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1050,7 +1099,8 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 0.9
+        "effort_multiplier": 0.9,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1074,7 +1124,8 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 0.9
+        "effort_multiplier": 0.9,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1098,7 +1149,8 @@
         "coverage_gap": 0.9,
         "freshness": 0.0,
         "indexation": 0.0,
-        "effort_multiplier": 0.9
+        "effort_multiplier": 0.9,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1122,7 +1174,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1146,7 +1199,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1170,7 +1224,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1194,7 +1249,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1218,7 +1274,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1242,7 +1299,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1266,7 +1324,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     },
     {
@@ -1290,7 +1349,8 @@
         "coverage_gap": 0.0,
         "freshness": 0.6,
         "indexation": 0.0,
-        "effort_multiplier": 1.0
+        "effort_multiplier": 1.0,
+        "learned_multiplier": 1.0
       }
     }
   ]

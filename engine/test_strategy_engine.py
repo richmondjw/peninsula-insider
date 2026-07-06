@@ -225,6 +225,47 @@ class GracefulDegradation(unittest.TestCase):
         self.assertGreater(len(opps), 0)
 
 
+class AdaptiveModel(unittest.TestCase):
+    def _prev(self):
+        return {k: 1.0 for k in se.ALL_KINDS}
+
+    def test_holds_below_min_measured(self):
+        """Fewer than the minimum measured outcomes → no adaptation (anti-noise)."""
+        hit = {"ctr-fix": {"wins": 1, "measured": 1}}
+        new, notes = se.adapt_weights(self._prev(), hit, date(2026, 7, 6))
+        self.assertEqual(new["ctr-fix"], 1.0)
+        self.assertEqual(notes, [])
+
+    def test_rewards_winning_kind(self):
+        hit = {"ctr-fix": {"wins": 8, "measured": 8}}  # 100% win rate
+        new, notes = se.adapt_weights(self._prev(), hit, date(2026, 7, 6))
+        self.assertGreater(new["ctr-fix"], 1.0)
+        self.assertTrue(notes)
+
+    def test_penalises_losing_kind(self):
+        hit = {"freshness": {"wins": 0, "measured": 10}}  # 0% win rate
+        new, _ = se.adapt_weights(self._prev(), hit, date(2026, 7, 6))
+        self.assertLess(new["freshness"], 1.0)
+
+    def test_stays_within_clamp(self):
+        prev = {k: 1.3 for k in se.ALL_KINDS}
+        hit = {"ctr-fix": {"wins": 20, "measured": 20}}
+        new, _ = se.adapt_weights(prev, hit, date(2026, 7, 6))
+        lo, hi = se.ADAPT_CLAMP
+        self.assertLessEqual(new["ctr-fix"], hi)
+        self.assertGreaterEqual(new["ctr-fix"], lo)
+
+    def test_multiplier_changes_score(self):
+        se._KIND_MULT = {"ctr-fix": 1.2}
+        try:
+            o = se.Opportunity(kind="ctr-fix", title="", target="/a/", impressions=100,
+                              avg_position=8, ctr=0.0)
+            se.score_opportunity(o, {})
+            self.assertEqual(o.score_breakdown["learned_multiplier"], 1.2)
+        finally:
+            se._KIND_MULT = {}
+
+
 class DeskRouting(unittest.TestCase):
     def test_routes(self):
         self.assertEqual(se.route_desk("/stay/hotel-sorrento/"), "escapes-desk")

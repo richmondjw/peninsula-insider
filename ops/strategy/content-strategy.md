@@ -2,7 +2,7 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Generated:** 2026-07-06 22:10 AEST  
+**Generated:** 2026-07-06 22:47 AEST  
 **Season:** Winter  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, seasonal-calendar:winter  
 
@@ -35,6 +35,16 @@ Tracking 8 actioned item(s), 0 re-measured against GSC:
 - ⏳ [indexation] /corrections/ — not yet re-measured _(since 2026-07-06)_
 - ⏳ [indexation] /accessibility/ — not yet re-measured _(since 2026-07-06)_
 - ⏳ [indexation] /contact/ — not yet re-measured _(since 2026-07-06)_
+
+## Model self-tuning
+
+The scoring model nudges its per-fix-type weights toward what demonstrably works on this site (only after ≥4 measured outcomes, so early noise can't swing it):
+
+- `indexation` × 1.000 (at baseline)
+- `ctr-fix` × 1.000 (at baseline)
+- `striking-distance` × 1.000 (at baseline)
+- `coverage-gap` × 1.000 (at baseline)
+- `freshness` × 1.000 (at baseline)
 
 ## This cycle's commissioning queue (ranked)
 
