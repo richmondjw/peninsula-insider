@@ -42,8 +42,14 @@ above 22 other opportunities.
 - Replace the signal engine's hardcoded competitive gaps with a live scan
 - Auto-act on safe top-queue items (CTR rewrites first), not just log them
 - Add outcome attribution: measure whether a commissioned fix actually moved the page
-- Editorial/trust pages (`/about/`, `/methodology/`, `/contact/`, …) are missing
-  from `sitemap.xml` — add them so crawlers see them too (llms.txt already does)
+
+### Acted on
+- **Indexation fix (loop closed → action):** the brain flagged that editorial/trust
+  pages (`/about/`, `/methodology/`, `/our-approach/`, `/editorial-approach/`,
+  `/ethics/`, `/corrections/`, `/accessibility/`, `/contact/`) were absent from
+  `sitemap.xml` — real routes, footer-linked, but uncrawlable via the sitemap.
+  Added them to `next/src/pages/sitemap.xml.ts` so Google can index the site's
+  E-E-A-T surface. First concrete action driven by a strategy-brain recommendation.
 
 ## 2026-07-05 — Site-wide overhaul: deployment hygiene, IA, brand compliance, UX (PRs #258-#261)
 

@@ -110,6 +110,16 @@ export const GET: APIRoute = async () => {
   entries.push(url('/ask', 1.0, 'weekly'));
   entries.push(url('/partners/apply', 0.5, 'monthly'));
 
+  // Trust / editorial-standards pages. These carry the site's E-E-A-T signals
+  // (who is behind the coverage, how it's researched and corrected) and are
+  // linked in the footer, but were absent from the sitemap — the strategy brain
+  // flagged them as an indexation gap (see ops/strategy/ and CHANGELOG 2026-07-06).
+  // They change rarely, so monthly at moderate priority.
+  for (const page of ['about', 'methodology', 'our-approach', 'editorial-approach',
+                      'ethics', 'corrections', 'accessibility', 'contact']) {
+    entries.push(url(`/${page}`, 0.4, 'monthly'));
+  }
+
   // Best-of pages
   entries.push(url('/eat/best-restaurants', 0.9, 'weekly'));
   entries.push(url('/wine/best-cellar-doors', 0.9, 'weekly'));
