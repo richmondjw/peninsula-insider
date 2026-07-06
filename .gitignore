@@ -43,3 +43,7 @@ ops/logs/
 .claude/research/_brief_*
 .claude/newsroom/loop-state/current.json
 engine/__pycache__/
+
+# Python bytecode caches (anywhere)
+__pycache__/
+*.pyc

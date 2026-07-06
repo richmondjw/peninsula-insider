@@ -158,8 +158,10 @@ The loop is live but early. Status of the ordered increments:
 
 1. ✅ **Fresh GSC on every run.** `orchestrator.py` runs
    `ops/scripts/gsc-search-analytics.py` + `gsc-coverage-monitor.py` before the
-   strategy step (guarded — no-ops without credentials). *Needs GSC credentials
-   in the run environment to actually pull.*
+   strategy step (guarded — no-ops without credentials). `gsc_client.py` now
+   accepts a headless token via `GSC_TOKEN_JSON`, and `daily-content.yml` passes
+   it as a secret. *Remaining: mint the token once and set the secret — see
+   [`ops/gsc-auth/README.md`](../gsc-auth/README.md).*
 2. **Real competitive scan.** Replace the signal engine's hardcoded gaps with a
    live Firecrawl/search-backed scan feeding `.claude/signals/competitive-*.json`.
 3. **Close the write side.** Have the orchestrator *act* on the top queue items
