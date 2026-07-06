@@ -422,6 +422,19 @@ class HouseStyleSanitizer(unittest.TestCase):
         self.assertNotIn("—", out)
 
 
+class LLMClient(unittest.TestCase):
+    def test_sdk_skipped_without_key(self):
+        import os
+        from unittest import mock
+        import llm
+        with mock.patch.dict(os.environ, {}, clear=True):
+            self.assertIsNone(llm._try_sdk("hi", "", "claude-sonnet-5", 100, 5))
+
+    def test_available_returns_valid_backend(self):
+        import llm
+        self.assertIn(llm.available(), {"sdk", "cli", "none"})
+
+
 class VerifyGate(unittest.TestCase):
     """Guards the real factual verify gate — it can BLOCK a live publish, so its
     hard-fail logic must not silently regress."""

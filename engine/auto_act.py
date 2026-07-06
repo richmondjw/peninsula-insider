@@ -138,16 +138,12 @@ def draft_title_dek(slug: str, current_title: str, current_dek: str) -> tuple[st
         "Rewrite both to improve click-through for this page's search intent. "
         "Return only the JSON."
     )
-    try:
-        result = subprocess.run(
-            ["claude", "-p", prompt, "--system", DRAFT_SYSTEM],
-            capture_output=True, text=True, timeout=120,
-        )
-    except (FileNotFoundError, subprocess.TimeoutExpired):
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import llm
+    out = llm.complete(prompt, system=DRAFT_SYSTEM, max_tokens=400)
+    if not out:
         return None
-    if result.returncode != 0 or not result.stdout.strip():
-        return None
-    out = result.stdout.strip()
     m = re.search(r"\{.*\}", out, re.S)
     if not m:
         return None

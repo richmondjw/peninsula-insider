@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""
+Shared LLM client for the content engine.
+
+Resolution order (first that works wins):
+  1. Anthropic SDK  — works headless / in CI when ANTHROPIC_API_KEY is set
+     (the daily/weekly/monthly workflows already provide it). This is why
+     generation + auto-act drafting previously no-op'd in CI: only the `claude`
+     CLI path existed and the CLI isn't installed on the runners.
+  2. `claude` CLI   — for OpenClaw / local dev environments.
+  3. None           — neither available, so callers SKIP (never fabricate).
+
+Stdlib-only import surface; the `anthropic` package is imported lazily so this
+module is safe to import even where the SDK isn't installed.
+"""
+
+from __future__ import annotations
+
+import os
+import subprocess
+
+# Default model: strong quality/cost balance for editorial drafting. Override
+# per-call or via PI_LLM_MODEL. IDs: claude-opus-4-8 / claude-sonnet-5 / claude-haiku-4-5.
+DEFAULT_MODEL = os.environ.get("PI_LLM_MODEL", "claude-sonnet-5")
+DEFAULT_TIMEOUT = 120
+
+
+def complete(prompt: str, system: str = "", model: str | None = None,
+             max_tokens: int = 2000, timeout: int = DEFAULT_TIMEOUT) -> str | None:
+    """Return the model's text, or None if no backend is available."""
+    model = model or DEFAULT_MODEL
+    out = _try_sdk(prompt, system, model, max_tokens, timeout)
+    if out is not None:
+        return out
+    return _try_cli(prompt, system, timeout)
+
+
+def available() -> str:
+    """Report which backend would be used: 'sdk', 'cli', or 'none'. For diagnostics."""
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        try:
+            import anthropic  # noqa: F401
+            return "sdk"
+        except ImportError:
+            pass
+    try:
+        subprocess.run(["claude", "--version"], capture_output=True, timeout=10)
+        return "cli"
+    except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
+        return "none"
+
+
+def _try_sdk(prompt: str, system: str, model: str, max_tokens: int,
+             timeout: int) -> str | None:
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        return None
+    try:
+        import anthropic
+    except ImportError:
+        return None
+    try:
+        client = anthropic.Anthropic()
+        kwargs = {
+            "model": model,
+            "max_tokens": max_tokens,
+            "messages": [{"role": "user", "content": prompt}],
+            "timeout": timeout,
+        }
+        if system:
+            kwargs["system"] = system
+        msg = client.messages.create(**kwargs)
+        text = "".join(
+            getattr(b, "text", "") for b in msg.content
+            if getattr(b, "type", None) == "text"
+        ).strip()
+        return text or None
+    except Exception as e:  # network/auth/rate-limit — degrade, don't crash the loop
+        print(f"  LLM SDK error: {e}")
+        return None
+
+
+def _try_cli(prompt: str, system: str, timeout: int) -> str | None:
+    cmd = ["claude", "-p", prompt]
+    if system:
+        cmd += ["--system", system]
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+    except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
+        return None
+    if r.returncode == 0 and r.stdout.strip():
+        return r.stdout.strip()
+    return None
