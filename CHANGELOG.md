@@ -9,10 +9,12 @@ assumed.
 
 ### Components added
 - `engine/strategy_engine.py` — the Content Strategy Brain. Each run it fuses
-  five research points (GSC search performance, sitemap content inventory,
-  competitive scan, seasonal intent calendar, and its own prior snapshot) into a
-  single scored, ranked commissioning queue, then diffs today vs yesterday.
-  Standard-library only, degrades gracefully on missing inputs, deterministic.
+  multiple research points (GSC search performance, GSC coverage/indexation,
+  sitemap content inventory, competitive scan, seasonal intent calendar, and its
+  own prior snapshot) into a single scored, ranked commissioning queue, then
+  diffs today vs yesterday. Standard-library only, degrades gracefully on missing
+  inputs, deterministic. Opportunity kinds: indexation (highest leverage — an
+  unindexed page can't rank), ctr-fix, striking-distance, coverage-gap, freshness.
 - `ops/strategy/` — machine-owned evolving strategy state: `content-strategy.json`
   (consumed by the orchestrator), `content-strategy.md` (human brief),
   `snapshots/YYYY-MM-DD.json` (history + day-over-day basis), and a `README.md`

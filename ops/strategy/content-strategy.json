@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-07-06 21:17 AEST",
+  "generated_at": "2026-07-06 21:25 AEST",
   "date": "2026-07-06",
   "north_star": "Become the number-1 destination \u2014 for people and AI agents \u2014 for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.",
   "season": "winter",
   "inputs_used": [
     "gsc-search-analytics",
+    "gsc-coverage",
     "sitemap-inventory",
     "seasonal-calendar:winter"
   ],
@@ -13,8 +14,10 @@
     "total_clicks": 14,
     "total_impressions": 630,
     "avg_position": 15.2,
-    "pages_indexed": 408,
-    "open_opportunities": 23
+    "pages_indexed": 0,
+    "pages_not_indexed": 26,
+    "pages_in_sitemap": 408,
+    "open_opportunities": 49
   },
   "coverage": {
     "(home)": 1,
@@ -63,6 +66,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.25
       }
     },
@@ -86,6 +90,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.25
       }
     },
@@ -109,6 +114,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.25
       }
     },
@@ -132,6 +138,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.15
       }
     },
@@ -155,6 +162,7 @@
         "seasonal": 0.8,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.25
       }
     },
@@ -178,6 +186,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.15
       }
     },
@@ -201,7 +210,56 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.15
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/a-winter-peninsula-weekend/ indexed",
+      "target": "/journal/a-winter-peninsula-weekend/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": true,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "dispatch-desk",
+      "score": 2.868,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.8,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /wine/best-cellar-doors/ indexed",
+      "target": "/wine/best-cellar-doors/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": true,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "table-desk",
+      "score": 2.868,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.8,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
       }
     },
     {
@@ -224,6 +282,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.15
       }
     },
@@ -247,7 +306,176 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.15
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /explore/ indexed (hub page!)",
+      "target": "/explore/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 2.664,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.8,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /places/ indexed (hub page!)",
+      "target": "/places/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 2.664,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.8,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /eat/ indexed (hub page!)",
+      "target": "/eat/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "table-desk",
+      "score": 2.664,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.8,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/ indexed (hub page!)",
+      "target": "/journal/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 2.664,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.8,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /wine/ indexed (hub page!)",
+      "target": "/wine/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "table-desk",
+      "score": 2.664,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.8,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /stay/ indexed (hub page!)",
+      "target": "/stay/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "escapes-desk",
+      "score": 2.664,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.8,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /escape/ indexed (hub page!)",
+      "target": "/escape/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 2.664,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.8,
+        "effort_multiplier": 1.2
       }
     },
     {
@@ -270,6 +498,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.15
       }
     },
@@ -293,7 +522,416 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 1.15
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /places/cape-schanck/ indexed",
+      "target": "/places/cape-schanck/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'URL is unknown to Google' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-producer-trail/ indexed",
+      "target": "/journal/the-producer-trail/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-birthday-weekend/ indexed",
+      "target": "/journal/the-birthday-weekend/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "dispatch-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-sorrento-weekend/ indexed",
+      "target": "/journal/the-sorrento-weekend/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "dispatch-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-easter-peninsula/ indexed",
+      "target": "/journal/the-easter-peninsula/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/first-time-peninsula/ indexed",
+      "target": "/journal/first-time-peninsula/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-peninsula-beach-swimming-guide/ indexed",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-dog-friendly-peninsula/ indexed",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-spring-peninsula/ indexed",
+      "target": "/journal/the-spring-peninsula/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-market-saturday/ indexed",
+      "target": "/journal/the-market-saturday/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "dispatch-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-four-hour-peninsula/ indexed",
+      "target": "/journal/the-four-hour-peninsula/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /journal/the-peninsula-picnic/ indexed",
+      "target": "/journal/the-peninsula-picnic/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'URL is unknown to Google' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /eat/best-restaurants/ indexed",
+      "target": "/eat/best-restaurants/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "table-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /explore/best-walks/ indexed",
+      "target": "/explore/best-walks/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /places/mornington/ indexed",
+      "target": "/places/mornington/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /places/sorrento/ indexed",
+      "target": "/places/sorrento/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
+      }
+    },
+    {
+      "kind": "indexation",
+      "title": "Get /places/dromana/ indexed",
+      "target": "/places/dromana/",
+      "query": "",
+      "impressions": 0,
+      "avg_position": 0.0,
+      "ctr": 0.0,
+      "seasonal": false,
+      "rationale": "Google reports 'Discovered \u2013 currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything \u2014 the single highest-leverage fix.",
+      "recommended_action": "Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.",
+      "suggested_desk": "field-desk",
+      "score": 1.908,
+      "score_breakdown": {
+        "impressions": 0.0,
+        "position_proximity": 0.42,
+        "ctr_deficit": 0.0,
+        "seasonal": 0.0,
+        "coverage_gap": 0.0,
+        "freshness": 0.0,
+        "indexation": 1.17,
+        "effort_multiplier": 1.2
       }
     },
     {
@@ -316,6 +954,7 @@
         "seasonal": 0.8,
         "coverage_gap": 0.9,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 0.9
       }
     },
@@ -339,6 +978,7 @@
         "seasonal": 0.8,
         "coverage_gap": 0.9,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 0.9
       }
     },
@@ -362,6 +1002,7 @@
         "seasonal": 0.8,
         "coverage_gap": 0.9,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 0.9
       }
     },
@@ -385,6 +1026,7 @@
         "seasonal": 0.8,
         "coverage_gap": 0.9,
         "freshness": 0.0,
+        "indexation": 0.0,
         "effort_multiplier": 0.9
       }
     },
@@ -408,6 +1050,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     },
@@ -431,6 +1074,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     },
@@ -454,6 +1098,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     },
@@ -477,6 +1122,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     },
@@ -500,6 +1146,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     },
@@ -523,6 +1170,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     },
@@ -546,6 +1194,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     },
@@ -569,6 +1218,7 @@
         "seasonal": 0.0,
         "coverage_gap": 0.0,
         "freshness": 0.6,
+        "indexation": 0.0,
         "effort_multiplier": 1.0
       }
     }

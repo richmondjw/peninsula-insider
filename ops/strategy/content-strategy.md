@@ -2,9 +2,9 @@
 
 **North star:** Become the number-1 destination — for people and AI agents — for what's on, and where to stay, eat, drink and explore on the Mornington Peninsula.
 
-**Generated:** 2026-07-06 21:17 AEST  
+**Generated:** 2026-07-06 21:25 AEST  
 **Season:** Winter  
-**Inputs used:** gsc-search-analytics, sitemap-inventory, seasonal-calendar:winter  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, seasonal-calendar:winter  
 
 ## Where we stand
 
@@ -14,8 +14,10 @@
 | Total clicks | 14 |
 | Total impressions | 630 |
 | Avg position | 15.2 |
-| Pages indexed (sitemap) | 408 |
-| Open opportunities | 23 |
+| Pages indexed by Google | 0 |
+| Pages known-not-indexed | 26 |
+| Pages in sitemap | 408 |
+| Open opportunities | 49 |
 
 ## Day-over-day (is the strategy improving?)
 
@@ -63,34 +65,32 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 8. [RANK · score 2.845] Push 'a dog-friendly guide mornington peninsula' onto page 1
+### 8. [INDEX · score 2.868] Get /journal/a-winter-peninsula-weekend/ indexed
+- **Desk:** dispatch-desk
+- **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
+- **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
+
+### 9. [INDEX · score 2.868] Get /wine/best-cellar-doors/ indexed
+- **Desk:** table-desk
+- **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
+- **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
+
+### 10. [RANK · score 2.845] Push 'a dog-friendly guide mornington peninsula' onto page 1
 - **Desk:** field-desk
 - **Query:** `a dog-friendly guide mornington peninsula`
 - **Why:** 'a dog-friendly guide mornington peninsula' ranks avg position 8.3 on 10 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 9. [RANK · score 2.689] Push 'mornington cup 2026' onto page 1
+### 11. [RANK · score 2.689] Push 'mornington cup 2026' onto page 1
 - **Desk:** dispatch-desk
 - **Query:** `mornington cup 2026`
 - **Why:** 'mornington cup 2026' ranks avg position 10.2 on 12 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 10. [RANK · score 2.473] Push 'red hill cheese' onto page 1
-- **Desk:** table-desk
-- **Query:** `red hill cheese`
-- **Why:** 'red hill cheese' ranks avg position 9.7 on 7 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
-
-### 11. [RANK · score 2.123] Push 'dog-friendly guide mornington peninsula' onto page 1
+### 12. [INDEX · score 2.664] Get /explore/ indexed (hub page!)
 - **Desk:** field-desk
-- **Query:** `dog-friendly guide mornington peninsula`
-- **Why:** 'dog-friendly guide mornington peninsula' ranks avg position 12.0 on 5 impressions — small, targeted improvement could reach page 1 and start earning clicks.
-- **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
-
-### 12. [NEW · score 1.908] Seasonal angle: hot springs (winter)
-- **Desk:** field-desk
-- **Why:** 'hot springs' is peak-intent for winter; own the seasonal query now.
-- **Do:** Commission or refresh a definitive winter 'hot springs' guide with current venues, booking links and an FAQ block.
+- **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). A section hub that isn't indexed cannot rank for anything — the single highest-leverage fix.
+- **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
 
 ## Coverage snapshot
 

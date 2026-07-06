@@ -59,6 +59,7 @@ except Exception:  # pragma: no cover - zoneinfo always present on 3.9+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SITEMAP = REPO_ROOT / "sitemap.xml"
 GSC_REPORT = REPO_ROOT / "ops/reports/gsc-search-analytics.md"
+GSC_COVERAGE = REPO_ROOT / "ops/reports/gsc-coverage-report.md"
 COMPETITIVE_DIR = REPO_ROOT / ".claude/signals"
 STRATEGY_DIR = REPO_ROOT / "ops/strategy"
 SNAPSHOT_DIR = STRATEGY_DIR / "snapshots"
@@ -78,6 +79,7 @@ NORTH_STAR = (
 # tuned as the site matures (early-stage favours striking-distance + CTR wins;
 # a mature site would lift coverage/freshness).
 WEIGHTS = {
+    "indexation": 1.8,       # not indexed = can't rank at all — the upstream lever
     "impressions": 1.0,      # demand already proven by Google surfacing us
     "position_proximity": 1.4,  # how close to page 1 (fast to convert)
     "ctr_deficit": 1.2,      # surfaced but not clicked = title/meta fix, cheap
@@ -89,6 +91,7 @@ WEIGHTS = {
 # Effort multipliers: cheap, high-certainty wins get a nudge so the queue front
 # is dominated by things that move the needle this week, not moonshots.
 EFFORT_BONUS = {
+    "indexation": 1.2,        # getting a page indexed is high-leverage and mostly mechanical
     "ctr-fix": 1.25,          # rewrite title + meta on an existing page
     "striking-distance": 1.15,  # tighten an existing page to reach page 1
     "freshness": 1.0,
@@ -238,6 +241,35 @@ def load_gsc(report_path: Path) -> dict:
     return data
 
 
+def load_coverage(report_path: Path) -> dict:
+    """Parse the GSC coverage report — which URLs Google has (not) indexed.
+    A page that isn't indexed cannot rank, so these are the most upstream fixes."""
+    data = {"available": False, "indexed": 0, "not_indexed": [], "generated": ""}
+    if not report_path.exists():
+        return data
+    md = report_path.read_text(encoding="utf-8")
+    data["available"] = True
+    gen = re.search(r"_Generated (.+?)_", md)
+    if gen:
+        data["generated"] = gen.group(1).strip()
+    indexed = re.search(r"Indexed \(PASS\):\s*\*\*(\d+)\*\*", md)
+    if indexed:
+        data["indexed"] = int(indexed.group(1))
+    for row in parse_markdown_table(md, r"^#+.*URL Inspection Results"):
+        verdict_cov = row.get("Coverage", "")
+        if not verdict_cov:
+            continue
+        # Anything not clearly indexed is an indexation opportunity.
+        if re.search(r"not indexed|unknown to google|discovered|crawled - currently not",
+                     verdict_cov, re.I):
+            data["not_indexed"].append({
+                "path": _norm_path(row.get("URL", "")),
+                "coverage": verdict_cov.strip(),
+                "last_crawl": row.get("Last Crawl", "").strip(),
+            })
+    return data
+
+
 def load_inventory(sitemap_path: Path, today: date) -> dict:
     """Section coverage + freshness from the sitemap."""
     inv = {"available": False, "total": 0, "sections": {}, "stale": []}
@@ -302,14 +334,43 @@ def route_desk(target: str, query: str = "") -> str:
 
 
 # ── Opportunity generation ───────────────────────────────────────────────────
-def build_opportunities(gsc: dict, inv: dict, comp: dict, season: str) -> list[Opportunity]:
+def build_opportunities(gsc: dict, inv: dict, comp: dict, season: str,
+                        cov: dict | None = None) -> list[Opportunity]:
     themes = SEASONAL_THEMES.get(season, [])
+    cov = cov or {"not_indexed": []}
     opps: list[Opportunity] = []
     seen_targets: set[str] = set()
 
     def seasonal_match(text: str) -> bool:
         t = text.lower()
         return any(theme.split()[0] in t for theme in themes)
+
+    def is_hub(path: str) -> bool:
+        p = path.strip("/").split("/")
+        return len(p) <= 1 and p[0] != ""
+
+    # 0. Indexation — pages Google hasn't indexed. Upstream of everything else:
+    #    an unindexed page earns zero regardless of how good it is.
+    for row in cov.get("not_indexed", []):
+        path = row["path"]
+        key = ("idx", path)
+        if key in seen_targets:
+            continue
+        seen_targets.add(key)
+        hub = is_hub(path)
+        opps.append(Opportunity(
+            kind="indexation",
+            title=f"Get {path} indexed{' (hub page!)' if hub else ''}",
+            target=path,
+            seasonal=seasonal_match(path),
+            rationale=(f"Google reports '{row['coverage']}' (last crawl: {row['last_crawl']}). "
+                       f"{'A section hub' if hub else 'This page'} that isn't indexed cannot rank "
+                       f"for anything — the single highest-leverage fix."),
+            recommended_action=("Ensure it's in sitemap.xml with a strong priority, add internal "
+                                "links from already-indexed pages, confirm it isn't noindex, add "
+                                "unique above-the-fold content, then Request Indexing in GSC."),
+            suggested_desk=route_desk(path),
+        ))
 
     # 1. CTR fixes — surfaced with demand but not clicked. If the page ranks on
     #    page 1–2 it's a snippet problem (cheap fix); if it ranks deep, it's a
@@ -455,6 +516,14 @@ def score_opportunity(opp: Opportunity, gsc: dict) -> None:
     # Coverage-gap / freshness structural nudges by kind.
     b["coverage_gap"] = WEIGHTS["coverage_gap"] * (1.0 if opp.kind == "coverage-gap" else 0.0)
     b["freshness"] = WEIGHTS["freshness"] * (1.0 if opp.kind == "freshness" else 0.0)
+    # Indexation — strongest structural weight; hub pages boosted (they gate
+    # crawl equity for everything beneath them).
+    if opp.kind == "indexation":
+        segs = [s for s in opp.target.strip("/").split("/") if s]
+        hub_boost = 1.0 if len(segs) <= 1 else 0.65
+        b["indexation"] = WEIGHTS["indexation"] * hub_boost
+    else:
+        b["indexation"] = 0.0
 
     raw = sum(b.values())
     effort = EFFORT_BONUS.get(opp.kind, 1.0)
@@ -519,6 +588,10 @@ def compute_diff(prev: dict | None, metrics: dict, queue: list[dict]) -> dict:
 
 
 # ── Rendering ────────────────────────────────────────────────────────────────
+def _fmt(v):
+    return "—" if v is None else v
+
+
 def render_markdown(state: dict) -> str:
     m = state["metrics"]
     md = [f"# Peninsula Insider — Content Strategy", ""]
@@ -536,7 +609,9 @@ def render_markdown(state: dict) -> str:
     md.append(f"| Total clicks | {m.get('total_clicks','—')} |")
     md.append(f"| Total impressions | {m.get('total_impressions','—')} |")
     md.append(f"| Avg position | {m.get('avg_position','—')} |")
-    md.append(f"| Pages indexed (sitemap) | {m.get('pages_indexed','—')} |")
+    md.append(f"| Pages indexed by Google | {_fmt(m.get('pages_indexed'))} |")
+    md.append(f"| Pages known-not-indexed | {_fmt(m.get('pages_not_indexed'))} |")
+    md.append(f"| Pages in sitemap | {m.get('pages_in_sitemap','—')} |")
     md.append(f"| Open opportunities | {m.get('open_opportunities','—')} |")
     md.append("")
 
@@ -558,8 +633,8 @@ def render_markdown(state: dict) -> str:
               "The orchestrator commissions from the top down.")
     md.append("")
     for i, o in enumerate(state["commissioning_queue"][:12], 1):
-        tag = {"ctr-fix": "CTR", "striking-distance": "RANK", "coverage-gap": "NEW",
-               "freshness": "FRESH"}.get(o["kind"], o["kind"].upper())
+        tag = {"indexation": "INDEX", "ctr-fix": "CTR", "striking-distance": "RANK",
+               "coverage-gap": "NEW", "freshness": "FRESH"}.get(o["kind"], o["kind"].upper())
         md.append(f"### {i}. [{tag} · score {o['score']}] {o['title']}")
         md.append(f"- **Desk:** {o['suggested_desk']}")
         if o.get("query"):
@@ -583,19 +658,22 @@ def render_markdown(state: dict) -> str:
 def build_state(today: date) -> dict:
     season = get_season(today.month)
     gsc = load_gsc(GSC_REPORT)
+    cov = load_coverage(GSC_COVERAGE)
     inv = load_inventory(SITEMAP, today)
     comp = load_competitive(COMPETITIVE_DIR)
 
     inputs_used = []
     if gsc["available"]:
         inputs_used.append("gsc-search-analytics")
+    if cov["available"]:
+        inputs_used.append("gsc-coverage")
     if inv["available"]:
         inputs_used.append("sitemap-inventory")
     if comp["available"]:
         inputs_used.append("competitive-scan")
     inputs_used.append(f"seasonal-calendar:{season}")
 
-    opps = build_opportunities(gsc, inv, comp, season)
+    opps = build_opportunities(gsc, inv, comp, season, cov)
 
     total_clicks = int(_num(gsc["summary"].get("Total clicks", 0))) if gsc["available"] else 0
     total_impr = int(_num(gsc["summary"].get("Total impressions", 0))) if gsc["available"] else 0
@@ -605,7 +683,9 @@ def build_state(today: date) -> dict:
         "total_clicks": total_clicks,
         "total_impressions": total_impr,
         "avg_position": avg_pos,
-        "pages_indexed": inv["total"],
+        "pages_indexed": cov["indexed"] if cov["available"] else None,
+        "pages_not_indexed": len(cov["not_indexed"]) if cov["available"] else None,
+        "pages_in_sitemap": inv["total"],
         "open_opportunities": len(opps),
     }
 

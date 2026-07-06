@@ -29,8 +29,10 @@ Strategy Brain (`engine/strategy_engine.py`) closes that loop:
 Each daily run the brain:
 
 1. **Ingests multiple research points**
-   - Google Search Console report (`ops/reports/gsc-search-analytics.md`) —
+   - GSC search analytics (`ops/reports/gsc-search-analytics.md`) —
      clicks, impressions, positions, striking-distance queries, CTR misses
+   - GSC coverage/indexation (`ops/reports/gsc-coverage-report.md`) —
+     which URLs Google has (not) indexed; an unindexed page can't rank at all
    - Content inventory from `sitemap.xml` — section coverage + page freshness
    - Competitive-scan JSON from the signal engine (`.claude/signals/`)
    - Seasonal intent calendar (season → peak-intent Peninsula themes)
@@ -52,14 +54,21 @@ Each daily run the brain:
 
 ## The scoring model
 
-Opportunities fall into four kinds, each mapped to a concrete action:
+Opportunities fall into five kinds, each mapped to a concrete action:
 
 | Kind | Trigger | Typical action | Effort |
 |---|---|---|---|
+| `indexation` | Page not indexed by Google | Internal links + sitemap + request indexing | mechanical, highest leverage |
 | `ctr-fix` | Ranks page 1–2, high impressions, low CTR | Rewrite title + meta / direct answer | cheap |
 | `striking-distance` | Query at avg position 4–20 with demand | Deepen the ranking page to reach page 1 | medium |
 | `coverage-gap` | Competitor / seasonal theme not covered | Commission a definitive PI piece | higher value, slower |
 | `freshness` | Important page stale >90 days | Verify + refresh + relink | medium |
+
+`indexation` carries the strongest structural weight (a page Google hasn't
+indexed earns nothing, whatever its quality), with section-hub pages boosted
+above deep pages since hubs gate crawl equity for everything beneath them. It is
+ranked against proven-demand fixes rather than always first, so concrete wins on
+pages already earning impressions aren't crowded out by a stale coverage report.
 
 Each opportunity's score is a weighted sum of interpretable contributions —
 `impressions` (log-damped proven demand), `position_proximity` (closeness to
