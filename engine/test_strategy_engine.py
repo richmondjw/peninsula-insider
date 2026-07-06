@@ -422,6 +422,22 @@ class HouseStyleSanitizer(unittest.TestCase):
         self.assertNotIn("—", out)
 
 
+class AutoActScope(unittest.TestCase):
+    def test_actionable_kinds(self):
+        import auto_act as aa
+        self.assertIn("ctr-fix", aa.ACTIONABLE_KINDS)
+        self.assertIn("striking-distance", aa.ACTIONABLE_KINDS)
+        self.assertNotIn("coverage-gap", aa.ACTIONABLE_KINDS)
+        self.assertNotIn("indexation", aa.ACTIONABLE_KINDS)
+
+    def test_query_aware_prompt(self):
+        import auto_act as aa
+        with_q = aa._draft_prompt("dog-friendly", "T", "D", query="dog beaches mornington")
+        without_q = aa._draft_prompt("dog-friendly", "T", "D")
+        self.assertIn("dog beaches mornington", with_q)
+        self.assertNotIn("search query:", without_q)
+
+
 class LLMClient(unittest.TestCase):
     def test_sdk_skipped_without_key(self):
         import os

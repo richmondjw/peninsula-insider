@@ -7,10 +7,11 @@ opportunities, it *acts* on the safest, highest-ROI class of them without a
 human in the loop.
 
 Scope (deliberately narrow and safe):
-  - Only `ctr-fix` opportunities whose target is a **journal article**
-    (`/journal/{slug}/` → next/src/content/articles/{slug}.md|.mdx). For those,
-    the whole SEO surface is two frontmatter fields — `title` and `dek` — so the
-    edit is deterministic and confined. Venue/event pages derive their meta from
+  - `ctr-fix` and `striking-distance` opportunities whose target is a **journal
+    article** (`/journal/{slug}/` → next/src/content/articles/{slug}.md|.mdx). For
+    those, the whole SEO surface is two frontmatter fields — `title` and `dek` —
+    so the edit is deterministic and confined (a striking-distance rewrite is
+    optimised for the driving query). Venue/event pages derive their meta from
     templates; auto-editing those safely needs template-aware handling, so they
     are logged and left for a human/next iteration, never blindly edited.
 
@@ -57,6 +58,11 @@ ARTICLES_DIR = REPO_ROOT / "next/src/content/articles"
 STRATEGY_JSON = se.STRATEGY_JSON
 
 MAX_ACTIONS_PER_RUN = 1          # conservative default; raise once trust is earned
+
+# Opportunity kinds safe to auto-execute today: both edit only a journal
+# article's title + meta description (reversible, no new factual claims). CTR
+# fixes target low-CTR page-1 pages; striking-distance targets near-page-1 queries.
+ACTIONABLE_KINDS = {"ctr-fix", "striking-distance"}
 TITLE_MAX = 65                    # before the " · Peninsula Insider" suffix
 DEK_MIN, DEK_MAX = 70, 165        # healthy meta-description window
 PROHIBITED = ["stunning", "vibrant", "nestled", "charming", "hidden gem",
@@ -128,16 +134,25 @@ DRAFT_SYSTEM = (
 )
 
 
-def draft_title_dek(slug: str, current_title: str, current_dek: str) -> tuple[str, str] | None:
-    """Ask Claude for an improved title+dek. Returns None if unavailable (skip,
-    never fabricate)."""
-    prompt = (
+def _draft_prompt(slug: str, current_title: str, current_dek: str, query: str = "") -> str:
+    """Build the drafting prompt. When a driving query is known (striking-distance),
+    the rewrite is optimised for that exact query."""
+    intent = (f"Optimise the rewrite for the search query: \"{query}\". "
+              if query else "Rewrite both to improve click-through for this page's "
+              "obvious search intent. ")
+    return (
         f"Page: /journal/{slug}/\n"
         f"Current title: {current_title}\n"
         f"Current meta description: {current_dek}\n\n"
-        "Rewrite both to improve click-through for this page's search intent. "
-        "Return only the JSON."
+        f"{intent}Return only the JSON."
     )
+
+
+def draft_title_dek(slug: str, current_title: str, current_dek: str,
+                    query: str = "") -> tuple[str, str] | None:
+    """Ask Claude for an improved title+dek. Returns None if unavailable (skip,
+    never fabricate)."""
+    prompt = _draft_prompt(slug, current_title, current_dek, query)
     import sys as _sys
     _sys.path.insert(0, str(Path(__file__).resolve().parent))
     import llm
@@ -203,7 +218,8 @@ def auto_act(limit: int = MAX_ACTIONS_PER_RUN, dry_run: bool = False,
     for opp in load_queue():
         if len(actions) >= limit:
             break
-        if opp.get("kind") != "ctr-fix":
+        kind = opp.get("kind")
+        if kind not in ACTIONABLE_KINDS:
             continue
         target = opp.get("target", "")
         if target in done:
@@ -219,7 +235,7 @@ def auto_act(limit: int = MAX_ACTIONS_PER_RUN, dry_run: bool = False,
             skipped.append((target, "missing title/dek frontmatter"))
             continue
 
-        draft = draft_title_dek(src.stem, cur_title, cur_dek)
+        draft = draft_title_dek(src.stem, cur_title, cur_dek, opp.get("query", ""))
         if not draft:
             skipped.append((target, "no draft (model unavailable) — skipped, not fabricated"))
             continue
@@ -246,7 +262,7 @@ def auto_act(limit: int = MAX_ACTIONS_PER_RUN, dry_run: bool = False,
             continue
 
         src.write_text(updated)
-        se.record_action(target, "ctr-fix", opp.get("query", ""),
+        se.record_action(target, kind, opp.get("query", ""),
                          f"auto: title/meta rewrite (was: {cur_title[:50]})", se.load_gsc(se.GSC_REPORT), today)
         actions.append(action)
 
