@@ -438,6 +438,30 @@ class AutoActScope(unittest.TestCase):
         self.assertNotIn("search query:", without_q)
 
 
+class AlertPath(unittest.TestCase):
+    def test_writes_alert_file(self):
+        import os, tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d:
+            with mock.patch.dict(os.environ, {"PI_REPO_ROOT": d}, clear=False):
+                import importlib
+                import alert
+                importlib.reload(alert)  # pick up PI_REPO_ROOT
+                r = alert.emit_alert("Test fail", "body here", "error", "unit-key")
+                self.assertIsNotNone(r["file"])
+                self.assertTrue(Path(r["file"]).exists())
+                payload = __import__("json").loads(Path(r["file"]).read_text())
+                self.assertEqual(payload["severity"], "error")
+                self.assertEqual(payload["dedup_key"], "unit-key")
+
+    def test_no_issue_without_token(self):
+        import os
+        from unittest import mock
+        import alert
+        with mock.patch.dict(os.environ, {}, clear=True):
+            self.assertIsNone(alert.open_or_reuse_issue("t", "b", "k"))
+
+
 class LLMClient(unittest.TestCase):
     def test_sdk_skipped_without_key(self):
         import os

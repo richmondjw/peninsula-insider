@@ -886,14 +886,32 @@ def main():
     except Exception as e:
         log.error(f"Unhandled exception: {e}")
         print(f"\nFatal error: {e}", file=sys.stderr)
+        _alert(args.tempo, "fatal", f"{args.tempo} run crashed: {e}", log)
         raise
     finally:
         log.save()
         state["last_run"] = {"tempo": args.tempo, "date": today}
         state["stalls"] = state.get("stalls", 0) + log.stalls
         save_loop_state(state)
+        # Non-silent alert path: if any step stalled (even on a "successful" run),
+        # surface it so failures aren't invisible. See engine/alert.py.
+        if log.stalls and log.errors:
+            _alert(args.tempo, "error",
+                   f"{args.tempo} run had {log.stalls} stall(s):\n- " + "\n- ".join(log.errors[:10]), log)
 
     print(f"\n✓ {args.tempo.title()} run complete — {log.pieces_shipped} piece(s) shipped")
+
+
+def _alert(tempo: str, severity: str, body: str, log: "RunLog") -> None:
+    """Emit a non-silent alert. Never raises — alerting must not mask the run."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import alert
+        alert.emit_alert(
+            title=f"PI {tempo} run: {severity} ({log.pieces_shipped} shipped, {log.stalls} stalls)",
+            body=body, severity=severity, dedup_key=f"orchestrator-{tempo}")
+    except Exception as e:
+        print(f"  alert emit failed: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":

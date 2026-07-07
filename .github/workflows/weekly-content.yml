@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # non-silent alert path opens an issue on failure
 
 jobs:
   weekly-content:
@@ -86,3 +87,15 @@ jobs:
             .claude/signals/
             .claude/newsroom/slates/
           retention-days: 90
+
+      - name: Alert on failure (non-silent)
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/alert.py \
+            --title "Weekly content run failed (run #${{ github.run_number }})" \
+            --body "The weekly content workflow failed. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dedup weekly-workflow-failure --severity fatal
