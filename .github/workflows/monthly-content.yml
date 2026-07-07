@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # non-silent alert path opens an issue on failure
 
 jobs:
   monthly-content:
@@ -81,3 +82,15 @@ jobs:
             .claude/signals/
             .claude/research/
           retention-days: 365
+
+      - name: Alert on failure (non-silent)
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/alert.py \
+            --title "Monthly content run failed (run #${{ github.run_number }})" \
+            --body "The monthly content workflow failed. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dedup monthly-workflow-failure --severity fatal

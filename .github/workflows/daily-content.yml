@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # non-silent alert path opens an issue on failure
 
 jobs:
   daily-content:
@@ -88,6 +89,20 @@ jobs:
           name: daily-run-log-${{ github.run_number }}
           path: .claude/newsroom/runs/
           retention-days: 30
+
+      - name: Alert on failure (non-silent)
+        # Backstop for hard crashes (pre-flight gate, non-zero exit) the
+        # in-process alert can't reach. Opens/reuses a GitHub issue. See engine/alert.py.
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PI_REPO_ROOT: ${{ github.workspace }}
+        run: |
+          python engine/alert.py \
+            --title "Daily content run failed (run #${{ github.run_number }})" \
+            --body "The daily content workflow failed. Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --dedup daily-workflow-failure --severity fatal
 
       - name: Trigger deploy if content was pushed
         if: success()
