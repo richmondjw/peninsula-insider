@@ -4,7 +4,7 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-07-09 07:09 AEST  
+**Generated:** 2026-07-10 07:25 AEST  
 **Season:** Winter  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:5-upcoming, seasonal-calendar:winter  
 
@@ -23,7 +23,7 @@
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-07-08._
+_Compared with 2026-07-09._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -88,19 +88,19 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 7. [EVENT · score 2.992] Preview: Soil & Cellar: Flinders Truffles x Polperro Winery (16d out)
+### 7. [EVENT · score 2.992] Preview: Soil & Cellar: Flinders Truffles x Polperro Winery (15d out)
 - **Desk:** dispatch-desk
-- **Why:** Soil & Cellar: Flinders Truffles x Polperro Winery is 16 days out (2026-07-25, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Soil & Cellar: Flinders Truffles x Polperro Winery is 15 days out (2026-07-25, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (31d out)
+### 8. [EVENT · score 2.992] Preview: Stonier Fire & Wine Winter Lunch (30d out)
 - **Desk:** dispatch-desk
-- **Why:** Stonier Fire & Wine Winter Lunch is 31 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Stonier Fire & Wine Winter Lunch is 30 days out (2026-08-09, Merricks) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (37d out)
+### 9. [EVENT · score 2.992] Preview: Red Hill Brewery Secret Stash Weekend (36d out)
 - **Desk:** dispatch-desk
-- **Why:** Red Hill Brewery Secret Stash Weekend is 37 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Red Hill Brewery Secret Stash Weekend is 36 days out (2026-08-15, Other Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 10. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
