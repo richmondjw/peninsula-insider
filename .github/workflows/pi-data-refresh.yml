@@ -1,0 +1,54 @@
+name: PI Data Refresh — Peninsula Insider
+
+on:
+  schedule:
+    # 03:00 UTC daily — belt-and-braces data layer alignment
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: pi-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  data-refresh:
+    name: Refresh content registry, entity index, and embeddings
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: next/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd next
+          npm ci --prefer-offline
+
+      - name: Phase A — Refresh content registry
+        run: node next/scripts/refresh-content-registry.mjs
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+
+      - name: Phase B — Refresh entity index
+        run: node next/scripts/refresh-entity-index.mjs
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+
+      - name: Phase C — Embed entity index
+        run: node next/scripts/embed-entity-index.mjs --apply
+        env:
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
