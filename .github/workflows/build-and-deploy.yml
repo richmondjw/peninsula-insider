@@ -42,6 +42,11 @@ jobs:
           cd next
           npm ci --prefer-offline
 
+      - name: CMS editable-coverage gate
+        run: |
+          cd next
+          node scripts/check-editable-coverage.mjs
+
       - name: Build
         run: |
           cd next
