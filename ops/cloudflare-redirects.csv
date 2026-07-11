@@ -1,0 +1,85 @@
+# Peninsula Insider - Cloudflare redirect import list (SEOMIG T-902, 2026-07-11)
+# IMPORT AT CUTOVER ONLY - after Cloudflare fronts the site (seo-migration-plan.md par 4.2)
+# and after the gate is off and the GSC baseline re-pull is frozen (par 5.1). Canonicals
+# already point at every target below (canonicals-first protocol); these 301s formalise them.
+# Domain: peninsulainsider.com.au - NOT peninsularinsider.com.au (the checklist typo).
+# Wildcard rows (*) are Cloudflare Single Redirect dynamic rules; place the specific
+# /explore/plans/build/ rule ABOVE the /explore/plans/* wildcard so it wins. Slug-mapped
+# rows (the /eat/ winery set, /events/ set, best-of losers) belong in a Bulk Redirect List;
+# check free-tier quota before import (par 4.2 plan check).
+# All rules: 301 permanent, preserve query string, HTTPS only. Verify each batch with a
+# list-mode crawl asserting exactly one hop to a 200.
+source_url,target_url,status,notes
+/explore/plans/build/,/me/trip,301,tool retirement (par 3.5); MUST precede /explore/plans/* wildcard
+/explore/plans/*,/plans/*,301,tree promotion (par 3.5); only after /plans/* content is live with self-canonicals
+/itinerary/,/me/trip,301,tool retirement (par 3.5)
+/plan/,/me/trip,301,tool retirement (par 3.5); shared-plan viewer
+/picks/,/whats-on/,301,content absorbed into whats-on weekend module (par 3.5)
+/account/*,/me/*,301,wildcard; specific rows below map the 4 built pages to real /me/ homes
+/account/,/me/,301,built page
+/account/saved/,/me/saved/,301,built page
+/account/likes/,/me/saved/,301,built page; likes merge into saved (no /me/likes/ planned)
+/account/pass/,/me/account/,301,built page; pass management lives under account
+/events/,/whats-on/,301,events hub absorbed (par 3.4)
+/events/annual-festivals/,/whats-on/,301,category page; no whats-on twin - lands on hub
+/events/sailing-regattas/,/whats-on/,301,category page; no whats-on twin - lands on hub
+/events/wine-weekends/,/whats-on/,301,category page; winter-wine content merges per par 3.4 before cutover
+/events/main-street-mornington-festival/,/whats-on/main-street-mornington-festival-2026/,301,built whats-on twin
+/events/mornington-winter-music-festival/,/whats-on/mornington-winter-music-festival-2026/,301,built whats-on twin
+/events/sorrento-writers-festival/,/whats-on/sorrento-writers-festival-2026/,301,built whats-on twin
+/events/winter-wine-weekend/,/whats-on/mornington-peninsula-winter-wine-weekend-2026/,301,slug-collision cluster (par 3.4); merge signature editorial into ONE canonical whats-on page before import
+/events/peninsula-film-festival/,/whats-on/peninsula-film-festival/,301,no whats-on twin built yet - create merged event page before cutover
+/events/portsea-polo/,/whats-on/portsea-polo/,301,no whats-on twin built yet - create merged event page before cutover
+/events/portsea-swim-classic/,/whats-on/portsea-swim-classic/,301,no whats-on twin built yet - create merged event page before cutover
+/events/portsea-twilight/,/whats-on/portsea-twilight/,301,no whats-on twin built yet - create merged event page before cutover
+/wine/cellar-doors/,/wine/best-cellar-doors/,301,best-of consolidation (par 3.1); canonical already edited
+/wine/best-wineries-mornington-peninsula/,/wine/best-cellar-doors/,301,best-of consolidation (par 3.1); canonical already edited; merge unique venue write-ups first (par 3.0 step 1)
+/stay/where-to-stay-mornington-peninsula/,/stay/best-accommodation/,301,stay consolidation (par 3.2); canonical already edited
+/explore/where-to-base-yourself/,/stay/best-accommodation/,301,stay consolidation (par 3.2); canonical already edited; merge area-comparison section first
+/journal/where-to-stay-mornington-peninsula/,/stay/best-accommodation/,301,stub retargeted to FINAL canonical (chain fix per par 3.2); was pointing at where-to-base-yourself
+/walks/,/explore/best-walks/,301,walks lander consolidation (par 3.6 #12); canonical already edited; audit unique trail write-ups before cutover
+/stay/couples/,/stay/couples-retreats/,301,per proposed-sitemap; canonical NOT yet edited (outside SEOMIG lease) - edit before import
+/eat/avani-wines/,/wine/avani-wines/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/baillieu-vineyard/,/wine/baillieu-vineyard/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/crittenden-estate/,/wine/crittenden-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/dexter-wines/,/wine/dexter-wines/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/dromana-estate/,/wine/dromana-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/elan-vineyard/,/wine/elan-vineyard/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/eldridge-estate/,/wine/eldridge-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/elgee-park/,/wine/elgee-park/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/foxeys-hangout/,/wine/foxeys-hangout/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/garagiste/,/wine/garagiste/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/hurley-vineyard/,/wine/hurley-vineyard/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/kerri-greens/,/wine/kerri-greens/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/kooyong/,/wine/kooyong/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/lightfoot-wines/,/wine/lightfoot-wines/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/main-ridge-estate/,/wine/main-ridge-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/merricks-estate/,/wine/merricks-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/montalto/,/wine/montalto/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/moorooduc-estate/,/wine/moorooduc-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/morning-sun/,/wine/morning-sun/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/nazaaray-estate/,/wine/nazaaray-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/ocean-eight/,/wine/ocean-eight/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/onannon/,/wine/onannon/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/paradigm-hill/,/wine/paradigm-hill/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/paringa-estate/,/wine/paringa-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/phaedrus-estate/,/wine/phaedrus-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/polperro/,/wine/polperro/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/port-phillip-estate/,/wine/port-phillip-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/prancing-horse-estate/,/wine/prancing-horse-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/pt-leo-estate/,/wine/pt-leo-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/quealy-winemakers/,/wine/quealy-winemakers/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/red-hill-estate/,/wine/red-hill-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/scorpo-wines/,/wine/scorpo-wines/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/stonier-wines/,/wine/stonier-wines/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/stumpy-gully-vineyard/,/wine/stumpy-gully-vineyard/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/t-gallant/,/wine/t-gallant/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/ten-minutes-by-tractor/,/wine/ten-minutes-by-tractor/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/trofeo-estate/,/wine/trofeo-estate/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/tucks-ridge/,/wine/tucks-ridge/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/willow-creek-vineyard/,/wine/willow-creek-vineyard/,301,winery dedupe (par 3.3); generated from built canonical
+/eat/yabby-lake/,/wine/yabby-lake/,301,winery dedupe (par 3.3); generated from built canonical
+# Winery set note: the plan says 41 pairs; the built output carries 40 canonical pairs.
+# /eat/barmah-park-vineyard/ has a hand-coded self-canonical /eat/ page (winery kitchen kept
+# by editorial judgment) and is deliberately NOT redirected - resolve per par 3.3 "no
+# exceptions" review before cutover if it should move too.
