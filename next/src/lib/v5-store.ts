@@ -645,6 +645,15 @@ export function tripAddDay(label?: string): TripDay {
   return day;
 }
 
+/** Rename a day; no-op when the day does not exist or the label is empty. */
+export function tripRenameDay(dayId: string, label: string): void {
+  const trip = readTrip();
+  const day = trip.days.find((d) => d.id === dayId);
+  if (!day || !label.trim()) return;
+  day.label = label.trim();
+  notifyTripMutation(trip);
+}
+
 /** Remove a day; its stops become ungrouped (legacy /itinerary/ behaviour). */
 export function tripRemoveDay(dayId: string): void {
   const trip = readTrip();
