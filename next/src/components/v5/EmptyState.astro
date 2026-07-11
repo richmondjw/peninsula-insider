@@ -1,0 +1,211 @@
+---
+/**
+ * EmptyState (v5) - the designed zero-results moment (spec 2.32).
+ *
+ * Variants: filter-zero, search-zero, saved-zero, section-zero. Default
+ * copy is Local voice (plain, specific, never blames the reader, no
+ * em-dashes); override heading/body per surface, e.g. name the applied
+ * filters: "Nothing dog-friendly in Flinders yet".
+ *
+ * Primary action restores a working state in one tap (data-evt
+ * empty_state_cta); secondary offers Ask PI (data-evt ask_open). Pass
+ * primaryHref for link actions or leave it off for a button the filter
+ * agent wires (data-action carries the intent, e.g. "clear-filters").
+ */
+export interface Props {
+  variant?: 'filter-zero' | 'search-zero' | 'saved-zero' | 'section-zero';
+  heading?: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  /** Machine intent for button-mode primary actions. */
+  primaryAction?: string;
+  /** Render the Ask PI secondary action. Default true except section-zero. */
+  askSecondary?: boolean;
+  surface?: string;
+}
+
+const defaults: Record<string, { heading: string; body: string; primaryLabel: string; primaryAction: string }> = {
+  'filter-zero': {
+    heading: 'Nothing matches those filters yet',
+    body: 'Loosen one and the good stuff comes back. Or tell PI what you are after.',
+    primaryLabel: 'Clear filters',
+    primaryAction: 'clear-filters',
+  },
+  'search-zero': {
+    heading: 'No results for that one',
+    body: 'Try a town or a craving. Or put the whole question to PI, that is what it is for.',
+    primaryLabel: 'Browse Eat & Drink',
+    primaryAction: 'browse',
+  },
+  'saved-zero': {
+    heading: 'Your list is empty for now',
+    body: 'Tap the bookmark on any card and it lands here, ready for the weekend.',
+    primaryLabel: 'Start browsing',
+    primaryAction: 'browse',
+  },
+  'section-zero': {
+    heading: 'Nothing here just yet',
+    body: 'We are still doing the rounds on this one. Check back soon.',
+    primaryLabel: 'Back to the hub',
+    primaryAction: 'browse',
+  },
+};
+
+const {
+  variant = 'filter-zero',
+  heading = defaults[variant].heading,
+  body = defaults[variant].body,
+  primaryLabel = defaults[variant].primaryLabel,
+  primaryHref,
+  primaryAction = defaults[variant].primaryAction,
+  askSecondary = variant !== 'section-zero',
+  surface,
+} = Astro.props;
+---
+
+<div class:list={['v5-empty', `v5-empty--${variant}`]}>
+  <span class="v5-empty__mark" aria-hidden="true">PI</span>
+  <h3 class="v5-empty__heading">{heading}</h3>
+  <p class="v5-empty__body">{body}</p>
+  <div class="v5-empty__actions">
+    <slot name="actions">
+      {primaryHref ? (
+        <a
+          href={primaryHref}
+          class="v5-empty__primary"
+          data-evt="empty_state_cta"
+          data-variant={variant}
+          data-action={primaryAction}
+          data-surface={surface}
+        >
+          {primaryLabel}
+        </a>
+      ) : (
+        <button
+          type="button"
+          class="v5-empty__primary"
+          data-evt="empty_state_cta"
+          data-variant={variant}
+          data-action={primaryAction}
+          data-surface={surface}
+        >
+          {primaryLabel}
+        </button>
+      )}
+      {askSecondary && (
+        <button
+          type="button"
+          class="v5-empty__secondary"
+          data-evt="ask_open"
+          data-label="empty-state"
+          data-surface={surface}
+          data-open-concierge
+        >
+          Ask PI instead
+        </button>
+      )}
+    </slot>
+  </div>
+  <slot name="starters" />
+</div>
+
+<style>
+  .v5-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    padding: var(--space-7, 3rem) var(--space-5, 1.5rem);
+    background: var(--bg-alt);
+    border-radius: var(--radius-m, var(--tile-image-radius, 10px));
+  }
+
+  .v5-empty__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-weight: var(--fw-display, 600);
+    font-size: var(--fs-500, 1.1875rem);
+    color: var(--gold-text);
+    background: var(--bg, #fff);
+  }
+
+  .v5-empty__heading {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-600, clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--text);
+  }
+
+  .v5-empty__body {
+    margin: 0;
+    max-width: var(--measure-dek, 52ch);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--soft);
+  }
+
+  .v5-empty__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .v5-empty__primary,
+  .v5-empty__secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.1rem;
+    border-radius: var(--radius-s, 4px);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .v5-empty__primary {
+    background: var(--accent);
+    color: var(--white, #fff);
+    border: none;
+  }
+  .v5-empty__primary:hover {
+    background: var(--acc-h);
+  }
+
+  .v5-empty__secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--text);
+  }
+  .v5-empty__secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .v5-empty__primary:focus-visible,
+  .v5-empty__secondary:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  import { initV5Analytics } from '../../lib/v5-analytics';
+  initV5Analytics();
+</script>

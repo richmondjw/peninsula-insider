@@ -1,0 +1,221 @@
+---
+/**
+ * SaveControl (v5) - save/unsave an entity to the reader's list.
+ * Successor to PiSaveActions for the v5 Card system (spec 2.25).
+ *
+ * - Same pi:saves:v2 store as the rest of the site (lib/saves/store);
+ *   no parallel store is introduced (BUILD-CONTRACT rule).
+ * - Save only: cards carry Save, never Share (spec 2.26 keeps Share off cards).
+ * - 48px touch target, aria-pressed, accessible name "Save {title}".
+ * - Emits save_add / save_remove / plan_fork through v5-analytics.
+ * - Never nested inside a card's stretched link; Card places it in an
+ *   actions layer above the link (no nested interactive elements).
+ *
+ * NOTE for the CI enforcer follow-up (component spec section 0, rule 2):
+ * next/scripts/check-editable-coverage.mjs still asserts on <PiSaveActions;
+ * it needs a matching <SaveControl rule (kind/slug/title/href) when the
+ * enforcer file's owner updates it. Props here keep those exact names so
+ * the future rule is a one-line addition.
+ */
+export interface Props {
+  kind: 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
+  slug: string;
+  title: string;
+  href: string;
+  /** Editorial section, required for articles (saved-list grouping). */
+  section?: string;
+  /** Short summary; carried into the saved-plan view. */
+  dek?: string;
+  /** Cover image; carried into the saved-plan view. */
+  imageUrl?: string;
+  /** Show the text label next to the icon (detail pages). */
+  labelled?: boolean;
+  /** 'save' (default) or 'fork' ("Copy this plan", plan entities only). */
+  variant?: 'save' | 'fork';
+}
+
+const {
+  kind,
+  slug,
+  title,
+  href,
+  section,
+  dek,
+  imageUrl,
+  labelled = false,
+  variant = 'save',
+} = Astro.props;
+
+const isFork = variant === 'fork';
+const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
+---
+
+<div
+  class="v5-save"
+  data-v5-save-control
+  data-kind={kind}
+  data-slug={slug}
+  data-title={title}
+  data-href={href}
+  data-section={section}
+  data-dek={dek}
+  data-image={imageUrl}
+  data-variant={variant}
+>
+  <button
+    type="button"
+    class:list={['v5-save__btn', labelled && 'v5-save__btn--labelled', isFork && 'v5-save__btn--fork']}
+    aria-pressed="false"
+    aria-label={accessibleName}
+    data-v5-save-btn
+  >
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.7"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      {isFork ? (
+        <>
+          <rect x="8" y="8" width="12" height="12" rx="2" />
+          <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+        </>
+      ) : (
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+      )}
+    </svg>
+    <span class:list={['v5-save__label', !labelled && 'v5-save__label--sr']} data-v5-save-label>
+      {isFork ? 'Copy this plan' : 'Save'}
+    </span>
+  </button>
+</div>
+
+<style>
+  .v5-save {
+    display: inline-flex;
+  }
+
+  .v5-save__btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    /* 48px touch target (build brief; exceeds the 44px spec floor). */
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0 0.6rem;
+    background: var(--bg, #fff);
+    color: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-ui, 1.4);
+    transition:
+      background var(--dur-fast, 120ms) var(--ease, ease),
+      border-color var(--dur-fast, 120ms) var(--ease, ease),
+      color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .v5-save__btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .v5-save__btn:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .v5-save__btn[aria-pressed='true'] {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--white, #fff);
+  }
+
+  .v5-save__btn[aria-pressed='true'] svg path {
+    fill: currentColor;
+  }
+
+  .v5-save__btn--fork {
+    border-radius: var(--radius-s, 4px);
+  }
+
+  /* Icon-only mode keeps the label for screen readers. */
+  .v5-save__label--sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+  import * as Saves from '../../lib/saves/store';
+  import type { SaveKind } from '../../lib/saves/store';
+  import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
+
+  initV5Analytics();
+
+  function hydrate(el: HTMLElement) {
+    if ((el as any)._v5Init) return;
+    (el as any)._v5Init = true;
+
+    const kind = el.dataset.kind as SaveKind;
+    const slug = el.dataset.slug;
+    const title = el.dataset.title || slug || '';
+    const href = el.dataset.href || (typeof location !== 'undefined' ? location.pathname : '/');
+    const section = el.dataset.section;
+    const dek = el.dataset.dek;
+    const image_url = el.dataset.image;
+    const variant = el.dataset.variant || 'save';
+    if (!kind || !slug) return;
+
+    const btn = el.querySelector<HTMLButtonElement>('[data-v5-save-btn]');
+    if (!btn) return;
+    const label = btn.querySelector<HTMLElement>('[data-v5-save-label]');
+
+    function paint() {
+      const saved = Saves.isSaved(kind, slug!);
+      btn!.setAttribute('aria-pressed', saved ? 'true' : 'false');
+      if (label && variant === 'save') label.textContent = saved ? 'Saved' : 'Save';
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const wasSaved = Saves.isSaved(kind, slug!);
+      Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
+      const evt = variant === 'fork' ? 'plan_fork' : wasSaved ? 'save_remove' : 'save_add';
+      trackEvent(evt, {
+        entity_type: kind,
+        entity_slug: slug,
+        surface: 'card',
+      });
+    });
+
+    paint();
+    Saves.onChange(paint);
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-v5-save-control]').forEach(hydrate);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>

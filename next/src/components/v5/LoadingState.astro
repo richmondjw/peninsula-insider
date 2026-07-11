@@ -1,0 +1,139 @@
+---
+/**
+ * LoadingState (v5) - one loading grammar (spec 2.33).
+ *
+ * Skeleton blocks mirror the Card anatomy (media / title / verdict / meta
+ * bars) so nothing shifts when content lands. The skeleton itself is
+ * aria-hidden; the container carries aria-busy and a visually hidden
+ * polite status line announces loading. Completion is announced by the
+ * ARRIVING content's live region (pi-results-status), not by this
+ * component. Pulse animation only under prefers-reduced-motion:
+ * no-preference; static otherwise.
+ *
+ * Spec content rule for consumers: skip this state entirely for responses
+ * under 400ms; after 5s show a patience line (announce prop).
+ */
+export interface Props {
+  variant?: 'card-grid' | 'rows' | 'inline';
+  /** Skeleton count, capped at 6 per spec. */
+  count?: number;
+  /** Status line for screen readers. */
+  announce?: string;
+}
+
+const { variant = 'card-grid', count = 3, announce = 'Loading results' } = Astro.props;
+const n = Math.min(6, Math.max(1, count));
+const items = Array.from({ length: n });
+---
+
+<div class:list={['v5-loading', `v5-loading--${variant}`]} aria-busy="true">
+  <p class="v5-loading__announce" role="status" aria-live="polite">{announce}</p>
+
+  {variant === 'inline' ? (
+    <span class="v5-loading__spinner" aria-hidden="true"></span>
+  ) : (
+    <div class="v5-loading__items" aria-hidden="true">
+      {items.map(() => (
+        <div class="v5-loading__card">
+          {variant === 'card-grid' && <div class="v5-loading__bar v5-loading__bar--media"></div>}
+          <div class="v5-loading__bar v5-loading__bar--mark"></div>
+          <div class="v5-loading__bar v5-loading__bar--title"></div>
+          <div class="v5-loading__bar v5-loading__bar--verdict"></div>
+          <div class="v5-loading__bar v5-loading__bar--meta"></div>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .v5-loading__announce {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .v5-loading__items {
+    display: grid;
+    gap: var(--space-5, 1.5rem);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 48em) {
+    .v5-loading--card-grid .v5-loading__items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 64em) {
+    .v5-loading--card-grid .v5-loading__items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .v5-loading__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, var(--tile-image-radius, 10px));
+    padding: 0 0 var(--space-4, 1rem);
+    overflow: hidden;
+  }
+  .v5-loading--rows .v5-loading__card {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    padding: 0.6rem 0;
+  }
+
+  .v5-loading__bar {
+    background: var(--bg-alt);
+    border-radius: var(--radius-s, 4px);
+    height: 0.85rem;
+    margin: 0 var(--space-4, 1rem);
+  }
+  .v5-loading--rows .v5-loading__bar {
+    margin: 0;
+  }
+  .v5-loading__bar--media {
+    aspect-ratio: 3 / 2;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+  }
+  .v5-loading__bar--mark { width: 22%; }
+  .v5-loading__bar--title { width: 70%; height: 1.2rem; }
+  .v5-loading__bar--verdict { width: 88%; }
+  .v5-loading__bar--meta { width: 45%; }
+
+  .v5-loading__spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .v5-loading__bar {
+      animation: v5-skeleton-pulse var(--dur-slow, 320ms) ease-in-out infinite alternate;
+      animation-duration: 1.1s;
+    }
+    .v5-loading__spinner {
+      animation: v5-spin 0.9s linear infinite;
+    }
+    @keyframes v5-skeleton-pulse {
+      from { opacity: 1; }
+      to { opacity: 0.45; }
+    }
+    @keyframes v5-spin {
+      to { transform: rotate(360deg); }
+    }
+  }
+</style>

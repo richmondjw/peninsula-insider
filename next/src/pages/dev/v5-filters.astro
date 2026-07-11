@@ -1,0 +1,147 @@
+---
+/**
+ * /dev/v5-filters - developer demo for the v5 filter system (T-303).
+ *
+ * Exercises FilterBar + FilterSheet + SortControl + MapToggle against ~30
+ * dummy items, including a curated band and a directory both governed by the
+ * ONE shared filter state (page-redesigns section 2, blocks 20-21).
+ *
+ * PAGE-AGENT CONTRACT demonstrated here:
+ *   1. Server-render every item; give each a data-facets JSON attribute
+ *      built from getFacets(kind, data) (dummy values here) and a data-title.
+ *   2. Put ONE FilterBar above the first result (it renders the live region
+ *      #pi-results-status and the paired FilterSheet).
+ *   3. Add data-sort-container to any grid whose order may change.
+ *   4. Optional [data-filter-empty] element for the zero-results message.
+ *
+ * noindex; not linked from any nav. Safe to delete once real surfaces ship.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FilterBar from '../../components/v5/FilterBar.astro';
+import SortControl from '../../components/v5/SortControl.astro';
+import MapToggle from '../../components/v5/MapToggle.astro';
+
+export const prerender = true;
+
+// Deterministic dummy corpus: cycle through real taxonomy values so every
+// chip preset and sheet option has matching items.
+const towns = ['sorrento', 'flinders', 'red-hill-wine-country', 'dromana', 'balnarring', 'merricks'];
+const cats = ['restaurant', 'cafe', 'winery', 'walk', 'beach', 'bakery'];
+const moods = ['long-lunch', 'date-night', 'quick', 'scenic', 'rainy-day', 'on-the-water'];
+const prices = ['1', '2', '3', '4', 'free'];
+const parties = ['couples', 'family', 'group', 'solo', 'dog-friendly'];
+
+const items = Array.from({ length: 30 }, (_, i) => {
+  const facets = {
+    place: [towns[i % towns.length]],
+    cat: [cats[i % cats.length]],
+    mood: [moods[i % moods.length], moods[(i + 2) % moods.length]],
+    price: [prices[i % prices.length]],
+    party: [parties[i % parties.length]],
+  };
+  return {
+    title: `Dummy ${cats[i % cats.length]} ${String(i + 1).padStart(2, '0')}`,
+    town: towns[i % towns.length],
+    facets,
+  };
+});
+
+const curated = items.slice(0, 6);
+const directory = items.slice(6);
+---
+
+<BaseLayout
+  title="v5 filter system demo"
+  description="Internal demo page for the v5 FilterBar, FilterSheet, SortControl and MapToggle."
+  noindex={true}
+  searchExclude={true}
+>
+  <main class="demo container">
+    <header class="demo__head">
+      <h1>v5 filter demo</h1>
+      <p>
+        One filter state governs the curated band and the directory below. State lives in the URL
+        (mood, place, price, party, cat, date), restores on back-nav, and announces counts to the
+        polite live region.
+      </p>
+    </header>
+
+    <FilterBar surface="eat" noun="places" sticky={true}>
+      <SortControl />
+      <MapToggle />
+    </FilterBar>
+
+    <section aria-labelledby="curated-h">
+      <h2 id="curated-h">Editor's picks (curated band)</h2>
+      <div class="demo__grid" data-sort-container>
+        {curated.map((item) => (
+          <article class="demo__card demo__card--pick" data-facets={JSON.stringify(item.facets)} data-title={item.title}>
+            <h3>{item.title}</h3>
+            <p class="demo__meta">{item.town} &middot; {item.facets.cat[0]} &middot; band {item.facets.price[0]}</p>
+            <p class="demo__meta">{item.facets.mood.join(', ')} &middot; {item.facets.party[0]}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section aria-labelledby="directory-h">
+      <h2 id="directory-h">Directory (all {directory.length})</h2>
+      <div class="demo__grid" data-sort-container>
+        {directory.map((item) => (
+          <article class="demo__card" data-facets={JSON.stringify(item.facets)} data-title={item.title}>
+            <h3>{item.title}</h3>
+            <p class="demo__meta">{item.town} &middot; {item.facets.cat[0]} &middot; band {item.facets.price[0]}</p>
+            <p class="demo__meta">{item.facets.mood.join(', ')} &middot; {item.facets.party[0]}</p>
+          </article>
+        ))}
+      </div>
+      <p class="demo__empty" data-filter-empty hidden>
+        Nothing matches those filters. Try removing one.
+      </p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .demo {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+  }
+  .demo__head p {
+    color: var(--soft);
+    max-width: var(--prose-w);
+  }
+  .demo h2 {
+    font-size: 1.1rem;
+    margin: 2rem 0 0.75rem;
+  }
+  .demo__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+  .demo__card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card-sm);
+    background: var(--white);
+    padding: 0.9rem 1rem;
+  }
+  .demo__card--pick {
+    background: var(--bg-alt);
+  }
+  .demo__card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem;
+  }
+  .demo__meta {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--soft);
+  }
+  .demo__empty {
+    color: var(--soft);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+</style>

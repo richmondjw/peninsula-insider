@@ -1,0 +1,286 @@
+---
+/**
+ * /dev/v5-cards - v5 Card system lab (build task T-302/T-304 verify page).
+ *
+ * Renders every Card variant plus the state components with REAL content
+ * entries so the CMS attrs, save wiring, and analytics data attributes can
+ * be inspected in one place. Noindexed; not linked from any nav.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/v5/Card.astro';
+import CardGrid from '../../components/v5/CardGrid.astro';
+import EmptyState from '../../components/v5/EmptyState.astro';
+import LoadingState from '../../components/v5/LoadingState.astro';
+import ErrorState from '../../components/v5/ErrorState.astro';
+import Alert from '../../components/v5/Alert.astro';
+
+const hasHero = (e: any) => !!e.data.heroImage?.src;
+const slugOf = (e: any) => e.data.slug ?? e.id;
+const placeName = (v: unknown) =>
+  String((v as any)?.id ?? v ?? '')
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (l: string) => l.toUpperCase());
+
+const venues = (await getCollection('venues'))
+  .filter(hasHero)
+  .filter((v) => v.data.status !== 'permanently_closed' && v.data.signature)
+  .slice(0, 3);
+
+const events = (await getCollection('events'))
+  .filter(hasHero)
+  .filter((e) => e.data.editorVerdict || e.data.summary)
+  .slice(0, 3);
+
+const articles = (await getCollection('articles'))
+  .filter(hasHero)
+  .filter((a) => a.data.status === 'published' && a.data.dek)
+  .slice(0, 3);
+
+const guides = (await getCollection('articles'))
+  .filter(hasHero)
+  .filter((a) => a.data.status === 'published' && a.data.dek)
+  .slice(3, 5);
+
+const itineraries = (await getCollection('itineraries')).filter(hasHero).slice(0, 2);
+const places = (await getCollection('places')).filter(hasHero).slice(0, 3);
+
+const rowVenues = (await getCollection('venues'))
+  .filter((v) => v.data.status !== 'permanently_closed' && v.data.signature)
+  .slice(3, 7);
+---
+
+<BaseLayout title="V5 card lab" description="Internal build-verify page for the v5 Card system." noindex={true}>
+  <main class="v5-lab">
+    <h1>V5 card lab</h1>
+    <p class="v5-lab__note">Every Card variant plus states, rendered from live content entries. Internal page, noindexed.</p>
+
+    <section>
+      <h2>venue</h2>
+      <CardGrid label="Venue cards">
+        {venues.map((v, i) => (
+          <Card
+            variant="venue"
+            title={v.data.name}
+            href={`/eat/${slugOf(v)}/`}
+            entityType="venue"
+            entitySlug={slugOf(v)}
+            image={{ src: v.data.heroImage.src, alt: v.data.heroImage.alt ?? v.data.name }}
+            verdict={v.data.signature}
+            meta={[placeName(v.data.place), v.data.type].filter(Boolean)}
+            priceBand={v.data.priceBand}
+            freshness={v.data.lastVerified ? String(v.data.lastVerified) : undefined}
+            partnerLabel={v.data.featuredPartner ? 'Partner venue' : undefined}
+            booking={
+              v.data.bookingUrl && v.data.bookingProvider !== 'none'
+                ? { url: v.data.bookingUrl, venueName: v.data.name }
+                : undefined
+            }
+            trip={i === 0}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
+      <h2>compact-row (with and without media)</h2>
+      <CardGrid label="Venue rows" layout="rows">
+        {rowVenues.map((v, i) => (
+          <Card
+            variant="compact-row"
+            title={v.data.name}
+            href={`/eat/${slugOf(v)}/`}
+            entityType="venue"
+            entitySlug={slugOf(v)}
+            image={
+              i < 2 && v.data.heroImage?.src
+                ? { src: v.data.heroImage.src, alt: v.data.heroImage.alt ?? v.data.name }
+                : undefined
+            }
+            verdict={v.data.signature}
+            priceBand={v.data.priceBand}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
+      <h2>event</h2>
+      <CardGrid label="Event cards">
+        {events.map((e, i) => (
+          <Card
+            variant="event"
+            title={e.data.title}
+            href={`/whats-on/${slugOf(e)}/`}
+            entityType="event"
+            entitySlug={slugOf(e)}
+            image={{ src: e.data.heroImage.src, alt: e.data.heroImage.alt ?? e.data.title }}
+            verdict={e.data.editorVerdict ?? e.data.summary}
+            meta={[e.data.venue, placeName(e.data.place)].filter(Boolean).map(String)}
+            dateISO={e.data.startDate ? String(e.data.startDate) : undefined}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
+      <h2>guide</h2>
+      <CardGrid label="Guide cards" maxCols={2}>
+        {guides.map((g, i) => (
+          <Card
+            variant="guide"
+            title={g.data.title}
+            href={`/journal/${g.id}/`}
+            entityType="article"
+            entitySlug={g.id}
+            image={{ src: g.data.heroImage.src, alt: g.data.heroImage.alt ?? g.data.title }}
+            verdict={g.data.dek?.split('. ')[0]}
+            readTime={g.data.readingTimeMinutes ? `${g.data.readingTimeMinutes} min read` : undefined}
+            freshness={g.data.lastVerified ? String(g.data.lastVerified) : undefined}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
+      <h2>plan</h2>
+      <CardGrid label="Plan cards" maxCols={2}>
+        {itineraries.map((it, i) => (
+          <Card
+            variant="plan"
+            title={it.data.title}
+            href={`/itineraries/${slugOf(it)}/`}
+            entityType="itinerary"
+            entitySlug={slugOf(it)}
+            image={{ src: it.data.heroImage.src, alt: it.data.heroImage.alt ?? it.data.title }}
+            verdict={it.data.dek}
+            dayCount={(it.data.lengthNights ?? 1) + 1}
+            meta={[it.data.mood].filter(Boolean).map(String)}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
+      <h2>place</h2>
+      <CardGrid label="Place cards">
+        {places.map((p, i) => (
+          <Card
+            variant="place"
+            title={p.data.name}
+            href={`/explore/places/${slugOf(p)}/`}
+            entityType="place"
+            entitySlug={slugOf(p)}
+            image={{ src: p.data.heroImage.src, alt: p.data.heroImage.alt ?? p.data.name }}
+            verdict={p.data.signature}
+            eyebrow={p.data.regionLabel}
+            meta={[p.data.driveTime, p.data.bestSeason].filter(Boolean).map(String)}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
+      <h2>article (editorial surface, distinct from venue cards)</h2>
+      <CardGrid label="Article cards">
+        {articles.map((a, i) => (
+          <Card
+            variant="article"
+            title={a.data.title}
+            href={`/journal/${a.id}/`}
+            entityType="article"
+            entitySlug={a.id}
+            image={{ src: a.data.heroImage.src, alt: a.data.heroImage.alt ?? a.data.title }}
+            verdict={a.data.dek?.split('. ')[0]}
+            byline={a.data.houseByline ? 'Peninsula Insider' : a.data.author}
+            readTime={a.data.readingTimeMinutes ? `${a.data.readingTimeMinutes} min read` : undefined}
+            dateISO={a.data.publishedAt ? String(a.data.publishedAt) : undefined}
+            surface="dev-lab"
+            position={i}
+          />
+        ))}
+      </CardGrid>
+    </section>
+
+    <section>
+      <h2>EmptyState (all four variants)</h2>
+      <div class="v5-lab__stack">
+        <EmptyState variant="filter-zero" heading="Nothing dog-friendly in Flinders yet" surface="dev-lab" />
+        <EmptyState variant="search-zero" surface="dev-lab" />
+        <EmptyState variant="saved-zero" surface="dev-lab" />
+        <EmptyState variant="section-zero" surface="dev-lab" />
+      </div>
+    </section>
+
+    <section>
+      <h2>LoadingState</h2>
+      <LoadingState variant="card-grid" count={3} />
+      <LoadingState variant="rows" count={2} />
+      <LoadingState variant="inline" announce="Loading" />
+    </section>
+
+    <section>
+      <h2>ErrorState</h2>
+      <div class="v5-lab__stack">
+        <ErrorState variant="inline" region="dev-lab" detail="HTTP 500" />
+        <ErrorState variant="page" />
+      </div>
+    </section>
+
+    <section>
+      <h2>Alert</h2>
+      <div class="v5-lab__stack">
+        <Alert variant="info">The cellar door closes at 4pm on match days. Checked 8 July 2026.</Alert>
+        <Alert variant="warning" title="Road closure">
+          Cape Schanck Road is closed between Boneo Road and the lighthouse until late July. Checked 10 July 2026.
+        </Alert>
+        <Alert variant="correction">
+          An earlier version named the wrong opening year for the pier. It opened in 1864, not 1904. Corrected 9 July 2026.
+        </Alert>
+        <Alert variant="success">Saved to your list.</Alert>
+        <Alert variant="banner" id="dev-lab-banner" dismissible={true} actionLabel="Read the note" actionHref="/journal/">
+          Summer hours are in effect across most cellar doors.
+        </Alert>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .v5-lab {
+    max-width: var(--max-w, 1100px);
+    margin: 0 auto;
+    padding: var(--space-6, 2rem) var(--space-4, 1rem) var(--space-9, 6rem);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7, 3rem);
+  }
+  .v5-lab h1 {
+    margin: 0;
+  }
+  .v5-lab__note {
+    color: var(--soft);
+    margin: 0;
+  }
+  .v5-lab section > h2 {
+    font-size: var(--fs-700, 1.75rem);
+    margin: 0 0 var(--space-4, 1rem);
+  }
+  .v5-lab__stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4, 1rem);
+  }
+</style>

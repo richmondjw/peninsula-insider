@@ -1,0 +1,143 @@
+---
+/**
+ * BookingControl (v5) - the revenue action (spec 2.27).
+ *
+ * Outbound "Book direct" / "Reserve" / "Buy tickets" link with partner
+ * disclosure. No prices, ever: priceBand chips on the Card carry the only
+ * permitted price signal. Fires book_out through the delegated
+ * v5-analytics listener before navigation (capture phase).
+ *
+ * Variants:
+ *   inline       detail pages (primary weight)
+ *   card-action  inside Card actions (secondary weight, spec: card primary
+ *                is the card link itself)
+ * The mobile sticky bar wrapper belongs to the venue page agent; it wraps
+ * this component rather than re-implementing it.
+ */
+export interface Props {
+  url: string;
+  /** Verb-first, 3 words max. Defaults to "Book direct". */
+  label?: string;
+  /** Venue name for the accessible outbound announcement. */
+  venueName?: string;
+  variant?: 'inline' | 'card-action';
+  /** Partner label, mandatory when the arrangement is commercial. */
+  partnerLabel?: string;
+  entityType?: string;
+  entitySlug?: string;
+  surface?: string;
+}
+
+const {
+  url,
+  label = 'Book direct',
+  venueName,
+  variant = 'card-action',
+  partnerLabel,
+  entityType,
+  entitySlug,
+  surface,
+} = Astro.props;
+
+const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${label}, opens external website`;
+---
+
+<span class:list={['v5-booking', `v5-booking--${variant}`]}>
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="v5-booking__link"
+    aria-label={accessibleName}
+    data-evt="book_out"
+    data-entity-type={entityType}
+    data-entity-slug={entitySlug}
+    data-surface={surface}
+    data-label={label}
+  >
+    <span>{label}</span>
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M7 17L17 7" />
+      <path d="M9 7h8v8" />
+    </svg>
+  </a>
+  {partnerLabel && <span class="v5-booking__disclosure">{partnerLabel}</span>}
+</span>
+
+<style>
+  .v5-booking {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .v5-booking__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-height: 48px;
+    padding: 0 1rem;
+    border-radius: var(--radius-s, 4px);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition:
+      background var(--dur-fast, 120ms) var(--ease, ease),
+      border-color var(--dur-fast, 120ms) var(--ease, ease),
+      color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .v5-booking__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  /* inline = primary weight (detail pages) */
+  .v5-booking--inline .v5-booking__link {
+    background: var(--accent);
+    color: var(--white, #fff);
+  }
+  .v5-booking--inline .v5-booking__link:hover {
+    background: var(--acc-h);
+  }
+
+  /* card-action = secondary weight (the card link is the primary) */
+  .v5-booking--card-action .v5-booking__link {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    min-height: 48px;
+    font-size: var(--fs-200, 0.8125rem);
+    padding: 0 0.75rem;
+  }
+  .v5-booking--card-action .v5-booking__link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .v5-booking__disclosure {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.75rem);
+    line-height: var(--lh-label, 1.2);
+    color: var(--soft);
+  }
+</style>
+
+<script>
+  import { initV5Analytics } from '../../lib/v5-analytics';
+  initV5Analytics();
+</script>
