@@ -1,0 +1,111 @@
+---
+/**
+ * HomePlan - block 5, the featured plan (page-redesigns.md 1.9 item 5;
+ * wireframes.html #home note 4: "The Decide door, one plan only").
+ *
+ * One plan Card (v5 plan variant: day-count chip, fork SaveControl) chosen
+ * deterministically at build time: in-season plans first, year-round next,
+ * then most recently published. Closes with "All plans" into the hub.
+ */
+import { getCollection } from 'astro:content';
+import Card from '../Card.astro';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import { currentSeason } from '../../../lib/editorial';
+
+const plans = await getCollection('itineraries');
+const season = currentSeason();
+
+const seasonScore = (p: any) =>
+  p.data.season === season ? 2 : p.data.season === 'year-round' ? 1 : 0;
+
+const featured = [...plans].sort(
+  (a, b) =>
+    seasonScore(b) - seasonScore(a) ||
+    (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0),
+)[0];
+
+const slug = featured ? (featured.data.slug ?? featured.id) : '';
+const hero = featured ? await resolveHero('itinerary', slug, featured.data) : null;
+
+const moodLabel = featured
+  ? String(featured.data.mood ?? '')
+      .replace(/-/g, ' ')
+      .replace(/^\w/, (c: string) => c.toUpperCase())
+  : '';
+---
+
+{featured && hero && (
+  <section class="home-plan" aria-labelledby="home-plan-title">
+    <div class="container">
+      <div class="home-plan__head">
+        <h2 id="home-plan-title" class="home-plan__title">Featured plan</h2>
+        <p class="home-plan__all">
+          <a href="/explore/plans/">All plans &rarr;</a>
+        </p>
+      </div>
+
+      <div class="home-plan__card">
+        <Card
+          as="article"
+          variant="plan"
+          title={featured.data.title}
+          href={`/explore/plans/${slug}/`}
+          entityType="itinerary"
+          entitySlug={slug}
+          image={{ src: hero.src, alt: hero.alt || featured.data.title }}
+          verdict={featured.data.dek}
+          dayCount={(featured.data.lengthNights ?? 1) + 1}
+          meta={[moodLabel].filter(Boolean)}
+          freshness={featured.data.lastVerified ? String(featured.data.lastVerified) : undefined}
+          surface="home-plan"
+          position={0}
+        />
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .home-plan {
+    padding: var(--space-6, 2rem) 0 var(--space-7, 3rem);
+  }
+
+  .home-plan__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3, 0.75rem);
+    margin-bottom: var(--space-5, 1.5rem);
+  }
+
+  .home-plan__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
+    font-size: var(--fs-700, 1.75rem);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--ink);
+  }
+
+  .home-plan__all {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-semibold, 600);
+    font-size: var(--fs-300, 0.9375rem);
+  }
+
+  .home-plan__all a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  .home-plan__all a:hover {
+    color: var(--accent);
+  }
+
+  .home-plan__card {
+    max-width: 34rem;
+  }
+</style>

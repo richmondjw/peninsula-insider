@@ -1,0 +1,171 @@
+---
+/**
+ * HomeWeekend - block 3, the homepage's ONLY temporal module
+ * (page-redesigns.md 1.9 item 3; wireframes.html #home note 2).
+ *
+ * Three PI picks for the upcoming weekend, each a v5 event Card with Save
+ * and "+ Trip", closed by "Everything on this weekend" into /whats-on/.
+ * Picks resolve from the editorial weekend-picks entry for this weekend
+ * when one exists; otherwise a ranked fallback over the events collection
+ * keeps the module honest between editorial pushes (see home-data.ts).
+ *
+ * List semantics via CardGrid; below 1024px the grid becomes a horizontal
+ * scroller with a visible peek (mobile-strategy: swipe, no carousel, no
+ * auto-motion). All server-rendered.
+ */
+import { getCollection } from 'astro:content';
+import Card from '../Card.astro';
+import CardGrid from '../CardGrid.astro';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import {
+  selectWeekendPicks,
+  categoryLabel,
+  placeLabel,
+  pickDateISO,
+  recurrenceChip,
+  isFreeEvent,
+} from './home-data';
+
+const events = await getCollection('events');
+const picksEntries = await getCollection('weekend-picks');
+const now = new Date();
+const { picks, window: weekend } = selectWeekendPicks(picksEntries, events, now);
+
+const slugOf = (e: any) => e.data.slug ?? e.id;
+
+const cards = await Promise.all(
+  picks.map(async ({ event, verdict }) => {
+    const slug = slugOf(event);
+    const hero = await resolveHero('event', slug, event.data);
+    const place =
+      event.data.venueName || placeLabel(event.data.place) || event.data.suburb || '';
+    const meta = [
+      place,
+      recurrenceChip(event) ?? categoryLabel(event.data.category),
+      isFreeEvent(event) ? 'Free' : '',
+    ].filter(Boolean);
+    return {
+      slug,
+      title: event.data.title,
+      href: `/whats-on/${slug}/`,
+      image: { src: hero.src, alt: hero.alt || event.data.title },
+      verdict,
+      meta,
+      dateISO: pickDateISO(event, now),
+    };
+  }),
+);
+---
+
+{cards.length > 0 && (
+  <section class="home-weekend" aria-labelledby="home-weekend-title">
+    <div class="container">
+      <div class="home-weekend__head">
+        <h2 id="home-weekend-title" class="home-weekend__title">This weekend</h2>
+        <p class="home-weekend__window">{weekend.label}</p>
+      </div>
+
+      <div class="home-weekend__scroller">
+        <CardGrid label="This weekend's picks">
+          {cards.map((card, i) => (
+            <Card
+              variant="event"
+              title={card.title}
+              href={card.href}
+              entityType="event"
+              entitySlug={card.slug}
+              image={card.image}
+              verdict={card.verdict}
+              meta={card.meta}
+              dateISO={card.dateISO}
+              trip={true}
+              surface="home-weekend"
+              position={i}
+            />
+          ))}
+        </CardGrid>
+      </div>
+
+      <p class="home-weekend__all">
+        <a href="/whats-on/">Everything on this weekend &rarr;</a>
+      </p>
+    </div>
+  </section>
+)}
+
+<style>
+  .home-weekend {
+    padding: var(--space-6, 2rem) 0 var(--space-7, 3rem);
+  }
+
+  .home-weekend__head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3, 0.75rem);
+    margin-bottom: var(--space-5, 1.5rem);
+  }
+
+  .home-weekend__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
+    font-size: var(--fs-700, 1.75rem);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--ink);
+  }
+
+  .home-weekend__window {
+    margin: 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+
+  .home-weekend__all {
+    margin: var(--space-5, 1.5rem) 0 0;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-semibold, 600);
+    font-size: var(--fs-400, 1.0625rem);
+  }
+
+  .home-weekend__all a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  .home-weekend__all a:hover {
+    color: var(--accent);
+  }
+
+  /* Below the desktop grid breakpoint the picks row scrolls horizontally
+     with a visible peek (wireframe mobile frame: "swipe · 2 more"). The
+     override targets CardGrid's ul from this wrapper; scroll is
+     reader-driven, never automated. */
+  @media (max-width: 63.94em) {
+    .home-weekend__scroller :global(.v5-card-grid--grid) {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: min(20rem, 78vw);
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      padding-bottom: var(--space-2, 0.5rem);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .home-weekend__scroller :global(.v5-card-grid--grid > *) {
+      scroll-snap-align: start;
+    }
+
+    /* House rail treatment: hide the native scrollbar (swipe affordance
+       comes from the visible card peek, per audit-surface-hardening). */
+    .home-weekend__scroller :global(.v5-card-grid--grid) {
+      scrollbar-width: none;
+    }
+
+    .home-weekend__scroller :global(.v5-card-grid--grid)::-webkit-scrollbar {
+      display: none;
+    }
+  }
+</style>
