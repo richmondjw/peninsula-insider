@@ -79,6 +79,15 @@ jobs:
           GSC_CLIENT_SECRET_JSON: ${{ secrets.GSC_CLIENT_SECRET_JSON }}
           PI_REPO_ROOT: ${{ github.workspace }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          # T-007 (2026-07-11): pause the autonomous title/dek rewriter
+          # (engine/auto_act.py, the "CTR fix" step) while the v5 redesign
+          # lands. It rewrites journal titles + meta descriptions with no
+          # human in the loop; paused until the v5 content guidelines
+          # (workspace/peninsula-insider-redesign/06-content-system/
+          # content-guidelines.md) are adopted and the rewriter is aligned
+          # to their caps. Restart: set to '1' or delete this line.
+          # Only this step is disabled — research/publish/verify still run.
+          PI_AUTO_ACT: '0'
         run: |
           python engine/orchestrator.py --tempo daily ${{ inputs.dry_run == true && '--dry-run' || '' }} ${{ inputs.force == true && '--force' || '' }}
 

@@ -66,6 +66,18 @@ jobs:
             --sitemap next/dist/sitemap.xml \
             --out-dir next/dist
 
+      - name: Prune internal surfaces from deploy output (T-006)
+        # v5 hygiene (2026-07-11, T-006): the editorial admin surface
+        # (next/src/pages/admin + public/admin/media-registry.json) must not
+        # ship in the public static build. It remains available in local dev
+        # and PI_ADMIN_HYBRID server builds. Reversible: delete this step.
+        # NOTE: studio-peninsula-insider/ and ops/ never enter this deploy —
+        # gh-pages publishes only next/dist. They exist at the repo root only
+        # as leftovers of the retired build-live.sh root-deploy model.
+        run: |
+          rm -rf next/dist/admin
+          echo "Pruned next/dist/admin from deploy output"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

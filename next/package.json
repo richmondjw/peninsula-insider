@@ -28,7 +28,9 @@
     "pdfs": "node scripts/render-pdfs.mjs",
     "pdfs:rebuild": "npm run build && node scripts/render-pdfs.mjs",
     "prebuild": "node scripts/clear-content-cache.mjs",
-    "lint:house-style": "node scripts/lint-house-style.mjs"
+    "lint:house-style": "node scripts/lint-house-style.mjs",
+    "lint:content-caps": "node scripts/lint-content-caps.mjs",
+    "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
