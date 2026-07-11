@@ -179,14 +179,38 @@
       };
     }
 
+    // Remember what opened the overlay so focus can return there on close
+    // (WCAG 2.4.3 focus order; A-15 in the redesign a11y register).
+    function trapTab(e) {
+      if (e.key !== 'Tab') return;
+      const els = getEls();
+      if (!els || els.overlay.dataset.open !== 'true') return;
+      const focusable = els.overlay.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      const visible = Array.prototype.filter.call(focusable, (el) => el.offsetParent !== null || el === document.activeElement);
+      if (!visible.length) return;
+      const first = visible[0];
+      const last = visible[visible.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
     function openOverlay() {
       const els = getEls();
       if (!els) return;
       const { overlay, input } = els;
       if (overlay.dataset.open === 'true') return;
+      state.lastFocus = document.activeElement;
       overlay.dataset.open = 'true';
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
+      document.addEventListener('keydown', trapTab, true);
       // Two RAFs so the transition has the first frame to paint before focus
       // moves the caret in (avoids a tiny visual jolt on some browsers).
       requestAnimationFrame(() => {
@@ -208,7 +232,14 @@
       overlay.dataset.open = 'false';
       overlay.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('search-open');
+      document.removeEventListener('keydown', trapTab, true);
       if (document.activeElement === input) input.blur();
+      // Restore focus to the trigger so keyboard users are not dropped at
+      // the top of the document (WCAG 2.4.3).
+      if (state.lastFocus && typeof state.lastFocus.focus === 'function') {
+        state.lastFocus.focus();
+        state.lastFocus = null;
+      }
     }
 
     function showSuggestions(els) {
