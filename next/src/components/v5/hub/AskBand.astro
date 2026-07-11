@@ -1,0 +1,185 @@
+---
+/**
+ * AskBand (v5 hub module) - the one next-step band at the foot of a hub
+ * (page-redesigns section 2 block 9.6 "Can't decide? Ask PI"; spec 2.9
+ * AskPILauncher in-page prompt-module variant). Max one per page (P9).
+ *
+ * The primary trigger opens the existing search overlay, which carries the
+ * Ask PI handoff (chrome convention: [data-open-search], /search/ is the
+ * no-JS fallback). Suggested prompts deep-link to /search/?q= so the
+ * question survives without JS. Analytics: ask_open with origin=module.
+ *
+ * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents:
+ * heading 6 words or fewer, prompts 8 words or fewer, drawn from page
+ * context (P4). Corpus disclosure line included per P6.
+ */
+export interface Props {
+  /** 6 words maximum (build warns over). */
+  heading?: string;
+  body?: string;
+  /** Up to 3 suggested prompts, 8 words maximum each. */
+  prompts?: string[];
+  triggerLabel?: string;
+  /** Analytics surface (eat, wine, stay, explore). */
+  surface?: string;
+  id?: string;
+}
+
+const {
+  heading = 'Cannot decide? Ask PI',
+  body = 'Tell PI the occasion and it answers from our reviews.',
+  prompts = [],
+  triggerLabel = 'Ask PI',
+  surface,
+  id,
+} = Astro.props;
+
+if (heading.trim().split(/\s+/).length > 6) {
+  console.warn(`[v5 AskBand] heading over 6 words: "${heading}"`);
+}
+const shownPrompts = prompts.slice(0, 3);
+for (const p of shownPrompts) {
+  if (p.trim().split(/\s+/).length > 8) {
+    console.warn(`[v5 AskBand] prompt over 8 words: "${p}"`);
+  }
+}
+const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
+---
+
+<aside class="v5-askband" id={id} aria-labelledby={headingId}>
+  <div class="container v5-askband__inner">
+    <div class="v5-askband__copy">
+      <h2 class="v5-askband__heading" id={headingId}>{heading}</h2>
+      <p class="v5-askband__body">{body}</p>
+    </div>
+    <div class="v5-askband__actions">
+      {shownPrompts.length > 0 && (
+        <ul class="v5-askband__prompts" aria-label="Suggested questions">
+          {shownPrompts.map((prompt) => (
+            <li>
+              <a
+                href={`/search/?q=${encodeURIComponent(prompt)}`}
+                class="v5-askband__prompt"
+                data-evt="ask_open"
+                data-origin="module"
+                data-surface={surface}
+              >
+                {prompt}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+      <a
+        href="/search/"
+        class="v5-askband__trigger"
+        data-open-search
+        data-evt="ask_open"
+        data-origin="module"
+        data-surface={surface}
+        aria-haspopup="dialog"
+      >
+        <span class="v5-askband__mark" aria-hidden="true">PI</span>
+        {triggerLabel}
+      </a>
+      <p class="v5-askband__disclosure">Answers draw on PI reviews.</p>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .v5-askband {
+    background: var(--bg-dark, var(--text));
+    color: var(--bg, var(--white));
+    padding: var(--space-7, 3rem) 0;
+  }
+  .v5-askband__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5, 1.5rem);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .v5-askband__copy {
+    max-width: var(--measure-body, 44ch);
+  }
+  .v5-askband__heading {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: inherit;
+  }
+  .v5-askband__body {
+    margin: var(--space-2, 0.5rem) 0 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-ui, 1.5);
+    opacity: 0.85;
+  }
+  .v5-askband__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3, 0.75rem);
+  }
+  .v5-askband__prompts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+  }
+  .v5-askband__prompt {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem);
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.9;
+  }
+  .v5-askband__prompt:hover {
+    opacity: 1;
+    background: color-mix(in srgb, currentColor 12%, transparent);
+  }
+  .v5-askband__prompt:focus-visible,
+  .v5-askband__trigger:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .v5-askband__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+    min-height: 48px;
+    padding: 0 var(--space-5, 1.5rem);
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 999px;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    text-decoration: none;
+  }
+  .v5-askband__trigger:hover {
+    filter: brightness(1.08);
+  }
+  .v5-askband__mark {
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-weight: var(--fw-display, 700);
+    letter-spacing: 0.04em;
+  }
+  .v5-askband__disclosure {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.75rem);
+    opacity: 0.7;
+  }
+</style>

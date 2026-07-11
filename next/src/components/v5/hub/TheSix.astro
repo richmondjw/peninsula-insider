@@ -1,0 +1,129 @@
+---
+/**
+ * TheSix (v5 hub module) - the verdict layer: six cards worth planning
+ * around this month (page-redesigns section 2 block 9.3; wireframes #eat
+ * note 3). Editorially pinned, never algorithmic; each card is a Card(venue)
+ * with a Critic verdict of 25 words or fewer, freshness label, Save and
+ * "+ Trip".
+ *
+ * One filter state governs the whole page: every item here carries a
+ * `data-facets` payload (values from lib/facets getFacets) on its `li`, so
+ * the page FilterBar shows/hides The Six AND the directory together.
+ * Editorial order is fixed: no data-sort-container on this list.
+ *
+ * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
+ */
+import Card from '../Card.astro';
+import CardGrid from '../CardGrid.astro';
+import type { CardImage, CardBooking } from '../Card.astro';
+import type { CmsEntityType } from '../../../lib/inline-edit/attrs';
+import type { FacetKey } from '../../../lib/facets';
+
+export interface SixItem {
+  title: string;
+  href: string;
+  entityType: CmsEntityType;
+  entitySlug: string;
+  image?: CardImage;
+  /** Critic voice, 25 words maximum (Card warns over). */
+  verdict?: string;
+  /** Up to 3 plain-text chips. */
+  meta?: string[];
+  priceBand?: string | number;
+  /** ISO date, rendered via freshnessLabel(). */
+  freshness?: string;
+  /** Unified facet payload from getFacets(kind, data). */
+  facets?: Partial<Record<FacetKey, string[]>>;
+  booking?: CardBooking;
+  partnerLabel?: string;
+  saveSection?: string;
+}
+
+export interface Props {
+  /** h2, e.g. "Six tables worth planning around this month". */
+  heading: string;
+  /** Optional one-line support under the heading. */
+  sub?: string;
+  /** Analytics surface (eat, wine, stay, explore). */
+  surface: string;
+  /** Exactly six editorially pinned items (build warns off-count). */
+  items: SixItem[];
+  id?: string;
+}
+
+const { heading, sub, surface, items, id } = Astro.props;
+
+if (items.length !== 6) {
+  console.warn(`[v5 TheSix] expected 6 items for surface "${surface}", got ${items.length}`);
+}
+const six = items.slice(0, 6);
+---
+
+<section class="v5-six" id={id} aria-labelledby={`${id ?? `six-${surface}`}-heading`}>
+  <div class="container">
+    <div class="v5-six__header">
+      <h2 class="v5-six__heading" id={`${id ?? `six-${surface}`}-heading`}>{heading}</h2>
+      {sub && <p class="v5-six__sub">{sub}</p>}
+    </div>
+    <CardGrid label={heading}>
+      {six.map((item, i) => (
+        <li
+          class="v5-six__item"
+          data-facets={item.facets ? JSON.stringify(item.facets) : undefined}
+          data-title={item.title}
+        >
+          <Card
+            as="div"
+            variant="venue"
+            title={item.title}
+            href={item.href}
+            entityType={item.entityType}
+            entitySlug={item.entitySlug}
+            image={item.image}
+            verdict={item.verdict}
+            meta={item.meta}
+            priceBand={item.priceBand}
+            freshness={item.freshness}
+            booking={item.booking}
+            partnerLabel={item.partnerLabel}
+            saveSection={item.saveSection}
+            trip={true}
+            surface={surface}
+            position={i + 1}
+          />
+        </li>
+      ))}
+    </CardGrid>
+  </div>
+</section>
+
+<style>
+  .v5-six {
+    padding: var(--space-5, 1.5rem) 0 var(--space-6, 2rem);
+  }
+  .v5-six__header {
+    margin-bottom: var(--space-4, 1rem);
+  }
+  .v5-six__heading {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--text);
+  }
+  .v5-six__sub {
+    margin: var(--space-2, 0.5rem) 0 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+    max-width: var(--measure-body, 64ch);
+  }
+  .v5-six__item {
+    list-style: none;
+    display: flex;
+  }
+  .v5-six__item > :global(.v5-card) {
+    flex: 1;
+  }
+</style>
