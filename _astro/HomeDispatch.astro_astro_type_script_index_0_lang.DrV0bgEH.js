@@ -1,0 +1,1 @@
+import{t as r}from"./v5-analytics.doJOoa5z.js";function e(){const t=document.querySelector("[data-home-dispatch]");!t||t.dataset.evtArmed||(t.dataset.evtArmed="1",t.querySelectorAll("form").forEach(a=>{a.addEventListener("submit",()=>{r("dispatch_submit",{src:"home"})})}))}e();document.addEventListener("astro:page-load",e);
