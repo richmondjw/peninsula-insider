@@ -1,0 +1,135 @@
+---
+/**
+ * JournalModule (v5 hub module) - "From the Journal": at most three
+ * contextual guides below the catalogue layer (page-redesigns section 2
+ * block 9.6; wireframes #eat note 5). Editorial cards only: Card(guide)
+ * with serif titles, byline provenance, zero venue cosmetics (HUB-08).
+ *
+ * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
+ * Pass a page-written verdict of 25 words or fewer per item; article deks
+ * usually run long, so do not pipe frontmatter deks straight through.
+ */
+import Card from '../Card.astro';
+import CardGrid from '../CardGrid.astro';
+import type { CardImage } from '../Card.astro';
+
+export interface JournalItem {
+  title: string;
+  href: string;
+  entitySlug: string;
+  image?: CardImage;
+  /** 25 words maximum (Card warns over). */
+  verdict?: string;
+  byline?: string;
+  /** e.g. "7 min read". */
+  readTime?: string;
+  /** Publish date, ISO. */
+  dateISO?: string;
+}
+
+export interface Props {
+  /** h2; defaults to the cross-hub convention. */
+  heading?: string;
+  sub?: string;
+  /** At most 3 (build warns and slices). */
+  items: JournalItem[];
+  moreHref?: string;
+  moreLabel?: string;
+  surface?: string;
+  id?: string;
+}
+
+const {
+  heading = 'From the Journal',
+  sub,
+  items,
+  moreHref,
+  moreLabel = 'All in the Journal',
+  surface,
+  id,
+} = Astro.props;
+
+if (items.length > 3) {
+  console.warn(`[v5 JournalModule] more than 3 items (${items.length}); rendering the first 3`);
+}
+const shown = items.slice(0, 3);
+const headingId = `${id ?? `journal-${surface ?? 'hub'}`}-heading`;
+---
+
+{shown.length > 0 && (
+  <section class="v5-journal" id={id} aria-labelledby={headingId}>
+    <div class="container">
+      <div class="v5-journal__header">
+        <div>
+          <h2 class="v5-journal__heading" id={headingId}>{heading}</h2>
+          {sub && <p class="v5-journal__sub">{sub}</p>}
+        </div>
+        {moreHref && (
+          <a href={moreHref} class="v5-journal__more">{moreLabel} &rarr;</a>
+        )}
+      </div>
+      <CardGrid label={heading}>
+        {shown.map((item, i) => (
+          <Card
+            variant="guide"
+            title={item.title}
+            href={item.href}
+            entityType="article"
+            entitySlug={item.entitySlug}
+            image={item.image}
+            verdict={item.verdict}
+            byline={item.byline}
+            readTime={item.readTime}
+            dateISO={item.dateISO}
+            surface={surface}
+            position={i + 1}
+          />
+        ))}
+      </CardGrid>
+    </div>
+  </section>
+)}
+
+<style>
+  .v5-journal {
+    padding: var(--space-6, 2rem) 0;
+    background: var(--bg-alt);
+  }
+  .v5-journal__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4, 1rem);
+  }
+  .v5-journal__heading {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--text);
+  }
+  .v5-journal__sub {
+    margin: var(--space-2, 0.5rem) 0 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+  .v5-journal__more {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .v5-journal__more:hover {
+    text-decoration: underline;
+  }
+  .v5-journal__more:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+</style>

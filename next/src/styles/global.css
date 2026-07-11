@@ -6,6 +6,9 @@
    and then referenced by every page in the rebuild.
    ========================================================= */
 
+/* V5 token layer — must stay the first statement in this file. */
+@import './v5-tokens.css';
+
 /* =========================================================
    TOKENS  -  matched to live site (css/styles.css)
    ========================================================= */
@@ -53,16 +56,16 @@
   --border:     #E5E0D6;
   --sage:       #7A8B6D;
   --max-w:      1100px;
-  --prose-w:    680px;
+  /* v5: --prose-w now tracks the ch-based measure token (68ch at 17px
+     Outfit ≈ 680px — same width, but the cap survives font scaling). */
+  --prose-w:    var(--measure-prose);
   --ease:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --tile-image-radius: 10px;
-  /* Card surface radii — collapse the bespoke card radii onto one scale.
-     sm = nested elements inside a card (embed slots, sub-tiles).
-     md = standard panel (CompareBlock column, typeahead grid).
-     lg = hero-weight panel (Weekend Picker, newsletter frame). */
-  --radius-card-sm: 0.85rem;
-  --radius-card-md: 1.25rem;
-  --radius-card-lg: 1.5rem;
+  /* v5: legacy radius names alias onto the 3-token radius scale
+     (--radius-s/m/l in v5-tokens.css). Old names keep working. */
+  --tile-image-radius: var(--radius-m);
+  --radius-card-sm: var(--radius-m);
+  --radius-card-md: var(--radius-l);
+  --radius-card-lg: var(--radius-l);
 }
 
 /* Shared image treatment for editorial tiles/cards */
@@ -110,12 +113,14 @@ html[data-text-scale="3"] { font-size: 118%; }
 }
 
 body {
-  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-ui);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.75;
-  font-size: 1rem;
-  font-weight: 400;
+  /* v5: body promoted to --fs-400 (17px) / --lh-body (1.7) site-wide so
+     cards, drawers and body copy agree (typography-system.md §2). */
+  line-height: var(--lh-body);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -1888,10 +1893,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .prose {
   max-width: var(--prose-w);
   margin: 0 auto;
-  font-size: 1.0625rem;
-  line-height: 1.85;
+  font-size: var(--fs-400);
+  /* v5: 1.85 was over-leaded for a 68ch measure — --lh-body 1.7. */
+  line-height: var(--lh-body);
   color: var(--text);
-  font-weight: 400;
+  font-weight: var(--fw-body);
 }
 .prose p {
   margin-bottom: 1.5rem;
@@ -10994,4 +11000,32 @@ body.menu-open .subscribe-pill {
 .whats-on-surface-wrap {
   padding-top: 2.5rem;
   padding-bottom: 2rem;
+}
+
+/* =========================================================
+   V5 FOCUS SYSTEM (A-08) — keep this block LAST in the file.
+   ---------------------------------------------------------
+   Replaces the invisible v4 ring (rgba(139,78,59,.22) computes
+   1.39:1) with a tokenised ≥3:1 ring: --accent is 6.46:1 on --bg,
+   the inverse cut is 8.0:1 on --bg-dark.
+   The doubled :focus-visible selector is deliberate: at (0,2,0)
+   and last in this sheet it outranks the plain `outline: none`
+   suppressions earlier in this file and in components (which
+   target the base state or :focus, not :focus-visible), while
+   still yielding to deliberate `X:focus-visible { outline: none;
+   box-shadow: ... }` replacements in later-loaded sheets (v4.css)
+   until the chrome agent retires them. Do not add !important.
+   ========================================================= */
+:focus-visible:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+/* Dark surfaces re-point one variable — the offset gap gives a
+   double-ring effect so the ring passes on both surface colours. */
+.is-dark,
+.why-insider,
+.v2-newsletter,
+.newsletter,
+.v3-footer {
+  --focus-ring-color: var(--focus-ring-color-inverse);
 }

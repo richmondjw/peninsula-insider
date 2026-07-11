@@ -5,6 +5,9 @@
 // (the agentic content engine pushes without a PR). Catches:
 //   - em-dashes (—) in reader-facing content (md/mdx/json under src/content
 //     and src/data)
+//   - em-dashes in .astro copy (src/pages, src/components, src/layouts) —
+//     added 2026-07-11 per content-guidelines.md §1.1 ("No em-dashes.
+//     Anywhere"): hardcoded page/component strings are reader-facing too.
 // Replace with ' - ', a colon, a period, or parentheses.
 //
 // Usage: node scripts/lint-house-style.mjs   (wired into build:search)
@@ -12,8 +15,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOTS = ['src/content', 'src/data'];
-const EXTS = new Set(['.md', '.mdx', '.json']);
+const ROOTS = ['src/content', 'src/data', 'src/pages', 'src/components', 'src/layouts'];
+const EXTS = new Set(['.md', '.mdx', '.json', '.astro']);
 const SKIP = /_archive|__pycache__/;
 
 const violations = [];
@@ -25,7 +28,10 @@ function walk(dir) {
     if (!EXTS.has(path.extname(e.name))) continue;
     const lines = fs.readFileSync(full, 'utf8').split('\n');
     lines.forEach((line, i) => {
-      if (line.includes('—')) {
+      // Exempt code that DETECTS em-dashes (regex literals /—/ or [—]) —
+      // e.g. runtime guards in components. Copy never takes these forms.
+      const scrubbed = line.split('/—/').join('/./').split('[—]').join('[.]');
+      if (scrubbed.includes('—')) {
         violations.push(`${full}:${i + 1}  ${line.trim().slice(0, 100)}`);
       }
     });

@@ -1,40 +1,38 @@
 ---
 /**
- * Homepage - THE EDITION.
+ * Homepage - v5 "Edition cover" rebuild (T-401).
  *
- * Ground-up rebuild, shipped 2026-07-05. The page is an edition of a
- * magazine, not a portal: a living cover that knows the day and the
- * sunset, a contents block, the weekly dispatch, the concierge as the
- * second act, an interactive weekend builder, and the notebook's dated
- * verdicts. Seven acts, each article-driven and deterministic at build
- * time - no database dependencies, no silent fallbacks.
+ * Eight blocks, four front doors, one temporal module, one Dispatch
+ * instance (page-redesigns.md section 1; wireframes.html #home). The v5
+ * chrome in BaseLayout is block 1 (masthead); this page renders blocks
+ * 2 to 8:
  *
- * The previous homepage (cover carousel + ten stacked modules) lives in
- * git history at this path; the Edition design system is ed-* namespaced
- * in src/styles/edition.css.
+ *   2. Cover statement (the single h1, Editor voice) + date context
+ *   3. This Weekend - 3 PI picks with Save and "+ Trip"
+ *   4. Four doors - Eat & Drink / Stay / Wine / Explore, verdict-count lines
+ *   5. Featured plan
+ *   6. One flagship Journal feature
+ *   7. Ask PI band (prefills /ask/?q=)
+ *   8. The Dispatch + trust row
+ *
+ * Everything server-renders at build time, deterministic against the
+ * content tree. No carousels, no auto-motion, no reveal animations.
+ * Title/meta/canonical are on the SEO protect list - unchanged from the
+ * previous build.
+ *
+ * The previous "Edition" homepage (EditionCover + seven ed-* modules)
+ * lives in git history at this path; its components remain under
+ * src/components/edition/ untouched.
  */
-import { getCollection } from 'astro:content';
+import HomeCover from '../components/v5/home/HomeCover.astro';
+import HomeWeekend from '../components/v5/home/HomeWeekend.astro';
+import HomeDoors from '../components/v5/home/HomeDoors.astro';
+import HomePlan from '../components/v5/home/HomePlan.astro';
+import HomeJournalFeature from '../components/v5/home/HomeJournalFeature.astro';
+import HomeAsk from '../components/v5/home/HomeAsk.astro';
+import HomeDispatch from '../components/v5/home/HomeDispatch.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import EditionCover from '../components/edition/EditionCover.astro';
-import EditionContents from '../components/edition/EditionContents.astro';
-import EditionAsk from '../components/edition/EditionAsk.astro';
-import EditionWeekendBuilder from '../components/edition/EditionWeekendBuilder.astro';
-import EditionNotebook from '../components/edition/EditionNotebook.astro';
-import EditionFrontPage from '../components/edition/EditionFrontPage.astro';
-import EditionArchive from '../components/edition/EditionArchive.astro';
-import EditionFooterIndex from '../components/edition/EditionFooterIndex.astro';
-import WeekendPickerBlock from '../components/WeekendPickerBlock.astro';
-import NewsletterBlock from '../components/NewsletterBlock.astro';
-import { dispatchWeekend } from '../lib/editorial';
-import '../styles/edition.css';
 
-const articles = await getCollection('articles', ({ data }) => data.status === 'published');
-const weekendDispatch = articles
-  .filter((a) => a.data.format === 'weekend-picker')
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0))[0];
-const dispatchWindow = weekendDispatch
-  ? dispatchWeekend(weekendDispatch.data.publishedAt)
-  : { label: 'This weekend' };
 export const prerender = true;
 ---
 
@@ -44,54 +42,11 @@ export const prerender = true;
   section="home"
   canonical="https://peninsulainsider.com.au"
 >
-  <EditionCover />
-
-  <div class="ed-reveal"><EditionContents /></div>
-
-  <div class="ed-reveal">
-    <WeekendPickerBlock dispatch={weekendDispatch} weekend={`This weekend · ${dispatchWindow.label}`} />
-  </div>
-
-  <div class="ed-reveal"><EditionFrontPage /></div>
-
-  <div class="ed-reveal"><EditionAsk /></div>
-
-  <div class="ed-reveal"><EditionWeekendBuilder /></div>
-
-  <div class="ed-reveal"><EditionNotebook /></div>
-
-  <div class="ed-reveal"><EditionArchive /></div>
-
-  <div class="ed-reveal">
-    <NewsletterBlock
-      body="The Dispatch lands each Sunday: the weekend ahead, shaped, with the verdicts attached."
-      sub="Curated and sent weekly by Peninsula Insider."
-    />
-  </div>
-
-  <EditionFooterIndex />
+  <HomeCover />
+  <HomeWeekend />
+  <HomeDoors />
+  <HomePlan />
+  <HomeJournalFeature />
+  <HomeAsk />
+  <HomeDispatch />
 </BaseLayout>
-
-<script is:inline>
-  (function () {
-    /* Re-runs on astro:page-load so client-side navigation back to the
-       homepage re-arms the reveals instead of leaving sections at opacity 0. */
-    function armReveals() {
-      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var els = document.querySelectorAll('.ed-reveal:not(.is-in)');
-      if (!els.length) return;
-      if (reduced || !('IntersectionObserver' in window)) {
-        els.forEach(function (el) { el.classList.add('is-in'); });
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-        });
-      }, { rootMargin: '0px 0px -8% 0px' });
-      els.forEach(function (el) { io.observe(el); });
-    }
-    armReveals();
-    document.addEventListener('astro:page-load', armReveals);
-  })();
-</script>

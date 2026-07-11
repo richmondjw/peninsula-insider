@@ -1,0 +1,365 @@
+---
+/**
+ * V5 Masthead (future-ia.md section 3.1, wireframes nav-desktop).
+ *
+ * Two rows: brand row (wordmark + utilities) and the 7-pillar nav row.
+ * Pillar triggers are <button>s in the APG disclosure-nav pattern:
+ * panels open on CLICK or Enter only, never on focus or hover (fixes
+ * A-01/NAV-02); Escape closes and returns focus to the trigger; click
+ * outside closes. Closed panels are `hidden`, so the tab path from the
+ * skip link to main content is short (<=5 stops: skip link, logo,
+ * launcher, Saved, menu) and screen readers never wade through closed
+ * menus. No h1-h6 anywhere in the header (fixes A-09) and no
+ * role="menu" misuse (fixes A-02/NAV-03).
+ *
+ * Utilities: one unified launcher labelled "Ask PI or search" (opens
+ * the existing SearchOverlay via [data-open-search], which carries the
+ * existing Ask PI escalation; /search/ is the no-JS fallback), Saved,
+ * and the menu button that opens V5MobileDrawer on every breakpoint.
+ *
+ * Keeps the .masthead class so the existing sticky positioning and the
+ * --masthead-h measurement script in BaseLayout keep working.
+ */
+import { v5Pillars, v5Utilities } from '../../../lib/v5-nav';
+import V5MegaPanel from './V5MegaPanel.astro';
+
+export interface Props {
+  section?: string;
+}
+
+const { section = 'home' } = Astro.props;
+
+// Active pillar from the URL (more precise than the section prop, which
+// has no 'plans' value); section is the fallback for odd routes.
+const path = Astro.url.pathname.replace(/^\/V2/, '') || '/';
+function activePillar(p: string, fallback: string): string {
+  if (/^\/(eat|eat-drink)(\/|$)/.test(p)) return 'eat';
+  if (/^\/stay(\/|$)/.test(p)) return 'stay';
+  if (/^\/wine(\/|$)/.test(p)) return 'wine';
+  if (/^\/explore\/plans(\/|$)/.test(p) || /^\/plans(\/|$)/.test(p)) return 'plans';
+  if (/^\/(explore|dog-friendly|boating|fishing|tour|tour-packages|walks)(\/|$)/.test(p)) return 'explore';
+  if (/^\/(whats-on|events)(\/|$)/.test(p)) return 'whats-on';
+  if (/^\/journal(\/|$)/.test(p)) return 'journal';
+  return fallback;
+}
+const active = activePillar(path, section);
+---
+
+<header class="masthead v5-masthead" data-v5-masthead>
+
+  <!-- Brand row: wordmark left, utilities right. -->
+  <div class="v5-masthead__brand">
+    <div class="v5-masthead__brand-inner">
+      <a href="/" class="v5-masthead__logo" aria-label="Peninsula Insider, home">
+        Peninsula <span>Insider</span>
+      </a>
+
+      <div class="v5-masthead__utilities">
+        {/* Signed-in profile chip mount point: ProfileDropdown.astro
+            appends itself into .v2-util__links (its legacy hook).
+            display:contents so the chip joins this flex row. */}
+        <span class="v2-util__links v5-masthead__profile-slot"></span>
+
+        <a href={v5Utilities.launcher.href} class="v5-launcher" data-open-search data-evt="ask_open">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.5" y2="16.5" />
+          </svg>
+          <span class="v5-launcher__label">{v5Utilities.launcher.label}</span>
+        </a>
+
+        <a href={v5Utilities.saved.href} class="v5-utilbtn v5-utilbtn--saved" aria-label="Saved, your shortlist">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" />
+          </svg>
+          <span class="v5-utilbtn__label">{v5Utilities.saved.label}</span>
+        </a>
+
+        <button
+          type="button"
+          class="v5-utilbtn v5-burger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="v5Drawer"
+          data-v5-burger
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+          <span class="v5-utilbtn__label">{v5Utilities.menu.label}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav row: 7 pillar disclosure triggers, desktop only. -->
+  <div class="v5-masthead__nav">
+    <nav aria-label="Primary">
+      <ul class="v5-pillars">
+        {v5Pillars.map((pillar) => (
+          <li
+            class:list={['v5-pillars__item', active === pillar.key && 'is-current']}
+            data-v5-pillar
+          >
+            <button
+              type="button"
+              class="v5-pillar-trigger"
+              aria-expanded="false"
+              aria-controls={`v5-panel-${pillar.key}`}
+              aria-current={active === pillar.key ? 'true' : undefined}
+              data-v5-pillar-trigger
+            >
+              {pillar.label}
+              <svg class="v5-pillar-trigger__chev" viewBox="0 0 12 8" width="9" height="6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="1,1.5 6,6.5 11,1.5" />
+              </svg>
+            </button>
+            <V5MegaPanel pillar={pillar} />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+</header>
+
+<!-- Disclosure nav behaviour: click/Enter opens, Escape closes and
+     restores focus to the trigger, outside click closes, one panel at
+     a time. No focus-open, no hover-open. -->
+<script is:inline>
+  (function () {
+    function initV5Mega() {
+      var items = document.querySelectorAll('[data-v5-pillar]');
+      if (!items.length) return;
+
+      function panelOf(item) {
+        var trigger = item.querySelector('[data-v5-pillar-trigger]');
+        var panel = item.querySelector('[data-v5-mega]');
+        return { trigger: trigger, panel: panel };
+      }
+
+      function close(item) {
+        var p = panelOf(item);
+        if (p.panel) p.panel.hidden = true;
+        if (p.trigger) p.trigger.setAttribute('aria-expanded', 'false');
+        item.classList.remove('is-open');
+      }
+
+      function closeAll(except) {
+        items.forEach(function (n) { if (n !== except) close(n); });
+      }
+
+      items.forEach(function (item) {
+        if (item._v5Bound) return;
+        item._v5Bound = true;
+        var p = panelOf(item);
+        if (!p.trigger || !p.panel) return;
+
+        p.trigger.addEventListener('click', function () {
+          var isOpen = !p.panel.hidden;
+          closeAll(item);
+          if (isOpen) {
+            close(item);
+          } else {
+            p.panel.hidden = false;
+            p.trigger.setAttribute('aria-expanded', 'true');
+            item.classList.add('is-open');
+          }
+        });
+
+        item.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !p.panel.hidden) {
+            e.stopPropagation();
+            close(item);
+            p.trigger.focus();
+          }
+        });
+      });
+
+      if (!document._v5MegaDocBound) {
+        document._v5MegaDocBound = true;
+        document.addEventListener('click', function (e) {
+          var t = e.target;
+          var inside = t && t.closest && t.closest('[data-v5-pillar]');
+          if (!inside) {
+            document.querySelectorAll('[data-v5-pillar].is-open').forEach(function (item) {
+              var panel = item.querySelector('[data-v5-mega]');
+              var trigger = item.querySelector('[data-v5-pillar-trigger]');
+              if (panel) panel.hidden = true;
+              if (trigger) trigger.setAttribute('aria-expanded', 'false');
+              item.classList.remove('is-open');
+            });
+          }
+        });
+      }
+    }
+
+    initV5Mega();
+    document.addEventListener('astro:page-load', initV5Mega);
+  })();
+</script>
+
+<style>
+  .v5-masthead__brand-inner,
+  .v5-masthead__nav nav {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--space-5);
+  }
+
+  .v5-masthead__brand {
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-masthead__brand-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 60px;
+  }
+
+  .v5-masthead__logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .v5-masthead__logo span {
+    font-style: italic;
+    font-weight: var(--fw-display-em);
+    color: var(--accent);
+  }
+
+  .v5-masthead__utilities {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .v5-masthead__profile-slot { display: contents; }
+
+  .v5-launcher {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 40px;
+    padding: 0 var(--space-4);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    background: var(--bg);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-medium);
+    color: var(--soft);
+    text-decoration: none;
+    transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  }
+  .v5-launcher:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .v5-utilbtn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: var(--space-1) var(--space-2);
+    background: none;
+    border: none;
+    border-radius: var(--radius-s);
+    font-family: var(--font-ui);
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .v5-utilbtn:hover { color: var(--accent); }
+  .v5-utilbtn__label {
+    font-size: var(--fs-100);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-label);
+  }
+
+  .v5-masthead__nav {
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-pillars {
+    list-style: none;
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-5);
+  }
+  .v5-pillars__item { position: static; }
+
+  .v5-pillar-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 48px;
+    padding: 0 var(--space-1);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-medium);
+    color: var(--text);
+    cursor: pointer;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .v5-pillar-trigger:hover { color: var(--accent); }
+  .v5-pillars__item.is-current .v5-pillar-trigger {
+    border-bottom-color: var(--accent);
+    font-weight: var(--fw-semibold);
+  }
+  .v5-pillars__item.is-open .v5-pillar-trigger { color: var(--accent); }
+  .v5-pillar-trigger__chev {
+    transition: transform var(--dur-fast) var(--ease);
+  }
+  .v5-pillars__item.is-open .v5-pillar-trigger__chev {
+    transform: rotate(180deg);
+  }
+
+  /* Visible focus (A-08): tokenised ring on every header control. */
+  .v5-masthead a:focus-visible,
+  .v5-masthead button:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Mobile: nav row retires; the drawer carries wayfinding. The
+     utility cluster reduces to launcher (icon only) + menu; Saved
+     lives in the drawer and the bottom bar (NAV-05 capability set is
+     preserved across breakpoints). */
+  @media (max-width: 1023px) {
+    .v5-masthead__nav { display: none; }
+    .v5-utilbtn--saved { display: none; }
+    .v5-launcher__label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .v5-launcher {
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      padding: 0;
+      border: none;
+      color: var(--text);
+    }
+  }
+</style>

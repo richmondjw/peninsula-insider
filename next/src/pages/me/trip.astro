@@ -1,0 +1,1239 @@
+---
+/**
+ * /me/trip/ - THE one reader planning tool (T-604 UI, tools spec section 3).
+ *
+ * Day-grouped stop list on the unified v5-store trip view (pi:saves:v2:trip).
+ * - Reorder: keyboard-first (WCAG 2.5.7, audit A-10). Every stop has a Move
+ *   toggle; arrows move it, Enter drops, Escape cancels, each step announced
+ *   through a live region. No drag dependency, so the SortableJS silent-CDN
+ *   failure mode (TOOL-07) does not exist here.
+ * - Drive times: haversine + Peninsula road multiplier, reimplemented
+ *   minimally from the legacy /itinerary/ controller with build-time
+ *   coordinate lookups; every gap label carries "est." (TOOL-24).
+ * - "Add from Saved" pulls ALL nine kinds from the one store (TOOL-02).
+ * - Share: URL-encoded per the existing /itinerary/ pattern (?i=&d=).
+ * - "Ask PI to fill a gap" prefills /ask/?q=.
+ * - noindex + search-excluded (spec 3.27).
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MeShell from '../../components/v5/me/MeShell.astro';
+import EmptyState from '../../components/v5/EmptyState.astro';
+import { routeSlug, venueHrefPrefix } from '../../lib/editorial';
+
+const venues = await getCollection('venues');
+const events = await getCollection('events');
+const experiences = await getCollection('experiences');
+
+/**
+ * Build-time lookup so the client can hydrate titles/hrefs for shared links
+ * and compute haversine drive estimates without a network call. Keyed
+ * "kind/slug" to match the store's entry identity. Kinds without
+ * coordinates (articles, plans, tours) ride on their stored snapshots.
+ */
+const lookup: Record<string, { t: string; h: string; img: string; lat: number | null; lng: number | null }> = {};
+for (const v of venues) {
+  lookup[`venue/${routeSlug(v)}`] = {
+    t: v.data.name,
+    h: `${venueHrefPrefix(v.data.type)}/${routeSlug(v)}/`,
+    img: v.data.heroImage?.src ?? '',
+    lat: v.data.coordinates?.lat ?? null,
+    lng: v.data.coordinates?.lng ?? null,
+  };
+}
+for (const e of events) {
+  lookup[`event/${routeSlug(e)}`] = {
+    t: e.data.title,
+    h: `/whats-on/${routeSlug(e)}/`,
+    img: e.data.heroImage?.src ?? '',
+    lat: e.data.coordinates?.lat ?? null,
+    lng: e.data.coordinates?.lng ?? null,
+  };
+}
+for (const x of experiences) {
+  lookup[`experience/${routeSlug(x)}`] = {
+    t: x.data.name,
+    h: `/explore/${routeSlug(x)}/`,
+    img: x.data.heroImage?.src ?? '',
+    lat: x.data.coordinates?.lat ?? null,
+    lng: x.data.coordinates?.lng ?? null,
+  };
+}
+
+const lookupJson = JSON.stringify(lookup).replace(/</g, '\\u003c');
+
+const askPrefill = encodeURIComponent('Suggest a stop to fill a gap in my Peninsula day');
+export const prerender = true;
+---
+
+<BaseLayout
+  title="My Trip · Peninsula Insider"
+  description="Your own Peninsula day, in order, with drive time estimates between stops."
+  noindex={true}
+  searchExclude={true}
+>
+  <div class="me-page trip-page">
+    <div class="me-page__container">
+      <MeShell active="trip" heading="My Trip">
+        <span slot="count" class="trip-count-badge" data-trip-count-badge aria-hidden="true"></span>
+      </MeShell>
+
+      <p id="pi-trip-status" class="trip-sr" role="status" aria-live="assertive"></p>
+
+      <!-- Shared-link banner: someone opened a ?i= share URL. -->
+      <aside class="trip-shared" data-trip-shared hidden>
+        <p class="trip-shared__title">Someone sent you a Peninsula day. Make it yours, or start your own.</p>
+        <ul class="trip-shared__list" data-trip-shared-list></ul>
+        <div class="trip-shared__actions">
+          <button type="button" class="trip-btn trip-btn--primary" data-trip-import>Add these stops to my trip</button>
+          <button type="button" class="trip-btn" data-trip-shared-dismiss>Start my own</button>
+        </div>
+      </aside>
+
+      <!-- Toolbar: hidden until the trip has at least one stop (spec 3.22). -->
+      <div class="trip-toolbar" data-trip-toolbar hidden>
+        <p class="trip-toolbar__stats">
+          <span data-trip-stop-count>0 stops</span>
+          <span aria-hidden="true">·</span>
+          <span data-trip-drive-total>drive estimate unavailable</span>
+        </p>
+        <div class="trip-toolbar__actions">
+          <button type="button" class="trip-btn" data-trip-add-day>+ Add a day</button>
+          <button type="button" class="trip-btn" data-trip-share>Share link</button>
+          <button type="button" class="trip-btn" data-trip-print>Print</button>
+          <button type="button" class="trip-btn trip-btn--quiet" data-trip-clear>Clear trip</button>
+        </div>
+      </div>
+
+      <ol class="trip-list" data-trip-list aria-label="Trip stops"></ol>
+
+      <!-- Empty state: Local voice (spec 3.22, wireframe note 4). -->
+      <div data-trip-empty hidden>
+        <EmptyState
+          variant="section-zero"
+          heading="No trip yet"
+          body="Save a few places as you browse, or start from one of our plans. We will keep the driving sensible."
+          surface="me-trip"
+          askSecondary={false}
+        >
+          <div slot="actions" class="trip-empty-doors">
+            <a class="trip-empty-doors__primary" href="/plans/" data-evt="empty_state_cta" data-surface="me-trip">Browse plans</a>
+            <a class="trip-empty-doors__link" href="/me/saved/" data-evt="empty_state_cta" data-surface="me-trip">Start from saved</a>
+            <a class="trip-empty-doors__link" href={`/ask/?q=${askPrefill}`} data-evt="ask_open" data-surface="me-trip">Ask PI</a>
+          </div>
+        </EmptyState>
+      </div>
+
+      <!-- Add panel: the two feeders (spec 3.9 item 4, wireframe note 3). -->
+      <section class="trip-add" data-trip-add-panel aria-labelledby="trip-add-heading">
+        <h2 id="trip-add-heading" class="trip-add__heading">Add to this trip</h2>
+        <div class="trip-add__day" data-trip-day-picker hidden>
+          <label class="trip-add__day-label" for="trip-day-select">Add new stops to</label>
+          <select id="trip-day-select" class="trip-add__day-select" data-trip-day-select></select>
+        </div>
+        <ul class="trip-add__list" data-trip-add-list></ul>
+        <p class="trip-add__none" data-trip-add-none hidden>
+          Everything you have saved is already in the trip.
+          <a href="/me/saved/">Open Saved</a>
+        </p>
+        <p class="trip-add__ask">
+          <a href={`/ask/?q=${askPrefill}`} data-evt="ask_open" data-surface="me-trip">Ask PI to fill a gap</a>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script type="application/json" id="pi-trip-lookup" set:html={lookupJson}></script>
+</BaseLayout>
+
+<script>
+  import * as store from '../../lib/v5-store';
+  import { SAVE_KINDS } from '../../lib/v5-store';
+  import type { SaveKind, SavedItem, TripEntry, TripGroup } from '../../lib/v5-store';
+  import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
+
+  initV5Analytics();
+
+  interface GeoRow { t: string; h: string; img: string; lat: number | null; lng: number | null }
+
+  const lookupEl = document.getElementById('pi-trip-lookup');
+  const GEO: Record<string, GeoRow> = lookupEl ? JSON.parse(lookupEl.textContent || '{}') : {};
+
+  const KIND_LABELS: Record<SaveKind, string> = {
+    venue: 'Venue',
+    event: 'Event',
+    experience: 'Experience',
+    place: 'Place',
+    itinerary: 'Plan',
+    article: 'Article',
+    tour: 'Tour',
+    'tour-operator': 'Operator',
+    'tour-package': 'Package',
+  };
+
+  function esc(s: string): string {
+    return s.replace(/[&<>"']/g, (c) => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' } as Record<string, string>
+    )[c] as string);
+  }
+
+  function cssUrl(src: string): string {
+    return src.replace(/["\\]/g, (m) => `\\${m}`);
+  }
+
+  type Stop = TripEntry & { save?: SavedItem };
+
+  interface HydratedStop {
+    title: string;
+    href: string;
+    img: string;
+    lat: number | null;
+    lng: number | null;
+    kindLabel: string;
+  }
+
+  function hydrate(stop: Stop): HydratedStop {
+    const geo = stop.kind && stop.slug ? GEO[`${stop.kind}/${stop.slug}`] : undefined;
+    const metaImg = stop.meta && typeof stop.meta.image_url === 'string' ? stop.meta.image_url : '';
+    const saveMetaImg = stop.save?.meta && typeof stop.save.meta.image_url === 'string' ? (stop.save.meta.image_url as string) : '';
+    return {
+      title: stop.title || stop.save?.title || geo?.t || stop.slug || 'Stop',
+      href: stop.href || stop.save?.href || geo?.h || '',
+      img: stop.save?.image_url || saveMetaImg || metaImg || geo?.img || '',
+      lat: geo?.lat ?? null,
+      lng: geo?.lng ?? null,
+      kindLabel: stop.kind ? KIND_LABELS[stop.kind] : 'Stop',
+    };
+  }
+
+  /* Drive-time estimation, reimplemented minimally from the legacy
+     /itinerary/ controller (haversine, 1.3 road multiplier, 45 km/h,
+     snapped to 5 minutes). */
+  function haversineKm(a: HydratedStop, b: HydratedStop): number | null {
+    if (a.lat == null || b.lat == null || a.lng == null || b.lng == null) return null;
+    const R = 6371;
+    const toRad = (d: number) => (d * Math.PI) / 180;
+    const dLat = toRad(b.lat - a.lat);
+    const dLng = toRad(b.lng - a.lng);
+    const h = Math.sin(dLat / 2) ** 2 + Math.sin(dLng / 2) ** 2 * Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat));
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+
+  function drivingMinutes(km: number): number {
+    return ((km * 1.3) / 45) * 60;
+  }
+
+  function formatMinutes(minutes: number): string {
+    const snapped = Math.max(1, Math.round(minutes / 5) * 5);
+    if (snapped < 60) return `${snapped} min`;
+    const h = Math.floor(snapped / 60);
+    const m = snapped % 60;
+    return m === 0 ? `${h} h` : `${h} h ${m}`;
+  }
+
+  function groupLabel(group: TripGroup, hasDays: boolean): string {
+    if (group.day) return group.day.label;
+    return hasDays ? 'Unscheduled' : 'Your day';
+  }
+
+  function announce(text: string): void {
+    const el = document.getElementById('pi-trip-status');
+    if (el) el.textContent = text;
+  }
+
+  function showToast(message: string): void {
+    let toast = document.querySelector<HTMLElement>('[data-me-toast]');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'me-toast';
+      toast.setAttribute('data-me-toast', '');
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('me-toast--visible');
+    window.setTimeout(() => toast?.classList.remove('me-toast--visible'), 2400);
+  }
+
+  /* ── Keyboard reorder state ────────────────────────────────────────── */
+  let movingId: string | null = null;
+  let pickupIndexAmongOthers = 0;
+  let pickupDayId = '';
+
+  function positionOf(entryId: string): { pos: number; total: number; label: string } | null {
+    const groups = store.tripList();
+    const hasDays = store.tripDays().length > 0;
+    for (const g of groups) {
+      const idx = g.stops.findIndex((s) => s.id === entryId);
+      if (idx >= 0) return { pos: idx + 1, total: g.stops.length, label: groupLabel(g, hasDays) };
+    }
+    return null;
+  }
+
+  /**
+   * Move the stop one step up or down in the DISPLAY order: within its
+   * group first, crossing into the adjacent group (day) at a boundary.
+   * Canonical index math targets the entries array with the moving entry
+   * removed, matching tripMove()'s splice-then-insert semantics.
+   */
+  function stepMove(entryId: string, dir: -1 | 1): boolean {
+    const displayGroups = store.tripList();
+    const others = store.tripEntries().filter((e) => e.id !== entryId);
+    const indexAmongOthers = (id: string) => others.findIndex((e) => e.id === id);
+
+    let gi = -1;
+    let si = -1;
+    for (let i = 0; i < displayGroups.length; i++) {
+      const j = displayGroups[i].stops.findIndex((s) => s.id === entryId);
+      if (j >= 0) { gi = i; si = j; break; }
+    }
+    if (gi < 0) return false;
+
+    const group = displayGroups[gi];
+    const stops = group.stops;
+
+    if (dir === -1) {
+      if (si > 0) {
+        // Insert before the previous stop in the same group.
+        store.tripMove(entryId, indexAmongOthers(stops[si - 1].id), group.day ? group.day.id : '');
+        return true;
+      }
+      if (gi > 0) {
+        // Join the previous group as its last stop.
+        const prev = displayGroups[gi - 1];
+        const prevDay = prev.day ? prev.day.id : '';
+        if (prev.stops.length > 0) {
+          store.tripMove(entryId, indexAmongOthers(prev.stops[prev.stops.length - 1].id) + 1, prevDay);
+        } else {
+          const self = store.tripEntries().findIndex((e) => e.id === entryId);
+          store.tripMove(entryId, Math.max(0, self), prevDay);
+        }
+        return true;
+      }
+      return false;
+    }
+
+    if (si < stops.length - 1) {
+      // Insert after the next stop in the same group.
+      store.tripMove(entryId, indexAmongOthers(stops[si + 1].id) + 1, group.day ? group.day.id : '');
+      return true;
+    }
+    if (gi < displayGroups.length - 1) {
+      // Join the next group as its first stop.
+      const next = displayGroups[gi + 1];
+      const nextDay = next.day ? next.day.id : '';
+      if (next.stops.length > 0) {
+        store.tripMove(entryId, indexAmongOthers(next.stops[0].id), nextDay);
+      } else {
+        const self = store.tripEntries().findIndex((e) => e.id === entryId);
+        store.tripMove(entryId, Math.max(0, self), nextDay);
+      }
+      return true;
+    }
+    return false;
+  }
+
+  function finishMove(reason: 'drop' | 'cancel'): void {
+    if (!movingId) return;
+    const id = movingId;
+    if (reason === 'cancel') {
+      store.tripMove(id, pickupIndexAmongOthers, pickupDayId);
+    }
+    movingId = null;
+    render();
+    const p = positionOf(id);
+    const h = hydrateById(id);
+    if (reason === 'cancel') {
+      announce(`Move cancelled. ${h?.title ?? 'Stop'} returned to its original position.`);
+    } else if (p && h) {
+      announce(`${h.title} dropped at position ${p.pos} of ${p.total}, ${p.label}.`);
+    }
+    focusMoveButton(id);
+  }
+
+  function hydrateById(entryId: string): HydratedStop | null {
+    for (const g of store.tripList()) {
+      const s = g.stops.find((x) => x.id === entryId);
+      if (s) return hydrate(s);
+    }
+    return null;
+  }
+
+  function focusMoveButton(entryId: string): void {
+    const btn = document.querySelector<HTMLButtonElement>(`[data-trip-move][data-entry="${CSS.escape(entryId)}"]`);
+    btn?.focus();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!movingId) return;
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      const id = movingId;
+      const moved = stepMove(id, e.key === 'ArrowUp' ? -1 : 1);
+      render();
+      const p = positionOf(id);
+      const h = hydrateById(id);
+      if (moved && p && h) {
+        announce(`${h.title}, position ${p.pos} of ${p.total}, ${p.label}.`);
+        trackEvent('trip_reorder', { method: 'keyboard' });
+      } else if (p && h) {
+        announce(`${h.title} is already at the ${e.key === 'ArrowUp' ? 'start' : 'end'} of the trip.`);
+      }
+      focusMoveButton(id);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      finishMove('cancel');
+    }
+  });
+
+  /* ── Rendering ─────────────────────────────────────────────────────── */
+
+  function renderStop(stop: Stop, moving: boolean): string {
+    const h = hydrate(stop);
+    const media = h.img
+      ? `<span class="trip-stop__media" style="background-image:url('${cssUrl(esc(h.img))}')" aria-hidden="true"></span>`
+      : `<span class="trip-stop__media trip-stop__media--tile" aria-hidden="true">${esc(h.kindLabel.slice(0, 2))}</span>`;
+    const title = h.href
+      ? `<a href="${esc(h.href)}" class="trip-stop__link" data-evt="card_click" data-entity-type="${esc(stop.kind || 'page')}" data-entity-slug="${esc(stop.slug || '')}" data-surface="me-trip">${esc(h.title)}</a>`
+      : esc(h.title);
+    const note = stop.note ? `<span class="trip-stop__note">${esc(stop.note)}</span>` : '';
+    return `
+      <li class="trip-stop${moving ? ' trip-stop--moving' : ''}" data-trip-stop="${esc(stop.id)}">
+        ${media}
+        <span class="trip-stop__body">
+          <span class="trip-stop__kind">${esc(h.kindLabel)}</span>
+          <span class="trip-stop__title">${title}</span>
+          ${note}
+        </span>
+        <span class="trip-stop__actions">
+          <button type="button" class="trip-stop__move" data-trip-move data-entry="${esc(stop.id)}" aria-pressed="${moving ? 'true' : 'false'}" aria-label="Move ${esc(h.title)}. Toggle, then use arrow keys to change position, Enter to drop, Escape to cancel.">Move</button>
+          <button type="button" class="trip-stop__remove" data-trip-remove data-entry="${esc(stop.id)}" aria-label="Remove ${esc(h.title)} from the trip">Remove</button>
+        </span>
+      </li>`;
+  }
+
+  function renderGroup(group: TripGroup, hasDays: boolean): string {
+    const label = groupLabel(group, hasDays);
+    const hydrated = group.stops.map((s) => hydrate(s));
+    let dayMinutes = 0;
+    let rows = '';
+    group.stops.forEach((stop, i) => {
+      if (i > 0) {
+        const km = haversineKm(hydrated[i - 1], hydrated[i]);
+        if (km != null) {
+          const mins = drivingMinutes(km);
+          dayMinutes += mins;
+          rows += `<li class="trip-gap" aria-hidden="true"><span class="trip-gap__label">~ ${esc(formatMinutes(mins))} drive · est.</span></li>`;
+        }
+      }
+      rows += renderStop(stop, stop.id === movingId);
+    });
+
+    const summary = group.stops.length > 0
+      ? `<span class="trip-sr">${esc(label)}: ${group.stops.length} stop${group.stops.length === 1 ? '' : 's'}${dayMinutes > 0 ? `, about ${esc(formatMinutes(dayMinutes))} driving, estimated` : ''}.</span>`
+      : '';
+
+    const removeDay = group.day
+      ? `<button type="button" class="trip-day__remove" data-trip-remove-day="${esc(group.day.id)}" aria-label="Remove ${esc(label)}. Its stops stay in the trip.">Remove day</button>`
+      : '';
+
+    const head = (hasDays || group.day)
+      ? `<div class="trip-day__head"><h2 class="trip-day__label">${esc(label)}${summary}</h2>${removeDay}</div>`
+      : summary;
+
+    return `
+      <li class="trip-day">
+        ${head}
+        <ol class="trip-day__list" aria-label="${esc(label)} stops">${rows}</ol>
+      </li>`;
+  }
+
+  function render(): void {
+    const listEl = document.querySelector<HTMLElement>('[data-trip-list]');
+    const emptyEl = document.querySelector<HTMLElement>('[data-trip-empty]');
+    const toolbarEl = document.querySelector<HTMLElement>('[data-trip-toolbar]');
+    const badgeEl = document.querySelector<HTMLElement>('[data-trip-count-badge]');
+    if (!listEl || !emptyEl || !toolbarEl) return;
+
+    const total = store.tripCount();
+    if (badgeEl) badgeEl.textContent = total > 0 ? `(${total})` : '';
+
+    if (total === 0) {
+      listEl.innerHTML = '';
+      toolbarEl.hidden = true;
+      emptyEl.hidden = false;
+      renderAddPanel();
+      return;
+    }
+
+    emptyEl.hidden = true;
+    toolbarEl.hidden = false;
+
+    const groups = store.tripList();
+    const hasDays = store.tripDays().length > 0;
+    listEl.innerHTML = groups
+      .filter((g) => g.day !== null || g.stops.length > 0)
+      .map((g) => renderGroup(g, hasDays))
+      .join('');
+
+    const countEl = document.querySelector<HTMLElement>('[data-trip-stop-count]');
+    if (countEl) countEl.textContent = `${total} stop${total === 1 ? '' : 's'}`;
+
+    const driveEl = document.querySelector<HTMLElement>('[data-trip-drive-total]');
+    if (driveEl) {
+      let minutes = 0;
+      for (const g of groups) {
+        const hyd = g.stops.map((s) => hydrate(s));
+        for (let i = 1; i < hyd.length; i++) {
+          const km = haversineKm(hyd[i - 1], hyd[i]);
+          if (km != null) minutes += drivingMinutes(km);
+        }
+      }
+      driveEl.textContent = minutes > 0 ? `~ ${formatMinutes(minutes)} driving · est.` : 'drive estimate unavailable';
+    }
+
+    renderAddPanel();
+  }
+
+  /* ── Add from Saved: ALL nine kinds (TOOL-02) ──────────────────────── */
+
+  function renderAddPanel(): void {
+    const listEl = document.querySelector<HTMLElement>('[data-trip-add-list]');
+    const noneEl = document.querySelector<HTMLElement>('[data-trip-add-none]');
+    const pickerEl = document.querySelector<HTMLElement>('[data-trip-day-picker]');
+    const selectEl = document.querySelector<HTMLSelectElement>('[data-trip-day-select]');
+    if (!listEl || !noneEl) return;
+
+    const inTrip = new Set<string>();
+    for (const e of store.tripEntries()) {
+      if (e.kind && e.slug) inTrip.add(`${e.kind}/${e.slug}`);
+    }
+    const candidates = store.listSaves().filter((it) => !inTrip.has(`${it.kind}/${it.slug}`));
+
+    const days = store.tripDays();
+    if (pickerEl && selectEl) {
+      if (days.length > 0 && candidates.length > 0) {
+        const current = selectEl.value;
+        selectEl.innerHTML =
+          `<option value="">Unscheduled</option>` +
+          days.map((d) => `<option value="${esc(d.id)}">${esc(d.label)}</option>`).join('');
+        if ([...selectEl.options].some((o) => o.value === current)) selectEl.value = current;
+        pickerEl.hidden = false;
+      } else {
+        pickerEl.hidden = true;
+      }
+    }
+
+    if (candidates.length === 0) {
+      listEl.innerHTML = '';
+      const hasSaves = store.listSaves().length > 0;
+      noneEl.hidden = false;
+      noneEl.innerHTML = hasSaves
+        ? `Everything you have saved is already in the trip. <a href="/me/saved/">Open Saved</a>`
+        : `Nothing saved yet. Tap the bookmark on any place, plan, or story and it turns up here. <a href="/me/saved/">Open Saved</a>`;
+      return;
+    }
+
+    noneEl.hidden = true;
+    listEl.innerHTML = candidates
+      .map((it) => `
+        <li class="trip-add__item">
+          <span class="trip-add__kind">${esc(KIND_LABELS[it.kind])}</span>
+          <span class="trip-add__title">${esc(it.title)}</span>
+          <button type="button" class="trip-add__btn" data-trip-add data-kind="${esc(it.kind)}" data-slug="${esc(it.slug)}" aria-label="Add ${esc(it.title)} to the trip">+ Add</button>
+        </li>`)
+      .join('');
+  }
+
+  /* ── Share (existing URL-encode pattern) ───────────────────────────── */
+
+  function buildShareUrl(): string {
+    const p = new URLSearchParams();
+    const refs = store.tripEntries().filter((e) => e.kind && e.slug);
+    if (refs.length > 0) {
+      p.set('i', refs.map((e) => `${e.kind}:${e.slug}:${e.dayId || ''}`).join('|'));
+    }
+    const days = store.tripDays();
+    if (days.length > 0) {
+      p.set('d', days.map((d) => `${d.id}:${encodeURIComponent(d.label)}`).join('|'));
+    }
+    const qs = p.toString();
+    return location.origin + '/me/trip/' + (qs ? `?${qs}` : '');
+  }
+
+  interface SharedPayload {
+    items: { kind: SaveKind; slug: string; dayId: string }[];
+    days: { id: string; label: string }[];
+  }
+
+  function parseShared(): SharedPayload | null {
+    const p = new URLSearchParams(location.search);
+    const raw = p.get('i');
+    if (!raw) return null;
+    const items = raw.split('|').filter(Boolean).map((triple) => {
+      const parts = triple.split(':');
+      const kind = (SAVE_KINDS as readonly string[]).includes(parts[0]) ? (parts[0] as SaveKind) : 'venue';
+      return { kind, slug: parts[1] || '', dayId: parts[2] || '' };
+    }).filter((it) => it.slug);
+    if (items.length === 0) return null;
+    const days: SharedPayload['days'] = [];
+    const dr = p.get('d');
+    if (dr) {
+      for (const pair of dr.split('|').filter(Boolean)) {
+        const parts = pair.split(':');
+        const id = parts[0] || '';
+        let label = parts[1] || id;
+        try { label = decodeURIComponent(label); } catch { /* keep raw */ }
+        if (id) days.push({ id, label });
+      }
+    }
+    return { items, days };
+  }
+
+  function bootShared(): void {
+    const shared = parseShared();
+    const banner = document.querySelector<HTMLElement>('[data-trip-shared]');
+    if (!shared || !banner) return;
+
+    const list = banner.querySelector<HTMLElement>('[data-trip-shared-list]');
+    if (list) {
+      list.innerHTML = shared.items
+        .map((it) => {
+          const geo = GEO[`${it.kind}/${it.slug}`];
+          return `<li>${esc(KIND_LABELS[it.kind])} · ${esc(geo?.t || it.slug)}</li>`;
+        })
+        .join('');
+    }
+    banner.hidden = false;
+
+    banner.querySelector('[data-trip-import]')?.addEventListener('click', () => {
+      const dayMap: Record<string, string> = {};
+      for (const d of shared.days) {
+        dayMap[d.id] = store.tripAddDay(d.label).id;
+      }
+      for (const it of shared.items) {
+        const geo = GEO[`${it.kind}/${it.slug}`];
+        store.tripAdd(
+          { kind: it.kind, slug: it.slug, title: geo?.t || it.slug, href: geo?.h || undefined },
+          { dayId: dayMap[it.dayId] || '', autoSave: false },
+        );
+      }
+      history.replaceState(null, '', location.pathname);
+      banner.hidden = true;
+      trackEvent('trip_shared_fork', { stops: shared.items.length });
+      showToast('Added to your trip');
+    });
+
+    banner.querySelector('[data-trip-shared-dismiss]')?.addEventListener('click', () => {
+      history.replaceState(null, '', location.pathname);
+      banner.hidden = true;
+    });
+  }
+
+  /* ── Bindings ──────────────────────────────────────────────────────── */
+
+  function bindList(): void {
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement | null;
+
+      const moveBtn = target?.closest<HTMLElement>('[data-trip-move]');
+      if (moveBtn) {
+        const id = moveBtn.dataset.entry || '';
+        if (movingId === id) {
+          finishMove('drop');
+        } else {
+          movingId = id;
+          const entries = store.tripEntries();
+          const idx = entries.findIndex((x) => x.id === id);
+          pickupDayId = idx >= 0 ? entries[idx].dayId : '';
+          // Insert index within the entries array once this entry is spliced
+          // out: everything before it keeps its position.
+          pickupIndexAmongOthers = Math.max(0, idx);
+          render();
+          const h = hydrateById(id);
+          announce(`Moving ${h?.title ?? 'stop'}. Use arrow keys to change position, Enter to drop, Escape to cancel.`);
+          focusMoveButton(id);
+        }
+        return;
+      }
+
+      const removeBtn = target?.closest<HTMLElement>('[data-trip-remove]');
+      if (removeBtn) {
+        const id = removeBtn.dataset.entry || '';
+        if (movingId === id) movingId = null;
+        const h = hydrateById(id);
+        store.tripRemove(id);
+        announce(`${h?.title ?? 'Stop'} removed from the trip.`);
+        return;
+      }
+
+      const removeDayBtn = target?.closest<HTMLElement>('[data-trip-remove-day]');
+      if (removeDayBtn) {
+        store.tripRemoveDay(removeDayBtn.dataset.tripRemoveDay || '');
+        announce('Day removed. Its stops are now unscheduled.');
+        return;
+      }
+
+      const addBtn = target?.closest<HTMLElement>('[data-trip-add]');
+      if (addBtn) {
+        const kind = addBtn.dataset.kind as SaveKind;
+        const slug = addBtn.dataset.slug || '';
+        const item = store.listSaves().find((it) => it.kind === kind && it.slug === slug);
+        if (!item) return;
+        const select = document.querySelector<HTMLSelectElement>('[data-trip-day-select]');
+        const dayId = select && !select.closest('[hidden]') ? select.value : '';
+        store.tripAdd(
+          { kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta },
+          { dayId },
+        );
+        trackEvent('trip_add', { entity_type: kind, entity_slug: slug, src: 'saved' });
+        const dayLabel = dayId ? store.tripDays().find((d) => d.id === dayId)?.label : '';
+        showToast(dayLabel ? `Added to ${dayLabel}` : 'Added to your trip');
+      }
+    });
+  }
+
+  function bindToolbar(): void {
+    document.querySelector('[data-trip-add-day]')?.addEventListener('click', () => {
+      const day = store.tripAddDay();
+      trackEvent('trip_day_add', {});
+      announce(`${day.label} added.`);
+    });
+
+    document.querySelector('[data-trip-share]')?.addEventListener('click', async () => {
+      const url = buildShareUrl();
+      trackEvent('trip_share', { stops: store.tripCount() });
+      try {
+        await navigator.clipboard.writeText(url);
+        showToast('Share link copied');
+      } catch {
+        window.prompt('Copy this share link:', url);
+      }
+    });
+
+    document.querySelector('[data-trip-print]')?.addEventListener('click', () => {
+      trackEvent('trip_print', {});
+      window.print();
+    });
+
+    document.querySelector('[data-trip-clear]')?.addEventListener('click', () => {
+      if (!window.confirm('Clear the whole trip? Your saves stay put.')) return;
+      movingId = null;
+      store.tripClear();
+      announce('Trip cleared.');
+    });
+  }
+
+  function init(): void {
+    bindList();
+    bindToolbar();
+    bootShared();
+    render();
+    store.subscribe(() => render());
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+</script>
+
+<style>
+  .me-page {
+    background: var(--bg);
+    min-height: 60vh;
+    padding-bottom: var(--space-8, 4rem);
+  }
+
+  .me-page__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-5, 1.5rem);
+  }
+
+  .trip-count-badge {
+    font-size: var(--fs-500, 1.1875rem);
+    color: var(--soft);
+    font-weight: var(--fw-body, 400);
+  }
+
+  .trip-shared {
+    margin: var(--space-5, 1.5rem) 0;
+    padding: var(--space-4, 1rem) var(--space-5, 1.5rem);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+  }
+
+  .trip-shared__title {
+    margin: 0 0 var(--space-3, 0.75rem);
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-500, 1.1875rem);
+    font-weight: var(--fw-display, 600);
+    color: var(--text);
+  }
+
+  .trip-shared__list {
+    margin: 0 0 var(--space-3, 0.75rem);
+    padding: 0 0 0 var(--space-4, 1rem);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+
+  .trip-shared__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .trip-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3, 0.75rem);
+    margin: var(--space-5, 1.5rem) 0;
+  }
+
+  .trip-toolbar__stats {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+
+  .trip-toolbar__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .trip-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem);
+    background: var(--bg, #fff);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 4px);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    cursor: pointer;
+    transition: border-color var(--dur-fast, 120ms) var(--ease, ease), color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .trip-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .trip-btn--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white, #fff);
+  }
+  .trip-btn--primary:hover {
+    background: var(--acc-h);
+    border-color: var(--acc-h);
+    color: var(--white, #fff);
+  }
+
+  .trip-btn--quiet {
+    border-color: transparent;
+    color: var(--soft);
+  }
+
+  .trip-btn:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .trip-empty-doors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .trip-empty-doors__primary,
+  .trip-empty-doors__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-4, 1rem);
+    border-radius: var(--radius-s, 4px);
+    text-decoration: none;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-medium, 500);
+  }
+
+  .trip-empty-doors__primary {
+    background: var(--accent);
+    color: var(--white, #fff);
+  }
+  .trip-empty-doors__primary:hover { background: var(--acc-h); }
+
+  .trip-empty-doors__link {
+    border: 1px solid var(--text);
+    color: var(--text);
+  }
+  .trip-empty-doors__link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .trip-empty-doors__primary:focus-visible,
+  .trip-empty-doors__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .trip-add {
+    margin-top: var(--space-7, 3rem);
+    padding: var(--space-5, 1.5rem);
+    background: var(--bg-alt);
+    border-radius: var(--radius-m, 10px);
+  }
+
+  .trip-add__heading {
+    margin: 0 0 var(--space-3, 0.75rem);
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-600, 1.5rem);
+    font-weight: var(--fw-display, 600);
+    color: var(--text);
+  }
+
+  .trip-add__day {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+    margin: 0 0 var(--space-3, 0.75rem);
+  }
+
+  .trip-add__day-label {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+
+  .trip-add__day-select {
+    min-height: 44px;
+    padding: 0 var(--space-2, 0.5rem);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 4px);
+    background: var(--bg, #fff);
+    color: var(--text);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+  }
+
+  .trip-add__day-select:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .trip-add__none,
+  .trip-add__ask {
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+
+  .trip-add__none :global(a),
+  .trip-add__ask a {
+    color: var(--accent);
+    font-weight: var(--fw-medium, 500);
+  }
+</style>
+
+<style is:global>
+  /* Client-rendered trip rows (innerHTML, so unscoped; namespaced under
+     .trip-page). Token-only styling per BUILD-CONTRACT. */
+  .trip-page .trip-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .trip-page .trip-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-5, 1.5rem);
+  }
+
+  .trip-page .trip-day__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3, 0.75rem);
+    margin: 0 0 var(--space-3, 0.75rem);
+  }
+
+  .trip-page .trip-day__label {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-600, 1.5rem);
+    font-weight: var(--fw-display, 600);
+    color: var(--text);
+  }
+
+  .trip-page .trip-day__remove {
+    appearance: none;
+    background: none;
+    border: none;
+    min-height: 44px;
+    padding: 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .trip-page .trip-day__remove:hover { color: var(--text); }
+
+  .trip-page .trip-day__remove:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .trip-page .trip-day__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .trip-page .trip-stop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 0.75rem);
+    padding: var(--space-3, 0.75rem);
+    background: var(--bg, #fff);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+  }
+
+  .trip-page .trip-stop--moving {
+    border-color: var(--accent);
+    box-shadow: var(--elev-1, none);
+  }
+
+  .trip-page .trip-stop__media {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-s, 4px);
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-alt);
+  }
+
+  .trip-page .trip-stop__media--tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-500, 1.1875rem);
+    color: var(--gold-text);
+  }
+
+  .trip-page .trip-stop__body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .trip-page .trip-stop__kind {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+  }
+
+  .trip-page .trip-stop__title {
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-500, 1.1875rem);
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--text);
+  }
+
+  .trip-page .trip-stop__link {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .trip-page .trip-stop__link:hover { color: var(--accent); }
+
+  .trip-page .trip-stop__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .trip-page .trip-stop__note {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+
+  .trip-page .trip-stop__actions {
+    display: flex;
+    gap: var(--space-2, 0.5rem);
+  }
+
+  .trip-page .trip-stop__move,
+  .trip-page .trip-stop__remove {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 var(--space-3, 0.75rem);
+    border-radius: 999px;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    cursor: pointer;
+    background: var(--bg, #fff);
+    color: var(--soft);
+    border: 1px solid var(--border);
+    transition: border-color var(--dur-fast, 120ms) var(--ease, ease), color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+
+  .trip-page .trip-stop__move:hover,
+  .trip-page .trip-stop__remove:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .trip-page .trip-stop__move[aria-pressed='true'] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white, #fff);
+  }
+
+  .trip-page .trip-stop__move:focus-visible,
+  .trip-page .trip-stop__remove:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .trip-page .trip-gap {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+    padding-left: var(--space-5, 1.5rem);
+  }
+
+  .trip-page .trip-gap__label {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+
+  .trip-page .trip-gap::before {
+    content: '';
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    margin-left: 31px;
+  }
+
+  .trip-page .trip-add__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-1, 0.25rem);
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  .trip-page .trip-add__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3, 0.75rem);
+    padding: var(--space-1, 0.25rem) 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trip-page .trip-add__kind {
+    flex: none;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+    min-width: 6.5rem;
+  }
+
+  .trip-page .trip-add__title {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .trip-page .trip-add__btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 var(--space-3, 0.75rem);
+    background: var(--bg, #fff);
+    color: var(--text);
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    cursor: pointer;
+  }
+
+  .trip-page .trip-add__btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .trip-page .trip-add__btn:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  @media print {
+    .trip-page .trip-toolbar,
+    .trip-page .trip-add,
+    .trip-page .trip-shared,
+    .trip-page .trip-stop__actions,
+    .trip-page .trip-day__remove,
+    .me-shell__nav {
+      display: none !important;
+    }
+  }
+</style>

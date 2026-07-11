@@ -157,6 +157,46 @@ const FOLDER_TO_COLLECTION = {
   'fishing-locations': null,
 };
 
+// ─── canonical place check (warn-only) ───────────────────────────────────
+// The 37 town JSONs under src/content/places ARE the canonical place list
+// (future-ia.md §4: "place (37 towns + 5 regions)"). Any entry whose
+// town/place reference falls outside that list gets a WARN, never an ERROR,
+// regardless of --strict: this check stays advisory.
+let canonicalPlaces = new Set();
+try {
+  const placeFiles = await readdir(resolve(CONTENT_ROOT, 'places'));
+  canonicalPlaces = new Set(
+    placeFiles.filter((n) => n.endsWith('.json')).map((n) => n.slice(0, -5))
+  );
+} catch {
+  console.error('[WARN] Could not read src/content/places; skipping place canon check.');
+}
+
+// Which fields on which content folders carry a place slug.
+const PLACE_FIELDS = {
+  'venues': ['place'],
+  'experiences': ['place'],
+  'events': ['place'],
+  'itineraries': ['anchorTown', 'baseTowns'],
+};
+
+function lintPlaces(entry, folder, filePath) {
+  if (!canonicalPlaces.size) return;
+  const fields = PLACE_FIELDS[folder];
+  if (!fields) return;
+  for (const field of fields) {
+    const v = getField(entry, field);
+    const values = Array.isArray(v) ? v : v != null ? [v] : [];
+    for (const item of values) {
+      if (typeof item !== 'string' || !item) continue;
+      if (!canonicalPlaces.has(item)) {
+        recordFinding('WARN', filePath, folder, field, item,
+          `not in the canonical 37-place list (src/content/places); warn-only`);
+      }
+    }
+  }
+}
+
 // Extract field value from parsed entry, supporting dotted paths like "tags.mood"
 function getField(entry, path) {
   return path.split('.').reduce((acc, k) => (acc == null ? acc : acc[k]), entry);
@@ -165,10 +205,13 @@ function getField(entry, path) {
 // Parse frontmatter from .md/.mdx. Cheap parser — assumes well-formed
 // YAML frontmatter delimited by `---`. Falls back to null on failure.
 function parseFrontmatter(raw) {
-  if (!raw.startsWith('---')) return null;
-  const end = raw.indexOf('\n---', 3);
+  // Normalize CRLF first: a trailing bare \r before the closing delimiter
+  // breaks the yaml parser on Windows-authored files.
+  const text = raw.replace(/\r\n/g, '\n');
+  if (!text.startsWith('---')) return null;
+  const end = text.indexOf('\n---', 3);
   if (end < 0) return null;
-  const fm = raw.slice(3, end);
+  const fm = text.slice(3, end);
   try { return parseYaml(fm); } catch { return null; }
 }
 
@@ -236,6 +279,7 @@ try {
     const entry = await readEntry(filePath);
     if (!entry) continue;
     lintEntry(entry, collection, filePath);
+    lintPlaces(entry, folder, filePath);
     filesScanned++;
   }
 } catch (err) {

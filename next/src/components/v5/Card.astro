@@ -1,0 +1,591 @@
+---
+/**
+ * Card (v5) - THE one card primitive (component spec 2.15).
+ *
+ * Seven variants, one anatomy: media / type-mark / title / verdict / meta /
+ * provenance / actions / stretched link. Replaces VenueCard, PlaceCard,
+ * EventCard, ArticleCard, ItineraryCard, PlanCard, TourCard and friends as
+ * pages migrate (page agents do the swapping; this file is the target).
+ *
+ * Content rules enforced here (spec 0.1): title <= 60 chars, verdict <= 25
+ * words, meta <= 3 chips, priceBand chips only (never dollar figures),
+ * no em-dashes. Violations warn at build time so page agents catch them.
+ *
+ * A11y contract:
+ *  - Root is an `li` by default (cards live in labelled lists); use
+ *    `as="article"` for standalone placements.
+ *  - The title anchor is the ONLY link; a ::after stretches it over the
+ *    card. SaveControl / trip / booking sit in an actions layer ABOVE the
+ *    stretched link and are never nested inside it.
+ *  - Verdict is a <p> in the Critic voice style, never a heading.
+ *  - Save target >= 48px; focus-visible ring on the link.
+ *
+ * Analytics: link carries data-evt="card_click" plus entity attrs; the
+ * "+ Trip" affordance carries data-evt="trip_add" (behaviour is wired by
+ * the store agent later, the event fires from day one via v5-analytics).
+ */
+import { editableImage, type CmsEntityType } from '../../lib/inline-edit/attrs';
+import { freshnessLabel } from '../../lib/freshness';
+import SaveControl from './SaveControl.astro';
+import BookingControl from './BookingControl.astro';
+
+export type CardVariant = 'venue' | 'compact-row' | 'event' | 'guide' | 'plan' | 'place' | 'article';
+
+export interface CardImage {
+  src: string;
+  alt: string;
+}
+
+export interface CardBooking {
+  url: string;
+  label?: string;
+  venueName?: string;
+  partnerLabel?: string;
+}
+
+/** Save kinds accepted by the pi:saves:v2 store. */
+type SaveKind = 'article' | 'venue' | 'place' | 'event' | 'experience' | 'itinerary' | 'tour' | 'tour-operator' | 'tour-package';
+
+export interface Props {
+  variant?: CardVariant;
+  title: string;
+  href: string;
+  /** CMS identity for the editable media slot (cms-architecture Rule 1). */
+  entityType: CmsEntityType;
+  entitySlug: string;
+  /** Defaults to 'heroImage', the live convention across card surfaces. */
+  fieldPath?: string;
+  /** Omit for text-only compact rows (enforcer HERO_EXEMPT case). */
+  image?: CardImage;
+  /** Verdict line <= 25 words. The named slot `verdict` overrides this. */
+  verdict?: string;
+  /** Up to 3 plain-text chips, joined with a middot separator. */
+  meta?: string[];
+  /** '$'..'$$$$' or 1..4. Rendered as a band chip, never a dollar figure. */
+  priceBand?: string | number;
+  /** ISO date; rendered through freshnessLabel() ("Reviewed May 2026"). */
+  freshness?: string;
+  /** Entity label eyebrow; defaults per variant (Venue/Event/Guide/...). */
+  typeMark?: string;
+  /** Region eyebrow for the place variant (replaces typeMark when set). */
+  eyebrow?: string;
+  /** Article variant: byline (falls back to "Peninsula Insider"). */
+  byline?: string;
+  /** Article/guide variants: e.g. "7 min read". */
+  readTime?: string;
+  /** Event start date or article publish date, ISO. */
+  dateISO?: string;
+  /** Plan variant: renders the day-count chip. */
+  dayCount?: number;
+  /** Partner label; mandatory when the placement is commercial. */
+  partnerLabel?: string;
+  /** Secondary booking action (card-action weight). */
+  booking?: CardBooking;
+  /** Render the "+ Trip" affordance (store agent wires behaviour). */
+  trip?: boolean;
+  /** Save metadata overrides. saveKind defaults from entityType. */
+  saveKind?: SaveKind;
+  saveSection?: string;
+  saveDek?: string;
+  /** Analytics context. */
+  surface?: string;
+  position?: number;
+  /** Root element. Cards default to `li` (spec: card is an li in a list). */
+  as?: 'li' | 'article' | 'div';
+}
+
+const {
+  variant = 'venue',
+  title,
+  href,
+  entityType,
+  entitySlug,
+  fieldPath = 'heroImage',
+  image,
+  verdict,
+  meta = [],
+  priceBand,
+  freshness,
+  typeMark,
+  eyebrow,
+  byline,
+  readTime,
+  dateISO,
+  dayCount,
+  partnerLabel,
+  booking,
+  trip = false,
+  saveKind,
+  saveSection,
+  saveDek,
+  surface,
+  position,
+  as: Tag = 'li',
+} = Astro.props;
+
+/* ---- content-rule guards (warn at build, never mutate copy) ---- */
+if (title.length > 60) {
+  console.warn(`[v5 Card] title over 60 chars (${title.length}): "${title.slice(0, 60)}..."`);
+}
+if (verdict && verdict.trim().split(/\s+/).length > 25) {
+  console.warn(`[v5 Card] verdict over 25 words for "${entitySlug}"`);
+}
+if (meta.length > 3) {
+  console.warn(`[v5 Card] more than 3 meta chips for "${entitySlug}"; rendering the first 3`);
+}
+if (/\u2014/.test(`${title} ${verdict ?? ''} ${meta.join(' ')}`)) {
+  console.warn(`[v5 Card] em-dash in card copy for "${entitySlug}" (house rule: none, ever)`);
+}
+
+const defaultMarks: Record<CardVariant, string> = {
+  venue: 'Venue',
+  'compact-row': '',
+  event: 'Event',
+  guide: 'Guide',
+  plan: 'Plan',
+  place: 'Place',
+  article: 'Article',
+};
+const markText = eyebrow ?? typeMark ?? defaultMarks[variant];
+
+/* priceBand -> band 1..4, rendered as glyph chip with accessible name */
+const band =
+  priceBand === undefined
+    ? 0
+    : Math.min(4, Math.max(1, typeof priceBand === 'number' ? priceBand : String(priceBand).trim().length));
+
+const metaChips = meta.slice(0, 3);
+
+/* Event date block (day + short month) */
+const eventDate =
+  variant === 'event' && dateISO
+    ? {
+        day: new Date(dateISO).toLocaleDateString('en-AU', { day: 'numeric' }),
+        month: new Date(dateISO).toLocaleDateString('en-AU', { month: 'short' }),
+      }
+    : null;
+
+/* Article publish month for the byline row */
+const articleDate =
+  variant === 'article' && dateISO
+    ? new Date(dateISO).toLocaleDateString('en-AU', { month: 'long', year: 'numeric' })
+    : null;
+
+const freshnessText = freshness ? freshnessLabel(freshness) : null;
+
+const isEditorial = variant === 'article' || variant === 'guide';
+const showMedia = !!image;
+const hasVerdictSlot = Astro.slots.has('verdict');
+
+/* Save kind: entityType maps 1:1 except page/region, which are not saveable. */
+const resolvedSaveKind: SaveKind | null =
+  saveKind ?? (entityType !== 'page' && entityType !== 'region' ? (entityType as SaveKind) : null);
+
+const hasActions = !!resolvedSaveKind || trip || !!booking;
+---
+
+<Tag class:list={['v5-card', `v5-card--${variant}`, isEditorial && 'v5-card--editorial']} data-variant={variant}>
+  {showMedia && (
+    <div class="v5-card__media">
+      <img
+        src={image!.src}
+        alt={image!.alt}
+        loading="lazy"
+        decoding="async"
+        {...editableImage({
+          entityType,
+          entitySlug,
+          fieldPath,
+          label: `${title} image`,
+          purpose: 'card',
+        })}
+      />
+      {eventDate && (
+        <span class="v5-card__date-block" aria-hidden="true">
+          <span class="v5-card__date-day">{eventDate.day}</span>
+          <span class="v5-card__date-month">{eventDate.month}</span>
+        </span>
+      )}
+      {variant === 'event' && <slot name="badges" />}
+    </div>
+  )}
+
+  <div class="v5-card__body">
+    {markText && <p class="v5-card__mark">{markText}</p>}
+
+    <h3 class="v5-card__title">
+      <a
+        href={href}
+        class="v5-card__link"
+        data-evt="card_click"
+        data-entity-type={entityType}
+        data-entity-slug={entitySlug}
+        data-variant={variant}
+        data-surface={surface}
+        data-position={position}
+      >
+        {title}
+      </a>
+    </h3>
+
+    {(hasVerdictSlot || verdict) && (
+      <p class="v5-card__verdict">
+        <slot name="verdict">{verdict}</slot>
+      </p>
+    )}
+
+    {variant === 'article' ? (
+      <p class="v5-card__meta">
+        <span class="v5-card__byline">{byline ?? 'Peninsula Insider'}</span>
+        {articleDate && (
+          <>
+            <span class="v5-card__sep" aria-hidden="true">&middot;</span>
+            <span>{articleDate}</span>
+          </>
+        )}
+        {readTime && (
+          <>
+            <span class="v5-card__sep" aria-hidden="true">&middot;</span>
+            <span>{readTime}</span>
+          </>
+        )}
+      </p>
+    ) : (
+      (metaChips.length > 0 || band > 0 || (variant === 'guide' && readTime) || (variant === 'plan' && dayCount)) && (
+        <p class="v5-card__meta">
+          {variant === 'plan' && dayCount && (
+            <>
+              <span class="v5-card__chip">{dayCount} {dayCount === 1 ? 'day' : 'days'}</span>
+              <span class="v5-card__sep" aria-hidden="true">&middot;</span>
+            </>
+          )}
+          {metaChips.map((chip, i) => (
+            <>
+              {i > 0 && <span class="v5-card__sep" aria-hidden="true">&middot;</span>}
+              <span class="v5-card__chip">{chip}</span>
+            </>
+          ))}
+          {band > 0 && (
+            <>
+              {metaChips.length > 0 && <span class="v5-card__sep" aria-hidden="true">&middot;</span>}
+              <span class="v5-card__chip v5-card__chip--price" aria-label={`price band ${band} of 4`}>
+                <span aria-hidden="true">{'$'.repeat(band)}</span>
+              </span>
+            </>
+          )}
+          {variant === 'guide' && readTime && (
+            <>
+              {(metaChips.length > 0 || band > 0) && <span class="v5-card__sep" aria-hidden="true">&middot;</span>}
+              <span class="v5-card__chip">{readTime}</span>
+            </>
+          )}
+        </p>
+      )
+    )}
+
+    {(freshnessText || partnerLabel) && (
+      <p class="v5-card__provenance">
+        {freshnessText && <span>{freshnessText}</span>}
+        {freshnessText && partnerLabel && <span class="v5-card__sep" aria-hidden="true">&middot;</span>}
+        {partnerLabel && <span class="v5-card__partner">{partnerLabel}</span>}
+      </p>
+    )}
+  </div>
+
+  {hasActions && <div class="v5-card__actions">
+    {resolvedSaveKind && (
+      <SaveControl
+        kind={resolvedSaveKind}
+        slug={entitySlug}
+        title={title}
+        href={href}
+        section={saveSection}
+        dek={saveDek ?? verdict}
+        imageUrl={image?.src}
+        variant={variant === 'plan' ? 'fork' : 'save'}
+      />
+    )}
+    {trip && (
+      <button
+        type="button"
+        class="v5-card__trip"
+        data-evt="trip_add"
+        data-entity-type={entityType}
+        data-entity-slug={entitySlug}
+        data-entity-title={title}
+        data-surface={surface}
+        aria-label={`Add ${title} to trip`}
+      >
+        + Trip
+      </button>
+    )}
+    {booking && (
+      <BookingControl
+        url={booking.url}
+        label={booking.label}
+        venueName={booking.venueName ?? title}
+        partnerLabel={booking.partnerLabel}
+        variant="card-action"
+        entityType={entityType}
+        entitySlug={entitySlug}
+        surface={surface}
+      />
+    )}
+  </div>}
+</Tag>
+
+<style>
+  .v5-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg, #fff);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, var(--tile-image-radius, 10px));
+    overflow: hidden;
+    transition: box-shadow var(--dur-fast, 120ms) var(--ease, ease);
+    list-style: none;
+  }
+
+  .v5-card:hover {
+    box-shadow: var(--elev-2, 0 12px 24px -12px rgba(40, 28, 14, 0.28));
+  }
+  .v5-card:hover .v5-card__link {
+    text-decoration: underline;
+  }
+
+  /* ---- media ---- */
+  .v5-card__media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--bg-alt);
+  }
+  .v5-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .v5-card__date-block {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 2.75rem;
+    padding: 0.3rem 0.45rem;
+    background: var(--bg, #fff);
+    border-radius: var(--radius-s, 4px);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    line-height: var(--lh-label, 1.2);
+  }
+  .v5-card__date-day {
+    font-size: var(--fs-500, 1.1875rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--text);
+  }
+  .v5-card__date-month {
+    font-size: var(--fs-100, 0.75rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--soft);
+  }
+
+  /* ---- body ---- */
+  .v5-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: var(--space-4, 1rem);
+    flex: 1;
+  }
+
+  .v5-card__mark {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-label, 1.2);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin: 0;
+  }
+
+  .v5-card__title {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-600, clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem));
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-heading, 1.2);
+    color: var(--text);
+  }
+
+  .v5-card__link {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Stretched link: whole card navigates; actions layer sits above. */
+  .v5-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .v5-card__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  /* Critic voice: serif italic, full-ink. The verdict is the product;
+     it never gets muted colour and it is never a heading. */
+  .v5-card__verdict {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-style: italic;
+    font-size: var(--fs-500, 1.1875rem);
+    font-weight: var(--fw-display-em, 600);
+    line-height: var(--lh-dek, 1.45);
+    color: var(--text);
+    max-width: var(--measure-card, 38ch);
+  }
+
+  .v5-card__meta,
+  .v5-card__provenance {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--soft);
+  }
+  .v5-card__sep {
+    color: var(--soft);
+  }
+  .v5-card__chip--price {
+    letter-spacing: 0.08em;
+  }
+  .v5-card__partner {
+    text-transform: uppercase;
+    font-size: var(--fs-100, 0.75rem);
+    letter-spacing: 0.1em;
+    color: var(--gold-text);
+  }
+
+  /* ---- actions (above the stretched link, never inside it) ---- */
+  .v5-card__actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 var(--space-4, 1rem) var(--space-4, 1rem);
+  }
+  .v5-card__trip {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0 0.75rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--soft);
+    transition:
+      border-color var(--dur-fast, 120ms) var(--ease, ease),
+      color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+  .v5-card__trip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .v5-card__trip:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  /* ---- variant: compact-row ---- */
+  .v5-card--compact-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    overflow: visible;
+    padding: 0.6rem 0;
+  }
+  .v5-card--compact-row:hover {
+    box-shadow: none;
+    background: var(--bg-alt);
+  }
+  .v5-card--compact-row .v5-card__media {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    aspect-ratio: 1;
+    border-radius: var(--radius-s, 4px);
+  }
+  .v5-card--compact-row .v5-card__body {
+    padding: 0;
+    gap: 0.15rem;
+  }
+  .v5-card--compact-row .v5-card__title {
+    font-size: var(--fs-400, 1.0625rem);
+  }
+  .v5-card--compact-row .v5-card__verdict {
+    font-size: var(--fs-300, 0.9375rem);
+  }
+  .v5-card--compact-row .v5-card__actions {
+    padding: 0;
+    margin-left: auto;
+  }
+  @media (max-width: 22.5em) {
+    /* thumb hides below 360px per spec 2.15 responsive rules */
+    .v5-card--compact-row .v5-card__media {
+      display: none;
+    }
+  }
+
+  /* ---- variant: place (region eyebrow, media radius --radius-m) ---- */
+  .v5-card--place .v5-card__mark {
+    color: var(--accent);
+  }
+
+  /* ---- variants: article + guide (editorial surface, HUB-08 fix) ----
+     Distinct at a glance: warm --bg-alt surface, serif display titles,
+     no venue chip cosmetics. An article never wears venue clothing. */
+  .v5-card--editorial {
+    background: var(--bg-alt);
+    border-color: transparent;
+  }
+  .v5-card--editorial .v5-card__title {
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-weight: var(--fw-display, 600);
+    font-size: var(--fs-600, clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem));
+  }
+  .v5-card--editorial .v5-card__mark {
+    color: var(--gold-text);
+  }
+  .v5-card--article .v5-card__byline {
+    font-weight: var(--fw-semibold, 600);
+    color: var(--text);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .v5-card,
+    .v5-card__trip {
+      transition: none;
+    }
+  }
+</style>

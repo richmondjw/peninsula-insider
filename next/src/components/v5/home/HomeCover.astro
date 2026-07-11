@@ -1,0 +1,98 @@
+---
+/**
+ * HomeCover - block 2 of the v5 homepage (page-redesigns.md section 1,
+ * hierarchy item 2).
+ *
+ * One Editor-voice masthead statement (the page's single h1, <= 18 words,
+ * carries "Mornington Peninsula" server-rendered for search) plus the date
+ * context line ("Friday 11 July · winter on the Peninsula"). Date and
+ * season are computed at build time on the Melbourne clock; no client JS,
+ * no motion.
+ *
+ * The statement is CMS-editable: override slot (page/home, cover.statement)
+ * is resolved server-side so editor rewrites survive rebuilds.
+ */
+import { editableText } from '../../../lib/inline-edit/attrs';
+import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { getSeason } from '../../../lib/edition';
+
+const DEFAULT_STATEMENT = 'The Mornington Peninsula, edited by people who live here.';
+
+const overrides = await loadOverrides('page', 'home');
+const statement = overrides.text['cover.statement'] ?? DEFAULT_STATEMENT;
+
+if (statement.trim().split(/\s+/).length > 18) {
+  console.warn('[v5 home] cover statement over 18 words; trim it (page-redesigns.md 1.9)');
+}
+
+const now = new Date();
+const dateLabel = now.toLocaleDateString('en-AU', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  timeZone: 'Australia/Melbourne',
+});
+const isoDate = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Australia/Melbourne',
+}).format(now);
+const season = getSeason(now).toLowerCase();
+---
+
+<section class="home-cover" aria-label="Cover">
+  <div class="container">
+    <h1
+      class="home-cover__statement"
+      {...editableText({
+        entityType: 'page',
+        entitySlug: 'home',
+        fieldPath: 'cover.statement',
+        label: 'Cover statement',
+      })}
+    >
+      {statement}
+    </h1>
+    <p class="home-cover__context">
+      <time datetime={isoDate}>{dateLabel}</time>
+      <span class="home-cover__sep" aria-hidden="true">&middot;</span>
+      <span>{season} on the Peninsula</span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .home-cover {
+    padding: var(--space-8, 4rem) 0 var(--space-6, 2rem);
+    background: var(--bg);
+  }
+
+  .home-cover__statement {
+    margin: 0;
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
+    font-size: var(--fs-900, clamp(2.5rem, 6vw, 4.25rem));
+    line-height: var(--lh-display, 1.08);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .home-cover__context {
+    margin: var(--space-4, 1rem) 0 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    line-height: var(--lh-ui, 1.4);
+    color: var(--soft);
+    letter-spacing: 0.02em;
+  }
+
+  .home-cover__sep {
+    margin: 0 var(--space-2, 0.5rem);
+    color: var(--accent);
+  }
+
+  @media (max-width: 47.94em) {
+    .home-cover {
+      padding-top: var(--space-6, 2rem);
+    }
+  }
+</style>

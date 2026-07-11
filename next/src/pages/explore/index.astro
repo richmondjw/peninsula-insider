@@ -1,102 +1,268 @@
 ---
+/**
+ * Explore hub (v5 redesign, T-504) - page-redesigns-hubs.md section 5.
+ *
+ * The old page rendered the 44-experience corpus twice (14,903 words) with
+ * zero filter controls (HUB-04/05). This build: stand-first, FilterBar
+ * (CHIP_PRESETS.explore), curated shelves (<=6 each, deduped, >=3 guard per
+ * HUB-13), towns text index (37 places), verticals rail (6 links), then ONE
+ * server-rendered directory of all experiences as compact rows carrying
+ * data-facets. The A-to-Z dump is gone; every experience URL survives in the
+ * directory rows.
+ *
+ * Filter model: one URL-persisted state (lib/v5-filter-state). Directory rows
+ * carry data-facets; the curated browse layer (shelves/towns/verticals)
+ * yields to the filtered directory whenever any facet is active, so the
+ * live count ("Showing N of 44 experiences") always matches one render of
+ * the corpus. Shelf "All N" links apply the preset in page (no fetch) and
+ * fall back to a real ?param#directory navigation without JS.
+ */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import GuideHero from '../../components/GuideHero.astro';
-import CompareBlock from '../../components/CompareBlock.astro';
-import SectionDivider from '../../components/SectionDivider.astro';
-import ExperienceCard from '../../components/ExperienceCard.astro';
-import PlaceCard from '../../components/PlaceCard.astro';
-import ItineraryCard from '../../components/ItineraryCard.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
-import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import EventStrip from '../../components/EventStrip.astro';
-import { routeSlug, currentSeason, seasonBlurb, experienceInSeason, isUpcoming } from '../../lib/editorial';
+import Card from '../../components/v5/Card.astro';
+import CardGrid from '../../components/v5/CardGrid.astro';
+import FilterBar from '../../components/v5/FilterBar.astro';
+import EmptyState from '../../components/v5/EmptyState.astro';
+import { getFacets, type FacetKey } from '../../lib/facets';
+import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { routeSlug, currentSeason, seasonBlurb, placeLabel, titleize } from '../../lib/editorial';
 import { buildCollectionPageSchema, buildFaqSchema, buildBreadcrumbSchema } from '../../lib/schema';
-import EditorialSurface from '../../components/EditorialSurface.astro';
+
+// ── Copy helpers ──────────────────────────────────────────────────────────────
+/** First sentence, clipped to a word budget at a clause boundary. */
+function clipLine(text: string | undefined | null, maxWords = 25): string | undefined {
+  if (!text) return undefined;
+  const sentence = text.trim().split(/(?<=[.!?])\s+/)[0] ?? text.trim();
+  const words = sentence.split(/\s+/);
+  if (words.length <= maxWords) return sentence;
+  const head = words.slice(0, maxWords).join(' ');
+  const cut = head.lastIndexOf(',');
+  const clipped = cut > 40 ? head.slice(0, cut) : words.slice(0, maxWords - 2).join(' ');
+  return clipped.replace(/[,;:\s]+$/, '') + '.';
+}
+
+function durationLabel(minutes: unknown): string | null {
+  if (typeof minutes !== 'number' || minutes <= 0) return null;
+  if (minutes < 60) return `${minutes} min`;
+  const h = minutes / 60;
+  return Number.isInteger(h) ? `${h} hr` : `${h.toFixed(1)} hr`;
+}
+
+const TYPE_LABEL: Record<string, string> = {
+  walk: 'Walk',
+  beach: 'Beach',
+  'golf-course': 'Golf course',
+  lookout: 'Lookout',
+  gallery: 'Gallery',
+  attraction: 'Attraction',
+  park: 'Park',
+  tour: 'Tour',
+  market: 'Market',
+  wellness: 'Wellness',
+};
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-// The Notebook - one contextual observation for the Explore hub.
-const _enow = new Date();
-const _eNotes = (await getCollection('quickNotes', ({ data }) => data.status === 'published' && data.expiresAt > _enow))
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
-const notebookNote = _eNotes.find((n) => ['explore', 'weather', 'spa'].includes(n.data.section)) ?? _eNotes[0] ?? null;
+const experiences = (await getCollection('experiences')).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
 
-const experiences = (await getCollection('experiences')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+type Row = {
+  slug: string;
+  name: string;
+  href: string;
+  facets: Partial<Record<FacetKey, string[]>>;
+  verdict: string | undefined;
+  meta: string[];
+  data: any;
+};
 
-// Family + arts + nature events surfacing from /whats-on/.
-const exploreEventCategories = ['nature', 'family-programs', 'arts', 'exhibition', 'community', 'wellness'];
-const exploreEvents = (await getCollection('events'))
-  .filter((event) => exploreEventCategories.includes(event.data.category))
-  .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    return isUpcoming(event.data.endDate ?? event.data.startDate);
-  })
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 3);
-const places = await getCollection('places');
-const itinerariesAll = await getCollection('itineraries');
-const itinerarySlugs = ['flinders-and-cape-reset', 'ridge-to-sea-two-night-escape', 'sorrento-off-season-weekend'];
-const itineraries = itinerarySlugs
-  .map((slug) => itinerariesAll.find((i) => routeSlug(i) === slug))
-  .filter((i): i is NonNullable<typeof i> => Boolean(i));
-const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
-  .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
+const rows: Row[] = experiences.map((e) => {
+  const slug = routeSlug(e);
+  return {
+    slug,
+    name: e.data.name,
+    href: `/explore/${slug}/`,
+    facets: getFacets('experience', e.data),
+    verdict: clipLine(e.data.editorNote, 25),
+    meta: [
+      TYPE_LABEL[e.data.type] ?? titleize(e.data.type ?? ''),
+      placeLabel(e.data.place),
+      durationLabel(e.data.durationMinutes),
+    ].filter((m): m is string => Boolean(m)).slice(0, 3),
+    data: e.data,
+  };
+});
 
 const season = currentSeason();
 const blurb = seasonBlurb[season];
 
-const featured = experiences.find((e) => routeSlug(e) === 'bushrangers-bay-walk') ?? experiences[0];
+// Live-count parity with lib/v5-filter-state itemMatches: AND across facet
+// keys, OR within a key. "All N" always equals what the filter will show.
+type FilterPreset = Partial<Record<FacetKey, string[]>>;
+const matches = (r: Row, preset: FilterPreset) =>
+  Object.entries(preset).every(([key, vals]) =>
+    (r.facets[key as FacetKey] ?? []).some((v) => (vals as string[]).includes(v)),
+  );
+const countLive = (preset: FilterPreset) => rows.filter((r) => matches(r, preset)).length;
 
-const walks = experiences.filter((e) => e.data.type === 'walk');
-const beaches = experiences.filter((e) => e.data.type === 'beach');
-const lookouts = experiences.filter((e) => e.data.type === 'lookout');
-const markets = experiences.filter((e) => e.data.type === 'market');
-const wellness = experiences.filter((e) => e.data.type === 'wellness');
-const galleriesAttractions = experiences.filter((e) => ['gallery', 'attraction', 'park', 'tour'].includes(e.data.type));
+// Shelf assembly: an experience appears in at most ONE shelf (plus its single
+// directory row), enforcing the corpus <=2x-per-entry acceptance (spec 30).
+const shelved = new Set<string>();
+function pickShelf(pool: Row[], n = 6): Row[] {
+  const picked = pool.filter((r) => !shelved.has(r.slug)).slice(0, n);
+  for (const r of picked) shelved.add(r.slug);
+  return picked;
+}
 
-const shortWalks = walks.filter((e) => (e.data.durationMinutes ?? 999) <= 60).slice(0, 4);
-const longWalks = walks.filter((e) => (e.data.durationMinutes ?? 0) > 60).slice(0, 6);
-const seasonal = experiences.filter((e) => experienceInSeason(e, season)).slice(0, 8);
+const explicitSeason = rows.filter((r) => (r.data.seasonBest ?? []).includes(season));
+const looseSeason = rows.filter(
+  (r) => (r.facets.date ?? []).includes('this-season') && !(r.data.seasonBest ?? []).includes(season),
+);
+const hasCat = (r: Row, vals: string[]) => (r.facets.cat ?? []).some((v) => vals.includes(v));
 
-const featuredPlaces = places.filter((p) => ['cape-schanck', 'point-nepean', 'sorrento', 'red-hill'].includes(routeSlug(p)));
+const CULTURE_CATS = ['gallery', 'attraction', 'park', 'tour', 'lookout'];
 
-const companionSlugs = [
-  'the-point-nepean-half-day',
-  'the-peninsula-beach-swimming-guide',
-  'the-market-saturday',
-  'the-peninsulas-best-late-afternoon-walks',
-  'the-rainy-day-peninsula-without-a-booking',
+interface Shelf {
+  id: string;
+  eyebrow: string;
+  heading: string;
+  preset: FilterPreset;
+  total: number;
+  items: (Row & { hero: { src: string; alt: string } })[];
+}
+
+async function buildShelf(
+  id: string,
+  eyebrow: string,
+  heading: string,
+  pool: Row[],
+  preset: FilterPreset,
+): Promise<Shelf> {
+  const picked = pickShelf(pool);
+  const items = await Promise.all(
+    picked.map(async (r) => ({ ...r, hero: await resolveHero('experience', r.slug, r.data) })),
+  );
+  return { id, eyebrow, heading, preset, total: countLive(preset), items };
+}
+
+const shelfSeasonal = await buildShelf(
+  'best-right-now',
+  blurb.label,
+  'What the Peninsula is best at right now',
+  [...explicitSeason, ...looseSeason],
+  { date: ['this-season'] },
+);
+const shelfWalks = await buildShelf(
+  'walks',
+  'Coastal walks',
+  'The walks that reset the weekend',
+  rows.filter((r) => hasCat(r, ['walk'])),
+  { cat: ['walk'] },
+);
+const shelfBeaches = await buildShelf(
+  'beaches',
+  'Beaches',
+  'Which beach, and why',
+  rows.filter((r) => hasCat(r, ['beach'])),
+  { cat: ['beach'] },
+);
+const shelfGolf = await buildShelf(
+  'golf',
+  'Golf',
+  'Eleven courses, honestly ranked',
+  rows.filter((r) => hasCat(r, ['golf'])),
+  { cat: ['golf'] },
+);
+const shelfCulture = await buildShelf(
+  'culture',
+  'Galleries & attractions',
+  'The indoor and culture layer',
+  rows.filter((r) => hasCat(r, CULTURE_CATS)),
+  { cat: CULTURE_CATS },
+);
+
+// HUB-13 guard: a shelf renders only when it holds at least 3 items.
+const shelves = [shelfSeasonal, shelfWalks, shelfBeaches, shelfGolf, shelfCulture].filter(
+  (s) => s.items.length >= 3,
+);
+
+const presetHref = (preset: FilterPreset) =>
+  '/explore/?' +
+  Object.entries(preset)
+    .map(([k, vals]) => `${k}=${(vals as string[]).join(',')}`)
+    .join('&') +
+  '#directory';
+
+// Shelf intro copy (<=40 words each), carrying the lane-page links the old
+// 16-tile grid held (HUB-07 folded into intros + basics line + verticals).
+const shelfIntros: Record<string, string> = {
+  'best-right-now': blurb.line,
+  walks: `Cape Schanck, Bushrangers Bay, the Two Bays. The ranked list lives at <a href="/explore/best-walks/">the Peninsula's best walks</a>; the deeper guide at <a href="/explore/walks/">coastal walks and tracks</a>.`,
+  beaches: `Bay calm or back-beach surf: pick the water that matches the wind, not the closest car park. The full case for each is in <a href="/explore/beaches/">the beach guide</a>.`,
+  golf: `From friendly country clubs to the ranked links at Cape Schanck and St Andrews Beach. Compared properly in <a href="/explore/golf/">the golf guide</a>.`,
+  culture: `Galleries, sculpture parks, gardens, and the national park at the tip. When the forecast turns, start with <a href="/explore/rainy-day/">rainy-day plans</a> or <a href="/explore/hot-springs/">the hot springs</a>.`,
+};
+
+// ── Towns index (37 places, links not cards) ─────────────────────────────────
+const places = (await getCollection('places')).sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
+const towns = places.map((p) => ({
+  slug: routeSlug(p),
+  name: p.data.name,
+  line: clipLine(p.data.signature ?? p.data.factualLede ?? '', 14),
+}));
+
+// ── Verticals rail (6 text links to existing URLs) ───────────────────────────
+const verticals = [
+  { href: '/explore/golf/', label: 'Golf', sub: 'All courses, ranked' },
+  { href: '/explore/spas-and-wellness/', label: 'Spa & springs', sub: 'Treatments and thermal water' },
+  { href: '/explore/dog-friendly/', label: 'Dog-friendly', sub: 'Beaches, walks, cafes' },
+  { href: '/fishing/', label: 'Fishing', sub: 'Jetties, charters, seasons' },
+  { href: '/boating/', label: 'Boating', sub: 'Ramps, hire, moorings' },
+  { href: '/tour/', label: 'Tours', sub: 'Guided days and operators' },
+];
+
+const basics = [
+  { href: '/explore/getting-here/', label: 'getting here' },
+  { href: '/explore/getting-around/', label: 'getting around' },
+  { href: '/explore/where-to-base-yourself/', label: 'where to base yourself' },
+  { href: '/explore/things-to-do/', label: 'things to do, ranked' },
+  { href: '/explore/day-trips/', label: 'day trips' },
+  { href: '/explore/weekend-trips/', label: 'weekend trips' },
+  { href: '/explore/family-friendly/', label: 'with kids' },
+  { href: '/explore/free/', label: 'free things to do' },
+  { href: '/explore/markets/', label: 'markets' },
+  { href: '/explore/rainy-day/', label: 'rainy day' },
+];
+
+// ── From the Journal (<=3) ───────────────────────────────────────────────────
+const articlesAll = await getCollection('articles', ({ data }) => data.status === 'published');
+const journalSlugs = [
   'the-peninsula-with-kids',
+  'the-rainy-day-peninsula-without-a-booking',
+  'the-market-saturday',
 ];
-const companionReads = companionSlugs
-  .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
-  .filter((a): a is NonNullable<typeof a> => Boolean(a));
+const journal = await Promise.all(
+  journalSlugs
+    .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a))
+    .slice(0, 3)
+    .map(async (a) => {
+      const slug = routeSlug(a);
+      return {
+        slug,
+        href: `/journal/${slug}/`,
+        title: a.data.title,
+        verdict: clipLine(a.data.dek, 25),
+        readTime: a.data.readingTimeMinutes ? `${a.data.readingTimeMinutes} min read` : undefined,
+        dateISO: a.data.publishedAt ? a.data.publishedAt.toISOString() : undefined,
+        hero: await resolveHero('article', slug, a.data),
+      };
+    }),
+);
 
-const exploreHubs = [
-  { href: '/explore/beaches/',          label: "The Peninsula's beaches",   sub: 'Bay vs back-beach, ranked' },
-  { href: '/explore/walks/',            label: 'Coastal walks & tracks',    sub: '11 walks by effort & payoff' },
-  { href: '/explore/hot-springs/',      label: 'Peninsula hot springs',     sub: 'Peninsula Hot Springs vs Alba' },
-  { href: '/explore/golf/',             label: "Peninsula golf",            sub: 'All courses ranked' },
-  { href: '/explore/spas-and-wellness/',label: 'Day spas & wellness',       sub: 'Treatments & retreats' },
-  { href: '/explore/markets/',          label: 'Peninsula markets',         sub: 'Ranked & calendarised' },
-  { href: '/explore/things-to-do/',     label: 'Things to do',              sub: 'Head-term ranked list of 25' },
-  { href: '/explore/day-trips/',        label: 'Day-trip itineraries',      sub: 'Five Melbourne-out routes' },
-  { href: '/explore/weekend-trips/',    label: 'Weekend itineraries',       sub: '2-day, 1-night framings' },
-  { href: '/explore/family-friendly/',  label: 'Family-friendly things',    sub: 'Kid-tested picks by category' },
-  { href: '/explore/dog-friendly/',     label: 'Dog-friendly Peninsula',    sub: 'Beaches, cafés, walks, stays' },
-  { href: '/explore/rainy-day/',        label: 'Rainy-day plans',           sub: 'Springs, galleries, lunches' },
-  { href: '/explore/free/',             label: 'Free things to do',         sub: 'Beaches, walks, lookouts' },
-  { href: '/explore/where-to-base-yourself/', label: 'Where to base yourself', sub: 'Subregion-by-subregion stay logic' },
-  { href: '/explore/getting-here/',     label: 'Getting to the Peninsula',  sub: 'Drive, train+bus, or ferry' },
-  { href: '/explore/getting-around/',   label: 'Getting around',            sub: 'Car-dominant; what works without one' },
-];
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Explore' },
-];
-
+// ── Schema (title/meta unchanged from the previous build) ────────────────────
 const collectionSchema = buildCollectionPageSchema({
   name: 'Explore the Mornington Peninsula, Peninsula Insider',
   description: 'The editorial guide to things to do on the Mornington Peninsula, Victoria. Ranked lists, experience hubs, use-case guides, and itineraries, all fact-verified.',
@@ -134,388 +300,626 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <Breadcrumbs items={breadcrumbItems} />
+  <!-- 1. Stand-first -->
+  <header class="x-head">
+    <div class="container">
+      <p class="x-head__eyebrow">Explore</p>
+      <h1 class="x-head__title">Things to do on the Mornington Peninsula</h1>
+      <p class="x-head__standfirst">
+        The strongest Peninsula days are built outside the booking: a coastal walk before lunch,
+        the right beach for the wind, a Saturday market, thermal water when the weather turns.
+        Everything we cover is on this page once. Filter it by what you feel like, jump to a town,
+        or scroll the season's shelves. Every entry has been walked, swum, or played by us before
+        it earned its listing.
+      </p>
+    </div>
+  </header>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       1. CINEMATIC HERO
-       ═══════════════════════════════════════════════════════════════ -->
-  <GuideHero
-    eyebrow="Explore"
-    title="The Peninsula gets better once you leave the <em>table</em>"
-    dek="The strongest weekends here are not built on bookings alone. They need coastline, weather, a market detour, or one good walk between lunch and sunset. This section maps those moves properly."
-    heroImage="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
-    imageAlt="Cape Schanck Lighthouse and the Bass Strait coast, the Peninsula at its most explorable"
-    imageCredit="Peninsula Insider"
-    entitySlug="explore"
-  />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. ORIENTATION: Outside layer vs Booked layer
-       ═══════════════════════════════════════════════════════════════ -->
-  <CompareBlock
-    eyebrow="Two layers, one Peninsula"
-    heading="The walk-and-look layer or the booked layer"
-    dek="Every Peninsula day mixes both. Knowing which layer you're leading with, outside and free, or booked and paid, decides the day's tempo."
-    left={{
-      label: 'Outside · walk and look',
-      title: 'Free, weather-led, the spine of any Peninsula weekend.',
-      rows: [
-        { label: 'What it includes', value: 'Coastal and clifftop walks, bay and ocean beaches, lookouts, foreshore tracks, dog-friendly outdoor moves.' },
-        { label: 'Best for', value: 'Mornings, between-meal hours, sunset, and any day when the weather is doing the work for you. The reason most people come back.' },
-        { label: 'Cost', value: 'Free, almost without exception. Parking is the only meaningful expense.' },
-        { label: 'Booking', value: 'None. Walk-up, drive-up. Bring weather-appropriate layers and good shoes.' },
-        { label: 'Strongest moves', value: 'Bushrangers Bay, Cape Schanck boardwalk, Two Bays Trail, Sorrento Back Beach at sunset, Coppins Track, Arthurs Seat lookout.' },
-      ],
-    }}
-    right={{
-      label: 'Booked · paid and indoor-friendly',
-      title: 'Weather-proof anchors. Books out, especially weekends.',
-      rows: [
-        { label: 'What it includes', value: 'Hot springs (Peninsula and Alba), golf courses, day spas, galleries, attractions, market days, food and wine experiences.' },
-        { label: 'Best for', value: 'Anchor sessions on a weekend. Cold weather. Rainy days. Trips where the structure of the day matters more than the weather.' },
-        { label: 'Booking type', value: 'Market entry at the low end, premium spa or thermal experience at the high end. Confirm current rates with each operator at booking.' },
-        { label: 'Booking', value: 'Required for hot springs, day spas, and golf. Markets and galleries are walk-in. Weekends book 1–4 weeks ahead.' },
-        { label: 'Strongest moves', value: 'Peninsula Hot Springs, Alba Thermal Springs, Spa by Jackalope, Pt Leo Estate sculpture park, Red Hill Market, Mornington Peninsula Regional Gallery.' },
-      ],
-    }}
-  />
-
-  <EventStrip
-    events={exploreEvents}
-    eyebrow="Things on this weekend"
-    heading="Markets, exhibitions, family programs, walks"
-    intro="Pulled from the events registry across nature, family, arts, and community categories."
-    moreHref="/whats-on/"
-    moreLabel="All events"
-    variant="alt"
-  />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       EDITORIAL SURFACE - Rainy Day Rescue (Level 2)
-       One surface per hub. Post-hero, pre-grid. Phase 1: PI curatorial voice.
-       ═══════════════════════════════════════════════════════════════ -->
-  <div class="explore-surface-wrap container">
-    <EditorialSurface
-      level={2}
-      surface="Rainy Day Rescue"
-      season="Autumn 2026"
-      name="Peninsula Hot Springs, Fingal"
-      verdict="When the forecast turns, the equation flips. Cold rain and 40°C thermal pools are not competing forces. The hot springs are the point. Book early for Saturday slots - they go faster on bad-weather weekends."
-      href="/explore/rainy-day/"
-      image="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
-      imageAlt="A grey-sky Peninsula morning - the weather that makes the hot springs make sense"
-    />
+  <!-- 2. Filters: the page's ONE FilterBar (chips from CHIP_PRESETS.explore) -->
+  <div class="container">
+    <FilterBar surface="explore" noun="experiences" label="Filter experiences" />
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       3. SEASONAL, what's best right now
-       ═══════════════════════════════════════════════════════════════ -->
-  {seasonal.length > 0 && (
-    <section class="experience-index" aria-label={`What's in season, ${blurb.label}`}>
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">{blurb.label}</p>
-            <h2 class="venues__title">What the Peninsula is best at right now</h2>
-            <p class="venues__sub venues__sub--standfirst">{blurb.line}</p>
-          </div>
-        </div>
-        <div class="experience-grid">
-          {seasonal.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       4. COASTAL WALKS, the proper ones
-       ═══════════════════════════════════════════════════════════════ -->
-  {longWalks.length > 0 && (
-    <section class="experience-index experience-index--plain" id="long-walks">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Coastal walks</p>
-            <h2 class="venues__title">The proper walks that reset the weekend</h2>
-            <p class="venues__sub venues__sub--standfirst">Cape Schanck, Bushrangers Bay, the Two Bays. The walks worth clearing an afternoon for.</p>
-          </div>
-          <a href="/explore/walks/" class="venues__link">All {walks.length} walks →</a>
-        </div>
-        <div class="experience-grid">
-          {longWalks.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. BETWEEN-MEAL WALKS
-       ═══════════════════════════════════════════════════════════════ -->
-  {shortWalks.length > 0 && (
-    <section class="experience-index" id="short-walks">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Between-meal walks</p>
-            <h2 class="venues__title">Under an hour · good between lunch and dinner</h2>
-            <p class="venues__sub">For the gap in the weekend when a long walk is too much and doing nothing feels wrong.</p>
-          </div>
-        </div>
-        <div class="experience-grid">
-          {shortWalks.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       6. BEACHES, LOOKOUTS, MARKETS, WELLNESS, CULTURE
-       ═══════════════════════════════════════════════════════════════ -->
-  {beaches.length > 0 && (
-    <section class="experience-index experience-index--plain" id="beaches">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Beaches</p>
-            <h2 class="venues__title">Which beach, and why</h2>
-            <p class="venues__sub">The bay calm versus the back beaches, pick the one that matches the weather, not the one closest to the car.</p>
-          </div>
-          <a href="/explore/beaches/" class="venues__link">Beach guide →</a>
-        </div>
-        <div class="experience-grid">
-          {beaches.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  {lookouts.length > 0 && (
-    <section class="experience-index" id="lookouts">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Lookouts</p>
-            <h2 class="venues__title">Where the Peninsula lays itself out for you</h2>
-            <p class="venues__sub">Short stops, long views, the moments that make the drive home feel considered.</p>
-          </div>
-        </div>
-        <div class="experience-grid">
-          {lookouts.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  {markets.length > 0 && (
-    <section class="experience-index experience-index--plain" id="markets">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Markets</p>
-            <h2 class="venues__title">Saturday mornings that shape the rest of the trip</h2>
-            <p class="venues__sub">Farmers' markets, makers' days, and the produce-first way into a Peninsula weekend.</p>
-          </div>
-          <a href="/journal/the-market-saturday/" class="venues__link">Market guide →</a>
-        </div>
-        <div class="experience-grid">
-          {markets.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  {wellness.length > 0 && (
-    <section class="experience-index" id="wellness">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Wellness</p>
-            <h2 class="venues__title">Springs, sauna, and the slow layer</h2>
-            <p class="venues__sub">When the weekend needs to reset, not perform.</p>
-          </div>
-        </div>
-        <div class="experience-grid">
-          {wellness.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  {galleriesAttractions.length > 0 && (
-    <section class="experience-index experience-index--plain" id="culture">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Galleries & attractions</p>
-            <h2 class="venues__title">Non-beach, non-cellar-door afternoons</h2>
-            <p class="venues__sub">The culture layer, useful when the weather turns or the weekend needs a quieter pace.</p>
-          </div>
-        </div>
-        <div class="experience-grid">
-          {galleriesAttractions.map((experience) => <ExperienceCard experience={experience} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <SectionDivider />
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       7. HUB NAVIGATION, every Explore lane
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-formats" aria-label="Explore categories">
-    <div class="container">
-      <div class="hub-formats__intro">
-        <p class="label label--accent">Or browse by lane</p>
-        <h2 class="hub-formats__title">The Explore section, fully organised</h2>
-        <p class="hub-formats__dek">Sixteen entry points into the Peninsula's outdoor and indoor experiences. Start with the lane that fits the trip you're planning.</p>
-      </div>
-      <ul class="hub-formats__grid">
-        {exploreHubs.map((hub) => (
-          <li class="hub-formats__cell">
-            <a href={hub.href} class="hub-formats__link">
-              <span class="hub-formats__label">{hub.label}</span>
-              <span class="hub-formats__sub">{hub.sub}</span>
+  <!-- 3-5. Browse layer: shelves, towns index, verticals. Yields to the
+       filtered directory whenever any facet is active. -->
+  <div data-browse-layer>
+    {shelves.map((shelf) => (
+      <section class="x-shelf" aria-labelledby={`shelf-${shelf.id}`}>
+        <div class="container">
+          <div class="x-shelf__header">
+            <div>
+              <p class="x-eyebrow">{shelf.eyebrow}</p>
+              <h2 class="x-shelf__heading" id={`shelf-${shelf.id}`}>{shelf.heading}</h2>
+              <p class="x-shelf__intro" set:html={shelfIntros[shelf.id]} />
+            </div>
+            <a
+              class="x-shelf__all"
+              href={presetHref(shelf.preset)}
+              data-shelf-all
+              data-filters={JSON.stringify(shelf.preset)}
+              data-evt="filter_apply"
+              data-shelf={shelf.id}
+            >
+              All {shelf.total} →
             </a>
+          </div>
+          <ul class="x-shelf__row" aria-label={shelf.heading}>
+            {shelf.items.map((item, i) => (
+              <Card
+                variant="venue"
+                title={item.name}
+                href={item.href}
+                entityType="experience"
+                entitySlug={item.slug}
+                image={{ src: item.hero.src, alt: item.hero.alt }}
+                typeMark={item.meta[0]}
+                verdict={item.verdict}
+                meta={item.meta.slice(1)}
+                freshness={item.data.lastVerified}
+                surface={`explore-shelf-${shelf.id}`}
+                position={i + 1}
+                saveSection="explore"
+              />
+            ))}
+          </ul>
+        </div>
+      </section>
+    ))}
+
+    <!-- Towns text index: 37 places, links not cards -->
+    <section class="x-towns" aria-labelledby="towns-heading">
+      <div class="container">
+        <p class="x-eyebrow">By town</p>
+        <h2 class="x-towns__heading" id="towns-heading">Every town, its own page</h2>
+        <p class="x-towns__intro">
+          Thirty-seven towns and localities, each sequenced into walks, beaches, and lunch by
+          people who live here. The town page is the real guide; this index is the door.
+        </p>
+        <ul class="x-towns__list">
+          {towns.map((t) => (
+            <li class="x-towns__item">
+              <a href={`/explore/places/${t.slug}/`}>{t.name}</a>
+              {t.line && <span class="x-towns__line">{t.line}</span>}
+            </li>
+          ))}
+        </ul>
+        <p class="x-towns__more"><a href="/explore/places/">All towns →</a></p>
+      </div>
+    </section>
+
+    <!-- Verticals rail: 6 text links to existing URLs -->
+    <section class="x-verticals" aria-labelledby="verticals-heading">
+      <div class="container">
+        <p class="x-eyebrow">Specialist guides</p>
+        <h2 class="x-verticals__heading" id="verticals-heading">The deep-dive verticals</h2>
+        <ul class="x-verticals__rail">
+          {verticals.map((v) => (
+            <li class="x-verticals__cell">
+              <a href={v.href} class="x-verticals__link">
+                <span class="x-verticals__label">{v.label} →</span>
+                <span class="x-verticals__sub">{v.sub}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="x-basics">
+          Planning basics:
+          {basics.map((b, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true"> · </span>}
+              <a href={b.href}>{b.label}</a>
+            </>
+          ))}
+        </p>
+        <p class="x-basics">
+          Markets, exhibitions, and family programs run most weekends. The live calendar is at
+          <a href="/whats-on/">What's On</a>.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- 6. Directory: the corpus, rendered exactly once, compact rows -->
+  <section class="x-directory" id="directory" aria-labelledby="directory-heading">
+    <div class="container">
+      <p class="x-eyebrow">The full list</p>
+      <h2 class="x-directory__heading" id="directory-heading">All {rows.length} experiences</h2>
+      <p class="x-directory__intro">
+        One list, one render: every walk, beach, course, gallery, and lookout we cover.
+        Narrow it from the filter bar above.
+      </p>
+      <CardGrid label={`All ${rows.length} experiences`} layout="rows">
+        {rows.map((r, i) => (
+          <li data-facets={JSON.stringify(r.facets)} data-title={r.name} class="x-directory__row">
+            <Card
+              as="div"
+              variant="compact-row"
+              title={r.name}
+              href={r.href}
+              entityType="experience"
+              entitySlug={r.slug}
+              verdict={r.verdict}
+              meta={r.meta}
+              surface="explore-directory"
+              position={i + 1}
+              saveSection="explore"
+            />
           </li>
         ))}
-      </ul>
+      </CardGrid>
+      <div data-filter-empty hidden>
+        <EmptyState variant="filter-zero" surface="explore" />
+      </div>
+      <p class="x-basics x-directory__plans">
+        Turn it into a weekend: our <a href="/explore/plans/">escape plans</a> sequence these
+        with the right lunch and the right bed.
+      </p>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       8. ALL EXPERIENCES, alphabetical mosaic
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="experience-index" id="all">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Every explore entry</p>
-          <h2 class="venues__title">All {experiences.length} Peninsula moves, alphabetical</h2>
-          <p class="venues__sub">For when you already know what you're looking for.</p>
-        </div>
-      </div>
-      <div class="experience-grid">
-        {experiences.map((experience) => <ExperienceCard experience={experience} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       9. PLACES, explore by terrain
-       ═══════════════════════════════════════════════════════════════ -->
-  {featuredPlaces.length > 0 && (
-    <section class="places">
+  <!-- 7. From the Journal (<=3) -->
+  {journal.length > 0 && (
+    <section class="x-journal" aria-labelledby="journal-heading">
       <div class="container">
-        <div class="places__header">
-          <p class="label label--accent places__label">By terrain</p>
-          <h2 class="places__title">Explore by pocket of the Peninsula</h2>
-          <p class="places__sub">Each place hub sequences walks, beaches, and lookouts into a real stretch of landscape.</p>
+        <div class="x-shelf__header">
+          <div>
+            <p class="x-eyebrow">From the Journal</p>
+            <h2 class="x-journal__heading" id="journal-heading">Further reading for the afternoon half</h2>
+          </div>
+          <a class="x-shelf__all" href="/journal/">All in the Journal →</a>
         </div>
-        <div class="places__grid">
-          {featuredPlaces.map((place, index) => (
-            <PlaceCard place={place} variant={index % 3 === 1 ? 'bay' : index % 3 === 2 ? 'sand' : 'vineyard'} />
+        <CardGrid label="From the Journal">
+          {journal.map((a, i) => (
+            <Card
+              variant="article"
+              title={a.title}
+              href={a.href}
+              entityType="article"
+              entitySlug={a.slug}
+              fieldPath="hero"
+              image={{ src: a.hero.src, alt: a.hero.alt }}
+              verdict={a.verdict}
+              readTime={a.readTime}
+              dateISO={a.dateISO}
+              surface="explore-journal"
+              position={i + 1}
+              saveSection="journal"
+            />
           ))}
-        </div>
-        <p style="margin-top: 1.5rem;"><a href="/explore/places/">Browse all towns →</a></p>
+        </CardGrid>
       </div>
     </section>
   )}
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       10. ITINERARIES
-       ═══════════════════════════════════════════════════════════════ -->
-  {itineraries.length > 0 && (
-    <section class="escape-callout">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">Turn it into a weekend</p>
-            <h2 class="venues__title">These explore notes feed directly into our escape plans</h2>
-            <p class="venues__sub">Walks and lookouts matter most when they are sequenced with the right lunch and the right bed.</p>
-          </div>
-          <a href="/explore/plans/" class="venues__link">See all plans →</a>
-        </div>
-        <div class="itinerary-grid">
-          {itineraries.map((itinerary) => <ItineraryCard itinerary={itinerary} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       11. EDITORIAL GUIDES
-       ═══════════════════════════════════════════════════════════════ -->
-  {companionReads.length > 0 && (
-    <section class="venues venues--plain">
-      <div class="container">
-        <div class="venues__header">
-          <div>
-            <p class="label label--accent">From the Journal</p>
-            <h2 class="venues__title">Further reading for the afternoon half of the trip</h2>
-            <p class="venues__sub">Service pieces that turn a list of activities into an actual day.</p>
-          </div>
-          <a href="/journal/" class="venues__link">All in the Journal →</a>
-        </div>
-        <div class="venues__grid">
-          {companionReads.map((article) => <ArticleCard article={article} />)}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       12. FAQ
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="hub-faq" aria-label="Frequently asked questions">
+  <!-- 8. FAQ (retained, schema unchanged) -->
+  <section class="x-faq" aria-labelledby="faq-heading">
     <div class="container">
-      <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
-        <h2 class="hub-faq__title">Five honest answers about Peninsula geography and access</h2>
-      </div>
-      <div class="hub-faq__list">
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What is the Mornington Peninsula?</summary>
-          <div class="hub-faq__a"><p>A peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne's CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland, Red Hill, Main Ridge, Merricks, is wine and food country.</p></div>
+      <p class="x-eyebrow">Frequently asked</p>
+      <h2 class="x-faq__heading" id="faq-heading">Five honest answers about Peninsula geography and access</h2>
+      <div class="x-faq__list">
+        <details class="x-faq__item">
+          <summary class="x-faq__q">What is the Mornington Peninsula?</summary>
+          <div class="x-faq__a"><p>A peninsula and local government area in Victoria, Australia, beginning roughly 40 km south of Melbourne's CBD and extending to the tip at Point Nepean. Its bay side (Port Phillip) is calm water; its ocean side (Bass Strait, via the Mornington Peninsula National Park) is surf and cliff. The hinterland, Red Hill, Main Ridge, Merricks, is wine and food country.</p></div>
         </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">How far is the Peninsula from Melbourne?</summary>
-          <div class="hub-faq__a"><p>The peninsula begins around 40–50 km from central Melbourne. Mornington town is about 60 km by road (50–60 min). Sorrento is 110 km by road (1 hr 20 min without traffic) or reachable via the <a href="/explore/getting-here/">Searoad Ferry from Queenscliff</a>.</p></div>
+        <details class="x-faq__item">
+          <summary class="x-faq__q">How far is the Peninsula from Melbourne?</summary>
+          <div class="x-faq__a"><p>The peninsula begins around 40–50 km from central Melbourne. Mornington town is about 60 km by road (50–60 min). Sorrento is 110 km by road (1 hr 20 min without traffic) or reachable via the <a href="/explore/getting-here/">Searoad Ferry from Queenscliff</a>.</p></div>
         </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">What is there to do on the Peninsula?</summary>
-          <div class="hub-faq__a"><p>Hot springs, beaches (bay and ocean), coastal walks, golf, winery lunches, day spas, surf, markets, lookouts, and whale-watching in season. See the full ranked list at <a href="/explore/things-to-do/">things to do on the Mornington Peninsula</a>.</p></div>
+        <details class="x-faq__item">
+          <summary class="x-faq__q">What is there to do on the Peninsula?</summary>
+          <div class="x-faq__a"><p>Hot springs, beaches (bay and ocean), coastal walks, golf, winery lunches, day spas, surf, markets, lookouts, and whale-watching in season. See the full ranked list at <a href="/explore/things-to-do/">things to do on the Mornington Peninsula</a>.</p></div>
         </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">When is the best time to visit?</summary>
-          <div class="hub-faq__a"><p>Summer (December–February) is peak beach season and most crowded. Autumn (March–May) is the best eating and drinking season and the most comfortable for hinterland visits. Winter is quiet, atmospheric, and ideal for hot springs. Spring is underrated, especially for wildflowers and walking.</p></div>
+        <details class="x-faq__item">
+          <summary class="x-faq__q">When is the best time to visit?</summary>
+          <div class="x-faq__a"><p>Summer (December–February) is peak beach season and most crowded. Autumn (March–May) is the best eating and drinking season and the most comfortable for hinterland visits. Winter is quiet, atmospheric, and ideal for hot springs. Spring is underrated, especially for wildflowers and walking.</p></div>
         </details>
-        <details class="hub-faq__item">
-          <summary class="hub-faq__q">Is a car necessary?</summary>
-          <div class="hub-faq__a"><p>For most itineraries, yes. Public transport connects Melbourne to Frankston and a limited bus network extends further, but the hinterland, beaches, and most attractions are car-dependent. See <a href="/explore/getting-around/">getting around</a> for the full picture.</p></div>
+        <details class="x-faq__item">
+          <summary class="x-faq__q">Is a car necessary?</summary>
+          <div class="x-faq__a"><p>For most itineraries, yes. Public transport connects Melbourne to Frankston and a limited bus network extends further, but the hinterland, beaches, and most attractions are car-dependent. See <a href="/explore/getting-around/">getting around</a> for the full picture.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-  {notebookNote && (
-    <section class="hub-notebook" aria-label="From The Notebook">
-      <div class="container">
-        <div class="hub-notebook__inner">
-          <p class="label label--accent">Notebook observation</p>
-          <a class="hub-notebook__headline" href={`/quick-note/${notebookNote.id.replace(/\.md$/, '')}/`}>
-            {notebookNote.data.headline}
-          </a>
-          {notebookNote.data.verdict && (
-            <p class="hub-notebook__verdict">{notebookNote.data.verdict}</p>
-          )}
-          <a href="/quick-note/" class="hub-notebook__link">The Notebook →</a>
-        </div>
+  <!-- 9. Ask band -->
+  <section class="x-ask" aria-labelledby="ask-heading">
+    <div class="container x-ask__inner">
+      <div>
+        <h2 class="x-ask__heading" id="ask-heading">Not sure which way to point the day?</h2>
+        <p class="x-ask__line">
+          Tell PI the weather, the crew, and the hours you have. It answers from these pages,
+          nothing generic.
+        </p>
       </div>
-    </section>
-  )}
-
-  <NewsletterBlock />
+      <a class="x-ask__cta" href="/ask/" data-evt="ask_open" data-surface="explore">Ask Peninsula Insider</a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .x-eyebrow {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.78rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+  }
+
+  /* ---- stand-first ---- */
+  .x-head {
+    padding: var(--space-7, 2.5rem) 0 var(--space-5, 1.5rem);
+  }
+  .x-head__eyebrow {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.78rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+  .x-head__title {
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-800, clamp(2.1rem, 4.5vw, 3.2rem));
+    line-height: 1.08;
+    margin: 0 0 0.75rem;
+    color: var(--text);
+  }
+  .x-head__standfirst {
+    font-size: var(--fs-500, 1.15rem);
+    line-height: var(--lh-body, 1.7);
+    color: var(--soft);
+    max-width: 46em;
+    margin: 0;
+  }
+
+  /* ---- shelves ---- */
+  .x-shelf {
+    padding: var(--space-7, 2.5rem) 0;
+  }
+  .x-shelf:nth-of-type(even) {
+    background: var(--bg-alt);
+  }
+  .x-shelf__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    margin-bottom: var(--space-5, 1.5rem);
+  }
+  .x-shelf__heading,
+  .x-towns__heading,
+  .x-verticals__heading,
+  .x-directory__heading,
+  .x-journal__heading,
+  .x-faq__heading {
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.2rem));
+    line-height: 1.15;
+    margin: 0;
+    color: var(--text);
+  }
+  .x-shelf__intro,
+  .x-towns__intro,
+  .x-directory__intro {
+    font-size: var(--fs-300, 0.95rem);
+    color: var(--soft);
+    max-width: 44em;
+    margin: 0.5rem 0 0;
+  }
+  .x-shelf__all {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.88rem);
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .x-shelf__all:hover,
+  .x-shelf__all:focus-visible {
+    text-decoration: underline;
+  }
+  .x-shelf__all:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  /* Mobile: horizontal scroll with peek; tablet 2-up; desktop 3x2. */
+  .x-shelf__row {
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    display: flex;
+    gap: var(--space-4, 1rem);
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .x-shelf__row::-webkit-scrollbar {
+    display: none;
+  }
+  .x-shelf__row > :global(li) {
+    flex: 0 0 min(78%, 20rem);
+    scroll-snap-align: start;
+  }
+  @media (min-width: 48em) {
+    .x-shelf__row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      overflow-x: visible;
+    }
+    .x-shelf__row > :global(li) {
+      flex: initial;
+    }
+  }
+  @media (min-width: 64em) {
+    .x-shelf__row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ---- towns index ---- */
+  .x-towns {
+    padding: var(--space-7, 2.5rem) 0;
+    border-top: 1px solid var(--border);
+  }
+  .x-towns__list {
+    list-style: none;
+    margin: var(--space-5, 1.5rem) 0 0;
+    padding: 0;
+    columns: 1;
+    column-gap: var(--space-6, 2rem);
+  }
+  @media (min-width: 48em) {
+    .x-towns__list {
+      columns: 2;
+    }
+  }
+  .x-towns__item {
+    break-inside: avoid;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: var(--fs-300, 0.95rem);
+  }
+  .x-towns__item a {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .x-towns__item a:hover,
+  .x-towns__item a:focus-visible {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .x-towns__line {
+    display: block;
+    color: var(--soft);
+    font-size: var(--fs-200, 0.88rem);
+  }
+  .x-towns__more {
+    margin: var(--space-5, 1.5rem) 0 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-weight: 600;
+  }
+
+  /* ---- verticals ---- */
+  .x-verticals {
+    padding: var(--space-7, 2.5rem) 0;
+    background: var(--bg-alt);
+  }
+  .x-verticals__rail {
+    list-style: none;
+    margin: var(--space-5, 1.5rem) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4, 1rem);
+  }
+  @media (min-width: 48em) {
+    .x-verticals__rail {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 64em) {
+    .x-verticals__rail {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  .x-verticals__link {
+    display: block;
+    padding: var(--space-4, 1rem);
+    background: var(--bg, #fff);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+    text-decoration: none;
+    min-height: 48px;
+    transition: box-shadow var(--dur-fast, 120ms) var(--ease, ease);
+  }
+  .x-verticals__link:hover {
+    box-shadow: var(--elev-2, 0 12px 24px -12px rgba(40, 28, 14, 0.28));
+  }
+  .x-verticals__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .x-verticals__label {
+    display: block;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-weight: 600;
+    color: var(--text);
+  }
+  .x-verticals__sub {
+    display: block;
+    font-size: var(--fs-200, 0.88rem);
+    color: var(--soft);
+    margin-top: 0.2rem;
+  }
+  .x-basics {
+    margin: var(--space-5, 1.5rem) 0 0;
+    font-size: var(--fs-300, 0.95rem);
+    color: var(--soft);
+    max-width: 60em;
+  }
+  .x-basics a {
+    color: var(--accent);
+  }
+
+  /* ---- directory ---- */
+  .x-directory {
+    padding: var(--space-7, 2.5rem) 0;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 4rem;
+  }
+  .x-directory :global(.v5-card-grid--rows) {
+    margin-top: var(--space-5, 1.5rem);
+  }
+  .x-directory__row {
+    list-style: none;
+  }
+  .x-directory__row + .x-directory__row {
+    margin-top: var(--space-3, 0.6rem);
+  }
+  .x-directory__plans {
+    margin-top: var(--space-6, 2rem);
+  }
+
+  /* ---- journal ---- */
+  .x-journal {
+    padding: var(--space-7, 2.5rem) 0;
+    background: var(--bg-alt);
+  }
+
+  /* ---- FAQ ---- */
+  .x-faq {
+    padding: var(--space-7, 2.5rem) 0;
+  }
+  .x-faq__list {
+    margin-top: var(--space-5, 1.5rem);
+    border-top: 1px solid var(--border);
+  }
+  .x-faq__item {
+    border-bottom: 1px solid var(--border);
+  }
+  .x-faq__q {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-weight: 600;
+    font-size: var(--fs-400, 1rem);
+    color: var(--text);
+    padding: 0.9rem 0;
+    cursor: pointer;
+    min-height: 48px;
+  }
+  .x-faq__q:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .x-faq__a {
+    padding: 0 0 1rem;
+    color: var(--soft);
+    max-width: 48em;
+  }
+  .x-faq__a a {
+    color: var(--accent);
+  }
+
+  /* ---- ask band ---- */
+  .x-ask {
+    padding: var(--space-7, 2.5rem) 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+  }
+  .x-ask__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5, 1.5rem);
+  }
+  .x-ask__heading {
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-600, 1.5rem);
+    margin: 0 0 0.35rem;
+    color: var(--text);
+  }
+  .x-ask__line {
+    margin: 0;
+    color: var(--soft);
+    max-width: 40em;
+  }
+  .x-ask__cta {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--white, #fff);
+    border-radius: 999px;
+    padding: 0 1.4rem;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .x-ask__cta:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+</style>
+
+<script>
+  import { commit, isEmptyState, parseFilters } from '../../lib/v5-filter-state';
+
+  const NOUN = 'experiences';
+
+  function setBrowseHidden(hide: boolean) {
+    document
+      .querySelectorAll<HTMLElement>('[data-browse-layer]')
+      .forEach((el) => el.toggleAttribute('hidden', hide));
+  }
+
+  let bound = false;
+
+  function init() {
+    // Server renders everything visible; the browse layer yields to the
+    // filtered directory whenever any facet is active (URL or interaction).
+    setBrowseHidden(!isEmptyState(parseFilters(window.location.search)));
+    if (bound) return;
+    bound = true;
+
+    document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
+      setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
+    }) as EventListener);
+
+    // Shelf "All N" links: apply the preset in page (one commit, no fetch)
+    // and jump to the directory. Without JS the href performs a real
+    // ?param#directory navigation and initFilterState applies it on load.
+    document.querySelectorAll<HTMLAnchorElement>('[data-shelf-all]').forEach((link) => {
+      link.addEventListener('click', (ev) => {
+        let filters;
+        try {
+          filters = JSON.parse(link.dataset.filters || '{}');
+        } catch {
+          return; // malformed preset: let the href navigate
+        }
+        ev.preventDefault();
+        commit(filters, { source: 'chip', noun: NOUN });
+        document.getElementById('directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // EmptyState's "Clear filters" primary action.
+    document.addEventListener('click', (ev) => {
+      const btn = (ev.target as HTMLElement).closest('[data-action="clear-filters"]');
+      if (btn) commit({}, { source: 'clear', noun: NOUN });
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>

@@ -1,0 +1,100 @@
+---
+/**
+ * PlanNextStep (v5, /plans/ hub section 9.6) - the next-step band.
+ * Two exits when no ready-made plan fits: Ask PI to shape one, or start a
+ * blank My Trip. No Dispatch here; the footer carries the page's single
+ * Dispatch instance (hub spec 19 removed the mid-page NewsletterBlock).
+ */
+---
+
+<section class="plan-next" aria-labelledby="plan-next-heading">
+  <div class="container">
+    <div class="plan-next__inner">
+      <div>
+        <h2 class="plan-next__heading" id="plan-next-heading">None of these fit?</h2>
+        <p class="plan-next__sub">Describe the day and PI will draft it, or build your own from a blank trip.</p>
+      </div>
+      <div class="plan-next__actions">
+        <a class="plan-next__btn plan-next__btn--primary" href="/ask/" data-evt="ask_open" data-surface="plans">Ask PI to shape one</a>
+        <a class="plan-next__btn" href="/me/trip/">Start a blank My Trip</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .plan-next {
+    padding: var(--space-6, 2rem) 0 var(--space-7, 2.5rem);
+  }
+  .plan-next__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    padding: var(--space-5, 1.5rem);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+  }
+  .plan-next__heading {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-700, clamp(1.5rem, 1.3rem + 1vw, 1.9rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.15);
+  }
+  .plan-next__sub {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    color: var(--soft);
+    max-width: 44ch;
+  }
+  .plan-next__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .plan-next__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.15rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 6px);
+    background: var(--bg, var(--white));
+    color: var(--text);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    text-decoration: none;
+    transition:
+      background var(--dur-fast, 120ms) var(--ease, ease),
+      border-color var(--dur-fast, 120ms) var(--ease, ease),
+      color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+  .plan-next__btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .plan-next__btn:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .plan-next__btn--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white, var(--bg));
+  }
+  .plan-next__btn--primary:hover {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--white, var(--bg));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plan-next__btn {
+      transition: none;
+    }
+  }
+</style>

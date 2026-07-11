@@ -1,0 +1,112 @@
+/* =========================================================
+   Peninsula Insider — V5 DESIGN TOKENS (T-301 / T-306)
+   ---------------------------------------------------------
+   Single token layer for the v5 redesign. Imported at the
+   top of global.css; every v5 component consumes these via
+   var(--...) only. Sources:
+     07-design-system/typography-system.md   (primary)
+     07-design-system/component-specifications.md §1
+     08-accessibility/accessibility-audit.md (A-07, A-08)
+   Color role values are DERIVED from the live palette in
+   global.css :root — no new palette. Custom properties
+   resolve at use time, so var() references to tokens that
+   global.css defines later (e.g. --accent) are valid.
+   ========================================================= */
+
+:root {
+  /* ── Font families (two only; Space Grotesk / Space Mono / Inter are banned) ── */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-ui:      'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ── Type scale — 9 tokens, clamp(), rem-based.
+     --fs-100 (12px) is the HARD FLOOR: no text token below it.
+     Cormorant Garamond never renders below --fs-300 (18px @ scale-1
+     equivalent) or below weight 500 — smaller/lighter switches to --font-ui. ── */
+  --fs-900: clamp(2.5rem, 1.6rem + 4vw, 4rem);        /* 40→64  cover/hero display */
+  --fs-800: clamp(2.125rem, 1.5rem + 2.8vw, 3rem);    /* 34→48  page h1 */
+  --fs-700: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);  /* 28→36  h2 / section titles */
+  --fs-600: clamp(1.375rem, 1.2rem + 0.8vw, 1.625rem);/* 22→26  h3 / card titles */
+  --fs-500: clamp(1.1875rem, 1.1rem + 0.4vw, 1.3125rem); /* 19→21 deks, verdicts */
+  --fs-400: 1.0625rem;  /* 17px BODY */
+  --fs-300: 0.9375rem;  /* 15px secondary body, captions, nav */
+  --fs-200: 0.8125rem;  /* 13px metadata, bylines, button-small */
+  --fs-100: 0.75rem;    /* 12px FLOOR — eyebrows/labels only */
+
+  /* ── Line heights (unitless) ── */
+  --lh-display: 1.08;
+  --lh-heading: 1.2;
+  --lh-dek:     1.45;
+  --lh-body:    1.7;
+  --lh-ui:      1.4;
+  --lh-label:   1.2;
+
+  /* ── Weights ── */
+  --fw-display:    600;  /* Cormorant headings; 700 reserved for wordmark */
+  --fw-display-em: 600;  /* Cormorant italic (verdicts, taglines) */
+  --fw-body:       400;  /* Outfit body — Outfit 300 is banned for text */
+  --fw-medium:     500;  /* Outfit nav, buttons, deks */
+  --fw-semibold:   600;  /* Outfit labels, table heads, emphasis */
+
+  /* ── Measure ── */
+  --measure-prose: 68ch;
+  --measure-dek:   52ch;
+  --measure-card:  38ch;
+
+  /* ── Spacing — 4px base scale (rem) ── */
+  --space-1:  0.25rem;  /*   4px */
+  --space-2:  0.5rem;   /*   8px */
+  --space-3:  0.75rem;  /*  12px */
+  --space-4:  1rem;     /*  16px */
+  --space-5:  1.5rem;   /*  24px */
+  --space-6:  2rem;     /*  32px */
+  --space-7:  3rem;     /*  48px */
+  --space-8:  4rem;     /*  64px */
+  --space-9:  6rem;     /*  96px */
+  --space-10: 8rem;     /* 128px */
+  --space-para:          1.5rem;   /* prose paragraph gap */
+  --space-heading-above: 2.75rem;
+  --space-heading-below: 1rem;
+
+  /* ── Color roles — derived from the live palette (global.css :root).
+     Core roles (--bg, --bg-alt, --bg-dark, --text, --soft, --accent,
+     --acc-h, --gold, --gold-text, --sage, --sage-text, --border,
+     --white, --dark) remain canonical in global.css. New AA-safe
+     roles below are the only additions (audit A-07 / A-08 / A-13). ── */
+  --soft-inverse:  rgba(250, 247, 240, 0.72); /* muted text on --bg-dark ≈9:1 */
+  --border-strong: #A79B87;                    /* form-control borders ≥3:1; --border stays decorative */
+  --error-text:    #A93226;                    /* ≥5.4:1 on white */
+
+  /* ── Radii — 3 values only ── */
+  --radius-s: 4px;   /* chips, buttons, inputs */
+  --radius-m: 10px;  /* card media, tiles */
+  --radius-l: 16px;  /* panels, sheets, modals */
+
+  /* ── Elevation — 3 values only ── */
+  --elev-1: 0 2px 8px rgba(30, 27, 24, 0.06);        /* resting cards */
+  --elev-2: 0 12px 24px -12px rgba(40, 28, 14, 0.28); /* hover/raised, dropdowns */
+  --elev-3: 0 24px 48px -16px rgba(30, 27, 24, 0.35); /* sheets, modals, drawers */
+
+  /* ── Motion — animate opacity/transform only ── */
+  --dur-fast: 120ms;  /* hover, focus, chips */
+  --dur-med:  200ms;  /* card raise, accordion, tab */
+  --dur-slow: 320ms;  /* sheet, drawer, mega panel, page fade */
+  --ease-enter: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* = --ease (global.css) */
+  --ease-exit:  ease-in;
+
+  /* ── Focus system (A-08): ring ≥3:1 on both light and dark.
+     --accent = 6.46:1 on --bg; inverse cut = 8.0:1 on --bg-dark. ── */
+  --focus-ring-color:         var(--accent);
+  --focus-ring-color-inverse: #F2C9A8;
+  --focus-ring: 2px solid var(--focus-ring-color);
+}
+
+/* Reduced motion: collapse every tokenised duration to zero so any
+   transition/animation driven by --dur-* is instant. (View-transition
+   kill switch already exists in global.css and stays.) */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med:  0ms;
+    --dur-slow: 0ms;
+  }
+}

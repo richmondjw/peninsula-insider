@@ -1,0 +1,12 @@
+---
+/**
+ * /me/ - the My Peninsula layer root. The layer's landing view is Saved
+ * (tools spec 4.8: one chrome entry, masthead icon -> /me/saved/), so the
+ * bare /me/ URL forwards there. Flash-free JS redirect per the repo
+ * convention (astro.config.mjs note; Redirect component).
+ */
+import Redirect from '../../components/Redirect.astro';
+export const prerender = true;
+---
+
+<Redirect to="/me/saved/" />

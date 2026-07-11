@@ -1,0 +1,58 @@
+---
+/**
+ * CardGrid (v5) - the labelled list wrapper for Card.
+ *
+ * Cards are `li` elements (Card's default root); this provides the `ul`
+ * with an accessible name and the responsive grid: 1 column to bp-sm,
+ * 2 at bp-md (768), 3 at bp-lg (1024) and up. `layout="rows"` stacks
+ * compact-row cards as a single-column list (search results, agendas).
+ */
+export interface Props {
+  /** Accessible name for the list, e.g. "Wineries in Red Hill". */
+  label: string;
+  layout?: 'grid' | 'rows';
+  /** Cap grid tracks at 2 columns for narrow rails. */
+  maxCols?: 2 | 3;
+}
+
+const { label, layout = 'grid', maxCols = 3 } = Astro.props;
+---
+
+<ul
+  class:list={['v5-card-grid', `v5-card-grid--${layout}`, maxCols === 2 && 'v5-card-grid--two']}
+  aria-label={label}
+>
+  <slot />
+</ul>
+
+<style>
+  .v5-card-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-5, 1.5rem);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 48em) {
+    .v5-card-grid--grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 64em) {
+    .v5-card-grid--grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .v5-card-grid--grid.v5-card-grid--two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .v5-card-grid--rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+</style>

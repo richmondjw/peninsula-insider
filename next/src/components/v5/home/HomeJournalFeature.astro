@@ -1,0 +1,153 @@
+---
+/**
+ * HomeJournalFeature - block 6, the one flagship Journal feature
+ * (page-redesigns.md 1.9 item 6; wireframes.html #home note 5: "Exactly
+ * one Journal feature; more editorial lives behind Journal").
+ *
+ * Same deterministic selection the Edition cover used: the featured
+ * published article wins, otherwise the latest, weekend-picker dispatches
+ * excluded. Hero resolves through resolveHero so CMS image overrides
+ * survive rebuilds; the img carries the editableImage slot.
+ */
+import { getCollection } from 'astro:content';
+import { routeSlug, formatLabel } from '../../../lib/editorial';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import { editableImage } from '../../../lib/inline-edit/attrs';
+
+const published = (await getCollection('articles', ({ data }) => data.status === 'published'))
+  .filter((a) => a.data.format !== 'weekend-picker')
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const lead = published.find((a) => a.data.featured) ?? published[0];
+const slug = lead ? routeSlug(lead) : '';
+const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
+const kicker = lead ? (formatLabel[lead.data.format] ?? 'Feature') : '';
+---
+
+{lead && hero && (
+  <section class="home-journal" aria-labelledby="home-journal-title">
+    <figure class="home-journal__media">
+      <img
+        src={hero.src}
+        alt={hero.alt || lead.data.title}
+        loading="lazy"
+        decoding="async"
+        {...editableImage({
+          entityType: 'article',
+          entitySlug: slug,
+          fieldPath: 'hero',
+          label: `${lead.data.title} image`,
+          purpose: 'hero',
+        })}
+      />
+    </figure>
+    <div class="container home-journal__body">
+      <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
+      <h2 id="home-journal-title" class="home-journal__headline">
+        <a
+          href={`/journal/${slug}/`}
+          data-evt="card_click"
+          data-entity-type="article"
+          data-entity-slug={slug}
+          data-surface="home-journal"
+        >
+          {lead.data.title}
+        </a>
+      </h2>
+      {lead.data.dek && <p class="home-journal__dek">{lead.data.dek}</p>}
+      <p class="home-journal__cta">
+        <a href={`/journal/${slug}/`} tabindex="-1" aria-hidden="true">Read the story &rarr;</a>
+      </p>
+    </div>
+  </section>
+)}
+
+<script>
+  import { initV5Analytics } from '../../../lib/v5-analytics';
+  initV5Analytics();
+</script>
+
+<style>
+  .home-journal {
+    position: relative;
+    margin: var(--space-6, 2rem) 0 var(--space-7, 3rem);
+  }
+
+  .home-journal__media {
+    margin: 0;
+    height: min(70vh, 34rem);
+    overflow: hidden;
+  }
+
+  .home-journal__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .home-journal__body {
+    padding-top: var(--space-5, 1.5rem);
+    max-width: var(--max-w, 1100px);
+  }
+
+  .home-journal__kicker {
+    margin: 0 0 var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200, 0.8125rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .home-journal__headline {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
+    font-size: var(--fs-800, clamp(2rem, 4vw, 3rem));
+    line-height: var(--lh-display, 1.08);
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+
+  .home-journal__headline a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .home-journal__headline a:hover {
+    color: var(--accent);
+  }
+
+  .home-journal__headline a:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+
+  .home-journal__dek {
+    margin: var(--space-3, 0.75rem) 0 0;
+    font-size: var(--fs-400, 1.0625rem);
+    line-height: var(--lh-dek, 1.45);
+    color: var(--soft);
+    max-width: var(--measure-dek, 52ch);
+  }
+
+  .home-journal__cta {
+    margin: var(--space-4, 1rem) 0 0;
+    font-family: var(--font-ui);
+    font-weight: var(--fw-semibold, 600);
+    font-size: var(--fs-400, 1.0625rem);
+  }
+
+  .home-journal__cta a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  .home-journal__cta a:hover {
+    color: var(--accent);
+  }
+</style>

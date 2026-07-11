@@ -391,6 +391,7 @@ mappings:
         garden:          scenic                  # also theme: garden
         waterfront:      scenic                  # also theme: coastal
         golf:            drop                    # belongs in theme: golf
+        worth-the-drive: drop                    # belongs in editorial-lens: worth-the-drive (added 2026-07-11; value already in the content.config.ts mood enum and live on 14 entries)
     tags.season:
       facet: season
       values:

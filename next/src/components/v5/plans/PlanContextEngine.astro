@@ -1,0 +1,771 @@
+---
+/**
+ * PlanContextEngine (v5, /plans/ decision engine, hub spec section 6).
+ *
+ * Single-select context chips over one answer set: 1 featured plan plus
+ * up to 2 alternates, never more (P4: two choices in, three plans out).
+ * The default context (Weekend) is server-rendered in the DOM so the page
+ * is complete with JS disabled; other contexts swap the answer slots in
+ * place from embedded JSON (URL-persisted ?context=, crawl-safe default).
+ *
+ * "Make this my trip" forks the plan's stops into the ONE trip store
+ * (lib/v5-store tripAdd / tripAddDay), with a toast plus an Open My Trip
+ * link. Works signed-out; localStorage first, cloud sync on sign-in.
+ *
+ * A11y: chips carry aria-pressed; the status line is the page's single
+ * polite live region (#pi-results-status per the build contract); plan
+ * cards are single-link with the fork button labelled
+ * "Use as My Trip starting point: <plan>".
+ */
+import { editableImage } from '../../../lib/inline-edit/attrs';
+import type { PlansModel, PlanRecord } from './plans-data';
+
+export interface Props {
+  model: PlansModel;
+}
+
+const { model } = Astro.props;
+const { plans, contexts, defaultContextId } = model;
+
+const byId = new Map(plans.map((p) => [p.id, p]));
+const defaultContext = contexts.find((c) => c.id === defaultContextId) ?? contexts[0];
+const featured: PlanRecord | undefined = byId.get(defaultContext.planIds[0] ?? '');
+const alternates: (PlanRecord | undefined)[] = [
+  byId.get(defaultContext.planIds[1] ?? ''),
+  byId.get(defaultContext.planIds[2] ?? ''),
+];
+
+/* Client payload: strip stops notes down to what the fork needs. */
+const payload = {
+  defaultContextId: defaultContext.id,
+  contexts: Object.fromEntries(
+    contexts.map((c) => [c.id, { label: c.label, featuredLabel: c.featuredLabel, planIds: c.planIds.slice(0, 3) }]),
+  ),
+  plans: Object.fromEntries(
+    plans.map((p) => [
+      p.id,
+      {
+        entityType: p.entityType,
+        slug: p.slug,
+        title: p.title,
+        verdict: p.verdict,
+        href: p.href,
+        image: p.image,
+        imageField: p.imageField,
+        meta: p.meta,
+        stops: p.stops,
+      },
+    ]),
+  ),
+};
+const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c');
+---
+
+<section class="plan-engine" aria-labelledby="plan-engine-heading">
+  <div class="container">
+    <h2 class="plan-engine__vh" id="plan-engine-heading">Pick the shape of the day</h2>
+
+    <div class="plan-engine__chips" role="group" aria-label="Plan contexts">
+      {contexts.map((ctx) => (
+        <button
+          type="button"
+          class="plan-engine__chip"
+          data-plan-context={ctx.id}
+          aria-pressed={ctx.id === defaultContext.id ? 'true' : 'false'}
+        >
+          {ctx.label}
+        </button>
+      ))}
+    </div>
+
+    <p id="pi-results-status" class="plan-engine__vh" role="status" aria-live="polite"></p>
+
+    <div class="plan-engine__answer" data-plan-answer>
+      {featured && (
+        <article class="plan-featured" data-plan-featured>
+          <div class="plan-featured__media">
+            {featured.image && (
+              <img
+                src={featured.image.src}
+                alt={featured.image.alt}
+                loading="eager"
+                decoding="async"
+                data-slot="featured-image"
+                {...editableImage({
+                  entityType: featured.entityType,
+                  entitySlug: featured.slug,
+                  fieldPath: featured.imageField,
+                  label: `${featured.title} image`,
+                  purpose: 'card',
+                })}
+              />
+            )}
+          </div>
+          <div class="plan-featured__body">
+            <p class="plan-featured__mark" data-slot="featured-label">{defaultContext.featuredLabel}</p>
+            <h3 class="plan-featured__title">
+              <a
+                href={featured.href}
+                data-slot="featured-title"
+                data-evt="card_click"
+                data-entity-type={featured.entityType}
+                data-entity-slug={featured.slug}
+                data-surface="plans-featured"
+              >
+                {featured.title}
+              </a>
+            </h3>
+            <p class="plan-featured__verdict" data-slot="featured-verdict">{featured.verdict}</p>
+            <p class="plan-featured__meta" data-slot="featured-meta">{featured.meta.join(' · ')}</p>
+            <div class="plan-featured__actions">
+              <button
+                type="button"
+                class="plan-engine__btn plan-engine__btn--primary"
+                data-plan-fork={featured.id}
+                data-evt="trip_add"
+                data-entity-type={featured.entityType}
+                data-entity-slug={featured.slug}
+                data-surface="plans-featured"
+                aria-label={`Use as My Trip starting point: ${featured.title}`}
+              >
+                Make this my trip
+              </button>
+              <a class="plan-engine__btn" href={featured.href} data-slot="featured-read">Read the plan</a>
+            </div>
+          </div>
+        </article>
+      )}
+
+      <div class="plan-alts">
+        {alternates.map((alt, i) => (
+          <article class="plan-alt" data-plan-alt={i} hidden={!alt}>
+            <div class="plan-alt__media">
+              <img
+                src={alt?.image?.src}
+                alt={alt?.image?.alt ?? ''}
+                loading="lazy"
+                decoding="async"
+                data-slot="alt-image"
+                hidden={!alt?.image}
+                {...(alt
+                  ? editableImage({
+                      entityType: alt.entityType,
+                      entitySlug: alt.slug,
+                      fieldPath: alt.imageField,
+                      label: `${alt.title} image`,
+                      purpose: 'card',
+                    })
+                  : {})}
+              />
+            </div>
+            <div class="plan-alt__body">
+              <p class="plan-alt__mark">Also fits</p>
+              <h3 class="plan-alt__title">
+                <a
+                  href={alt?.href}
+                  data-slot="alt-title"
+                  data-evt="card_click"
+                  data-entity-type={alt?.entityType}
+                  data-entity-slug={alt?.slug}
+                  data-surface="plans-alternate"
+                >
+                  {alt?.title}
+                </a>
+              </h3>
+              <p class="plan-alt__verdict" data-slot="alt-verdict">{alt?.verdict}</p>
+              <button
+                type="button"
+                class="plan-engine__btn plan-engine__btn--quiet"
+                data-plan-fork={alt?.id}
+                data-evt="trip_add"
+                data-entity-type={alt?.entityType}
+                data-entity-slug={alt?.slug}
+                data-surface="plans-alternate"
+                aria-label={`Use as My Trip starting point: ${alt?.title ?? ''}`}
+              >
+                Make this my trip
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p class="plan-engine__empty" data-plan-empty hidden>
+        No plan fits that shape yet. Browse the full list below, or ask PI to draft one.
+      </p>
+
+      <p class="plan-engine__all">
+        <a href="#all-plans">All {plans.length} plans, by season and party</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" id="pi-plans-data" set:html={payloadJson} />
+
+<style>
+  .plan-engine {
+    padding: 0.5rem 0 1.5rem;
+  }
+
+  .plan-engine__vh {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ---- chips (single-select) ---- */
+  .plan-engine__chips {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 2px 2px 6px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .plan-engine__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .plan-engine__chip {
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    color: var(--text);
+    background: var(--bg, var(--white));
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0 1.1rem;
+    min-height: 48px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background var(--dur-fast, 120ms) var(--ease, ease),
+      border-color var(--dur-fast, 120ms) var(--ease, ease),
+      color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+  .plan-engine__chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .plan-engine__chip:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .plan-engine__chip[aria-pressed='true'] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white, var(--bg));
+  }
+
+  /* ---- featured plan ---- */
+  .plan-featured {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-5, 1.5rem);
+    align-items: start;
+    margin-top: var(--space-5, 1.5rem);
+    padding: var(--space-5, 1.5rem);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+  }
+  .plan-featured__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-s, 6px);
+    background: var(--bg);
+  }
+  .plan-featured__media:empty {
+    display: none;
+  }
+  .plan-featured__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .plan-featured__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .plan-featured__mark {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-text, var(--accent));
+  }
+  .plan-featured__title {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-size: var(--fs-800, clamp(1.75rem, 1.4rem + 1.6vw, 2.375rem));
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.15);
+  }
+  .plan-featured__title a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .plan-featured__title a:hover {
+    text-decoration: underline;
+  }
+  .plan-featured__title a:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .plan-featured__verdict {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-style: italic;
+    font-size: var(--fs-500, 1.1875rem);
+    line-height: var(--lh-dek, 1.45);
+    color: var(--text);
+    max-width: 52ch;
+  }
+  .plan-featured__meta {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft);
+  }
+  .plan-featured__meta:empty {
+    display: none;
+  }
+  .plan-featured__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  /* ---- buttons ---- */
+  .plan-engine__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.15rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 6px);
+    background: var(--bg, var(--white));
+    color: var(--text);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: var(--fw-semibold, 600);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background var(--dur-fast, 120ms) var(--ease, ease),
+      border-color var(--dur-fast, 120ms) var(--ease, ease),
+      color var(--dur-fast, 120ms) var(--ease, ease);
+  }
+  .plan-engine__btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .plan-engine__btn:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .plan-engine__btn--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white, var(--bg));
+  }
+  .plan-engine__btn--primary:hover {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--white, var(--bg));
+  }
+  .plan-engine__btn--quiet {
+    min-height: 44px;
+    font-size: var(--fs-200, 0.8125rem);
+  }
+  .plan-engine__btn[disabled] {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  /* ---- alternates ---- */
+  .plan-alts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5, 1.5rem);
+    margin-top: var(--space-5, 1.5rem);
+  }
+  .plan-alt {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg, var(--white));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+    overflow: hidden;
+  }
+  .plan-alt__media {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--bg-alt);
+  }
+  .plan-alt__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .plan-alt__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: var(--space-4, 1rem);
+    flex: 1;
+  }
+  .plan-alt__mark {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-100, 0.75rem);
+    font-weight: var(--fw-semibold, 600);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+  .plan-alt__title {
+    margin: 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-500, 1.1875rem);
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-heading, 1.2);
+  }
+  .plan-alt__title a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .plan-alt__title a:hover {
+    text-decoration: underline;
+  }
+  .plan-alt__title a:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .plan-alt__verdict {
+    margin: 0;
+    font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+    font-style: italic;
+    font-size: var(--fs-400, 1.0625rem);
+    line-height: var(--lh-dek, 1.45);
+    color: var(--text);
+    flex: 1;
+  }
+  .plan-alt .plan-engine__btn--quiet {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .plan-engine__empty {
+    margin: var(--space-5, 1.5rem) 0 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    color: var(--soft);
+  }
+
+  .plan-engine__all {
+    margin: var(--space-4, 1rem) 0 0;
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+  }
+  .plan-engine__all a {
+    color: var(--accent);
+  }
+
+  @media (max-width: 48em) {
+    .plan-featured {
+      grid-template-columns: 1fr;
+      padding: var(--space-4, 1rem);
+    }
+    .plan-alts {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plan-engine__chip,
+    .plan-engine__btn {
+      transition: none;
+    }
+  }
+</style>
+
+<style is:global>
+  /* Toast is created by script, so it cannot carry the scoped attribute. */
+  .plan-trip-toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    background: var(--text);
+    color: var(--white, var(--bg));
+    border-radius: var(--radius-m, 10px);
+    font-family: var(--font-ui, 'Outfit', system-ui, sans-serif);
+    font-size: var(--fs-300, 0.9375rem);
+    box-shadow: var(--elev-2, 0 12px 24px -12px rgba(40, 28, 14, 0.4));
+    max-width: min(92vw, 30rem);
+  }
+  .plan-trip-toast a {
+    color: inherit;
+    font-weight: var(--fw-semibold, 600);
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  @media (min-width: 64em) {
+    .plan-trip-toast {
+      bottom: 24px;
+    }
+  }
+</style>
+
+<script>
+  import { tripAdd, tripAddDay } from '../../../lib/v5-store';
+  import { trackEvent, initV5Analytics } from '../../../lib/v5-analytics';
+
+  initV5Analytics();
+
+  interface PlanStop {
+    kind?: string;
+    slug?: string;
+    title: string;
+    href?: string;
+    note?: string;
+    day: number;
+  }
+  interface PlanData {
+    entityType: string;
+    slug: string;
+    title: string;
+    verdict: string;
+    href: string;
+    image: { src: string; alt: string } | null;
+    imageField: string;
+    meta: string[];
+    stops: PlanStop[];
+  }
+  interface ContextData {
+    label: string;
+    featuredLabel: string;
+    planIds: string[];
+  }
+  interface Payload {
+    defaultContextId: string;
+    contexts: Record<string, ContextData>;
+    plans: Record<string, PlanData>;
+  }
+
+  function readPayload(): Payload | null {
+    const el = document.getElementById('pi-plans-data');
+    if (!el?.textContent) return null;
+    try {
+      return JSON.parse(el.textContent) as Payload;
+    } catch {
+      return null;
+    }
+  }
+
+  function setImage(img: HTMLImageElement | null, plan: PlanData | undefined) {
+    if (!img) return;
+    if (!plan?.image) {
+      img.hidden = true;
+      img.removeAttribute('src');
+      return;
+    }
+    img.hidden = false;
+    img.src = plan.image.src;
+    img.alt = plan.image.alt;
+    img.setAttribute('data-pi-entity-type', plan.entityType);
+    img.setAttribute('data-pi-entity-slug', plan.slug);
+    img.setAttribute('data-pi-field-path', plan.imageField);
+    img.setAttribute('data-pi-label', `${plan.title} image`);
+  }
+
+  function setFork(btn: HTMLElement | null, plan: PlanData, planId: string, surface: string) {
+    if (!btn) return;
+    btn.setAttribute('data-plan-fork', planId);
+    btn.setAttribute('data-entity-type', plan.entityType);
+    btn.setAttribute('data-entity-slug', plan.slug);
+    btn.setAttribute('data-surface', surface);
+    btn.setAttribute('aria-label', `Use as My Trip starting point: ${plan.title}`);
+    btn.removeAttribute('disabled');
+    btn.textContent = 'Make this my trip';
+  }
+
+  function init() {
+    const root = document.querySelector<HTMLElement>('[data-plan-answer]');
+    if (!root || (root as any)._piInit) return;
+    (root as any)._piInit = true;
+
+    const data = readPayload();
+    if (!data) return;
+
+    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-plan-context]'));
+    const status = document.getElementById('pi-results-status');
+    const featuredEl = document.querySelector<HTMLElement>('[data-plan-featured]');
+    const emptyEl = document.querySelector<HTMLElement>('[data-plan-empty]');
+    const altEls = Array.from(document.querySelectorAll<HTMLElement>('[data-plan-alt]'));
+
+    function fillFeatured(plan: PlanData, planId: string, label: string) {
+      if (!featuredEl) return;
+      featuredEl.hidden = false;
+      const mark = featuredEl.querySelector<HTMLElement>('[data-slot="featured-label"]');
+      if (mark) mark.textContent = label;
+      const title = featuredEl.querySelector<HTMLAnchorElement>('[data-slot="featured-title"]');
+      if (title) {
+        title.textContent = plan.title;
+        title.href = plan.href;
+        title.setAttribute('data-entity-type', plan.entityType);
+        title.setAttribute('data-entity-slug', plan.slug);
+      }
+      const verdict = featuredEl.querySelector<HTMLElement>('[data-slot="featured-verdict"]');
+      if (verdict) verdict.textContent = plan.verdict;
+      const meta = featuredEl.querySelector<HTMLElement>('[data-slot="featured-meta"]');
+      if (meta) meta.textContent = plan.meta.join(' · ');
+      const read = featuredEl.querySelector<HTMLAnchorElement>('[data-slot="featured-read"]');
+      if (read) read.href = plan.href;
+      setImage(featuredEl.querySelector<HTMLImageElement>('[data-slot="featured-image"]'), plan);
+      setFork(featuredEl.querySelector<HTMLElement>('[data-plan-fork]'), plan, planId, 'plans-featured');
+    }
+
+    function fillAlt(el: HTMLElement, planId: string | undefined) {
+      const plan = planId ? data!.plans[planId] : undefined;
+      if (!plan || !planId) {
+        el.hidden = true;
+        return;
+      }
+      el.hidden = false;
+      const title = el.querySelector<HTMLAnchorElement>('[data-slot="alt-title"]');
+      if (title) {
+        title.textContent = plan.title;
+        title.href = plan.href;
+        title.setAttribute('data-entity-type', plan.entityType);
+        title.setAttribute('data-entity-slug', plan.slug);
+      }
+      const verdict = el.querySelector<HTMLElement>('[data-slot="alt-verdict"]');
+      if (verdict) verdict.textContent = plan.verdict;
+      setImage(el.querySelector<HTMLImageElement>('[data-slot="alt-image"]'), plan);
+      setFork(el.querySelector<HTMLElement>('[data-plan-fork]'), plan, planId, 'plans-alternate');
+    }
+
+    function applyContext(id: string, announce = true) {
+      const ctx = data!.contexts[id];
+      if (!ctx) return;
+      chips.forEach((chip) => {
+        chip.setAttribute('aria-pressed', chip.dataset.planContext === id ? 'true' : 'false');
+      });
+      const [featuredId, ...altIds] = ctx.planIds;
+      const featuredPlan = featuredId ? data!.plans[featuredId] : undefined;
+      if (featuredPlan && featuredId) {
+        fillFeatured(featuredPlan, featuredId, ctx.featuredLabel);
+        if (emptyEl) emptyEl.hidden = true;
+      } else {
+        if (featuredEl) featuredEl.hidden = true;
+        if (emptyEl) emptyEl.hidden = false;
+      }
+      altEls.forEach((el, i) => fillAlt(el, altIds[i]));
+      if (announce && status) {
+        const count = ctx.planIds.length;
+        status.textContent = featuredPlan
+          ? `${ctx.label}: ${featuredPlan.title}${count > 1 ? ` plus ${count - 1} alternate${count > 2 ? 's' : ''}` : ''}`
+          : `${ctx.label}: no matching plan yet`;
+      }
+    }
+
+    function urlFor(id: string) {
+      const url = new URL(window.location.href);
+      if (id === data!.defaultContextId) url.searchParams.delete('context');
+      else url.searchParams.set('context', id);
+      return url;
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const id = chip.dataset.planContext;
+        if (!id || !data.contexts[id]) return;
+        applyContext(id);
+        history.pushState({ planContext: id }, '', urlFor(id));
+        trackEvent('filter_apply', { surface: 'plans', label: id });
+      });
+    });
+
+    window.addEventListener('popstate', () => {
+      const id = new URLSearchParams(window.location.search).get('context') || data.defaultContextId;
+      if (data.contexts[id]) applyContext(id, false);
+    });
+
+    // Restore a shared or back-navigated context on load.
+    const initial = new URLSearchParams(window.location.search).get('context');
+    if (initial && initial !== data.defaultContextId && data.contexts[initial]) {
+      applyContext(initial, false);
+    }
+
+    // ---- fork: copy the plan's stops into My Trip -------------------------
+    function showToast(planTitle: string) {
+      document.querySelectorAll('.plan-trip-toast').forEach((t) => t.remove());
+      const toast = document.createElement('div');
+      toast.className = 'plan-trip-toast';
+      toast.setAttribute('role', 'status');
+      const text = document.createElement('span');
+      text.textContent = `${planTitle} copied to My Trip.`;
+      const link = document.createElement('a');
+      link.href = '/me/trip/';
+      link.textContent = 'Open My Trip';
+      toast.append(text, link);
+      document.body.appendChild(toast);
+      window.setTimeout(() => toast.remove(), 6000);
+    }
+
+    document.addEventListener('click', (event) => {
+      const btn = (event.target as Element | null)?.closest?.('[data-plan-fork]') as HTMLButtonElement | null;
+      if (!btn) return;
+      const planId = btn.getAttribute('data-plan-fork');
+      const plan = planId ? data.plans[planId] : undefined;
+      if (!plan) return;
+
+      try {
+        const days = Array.from(new Set(plan.stops.map((s) => s.day))).sort((a, b) => a - b);
+        const dayIds = new Map<number, string>();
+        if (days.length > 1) {
+          for (const d of days) dayIds.set(d, tripAddDay(`Day ${d}`).id);
+        }
+        for (const stop of plan.stops) {
+          tripAdd(
+            {
+              kind: stop.kind as any,
+              slug: stop.slug,
+              title: stop.title,
+              href: stop.href,
+              note: stop.note ?? '',
+            },
+            { dayId: dayIds.get(stop.day) ?? '' },
+          );
+        }
+        trackEvent('trip_fork', { entity_type: plan.entityType, entity_slug: plan.slug, surface: 'plans' });
+        btn.textContent = 'Added to My Trip';
+        btn.setAttribute('disabled', '');
+        showToast(plan.title);
+      } catch {
+        /* the store throws only on malformed input; never break the page */
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>

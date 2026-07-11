@@ -1,0 +1,277 @@
+---
+/**
+ * V5 mobile drawer (future-ia.md section 3.2, page-redesigns-tools.md
+ * section 5, wireframes nav-mobile).
+ *
+ * Wayfinding only: 13 single-level rows (7 pillars, Saved, My Trip,
+ * Account, About, Editorial approach, Contact) plus the one permitted
+ * Dispatch CTA. No accordions, no chevrons, no split tap targets;
+ * every row is one full-width link. Narrowing happens on the hubs.
+ *
+ * Full-screen dialog with a real focus trap (fixes A-03/NAV-06):
+ * focus moves to the close button on open, Tab is contained, Escape
+ * closes, and focus is restored to the invoking menu button. Plain
+ * nav + lists, no menu roles (NAV-03); group labels are styled <p>s,
+ * not headings, so the drawer never pollutes the heading outline.
+ * Rows are 48px minimum. Link taps close the drawer.
+ */
+import { v5DrawerItems, v5DrawerCta } from '../../../lib/v5-nav';
+
+const groups = [
+  { key: 'pillars', label: null as string | null },
+  { key: 'mine', label: 'My Peninsula' },
+  { key: 'trust', label: 'Peninsula Insider' },
+];
+---
+
+<div
+  class="v5-drawer"
+  id="v5Drawer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Peninsula Insider menu"
+  hidden
+  data-lenis-prevent
+>
+  <div class="v5-drawer__head">
+    <a href="/" class="v5-drawer__brand">Peninsula <span>Insider</span></a>
+    <button type="button" class="v5-drawer__close" aria-label="Close menu" data-v5-drawer-close>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <nav class="v5-drawer__nav" aria-label="Site sections">
+    {groups.map((group) => (
+      <div class="v5-drawer__group">
+        {group.label && <p class="v5-drawer__group-label">{group.label}</p>}
+        <ul class:list={['v5-drawer__list', group.key === 'pillars' && 'v5-drawer__list--pillars']}>
+          {v5DrawerItems.filter((i) => i.group === group.key).map((item) => (
+            <li><a href={item.href} class="v5-drawer__link">{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+
+  <div class="v5-drawer__cta">
+    <p class="v5-drawer__cta-label">{v5DrawerCta.label}</p>
+    <p class="v5-drawer__cta-dek">{v5DrawerCta.dek}</p>
+    <a href={v5DrawerCta.href} class="v5-drawer__cta-btn" data-evt="dispatch_submit">{v5DrawerCta.ctaLabel}</a>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    function initV5Drawer() {
+      var burger = document.querySelector('[data-v5-burger]');
+      var drawer = document.getElementById('v5Drawer');
+      if (!burger || !drawer) return;
+      if (burger._v5DrawerBound) return;
+      burger._v5DrawerBound = true;
+
+      var closeBtn = drawer.querySelector('[data-v5-drawer-close]');
+      var FOCUSABLE = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+      function openDrawer() {
+        drawer.hidden = false;
+        // Force layout so the transition runs from the hidden state.
+        void drawer.offsetWidth;
+        drawer.classList.add('is-open');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        document.dispatchEvent(new CustomEvent('pi:lenis-stop'));
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function closeDrawer(restoreFocus) {
+        drawer.classList.remove('is-open');
+        drawer.hidden = true;
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        document.dispatchEvent(new CustomEvent('pi:lenis-start'));
+        if (restoreFocus !== false) burger.focus();
+      }
+
+      burger.addEventListener('click', function () {
+        if (drawer.hidden) openDrawer(); else closeDrawer();
+      });
+      if (closeBtn) closeBtn.addEventListener('click', function () { closeDrawer(); });
+
+      drawer.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          e.stopPropagation();
+          closeDrawer();
+          return;
+        }
+        // Focus trap: contain Tab within the open drawer (A-03).
+        if (e.key === 'Tab') {
+          var nodes = drawer.querySelectorAll(FOCUSABLE);
+          if (!nodes.length) return;
+          var first = nodes[0];
+          var last = nodes[nodes.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      // Link taps navigate; close so back-nav does not land on an
+      // open drawer state (view transitions keep the DOM alive).
+      drawer.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { closeDrawer(false); });
+      });
+    }
+
+    initV5Drawer();
+    document.addEventListener('astro:page-load', initV5Drawer);
+  })();
+</script>
+
+<style>
+  .v5-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 10010;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transform: translateX(8%);
+    opacity: 0;
+    transition: transform var(--dur-slow) var(--ease-enter), opacity var(--dur-slow) var(--ease-enter);
+  }
+  .v5-drawer.is-open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .v5-drawer[hidden] { display: none; }
+
+  .v5-drawer__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--border);
+  }
+  .v5-drawer__brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .v5-drawer__brand span {
+    font-style: italic;
+    font-weight: var(--fw-display-em);
+    color: var(--accent);
+  }
+  .v5-drawer__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .v5-drawer__nav {
+    flex: 1;
+    padding: var(--space-4) var(--space-5) var(--space-6);
+  }
+  .v5-drawer__group + .v5-drawer__group {
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--border);
+  }
+  .v5-drawer__group-label {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: var(--space-2);
+    line-height: var(--lh-label);
+  }
+  .v5-drawer__list { list-style: none; }
+  .v5-drawer__link {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    font-family: var(--font-ui);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-medium);
+    color: var(--text);
+    text-decoration: none;
+  }
+  .v5-drawer__list--pillars .v5-drawer__link {
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-600);
+    min-height: 52px;
+  }
+  .v5-drawer__link:active { color: var(--accent); }
+
+  .v5-drawer__cta {
+    padding: var(--space-5);
+    padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom));
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+  }
+  .v5-drawer__cta-label {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: var(--space-1);
+    line-height: var(--lh-label);
+  }
+  .v5-drawer__cta-dek {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-display-em);
+    font-size: var(--fs-400);
+    color: var(--text);
+    margin-bottom: var(--space-3);
+    max-width: var(--measure-card);
+  }
+  .v5-drawer__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 var(--space-5);
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 999px;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+  }
+  .v5-drawer__cta-btn:hover { background: var(--acc-h); }
+
+  .v5-drawer a:focus-visible,
+  .v5-drawer button:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .v5-drawer { transition: none; transform: none; }
+  }
+</style>

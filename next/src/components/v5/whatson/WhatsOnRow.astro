@@ -1,0 +1,162 @@
+---
+/**
+ * WhatsOnRow (v5 What's On, T-601) - the compact day-group row.
+ *
+ * Text-only by design (HUB-11: the row layer carries zero image weight);
+ * title link + one-liner + meta line, with Save and "+ Trip" in an actions
+ * cluster. Mirrors the Card compact-row anatomy but stays purpose-built so
+ * fifty of them cost a fraction of fifty cards.
+ *
+ * The page's client script clones this exact markup (via a <template>) when
+ * it renders other date scopes from the JSON island, so keep the class and
+ * data-attribute surface stable: .wo-row__link / .wo-row__dek /
+ * .wo-row__meta / [data-v5-save-control] / .wo-row__trip.
+ */
+import SaveControl from '../SaveControl.astro';
+
+export interface Props {
+  title: string;
+  href: string;
+  slug: string;
+  oneLiner?: string;
+  meta?: string[];
+  /** e.g. "runs to Sun 13 Jul" for multi-day ranges. */
+  spanLabel?: string;
+  surface?: string;
+}
+
+const { title, href, slug, oneLiner = '', meta = [], spanLabel = '', surface = 'whatson' } = Astro.props;
+const metaText = [meta.join(' · '), spanLabel].filter(Boolean).join(' · ');
+---
+
+<li class="wo-row">
+  <div class="wo-row__body">
+    <a
+      class="wo-row__link"
+      href={href}
+      data-evt="card_click"
+      data-entity-type="event"
+      data-entity-slug={slug}
+      data-surface={surface}
+    >
+      {title}
+    </a>
+    <p class="wo-row__dek">{oneLiner}</p>
+    <p class="wo-row__meta">{metaText}</p>
+  </div>
+  <div class="wo-row__actions">
+    <SaveControl kind="event" slug={slug} title={title} href={href} dek={oneLiner} />
+    <button
+      type="button"
+      class="wo-row__trip"
+      data-evt="trip_add"
+      data-entity-type="event"
+      data-entity-slug={slug}
+      data-entity-title={title}
+      data-entity-href={href}
+      aria-label={`Add ${title} to trip`}
+    >
+      + Trip
+    </button>
+  </div>
+</li>
+
+<style>
+  .wo-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4, 1rem);
+    padding: var(--space-3, 0.75rem) 0;
+    border-top: 1px solid var(--border);
+  }
+  .wo-row__body {
+    min-width: 0;
+  }
+  .wo-row__link {
+    display: inline-block;
+    color: var(--text);
+    text-decoration: none;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: var(--fs-500, 1.15rem);
+    font-weight: var(--fw-display, 600);
+    line-height: var(--lh-heading, 1.2);
+  }
+  .wo-row__link:hover {
+    color: var(--accent);
+  }
+  .wo-row__link:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .wo-row__dek {
+    margin: 2px 0 0;
+    color: var(--text);
+    font-style: italic;
+    font-size: var(--fs-300, 0.9rem);
+    line-height: var(--lh-dek, 1.45);
+    max-width: var(--measure-dek, 52ch);
+  }
+  .wo-row__dek:empty {
+    display: none;
+  }
+  .wo-row__meta {
+    margin: 4px 0 0;
+    color: var(--soft);
+    font-size: var(--fs-200, 0.8rem);
+    line-height: var(--lh-ui, 1.4);
+  }
+  .wo-row__meta:empty {
+    display: none;
+  }
+  .wo-row__actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: var(--space-2, 0.5rem);
+  }
+  .wo-row__trip {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 var(--space-3, 0.75rem);
+    background: var(--bg);
+    color: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-ui, inherit);
+    font-size: var(--fs-200, 0.8rem);
+    font-weight: var(--fw-semibold, 600);
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
+      color var(--dur-fast, 120ms) var(--ease-enter, ease);
+  }
+  .wo-row__trip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .wo-row__trip:focus-visible {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 2px;
+  }
+  .wo-row__trip[data-added='true'] {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--white, #fff);
+  }
+
+  @media (max-width: 47.9375em) {
+    .wo-row {
+      flex-direction: column;
+      gap: var(--space-2, 0.5rem);
+    }
+    .wo-row__actions {
+      align-self: flex-start;
+    }
+  }
+</style>

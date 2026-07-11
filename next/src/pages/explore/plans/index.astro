@@ -178,13 +178,24 @@ export const prerender = true;
   title="Mornington Peninsula Itineraries · Peninsula Insider"
   description="Editorial itineraries and weekend plans for doing the Mornington Peninsula slowly and well, one-night quick escapes, two-night sweet-spot weekends, and longer reset trips."
   section="explore"
-  canonical="https://peninsulainsider.com.au/plans"
+  canonical="https://peninsulainsider.com.au/plans/"
   modifiedTime="2026-04-30"
   ogImage="/images/sourced/article-sunset-01.webp"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <Breadcrumbs items={breadcrumbItems} />
+
+  <div class="plans-moved container">
+    <p class="plans-moved__note">
+      Plans has moved. <a href="/plans/">The new Plans hub lives at /plans/</a> and picks the day for you.
+    </p>
+  </div>
+  <style is:inline>
+    .plans-moved { padding: 0.6rem 0 0; }
+    .plans-moved__note { margin: 0; padding: 0.6rem 1rem; border: 1px solid var(--c-rule, var(--border)); border-radius: 6px; background: var(--c-paper-tint, var(--bg-alt)); font-size: 0.95rem; }
+    .plans-moved__note a { color: inherit; font-weight: 600; }
+  </style>
 
   <!-- ═══════════════════════════════════════════════════════════════
        1. CINEMATIC HERO

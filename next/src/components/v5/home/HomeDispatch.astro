@@ -1,0 +1,79 @@
+---
+/**
+ * HomeDispatch - block 8, the single Dispatch instance plus the trust row
+ * (page-redesigns.md 1.9 item 8; wireframes.html #home note 7; canonical
+ * pitch per content-guidelines.md section 4 example 6).
+ *
+ * Reuses the existing NewsletterBlock (it owns the form, endpoint, and
+ * its own h2) with the canonical "The Dispatch" naming and pitch. The
+ * trust row underneath satisfies the 3-second editorial/commercial test:
+ * the editorial-approach link and the fixed partner-labelling statement.
+ *
+ * dispatch_submit analytics fires on real form submission (not on click)
+ * via the shared v5-analytics trackEvent util.
+ */
+import NewsletterBlock from '../../NewsletterBlock.astro';
+---
+
+<div class="home-dispatch" data-home-dispatch>
+  <NewsletterBlock
+    title="The Dispatch"
+    body="One pick, one weather-proof backup, one thing to skip. Written on the Peninsula, sent only when there is something worth knowing."
+    sub="No sponsors in the copy, no affiliate links. Unsubscribe any time."
+    source="home"
+    hidePreview={false}
+  />
+  <div class="container">
+    <p class="home-dispatch__trust">
+      <a href="/editorial-approach/">How we review &rarr;</a>
+      <span class="home-dispatch__sep" aria-hidden="true">&middot;</span>
+      <span>Partner content is always labelled.</span>
+    </p>
+  </div>
+</div>
+
+<script>
+  import { trackEvent } from '../../../lib/v5-analytics';
+
+  function armDispatchAnalytics() {
+    const root = document.querySelector('[data-home-dispatch]');
+    if (!root || (root as HTMLElement).dataset.evtArmed) return;
+    (root as HTMLElement).dataset.evtArmed = '1';
+    root.querySelectorAll('form').forEach((form) => {
+      form.addEventListener('submit', () => {
+        trackEvent('dispatch_submit', { src: 'home' });
+      });
+    });
+  }
+
+  armDispatchAnalytics();
+  document.addEventListener('astro:page-load', armDispatchAnalytics);
+</script>
+
+<style>
+  .home-dispatch {
+    margin-top: var(--space-6, 2rem);
+  }
+
+  .home-dispatch__trust {
+    margin: var(--space-4, 1rem) 0 var(--space-7, 3rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-300, 0.9375rem);
+    color: var(--soft);
+  }
+
+  .home-dispatch__trust a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  .home-dispatch__trust a:hover {
+    color: var(--accent);
+  }
+
+  .home-dispatch__sep {
+    margin: 0 var(--space-2, 0.5rem);
+  }
+</style>
