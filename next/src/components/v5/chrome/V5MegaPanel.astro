@@ -1,0 +1,195 @@
+---
+/**
+ * V5 mega panel (future-ia.md section 3.1, wireframes nav-desktop).
+ *
+ * One panel per pillar: 1 intro line (PI voice) + <=5 curated links +
+ * 1 to 2 browse links + 1 editor's rail pin. Closed panels carry the
+ * `hidden` attribute so their links are genuinely unreachable (fixes
+ * A-01: no 113-tab-stop header traversal) and their text never appears
+ * in the accessibility tree. No h1-h6 inside the panel (fixes A-09
+ * heading pollution: intro, eyebrows and pin title are <p>/<span>).
+ *
+ * Open/close behaviour lives in V5Masthead's script: click or Enter on
+ * the trigger, never focus or hover.
+ */
+import type { V5Pillar } from '../../../lib/v5-nav';
+import { editableText } from '../../../lib/inline-edit/attrs';
+
+export interface Props {
+  pillar: V5Pillar;
+}
+
+const { pillar } = Astro.props;
+const panelId = `v5-panel-${pillar.key}`;
+
+// The rail pin is CMS-editable in place: title and verdict light up for
+// admins via the existing inline editor. Inert data attributes otherwise.
+const pinTitleAttrs = editableText({
+  entityType: 'page',
+  entitySlug: `nav-${pillar.key}`,
+  fieldPath: 'rail.title',
+  label: `${pillar.label} nav pin title`,
+});
+const pinVerdictAttrs = editableText({
+  entityType: 'page',
+  entitySlug: `nav-${pillar.key}`,
+  fieldPath: 'rail.verdict',
+  label: `${pillar.label} nav pin verdict`,
+});
+---
+
+<div class="v5-mega" id={panelId} data-v5-mega hidden>
+  <div class="v5-mega__inner">
+
+    <div class="v5-mega__main">
+      <p class="v5-mega__intro">{pillar.intro}</p>
+      <ul class="v5-mega__curated">
+        {pillar.curated.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="v5-mega__browse">
+      <p class="v5-mega__eyebrow">Browse</p>
+      <ul>
+        {pillar.browse.map((item) => (
+          <li><a href={item.href}>{item.label} <span aria-hidden="true">&rarr;</span></a></li>
+        ))}
+      </ul>
+    </div>
+
+    <a class="v5-mega__pin" href={pillar.rail.href}>
+      <p class="v5-mega__eyebrow">{pillar.rail.eyebrow}</p>
+      <p class="v5-mega__pin-title" {...pinTitleAttrs}>{pillar.rail.title}</p>
+      <p class="v5-mega__pin-verdict" {...pinVerdictAttrs}>{pillar.rail.verdict}</p>
+      <span class="v5-mega__pin-cta">{pillar.rail.cta ?? 'Read the verdict'} <span aria-hidden="true">&rarr;</span></span>
+    </a>
+
+  </div>
+</div>
+
+<style>
+  .v5-mega {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--elev-2);
+  }
+
+  .v5-mega__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-5);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr minmax(200px, 0.9fr);
+    gap: var(--space-7);
+  }
+
+  .v5-mega__intro {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-display-em);
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
+    color: var(--text);
+    margin-bottom: var(--space-4);
+    max-width: var(--measure-dek);
+  }
+
+  .v5-mega__curated {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .v5-mega__curated a {
+    display: inline-block;
+    padding: var(--space-1) 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-medium);
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .v5-mega__curated a:hover { color: var(--accent); }
+
+  .v5-mega__eyebrow {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: var(--space-3);
+    line-height: var(--lh-label);
+  }
+
+  .v5-mega__browse ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .v5-mega__browse a {
+    display: inline-block;
+    padding: var(--space-1) 0;
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .v5-mega__browse a:hover { color: var(--acc-h); }
+
+  .v5-mega__pin {
+    display: block;
+    text-decoration: none;
+    border-left: 1px solid var(--border);
+    padding-left: var(--space-5);
+  }
+  .v5-mega__pin-title {
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-600);
+    line-height: var(--lh-heading);
+    color: var(--text);
+    margin-bottom: var(--space-2);
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .v5-mega__pin:hover .v5-mega__pin-title { color: var(--accent); }
+  .v5-mega__pin-verdict {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: var(--fw-display-em);
+    font-size: var(--fs-400);
+    line-height: var(--lh-dek);
+    color: var(--soft);
+    margin-bottom: var(--space-3);
+    max-width: var(--measure-card);
+  }
+  .v5-mega__pin-cta {
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-semibold);
+    color: var(--accent);
+  }
+
+  .v5-mega a:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* The nav row (and therefore the panel) is desktop-only; the drawer
+     carries mobile wayfinding. Belt-and-braces with V5Masthead's rule. */
+  @media (max-width: 1023px) {
+    .v5-mega { display: none; }
+  }
+</style>

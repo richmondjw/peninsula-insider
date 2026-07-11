@@ -1,0 +1,208 @@
+---
+/**
+ * V5 bottom action bar (future-ia.md section 3.2, mobile-strategy.md
+ * section 8, page-redesigns-tools.md section 5).
+ *
+ * The on-Peninsula verbs: Ask, Map, Save, Trip. Mobile/tablet only
+ * (<=1023px). 56px tall plus env(safe-area-inset-bottom); four >=48px
+ * targets with icon + label. No auto-hide on scroll (mobile-strategy
+ * section 8: the bar is the contract).
+ *
+ * Suppression rules (all remove it from the tab order via display):
+ *   - Journal long-form reading (path /journal/<slug>/) - build-time
+ *   - Dispatch signup and auth/account form flows - build-time
+ *   - the /access/ gate and /ask - build-time
+ *   - any open sheet/drawer/dialog (v5 drawer, search overlay,
+ *     concierge drawer, auth modal) - runtime, MutationObserver
+ *   - virtual keyboard up (visualViewport height-delta heuristic) - runtime
+ *   - print - CSS
+ *
+ * Ask opens the existing search overlay (which carries the Ask PI
+ * escalation); Map/Save/Trip link to the existing surfaces for now.
+ */
+import { v5BottomBar } from '../../../lib/v5-nav';
+
+const path = Astro.url.pathname.replace(/^\/V2/, '') || '/';
+
+// Build-time suppression: journal articles (reading mode stays calm),
+// form flows (dispatch, account, access), and /ask (the sheet itself).
+const suppressed =
+  /^\/journal\/.+/.test(path) ||
+  /^\/(dispatch|account|access|ask)(\/|$)/.test(path);
+
+// Active slot from the current path.
+function isActive(href: string): boolean {
+  if (href === '/') return path === '/';
+  return path === href || path.startsWith(href);
+}
+---
+
+{!suppressed && (
+  <nav class="v5-bottombar" id="v5BottomBar" aria-label="Quick actions" data-v5-bottombar>
+    <ul class="v5-bottombar__list">
+      {v5BottomBar.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class:list={['v5-bottombar__item', isActive(item.href) && 'is-active']}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            data-open-search={item.opensSearch ? '' : undefined}
+            data-evt={item.evt}
+          >
+            {item.key === 'ask' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.6 8.6 0 0 1-3.9-.9L3 21l1.9-5.6a8.38 8.38 0 0 1-.9-3.9A8.5 8.5 0 0 1 12.5 3a8.38 8.38 0 0 1 8.5 8.5Z" />
+              </svg>
+            )}
+            {item.key === 'map' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4Z" />
+                <line x1="9" y1="4" x2="9" y2="18" />
+                <line x1="15" y1="6" x2="15" y2="20" />
+              </svg>
+            )}
+            {item.key === 'save' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.6a.4.4 0 0 1-.63.33L12 16.5l-5.87 4.43a.4.4 0 0 1-.63-.33V4a.5.5 0 0 1 .5-.5Z" />
+              </svg>
+            )}
+            {item.key === 'trip' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <line x1="8" y1="9" x2="16" y2="9" />
+                <line x1="8" y1="13" x2="16" y2="13" />
+                <line x1="8" y1="17" x2="12" y2="17" />
+              </svg>
+            )}
+            <span class="v5-bottombar__label">{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<script is:inline>
+    (function () {
+      function initV5Bar() {
+        var bar = document.getElementById('v5BottomBar');
+        if (!bar || bar._v5BarBound) return;
+        bar._v5BarBound = true;
+
+        var keyboardUp = false;
+
+        // Any open sheet/drawer/dialog suppresses the bar entirely.
+        var SHEET_SELECTOR = [
+          '#v5Drawer:not([hidden])',
+          '#siteSearchOverlay[data-open="true"]',
+          '.pi-drawer[data-state="open"]',
+          '#v2-auth-modal:not([hidden])',
+        ].join(', ');
+
+        function update() {
+          var hide = keyboardUp || !!document.querySelector(SHEET_SELECTOR);
+          bar.classList.toggle('is-suppressed', hide);
+        }
+
+        // Virtual keyboard heuristic (mobile-strategy.md): the visual
+        // viewport shrinking well past browser-chrome variance means
+        // the on-screen keyboard is up.
+        if (window.visualViewport) {
+          var vv = window.visualViewport;
+          var onVv = function () {
+            keyboardUp = (window.innerHeight - vv.height) > 150;
+            update();
+          };
+          vv.addEventListener('resize', onVv);
+        }
+
+        // Watch the dialogs' open-state attributes.
+        var watched = ['v5Drawer', 'siteSearchOverlay', 'pi-drawer', 'v2-auth-modal']
+          .map(function (id) { return document.getElementById(id); })
+          .filter(Boolean);
+        if (watched.length && 'MutationObserver' in window) {
+          var mo = new MutationObserver(update);
+          watched.forEach(function (el) {
+            mo.observe(el, { attributes: true, attributeFilter: ['class', 'hidden', 'data-open', 'data-state'] });
+          });
+        }
+
+        update();
+      }
+
+      initV5Bar();
+      document.addEventListener('astro:page-load', initV5Bar);
+    })();
+</script>
+
+<style>
+  .v5-bottombar {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .v5-bottombar {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10000;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .v5-bottombar.is-suppressed { display: none; }
+
+    .v5-bottombar__list {
+      list-style: none;
+      display: flex;
+      height: 56px;
+    }
+    .v5-bottombar__list li { flex: 1; display: flex; }
+
+    .v5-bottombar__item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      min-height: 48px;
+      color: var(--soft);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      transition: color var(--dur-fast) var(--ease);
+    }
+    .v5-bottombar__item.is-active { color: var(--accent); }
+    .v5-bottombar__label {
+      font-size: var(--fs-100);
+      font-weight: var(--fw-medium);
+      line-height: var(--lh-label);
+    }
+
+    .v5-bottombar__item:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: -2px;
+    }
+  }
+
+  @media print {
+    .v5-bottombar { display: none; }
+  }
+</style>
+
+<style is:global>
+  /* Content never hides beneath the bar (mobile-strategy.md section 8):
+     reserve the bar's height at the end of the scroll and for anchor
+     jumps, only while a non-suppressed bar is present. */
+  @media (max-width: 1023px) {
+    body:has(#v5BottomBar:not(.is-suppressed)) {
+      padding-bottom: calc(56px + env(safe-area-inset-bottom));
+      scroll-padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    }
+  }
+  @media print {
+    body { padding-bottom: 0; }
+  }
+</style>

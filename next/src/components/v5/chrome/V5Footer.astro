@@ -1,0 +1,219 @@
+---
+/**
+ * V5 footer (future-ia.md section 3.3).
+ *
+ * Trimmed from 31 links / 5 columns to 3 columns: Sections (7),
+ * Peninsula Insider (About, Editorial approach, Partners, Contact),
+ * The fine print (Privacy, Terms, Accessibility, Corrections), plus a
+ * single Dispatch signup block (the one-instance rule) reusing the
+ * existing SubscribeForm component. Keeps the Acknowledgement of
+ * Country and the legal entity line from the v4 footer; the cookie
+ * settings trigger stays on the legal row so consent management
+ * remains reachable from every page.
+ */
+import { v5FooterSections, v5FooterAbout, v5FooterFinePrint } from '../../../lib/v5-nav';
+import SubscribeForm from '../../SubscribeForm.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="v5-foot" role="contentinfo">
+  <div class="v5-foot__container">
+
+    <div class="v5-foot__masthead">
+      <p class="v5-foot__wordmark">Peninsula <em>Insider</em></p>
+      <p class="v5-foot__motto">Every venue visited. Every opinion earned.</p>
+    </div>
+
+    <div class="v5-foot__grid">
+      <nav class="v5-foot__col" aria-labelledby="v5-foot-sections">
+        <h2 id="v5-foot-sections" class="v5-foot__col-title">Sections</h2>
+        <ul>
+          {v5FooterSections.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="v5-foot__col" aria-labelledby="v5-foot-insider">
+        <h2 id="v5-foot-insider" class="v5-foot__col-title">Peninsula Insider</h2>
+        <ul>
+          {v5FooterAbout.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="v5-foot__col" aria-labelledby="v5-foot-fineprint">
+        <h2 id="v5-foot-fineprint" class="v5-foot__col-title">The fine print</h2>
+        <ul>
+          {v5FooterFinePrint.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="v5-foot__dispatch">
+        <h2 class="v5-foot__col-title">The Dispatch</h2>
+        <p class="v5-foot__dispatch-dek">
+          Sunday, one email, what's worth your weekend.
+        </p>
+        <SubscribeForm variant="light" source="footer" />
+      </div>
+    </div>
+
+    <p class="v5-foot__aoc">
+      Peninsula Insider acknowledges the Bunurong people of the Kulin Nation as the
+      Traditional Custodians of the lands and waters of the Mornington Peninsula.
+      We pay our respects to Elders past and present and acknowledge their continuing
+      connection to Country, culture and community.
+    </p>
+
+    <div class="v5-foot__legal">
+      <p class="v5-foot__legal-copy">
+        &copy; {year} <strong>Peninsula Insider</strong>, a trading name of Optiflows Pty Ltd
+        <span class="v5-foot__dot">&middot;</span> ABN 71 155 199 637
+      </p>
+      <ul class="v5-foot__legal-links">
+        <li><a href="#cookie-settings" data-pi-consent="open">Cookie settings</a></li>
+        <li><a href="/site-index/">Site index</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .v5-foot {
+    background: var(--bg-alt);
+    border-top: 3px solid var(--text);
+    padding: var(--space-8) 0 var(--space-5);
+    color: var(--text);
+  }
+  .v5-foot__container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 var(--space-5);
+  }
+
+  .v5-foot__masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-6);
+  }
+  .v5-foot__wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--fs-600);
+    letter-spacing: -0.01em;
+  }
+  .v5-foot__wordmark em {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: var(--fw-display-em);
+  }
+  .v5-foot__motto {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--fs-300);
+    color: var(--soft);
+  }
+
+  .v5-foot__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.4fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+  @media (max-width: 900px) {
+    .v5-foot__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .v5-foot__grid { grid-template-columns: 1fr; }
+  }
+
+  .v5-foot__col-title {
+    font-family: var(--font-ui);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin: 0 0 var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--text);
+    line-height: var(--lh-label);
+  }
+  .v5-foot__col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .v5-foot__col a {
+    font-family: var(--font-ui);
+    font-size: var(--fs-300);
+    color: var(--text);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .v5-foot__col a:hover { color: var(--accent); }
+
+  .v5-foot__dispatch-dek {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--fs-400);
+    color: var(--soft);
+    margin-bottom: var(--space-3);
+    max-width: var(--measure-card);
+  }
+
+  .v5-foot__aoc {
+    margin: 0 auto var(--space-5);
+    padding: var(--space-5) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    max-width: var(--measure-prose);
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--fs-300);
+    line-height: var(--lh-body);
+    color: var(--soft);
+  }
+
+  .v5-foot__legal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    color: var(--soft);
+  }
+  .v5-foot__legal-copy strong { font-weight: var(--fw-medium); }
+  .v5-foot__dot { color: var(--accent); margin: 0 var(--space-1); }
+  .v5-foot__legal-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+  }
+  .v5-foot__legal-links a {
+    color: var(--soft);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .v5-foot__legal-links a:hover { color: var(--accent); }
+
+  .v5-foot a:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+</style>
