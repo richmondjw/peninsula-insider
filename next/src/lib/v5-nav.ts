@@ -149,27 +149,27 @@ export const v5Pillars: V5Pillar[] = [
   },
 
   // 5. PLANS ----------------------------------------------------------------
-  // Canonical /plans/ is a later URL-migration wave; links land on the
-  // existing hub at /explore/plans/ for now.
+  // Canonical decision engine now lives at /plans/ (v5). Plan detail pages
+  // resolve at /plans/<slug>/ via pages/plans/[slug].astro.
   {
     key: 'plans',
     label: 'Plans',
-    hub: '/explore/plans/',
+    hub: '/plans/',
     intro: 'The weekend, already shaped. Pick one and make it yours.',
     curated: [
-      { key: 'ridge-sea', label: 'Ridge to Sea, two nights', href: '/explore/plans/ridge-to-sea-two-night-escape/' },
-      { key: 'sorrento',  label: 'Sorrento, off-season',     href: '/explore/plans/sorrento-off-season-weekend/' },
-      { key: 'one-night', label: 'The one-night escape',     href: '/explore/plans/the-one-night-escape/' },
-      { key: 'family',    label: 'The family day out',       href: '/explore/plans/the-family-day-out/' },
+      { key: 'ridge-sea', label: 'Ridge to Sea, two nights', href: '/plans/ridge-to-sea-two-night-escape/' },
+      { key: 'sorrento',  label: 'Sorrento, off-season',     href: '/plans/sorrento-off-season-weekend/' },
+      { key: 'one-night', label: 'The one-night escape',     href: '/plans/the-one-night-escape/' },
+      { key: 'family',    label: 'The family day out',       href: '/plans/the-family-day-out/' },
     ],
     browse: [
-      { key: 'all-plans', label: 'All plans', href: '/explore/plans/' },
+      { key: 'all-plans', label: 'All plans', href: '/plans/' },
     ],
     rail: {
       eyebrow: "Editor's pick · Winter '26",
       title: 'Ridge to Sea',
       verdict: 'Two nights, Red Hill down to Flinders. The order matters: ridge first, coast second, and the Friday-night arrival makes the whole thing work.',
-      href: '/explore/plans/ridge-to-sea-two-night-escape/',
+      href: '/plans/ridge-to-sea-two-night-escape/',
       cta: 'Open the plan',
     },
   },
@@ -297,7 +297,7 @@ export const v5FooterSections: V5NavLink[] = [
   { key: 'stay',     label: 'Stay',        href: '/stay/' },
   { key: 'wine',     label: 'Wine',        href: '/wine/' },
   { key: 'explore',  label: 'Explore',     href: '/explore/' },
-  { key: 'plans',    label: 'Plans',       href: '/explore/plans/' },
+  { key: 'plans',    label: 'Plans',       href: '/plans/' },
   { key: 'whats-on', label: "What's On",   href: '/whats-on/' },
   { key: 'journal',  label: 'Journal',     href: '/journal/' },
 ];

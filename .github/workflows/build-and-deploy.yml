@@ -76,7 +76,8 @@ jobs:
         # as leftovers of the retired build-live.sh root-deploy model.
         run: |
           rm -rf next/dist/admin
-          echo "Pruned next/dist/admin from deploy output"
+          rm -rf next/dist/dev
+          echo "Pruned next/dist/admin and next/dist/dev from deploy output"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
