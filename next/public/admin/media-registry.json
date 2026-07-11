@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T10:35:40.707Z",
+  "generatedAt": "2026-07-11T11:32:17.175Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -142,13 +142,7 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/wine/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/wine/index.astro",
+          "file": "src/components/v5/home/HomeDoors.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -448,12 +442,6 @@
           "purpose": "hero",
           "entityType": "venue",
           "entitySlug": "red-hill-brewery"
-        },
-        {
-          "file": "src/pages/eat/index.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
         },
         {
           "file": "src/pages/eat/long-lunch.astro",
@@ -982,6 +970,12 @@
         {
           "file": "src/pages/guides/index.astro",
           "purpose": "hero",
+          "entityType": null,
+          "entitySlug": null
+        },
+        {
+          "file": "src/pages/plans/index.astro",
+          "purpose": "seo",
           "entityType": null,
           "entitySlug": null
         },
@@ -2321,13 +2315,7 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/explore/index.astro",
-          "purpose": "hero",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/explore/index.astro",
+          "file": "src/components/v5/home/HomeDoors.astro",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -4787,8 +4775,8 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/eat/index.astro",
-          "purpose": "hero",
+          "file": "src/components/v5/home/HomeDoors.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -4863,8 +4851,8 @@
           "entitySlug": null
         },
         {
-          "file": "src/pages/stay/index.astro",
-          "purpose": "hero",
+          "file": "src/components/v5/home/HomeDoors.astro",
+          "purpose": "inline",
           "entityType": null,
           "entitySlug": null
         }
@@ -5170,12 +5158,6 @@
         {
           "file": "src/pages/whats-on/index.astro",
           "purpose": "seo",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/pages/whats-on/index.astro",
-          "purpose": "hero",
           "entityType": null,
           "entitySlug": null
         }

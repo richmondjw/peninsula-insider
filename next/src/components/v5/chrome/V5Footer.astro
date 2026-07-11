@@ -15,6 +15,9 @@ import { v5FooterSections, v5FooterAbout, v5FooterFinePrint } from '../../../lib
 import SubscribeForm from '../../SubscribeForm.astro';
 
 const year = new Date().getFullYear();
+// One-instance rule: the homepage carries its own Dispatch block (block 8),
+// so the footer signup yields there and renders a link instead.
+const isHome = Astro.url.pathname === '/';
 ---
 
 <footer class="v5-foot" role="contentinfo">
@@ -58,7 +61,9 @@ const year = new Date().getFullYear();
         <p class="v5-foot__dispatch-dek">
           Sunday, one email, what's worth your weekend.
         </p>
-        <SubscribeForm variant="light" source="footer" />
+        {isHome
+          ? <p class="v5-foot__dispatch-dek"><a href="/dispatch/">Join the Dispatch</a></p>
+          : <SubscribeForm variant="light" source="footer" />}
       </div>
     </div>
 

@@ -227,12 +227,11 @@ export const v5Pillars: V5Pillar[] = [
  * capability set everywhere). The launcher opens the existing search
  * overlay ([data-open-search]) which carries the existing Ask PI
  * escalation; /search/ is the no-JS fallback. Deeper unification of
- * search and Ask is a later wave. Saved points at the existing /saved/
- * URL until /me/ ships.
+ * search and Ask is a later wave. Saved points at the /me/ reader layer.
  */
 export const v5Utilities = {
   launcher: { key: 'launcher', label: 'Ask PI or search', href: '/search/' },
-  saved:    { key: 'saved',    label: 'Saved',            href: '/saved/' },
+  saved:    { key: 'saved',    label: 'Saved',            href: '/me/saved/' },
   menu:     { key: 'menu',     label: 'Menu' },
 };
 
@@ -252,11 +251,11 @@ export const v5DrawerItems: V5DrawerItem[] = [
   { key: 'stay',      label: 'Stay',               href: '/stay/',                group: 'pillars' },
   { key: 'wine',      label: 'Wine',               href: '/wine/',                group: 'pillars' },
   { key: 'explore',   label: 'Explore',            href: '/explore/',             group: 'pillars' },
-  { key: 'plans',     label: 'Plans',              href: '/explore/plans/',       group: 'pillars' },
+  { key: 'plans',     label: 'Plans',              href: '/plans/',               group: 'pillars' },
   { key: 'whats-on',  label: "What's On",          href: '/whats-on/',            group: 'pillars' },
   { key: 'journal',   label: 'Journal',            href: '/journal/',             group: 'pillars' },
-  { key: 'saved',     label: 'Saved',              href: '/saved/',               group: 'mine' },
-  { key: 'trip',      label: 'My Trip',            href: '/itinerary/',           group: 'mine' },
+  { key: 'saved',     label: 'Saved',              href: '/me/saved/',            group: 'mine' },
+  { key: 'trip',      label: 'My Trip',            href: '/me/trip/',             group: 'mine' },
   { key: 'account',   label: 'Account',            href: '/account/',             group: 'mine' },
   { key: 'about',     label: 'About',              href: '/about/',               group: 'trust' },
   { key: 'editorial', label: 'Editorial approach', href: '/editorial-approach/',  group: 'trust' },
@@ -288,8 +287,8 @@ export interface V5BarItem {
 export const v5BottomBar: V5BarItem[] = [
   { key: 'ask',  label: 'Ask PI',  href: '/search/',    opensSearch: true, evt: 'ask_open' },
   { key: 'map',  label: 'Map',     href: '/map/',       evt: 'map_toggle' },
-  { key: 'save', label: 'Saved',   href: '/saved/' },
-  { key: 'trip', label: 'My Trip', href: '/itinerary/' },
+  { key: 'save', label: 'Saved',   href: '/me/saved/' },
+  { key: 'trip', label: 'My Trip', href: '/me/trip/' },
 ];
 
 /** Footer, future-ia.md section 3.3: three columns plus one Dispatch block. */
