@@ -9,7 +9,7 @@ heroImage:
   alt: "A wet winter day on the Mornington Peninsula, the kind the gallery circuit is made for"
   credit: "Peninsula Insider"
   license: "other-licensed"
-format: "column"
+format: "service"
 tags: [culture, mprg, winter, rainy-day, mornington]
 relatedVenues: []
 relatedExperiences: []
