@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T11:54:34.181Z",
+  "generatedAt": "2026-07-12T00:55:06.183Z",
   "source": "next/scripts/build-media-registry.mjs",
   "assetCount": 143,
   "assets": [
@@ -238,6 +238,12 @@
           "entitySlug": "the-dog-friendly-peninsula"
         },
         {
+          "file": "src/content/events/doggy-day-out-mornington-peninsula-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "doggy-day-out-mornington-peninsula-2026"
+        },
+        {
           "file": "src/content/venues/barmah-park.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -372,6 +378,12 @@
           "purpose": "hero",
           "entityType": "article",
           "entitySlug": "the-school-holidays-survival-guide"
+        },
+        {
+          "file": "src/content/events/family-mystery-picnic-mornington-peninsula-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "family-mystery-picnic-mornington-peninsula-2026"
         },
         {
           "file": "src/content/events/moonlit-sanctuary-easter-program.json",
@@ -688,6 +700,18 @@
           "entitySlug": "the-rainy-day-peninsula-without-a-booking"
         },
         {
+          "file": "src/content/articles/winter-indoors-mprg-rainy-day-circuit.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "winter-indoors-mprg-rainy-day-circuit"
+        },
+        {
+          "file": "src/content/events/mugs-keep-cups-workshop-peninsula-ceramics-studio-july-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "mugs-keep-cups-workshop-peninsula-ceramics-studio-july-2026"
+        },
+        {
           "file": "src/content/venues/peninsula-fresh-organics.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -899,12 +923,6 @@
         },
         {
           "file": "src/components/EventCard.astro",
-          "purpose": "inline",
-          "entityType": null,
-          "entitySlug": null
-        },
-        {
-          "file": "src/data/home-hero-slides.json",
           "purpose": "inline",
           "entityType": null,
           "entitySlug": null
@@ -1154,6 +1172,12 @@
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "jetty-road-brewery-mothers-day-2026"
+        },
+        {
+          "file": "src/content/events/trivia-jetty-road-brewery-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "trivia-jetty-road-brewery-winter-2026"
         }
       ]
     },
@@ -1164,7 +1188,14 @@
       "extension": "webp",
       "bytes": 22980,
       "updatedAt": "2026-05-21T20:39:52.242Z",
-      "usages": []
+      "usages": [
+        {
+          "file": "src/content/events/country-day-tar-barrel-august-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "country-day-tar-barrel-august-2026"
+        }
+      ]
     },
     {
       "src": "/images/sourced/category-cafe-01.webp",
@@ -1993,6 +2024,12 @@
       "updatedAt": "2026-05-21T20:39:52.682Z",
       "usages": [
         {
+          "file": "src/content/events/faux-snow-flurries-arthurs-seat-eagle-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "faux-snow-flurries-arthurs-seat-eagle-2026"
+        },
+        {
           "file": "src/content/experiences/arthurs-seat-lookout.json",
           "purpose": "hero",
           "entityType": "experience",
@@ -2291,6 +2328,12 @@
           "entitySlug": "insider-picks-2026-07-11"
         },
         {
+          "file": "src/content/articles/insider-picks-2026-07-12.md",
+          "purpose": "hero",
+          "entityType": "article",
+          "entitySlug": "insider-picks-2026-07-12"
+        },
+        {
           "file": "src/content/experiences/cape-schanck-lighthouse-walk.json",
           "purpose": "hero",
           "entityType": "experience",
@@ -2497,6 +2540,12 @@
           "entitySlug": "things-to-do-mornington-peninsula"
         },
         {
+          "file": "src/content/events/southern-peninsula-sleepout-the-ranch-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "southern-peninsula-sleepout-the-ranch-2026"
+        },
+        {
           "file": "src/pages/walks/index.astro",
           "purpose": "hero",
           "entityType": null,
@@ -2605,10 +2654,22 @@
       "updatedAt": "2026-05-21T20:39:52.823Z",
       "usages": [
         {
+          "file": "src/content/events/helen-britton-story-so-far-mprg-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "helen-britton-story-so-far-mprg-2026"
+        },
+        {
           "file": "src/content/events/mprg-autumn-exhibition.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "mprg-autumn-exhibition"
+        },
+        {
+          "file": "src/content/events/natalia-milosz-piekarska-sifted-light-mprg-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "natalia-milosz-piekarska-sifted-light-mprg-2026"
         },
         {
           "file": "src/content/events/new-wave-26-at-mprg.json",
@@ -4449,6 +4510,12 @@
           "entitySlug": "alba-fire-and-ice-sessions"
         },
         {
+          "file": "src/content/events/brunch-thyme-alba-thermal-springs-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "brunch-thyme-alba-thermal-springs-winter-2026"
+        },
+        {
           "file": "src/content/tours/bunyip-hot-springs-day-tour.json",
           "purpose": "hero",
           "entityType": "tour",
@@ -4977,6 +5044,12 @@
       "updatedAt": "2026-05-21T20:39:53.414Z",
       "usages": [
         {
+          "file": "src/content/events/winter-acoustic-sessions-portsea-hotel-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "winter-acoustic-sessions-portsea-hotel-2026"
+        },
+        {
           "file": "src/content/venues/portsea-hotel.json",
           "purpose": "hero",
           "entityType": "venue",
@@ -4993,10 +5066,22 @@
       "updatedAt": "2026-05-21T20:39:53.424Z",
       "usages": [
         {
+          "file": "src/content/events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "pt-leo-estate-local-complimentary-sculpture-park-winter-2026"
+        },
+        {
           "file": "src/content/events/pt-leo-estate-sculpture-park.json",
           "purpose": "hero",
           "entityType": "event",
           "entitySlug": "pt-leo-estate-sculpture-park"
+        },
+        {
+          "file": "src/content/events/sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "sip-sketch-sculpture-park-pt-leo-estate-school-holidays-2026"
         },
         {
           "file": "src/content/experiences/pt-leo-sculpture-park.json",
@@ -5125,6 +5210,12 @@
       "updatedAt": "2026-05-21T20:39:53.484Z",
       "usages": [
         {
+          "file": "src/content/events/aperitivo-hour-trofeo-estate-winter-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "aperitivo-hour-trofeo-estate-winter-2026"
+        },
+        {
           "file": "src/content/tours/ricks-mornington-peninsula-wine-tour.json",
           "purpose": "hero",
           "entityType": "tour",
@@ -5155,6 +5246,12 @@
       "bytes": 100602,
       "updatedAt": "2026-05-24T00:03:45.241Z",
       "usages": [
+        {
+          "file": "src/content/events/acoustic-saturdays-peppers-moonah-links-2026.json",
+          "purpose": "hero",
+          "entityType": "event",
+          "entitySlug": "acoustic-saturdays-peppers-moonah-links-2026"
+        },
         {
           "file": "src/pages/whats-on/index.astro",
           "purpose": "seo",
