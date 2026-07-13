@@ -16,7 +16,7 @@ import { editableText } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getSeason } from '../../../lib/edition';
 
-const DEFAULT_STATEMENT = 'The Mornington Peninsula, edited by people who live here.';
+const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
 
 const overrides = await loadOverrides('page', 'home');
 const statement = overrides.text['cover.statement'] ?? DEFAULT_STATEMENT;
